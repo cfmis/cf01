@@ -15,7 +15,6 @@ using cf01.Reports;
 using cf01.ModuleClass;
 using System.Drawing;
 using System.IO;
-using DevExpress.XtraReports.UI;
 
 namespace cf01.Forms
 {
@@ -331,11 +330,11 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@division_desc", txtdivision_desc.Text);
                     myCommand.Parameters.AddWithValue("@division", chkDivision.Checked ? true : false);
                     //綠色選項
-                    if (chkth_spw_msw.Checked || chkth_spw_wsw.Checked || chkth_col_msw.Checked || chkth_col_wsw.Checked || chkth_kids.Checked || chkth_tailored.Checked || chktommy_jeans.Checked)
+                    if (chkth_spw_msw.Checked || chkth_spw_wsw.Checked || chkth_col_msw.Checked || chkth_col_wsw.Checked || chkth_kids.Checked || chkth_tailored.Checked || chktommy_jeans.Checked||chkDivision.Checked ||chkth_acc_ftw.Checked)
                     {
                         lb_flag_green = true;
                     }
-                    if (!chkth_spw_msw.Checked && !chkth_spw_wsw.Checked && !chkth_col_msw.Checked && !chkth_col_wsw.Checked && !chkth_kids.Checked && !chkth_tailored.Checked && !chktommy_jeans.Checked)
+                    if (!chkth_spw_msw.Checked && !chkth_spw_wsw.Checked && !chkth_col_msw.Checked && !chkth_col_wsw.Checked && !chkth_kids.Checked && !chkth_tailored.Checked && !chktommy_jeans.Checked && !chkDivision.Checked && !chkth_acc_ftw.Checked)
                     {
                         lb_flag_green = false;
                     }
@@ -1605,9 +1604,9 @@ namespace cf01.Forms
         private void txtpvh_jv_ref_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (chkth_spw_msw.Checked || chkth_spw_wsw.Checked || chkth_col_msw.Checked || chkth_col_wsw.Checked || chkth_kids.Checked || chkth_swim.Checked
-                || chkth_underwear.Checked || chkth_tailored.Checked || chktommy_jeans.Checked || chkth_sport.Checked)
+                || chkth_underwear.Checked || chkth_tailored.Checked || chktommy_jeans.Checked || chkth_sport.Checked || chkDivision.Checked || chkth_acc_ftw.Checked)
             {
-                //如果選中綠色或紫色
+                //**如果選中綠色或紫色
                 if (chkth_swim.Checked || chkth_underwear.Checked || chkth_sport.Checked)
                 {
                     //選中紫色
@@ -1904,15 +1903,8 @@ namespace cf01.Forms
             {
                 Get_New_PVH_No();
             }
-        }
-
-        private void chkth_acc_ftw_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (txttemp_pvh_no.Text != "")
-            {
-                Get_New_PVH_No();
-            }
-        }
+        }    
+  
 
         private void Chknormal_plate_MouseUp(object sender, MouseEventArgs e)
         {

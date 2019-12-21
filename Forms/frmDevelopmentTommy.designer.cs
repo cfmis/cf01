@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentTommy));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,6 +57,34 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trim_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_jv_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artwork_limit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiered_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.m_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.normal_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.hang_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.spray = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.spray_rubber = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rubber_button = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.is_ck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.flag_green = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_purple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.division = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.division_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtsize3 = new DevExpress.XtraEditors.TextEdit();
@@ -199,6 +227,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtbulk_reference = new DevExpress.XtraEditors.TextEdit();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkDivision = new DevExpress.XtraEditors.CheckEdit();
             this.txtdivision_desc = new DevExpress.XtraEditors.TextEdit();
             this.chkCK = new DevExpress.XtraEditors.CheckEdit();
             this.Chkrubber_button = new DevExpress.XtraEditors.CheckEdit();
@@ -268,35 +297,6 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkDivision = new DevExpress.XtraEditors.CheckEdit();
-            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trim_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_jv_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.artwork_limit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiered_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.m_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.normal_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.hang_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.spray = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.spray_rubber = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rubber_button = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.is_ck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.flag_green = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flag_purple = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.division = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.division_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -392,6 +392,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtbest_vendor_do.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbulk_reference.Properties)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDivision.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdivision_desc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chkrubber_button.Properties)).BeginInit();
@@ -433,7 +434,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkDivision.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -642,6 +642,233 @@
             this.dgvDetails.TabIndex = 50;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
+            // 
+            // serial_no
+            // 
+            this.serial_no.DataPropertyName = "serial_no";
+            this.serial_no.HeaderText = "Serial No.";
+            this.serial_no.Name = "serial_no";
+            this.serial_no.ReadOnly = true;
+            this.serial_no.Width = 90;
+            // 
+            // season
+            // 
+            this.season.DataPropertyName = "season";
+            this.season.HeaderText = "Season";
+            this.season.Name = "season";
+            this.season.ReadOnly = true;
+            this.season.Width = 60;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle4.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle4;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // trim_code
+            // 
+            this.trim_code.DataPropertyName = "trim_code";
+            this.trim_code.HeaderText = "Trim Code";
+            this.trim_code.Name = "trim_code";
+            this.trim_code.ReadOnly = true;
+            this.trim_code.Width = 110;
+            // 
+            // requests_by
+            // 
+            this.requests_by.DataPropertyName = "requests_by";
+            this.requests_by.HeaderText = "Requests by";
+            this.requests_by.Name = "requests_by";
+            this.requests_by.ReadOnly = true;
+            this.requests_by.Width = 90;
+            // 
+            // delivery
+            // 
+            this.delivery.DataPropertyName = "delivery";
+            this.delivery.HeaderText = "Delivery";
+            this.delivery.Name = "delivery";
+            this.delivery.ReadOnly = true;
+            // 
+            // pvh_jv_ref
+            // 
+            this.pvh_jv_ref.DataPropertyName = "pvh_jv_ref";
+            this.pvh_jv_ref.HeaderText = "PVH JV REF";
+            this.pvh_jv_ref.Name = "pvh_jv_ref";
+            this.pvh_jv_ref.ReadOnly = true;
+            // 
+            // supplier_name
+            // 
+            this.supplier_name.DataPropertyName = "supplier_name";
+            this.supplier_name.HeaderText = "Supplier Name";
+            this.supplier_name.Name = "supplier_name";
+            this.supplier_name.ReadOnly = true;
+            // 
+            // material
+            // 
+            this.material.DataPropertyName = "material";
+            this.material.HeaderText = "Material Content";
+            this.material.Name = "material";
+            this.material.ReadOnly = true;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            // 
+            // country
+            // 
+            this.country.DataPropertyName = "country";
+            this.country.HeaderText = "Country of Origin";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
+            // 
+            // color
+            // 
+            this.color.DataPropertyName = "color";
+            this.color.HeaderText = "Color";
+            this.color.Name = "color";
+            this.color.ReadOnly = true;
+            this.color.Visible = false;
+            this.color.Width = 120;
+            // 
+            // artwork_limit
+            // 
+            this.artwork_limit.DataPropertyName = "artwork_limit";
+            this.artwork_limit.HeaderText = "Artwork limittations";
+            this.artwork_limit.Name = "artwork_limit";
+            this.artwork_limit.ReadOnly = true;
+            this.artwork_limit.Visible = false;
+            this.artwork_limit.Width = 150;
+            // 
+            // tiered_qty1
+            // 
+            this.tiered_qty1.DataPropertyName = "tiered_qty1";
+            this.tiered_qty1.HeaderText = "Tiered Quantity1";
+            this.tiered_qty1.Name = "tiered_qty1";
+            this.tiered_qty1.ReadOnly = true;
+            // 
+            // m_id1
+            // 
+            this.m_id1.DataPropertyName = "m_id1";
+            this.m_id1.HeaderText = "Currency1";
+            this.m_id1.Name = "m_id1";
+            this.m_id1.ReadOnly = true;
+            this.m_id1.Width = 60;
+            // 
+            // price1
+            // 
+            this.price1.DataPropertyName = "price1";
+            this.price1.HeaderText = "Price1";
+            this.price1.Name = "price1";
+            this.price1.ReadOnly = true;
+            this.price1.Width = 80;
+            // 
+            // p_unit1
+            // 
+            this.p_unit1.DataPropertyName = "p_unit1";
+            this.p_unit1.HeaderText = "Price Unit1";
+            this.p_unit1.Name = "p_unit1";
+            this.p_unit1.ReadOnly = true;
+            this.p_unit1.Width = 80;
+            // 
+            // pvh_no
+            // 
+            this.pvh_no.DataPropertyName = "pvh_no";
+            this.pvh_no.HeaderText = "pvh_no";
+            this.pvh_no.Name = "pvh_no";
+            this.pvh_no.ReadOnly = true;
+            this.pvh_no.Visible = false;
+            // 
+            // normal_plate
+            // 
+            this.normal_plate.DataPropertyName = "normal_plate";
+            this.normal_plate.HeaderText = "Normal Plate";
+            this.normal_plate.Name = "normal_plate";
+            this.normal_plate.ReadOnly = true;
+            this.normal_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.normal_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // hang_plate
+            // 
+            this.hang_plate.DataPropertyName = "hang_plate";
+            this.hang_plate.HeaderText = "Hang Plate";
+            this.hang_plate.Name = "hang_plate";
+            this.hang_plate.ReadOnly = true;
+            this.hang_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.hang_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // spray
+            // 
+            this.spray.DataPropertyName = "spray";
+            this.spray.HeaderText = "Spray";
+            this.spray.Name = "spray";
+            this.spray.ReadOnly = true;
+            this.spray.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.spray.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // spray_rubber
+            // 
+            this.spray_rubber.DataPropertyName = "spray_rubber";
+            this.spray_rubber.HeaderText = "Spray Rubber";
+            this.spray_rubber.Name = "spray_rubber";
+            this.spray_rubber.ReadOnly = true;
+            this.spray_rubber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.spray_rubber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // rubber_button
+            // 
+            this.rubber_button.DataPropertyName = "rubber_button";
+            this.rubber_button.HeaderText = "Rubber Button";
+            this.rubber_button.Name = "rubber_button";
+            this.rubber_button.ReadOnly = true;
+            this.rubber_button.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.rubber_button.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // is_ck
+            // 
+            this.is_ck.DataPropertyName = "is_ck";
+            this.is_ck.HeaderText = "CK";
+            this.is_ck.Name = "is_ck";
+            this.is_ck.ReadOnly = true;
+            this.is_ck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_ck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // flag_green
+            // 
+            this.flag_green.DataPropertyName = "flag_green";
+            this.flag_green.HeaderText = "flag_green";
+            this.flag_green.Name = "flag_green";
+            this.flag_green.ReadOnly = true;
+            this.flag_green.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.flag_green.Visible = false;
+            // 
+            // flag_purple
+            // 
+            this.flag_purple.DataPropertyName = "flag_purple";
+            this.flag_purple.HeaderText = "flag_purple";
+            this.flag_purple.Name = "flag_purple";
+            this.flag_purple.ReadOnly = true;
+            this.flag_purple.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.flag_purple.Visible = false;
+            // 
+            // division
+            // 
+            this.division.DataPropertyName = "division";
+            this.division.HeaderText = "division";
+            this.division.Name = "division";
+            this.division.ReadOnly = true;
+            // 
+            // division_desc
+            // 
+            this.division_desc.DataPropertyName = "division_desc";
+            this.division_desc.HeaderText = "Division Desc.";
+            this.division_desc.Name = "division_desc";
+            this.division_desc.ReadOnly = true;
             // 
             // panel1
             // 
@@ -1135,13 +1362,13 @@
             this.txtpvh_jv_ref.EnterMoveNextControl = true;
             this.txtpvh_jv_ref.Location = new System.Drawing.Point(303, 43);
             this.txtpvh_jv_ref.Name = "txtpvh_jv_ref";
-            toolTipTitleItem1.Text = "提示：";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "【新增】模式之下方可以Gen PVH 流水號";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
+            toolTipTitleItem2.Text = "提示：";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "【新增】模式之下方可以Gen PVH 流水號";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
             this.txtpvh_jv_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, superToolTip1, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, superToolTip2, true)});
             this.txtpvh_jv_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtpvh_jv_ref.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpvh_jv_ref.Properties.MaxLength = 50;
@@ -2720,6 +2947,21 @@
             this.panel2.Size = new System.Drawing.Size(996, 98);
             this.panel2.TabIndex = 74;
             // 
+            // chkDivision
+            // 
+            this.chkDivision.Enabled = false;
+            this.chkDivision.Location = new System.Drawing.Point(508, 72);
+            this.chkDivision.Name = "chkDivision";
+            this.chkDivision.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.chkDivision.Properties.Appearance.Options.UseForeColor = true;
+            this.chkDivision.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.chkDivision.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.chkDivision.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.chkDivision.Properties.Caption = "Tommy Division";
+            this.chkDivision.Size = new System.Drawing.Size(109, 23);
+            this.chkDivision.TabIndex = 104;
+            this.chkDivision.Tag = "2";
+            // 
             // txtdivision_desc
             // 
             this.txtdivision_desc.EnterMoveNextControl = true;
@@ -2956,14 +3198,13 @@
             this.chkth_acc_ftw.Enabled = false;
             this.chkth_acc_ftw.Location = new System.Drawing.Point(393, 48);
             this.chkth_acc_ftw.Name = "chkth_acc_ftw";
-            this.chkth_acc_ftw.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.chkth_acc_ftw.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
             this.chkth_acc_ftw.Properties.Appearance.Options.UseForeColor = true;
             this.chkth_acc_ftw.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkth_acc_ftw.Properties.Caption = "TH ACC/FTW";
             this.chkth_acc_ftw.Size = new System.Drawing.Size(113, 23);
             this.chkth_acc_ftw.TabIndex = 18;
             this.chkth_acc_ftw.Tag = "2";
-            this.chkth_acc_ftw.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkth_acc_ftw_MouseUp);
             // 
             // chkcs_mens
             // 
@@ -3443,9 +3684,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -3586,8 +3827,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -3600,248 +3841,6 @@
             this.dataGridViewTextBoxColumn21.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // chkDivision
-            // 
-            this.chkDivision.Enabled = false;
-            this.chkDivision.Location = new System.Drawing.Point(508, 72);
-            this.chkDivision.Name = "chkDivision";
-            this.chkDivision.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.chkDivision.Properties.Appearance.Options.UseForeColor = true;
-            this.chkDivision.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
-            this.chkDivision.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.chkDivision.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.chkDivision.Properties.Caption = "Tommy Division";
-            this.chkDivision.Size = new System.Drawing.Size(109, 23);
-            this.chkDivision.TabIndex = 104;
-            this.chkDivision.Tag = "2";
-            // 
-            // serial_no
-            // 
-            this.serial_no.DataPropertyName = "serial_no";
-            this.serial_no.HeaderText = "Serial No.";
-            this.serial_no.Name = "serial_no";
-            this.serial_no.ReadOnly = true;
-            this.serial_no.Width = 90;
-            // 
-            // season
-            // 
-            this.season.DataPropertyName = "season";
-            this.season.HeaderText = "Season";
-            this.season.Name = "season";
-            this.season.ReadOnly = true;
-            this.season.Width = 60;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle1.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle1;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // trim_code
-            // 
-            this.trim_code.DataPropertyName = "trim_code";
-            this.trim_code.HeaderText = "Trim Code";
-            this.trim_code.Name = "trim_code";
-            this.trim_code.ReadOnly = true;
-            this.trim_code.Width = 110;
-            // 
-            // requests_by
-            // 
-            this.requests_by.DataPropertyName = "requests_by";
-            this.requests_by.HeaderText = "Requests by";
-            this.requests_by.Name = "requests_by";
-            this.requests_by.ReadOnly = true;
-            this.requests_by.Width = 90;
-            // 
-            // delivery
-            // 
-            this.delivery.DataPropertyName = "delivery";
-            this.delivery.HeaderText = "Delivery";
-            this.delivery.Name = "delivery";
-            this.delivery.ReadOnly = true;
-            // 
-            // pvh_jv_ref
-            // 
-            this.pvh_jv_ref.DataPropertyName = "pvh_jv_ref";
-            this.pvh_jv_ref.HeaderText = "PVH JV REF";
-            this.pvh_jv_ref.Name = "pvh_jv_ref";
-            this.pvh_jv_ref.ReadOnly = true;
-            // 
-            // supplier_name
-            // 
-            this.supplier_name.DataPropertyName = "supplier_name";
-            this.supplier_name.HeaderText = "Supplier Name";
-            this.supplier_name.Name = "supplier_name";
-            this.supplier_name.ReadOnly = true;
-            // 
-            // material
-            // 
-            this.material.DataPropertyName = "material";
-            this.material.HeaderText = "Material Content";
-            this.material.Name = "material";
-            this.material.ReadOnly = true;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "Size";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            // 
-            // country
-            // 
-            this.country.DataPropertyName = "country";
-            this.country.HeaderText = "Country of Origin";
-            this.country.Name = "country";
-            this.country.ReadOnly = true;
-            // 
-            // color
-            // 
-            this.color.DataPropertyName = "color";
-            this.color.HeaderText = "Color";
-            this.color.Name = "color";
-            this.color.ReadOnly = true;
-            this.color.Visible = false;
-            this.color.Width = 120;
-            // 
-            // artwork_limit
-            // 
-            this.artwork_limit.DataPropertyName = "artwork_limit";
-            this.artwork_limit.HeaderText = "Artwork limittations";
-            this.artwork_limit.Name = "artwork_limit";
-            this.artwork_limit.ReadOnly = true;
-            this.artwork_limit.Visible = false;
-            this.artwork_limit.Width = 150;
-            // 
-            // tiered_qty1
-            // 
-            this.tiered_qty1.DataPropertyName = "tiered_qty1";
-            this.tiered_qty1.HeaderText = "Tiered Quantity1";
-            this.tiered_qty1.Name = "tiered_qty1";
-            this.tiered_qty1.ReadOnly = true;
-            // 
-            // m_id1
-            // 
-            this.m_id1.DataPropertyName = "m_id1";
-            this.m_id1.HeaderText = "Currency1";
-            this.m_id1.Name = "m_id1";
-            this.m_id1.ReadOnly = true;
-            this.m_id1.Width = 60;
-            // 
-            // price1
-            // 
-            this.price1.DataPropertyName = "price1";
-            this.price1.HeaderText = "Price1";
-            this.price1.Name = "price1";
-            this.price1.ReadOnly = true;
-            this.price1.Width = 80;
-            // 
-            // p_unit1
-            // 
-            this.p_unit1.DataPropertyName = "p_unit1";
-            this.p_unit1.HeaderText = "Price Unit1";
-            this.p_unit1.Name = "p_unit1";
-            this.p_unit1.ReadOnly = true;
-            this.p_unit1.Width = 80;
-            // 
-            // pvh_no
-            // 
-            this.pvh_no.DataPropertyName = "pvh_no";
-            this.pvh_no.HeaderText = "pvh_no";
-            this.pvh_no.Name = "pvh_no";
-            this.pvh_no.ReadOnly = true;
-            this.pvh_no.Visible = false;
-            // 
-            // normal_plate
-            // 
-            this.normal_plate.DataPropertyName = "normal_plate";
-            this.normal_plate.HeaderText = "Normal Plate";
-            this.normal_plate.Name = "normal_plate";
-            this.normal_plate.ReadOnly = true;
-            this.normal_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.normal_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // hang_plate
-            // 
-            this.hang_plate.DataPropertyName = "hang_plate";
-            this.hang_plate.HeaderText = "Hang Plate";
-            this.hang_plate.Name = "hang_plate";
-            this.hang_plate.ReadOnly = true;
-            this.hang_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.hang_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // spray
-            // 
-            this.spray.DataPropertyName = "spray";
-            this.spray.HeaderText = "Spray";
-            this.spray.Name = "spray";
-            this.spray.ReadOnly = true;
-            this.spray.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.spray.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // spray_rubber
-            // 
-            this.spray_rubber.DataPropertyName = "spray_rubber";
-            this.spray_rubber.HeaderText = "Spray Rubber";
-            this.spray_rubber.Name = "spray_rubber";
-            this.spray_rubber.ReadOnly = true;
-            this.spray_rubber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.spray_rubber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // rubber_button
-            // 
-            this.rubber_button.DataPropertyName = "rubber_button";
-            this.rubber_button.HeaderText = "Rubber Button";
-            this.rubber_button.Name = "rubber_button";
-            this.rubber_button.ReadOnly = true;
-            this.rubber_button.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.rubber_button.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // is_ck
-            // 
-            this.is_ck.DataPropertyName = "is_ck";
-            this.is_ck.HeaderText = "CK";
-            this.is_ck.Name = "is_ck";
-            this.is_ck.ReadOnly = true;
-            this.is_ck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.is_ck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // flag_green
-            // 
-            this.flag_green.DataPropertyName = "flag_green";
-            this.flag_green.HeaderText = "flag_green";
-            this.flag_green.Name = "flag_green";
-            this.flag_green.ReadOnly = true;
-            this.flag_green.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.flag_green.Visible = false;
-            // 
-            // flag_purple
-            // 
-            this.flag_purple.DataPropertyName = "flag_purple";
-            this.flag_purple.HeaderText = "flag_purple";
-            this.flag_purple.Name = "flag_purple";
-            this.flag_purple.ReadOnly = true;
-            this.flag_purple.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.flag_purple.Visible = false;
-            // 
-            // division
-            // 
-            this.division.DataPropertyName = "division";
-            this.division.HeaderText = "division";
-            this.division.Name = "division";
-            this.division.ReadOnly = true;
-            // 
-            // division_desc
-            // 
-            this.division_desc.DataPropertyName = "division_desc";
-            this.division_desc.HeaderText = "Division Desc.";
-            this.division_desc.Name = "division_desc";
-            this.division_desc.ReadOnly = true;
             // 
             // frmDevelopmentTommy
             // 
@@ -3953,6 +3952,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtbest_vendor_do.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbulk_reference.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkDivision.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdivision_desc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chkrubber_button.Properties)).EndInit();
@@ -3994,7 +3994,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkDivision.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
