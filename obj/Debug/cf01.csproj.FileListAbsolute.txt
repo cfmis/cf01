@@ -997,7 +997,6 @@ C:\Workspace\cf01\bin\Debug\de\DevExpress.XtraGauges.v14.2.Core.resources.dll
 C:\Workspace\cf01\bin\Debug\es\DevExpress.XtraGauges.v14.2.Core.resources.dll
 C:\Workspace\cf01\bin\Debug\ja\DevExpress.XtraGauges.v14.2.Core.resources.dll
 C:\Workspace\cf01\bin\Debug\ru\DevExpress.XtraGauges.v14.2.Core.resources.dll
-C:\Workspace\cf01\obj\Debug\cf01.csprojResolveAssemblyReference.cache
 C:\Workspace\cf01\obj\Debug\cf01.Forms.frmAddDictionary.resources
 C:\Workspace\cf01\obj\Debug\cf01.Forms.frmAddForm.resources
 C:\Workspace\cf01\obj\Debug\cf01.Forms.frmAddFormObject.resources
@@ -1366,3 +1365,4 @@ C:\Workspace\cf01\obj\Debug\cf01.csproj.GenerateResource.Cache
 C:\Workspace\cf01\obj\Debug\cf01.exe.licenses
 C:\Workspace\cf01\obj\Debug\RdlCompile.cache
 C:\Workspace\cf01\obj\Debug\RdlCompile.compiled
+C:\Workspace\cf01\obj\Debug\cf01.csprojResolveAssemblyReference.cache

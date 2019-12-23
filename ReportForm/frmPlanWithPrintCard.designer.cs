@@ -565,7 +565,7 @@
             this.tsbtnPrintCrads.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnPrintCrads.Name = "tsbtnPrintCrads";
             this.tsbtnPrintCrads.Size = new System.Drawing.Size(85, 35);
-            this.tsbtnPrintCrads.Text = "打印工序卡";
+            this.tsbtnPrintCrads.Text = "列印工序卡";
             this.tsbtnPrintCrads.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbtnPrintCrads.Click += new System.EventHandler(this.tsbtnPrintCrads_Click);
             // 

@@ -21,25 +21,25 @@ namespace cf01
 
             if (DBUtility.GetDatabaseSeting()) //判斷數據庫連接是否有效
             {
-                ////////PC的運行登入界面
-                Application.Run(new frmLogin());
-                if (frm_Main.isRunMain == true)
-                {
-                    Application.Run(new frm_Main());
-                }
+                //////////PC的運行登入界面
+                //Application.Run(new frmLogin());
+                //if (frm_Main.isRunMain == true)
+                //{
+                //    Application.Run(new frm_Main());
+                //}
 
                 //Application.Run(new frmProductProcessCost());
                 //Application.Run(new frmMmCosting());
                 //Application.Run(new frmProductCosting());
-                //Application.Run(new frmOutProcessPrint()); 
+                Application.Run(new frmPlanWithPrintCard());
                 //Application.Run(new ModuleForm.frmBaseBackGroundForm());
                 //Application.Run(new frmOrderProCardBatchPrint());
                 //Application.Run(new frmDevelopmentTommy());
                 //Application.Run(new frmEagraveProduct());
                 //Application.Run(new frmProductionRepair_Find());
                 //Application.Run(new frmOrderProCard());
-                
-                
+
+
             }
             else
             {

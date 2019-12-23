@@ -15,6 +15,7 @@ using cf01.Reports;
 using cf01.ModuleClass;
 using System.Drawing;
 using System.IO;
+using DevExpress.XtraReports.UI;
 
 namespace cf01.Forms
 {
