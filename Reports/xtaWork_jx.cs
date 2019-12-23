@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using cf01.ModuleClass;
+using cf01.CLS;
 
 namespace cf01.Reports
 {
@@ -13,7 +14,9 @@ namespace cf01.Reports
 
         void BindImage()
         {
-            string art_path = DBUtility.imagePath + GetCurrentColumnValue("picture_name");
+            string art_path = "";// DBUtility.imagePath + GetCurrentColumnValue("picture_name");
+            clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+            art_path = clsConErp.getErpImagePath()+ GetCurrentColumnValue("picture_name");
             if (File.Exists(art_path))
             {
                 xrPictureBox1.ImageUrl = art_path;

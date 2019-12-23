@@ -208,9 +208,11 @@ namespace cf01.ReportForm
                 picArtWork.Image = null;
                 if (txtPicPath.Text.Trim() != "")
                 {
-                    if (File.Exists(DBUtility.imagePath + txtPicPath.Text.Trim()))
+                    clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+                    string imageFileName = clsConErp.getErpImagePath() + txtPicPath.Text.Trim();
+                    if (File.Exists(imageFileName))
                     {
-                        picArtWork.Image = Image.FromFile(DBUtility.imagePath + txtPicPath.Text.Trim());
+                        picArtWork.Image = Image.FromFile(imageFileName);
                     }
                     //if (File.Exists(txtPicPath.Text.Trim()))
                     //{
@@ -396,8 +398,8 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("do_color1", typeof(string));
                     dtNewWork.Columns.Add("art_id", typeof(string));
                     dtNewWork.Columns.Add("picture_name", typeof(string));
-                    dtNewWork.Columns.Add("do_color", typeof(string));
-                    dtNewWork.Columns.Add("color_name", typeof(string));
+                    //dtNewWork.Columns.Add("do_color", typeof(string));
+                    //dtNewWork.Columns.Add("color_name", typeof(string));
                     dtNewWork.Columns.Add("next_dep_name", typeof(string));
                     dtNewWork.Columns.Add("goods_name", typeof(string));
                     dtNewWork.Columns.Add("net_weight", typeof(string));
@@ -466,7 +468,7 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = clsUtility.FormatNullableInt32(txtBaseRate.Text);
                             dr["basic_unit"] = txtBasicUnit.Text.Trim();
                             dr["art_id"] = txtArtId.Text.Trim();
-                            dr["picture_name"] =DBUtility.imagePath + txtPicPath.Text.Trim();
+                            dr["picture_name"] =txtPicPath.Text.Trim();
                             dr["color_name"] = txtColorName.Text.Trim();
                             dr["do_color"] = txtColorDo.Text.Trim();
                             if (txtOrderPcsQty.Text != "")
@@ -664,6 +666,7 @@ namespace cf01.ReportForm
             //if (!txtDept1.Text.Contains("302,322"))
             if(!str_dept.Contains(txtDept1.Text))
             {
+                MessageBox.Show("此生產單只為合金部使用!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (!string.IsNullOrEmpty(table_state) && dtReport.Rows.Count > 0)
@@ -677,8 +680,6 @@ namespace cf01.ReportForm
 
         private void Print(string pType)
         {
-            if (pType=="302" || pType=="322" )
-            {
                 //加載報表
                 if (chkPA5.Checked)
                 {
@@ -695,7 +696,6 @@ namespace cf01.ReportForm
                     oRepot.ShowPreview();
                 }              
                
-            }
             
         }
 

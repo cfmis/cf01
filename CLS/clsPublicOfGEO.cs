@@ -36,10 +36,15 @@ namespace cf01.CLS
             string imagePath = "";
             //根据本机IP，连接哪一边(HK)的数据库
             string localIp = clsAppPublic.GetLocalIP();
-            if (localIp.Length >= 11 && localIp.Substring(0, 11) == "192.168.168")
-                imagePath = @"\\192.168.168.15\cf_artwork\Artwork\";
-            else
-                imagePath = @"\\192.168.3.12\cf_artwork\Artwork\";
+            if (localIp.Length >= 11)
+            {
+                if (localIp.Substring(0, 11) == "192.168.168")
+                    imagePath = @"\\192.168.168.15\cf_artwork\Artwork\";
+                else if (localIp.Substring(0, 10) == "192.168.18" || localIp.Substring(0, 10) == "192.168.19")
+                    imagePath = @"\\192.168.18.24\cf_artwork\Artwork\";
+                else
+                    imagePath = @"\\192.168.3.12\cf_artwork\Artwork\";
+            }
             return imagePath;
         }
 

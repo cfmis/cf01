@@ -96,11 +96,11 @@ namespace cf01.CLS
         {
             DataTable dtColorInfo = new DataTable();
             string strSql = @"SELECT A.mo_id, C.materiel_id,C.goods_id, G.do_color, D.name as color_name,G.color as color_id"+
-                              " FROM "+remote_db+"jo_bill_mostly A with(nolock)"+
-                              " INNER JOIN "+remote_db+"jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver "+
-                              " INNER JOIN "+remote_db+"jo_bill_materiel_details C with(nolock) ON B.within_code = C.within_code AND B.id = C.id AND B.ver = C.ver AND B.sequence_id = C.upper_sequence "+
-                              " INNER JOIN "+remote_db+"it_goods G with(nolock) ON C.within_code = G.within_code AND C.goods_id = G.id "+
-                              " INNER JOIN "+remote_db+"cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id"+
+                              " FROM jo_bill_mostly A with(nolock)"+
+                              " INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver "+
+                              " INNER JOIN jo_bill_materiel_details C with(nolock) ON B.within_code = C.within_code AND B.id = C.id AND B.ver = C.ver AND B.sequence_id = C.upper_sequence "+
+                              " INNER JOIN it_goods G with(nolock) ON C.within_code = G.within_code AND C.goods_id = G.id "+
+                              " INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id"+
                               " WHERE A.within_code = '0000'";
             if (mo_id != "" && wp_id != "" && goods_id != "")
             {
@@ -109,7 +109,7 @@ namespace cf01.CLS
                 strSql += String.Format(" AND B.goods_id='{0}'", goods_id);
                 //"AND C.materiel_id = ''"
             }
-            dtColorInfo = clsPublicOfCF01.GetDataTable(strSql);
+            dtColorInfo = clsConErp.GetDataTable(strSql);
             return dtColorInfo;
         }
 
@@ -143,8 +143,8 @@ namespace cf01.CLS
             try
             {
                 string strSQL = String.Format(@"SELECT plate_remark"+
-                    " FROM "+remote_db+"so_order_details with(nolock) WHERE within_code = '0000' AND mo_id ='{0}'", mo_id);
-                dtPlate_Remark = clsPublicOfCF01.GetDataTable(strSQL);
+                    " FROM so_order_details with(nolock) WHERE within_code = '0000' AND mo_id ='{0}'", mo_id);
+                dtPlate_Remark = clsConErp.GetDataTable(strSQL);
             }
             catch (Exception ex)
             {
@@ -190,8 +190,8 @@ namespace cf01.CLS
             {
                 string strSQL = String.Format(
                      @"SELECT TOP 1 b.sequence_id AS art_id,b.picture_name"+
-                      "FROM "+remote_db+"it_goods a with(nolock)"+
-                      " LEFT JOIN "+remote_db+"cd_pattern_details b ON a.within_code=b.within_code AND a.blueprint_id=b.id"+
+                      " FROM it_goods a with(nolock)"+
+                      " LEFT JOIN cd_pattern_details b ON a.within_code=b.within_code AND a.blueprint_id=b.id"+
                       " WHERE a.within_code='0000' and a.id = '{0}'", goods_item);
                 //string strSQL = String.Format(@"Select dbo.Fn_get_picture_name('0000','{0}','OUT') AS picture_name", goods_item);
                 dtArt = clsConErp.GetDataTable(strSQL);
