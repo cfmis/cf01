@@ -21,7 +21,7 @@ namespace cf01
 
             if (DBUtility.GetDatabaseSeting()) //判斷數據庫連接是否有效
             {
-                ////////////PC的運行登入界面
+                ////////////PC的運行登入界面1
                 //Application.Run(new frmLogin());
                 //if (frm_Main.isRunMain == true)
                 //{
