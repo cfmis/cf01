@@ -18,5 +18,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=dgsql1;Initial Catalog=dg_data;User ID=sa;Password=</Value>
     </Setting>
+    <Setting Name="dgcf_dbConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DGSQL2;Initial Catalog=dgcf_db;Persist Security Info=True;User ID=sa;Password=268709&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DGSQL2;Initial Catalog=dgcf_db;Persist Security Info=True;User ID=sa;Password=268709</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

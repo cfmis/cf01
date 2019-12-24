@@ -316,6 +316,7 @@ namespace cf01.ReportForm
             DataRow dr = null;
             string order_unit;
             int order_qty, order_qty_pcs;
+            string plate_remark = "";
             for (int j = 0; j < dgvDetails.RowCount; j++)
             {
                 if ((bool)dgvDetails.Rows[j].Cells["colSelectFlag"].EditedFormattedValue)
@@ -333,8 +334,8 @@ namespace cf01.ReportForm
                         DataTable dtPosition = clsMo_for_jx.GetPosition(item);
                         DataTable dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
                         DataTable dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
-                        DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
-                        DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);
+                        //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
+                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);
                         DataTable dtNextDep = clsMo_for_jx.getNextDepItem(mo, dep, item);
                         //當前貨品的下部門顏色做法
                         string do_color_next_dep = dgr.Cells["colDoColor"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
@@ -347,6 +348,7 @@ namespace cf01.ReportForm
                             order_unit = dtQty.Rows[0]["goods_unit"].ToString();
                             order_qty = Convert.ToInt32(dtQty.Rows[0]["order_qty"]);
                             order_qty_pcs = Convert.ToInt32(dtQty.Rows[0]["order_qty_pcs"]);
+                            plate_remark = dtQty.Rows[0]["plate_remark"].ToString();
                         }
                         if (dt_wk.Rows.Count > 0)
                         {
@@ -397,6 +399,7 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["basic_unit"] = drDtWk["basic_unit"].ToString();
                                 dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
+                                dr["plate_remark"] = plate_remark;
                                 //string next_dep_id = "aaa";// dgr.Cells["next_wp_id"].Value.ToString().Trim();
                                 //DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
                                 dr["customer_id"] = drDtWk["customer_id"].ToString();
@@ -410,10 +413,12 @@ namespace cf01.ReportForm
                                 dr["vendor_id"] = drDtWk["vendor_id"];
                                 dr["depRemark"] = Remark;
                                 dr["request_date"] = Request_date;
-                                if (dtPlate_Remark.Rows.Count > 0)
-                                {
-                                    dr["plate_remark"] = dtPlate_Remark.Rows[0]["plate_remark"];
-                                }
+                                dr["color_name"] = drDtWk["color_name"].ToString();
+                                dr["do_color"] = drDtWk["do_color"].ToString();
+                                //if (dtPlate_Remark.Rows.Count > 0)
+                                //{
+                                //    dr["plate_remark"] = dtPlate_Remark.Rows[0]["plate_remark"];
+                                //}
 
                                 if (dtArt.Rows.Count > 0)
                                 {
@@ -421,11 +426,11 @@ namespace cf01.ReportForm
                                 dr["picture_name"] = dtArt.Rows[0]["picture_name"].ToString();
                                 }
 
-                                if (dtColor.Rows.Count > 0)
-                                {
-                                    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
-                                    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
-                                }
+                                //if (dtColor.Rows.Count > 0)
+                                //{
+                                //    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
+                                //    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
+                                //}
 
                                 if (dtPosition.Rows.Count > 0)
                                 {
