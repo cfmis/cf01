@@ -1365,3 +1365,4 @@ C:\Workspace\cf01\obj\Debug\cf01.csproj.GenerateResource.Cache
 C:\Workspace\cf01\obj\Debug\cf01.exe.licenses
 C:\Workspace\cf01\obj\Debug\RdlCompile.cache
 C:\Workspace\cf01\obj\Debug\RdlCompile.compiled
+C:\Workspace\cf01\obj\Debug\cf01.csprojResolveAssemblyReference.cache
