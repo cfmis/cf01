@@ -59,8 +59,8 @@ namespace cf01.CLS
             //const string strFields =@"供應商,送貨單號,送貨日期";
 
             const string strSql_i =
-              @"INSERT INTO jo_pur_delivery(id,con_date,factory_id,delivery_no,delivery_date,vendor_name,create_by,create_date)
-             VALUES(@id,@con_date,@factory_id,@delivery_no,CASE LEN(@delivery_date) WHEN 0 THEN null ELSE @delivery_date END,@vendor_name,@user_id,getdate())";
+              @"INSERT INTO jo_pur_delivery(id,con_date,factory_id,delivery_no,delivery_date,vendor_name,create_by,create_date,finish_status,state)
+             VALUES(@id,@con_date,@factory_id,@delivery_no,CASE LEN(@delivery_date) WHEN 0 THEN null ELSE @delivery_date END,@vendor_name,@user_id,getdate(),0,'0')";
 
             bool result = false;
 

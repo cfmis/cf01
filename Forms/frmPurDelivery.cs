@@ -26,8 +26,8 @@ namespace cf01.Forms
         public int row_reset = 0;
         public SqlDataAdapter SDA;      
         SqlConnection conn;
-        public DataTable dtDetail = new DataTable();               
-        //DataTable dtVendor = new DataTable();
+        public DataTable dtDetail = new DataTable();    
+       
         public string mState = ""; 
         clsToolBar objToolbar;
         private clsAppPublic clsApp = new clsAppPublic();
@@ -54,26 +54,21 @@ namespace cf01.Forms
             txtdelivery_no.DataBindings.Add("Text", bds1, "delivery_no");
             dtdelivery_date.DataBindings.Add("EditValue", bds1, "delivery_date");
             cmbfactory_id.DataBindings.Add("Text", bds1, "factory_id");
-            txtremark.DataBindings.Add("Text", bds1, "remark");     
+            txtremark.DataBindings.Add("Text", bds1, "remark");  
+            txtstate.DataBindings.Add("Text", bds1, "state");
             txtCreate_by.DataBindings.Add("Text", bds1, "create_by");
             txtCreate_date.DataBindings.Add("Text", bds1, "create_date");
             txtUpdate_by.DataBindings.Add("Text", bds1, "update_by");
-            txtUpdate_date.DataBindings.Add("Text", bds1, "Update_date");
-           
-            
-            ////供應商
-            //dtVendor = clsPublicOfCF01.GetDataTable(@"select vendor_name,vendor_address from jo_pur_vendor order by id");
-            //schvendor_name.Properties.DataSource = dtVendor;
-            //schvendor_name.Properties.DisplayMember = "vendor_name";
-            //schvendor_name.Properties.ValueMember = "vendor_name";
+            txtUpdate_date.DataBindings.Add("Text", bds1, "Update_date");           
+          
             cmbfactory_id1.Text = "DG";
             Find_Data();
-            if (dgvDetails.Rows.Count >= 2)
-            {
-                dgvDetails.CurrentCell = dgvDetails.Rows[dgvDetails.Rows.Count - 1].Cells[0];
-                dgvDetails.BeginEdit(true);
-                dgvDetails.Rows[dgvDetails.Rows.Count - 1].Selected = true; //選中整行
-            }
+            //if (dgvDetails.Rows.Count >= 2)
+            //{
+            //    dgvDetails.CurrentCell = dgvDetails.Rows[dgvDetails.Rows.Count - 1].Cells[0];
+            //    dgvDetails.BeginEdit(true);
+            //    dgvDetails.Rows[dgvDetails.Rows.Count - 1].Selected = true; //選中整行
+            //}
         }
 
         private void Load_Date()
@@ -83,8 +78,8 @@ namespace cf01.Forms
             conn = new SqlConnection(DBUtility.connectionString);
             SDA = new SqlDataAdapter(sql, conn);
             SDA.Fill(dtDetail);
-            bds1.DataSource = dtDetail;
-            dgvDetails.DataSource = bds1;           
+            bds1.DataSource = dtDetail;          
+            gridControl1.DataSource = bds1;        
         }
 
         private void SetButtonSatus(bool _flag)
@@ -129,11 +124,15 @@ namespace cf01.Forms
             mState = "NEW";
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, true);                
-            dgvDetails.Enabled = false; //表格可以編輯
+         
       
             //新增時設置初始值
             txtID.Text = clsPur.getSerialNo("jo_pur_delivery");
             cmbfactory_id.Text = "DG";
+            txtstate.Text = "0";
+            chkFinish_status.Checked = false;
+            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "finish_status", false);
+            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "state", "0");
             dtcon_date.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
             txtCreate_by.Text = DBUtility._user_id;
             txtCreate_date.Text = DateTime.Now.Date.ToString();           
@@ -164,16 +163,9 @@ namespace cf01.Forms
             }
             bool save_flag = false;  
             try
-            {
-                if (mState == "NEW")
-                {
-                    dgvDetails.CurrentRow.Cells["state"].Value = "0";                    
-                    if(chkFinish_status.Checked)
-                        dgvDetails.CurrentRow.Cells["finish_status"].Value = true ;
-                    else                      
-                        dgvDetails.CurrentRow.Cells["finish_status"].Value = false;                   
-                }
+            {               
                 bds1.EndEdit();
+                gridView1.CloseEditor();
                 SqlCommandBuilder SCB = new SqlCommandBuilder(SDA);
                 SDA.InsertCommand = SCB.GetInsertCommand();               
                 SDA.UpdateCommand = SCB.GetUpdateCommand();
@@ -191,30 +183,21 @@ namespace cf01.Forms
             }
             SetButtonSatus(true);
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, false);
-            dgvDetails.Columns["finish_status"].ReadOnly = true;
-            dgvDetails.DataSource = dtDetail;
-            dgvDetails.Enabled = true;
+            
+            Set_Grid_Status(false);
 
             if (save_flag)
             {               
                 //新增狀態下定位到新增的行
-                //dtDetail.AcceptChanges();               
-                if (mState == "NEW")
-                {
-                    int cur_row_index = dgvDetails.RowCount - 1;
-                    if (cur_row_index >= 0)
-                    {
-                        dgvDetails.CurrentCell = dgvDetails.Rows[cur_row_index].Cells[2]; //设置当前单元格
-                        dgvDetails.Rows[cur_row_index].Selected = true; //選中整行
-                    }
-                }
-                mState = "";
+                dtDetail.AcceptChanges();               
+                mState = "";            
                 clsUtility.myMessageBox("數據保存成功!", "提示信息");                
             }
             else
             {                
                MessageBox.Show("數據保存失敗！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Stop);                
             }
+            
         }
 
         ///// <summary>
@@ -234,7 +217,7 @@ namespace cf01.Forms
 
         private void Delete()
         {
-            if (dgvDetails.RowCount == 0 && String.IsNullOrEmpty(txtID.Text))
+            if (gridView1.RowCount == 0 && String.IsNullOrEmpty(txtID.Text))
             {
                 return;
             }
@@ -244,14 +227,14 @@ namespace cf01.Forms
             {
                 string ls_delete_id = txtID.Text;
                 try
-                {
-                    dgvDetails.CurrentRow.Cells["state"].Value = "2";                    
+                {                  
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "state", "2");               
                     bds1.EndEdit();                    
                     //数据库中进行删除
                     SqlCommandBuilder SCB = new SqlCommandBuilder(SDA);
                     SDA.UpdateCommand = SCB.GetUpdateCommand();
-                    SDA.Update(dtDetail);
-                    dgvDetails.Rows.RemoveAt(dgvDetails.CurrentCell.RowIndex);
+                    SDA.Update(dtDetail);                    
+                    gridView1.DeleteRow(gridView1.FocusedRowHandle);//移走當前行
                     MessageBox.Show("當前數據刪除成功!", "提示信息");
                     SCB = null;
                 }
@@ -283,8 +266,9 @@ namespace cf01.Forms
             }
             tabControl1.SelectTab(0);
             mState = "EDIT";
-            dgvDetails.Columns["finish_status"].ReadOnly = false;
             SetButtonSatus(false);
+            Set_Grid_Status(true);
+
             SetObjValue.SetEditBackColor(panel1.Controls, true);
             txtUpdate_by.Text = DBUtility._user_id;
             txtUpdate_date.Text = DateTime.Now.Date.ToString();
@@ -295,8 +279,7 @@ namespace cf01.Forms
 
         private void frmPurDelivery_FormClosed(object sender, FormClosedEventArgs e)
         {
-           dtDetail.Dispose();
-           //dtVendor.Dispose();          
+           dtDetail.Dispose();               
            objToolbar = null;
            clsApp = null;           
         }
@@ -309,19 +292,20 @@ namespace cf01.Forms
 
         private void BTNCANCEL_Click(object sender, EventArgs e)
         {
+            txtremark.Focus();
             dtDetail.RejectChanges();
+            bds1.CancelEdit();
             SetButtonSatus(true);
-            SetObjValue.SetEditBackColor(panel1.Controls, false);
-            dgvDetails.Columns["finish_status"].ReadOnly = true;
-            dgvDetails.Enabled = true;
+            SetObjValue.SetEditBackColor(panel1.Controls, false);           
+            Set_Grid_Status(false);
+
             mState = "";
             txtID.Properties.ReadOnly = true;
-
-            if (!String.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
-            {
-                dgvDetails.CurrentCell = dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
-                dgvDetails.Rows[row_reset].Selected = true; //選中整行
-            }            
+            //if (!String.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
+            //{
+            //    dgvDetails.CurrentCell = dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
+            //    dgvDetails.Rows[row_reset].Selected = true; //選中整行
+            //}            
         }    
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -374,7 +358,7 @@ namespace cf01.Forms
             {
                 sql += " and finish_status = 1";
             }
-            sql += " and state ='0' order by con_date desc";
+            sql += " and state ='0' order by con_date";
             DataTable dt = new DataTable();
             conn = new SqlConnection(DBUtility.connectionString);
             SDA = new SqlDataAdapter(sql, conn);
@@ -385,8 +369,8 @@ namespace cf01.Forms
                 dt.Rows[i]["date_ym"] = dt.Rows[i]["con_date"].ToString().Substring(0, 7);
             }
             dtDetail = dt;
-            bds1.DataSource = dtDetail;            
-            dgvDetails.DataSource = bds1;           
+            bds1.DataSource = dtDetail;           
+            gridControl1.DataSource = bds1;
             dgvFind.DataSource = bds1;
             if (dtDetail.Rows.Count == 0)
             {               
@@ -409,21 +393,6 @@ namespace cf01.Forms
         //        TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         //}
 
-        private void dgvDetails_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDetails.RowCount > 0)
-            {
-                row_reset = dgvDetails.CurrentCell.RowIndex;
-                if (dgvDetails.CurrentRow.Cells["finish_status"].Value.ToString() == "True")
-                {
-                    chkFinish_status.Checked = true;
-                }
-                else
-                {
-                    chkFinish_status.Checked = false;
-                }               
-            }
-        }
 
         private void dtDat1_Leave(object sender, EventArgs e)
         {
@@ -432,7 +401,7 @@ namespace cf01.Forms
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (dgvDetails.RowCount == 0)
+            if (gridView1.RowCount == 0)
             {
                 MessageBox.Show("沒有要列印的數據！", "提示信息");
                 return;
@@ -503,10 +472,10 @@ namespace cf01.Forms
 
         private void BTNNEWCOPY_Click(object sender, EventArgs e)
         {
-            if (dgvDetails.RowCount > 0)
+            if (gridView1.RowCount > 0)
             {
-                tabControl1.SelectTab(0);
-                Int32 cur_row = dgvDetails.CurrentCell.RowIndex;
+                tabControl1.SelectTab(0);               
+                int cur_row = gridView1.FocusedRowHandle;
                 AddNew();               
                 Set_head(cur_row);
             }
@@ -556,15 +525,51 @@ namespace cf01.Forms
 
         private void chkFinish_status_MouseUp(object sender, MouseEventArgs e)
         {
-            if (mState == "EDIT")
+            if (mState != "")
             {
                 if (chkFinish_status.Checked)
-                    dgvDetails.CurrentRow.Cells["finish_status"].Value = true;               
+                {                              
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "finish_status", true);
+                }
                 else
-                    dgvDetails.CurrentRow.Cells["finish_status"].Value = false;                    
+                {                   
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "finish_status", false);
+                }                  
             }
         }
 
-      
+
+        private void Set_Grid_Status(bool _flag) // 表格是否可編輯
+        {
+            //false--不可編輯;true--可以編輯
+            gridView1.OptionsBehavior.Editable = _flag;
+            //gridView2.OptionsBehavior.Editable = _flag; 
+        }
+
+        private void clFinish_status_MouseUp(object sender, MouseEventArgs e)
+        {
+            gridView1.CloseEditor();
+            if (gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"finish_status").ToString()=="True")
+            {
+                chkFinish_status.Checked = true;
+            }
+            else
+            {
+                chkFinish_status.Checked = false;
+            }
+        }
+
+        private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {           
+            row_reset = gridView1.FocusedRowHandle;
+            if (gridView1.GetRowCellValue(row_reset, "finish_status").ToString() == "True")
+            {
+                chkFinish_status.Checked = true;
+            }
+            else
+            {
+                chkFinish_status.Checked = false;
+            }
+        }
     }
 }
