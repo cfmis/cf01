@@ -1873,3 +1873,5 @@ D:\Workspace\cf01\obj\Debug\cf01.exe
 D:\Workspace\cf01\obj\Debug\cf01.pdb
 C:\Workspace\cf01\obj\Debug\cf01.MM.frmSetProductPrice.resources
 C:\Workspace\cf01\obj\Debug\cf01.MM.frmSetProductWeight.resources
+D:\Workspace\cf01\obj\Debug\cf01.MM.frmSetProductPrice.resources
+D:\Workspace\cf01\obj\Debug\cf01.MM.frmSetProductWeight.resources
