@@ -1871,3 +1871,5 @@ D:\Workspace\cf01\obj\Debug\RdlCompile.cache
 D:\Workspace\cf01\obj\Debug\RdlCompile.compiled
 D:\Workspace\cf01\obj\Debug\cf01.exe
 D:\Workspace\cf01\obj\Debug\cf01.pdb
+C:\Workspace\cf01\obj\Debug\cf01.MM.frmSetProductPrice.resources
+C:\Workspace\cf01\obj\Debug\cf01.MM.frmSetProductWeight.resources

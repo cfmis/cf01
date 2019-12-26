@@ -41,4 +41,23 @@ namespace cf01.MDL
         public decimal depStdPrice;
         public decimal depStdQty;
     }
+    public class mdlProductPrice
+    {
+        public string productId;
+        public decimal productPrice;
+        public string createUser;
+        public string createTime;
+        public string amendUser;
+        public string amendTime;
+    }
+
+    public class mdlProductWeight
+    {
+        public string productId;
+        public decimal productWeight;
+        public string createUser;
+        public string createTime;
+        public string amendUser;
+        public string amendTime;
+    }
 }

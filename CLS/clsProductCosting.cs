@@ -256,9 +256,11 @@ namespace cf01.CLS
             
             if (isSetFlag == 0)//已設定成本
             {
-                strSql = "Select a.ProductId AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,mm.name As goods_cname,mm.do_color AS DoColor,a.ProductCost" +
+                strSql = "Select a.ProductId AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,mm.name As goods_cname"+
+                ",mm.do_color AS DoColor,a.ProductCost,b.ProductWeight " +
                 " From mm_ProductCosting a" +
                 " Inner join geo_it_goods mm On a.ProductId=mm.id" +
+                " Left Join mm_ProductWeight b On a.ProductId=b.ProductId"+
                 " Where a.ProductId>=''";
                 if (productMo != "")
                     strSql += " And a.ProductMo ='" + productMo + "'";
@@ -277,7 +279,7 @@ namespace cf01.CLS
                         ",Convert(INT,aa.prod_qty) AS prod_qty,Convert(INT,aa.c_qty_ok) AS c_qty_ok,Convert(Decimal(18,2),aa.c_sec_qty_ok) AS c_sec_qty_ok" +
                         ",CASE aa.c_qty_ok WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(aa.c_sec_qty_ok/aa.c_qty_ok)*1000) END AS pcs_weg" +
                         ",aa.wp_id,aa.wp_cdesc AS DepCdesc,aa.next_wp_id,aa.next_wp_cdesc AS NextDepCdesc" +
-                        ",aa.seller_id,Substring(aa.mo_id,3,1) AS mo_group";
+                        ",aa.seller_id,Substring(aa.mo_id,3,1) AS mo_group,cc.ProductWeight";
                     strSql += " FROM (";
                     strSql += " SELECT TOP 100000 a.mo_id,a.bill_date,b.goods_id,mm.name AS goods_cname,mm.do_color AS DoColor,b.prod_qty"+
                         ",b.c_qty_ok,b.c_sec_qty_ok,b.wp_id,d.name AS wp_cdesc"+
@@ -309,7 +311,8 @@ namespace cf01.CLS
                     strSql += strWhere;
                     strSql += " ORDER BY b.goods_id,b.c_qty_ok Desc";
                     strSql += ") aa";
-                    strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId";
+                    strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId ";
+                    strSql += " Left Join mm_ProductWeight cc On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.ProductId ";
                     strSql += " ) bb ";
                     if (isSetFlag == 1)//未設定成本
                         strSql += " WHERE bb.ProductCost Is Null";
@@ -317,9 +320,11 @@ namespace cf01.CLS
                 else
                 {
                     strSql += "SELECT aa.* FROM (";
-                    strSql += "Select Top 100000 mm.id AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,a.ProductCost,mm.name As goods_cname,mm.do_color AS DoColor" +
+                    strSql += "Select Top 100000 mm.id AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,a.ProductCost"+
+                        ",mm.name As goods_cname,mm.do_color AS DoColor,b.ProductWeight" +
                         " From geo_it_goods mm" +
                         " Left join mm_ProductCosting a On mm.id=a.ProductId" +
+                        " Left Join mm_ProductWeight b On mm.id=b.ProductId" +
                         " Where mm.id>=''";
                     if (showF0 == true)
                         strSql += " And mm.id>='F0' And mm.id<='F0-ZZZZZZZ-ZZZ'";
@@ -529,6 +534,233 @@ namespace cf01.CLS
                 wasteRate = dt.Rows[0]["WasteRate"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["WasteRate"]) : 1;
             return wasteRate;
         }
+
+
+        //
+        public static DataTable findProductPrice(int isSetFlag, bool showF0
+            , string matFrom, string matTo, string prdTypeFrom, string prdTypeTo, string artFrom, string artTo, string sizeFrom, string sizeTo
+            , string clrFrom, string clrTo,string productId
+            )
+        {
+            string strSql = "";
+            string strWhere = "";
+            string productId1 = productId;
+            if (productId1 == "")
+            {
+                productId1 = matFrom + prdTypeFrom + artFrom + sizeFrom + clrFrom;
+                if (productId1.Length == 18)
+                {
+                    if (isSetFlag == 0)
+                        strWhere += " And a.ProductId='" + productId1 + "'";
+                    else
+                        strWhere += " And mm.id='" + productId1 + "'";
+                }
+                else
+                {
+                    if (matFrom != "" && matTo != "")
+                        strWhere += " And mm.datum >='" + matFrom + "' And mm.datum<='" + matTo + "'";
+                    if (prdTypeFrom != "" && prdTypeTo != "")
+                        strWhere += " And mm.base_class >='" + prdTypeFrom + "' And mm.base_class<='" + prdTypeTo + "'";
+                    if (artFrom != "" && artTo != "")
+                        strWhere += " And mm.blueprint_id >='" + artFrom + "' And mm.blueprint_id<='" + artTo + "'";
+                    if (sizeFrom != "" && sizeTo != "")
+                        strWhere += " And mm.size_id >='" + sizeFrom + "' And mm.size_id<='" + sizeTo + "'";
+                    if (clrFrom != "" && clrTo != "")
+                        strWhere += " And mm.color >='" + clrFrom + "' And mm.color<='" + clrTo + "'";
+                }
+            }
+            else
+            {
+                if (isSetFlag == 0)
+                    strWhere += " And a.ProductId Like '%" + productId1 + "%'";
+                else
+                    strWhere += " And mm.id Like'%" + productId1 + "%'";
+            }
+            if (isSetFlag == 0)//已設定單價
+            {
+                strSql = "Select a.ProductId AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor,a.ProductPrice" +
+                " From mm_ProductPrice a" +
+                " Inner join geo_it_goods mm On a.ProductId=mm.id" +
+                " Where a.ProductId>=''";
+
+                strSql += strWhere;
+                if (showF0 == true)
+                    strSql += " And a.ProductId>='F0' And a.ProductId<='F0-ZZZZZZZ-ZZZ'";
+                strSql += " Order By a.ProductId";
+            }
+            else
+            {
+
+                strSql += "SELECT aa.* FROM (";
+                strSql += "Select Top 100000 mm.id AS goods_id,a.ProductPrice,mm.name As goods_cname,mm.do_color AS DoColor" +
+                    " From geo_it_goods mm" +
+                    " Left join mm_ProductPrice a On mm.id=a.ProductId" +
+                    " Where mm.id>=''";
+                if (showF0 == true)
+                    strSql += " And mm.id>='F0' And mm.id<='F0-ZZZZZZZ-ZZZ'";
+                strSql += strWhere;
+                strSql += " Order By mm.id ";
+                strSql += " ) aa";
+                if (isSetFlag == 1)
+                    strSql += " WHERE aa.ProductPrice Is Null";
+            }
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
+            {
+                dt.Columns.Add("SetFlag", typeof(bool));
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    dt.Rows[i]["setFlag"] = false;
+            }
+            return dt;
+        }
+
+        public static string updateProductPrice(List<mdlProductPrice> lsModel)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            for (int i = 0; i < lsModel.Count; i++)
+            {
+                if (!checkProductPrice(lsModel[i].productId))
+                    strSql += string.Format(@" Insert Into mm_ProductPrice (ProductId,ProductPrice,CreateUser,CreateTime)
+                        Values ('{0}','{1}','{2}','{3}')"
+                        , lsModel[i].productId, lsModel[i].productPrice, lsModel[i].createUser, lsModel[i].createTime);
+                else
+                    strSql += string.Format(@" Update mm_ProductPrice Set ProductPrice='{1}',AmendUser='{2}',AmendTime='{3}'
+                        Where ProductId='{0}'"
+                        , lsModel[i].productId, lsModel[i].productPrice
+                        , lsModel[i].amendUser, lsModel[i].amendTime);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+        private static bool checkProductPrice(string productId)
+        {
+            bool result = true;
+            string strSql = "Select ProductId From mm_ProductPrice Where ProductId='" + productId + "'";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
+                result = true;
+            else
+                result = false;
+            return result;
+        }
+
+
+        //
+        public static DataTable findProductWeight(int isSetFlag, bool showF0
+            , string matFrom, string matTo, string prdTypeFrom, string prdTypeTo, string artFrom, string artTo, string sizeFrom, string sizeTo
+            , string clrFrom, string clrTo, string productId
+            )
+        {
+            string strSql = "";
+            string strWhere = "";
+            string productId1 = productId;
+            if (productId1 == "")
+            {
+                productId1 = matFrom + prdTypeFrom + artFrom + sizeFrom + clrFrom;
+                if (productId1.Length == 18)
+                {
+                    if (isSetFlag == 0)
+                        strWhere += " And a.ProductId='" + productId1 + "'";
+                    else
+                        strWhere += " And mm.id='" + productId1 + "'";
+                }
+                else
+                {
+                    if (matFrom != "" && matTo != "")
+                        strWhere += " And mm.datum >='" + matFrom + "' And mm.datum<='" + matTo + "'";
+                    if (prdTypeFrom != "" && prdTypeTo != "")
+                        strWhere += " And mm.base_class >='" + prdTypeFrom + "' And mm.base_class<='" + prdTypeTo + "'";
+                    if (artFrom != "" && artTo != "")
+                        strWhere += " And mm.blueprint_id >='" + artFrom + "' And mm.blueprint_id<='" + artTo + "'";
+                    if (sizeFrom != "" && sizeTo != "")
+                        strWhere += " And mm.size_id >='" + sizeFrom + "' And mm.size_id<='" + sizeTo + "'";
+                    if (clrFrom != "" && clrTo != "")
+                        strWhere += " And mm.color >='" + clrFrom + "' And mm.color<='" + clrTo + "'";
+                }
+            }
+            else
+            {
+                if (isSetFlag == 0)
+                    strWhere += " And a.ProductId Like '%" + productId1 + "%'";
+                else
+                    strWhere += " And mm.id Like'%" + productId1 + "%'";
+            }
+            if (isSetFlag == 0)//已設定單價
+            {
+                strSql = "Select a.ProductId AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor,a.ProductWeight" +
+                " From mm_ProductWeight a" +
+                " Inner join geo_it_goods mm On a.ProductId=mm.id" +
+                " Where a.ProductId>=''";
+
+                strSql += strWhere;
+                if (showF0 == true)
+                    strSql += " And a.ProductId>='F0' And a.ProductId<='F0-ZZZZZZZ-ZZZ'";
+                strSql += " Order By a.ProductId";
+            }
+            else
+            {
+
+                strSql += "SELECT aa.* FROM (";
+                strSql += "Select Top 100000 mm.id AS goods_id,a.ProductWeight,mm.name As goods_cname,mm.do_color AS DoColor" +
+                    " From geo_it_goods mm" +
+                    " Left join mm_ProductWeight a On mm.id=a.ProductId" +
+                    " Where mm.id>=''";
+                if (showF0 == true)
+                    strSql += " And mm.id>='F0' And mm.id<='F0-ZZZZZZZ-ZZZ'";
+                strSql += strWhere;
+                strSql += " Order By mm.id ";
+                strSql += " ) aa";
+                if (isSetFlag == 1)
+                    strSql += " WHERE aa.ProductWeight Is Null";
+            }
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
+            {
+                dt.Columns.Add("SetFlag", typeof(bool));
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    dt.Rows[i]["setFlag"] = false;
+            }
+            return dt;
+        }
+
+        public static string updateProductWeight(List<mdlProductWeight> lsModel)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            for (int i = 0; i < lsModel.Count; i++)
+            {
+                if (!checkProductWeight(lsModel[i].productId))
+                    strSql += string.Format(@" Insert Into mm_ProductWeight (ProductId,ProductWeight,CreateUser,CreateTime)
+                        Values ('{0}','{1}','{2}','{3}')"
+                        , lsModel[i].productId, lsModel[i].productWeight, lsModel[i].createUser, lsModel[i].createTime);
+                else
+                    strSql += string.Format(@" Update mm_ProductWeight Set ProductWeight='{1}',AmendUser='{2}',AmendTime='{3}'
+                        Where ProductId='{0}'"
+                        , lsModel[i].productId, lsModel[i].productWeight
+                        , lsModel[i].amendUser, lsModel[i].amendTime);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+        private static bool checkProductWeight(string productId)
+        {
+            bool result = true;
+            string strSql = "Select ProductId From mm_ProductWeight Where ProductId='" + productId + "'";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
+                result = true;
+            else
+                result = false;
+            return result;
+        }
+
     }
     
 }
