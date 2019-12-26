@@ -314,6 +314,8 @@ namespace cf01.MM
                 decimal materialPrice = 0;
                 decimal wasteRate = 1;
                 decimal depPrice = 0;
+                decimal stdProductWeight = 0;
+                decimal stdProductPrice = 0;
                 string depId = "", depCdesc = "", doColor = "";
                 dr2["OriginWeight"] = 0;
                 dr2["ProductWeight"] = 0;
@@ -332,6 +334,8 @@ namespace cf01.MM
                     dr2["DoColor"] = doColor;
                     wasteRate = clsProductCosting.getDepWasteRate(depId);//部門損耗率
                 }
+                //提取自定的物料重量
+                stdProductWeight = clsProductCosting.findStdProductWeight(productId);
                 //如果是原料或採購料，則從採購單中提取原料單價
                 if (productId.Substring(0, 2) == "ML" || productId.Substring(0, 2) == "PL")
                 {
@@ -341,15 +345,32 @@ namespace cf01.MM
                         depCdesc = "原料倉";
                     }
                     wasteRate = clsProductCosting.getDepWasteRate(depId);//部門損耗率
-                    DataTable dt = clsProductCosting.findMaterialPrice(productId, "");//從採購單中提取原料單價
-                    if (dt.Rows.Count > 0)
+                    //從自定義中查找單價，若不存在，再從採購單中查找
+                    DataTable dt1 = clsProductCosting.findStdProductPrice(productId);//從自定中提取單價
+                    if (dt1.Rows.Count > 0)
                     {
-                        materialPrice = dt.Rows[0]["price_g"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["price_g"].ToString()) : 0;
-                        dr2["OriginalPrice"] = dt.Rows[0]["PriceHkd"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["PriceHkd"].ToString()) : 0;
+                        stdProductPrice = dt1.Rows[0]["ProductPrice"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPrice"]) : 0;
+                        if (dt1.Rows[0]["PriceUnit"].ToString().Trim() == "KG")
+                            materialPrice = Math.Round(stdProductPrice / 1000, 4);
+                        else
+                            materialPrice = stdProductPrice;
+                        dr2["OriginalPrice"] = stdProductPrice;
+                    }
+                    else
+                    {
+                        dt1 = clsProductCosting.findMaterialPrice(productId, "");//從採購單中提取原料單價
+                        if (dt1.Rows.Count > 0)
+                        {
+                            materialPrice = dt1.Rows[0]["price_g"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["price_g"].ToString()) : 0;
+                            dr2["OriginalPrice"] = dt1.Rows[0]["PriceHkd"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["PriceHkd"].ToString()) : 0;
+                        }
                     }
                     if (productId.Substring(0, 2) == "PL")
                     {
-                        dr2["ProductWeight"] = clsProductCosting.getProductWeight("PL", productMo, productId);
+                        if (stdProductWeight > 0)
+                            dr2["ProductWeight"] = stdProductWeight;
+                        else
+                            dr2["ProductWeight"] = clsProductCosting.getProductWeight("PL", productMo, productId);
                     }
                     dr2["OriginWeight"] = dr2["ProductWeight"];
                     dr2["DepId"] = depId;
@@ -377,18 +398,38 @@ namespace cf01.MM
                                 wasteRate = clsProductCosting.getDepWasteRate(depId);
                             }
                             dr2["ProductMo"] = dr.Cells["colWipProductMo"].Value.ToString();
-                            dr2["ProductWeight"] = dr.Cells["colWipPcsWeg"].Value;
-                            if ((dr2["ProductWeight"].ToString() != "" ? Convert.ToDecimal(dr2["ProductWeight"]) : 0) == 0)
-                                dr2["ProductWeight"] = clsProductCosting.getProductWeight("", productMo, productId);
+                            //自定中若不存在重量，則從計劃中重新提取
+                            if (stdProductWeight > 0)
+                                dr2["ProductWeight"] = stdProductWeight;
+                            else
+                            {
+                                dr2["ProductWeight"] = dr.Cells["colWipPcsWeg"].Value;
+                                if ((dr2["ProductWeight"].ToString() != "" ? Convert.ToDecimal(dr2["ProductWeight"]) : 0) == 0)
+                                    dr2["ProductWeight"] = clsProductCosting.getProductWeight("", productMo, productId);
+                            }
                             dr2["OriginWeight"] = dr2["ProductWeight"];
                             if (depId == "501" || depId == "510")
                             {
-                                //默認從之前的外發加工單中提取單價
-                                DataTable dt = clsProductCosting.findPlatePrice(depId, productId, "");
-                                if (dt.Rows.Count > 0)
+                                //從自定義中查找單價，若不存在，再從外發單中查找
+                                DataTable dt1 = clsProductCosting.findStdProductPrice(productId);//從自定中提取單價
+                                if (dt1.Rows.Count > 0)
                                 {
-                                    dr2["OriginalPrice"] = dt.Rows[0]["price_kg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["price_kg"].ToString()) : 0;
-                                    materialPrice = dt.Rows[0]["price_g"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["price_g"].ToString()) : 0;
+                                    stdProductPrice = dt1.Rows[0]["ProductPrice"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPrice"]) : 0;
+                                    if (dt1.Rows[0]["PriceUnit"].ToString().Trim() == "KG")
+                                        materialPrice = Math.Round(stdProductPrice / 1000, 4);
+                                    else
+                                        materialPrice = stdProductPrice;
+                                    dr2["OriginalPrice"] = stdProductPrice;
+                                }
+                                else
+                                {
+                                    //默認從之前的外發加工單中提取單價
+                                    DataTable dt2 = clsProductCosting.findPlatePrice(depId, productId, "");
+                                    if (dt2.Rows.Count > 0)
+                                    {
+                                        materialPrice = dt2.Rows[0]["price_g"].ToString() != "" ? Convert.ToDecimal(dt2.Rows[0]["price_g"].ToString()) : 0;
+                                        dr2["OriginalPrice"] = dt2.Rows[0]["price_kg"].ToString() != "" ? Convert.ToDecimal(dt2.Rows[0]["price_kg"].ToString()) : 0;
+                                    }
                                 }
                                 dr2["MaterialPrice"] = materialPrice;
                                 dr2["WasteRate"] = wasteRate;
@@ -1155,5 +1196,20 @@ namespace cf01.MM
             }
         }
 
+        private void btnSetProductPrice_Click(object sender, EventArgs e)
+        {
+            frmSetProductPrice.getProductId = txtProductId.Text;
+            frmSetProductPrice frm = new frmSetProductPrice();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void btnSetProductWeight_Click(object sender, EventArgs e)
+        {
+            frmSetProductWeight.getProductId = txtProductId.Text;
+            frmSetProductWeight frm = new frmSetProductWeight();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
     }
 }

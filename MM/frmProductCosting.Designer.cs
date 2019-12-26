@@ -109,6 +109,10 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSetProductPrice = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSetProductWeight = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -248,7 +252,11 @@
             this.btnDepWasteRate,
             this.toolStripSeparator6,
             this.btnShowRemark,
-            this.toolStripSeparator7});
+            this.toolStripSeparator7,
+            this.btnSetProductPrice,
+            this.toolStripSeparator8,
+            this.btnSetProductWeight,
+            this.toolStripSeparator9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1158, 38);
@@ -1017,6 +1025,38 @@
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(1158, 86);
             this.panelControl4.TabIndex = 3;
+            // 
+            // btnSetProductPrice
+            // 
+            this.btnSetProductPrice.AutoSize = false;
+            this.btnSetProductPrice.Image = ((System.Drawing.Image)(resources.GetObject("btnSetProductPrice.Image")));
+            this.btnSetProductPrice.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSetProductPrice.Name = "btnSetProductPrice";
+            this.btnSetProductPrice.Size = new System.Drawing.Size(70, 35);
+            this.btnSetProductPrice.Text = "自定單價";
+            this.btnSetProductPrice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSetProductPrice.Click += new System.EventHandler(this.btnSetProductPrice_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnSetProductWeight
+            // 
+            this.btnSetProductWeight.AutoSize = false;
+            this.btnSetProductWeight.Image = ((System.Drawing.Image)(resources.GetObject("btnSetProductWeight.Image")));
+            this.btnSetProductWeight.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSetProductWeight.Name = "btnSetProductWeight";
+            this.btnSetProductWeight.Size = new System.Drawing.Size(70, 35);
+            this.btnSetProductWeight.Text = "自定重量";
+            this.btnSetProductWeight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSetProductWeight.Click += new System.EventHandler(this.btnSetProductWeight_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 38);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1931,5 +1971,9 @@
         private DevExpress.XtraEditors.LabelControl lblDepTotalCost;
         private System.Windows.Forms.ToolStripButton btnShowRemark;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton btnSetProductPrice;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripButton btnSetProductWeight;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
     }
 }
