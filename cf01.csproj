@@ -1353,6 +1353,12 @@
     <Compile Include="MM\frmMmCalculatePriceFind.designer.cs">
       <DependentUpon>frmMmCalculatePriceFind.cs</DependentUpon>
     </Compile>
+    <Compile Include="MM\frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="MM\frmProductCosting.cs">
       <SubType>Form</SubType>
     </Compile>
