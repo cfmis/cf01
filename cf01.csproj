@@ -1377,6 +1377,18 @@
     <Compile Include="MM\frmProductProcessCost.Designer.cs">
       <DependentUpon>frmProductProcessCost.cs</DependentUpon>
     </Compile>
+    <Compile Include="MM\frmSetProductPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmSetProductPrice.Designer.cs">
+      <DependentUpon>frmSetProductPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\frmSetProductWeight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmSetProductWeight.Designer.cs">
+      <DependentUpon>frmSetProductWeight.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleClass\DataGridViewMaskedTextBoxCell.cs" />
     <Compile Include="ModuleClass\DataGridViewMaskedTextBoxColumn.cs" />
     <Compile Include="ModuleClass\DataGridViewMaskedTextBoxEditingControl.cs">
@@ -3031,6 +3043,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmProductProcessCost.resx">
       <DependentUpon>frmProductProcessCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmSetProductPrice.resx">
+      <DependentUpon>frmSetProductPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmSetProductWeight.resx">
+      <DependentUpon>frmSetProductWeight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleClass\LineX.resx">
       <DependentUpon>LineX.cs</DependentUpon>
