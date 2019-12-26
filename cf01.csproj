@@ -1383,6 +1383,12 @@
     <Compile Include="MM\frmSetProductPrice.Designer.cs">
       <DependentUpon>frmSetProductPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="MM\frmSetProductQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmSetProductQty.Designer.cs">
+      <DependentUpon>frmSetProductQty.cs</DependentUpon>
+    </Compile>
     <Compile Include="MM\frmSetProductWeight.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3046,6 +3052,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmSetProductPrice.resx">
       <DependentUpon>frmSetProductPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmSetProductQty.resx">
+      <DependentUpon>frmSetProductQty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmSetProductWeight.resx">
       <DependentUpon>frmSetProductWeight.cs</DependentUpon>
