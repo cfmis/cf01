@@ -178,5 +178,43 @@ namespace cf01.MM
             printData(dtWipData);
         }
 
+        private void btnSetProductPrice_Click(object sender, EventArgs e)
+        {
+            setProductPrice(1);
+        }
+
+        private void btnSetProductWeight_Click(object sender, EventArgs e)
+        {
+            setProductWeight(1);
+        }
+        private void btnSetProductWeight1_Click(object sender, EventArgs e)
+        {
+            setProductWeight(2);
+        }
+        private void setProductWeight(int selectType)
+        {
+            if (selectType == 1)
+                frmSetProductWeight.getProductId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            else
+                frmSetProductWeight.getProductId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+            frmSetProductWeight frm = new frmSetProductWeight();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void btnSetProductPrice1_Click(object sender, EventArgs e)
+        {
+            setProductPrice(2);
+        }
+        private void setProductPrice(int selectType)
+        {
+            if (selectType == 1)
+                frmSetProductPrice.getProductId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            else
+                frmSetProductPrice.getProductId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+            frmSetProductPrice frm = new frmSetProductPrice();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
     }
 }

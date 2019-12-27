@@ -14,6 +14,9 @@ namespace cf01.MM
 {
     public partial class frmProductCostingFindPrice : Form
     {
+        public static string getDepId = "";
+        public static string getProductId = "";
+        public static string getProductName = "";
         public frmProductCostingFindPrice()
         {
             InitializeComponent();
@@ -28,11 +31,20 @@ namespace cf01.MM
         {
             dgvDetails1.AutoGenerateColumns = false;
             dgvDetails2.AutoGenerateColumns = false;
-            txtDepId.Text = frmProductCosting.searchDepId;
-            txtMaterialId.Text = frmProductCosting.searchProductId;
-            txtMaterialName.Text = frmProductCosting.searchProductName;
-            if (txtDepId.Text == "501" || txtDepId.Text == "510")
+            txtDepId.Text = getDepId;
+            txtMaterialId.Text = getProductId;
+            txtMaterialName.Text = getProductName;
+            string itemPart = "";
+            if (txtMaterialId.Text.Trim().Length > 2)
+                itemPart = txtMaterialId.Text.Substring(0, 2);
+            if (itemPart == "ML" || itemPart == "PL")
+                xtcFind.SelectedTabPageIndex = 0;
+            else
+            {
                 xtcFind.SelectedTabPageIndex = 1;
+                //if (txtDepId.Text == "501" || txtDepId.Text == "510")
+                //    xtcFind.SelectedTabPageIndex = 1;
+            }
             //selectFind();
         }
 
@@ -63,14 +75,14 @@ namespace cf01.MM
         }
         private void findMaterialPrice()
         {
-            DataTable dtMaterialPrice = clsProductCosting.findMaterialPrice(txtMaterialId.Text,txtMaterialName.Text);
+            DataTable dtMaterialPrice = clsProductCosting.findMaterialPrice(txtMaterialId.Text.Trim(),txtMaterialName.Text.Trim());
             dgvDetails1.DataSource = dtMaterialPrice;
             if (dgvDetails1.Rows.Count == 0)
                 MessageBox.Show("沒有找到符合條件的記錄!");
         }
         private void findPlatePrice()
         {
-            DataTable dtPlatePrice = clsProductCosting.findPlatePrice(txtDepId.Text,txtMaterialId.Text, txtMaterialName.Text);
+            DataTable dtPlatePrice = clsProductCosting.findPlatePrice(txtDepId.Text.Trim(),txtMaterialId.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails2.DataSource = dtPlatePrice;
             if (dgvDetails2.Rows.Count == 0)
                 MessageBox.Show("沒有找到符合條件的記錄!");
