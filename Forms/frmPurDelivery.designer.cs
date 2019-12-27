@@ -771,7 +771,7 @@
             this.txtstate.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtstate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtstate.Properties.ReadOnly = true;
-            this.txtstate.Size = new System.Drawing.Size(33, 22);
+            this.txtstate.Size = new System.Drawing.Size(55, 22);
             this.txtstate.TabIndex = 280;
             this.txtstate.Tag = "2";
             this.txtstate.Visible = false;
