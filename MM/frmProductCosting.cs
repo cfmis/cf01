@@ -261,7 +261,7 @@ namespace cf01.MM
             bomLevel = tn.Level.ToString();
             tnText = tn.Text.Trim();
             productName = tnText.Substring(tnText.IndexOf("[") + 1, (tnText.Length - (tnText.IndexOf("[") + 1) - 1));
-            addBomToTable(parentLevel, bomLevel, tn.Tag.ToString(), productName);
+            addBomToTable(parentLevel, bomLevel, tn.Tag.ToString(), productName); 
             foreach (TreeNode tnSub in tn.Nodes)
             {
                 expandBomTree(tnSub);
@@ -279,6 +279,8 @@ namespace cf01.MM
             dr2["ProductId"] = productId;
             dr2["ProductName"] = productName;
             dr2["IsSelect"] = false;
+            dr2["StdPriceFlag"] = "";
+            dr2["StdWeightFlag"] = "";
             if (dtCost.Rows.Count > 0)
             {
                 DataRow dr = dtCost.Rows[0];
@@ -349,6 +351,7 @@ namespace cf01.MM
                     DataTable dt1 = clsProductCosting.findStdProductPrice(productId);//從自定中提取單價
                     if (dt1.Rows.Count > 0)
                     {
+                        dr2["StdPriceFlag"] = "Y";
                         stdProductPrice = dt1.Rows[0]["ProductPrice"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPrice"]) : 0;
                         if (dt1.Rows[0]["PriceUnit"].ToString().Trim() == "KG")
                             materialPrice = Math.Round(stdProductPrice / 1000, 4);
@@ -368,7 +371,10 @@ namespace cf01.MM
                     if (productId.Substring(0, 2) == "PL")
                     {
                         if (stdProductWeight > 0)
+                        {
+                            dr2["StdWeightFlag"] = "Y";
                             dr2["ProductWeight"] = stdProductWeight;
+                        }
                         else
                             dr2["ProductWeight"] = clsProductCosting.getProductWeight("PL", productMo, productId);
                     }
@@ -400,7 +406,10 @@ namespace cf01.MM
                             dr2["ProductMo"] = dr.Cells["colWipProductMo"].Value.ToString();
                             //自定中若不存在重量，則從計劃中重新提取
                             if (stdProductWeight > 0)
+                            {
+                                dr2["StdWeightFlag"] = "Y";
                                 dr2["ProductWeight"] = stdProductWeight;
+                            }
                             else
                             {
                                 dr2["ProductWeight"] = dr.Cells["colWipPcsWeg"].Value;
@@ -414,6 +423,7 @@ namespace cf01.MM
                                 DataTable dt1 = clsProductCosting.findStdProductPrice(productId);//從自定中提取單價
                                 if (dt1.Rows.Count > 0)
                                 {
+                                    dr2["StdPriceFlag"] = "Y";
                                     stdProductPrice = dt1.Rows[0]["ProductPrice"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPrice"]) : 0;
                                     if (dt1.Rows[0]["PriceUnit"].ToString().Trim() == "KG")
                                         materialPrice = Math.Round(stdProductPrice / 1000, 4);
@@ -423,7 +433,7 @@ namespace cf01.MM
                                 }
                                 else
                                 {
-                                    //默認從之前的外發加工單中提取單價
+                                    ////默認從之前的外發加工單中提取單價
                                     DataTable dt2 = clsProductCosting.findPlatePrice(depId, productId, "");
                                     if (dt2.Rows.Count > 0)
                                     {
@@ -486,6 +496,8 @@ namespace cf01.MM
             dtBomDetails.Columns.Add("BomLevel", typeof(string));
             dtBomDetails.Columns.Add("IsSetFlag", typeof(bool));
             dtBomDetails.Columns.Add("IsSelect", typeof(bool));
+            dtBomDetails.Columns.Add("StdPriceFlag", typeof(string));
+            dtBomDetails.Columns.Add("StdWeightFlag", typeof(string));
             dgvBomDetails.DataSource = dtBomDetails;
         }
 
@@ -498,11 +510,13 @@ namespace cf01.MM
             txtProductName.Text = dgr.Cells["colProductName"].Value.ToString();
             txtDoColor.Text = dgr.Cells["colDoColor"].Value.ToString();
             txtProductWeight.Text = dgr.Cells["colProductWeight"].Value.ToString();
+            txtStdWeightFlag.Text = dgr.Cells["colStdWeightFlag"].Value.ToString();
             txtOriginWeight.Text = dgr.Cells["colOriginWeight"].Value.ToString();
             txtWasteRate.Text = dgr.Cells["colWasteRate"].Value.ToString();
             txtMaterialRequest.Text = dgr.Cells["colMaterialRequest"].Value.ToString();
             txtOriginalPrice.Text = dgr.Cells["colOriginalPrice"].Value.ToString();
             txtMaterialPrice.Text = dgr.Cells["colMaterialPrice"].Value.ToString();
+            txtStdPriceFlag.Text = dgr.Cells["colStdPriceFlag"].Value.ToString();
             txtMaterialCost.Text = dgr.Cells["colMaterialCost"].Value.ToString();
             txtDepId.Text = dgr.Cells["colDepId"].Value.ToString();
             txtDepCdesc.Text = dgr.Cells["colDepCdesc"].Value.ToString();
@@ -908,8 +922,11 @@ namespace cf01.MM
                     if ((bool)dgrParent.Cells["colIsSetFlag"].Value == false)//如果是已設定的，就不再計算
                     {
                         decimal wasteRate = 0;
-                        dgrParent.Cells["colProductWeight"].Value = dgrCurrent.Cells["colProductWeight"].Value;//因為外發的金額是按照NEP計算的，所以要將上層的重量帶入到本層,作為本層的重量
-                        dgrParent.Cells["colOriginWeight"].Value = dgrParent.Cells["colProductWeight"].Value;
+                        if (dgrParent.Cells["colStdWeightFlag"].Value.ToString() != "Y")//如果沒有自定的重量，就套用上部門的重量
+                        {
+                            dgrParent.Cells["colProductWeight"].Value = dgrCurrent.Cells["colProductWeight"].Value;//因為外發的金額是按照NEP計算的，所以要將上層的重量帶入到本層,作為本層的重量
+                            dgrParent.Cells["colOriginWeight"].Value = dgrParent.Cells["colProductWeight"].Value;
+                        }
                         wasteRate = dgrParent.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colWasteRate"].Value.ToString()) : 0;
                         //if (wasteRate == 0)
                         //    wasteRate = (decimal)1.1;
@@ -1113,18 +1130,18 @@ namespace cf01.MM
 
         private void btnFindPrdPrice_Click(object sender, EventArgs e)
         {
-            searchProductId = txtProductId.Text;
-            searchProductName = txtProductName.Text;
-            searchDepId = txtDepId.Text;
+            frmProductCostingFindPrice.getProductId = txtProductId.Text;
+            frmProductCostingFindPrice.getProductName = txtProductName.Text;
+            frmProductCostingFindPrice.getDepId = txtDepId.Text;
             searchPrice = 0;
-            frmProductCostingFindPrice frmProductCostingFindPrice = new frmProductCostingFindPrice();
-            frmProductCostingFindPrice.ShowDialog();
+            frmProductCostingFindPrice frm = new frmProductCostingFindPrice();
+            frm.ShowDialog();
             if (searchPrice != 0)
             {
                 txtOriginalPrice.Text = searchPrice.ToString();
                 txtOriginalPrice_Leave(sender, e);
             }
-            frmProductCostingFindPrice.Dispose();
+            frm.Dispose();
         }
 
         private void btnFindDepCost_Click(object sender, EventArgs e)
