@@ -17,6 +17,7 @@ namespace cf01.MM
 {
     public partial class frmSetProductWeight : Form
     {
+        public static string getProductId = "";
         public frmSetProductWeight()
         {
             InitializeComponent();
@@ -31,12 +32,22 @@ namespace cf01.MM
             dgvProductWeight.AutoGenerateColumns = false;
             rdgIsSetCosting.SelectedIndex = 2;
             txtMatFrom.Focus();
+            txtProductId.Text = getProductId;
+            if (txtProductId.Text != "")
+            {
+                findData();
+            }
             //txtDateFrom.Text = System.DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             //txtDateTo.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
         }
         private void btnFind_Click(object sender, EventArgs e)
         {
+            findData();
+        }
+        private void findData()
+        {
             txtProductId.Focus();
+            chkSelectAll.Checked = false;
             if (rdgIsSetCosting.SelectedIndex != 0)
             {
                 if (txtMatFrom.Text.Trim() == ""
@@ -64,8 +75,6 @@ namespace cf01.MM
             //genBomTree(pid);
             //**********************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-            
         }
         private void findProcess()
         {
@@ -116,6 +125,7 @@ namespace cf01.MM
 
         private void chkSelectAll_Click(object sender, EventArgs e)
         {
+            txtProductId.Focus();
             bool chkFlag = chkSelectAll.Checked;
             for (int i = 0; i < dgvProductWeight.Rows.Count; i++)
             {

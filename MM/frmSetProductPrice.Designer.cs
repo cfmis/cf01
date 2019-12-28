@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSetProductPrice));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblProductId = new DevExpress.XtraEditors.LabelControl();
+            this.txtProductId = new DevExpress.XtraEditors.TextEdit();
             this.palShowF0 = new DevExpress.XtraEditors.PanelControl();
             this.chkShowF0 = new System.Windows.Forms.CheckBox();
             this.lblIsSetCosting = new DevExpress.XtraEditors.LabelControl();
@@ -50,11 +52,18 @@
             this.lblMat = new DevExpress.XtraEditors.LabelControl();
             this.rdgIsSetCosting = new DevExpress.XtraEditors.RadioGroup();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.cmbPriceUnit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnConf = new DevExpress.XtraEditors.SimpleButton();
             this.txtProductPrice = new DevExpress.XtraEditors.TextEdit();
             this.lblProductPrice = new DevExpress.XtraEditors.LabelControl();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.dgvProductPrice = new System.Windows.Forms.DataGridView();
+            this.colSetPrice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPriceUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -92,15 +101,11 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSetPrice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtProductId = new DevExpress.XtraEditors.TextEdit();
-            this.lblProductId = new DevExpress.XtraEditors.LabelControl();
+            this.btnOldRec = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).BeginInit();
             this.palShowF0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtClrTo.Properties)).BeginInit();
@@ -116,10 +121,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdgIsSetCosting.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriceUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductPrice)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -149,6 +154,22 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1049, 107);
             this.panelControl1.TabIndex = 0;
+            // 
+            // lblProductId
+            // 
+            this.lblProductId.Location = new System.Drawing.Point(16, 83);
+            this.lblProductId.Name = "lblProductId";
+            this.lblProductId.Size = new System.Drawing.Size(52, 14);
+            this.lblProductId.TabIndex = 33;
+            this.lblProductId.Text = "物料編號:";
+            // 
+            // txtProductId
+            // 
+            this.txtProductId.Location = new System.Drawing.Point(74, 81);
+            this.txtProductId.Name = "txtProductId";
+            this.txtProductId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProductId.Size = new System.Drawing.Size(259, 20);
+            this.txtProductId.TabIndex = 32;
             // 
             // palShowF0
             // 
@@ -327,6 +348,7 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.cmbPriceUnit);
             this.panelControl2.Controls.Add(this.btnConf);
             this.panelControl2.Controls.Add(this.txtProductPrice);
             this.panelControl2.Controls.Add(this.lblProductPrice);
@@ -336,9 +358,21 @@
             this.panelControl2.Size = new System.Drawing.Size(1049, 43);
             this.panelControl2.TabIndex = 1;
             // 
+            // cmbPriceUnit
+            // 
+            this.cmbPriceUnit.Location = new System.Drawing.Point(302, 11);
+            this.cmbPriceUnit.Name = "cmbPriceUnit";
+            this.cmbPriceUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbPriceUnit.Properties.Items.AddRange(new object[] {
+            "KG",
+            "PCS"});
+            this.cmbPriceUnit.Size = new System.Drawing.Size(100, 20);
+            this.cmbPriceUnit.TabIndex = 3;
+            // 
             // btnConf
             // 
-            this.btnConf.Location = new System.Drawing.Point(338, 9);
+            this.btnConf.Location = new System.Drawing.Point(463, 9);
             this.btnConf.Name = "btnConf";
             this.btnConf.Size = new System.Drawing.Size(75, 25);
             this.btnConf.TabIndex = 2;
@@ -382,7 +416,8 @@
             this.colProductId,
             this.colProductName,
             this.colDoColor,
-            this.colProductPrice});
+            this.colProductPrice,
+            this.colPriceUnit});
             this.dgvProductPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductPrice.Location = new System.Drawing.Point(0, 188);
             this.dgvProductPrice.Name = "dgvProductPrice";
@@ -392,6 +427,55 @@
             this.dgvProductPrice.Size = new System.Drawing.Size(1049, 460);
             this.dgvProductPrice.TabIndex = 0;
             // 
+            // colSetPrice
+            // 
+            this.colSetPrice.DataPropertyName = "SetFlag";
+            this.colSetPrice.Frozen = true;
+            this.colSetPrice.HeaderText = "";
+            this.colSetPrice.Name = "colSetPrice";
+            this.colSetPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSetPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSetPrice.Width = 40;
+            // 
+            // colProductId
+            // 
+            this.colProductId.DataPropertyName = "goods_id";
+            this.colProductId.HeaderText = "物料編號";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Width = 160;
+            // 
+            // colProductName
+            // 
+            this.colProductName.DataPropertyName = "goods_cname";
+            this.colProductName.HeaderText = "物料描述";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 260;
+            // 
+            // colDoColor
+            // 
+            this.colDoColor.DataPropertyName = "DoColor";
+            this.colDoColor.HeaderText = "顏色做法";
+            this.colDoColor.Name = "colDoColor";
+            this.colDoColor.ReadOnly = true;
+            this.colDoColor.Width = 160;
+            // 
+            // colProductPrice
+            // 
+            this.colProductPrice.DataPropertyName = "ProductPrice";
+            this.colProductPrice.HeaderText = "單價";
+            this.colProductPrice.Name = "colProductPrice";
+            this.colProductPrice.ReadOnly = true;
+            this.colProductPrice.Width = 80;
+            // 
+            // colPriceUnit
+            // 
+            this.colPriceUnit.DataPropertyName = "PriceUnit";
+            this.colPriceUnit.HeaderText = "單位類型";
+            this.colPriceUnit.Name = "colPriceUnit";
+            this.colPriceUnit.Width = 65;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
@@ -399,7 +483,9 @@
             this.btnExit,
             this.toolStripSeparator1,
             this.btnFind,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.btnOldRec,
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1049, 38);
@@ -698,63 +784,21 @@
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.Width = 60;
             // 
-            // colSetPrice
+            // btnOldRec
             // 
-            this.colSetPrice.DataPropertyName = "SetFlag";
-            this.colSetPrice.Frozen = true;
-            this.colSetPrice.HeaderText = "";
-            this.colSetPrice.Name = "colSetPrice";
-            this.colSetPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSetPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSetPrice.Width = 40;
+            this.btnOldRec.AutoSize = false;
+            this.btnOldRec.Image = ((System.Drawing.Image)(resources.GetObject("btnOldRec.Image")));
+            this.btnOldRec.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOldRec.Name = "btnOldRec";
+            this.btnOldRec.Size = new System.Drawing.Size(65, 35);
+            this.btnOldRec.Text = "歷史記錄";
+            this.btnOldRec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnOldRec.Click += new System.EventHandler(this.btnOldRec_Click);
             // 
-            // colProductId
+            // toolStripSeparator3
             // 
-            this.colProductId.DataPropertyName = "goods_id";
-            this.colProductId.HeaderText = "物料編號";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Width = 160;
-            // 
-            // colProductName
-            // 
-            this.colProductName.DataPropertyName = "goods_cname";
-            this.colProductName.HeaderText = "物料描述";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 260;
-            // 
-            // colDoColor
-            // 
-            this.colDoColor.DataPropertyName = "DoColor";
-            this.colDoColor.HeaderText = "顏色做法";
-            this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
-            this.colDoColor.Width = 160;
-            // 
-            // colProductPrice
-            // 
-            this.colProductPrice.DataPropertyName = "ProductPrice";
-            this.colProductPrice.HeaderText = "單價/PCS";
-            this.colProductPrice.Name = "colProductPrice";
-            this.colProductPrice.ReadOnly = true;
-            this.colProductPrice.Width = 80;
-            // 
-            // txtProductId
-            // 
-            this.txtProductId.Location = new System.Drawing.Point(74, 81);
-            this.txtProductId.Name = "txtProductId";
-            this.txtProductId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtProductId.Size = new System.Drawing.Size(259, 20);
-            this.txtProductId.TabIndex = 32;
-            // 
-            // lblProductId
-            // 
-            this.lblProductId.Location = new System.Drawing.Point(16, 83);
-            this.lblProductId.Name = "lblProductId";
-            this.lblProductId.Size = new System.Drawing.Size(52, 14);
-            this.lblProductId.TabIndex = 33;
-            this.lblProductId.Text = "物料編號:";
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
             // frmSetProductPrice
             // 
@@ -774,6 +818,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).EndInit();
             this.palShowF0.ResumeLayout(false);
             this.palShowF0.PerformLayout();
@@ -791,11 +836,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPriceUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductPrice)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -866,12 +911,16 @@
         private DevExpress.XtraEditors.TextEdit txtProductPrice;
         private DevExpress.XtraEditors.LabelControl lblProductPrice;
         private DevExpress.XtraEditors.SimpleButton btnConf;
+        private DevExpress.XtraEditors.LabelControl lblProductId;
+        private DevExpress.XtraEditors.TextEdit txtProductId;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbPriceUnit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colSetPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductPrice;
-        private DevExpress.XtraEditors.LabelControl lblProductId;
-        private DevExpress.XtraEditors.TextEdit txtProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPriceUnit;
+        private System.Windows.Forms.ToolStripButton btnOldRec;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

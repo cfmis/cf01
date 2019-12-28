@@ -132,6 +132,27 @@
   <metadata name="colProductPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="colPriceUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colSetPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colProductId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colProductName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colDoColor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colProductPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colPriceUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -152,19 +173,21 @@
         HhdpKOx6v7LWDcl9gidmtayCAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="colSetPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colProductId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colProductName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colDoColor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colProductPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="btnOldRec.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABcAAAAZCAYAAADaILXQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKPSURBVEhL7VRNS1RRGB5w1S4ioUUMtIugpE20iAiElq4i
+        U4uiIhHNigRxYWIgFWktdFFB9GFGhlQoTI7lhOVHieSM48w4d+73ueeeO7cf8XTOabrmEDNaLSJ64IH3
+        PO85z/ue936E/uPvBWMUCcNHLPUF0aSPTzkfnsdQSP8abGLh0ZyPql6K0GVjDcNXCW7HfLB8fuNFKMuj
+        /jHvrsi0mAcHKHJkAwVExyeGvMDg8F0Xr5d8UObB9z1MpX2cesoNfyggcoXjpTGywA9eUiU7Rj04DoFl
+        m9JYUMRyZLOr+25MrKN7YVTdbyLUksH+Xh3M85BZSUETV+eaoIjTmWXYvMjpJ0Rq4c4cGHNLF7BcDxVN
+        CYQa43g2x2BaJvK8W5Xwa3NNUMRCE7m4tqrPZMq8QfMrvPrJj5IJlSFn88OFdTG9vAeXMVSeX5DrwSm7
+        jHmKoKL2neRi1oFi0GBdTJePwaEOKs98kOvBSa3MWByKLUei2FQTwf1IFqqqShNFp1ITFLHQVE3F/LId
+        6NNxq7S5bhg42vEem6tHUN08CUJdLC0nuaEjNUERLybi0A0dDVempbanIQJCnNLmqXQaYzEFWw8MSV64
+        PgOLUN6lJrv91rEGwzRx6+HnYN+950lkFaXMWHj1utYotu17EPDQsZcYiaSQVmxoJsXomxXUtowH+eMX
+        J0CcMq+hYVHUN41h+94762Zbdwwaf+gFi59DGNedfYHw7v6A7d1vMTuvouHcK+yoGliTq6kfxngsg5ym
+        lzZWdRPNbWMI7+oL2N4V5Qf5v4NDN20YloupaUUymyMwbf5lrgcKN2nvjCC885pkV88EhFZI/z4SSR2N
+        rcPouRn9s8bfoZoWsmqZGf7jCIW+Al1dp8hpcxAMAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

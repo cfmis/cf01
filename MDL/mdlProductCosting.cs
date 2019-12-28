@@ -45,6 +45,7 @@ namespace cf01.MDL
     {
         public string productId;
         public decimal productPrice;
+        public string priceUnit;
         public string createUser;
         public string createTime;
         public string amendUser;

@@ -17,6 +17,7 @@ namespace cf01.MM
 {
     public partial class frmSetProductPrice : Form
     {
+        public static string getProductId = "";
         public frmSetProductPrice()
         {
             InitializeComponent();
@@ -25,7 +26,13 @@ namespace cf01.MM
         {
             dgvProductPrice.AutoGenerateColumns = false;
             rdgIsSetCosting.SelectedIndex = 2;
+            cmbPriceUnit.SelectedIndex = 0;
             txtMatFrom.Focus();
+            txtProductId.Text = getProductId;
+            if (txtProductId.Text != "")
+            {
+                findData();
+            }
             //txtDateFrom.Text = System.DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             //txtDateTo.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
         }
@@ -36,7 +43,12 @@ namespace cf01.MM
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            findData();
+        }
+        private void findData()
+        {
             txtProductId.Focus();
+            chkSelectAll.Checked = false;
             if (rdgIsSetCosting.SelectedIndex != 0)
             {
                 if (txtMatFrom.Text.Trim() == ""
@@ -64,8 +76,6 @@ namespace cf01.MM
             //genBomTree(pid);
             //**********************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-            
         }
         private void findProcess()
         {
@@ -115,6 +125,7 @@ namespace cf01.MM
 
         private void chkSelectAll_Click(object sender, EventArgs e)
         {
+            txtProductId.Focus();
             bool chkFlag = chkSelectAll.Checked;
             for (int i = 0; i < dgvProductPrice.Rows.Count; i++)
             {
@@ -131,6 +142,11 @@ namespace cf01.MM
         }
         private bool validData()
         {
+            if(cmbPriceUnit.Text.Trim()=="")
+            {
+                MessageBox.Show("單價單位不能為空!");
+                return false;
+            }
             bool selectFlag = false;
             for (int i = 0; i < dgvProductPrice.Rows.Count; i++)
             {
@@ -157,6 +173,7 @@ namespace cf01.MM
                     mdlProductPrice objModel = new mdlProductPrice();
                     objModel.productId = dgr.Cells["colProductId"].Value.ToString();
                     objModel.productPrice = Convert.ToDecimal(txtProductPrice.Text);
+                    objModel.priceUnit = cmbPriceUnit.Text.Trim();
                     objModel.createUser = DBUtility._user_id;
                     objModel.createTime = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
                     objModel.amendUser = DBUtility._user_id;
@@ -171,6 +188,15 @@ namespace cf01.MM
                 MessageBox.Show("儲存物料單價失敗!");
         }
 
-        
+        private void btnOldRec_Click(object sender, EventArgs e)
+        {
+            string productId = "";
+            if (dgvProductPrice.Rows.Count > 0)
+                productId= dgvProductPrice.Rows[dgvProductPrice.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            frmProductCostingFindPrice.getProductId = productId;
+            frmProductCostingFindPrice frm = new frmProductCostingFindPrice();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
     }
 }

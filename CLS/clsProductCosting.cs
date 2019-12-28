@@ -97,7 +97,7 @@ namespace cf01.CLS
         public static DataTable getWipData(string productMo)
         {
             string strSql = "";
-            strSql += " SELECT aa.*,bb.ProductCost ";
+            strSql += " SELECT aa.*,bb.ProductCost,cc.ProductWeight,dd.ProductPrice,dd.PriceUnit ";
             strSql += " FROM ( ";
             strSql += " SELECT TOP 100000 a.mo_id,b.flag,b.goods_id,c.name AS goods_cname,c.do_color AS DoColor,b.wp_id,d.name AS DepCdesc,b.next_wp_id,e.name AS NextDepCdesc"+
                 ",Convert(Varchar(20),a.bill_date,111) AS bill_date,Convert(Int,b.prod_qty) AS prod_qty,Convert(Int,b.c_qty_ok) AS c_qty_ok" +
@@ -114,6 +114,8 @@ namespace cf01.CLS
                 " Order By right ('0000000000'+b.flag,10)";
             strSql += " ) aa";
             strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId";
+            strSql += " LEFT JOIN mm_ProductWeight cc ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.ProductId";
+            strSql += " LEFT JOIN mm_ProductPrice dd ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }
@@ -131,7 +133,7 @@ namespace cf01.CLS
             strSql1 += " SELECT TOP 10 a.mo_id,b.c_qty_ok,b.c_sec_qty_ok" +
                 " FROM jo_bill_mostly a" +
                 " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
-                " WHERE a.within_code='" + within_code + "' AND b.goods_id='" + productId + "' AND b.c_qty_ok>0 AND b.c_sec_qty_ok>0";
+                " WHERE b.within_code='" + within_code + "' AND b.goods_id='" + productId + "' AND b.c_qty_ok>0 AND b.c_sec_qty_ok>0";
             strSql1 += " ORDER BY b.c_qty_ok Desc";
             strSql1 += ") aa";
             if (matType == "PL")
@@ -257,10 +259,11 @@ namespace cf01.CLS
             if (isSetFlag == 0)//已設定成本
             {
                 strSql = "Select a.ProductId AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,mm.name As goods_cname"+
-                ",mm.do_color AS DoColor,a.ProductCost,b.ProductWeight " +
+                ",mm.do_color AS DoColor,a.ProductCost,b.ProductWeight,c.ProductPrice,c.PriceUnit " +
                 " From mm_ProductCosting a" +
                 " Inner join geo_it_goods mm On a.ProductId=mm.id" +
                 " Left Join mm_ProductWeight b On a.ProductId=b.ProductId"+
+                " Left Join mm_ProductPrice c On a.ProductId=c.ProductId" +
                 " Where a.ProductId>=''";
                 if (productMo != "")
                     strSql += " And a.ProductMo ='" + productMo + "'";
@@ -273,13 +276,13 @@ namespace cf01.CLS
             {
                 if (sourceItem == 0)
                 {
-                    strSql += " SELECT bb.* FROM (";
+                    strSql += " SELECT bbb.* FROM (";
                     strSql += " SELECT aa.mo_id,Convert(Varchar(20),aa.bill_date,111) AS bill_date" +
                         ",aa.goods_id,aa.goods_cname,aa.DoColor,bb.ProductCost" +
                         ",Convert(INT,aa.prod_qty) AS prod_qty,Convert(INT,aa.c_qty_ok) AS c_qty_ok,Convert(Decimal(18,2),aa.c_sec_qty_ok) AS c_sec_qty_ok" +
                         ",CASE aa.c_qty_ok WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(aa.c_sec_qty_ok/aa.c_qty_ok)*1000) END AS pcs_weg" +
                         ",aa.wp_id,aa.wp_cdesc AS DepCdesc,aa.next_wp_id,aa.next_wp_cdesc AS NextDepCdesc" +
-                        ",aa.seller_id,Substring(aa.mo_id,3,1) AS mo_group,cc.ProductWeight";
+                        ",aa.seller_id,Substring(aa.mo_id,3,1) AS mo_group,cc.ProductWeight,dd.ProductPrice,dd.PriceUnit";
                     strSql += " FROM (";
                     strSql += " SELECT TOP 100000 a.mo_id,a.bill_date,b.goods_id,mm.name AS goods_cname,mm.do_color AS DoColor,b.prod_qty"+
                         ",b.c_qty_ok,b.c_sec_qty_ok,b.wp_id,d.name AS wp_cdesc"+
@@ -313,18 +316,20 @@ namespace cf01.CLS
                     strSql += ") aa";
                     strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId ";
                     strSql += " Left Join mm_ProductWeight cc On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.ProductId ";
-                    strSql += " ) bb ";
+                    strSql += " Left Join mm_ProductPrice dd On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId ";
+                    strSql += " ) bbb ";
                     if (isSetFlag == 1)//未設定成本
-                        strSql += " WHERE bb.ProductCost Is Null";
+                        strSql += " WHERE bbb.ProductCost Is Null";
                 }
                 else
                 {
                     strSql += "SELECT aa.* FROM (";
                     strSql += "Select Top 100000 mm.id AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,a.ProductCost"+
-                        ",mm.name As goods_cname,mm.do_color AS DoColor,b.ProductWeight" +
+                        ",mm.name As goods_cname,mm.do_color AS DoColor,b.ProductWeight,c.ProductPrice,c.PriceUnit" +
                         " From geo_it_goods mm" +
                         " Left join mm_ProductCosting a On mm.id=a.ProductId" +
                         " Left Join mm_ProductWeight b On mm.id=b.ProductId" +
+                        " Left Join mm_ProductPrice c On mm.id=c.ProductId" +
                         " Where mm.id>=''";
                     if (showF0 == true)
                         strSql += " And mm.id>='F0' And mm.id<='F0-ZZZZZZZ-ZZZ'";
@@ -388,31 +393,58 @@ namespace cf01.CLS
 
         private static DataTable findMaterialPriceProcess(string materialId, string materialName)
         {
+            string materialName1 = materialName;
             string strSql = " SELECT a.id,Convert(Varchar(20),a.order_date,111) AS order_date,Convert(Decimal(18,4),d.exchange_rate) AS exchange_rate,a.m_id" +
                         ",b.goods_id,b.mo_id,c.name AS goods_name,Convert(Decimal(18,0),b.order_qty) AS order_qty,b.unit_code " +
                         ",Convert(Decimal(18,2),b.sec_qty) AS sec_qty,b.sec_unit,Convert(Decimal(18,2),b.price) AS price,b.p_unit" +
                         ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,2),((b.price*d.exchange_rate)/f.rate)*1000) ELSE Convert(Decimal(18,2),(b.price*d.exchange_rate)) END AS PriceHkd" +
                         ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,4),(b.price*d.exchange_rate)/f.rate) ELSE Convert(Decimal(18,4),(b.price*d.exchange_rate)/1000) END AS price_g" +
-                        " FROM po_buy_manage a " +
-                        " INNER JOIN po_buy_details b ON a.within_code=b.within_code AND a.id=b.id" +
-                        " LEFT JOIN it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
-                        " INNER JOIN cd_exchange_rate d ON b.within_code=d.within_code AND a.m_id=d.id" +
-                        " INNER JOIN it_coding f ON b.within_code=f.within_code AND b.p_unit=f.unit_code" +
-                        " INNER JOIN cd_units g ON b.within_code=g.within_code AND b.p_unit=g.id" +
-                        " WHERE b.within_code='" + within_code + "' AND d.state='0' AND f.id='*'";
+                        ",h.ProductPrice AS StdProductPrice,h.PriceUnit" +
+                        " FROM " + remote_db + "po_buy_manage a " +
+                        " INNER JOIN " + remote_db + "po_buy_details b ON a.within_code=b.within_code AND a.id=b.id" +
+                        " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
+                        " INNER JOIN " + remote_db + "cd_exchange_rate d ON b.within_code=d.within_code AND a.m_id=d.id" +
+                        " INNER JOIN " + remote_db + "it_coding f ON b.within_code=f.within_code AND b.p_unit=f.unit_code" +
+                        " INNER JOIN " + remote_db + "cd_units g ON b.within_code=g.within_code AND b.p_unit=g.id" +
+                        " LEFT JOIN mm_ProductPrice h ON b.goods_id COLLATE chinese_taiwan_stroke_CI_AS=h.ProductId" +
+                        " WHERE b.within_code='" + within_code + "'";
             if (materialId != "")
+            {
                 if (materialId.Length == 18)
+                {
+                    materialName1 = "";
                     strSql += " AND b.goods_id = '" + materialId + "'";
+                }
                 else
                     strSql += " AND b.goods_id Like '" + "%" + materialId + "%'";
-            if (materialName != "")
-                strSql += " AND c.name Like '" + "%" + materialName + "%'";
+            }
+            if (materialName1 != "")
+                strSql += " AND c.name Like '" + "%" + materialName1 + "%'";
+            strSql += " AND d.state='0' ";
+            strSql += " AND f.id='*' ";
             strSql += " Order By b.goods_id,a.order_date Desc,a.create_date Desc";
-            DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
+            //DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            //if(dt.Rows.Count>0)
+            //{
+            //    //獲取自定的單價
+            //    dt.Columns.Add("StdProductPrice", typeof(float));
+            //    dt.Columns.Add("StdPriceUnit", typeof(string));
+            //    for (int i=0;i<dt.Rows.Count;i++)
+            //    {
+            //        DataTable dt1 = findStdProductPrice(dt.Rows[0]["goods_id"].ToString());
+            //        if(dt1.Rows.Count>0)
+            //        {
+            //            dt.Rows[i]["StdProductPrice"] = dt1.Rows[0]["ProductPrice"];
+            //            dt.Rows[i]["StdPriceUnit"] = dt1.Rows[0]["PriceUnit"];
+            //        }
+            //    }
+            //}
             return dt;
         }
         public static DataTable findPlatePrice(string depId,string materialId, string materialName)
         {
+            string materialName1 = materialName;
             string strSql = " SELECT a.id,Convert(Varchar(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor" +
                         ",b.goods_id,b.mo_id,c.name AS goods_name,b.do_color,Convert(Decimal(18,0),b.prod_qty) AS prod_qty,b.goods_unit " +
                         ",Convert(Decimal(18,2),b.sec_qty) AS sec_qty,b.sec_unit,Convert(Decimal(18,2),b.price) AS price,b.p_unit" +
@@ -423,34 +455,58 @@ namespace cf01.CLS
                         ",CASE b.sec_qty WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),((b.total_prices*g.exchange_rate)/b.sec_qty)/1000) END AS price_g" +
                         ",Convert(Decimal(18,4),(b.price*g.exchange_rate)/d.rate) AS price_pcs" +
                         ",f.money_id AS m_id,a.department_id,b.process_request" +
-                        " FROM op_outpro_out_mostly a " +
-                        " INNER JOIN op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
-                        " LEFT JOIN it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
-                        " INNER JOIN it_coding d ON b.within_code=d.within_code AND b.p_unit=d.unit_code" +
-                        " INNER JOIN it_vendor f ON a.within_code=f.within_code AND a.vendor_id=f.id" +
-                        " INNER JOIN cd_exchange_rate g ON f.within_code=g.within_code AND f.money_id=g.id" +
-                        " WHERE b.within_code='" + within_code + "' AND g.state='0' AND d.id='*' AND b.total_prices>0";
+                        ",h.ProductPrice AS StdProductPrice,h.PriceUnit" +
+                        " FROM "+remote_db+"op_outpro_out_mostly a " +
+                        " INNER JOIN " + remote_db + "op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
+                        " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
+                        " INNER JOIN " + remote_db + "it_coding d ON b.within_code=d.within_code AND b.p_unit=d.unit_code" +
+                        " INNER JOIN " + remote_db + "it_vendor f ON a.within_code=f.within_code AND a.vendor_id=f.id" +
+                        " INNER JOIN " + remote_db + "cd_exchange_rate g ON f.within_code=g.within_code AND f.money_id=g.id" +
+                        " LEFT JOIN mm_ProductPrice h ON b.goods_id COLLATE chinese_taiwan_stroke_CI_AS=h.ProductId" +
+                        " WHERE b.within_code='" + within_code + "'";
             if (depId != "")
                 strSql += " AND a.department_id = '" + depId + "'";
             if (materialId != "")
+            {
                 if (materialId.Length == 18)
+                {
+                    materialName1 = "";
                     strSql += " AND b.goods_id = '" + materialId + "'";
+                }
                 else
                     strSql += " AND b.goods_id Like '" + "%" + materialId + "%'";
-            if (materialName != "")
-                strSql += " AND c.name Like '" + "%" + materialName + "%'";
+            }
+            if (materialName1 != "")
+                strSql += " AND c.name Like '" + "%" + materialName1 + "%'";
+            strSql += " AND b.total_prices>0 ";
+            strSql += " AND d.id='*' ";
+            strSql += " AND g.state='0' ";
+            
             strSql += " Order By b.goods_id,a.issue_date Desc";
-            DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
-            for (int i = 0; i < dt.Rows.Count; i++)
+            //DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
             {
-                DataRow dr = dt.Rows[i];
-                dr["origin_price_g"] = dr["price_g"];
-                dr["pcs_cost"] = Math.Round((dr["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dr["pcs_weg"]) : 0)
-                    * (dr["origin_price_g"].ToString() != "" ? Convert.ToDecimal(dr["origin_price_g"]) : 0), 4);
-                if (depId == "510" || dr["do_color"].ToString().IndexOf("掛電")>0 || dr["do_color"].ToString().IndexOf("挂電") > 0)
+                //dt.Columns.Add("StdProductPrice", typeof(float));
+                //dt.Columns.Add("StdPriceUnit", typeof(string));
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dr["price_g"] = dr["price_pcs"];
-                    dr["pcs_cost"] = dr["price_pcs"];
+                    DataRow dr = dt.Rows[i];
+                    dr["origin_price_g"] = dr["price_g"];
+                    dr["pcs_cost"] = Math.Round((dr["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dr["pcs_weg"]) : 0)
+                        * (dr["origin_price_g"].ToString() != "" ? Convert.ToDecimal(dr["origin_price_g"]) : 0), 4);
+                    if (depId == "510" || dr["do_color"].ToString().IndexOf("掛電") > 0 || dr["do_color"].ToString().IndexOf("挂電") > 0)
+                    {
+                        dr["price_g"] = dr["price_pcs"];
+                        dr["pcs_cost"] = dr["price_pcs"];
+                    }
+                    ////獲取自定的單價
+                    //DataTable dt1 = findStdProductPrice(dr["goods_id"].ToString());
+                    //if (dt1.Rows.Count > 0)
+                    //{
+                    //    dr["StdProductPrice"] = dt1.Rows[0]["ProductPrice"];
+                    //    dr["StdPriceUnit"] = dt1.Rows[0]["PriceUnit"];
+                    //}
                 }
             }
             return dt;
@@ -578,7 +634,7 @@ namespace cf01.CLS
             }
             if (isSetFlag == 0)//已設定單價
             {
-                strSql = "Select a.ProductId AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor,a.ProductPrice" +
+                strSql = "Select a.ProductId AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor,a.ProductPrice,a.PriceUnit" +
                 " From mm_ProductPrice a" +
                 " Inner join geo_it_goods mm On a.ProductId=mm.id" +
                 " Where a.ProductId>=''";
@@ -592,7 +648,7 @@ namespace cf01.CLS
             {
 
                 strSql += "SELECT aa.* FROM (";
-                strSql += "Select Top 100000 mm.id AS goods_id,a.ProductPrice,mm.name As goods_cname,mm.do_color AS DoColor" +
+                strSql += "Select Top 100000 mm.id AS goods_id,a.ProductPrice,a.PriceUnit,mm.name As goods_cname,mm.do_color AS DoColor" +
                     " From geo_it_goods mm" +
                     " Left join mm_ProductPrice a On mm.id=a.ProductId" +
                     " Where mm.id>=''";
@@ -623,13 +679,13 @@ namespace cf01.CLS
             for (int i = 0; i < lsModel.Count; i++)
             {
                 if (!checkProductPrice(lsModel[i].productId))
-                    strSql += string.Format(@" Insert Into mm_ProductPrice (ProductId,ProductPrice,CreateUser,CreateTime)
-                        Values ('{0}','{1}','{2}','{3}')"
-                        , lsModel[i].productId, lsModel[i].productPrice, lsModel[i].createUser, lsModel[i].createTime);
+                    strSql += string.Format(@" Insert Into mm_ProductPrice (ProductId,ProductPrice,PriceUnit,CreateUser,CreateTime)
+                        Values ('{0}','{1}','{2}','{3}','{4}')"
+                        , lsModel[i].productId, lsModel[i].productPrice, lsModel[i].priceUnit, lsModel[i].createUser, lsModel[i].createTime);
                 else
-                    strSql += string.Format(@" Update mm_ProductPrice Set ProductPrice='{1}',AmendUser='{2}',AmendTime='{3}'
+                    strSql += string.Format(@" Update mm_ProductPrice Set ProductPrice='{1}',PriceUnit='{2}',AmendUser='{3}',AmendTime='{4}'
                         Where ProductId='{0}'"
-                        , lsModel[i].productId, lsModel[i].productPrice
+                        , lsModel[i].productId, lsModel[i].productPrice, lsModel[i].priceUnit
                         , lsModel[i].amendUser, lsModel[i].amendTime);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
@@ -639,7 +695,7 @@ namespace cf01.CLS
         private static bool checkProductPrice(string productId)
         {
             bool result = true;
-            string strSql = "Select ProductId From mm_ProductPrice Where ProductId='" + productId + "'";
+            string strSql = "Select ProductId,ProductPrice From mm_ProductPrice Where ProductId='" + productId + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
                 result = true;
@@ -647,7 +703,12 @@ namespace cf01.CLS
                 result = false;
             return result;
         }
-
+        public static DataTable findStdProductPrice(string productId)
+        {
+            string strSql = "Select ProductId,ProductPrice,PriceUnit From mm_ProductPrice Where ProductId='" + productId + "'";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
 
         //
         public static DataTable findProductWeight(int isSetFlag, bool showF0
@@ -752,7 +813,7 @@ namespace cf01.CLS
         private static bool checkProductWeight(string productId)
         {
             bool result = true;
-            string strSql = "Select ProductId From mm_ProductWeight Where ProductId='" + productId + "'";
+            string strSql = "Select ProductId,ProductWeight From mm_ProductWeight Where ProductId='" + productId + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
                 result = true;
@@ -760,7 +821,15 @@ namespace cf01.CLS
                 result = false;
             return result;
         }
-
+        public static decimal findStdProductWeight(string productId)
+        {
+            decimal stdProductWeight = 0;
+            string strSql = "Select ProductId,ProductWeight From mm_ProductWeight Where ProductId='" + productId + "'";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
+                stdProductWeight = dt.Rows[0]["ProductWeight"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["ProductWeight"]) : 0;
+            return stdProductWeight;
+        }
     }
     
 }
