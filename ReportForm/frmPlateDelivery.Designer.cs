@@ -118,9 +118,9 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkArt.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -341,9 +341,9 @@
             // 
             // grdControl
             // 
-            this.grdControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             gridLevelNode1.LevelTemplate = this.gridView2;
             gridLevelNode1.RelationName = "Level1";
             gridLevelNode2.LevelTemplate = this.gridView3;
@@ -355,7 +355,7 @@
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
             this.grdControl.Name = "grdControl";
-            this.grdControl.Size = new System.Drawing.Size(1016, 355);
+            this.grdControl.Size = new System.Drawing.Size(1160, 527);
             this.grdControl.TabIndex = 4;
             this.grdControl.Tag = "\"1\"";
             this.grdControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -887,7 +887,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1016, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(1160, 33);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -954,7 +954,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1016, 48);
+            this.panel1.Size = new System.Drawing.Size(1160, 48);
             this.panel1.TabIndex = 5;
             // 
             // radioGroup1
@@ -1019,11 +1019,11 @@
             this.txtSend_Date1.Name = "txtSend_Date1";
             this.txtSend_Date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSend_Date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtSend_Date1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtSend_Date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtSend_Date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtSend_Date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtSend_Date1.Size = new System.Drawing.Size(96, 20);
             this.txtSend_Date1.TabIndex = 10;
             this.txtSend_Date1.Leave += new System.EventHandler(this.txtSend_Date1_Leave);
@@ -1036,11 +1036,11 @@
             this.txtSend_Date2.Name = "txtSend_Date2";
             this.txtSend_Date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSend_Date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtSend_Date2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtSend_Date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtSend_Date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtSend_Date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtSend_Date2.Size = new System.Drawing.Size(96, 20);
             this.txtSend_Date2.TabIndex = 11;
             this.txtSend_Date2.Leave += new System.EventHandler(this.txtSend_Date2_Leave);
@@ -1050,7 +1050,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(1016, 438);
+            this.ClientSize = new System.Drawing.Size(1160, 610);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grdControl);
             this.Controls.Add(this.progressBar1);
@@ -1069,9 +1069,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkArt.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

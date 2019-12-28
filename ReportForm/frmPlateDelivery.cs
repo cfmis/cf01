@@ -22,16 +22,12 @@ namespace cf01.ReportForm
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         public string strUser_id = DBUtility._user_id;
         public static string str_language = "0";
-        public bool flag_inport;
-        //public static System.Data.DataTable dtReport = new System.Data.DataTable();
+        public bool flag_inport;       
         public string rpt_type;
         public System.Data.DataTable dtRpt1 = new System.Data.DataTable();
         public System.Data.DataTable dtRpt2 = new System.Data.DataTable();
         public System.Data.DataTable dtRpt3 = new System.Data.DataTable();
-
-        public DataSet ds = new DataSet();
-        //public System.Data.DataTable dtVendor_total = new System.Data.DataTable();
-        //public System.Data.DataTable dtVendor = new System.Data.DataTable();
+        public DataSet ds = new DataSet();       
         public System.Data.DataTable dtExcel = new System.Data.DataTable();
         public System.Data.DataTable dtOut_reurn = new System.Data.DataTable();
 
@@ -73,16 +69,7 @@ namespace cf01.ReportForm
                 case 2:
                     rpt_type = "3";
                     break;
-            }           
-           
-            //if (radioButton1.Checked)
-            //{
-            //    rpt_type = "1";
-            //}
-            //else
-            //{
-            //    rpt_type = "2";
-            //}
+            } 
 
             Load_Excel();
 
@@ -122,13 +109,18 @@ namespace cf01.ReportForm
                 sqlcmd.Dispose();
                 sqlconn.Close();
 
-                //導入EXCEL頁數
-                const String strsql_g = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [大貨單$]";
-                const String strsql_n = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [NS未完成頁數$]";
+                //導入EXCEL頁數               
                 try
                 {
-                    Inport_excel(FileName, strsql_g);
-                    Inport_excel(FileName, strsql_n);
+                    //2019-12-26取消舊代碼
+                    //const String strsql_g = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [大貨單$]";
+                    //const String strsql_n = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [NS未完成頁數$]";
+                    //Inport_excel(FileName, strsql_g); //大貨單
+                    //Inport_excel(FileName, strsql_n); //NS未完成頁數
+
+                    //2019-12-26更改為新的導入EXCEL方式
+                    Excel_To_Datable(FileName, 1); //大貨單
+                    Excel_To_Datable(FileName, 2); //NS未完成頁數
                     flag_inport = true;
                 }
                 catch (SqlException E)
@@ -245,7 +237,7 @@ namespace cf01.ReportForm
                 string strwp_id;
                 int mo_type_sort;
 
-                System.Data.DataTable dtExcel = ds.Tables[0];
+                System.Data.DataTable dtExcel = ds.Tables[0];                 
                 SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
                 sqlconn.Open();
 
@@ -310,6 +302,164 @@ namespace cf01.ReportForm
             }
 
         }
+
+
+
+        /// <summary>
+        /// 參數ls_files_excel 導入EXCEL文件名
+        /// 參數li_sheet_name 導入哪一個Sheet: 1--大貨單;2--NS未完成頁數
+        /// </summary>
+        /// <param name="ls_files_excel"></param>
+        /// <param name="li_sheet_name"></param>
+        private void Excel_To_Datable(string ls_files_excel,int li_sheet_name)
+        {            
+            //將導入的EXCEL轉成Datatble
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt.Columns.Add("未完成頁數", typeof(string));
+            dt.Columns.Add(@"急/特急狀態", typeof(string));
+            dt.Columns.Add("當前部門", typeof(string));
+            //未完成頁數,[急/特急狀態],當前部門
+            //*****
+            //创建Application对象             
+            Microsoft.Office.Interop.Excel.Application xApp = new Microsoft.Office.Interop.Excel.Application();//{ Visible = true };
+            Microsoft.Office.Interop.Excel.Workbook xBook = xApp.Workbooks._Open(ls_files_excel,
+            Missing.Value, Missing.Value, Missing.Value, Missing.Value
+            , Missing.Value, Missing.Value, Missing.Value, Missing.Value
+            , Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+
+            Microsoft.Office.Interop.Excel.Worksheet xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[li_sheet_name];                        
+
+            progressBar1.Enabled = true;
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Step = 1;
+
+            int row_precessing = 0;
+            int row_total = xSheet.UsedRange.Rows.Count;//總行數
+            progressBar1.Maximum = row_total;
+
+            bool lb_flag = true;
+            Microsoft.Office.Interop.Excel.Range rng;
+            try
+            {                           
+                for (int ii = 2; ii <= row_total; ii++)
+                {
+                    row_precessing = ii;//記錄更在更新的行
+                    progressBar1.Value += progressBar1.Step;
+                    if (progressBar1.Value == progressBar1.Maximum)
+                    {
+                        progressBar1.Enabled = false;
+                        progressBar1.Visible = false;
+                    }
+                    DataRow dr = dt.NewRow();
+                    rng = xSheet.Cells[ii, "C"]; //未完成頁數        
+                    dr[0] = rng.get_Value();
+                    rng = xSheet.Cells[ii, "J"]; //急/特急狀態
+                    dr[1] = rng.get_Value();
+                    rng = xSheet.Cells[ii, "Z"]; //當前部門
+                    dr[2] = rng.get_Value();
+                    dt.Rows.Add(dr);
+                }
+                xApp.Application.DisplayAlerts = false; //禁止彈出是否保存對話框
+                xSheet = null;
+                xBook = null;
+                xApp.Quit(); //这一句是非常重要的，否则Excel对象不能从内存中退出 
+                xApp = null;
+            }
+            catch (Exception E)
+            {
+                lb_flag = false;
+                throw new Exception(E.Message);
+            }
+            finally
+            {               
+                if (xApp != null)
+                {
+                    xApp.Quit();
+                    xBook = null;
+                    xSheet = null;
+                    xBook.Close();
+                    GC.Collect();
+                }
+            }
+            progressBar1.Enabled = false;
+            progressBar1.Visible = false;
+            //*************************
+
+            //如導入成功,將頁數寫入數據庫
+            if (lb_flag)
+            {
+                string strUser_id = DBUtility._user_id;
+                string strmo_id;
+                string strmo_type;
+                string strwp_id;
+                int mo_type_sort;
+                System.Data.DataTable dtExcel = dt;
+                
+                SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
+                sqlconn.Open();
+
+                const string strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
+                const string strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
+                progressBar1.Enabled = true;
+                progressBar1.Visible = true;
+                progressBar1.Value = 0;
+                progressBar1.Step = 1;
+                progressBar1.Maximum = dtExcel.Rows.Count;
+
+                for (int i = 0; i < dtExcel.Rows.Count; i++)
+                {
+                    progressBar1.Value += progressBar1.Step;
+                    if (progressBar1.Value == progressBar1.Maximum)
+                    {
+                        progressBar1.Enabled = false;
+                        progressBar1.Visible = false;
+                    }
+
+                    strmo_id = dtExcel.Rows[i]["未完成頁數"].ToString().Trim();
+                    if (String.IsNullOrEmpty(strmo_id))
+                    {
+                        continue;
+                    }
+                    strmo_type = dtExcel.Rows[i]["急/特急狀態"].ToString().Trim();
+                    strwp_id = dtExcel.Rows[i]["當前部門"].ToString().Trim();
+                    mo_type_sort = strmo_type.Length;
+
+                    SqlCommand cmd = new SqlCommand(strSql_f, sqlconn);
+                    cmd.Parameters.AddWithValue("@user_id", strUser_id);
+                    cmd.Parameters.AddWithValue("@mo_id", strmo_id);
+                    cmd.Parameters.AddWithValue("@rpt_type", rpt_type);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (!dr.Read())
+                    {
+                        cmd.Dispose();
+                        dr.Close();
+                        dr.Dispose();
+                        SqlCommand sqlcmd = new SqlCommand(strSql_i, sqlconn);
+                        sqlcmd.Parameters.AddWithValue("@user_id", strUser_id);
+                        sqlcmd.Parameters.AddWithValue("@mo_id", strmo_id);
+                        sqlcmd.Parameters.AddWithValue("@rpt_type", rpt_type);
+                        sqlcmd.Parameters.AddWithValue("@mo_type", strmo_type);
+                        sqlcmd.Parameters.AddWithValue("@wp_id", strwp_id);
+                        sqlcmd.Parameters.AddWithValue("@mo_type_sort", mo_type_sort);
+                        sqlcmd.ExecuteNonQuery();
+                        sqlcmd.Dispose();
+                    }
+                    else
+                    {
+                        cmd.Dispose();
+                        dr.Close();
+                        dr.Dispose();
+                    }
+                }
+                progressBar1.Enabled = false;
+                progressBar1.Visible = false;
+                sqlconn.Close();
+                sqlconn.Dispose();
+            }            
+        }
+
+
 
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {

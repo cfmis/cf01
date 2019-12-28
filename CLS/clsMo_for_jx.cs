@@ -649,37 +649,53 @@ namespace cf01.CLS
         public static DataTable GetNextGoods_Id(string pMo_id, string pGoods_id, string pDept)
         {
             DataTable dtPs = new DataTable();
-            try
-            {
-                  string strSql = string.Format(
-                                @"SELECT B.goods_id,B.sup_bom_no,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
+
+            string strSql = string.Format(
+                            @"SELECT B.goods_id,B.sup_bom_no,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
                                 FROM jo_bill_mostly A with(nolock)
 	                            INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code AND A.id=B.id AND A.ver=B.ver
 	                            INNER JOIN it_goods C with(nolock) ON B.within_code=C.within_code AND B.sup_bom_no=C.id 
 	                            LEFT JOIN cd_department D with(nolock) ON B.within_code=D.within_code AND B.next_wp_id=D.id
                                 WHERE A.within_code='0000' AND A.mo_id='{0}' AND B.goods_id='{1}' AND B.wp_id='{2}' AND B.next_wp_id NOT IN('702','722')",
-                                pMo_id, pGoods_id, pDept);
+                            pMo_id, pGoods_id, pDept);
 
-//                string strSql = string.Format(
-//                                @"SELECT B.goods_id,
-//                                 CASE WHEN ISNULL(B.sup_bom_no,'')<>'' THEN B.sup_bom_no ELSE dbo.fn_z_get_sup_bom_no('{2}','{0}','{1}') END AS sup_bom_no
-//                                ,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
-//                                FROM jo_bill_mostly A with(nolock)
-//	                            INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code AND A.id=B.id AND A.ver=B.ver
-//	                            INNER JOIN it_goods C with(nolock) ON B.within_code=C.within_code 
-//                                AND CASE WHEN ISNULL(B.sup_bom_no,'')<>'' THEN B.sup_bom_no ELSE dbo.fn_z_get_sup_bom_no('{2}','{0}','{1}') END = C.id
-//	                            LEFT JOIN cd_department D with(nolock) ON B.within_code=D.within_code AND B.next_wp_id=D.id
-//                                WHERE A.within_code='0000' AND A.mo_id='{0}' AND B.goods_id='{1}' AND B.wp_id='{2}' AND B.next_wp_id<>'702'",
-//                                pMo_id, pGoods_id, pDept);
-
-               
-
+            /*string strSql = string.Format(
+                            @"SELECT B.goods_id,
+                             CASE WHEN ISNULL(B.sup_bom_no,'')<>'' THEN B.sup_bom_no ELSE dbo.fn_z_get_sup_bom_no('{2}','{0}','{1}') END AS sup_bom_no
+                            ,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
+                            FROM jo_bill_mostly A with(nolock)
+                            INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code AND A.id=B.id AND A.ver=B.ver
+                            INNER JOIN it_goods C with(nolock) ON B.within_code=C.within_code 
+                            AND CASE WHEN ISNULL(B.sup_bom_no,'')<>'' THEN B.sup_bom_no ELSE dbo.fn_z_get_sup_bom_no('{2}','{0}','{1}') END = C.id
+                            LEFT JOIN cd_department D with(nolock) ON B.within_code=D.within_code AND B.next_wp_id=D.id
+                            WHERE A.within_code='0000' AND A.mo_id='{0}' AND B.goods_id='{1}' AND B.wp_id='{2}' AND B.next_wp_id<>'702'",
+                            pMo_id, pGoods_id, pDept);
+                            */
+            dtPs = clsConErp.GetDataTable(strSql);
+            if (dtPs.Rows.Count == 0)
+            {
+                //手動加的流程此字段sup_bom_no為空則執行此查找
+                strSql = string.Format(
+                            @"SELECT B.goods_id,S2.sup_bom_no,B.wp_id,B.next_wp_id,C.name AS goods_name,D.name AS dept_name
+                            FROM jo_bill_mostly A with(nolock)
+                            INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code AND A.id=B.id AND A.ver=B.ver
+                            INNER JOIN 
+                                (SELECT jo.within_code,jo.id,jo.ver,jo.goods_id as sup_bom_no
+                                FROM jo_bill_goods_details jo with(nolock) 
+                                INNER JOIN (SELECT TOP 1 cc.within_code,cc.id,cc.ver,cc.upper_sequence
+			                                  FROM jo_bill_mostly aa with(nolock)
+			                                  INNER JOIN jo_bill_goods_details bb with(nolock) ON aa.within_code=bb.within_code AND aa.id=bb.id AND aa.ver=bb.ver
+			                                  INNER JOIN jo_bill_materiel_details cc with(nolock) ON bb.within_code=cc.within_code AND bb.id=cc.id and bb.ver=cc.ver and cc.materiel_id = '{1}'
+			                                  WHERE aa.within_code='0000' AND aa.mo_id='{0}' AND bb.goods_id='{1}' AND bb.wp_id='{2}' AND bb.next_wp_id NOT IN('702','722')
+		                                   ) S1 ON jo.within_code=S1.within_code AND jo.id=S1.id AND jo.ver=S1.ver AND jo.sequence_id=S1.upper_sequence
+                                ) S2 ON B.within_code=S2.within_code AND B.id =S2.id AND B.ver =S2.ver 
+                            INNER JOIN it_goods C with(nolock) ON S2.within_code=C.within_code AND S2.sup_bom_no=C.id
+                            LEFT JOIN cd_department D with(nolock) ON B.within_code=D.within_code AND B.next_wp_id=D.id
+                            WHERE A.within_code='0000' AND A.mo_id='{0}' AND B.goods_id='{1}' AND B.wp_id='{2}' AND B.next_wp_id NOT IN('702','722')",
+                            pMo_id, pGoods_id, pDept);
                 dtPs = clsConErp.GetDataTable(strSql);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
             return dtPs;
         }
 

@@ -562,14 +562,11 @@ namespace cf01.Forms
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {           
             row_reset = gridView1.FocusedRowHandle;
-            if (gridView1.GetRowCellValue(row_reset, "finish_status").ToString() == "True")
-            {
-                chkFinish_status.Checked = true;
-            }
-            else
-            {
+            if (gridView1.GetRowCellValue(row_reset, "finish_status").ToString() == "True")            
+                chkFinish_status.Checked = true;            
+            else            
                 chkFinish_status.Checked = false;
-            }
+            
         }
     }
 }
