@@ -1,0 +1,10 @@
+obj/
+bin/
+.vs/
+DataAccess/
+BusinessRulerClass/
+cf01.sln
+cf01.suo
+mssccprj.scc
+Program.cs
+
