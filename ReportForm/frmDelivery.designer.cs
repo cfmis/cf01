@@ -109,10 +109,16 @@
             this.chkDelivery = new DevExpress.XtraEditors.CheckEdit();
             this.chkPrint = new DevExpress.XtraEditors.CheckEdit();
             this.btnAlloy = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMo_id2 = new DevExpress.XtraEditors.TextEdit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.remark = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
@@ -128,6 +134,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID1
@@ -167,11 +175,11 @@
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Size = new System.Drawing.Size(156, 20);
             this.txtDat2.TabIndex = 3;
             this.txtDat2.Tag = "2";
@@ -185,11 +193,11 @@
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Size = new System.Drawing.Size(156, 20);
             this.txtDat1.TabIndex = 2;
             this.txtDat1.Tag = "2";
@@ -411,7 +419,7 @@
             // txtOut_detp1
             // 
             this.txtOut_detp1.EnterMoveNextControl = true;
-            this.txtOut_detp1.Location = new System.Drawing.Point(159, 143);
+            this.txtOut_detp1.Location = new System.Drawing.Point(159, 167);
             this.txtOut_detp1.Name = "txtOut_detp1";
             this.txtOut_detp1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtOut_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -425,13 +433,13 @@
             this.txtOut_detp1.Properties.ShowHeader = false;
             this.txtOut_detp1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtOut_detp1.Size = new System.Drawing.Size(156, 20);
-            this.txtOut_detp1.TabIndex = 4;
+            this.txtOut_detp1.TabIndex = 6;
             this.txtOut_detp1.Click += new System.EventHandler(this.txtOut_detp1_Click);
             this.txtOut_detp1.Leave += new System.EventHandler(this.txtOut_detp1_Leave);
             // 
             // lblOut_dept
             // 
-            this.lblOut_dept.Location = new System.Drawing.Point(73, 148);
+            this.lblOut_dept.Location = new System.Drawing.Point(73, 172);
             this.lblOut_dept.Name = "lblOut_dept";
             this.lblOut_dept.Size = new System.Drawing.Size(80, 13);
             this.lblOut_dept.TabIndex = 130;
@@ -441,7 +449,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 147);
+            this.label3.Location = new System.Drawing.Point(340, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 12);
             this.label3.TabIndex = 131;
@@ -450,7 +458,7 @@
             // txtOut_detp2
             // 
             this.txtOut_detp2.EnterMoveNextControl = true;
-            this.txtOut_detp2.Location = new System.Drawing.Point(376, 143);
+            this.txtOut_detp2.Location = new System.Drawing.Point(376, 167);
             this.txtOut_detp2.Name = "txtOut_detp2";
             this.txtOut_detp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -469,7 +477,7 @@
             // txtIn_detp2
             // 
             this.txtIn_detp2.EnterMoveNextControl = true;
-            this.txtIn_detp2.Location = new System.Drawing.Point(376, 169);
+            this.txtIn_detp2.Location = new System.Drawing.Point(376, 193);
             this.txtIn_detp2.Name = "txtIn_detp2";
             this.txtIn_detp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -482,13 +490,13 @@
             this.txtIn_detp2.Properties.ShowHeader = false;
             this.txtIn_detp2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtIn_detp2.Size = new System.Drawing.Size(156, 20);
-            this.txtIn_detp2.TabIndex = 6;
+            this.txtIn_detp2.TabIndex = 9;
             this.txtIn_detp2.Click += new System.EventHandler(this.txtIn_detp2_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(340, 172);
+            this.label4.Location = new System.Drawing.Point(340, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 12);
             this.label4.TabIndex = 135;
@@ -496,7 +504,7 @@
             // 
             // lblIn_dept
             // 
-            this.lblIn_dept.Location = new System.Drawing.Point(73, 174);
+            this.lblIn_dept.Location = new System.Drawing.Point(73, 198);
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(80, 13);
             this.lblIn_dept.TabIndex = 134;
@@ -506,7 +514,7 @@
             // txtIn_detp1
             // 
             this.txtIn_detp1.EnterMoveNextControl = true;
-            this.txtIn_detp1.Location = new System.Drawing.Point(159, 169);
+            this.txtIn_detp1.Location = new System.Drawing.Point(159, 193);
             this.txtIn_detp1.Name = "txtIn_detp1";
             this.txtIn_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -519,7 +527,7 @@
             this.txtIn_detp1.Properties.ShowHeader = false;
             this.txtIn_detp1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtIn_detp1.Size = new System.Drawing.Size(156, 20);
-            this.txtIn_detp1.TabIndex = 5;
+            this.txtIn_detp1.TabIndex = 8;
             this.txtIn_detp1.Click += new System.EventHandler(this.txtIn_detp1_Click);
             this.txtIn_detp1.Leave += new System.EventHandler(this.txtIn_detp1_Leave);
             // 
@@ -673,12 +681,12 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(4, 197);
+            this.gridControl1.Location = new System.Drawing.Point(4, 233);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clFlag_select});
-            this.gridControl1.Size = new System.Drawing.Size(1093, 340);
+            this.gridControl1.Size = new System.Drawing.Size(1093, 436);
             this.gridControl1.TabIndex = 137;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -705,7 +713,8 @@
             this.picture_name,
             this.do_color,
             this.goods_mat,
-            this.seq_id_flag});
+            this.seq_id_flag,
+            this.remark});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -970,7 +979,7 @@
             // 
             // chkSelect
             // 
-            this.chkSelect.Location = new System.Drawing.Point(29, 175);
+            this.chkSelect.Location = new System.Drawing.Point(29, 212);
             this.chkSelect.Name = "chkSelect";
             this.chkSelect.Properties.Caption = "全選";
             this.chkSelect.Size = new System.Drawing.Size(48, 19);
@@ -998,7 +1007,7 @@
             this.btnAlloy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAlloy.Image = ((System.Drawing.Image)(resources.GetObject("btnAlloy.Image")));
             this.btnAlloy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlloy.Location = new System.Drawing.Point(694, 146);
+            this.btnAlloy.Location = new System.Drawing.Point(773, 182);
             this.btnAlloy.Name = "btnAlloy";
             this.btnAlloy.Size = new System.Drawing.Size(184, 31);
             this.btnAlloy.TabIndex = 143;
@@ -1007,11 +1016,75 @@
             this.btnAlloy.UseVisualStyleBackColor = false;
             this.btnAlloy.Click += new System.EventHandler(this.btnAlloy_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(340, 145);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 12);
+            this.label2.TabIndex = 147;
+            this.label2.Text = "--";
+            // 
+            // txtMo_id2
+            // 
+            this.txtMo_id2.EnterMoveNextControl = true;
+            this.txtMo_id2.Location = new System.Drawing.Point(376, 142);
+            this.txtMo_id2.Name = "txtMo_id2";
+            this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMo_id2.Properties.MaxLength = 9;
+            this.txtMo_id2.Size = new System.Drawing.Size(156, 20);
+            this.txtMo_id2.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(73, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 146;
+            this.label5.Text = "頁  數";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtMo_id1
+            // 
+            this.txtMo_id1.EnterMoveNextControl = true;
+            this.txtMo_id1.Location = new System.Drawing.Point(159, 142);
+            this.txtMo_id1.Name = "txtMo_id1";
+            this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMo_id1.Properties.MaxLength = 9;
+            this.txtMo_id1.Size = new System.Drawing.Size(156, 20);
+            this.txtMo_id1.TabIndex = 4;
+            this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcel.Location = new System.Drawing.Point(620, 182);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(133, 31);
+            this.btnExcel.TabIndex = 148;
+            this.btnExcel.Text = "匯出EXCEL";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // remark
+            // 
+            this.remark.Caption = "稱交備註";
+            this.remark.FieldName = "remark";
+            this.remark.Name = "remark";
+            // 
             // frmDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 540);
+            this.ClientSize = new System.Drawing.Size(1098, 672);
+            this.Controls.Add(this.btnExcel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtMo_id2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtMo_id1);
             this.Controls.Add(this.btnAlloy);
             this.Controls.Add(this.chkPrint);
             this.Controls.Add(this.chkDelivery);
@@ -1043,9 +1116,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDelivery_FormClosed);
             this.Load += new System.EventHandler(this.frmDelivery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -1062,6 +1135,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1146,5 +1221,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.Button btnAlloy;
         private DevExpress.XtraGrid.Columns.GridColumn sent_bef_year;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.TextEdit txtMo_id2;
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.TextEdit txtMo_id1;
+        private System.Windows.Forms.Button btnExcel;
+        private DevExpress.XtraGrid.Columns.GridColumn remark;
     }
 }
