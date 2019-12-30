@@ -92,26 +92,9 @@ namespace cf01.ReportForm
         }
 
         private void txtDat1_Leave(object sender, EventArgs e)
-        {
-            string strDate = txtDat1.Text;
-            if (string.IsNullOrEmpty(strDate))
-            {
-                return;
-            }
-            if (CheckDate(sender))
-            {
-                txtDat2.EditValue = txtDat1.EditValue;
-            }
-        }
-
-        private void txtDat2_Leave(object sender, EventArgs e)
-        {
-            string strDate = txtDat2.Text;
-            if (!string.IsNullOrEmpty(strDate))
-            {
-                CheckDate(sender);
-            }
-        }
+        {                   
+            txtDat2.EditValue = txtDat1.EditValue;            
+        }      
 
         private static bool CheckDate(object obj)
         {
@@ -236,7 +219,7 @@ namespace cf01.ReportForm
                     new SqlParameter("@flag_jx", flag_jx),
                     new SqlParameter("@flag_print", flag_print)
             };
-            dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all_debug", paras);
+            dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
 
@@ -866,27 +849,32 @@ namespace cf01.ReportForm
                     
                     for (int r = 0; r < gridView1.RowCount; r++)//行
                     {
-                        li_cur_row_xls = r + 2;//EXCEL當前行                        
-                        if (gridView1.GetRowCellValue(r, "con_date").ToString()!= ls_con_date)
+                        if (r == 0)
                         {
-                            
+                            li_cur_row_xls = 2;
+                        }
+                                    
+                        if (gridView1.GetRowCellValue(r, "con_date").ToString()!= ls_con_date)
+                        {                            
                             if (r != 0)//r等于0為gridView1的第一行,不執行if中的代碼
                             {
                                 //小計
                                 li_sequence_id += 1;
-                                worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id+1.ToString();//組小計序號
+                                worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//組小計序號
                                 worksheet.Cells[li_cur_row_xls, 2] = ls_con_date;
                                 worksheet.Cells[li_cur_row_xls, 3] = "小計:";
                                 worksheet.Cells[li_cur_row_xls, 8] = ldc_total_sec_qty;
-                                worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體                             
-                                li_cur_row_xls += 1;//小計代碼有執行則重置寫入EXCEL的當前行
+                                worksheet.Rows[li_cur_row_xls].Font.Size = 10;
+                                worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體      
+                                //li_cur_row_xls = r + 2 + 1;//小計代碼有執行則重置寫入EXCEL的當前行(相當于加多一行)
+                                li_cur_row_xls = li_cur_row_xls + 1; //小計后面行
                             }
                             //當日期不同時初始化序號及總重量的值
                             li_sequence_id = 0;
                             ldc_total_sec_qty = 0;
                         }
-                        li_sequence_id += 1;//序號加1
-                        ldc_total_sec_qty += decimal.Parse(gridView1.GetRowCellValue(r, "sec_qty").ToString());//小計重量
+                        li_sequence_id += 1;//累加序號
+                        ldc_total_sec_qty += decimal.Parse(gridView1.GetRowCellValue(r, "sec_qty").ToString());//累加小計重量
 
                         worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//序號
                         worksheet.Cells[li_cur_row_xls, 2] = gridView1.GetRowCellValue(r, "con_date").ToString(); //"日期"
@@ -901,11 +889,12 @@ namespace cf01.ReportForm
                         worksheet.Rows[li_cur_row_xls].Font.Size = 10;
                         //worksheet.Rows[1].RowHeight = 24;//列高
                         ls_con_date = gridView1.GetRowCellValue(r, "con_date").ToString();
-                        System.Windows.Forms.Application.DoEvents();                        
+                        System.Windows.Forms.Application.DoEvents();
+                        li_cur_row_xls  += 1;
                     }
                     //最后一行的小計
-                    //小計       
-                    li_cur_row_xls += 1;
+                    //小計      
+                    li_sequence_id += 1;                    
                     worksheet.Cells[li_cur_row_xls , 1] = li_sequence_id.ToString();//組小計序號
                     worksheet.Cells[li_cur_row_xls , 2] = ls_con_date;
                     worksheet.Cells[li_cur_row_xls , 3] = "小計:";
@@ -917,12 +906,12 @@ namespace cf01.ReportForm
                     worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
                     worksheet.Rows[1].RowHeight = 24;//列高
                     worksheet.Columns[1].ColumnWidth = 7;
-                    worksheet.Columns[2].ColumnWidth = 15;
+                    worksheet.Columns[2].ColumnWidth = 10;
                     worksheet.Columns[3].ColumnWidth = 15;
-                    worksheet.Columns[4].ColumnWidth = 15;
+                    worksheet.Columns[4].ColumnWidth = 10;
                     worksheet.Columns[5].ColumnWidth = 50;
                     worksheet.Columns[6].ColumnWidth = 11;
-                    worksheet.Columns[7].ColumnWidth = 7;
+                    worksheet.Columns[7].ColumnWidth = 6;
                     worksheet.Columns[8].ColumnWidth = 8;
                     worksheet.Columns[9].ColumnWidth = 15;
                     worksheet.Columns[10].ColumnWidth = 21;
