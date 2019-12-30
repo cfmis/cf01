@@ -1,11 +1,12 @@
-obj/
+
 bin/
+obj/
+BusinessRulerClass/
 .vs/
 DataAccess/
-BusinessRulerClass/
 cf01.sln
 cf01.suo
-mssccprj.scc
 Program.cs
-licenses.licx
+.gitignore
+Properties/licenses.licx
 
