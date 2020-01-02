@@ -249,6 +249,7 @@ namespace cf01.MM
             string parentLevel = "";
             string productName = "";
             string tnText = "";
+            string childId = "";
             if (tn.Parent != null)
             {
                 parentLevel = tn.Parent.Level.ToString();
@@ -258,17 +259,26 @@ namespace cf01.MM
                 parentLevel = "--";
 
             }
+            if (tn.LastNode != null)//獲取下一層的物料，用于計算本層的重量
+            {
+                childId = tn.LastNode.Tag.ToString();
+            }
+            else
+            {
+                childId = "";
+
+            }
             bomLevel = tn.Level.ToString();
             tnText = tn.Text.Trim();
             productName = tnText.Substring(tnText.IndexOf("[") + 1, (tnText.Length - (tnText.IndexOf("[") + 1) - 1));
-            addBomToTable(parentLevel, bomLevel, tn.Tag.ToString(), productName); 
+            addBomToTable(parentLevel, bomLevel, tn.Tag.ToString(), productName,childId); 
             foreach (TreeNode tnSub in tn.Nodes)
             {
                 expandBomTree(tnSub);
             }
         }
         //將每個子件插入到表格，同時查找若存在單價設定的就顯示，若沒有的，就從生產流程中獲取初始值
-        private void addBomToTable(string parentLevel, string bomLevel, string productId, string productName)
+        private void addBomToTable(string parentLevel, string bomLevel, string productId, string productName,string materialId)
         {
             string productMo = txtProductMo.Text.Trim();
             DataTable dtCost = new DataTable();
@@ -337,7 +347,7 @@ namespace cf01.MM
                     wasteRate = clsProductCosting.getDepWasteRate(depId);//部門損耗率
                 }
                 //提取自定的物料重量
-                stdProductWeight = clsProductCosting.findStdProductWeight(productId);
+                stdProductWeight = clsProductCosting.findStdProductWeight(productId, materialId);
                 //如果是原料或採購料，則從採購單中提取原料單價
                 if (productId.Substring(0, 2) == "ML" || productId.Substring(0, 2) == "PL")
                 {

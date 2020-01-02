@@ -141,7 +141,7 @@ namespace cf01.MM
         {
             if (dgvWipData.Columns[e.ColumnIndex].Name == "colWipSetCosting")
             {
-                DataGridViewRow dgr = dgvWipData.Rows[dgvWipData.CurrentRow.Index];
+                DataGridViewRow dgr = dgvWipData.Rows[dgvWipData.CurrentCell.RowIndex];
                 frmProductCosting.searchProductId = dgr.Cells["colWipGoodsId"].Value.ToString();
                 frmProductCosting.searchProductName = dgr.Cells["colWipGoodsCname"].Value.ToString();
                 frmProductCosting.searchProductMo = dgr.Cells["colWipProductMo"].Value.ToString();
@@ -153,7 +153,7 @@ namespace cf01.MM
         {
             if (dgvCosting.Columns[e.ColumnIndex].Name == "colSetCosting")
             {
-                DataGridViewRow dgr = dgvCosting.Rows[dgvWipData.CurrentRow.Index];
+                DataGridViewRow dgr = dgvCosting.Rows[dgvCosting.CurrentCell.RowIndex];
                 frmProductCosting.searchProductId = dgr.Cells["colProductId"].Value.ToString();
                 frmProductCosting.searchProductName = dgr.Cells["colProductName"].Value.ToString();
                 frmProductCosting.searchProductMo = dgr.Cells["colProductMo"].Value.ToString();

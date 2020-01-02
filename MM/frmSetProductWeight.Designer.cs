@@ -57,16 +57,12 @@
             this.lblProductWeight = new DevExpress.XtraEditors.LabelControl();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.dgvProductWeight = new System.Windows.Forms.DataGridView();
-            this.colSetPrice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.colSetPrice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +70,13 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterialCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPcsG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -354,6 +357,7 @@
             // 
             // btnConf
             // 
+            this.btnConf.Enabled = false;
             this.btnConf.Location = new System.Drawing.Point(338, 9);
             this.btnConf.Name = "btnConf";
             this.btnConf.Size = new System.Drawing.Size(75, 25);
@@ -398,7 +402,10 @@
             this.colProductId,
             this.colProductName,
             this.colDoColor,
-            this.colProductPrice});
+            this.colMaterialId,
+            this.colMaterialCdesc,
+            this.colProductWeight,
+            this.colPcsG});
             this.dgvProductWeight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductWeight.Location = new System.Drawing.Point(0, 188);
             this.dgvProductWeight.Name = "dgvProductWeight";
@@ -407,48 +414,6 @@
             this.dgvProductWeight.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductWeight.Size = new System.Drawing.Size(1049, 460);
             this.dgvProductWeight.TabIndex = 0;
-            // 
-            // colSetPrice
-            // 
-            this.colSetPrice.DataPropertyName = "SetFlag";
-            this.colSetPrice.Frozen = true;
-            this.colSetPrice.HeaderText = "";
-            this.colSetPrice.Name = "colSetPrice";
-            this.colSetPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSetPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSetPrice.Width = 40;
-            // 
-            // colProductId
-            // 
-            this.colProductId.DataPropertyName = "goods_id";
-            this.colProductId.HeaderText = "物料編號";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Width = 160;
-            // 
-            // colProductName
-            // 
-            this.colProductName.DataPropertyName = "goods_cname";
-            this.colProductName.HeaderText = "物料描述";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 260;
-            // 
-            // colDoColor
-            // 
-            this.colDoColor.DataPropertyName = "DoColor";
-            this.colDoColor.HeaderText = "顏色做法";
-            this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
-            this.colDoColor.Width = 160;
-            // 
-            // colProductPrice
-            // 
-            this.colProductPrice.DataPropertyName = "ProductWeight";
-            this.colProductPrice.HeaderText = "每PCS重量";
-            this.colProductPrice.Name = "colProductPrice";
-            this.colProductPrice.ReadOnly = true;
-            this.colProductPrice.Width = 80;
             // 
             // toolStrip1
             // 
@@ -495,6 +460,16 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
+            // colSetPrice
+            // 
+            this.colSetPrice.DataPropertyName = "SetFlag";
+            this.colSetPrice.Frozen = true;
+            this.colSetPrice.HeaderText = "";
+            this.colSetPrice.Name = "colSetPrice";
+            this.colSetPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSetPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSetPrice.Width = 40;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -551,6 +526,59 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 80;
+            // 
+            // colProductId
+            // 
+            this.colProductId.DataPropertyName = "goods_id";
+            this.colProductId.HeaderText = "物料編號";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Width = 160;
+            // 
+            // colProductName
+            // 
+            this.colProductName.DataPropertyName = "goods_cname";
+            this.colProductName.HeaderText = "物料描述";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 260;
+            // 
+            // colDoColor
+            // 
+            this.colDoColor.DataPropertyName = "DoColor";
+            this.colDoColor.HeaderText = "顏色做法";
+            this.colDoColor.Name = "colDoColor";
+            this.colDoColor.ReadOnly = true;
+            this.colDoColor.Width = 160;
+            // 
+            // colMaterialId
+            // 
+            this.colMaterialId.DataPropertyName = "mat_item";
+            this.colMaterialId.HeaderText = "原料編號";
+            this.colMaterialId.Name = "colMaterialId";
+            this.colMaterialId.Width = 160;
+            // 
+            // colMaterialCdesc
+            // 
+            this.colMaterialCdesc.DataPropertyName = "mat_cdesc";
+            this.colMaterialCdesc.HeaderText = "原料描述";
+            this.colMaterialCdesc.Name = "colMaterialCdesc";
+            this.colMaterialCdesc.Width = 260;
+            // 
+            // colProductWeight
+            // 
+            this.colProductWeight.DataPropertyName = "kg_qty_rate";
+            this.colProductWeight.HeaderText = "每Kg數量";
+            this.colProductWeight.Name = "colProductWeight";
+            this.colProductWeight.ReadOnly = true;
+            this.colProductWeight.Width = 80;
+            // 
+            // colPcsG
+            // 
+            this.colPcsG.DataPropertyName = "pcs_g";
+            this.colPcsG.HeaderText = "每PCS重量";
+            this.colPcsG.Name = "colPcsG";
+            this.colPcsG.Width = 80;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -872,6 +900,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialCdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPcsG;
     }
 }
