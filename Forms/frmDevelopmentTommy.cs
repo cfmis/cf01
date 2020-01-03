@@ -1728,7 +1728,10 @@ namespace cf01.Forms
             else
             {
                 ls_result = "";
-                MessageBox.Show("請設置當前對應年度的PVH序列號參數!", "系統提示");
+                string ls_sql_i = string.Format(@"Insert into development_setting(type_id,comp,searial_no,years,months) values('1','CF',1,'{0}','')",ls_year);
+                clsPublicOfCF01.ExecuteSqlUpdate(ls_sql_i);
+                //MessageBox.Show("請設置當前對應年度的PVH序列號參數!", "系統提示");
+                ls_result = "CF" + "0001" + ls_year;
             }
             return ls_result;
         }

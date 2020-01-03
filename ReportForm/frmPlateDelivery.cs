@@ -321,7 +321,7 @@ namespace cf01.ReportForm
             //未完成頁數,[急/特急狀態],當前部門
             //*****
             //创建Application对象             
-            Microsoft.Office.Interop.Excel.Application xApp = new Microsoft.Office.Interop.Excel.Application();//{ Visible = true };
+            Microsoft.Office.Interop.Excel.Application xApp = new Microsoft.Office.Interop.Excel.Application();//{ Visible = true };                  
             Microsoft.Office.Interop.Excel.Workbook xBook = xApp.Workbooks._Open(ls_files_excel,
             Missing.Value, Missing.Value, Missing.Value, Missing.Value
             , Missing.Value, Missing.Value, Missing.Value, Missing.Value
