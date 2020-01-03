@@ -720,7 +720,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("crtime", typeof(string));
             dtNewWork.Columns.Add("mould_no", typeof(string));
             dtNewWork.Columns.Add("BarCode", typeof(string));
-            dtNewWork.Columns.Add("goods_position", typeof(string));
+            //dtNewWork.Columns.Add("goods_position", typeof(string));
             dtNewWork.Columns.Add("pe_qty", typeof(string));
             dtNewWork.Columns.Add("step", typeof(string));
             dtNewWork.Columns.Add("do_color_next_dep", typeof(string));
@@ -762,7 +762,6 @@ namespace cf01.ReportForm
                         //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);
                         //當前貨品的下部門顏色做法
                         string do_color_next_dep = dgr.Cells["next_do_color"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
-
                         order_unit = "";
                         order_qty = 0;
                         order_qty_pcs = 0;
@@ -777,6 +776,7 @@ namespace cf01.ReportForm
                         if (dt_wk.Rows.Count > 0)
                         {
                             DataRow drDtWk = dt_wk.Rows[0];
+                            string strBarCode = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
                             int Per_qty = Convert.ToInt32(dgr.Cells["per_prod_qty"].Value);  //每次生產數量
                             int Total_qty = Convert.ToInt32(dgr.Cells["prod_qty"].Value);    //生產總量
                             int NumPage = 0;     //報表頁數
@@ -841,6 +841,7 @@ namespace cf01.ReportForm
                                 dr["request_date"] = Request_date;
                                 dr["color_name"] = drDtWk["color_name"].ToString();
                                 dr["do_color"] = drDtWk["do_color"].ToString();
+                                dr["wh_location"] = drDtWk["wh_location"].ToString();
                                 //if (dtPlate_Remark.Rows.Count > 0)
                                 //{
                                 //    dr["plate_remark"] = dtQty.Rows[0]["plate_remark"];
@@ -848,7 +849,7 @@ namespace cf01.ReportForm
 
                                 //if (dtArt.Rows.Count > 0)
                                 //{
-                                    dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
+                                dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
                                     dr["picture_name"] = dgr.Cells["picture_name"].Value.ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
                                 //}
 
@@ -896,9 +897,9 @@ namespace cf01.ReportForm
                                     dr["step"] = dtPs.Rows[0]["step"].ToString();
                                 }
                                 ////條碼Barcode
-                                dr["BarCode"] = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
+                                dr["BarCode"] = strBarCode;
                                 //貨倉位置
-                                dr["goods_position"] = clsMo_for_jx.ReturnGoodsPosition(drDtWk["goods_id"].ToString(), drDtWk["next_wp_id"].ToString());
+                                //dr["goods_position"] = drDtWk["wh_location"].ToString(); //clsMo_for_jx.ReturnGoodsPosition(drDtWk["goods_id"].ToString(), drDtWk["next_wp_id"].ToString());
                                 dr["do_color_next_dep"] = do_color_next_dep;
 
                                 dr["next_goods_id"] = dgr.Cells["next_goods_id"].Value.ToString();

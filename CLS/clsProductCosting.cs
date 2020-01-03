@@ -725,7 +725,7 @@ namespace cf01.CLS
                 if (productId1.Length == 18)
                 {
                     if (isSetFlag == 0)
-                        strWhere += " And a.ProductId='" + productId1 + "'";
+                        strWhere += " And a.prd_item='" + productId1 + "'";
                     else
                         strWhere += " And mm.id='" + productId1 + "'";
                 }
@@ -746,37 +746,43 @@ namespace cf01.CLS
             else
             {
                 if (isSetFlag == 0)
-                    strWhere += " And a.ProductId Like '%" + productId1 + "%'";
+                    strWhere += " And a.prd_item Like '%" + productId1 + "%'";
                 else
                     strWhere += " And mm.id Like'%" + productId1 + "%'";
             }
             if (isSetFlag == 0)//已設定單價
             {
-                strSql = "Select a.ProductId AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor,a.ProductWeight" +
-                " From mm_ProductWeight a" +
-                " Inner join geo_it_goods mm On a.ProductId=mm.id" +
-                " Where a.ProductId>=''";
+                strSql = "Select a.prd_item AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
+                ",a.kg_qty_rate,CASE a.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/a.kg_qty_rate)*1000,4) END AS pcs_g" +
+                ",a.mat_item,mm1.name As mat_cdesc"+
+                " From bs_mat_rate a" +
+                " Inner join geo_it_goods mm On a.prd_item=mm.id" +
+                " Left join geo_it_goods mm1 On a.mat_item=mm1.id" +
+                " Where a.prd_item>=''";
 
                 strSql += strWhere;
                 if (showF0 == true)
-                    strSql += " And a.ProductId>='F0' And a.ProductId<='F0-ZZZZZZZ-ZZZ'";
-                strSql += " Order By a.ProductId";
+                    strSql += " And a.prd_item>='F0' And a.prd_item<='F0-ZZZZZZZ-ZZZ'";
+                strSql += " Order By a.prd_item";
             }
             else
             {
 
-                strSql += "SELECT aa.* FROM (";
-                strSql += "Select Top 100000 mm.id AS goods_id,a.ProductWeight,mm.name As goods_cname,mm.do_color AS DoColor" +
+                strSql += "SELECT aa.*,bb.name As mat_cdesc FROM (";
+                strSql += "Select Top 100000 mm.id AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
+                    ",a.kg_qty_rate,CASE a.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/a.kg_qty_rate)*1000,4) END AS pcs_g" +
+                    ",a.mat_item" +
                     " From geo_it_goods mm" +
-                    " Left join mm_ProductWeight a On mm.id=a.ProductId" +
-                    " Where mm.id>=''";
+                    " Left join bs_mat_rate a On mm.id=a.prd_item" +
+                     " Where mm.id>=''";
                 if (showF0 == true)
                     strSql += " And mm.id>='F0' And mm.id<='F0-ZZZZZZZ-ZZZ'";
                 strSql += strWhere;
                 strSql += " Order By mm.id ";
                 strSql += " ) aa";
+                strSql += " Left Join geo_it_goods bb On aa.mat_item=bb.id";
                 if (isSetFlag == 1)
-                    strSql += " WHERE aa.ProductWeight Is Null";
+                    strSql += " WHERE aa.kg_qty_rate Is Null";
             }
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
@@ -821,13 +827,14 @@ namespace cf01.CLS
                 result = false;
             return result;
         }
-        public static decimal findStdProductWeight(string productId)
+        public static decimal findStdProductWeight(string productId, string materialId)
         {
             decimal stdProductWeight = 0;
-            string strSql = "Select ProductId,ProductWeight From mm_ProductWeight Where ProductId='" + productId + "'";
+            string strSql = "Select kg_qty_rate,CASE kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/kg_qty_rate)*1000,4) END AS pcs_g"+
+                " From bs_mat_rate Where prd_item='" + productId + "' And mat_item='" + materialId + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
-                stdProductWeight = dt.Rows[0]["ProductWeight"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["ProductWeight"]) : 0;
+                stdProductWeight = dt.Rows[0]["pcs_g"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_g"]) : 0;
             return stdProductWeight;
         }
     }
