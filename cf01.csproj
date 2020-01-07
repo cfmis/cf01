@@ -126,14 +126,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.CodeParser.v14.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.CodeRush.Controls, Version=11.2.11.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Data.v14.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.DXCore.Controls.Data.v6.3, Version=11.2.11.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.DXCore.Controls.Utils.v6.3, Version=11.2.11.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d" />
-    <Reference Include="DevExpress.DXCore.Controls.XtraEditors.v6.3, Version=11.2.11.0, Culture=neutral, PublicKeyToken=35c9f04b7764aa3d, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.PivotGrid.v14.2.Core.dll</HintPath>
@@ -232,6 +228,7 @@
   <ItemGroup>
     <Compile Include="CLS\clsAppPublic.cs" />
     <Compile Include="CLS\clsArtWork.cs" />
+    <Compile Include="CLS\clsBaseData.cs" />
     <Compile Include="CLS\clsBkWork.cs" />
     <Compile Include="CLS\clsBs_Dep.cs" />
     <Compile Include="CLS\clsBs_Unit.cs" />
