@@ -48,9 +48,8 @@ namespace cf01.ReportForm
         }        
 
         private void frmDelivery_Load(object sender, EventArgs e)
-        {
-            string strSQL = @"SELECT id,id+'['+name+']' AS cdesc FROM cd_productline WHERE type<>'07' AND state='0' ORDER BY id" ;
-            dtDept = clsConErp.GetDataTable(strSQL);
+        {            
+            dtDept = clsBaseData.Get_Department();
             DataRow dr0 = dtDept.NewRow(); //插一空行        
             dtDept.Rows.InsertAt(dr0, 0);
             txtOut_detp1.Properties.DataSource = dtDept;
@@ -69,8 +68,8 @@ namespace cf01.ReportForm
             txtIn_detp2.Properties.ValueMember = "id";
             txtIn_detp2.Properties.DisplayMember = "cdesc";
 
-            strSQL = @"SELECT id,id+'['+name+']' as cdesc FROM it_vendor WHERE id='CL-K0036' ORDER BY id";
-            dtVendor = clsConErp.GetDataTable(strSQL);
+            string strsql = @"SELECT id,id+'['+name+']' as cdesc FROM it_vendor WHERE id='CL-K0036' ORDER BY id";
+            dtVendor = clsConErp.GetDataTable(strsql);
             DataRow dr1 = dtVendor.NewRow(); //插一空行        
             dtVendor.Rows.InsertAt(dr1, 0);
 

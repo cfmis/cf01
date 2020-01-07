@@ -33,8 +33,7 @@ namespace cf01.CLS
                                         ,Convert(varchar(20),a.crtim,20) as crtim,a.imput_flag,Convert(varchar(20),a.imput_time,20) as imput_time,a.adj_flag
                                   FROM jo_materiel_con_details as a WITH(NOLOCK)
                                   INNER JOIN jo_materiel_con_mostly b WITH(NOLOCK) on a.within_code=b.within_code and a.id=b.id
-                                  LEFT JOIN dgsql2.dgcf_db.dbo.geo_it_goods c WITH(NOLOCK) on a.goods_id=c.id  COLLATE Chinese_Taiwan_Stroke_CI_AS 
-                                  LEFT JOIN dgerp2.cferp.dbo.jo_bill_mostly d WITH(NOLOCK) on a.within_code=d.within_code AND a.mo_id=d.mo_id
+                                  LEFT JOIN dgsql2.dgcf_db.dbo.geo_it_goods c WITH(NOLOCK) on a.goods_id=c.id COLLATE Chinese_Taiwan_Stroke_CI_AS                                  
                                   WHERE b.within_code='0000' ");
 
                 if (pIn_dept != "")

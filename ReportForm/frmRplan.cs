@@ -28,10 +28,8 @@ namespace cf01.ReportForm
 
         private void frmRplan_Load(object sender, EventArgs e)
         {
-            string strSQL = 
-            @"SELECT id,id+' ['+name+']' as cdesc FROM dbo.cd_department 
-            WHERE within_code='0000' AND id<'888' AND state<>'2' ORDER By id";
-            dtReport = clsConErp.GetDataTable(strSQL);
+
+            dtReport = clsBaseData.Get_Department();
             DataRow dr0 = dtReport.NewRow(); //插一空行        
             dtReport.Rows.InsertAt(dr0, 0);
             txtDept1.Properties.DataSource = dtReport;

@@ -73,25 +73,6 @@
             this.chkSelect = new System.Windows.Forms.CheckBox();
             this.dgvTransfer = new System.Windows.Forms.DataGridView();
             this.checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGoods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coliGoods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,11 +92,30 @@
             this.colImput_flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colImput_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAdjFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date1.Properties)).BeginInit();
             this.grbCon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
@@ -285,8 +285,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.txtOut_Dept_Name);
             this.panel1.Controls.Add(this.txtIn_Dept_Name);
@@ -310,7 +310,7 @@
             // 
             // txtOut_Dept_Name
             // 
-            this.txtOut_Dept_Name.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtOut_Dept_Name.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtOut_Dept_Name.Location = new System.Drawing.Point(152, 39);
             this.txtOut_Dept_Name.Name = "txtOut_Dept_Name";
             this.txtOut_Dept_Name.ReadOnly = true;
@@ -319,7 +319,7 @@
             // 
             // txtIn_Dept_Name
             // 
-            this.txtIn_Dept_Name.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtIn_Dept_Name.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtIn_Dept_Name.Location = new System.Drawing.Point(152, 8);
             this.txtIn_Dept_Name.Name = "txtIn_Dept_Name";
             this.txtIn_Dept_Name.ReadOnly = true;
@@ -328,24 +328,26 @@
             // 
             // txtOut_dept
             // 
-            this.txtOut_dept.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtOut_dept.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtOut_dept.FormattingEnabled = true;
             this.txtOut_dept.Location = new System.Drawing.Point(63, 39);
             this.txtOut_dept.Name = "txtOut_dept";
             this.txtOut_dept.Size = new System.Drawing.Size(89, 24);
             this.txtOut_dept.TabIndex = 1;
             this.txtOut_dept.SelectedIndexChanged += new System.EventHandler(this.txtOut_dept_SelectedIndexChanged);
+            this.txtOut_dept.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOut_dept_KeyPress);
             this.txtOut_dept.Leave += new System.EventHandler(this.txtOut_dept_Leave);
             // 
             // txtIn_dept
             // 
-            this.txtIn_dept.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtIn_dept.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtIn_dept.FormattingEnabled = true;
             this.txtIn_dept.Location = new System.Drawing.Point(63, 8);
             this.txtIn_dept.Name = "txtIn_dept";
             this.txtIn_dept.Size = new System.Drawing.Size(89, 24);
             this.txtIn_dept.TabIndex = 0;
             this.txtIn_dept.SelectedIndexChanged += new System.EventHandler(this.txtIn_dept_SelectedIndexChanged);
+            this.txtIn_dept.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIn_dept_KeyPress);
             this.txtIn_dept.Leave += new System.EventHandler(this.txtIn_dept_Leave);
             // 
             // txtCon_date2
@@ -354,16 +356,16 @@
             this.txtCon_date2.EnterMoveNextControl = true;
             this.txtCon_date2.Location = new System.Drawing.Point(551, 8);
             this.txtCon_date2.Name = "txtCon_date2";
-            this.txtCon_date2.Properties.Appearance.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCon_date2.Properties.Appearance.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtCon_date2.Properties.Appearance.Options.UseFont = true;
             this.txtCon_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtCon_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtCon_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCon_date2.Properties.Mask.EditMask = "yyyy/MM/dd HH:mm:ss";
             this.txtCon_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtCon_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtCon_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCon_date2.Size = new System.Drawing.Size(162, 24);
             this.txtCon_date2.TabIndex = 3;
             // 
@@ -373,16 +375,16 @@
             this.txtCon_date1.EnterMoveNextControl = true;
             this.txtCon_date1.Location = new System.Drawing.Point(386, 8);
             this.txtCon_date1.Name = "txtCon_date1";
-            this.txtCon_date1.Properties.Appearance.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCon_date1.Properties.Appearance.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtCon_date1.Properties.Appearance.Options.UseFont = true;
             this.txtCon_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtCon_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtCon_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCon_date1.Properties.Mask.EditMask = "yyyy/MM/dd HH:mm:ss";
             this.txtCon_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtCon_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtCon_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCon_date1.Size = new System.Drawing.Size(160, 24);
             this.txtCon_date1.TabIndex = 2;
             // 
@@ -503,7 +505,7 @@
             // txtMo2
             // 
             this.txtMo2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMo2.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMo2.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtMo2.Location = new System.Drawing.Point(551, 39);
             this.txtMo2.MaxLength = 9;
             this.txtMo2.Name = "txtMo2";
@@ -513,7 +515,7 @@
             // txtMo1
             // 
             this.txtMo1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMo1.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMo1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtMo1.Location = new System.Drawing.Point(386, 39);
             this.txtMo1.MaxLength = 9;
             this.txtMo1.Name = "txtMo1";
@@ -561,9 +563,9 @@
             // dgvTransfer
             // 
             this.dgvTransfer.AllowUserToAddRows = false;
-            this.dgvTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTransfer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvTransfer.ColumnHeadersHeight = 35;
             this.dgvTransfer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -602,6 +604,151 @@
             this.checkbox.Name = "checkbox";
             this.checkbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.checkbox.Width = 30;
+            // 
+            // colMo_id
+            // 
+            this.colMo_id.DataPropertyName = "mo_id";
+            this.colMo_id.HeaderText = "制單編號";
+            this.colMo_id.Name = "colMo_id";
+            this.colMo_id.ReadOnly = true;
+            // 
+            // colGoods_id
+            // 
+            this.colGoods_id.DataPropertyName = "goods_id";
+            this.colGoods_id.HeaderText = "物料編號";
+            this.colGoods_id.Name = "colGoods_id";
+            this.colGoods_id.ReadOnly = true;
+            this.colGoods_id.Width = 170;
+            // 
+            // coliGoods_name
+            // 
+            this.coliGoods_name.DataPropertyName = "goods_name";
+            this.coliGoods_name.HeaderText = "物料名稱";
+            this.coliGoods_name.Name = "coliGoods_name";
+            this.coliGoods_name.ReadOnly = true;
+            this.coliGoods_name.Width = 250;
+            // 
+            // colTrans_id
+            // 
+            this.colTrans_id.DataPropertyName = "id";
+            this.colTrans_id.HeaderText = "移交單號";
+            this.colTrans_id.Name = "colTrans_id";
+            this.colTrans_id.ReadOnly = true;
+            this.colTrans_id.Width = 120;
+            // 
+            // colOut_dept
+            // 
+            this.colOut_dept.DataPropertyName = "out_dept";
+            this.colOut_dept.HeaderText = "發貨部門";
+            this.colOut_dept.Name = "colOut_dept";
+            this.colOut_dept.ReadOnly = true;
+            this.colOut_dept.Width = 80;
+            // 
+            // colIn_dept
+            // 
+            this.colIn_dept.DataPropertyName = "in_dept";
+            this.colIn_dept.HeaderText = "收貨部門";
+            this.colIn_dept.Name = "colIn_dept";
+            this.colIn_dept.ReadOnly = true;
+            this.colIn_dept.Width = 80;
+            // 
+            // colCon_date
+            // 
+            this.colCon_date.DataPropertyName = "con_date";
+            this.colCon_date.HeaderText = "移交單日期";
+            this.colCon_date.Name = "colCon_date";
+            this.colCon_date.ReadOnly = true;
+            // 
+            // colCon_qty
+            // 
+            this.colCon_qty.DataPropertyName = "con_qty";
+            this.colCon_qty.HeaderText = "單據數量";
+            this.colCon_qty.Name = "colCon_qty";
+            this.colCon_qty.ReadOnly = true;
+            this.colCon_qty.Width = 80;
+            // 
+            // colSec_qty
+            // 
+            this.colSec_qty.DataPropertyName = "sec_qty";
+            this.colSec_qty.HeaderText = "單據重量";
+            this.colSec_qty.Name = "colSec_qty";
+            this.colSec_qty.ReadOnly = true;
+            this.colSec_qty.Width = 80;
+            // 
+            // colActual_qty
+            // 
+            this.colActual_qty.DataPropertyName = "actual_qty";
+            this.colActual_qty.HeaderText = "實收數量";
+            this.colActual_qty.Name = "colActual_qty";
+            this.colActual_qty.ReadOnly = true;
+            this.colActual_qty.Width = 80;
+            // 
+            // colActual_weg
+            // 
+            this.colActual_weg.DataPropertyName = "actual_weg";
+            this.colActual_weg.HeaderText = "實收重量";
+            this.colActual_weg.Name = "colActual_weg";
+            this.colActual_weg.ReadOnly = true;
+            this.colActual_weg.Width = 80;
+            // 
+            // colActual_pack
+            // 
+            this.colActual_pack.DataPropertyName = "actual_pack";
+            this.colActual_pack.HeaderText = "實際包數";
+            this.colActual_pack.Name = "colActual_pack";
+            this.colActual_pack.ReadOnly = true;
+            this.colActual_pack.Width = 80;
+            // 
+            // colPackage_num
+            // 
+            this.colPackage_num.DataPropertyName = "package_num";
+            this.colPackage_num.HeaderText = "單據包數";
+            this.colPackage_num.Name = "colPackage_num";
+            this.colPackage_num.ReadOnly = true;
+            this.colPackage_num.Width = 80;
+            // 
+            // Collot_no
+            // 
+            this.Collot_no.DataPropertyName = "lot_no";
+            this.Collot_no.HeaderText = "批號";
+            this.Collot_no.Name = "Collot_no";
+            this.Collot_no.ReadOnly = true;
+            this.Collot_no.Width = 80;
+            // 
+            // colSequence_id
+            // 
+            this.colSequence_id.DataPropertyName = "sequence_id";
+            this.colSequence_id.HeaderText = "序號";
+            this.colSequence_id.Name = "colSequence_id";
+            this.colSequence_id.ReadOnly = true;
+            this.colSequence_id.Width = 80;
+            // 
+            // colCrtim
+            // 
+            this.colCrtim.DataPropertyName = "crtim";
+            this.colCrtim.HeaderText = "收貨日期";
+            this.colCrtim.Name = "colCrtim";
+            this.colCrtim.Width = 120;
+            // 
+            // colImput_flag
+            // 
+            this.colImput_flag.DataPropertyName = "imput_flag";
+            this.colImput_flag.HeaderText = "已簽收";
+            this.colImput_flag.Name = "colImput_flag";
+            this.colImput_flag.Width = 80;
+            // 
+            // colImput_time
+            // 
+            this.colImput_time.DataPropertyName = "imput_time";
+            this.colImput_time.HeaderText = "簽收時間";
+            this.colImput_time.Name = "colImput_time";
+            // 
+            // colAdjFlag
+            // 
+            this.colAdjFlag.DataPropertyName = "adj_flag";
+            this.colAdjFlag.HeaderText = "已調整";
+            this.colAdjFlag.Name = "colAdjFlag";
+            this.colAdjFlag.Width = 80;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -752,151 +899,6 @@
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.Width = 80;
             // 
-            // colMo_id
-            // 
-            this.colMo_id.DataPropertyName = "mo_id";
-            this.colMo_id.HeaderText = "制單編號";
-            this.colMo_id.Name = "colMo_id";
-            this.colMo_id.ReadOnly = true;
-            // 
-            // colGoods_id
-            // 
-            this.colGoods_id.DataPropertyName = "goods_id";
-            this.colGoods_id.HeaderText = "物料編號";
-            this.colGoods_id.Name = "colGoods_id";
-            this.colGoods_id.ReadOnly = true;
-            this.colGoods_id.Width = 170;
-            // 
-            // coliGoods_name
-            // 
-            this.coliGoods_name.DataPropertyName = "goods_name";
-            this.coliGoods_name.HeaderText = "物料名稱";
-            this.coliGoods_name.Name = "coliGoods_name";
-            this.coliGoods_name.ReadOnly = true;
-            this.coliGoods_name.Width = 250;
-            // 
-            // colTrans_id
-            // 
-            this.colTrans_id.DataPropertyName = "id";
-            this.colTrans_id.HeaderText = "移交單號";
-            this.colTrans_id.Name = "colTrans_id";
-            this.colTrans_id.ReadOnly = true;
-            this.colTrans_id.Width = 120;
-            // 
-            // colOut_dept
-            // 
-            this.colOut_dept.DataPropertyName = "out_dept";
-            this.colOut_dept.HeaderText = "發貨部門";
-            this.colOut_dept.Name = "colOut_dept";
-            this.colOut_dept.ReadOnly = true;
-            this.colOut_dept.Width = 80;
-            // 
-            // colIn_dept
-            // 
-            this.colIn_dept.DataPropertyName = "in_dept";
-            this.colIn_dept.HeaderText = "收貨部門";
-            this.colIn_dept.Name = "colIn_dept";
-            this.colIn_dept.ReadOnly = true;
-            this.colIn_dept.Width = 80;
-            // 
-            // colCon_date
-            // 
-            this.colCon_date.DataPropertyName = "con_date";
-            this.colCon_date.HeaderText = "移交單日期";
-            this.colCon_date.Name = "colCon_date";
-            this.colCon_date.ReadOnly = true;
-            // 
-            // colCon_qty
-            // 
-            this.colCon_qty.DataPropertyName = "con_qty";
-            this.colCon_qty.HeaderText = "單據數量";
-            this.colCon_qty.Name = "colCon_qty";
-            this.colCon_qty.ReadOnly = true;
-            this.colCon_qty.Width = 80;
-            // 
-            // colSec_qty
-            // 
-            this.colSec_qty.DataPropertyName = "sec_qty";
-            this.colSec_qty.HeaderText = "單據重量";
-            this.colSec_qty.Name = "colSec_qty";
-            this.colSec_qty.ReadOnly = true;
-            this.colSec_qty.Width = 80;
-            // 
-            // colActual_qty
-            // 
-            this.colActual_qty.DataPropertyName = "actual_qty";
-            this.colActual_qty.HeaderText = "實收數量";
-            this.colActual_qty.Name = "colActual_qty";
-            this.colActual_qty.ReadOnly = true;
-            this.colActual_qty.Width = 80;
-            // 
-            // colActual_weg
-            // 
-            this.colActual_weg.DataPropertyName = "actual_weg";
-            this.colActual_weg.HeaderText = "實收重量";
-            this.colActual_weg.Name = "colActual_weg";
-            this.colActual_weg.ReadOnly = true;
-            this.colActual_weg.Width = 80;
-            // 
-            // colActual_pack
-            // 
-            this.colActual_pack.DataPropertyName = "actual_pack";
-            this.colActual_pack.HeaderText = "實際包數";
-            this.colActual_pack.Name = "colActual_pack";
-            this.colActual_pack.ReadOnly = true;
-            this.colActual_pack.Width = 80;
-            // 
-            // colPackage_num
-            // 
-            this.colPackage_num.DataPropertyName = "package_num";
-            this.colPackage_num.HeaderText = "單據包數";
-            this.colPackage_num.Name = "colPackage_num";
-            this.colPackage_num.ReadOnly = true;
-            this.colPackage_num.Width = 80;
-            // 
-            // Collot_no
-            // 
-            this.Collot_no.DataPropertyName = "lot_no";
-            this.Collot_no.HeaderText = "批號";
-            this.Collot_no.Name = "Collot_no";
-            this.Collot_no.ReadOnly = true;
-            this.Collot_no.Width = 80;
-            // 
-            // colSequence_id
-            // 
-            this.colSequence_id.DataPropertyName = "sequence_id";
-            this.colSequence_id.HeaderText = "序號";
-            this.colSequence_id.Name = "colSequence_id";
-            this.colSequence_id.ReadOnly = true;
-            this.colSequence_id.Width = 80;
-            // 
-            // colCrtim
-            // 
-            this.colCrtim.DataPropertyName = "crtim";
-            this.colCrtim.HeaderText = "收貨日期";
-            this.colCrtim.Name = "colCrtim";
-            this.colCrtim.Width = 120;
-            // 
-            // colImput_flag
-            // 
-            this.colImput_flag.DataPropertyName = "imput_flag";
-            this.colImput_flag.HeaderText = "已簽收";
-            this.colImput_flag.Name = "colImput_flag";
-            this.colImput_flag.Width = 80;
-            // 
-            // colImput_time
-            // 
-            this.colImput_time.DataPropertyName = "imput_time";
-            this.colImput_time.HeaderText = "簽收時間";
-            this.colImput_time.Name = "colImput_time";
-            // 
-            // colAdjFlag
-            // 
-            this.colAdjFlag.DataPropertyName = "adj_flag";
-            this.colAdjFlag.HeaderText = "已調整";
-            this.colAdjFlag.Name = "colAdjFlag";
-            this.colAdjFlag.Width = 80;
-            // 
             // frmPrintTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -913,9 +915,9 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCon_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date1.Properties)).EndInit();
             this.grbCon.ResumeLayout(false);
             this.grbCon.PerformLayout();

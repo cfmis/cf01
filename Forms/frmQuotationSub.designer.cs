@@ -87,9 +87,9 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.gridControl1);
             this.panel3.Location = new System.Drawing.Point(2, 40);
@@ -99,9 +99,9 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(3, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -206,7 +206,7 @@
             this.attn_path.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.attn_path.OptionsFilter.AllowAutoFilter = false;
             this.attn_path.OptionsFilter.AllowFilter = false;
-            this.attn_path.Tag = "2";
+            this.attn_path.Tag = "";
             this.attn_path.Visible = true;
             this.attn_path.VisibleIndex = 3;
             this.attn_path.Width = 140;
@@ -247,6 +247,7 @@
             this.clLkpStatus.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.clLkpStatus.Name = "clLkpStatus";
+            this.clLkpStatus.NullText = "";
             this.clLkpStatus.ShowHeader = false;
             this.clLkpStatus.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.clLkpStatus.EditValueChanged += new System.EventHandler(this.clLkpStatus_EditValueChanged);

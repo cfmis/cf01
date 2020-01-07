@@ -47,8 +47,7 @@ namespace cf01.ReportForm
         private void frmOrderProCardBatchPrint_Load(object sender, EventArgs e)
         {
             cmbFormat.SelectedIndex = 1;
-            const string strSQL = @"SELECT id,id+'['+name+']' as cdesc FROM dbo.cd_productline WHERE type<>'07' AND state='0' ORDER BY id";
-            DataTable dtDept = clsConErp.GetDataTable(strSQL);
+            DataTable dtDept = clsBaseData.Get_Department();
             DataRow dr0 = dtDept.NewRow(); //插一空行        
             dtDept.Rows.InsertAt(dr0, 0);
             txtOut_detp1.Properties.DataSource = dtDept;

@@ -38,12 +38,8 @@ namespace cf01.ReportForm
         }        
 
         private void frmCardPlate_Load(object sender, EventArgs e)
-        {
-            string strSQL =
-               @"SELECT id,id+'['+name+']' as cdesc FROM cd_productline 
-                WHERE storehouse_group ='DG' AND type<>'07' AND state='0'
-                ORDER BY id" ;
-            dtDept = clsConErp.GetDataTable(strSQL);
+        {            
+            dtDept = clsBaseData.Get_Department();
             DataRow dr0 = dtDept.NewRow(); //插一空行        
             dtDept.Rows.InsertAt(dr0, 0);
             txtOut_detp1.Properties.DataSource = dtDept;
@@ -53,9 +49,8 @@ namespace cf01.ReportForm
             txtOut_detp2.Properties.DataSource = dtDept;
             txtOut_detp2.Properties.ValueMember = "id";
             txtOut_detp2.Properties.DisplayMember = "cdesc";           
-
-            strSQL = @"SELECT id,id+'['+name+']' as cdesc FROM it_vendor WHERE isnull(Abbrev_id,'')<>'' ORDER BY id";
-            dtVendor = clsConErp.GetDataTable(strSQL);
+             
+            dtVendor = clsBaseData.Get_Plate_Vendor();
             DataRow dr1 = dtVendor.NewRow(); //插一空行        
             dtVendor.Rows.InsertAt(dr1, 0);
 

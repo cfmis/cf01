@@ -412,7 +412,7 @@ namespace cf01.ReportForm
         private void BindDept()
         {
             //DataTable dtDept = clsBs_Dep.GetAllDepartment();
-            dtDept = clsBs_Dep.GetAll_WH();
+            dtDept = clsBaseData.Get_Department();
             if (dtDept.Rows.Count > 0)
             {                
                 for(int i=0;i<dtDept.Rows.Count;i++)
@@ -723,12 +723,12 @@ namespace cf01.ReportForm
 
         private void txtIn_dept_SelectedIndexChanged(object sender, EventArgs e)
         {           
-            txtIn_Dept_Name.Text = dtDept.Rows[txtIn_dept.SelectedIndex]["name"].ToString();
+            txtIn_Dept_Name.Text = dtDept.Rows[txtIn_dept.SelectedIndex]["cdesc"].ToString();
         }
 
         private void txtOut_dept_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtOut_Dept_Name.Text = dtDept.Rows[txtOut_dept.SelectedIndex]["name"].ToString();
+            txtOut_Dept_Name.Text = dtDept.Rows[txtOut_dept.SelectedIndex]["cdesc"].ToString();
         }
 
         private void txtIn_dept_Leave(object sender, EventArgs e)
@@ -749,7 +749,7 @@ namespace cf01.ReportForm
                 {
                     if (dtDept.Rows[i]["id"].ToString() == objComboBox.Text)
                     {
-                        objTextBox.Text = dtDept.Rows[i]["name"].ToString();
+                        objTextBox.Text = dtDept.Rows[i]["cdesc"].ToString();
                         objComboBox.SelectedIndex = i;
                         break;
                     }

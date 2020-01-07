@@ -29,11 +29,8 @@ namespace cf01.ReportForm
 
         private void frmOut_Process_Load(object sender, EventArgs e)
         {
-            dgvDetails.AutoGenerateColumns = false;
-            const string strSQL = @"SELECT id,id+' ['+ name +']' AS cdesc FROM it_vendor 
-                WHERE within_code ='0000' AND state ='1' AND type='OP'
-                ORDER BY id";
-            DataTable dtVendor = clsConErp.GetDataTable(strSQL);
+            dgvDetails.AutoGenerateColumns = false;            
+            DataTable dtVendor = clsBaseData.Get_Plate_Vendor();
             DataRow dr0 = dtVendor.NewRow(); //插一空行        
             dtVendor.Rows.InsertAt(dr0, 0);
             txtVendor_id1.Properties.DataSource = dtVendor;

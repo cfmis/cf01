@@ -474,29 +474,14 @@ namespace cf01.ReportForm
         private void BindDept()
         {
             //DataTable dtDept = clsBs_Dep.GetAllDepartment();
-            dtDept = clsBs_Dep.GetAll_WH();
+            dtDept = clsBaseData.Get_Department();
             if (dtDept.Rows.Count > 0)
             {
-                //DataRow dr = null;
-                //dr = dtDept.NewRow();
-                //dr["id"] = " ";
-                //dr["name"] = "";
-                //dtDept.Rows.InsertAt(dr, 0);
                 for(int i=0;i<dtDept.Rows.Count;i++)
                 {
                     txtIn_dept.Items.Add(dtDept.Rows[i]["id"].ToString());
                     txtOut_dept.Items.Add(dtDept.Rows[i]["id"].ToString());
-                }
-
-                ////收貨部門              
-                //txtIn_dept1.Properties.DataSource = dtDept;
-                //txtIn_dept1.Properties.ValueMember = "id";
-                //txtIn_dept1.Properties.DisplayMember = "id";
-                                              
-                ////發貨部門 
-                //txtOut_dept1.Properties.DataSource = dtDept;
-                //txtOut_dept1.Properties.ValueMember = "id";
-                //txtOut_dept1.Properties.DisplayMember = "id";
+                }                
             }           
         }
 
@@ -805,12 +790,12 @@ namespace cf01.ReportForm
 
         private void txtIn_dept_SelectedIndexChanged(object sender, EventArgs e)
         {           
-            txtIn_Dept_Name.Text = dtDept.Rows[txtIn_dept.SelectedIndex]["name"].ToString();
+            txtIn_Dept_Name.Text = dtDept.Rows[txtIn_dept.SelectedIndex]["cdesc"].ToString();
         }
 
         private void txtOut_dept_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtOut_Dept_Name.Text = dtDept.Rows[txtOut_dept.SelectedIndex]["name"].ToString();
+            txtOut_Dept_Name.Text = dtDept.Rows[txtOut_dept.SelectedIndex]["cdesc"].ToString();
         }
 
         private void txtIn_dept_Leave(object sender, EventArgs e)
@@ -831,7 +816,7 @@ namespace cf01.ReportForm
                 {
                     if (dtDept.Rows[i]["id"].ToString() == objComboBox.Text)
                     {
-                        objTextBox.Text = dtDept.Rows[i]["name"].ToString();
+                        objTextBox.Text = dtDept.Rows[i]["cdesc"].ToString();
                         objComboBox.SelectedIndex = i;
                         break;
                     }
@@ -843,6 +828,22 @@ namespace cf01.ReportForm
             }
             else
                 objTextBox.Text = "";
+        }
+
+        private void txtIn_dept_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==13)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtOut_dept_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                SendKeys.Send("{TAB}");
+            }
         }
     }
 }

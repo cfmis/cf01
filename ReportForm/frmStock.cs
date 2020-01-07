@@ -24,15 +24,14 @@ namespace cf01.ReportForm
 
         private void frmStock_Load(object sender, EventArgs e)
         {
-            string strSql = @"SELECT id,name FROM cd_productline with(nolock) WHERE within_code ='0000' AND type='01' and state<>'2'";
-            DataTable dtDept = clsConErp.GetDataTable(strSql);
 
+            DataTable dtDept = clsBaseData.Get_Department();
             if (dtDept.Rows.Count > 0)
             {
                 DataRow dr = null;
                 dr = dtDept.NewRow();
                 dr["id"] = " ";
-                dr["name"] = "";
+                dr["cdesc"] = "";
                 dtDept.Rows.InsertAt(dr, 0);
 
                 //收貨部門              
@@ -44,21 +43,6 @@ namespace cf01.ReportForm
                 txtIn_dept2.Properties.ValueMember = "id";
                 txtIn_dept2.Properties.DisplayMember = "id";
             }
-        }
-
-        public DataTable GetAll_WH()
-        {
-            DataTable dtDept = new DataTable();
-            try
-            {
-                string strSql = @"SELECT id,name FROM cd_productline with(nolock) WHERE within_code ='0000' AND storehouse_group='DG' AND type='01' and state<>'2'";
-                dtDept = clsConErp.GetDataTable(strSql);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return dtDept;
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
