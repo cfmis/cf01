@@ -13,6 +13,7 @@ using cf01.Reports;
 using DevExpress.XtraReports.UI;
 using System.IO;
 using System.Threading;
+using cf01.Forms;
 
 namespace cf01.ReportForm
 {
@@ -23,6 +24,10 @@ namespace cf01.ReportForm
         DataTable dtDelivery = new DataTable();
         DataTable dtDept = new DataTable();
         DataTable dtVendor = new DataTable();
+        private DataTable dtDataForPrint = new DataTable();
+        private DataTable dtParts = new DataTable();
+        //將已選中的記錄加到臨時表中，此表沒有重覆
+        private DataTable dtPrint = new DataTable();
         public string strUserid = DBUtility._user_id;
 
         public frmDelivery()
@@ -32,11 +37,11 @@ namespace cf01.ReportForm
             {
                 //clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
                 //control.GenerateContorl();
-               // clsTranslate obj_ctl = new clsTranslate(this.Name, this.Controls, DBUtility._language);
-               // obj_ctl.Translate();
-               // clsApp.RetSetImage(toolStrip1);//因翻譯部分代碼的影響，當前菜單按鈕圖片及文本樣式異常.
+                // clsTranslate obj_ctl = new clsTranslate(this.Name, this.Controls, DBUtility._language);
+                // obj_ctl.Translate();
+                // clsApp.RetSetImage(toolStrip1);//因翻譯部分代碼的影響，當前菜單按鈕圖片及文本樣式異常.
                 //設置菜單按鈕的權限
-                clsApp.SetToolBarEnable(this.Name, this.Controls);
+                //clsApp.SetToolBarEnable(this.Name, this.Controls);
                 clsApp.Initialize_find_value(this.Name, this.Controls);
                 chkSelect.Checked = false;
                 //BTNPRINT.Text = "標簽機列印(&P)";
@@ -45,6 +50,11 @@ namespace cf01.ReportForm
             {
                 MessageBox.Show(ex.Message);
             }
+
+            dtPrint.Columns.Add("wp_id", typeof(String));
+            dtPrint.Columns.Add("mo_id", typeof(String));
+            dtPrint.Columns.Add("goods_id", typeof(String));
+            dtPrint.Columns.Add("per_qty", typeof(int));
         }        
 
         private void frmDelivery_Load(object sender, EventArgs e)
@@ -117,18 +127,44 @@ namespace cf01.ReportForm
         {
             gridView1.CloseEditor();
             txtID2.Focus();
+
+
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+
+            findData();
+
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+            if (dtDelivery.Rows.Count > 0)
+            {
+                gridControl1.DataSource = dtDelivery;
+            }
+            else
+            {
+                gridControl1.DataSource = null;
+                MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+        private void findData()
+        {
             string strID1 = txtID1.Text;
             string strID2 = txtID2.Text;
-            if ((strID1 != "" && strID1.Length>=2) && (strID2 != ""&&strID2.Length>=2))
-            {                
+            if ((strID1 != "" && strID1.Length >= 2) && (strID2 != "" && strID2.Length >= 2))
+            {
                 if (strID1.Substring(0, 2) == "DA" && strID2.Substring(0, 2) == "DA")
                 {
                     radioGroup1.SelectedIndex = 1;//倉庫轉倉
                 }
                 else
-                {                    
+                {
                     //if (strID1.Substring(0, 1) == "P" || strID2.Substring(0, 1) == "P")
-                    if (strID1.IndexOf("-") ==4 || strID2.IndexOf("-") ==4)
+                    if (strID1.IndexOf("-") == 4 || strID2.IndexOf("-") == 4)
                     {
                         radioGroup1.SelectedIndex = 2;// 外發JX加工單
                     }
@@ -140,9 +176,9 @@ namespace cf01.ReportForm
             }
 
             string select_index = radioGroup1.SelectedIndex.ToString();
-            string out_dept1= "";
+            string out_dept1 = "";
             if (string.IsNullOrEmpty(txtOut_detp1.EditValue.ToString()))
-            {                
+            {
                 out_dept1 = "";
             }
             else
@@ -185,7 +221,7 @@ namespace cf01.ReportForm
             }
 
             string flag_jx = "";
-            string flag_print="";
+            string flag_print = "";
             if (radioGroup1.SelectedIndex == 2) //JX Data
             {
                 if (chkJx.Checked)
@@ -196,7 +232,7 @@ namespace cf01.ReportForm
             else
                 flag_jx = "";
 
-            if (chkPrint.Checked) 
+            if (chkPrint.Checked)
                 flag_print = "Y";
             else
                 flag_print = "";
@@ -211,7 +247,7 @@ namespace cf01.ReportForm
                     new SqlParameter("@date_e", txtDat2.Text),
                     new SqlParameter("@mo_id_s", txtMo_id1.Text),
                     new SqlParameter("@mo_id_e", txtMo_id2.Text),
-                    new SqlParameter("@out_dept_s", out_dept1),                    
+                    new SqlParameter("@out_dept_s", out_dept1),
                     new SqlParameter("@out_dept_e", out_dept2),
                     new SqlParameter("@in_dept_s", in_dept1),
                     new SqlParameter("@in_dept_e", in_dept2),
@@ -222,17 +258,8 @@ namespace cf01.ReportForm
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
 
-            if (dtDelivery.Rows.Count > 0)
-            {                
-                gridControl1.DataSource = dtDelivery;
-            }
-            else
-            {                
-                gridControl1.DataSource = null;
-                MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }       
+            
         }
-
         private void BTNPRINT_Click(object sender, EventArgs e)
         {
           Print("1");
@@ -771,184 +798,388 @@ namespace cf01.ReportForm
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            Export_To_Excel();
+            //Export_To_Excel();
+            dvExportExcel();
         }
 
-        /// <summary>
-        /// 移交數據匯出Excel
-        /// </summary>
-        /// <param name="strType"></param>
-        private void Export_To_Excel()
-        {            
-            if (gridView1.RowCount > 0)
-            {               
-                SaveFileDialog saveDialog = new SaveFileDialog()
-                {
-                    /*saveDialog.DefaultExt = "";*/
-                    Title = "保存EXECL文件",
-                    Filter = "EXECL文件|*.xls",
-                    FilterIndex = 1
-                };
-                if (saveDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string ls_files = saveDialog.FileName;
-                    if (File.Exists(ls_files))
-                    {
-                        File.Delete(ls_files);
-                    }
-                    int li_format_num;//保存excel文件的格式
-                    string ls_version;//excel版本號
+        ///// <summary>
+        ///// 移交數據匯出Excel
+        ///// </summary>
+        ///// <param name="strType"></param>
+        //private void Export_To_Excel()
+        //{            
+        //    if (gridView1.RowCount > 0)
+        //    {               
+        //        SaveFileDialog saveDialog = new SaveFileDialog()
+        //        {
+        //            /*saveDialog.DefaultExt = "";*/
+        //            Title = "保存EXECL文件",
+        //            Filter = "EXECL文件|*.xls",
+        //            FilterIndex = 1
+        //        };
+        //        if (saveDialog.ShowDialog() == DialogResult.OK)
+        //        {
+        //            string ls_files = saveDialog.FileName;
+        //            if (File.Exists(ls_files))
+        //            {
+        //                File.Delete(ls_files);
+        //            }
+        //            int li_format_num;//保存excel文件的格式
+        //            string ls_version;//excel版本號
 
-                    Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                    if (xlApp == null)
-                    {
-                        MessageBox.Show("无法创建Excel对象,可能您的机子未安装Excel");
-                        return;
-                    }
-                    ls_version = xlApp.Version;//獲取當前使用excel版本號
-                    if (Convert.ToDouble(ls_version) < 12)//You use Excel 97-2003
-                    {
-                        li_format_num = -4143;
-                    }
-                    else //you use excel 2007 or later
-                    {
-                        li_format_num = 56;
-                    }
-                    Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;
-                    Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
-                    Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1                    
-                    //第一行为报表名称
-                    worksheet.Cells[1, 1] = "序號";
-                    worksheet.Cells[1, 2] = "日期";
-                    worksheet.Cells[1, 3] = "發貨部門";
-                    worksheet.Cells[1, 4] = "訂單編號";
-                    worksheet.Cells[1, 5] = "物品描述";
-                    worksheet.Cells[1, 6] = "數量";
-                    worksheet.Cells[1, 7] = "包數";
-                    worksheet.Cells[1, 8] = "重量";
-                    worksheet.Cells[1, 9] = "收貨部門";
-                    worksheet.Cells[1, 10] = "備註";
-                    worksheet.Rows[1].Font.Size = 10;
-                    worksheet.Rows[1].Font.Bold = true;//粗體
-                    worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                    worksheet.Rows[1].RowHeight = 33;
+        //            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+        //            if (xlApp == null)
+        //            {
+        //                MessageBox.Show("无法创建Excel对象,可能您的机子未安装Excel");
+        //                return;
+        //            }
+        //            ls_version = xlApp.Version;//獲取當前使用excel版本號
+        //            if (Convert.ToDouble(ls_version) < 12)//You use Excel 97-2003
+        //            {
+        //                li_format_num = -4143;
+        //            }
+        //            else //you use excel 2007 or later
+        //            {
+        //                li_format_num = 56;
+        //            }
+        //            Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;
+        //            Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+        //            Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1                    
+        //            //第一行为报表名称
+        //            worksheet.Cells[1, 1] = "序號";
+        //            worksheet.Cells[1, 2] = "日期";
+        //            worksheet.Cells[1, 3] = "發貨部門";
+        //            worksheet.Cells[1, 4] = "訂單編號";
+        //            worksheet.Cells[1, 5] = "物品描述";
+        //            worksheet.Cells[1, 6] = "數量";
+        //            worksheet.Cells[1, 7] = "包數";
+        //            worksheet.Cells[1, 8] = "重量";
+        //            worksheet.Cells[1, 9] = "收貨部門";
+        //            worksheet.Cells[1, 10] = "備註";
+        //            worksheet.Rows[1].Font.Size = 10;
+        //            worksheet.Rows[1].Font.Bold = true;//粗體
+        //            worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        //            worksheet.Rows[1].RowHeight = 33;
 
-                    cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
-                    new Thread((ThreadStart)delegate
-                    {
-                        wForm.TopMost = true;
-                        wForm.ShowDialog();
-                    }).Start();
+        //            cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
+        //            new Thread((ThreadStart)delegate
+        //            {
+        //                wForm.TopMost = true;
+        //                wForm.ShowDialog();
+        //            }).Start();
                     
-                    //寫入數值
-                    DataTable dt = new DataTable();
-                    string ls_con_date = "";
-                    int li_sequence_id = 0, li_cur_row_xls = 0;
-                    decimal ldc_total_sec_qty = 0;
+        //            //寫入數值
+        //            DataTable dt = new DataTable();
+        //            string ls_con_date = "";
+        //            int li_sequence_id = 0, li_cur_row_xls = 0;
+        //            decimal ldc_total_sec_qty = 0;
                     
-                    for (int r = 0; r < gridView1.RowCount; r++)//行
-                    {
-                        if (r == 0)
-                        {
-                            li_cur_row_xls = 2;
-                        }
+        //            for (int r = 0; r < gridView1.RowCount; r++)//行
+        //            {
+        //                if (r == 0)
+        //                {
+        //                    li_cur_row_xls = 2;
+        //                }
                                     
-                        if (gridView1.GetRowCellValue(r, "con_date").ToString()!= ls_con_date)
-                        {                            
-                            if (r != 0)//r等于0為gridView1的第一行,不執行if中的代碼
-                            {
-                                //小計
-                                li_sequence_id += 1;
-                                worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//組小計序號
-                                worksheet.Cells[li_cur_row_xls, 2] = ls_con_date;
-                                worksheet.Cells[li_cur_row_xls, 3] = "小計:";
-                                worksheet.Cells[li_cur_row_xls, 8] = ldc_total_sec_qty;
-                                worksheet.Rows[li_cur_row_xls].Font.Size = 10;
-                                worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體      
-                                //li_cur_row_xls = r + 2 + 1;//小計代碼有執行則重置寫入EXCEL的當前行(相當于加多一行)
-                                li_cur_row_xls = li_cur_row_xls + 1; //小計后面行
-                            }
-                            //當日期不同時初始化序號及總重量的值
-                            li_sequence_id = 0;
-                            ldc_total_sec_qty = 0;
-                        }
-                        li_sequence_id += 1;//累加序號
-                        ldc_total_sec_qty += decimal.Parse(gridView1.GetRowCellValue(r, "sec_qty").ToString());//累加小計重量
+        //                if (gridView1.GetRowCellValue(r, "con_date").ToString()!= ls_con_date)
+        //                {                            
+        //                    if (r != 0)//r等于0為gridView1的第一行,不執行if中的代碼
+        //                    {
+        //                        //小計
+        //                        li_sequence_id += 1;
+        //                        worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//組小計序號
+        //                        worksheet.Cells[li_cur_row_xls, 2] = ls_con_date;
+        //                        worksheet.Cells[li_cur_row_xls, 3] = "小計:";
+        //                        worksheet.Cells[li_cur_row_xls, 8] = ldc_total_sec_qty;
+        //                        worksheet.Rows[li_cur_row_xls].Font.Size = 10;
+        //                        worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體      
+        //                        //li_cur_row_xls = r + 2 + 1;//小計代碼有執行則重置寫入EXCEL的當前行(相當于加多一行)
+        //                        li_cur_row_xls = li_cur_row_xls + 1; //小計后面行
+        //                    }
+        //                    //當日期不同時初始化序號及總重量的值
+        //                    li_sequence_id = 0;
+        //                    ldc_total_sec_qty = 0;
+        //                }
+        //                li_sequence_id += 1;//累加序號
+        //                ldc_total_sec_qty += decimal.Parse(gridView1.GetRowCellValue(r, "sec_qty").ToString());//累加小計重量
 
-                        worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//序號
-                        worksheet.Cells[li_cur_row_xls, 2] = gridView1.GetRowCellValue(r, "con_date").ToString(); //"日期"
-                        worksheet.Cells[li_cur_row_xls, 3] = gridView1.GetRowCellValue(r, "out_dept_name").ToString();//"發貨部門"
-                        worksheet.Cells[li_cur_row_xls, 4] = gridView1.GetRowCellValue(r, "mo_id").ToString();//"訂單編號"
-                        worksheet.Cells[li_cur_row_xls, 5] = gridView1.GetRowCellValue(r, "goods_name").ToString();//"物品描述"
-                        worksheet.Cells[li_cur_row_xls, 6] = gridView1.GetRowCellValue(r, "con_qty").ToString();//"數量"
-                        worksheet.Cells[li_cur_row_xls, 7] = gridView1.GetRowCellValue(r, "package_num").ToString();//"包數"
-                        worksheet.Cells[li_cur_row_xls, 8] = gridView1.GetRowCellValue(r, "sec_qty").ToString(); //"重量"
-                        worksheet.Cells[li_cur_row_xls, 9] = gridView1.GetRowCellValue(r, "in_dept_name").ToString();//"收貨部門"
-                        worksheet.Cells[li_cur_row_xls, 10] = gridView1.GetRowCellValue(r, "remark").ToString();//"備註" 
-                        worksheet.Rows[li_cur_row_xls].Font.Size = 10;
-                        //worksheet.Rows[1].RowHeight = 24;//列高
-                        ls_con_date = gridView1.GetRowCellValue(r, "con_date").ToString();
-                        System.Windows.Forms.Application.DoEvents();
-                        li_cur_row_xls  += 1;
-                    }
-                    //最后一行的小計
-                    //小計      
-                    li_sequence_id += 1;                    
-                    worksheet.Cells[li_cur_row_xls , 1] = li_sequence_id.ToString();//組小計序號
-                    worksheet.Cells[li_cur_row_xls , 2] = ls_con_date;
-                    worksheet.Cells[li_cur_row_xls , 3] = "小計:";
-                    worksheet.Cells[li_cur_row_xls , 8] = ldc_total_sec_qty;
-                    worksheet.Rows[li_cur_row_xls].Font.Size = 10;
-                    worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體
-
-
-                    worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
-                    worksheet.Rows[1].RowHeight = 24;//列高
-                    worksheet.Columns[1].ColumnWidth = 7;
-                    worksheet.Columns[2].ColumnWidth = 10;
-                    worksheet.Columns[3].ColumnWidth = 15;
-                    worksheet.Columns[4].ColumnWidth = 10;
-                    worksheet.Columns[5].ColumnWidth = 50;
-                    worksheet.Columns[6].ColumnWidth = 11;
-                    worksheet.Columns[7].ColumnWidth = 6;
-                    worksheet.Columns[8].ColumnWidth = 8;
-                    worksheet.Columns[9].ColumnWidth = 15;
-                    worksheet.Columns[10].ColumnWidth = 21;
-                    worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                    worksheet.Columns[2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        //                worksheet.Cells[li_cur_row_xls, 1] = li_sequence_id.ToString();//序號
+        //                worksheet.Cells[li_cur_row_xls, 2] = gridView1.GetRowCellValue(r, "con_date").ToString(); //"日期"
+        //                worksheet.Cells[li_cur_row_xls, 3] = gridView1.GetRowCellValue(r, "out_dept_name").ToString();//"發貨部門"
+        //                worksheet.Cells[li_cur_row_xls, 4] = gridView1.GetRowCellValue(r, "mo_id").ToString();//"訂單編號"
+        //                worksheet.Cells[li_cur_row_xls, 5] = gridView1.GetRowCellValue(r, "goods_name").ToString();//"物品描述"
+        //                worksheet.Cells[li_cur_row_xls, 6] = gridView1.GetRowCellValue(r, "con_qty").ToString();//"數量"
+        //                worksheet.Cells[li_cur_row_xls, 7] = gridView1.GetRowCellValue(r, "package_num").ToString();//"包數"
+        //                worksheet.Cells[li_cur_row_xls, 8] = gridView1.GetRowCellValue(r, "sec_qty").ToString(); //"重量"
+        //                worksheet.Cells[li_cur_row_xls, 9] = gridView1.GetRowCellValue(r, "in_dept_name").ToString();//"收貨部門"
+        //                worksheet.Cells[li_cur_row_xls, 10] = gridView1.GetRowCellValue(r, "remark").ToString();//"備註" 
+        //                worksheet.Rows[li_cur_row_xls].Font.Size = 10;
+        //                //worksheet.Rows[1].RowHeight = 24;//列高
+        //                ls_con_date = gridView1.GetRowCellValue(r, "con_date").ToString();
+        //                System.Windows.Forms.Application.DoEvents();
+        //                li_cur_row_xls  += 1;
+        //            }
+        //            //最后一行的小計
+        //            //小計      
+        //            li_sequence_id += 1;                    
+        //            worksheet.Cells[li_cur_row_xls , 1] = li_sequence_id.ToString();//組小計序號
+        //            worksheet.Cells[li_cur_row_xls , 2] = ls_con_date;
+        //            worksheet.Cells[li_cur_row_xls , 3] = "小計:";
+        //            worksheet.Cells[li_cur_row_xls , 8] = ldc_total_sec_qty;
+        //            worksheet.Rows[li_cur_row_xls].Font.Size = 10;
+        //            worksheet.Rows[li_cur_row_xls].Font.Bold = true;//粗體
 
 
-                    //畫边框线
-                    //获取Excel多个单元格区域
-                    string range_right = string.Format("J{0}", li_cur_row_xls + 1);//右下角座標
-                    Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
-                    //单元格边框线类型(线型,虚线型)
-                    excelRange.Borders.LineStyle = 1;
-                    excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+        //            worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
+        //            worksheet.Rows[1].RowHeight = 24;//列高
+        //            worksheet.Columns[1].ColumnWidth = 7;
+        //            worksheet.Columns[2].ColumnWidth = 10;
+        //            worksheet.Columns[3].ColumnWidth = 15;
+        //            worksheet.Columns[4].ColumnWidth = 10;
+        //            worksheet.Columns[5].ColumnWidth = 50;
+        //            worksheet.Columns[6].ColumnWidth = 11;
+        //            worksheet.Columns[7].ColumnWidth = 6;
+        //            worksheet.Columns[8].ColumnWidth = 8;
+        //            worksheet.Columns[9].ColumnWidth = 15;
+        //            worksheet.Columns[10].ColumnWidth = 21;
+        //            worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        //            worksheet.Columns[2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-                    wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
-                    if (ls_files != "")
+        //            //畫边框线
+        //            //获取Excel多个单元格区域
+        //            string range_right = string.Format("J{0}", li_cur_row_xls + 1);//右下角座標
+        //            Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
+        //            //单元格边框线类型(线型,虚线型)
+        //            excelRange.Borders.LineStyle = 1;
+        //            excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+
+        //            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+        //            if (ls_files != "")
+        //            {
+        //                try
+        //                {
+        //                    workbook.Saved = true;                           
+        //                    workbook.SaveAs(ls_files, li_format_num);
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    //fileSaved = false;  
+        //                    MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
+        //                }
+        //            }
+        //            xlApp.Quit();
+        //            GC.Collect();//强行销毁                    
+        //            MessageBox.Show("匯出EXCEL成功!", "提示窗口", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("當前資料為空,請首先查詢出數據!", "提示窗口", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //    }
+        //}
+
+
+        /// <summary>
+        /// 匯出Excel
+        /// </summary>
+        private void dvExportExcel()
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Excel files(*.xls)|*.xls";
+            saveFile.FilterIndex = 0;
+            saveFile.RestoreDirectory = true;
+            saveFile.CreatePrompt = true;
+            saveFile.Title = "导出Excel文件到";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+
+                Stream myStream;
+                myStream = saveFile.OpenFile();
+
+                //如果匯出到Excel中文變亂碼，可以嘗試改一下這個編碼方式
+                StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));//utf-8
+                string str = " ";
+                str += "序號";
+                str += "\t" + "制單編號";
+                str += "\t" + "物料編號";
+                str += "\t" + "物料描述";
+                str += "\t" + "移交數量";
+                str += "\t" + "移交數量";
+                str += "\t" + "包數";
+                str += "\t" + "負責部門";
+                str += "\t" + "負責部門描述";
+                str += "\t" + "收貨部門";
+                str += "\t" + "收貨部門描述";
+                str += "\t" + "移交單編號";
+                str += "\t" + "移交單日期";
+
+                sw.WriteLine(str);
+
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    string tempstr = "";
+                    tempstr += (i + 1).ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "mo_id").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "goods_id").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "goods_name").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "con_qty").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "sec_qty").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "package_num").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "out_dept").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "out_dept_name").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "in_dept").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "in_dept_name").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "id").ToString();
+                    tempstr += "\t" + "=\"" + gridView1.GetRowCellValue(i, "con_date").ToString() + "\"";
+                    sw.WriteLine(tempstr);
+                }
+                sw.Close();
+                myStream.Close();
+                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                MessageBox.Show("已匯出記錄！");
+            }
+        }
+
+
+
+        /// <summary>
+        /// 生成打印數據
+        /// </summary>
+        private void GenerateDataForPrint()
+        {
+            //dtPrint此表爲已處理掉重覆的記錄              
+            dtPrint.Clear();
+            string strFilter = "";
+            string wp_id = "";
+            string mo_id = "";
+            string mat_id = "";
+            int per_qty = 0;
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (dtDelivery.Rows[i]["flag_select"].ToString() == "True")
+                {
+                    wp_id = dtDelivery.Rows[i]["in_dept"].ToString();
+                    mo_id = dtDelivery.Rows[i]["mo_id"].ToString();
+                    mat_id = dtDelivery.Rows[i]["goods_id"].ToString();
+                    strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'", wp_id, mo_id, mat_id);
+                    DataRow[] dr = dtPrint.Select(strFilter);
+                    if (dr.Length == 0)//是否已存在記錄
                     {
-                        try
+                        dtPrint.Rows.Add(new object[] { wp_id, mo_id, mat_id, per_qty });
+                    }
+                }
+            }
+
+            dtDataForPrint.Rows.Clear();
+            dtParts.Rows.Clear();
+            string isPrintQc = "";
+            DataTable dtTempData = new DataTable();
+            DataTable dtTempParts = new DataTable();
+            for (int i = 0; i < dtPrint.Rows.Count; i++)
+            {
+                wp_id = dtPrint.Rows[i]["wp_id"].ToString();
+                mo_id = dtPrint.Rows[i]["mo_id"].ToString();
+                mat_id = dtPrint.Rows[i]["goods_id"].ToString();
+                per_qty = int.Parse(dtPrint.Rows[i]["per_qty"].ToString());
+                //if (chkNoQc.Checked)
+                    isPrintQc = "1";//不顯示QC
+                //else
+                //    isPrintQc = "0";
+                SqlParameter[] paras = new SqlParameter[]{
+                    new SqlParameter("@mo_id",mo_id),
+                    new SqlParameter("@wp_id",wp_id),
+                    new SqlParameter("@materiel_id",mat_id),
+                    new SqlParameter("@per_qty",per_qty),
+                    new SqlParameter("@isPrintQc",isPrintQc),
+                    new SqlParameter("@type","1") //@type="1"從移交單交貨記錄（PAD簽收）中列印生產單
+                };
+                DataSet dsTempData = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_prdtranser", paras, null);
+
+                dtTempData = dsTempData.Tables[0];//主表
+                if (dtTempData.Rows.Count > 0)
+                {
+                    if (dtDataForPrint.Rows.Count > 0)
+                    {
+                        for (int j = 0; j < dtTempData.Rows.Count; j++)
                         {
-                            workbook.Saved = true;                           
-                            workbook.SaveAs(ls_files, li_format_num);
-                        }
-                        catch (Exception ex)
-                        {
-                            //fileSaved = false;  
-                            MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
+                            //一個頁數有可能一次收多個批次的貨
+                            //所以有必要多作個判斷，以防重入重覆的記錄
+                            strFilter = string.Format("wp_id='{0}' and mo_id='{1}' and goods_id='{2}'",
+                                dtTempData.Rows[j]["wp_id"], dtTempData.Rows[j]["mo_id"], dtTempData.Rows[j]["goods_id"]);
+                            DataRow[] dr = dtDataForPrint.Select(strFilter);
+                            if (dr.Length == 0)//是否已存記錄
+                            {
+                                dtDataForPrint.ImportRow(dtTempData.Rows[j]);
+                            }
                         }
                     }
-                    xlApp.Quit();
-                    GC.Collect();//强行销毁                    
-                    MessageBox.Show("匯出EXCEL成功!", "提示窗口", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                    {
+                        dtDataForPrint = dtTempData;
+                    }
+                    //添加配件
+                    dtTempParts = dsTempData.Tables[1];
+                    if (dtParts.Rows.Count > 0)
+                    {
+                        for (int j = 0; j < dtTempParts.Rows.Count; j++)
+                        {
+                            strFilter = string.Format(@"wp_id='{0}' and mo_id='{1}' and goods_id='{2}' and part_goods_id='{3}'",
+                            dtTempParts.Rows[j]["wp_id"], dtTempParts.Rows[j]["mo_id"], dtTempParts.Rows[j]["goods_id"], dtTempParts.Rows[j]["part_goods_id"]);
+                            DataRow[] dr = dtParts.Select(strFilter);
+                            if (dr.Length == 0)//是否已存記錄
+                            {
+                                dtParts.ImportRow(dtTempParts.Rows[j]);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        dtParts = dtTempParts;
+                    }
+                }
+            }
+        }
+
+        private void btnPrintProductCart_Click(object sender, EventArgs e)
+        {
+            //以下為舊的列印方法
+            if (gridView1.RowCount > 0)
+            {
+                bool isSelect = false;
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    if (dtDelivery.Rows[i]["flag_select"].ToString() == "True")
+                    {
+                        isSelect = true;
+                        break;
+                    }
+                }
+                if (isSelect == false)
+                {
+                    MessageBox.Show("沒有選擇打印的記錄!", "提示信息");
+                    return;
+                }
+                frmProgress wForm = new frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();
+                GenerateDataForPrint();
+
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+                if (dtDataForPrint.Rows.Count > 0)
+                {
+                    xrPrdTransfer xrPT = new xrPrdTransfer(dtDataForPrint, dtParts);
+                    xrPT.ShowPreviewDialog();
                 }
             }
             else
             {
-                MessageBox.Show("當前資料為空,請首先查詢出數據!", "提示窗口", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("請查詢數據后，再打印報表.");
             }
         }
     }

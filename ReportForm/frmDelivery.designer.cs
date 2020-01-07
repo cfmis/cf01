@@ -56,6 +56,8 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnPrintProductCart = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID2 = new DevExpress.XtraEditors.TextEdit();
@@ -141,7 +143,7 @@
             // txtID1
             // 
             this.txtID1.EnterMoveNextControl = true;
-            this.txtID1.Location = new System.Drawing.Point(159, 92);
+            this.txtID1.Location = new System.Drawing.Point(159, 45);
             this.txtID1.Name = "txtID1";
             this.txtID1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID1.Properties.MaxLength = 15;
@@ -152,7 +154,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(340, 121);
+            this.label6.Location = new System.Drawing.Point(340, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 12);
             this.label6.TabIndex = 117;
@@ -160,7 +162,7 @@
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(73, 121);
+            this.lblDate.Location = new System.Drawing.Point(73, 74);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(80, 13);
             this.lblDate.TabIndex = 116;
@@ -171,7 +173,7 @@
             // 
             this.txtDat2.EditValue = null;
             this.txtDat2.EnterMoveNextControl = true;
-            this.txtDat2.Location = new System.Drawing.Point(376, 117);
+            this.txtDat2.Location = new System.Drawing.Point(376, 70);
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -188,7 +190,7 @@
             // 
             this.txtDat1.EditValue = null;
             this.txtDat1.EnterMoveNextControl = true;
-            this.txtDat1.Location = new System.Drawing.Point(159, 117);
+            this.txtDat1.Location = new System.Drawing.Point(159, 70);
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -222,10 +224,12 @@
             this.toolStripSeparator6,
             this.toolStripSeparator5,
             this.BTNSAVE,
-            this.toolStripSeparator7});
+            this.toolStripSeparator7,
+            this.btnPrintProductCart,
+            this.toolStripSeparator10});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(1098, 39);
             this.toolStrip1.TabIndex = 124;
             this.toolStrip1.Text = "toolStrip1";
@@ -371,10 +375,26 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 39);
             // 
+            // btnPrintProductCart
+            // 
+            this.btnPrintProductCart.AutoSize = false;
+            this.btnPrintProductCart.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintProductCart.Image")));
+            this.btnPrintProductCart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrintProductCart.Name = "btnPrintProductCart";
+            this.btnPrintProductCart.Size = new System.Drawing.Size(80, 36);
+            this.btnPrintProductCart.Text = "列印生產單";
+            this.btnPrintProductCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPrintProductCart.Click += new System.EventHandler(this.btnPrintProductCart_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 39);
+            // 
             // radioGroup1
             // 
             this.radioGroup1.EnterMoveNextControl = true;
-            this.radioGroup1.Location = new System.Drawing.Point(159, 41);
+            this.radioGroup1.Location = new System.Drawing.Point(714, 64);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.radioGroup1.Properties.Columns = 3;
@@ -384,11 +404,12 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "噴油部-->JX加工單")});
             this.radioGroup1.Size = new System.Drawing.Size(372, 25);
             this.radioGroup1.TabIndex = 125;
+            this.radioGroup1.Visible = false;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(73, 95);
+            this.lblID.Location = new System.Drawing.Point(73, 48);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(80, 13);
             this.lblID.TabIndex = 126;
@@ -398,7 +419,7 @@
             // txtID2
             // 
             this.txtID2.EnterMoveNextControl = true;
-            this.txtID2.Location = new System.Drawing.Point(376, 92);
+            this.txtID2.Location = new System.Drawing.Point(376, 45);
             this.txtID2.Name = "txtID2";
             this.txtID2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID2.Properties.MaxLength = 15;
@@ -409,7 +430,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 95);
+            this.label1.Location = new System.Drawing.Point(340, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 12);
             this.label1.TabIndex = 128;
@@ -418,7 +439,7 @@
             // txtOut_detp1
             // 
             this.txtOut_detp1.EnterMoveNextControl = true;
-            this.txtOut_detp1.Location = new System.Drawing.Point(159, 167);
+            this.txtOut_detp1.Location = new System.Drawing.Point(159, 120);
             this.txtOut_detp1.Name = "txtOut_detp1";
             this.txtOut_detp1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtOut_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -438,7 +459,7 @@
             // 
             // lblOut_dept
             // 
-            this.lblOut_dept.Location = new System.Drawing.Point(73, 172);
+            this.lblOut_dept.Location = new System.Drawing.Point(73, 125);
             this.lblOut_dept.Name = "lblOut_dept";
             this.lblOut_dept.Size = new System.Drawing.Size(80, 13);
             this.lblOut_dept.TabIndex = 130;
@@ -448,7 +469,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 171);
+            this.label3.Location = new System.Drawing.Point(340, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 12);
             this.label3.TabIndex = 131;
@@ -457,7 +478,7 @@
             // txtOut_detp2
             // 
             this.txtOut_detp2.EnterMoveNextControl = true;
-            this.txtOut_detp2.Location = new System.Drawing.Point(376, 167);
+            this.txtOut_detp2.Location = new System.Drawing.Point(376, 120);
             this.txtOut_detp2.Name = "txtOut_detp2";
             this.txtOut_detp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -476,7 +497,7 @@
             // txtIn_detp2
             // 
             this.txtIn_detp2.EnterMoveNextControl = true;
-            this.txtIn_detp2.Location = new System.Drawing.Point(376, 193);
+            this.txtIn_detp2.Location = new System.Drawing.Point(376, 146);
             this.txtIn_detp2.Name = "txtIn_detp2";
             this.txtIn_detp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -495,7 +516,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(340, 196);
+            this.label4.Location = new System.Drawing.Point(340, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 12);
             this.label4.TabIndex = 135;
@@ -503,7 +524,7 @@
             // 
             // lblIn_dept
             // 
-            this.lblIn_dept.Location = new System.Drawing.Point(73, 198);
+            this.lblIn_dept.Location = new System.Drawing.Point(73, 151);
             this.lblIn_dept.Name = "lblIn_dept";
             this.lblIn_dept.Size = new System.Drawing.Size(80, 13);
             this.lblIn_dept.TabIndex = 134;
@@ -513,7 +534,7 @@
             // txtIn_detp1
             // 
             this.txtIn_detp1.EnterMoveNextControl = true;
-            this.txtIn_detp1.Location = new System.Drawing.Point(159, 193);
+            this.txtIn_detp1.Location = new System.Drawing.Point(159, 146);
             this.txtIn_detp1.Name = "txtIn_detp1";
             this.txtIn_detp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -976,7 +997,7 @@
             // 
             // chkJx
             // 
-            this.chkJx.Location = new System.Drawing.Point(559, 45);
+            this.chkJx.Location = new System.Drawing.Point(159, 172);
             this.chkJx.Name = "chkJx";
             this.chkJx.Properties.Caption = "不顯示已交JX的數據";
             this.chkJx.Size = new System.Drawing.Size(152, 19);
@@ -993,7 +1014,7 @@
             // 
             // chkDelivery
             // 
-            this.chkDelivery.Location = new System.Drawing.Point(157, 70);
+            this.chkDelivery.Location = new System.Drawing.Point(159, 197);
             this.chkDelivery.Name = "chkDelivery";
             this.chkDelivery.Properties.Caption = "選擇當前頁數,自動將當前頁數所在的同一張移交單全選中";
             this.chkDelivery.Size = new System.Drawing.Size(342, 19);
@@ -1001,7 +1022,7 @@
             // 
             // chkPrint
             // 
-            this.chkPrint.Location = new System.Drawing.Point(559, 70);
+            this.chkPrint.Location = new System.Drawing.Point(376, 172);
             this.chkPrint.Name = "chkPrint";
             this.chkPrint.Properties.Caption = "是否包含已列印數據?";
             this.chkPrint.Size = new System.Drawing.Size(152, 19);
@@ -1024,7 +1045,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 145);
+            this.label2.Location = new System.Drawing.Point(340, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 12);
             this.label2.TabIndex = 147;
@@ -1033,7 +1054,7 @@
             // txtMo_id2
             // 
             this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(376, 142);
+            this.txtMo_id2.Location = new System.Drawing.Point(376, 95);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id2.Properties.MaxLength = 9;
@@ -1042,7 +1063,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(73, 145);
+            this.label5.Location = new System.Drawing.Point(73, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 146;
@@ -1052,7 +1073,7 @@
             // txtMo_id1
             // 
             this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(159, 142);
+            this.txtMo_id1.Location = new System.Drawing.Point(159, 95);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id1.Properties.MaxLength = 9;
@@ -1226,5 +1247,7 @@
         private DevExpress.XtraEditors.TextEdit txtMo_id1;
         private System.Windows.Forms.Button btnExcel;
         private DevExpress.XtraGrid.Columns.GridColumn remark;
+        private System.Windows.Forms.ToolStripButton btnPrintProductCart;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
     }
 }
