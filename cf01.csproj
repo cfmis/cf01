@@ -232,6 +232,7 @@
   <ItemGroup>
     <Compile Include="CLS\clsAppPublic.cs" />
     <Compile Include="CLS\clsArtWork.cs" />
+    <Compile Include="CLS\clsBaseData.cs" />
     <Compile Include="CLS\clsBkWork.cs" />
     <Compile Include="CLS\clsBs_Dep.cs" />
     <Compile Include="CLS\clsBs_Unit.cs" />
