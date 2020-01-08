@@ -255,11 +255,50 @@ namespace cf01.ReportForm
                     new SqlParameter("@flag_print", flag_print)
             };
             dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
+            loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
 
             
         }
+
+        private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
+        {
+            string prdDep = "";
+            if (dep == "125")
+                prdDep = "105";
+            string strSql = "";
+            strSql = "Select a.Prd_id,a.Transfer_date,a.Prd_dep,c.dep_cdesc AS Prd_dep_cdesc,a.prd_item,b.name As goods_name"+
+                ",a.prd_mo,a.Transfer_flag,a.transfer_qty,a.transfer_weg" +
+                ",a.wip_id,d.dep_cdesc AS wip_id_cdesc,a.to_dep,a.pack_num " +
+                " From dgcf_pad.dbo.product_transfer_jx_details a" +
+                " Left Join geo_it_goods b On a.prd_item COLLATE chinese_taiwan_stroke_CI_AS=b.id" +
+                " Left Join bs_dep c On a.Prd_dep COLLATE chinese_taiwan_stroke_CI_AS=c.dep_id" +
+                " Left Join bs_dep d On a.wip_id COLLATE chinese_taiwan_stroke_CI_AS=d.dep_id";
+            strSql += " Where a.Prd_dep='" + prdDep + "'";
+            strSql += " And a.Transfer_date>='" + dateFrom + "' And a.Transfer_date<='" + dateTo + "'";
+            DataTable dtJx = clsPublicOfCF01.GetDataTable(strSql);
+            for (int i=0;i<dtJx.Rows.Count;i++)
+            {
+                DataRow drJx = dtJx.Rows[i];
+                DataRow drNew = dtDelivery.NewRow();
+                drNew["in_dept"] = drJx["Prd_dep"];
+                drNew["in_dept_name"] = drJx["Prd_dep_cdesc"];
+                drNew["out_dept"] = drJx["wip_id"];
+                drNew["out_dept_name"] = drJx["wip_id_cdesc"];
+                drNew["mo_id"] = drJx["prd_mo"];
+                drNew["goods_id"] = drJx["prd_item"];
+                drNew["goods_name"] = drJx["goods_name"];
+                drNew["con_qty"] = drJx["transfer_qty"];
+                drNew["sec_qty"] = drJx["transfer_weg"];
+                drNew["package_num"] = drJx["pack_num"];
+                drNew["con_date"] = drJx["Transfer_date"];
+                drNew["id"] = drJx["Prd_id"].ToString();
+                drNew["sequence_id"] = drJx["Prd_id"].ToString();
+                dtDelivery.Rows.Add(drNew);
+            }
+        }
+
         private void BTNPRINT_Click(object sender, EventArgs e)
         {
           Print("1");
