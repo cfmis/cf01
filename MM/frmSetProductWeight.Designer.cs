@@ -33,7 +33,8 @@
             this.lblProductId = new DevExpress.XtraEditors.LabelControl();
             this.txtProductId = new DevExpress.XtraEditors.TextEdit();
             this.palShowF0 = new DevExpress.XtraEditors.PanelControl();
-            this.chkShowF0 = new System.Windows.Forms.CheckBox();
+            this.chkShowF0 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkNoShowDmItem = new DevExpress.XtraEditors.CheckEdit();
             this.lblIsSetCosting = new DevExpress.XtraEditors.LabelControl();
             this.txtClrTo = new DevExpress.XtraEditors.TextEdit();
             this.txtSizeTo = new DevExpress.XtraEditors.TextEdit();
@@ -57,19 +58,7 @@
             this.lblProductWeight = new DevExpress.XtraEditors.LabelControl();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.dgvProductWeight = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFind = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.colSetPrice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelectFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +66,22 @@
             this.colMaterialCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPcsG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCrUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCrTim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnFind = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).BeginInit();
             this.palShowF0.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowF0.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkNoShowDmItem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClrTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtTo.Properties)).BeginInit();
@@ -174,6 +181,7 @@
             this.palShowF0.Appearance.BackColor = System.Drawing.Color.White;
             this.palShowF0.Appearance.Options.UseBackColor = true;
             this.palShowF0.Controls.Add(this.chkShowF0);
+            this.palShowF0.Controls.Add(this.chkNoShowDmItem);
             this.palShowF0.Location = new System.Drawing.Point(412, 80);
             this.palShowF0.Name = "palShowF0";
             this.palShowF0.Size = new System.Drawing.Size(259, 21);
@@ -181,14 +189,21 @@
             // 
             // chkShowF0
             // 
-            this.chkShowF0.AutoSize = true;
-            this.chkShowF0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.chkShowF0.Location = new System.Drawing.Point(10, 2);
+            this.chkShowF0.EditValue = true;
+            this.chkShowF0.Location = new System.Drawing.Point(5, 1);
             this.chkShowF0.Name = "chkShowF0";
-            this.chkShowF0.Size = new System.Drawing.Size(75, 18);
-            this.chkShowF0.TabIndex = 10;
-            this.chkShowF0.Text = "只顯示F0";
-            this.chkShowF0.UseVisualStyleBackColor = false;
+            this.chkShowF0.Properties.Caption = "不顯示F0";
+            this.chkShowF0.Size = new System.Drawing.Size(75, 19);
+            this.chkShowF0.TabIndex = 34;
+            // 
+            // chkNoShowDmItem
+            // 
+            this.chkNoShowDmItem.EditValue = true;
+            this.chkNoShowDmItem.Location = new System.Drawing.Point(133, 1);
+            this.chkNoShowDmItem.Name = "chkNoShowDmItem";
+            this.chkNoShowDmItem.Properties.Caption = "不顯示打模";
+            this.chkNoShowDmItem.Size = new System.Drawing.Size(87, 19);
+            this.chkNoShowDmItem.TabIndex = 34;
             // 
             // lblIsSetCosting
             // 
@@ -357,8 +372,7 @@
             // 
             // btnConf
             // 
-            this.btnConf.Enabled = false;
-            this.btnConf.Location = new System.Drawing.Point(338, 9);
+            this.btnConf.Location = new System.Drawing.Point(350, 9);
             this.btnConf.Name = "btnConf";
             this.btnConf.Size = new System.Drawing.Size(75, 25);
             this.btnConf.TabIndex = 2;
@@ -367,7 +381,7 @@
             // 
             // txtProductWeight
             // 
-            this.txtProductWeight.Location = new System.Drawing.Point(194, 11);
+            this.txtProductWeight.Location = new System.Drawing.Point(233, 11);
             this.txtProductWeight.Name = "txtProductWeight";
             this.txtProductWeight.Properties.Mask.EditMask = "n4";
             this.txtProductWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -376,11 +390,11 @@
             // 
             // lblProductWeight
             // 
-            this.lblProductWeight.Location = new System.Drawing.Point(16, 14);
+            this.lblProductWeight.Location = new System.Drawing.Point(11, 14);
             this.lblProductWeight.Name = "lblProductWeight";
-            this.lblProductWeight.Size = new System.Drawing.Size(172, 14);
+            this.lblProductWeight.Size = new System.Drawing.Size(216, 14);
             this.lblProductWeight.TabIndex = 0;
-            this.lblProductWeight.Text = "將選定的物料統一設定為此重量:";
+            this.lblProductWeight.Text = "將選定的物料統一設定為此重量(G/PCS):";
             // 
             // chkSelectAll
             // 
@@ -398,14 +412,18 @@
             this.dgvProductWeight.ColumnHeadersHeight = 25;
             this.dgvProductWeight.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProductWeight.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSetPrice,
+            this.colSelectFlag,
             this.colProductId,
             this.colProductName,
             this.colDoColor,
             this.colMaterialId,
             this.colMaterialCdesc,
             this.colProductWeight,
-            this.colPcsG});
+            this.colPcsG,
+            this.colDepId,
+            this.colDepName,
+            this.colCrUsr,
+            this.colCrTim});
             this.dgvProductWeight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductWeight.Location = new System.Drawing.Point(0, 188);
             this.dgvProductWeight.Name = "dgvProductWeight";
@@ -414,6 +432,95 @@
             this.dgvProductWeight.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductWeight.Size = new System.Drawing.Size(1049, 460);
             this.dgvProductWeight.TabIndex = 0;
+            // 
+            // colSelectFlag
+            // 
+            this.colSelectFlag.DataPropertyName = "SetFlag";
+            this.colSelectFlag.Frozen = true;
+            this.colSelectFlag.HeaderText = "";
+            this.colSelectFlag.Name = "colSelectFlag";
+            this.colSelectFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelectFlag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelectFlag.Width = 40;
+            // 
+            // colProductId
+            // 
+            this.colProductId.DataPropertyName = "goods_id";
+            this.colProductId.HeaderText = "物料編號";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Width = 160;
+            // 
+            // colProductName
+            // 
+            this.colProductName.DataPropertyName = "goods_cname";
+            this.colProductName.HeaderText = "物料描述";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 260;
+            // 
+            // colDoColor
+            // 
+            this.colDoColor.DataPropertyName = "DoColor";
+            this.colDoColor.HeaderText = "顏色做法";
+            this.colDoColor.Name = "colDoColor";
+            this.colDoColor.ReadOnly = true;
+            this.colDoColor.Width = 160;
+            // 
+            // colMaterialId
+            // 
+            this.colMaterialId.DataPropertyName = "mat_item";
+            this.colMaterialId.HeaderText = "原料編號";
+            this.colMaterialId.Name = "colMaterialId";
+            this.colMaterialId.Width = 160;
+            // 
+            // colMaterialCdesc
+            // 
+            this.colMaterialCdesc.DataPropertyName = "mat_cdesc";
+            this.colMaterialCdesc.HeaderText = "原料描述";
+            this.colMaterialCdesc.Name = "colMaterialCdesc";
+            this.colMaterialCdesc.Width = 260;
+            // 
+            // colProductWeight
+            // 
+            this.colProductWeight.DataPropertyName = "kg_qty_rate";
+            this.colProductWeight.HeaderText = "每Kg數量";
+            this.colProductWeight.Name = "colProductWeight";
+            this.colProductWeight.ReadOnly = true;
+            this.colProductWeight.Width = 80;
+            // 
+            // colPcsG
+            // 
+            this.colPcsG.DataPropertyName = "pcs_g";
+            this.colPcsG.HeaderText = "每PCS重量";
+            this.colPcsG.Name = "colPcsG";
+            this.colPcsG.Width = 80;
+            // 
+            // colDepId
+            // 
+            this.colDepId.DataPropertyName = "DepId";
+            this.colDepId.HeaderText = "部門編號";
+            this.colDepId.Name = "colDepId";
+            this.colDepId.Width = 65;
+            // 
+            // colDepName
+            // 
+            this.colDepName.DataPropertyName = "DepName";
+            this.colDepName.HeaderText = "部門描述";
+            this.colDepName.Name = "colDepName";
+            // 
+            // colCrUsr
+            // 
+            this.colCrUsr.DataPropertyName = "CrUsr";
+            this.colCrUsr.HeaderText = "修改人";
+            this.colCrUsr.Name = "colCrUsr";
+            // 
+            // colCrTim
+            // 
+            this.colCrTim.DataPropertyName = "CrTim";
+            this.colCrTim.HeaderText = "修改時間";
+            this.colCrTim.Name = "colCrTim";
+            this.colCrTim.Width = 120;
             // 
             // toolStrip1
             // 
@@ -460,16 +567,6 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
-            // 
-            // colSetPrice
-            // 
-            this.colSetPrice.DataPropertyName = "SetFlag";
-            this.colSetPrice.Frozen = true;
-            this.colSetPrice.HeaderText = "";
-            this.colSetPrice.Name = "colSetPrice";
-            this.colSetPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSetPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSetPrice.Width = 40;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -526,59 +623,6 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 80;
-            // 
-            // colProductId
-            // 
-            this.colProductId.DataPropertyName = "goods_id";
-            this.colProductId.HeaderText = "物料編號";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Width = 160;
-            // 
-            // colProductName
-            // 
-            this.colProductName.DataPropertyName = "goods_cname";
-            this.colProductName.HeaderText = "物料描述";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 260;
-            // 
-            // colDoColor
-            // 
-            this.colDoColor.DataPropertyName = "DoColor";
-            this.colDoColor.HeaderText = "顏色做法";
-            this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
-            this.colDoColor.Width = 160;
-            // 
-            // colMaterialId
-            // 
-            this.colMaterialId.DataPropertyName = "mat_item";
-            this.colMaterialId.HeaderText = "原料編號";
-            this.colMaterialId.Name = "colMaterialId";
-            this.colMaterialId.Width = 160;
-            // 
-            // colMaterialCdesc
-            // 
-            this.colMaterialCdesc.DataPropertyName = "mat_cdesc";
-            this.colMaterialCdesc.HeaderText = "原料描述";
-            this.colMaterialCdesc.Name = "colMaterialCdesc";
-            this.colMaterialCdesc.Width = 260;
-            // 
-            // colProductWeight
-            // 
-            this.colProductWeight.DataPropertyName = "kg_qty_rate";
-            this.colProductWeight.HeaderText = "每Kg數量";
-            this.colProductWeight.Name = "colProductWeight";
-            this.colProductWeight.ReadOnly = true;
-            this.colProductWeight.Width = 80;
-            // 
-            // colPcsG
-            // 
-            this.colPcsG.DataPropertyName = "pcs_g";
-            this.colPcsG.HeaderText = "每PCS重量";
-            this.colPcsG.Name = "colPcsG";
-            this.colPcsG.Width = 80;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -805,7 +849,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).EndInit();
             this.palShowF0.ResumeLayout(false);
-            this.palShowF0.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowF0.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkNoShowDmItem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClrTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtTo.Properties)).EndInit();
@@ -848,7 +893,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.CheckBox chkShowF0;
         private DevExpress.XtraEditors.TextEdit txtClrTo;
         private DevExpress.XtraEditors.TextEdit txtSizeTo;
         private DevExpress.XtraEditors.TextEdit txtArtTo;
@@ -896,7 +940,9 @@
         private DevExpress.XtraEditors.SimpleButton btnConf;
         private DevExpress.XtraEditors.LabelControl lblProductId;
         private DevExpress.XtraEditors.TextEdit txtProductId;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colSetPrice;
+        private DevExpress.XtraEditors.CheckEdit chkNoShowDmItem;
+        private DevExpress.XtraEditors.CheckEdit chkShowF0;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoColor;
@@ -904,5 +950,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialCdesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPcsG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCrUsr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCrTim;
     }
 }

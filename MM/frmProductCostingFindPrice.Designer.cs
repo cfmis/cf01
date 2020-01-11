@@ -52,21 +52,26 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtpFindPlatePrice = new DevExpress.XtraTab.XtraTabPage();
             this.dgvDetails2 = new System.Windows.Forms.DataGridView();
+            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
+            this.lblMaterialName = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
+            this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
+            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
+            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPlatePriceKg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,14 +85,6 @@
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
-            this.lblMaterialName = new DevExpress.XtraEditors.LabelControl();
-            this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
-            this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
-            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
-            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcFind)).BeginInit();
             this.xtcFind.SuspendLayout();
@@ -315,18 +312,15 @@
             this.Column4,
             this.Column11,
             this.dataGridViewTextBoxColumn1,
+            this.Column29,
             this.Column36,
             this.Column37,
-            this.Column29,
             this.Column12,
+            this.Column30,
             this.Column13,
             this.Column14,
-            this.Column30,
-            this.Column33,
             this.Column15,
             this.Column16,
-            this.colPlatePriceKg,
-            this.Column32,
             this.Column21,
             this.Column31,
             this.Column17,
@@ -349,6 +343,77 @@
             this.dgvDetails2.Size = new System.Drawing.Size(987, 449);
             this.dgvDetails2.TabIndex = 0;
             this.dgvDetails2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails2_CellDoubleClick);
+            // 
+            // txtMaterialName
+            // 
+            this.txtMaterialName.Location = new System.Drawing.Point(326, 17);
+            this.txtMaterialName.Name = "txtMaterialName";
+            this.txtMaterialName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaterialName.Size = new System.Drawing.Size(353, 20);
+            this.txtMaterialName.TabIndex = 1;
+            // 
+            // lblMaterialName
+            // 
+            this.lblMaterialName.Location = new System.Drawing.Point(268, 20);
+            this.lblMaterialName.Name = "lblMaterialName";
+            this.lblMaterialName.Size = new System.Drawing.Size(52, 14);
+            this.lblMaterialName.TabIndex = 0;
+            this.lblMaterialName.Text = "物料編號:";
+            // 
+            // txtMaterialId
+            // 
+            this.txtMaterialId.Location = new System.Drawing.Point(86, 17);
+            this.txtMaterialId.Name = "txtMaterialId";
+            this.txtMaterialId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaterialId.Size = new System.Drawing.Size(177, 20);
+            this.txtMaterialId.TabIndex = 1;
+            // 
+            // lblMaterialId
+            // 
+            this.lblMaterialId.Location = new System.Drawing.Point(28, 20);
+            this.lblMaterialId.Name = "lblMaterialId";
+            this.lblMaterialId.Size = new System.Drawing.Size(52, 14);
+            this.lblMaterialId.TabIndex = 0;
+            this.lblMaterialId.Text = "物料編號:";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.lblShowMsg);
+            this.panelControl2.Controls.Add(this.txtMaterialName);
+            this.panelControl2.Controls.Add(this.lblDepId);
+            this.panelControl2.Controls.Add(this.lblMaterialId);
+            this.panelControl2.Controls.Add(this.lblMaterialName);
+            this.panelControl2.Controls.Add(this.txtDepId);
+            this.panelControl2.Controls.Add(this.txtMaterialId);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 38);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(993, 70);
+            this.panelControl2.TabIndex = 2;
+            // 
+            // lblShowMsg
+            // 
+            this.lblShowMsg.Location = new System.Drawing.Point(86, 43);
+            this.lblShowMsg.Name = "lblShowMsg";
+            this.lblShowMsg.Size = new System.Drawing.Size(274, 14);
+            this.lblShowMsg.TabIndex = 2;
+            this.lblShowMsg.Text = "注：如果是噴油或掛電，則單價/G為每PCS的單價。";
+            // 
+            // lblDepId
+            // 
+            this.lblDepId.Location = new System.Drawing.Point(686, 20);
+            this.lblDepId.Name = "lblDepId";
+            this.lblDepId.Size = new System.Drawing.Size(52, 14);
+            this.lblDepId.TabIndex = 0;
+            this.lblDepId.Text = "部門編號:";
+            // 
+            // txtDepId
+            // 
+            this.txtDepId.Location = new System.Drawing.Point(744, 17);
+            this.txtDepId.Name = "txtDepId";
+            this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDepId.Size = new System.Drawing.Size(177, 20);
+            this.txtDepId.TabIndex = 1;
             // 
             // Column4
             // 
@@ -374,6 +439,14 @@
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 160;
             // 
+            // Column29
+            // 
+            this.Column29.DataPropertyName = "pcs_weg";
+            this.Column29.HeaderText = "每PCS重量";
+            this.Column29.Name = "Column29";
+            this.Column29.ReadOnly = true;
+            this.Column29.Width = 80;
+            // 
             // Column36
             // 
             this.Column36.DataPropertyName = "StdProductPrice";
@@ -390,22 +463,20 @@
             this.Column37.ReadOnly = true;
             this.Column37.Width = 80;
             // 
-            // Column29
-            // 
-            this.Column29.DataPropertyName = "pcs_weg";
-            this.Column29.HeaderText = "每PCS重量";
-            this.Column29.Name = "Column29";
-            this.Column29.ReadOnly = true;
-            this.Column29.Width = 80;
-            // 
             // Column12
             // 
-            this.Column12.DataPropertyName = "price_g";
+            this.Column12.DataPropertyName = "price_pcs";
             this.Column12.FillWeight = 80F;
-            this.Column12.HeaderText = "應用單價";
+            this.Column12.HeaderText = "數量單價/PCS";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            this.Column12.Width = 65;
+            // 
+            // Column30
+            // 
+            this.Column30.DataPropertyName = "price_g";
+            this.Column30.HeaderText = "重量單價/PCS";
+            this.Column30.Name = "Column30";
+            this.Column30.ReadOnly = true;
             // 
             // Column13
             // 
@@ -425,22 +496,6 @@
             this.Column14.ReadOnly = true;
             this.Column14.Width = 65;
             // 
-            // Column30
-            // 
-            this.Column30.DataPropertyName = "price_pcs";
-            this.Column30.HeaderText = "每PCS單價";
-            this.Column30.Name = "Column30";
-            this.Column30.ReadOnly = true;
-            this.Column30.Width = 70;
-            // 
-            // Column33
-            // 
-            this.Column33.DataPropertyName = "pcs_cost";
-            this.Column33.HeaderText = "每PCS價錢";
-            this.Column33.Name = "Column33";
-            this.Column33.ReadOnly = true;
-            this.Column33.Width = 80;
-            // 
             // Column15
             // 
             this.Column15.DataPropertyName = "sec_price";
@@ -458,23 +513,6 @@
             this.Column16.Name = "Column16";
             this.Column16.ReadOnly = true;
             this.Column16.Width = 65;
-            // 
-            // colPlatePriceKg
-            // 
-            this.colPlatePriceKg.DataPropertyName = "price_kg";
-            this.colPlatePriceKg.FillWeight = 80F;
-            this.colPlatePriceKg.HeaderText = "每Kg單價";
-            this.colPlatePriceKg.Name = "colPlatePriceKg";
-            this.colPlatePriceKg.ReadOnly = true;
-            this.colPlatePriceKg.Width = 80;
-            // 
-            // Column32
-            // 
-            this.Column32.DataPropertyName = "origin_price_g";
-            this.Column32.HeaderText = "每G單價";
-            this.Column32.Name = "Column32";
-            this.Column32.ReadOnly = true;
-            this.Column32.Width = 65;
             // 
             // Column21
             // 
@@ -587,77 +625,6 @@
             this.Column28.ReadOnly = true;
             this.Column28.Width = 80;
             // 
-            // txtMaterialName
-            // 
-            this.txtMaterialName.Location = new System.Drawing.Point(326, 17);
-            this.txtMaterialName.Name = "txtMaterialName";
-            this.txtMaterialName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMaterialName.Size = new System.Drawing.Size(353, 20);
-            this.txtMaterialName.TabIndex = 1;
-            // 
-            // lblMaterialName
-            // 
-            this.lblMaterialName.Location = new System.Drawing.Point(268, 20);
-            this.lblMaterialName.Name = "lblMaterialName";
-            this.lblMaterialName.Size = new System.Drawing.Size(52, 14);
-            this.lblMaterialName.TabIndex = 0;
-            this.lblMaterialName.Text = "物料編號:";
-            // 
-            // txtMaterialId
-            // 
-            this.txtMaterialId.Location = new System.Drawing.Point(86, 17);
-            this.txtMaterialId.Name = "txtMaterialId";
-            this.txtMaterialId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMaterialId.Size = new System.Drawing.Size(177, 20);
-            this.txtMaterialId.TabIndex = 1;
-            // 
-            // lblMaterialId
-            // 
-            this.lblMaterialId.Location = new System.Drawing.Point(28, 20);
-            this.lblMaterialId.Name = "lblMaterialId";
-            this.lblMaterialId.Size = new System.Drawing.Size(52, 14);
-            this.lblMaterialId.TabIndex = 0;
-            this.lblMaterialId.Text = "物料編號:";
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.lblShowMsg);
-            this.panelControl2.Controls.Add(this.txtMaterialName);
-            this.panelControl2.Controls.Add(this.lblDepId);
-            this.panelControl2.Controls.Add(this.lblMaterialId);
-            this.panelControl2.Controls.Add(this.lblMaterialName);
-            this.panelControl2.Controls.Add(this.txtDepId);
-            this.panelControl2.Controls.Add(this.txtMaterialId);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 38);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(993, 70);
-            this.panelControl2.TabIndex = 2;
-            // 
-            // lblShowMsg
-            // 
-            this.lblShowMsg.Location = new System.Drawing.Point(86, 43);
-            this.lblShowMsg.Name = "lblShowMsg";
-            this.lblShowMsg.Size = new System.Drawing.Size(274, 14);
-            this.lblShowMsg.TabIndex = 2;
-            this.lblShowMsg.Text = "注：如果是噴油或掛電，則單價/G為每PCS的單價。";
-            // 
-            // lblDepId
-            // 
-            this.lblDepId.Location = new System.Drawing.Point(686, 20);
-            this.lblDepId.Name = "lblDepId";
-            this.lblDepId.Size = new System.Drawing.Size(52, 14);
-            this.lblDepId.TabIndex = 0;
-            this.lblDepId.Text = "部門編號:";
-            // 
-            // txtDepId
-            // 
-            this.txtDepId.Location = new System.Drawing.Point(744, 17);
-            this.txtDepId.Name = "txtDepId";
-            this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDepId.Size = new System.Drawing.Size(177, 20);
-            this.txtDepId.TabIndex = 1;
-            // 
             // frmProductCostingFindPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -724,18 +691,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPlatePriceKg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;

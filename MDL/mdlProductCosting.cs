@@ -15,6 +15,7 @@ namespace cf01.MDL
         public decimal materialRequest;
         public decimal originalPrice;
         public decimal materialPrice;
+        public decimal materialPriceQty;
         public decimal materialCost;
         public decimal rollUpCost;
         public string depId;
@@ -45,6 +46,7 @@ namespace cf01.MDL
     {
         public string productId;
         public decimal productPrice;
+        public decimal productPriceQty;
         public string priceUnit;
         public string createUser;
         public string createTime;
@@ -54,11 +56,13 @@ namespace cf01.MDL
 
     public class mdlProductWeight
     {
-        public string productId;
-        public decimal productWeight;
-        public string createUser;
-        public string createTime;
-        public string amendUser;
-        public string amendTime;
+        public string prdItem;
+        public decimal kgQtyRate;
+        public decimal pcsWeg;
+        public string matItem;
+        public string depId;
+        public string crUser;
+        public string crTime;
+
     }
 }

@@ -302,6 +302,7 @@ namespace cf01.MM
                 dr2["MaterialRequest"] = dr["MaterialRequest"].ToString();
                 dr2["OriginalPrice"] = dr["OriginalPrice"].ToString();
                 dr2["MaterialPrice"] = dr["MaterialPrice"].ToString();
+                dr2["MaterialPriceQty"] = dr["MaterialPriceQty"].ToString();
                 dr2["MaterialCost"] = dr["MaterialCost"].ToString();
                 dr2["RollUpCost"] = dr["RollUpCost"].ToString();
                 dr2["DepId"] = dr["DepId"].ToString();
@@ -323,7 +324,7 @@ namespace cf01.MM
             else
             {
                 dr2["IsSetFlag"] = false;
-                decimal materialPrice = 0;
+                decimal materialPrice = 0, materialPriceQty = 0;
                 decimal wasteRate = 1;
                 decimal depPrice = 0;
                 decimal stdProductWeight = 0;
@@ -363,11 +364,13 @@ namespace cf01.MM
                     {
                         dr2["StdPriceFlag"] = "Y";
                         stdProductPrice = dt1.Rows[0]["ProductPrice"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPrice"]) : 0;
+                        materialPriceQty = dt1.Rows[0]["ProductPriceQty"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPriceQty"]) : 0;
                         if (dt1.Rows[0]["PriceUnit"].ToString().Trim() == "KG")
                             materialPrice = Math.Round(stdProductPrice / 1000, 4);
                         else
                             materialPrice = stdProductPrice;
                         dr2["OriginalPrice"] = stdProductPrice;
+                        
                     }
                     else
                     {
@@ -375,6 +378,7 @@ namespace cf01.MM
                         if (dt1.Rows.Count > 0)
                         {
                             materialPrice = dt1.Rows[0]["price_g"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["price_g"].ToString()) : 0;
+                            materialPriceQty = dt1.Rows[0]["price_pcs"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["price_pcs"].ToString()) : 0;
                             dr2["OriginalPrice"] = dt1.Rows[0]["PriceHkd"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["PriceHkd"].ToString()) : 0;
                         }
                     }
@@ -435,6 +439,7 @@ namespace cf01.MM
                                 {
                                     dr2["StdPriceFlag"] = "Y";
                                     stdProductPrice = dt1.Rows[0]["ProductPrice"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPrice"]) : 0;
+                                    materialPriceQty = dt1.Rows[0]["ProductPriceQty"].ToString() != "" ? Convert.ToDecimal(dt1.Rows[0]["ProductPriceQty"]) : 0;
                                     if (dt1.Rows[0]["PriceUnit"].ToString().Trim() == "KG")
                                         materialPrice = Math.Round(stdProductPrice / 1000, 4);
                                     else
@@ -448,10 +453,12 @@ namespace cf01.MM
                                     if (dt2.Rows.Count > 0)
                                     {
                                         materialPrice = dt2.Rows[0]["price_g"].ToString() != "" ? Convert.ToDecimal(dt2.Rows[0]["price_g"].ToString()) : 0;
-                                        dr2["OriginalPrice"] = dt2.Rows[0]["price_kg"].ToString() != "" ? Convert.ToDecimal(dt2.Rows[0]["price_kg"].ToString()) : 0;
+                                        materialPriceQty = dt2.Rows[0]["price_pcs"].ToString() != "" ? Convert.ToDecimal(dt2.Rows[0]["price_pcs"].ToString()) : 0;
+                                        dr2["OriginalPrice"] = dt2.Rows[0]["sec_price"].ToString() != "" ? Convert.ToDecimal(dt2.Rows[0]["sec_price"].ToString()) : 0;
                                     }
                                 }
                                 dr2["MaterialPrice"] = materialPrice;
+                                dr2["MaterialPriceQty"] = materialPriceQty;
                                 dr2["WasteRate"] = wasteRate;
                                 ////原料/膠料/噴油/挂電都是按粒計算成本的，所以不用乘以重量(2-2019/12/14日取消，不用計算)
                                 //if (depId == "510" || (depId == "501" && dr2["DoColor"].ToString().IndexOf("挂電") > 0))
@@ -526,6 +533,7 @@ namespace cf01.MM
             txtMaterialRequest.Text = dgr.Cells["colMaterialRequest"].Value.ToString();
             txtOriginalPrice.Text = dgr.Cells["colOriginalPrice"].Value.ToString();
             txtMaterialPrice.Text = dgr.Cells["colMaterialPrice"].Value.ToString();
+            txtMaterialPriceQty.Text = dgr.Cells["colMaterialPriceQty"].Value.ToString();
             txtStdPriceFlag.Text = dgr.Cells["colStdPriceFlag"].Value.ToString();
             txtMaterialCost.Text = dgr.Cells["colMaterialCost"].Value.ToString();
             txtDepId.Text = dgr.Cells["colDepId"].Value.ToString();
@@ -701,7 +709,11 @@ namespace cf01.MM
             countMaterialCost();
             fillDgvBomDetails();
         }
-
+        private void txtMaterialPriceQty_Leave(object sender, EventArgs e)
+        {
+            countMaterialCost();
+            fillDgvBomDetails();
+        }
         private void txtDepPrice_Leave(object sender, EventArgs e)
         {
             txtDepCost.Text = (txtDepPrice.Text != "" ? Convert.ToDecimal(txtDepPrice.Text) : 0).ToString();
@@ -725,6 +737,7 @@ namespace cf01.MM
             wasteRate = wasteRate == 0 ? 1 : wasteRate;
             decimal materialPrice = txtMaterialPrice.Text != "" ? Convert.ToDecimal(txtMaterialPrice.Text) : 0;
             decimal productWeight = txtProductWeight.Text != "" ? Convert.ToDecimal(txtProductWeight.Text) : 0;
+            decimal materialPriceQty = txtMaterialPriceQty.Text != "" ? Convert.ToDecimal(txtMaterialPriceQty.Text) : 0;
             if (firstLevel == true)
             {
                 decimal materialRequest = Math.Round(productWeight * wasteRate, 4);
@@ -733,11 +746,13 @@ namespace cf01.MM
             }
             else
             {
-                //膠料、噴油、挂電的成本是按粒計算的，所以不用乘以重量
-                if (txtProductId.Text.Substring(0, 2) == "PL"||txtDepId.Text.Trim() == "510"||(txtDepId.Text.Trim() == "501"&&txtDoColor.Text.IndexOf("挂電")>0))
-                    txtMaterialCost.Text = Math.Round(wasteRate * materialPrice, 4).ToString();
-                else
-                    txtMaterialCost.Text = Math.Round(productWeight * wasteRate * materialPrice, 4).ToString();
+                //////膠料、噴油、挂電的成本是按粒計算的，所以不用乘以重量
+                ////if (txtProductId.Text.Substring(0, 2) == "PL"||txtDepId.Text.Trim() == "510"||(txtDepId.Text.Trim() == "501"&&txtDoColor.Text.IndexOf("挂電")>0))
+                ////    txtMaterialCost.Text = Math.Round(wasteRate * materialPrice, 4).ToString();
+                ////else
+                ////    txtMaterialCost.Text = Math.Round(productWeight * wasteRate * materialPrice, 4).ToString();
+                txtMaterialCost.Text = Math.Round((productWeight * wasteRate * materialPrice)+ (wasteRate * materialPriceQty), 4).ToString();
+
             }
             countProductCosting();
         }
@@ -752,6 +767,7 @@ namespace cf01.MM
             dgr.Cells["colMaterialRequest"].Value = txtMaterialRequest.Text != "" ? Convert.ToDecimal(txtMaterialRequest.Text) : 0;
             dgr.Cells["colOriginalPrice"].Value = txtOriginalPrice.Text != "" ? Convert.ToDecimal(txtOriginalPrice.Text) : 0;
             dgr.Cells["colMaterialPrice"].Value = txtMaterialPrice.Text != "" ? Convert.ToDecimal(txtMaterialPrice.Text) : 0;
+            dgr.Cells["colMaterialPriceQty"].Value = txtMaterialPriceQty.Text != "" ? Convert.ToDecimal(txtMaterialPriceQty.Text) : 0;
             dgr.Cells["colMaterialCost"].Value = txtMaterialCost.Text != "" ? Convert.ToDecimal(txtMaterialCost.Text) : 0;
             dgr.Cells["colDepPrice"].Value = txtDepPrice.Text != "" ? Convert.ToDecimal(txtDepPrice.Text) : 0;
             dgr.Cells["colDepCost"].Value = txtDepCost.Text != "" ? Convert.ToDecimal(txtDepCost.Text) : 0;
@@ -848,6 +864,7 @@ namespace cf01.MM
                         objModel.materialRequest = dgr.Cells["colMaterialRequest"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialRequest"].Value) : 0;
                         objModel.originalPrice = dgr.Cells["colOriginalPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colOriginalPrice"].Value) : 0;
                         objModel.materialPrice = dgr.Cells["colMaterialPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialPrice"].Value) : 0;
+                        objModel.materialPriceQty = dgr.Cells["colMaterialPriceQty"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialPriceQty"].Value) : 0;
                         objModel.materialCost = dgr.Cells["colMaterialCost"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialCost"].Value) : 0;
                         objModel.depId = dgr.Cells["colDepId"].Value.ToString();
                         objModel.depPrice = dgr.Cells["colDepPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colDepPrice"].Value) : 0;
@@ -891,6 +908,7 @@ namespace cf01.MM
             string currentLevel = dgrParent.Cells["colBomLevel"].Value.ToString();
             DataGridViewRow dgrCurrent = dgvBomDetails.Rows[currentRow];
             string parentLevel = dgrCurrent.Cells["colParentLevel"].Value.ToString();
+            decimal wasteRate = 0;
             if (dgrCurrent.Cells["colProductId"].Value.ToString().Substring(0, 2) == "ML")
             {
                 if (parentLevel == currentLevel)
@@ -900,13 +918,22 @@ namespace cf01.MM
                         //上層的單價由本層得來
                         dgrParent.Cells["colOriginalPrice"].Value = dgrCurrent.Cells["colOriginalPrice"].Value;
                         dgrParent.Cells["colMaterialPrice"].Value = dgrCurrent.Cells["colMaterialPrice"].Value;
+                        dgrParent.Cells["colMaterialPriceQty"].Value = dgrCurrent.Cells["colMaterialPriceQty"].Value;
+                        wasteRate = dgrParent.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colWasteRate"].Value.ToString()) : 0;
+                        wasteRate = wasteRate != 0 ? wasteRate : 1;
                         //dgrParent.Cells["colWasteRate"].Value = clsProductCosting.getDepWasteRate(dgrParent.Cells["colDepId"].Value.ToString());
                         dgrParent.Cells["colMaterialRequest"].Value = Math.Round((dgrParent.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colProductWeight"].Value) : 0)
-                             * Convert.ToDecimal(dgrParent.Cells["colWasteRate"].Value)
+                             * wasteRate
                             , 4);
+                        //物料成本 = 重量成本 + 數量成本
                         dgrParent.Cells["colMaterialCost"].Value = Math.Round(
-                            (dgrParent.Cells["colMaterialRequest"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colMaterialRequest"].Value.ToString()) : 0)
+                            ((dgrParent.Cells["colMaterialRequest"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colMaterialRequest"].Value.ToString()) : 0)
                             * (dgrParent.Cells["colMaterialPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colMaterialPrice"].Value.ToString()) : 0)
+                            )
+                            +
+                            ((dgrParent.Cells["colMaterialPriceQty"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colMaterialPriceQty"].Value.ToString()) : 0)
+                            * wasteRate
+                            )
                             , 4);
                         countProductCostInGrid(parentRow);
                     }
@@ -916,40 +943,45 @@ namespace cf01.MM
             {
                 if ((bool)dgrCurrent.Cells["colIsSetFlag"].Value == false)//如果是已設定的，就不再計算
                 {
-                    decimal wasteRate = 0;
+                    
                     wasteRate = dgrCurrent.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgrCurrent.Cells["colWasteRate"].Value.ToString()) : 0;
                     wasteRate = wasteRate != 0 ? wasteRate : 1;
-                    dgrCurrent.Cells["colMaterialCost"].Value = Math.Round(wasteRate
+                    //物料成本 = 重量成本 + 數量成本
+                    dgrCurrent.Cells["colMaterialCost"].Value = Math.Round(
+                        (wasteRate
+                        * (dgrCurrent.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgrCurrent.Cells["colProductWeight"].Value.ToString()) : 0)
                         * (dgrCurrent.Cells["colMaterialPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgrCurrent.Cells["colMaterialPrice"].Value.ToString()) : 0)
+                        )
+                        +
+                        (wasteRate
+                        * (dgrCurrent.Cells["colMaterialPriceQty"].Value.ToString() != "" ? Convert.ToDecimal(dgrCurrent.Cells["colMaterialPriceQty"].Value.ToString()) : 0)
+                        )
                         , 4);
                     countProductCostInGrid(currentRow);
                 }
             }
-            else if (dgrParent.Cells["colDepId"].Value.ToString() == "501" || dgrParent.Cells["colDepId"].Value.ToString() == "510")//
+            else if (dgrParent.Cells["colDepId"].Value.ToString().Trim() == "501" || dgrParent.Cells["colDepId"].Value.ToString().Trim() == "510")//
             {
                 if (parentLevel == currentLevel)
                 {
                     if ((bool)dgrParent.Cells["colIsSetFlag"].Value == false)//如果是已設定的，就不再計算
                     {
-                        decimal wasteRate = 0;
                         if (dgrParent.Cells["colStdWeightFlag"].Value.ToString() != "Y")//如果沒有自定的重量，就套用上部門的重量
                         {
                             dgrParent.Cells["colProductWeight"].Value = dgrCurrent.Cells["colProductWeight"].Value;//因為外發的金額是按照NEP計算的，所以要將上層的重量帶入到本層,作為本層的重量
                             dgrParent.Cells["colOriginWeight"].Value = dgrParent.Cells["colProductWeight"].Value;
                         }
                         wasteRate = dgrParent.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colWasteRate"].Value.ToString()) : 0;
-                        //if (wasteRate == 0)
-                        //    wasteRate = (decimal)1.1;
-                        //噴油、挂電是按粒計算成本的，所以不用乘以重量
-                        if (dgrParent.Cells["colDepId"].Value.ToString() == "510" || (dgrParent.Cells["colDepId"].Value.ToString() == "501" && dgrParent.Cells["colDoColor"].Value.ToString().IndexOf("挂電") > 0))
-                            dgrParent.Cells["colMaterialCost"].Value = Math.Round(wasteRate
-                            * (dgrParent.Cells["colMaterialPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colMaterialPrice"].Value.ToString()) : 0)
-                            , 4);
-                        else
-                            dgrParent.Cells["colMaterialCost"].Value = Math.Round(
-                        (dgrParent.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colProductWeight"].Value.ToString()) : 0)
+                        //物料成本 = 重量成本 + 數量成本
+                        dgrParent.Cells["colMaterialCost"].Value = Math.Round(
+                        ((dgrParent.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colProductWeight"].Value.ToString()) : 0)
                         * wasteRate
                         * (dgrParent.Cells["colMaterialPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colMaterialPrice"].Value.ToString()) : 0)
+                        )
+                        +
+                        (wasteRate
+                        * (dgrParent.Cells["colMaterialPriceQty"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colMaterialPriceQty"].Value.ToString()) : 0)
+                        )
                         , 4);
                         countProductCostInGrid(parentRow);
                     }
@@ -1238,5 +1270,7 @@ namespace cf01.MM
             frm.ShowDialog();
             frm.Dispose();
         }
+
+        
     }
 }

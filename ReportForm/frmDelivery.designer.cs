@@ -1132,7 +1132,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmDelivery";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "frmDelivery";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDelivery_FormClosed);
             this.Load += new System.EventHandler(this.frmDelivery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).EndInit();

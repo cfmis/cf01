@@ -63,6 +63,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dgvCosting = new System.Windows.Forms.DataGridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSetProductPrice1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetProductWeight1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrintWipData = new DevExpress.XtraEditors.SimpleButton();
             this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
@@ -112,8 +113,11 @@
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSetProductPrice1 = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.lblShowProductId = new DevExpress.XtraEditors.LabelControl();
+            this.txtShowProductId = new DevExpress.XtraEditors.TextEdit();
             this.colSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,11 +133,11 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -150,9 +154,10 @@
             this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtShowProductName = new DevExpress.XtraEditors.TextEdit();
+            this.btnReSearch = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).BeginInit();
@@ -183,6 +188,10 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -219,7 +228,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1049, 119);
+            this.panelControl1.Size = new System.Drawing.Size(1049, 115);
             this.panelControl1.TabIndex = 0;
             // 
             // palShowF0
@@ -514,9 +523,9 @@
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Controls.Add(this.dgvWipData);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 157);
+            this.panelControl2.Location = new System.Drawing.Point(0, 188);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1049, 491);
+            this.panelControl2.Size = new System.Drawing.Size(1049, 460);
             this.panelControl2.TabIndex = 1;
             // 
             // dgvCosting
@@ -526,6 +535,7 @@
             this.dgvCosting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCosting.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSetCosting,
+            this.colProductMo,
             this.colProductId,
             this.colProductName,
             this.Column1,
@@ -541,7 +551,6 @@
             this.Column7,
             this.Column8,
             this.colDoColor,
-            this.colProductMo,
             this.Column4,
             this.Column9,
             this.Column10});
@@ -552,7 +561,7 @@
             this.dgvCosting.RowHeadersWidth = 20;
             this.dgvCosting.RowTemplate.Height = 24;
             this.dgvCosting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCosting.Size = new System.Drawing.Size(1045, 177);
+            this.dgvCosting.Size = new System.Drawing.Size(1045, 146);
             this.dgvCosting.TabIndex = 0;
             this.dgvCosting.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCosting_CellContentClick);
             this.dgvCosting.SelectionChanged += new System.EventHandler(this.dgvCosting_SelectionChanged);
@@ -564,10 +573,19 @@
             this.panelControl3.Controls.Add(this.btnPrintWipData);
             this.panelControl3.Controls.Add(this.lblShowMsg);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(2, 179);
+            this.panelControl3.Location = new System.Drawing.Point(2, 148);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(1045, 35);
             this.panelControl3.TabIndex = 6;
+            // 
+            // btnSetProductPrice1
+            // 
+            this.btnSetProductPrice1.Location = new System.Drawing.Point(246, 5);
+            this.btnSetProductPrice1.Name = "btnSetProductPrice1";
+            this.btnSetProductPrice1.Size = new System.Drawing.Size(75, 25);
+            this.btnSetProductPrice1.TabIndex = 3;
+            this.btnSetProductPrice1.Text = "自定單價";
+            this.btnSetProductPrice1.Click += new System.EventHandler(this.btnSetProductPrice1_Click);
             // 
             // btnSetProductWeight1
             // 
@@ -603,6 +621,7 @@
             this.dgvWipData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvWipData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colWipSetCosting,
+            this.colWipProductMo,
             this.colWipSeq,
             this.colWipGoodsId,
             this.colWipGoodsCname,
@@ -619,11 +638,10 @@
             this.colWipNextDep,
             this.colWipNextDepId,
             this.colWipDoColor,
-            this.colWipProductMo,
             this.Column11,
             this.Column12});
             this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvWipData.Location = new System.Drawing.Point(2, 214);
+            this.dgvWipData.Location = new System.Drawing.Point(2, 183);
             this.dgvWipData.Name = "dgvWipData";
             this.dgvWipData.ReadOnly = true;
             this.dgvWipData.RowHeadersWidth = 20;
@@ -1008,14 +1026,33 @@
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.Width = 60;
             // 
-            // btnSetProductPrice1
+            // panelControl4
             // 
-            this.btnSetProductPrice1.Location = new System.Drawing.Point(246, 5);
-            this.btnSetProductPrice1.Name = "btnSetProductPrice1";
-            this.btnSetProductPrice1.Size = new System.Drawing.Size(75, 25);
-            this.btnSetProductPrice1.TabIndex = 3;
-            this.btnSetProductPrice1.Text = "自定單價";
-            this.btnSetProductPrice1.Click += new System.EventHandler(this.btnSetProductPrice1_Click);
+            this.panelControl4.Controls.Add(this.btnReSearch);
+            this.panelControl4.Controls.Add(this.txtShowProductName);
+            this.panelControl4.Controls.Add(this.txtShowProductId);
+            this.panelControl4.Controls.Add(this.lblShowProductId);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl4.Location = new System.Drawing.Point(0, 153);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(1049, 35);
+            this.panelControl4.TabIndex = 2;
+            // 
+            // lblShowProductId
+            // 
+            this.lblShowProductId.Location = new System.Drawing.Point(14, 12);
+            this.lblShowProductId.Name = "lblShowProductId";
+            this.lblShowProductId.Size = new System.Drawing.Size(148, 14);
+            this.lblShowProductId.TabIndex = 0;
+            this.lblShowProductId.Text = "繼續查找此物料的制單資料:";
+            // 
+            // txtShowProductId
+            // 
+            this.txtShowProductId.Location = new System.Drawing.Point(167, 9);
+            this.txtShowProductId.Name = "txtShowProductId";
+            this.txtShowProductId.Properties.ReadOnly = true;
+            this.txtShowProductId.Size = new System.Drawing.Size(168, 20);
+            this.txtShowProductId.TabIndex = 1;
             // 
             // colSetCosting
             // 
@@ -1025,6 +1062,14 @@
             this.colSetCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colSetCosting.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colSetCosting.Width = 65;
+            // 
+            // colProductMo
+            // 
+            this.colProductMo.DataPropertyName = "mo_id";
+            this.colProductMo.HeaderText = "制單編號";
+            this.colProductMo.Name = "colProductMo";
+            this.colProductMo.ReadOnly = true;
+            this.colProductMo.Width = 80;
             // 
             // colProductId
             // 
@@ -1146,14 +1191,6 @@
             this.colDoColor.ReadOnly = true;
             this.colDoColor.Width = 160;
             // 
-            // colProductMo
-            // 
-            this.colProductMo.DataPropertyName = "mo_id";
-            this.colProductMo.HeaderText = "制單編號";
-            this.colProductMo.Name = "colProductMo";
-            this.colProductMo.ReadOnly = true;
-            this.colProductMo.Width = 80;
-            // 
             // Column4
             // 
             this.Column4.DataPropertyName = "bill_date";
@@ -1185,6 +1222,14 @@
             this.colWipSetCosting.ReadOnly = true;
             this.colWipSetCosting.Text = "...";
             this.colWipSetCosting.Width = 65;
+            // 
+            // colWipProductMo
+            // 
+            this.colWipProductMo.DataPropertyName = "mo_id";
+            this.colWipProductMo.HeaderText = "制單編號";
+            this.colWipProductMo.Name = "colWipProductMo";
+            this.colWipProductMo.ReadOnly = true;
+            this.colWipProductMo.Width = 80;
             // 
             // colWipSeq
             // 
@@ -1312,14 +1357,6 @@
             this.colWipDoColor.Name = "colWipDoColor";
             this.colWipDoColor.ReadOnly = true;
             // 
-            // colWipProductMo
-            // 
-            this.colWipProductMo.DataPropertyName = "mo_id";
-            this.colWipProductMo.HeaderText = "制單編號";
-            this.colWipProductMo.Name = "colWipProductMo";
-            this.colWipProductMo.ReadOnly = true;
-            this.colWipProductMo.Width = 80;
-            // 
             // Column11
             // 
             this.Column11.DataPropertyName = "mo_group";
@@ -1336,12 +1373,31 @@
             this.Column12.ReadOnly = true;
             this.Column12.Width = 60;
             // 
+            // txtShowProductName
+            // 
+            this.txtShowProductName.Location = new System.Drawing.Point(352, 9);
+            this.txtShowProductName.Name = "txtShowProductName";
+            this.txtShowProductName.Properties.ReadOnly = true;
+            this.txtShowProductName.Size = new System.Drawing.Size(321, 20);
+            this.txtShowProductName.TabIndex = 2;
+            // 
+            // btnReSearch
+            // 
+            this.btnReSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnReSearch.Image")));
+            this.btnReSearch.Location = new System.Drawing.Point(703, 6);
+            this.btnReSearch.Name = "btnReSearch";
+            this.btnReSearch.Size = new System.Drawing.Size(75, 25);
+            this.btnReSearch.TabIndex = 3;
+            this.btnReSearch.Text = "查詢";
+            this.btnReSearch.Click += new System.EventHandler(this.btnReSearch_Click);
+            // 
             // frmProductCostingFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 648);
             this.Controls.Add(this.panelControl2);
+            this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmProductCostingFind";
@@ -1383,6 +1439,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1473,7 +1534,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
         private DevExpress.XtraEditors.SimpleButton btnSetProductWeight1;
         private DevExpress.XtraEditors.SimpleButton btnSetProductPrice1;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
         private System.Windows.Forms.DataGridViewButtonColumn colSetCosting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductMo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -1489,11 +1552,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductMo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewButtonColumn colWipSetCosting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipSeq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsCname;
@@ -1510,8 +1573,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipDoColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private DevExpress.XtraEditors.TextEdit txtShowProductId;
+        private DevExpress.XtraEditors.LabelControl lblShowProductId;
+        private DevExpress.XtraEditors.TextEdit txtShowProductName;
+        private DevExpress.XtraEditors.SimpleButton btnReSearch;
     }
 }

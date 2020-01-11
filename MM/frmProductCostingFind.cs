@@ -57,6 +57,49 @@ namespace cf01.MM
                     return;
                 }
             }
+            txtShowProductId.Text = "";
+            txtShowProductName.Text = "";
+            int isSetFlag = rdgIsSetCosting.SelectedIndex;
+            int sourceType = rdgSource.SelectedIndex;
+            bool showF0 = chkShowF0.Checked;
+            string productId = "";
+            findProcess(isSetFlag, sourceType, showF0, txtProductMo.Text.Trim(),productId, txtMatFrom.Text.Trim(), txtMatTo.Text.Trim()
+               , txtPrdTypeFrom.Text.Trim(), txtPrdTypeTo.Text.Trim(), txtArtFrom.Text.Trim(), txtArtTo.Text.Trim()
+               , txtSizeFrom.Text.Trim(), txtSizeTo.Text.Trim(), txtClrFrom.Text.Trim(), txtClrTo.Text.Trim()
+               , txtDateFrom.Text.Trim(), txtDateTo.Text.Trim()
+               , txtMoGroup.Text.Trim(), txtSales.Text.Trim()
+               );
+
+        }
+        private void btnReSearch_Click(object sender, EventArgs e)
+        {
+            if (dgvCosting.Rows.Count == 0)
+                return;
+            string productId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            int isSetFlag = rdgIsSetCosting.SelectedIndex;
+            int sourceType = rdgSource.SelectedIndex;
+            bool showF0 = false;// chkShowF0.Checked;
+            string productMo = "";
+            string matFrom = "", matTo = "";
+            string prdTypeFrom = "", prdTypeTo = "";
+            string artFrom = "", artTo = "";
+            string sizeFrom = "", sizeTo = "";
+            string clrFrom = "", clrTo = "";
+            string dateFrom = "", dateTo = "";
+            string moGroup = "", salesId = "";
+            findProcess(isSetFlag, sourceType, showF0, productMo, productId, matFrom, matTo
+               , prdTypeFrom, prdTypeTo, artFrom, artTo
+               , sizeFrom, sizeTo, clrFrom, clrTo
+               , dateFrom, dateTo
+               , moGroup, salesId
+               );
+        }
+
+        private void findProcess(int isSetFlag,int sourceType,bool showF0,string moId,string productId,string matFrom,string matTo
+            ,string prdTypeFrom,string prdTypeTo,string artFrom,string artTo
+            ,string sizeFrom,string sizeTo,string clrFrom,string clrTo,string dateFrom
+            ,string dateTo,string moGroup,string salesId)
+        {
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -65,22 +108,12 @@ namespace cf01.MM
             }).Start();
 
             //**********************
-            findProcess(); //数据处理
+            //findProcess(); //数据处理
 
-            //genBomTree(pid);
-            //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-            
-        }
-        private void findProcess()
-        {
-            int isSetFlag = rdgIsSetCosting.SelectedIndex;
-            dtProductCosting = clsProductCosting.findProductCosting(isSetFlag, rdgSource.SelectedIndex, chkShowF0.Checked, txtProductMo.Text.Trim()
-                ,txtMatFrom.Text.Trim(),txtMatTo.Text.Trim(),txtPrdTypeFrom.Text.Trim(),txtPrdTypeTo.Text.Trim()
-                ,txtArtFrom.Text.Trim(),txtArtTo.Text.Trim(),txtSizeFrom.Text.Trim(),txtSizeTo.Text.Trim()
-                ,txtClrFrom.Text.Trim(),txtClrTo.Text.Trim(),txtDateFrom.Text.Trim(),txtDateTo.Text.Trim()
-                ,txtMoGroup.Text.Trim(),txtSales.Text.Trim()
+            dtProductCosting = clsProductCosting.findProductCosting(isSetFlag, sourceType, showF0, moId,productId
+                , matFrom, matTo, prdTypeFrom, prdTypeTo
+                , artFrom, artTo, sizeFrom,sizeTo
+                , clrFrom,clrTo, dateFrom,dateTo, moGroup,salesId
                 );
             dgvCosting.DataSource = dtProductCosting;
             if (dgvCosting.Rows.Count == 0)
@@ -92,7 +125,32 @@ namespace cf01.MM
                     dgvCosting.Rows[i].Cells["colSetCosting"].Value = "...";
                 }
             }
+
+
+            //genBomTree(pid);
+            //**********************
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
         }
+        //private void findProcess()
+        //{
+        //    int isSetFlag = rdgIsSetCosting.SelectedIndex;
+        //    dtProductCosting = clsProductCosting.findProductCosting(isSetFlag, rdgSource.SelectedIndex, chkShowF0.Checked, txtProductMo.Text.Trim()
+        //        ,txtMatFrom.Text.Trim(),txtMatTo.Text.Trim(),txtPrdTypeFrom.Text.Trim(),txtPrdTypeTo.Text.Trim()
+        //        ,txtArtFrom.Text.Trim(),txtArtTo.Text.Trim(),txtSizeFrom.Text.Trim(),txtSizeTo.Text.Trim()
+        //        ,txtClrFrom.Text.Trim(),txtClrTo.Text.Trim(),txtDateFrom.Text.Trim(),txtDateTo.Text.Trim()
+        //        ,txtMoGroup.Text.Trim(),txtSales.Text.Trim()
+        //        );
+        //    dgvCosting.DataSource = dtProductCosting;
+        //    if (dgvCosting.Rows.Count == 0)
+        //        MessageBox.Show("沒有找到符合條件的記錄");
+        //    else
+        //    {
+        //        for (int i = 0; i < dgvCosting.Rows.Count; i++)
+        //        {
+        //            dgvCosting.Rows[i].Cells["colSetCosting"].Value = "...";
+        //        }
+        //    }
+        //}
         
         private void txtMatFrom_Leave(object sender, EventArgs e)
         {
@@ -128,7 +186,10 @@ namespace cf01.MM
         {
             if (dgvCosting.Rows.Count == 0)
                 return;
-            string productMo = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductMo"].Value == null ? "" : dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductMo"].Value.ToString();
+            DataGridViewRow dr = dgvCosting.Rows[dgvCosting.CurrentRow.Index];
+            txtShowProductId.Text = dr.Cells["colProductId"].Value.ToString();
+            txtShowProductName.Text = dr.Cells["colProductName"].Value.ToString();
+            string productMo = dr.Cells["colProductMo"].Value == null ? "" : dr.Cells["colProductMo"].Value.ToString();
             dtWipData = clsProductCosting.getWipData(productMo);
             dgvWipData.DataSource = dtWipData;
             for (int i = 0; i < dgvWipData.Rows.Count; i++)
@@ -154,9 +215,20 @@ namespace cf01.MM
             if (dgvCosting.Columns[e.ColumnIndex].Name == "colSetCosting")
             {
                 DataGridViewRow dgr = dgvCosting.Rows[dgvCosting.CurrentCell.RowIndex];
-                frmProductCosting.searchProductId = dgr.Cells["colProductId"].Value.ToString();
-                frmProductCosting.searchProductName = dgr.Cells["colProductName"].Value.ToString();
-                frmProductCosting.searchProductMo = dgr.Cells["colProductMo"].Value.ToString();
+                string productMo=dgr.Cells["colProductMo"].Value.ToString();
+                frmProductCosting.searchProductMo = productMo;
+                DataTable dt = clsProductCosting.getF0ItemFromOc(productMo, "");
+                if (dt.Rows.Count > 0)
+                {
+                    frmProductCosting.searchProductId = dt.Rows[0]["goods_id"].ToString();
+                    frmProductCosting.searchProductName = dt.Rows[0]["goods_name"].ToString();
+                }
+                else
+                {
+                    frmProductCosting.searchProductId = dgr.Cells["colProductId"].Value.ToString();
+                    frmProductCosting.searchProductName = dgr.Cells["colProductName"].Value.ToString();
+                }
+                
                 this.Close();
             }
         }
@@ -193,10 +265,18 @@ namespace cf01.MM
         }
         private void setProductWeight(int selectType)
         {
+            string productId = "";
             if (selectType == 1)
-                frmSetProductWeight.getProductId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            {
+                if (dgvCosting.Rows.Count > 0)
+                    productId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            }
             else
-                frmSetProductWeight.getProductId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+            {
+                if (dgvWipData.Rows.Count > 0)
+                    productId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+            }
+             frmSetProductWeight.getProductId = productId;
             frmSetProductWeight frm = new frmSetProductWeight();
             frm.ShowDialog();
             frm.Dispose();
@@ -216,5 +296,7 @@ namespace cf01.MM
             frm.ShowDialog();
             frm.Dispose();
         }
+
+        
     }
 }

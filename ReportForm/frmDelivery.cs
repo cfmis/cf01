@@ -264,9 +264,11 @@ namespace cf01.ReportForm
 
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
         {
-            string prdDep = "";
+            string prdDep = dep;
             if (dep == "125")
                 prdDep = "105";
+            else if (dep == "128")
+                prdDep = "108";
             string strSql = "";
             strSql = "Select a.Prd_id,a.Transfer_date,a.Prd_dep,c.dep_cdesc AS Prd_dep_cdesc,a.prd_item,b.name As goods_name"+
                 ",a.prd_mo,a.Transfer_flag,a.transfer_qty,a.transfer_weg" +

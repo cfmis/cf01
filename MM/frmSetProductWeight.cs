@@ -82,7 +82,7 @@ namespace cf01.MM
             DataTable dtProductWeight= clsProductCosting.findProductWeight(isSetFlag, chkShowF0.Checked
                 , txtMatFrom.Text.Trim(), txtMatTo.Text.Trim(), txtPrdTypeFrom.Text.Trim(), txtPrdTypeTo.Text.Trim()
                 , txtArtFrom.Text.Trim(), txtArtTo.Text.Trim(), txtSizeFrom.Text.Trim(), txtSizeTo.Text.Trim()
-                , txtClrFrom.Text.Trim(), txtClrTo.Text.Trim(), txtProductId.Text.Trim()
+                , txtClrFrom.Text.Trim(), txtClrTo.Text.Trim(), txtProductId.Text.Trim(),chkNoShowDmItem.Checked
                 );
             dgvProductWeight.DataSource = dtProductWeight;
             if (dgvProductWeight.Rows.Count == 0)
@@ -146,7 +146,7 @@ namespace cf01.MM
             for (int i = 0; i < dgvProductWeight.Rows.Count; i++)
             {
                 DataGridViewRow dgr = dgvProductWeight.Rows[i];
-                if ((bool)dgr.Cells["colSetPrice"].Value == true)
+                if ((bool)dgr.Cells["colSelectFlag"].Value == true)
                 {
                     selectFlag = true;
                     break;
@@ -163,15 +163,20 @@ namespace cf01.MM
             for (int i = 0; i < dgvProductWeight.Rows.Count; i++)
             {
                 DataGridViewRow dgr = dgvProductWeight.Rows[i];
-                if ((bool)dgr.Cells["colSetPrice"].Value == true)
+                if ((bool)dgr.Cells["colSelectFlag"].Value == true)
                 {
                     mdlProductWeight objModel = new mdlProductWeight();
-                    objModel.productId = dgr.Cells["colProductId"].Value.ToString();
-                    objModel.productWeight = Convert.ToDecimal(txtProductWeight.Text);
-                    objModel.createUser = DBUtility._user_id;
-                    objModel.createTime = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
-                    objModel.amendUser = DBUtility._user_id;
-                    objModel.amendTime = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
+                    objModel.prdItem = dgr.Cells["colProductId"].Value.ToString().Trim();
+                    objModel.matItem = dgr.Cells["colMaterialId"].Value != null ? dgr.Cells["colMaterialId"].Value.ToString().Trim() : "*";
+                    if (objModel.matItem == "")
+                        objModel.matItem = "*";
+                    objModel.depId = dgr.Cells["colDepId"].Value != null ? dgr.Cells["colDepId"].Value.ToString().Trim() : "*";
+                    if (objModel.depId == "")
+                        objModel.depId = "*";
+                    objModel.pcsWeg = Convert.ToDecimal(txtProductWeight.Text);
+                    objModel.kgQtyRate = Math.Round(1 / (objModel.pcsWeg / 1000), 0);
+                    objModel.crUser = DBUtility._user_id;
+                    objModel.crTime = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
                     lsModel.Add(objModel);
                 }
             }

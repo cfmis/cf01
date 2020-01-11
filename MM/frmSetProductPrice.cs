@@ -142,11 +142,11 @@ namespace cf01.MM
         }
         private bool validData()
         {
-            if(cmbPriceUnit.Text.Trim()=="")
-            {
-                MessageBox.Show("單價單位不能為空!");
-                return false;
-            }
+            //if(cmbPriceUnit.Text.Trim()=="")
+            //{
+            //    MessageBox.Show("單價單位不能為空!");
+            //    return false;
+            //}
             bool selectFlag = false;
             for (int i = 0; i < dgvProductPrice.Rows.Count; i++)
             {
@@ -172,7 +172,8 @@ namespace cf01.MM
                 {
                     mdlProductPrice objModel = new mdlProductPrice();
                     objModel.productId = dgr.Cells["colProductId"].Value.ToString();
-                    objModel.productPrice = Convert.ToDecimal(txtProductPrice.Text);
+                    objModel.productPrice = txtProductPrice.Text != "" ? Convert.ToDecimal(txtProductPrice.Text) : 0;
+                    objModel.productPriceQty = txtProductPriceQty.Text != "" ? Convert.ToDecimal(txtProductPriceQty.Text) : 0;
                     objModel.priceUnit = cmbPriceUnit.Text.Trim();
                     objModel.createUser = DBUtility._user_id;
                     objModel.createTime = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
