@@ -224,12 +224,13 @@ namespace cf01.ReportForm
                         sheet.Cells[2, 2] = "牌子名稱";
                         sheet.Cells[2, 3] = "收費頁數(張數)";
                         sheet.Cells[2, 4] = "免費頁數(張數)";
-                        sheet.Cells[3, 4] = "不包含W單";
+                        sheet.Cells[3, 4] = "不含W單";
                         sheet.Cells[3, 5] = "W單";
 
                         sheet.Cells[2, 6] = "總訂單數(PCS)";
                         sheet.Cells[2, 7] = "收費總金額(HKD)";
-                        sheet.Cells[2, 8] = "免費總金額(HKD)";
+                        sheet.Cells[2, 8] = "免費總金額_不包含W單(HKD)";
+                        sheet.Cells[2, 9] = "免費總金額_W單(HKD)";
 
                         sheet.Range["A2:A3"].Merge(0);//合并单元格
                         sheet.Range["B2:B3"].Merge(0);//合并单元格
@@ -241,6 +242,7 @@ namespace cf01.ReportForm
                         sheet.Range["F2:F3"].Merge(0);//合并单元格
                         sheet.Range["G2:G3"].Merge(0);//合并单元格
                         sheet.Range["H2:H3"].Merge(0);//合并单元格
+                        sheet.Range["I2:I3"].Merge(0);//合并单元格
 
                         sheet.get_Range("A2", "A3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         sheet.get_Range("B2", "B3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
@@ -252,6 +254,7 @@ namespace cf01.ReportForm
                         sheet.get_Range("F2", "F3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         sheet.get_Range("G2", "G3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         sheet.get_Range("H2", "H3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                        sheet.get_Range("I2", "I3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         //sheet.Cells[2, 6] = "收費總金額(HKD)";
                         //sheet.Cells[2, 7] = "免費總金額(HKD)";
                         //sheet.Rows[2].Font.Bold = true;//粗體
@@ -270,6 +273,7 @@ namespace cf01.ReportForm
                                 sheet.Cells[4 + k, 6] = dr["order_qty"];
                                 sheet.Cells[4 + k, 7] = dr["amount_hkd"];
                                 sheet.Cells[4 + k, 8] = dr["amount_hkd_is_free"];
+                                sheet.Cells[4 + k, 9] = dr["amount_hkd_is_free_w"];
                                 k = k + 1;
                             }
                             sheet.Columns[2].ColumnWidth = 28;
@@ -279,7 +283,8 @@ namespace cf01.ReportForm
 
                             sheet.Columns[6].ColumnWidth = 13;
                             sheet.Columns[7].ColumnWidth = 13;
-                            sheet.Columns[8].ColumnWidth = 13;
+                            sheet.Columns[8].ColumnWidth = 23;
+                            sheet.Columns[9].ColumnWidth = 18;
                         }
                         //sheet.Columns.EntireColumn.AutoFit();//列宽自适应
                     }
@@ -388,8 +393,9 @@ namespace cf01.ReportForm
 
                         sheet.Cells[2, 8] = "總訂單數(PCS)";
                         sheet.Cells[2, 9] = "收費總金額(HKD)";
-                        sheet.Cells[2, 10] = "免費總金額(HKD)";
-                       
+                        sheet.Cells[2, 10] = "免費總金額_不包含W單(HKD)";
+                        sheet.Cells[2, 11] = "免費總金額_W單(HKD)";
+
 
                         sheet.Range["A2:A3"].Merge(0);//合并单元格
                         sheet.Range["B2:B3"].Merge(0);//合并单元格
@@ -403,6 +409,7 @@ namespace cf01.ReportForm
                         sheet.Range["H2:H3"].Merge(0);//合并单元格
                         sheet.Range["I2:I3"].Merge(0);//合并单元格
                         sheet.Range["J2:J3"].Merge(0);//合并单元格
+                        sheet.Range["K2:K3"].Merge(0);//合并单元格
 
                         sheet.get_Range("A2", "A3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         sheet.get_Range("B2", "B3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
@@ -415,6 +422,7 @@ namespace cf01.ReportForm
                         sheet.get_Range("H2", "H3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         sheet.get_Range("I2", "I3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         sheet.get_Range("J2", "J3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                        sheet.get_Range("K2", "K3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         //sheet.Cells[2, 6] = "收費總金額(HKD)";
                         //sheet.Cells[2, 7] = "免費總金額(HKD)";
                         //sheet.Rows[2].Font.Bold = true;//粗體
@@ -434,7 +442,8 @@ namespace cf01.ReportForm
 
                                 sheet.Cells[4 + k, 8] = dr["order_qty"];
                                 sheet.Cells[4 + k, 9] = dr["amount_hkd"];
-                                sheet.Cells[4 + k, 10] = dr["amount_hkd_is_free"];                               
+                                sheet.Cells[4 + k, 10] = dr["amount_hkd_is_free"];
+                                sheet.Cells[4 + k, 11] = dr["amount_hkd_is_free_w"];
                                 k = k + 1;
                             }
                             sheet.Columns[2].ColumnWidth = 28;
@@ -445,8 +454,9 @@ namespace cf01.ReportForm
 
                             sheet.Columns[8].ColumnWidth = 13;
                             sheet.Columns[9].ColumnWidth = 13;
-                            sheet.Columns[10].ColumnWidth = 13;
-                            
+                            sheet.Columns[10].ColumnWidth = 23;
+                            sheet.Columns[11].ColumnWidth = 18;
+
                         }
                         //sheet.Columns.EntireColumn.AutoFit();//列宽自适应
                     }
