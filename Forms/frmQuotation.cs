@@ -339,12 +339,9 @@ namespace cf01.Forms
                 {
                     //dtDetail.Clear();
                     dtDetail = ofrmFind.dt;//.Copy();
-                }                
-                //ofrmFind.dt = null;
-                //ofrmFind.Dispose();
-            }              
-            dgvDetails.DataSource = dtDetail;  //設置tabpage1數據源    
-            dgvDetails.Refresh();           
+                    dgvDetails.DataSource = dtDetail;//設置tabpage1數據源
+                }
+            }    
             if (dtDetail.Rows.Count > 0 && curent_row > 0)
             {
                 //定行到當前行 注意指定的當前列不可以隱藏的

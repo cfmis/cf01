@@ -39,6 +39,7 @@
             this.clSub = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.pvh_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.attn_path = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clBtnAttn_path = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.Satus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clLkpStatus = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.approval_date = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,7 +52,6 @@
             this.approval_status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clisApproval = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.temp_code = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clBtnAttn_path = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -68,9 +68,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBtnAttn_path)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLkpStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clisApproval)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clBtnAttn_path)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,7 +180,6 @@
             this.clSub.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.clSub.MaxLength = 150;
             this.clSub.Name = "clSub";
-            this.clSub.Leave += new System.EventHandler(this.clSub_Leave);
             // 
             // pvh_no
             // 
@@ -211,6 +210,17 @@
             this.attn_path.Visible = true;
             this.attn_path.VisibleIndex = 3;
             this.attn_path.Width = 140;
+            // 
+            // clBtnAttn_path
+            // 
+            this.clBtnAttn_path.AutoHeight = false;
+            this.clBtnAttn_path.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.clBtnAttn_path.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.clBtnAttn_path.MaxLength = 255;
+            this.clBtnAttn_path.Name = "clBtnAttn_path";
+            this.clBtnAttn_path.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.clBtnTest_report_no_ButtonClick);
+            this.clBtnAttn_path.DoubleClick += new System.EventHandler(this.clBtnAttn_path_DoubleClick);
             // 
             // Satus
             // 
@@ -391,17 +401,6 @@
             this.temp_code.OptionsFilter.AllowFilter = false;
             this.temp_code.Width = 79;
             // 
-            // clBtnAttn_path
-            // 
-            this.clBtnAttn_path.AutoHeight = false;
-            this.clBtnAttn_path.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.clBtnAttn_path.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-            this.clBtnAttn_path.MaxLength = 255;
-            this.clBtnAttn_path.Name = "clBtnAttn_path";
-            this.clBtnAttn_path.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.clBtnTest_report_no_ButtonClick);
-            this.clBtnAttn_path.DoubleClick += new System.EventHandler(this.clBtnAttn_path_DoubleClick);
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -511,9 +510,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBtnAttn_path)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLkpStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clisApproval)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clBtnAttn_path)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

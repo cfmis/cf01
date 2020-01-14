@@ -414,13 +414,13 @@ namespace cf01.Forms
 
         private void clBtnAttn_path_DoubleClick(object sender, EventArgs e)
         {
-            ////打開PDF檔
-            //string strFile = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, "attn_path");
-            //if (!string.IsNullOrEmpty(strFile))
-            //{
-            //    strFile = test_public_path + strFile.Trim();
-            //    clsTestProductPlan.Open_test_pdf(strFile);
-            //}
+            //打開PDF檔
+            string strFile = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, "attn_path");
+            if (!string.IsNullOrEmpty(strFile))
+            {
+                strFile = test_public_path + strFile.Trim();
+                clsTestProductPlan.Open_test_pdf(strFile);
+            }
         }
 
         private void clLkpStatus_EditValueChanged(object sender, EventArgs e)
