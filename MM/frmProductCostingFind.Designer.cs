@@ -62,12 +62,52 @@
             this.lblProductMo = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dgvCosting = new System.Windows.Forms.DataGridView();
+            this.colSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnSetProductPrice1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetProductWeight1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrintWipData = new DevExpress.XtraEditors.SimpleButton();
             this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
             this.dgvWipData = new System.Windows.Forms.DataGridView();
+            this.colWipSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipCplWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipCplQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipProductCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -114,50 +154,10 @@
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.lblShowProductId = new DevExpress.XtraEditors.LabelControl();
-            this.txtShowProductId = new DevExpress.XtraEditors.TextEdit();
-            this.colSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipCplWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipCplQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipProductCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtShowProductName = new DevExpress.XtraEditors.TextEdit();
             this.btnReSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.txtShowProductName = new DevExpress.XtraEditors.TextEdit();
+            this.txtShowProductId = new DevExpress.XtraEditors.TextEdit();
+            this.lblShowProductId = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).BeginInit();
@@ -190,8 +190,8 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShowProductName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -245,8 +245,6 @@
             // 
             this.chkShowF0.AutoSize = true;
             this.chkShowF0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.chkShowF0.Checked = true;
-            this.chkShowF0.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkShowF0.Location = new System.Drawing.Point(18, 2);
             this.chkShowF0.Name = "chkShowF0";
             this.chkShowF0.Size = new System.Drawing.Size(75, 18);
@@ -566,6 +564,167 @@
             this.dgvCosting.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCosting_CellContentClick);
             this.dgvCosting.SelectionChanged += new System.EventHandler(this.dgvCosting_SelectionChanged);
             // 
+            // colSetCosting
+            // 
+            this.colSetCosting.HeaderText = "設定成本";
+            this.colSetCosting.Name = "colSetCosting";
+            this.colSetCosting.ReadOnly = true;
+            this.colSetCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSetCosting.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSetCosting.Width = 65;
+            // 
+            // colProductMo
+            // 
+            this.colProductMo.DataPropertyName = "mo_id";
+            this.colProductMo.HeaderText = "制單編號";
+            this.colProductMo.Name = "colProductMo";
+            this.colProductMo.ReadOnly = true;
+            this.colProductMo.Width = 80;
+            // 
+            // colProductId
+            // 
+            this.colProductId.DataPropertyName = "goods_id";
+            this.colProductId.HeaderText = "物料編號";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Width = 160;
+            // 
+            // colProductName
+            // 
+            this.colProductName.DataPropertyName = "goods_cname";
+            this.colProductName.HeaderText = "物料描述";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 260;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "pcs_weg";
+            this.Column1.HeaderText = "每PCS重量";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 70;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "ProductWeight";
+            this.Column13.HeaderText = "每PCS重量(自定)";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 120;
+            // 
+            // colProdQty
+            // 
+            this.colProdQty.DataPropertyName = "prod_qty";
+            this.colProdQty.HeaderText = "生產數量";
+            this.colProdQty.Name = "colProdQty";
+            this.colProdQty.ReadOnly = true;
+            this.colProdQty.Width = 65;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "c_sec_qty_ok";
+            this.Column3.HeaderText = "完成重量";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 65;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "c_qty_ok";
+            this.Column2.HeaderText = "完成數量";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "ProductPrice";
+            this.dataGridViewTextBoxColumn35.HeaderText = "單價(自定)";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            this.dataGridViewTextBoxColumn35.Width = 80;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "PriceUnit";
+            this.Column16.HeaderText = "單位(自定)";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 80;
+            // 
+            // colProductCosting
+            // 
+            this.colProductCosting.DataPropertyName = "ProductCost";
+            this.colProductCosting.HeaderText = "產品成本/G";
+            this.colProductCosting.Name = "colProductCosting";
+            this.colProductCosting.ReadOnly = true;
+            this.colProductCosting.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "wp_id";
+            this.Column5.HeaderText = "負責部門";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 65;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "DepCdesc";
+            this.Column6.HeaderText = "負責部門";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "next_wp_id";
+            this.Column7.HeaderText = "收貨部門";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 65;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "NextDepCdesc";
+            this.Column8.HeaderText = "收貨部門";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 80;
+            // 
+            // colDoColor
+            // 
+            this.colDoColor.DataPropertyName = "DoColor";
+            this.colDoColor.HeaderText = "顏色做法";
+            this.colDoColor.Name = "colDoColor";
+            this.colDoColor.ReadOnly = true;
+            this.colDoColor.Width = 160;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "bill_date";
+            this.Column4.HeaderText = "開單日期";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 80;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "mo_group";
+            this.Column9.HeaderText = "組別";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 40;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "seller_id";
+            this.Column10.HeaderText = "營業員";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 60;
+            // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.btnSetProductPrice1);
@@ -650,6 +809,164 @@
             this.dgvWipData.Size = new System.Drawing.Size(1045, 275);
             this.dgvWipData.TabIndex = 5;
             this.dgvWipData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWipData_CellContentClick);
+            // 
+            // colWipSetCosting
+            // 
+            this.colWipSetCosting.HeaderText = "設定成本";
+            this.colWipSetCosting.Name = "colWipSetCosting";
+            this.colWipSetCosting.ReadOnly = true;
+            this.colWipSetCosting.Text = "...";
+            this.colWipSetCosting.Width = 65;
+            // 
+            // colWipProductMo
+            // 
+            this.colWipProductMo.DataPropertyName = "mo_id";
+            this.colWipProductMo.HeaderText = "制單編號";
+            this.colWipProductMo.Name = "colWipProductMo";
+            this.colWipProductMo.ReadOnly = true;
+            this.colWipProductMo.Width = 80;
+            // 
+            // colWipSeq
+            // 
+            this.colWipSeq.DataPropertyName = "flag";
+            this.colWipSeq.HeaderText = "序號";
+            this.colWipSeq.Name = "colWipSeq";
+            this.colWipSeq.ReadOnly = true;
+            this.colWipSeq.Width = 40;
+            // 
+            // colWipGoodsId
+            // 
+            this.colWipGoodsId.DataPropertyName = "goods_id";
+            this.colWipGoodsId.HeaderText = "物料編號";
+            this.colWipGoodsId.Name = "colWipGoodsId";
+            this.colWipGoodsId.ReadOnly = true;
+            this.colWipGoodsId.Width = 160;
+            // 
+            // colWipGoodsCname
+            // 
+            this.colWipGoodsCname.DataPropertyName = "goods_cname";
+            this.colWipGoodsCname.HeaderText = "物料描述";
+            this.colWipGoodsCname.Name = "colWipGoodsCname";
+            this.colWipGoodsCname.ReadOnly = true;
+            this.colWipGoodsCname.Width = 260;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "ProductWeight";
+            this.Column14.HeaderText = "每PCS重量(自定)";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 120;
+            // 
+            // colWipPcsWeg
+            // 
+            this.colWipPcsWeg.DataPropertyName = "pcs_weg";
+            this.colWipPcsWeg.HeaderText = "每PCS重量";
+            this.colWipPcsWeg.Name = "colWipPcsWeg";
+            this.colWipPcsWeg.ReadOnly = true;
+            this.colWipPcsWeg.Width = 70;
+            // 
+            // colWipProdQty
+            // 
+            this.colWipProdQty.DataPropertyName = "prod_qty";
+            this.colWipProdQty.HeaderText = "生產數量";
+            this.colWipProdQty.Name = "colWipProdQty";
+            this.colWipProdQty.ReadOnly = true;
+            this.colWipProdQty.Width = 65;
+            // 
+            // colWipCplWeg
+            // 
+            this.colWipCplWeg.DataPropertyName = "c_sec_qty_ok";
+            this.colWipCplWeg.HeaderText = "完成重量";
+            this.colWipCplWeg.Name = "colWipCplWeg";
+            this.colWipCplWeg.ReadOnly = true;
+            this.colWipCplWeg.Width = 65;
+            // 
+            // colWipCplQty
+            // 
+            this.colWipCplQty.DataPropertyName = "c_qty_ok";
+            this.colWipCplQty.HeaderText = "完成數量";
+            this.colWipCplQty.Name = "colWipCplQty";
+            this.colWipCplQty.ReadOnly = true;
+            this.colWipCplQty.Width = 65;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "ProductPrice";
+            this.Column15.HeaderText = "單價(自定)";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "PriceUnit";
+            this.dataGridViewTextBoxColumn36.HeaderText = "單位(自定)";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.ReadOnly = true;
+            this.dataGridViewTextBoxColumn36.Width = 80;
+            // 
+            // colWipProductCosting
+            // 
+            this.colWipProductCosting.DataPropertyName = "ProductCost";
+            this.colWipProductCosting.HeaderText = "產品成本/G";
+            this.colWipProductCosting.Name = "colWipProductCosting";
+            this.colWipProductCosting.ReadOnly = true;
+            this.colWipProductCosting.Width = 80;
+            // 
+            // colWipWpId
+            // 
+            this.colWipWpId.DataPropertyName = "wp_id";
+            this.colWipWpId.FillWeight = 80F;
+            this.colWipWpId.HeaderText = "負責部門";
+            this.colWipWpId.Name = "colWipWpId";
+            this.colWipWpId.ReadOnly = true;
+            this.colWipWpId.Width = 65;
+            // 
+            // colWipDepCdesc
+            // 
+            this.colWipDepCdesc.DataPropertyName = "DepCdesc";
+            this.colWipDepCdesc.HeaderText = "部門描述";
+            this.colWipDepCdesc.Name = "colWipDepCdesc";
+            this.colWipDepCdesc.ReadOnly = true;
+            // 
+            // colWipNextDep
+            // 
+            this.colWipNextDep.DataPropertyName = "next_wp_id";
+            this.colWipNextDep.HeaderText = "收貨部門";
+            this.colWipNextDep.Name = "colWipNextDep";
+            this.colWipNextDep.ReadOnly = true;
+            this.colWipNextDep.Width = 65;
+            // 
+            // colWipNextDepId
+            // 
+            this.colWipNextDepId.DataPropertyName = "NextDepCdesc";
+            this.colWipNextDepId.HeaderText = "部門描述";
+            this.colWipNextDepId.Name = "colWipNextDepId";
+            this.colWipNextDepId.ReadOnly = true;
+            // 
+            // colWipDoColor
+            // 
+            this.colWipDoColor.DataPropertyName = "DoColor";
+            this.colWipDoColor.HeaderText = "顏色做法";
+            this.colWipDoColor.Name = "colWipDoColor";
+            this.colWipDoColor.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "mo_group";
+            this.Column11.HeaderText = "組別";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 40;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "seller_id";
+            this.Column12.HeaderText = "營業員";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 60;
             // 
             // toolStrip1
             // 
@@ -1038,349 +1355,6 @@
             this.panelControl4.Size = new System.Drawing.Size(1049, 35);
             this.panelControl4.TabIndex = 2;
             // 
-            // lblShowProductId
-            // 
-            this.lblShowProductId.Location = new System.Drawing.Point(14, 12);
-            this.lblShowProductId.Name = "lblShowProductId";
-            this.lblShowProductId.Size = new System.Drawing.Size(148, 14);
-            this.lblShowProductId.TabIndex = 0;
-            this.lblShowProductId.Text = "繼續查找此物料的制單資料:";
-            // 
-            // txtShowProductId
-            // 
-            this.txtShowProductId.Location = new System.Drawing.Point(167, 9);
-            this.txtShowProductId.Name = "txtShowProductId";
-            this.txtShowProductId.Properties.ReadOnly = true;
-            this.txtShowProductId.Size = new System.Drawing.Size(168, 20);
-            this.txtShowProductId.TabIndex = 1;
-            // 
-            // colSetCosting
-            // 
-            this.colSetCosting.HeaderText = "設定成本";
-            this.colSetCosting.Name = "colSetCosting";
-            this.colSetCosting.ReadOnly = true;
-            this.colSetCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSetCosting.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSetCosting.Width = 65;
-            // 
-            // colProductMo
-            // 
-            this.colProductMo.DataPropertyName = "mo_id";
-            this.colProductMo.HeaderText = "制單編號";
-            this.colProductMo.Name = "colProductMo";
-            this.colProductMo.ReadOnly = true;
-            this.colProductMo.Width = 80;
-            // 
-            // colProductId
-            // 
-            this.colProductId.DataPropertyName = "goods_id";
-            this.colProductId.HeaderText = "物料編號";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Width = 160;
-            // 
-            // colProductName
-            // 
-            this.colProductName.DataPropertyName = "goods_cname";
-            this.colProductName.HeaderText = "物料描述";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 260;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "pcs_weg";
-            this.Column1.HeaderText = "每PCS重量";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "ProductWeight";
-            this.Column13.HeaderText = "每PCS重量(自定)";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 120;
-            // 
-            // colProdQty
-            // 
-            this.colProdQty.DataPropertyName = "prod_qty";
-            this.colProdQty.HeaderText = "生產數量";
-            this.colProdQty.Name = "colProdQty";
-            this.colProdQty.ReadOnly = true;
-            this.colProdQty.Width = 65;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "c_sec_qty_ok";
-            this.Column3.HeaderText = "完成重量";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 65;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "c_qty_ok";
-            this.Column2.HeaderText = "完成數量";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.DataPropertyName = "ProductPrice";
-            this.dataGridViewTextBoxColumn35.HeaderText = "單價(自定)";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            this.dataGridViewTextBoxColumn35.ReadOnly = true;
-            this.dataGridViewTextBoxColumn35.Width = 80;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "PriceUnit";
-            this.Column16.HeaderText = "單位(自定)";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 80;
-            // 
-            // colProductCosting
-            // 
-            this.colProductCosting.DataPropertyName = "ProductCost";
-            this.colProductCosting.HeaderText = "產品成本/G";
-            this.colProductCosting.Name = "colProductCosting";
-            this.colProductCosting.ReadOnly = true;
-            this.colProductCosting.Width = 80;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "wp_id";
-            this.Column5.HeaderText = "負責部門";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 65;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DepCdesc";
-            this.Column6.HeaderText = "負責部門";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "next_wp_id";
-            this.Column7.HeaderText = "收貨部門";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 65;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "NextDepCdesc";
-            this.Column8.HeaderText = "收貨部門";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 80;
-            // 
-            // colDoColor
-            // 
-            this.colDoColor.DataPropertyName = "DoColor";
-            this.colDoColor.HeaderText = "顏色做法";
-            this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
-            this.colDoColor.Width = 160;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "bill_date";
-            this.Column4.HeaderText = "開單日期";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 80;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "mo_group";
-            this.Column9.HeaderText = "組別";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 40;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "seller_id";
-            this.Column10.HeaderText = "營業員";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 60;
-            // 
-            // colWipSetCosting
-            // 
-            this.colWipSetCosting.HeaderText = "設定成本";
-            this.colWipSetCosting.Name = "colWipSetCosting";
-            this.colWipSetCosting.ReadOnly = true;
-            this.colWipSetCosting.Text = "...";
-            this.colWipSetCosting.Width = 65;
-            // 
-            // colWipProductMo
-            // 
-            this.colWipProductMo.DataPropertyName = "mo_id";
-            this.colWipProductMo.HeaderText = "制單編號";
-            this.colWipProductMo.Name = "colWipProductMo";
-            this.colWipProductMo.ReadOnly = true;
-            this.colWipProductMo.Width = 80;
-            // 
-            // colWipSeq
-            // 
-            this.colWipSeq.DataPropertyName = "flag";
-            this.colWipSeq.HeaderText = "序號";
-            this.colWipSeq.Name = "colWipSeq";
-            this.colWipSeq.ReadOnly = true;
-            this.colWipSeq.Width = 40;
-            // 
-            // colWipGoodsId
-            // 
-            this.colWipGoodsId.DataPropertyName = "goods_id";
-            this.colWipGoodsId.HeaderText = "物料編號";
-            this.colWipGoodsId.Name = "colWipGoodsId";
-            this.colWipGoodsId.ReadOnly = true;
-            this.colWipGoodsId.Width = 160;
-            // 
-            // colWipGoodsCname
-            // 
-            this.colWipGoodsCname.DataPropertyName = "goods_cname";
-            this.colWipGoodsCname.HeaderText = "物料描述";
-            this.colWipGoodsCname.Name = "colWipGoodsCname";
-            this.colWipGoodsCname.ReadOnly = true;
-            this.colWipGoodsCname.Width = 260;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "ProductWeight";
-            this.Column14.HeaderText = "每PCS重量(自定)";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 120;
-            // 
-            // colWipPcsWeg
-            // 
-            this.colWipPcsWeg.DataPropertyName = "pcs_weg";
-            this.colWipPcsWeg.HeaderText = "每PCS重量";
-            this.colWipPcsWeg.Name = "colWipPcsWeg";
-            this.colWipPcsWeg.ReadOnly = true;
-            this.colWipPcsWeg.Width = 70;
-            // 
-            // colWipProdQty
-            // 
-            this.colWipProdQty.DataPropertyName = "prod_qty";
-            this.colWipProdQty.HeaderText = "生產數量";
-            this.colWipProdQty.Name = "colWipProdQty";
-            this.colWipProdQty.ReadOnly = true;
-            this.colWipProdQty.Width = 65;
-            // 
-            // colWipCplWeg
-            // 
-            this.colWipCplWeg.DataPropertyName = "c_sec_qty_ok";
-            this.colWipCplWeg.HeaderText = "完成重量";
-            this.colWipCplWeg.Name = "colWipCplWeg";
-            this.colWipCplWeg.ReadOnly = true;
-            this.colWipCplWeg.Width = 65;
-            // 
-            // colWipCplQty
-            // 
-            this.colWipCplQty.DataPropertyName = "c_qty_ok";
-            this.colWipCplQty.HeaderText = "完成數量";
-            this.colWipCplQty.Name = "colWipCplQty";
-            this.colWipCplQty.ReadOnly = true;
-            this.colWipCplQty.Width = 65;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "ProductPrice";
-            this.Column15.HeaderText = "單價(自定)";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn36
-            // 
-            this.dataGridViewTextBoxColumn36.DataPropertyName = "PriceUnit";
-            this.dataGridViewTextBoxColumn36.HeaderText = "單位(自定)";
-            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            this.dataGridViewTextBoxColumn36.ReadOnly = true;
-            this.dataGridViewTextBoxColumn36.Width = 80;
-            // 
-            // colWipProductCosting
-            // 
-            this.colWipProductCosting.DataPropertyName = "ProductCost";
-            this.colWipProductCosting.HeaderText = "產品成本/G";
-            this.colWipProductCosting.Name = "colWipProductCosting";
-            this.colWipProductCosting.ReadOnly = true;
-            this.colWipProductCosting.Width = 80;
-            // 
-            // colWipWpId
-            // 
-            this.colWipWpId.DataPropertyName = "wp_id";
-            this.colWipWpId.FillWeight = 80F;
-            this.colWipWpId.HeaderText = "負責部門";
-            this.colWipWpId.Name = "colWipWpId";
-            this.colWipWpId.ReadOnly = true;
-            this.colWipWpId.Width = 65;
-            // 
-            // colWipDepCdesc
-            // 
-            this.colWipDepCdesc.DataPropertyName = "DepCdesc";
-            this.colWipDepCdesc.HeaderText = "部門描述";
-            this.colWipDepCdesc.Name = "colWipDepCdesc";
-            this.colWipDepCdesc.ReadOnly = true;
-            // 
-            // colWipNextDep
-            // 
-            this.colWipNextDep.DataPropertyName = "next_wp_id";
-            this.colWipNextDep.HeaderText = "收貨部門";
-            this.colWipNextDep.Name = "colWipNextDep";
-            this.colWipNextDep.ReadOnly = true;
-            this.colWipNextDep.Width = 65;
-            // 
-            // colWipNextDepId
-            // 
-            this.colWipNextDepId.DataPropertyName = "NextDepCdesc";
-            this.colWipNextDepId.HeaderText = "部門描述";
-            this.colWipNextDepId.Name = "colWipNextDepId";
-            this.colWipNextDepId.ReadOnly = true;
-            // 
-            // colWipDoColor
-            // 
-            this.colWipDoColor.DataPropertyName = "DoColor";
-            this.colWipDoColor.HeaderText = "顏色做法";
-            this.colWipDoColor.Name = "colWipDoColor";
-            this.colWipDoColor.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "mo_group";
-            this.Column11.HeaderText = "組別";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 40;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "seller_id";
-            this.Column12.HeaderText = "營業員";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 60;
-            // 
-            // txtShowProductName
-            // 
-            this.txtShowProductName.Location = new System.Drawing.Point(352, 9);
-            this.txtShowProductName.Name = "txtShowProductName";
-            this.txtShowProductName.Properties.ReadOnly = true;
-            this.txtShowProductName.Size = new System.Drawing.Size(321, 20);
-            this.txtShowProductName.TabIndex = 2;
-            // 
             // btnReSearch
             // 
             this.btnReSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnReSearch.Image")));
@@ -1390,6 +1364,30 @@
             this.btnReSearch.TabIndex = 3;
             this.btnReSearch.Text = "查詢";
             this.btnReSearch.Click += new System.EventHandler(this.btnReSearch_Click);
+            // 
+            // txtShowProductName
+            // 
+            this.txtShowProductName.Location = new System.Drawing.Point(352, 9);
+            this.txtShowProductName.Name = "txtShowProductName";
+            this.txtShowProductName.Properties.ReadOnly = true;
+            this.txtShowProductName.Size = new System.Drawing.Size(321, 20);
+            this.txtShowProductName.TabIndex = 2;
+            // 
+            // txtShowProductId
+            // 
+            this.txtShowProductId.Location = new System.Drawing.Point(167, 9);
+            this.txtShowProductId.Name = "txtShowProductId";
+            this.txtShowProductId.Properties.ReadOnly = true;
+            this.txtShowProductId.Size = new System.Drawing.Size(168, 20);
+            this.txtShowProductId.TabIndex = 1;
+            // 
+            // lblShowProductId
+            // 
+            this.lblShowProductId.Location = new System.Drawing.Point(14, 12);
+            this.lblShowProductId.Name = "lblShowProductId";
+            this.lblShowProductId.Size = new System.Drawing.Size(148, 14);
+            this.lblShowProductId.TabIndex = 0;
+            this.lblShowProductId.Text = "繼續查找此物料的制單資料:";
             // 
             // frmProductCostingFind
             // 
@@ -1442,8 +1440,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShowProductName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

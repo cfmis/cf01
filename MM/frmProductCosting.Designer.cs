@@ -52,12 +52,16 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.dgvBomDetails = new System.Windows.Forms.DataGridView();
+            this.colIsSetFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colIsSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dgvWipData = new System.Windows.Forms.DataGridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblMaterialPriceQty = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaterialPriceQty = new DevExpress.XtraEditors.TextEdit();
             this.txtStdPriceFlag = new DevExpress.XtraEditors.TextEdit();
             this.txtStdWeightFlag = new DevExpress.XtraEditors.TextEdit();
             this.lblDepTotalCost = new DevExpress.XtraEditors.LabelControl();
@@ -113,10 +117,6 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.txtMaterialPriceQty = new DevExpress.XtraEditors.TextEdit();
-            this.lblMaterialPriceQty = new DevExpress.XtraEditors.LabelControl();
-            this.colIsSetFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colIsSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -207,6 +207,7 @@
             this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -219,6 +220,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPriceQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdPriceFlag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdWeightFlag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDoColor.Properties)).BeginInit();
@@ -247,7 +249,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPriceQty.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -430,14 +431,14 @@
             this.tvBom.ItemHeight = 25;
             this.tvBom.Location = new System.Drawing.Point(0, 0);
             this.tvBom.Name = "tvBom";
-            this.tvBom.Size = new System.Drawing.Size(319, 398);
+            this.tvBom.Size = new System.Drawing.Size(319, 384);
             this.tvBom.TabIndex = 1;
             this.tvBom.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvBom_NodeMouseClick);
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 275);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 289);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.tvBom);
             this.splitContainerControl1.Panel1.Text = "Panel1";
@@ -447,7 +448,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.dgvWipData);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1158, 398);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1158, 384);
             this.splitContainerControl1.SplitterPosition = 319;
             this.splitContainerControl1.TabIndex = 2;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -506,16 +507,35 @@
             this.dgvBomDetails.RowHeadersWidth = 20;
             this.dgvBomDetails.RowTemplate.Height = 24;
             this.dgvBomDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBomDetails.Size = new System.Drawing.Size(834, 101);
+            this.dgvBomDetails.Size = new System.Drawing.Size(834, 87);
             this.dgvBomDetails.TabIndex = 1;
             this.dgvBomDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBomDetails_CellDoubleClick);
             this.dgvBomDetails.SelectionChanged += new System.EventHandler(this.dgvBomDetails_SelectionChanged);
+            // 
+            // colIsSetFlag
+            // 
+            this.colIsSetFlag.DataPropertyName = "IsSetFlag";
+            this.colIsSetFlag.Frozen = true;
+            this.colIsSetFlag.HeaderText = "已設";
+            this.colIsSetFlag.Name = "colIsSetFlag";
+            this.colIsSetFlag.ReadOnly = true;
+            this.colIsSetFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colIsSetFlag.Width = 40;
+            // 
+            // colIsSelect
+            // 
+            this.colIsSelect.DataPropertyName = "IsSelect";
+            this.colIsSelect.Frozen = true;
+            this.colIsSelect.HeaderText = "";
+            this.colIsSelect.Name = "colIsSelect";
+            this.colIsSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colIsSelect.Width = 40;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.labelControl2);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 135);
+            this.panelControl3.Location = new System.Drawing.Point(0, 121);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(834, 34);
             this.panelControl3.TabIndex = 3;
@@ -549,7 +569,7 @@
             this.colWipNextDep,
             this.colWipNextDepId});
             this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvWipData.Location = new System.Drawing.Point(0, 169);
+            this.dgvWipData.Location = new System.Drawing.Point(0, 155);
             this.dgvWipData.Name = "dgvWipData";
             this.dgvWipData.ReadOnly = true;
             this.dgvWipData.RowHeadersWidth = 20;
@@ -634,6 +654,22 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1158, 151);
             this.panelControl1.TabIndex = 0;
+            // 
+            // lblMaterialPriceQty
+            // 
+            this.lblMaterialPriceQty.Location = new System.Drawing.Point(504, 58);
+            this.lblMaterialPriceQty.Name = "lblMaterialPriceQty";
+            this.lblMaterialPriceQty.Size = new System.Drawing.Size(78, 14);
+            this.lblMaterialPriceQty.TabIndex = 15;
+            this.lblMaterialPriceQty.Text = "數量單價/PCS:";
+            // 
+            // txtMaterialPriceQty
+            // 
+            this.txtMaterialPriceQty.Location = new System.Drawing.Point(584, 55);
+            this.txtMaterialPriceQty.Name = "txtMaterialPriceQty";
+            this.txtMaterialPriceQty.Size = new System.Drawing.Size(145, 20);
+            this.txtMaterialPriceQty.TabIndex = 14;
+            this.txtMaterialPriceQty.Leave += new System.EventHandler(this.txtMaterialPriceQty_Leave);
             // 
             // txtStdPriceFlag
             // 
@@ -1039,83 +1075,48 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(13, 65);
+            this.labelControl6.Location = new System.Drawing.Point(13, 81);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(501, 14);
             this.labelControl6.TabIndex = 7;
-            this.labelControl6.Text = "4、公式計算原則：已設定(打勾)的公式不會再計算 > 優先套用自定(Y) > 自動查找歷史記錄。";
+            this.labelControl6.Text = "5、公式計算原則：已設定(打勾)的公式不會再計算 > 優先套用自定(Y) > 自動查找歷史記錄。";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(13, 45);
+            this.labelControl5.Location = new System.Drawing.Point(13, 64);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(605, 14);
             this.labelControl5.TabIndex = 7;
-            this.labelControl5.Text = "3、產品成本=子件累計成本 + 原料成本 + 部門成本 + 其它費用；部門總價 = 原料成本 + 部門成本 + 其它費用。";
+            this.labelControl5.Text = "4、產品成本=子件累計成本 + 原料成本 + 部門成本 + 其它費用；部門總價 = 原料成本 + 部門成本 + 其它費用。";
             // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(13, 25);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(1030, 14);
+            this.labelControl4.Size = new System.Drawing.Size(464, 14);
             this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "2、原料成本：開料部門 = 原料需求 * 原料單價;中間部門(外發) = 每PCS重量 * 原料損耗 * 原料單價，但膠料、噴油、挂電的按粒計算，每PCS重量只是" +
-    "顯示值，重量值改變時成本價不會改變。";
+            this.labelControl4.Text = "2、開料部門：原料需求 = 每PCS重量 * 原料損耗；原料成本 = 原料需求 * 原料單價；";
             // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(13, 5);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(748, 14);
+            this.labelControl3.Size = new System.Drawing.Size(760, 14);
             this.labelControl3.TabIndex = 7;
-            this.labelControl3.Text = "1、子件累計成本 = 子件的產品成本之和;如果第一層子件是原料,則為其它成本之和,不包含原料成本,將子件的原料單價帶入到本層的原料單價";
+            this.labelControl3.Text = "1、子件累計成本 = 子件的產品成本之和;如果第一層子件是原料,則為其它成本之和,不包含原料成本,將子件的原料單價帶入到本層的原料單價。";
             // 
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.labelControl3);
             this.panelControl4.Controls.Add(this.labelControl4);
+            this.panelControl4.Controls.Add(this.labelControl7);
             this.panelControl4.Controls.Add(this.labelControl5);
             this.panelControl4.Controls.Add(this.labelControl6);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 189);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1158, 86);
+            this.panelControl4.Size = new System.Drawing.Size(1158, 100);
             this.panelControl4.TabIndex = 3;
-            // 
-            // txtMaterialPriceQty
-            // 
-            this.txtMaterialPriceQty.Location = new System.Drawing.Point(584, 55);
-            this.txtMaterialPriceQty.Name = "txtMaterialPriceQty";
-            this.txtMaterialPriceQty.Size = new System.Drawing.Size(145, 20);
-            this.txtMaterialPriceQty.TabIndex = 14;
-            this.txtMaterialPriceQty.Leave += new System.EventHandler(this.txtMaterialPriceQty_Leave);
-            // 
-            // lblMaterialPriceQty
-            // 
-            this.lblMaterialPriceQty.Location = new System.Drawing.Point(504, 58);
-            this.lblMaterialPriceQty.Name = "lblMaterialPriceQty";
-            this.lblMaterialPriceQty.Size = new System.Drawing.Size(78, 14);
-            this.lblMaterialPriceQty.TabIndex = 15;
-            this.lblMaterialPriceQty.Text = "數量單價/PCS:";
-            // 
-            // colIsSetFlag
-            // 
-            this.colIsSetFlag.DataPropertyName = "IsSetFlag";
-            this.colIsSetFlag.Frozen = true;
-            this.colIsSetFlag.HeaderText = "已設";
-            this.colIsSetFlag.Name = "colIsSetFlag";
-            this.colIsSetFlag.ReadOnly = true;
-            this.colIsSetFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colIsSetFlag.Width = 40;
-            // 
-            // colIsSelect
-            // 
-            this.colIsSelect.DataPropertyName = "IsSelect";
-            this.colIsSelect.Frozen = true;
-            this.colIsSelect.HeaderText = "";
-            this.colIsSelect.Name = "colIsSelect";
-            this.colIsSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colIsSelect.Width = 40;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1869,6 +1870,14 @@
             this.colWipNextDepId.Name = "colWipNextDepId";
             this.colWipNextDepId.ReadOnly = true;
             // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(13, 45);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(484, 14);
+            this.labelControl7.TabIndex = 7;
+            this.labelControl7.Text = "3、電鍍(噴油)成本 = (每PCS重量 * 電鍍損耗 * 電鍍重量單價) + (數量單價 * 電鍍損耗)。";
+            // 
             // frmProductCosting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1898,6 +1907,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPriceQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdPriceFlag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdWeightFlag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDoColor.Properties)).EndInit();
@@ -1927,7 +1937,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPriceQty.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2112,5 +2121,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepStdQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOriginWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }

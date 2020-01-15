@@ -130,7 +130,7 @@ namespace cf01.MM
             for (int i = 0; i < dgvProductWeight.Rows.Count; i++)
             {
                 DataGridViewRow dgr = dgvProductWeight.Rows[i];
-                dgr.Cells["colSetPrice"].Value = chkFlag;
+                dgr.Cells["colSelectFlag"].Value = chkFlag;
             }
         }
         private void btnConf_Click(object sender, EventArgs e)
@@ -187,6 +187,34 @@ namespace cf01.MM
                 MessageBox.Show("儲存物料重量失敗!");
         }
 
-        
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            txtClrTo.Focus();
+            if (!validData())
+                return;
+            deleteData();
+        }
+        private void deleteData()
+        {
+            string result = "";
+            List<mdlProductWeight> lsModel = new List<mdlProductWeight>();
+            for (int i = 0; i < dgvProductWeight.Rows.Count; i++)
+            {
+                DataGridViewRow dgr = dgvProductWeight.Rows[i];
+                if ((bool)dgr.Cells["colSelectFlag"].Value == true)
+                {
+                    mdlProductWeight objModel = new mdlProductWeight();
+                    objModel.prdItem = dgr.Cells["colProductId"].Value.ToString().Trim();
+                    objModel.matItem = dgr.Cells["colMaterialId"].Value != null ? dgr.Cells["colMaterialId"].Value.ToString().Trim() : "*";
+                    objModel.depId = dgr.Cells["colDepId"].Value != null ? dgr.Cells["colDepId"].Value.ToString().Trim() : "*";
+                    lsModel.Add(objModel);
+                }
+            }
+            result = clsProductCosting.deleteProductWeight(lsModel);
+            if (result == "")
+                MessageBox.Show("刪除物料重量成功!");
+            else
+                MessageBox.Show("刪除物料重量失敗!");
+        }
     }
 }

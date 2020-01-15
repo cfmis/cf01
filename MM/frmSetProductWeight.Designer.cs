@@ -53,23 +53,12 @@
             this.lblMat = new DevExpress.XtraEditors.LabelControl();
             this.rdgIsSetCosting = new DevExpress.XtraEditors.RadioGroup();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnConf = new DevExpress.XtraEditors.SimpleButton();
             this.txtProductWeight = new DevExpress.XtraEditors.TextEdit();
             this.lblProductWeight = new DevExpress.XtraEditors.LabelControl();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.dgvProductWeight = new System.Windows.Forms.DataGridView();
-            this.colSelectFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterialCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPcsG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCrUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCrTim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -107,6 +96,19 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblUnit = new DevExpress.XtraEditors.LabelControl();
+            this.colSelectFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterialCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPcsG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCrUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCrTim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
@@ -361,8 +363,10 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnDelete);
             this.panelControl2.Controls.Add(this.btnConf);
             this.panelControl2.Controls.Add(this.txtProductWeight);
+            this.panelControl2.Controls.Add(this.lblUnit);
             this.panelControl2.Controls.Add(this.lblProductWeight);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 145);
@@ -370,9 +374,18 @@
             this.panelControl2.Size = new System.Drawing.Size(1049, 43);
             this.panelControl2.TabIndex = 1;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(462, 9);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 25);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "刪除(&D)";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnConf
             // 
-            this.btnConf.Location = new System.Drawing.Point(350, 9);
+            this.btnConf.Location = new System.Drawing.Point(368, 9);
             this.btnConf.Name = "btnConf";
             this.btnConf.Size = new System.Drawing.Size(75, 25);
             this.btnConf.TabIndex = 2;
@@ -381,7 +394,7 @@
             // 
             // txtProductWeight
             // 
-            this.txtProductWeight.Location = new System.Drawing.Point(233, 11);
+            this.txtProductWeight.Location = new System.Drawing.Point(189, 11);
             this.txtProductWeight.Name = "txtProductWeight";
             this.txtProductWeight.Properties.Mask.EditMask = "n4";
             this.txtProductWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -392,9 +405,9 @@
             // 
             this.lblProductWeight.Location = new System.Drawing.Point(11, 14);
             this.lblProductWeight.Name = "lblProductWeight";
-            this.lblProductWeight.Size = new System.Drawing.Size(216, 14);
+            this.lblProductWeight.Size = new System.Drawing.Size(172, 14);
             this.lblProductWeight.TabIndex = 0;
-            this.lblProductWeight.Text = "將選定的物料統一設定為此重量(G/PCS):";
+            this.lblProductWeight.Text = "將選定的物料統一設定為此重量:";
             // 
             // chkSelectAll
             // 
@@ -432,95 +445,6 @@
             this.dgvProductWeight.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductWeight.Size = new System.Drawing.Size(1049, 460);
             this.dgvProductWeight.TabIndex = 0;
-            // 
-            // colSelectFlag
-            // 
-            this.colSelectFlag.DataPropertyName = "SetFlag";
-            this.colSelectFlag.Frozen = true;
-            this.colSelectFlag.HeaderText = "";
-            this.colSelectFlag.Name = "colSelectFlag";
-            this.colSelectFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelectFlag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelectFlag.Width = 40;
-            // 
-            // colProductId
-            // 
-            this.colProductId.DataPropertyName = "goods_id";
-            this.colProductId.HeaderText = "物料編號";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Width = 160;
-            // 
-            // colProductName
-            // 
-            this.colProductName.DataPropertyName = "goods_cname";
-            this.colProductName.HeaderText = "物料描述";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 260;
-            // 
-            // colDoColor
-            // 
-            this.colDoColor.DataPropertyName = "DoColor";
-            this.colDoColor.HeaderText = "顏色做法";
-            this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
-            this.colDoColor.Width = 160;
-            // 
-            // colMaterialId
-            // 
-            this.colMaterialId.DataPropertyName = "mat_item";
-            this.colMaterialId.HeaderText = "原料編號";
-            this.colMaterialId.Name = "colMaterialId";
-            this.colMaterialId.Width = 160;
-            // 
-            // colMaterialCdesc
-            // 
-            this.colMaterialCdesc.DataPropertyName = "mat_cdesc";
-            this.colMaterialCdesc.HeaderText = "原料描述";
-            this.colMaterialCdesc.Name = "colMaterialCdesc";
-            this.colMaterialCdesc.Width = 260;
-            // 
-            // colProductWeight
-            // 
-            this.colProductWeight.DataPropertyName = "kg_qty_rate";
-            this.colProductWeight.HeaderText = "每Kg數量";
-            this.colProductWeight.Name = "colProductWeight";
-            this.colProductWeight.ReadOnly = true;
-            this.colProductWeight.Width = 80;
-            // 
-            // colPcsG
-            // 
-            this.colPcsG.DataPropertyName = "pcs_g";
-            this.colPcsG.HeaderText = "每PCS重量";
-            this.colPcsG.Name = "colPcsG";
-            this.colPcsG.Width = 80;
-            // 
-            // colDepId
-            // 
-            this.colDepId.DataPropertyName = "DepId";
-            this.colDepId.HeaderText = "部門編號";
-            this.colDepId.Name = "colDepId";
-            this.colDepId.Width = 65;
-            // 
-            // colDepName
-            // 
-            this.colDepName.DataPropertyName = "DepName";
-            this.colDepName.HeaderText = "部門描述";
-            this.colDepName.Name = "colDepName";
-            // 
-            // colCrUsr
-            // 
-            this.colCrUsr.DataPropertyName = "CrUsr";
-            this.colCrUsr.HeaderText = "修改人";
-            this.colCrUsr.Name = "colCrUsr";
-            // 
-            // colCrTim
-            // 
-            this.colCrTim.DataPropertyName = "CrTim";
-            this.colCrTim.HeaderText = "修改時間";
-            this.colCrTim.Name = "colCrTim";
-            this.colCrTim.Width = 120;
             // 
             // toolStrip1
             // 
@@ -828,6 +752,103 @@
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.Width = 60;
             // 
+            // lblUnit
+            // 
+            this.lblUnit.Location = new System.Drawing.Point(295, 14);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(44, 14);
+            this.lblUnit.TabIndex = 0;
+            this.lblUnit.Text = "(G/PCS)";
+            // 
+            // colSelectFlag
+            // 
+            this.colSelectFlag.DataPropertyName = "SetFlag";
+            this.colSelectFlag.Frozen = true;
+            this.colSelectFlag.HeaderText = "";
+            this.colSelectFlag.Name = "colSelectFlag";
+            this.colSelectFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelectFlag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelectFlag.Width = 40;
+            // 
+            // colProductId
+            // 
+            this.colProductId.DataPropertyName = "goods_id";
+            this.colProductId.HeaderText = "物料編號";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Width = 160;
+            // 
+            // colProductName
+            // 
+            this.colProductName.DataPropertyName = "goods_cname";
+            this.colProductName.HeaderText = "物料描述";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 260;
+            // 
+            // colDoColor
+            // 
+            this.colDoColor.DataPropertyName = "DoColor";
+            this.colDoColor.HeaderText = "顏色做法";
+            this.colDoColor.Name = "colDoColor";
+            this.colDoColor.ReadOnly = true;
+            this.colDoColor.Width = 160;
+            // 
+            // colMaterialId
+            // 
+            this.colMaterialId.DataPropertyName = "mat_item";
+            this.colMaterialId.HeaderText = "原料編號";
+            this.colMaterialId.Name = "colMaterialId";
+            this.colMaterialId.Width = 160;
+            // 
+            // colMaterialCdesc
+            // 
+            this.colMaterialCdesc.DataPropertyName = "mat_cdesc";
+            this.colMaterialCdesc.HeaderText = "原料描述";
+            this.colMaterialCdesc.Name = "colMaterialCdesc";
+            this.colMaterialCdesc.Width = 260;
+            // 
+            // colProductWeight
+            // 
+            this.colProductWeight.DataPropertyName = "kg_qty_rate";
+            this.colProductWeight.HeaderText = "每Kg數量";
+            this.colProductWeight.Name = "colProductWeight";
+            this.colProductWeight.ReadOnly = true;
+            this.colProductWeight.Width = 80;
+            // 
+            // colPcsG
+            // 
+            this.colPcsG.DataPropertyName = "pcs_weg";
+            this.colPcsG.HeaderText = "每PCS重量";
+            this.colPcsG.Name = "colPcsG";
+            this.colPcsG.Width = 80;
+            // 
+            // colDepId
+            // 
+            this.colDepId.DataPropertyName = "DepId";
+            this.colDepId.HeaderText = "部門編號";
+            this.colDepId.Name = "colDepId";
+            this.colDepId.Width = 65;
+            // 
+            // colDepName
+            // 
+            this.colDepName.DataPropertyName = "DepName";
+            this.colDepName.HeaderText = "部門描述";
+            this.colDepName.Name = "colDepName";
+            // 
+            // colCrUsr
+            // 
+            this.colCrUsr.DataPropertyName = "CrUsr";
+            this.colCrUsr.HeaderText = "修改人";
+            this.colCrUsr.Name = "colCrUsr";
+            // 
+            // colCrTim
+            // 
+            this.colCrTim.DataPropertyName = "CrTim";
+            this.colCrTim.HeaderText = "修改時間";
+            this.colCrTim.Name = "colCrTim";
+            this.colCrTim.Width = 120;
+            // 
             // frmSetProductWeight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -942,6 +963,8 @@
         private DevExpress.XtraEditors.TextEdit txtProductId;
         private DevExpress.XtraEditors.CheckEdit chkNoShowDmItem;
         private DevExpress.XtraEditors.CheckEdit chkShowF0;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
+        private DevExpress.XtraEditors.LabelControl lblUnit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;

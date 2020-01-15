@@ -199,5 +199,34 @@ namespace cf01.MM
             frm.ShowDialog();
             frm.Dispose();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            txtClrTo.Focus();
+            if (!validData())
+                return;
+            deleteData();
+        }
+
+        private void deleteData()
+        {
+            string result = "";
+            List<mdlProductPrice> lsModel = new List<mdlProductPrice>();
+            for (int i = 0; i < dgvProductPrice.Rows.Count; i++)
+            {
+                DataGridViewRow dgr = dgvProductPrice.Rows[i];
+                if ((bool)dgr.Cells["colSetPrice"].Value == true)
+                {
+                    mdlProductPrice objModel = new mdlProductPrice();
+                    objModel.productId = dgr.Cells["colProductId"].Value.ToString();
+                    lsModel.Add(objModel);
+                }
+            }
+            result = clsProductCosting.deleteProductPrice(lsModel);
+            if (result == "")
+                MessageBox.Show("刪除物料單價成功!");
+            else
+                MessageBox.Show("刪除物料單價失敗!");
+        }
     }
 }

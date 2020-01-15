@@ -98,6 +98,8 @@ namespace cf01.MM
         {
             frmProductCosting.searchPrice = dgvDetails2.Rows[dgvDetails2.CurrentRow.Index].Cells["colPlatePriceKg"].Value.ToString() != ""
                 ? Convert.ToDecimal(dgvDetails2.Rows[dgvDetails2.CurrentRow.Index].Cells["colPlatePriceKg"].Value) : 0;
+            frmProductCosting.searchPricePcs = dgvDetails2.Rows[dgvDetails2.CurrentRow.Index].Cells["colPricePcs"].Value.ToString() != ""
+                ? Convert.ToDecimal(dgvDetails2.Rows[dgvDetails2.CurrentRow.Index].Cells["colPricePcs"].Value) : 0;
             this.Close();
         }
     }

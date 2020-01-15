@@ -52,6 +52,9 @@
             this.lblMat = new DevExpress.XtraEditors.LabelControl();
             this.rdgIsSetCosting = new DevExpress.XtraEditors.RadioGroup();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lblProductPriceQty = new DevExpress.XtraEditors.LabelControl();
+            this.lblProductPrice = new DevExpress.XtraEditors.LabelControl();
+            this.txtProductPriceQty = new DevExpress.XtraEditors.TextEdit();
             this.cmbPriceUnit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnConf = new DevExpress.XtraEditors.SimpleButton();
             this.txtProductPrice = new DevExpress.XtraEditors.TextEdit();
@@ -65,6 +68,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnOldRec = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblPriceUnitPcs = new DevExpress.XtraEditors.LabelControl();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.colSetPrice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +79,14 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPriceUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductPriceQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmendUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmendTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,16 +111,6 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtProductPriceQty = new DevExpress.XtraEditors.TextEdit();
-            this.lblProductPrice = new DevExpress.XtraEditors.LabelControl();
-            this.lblProductPriceQty = new DevExpress.XtraEditors.LabelControl();
-            this.colSetPrice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductPriceQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
@@ -125,11 +129,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdgIsSetCosting.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductPriceQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPriceUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductPrice)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductPriceQty.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -353,6 +357,8 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnDelete);
+            this.panelControl2.Controls.Add(this.lblPriceUnitPcs);
             this.panelControl2.Controls.Add(this.lblProductPriceQty);
             this.panelControl2.Controls.Add(this.lblProductPrice);
             this.panelControl2.Controls.Add(this.txtProductPriceQty);
@@ -366,10 +372,33 @@
             this.panelControl2.Size = new System.Drawing.Size(1049, 43);
             this.panelControl2.TabIndex = 1;
             // 
+            // lblProductPriceQty
+            // 
+            this.lblProductPriceQty.Location = new System.Drawing.Point(434, 14);
+            this.lblProductPriceQty.Name = "lblProductPriceQty";
+            this.lblProductPriceQty.Size = new System.Drawing.Size(52, 14);
+            this.lblProductPriceQty.TabIndex = 6;
+            this.lblProductPriceQty.Text = "數量單價:";
+            // 
+            // lblProductPrice
+            // 
+            this.lblProductPrice.Location = new System.Drawing.Point(128, 14);
+            this.lblProductPrice.Name = "lblProductPrice";
+            this.lblProductPrice.Size = new System.Drawing.Size(52, 14);
+            this.lblProductPrice.TabIndex = 5;
+            this.lblProductPrice.Text = "重量單價:";
+            // 
+            // txtProductPriceQty
+            // 
+            this.txtProductPriceQty.Location = new System.Drawing.Point(492, 11);
+            this.txtProductPriceQty.Name = "txtProductPriceQty";
+            this.txtProductPriceQty.Size = new System.Drawing.Size(100, 20);
+            this.txtProductPriceQty.TabIndex = 4;
+            // 
             // cmbPriceUnit
             // 
             this.cmbPriceUnit.Enabled = false;
-            this.cmbPriceUnit.Location = new System.Drawing.Point(327, 11);
+            this.cmbPriceUnit.Location = new System.Drawing.Point(301, 11);
             this.cmbPriceUnit.Name = "cmbPriceUnit";
             this.cmbPriceUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -381,7 +410,7 @@
             // 
             // btnConf
             // 
-            this.btnConf.Location = new System.Drawing.Point(668, 9);
+            this.btnConf.Location = new System.Drawing.Point(637, 9);
             this.btnConf.Name = "btnConf";
             this.btnConf.Size = new System.Drawing.Size(75, 25);
             this.btnConf.TabIndex = 2;
@@ -390,7 +419,7 @@
             // 
             // txtProductPrice
             // 
-            this.txtProductPrice.Location = new System.Drawing.Point(221, 11);
+            this.txtProductPrice.Location = new System.Drawing.Point(195, 11);
             this.txtProductPrice.Name = "txtProductPrice";
             this.txtProductPrice.Properties.Mask.EditMask = "n4";
             this.txtProductPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -427,7 +456,9 @@
             this.colDoColor,
             this.colProductPrice,
             this.colPriceUnit,
-            this.colProductPriceQty});
+            this.colProductPriceQty,
+            this.colAmendUser,
+            this.colAmendTime});
             this.dgvProductPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductPrice.Location = new System.Drawing.Point(0, 188);
             this.dgvProductPrice.Name = "dgvProductPrice";
@@ -501,6 +532,33 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
+            // lblPriceUnitPcs
+            // 
+            this.lblPriceUnitPcs.Location = new System.Drawing.Point(597, 14);
+            this.lblPriceUnitPcs.Name = "lblPriceUnitPcs";
+            this.lblPriceUnitPcs.Size = new System.Drawing.Size(21, 14);
+            this.lblPriceUnitPcs.TabIndex = 6;
+            this.lblPriceUnitPcs.Text = "PCS";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(737, 9);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 25);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Text = "刪除(&D)";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // colSetPrice
+            // 
+            this.colSetPrice.DataPropertyName = "SetFlag";
+            this.colSetPrice.Frozen = true;
+            this.colSetPrice.HeaderText = "";
+            this.colSetPrice.Name = "colSetPrice";
+            this.colSetPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSetPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSetPrice.Width = 40;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -565,6 +623,63 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 80;
+            // 
+            // colProductId
+            // 
+            this.colProductId.DataPropertyName = "goods_id";
+            this.colProductId.HeaderText = "物料編號";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Width = 160;
+            // 
+            // colProductName
+            // 
+            this.colProductName.DataPropertyName = "goods_cname";
+            this.colProductName.HeaderText = "物料描述";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 260;
+            // 
+            // colDoColor
+            // 
+            this.colDoColor.DataPropertyName = "DoColor";
+            this.colDoColor.HeaderText = "顏色做法";
+            this.colDoColor.Name = "colDoColor";
+            this.colDoColor.ReadOnly = true;
+            this.colDoColor.Width = 160;
+            // 
+            // colProductPrice
+            // 
+            this.colProductPrice.DataPropertyName = "ProductPrice";
+            this.colProductPrice.HeaderText = "重量單價";
+            this.colProductPrice.Name = "colProductPrice";
+            this.colProductPrice.ReadOnly = true;
+            // 
+            // colPriceUnit
+            // 
+            this.colPriceUnit.DataPropertyName = "PriceUnit";
+            this.colPriceUnit.HeaderText = "單價單位";
+            this.colPriceUnit.Name = "colPriceUnit";
+            this.colPriceUnit.Width = 80;
+            // 
+            // colProductPriceQty
+            // 
+            this.colProductPriceQty.DataPropertyName = "ProductPriceQty";
+            this.colProductPriceQty.HeaderText = "數量單價/PCS";
+            this.colProductPriceQty.Name = "colProductPriceQty";
+            // 
+            // colAmendUser
+            // 
+            this.colAmendUser.DataPropertyName = "AmendUser";
+            this.colAmendUser.HeaderText = "修改人";
+            this.colAmendUser.Name = "colAmendUser";
+            // 
+            // colAmendTime
+            // 
+            this.colAmendTime.DataPropertyName = "AmendTime";
+            this.colAmendTime.HeaderText = "修改時間";
+            this.colAmendTime.Name = "colAmendTime";
+            this.colAmendTime.Width = 120;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -761,83 +876,6 @@
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.Width = 60;
             // 
-            // txtProductPriceQty
-            // 
-            this.txtProductPriceQty.Location = new System.Drawing.Point(544, 11);
-            this.txtProductPriceQty.Name = "txtProductPriceQty";
-            this.txtProductPriceQty.Size = new System.Drawing.Size(100, 20);
-            this.txtProductPriceQty.TabIndex = 4;
-            // 
-            // lblProductPrice
-            // 
-            this.lblProductPrice.Location = new System.Drawing.Point(154, 14);
-            this.lblProductPrice.Name = "lblProductPrice";
-            this.lblProductPrice.Size = new System.Drawing.Size(52, 14);
-            this.lblProductPrice.TabIndex = 5;
-            this.lblProductPrice.Text = "重量單價:";
-            // 
-            // lblProductPriceQty
-            // 
-            this.lblProductPriceQty.Location = new System.Drawing.Point(460, 14);
-            this.lblProductPriceQty.Name = "lblProductPriceQty";
-            this.lblProductPriceQty.Size = new System.Drawing.Size(78, 14);
-            this.lblProductPriceQty.TabIndex = 6;
-            this.lblProductPriceQty.Text = "數量單價/PCS:";
-            // 
-            // colSetPrice
-            // 
-            this.colSetPrice.DataPropertyName = "SetFlag";
-            this.colSetPrice.Frozen = true;
-            this.colSetPrice.HeaderText = "";
-            this.colSetPrice.Name = "colSetPrice";
-            this.colSetPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSetPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSetPrice.Width = 40;
-            // 
-            // colProductId
-            // 
-            this.colProductId.DataPropertyName = "goods_id";
-            this.colProductId.HeaderText = "物料編號";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Width = 160;
-            // 
-            // colProductName
-            // 
-            this.colProductName.DataPropertyName = "goods_cname";
-            this.colProductName.HeaderText = "物料描述";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 260;
-            // 
-            // colDoColor
-            // 
-            this.colDoColor.DataPropertyName = "DoColor";
-            this.colDoColor.HeaderText = "顏色做法";
-            this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
-            this.colDoColor.Width = 160;
-            // 
-            // colProductPrice
-            // 
-            this.colProductPrice.DataPropertyName = "ProductPrice";
-            this.colProductPrice.HeaderText = "重量單價";
-            this.colProductPrice.Name = "colProductPrice";
-            this.colProductPrice.ReadOnly = true;
-            // 
-            // colPriceUnit
-            // 
-            this.colPriceUnit.DataPropertyName = "PriceUnit";
-            this.colPriceUnit.HeaderText = "單價單位";
-            this.colPriceUnit.Name = "colPriceUnit";
-            this.colPriceUnit.Width = 80;
-            // 
-            // colProductPriceQty
-            // 
-            this.colProductPriceQty.DataPropertyName = "ProductPriceQty";
-            this.colProductPriceQty.HeaderText = "數量單價/PCS";
-            this.colProductPriceQty.Name = "colProductPriceQty";
-            // 
             // frmSetProductPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -874,12 +912,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductPriceQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPriceUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductPrice)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductPriceQty.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -958,6 +996,8 @@
         private DevExpress.XtraEditors.LabelControl lblProductPrice;
         private DevExpress.XtraEditors.TextEdit txtProductPriceQty;
         private DevExpress.XtraEditors.LabelControl lblProductPriceQty;
+        private DevExpress.XtraEditors.LabelControl lblPriceUnitPcs;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colSetPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
@@ -965,5 +1005,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPriceUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductPriceQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAmendUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAmendTime;
     }
 }

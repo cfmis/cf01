@@ -31,6 +31,14 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfGEO.GetDataTable(sql);
             return dt;
         }
-        
+
+        public static DataTable loadDep()
+        {
+            string strSql = "Select a.dep_id,a.dep_cdesc" +
+                " From bs_dep a" +
+                " Order By a.dep_id";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
     }
 }

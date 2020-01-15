@@ -22,6 +22,7 @@ namespace cf01.MM
         public static string searchProductName = "";
         public static string searchDepId = "";
         public static decimal searchPrice = 0;
+        public static decimal searchPricePcs = 0;
         public static mdlDepPrice sentDepPrice = new mdlDepPrice();
         private bool firstLevel;
         private bool firstCount;
@@ -298,16 +299,16 @@ namespace cf01.MM
                 dr2["ProductMo"] = dr["ProductMo"].ToString();
                 dr2["ProductWeight"] = dr["ProductWeight"].ToString() != "" ? dr["ProductWeight"].ToString() : "0";
                 dr2["OriginWeight"] = dr["OriginWeight"].ToString() != "" ? dr["OriginWeight"].ToString() : "0";
-                dr2["WasteRate"] = dr["WasteRate"].ToString();
-                dr2["MaterialRequest"] = dr["MaterialRequest"].ToString();
-                dr2["OriginalPrice"] = dr["OriginalPrice"].ToString();
-                dr2["MaterialPrice"] = dr["MaterialPrice"].ToString();
-                dr2["MaterialPriceQty"] = dr["MaterialPriceQty"].ToString();
-                dr2["MaterialCost"] = dr["MaterialCost"].ToString();
-                dr2["RollUpCost"] = dr["RollUpCost"].ToString();
-                dr2["DepId"] = dr["DepId"].ToString();
-                dr2["DepCdesc"] = dr["DepCdesc"].ToString();
-                dr2["DepPrice"] = dr["DepPrice"].ToString();
+                dr2["WasteRate"] = dr["WasteRate"].ToString() != "" ? dr["WasteRate"].ToString() : "0";
+                dr2["MaterialRequest"] = dr["MaterialRequest"].ToString() != "" ? dr["MaterialRequest"].ToString() : "0";
+                dr2["OriginalPrice"] = dr["OriginalPrice"].ToString() != "" ? dr["OriginalPrice"].ToString() : "0";
+                dr2["MaterialPrice"] = dr["MaterialPrice"].ToString() != "" ? dr["MaterialPrice"].ToString() : "0";
+                dr2["MaterialPriceQty"] = dr["MaterialPriceQty"].ToString() != "" ? dr["MaterialPriceQty"].ToString() : "0";
+                dr2["MaterialCost"] = dr["MaterialCost"].ToString() != "" ? dr["MaterialCost"].ToString() : "0";
+                dr2["RollUpCost"] = dr["RollUpCost"].ToString() != "" ? dr["RollUpCost"].ToString() : "0";
+                dr2["DepId"] = dr["DepId"].ToString() != "" ? dr["DepId"].ToString() : "0";
+                dr2["DepCdesc"] = dr["DepCdesc"].ToString() != "" ? dr["DepCdesc"].ToString() : "";
+                dr2["DepPrice"] = dr["DepPrice"].ToString() != "" ? dr["DepPrice"].ToString() : "";
                 dr2["DepStdPrice"] = dr["DepStdPrice"].ToString() != "" ? Convert.ToDecimal(dr["DepStdPrice"]) : 0;
                 dr2["DepStdQty"] = dr["DepStdQty"].ToString() != "" ? Convert.ToDecimal(dr["DepStdQty"]) : 0;
                 dr2["DepCost"] = dr["DepCost"].ToString();
@@ -319,7 +320,7 @@ namespace cf01.MM
                 dr2["ProductCostGrs"] = dr["ProductCostGrs"].ToString() != "" ? dr["ProductCostGrs"].ToString() : "0";
                 dr2["ProductCostK"] = dr["ProductCostK"].ToString() != "" ? dr["ProductCostK"].ToString() : "0";
                 dr2["ProductCostDzs"] = dr["ProductCostDzs"].ToString() != "" ? dr["ProductCostDzs"].ToString() : "0";
-                dr2["DoColor"] = dr["DoColor"].ToString();
+                dr2["DoColor"] = dr["DoColor"].ToString() != "" ? dr["DoColor"].ToString() : "";
             }
             else
             {
@@ -330,6 +331,7 @@ namespace cf01.MM
                 decimal stdProductWeight = 0;
                 decimal stdProductPrice = 0;
                 string depId = "", depCdesc = "", doColor = "";
+                string materialId1 = "";
                 dr2["OriginWeight"] = 0;
                 dr2["ProductWeight"] = 0;
                 dr2["MaterialPrice"] = 0;
@@ -345,10 +347,11 @@ namespace cf01.MM
                     dr2["DepId"] = depId;
                     dr2["DepCdesc"] = depCdesc;
                     dr2["DoColor"] = doColor;
-                    wasteRate = clsProductCosting.getDepWasteRate(depId);//部門損耗率
                 }
                 //提取自定的物料重量
-                stdProductWeight = clsProductCosting.findStdProductWeight(productId, materialId);
+                if (depId == "102" || depId == "104" || depId == "122" || depId == "124" || depId == "202" || depId == "302" || depId == "322")
+                    materialId1 = materialId;
+                stdProductWeight = clsProductCosting.findStdProductWeight(productId, materialId1);
                 //如果是原料或採購料，則從採購單中提取原料單價
                 if (productId.Substring(0, 2) == "ML" || productId.Substring(0, 2) == "PL")
                 {
@@ -357,7 +360,6 @@ namespace cf01.MM
                         depId = "802";
                         depCdesc = "原料倉";
                     }
-                    wasteRate = clsProductCosting.getDepWasteRate(depId);//部門損耗率
                     //從自定義中查找單價，若不存在，再從採購單中查找
                     DataTable dt1 = clsProductCosting.findStdProductPrice(productId);//從自定中提取單價
                     if (dt1.Rows.Count > 0)
@@ -392,6 +394,11 @@ namespace cf01.MM
                         else
                             dr2["ProductWeight"] = clsProductCosting.getProductWeight("PL", productMo, productId);
                     }
+                    wasteRate = clsProductCosting.getProductTypeWasteRate(productId);//產品類型的損耗率
+                    if (wasteRate == 0)
+                        wasteRate = clsProductCosting.getDepWasteRate(depId);//部門損耗率
+                    if (wasteRate == 0)
+                        wasteRate = 1;
                     dr2["OriginWeight"] = dr2["ProductWeight"];
                     dr2["DepId"] = depId;
                     dr2["DepCdesc"] = depCdesc;
@@ -415,7 +422,6 @@ namespace cf01.MM
                                 dr2["DepId"] = depId;
                                 dr2["DepCdesc"] = depCdesc;
                                 dr2["DoColor"] = dr.Cells["colWipDoColor"].Value.ToString();
-                                wasteRate = clsProductCosting.getDepWasteRate(depId);
                             }
                             dr2["ProductMo"] = dr.Cells["colWipProductMo"].Value.ToString();
                             //自定中若不存在重量，則從計劃中重新提取
@@ -430,6 +436,12 @@ namespace cf01.MM
                                 if ((dr2["ProductWeight"].ToString() != "" ? Convert.ToDecimal(dr2["ProductWeight"]) : 0) == 0)
                                     dr2["ProductWeight"] = clsProductCosting.getProductWeight("", productMo, productId);
                             }
+
+                            wasteRate = clsProductCosting.getProductTypeWasteRate(productId);//產品類型的損耗率
+                            if (wasteRate == 0)
+                                wasteRate = clsProductCosting.getDepWasteRate(depId);//部門損耗率
+                            if (wasteRate == 0)
+                                wasteRate = 1;
                             dr2["OriginWeight"] = dr2["ProductWeight"];
                             if (depId == "501" || depId == "510")
                             {
@@ -1182,6 +1194,11 @@ namespace cf01.MM
             {
                 txtOriginalPrice.Text = searchPrice.ToString();
                 txtOriginalPrice_Leave(sender, e);
+            }
+            if (searchPricePcs != 0)
+            {
+                txtMaterialPriceQty.Text = searchPricePcs.ToString();
+                txtMaterialPriceQty_Leave(sender, e);
             }
             frm.Dispose();
         }

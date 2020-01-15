@@ -67,25 +67,6 @@
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.rdgSetType = new DevExpress.XtraEditors.RadioGroup();
-            this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.lueJob_type = new DevExpress.XtraEditors.LookUpEdit();
-            this.lblMsg = new DevExpress.XtraEditors.LabelControl();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,11 +81,30 @@
             this.colJob_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_machine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMachine_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.lueJob_type = new DevExpress.XtraEditors.LookUpEdit();
+            this.rdgSetType = new DevExpress.XtraEditors.RadioGroup();
+            this.lblMsg = new DevExpress.XtraEditors.LabelControl();
+            this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgIs_set.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgSource.Properties)).BeginInit();
@@ -128,9 +128,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJob_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgSetType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueJob_type.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -179,13 +179,13 @@
             this.txtPlanDateTo.Name = "txtPlanDateTo";
             this.txtPlanDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPlanDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtPlanDateTo.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.txtPlanDateTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtPlanDateTo.Properties.EditFormat.FormatString = "yyyy/MM/dd";
             this.txtPlanDateTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtPlanDateTo.Properties.Mask.EditMask = "yyyy/MM/dd";
-            this.txtPlanDateTo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtPlanDateTo.Size = new System.Drawing.Size(126, 20);
             this.txtPlanDateTo.TabIndex = 14;
             // 
@@ -196,13 +196,13 @@
             this.txtPlanDateFrom.Name = "txtPlanDateFrom";
             this.txtPlanDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPlanDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtPlanDateFrom.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.txtPlanDateFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtPlanDateFrom.Properties.EditFormat.FormatString = "yyyy/MM/dd";
             this.txtPlanDateFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtPlanDateFrom.Properties.Mask.EditMask = "yyyy/MM/dd";
-            this.txtPlanDateFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtPlanDateFrom.Size = new System.Drawing.Size(126, 20);
             this.txtPlanDateFrom.TabIndex = 13;
             this.txtPlanDateFrom.Leave += new System.EventHandler(this.txtPlanDateFrom_Leave);
@@ -528,159 +528,6 @@
             this.dgvDetails.TabIndex = 2;
             this.dgvDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellDoubleClick);
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.btnSave);
-            this.panelControl2.Controls.Add(this.lueJob_type);
-            this.panelControl2.Controls.Add(this.rdgSetType);
-            this.panelControl2.Controls.Add(this.lblMsg);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 177);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1042, 64);
-            this.panelControl2.TabIndex = 3;
-            // 
-            // rdgSetType
-            // 
-            this.rdgSetType.Location = new System.Drawing.Point(160, 9);
-            this.rdgSetType.Name = "rdgSetType";
-            this.rdgSetType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "使用指定公式:"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "使用已生產的工种套入公式")});
-            this.rdgSetType.Size = new System.Drawing.Size(818, 50);
-            this.rdgSetType.TabIndex = 3;
-            // 
-            // chkSelect
-            // 
-            this.chkSelect.Location = new System.Drawing.Point(33, 247);
-            this.chkSelect.Name = "chkSelect";
-            this.chkSelect.Properties.Caption = "";
-            this.chkSelect.Size = new System.Drawing.Size(26, 19);
-            this.chkSelect.TabIndex = 1;
-            this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(715, 15);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "確認(&S)";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // lueJob_type
-            // 
-            this.lueJob_type.Location = new System.Drawing.Point(266, 12);
-            this.lueJob_type.Name = "lueJob_type";
-            this.lueJob_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueJob_type.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Process_id", 60, "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Process_name", 200, "描述"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cost_price", 80, "單價"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Product_qty", 80, "數量")});
-            this.lueJob_type.Properties.NullText = "";
-            this.lueJob_type.Size = new System.Drawing.Size(348, 20);
-            this.lueJob_type.TabIndex = 0;
-            // 
-            // lblMsg
-            // 
-            this.lblMsg.Location = new System.Drawing.Point(10, 12);
-            this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(136, 14);
-            this.lblMsg.TabIndex = 0;
-            this.lblMsg.Text = "設定物料的成本計算方法:";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Prd_dep";
-            this.dataGridViewTextBoxColumn1.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "部門";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Prd_item";
-            this.dataGridViewTextBoxColumn2.HeaderText = "制單編號";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Prd_item";
-            this.dataGridViewTextBoxColumn3.FillWeight = 180F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "物料編號";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 180;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Prd_item_cdesc";
-            this.dataGridViewTextBoxColumn4.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "物料描述";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Process_id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "工種類型";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "process_name";
-            this.dataGridViewTextBoxColumn6.HeaderText = "類型描述";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "cost_price";
-            this.dataGridViewTextBoxColumn7.HeaderText = "單價";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "product_qty";
-            this.dataGridViewTextBoxColumn8.HeaderText = "數量";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ref_mo";
-            this.dataGridViewTextBoxColumn9.HeaderText = "生產制單";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "prd_machine";
-            this.dataGridViewTextBoxColumn10.HeaderText = "生產機器";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "job_type";
-            this.dataGridViewTextBoxColumn11.HeaderText = "工种";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "job_desc";
-            this.dataGridViewTextBoxColumn12.HeaderText = "工種描述";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "machine_desc";
-            this.dataGridViewTextBoxColumn13.HeaderText = "機器描述";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
             // colSelect
             // 
             this.colSelect.DataPropertyName = "chk_flag";
@@ -794,6 +641,159 @@
             this.colMachine_desc.Name = "colMachine_desc";
             this.colMachine_desc.ReadOnly = true;
             // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.btnSave);
+            this.panelControl2.Controls.Add(this.lueJob_type);
+            this.panelControl2.Controls.Add(this.rdgSetType);
+            this.panelControl2.Controls.Add(this.lblMsg);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 177);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(1042, 64);
+            this.panelControl2.TabIndex = 3;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(715, 15);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "確認(&S)";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // lueJob_type
+            // 
+            this.lueJob_type.Location = new System.Drawing.Point(266, 12);
+            this.lueJob_type.Name = "lueJob_type";
+            this.lueJob_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueJob_type.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Process_id", 60, "代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Process_name", 200, "描述"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Cost_price", 80, "單價"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Product_qty", 80, "數量")});
+            this.lueJob_type.Properties.NullText = "";
+            this.lueJob_type.Size = new System.Drawing.Size(348, 20);
+            this.lueJob_type.TabIndex = 0;
+            // 
+            // rdgSetType
+            // 
+            this.rdgSetType.Location = new System.Drawing.Point(160, 9);
+            this.rdgSetType.Name = "rdgSetType";
+            this.rdgSetType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "使用指定公式:"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "使用已生產的工种套入公式")});
+            this.rdgSetType.Size = new System.Drawing.Size(818, 50);
+            this.rdgSetType.TabIndex = 3;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.Location = new System.Drawing.Point(10, 12);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(136, 14);
+            this.lblMsg.TabIndex = 0;
+            this.lblMsg.Text = "設定物料的成本計算方法:";
+            // 
+            // chkSelect
+            // 
+            this.chkSelect.Location = new System.Drawing.Point(33, 247);
+            this.chkSelect.Name = "chkSelect";
+            this.chkSelect.Properties.Caption = "";
+            this.chkSelect.Size = new System.Drawing.Size(26, 19);
+            this.chkSelect.TabIndex = 1;
+            this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Prd_dep";
+            this.dataGridViewTextBoxColumn1.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "部門";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Prd_item";
+            this.dataGridViewTextBoxColumn2.HeaderText = "制單編號";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Prd_item";
+            this.dataGridViewTextBoxColumn3.FillWeight = 180F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "物料編號";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Prd_item_cdesc";
+            this.dataGridViewTextBoxColumn4.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "物料描述";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Process_id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "工種類型";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "process_name";
+            this.dataGridViewTextBoxColumn6.HeaderText = "類型描述";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "cost_price";
+            this.dataGridViewTextBoxColumn7.HeaderText = "單價";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "product_qty";
+            this.dataGridViewTextBoxColumn8.HeaderText = "數量";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "ref_mo";
+            this.dataGridViewTextBoxColumn9.HeaderText = "生產制單";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "prd_machine";
+            this.dataGridViewTextBoxColumn10.HeaderText = "生產機器";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "job_type";
+            this.dataGridViewTextBoxColumn11.HeaderText = "工种";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "job_desc";
+            this.dataGridViewTextBoxColumn12.HeaderText = "工種描述";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "machine_desc";
+            this.dataGridViewTextBoxColumn13.HeaderText = "機器描述";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
             // frmProductProcessCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -806,13 +806,14 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmProductProcessCost";
             this.Text = "frmDeptProductPrice";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmProductProcessCost_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgIs_set.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgSource.Properties)).EndInit();
@@ -838,9 +839,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJob_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgSetType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueJob_type.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

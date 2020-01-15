@@ -415,7 +415,7 @@ namespace cf01.CLS
                         ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,2),((b.price*d.exchange_rate)/f.rate)*1000) ELSE Convert(Decimal(18,2),(b.price*d.exchange_rate)) END AS PriceHkd" +
                         ",CASE g.kind WHEN '05' THEN 0 ELSE Convert(Decimal(18,4),(b.price*d.exchange_rate)/1000) END AS price_g" +
                         ",CASE g.kind WHEN '05' THEN Convert(Decimal(18,4),(b.price*d.exchange_rate)/f.rate) ELSE 0 END AS price_pcs" +
-                        ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit" +
+                        ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit,h.ProductPriceQty AS StdProductPriceQty" +
                         " FROM " + remote_db + "po_buy_manage a " +
                         " INNER JOIN " + remote_db + "po_buy_details b ON a.within_code=b.within_code AND a.id=b.id" +
                         " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
@@ -467,8 +467,8 @@ namespace cf01.CLS
                         ",CASE b.sec_qty WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(b.sec_qty/b.prod_qty)*1000) END AS pcs_weg" +
                         ",Convert(Decimal(18,2),b.sec_price) AS sec_price,b.sec_p_unit,Convert(Decimal(18,2),b.total_prices) AS total_prices" +
                         ",Convert(Decimal(18,2),b.mould_fee) AS mould_fee,Convert(Decimal(18,2),b.former_free) AS former_free" +
-                        ",Convert(Decimal(18,4),(b.sec_price*g.exchange_rate)/1000) AS price_g" +
-                        ",Convert(Decimal(18,4),(b.price*g.exchange_rate)/d.rate) AS price_pcs" +
+                        ",Convert(Decimal(18,4),b.sec_price*g.exchange_rate) AS price_kg,Convert(Decimal(18,4),(b.sec_price*g.exchange_rate)/1000) AS price_g" +
+                        ",Convert(Decimal(18,4),(b.price*g.exchange_rate)/d.rate) AS price_pcs,Convert(Decimal(18,4),g.exchange_rate) AS exchange_rate" +
                         ",f.money_id AS m_id,a.department_id,b.process_request" +
                         ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit" +
                         " FROM "+remote_db+"op_outpro_out_mostly a " +
@@ -607,6 +607,19 @@ namespace cf01.CLS
             return wasteRate;
         }
 
+        public static decimal getProductTypeWasteRate(string productId)
+        {
+            decimal wasteRate = 0;
+            string strSql = " Select b.WasteRate"+
+                " From geo_it_goods a " +
+                " INNER JOIN bs_ProductTypeWasteRate b " +
+                " ON a.base_class=b.ProductType" +
+                " Where a.id='" + productId + "'";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
+                wasteRate = dt.Rows[0]["WasteRate"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["WasteRate"]) : 1;
+            return wasteRate;
+        }
 
         //
         public static DataTable findProductPrice(int isSetFlag, bool showF0
@@ -651,6 +664,7 @@ namespace cf01.CLS
             if (isSetFlag == 0)//已設定單價
             {
                 strSql = "Select a.ProductId AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor,a.ProductPrice,a.ProductPriceQty,a.PriceUnit" +
+                ",a.AmendUser,Convert(Varchar(20),a.AmendTime,120) AS AmendTime" +
                 " From mm_ProductPrice a" +
                 " Inner join geo_it_goods mm On a.ProductId=mm.id" +
                 " Where a.ProductId>=''";
@@ -665,6 +679,7 @@ namespace cf01.CLS
 
                 strSql += "SELECT aa.* FROM (";
                 strSql += "Select Top 100000 mm.id AS goods_id,a.ProductPrice,a.ProductPriceQty,a.PriceUnit,mm.name As goods_cname,mm.do_color AS DoColor" +
+                    ",a.AmendUser,Convert(Varchar(20),a.AmendTime,120) AS AmendTime" +
                     " From geo_it_goods mm" +
                     " Left join mm_ProductPrice a On mm.id=a.ProductId" +
                     " Where mm.id>=''";
@@ -695,8 +710,8 @@ namespace cf01.CLS
             for (int i = 0; i < lsModel.Count; i++)
             {
                 if (!checkProductPrice(lsModel[i].productId))
-                    strSql += string.Format(@" Insert Into mm_ProductPrice (ProductId,ProductPrice,ProductPriceQty,PriceUnit,CreateUser,CreateTime)
-                        Values ('{0}','{1}','{2}','{3}','{4}','{5}')"
+                    strSql += string.Format(@" Insert Into mm_ProductPrice (ProductId,ProductPrice,ProductPriceQty,PriceUnit,CreateUser,CreateTime,AmendUser,AmendTime)
+                        Values ('{0}','{1}','{2}','{3}','{4}','{5}','{4}','{5}')"
                         , lsModel[i].productId, lsModel[i].productPrice, lsModel[i].productPriceQty, lsModel[i].priceUnit, lsModel[i].createUser, lsModel[i].createTime);
                 else
                     strSql += string.Format(@" Update mm_ProductPrice Set ProductPrice='{1}',PriceUnit='{2}', ProductPriceQty='{3}',AmendUser='{4}',AmendTime='{5}'
@@ -717,6 +732,23 @@ namespace cf01.CLS
                 result = true;
             else
                 result = false;
+            return result;
+        }
+
+        public static string deleteProductPrice(List<mdlProductPrice> lsModel)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            for (int i = 0; i < lsModel.Count; i++)
+            {
+                strSql += string.Format(@" Delete From mm_ProductPrice
+                        Where ProductId='{0}'"
+                    , lsModel[i].productId);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
         }
         public static DataTable findStdProductPrice(string productId)
@@ -771,8 +803,8 @@ namespace cf01.CLS
             if (isSetFlag == 0)//已設定重量
             {
                 strSql = "Select a.prd_item AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
-                ",a.kg_qty_rate,CASE a.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/a.kg_qty_rate)*1000,4) END AS pcs_g" +
-                ",a.mat_item,mm1.name As mat_cdesc,a.dep_id AS DepId,b.dep_cdesc AS DepName,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim"+
+                ",a.kg_qty_rate,a.pcs_weg,a.mat_item,mm1.name As mat_cdesc" +
+                ",a.dep_id AS DepId,b.dep_cdesc AS DepName,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim"+
                 " From bs_mat_rate a" +
                 " Inner join geo_it_goods mm On a.prd_item=mm.id" +
                 " Left join geo_it_goods mm1 On a.mat_item=mm1.id" +
@@ -788,7 +820,7 @@ namespace cf01.CLS
             {
                 strSql += "SELECT aa.*,bb.name As mat_cdesc,cc.dep_cdesc AS DepName FROM (";
                 strSql += "Select Top 100000 mm.id AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
-                    ",a.kg_qty_rate,CASE a.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/a.kg_qty_rate)*1000,4) END AS pcs_g" +
+                    ",a.kg_qty_rate,a.pcs_weg" +
                     ",a.mat_item,a.dep_id AS DepId,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim" +
                     " From geo_it_goods mm" +
                     " Left join bs_mat_rate a On mm.id=a.prd_item" +
@@ -836,6 +868,21 @@ namespace cf01.CLS
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
         }
+        public static string deleteProductWeight(List<mdlProductWeight> lsModel)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            for (int i = 0; i < lsModel.Count; i++)
+            {
+                    strSql += string.Format(@" Delete From bs_mat_rate Where prd_item='{0}' AND mat_item='{1}' AND dep_id='{2}'"
+                        , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
         private static bool checkProductWeight(string prdItem,string matItem,string depId)
         {
             bool result = true;
@@ -850,11 +897,12 @@ namespace cf01.CLS
         public static decimal findStdProductWeight(string productId, string materialId)
         {
             decimal stdProductWeight = 0;
-            string strSql = "Select kg_qty_rate,CASE kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/kg_qty_rate)*1000,4) END AS pcs_g"+
-                " From bs_mat_rate Where prd_item='" + productId + "' And mat_item='" + materialId + "'";
+            string strSql = "Select kg_qty_rate,pcs_weg From bs_mat_rate Where prd_item='" + productId + "'";
+            if (materialId != "")
+                strSql += " And mat_item='" + materialId + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
-                stdProductWeight = dt.Rows[0]["pcs_g"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_g"]) : 0;
+                stdProductWeight = dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0;
             return stdProductWeight;
         }
     }

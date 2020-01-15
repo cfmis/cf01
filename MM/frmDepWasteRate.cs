@@ -26,8 +26,9 @@ namespace cf01.MM
         {
             lueDepId.Properties.ValueMember = "dep_id"; //相当于Editvalue
             lueDepId.Properties.DisplayMember = "dep_cdesc"; //相当于Text
-            lueDepId.Properties.DataSource = clsDepWasteRate.loadDep();
+            lueDepId.Properties.DataSource = clsBaseData.loadDep();
             binddDepWasteRate();
+            binddProductTypeWasteRate();
         }
         private void binddDepWasteRate()
         {
@@ -51,7 +52,10 @@ namespace cf01.MM
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            save();
+            if (xtraTabControl1.SelectedTabPageIndex == 0)
+                save();
+            else
+                saveProductTypeWasteRate();
         }
         private void save()
         {
@@ -60,11 +64,82 @@ namespace cf01.MM
             result = clsDepWasteRate.updateDepWasteRate(lueDepId.EditValue.ToString(), wasteRate);
             if (result == "")
             {
-                MessageBox.Show("儲存成功!");
+                MessageBox.Show("儲存記錄成功!");
                 binddDepWasteRate();
             }
             else
-                MessageBox.Show("儲存失敗!");
+                MessageBox.Show("儲存記錄失敗!");
+        }
+        private void saveProductTypeWasteRate()
+        {
+            if(clsDepWasteRate.checkProductType(txtProductType.Text.Trim()).Rows.Count==0)
+            {
+                MessageBox.Show("產品類型不存在,不能儲存!");
+                return;
+            }
+            string result = "";
+            decimal wasteRate = txtRate.Text != "" ? Convert.ToDecimal(txtRate.Text) : 0;
+            result = clsDepWasteRate.updateProductTypeWasteRate(txtProductType.Text.Trim(), wasteRate);
+            if (result == "")
+            {
+                MessageBox.Show("儲存記錄成功!");
+                binddProductTypeWasteRate();
+            }
+            else
+                MessageBox.Show("儲存記錄失敗!");
+        }
+        private void binddProductTypeWasteRate()
+        {
+            dgvDetails1.DataSource = clsDepWasteRate.loadProductTypeWasteRate();
+        }
+
+        private void txtProductType_Leave(object sender, EventArgs e)
+        {
+            DataTable dtProductType = clsDepWasteRate.checkProductType(txtProductType.Text.Trim());
+            if (dtProductType.Rows.Count > 0)
+                txtProductTypeName.Text = dtProductType.Rows[0]["prd_cdesc"].ToString();
+            else
+                txtProductTypeName.Text = "";
+        }
+
+        private void dgvDetails1_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewRow dgr = dgvDetails1.Rows[dgvDetails1.CurrentRow.Index];
+            txtProductType.Text = dgr.Cells["colProductType"].Value.ToString();
+            txtProductTypeName.Text = dgr.Cells["colProductTypeName"].Value.ToString();
+            txtRate.Text= dgr.Cells["colRate"].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (xtraTabControl1.SelectedTabPageIndex == 0)
+                delete();
+            else
+                deleteProductTypeWasteRate();
+        }
+        private void delete()
+        {
+            string result = "";
+            result = clsDepWasteRate.deleteDepWasteRate(lueDepId.EditValue.ToString());
+            if (result == "")
+            {
+                MessageBox.Show("刪除記錄成功!");
+                binddDepWasteRate();
+            }
+            else
+                MessageBox.Show("刪除記錄失敗!");
+        }
+        private void deleteProductTypeWasteRate()
+        {
+            string result = "";
+            result = clsDepWasteRate.deleteProductTypeWasteRate(txtProductType.Text.Trim());
+            if (result == "")
+            {
+                MessageBox.Show("刪除記錄成功!");
+                binddProductTypeWasteRate();
+            }
+            else
+                MessageBox.Show("刪除記錄失敗!");
         }
     }
 }
