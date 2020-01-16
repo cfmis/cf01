@@ -16,6 +16,7 @@ namespace cf01.MM
 {
     public partial class frmProductCostingFind : Form
     {
+        public static string searchProductMo;
         private DataTable dtWipData = new DataTable();
         private DataTable dtProductCosting = new DataTable();
         public frmProductCostingFind()
@@ -29,6 +30,7 @@ namespace cf01.MM
             rdgIsSetCosting.SelectedIndex = 2;
             //txtDateFrom.Text = System.DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             //txtDateTo.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
+            txtProductMo.Text = searchProductMo;
             txtProductMo.Focus();
         }
         private void btnExit_Click(object sender, EventArgs e)

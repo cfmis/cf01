@@ -803,7 +803,7 @@ namespace cf01.CLS
             if (isSetFlag == 0)//已設定重量
             {
                 strSql = "Select a.prd_item AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
-                ",a.kg_qty_rate,a.pcs_weg,a.mat_item,mm1.name As mat_cdesc" +
+                ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg,a.mat_item,mm1.name As mat_cdesc" +
                 ",a.dep_id AS DepId,b.dep_cdesc AS DepName,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim"+
                 " From bs_mat_rate a" +
                 " Inner join geo_it_goods mm On a.prd_item=mm.id" +
@@ -820,7 +820,7 @@ namespace cf01.CLS
             {
                 strSql += "SELECT aa.*,bb.name As mat_cdesc,cc.dep_cdesc AS DepName FROM (";
                 strSql += "Select Top 100000 mm.id AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
-                    ",a.kg_qty_rate,a.pcs_weg" +
+                    ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg" +
                     ",a.mat_item,a.dep_id AS DepId,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim" +
                     " From geo_it_goods mm" +
                     " Left join bs_mat_rate a On mm.id=a.prd_item" +
@@ -854,14 +854,14 @@ namespace cf01.CLS
             for (int i = 0; i < lsModel.Count; i++)
             {
                 if (!checkProductWeight(lsModel[i].prdItem,lsModel[i].matItem,lsModel[i].depId))
-                    strSql += string.Format(@" Insert Into bs_mat_rate (prd_item,mat_item,dep_id,pcs_weg,kg_qty_rate,crusr,crtim)
+                    strSql += string.Format(@" Insert Into bs_mat_rate (prd_item,mat_item,dep_id,pcs_weg,prd_kg_qty_rate,crusr,crtim)
                         Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
-                        , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId, lsModel[i].pcsWeg, lsModel[i].kgQtyRate
+                        , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId, lsModel[i].pcsWeg, lsModel[i].prdKgQtyRate
                         , lsModel[i].crUser, lsModel[i].crTime);
                 else
-                    strSql += string.Format(@" Update bs_mat_rate Set pcs_weg='{0}',kg_qty_rate='{1}',crusr='{2}',crtim='{3}'
+                    strSql += string.Format(@" Update bs_mat_rate Set pcs_weg='{0}',prd_kg_qty_rate='{1}',crusr='{2}',crtim='{3}'
                         Where prd_item='{4}' AND mat_item='{5}' AND dep_id='{6}'"
-                        , lsModel[i].pcsWeg, lsModel[i].kgQtyRate, lsModel[i].crUser, lsModel[i].crTime
+                        , lsModel[i].pcsWeg, lsModel[i].prdKgQtyRate, lsModel[i].crUser, lsModel[i].crTime
                         , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");

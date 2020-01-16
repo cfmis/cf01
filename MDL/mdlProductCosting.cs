@@ -57,7 +57,7 @@ namespace cf01.MDL
     public class mdlProductWeight
     {
         public string prdItem;
-        public decimal kgQtyRate;
+        public decimal prdKgQtyRate;
         public decimal pcsWeg;
         public string matItem;
         public string depId;

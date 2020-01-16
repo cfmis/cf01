@@ -50,6 +50,7 @@ namespace cf01.MM
         {
             searchProductId = txtProductId.Text;
             frmProductCostingFind frmProductCostingFind = new frmProductCostingFind();
+            frmProductCostingFind.searchProductMo = txtProductMo.Text;
             frmProductCostingFind.ShowDialog();
             if (searchProductId != "")
             {

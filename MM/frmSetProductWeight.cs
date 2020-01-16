@@ -174,7 +174,7 @@ namespace cf01.MM
                     if (objModel.depId == "")
                         objModel.depId = "*";
                     objModel.pcsWeg = Convert.ToDecimal(txtProductWeight.Text);
-                    objModel.kgQtyRate = Math.Round(1 / (objModel.pcsWeg / 1000), 0);
+                    objModel.prdKgQtyRate = Math.Round(1 / (objModel.pcsWeg / 1000), 0);
                     objModel.crUser = DBUtility._user_id;
                     objModel.crTime = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
                     lsModel.Add(objModel);

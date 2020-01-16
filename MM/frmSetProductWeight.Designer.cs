@@ -56,6 +56,7 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnConf = new DevExpress.XtraEditors.SimpleButton();
             this.txtProductWeight = new DevExpress.XtraEditors.TextEdit();
+            this.lblUnit = new DevExpress.XtraEditors.LabelControl();
             this.lblProductWeight = new DevExpress.XtraEditors.LabelControl();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.dgvProductWeight = new System.Windows.Forms.DataGridView();
@@ -96,7 +97,6 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblUnit = new DevExpress.XtraEditors.LabelControl();
             this.colSelectFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -400,6 +400,14 @@
             this.txtProductWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtProductWeight.Size = new System.Drawing.Size(100, 20);
             this.txtProductWeight.TabIndex = 1;
+            // 
+            // lblUnit
+            // 
+            this.lblUnit.Location = new System.Drawing.Point(295, 14);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(44, 14);
+            this.lblUnit.TabIndex = 0;
+            this.lblUnit.Text = "(G/PCS)";
             // 
             // lblProductWeight
             // 
@@ -752,14 +760,6 @@
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.Width = 60;
             // 
-            // lblUnit
-            // 
-            this.lblUnit.Location = new System.Drawing.Point(295, 14);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(44, 14);
-            this.lblUnit.TabIndex = 0;
-            this.lblUnit.Text = "(G/PCS)";
-            // 
             // colSelectFlag
             // 
             this.colSelectFlag.DataPropertyName = "SetFlag";
@@ -810,7 +810,7 @@
             // 
             // colProductWeight
             // 
-            this.colProductWeight.DataPropertyName = "kg_qty_rate";
+            this.colProductWeight.DataPropertyName = "prd_kg_qty_rate";
             this.colProductWeight.HeaderText = "每Kg數量";
             this.colProductWeight.Name = "colProductWeight";
             this.colProductWeight.ReadOnly = true;
