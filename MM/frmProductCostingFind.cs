@@ -19,6 +19,7 @@ namespace cf01.MM
         public static string searchProductMo;
         private DataTable dtWipData = new DataTable();
         private DataTable dtProductCosting = new DataTable();
+        private DataTable dtBomData = new DataTable();
         public frmProductCostingFind()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace cf01.MM
         {
             dgvCosting.AutoGenerateColumns = false;
             dgvWipData.AutoGenerateColumns = false;
+            dgvBomData.AutoGenerateColumns = false;
             rdgIsSetCosting.SelectedIndex = 2;
             //txtDateFrom.Text = System.DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             //txtDateTo.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
@@ -186,20 +188,39 @@ namespace cf01.MM
 
         private void dgvCosting_SelectionChanged(object sender, EventArgs e)
         {
+            if (dgvCosting.CurrentRow == null)
+                return;
+            DataGridViewRow dr = dgvCosting.Rows[dgvCosting.CurrentRow.Index]; //.CurrentCell.RowIndex
+            txtShowProductId.Text = dr.Cells["colProductId"].Value.ToString();
+            txtShowProductName.Text = dr.Cells["colProductName"].Value.ToString();
+
+            loadProductWip();
+        }
+        private void loadProductWip()
+        {
             if (dgvCosting.Rows.Count == 0)
                 return;
             DataGridViewRow dr = dgvCosting.Rows[dgvCosting.CurrentRow.Index];
-            txtShowProductId.Text = dr.Cells["colProductId"].Value.ToString();
-            txtShowProductName.Text = dr.Cells["colProductName"].Value.ToString();
-            string productMo = dr.Cells["colProductMo"].Value == null ? "" : dr.Cells["colProductMo"].Value.ToString();
-            dtWipData = clsProductCosting.getWipData(productMo);
-            dgvWipData.DataSource = dtWipData;
-            for (int i = 0; i < dgvWipData.Rows.Count; i++)
+            if (xtraTabControl1.SelectedTabPageIndex==0)
             {
-                dgvWipData.Rows[i].Cells["colWipSetCosting"].Value = "...";
+                string productMo = dr.Cells["colProductMo"].Value == null ? "" : dr.Cells["colProductMo"].Value.ToString();
+                dtWipData = clsProductCosting.getWipData(productMo);
+                dgvWipData.DataSource = dtWipData;
+                for (int i = 0; i < dgvWipData.Rows.Count; i++)
+                {
+                    dgvWipData.Rows[i].Cells["colWipSetCosting"].Value = "...";
+                }
+            }
+            else
+            {
+                dtBomData = clsProductCosting.getChildBomData(txtShowProductId.Text.Trim());
+                dgvBomData.DataSource = dtBomData;
+                for (int i = 0; i < dgvBomData.Rows.Count; i++)
+                {
+                    dgvBomData.Rows[i].Cells["colBomSetCosting"].Value = "...";
+                }
             }
         }
-
         private void dgvWipData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvWipData.Columns[e.ColumnIndex].Name == "colWipSetCosting")
@@ -249,7 +270,10 @@ namespace cf01.MM
 
         private void btnPrintWipData_Click(object sender, EventArgs e)
         {
-            printData(dtWipData);
+            if (xtraTabControl1.SelectedTabPageIndex == 0)
+                printData(dtWipData);
+            else
+                printData(dtBomData);
         }
 
         private void btnSetProductPrice_Click(object sender, EventArgs e)
@@ -275,8 +299,15 @@ namespace cf01.MM
             }
             else
             {
-                if (dgvWipData.Rows.Count > 0)
-                    productId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+                if (xtraTabControl1.SelectedTabPageIndex == 0)
+                {
+                    if (dgvWipData.Rows.Count > 0)
+                        productId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+                }else
+                {
+                    if (dgvBomData.Rows.Count > 0)
+                        productId = dgvBomData.Rows[dgvBomData.CurrentRow.Index].Cells["colBomGoodsId"].Value.ToString();
+                }
             }
              frmSetProductWeight.getProductId = productId;
             frmSetProductWeight frm = new frmSetProductWeight();
@@ -293,12 +324,20 @@ namespace cf01.MM
             if (selectType == 1)
                 frmSetProductPrice.getProductId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
             else
-                frmSetProductPrice.getProductId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+            {
+                if (xtraTabControl1.SelectedTabPageIndex == 0)
+                    frmSetProductPrice.getProductId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+                else
+                    frmSetProductPrice.getProductId = dgvBomData.Rows[dgvBomData.CurrentRow.Index].Cells["colBomGoodsId"].Value.ToString();
+            }
             frmSetProductPrice frm = new frmSetProductPrice();
             frm.ShowDialog();
             frm.Dispose();
         }
 
-        
+        private void xtraTabControl1_Click(object sender, EventArgs e)
+        {
+            loadProductWip();
+        }
     }
 }

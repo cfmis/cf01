@@ -83,10 +83,16 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnReSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetProductPrice1 = new DevExpress.XtraEditors.SimpleButton();
+            this.txtShowProductName = new DevExpress.XtraEditors.TextEdit();
+            this.txtShowProductId = new DevExpress.XtraEditors.TextEdit();
             this.btnSetProductWeight1 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblShowProductId = new DevExpress.XtraEditors.LabelControl();
             this.btnPrintWipData = new DevExpress.XtraEditors.SimpleButton();
-            this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.dgvWipData = new System.Windows.Forms.DataGridView();
             this.colWipSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,6 +114,18 @@
             this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.dgvBomData = new System.Windows.Forms.DataGridView();
+            this.colBomSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colBomGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBomGoodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -153,11 +171,6 @@
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.btnReSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.txtShowProductName = new DevExpress.XtraEditors.TextEdit();
-            this.txtShowProductId = new DevExpress.XtraEditors.TextEdit();
-            this.lblShowProductId = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).BeginInit();
@@ -186,12 +199,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCosting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtShowProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).BeginInit();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBomData)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -294,7 +310,7 @@
             // 
             // lblSource
             // 
-            this.lblSource.Location = new System.Drawing.Point(14, 91);
+            this.lblSource.Location = new System.Drawing.Point(18, 91);
             this.lblSource.Name = "lblSource";
             this.lblSource.Size = new System.Drawing.Size(52, 14);
             this.lblSource.TabIndex = 29;
@@ -355,7 +371,7 @@
             // 
             // txtClrTo
             // 
-            this.txtClrTo.Location = new System.Drawing.Point(870, 13);
+            this.txtClrTo.Location = new System.Drawing.Point(870, 14);
             this.txtClrTo.Name = "txtClrTo";
             this.txtClrTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClrTo.Properties.MaxLength = 4;
@@ -391,7 +407,7 @@
             // 
             // txtClrFrom
             // 
-            this.txtClrFrom.Location = new System.Drawing.Point(737, 13);
+            this.txtClrFrom.Location = new System.Drawing.Point(737, 14);
             this.txtClrFrom.Name = "txtClrFrom";
             this.txtClrFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClrFrom.Properties.MaxLength = 4;
@@ -446,7 +462,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(356, 41);
+            this.labelControl1.Location = new System.Drawing.Point(352, 41);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 14);
             this.labelControl1.TabIndex = 16;
@@ -519,11 +535,11 @@
             // 
             this.panelControl2.Controls.Add(this.dgvCosting);
             this.panelControl2.Controls.Add(this.panelControl3);
-            this.panelControl2.Controls.Add(this.dgvWipData);
+            this.panelControl2.Controls.Add(this.xtraTabControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 188);
+            this.panelControl2.Location = new System.Drawing.Point(0, 153);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1049, 460);
+            this.panelControl2.Size = new System.Drawing.Size(1049, 495);
             this.panelControl2.TabIndex = 1;
             // 
             // dgvCosting
@@ -559,7 +575,7 @@
             this.dgvCosting.RowHeadersWidth = 20;
             this.dgvCosting.RowTemplate.Height = 24;
             this.dgvCosting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCosting.Size = new System.Drawing.Size(1045, 146);
+            this.dgvCosting.Size = new System.Drawing.Size(1045, 129);
             this.dgvCosting.TabIndex = 0;
             this.dgvCosting.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCosting_CellContentClick);
             this.dgvCosting.SelectionChanged += new System.EventHandler(this.dgvCosting_SelectionChanged);
@@ -727,51 +743,111 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.btnReSearch);
             this.panelControl3.Controls.Add(this.btnSetProductPrice1);
+            this.panelControl3.Controls.Add(this.txtShowProductName);
+            this.panelControl3.Controls.Add(this.txtShowProductId);
             this.panelControl3.Controls.Add(this.btnSetProductWeight1);
+            this.panelControl3.Controls.Add(this.labelControl2);
+            this.panelControl3.Controls.Add(this.lblShowProductId);
             this.panelControl3.Controls.Add(this.btnPrintWipData);
-            this.panelControl3.Controls.Add(this.lblShowMsg);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(2, 148);
+            this.panelControl3.Location = new System.Drawing.Point(2, 131);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1045, 35);
+            this.panelControl3.Size = new System.Drawing.Size(1045, 62);
             this.panelControl3.TabIndex = 6;
+            // 
+            // btnReSearch
+            // 
+            this.btnReSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnReSearch.Image")));
+            this.btnReSearch.Location = new System.Drawing.Point(756, 3);
+            this.btnReSearch.Name = "btnReSearch";
+            this.btnReSearch.Size = new System.Drawing.Size(75, 28);
+            this.btnReSearch.TabIndex = 3;
+            this.btnReSearch.Text = "查詢";
+            this.btnReSearch.Click += new System.EventHandler(this.btnReSearch_Click);
             // 
             // btnSetProductPrice1
             // 
-            this.btnSetProductPrice1.Location = new System.Drawing.Point(246, 5);
+            this.btnSetProductPrice1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopLeft;
+            this.btnSetProductPrice1.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
+            this.btnSetProductPrice1.Location = new System.Drawing.Point(318, 30);
             this.btnSetProductPrice1.Name = "btnSetProductPrice1";
-            this.btnSetProductPrice1.Size = new System.Drawing.Size(75, 25);
+            this.btnSetProductPrice1.Size = new System.Drawing.Size(75, 28);
             this.btnSetProductPrice1.TabIndex = 3;
             this.btnSetProductPrice1.Text = "自定單價";
             this.btnSetProductPrice1.Click += new System.EventHandler(this.btnSetProductPrice1_Click);
             // 
+            // txtShowProductName
+            // 
+            this.txtShowProductName.Location = new System.Drawing.Point(410, 6);
+            this.txtShowProductName.Name = "txtShowProductName";
+            this.txtShowProductName.Properties.ReadOnly = true;
+            this.txtShowProductName.Size = new System.Drawing.Size(321, 20);
+            this.txtShowProductName.TabIndex = 2;
+            // 
+            // txtShowProductId
+            // 
+            this.txtShowProductId.Location = new System.Drawing.Point(225, 6);
+            this.txtShowProductId.Name = "txtShowProductId";
+            this.txtShowProductId.Properties.ReadOnly = true;
+            this.txtShowProductId.Size = new System.Drawing.Size(168, 20);
+            this.txtShowProductId.TabIndex = 1;
+            // 
             // btnSetProductWeight1
             // 
-            this.btnSetProductWeight1.Location = new System.Drawing.Point(327, 5);
+            this.btnSetProductWeight1.Location = new System.Drawing.Point(410, 30);
             this.btnSetProductWeight1.Name = "btnSetProductWeight1";
-            this.btnSetProductWeight1.Size = new System.Drawing.Size(75, 25);
+            this.btnSetProductWeight1.Size = new System.Drawing.Size(75, 28);
             this.btnSetProductWeight1.TabIndex = 2;
             this.btnSetProductWeight1.Text = "自定重量";
             this.btnSetProductWeight1.Click += new System.EventHandler(this.btnSetProductWeight1_Click);
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(8, 37);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(209, 14);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "此物料對應的生產流程、BOM子件資料:";
+            // 
+            // lblShowProductId
+            // 
+            this.lblShowProductId.Location = new System.Drawing.Point(69, 9);
+            this.lblShowProductId.Name = "lblShowProductId";
+            this.lblShowProductId.Size = new System.Drawing.Size(148, 14);
+            this.lblShowProductId.TabIndex = 0;
+            this.lblShowProductId.Text = "繼續查找此物料的制單資料:";
+            // 
             // btnPrintWipData
             // 
             this.btnPrintWipData.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintWipData.Image")));
-            this.btnPrintWipData.Location = new System.Drawing.Point(165, 5);
+            this.btnPrintWipData.Location = new System.Drawing.Point(225, 30);
             this.btnPrintWipData.Name = "btnPrintWipData";
-            this.btnPrintWipData.Size = new System.Drawing.Size(75, 25);
+            this.btnPrintWipData.Size = new System.Drawing.Size(75, 28);
             this.btnPrintWipData.TabIndex = 1;
             this.btnPrintWipData.Text = "列印(&V)";
             this.btnPrintWipData.Click += new System.EventHandler(this.btnPrintWipData_Click);
             // 
-            // lblShowMsg
+            // xtraTabControl1
             // 
-            this.lblShowMsg.Location = new System.Drawing.Point(3, 14);
-            this.lblShowMsg.Name = "lblShowMsg";
-            this.lblShowMsg.Size = new System.Drawing.Size(52, 14);
-            this.lblShowMsg.TabIndex = 0;
-            this.lblShowMsg.Text = "生產流程:";
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.xtraTabControl1.Location = new System.Drawing.Point(2, 193);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(1045, 300);
+            this.xtraTabControl1.TabIndex = 7;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            this.xtraTabControl1.Click += new System.EventHandler(this.xtraTabControl1_Click);
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.dgvWipData);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(1039, 271);
+            this.xtraTabPage1.Text = "制單生產流程";
             // 
             // dgvWipData
             // 
@@ -799,14 +875,14 @@
             this.colWipDoColor,
             this.Column11,
             this.Column12});
-            this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvWipData.Location = new System.Drawing.Point(2, 183);
+            this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWipData.Location = new System.Drawing.Point(0, 0);
             this.dgvWipData.Name = "dgvWipData";
             this.dgvWipData.ReadOnly = true;
             this.dgvWipData.RowHeadersWidth = 20;
             this.dgvWipData.RowTemplate.Height = 24;
             this.dgvWipData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWipData.Size = new System.Drawing.Size(1045, 275);
+            this.dgvWipData.Size = new System.Drawing.Size(1039, 271);
             this.dgvWipData.TabIndex = 5;
             this.dgvWipData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWipData_CellContentClick);
             // 
@@ -967,6 +1043,105 @@
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             this.Column12.Width = 60;
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.dgvBomData);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(1039, 271);
+            this.xtraTabPage2.Text = "物料BOM子件構成";
+            // 
+            // dgvBomData
+            // 
+            this.dgvBomData.AllowUserToAddRows = false;
+            this.dgvBomData.ColumnHeadersHeight = 28;
+            this.dgvBomData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvBomData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colBomSetCosting,
+            this.colBomGoodsId,
+            this.colBomGoodsName,
+            this.Column18,
+            this.Column20,
+            this.Column21,
+            this.Column17,
+            this.Column22,
+            this.Column23,
+            this.Column24});
+            this.dgvBomData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBomData.Location = new System.Drawing.Point(0, 0);
+            this.dgvBomData.Name = "dgvBomData";
+            this.dgvBomData.RowHeadersVisible = false;
+            this.dgvBomData.RowHeadersWidth = 20;
+            this.dgvBomData.RowTemplate.Height = 24;
+            this.dgvBomData.Size = new System.Drawing.Size(1039, 271);
+            this.dgvBomData.TabIndex = 0;
+            // 
+            // colBomSetCosting
+            // 
+            this.colBomSetCosting.HeaderText = "設定成本";
+            this.colBomSetCosting.Name = "colBomSetCosting";
+            this.colBomSetCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colBomSetCosting.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colBomSetCosting.Width = 65;
+            // 
+            // colBomGoodsId
+            // 
+            this.colBomGoodsId.DataPropertyName = "goods_id";
+            this.colBomGoodsId.HeaderText = "物料編號";
+            this.colBomGoodsId.Name = "colBomGoodsId";
+            this.colBomGoodsId.Width = 160;
+            // 
+            // colBomGoodsName
+            // 
+            this.colBomGoodsName.DataPropertyName = "goods_cname";
+            this.colBomGoodsName.HeaderText = "物料描述";
+            this.colBomGoodsName.Name = "colBomGoodsName";
+            this.colBomGoodsName.Width = 260;
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "ProductWeight";
+            this.Column18.HeaderText = "每PCS重量(自定)";
+            this.Column18.Name = "Column18";
+            this.Column18.Width = 120;
+            // 
+            // Column20
+            // 
+            this.Column20.DataPropertyName = "ProductPrice";
+            this.Column20.HeaderText = "單價(自定)";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 80;
+            // 
+            // Column21
+            // 
+            this.Column21.DataPropertyName = "PriceUnit";
+            this.Column21.HeaderText = "單位(自定)";
+            this.Column21.Name = "Column21";
+            this.Column21.Width = 80;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "ProductPriceQty";
+            this.Column17.HeaderText = "數量單價(自定)";
+            this.Column17.Name = "Column17";
+            // 
+            // Column22
+            // 
+            this.Column22.DataPropertyName = "ProductCost";
+            this.Column22.HeaderText = "產品成本/G";
+            this.Column22.Name = "Column22";
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "生產部門";
+            this.Column23.Name = "Column23";
+            this.Column23.Width = 80;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "部門描述";
+            this.Column24.Name = "Column24";
+            this.Column24.Width = 120;
             // 
             // toolStrip1
             // 
@@ -1343,59 +1518,12 @@
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.Width = 60;
             // 
-            // panelControl4
-            // 
-            this.panelControl4.Controls.Add(this.btnReSearch);
-            this.panelControl4.Controls.Add(this.txtShowProductName);
-            this.panelControl4.Controls.Add(this.txtShowProductId);
-            this.panelControl4.Controls.Add(this.lblShowProductId);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl4.Location = new System.Drawing.Point(0, 153);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1049, 35);
-            this.panelControl4.TabIndex = 2;
-            // 
-            // btnReSearch
-            // 
-            this.btnReSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnReSearch.Image")));
-            this.btnReSearch.Location = new System.Drawing.Point(703, 6);
-            this.btnReSearch.Name = "btnReSearch";
-            this.btnReSearch.Size = new System.Drawing.Size(75, 25);
-            this.btnReSearch.TabIndex = 3;
-            this.btnReSearch.Text = "查詢";
-            this.btnReSearch.Click += new System.EventHandler(this.btnReSearch_Click);
-            // 
-            // txtShowProductName
-            // 
-            this.txtShowProductName.Location = new System.Drawing.Point(352, 9);
-            this.txtShowProductName.Name = "txtShowProductName";
-            this.txtShowProductName.Properties.ReadOnly = true;
-            this.txtShowProductName.Size = new System.Drawing.Size(321, 20);
-            this.txtShowProductName.TabIndex = 2;
-            // 
-            // txtShowProductId
-            // 
-            this.txtShowProductId.Location = new System.Drawing.Point(167, 9);
-            this.txtShowProductId.Name = "txtShowProductId";
-            this.txtShowProductId.Properties.ReadOnly = true;
-            this.txtShowProductId.Size = new System.Drawing.Size(168, 20);
-            this.txtShowProductId.TabIndex = 1;
-            // 
-            // lblShowProductId
-            // 
-            this.lblShowProductId.Location = new System.Drawing.Point(14, 12);
-            this.lblShowProductId.Name = "lblShowProductId";
-            this.lblShowProductId.Size = new System.Drawing.Size(148, 14);
-            this.lblShowProductId.TabIndex = 0;
-            this.lblShowProductId.Text = "繼續查找此物料的制單資料:";
-            // 
             // frmProductCostingFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 648);
             this.Controls.Add(this.panelControl2);
-            this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmProductCostingFind";
@@ -1434,14 +1562,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
-            this.panelControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtShowProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShowProductId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).EndInit();
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBomData)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1511,7 +1641,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private DevExpress.XtraEditors.LabelControl lblShowMsg;
         private System.Windows.Forms.ToolStripButton btnPrint;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
@@ -1532,7 +1661,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
         private DevExpress.XtraEditors.SimpleButton btnSetProductWeight1;
         private DevExpress.XtraEditors.SimpleButton btnSetProductPrice1;
-        private DevExpress.XtraEditors.PanelControl panelControl4;
         private System.Windows.Forms.DataGridViewButtonColumn colSetCosting;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductMo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
@@ -1577,5 +1705,20 @@
         private DevExpress.XtraEditors.LabelControl lblShowProductId;
         private DevExpress.XtraEditors.TextEdit txtShowProductName;
         private DevExpress.XtraEditors.SimpleButton btnReSearch;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private System.Windows.Forms.DataGridView dgvBomData;
+        private System.Windows.Forms.DataGridViewButtonColumn colBomSetCosting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBomGoodsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBomGoodsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

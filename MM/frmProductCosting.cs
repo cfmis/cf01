@@ -1249,6 +1249,8 @@ namespace cf01.MM
 
         private void dgvBomDetails_SelectionChanged(object sender, EventArgs e)
         {
+            if (dgvBomDetails.CurrentRow == null)
+                return;
             fillControlsValue(dgvBomDetails.CurrentRow.Index);
         }
 

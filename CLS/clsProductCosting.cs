@@ -101,8 +101,7 @@ namespace cf01.CLS
         public static DataTable getWipData(string productMo)
         {
             string strSql = "";
-            strSql += " SELECT aa.*,bb.ProductCost,CASE cc.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/cc.kg_qty_rate)*1000,4) END AS ProductWeight" +
-                ",dd.ProductPrice,dd.PriceUnit ";
+            strSql += " SELECT aa.*,bb.ProductCost,cc.pcs_weg AS ProductWeight,dd.ProductPrice,dd.PriceUnit,dd.ProductPriceQty";
             strSql += " FROM ( ";
             strSql += " SELECT TOP 100000 a.mo_id,b.flag,b.goods_id,c.name AS goods_cname,c.do_color AS DoColor,b.wp_id,d.name AS DepCdesc,b.next_wp_id,e.name AS NextDepCdesc"+
                 ",Convert(Varchar(20),a.bill_date,111) AS bill_date,Convert(Int,b.prod_qty) AS prod_qty,Convert(Int,b.c_qty_ok) AS c_qty_ok" +
@@ -124,6 +123,30 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }
+
+        public static DataTable getChildBomData(string productId)
+        {
+            string strSql = "";
+            string pid1 = productId + "001";
+            string pid2 = productId + "999";
+            strSql += " SELECT aa.*,bb.ProductCost,cc.pcs_weg AS ProductWeight,dd.ProductPrice,dd.PriceUnit,dd.ProductPriceQty";
+            strSql += " FROM ( ";
+            strSql += " SELECT TOP 100 a.goods_id AS goods_id_m,b.goods_id,c.name AS goods_cname" +
+                " FROM " + remote_db + "it_bom_mostly a" +
+                " INNER JOIN " + remote_db + "it_bom b ON a.within_code=b.within_code AND a.id=b.id AND a.exp_id=b.exp_id" +
+                " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
+                " WHERE a.within_code='" + within_code + "' AND a.id>='" + pid1 + "' AND a.id<='" + pid2 + "'" +
+                //" WHERE a.within_code='" + within_code + "' AND a.goods_id='" + productId + "'" +
+                " Order By b.log_no";
+            strSql += " ) aa";
+            strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId";
+            strSql += " LEFT JOIN bs_mat_rate cc ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item";
+            strSql += " LEFT JOIN mm_ProductPrice dd ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId";
+
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+
         //這個是在原制單中獲取完成重量后，若仍然沒有重量的，則重新在計劃中按物料編號查找重量
         //但膠料是不會在流程表中而是在成分表中的，所以先從成分表中查找，若不存在再從流程表中查找；其它物料都是從流程表中查找
         //獲取物料每PCS的重量
