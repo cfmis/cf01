@@ -23,10 +23,12 @@ namespace cf01.Forms
     public partial class frmTestInvoice : Form
     {
         public string mID = "";    //臨時的主鍵值
+        public string mInv = "";
+        public string m_invoice_id_old = "";//修改發票主鍵
         public string mState = ""; //新增或編輯的狀態
         public static string str_language = "0";
         public bool save_flag;
-        public string strgroup = "";
+        public string strgroup = "";        
 
         DataTable dtMostly = new DataTable();
         DataTable dtDetails = new DataTable();
@@ -56,7 +58,7 @@ namespace cf01.Forms
             dtDetails = clsPublicOfCF01.GetDataTable("Select * From dbo.bs_test_invoice_details Where 1=0");
             gridControl1.DataSource = dtDetails;
             strgroup = clsDgdDeliverGoods.getUserGroup(DBUtility._user_id);
-
+            
             //臨時項目刪除表結構
             dtTempDel = dtDetails.Clone();
 
@@ -105,24 +107,42 @@ namespace cf01.Forms
                 }
             }
             radioGroup1.SelectedIndex = 2;
-
             Add_Data();
-
         }
+
         private void Add_Data()
         {
-            if (lsModel.Count > 0)
+            if (lsModel.Count > 0)//有數據傳遞(測試EXCEL錄入界面調用發票錄入窗口)
             {
                 //查出同一張測試報告的全部數據
                 string str_test_report_no = "";
                 foreach (mdlTestInvoiceData omdl in lsModel)
                 {
-                    str_test_report_no = omdl.test_report_no;
+                    str_test_report_no = omdl.test_report_no; //提取其中一個測試報告即可.
                     break;
                 }
-                Find_doc(str_test_report_no);
-
-                if (dgvDetails.RowCount > 0)
+                //Find_doc(str_test_report_no);
+                string strsql = String.Format(@"SELECT top 1 * FROM bs_test_invoice_mostly WITH(nolock) WHERE id ='{0}'", str_test_report_no);
+                dtMostly = clsPublicOfCF01.GetDataTable(strsql);
+                if (dtMostly.Rows.Count > 0)
+                {
+                    Set_Master_Data(dtMostly);
+                    //根據主表取得對應的發票號再取得對應的明細資料
+                    dtDetails.Clear();
+                    string invoice_no = dtMostly.Rows[0]["invoice_id"].ToString();
+                    strsql = String.Format(
+                        @"Select *,space(5) as seq From bs_test_invoice_details with(nolock) 
+                        Where id='{0}' and invoice_id='{1}'", str_test_report_no, invoice_no);
+                    dtDetails = clsPublicOfCF01.GetDataTable(strsql);
+                    gridControl1.DataSource = dtDetails;
+                }
+                else
+                {
+                    SetObjValue.ClearObjValue(panel1.Controls, "2");//清空全部數據
+                    return;
+                }
+                 
+                if (dgvDetails.RowCount > 0)//已保存有發票資料
                 {
                     DataTable dt = dtDetails;
                     foreach (mdlTestInvoiceData omdl in lsModel)
@@ -147,10 +167,10 @@ namespace cf01.Forms
                         }
                     }
                 }
-                else //自動生成單據
+                else //未有發票資料 自動生成表頭及明細資料
                 {
                     AddNew();
-                    txtID.Text = str_test_report_no;
+                    txtID.Text = str_test_report_no;                   
                     foreach (mdlTestInvoiceData omdl in lsModel)
                     {
                         AddNew_Item();
@@ -217,6 +237,7 @@ namespace cf01.Forms
                 //將當前行刪除幷加到臨時表中
                 DataRow newRow = dtTempDel.NewRow();
                 newRow["id"] = txtID.Text;
+                newRow["invoice_id"] = dgvDetails.GetRowCellDisplayText(curRow, "invoice_id");
                 newRow["sequence_id"] = dgvDetails.GetRowCellDisplayText(curRow, "sequence_id");
                 newRow["test_item_id"] = dgvDetails.GetRowCellDisplayText(curRow, "test_item_id");
                 dtTempDel.Rows.Add(newRow);
@@ -277,6 +298,8 @@ namespace cf01.Forms
             mState = "EDIT";
             txtID.Properties.ReadOnly = true;
             txtID.BackColor = Color.White;
+            txtinvoice_id.Properties.ReadOnly = true;
+            txtinvoice_id.BackColor = Color.White;
         }
 
         private void SetButtonSatus(bool _flag) //設置工具欄
@@ -293,6 +316,7 @@ namespace cf01.Forms
             BTNITEMDEL.Enabled = !_flag;
             BTNCONFIRM_PDD.Enabled = _flag;
             BTNCONFIRM_AC.Enabled = _flag;
+            dgvFind.Enabled = _flag;
 
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
@@ -310,17 +334,15 @@ namespace cf01.Forms
             {
                 return;
             }
-
             if (!string.IsNullOrEmpty(txtconfirm_pdd_by.Text))
             {
                 MessageBox.Show("PDD 已確認，不可以再進行更改!");
                 return;
             }
-
             DialogResult result = MessageBox.Show("此操作將刪除主表及明細中的資料,請謹慎操作!", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                const string sql_del = @"DELETE FROM bs_test_invoice_mostly WHERE id=@id";
+                const string sql_del = @"DELETE FROM bs_test_invoice_mostly WHERE id=@id and invoice_id=@invoice_id";
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
                 myCon.Open();
                 SqlTransaction myTrans = myCon.BeginTransaction();
@@ -331,6 +353,7 @@ namespace cf01.Forms
                         myCommand.CommandText = sql_del;//刪除主檔
                         myCommand.Parameters.Clear();
                         myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());
+                        myCommand.Parameters.AddWithValue("@invoice_id", txtinvoice_id.Text.Trim());
                         myCommand.ExecuteNonQuery();
 
                         myTrans.Commit(); //數據提交                        
@@ -356,7 +379,7 @@ namespace cf01.Forms
         /// </summary>
         private void AddNew_Item()
         {
-            if (!String.IsNullOrEmpty(txtID.Text.Trim())) // 有內容
+            if (!String.IsNullOrEmpty(txtID.Text.Trim()) && !String.IsNullOrEmpty(txtinvoice_id.Text.Trim())) // 有內容
             {
                 if (Check_Details_Valid())
                 {
@@ -365,9 +388,9 @@ namespace cf01.Forms
                 Set_Grid_Status(true);
                 dgvDetails.AddNewRow();//新增
                 dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "id", txtID.Text);
+                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "invoice_id",txtinvoice_id.Text.Trim());
                 dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sequence_id", (dgvDetails.RowCount).ToString("000"));
-                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "is_pass", false);
-                //dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sales_group", strgroup);    
+                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "is_pass", false);              
 
                 ColumnView view = (ColumnView)dgvDetails;//初始單元格焦點
                 view.FocusedColumn = view.Columns["test_item_id"];
@@ -419,21 +442,22 @@ namespace cf01.Forms
 
             dtTempDel.Clear();
             dtDetails.Clear();
-            gridControl1.DataSource = dtDetails;
-
-            mState = "";
+            gridControl1.DataSource = dtDetails;                     
+           
             if (!String.IsNullOrEmpty(mID))
             {
-                Find_doc(mID);
+                Find_doc(mID,mInv);
             }
+            mState = "";            
+            m_invoice_id_old = "";
         }
 
-        private void Find_doc(string temp_id) //主檔非新增的情況下，保存或取消時重新查出資料
+        private void Find_doc(string id,string invoice_id) //主檔非新增的情況下，保存或取消時重新查出資料
         {
-            if (!String.IsNullOrEmpty(temp_id))
+            if (!String.IsNullOrEmpty(id))
             {
-                string sql_h = String.Format(@"SELECT * FROM bs_test_invoice_mostly WITH(nolock) WHERE id ='{0}'", temp_id);
-                string sql_details = String.Format(@"Select *,space(5) as seq From bs_test_invoice_details with(nolock) Where id='{0}'", temp_id);
+                string sql_h = String.Format(@"SELECT * FROM bs_test_invoice_mostly WITH(nolock) WHERE id ='{0}' and invoice_id='{1}'", id,invoice_id);
+                string sql_details = String.Format(@"Select *,space(5) as seq From bs_test_invoice_details with(nolock) Where id='{0}' and invoice_id='{1}'", id, invoice_id);
                 dtDetails = clsPublicOfCF01.GetDataTable(sql_details);
 
                 dtMostly = clsPublicOfCF01.GetDataTable(sql_h);
@@ -448,7 +472,8 @@ namespace cf01.Forms
                 dtDetails = clsPublicOfCF01.GetDataTable(sql_details);
                 gridControl1.DataSource = dtDetails;
 
-                mID = txtID.Text;//保存臨時的ID號               
+                mID = txtID.Text;//保存臨時的ID號    
+                mInv = txtinvoice_id.Text;           
             }
         }
 
@@ -470,49 +495,52 @@ namespace cf01.Forms
                 lkeamount_unit.Focus();
                 return;
             }
-
             if (txtSales_group.Text == "")
             {
                 MessageBox.Show("組別不可為空!", "提示信息");
                 txtSales_group.Focus();
                 return;
             }
-
             if (Check_Details_Valid())//檢查明細資料的有效性
             {
                 return;
             }
+            
             save_flag = false;
-
             #region  保存新增或編輯
             if (mState == "NEW" || mState == "EDIT")
             {
                 if (mState == "NEW")
                 {
-                    //新增時檢查是否已存在主鍵值
-                    string strSql = String.Format("Select '1' FROM dbo.bs_test_invoice_mostly WHERE id='{0}'", txtID.Text.Trim());
+                    string strSql = String.Format("Select '1' FROM dbo.bs_test_invoice_mostly WHERE id='{0}' and invoice_id='{0}'", txtID.Text.Trim(), txtinvoice_id.Text);
                     if (clsPublicOfCF01.ExecuteSqlReturnObject(strSql) != "")
                     {
-                        MessageBox.Show(string.Format("注意已存在【{0}】的測試報告別編號!", txtID.Text), "提示信息");
-                        return;
-                    }
-
-                    strSql = String.Format("Select '1' FROM dbo.bs_test_invoice_mostly WHERE invoice_id='{0}'", txtinvoice_id.Text.Trim());
-                    if (clsPublicOfCF01.ExecuteSqlReturnObject(strSql) != "")
-                    {
-                        MessageBox.Show(string.Format("注意已存在【{0}】的發票編號!", txtinvoice_id.Text), "提示信息");
+                        MessageBox.Show(string.Format("注意:測試報告編號,發票編號【{0}/{1}】已存在!", txtID.Text, txtinvoice_id.Text), "提示信息");
                         return;
                     }
                 }
                 const string sql_i =
                 @"INSERT INTO dbo.bs_test_invoice_mostly(id,report_date,brand,invoice_id,invoice_date,amount,amount_unit,chemical_test,physical_test,own_reference,remark,create_by,create_date,sales_group)
                  VALUES(@id,@report_date,@brand,@invoice_id,@invoice_date,@amount,@amount_unit,@chemical_test,@physical_test,@own_reference,@remark,@user_id,getdate(),@sales_group)";
-                //oi_date=CASE LEN(@oi_date) WHEN 0 THEN null ELSE @oi_date END
-                const string sql_u =
-                @"Update bs_test_invoice_mostly 
-                SET report_date=@report_date,brand=@brand,invoice_id=@invoice_id,invoice_date=@invoice_date,amount=@amount,amount_unit=@amount_unit,chemical_test=@chemical_test,physical_test=@physical_test,
-                own_reference=@own_reference,remark=@remark,update_by=@user_id,update_date=getdate(),sales_group=@sales_group
-                WHERE id=@id";
+                string sql_u = "";
+                if (m_invoice_id_old == "")
+                {
+                    //正常的修改
+                    sql_u =
+                    @"Update bs_test_invoice_mostly 
+                    SET report_date=@report_date,brand=@brand,invoice_date=@invoice_date,amount=@amount,amount_unit=@amount_unit,chemical_test=@chemical_test,physical_test=@physical_test,
+                    own_reference=@own_reference,remark=@remark,update_by=@user_id,update_date=getdate(),sales_group=@sales_group
+                    WHERE id=@id and invoice_id=@invoice_id";
+                }
+                else
+                {
+                    //修改了主鍵發票編號
+                    sql_u =
+                    @"Update bs_test_invoice_mostly 
+                    SET invoice_id=@invoice_id,report_date=@report_date,brand=@brand,invoice_date=@invoice_date,amount=@amount,amount_unit=@amount_unit,chemical_test=@chemical_test,physical_test=@physical_test,
+                    own_reference=@own_reference,remark=@remark,update_by=@user_id,update_date=getdate(),sales_group=@sales_group
+                    WHERE id=@id and invoice_id='"+ m_invoice_id_old+"'";
+                }
 
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString); //connect to dgsql2
                 myCon.Open();
@@ -537,7 +565,7 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@physical_test", clsApp.Return_Float_Value(txtphysical_test.Text));
                         myCommand.Parameters.AddWithValue("@own_reference", txtown_reference.Text);
                         myCommand.Parameters.AddWithValue("@remark", txtremark.Text);
-                        myCommand.Parameters.AddWithValue("@sales_group", txtSales_group.Text);
+                        myCommand.Parameters.AddWithValue("@sales_group", txtSales_group.Text);                        
                         myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                         myCommand.ExecuteNonQuery();
                         //處理【項目刪除】刪除明細資料
@@ -545,10 +573,11 @@ namespace cf01.Forms
                         for (int i = 0; i < dtTempDel.Rows.Count; i++)
                         {
                             //刪除明細
-                            sql_item_d = @"DELETE FROM dbo.bs_test_invoice_details WHERE id=@id AND sequence_id=@sequence_id";
+                            sql_item_d = @"DELETE FROM dbo.bs_test_invoice_details WHERE id=@id and invoice_id=@invoice_id and sequence_id=@sequence_id";
                             myCommand.CommandText = sql_item_d;
                             myCommand.Parameters.Clear();
                             myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());
+                            myCommand.Parameters.AddWithValue("@invoice_id", dtTempDel.Rows[i]["invoice_id"].ToString());                           
                             myCommand.Parameters.AddWithValue("@sequence_id", dtTempDel.Rows[i]["sequence_id"].ToString());
                             myCommand.ExecuteNonQuery();
                         }
@@ -559,14 +588,28 @@ namespace cf01.Forms
                         {
                             const string sql_item_i =
                                  @"INSERT INTO dbo.bs_test_invoice_details
-                                (id,sequence_id,sales_group,mat_id,color_id,product_type_id,cust_color,trim_code,test_item_id,expiry_date,ref_mo,is_pass) VALUES
-                                (@id,@sequence_id,@sales_group,@mat_id,@color_id,@product_type_id,@cust_color,@trim_code,@test_item_id,CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END,@ref_mo,@is_pass)";
-                            const string sql_item_u =
-                                @"Update dbo.bs_test_invoice_details 
-                                SET sales_group=@sales_group,mat_id=@mat_id,color_id=@color_id,product_type_id=@product_type_id,cust_color=@cust_color,trim_code=@trim_code,test_item_id=@test_item_id,
-                                expiry_date=CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END,ref_mo=@ref_mo,is_pass=@is_pass
-                                Where id=@id And sequence_id=@sequence_id";
-
+                                (id,invoice_id,sequence_id,sales_group,mat_id,color_id,product_type_id,cust_color,trim_code,test_item_id,expiry_date,ref_mo,is_pass) VALUES
+                                (@id,@invoice_id,@sequence_id,@sales_group,@mat_id,@color_id,@product_type_id,@cust_color,@trim_code,@test_item_id,CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END,@ref_mo,@is_pass)";
+                            string sql_item_u = "";
+                            if (m_invoice_id_old == "")
+                            {
+                                //正常的修改
+                                sql_item_u =
+                                    @"Update dbo.bs_test_invoice_details 
+                                    SET sales_group=@sales_group,mat_id=@mat_id,color_id=@color_id,product_type_id=@product_type_id,cust_color=@cust_color,trim_code=@trim_code,test_item_id=@test_item_id,
+                                    expiry_date=CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END,ref_mo=@ref_mo,is_pass=@is_pass
+                                    Where id=@id And invoice_id=@invoice_id And sequence_id=@sequence_id";
+                            }
+                            else
+                            {
+                                //修改了主鍵發票編號
+                                sql_item_u =
+                                    @"Update dbo.bs_test_invoice_details 
+                                    SET invoice_id=@invoice_id,sales_group=@sales_group,mat_id=@mat_id,color_id=@color_id,product_type_id=@product_type_id,cust_color=@cust_color,trim_code=@trim_code,test_item_id=@test_item_id,
+                                    expiry_date=CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END,ref_mo=@ref_mo,is_pass=@is_pass
+                                    Where id=@id And invoice_id='" + m_invoice_id_old + "'" + " And sequence_id=@sequence_id";
+                            }
+                            dgvDetails.CloseEditor();
                             for (int i = 0; i < dgvDetails.RowCount; i++)
                             {
                                 curRow = dgvDetails.GetRowHandle(i);
@@ -581,6 +624,7 @@ namespace cf01.Forms
                                         myCommand.CommandText = sql_item_u;
                                     myCommand.Parameters.Clear();
                                     myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());
+                                    myCommand.Parameters.AddWithValue("@invoice_id",txtinvoice_id.Text.Trim());
                                     myCommand.Parameters.AddWithValue("@sequence_id", dgvDetails.GetRowCellValue(curRow, "sequence_id").ToString());
                                     myCommand.Parameters.AddWithValue("@sales_group", dgvDetails.GetRowCellValue(curRow, "sales_group").ToString());
                                     myCommand.Parameters.AddWithValue("@mat_id", dgvDetails.GetRowCellValue(curRow, "mat_id").ToString());
@@ -621,11 +665,12 @@ namespace cf01.Forms
             SetButtonSatus(true);
             SetObjValue.SetEditBackColor(panel1.Controls, false);
             Set_Grid_Status(false);
-            mState = "";
+            mState = "";           
+            m_invoice_id_old = "";
             dtTempDel.Clear();
             if (save_flag)
             {
-                Find_doc(txtID.Text);
+                Find_doc(txtID.Text,txtinvoice_id.Text);
                 clsUtility.myMessageBox("當前數據保存成功!", "提示信息");
             }
             else
@@ -645,10 +690,10 @@ namespace cf01.Forms
                 return true;
         }
 
-        public static string Get_Details_Seq(string _id) //取明細最大序號
+        public static string Get_Details_Seq(string id,string invoice_id) //取明細最大序號
         {
             DataTable dtMaxseq = new DataTable();
-            dtMaxseq = clsPublicOfCF01.GetDataTable(String.Format("SELECT MAX(sequence_id) as seq_id FROM bs_test_invoice_details with(nolock) WHERE id ='{0}'", _id));
+            dtMaxseq = clsPublicOfCF01.GetDataTable(String.Format("SELECT MAX(sequence_id) as seq_id FROM bs_test_invoice_details with(nolock) WHERE id ='{0} and invoice_id='{1}'", id, invoice_id));
 
             string strSeq;
             if (String.IsNullOrEmpty(dtMaxseq.Rows[0]["seq_id"].ToString()))
@@ -694,16 +739,16 @@ namespace cf01.Forms
             txtconfirm_pdd_date.Text = dt.Rows[0]["confirm_pdd_date"].ToString();
             txtconfirm_ac_by.Text = dt.Rows[0]["confirm_ac_by"].ToString();
             txtconfirm_ac_date.Text = dt.Rows[0]["confirm_ac_date"].ToString();
-            txtSales_group.Text = dt.Rows[0]["sales_group"].ToString();
+            txtSales_group.Text = dt.Rows[0]["sales_group"].ToString();            
         }
 
         private void txtID_Leave(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtID.Text))
+            if (!String.IsNullOrEmpty(txtID.Text)&& !String.IsNullOrEmpty(txtinvoice_id.Text))
             {
                 if (mState == "") //流覽模式
                 {
-                    Find_doc(txtID.Text);
+                    Find_doc(txtID.Text, txtinvoice_id.Text);
                 }
             }
         }
@@ -786,10 +831,11 @@ namespace cf01.Forms
         {
             if (dgvFind.RowCount > 0)
             {
-                if (txtID.Text != dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString())
-                {
-                    txtID.Text = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString();
-                    Find_doc(txtID.Text);
+                string id_inv = txtID.Text + txtinvoice_id.Text;
+                string cur_id_inv = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString() + dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["invoice_id1"].Value.ToString();
+                if (id_inv != cur_id_inv)
+                {                   
+                    Find_doc(dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString(), dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["invoice_id1"].Value.ToString());
                 }
             }
         }
@@ -853,21 +899,17 @@ namespace cf01.Forms
                     color_id = dgvDetails.GetRowCellValue(i, "color_id").ToString(),
                     product_type_id = dgvDetails.GetRowCellValue(i, "product_type_id").ToString(),
                     cust_color = dgvDetails.GetRowCellValue(i, "cust_color").ToString(),
-                    trim_code = dgvDetails.GetRowCellValue(i, "trim_code").ToString(),
-                    //test_item_id = dgvDetails.GetRowCellValue(i, "test_item_id").ToString(), 
-                    //expiry_date = dgvDetails.GetRowCellValue(i, "expiry_date").ToString(),
+                    trim_code = dgvDetails.GetRowCellValue(i, "trim_code").ToString(),                    
                     ref_mo = dgvDetails.GetRowCellValue(i, "ref_mo").ToString()
                 };
                 AddNew_Item();
-                i = dgvDetails.FocusedRowHandle;
+                i = dgvDetails.FocusedRowHandle;//新增后的當前行
                 dgvDetails.SetRowCellValue(i, "sales_group", omdl.sales_group);
                 dgvDetails.SetRowCellValue(i, "mat_id", omdl.mat_id);
                 dgvDetails.SetRowCellValue(i, "color_id", omdl.color_id);
                 dgvDetails.SetRowCellValue(i, "product_type_id", omdl.product_type_id);
                 dgvDetails.SetRowCellValue(i, "cust_color", omdl.cust_color);
-                dgvDetails.SetRowCellValue(i, "trim_code", omdl.trim_code);
-                //dgvDetails.SetRowCellValue(i, "test_item_id", "");
-                //dgvDetails.SetRowCellValue(i, "expiry_date", omdl.expiry_date);             
+                dgvDetails.SetRowCellValue(i, "trim_code", omdl.trim_code);                          
                 dgvDetails.SetRowCellValue(i, "ref_mo", omdl.ref_mo);
             }
         }
@@ -878,8 +920,7 @@ namespace cf01.Forms
             for (int i = 0; i < dtFind_Date.Rows.Count; i++)
             {
                 if (ptype == "PDD")
-                {
-                    //if (dgvFind.Rows[i].Cells["confirm_pdd"].ToString() == "True")
+                {                    
                     if (dtFind_Date.Rows[i]["confirm_pdd"].ToString() == "True")
                     {
                         select_flag = true;
@@ -887,8 +928,7 @@ namespace cf01.Forms
                     }
                 }
                 else
-                {
-                    //if (dgvFind.Rows[i].Cells["confirm_ac"].ToString() == "True")
+                {                  
                     if (dtFind_Date.Rows[i]["confirm_ac"].ToString() == "True")
                     {
                         select_flag = true;
@@ -934,7 +974,9 @@ namespace cf01.Forms
                             string ss = dtFind_Date.Rows[i]["confirm_pdd_date"].ToString();
                             if (dtFind_Date.Rows[i]["confirm_pdd"].ToString() == "True" && dtFind_Date.Rows[i]["confirm_pdd_date"].ToString() == "")
                             {
-                                ls_sql = string.Format(@"Update dbo.bs_test_invoice_mostly SET confirm_pdd=1,confirm_pdd_by='{0}',confirm_pdd_date=getdate() Where id='{1}'", DBUtility._user_id, dtFind_Date.Rows[i]["id"].ToString());
+                                ls_sql = string.Format(
+                                    @"Update dbo.bs_test_invoice_mostly SET confirm_pdd=1,confirm_pdd_by='{0}',confirm_pdd_date=getdate() 
+                                    Where id='{1}' and invoice_id='{2}'", DBUtility._user_id, dtFind_Date.Rows[i]["id"].ToString(), dtFind_Date.Rows[i]["invoice_id"].ToString());
                                 clsPublicOfCF01.ExecuteSqlUpdate(ls_sql);
                             }
                         }
@@ -942,7 +984,9 @@ namespace cf01.Forms
                         {
                             if (dtFind_Date.Rows[i]["confirm_ac"].ToString() == "True" && dtFind_Date.Rows[i]["confirm_ac_date"].ToString() == "")
                             {
-                                ls_sql = string.Format(@"Update dbo.bs_test_invoice_mostly SET confirm_ac=1,confirm_ac_by='{0}',confirm_ac_date=getdate() Where id='{1}'", DBUtility._user_id, dtFind_Date.Rows[i]["id"].ToString());
+                                ls_sql = string.Format(
+                                    @"Update dbo.bs_test_invoice_mostly SET confirm_ac=1,confirm_ac_by='{0}',confirm_ac_date=getdate() 
+                                      Where id='{1}' and invoice_id='{2}'", DBUtility._user_id, dtFind_Date.Rows[i]["id"].ToString(), dtFind_Date.Rows[i]["invoice_id"].ToString());
                                 clsPublicOfCF01.ExecuteSqlUpdate(ls_sql);
                             }
                         }
@@ -1233,6 +1277,108 @@ namespace cf01.Forms
             }
         }
 
+        /// <summary>
+        /// 同一張測試報告有多張發票時復制該測試報告出來更改,只是發票編號,金額不同
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMultInvoice_Click(object sender, EventArgs e)
+        {
+            if (mState == "")
+            {
+                DialogResult result = MessageBox.Show("確認要進行當前操作?", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    string test_report_no = txtID.Text;
+                    if (!string.IsNullOrEmpty(test_report_no))
+                    {
+                        string ls_sql = string.Format(
+                        @"Select A.id,A.report_date,A.brand,A.amount_unit,A.sales_group,A.remark,
+                        B.sales_group as sales_group_d,B.mat_id,B.color_id,B.product_type_id,B.cust_color,B.trim_code,B.test_item_id,B.ref_mo,B.expiry_date
+                        From dbo.bs_test_invoice_mostly A,dbo.bs_test_invoice_details B
+                        Where A.id=B.id and A.invoice_id=B.invoice_id and A.id='{0}' and A.invoice_id='{1}' Order by B.sequence_id", test_report_no, txtinvoice_id.Text);
+                        DataTable dt = new DataTable();
+                        dt = clsPublicOfCF01.GetDataTable(ls_sql);
+                        if (dt.Rows.Count > 0)
+                        {
+                            AddNew();
+                            txtID.Text = test_report_no;
+                            Set_Grid_Status(true);
+                            for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    if (txtSales_group.Text == "")
+                                    {
+                                        txtSales_group.Text = dt.Rows[i]["sales_group_d"].ToString();
+                                    }
+                                    txtID.Text = dt.Rows[i]["id"].ToString();
+                                    txtbrand.Text = dt.Rows[i]["brand"].ToString();
+                                    dtreport_date.EditValue = dt.Rows[i]["report_date"].ToString();
+                                    lkeamount_unit.EditValue = dt.Rows[i]["amount_unit"].ToString();
+                                    txtremark.Text = dt.Rows[i]["remark"].ToString();
+                                }
+                                dgvDetails.AddNewRow();//新增
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "id", txtID.Text);
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "invoice_id", txtinvoice_id.Text.Trim());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sequence_id", (dgvDetails.RowCount).ToString("000"));
+                                
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sales_group", dt.Rows[i]["sales_group_d"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "mat_id", dt.Rows[i]["mat_id"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "product_type_id", dt.Rows[i]["product_type_id"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "color_id", dt.Rows[i]["color_id"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "trim_code", dt.Rows[i]["trim_code"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "cust_color", dt.Rows[i]["cust_color"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "test_item_id", dt.Rows[i]["test_item_id"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "expiry_date", dt.Rows[i]["expiry_date"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "ref_mo", dt.Rows[i]["ref_mo"].ToString());
+                                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "is_pass", true);
+                            }
+                            ColumnView view = (ColumnView)dgvDetails;//初始單元格焦點
+                            view.FocusedColumn = view.Columns["test_item_id"];
+                            view.Focus();                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("請首先查找出同一張測試報告編號有多張發票的資料!", "提示信息");
+                            txtID.Focus();
+                        }
+                    }                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("編輯模式下禁用此功能!","提示信息");
+            }
+        }
+
+        private void txtinvoice_id_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (mState == "EDIT" && txtinvoice_id.Text != "")
+            {
+                m_invoice_id_old = txtinvoice_id.Text;//修改前的發票編號
+                using (frmTestInvoiceEditInv ofrmInvEdit = new frmTestInvoiceEditInv(txtinvoice_id.Text))
+                {
+                    ofrmInvEdit.m_invoice_id_edit = txtinvoice_id.Text;
+                    ofrmInvEdit.ShowDialog();
+                    if (ofrmInvEdit.m_invoice_id_edit != "")
+                    {
+                        if (ofrmInvEdit.m_invoice_id_edit != txtinvoice_id.Text)
+                        {
+                            txtinvoice_id.Text = ofrmInvEdit.m_invoice_id_edit;
+                            for (int i = 0; i < dgvDetails.RowCount; i++)
+                            {
+                                dgvDetails.SetRowCellValue(i, "invoice_id", txtinvoice_id.Text);
+                            }                           
+                        }
+                        ColumnView view = (ColumnView)dgvDetails;//初始單元格焦點
+                        view.FocusedColumn = view.Columns["test_item_id"];
+                        view.Focus();
+                    }
+                    //ofrmInvEdit.Dispose();
+                }
+            }            
+        }
 
     }
 }

@@ -74,7 +74,7 @@ namespace cf01.MDL
 
     public class mdlTestInvoiceData
     {
-        public string test_report_no;
+        public string test_report_no;        
         public string sales_group;
         public string mat_id;
         public string color_id;
@@ -83,7 +83,8 @@ namespace cf01.MDL
         public string trim_code;
         public string test_item_id;
         public string expiry_date;
-        public string ref_mo;
+        public string ref_mo;      
+          
     }
 
     public class mdlTestItem

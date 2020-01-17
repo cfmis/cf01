@@ -1441,7 +1441,12 @@ namespace cf01.Forms
         //}
 
         private void BTNINVOICE_Click(object sender, EventArgs e)
-        {            
+        {
+            SetInvoice();
+        }
+
+        private void SetInvoice()
+        {
             if (OperationType == clsUtility.enumOperationType.Add || OperationType == clsUtility.enumOperationType.Update)
             {
                 return;
@@ -1449,19 +1454,13 @@ namespace cf01.Forms
             if (dgvDetails.RowCount == 0)
             {
                 return;
-            }            
+            }
             string test_report_no = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "test_report_no").ToString();
             if (!string.IsNullOrEmpty(test_report_no))
             {
-                //string strsql = string.Format(
-                //@"Select test_report_no,sales_group,mat_id,color_id,poduct_type_id as product_type_id,finish_name as cust_color,trim_code,test_item_id,[expiry_date],ref_mo 
-                //From bs_test_excel Where test_report_no ='{0}'", test_report_no);
-                
-                SqlParameter[] spars = new SqlParameter[]{
-                    new SqlParameter("@test_report_no",test_report_no)
-                };                
+                SqlParameter[] spars = new SqlParameter[]{new SqlParameter("@test_report_no",test_report_no)};
                 DataTable dt = new DataTable();
-                dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_test_report_invoice", spars); 
+                dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_test_report_invoice", spars);
                 lstModel.Clear();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
@@ -1488,8 +1487,7 @@ namespace cf01.Forms
                         ofrmInv.ShowDialog();
                     }
                 }
-            }            
-            
+            }
         }
 
         /// <summary>

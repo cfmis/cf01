@@ -36,17 +36,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNNEWCOPY = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNINVOICE = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.txtTestReportNo = new System.Windows.Forms.TextBox();
             this.btnEditTest_report_Path = new DevExpress.XtraEditors.ButtonEdit();
             this.deExpriy = new DevExpress.XtraEditors.DateEdit();
@@ -169,7 +177,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditTest_report_Path.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTestItem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueColor.Properties)).BeginInit();
@@ -192,7 +200,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clTestitem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clTestReportNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSales_group)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,21 +208,29 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnExit,
+            this.toolStripSeparator3,
             this.btnNew,
+            this.toolStripSeparator4,
             this.btnEdit,
+            this.toolStripSeparator5,
             this.btnSave,
+            this.toolStripSeparator6,
             this.btnDelete,
+            this.toolStripSeparator7,
             this.btnFind,
+            this.toolStripSeparator8,
             this.btnExcel,
+            this.toolStripSeparator9,
             this.btnCancel,
             this.toolStripSeparator1,
             this.BTNNEWCOPY,
             this.toolStripSeparator2,
-            this.BTNINVOICE});
+            this.BTNINVOICE,
+            this.toolStripSeparator10});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1016, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(1018, 48);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -224,27 +240,45 @@
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(60, 30);
+            this.btnExit.Size = new System.Drawing.Size(60, 45);
             this.btnExit.Text = "退出(&X)";
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 48);
             // 
             // btnNew
             // 
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(65, 30);
+            this.btnNew.Size = new System.Drawing.Size(49, 45);
             this.btnNew.Text = "新增(&A)";
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 48);
             // 
             // btnEdit
             // 
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(64, 30);
+            this.btnEdit.Size = new System.Drawing.Size(48, 45);
             this.btnEdit.Text = "編輯(&E)";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 48);
             // 
             // btnSave
             // 
@@ -252,36 +286,60 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(63, 30);
+            this.btnSave.Size = new System.Drawing.Size(47, 45);
             this.btnSave.Text = "保存(&S)";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 48);
             // 
             // btnDelete
             // 
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(49, 30);
-            this.btnDelete.Text = "刪除";
+            this.btnDelete.Size = new System.Drawing.Size(49, 45);
+            this.btnDelete.Text = "刪除(&D)";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 48);
             // 
             // btnFind
             // 
             this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
             this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(63, 30);
+            this.btnFind.Size = new System.Drawing.Size(47, 45);
             this.btnFind.Text = "查找(&F)";
+            this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 48);
             // 
             // btnExcel
             // 
             this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
             this.btnExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(75, 30);
+            this.btnExcel.Size = new System.Drawing.Size(59, 45);
             this.btnExcel.Text = "匯出Excel";
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 48);
             // 
             // btnCancel
             // 
@@ -289,43 +347,52 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(49, 30);
-            this.btnCancel.Text = "取消";
+            this.btnCancel.Size = new System.Drawing.Size(49, 45);
+            this.btnCancel.Text = "取消(&U)";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 48);
             // 
             // BTNNEWCOPY
             // 
             this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
             this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWCOPY.Name = "BTNNEWCOPY";
-            this.BTNNEWCOPY.Size = new System.Drawing.Size(73, 30);
+            this.BTNNEWCOPY.Size = new System.Drawing.Size(57, 45);
             this.BTNNEWCOPY.Text = "覆制新增";
+            this.BTNNEWCOPY.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 48);
             // 
             // BTNINVOICE
             // 
             this.BTNINVOICE.Image = ((System.Drawing.Image)(resources.GetObject("BTNINVOICE.Image")));
             this.BTNINVOICE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNINVOICE.Name = "BTNINVOICE";
-            this.BTNINVOICE.Size = new System.Drawing.Size(73, 30);
+            this.BTNINVOICE.Size = new System.Drawing.Size(57, 45);
             this.BTNINVOICE.Text = "設置發票";
+            this.BTNINVOICE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNINVOICE.Click += new System.EventHandler(this.BTNINVOICE_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Margin = new System.Windows.Forms.Padding(110, 0, 0, 0);
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 48);
             // 
             // txtTestReportNo
             // 
             this.txtTestReportNo.BackColor = System.Drawing.Color.White;
             this.txtTestReportNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTestReportNo.Location = new System.Drawing.Point(323, 63);
+            this.txtTestReportNo.Location = new System.Drawing.Point(323, 58);
             this.txtTestReportNo.MaxLength = 20;
             this.txtTestReportNo.Name = "txtTestReportNo";
             this.txtTestReportNo.ReadOnly = true;
@@ -337,7 +404,7 @@
             // btnEditTest_report_Path
             // 
             this.btnEditTest_report_Path.EnterMoveNextControl = true;
-            this.btnEditTest_report_Path.Location = new System.Drawing.Point(323, 90);
+            this.btnEditTest_report_Path.Location = new System.Drawing.Point(323, 84);
             this.btnEditTest_report_Path.Name = "btnEditTest_report_Path";
             this.btnEditTest_report_Path.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.btnEditTest_report_Path.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -358,21 +425,21 @@
             // 
             this.deExpriy.EditValue = "";
             this.deExpriy.EnterMoveNextControl = true;
-            this.deExpriy.Location = new System.Drawing.Point(656, 63);
+            this.deExpriy.Location = new System.Drawing.Point(656, 58);
             this.deExpriy.Name = "deExpriy";
             this.deExpriy.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.deExpriy.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.deExpriy.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.deExpriy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deExpriy.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deExpriy.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.deExpriy.Properties.EditFormat.FormatString = "yyyy-MM-dd";
             this.deExpriy.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.deExpriy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.deExpriy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deExpriy.Properties.MaxLength = 10;
-            this.deExpriy.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deExpriy.Size = new System.Drawing.Size(291, 22);
             this.deExpriy.TabIndex = 12;
             this.deExpriy.Tag = "2";
@@ -381,7 +448,7 @@
             // 
             this.txtTrim_code.BackColor = System.Drawing.Color.White;
             this.txtTrim_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTrim_code.Location = new System.Drawing.Point(323, 9);
+            this.txtTrim_code.Location = new System.Drawing.Point(323, 3);
             this.txtTrim_code.MaxLength = 30;
             this.txtTrim_code.Name = "txtTrim_code";
             this.txtTrim_code.ReadOnly = true;
@@ -393,7 +460,7 @@
             // txtRemark
             // 
             this.txtRemark.BackColor = System.Drawing.Color.White;
-            this.txtRemark.Location = new System.Drawing.Point(323, 117);
+            this.txtRemark.Location = new System.Drawing.Point(323, 111);
             this.txtRemark.MaxLength = 255;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.ReadOnly = true;
@@ -406,7 +473,7 @@
             // 
             this.txtRef_mo.BackColor = System.Drawing.Color.White;
             this.txtRef_mo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRef_mo.Location = new System.Drawing.Point(323, 36);
+            this.txtRef_mo.Location = new System.Drawing.Point(323, 30);
             this.txtRef_mo.MaxLength = 9;
             this.txtRef_mo.Name = "txtRef_mo";
             this.txtRef_mo.ReadOnly = true;
@@ -420,7 +487,7 @@
             // 
             this.txtPattern_id.BackColor = System.Drawing.Color.White;
             this.txtPattern_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPattern_id.Location = new System.Drawing.Point(69, 117);
+            this.txtPattern_id.Location = new System.Drawing.Point(69, 111);
             this.txtPattern_id.MaxLength = 7;
             this.txtPattern_id.Name = "txtPattern_id";
             this.txtPattern_id.ReadOnly = true;
@@ -434,7 +501,7 @@
             // 
             this.txtTrim_color_code.BackColor = System.Drawing.Color.White;
             this.txtTrim_color_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTrim_color_code.Location = new System.Drawing.Point(656, 36);
+            this.txtTrim_color_code.Location = new System.Drawing.Point(656, 30);
             this.txtTrim_color_code.MaxLength = 20;
             this.txtTrim_color_code.Name = "txtTrim_color_code";
             this.txtTrim_color_code.ReadOnly = true;
@@ -446,7 +513,7 @@
             // txtFinish_name
             // 
             this.txtFinish_name.BackColor = System.Drawing.Color.White;
-            this.txtFinish_name.Location = new System.Drawing.Point(656, 9);
+            this.txtFinish_name.Location = new System.Drawing.Point(656, 3);
             this.txtFinish_name.MaxLength = 150;
             this.txtFinish_name.Name = "txtFinish_name";
             this.txtFinish_name.ReadOnly = true;
@@ -457,7 +524,7 @@
             // 
             // lblPattern_id
             // 
-            this.lblPattern_id.Location = new System.Drawing.Point(13, 118);
+            this.lblPattern_id.Location = new System.Drawing.Point(13, 112);
             this.lblPattern_id.Name = "lblPattern_id";
             this.lblPattern_id.Size = new System.Drawing.Size(48, 14);
             this.lblPattern_id.TabIndex = 2;
@@ -465,7 +532,7 @@
             // 
             // lblColor_id
             // 
-            this.lblColor_id.Location = new System.Drawing.Point(13, 91);
+            this.lblColor_id.Location = new System.Drawing.Point(13, 85);
             this.lblColor_id.Name = "lblColor_id";
             this.lblColor_id.Size = new System.Drawing.Size(48, 14);
             this.lblColor_id.TabIndex = 2;
@@ -474,7 +541,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelControl1.Location = new System.Drawing.Point(258, 12);
+            this.labelControl1.Location = new System.Drawing.Point(258, 6);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 13);
             this.labelControl1.TabIndex = 2;
@@ -482,7 +549,7 @@
             // 
             // lblRef_mo_id
             // 
-            this.lblRef_mo_id.Location = new System.Drawing.Point(270, 39);
+            this.lblRef_mo_id.Location = new System.Drawing.Point(270, 33);
             this.lblRef_mo_id.Name = "lblRef_mo_id";
             this.lblRef_mo_id.Size = new System.Drawing.Size(48, 14);
             this.lblRef_mo_id.TabIndex = 2;
@@ -490,7 +557,7 @@
             // 
             // lblRemark
             // 
-            this.lblRemark.Location = new System.Drawing.Point(294, 118);
+            this.lblRemark.Location = new System.Drawing.Point(294, 112);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(24, 14);
             this.lblRemark.TabIndex = 2;
@@ -499,7 +566,7 @@
             // lblExpirydate
             // 
             this.lblExpirydate.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblExpirydate.Location = new System.Drawing.Point(594, 64);
+            this.lblExpirydate.Location = new System.Drawing.Point(594, 59);
             this.lblExpirydate.Name = "lblExpirydate";
             this.lblExpirydate.Size = new System.Drawing.Size(60, 14);
             this.lblExpirydate.TabIndex = 2;
@@ -507,7 +574,7 @@
             // 
             // lblTrim_color_code
             // 
-            this.lblTrim_color_code.Location = new System.Drawing.Point(606, 37);
+            this.lblTrim_color_code.Location = new System.Drawing.Point(606, 31);
             this.lblTrim_color_code.Name = "lblTrim_color_code";
             this.lblTrim_color_code.Size = new System.Drawing.Size(48, 14);
             this.lblTrim_color_code.TabIndex = 2;
@@ -515,7 +582,7 @@
             // 
             // lblFinish_name
             // 
-            this.lblFinish_name.Location = new System.Drawing.Point(594, 12);
+            this.lblFinish_name.Location = new System.Drawing.Point(594, 6);
             this.lblFinish_name.Name = "lblFinish_name";
             this.lblFinish_name.Size = new System.Drawing.Size(60, 14);
             this.lblFinish_name.TabIndex = 2;
@@ -524,7 +591,7 @@
             // lblTest_item
             // 
             this.lblTest_item.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblTest_item.Location = new System.Drawing.Point(13, 64);
+            this.lblTest_item.Location = new System.Drawing.Point(13, 59);
             this.lblTest_item.Name = "lblTest_item";
             this.lblTest_item.Size = new System.Drawing.Size(48, 14);
             this.lblTest_item.TabIndex = 2;
@@ -532,7 +599,7 @@
             // 
             // lblProdruct_type
             // 
-            this.lblProdruct_type.Location = new System.Drawing.Point(13, 37);
+            this.lblProdruct_type.Location = new System.Drawing.Point(13, 31);
             this.lblProdruct_type.Name = "lblProdruct_type";
             this.lblProdruct_type.Size = new System.Drawing.Size(48, 14);
             this.lblProdruct_type.TabIndex = 2;
@@ -541,7 +608,7 @@
             // lblMat_id
             // 
             this.lblMat_id.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblMat_id.Location = new System.Drawing.Point(25, 12);
+            this.lblMat_id.Location = new System.Drawing.Point(25, 6);
             this.lblMat_id.Name = "lblMat_id";
             this.lblMat_id.Size = new System.Drawing.Size(36, 14);
             this.lblMat_id.TabIndex = 2;
@@ -551,7 +618,7 @@
             // 
             this.lueTestItem.EditValue = "";
             this.lueTestItem.EnterMoveNextControl = true;
-            this.lueTestItem.Location = new System.Drawing.Point(69, 63);
+            this.lueTestItem.Location = new System.Drawing.Point(69, 58);
             this.lueTestItem.Name = "lueTestItem";
             this.lueTestItem.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueTestItem.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -576,7 +643,7 @@
             // 
             this.lueColor.EditValue = "";
             this.lueColor.EnterMoveNextControl = true;
-            this.lueColor.Location = new System.Drawing.Point(69, 90);
+            this.lueColor.Location = new System.Drawing.Point(69, 84);
             this.lueColor.Name = "lueColor";
             this.lueColor.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueColor.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -597,7 +664,7 @@
             // 
             this.lueProductType.EditValue = "";
             this.lueProductType.EnterMoveNextControl = true;
-            this.lueProductType.Location = new System.Drawing.Point(69, 36);
+            this.lueProductType.Location = new System.Drawing.Point(69, 30);
             this.lueProductType.Name = "lueProductType";
             this.lueProductType.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueProductType.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -622,7 +689,7 @@
             // 
             this.lueMat.EditValue = "";
             this.lueMat.EnterMoveNextControl = true;
-            this.lueMat.Location = new System.Drawing.Point(69, 9);
+            this.lueMat.Location = new System.Drawing.Point(69, 3);
             this.lueMat.Name = "lueMat";
             this.lueMat.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueMat.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -641,8 +708,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnGetmoinfo);
             this.panel1.Controls.Add(this.btnTestItem);
@@ -690,16 +757,16 @@
             this.panel1.Controls.Add(this.lblMat_id);
             this.panel1.Controls.Add(this.lueTestItem);
             this.panel1.Controls.Add(this.txtPattern_id);
-            this.panel1.Location = new System.Drawing.Point(2, 35);
+            this.panel1.Location = new System.Drawing.Point(2, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1012, 233);
+            this.panel1.Size = new System.Drawing.Size(1014, 219);
             this.panel1.TabIndex = 14;
             // 
             // btnGetmoinfo
             // 
             this.btnGetmoinfo.Enabled = false;
             this.btnGetmoinfo.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnGetmoinfo.Location = new System.Drawing.Point(563, 36);
+            this.btnGetmoinfo.Location = new System.Drawing.Point(563, 30);
             this.btnGetmoinfo.Name = "btnGetmoinfo";
             this.btnGetmoinfo.Size = new System.Drawing.Size(29, 22);
             this.btnGetmoinfo.TabIndex = 40;
@@ -712,7 +779,7 @@
             // 
             this.btnTestItem.Enabled = false;
             this.btnTestItem.Image = ((System.Drawing.Image)(resources.GetObject("btnTestItem.Image")));
-            this.btnTestItem.Location = new System.Drawing.Point(200, 61);
+            this.btnTestItem.Location = new System.Drawing.Point(200, 56);
             this.btnTestItem.Name = "btnTestItem";
             this.btnTestItem.Size = new System.Drawing.Size(31, 25);
             this.btnTestItem.TabIndex = 39;
@@ -722,7 +789,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("PMingLiU", 8F);
-            this.label7.Location = new System.Drawing.Point(953, 82);
+            this.label7.Location = new System.Drawing.Point(953, 72);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 57);
             this.label7.TabIndex = 38;
@@ -732,7 +799,7 @@
             // lblTestReport_no
             // 
             this.lblTestReport_no.Font = new System.Drawing.Font("PMingLiU", 8F);
-            this.lblTestReport_no.Location = new System.Drawing.Point(237, 60);
+            this.lblTestReport_no.Location = new System.Drawing.Point(237, 55);
             this.lblTestReport_no.Name = "lblTestReport_no";
             this.lblTestReport_no.Size = new System.Drawing.Size(81, 24);
             this.lblTestReport_no.TabIndex = 36;
@@ -742,7 +809,7 @@
             // lblTestReportPath
             // 
             this.lblTestReportPath.Font = new System.Drawing.Font("PMingLiU", 8F);
-            this.lblTestReportPath.Location = new System.Drawing.Point(225, 91);
+            this.lblTestReportPath.Location = new System.Drawing.Point(225, 85);
             this.lblTestReportPath.Name = "lblTestReportPath";
             this.lblTestReportPath.Size = new System.Drawing.Size(93, 14);
             this.lblTestReportPath.TabIndex = 35;
@@ -752,7 +819,7 @@
             // label6
             // 
             this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(568, 175);
+            this.label6.Location = new System.Drawing.Point(568, 165);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(235, 18);
             this.label6.TabIndex = 34;
@@ -761,7 +828,7 @@
             // 
             // lblAmtim
             // 
-            this.lblAmtim.Location = new System.Drawing.Point(702, 207);
+            this.lblAmtim.Location = new System.Drawing.Point(702, 193);
             this.lblAmtim.Name = "lblAmtim";
             this.lblAmtim.Size = new System.Drawing.Size(54, 12);
             this.lblAmtim.TabIndex = 28;
@@ -770,7 +837,7 @@
             // 
             // lblAmusr
             // 
-            this.lblAmusr.Location = new System.Drawing.Point(519, 207);
+            this.lblAmusr.Location = new System.Drawing.Point(519, 193);
             this.lblAmusr.Name = "lblAmusr";
             this.lblAmusr.Size = new System.Drawing.Size(42, 12);
             this.lblAmusr.TabIndex = 27;
@@ -779,7 +846,7 @@
             // 
             // lblCrtim
             // 
-            this.lblCrtim.Location = new System.Drawing.Point(259, 207);
+            this.lblCrtim.Location = new System.Drawing.Point(259, 193);
             this.lblCrtim.Name = "lblCrtim";
             this.lblCrtim.Size = new System.Drawing.Size(59, 12);
             this.lblCrtim.TabIndex = 26;
@@ -788,7 +855,7 @@
             // 
             // lblCrusr
             // 
-            this.lblCrusr.Location = new System.Drawing.Point(9, 208);
+            this.lblCrusr.Location = new System.Drawing.Point(9, 194);
             this.lblCrusr.Name = "lblCrusr";
             this.lblCrusr.Size = new System.Drawing.Size(52, 12);
             this.lblCrusr.TabIndex = 25;
@@ -798,7 +865,7 @@
             // txtAmtim
             // 
             this.txtAmtim.Enabled = false;
-            this.txtAmtim.Location = new System.Drawing.Point(756, 202);
+            this.txtAmtim.Location = new System.Drawing.Point(756, 188);
             this.txtAmtim.Name = "txtAmtim";
             this.txtAmtim.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtAmtim.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -811,7 +878,7 @@
             // txtAmusr
             // 
             this.txtAmusr.Enabled = false;
-            this.txtAmusr.Location = new System.Drawing.Point(561, 202);
+            this.txtAmusr.Location = new System.Drawing.Point(561, 188);
             this.txtAmusr.Name = "txtAmusr";
             this.txtAmusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtAmusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -824,7 +891,7 @@
             // txtCrtim
             // 
             this.txtCrtim.Enabled = false;
-            this.txtCrtim.Location = new System.Drawing.Point(323, 202);
+            this.txtCrtim.Location = new System.Drawing.Point(323, 188);
             this.txtCrtim.Name = "txtCrtim";
             this.txtCrtim.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCrtim.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -837,7 +904,7 @@
             // txtCrusr
             // 
             this.txtCrusr.Enabled = false;
-            this.txtCrusr.Location = new System.Drawing.Point(69, 202);
+            this.txtCrusr.Location = new System.Drawing.Point(69, 188);
             this.txtCrusr.Name = "txtCrusr";
             this.txtCrusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCrusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -852,7 +919,7 @@
             this.txtSales_group.EditValue = "";
             this.txtSales_group.Enabled = false;
             this.txtSales_group.EnterMoveNextControl = true;
-            this.txtSales_group.Location = new System.Drawing.Point(69, 172);
+            this.txtSales_group.Location = new System.Drawing.Point(69, 162);
             this.txtSales_group.Name = "txtSales_group";
             this.txtSales_group.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtSales_group.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -879,7 +946,7 @@
             "ITS",
             "PVH",
             "VFA"});
-            this.txtDoc_type.Location = new System.Drawing.Point(323, 173);
+            this.txtDoc_type.Location = new System.Drawing.Point(323, 163);
             this.txtDoc_type.MaxLength = 10;
             this.txtDoc_type.Name = "txtDoc_type";
             this.txtDoc_type.Size = new System.Drawing.Size(240, 20);
@@ -889,7 +956,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(259, 175);
+            this.label2.Location = new System.Drawing.Point(259, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 18);
             this.label2.TabIndex = 20;
@@ -899,7 +966,7 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(9, 175);
+            this.label1.Location = new System.Drawing.Point(9, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 18);
             this.label1.TabIndex = 18;
@@ -909,7 +976,7 @@
             // txtCf_color
             // 
             this.txtCf_color.BackColor = System.Drawing.Color.White;
-            this.txtCf_color.Location = new System.Drawing.Point(323, 145);
+            this.txtCf_color.Location = new System.Drawing.Point(323, 137);
             this.txtCf_color.MaxLength = 100;
             this.txtCf_color.Name = "txtCf_color";
             this.txtCf_color.ReadOnly = true;
@@ -920,7 +987,7 @@
             // 
             // lblCf_color
             // 
-            this.lblCf_color.Location = new System.Drawing.Point(259, 146);
+            this.lblCf_color.Location = new System.Drawing.Point(259, 138);
             this.lblCf_color.Name = "lblCf_color";
             this.lblCf_color.Size = new System.Drawing.Size(59, 14);
             this.lblCf_color.TabIndex = 16;
@@ -929,7 +996,7 @@
             // 
             // lblSize
             // 
-            this.lblSize.Location = new System.Drawing.Point(37, 146);
+            this.lblSize.Location = new System.Drawing.Point(37, 138);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(24, 14);
             this.lblSize.TabIndex = 14;
@@ -938,7 +1005,7 @@
             // txtSize
             // 
             this.txtSize.BackColor = System.Drawing.Color.White;
-            this.txtSize.Location = new System.Drawing.Point(69, 145);
+            this.txtSize.Location = new System.Drawing.Point(69, 137);
             this.txtSize.MaxLength = 30;
             this.txtSize.Name = "txtSize";
             this.txtSize.ReadOnly = true;
@@ -956,7 +1023,7 @@
             this.pnlSearch.Controls.Add(this.label4);
             this.pnlSearch.Controls.Add(this.numUpDown1);
             this.pnlSearch.Controls.Add(this.label3);
-            this.pnlSearch.Location = new System.Drawing.Point(693, 0);
+            this.pnlSearch.Location = new System.Drawing.Point(699, 0);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Size = new System.Drawing.Size(323, 30);
             this.pnlSearch.TabIndex = 15;
@@ -1279,9 +1346,9 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(2, 271);
             this.gridControl1.MainView = this.dgvDetails;
             this.gridControl1.Name = "gridControl1";
@@ -1293,7 +1360,7 @@
             this.clSales_group,
             this.clTestReportNo,
             this.clExpiry_date});
-            this.gridControl1.Size = new System.Drawing.Size(1012, 286);
+            this.gridControl1.Size = new System.Drawing.Size(1014, 286);
             this.gridControl1.TabIndex = 16;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvDetails});
@@ -1599,6 +1666,8 @@
             this.clExpiry_date.AutoHeight = false;
             this.clExpiry_date.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.clExpiry_date.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.clExpiry_date.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.clExpiry_date.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.clExpiry_date.EditFormat.FormatString = "yyyy-MM-dd";
@@ -1606,8 +1675,6 @@
             this.clExpiry_date.Mask.EditMask = "yyyy-MM-dd";
             this.clExpiry_date.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.clExpiry_date.Name = "clExpiry_date";
-            this.clExpiry_date.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // ref_mo
             // 
@@ -1760,7 +1827,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 559);
+            this.ClientSize = new System.Drawing.Size(1018, 559);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.panel1);
@@ -1772,7 +1839,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditTest_report_Path.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTestItem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueColor.Properties)).EndInit();
@@ -1796,7 +1863,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clPoduct_type_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clTestitem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clTestReportNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSales_group)).EndInit();
             this.ResumeLayout(false);
@@ -1939,5 +2006,13 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnGetmoinfo;
         private DevExpress.XtraGrid.Columns.GridColumn report_no;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestInvoice));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -79,7 +80,6 @@
             this.lblamount = new System.Windows.Forms.Label();
             this.txtbrand = new DevExpress.XtraEditors.TextEdit();
             this.lblbrand = new System.Windows.Forms.Label();
-            this.txtinvoice_id = new DevExpress.XtraEditors.TextEdit();
             this.txtown_reference = new DevExpress.XtraEditors.TextEdit();
             this.lblreport_date = new System.Windows.Forms.Label();
             this.dtreport_date = new DevExpress.XtraEditors.DateEdit();
@@ -100,6 +100,9 @@
             this.lblAmtim = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.txtinvoice_id = new DevExpress.XtraEditors.ButtonEdit();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnMultInvoice = new System.Windows.Forms.Button();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dgvDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.sales_group = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -120,6 +123,7 @@
             this.clIs_pass = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.invoice_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
             this.txtinvoice_id2 = new DevExpress.XtraEditors.TextEdit();
@@ -186,14 +190,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtconfirm_ac_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtconfirm_pdd_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtconfirm_pdd_by.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtremark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtamount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbrand.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtinvoice_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtown_reference.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtreport_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_by.Properties)).BeginInit();
@@ -201,6 +204,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeamount_unit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtinvoice_id.Properties)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSalesGroup)).BeginInit();
@@ -213,26 +218,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtinvoice_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtreport_date2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtreport_date1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date2.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtPdd1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPdd1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtPdd1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtPdd2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPdd2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtPdd2.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbrand1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotal)).BeginInit();
@@ -265,7 +270,6 @@
             this.BTNCONFIRM_AC});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(1016, 28);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
@@ -437,8 +441,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.txtphysical_test);
             this.panel1.Controls.Add(this.txtchemical_test);
             this.panel1.Controls.Add(this.txtSales_group);
@@ -458,7 +462,6 @@
             this.panel1.Controls.Add(this.lblamount);
             this.panel1.Controls.Add(this.txtbrand);
             this.panel1.Controls.Add(this.lblbrand);
-            this.panel1.Controls.Add(this.txtinvoice_id);
             this.panel1.Controls.Add(this.txtown_reference);
             this.panel1.Controls.Add(this.lblreport_date);
             this.panel1.Controls.Add(this.dtreport_date);
@@ -479,17 +482,18 @@
             this.panel1.Controls.Add(this.lblAmtim);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.txtinvoice_id);
             this.panel1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(348, 429);
+            this.panel1.Size = new System.Drawing.Size(348, 365);
             this.panel1.TabIndex = 10;
             this.panel1.Tag = "2";
             // 
             // txtphysical_test
             // 
             this.txtphysical_test.EnterMoveNextControl = true;
-            this.txtphysical_test.Location = new System.Drawing.Point(251, 80);
+            this.txtphysical_test.Location = new System.Drawing.Point(251, 86);
             this.txtphysical_test.Name = "txtphysical_test";
             this.txtphysical_test.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtphysical_test.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -508,7 +512,7 @@
             // txtchemical_test
             // 
             this.txtchemical_test.EnterMoveNextControl = true;
-            this.txtchemical_test.Location = new System.Drawing.Point(58, 80);
+            this.txtchemical_test.Location = new System.Drawing.Point(58, 86);
             this.txtchemical_test.Name = "txtchemical_test";
             this.txtchemical_test.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtchemical_test.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -517,7 +521,7 @@
             this.txtchemical_test.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtchemical_test.Properties.Tag = "2";
             this.txtchemical_test.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtchemical_test.Size = new System.Drawing.Size(135, 22);
+            this.txtchemical_test.Size = new System.Drawing.Size(134, 22);
             this.txtchemical_test.TabIndex = 6;
             this.txtchemical_test.Tag = "2";
             this.txtchemical_test.Click += new System.EventHandler(this.txtchemical_test_Click);
@@ -529,7 +533,7 @@
             this.txtSales_group.Enabled = false;
             this.txtSales_group.Font = new System.Drawing.Font("Tahoma", 9F);
             this.txtSales_group.FormattingEnabled = true;
-            this.txtSales_group.Location = new System.Drawing.Point(58, 246);
+            this.txtSales_group.Location = new System.Drawing.Point(58, 230);
             this.txtSales_group.MaxLength = 1;
             this.txtSales_group.Name = "txtSales_group";
             this.txtSales_group.Size = new System.Drawing.Size(102, 22);
@@ -539,7 +543,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(14, 250);
+            this.label10.Location = new System.Drawing.Point(14, 234);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 15);
             this.label10.TabIndex = 233;
@@ -548,7 +552,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(2, 393);
+            this.label7.Location = new System.Drawing.Point(2, 339);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 230;
@@ -558,7 +562,7 @@
             // txtconfirm_ac_date
             // 
             this.txtconfirm_ac_date.Enabled = false;
-            this.txtconfirm_ac_date.Location = new System.Drawing.Point(219, 387);
+            this.txtconfirm_ac_date.Location = new System.Drawing.Point(219, 333);
             this.txtconfirm_ac_date.Name = "txtconfirm_ac_date";
             this.txtconfirm_ac_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtconfirm_ac_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -571,7 +575,7 @@
             // txtconfirm_ac_by
             // 
             this.txtconfirm_ac_by.Enabled = false;
-            this.txtconfirm_ac_by.Location = new System.Drawing.Point(58, 387);
+            this.txtconfirm_ac_by.Location = new System.Drawing.Point(58, 333);
             this.txtconfirm_ac_by.Name = "txtconfirm_ac_by";
             this.txtconfirm_ac_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtconfirm_ac_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -583,7 +587,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(164, 393);
+            this.label8.Location = new System.Drawing.Point(164, 339);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 231;
@@ -592,7 +596,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(2, 368);
+            this.label5.Location = new System.Drawing.Point(2, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 226;
@@ -602,7 +606,7 @@
             // txtconfirm_pdd_date
             // 
             this.txtconfirm_pdd_date.Enabled = false;
-            this.txtconfirm_pdd_date.Location = new System.Drawing.Point(219, 362);
+            this.txtconfirm_pdd_date.Location = new System.Drawing.Point(219, 308);
             this.txtconfirm_pdd_date.Name = "txtconfirm_pdd_date";
             this.txtconfirm_pdd_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtconfirm_pdd_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -615,7 +619,7 @@
             // txtconfirm_pdd_by
             // 
             this.txtconfirm_pdd_by.Enabled = false;
-            this.txtconfirm_pdd_by.Location = new System.Drawing.Point(58, 362);
+            this.txtconfirm_pdd_by.Location = new System.Drawing.Point(58, 308);
             this.txtconfirm_pdd_by.Name = "txtconfirm_pdd_by";
             this.txtconfirm_pdd_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtconfirm_pdd_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -627,7 +631,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(164, 368);
+            this.label6.Location = new System.Drawing.Point(164, 314);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 227;
@@ -637,7 +641,7 @@
             // lblinvoice_date
             // 
             this.lblinvoice_date.ForeColor = System.Drawing.Color.Blue;
-            this.lblinvoice_date.Location = new System.Drawing.Point(197, 32);
+            this.lblinvoice_date.Location = new System.Drawing.Point(197, 38);
             this.lblinvoice_date.Name = "lblinvoice_date";
             this.lblinvoice_date.Size = new System.Drawing.Size(54, 13);
             this.lblinvoice_date.TabIndex = 223;
@@ -649,13 +653,15 @@
             this.dtinvoice_date.EditValue = "";
             this.dtinvoice_date.Enabled = false;
             this.dtinvoice_date.EnterMoveNextControl = true;
-            this.dtinvoice_date.Location = new System.Drawing.Point(251, 27);
+            this.dtinvoice_date.Location = new System.Drawing.Point(251, 33);
             this.dtinvoice_date.Name = "dtinvoice_date";
             this.dtinvoice_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.dtinvoice_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.dtinvoice_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtinvoice_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtinvoice_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtinvoice_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtinvoice_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtinvoice_date.Properties.Mask.BeepOnError = true;
@@ -663,8 +669,6 @@
             this.dtinvoice_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtinvoice_date.Properties.MaxLength = 10;
             this.dtinvoice_date.Properties.NullDate = "";
-            this.dtinvoice_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtinvoice_date.Size = new System.Drawing.Size(95, 22);
             this.dtinvoice_date.TabIndex = 3;
             this.dtinvoice_date.Tag = "2";
@@ -673,17 +677,17 @@
             // 
             this.txtremark.EditValue = "";
             this.txtremark.EnterMoveNextControl = true;
-            this.txtremark.Location = new System.Drawing.Point(58, 143);
+            this.txtremark.Location = new System.Drawing.Point(58, 138);
             this.txtremark.Name = "txtremark";
             this.txtremark.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtremark.Properties.MaxLength = 100;
-            this.txtremark.Size = new System.Drawing.Size(287, 99);
+            this.txtremark.Size = new System.Drawing.Size(287, 86);
             this.txtremark.TabIndex = 10;
             // 
             // txtamount
             // 
             this.txtamount.Enabled = false;
-            this.txtamount.Location = new System.Drawing.Point(58, 52);
+            this.txtamount.Location = new System.Drawing.Point(58, 58);
             this.txtamount.Name = "txtamount";
             this.txtamount.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtamount.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -692,13 +696,13 @@
             this.txtamount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtamount.Properties.Tag = "2";
             this.txtamount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtamount.Size = new System.Drawing.Size(135, 22);
+            this.txtamount.Size = new System.Drawing.Size(134, 22);
             this.txtamount.TabIndex = 4;
             this.txtamount.Tag = "2";
             // 
             // lblamount
             // 
-            this.lblamount.Location = new System.Drawing.Point(2, 57);
+            this.lblamount.Location = new System.Drawing.Point(2, 63);
             this.lblamount.Name = "lblamount";
             this.lblamount.Size = new System.Drawing.Size(56, 13);
             this.lblamount.TabIndex = 158;
@@ -709,7 +713,7 @@
             // 
             this.txtbrand.EditValue = "";
             this.txtbrand.EnterMoveNextControl = true;
-            this.txtbrand.Location = new System.Drawing.Point(58, 116);
+            this.txtbrand.Location = new System.Drawing.Point(58, 112);
             this.txtbrand.Name = "txtbrand";
             this.txtbrand.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtbrand.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -717,39 +721,24 @@
             this.txtbrand.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtbrand.Properties.MaxLength = 30;
             this.txtbrand.Properties.ReadOnly = true;
-            this.txtbrand.Size = new System.Drawing.Size(135, 22);
+            this.txtbrand.Size = new System.Drawing.Size(134, 22);
             this.txtbrand.TabIndex = 8;
             this.txtbrand.Tag = "2";
             // 
             // lblbrand
             // 
-            this.lblbrand.Location = new System.Drawing.Point(2, 121);
+            this.lblbrand.Location = new System.Drawing.Point(2, 117);
             this.lblbrand.Name = "lblbrand";
             this.lblbrand.Size = new System.Drawing.Size(56, 13);
             this.lblbrand.TabIndex = 129;
             this.lblbrand.Text = "牌子";
             this.lblbrand.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtinvoice_id
-            // 
-            this.txtinvoice_id.EditValue = "";
-            this.txtinvoice_id.EnterMoveNextControl = true;
-            this.txtinvoice_id.Location = new System.Drawing.Point(58, 27);
-            this.txtinvoice_id.Name = "txtinvoice_id";
-            this.txtinvoice_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtinvoice_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtinvoice_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtinvoice_id.Properties.MaxLength = 20;
-            this.txtinvoice_id.Properties.ReadOnly = true;
-            this.txtinvoice_id.Size = new System.Drawing.Size(135, 22);
-            this.txtinvoice_id.TabIndex = 2;
-            this.txtinvoice_id.Tag = "2";
-            // 
             // txtown_reference
             // 
             this.txtown_reference.EditValue = "";
             this.txtown_reference.EnterMoveNextControl = true;
-            this.txtown_reference.Location = new System.Drawing.Point(251, 116);
+            this.txtown_reference.Location = new System.Drawing.Point(251, 112);
             this.txtown_reference.Name = "txtown_reference";
             this.txtown_reference.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtown_reference.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -763,7 +752,7 @@
             // lblreport_date
             // 
             this.lblreport_date.ForeColor = System.Drawing.Color.Blue;
-            this.lblreport_date.Location = new System.Drawing.Point(197, 7);
+            this.lblreport_date.Location = new System.Drawing.Point(197, 12);
             this.lblreport_date.Name = "lblreport_date";
             this.lblreport_date.Size = new System.Drawing.Size(54, 13);
             this.lblreport_date.TabIndex = 118;
@@ -775,13 +764,15 @@
             this.dtreport_date.EditValue = "";
             this.dtreport_date.Enabled = false;
             this.dtreport_date.EnterMoveNextControl = true;
-            this.dtreport_date.Location = new System.Drawing.Point(251, 2);
+            this.dtreport_date.Location = new System.Drawing.Point(251, 7);
             this.dtreport_date.Name = "dtreport_date";
             this.dtreport_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.dtreport_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.dtreport_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtreport_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtreport_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtreport_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtreport_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtreport_date.Properties.Mask.BeepOnError = true;
@@ -789,16 +780,14 @@
             this.dtreport_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtreport_date.Properties.MaxLength = 10;
             this.dtreport_date.Properties.NullDate = "";
-            this.dtreport_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtreport_date.Size = new System.Drawing.Size(95, 22);
+            this.dtreport_date.Size = new System.Drawing.Size(94, 22);
             this.dtreport_date.TabIndex = 1;
             this.dtreport_date.Tag = "2";
             // 
             // lblinvoice_id
             // 
             this.lblinvoice_id.ForeColor = System.Drawing.Color.Blue;
-            this.lblinvoice_id.Location = new System.Drawing.Point(2, 32);
+            this.lblinvoice_id.Location = new System.Drawing.Point(2, 38);
             this.lblinvoice_id.Name = "lblinvoice_id";
             this.lblinvoice_id.Size = new System.Drawing.Size(56, 13);
             this.lblinvoice_id.TabIndex = 104;
@@ -807,7 +796,7 @@
             // 
             // lblAmusr
             // 
-            this.lblAmusr.Location = new System.Drawing.Point(2, 309);
+            this.lblAmusr.Location = new System.Drawing.Point(2, 285);
             this.lblAmusr.Name = "lblAmusr";
             this.lblAmusr.Size = new System.Drawing.Size(56, 13);
             this.lblAmusr.TabIndex = 83;
@@ -816,7 +805,7 @@
             // 
             // lblCrusr
             // 
-            this.lblCrusr.Location = new System.Drawing.Point(2, 284);
+            this.lblCrusr.Location = new System.Drawing.Point(2, 260);
             this.lblCrusr.Name = "lblCrusr";
             this.lblCrusr.Size = new System.Drawing.Size(56, 13);
             this.lblCrusr.TabIndex = 81;
@@ -827,7 +816,7 @@
             // 
             this.txtupdate_date.EditValue = "";
             this.txtupdate_date.Enabled = false;
-            this.txtupdate_date.Location = new System.Drawing.Point(219, 306);
+            this.txtupdate_date.Location = new System.Drawing.Point(219, 282);
             this.txtupdate_date.Name = "txtupdate_date";
             this.txtupdate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtupdate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -841,7 +830,7 @@
             // 
             this.txtupdate_by.EditValue = "";
             this.txtupdate_by.Enabled = false;
-            this.txtupdate_by.Location = new System.Drawing.Point(58, 306);
+            this.txtupdate_by.Location = new System.Drawing.Point(58, 282);
             this.txtupdate_by.Name = "txtupdate_by";
             this.txtupdate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtupdate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -854,7 +843,7 @@
             // txtCreate_date
             // 
             this.txtCreate_date.Enabled = false;
-            this.txtCreate_date.Location = new System.Drawing.Point(219, 281);
+            this.txtCreate_date.Location = new System.Drawing.Point(219, 257);
             this.txtCreate_date.Name = "txtCreate_date";
             this.txtCreate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCreate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -867,7 +856,7 @@
             // txtCreate_by
             // 
             this.txtCreate_by.Enabled = false;
-            this.txtCreate_by.Location = new System.Drawing.Point(58, 281);
+            this.txtCreate_by.Location = new System.Drawing.Point(58, 257);
             this.txtCreate_by.Name = "txtCreate_by";
             this.txtCreate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCreate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -879,7 +868,7 @@
             // 
             // lblremark
             // 
-            this.lblremark.Location = new System.Drawing.Point(2, 153);
+            this.lblremark.Location = new System.Drawing.Point(2, 138);
             this.lblremark.Name = "lblremark";
             this.lblremark.Size = new System.Drawing.Size(56, 13);
             this.lblremark.TabIndex = 71;
@@ -888,7 +877,7 @@
             // 
             // lblamount_unit
             // 
-            this.lblamount_unit.Location = new System.Drawing.Point(197, 57);
+            this.lblamount_unit.Location = new System.Drawing.Point(197, 63);
             this.lblamount_unit.Name = "lblamount_unit";
             this.lblamount_unit.Size = new System.Drawing.Size(54, 13);
             this.lblamount_unit.TabIndex = 19;
@@ -900,7 +889,7 @@
             this.lkeamount_unit.EditValue = "";
             this.lkeamount_unit.Enabled = false;
             this.lkeamount_unit.EnterMoveNextControl = true;
-            this.lkeamount_unit.Location = new System.Drawing.Point(251, 52);
+            this.lkeamount_unit.Location = new System.Drawing.Point(251, 58);
             this.lkeamount_unit.Name = "lkeamount_unit";
             this.lkeamount_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lkeamount_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -921,7 +910,7 @@
             // lblID
             // 
             this.lblID.ForeColor = System.Drawing.Color.Blue;
-            this.lblID.Location = new System.Drawing.Point(2, 7);
+            this.lblID.Location = new System.Drawing.Point(2, 11);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(56, 13);
             this.lblID.TabIndex = 12;
@@ -932,22 +921,23 @@
             // 
             this.txtID.EditValue = "";
             this.txtID.EnterMoveNextControl = true;
-            this.txtID.Location = new System.Drawing.Point(58, 2);
+            this.txtID.Location = new System.Drawing.Point(58, 6);
             this.txtID.Name = "txtID";
             this.txtID.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtID.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Properties.MaxLength = 20;
-            this.txtID.Size = new System.Drawing.Size(135, 22);
+            this.txtID.Properties.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(134, 22);
             this.txtID.TabIndex = 0;
-            this.txtID.Tag = "1";
+            this.txtID.Tag = "2";
             this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
             // 
             // lblown_reference
             // 
             this.lblown_reference.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblown_reference.Location = new System.Drawing.Point(180, 113);
+            this.lblown_reference.Location = new System.Drawing.Point(180, 109);
             this.lblown_reference.Name = "lblown_reference";
             this.lblown_reference.Size = new System.Drawing.Size(71, 27);
             this.lblown_reference.TabIndex = 122;
@@ -956,7 +946,7 @@
             // 
             // lblCrtim
             // 
-            this.lblCrtim.Location = new System.Drawing.Point(164, 284);
+            this.lblCrtim.Location = new System.Drawing.Point(164, 260);
             this.lblCrtim.Name = "lblCrtim";
             this.lblCrtim.Size = new System.Drawing.Size(55, 13);
             this.lblCrtim.TabIndex = 82;
@@ -965,7 +955,7 @@
             // 
             // lblAmtim
             // 
-            this.lblAmtim.Location = new System.Drawing.Point(164, 309);
+            this.lblAmtim.Location = new System.Drawing.Point(164, 285);
             this.lblAmtim.Name = "lblAmtim";
             this.lblAmtim.Size = new System.Drawing.Size(55, 13);
             this.lblAmtim.TabIndex = 84;
@@ -975,7 +965,7 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(199, 74);
+            this.label14.Location = new System.Drawing.Point(199, 80);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 32);
             this.label14.TabIndex = 237;
@@ -985,18 +975,57 @@
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1, 74);
+            this.label13.Location = new System.Drawing.Point(1, 80);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(61, 32);
             this.label13.TabIndex = 235;
             this.label13.Text = "Chemical Test";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtinvoice_id
+            // 
+            this.txtinvoice_id.EditValue = "";
+            this.txtinvoice_id.EnterMoveNextControl = true;
+            this.txtinvoice_id.Location = new System.Drawing.Point(58, 33);
+            this.txtinvoice_id.Name = "txtinvoice_id";
+            this.txtinvoice_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtinvoice_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtinvoice_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtinvoice_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.txtinvoice_id.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtinvoice_id.Properties.MaxLength = 20;
+            this.txtinvoice_id.Properties.ReadOnly = true;
+            this.txtinvoice_id.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtinvoice_id_Properties_ButtonClick);
+            this.txtinvoice_id.Size = new System.Drawing.Size(134, 22);
+            this.txtinvoice_id.TabIndex = 2;
+            this.txtinvoice_id.Tag = "2";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnMultInvoice);
+            this.groupBox2.Location = new System.Drawing.Point(56, 417);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(291, 56);
+            this.groupBox2.TabIndex = 240;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "同一張測試報告有多張發票";
+            // 
+            // btnMultInvoice
+            // 
+            this.btnMultInvoice.Location = new System.Drawing.Point(15, 19);
+            this.btnMultInvoice.Name = "btnMultInvoice";
+            this.btnMultInvoice.Size = new System.Drawing.Size(188, 24);
+            this.btnMultInvoice.TabIndex = 239;
+            this.btnMultInvoice.Text = "復制測試報告對應的測試項目";
+            this.btnMultInvoice.UseVisualStyleBackColor = true;
+            this.btnMultInvoice.Click += new System.EventHandler(this.btnMultInvoice_Click);
+            // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(2, 484);
             this.gridControl1.MainView = this.dgvDetails;
             this.gridControl1.Name = "gridControl1";
@@ -1027,6 +1056,7 @@
             this.ref_mo,
             this.is_pass,
             this.id,
+            this.invoice_id,
             this.sequence_id});
             this.dgvDetails.GridControl = this.gridControl1;
             this.dgvDetails.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -1284,12 +1314,18 @@
             this.sequence_id.FieldName = "sequence_id";
             this.sequence_id.Name = "sequence_id";
             // 
+            // invoice_id
+            // 
+            this.invoice_id.Caption = "發票編號";
+            this.invoice_id.FieldName = "invoice_id";
+            this.invoice_id.Name = "invoice_id";
+            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(415, 17);
+            this.btnSearch.Location = new System.Drawing.Point(410, 17);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(89, 40);
             this.btnSearch.TabIndex = 8;
@@ -1301,7 +1337,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(241, 61);
+            this.label50.Location = new System.Drawing.Point(240, 61);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(13, 12);
             this.label50.TabIndex = 186;
@@ -1311,7 +1347,7 @@
             // 
             this.txtinvoice_id2.EditValue = "";
             this.txtinvoice_id2.EnterMoveNextControl = true;
-            this.txtinvoice_id2.Location = new System.Drawing.Point(269, 57);
+            this.txtinvoice_id2.Location = new System.Drawing.Point(268, 57);
             this.txtinvoice_id2.Name = "txtinvoice_id2";
             this.txtinvoice_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtinvoice_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1322,7 +1358,7 @@
             // label49
             // 
             this.label49.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label49.Location = new System.Drawing.Point(6, 61);
+            this.label49.Location = new System.Drawing.Point(5, 61);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(72, 15);
             this.label49.TabIndex = 185;
@@ -1333,7 +1369,7 @@
             // 
             this.txtinvoice_id1.EditValue = "";
             this.txtinvoice_id1.EnterMoveNextControl = true;
-            this.txtinvoice_id1.Location = new System.Drawing.Point(87, 57);
+            this.txtinvoice_id1.Location = new System.Drawing.Point(86, 57);
             this.txtinvoice_id1.Name = "txtinvoice_id1";
             this.txtinvoice_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtinvoice_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1346,7 +1382,7 @@
             // 
             this.txtId2.EditValue = "";
             this.txtId2.EnterMoveNextControl = true;
-            this.txtId2.Location = new System.Drawing.Point(269, 11);
+            this.txtId2.Location = new System.Drawing.Point(268, 11);
             this.txtId2.Name = "txtId2";
             this.txtId2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1357,7 +1393,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(241, 15);
+            this.label45.Location = new System.Drawing.Point(240, 15);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(13, 12);
             this.label45.TabIndex = 182;
@@ -1367,7 +1403,7 @@
             // 
             this.txtId1.EditValue = "";
             this.txtId1.EnterMoveNextControl = true;
-            this.txtId1.Location = new System.Drawing.Point(87, 11);
+            this.txtId1.Location = new System.Drawing.Point(86, 11);
             this.txtId1.Name = "txtId1";
             this.txtId1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1379,7 +1415,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(241, 44);
+            this.label47.Location = new System.Drawing.Point(240, 44);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(13, 12);
             this.label47.TabIndex = 179;
@@ -1388,7 +1424,7 @@
             // lblData1
             // 
             this.lblData1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblData1.Location = new System.Drawing.Point(6, 38);
+            this.lblData1.Location = new System.Drawing.Point(5, 38);
             this.lblData1.Name = "lblData1";
             this.lblData1.Size = new System.Drawing.Size(72, 15);
             this.lblData1.TabIndex = 178;
@@ -1399,17 +1435,17 @@
             // 
             this.dtreport_date2.EditValue = "";
             this.dtreport_date2.EnterMoveNextControl = true;
-            this.dtreport_date2.Location = new System.Drawing.Point(269, 34);
+            this.dtreport_date2.Location = new System.Drawing.Point(268, 34);
             this.dtreport_date2.Name = "dtreport_date2";
             this.dtreport_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtreport_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtreport_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtreport_date2.Properties.Mask.BeepOnError = true;
             this.dtreport_date2.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtreport_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtreport_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtreport_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtreport_date2.Size = new System.Drawing.Size(135, 22);
             this.dtreport_date2.TabIndex = 3;
             this.dtreport_date2.Tag = "2";
@@ -1418,17 +1454,17 @@
             // 
             this.dtreport_date1.EditValue = "";
             this.dtreport_date1.EnterMoveNextControl = true;
-            this.dtreport_date1.Location = new System.Drawing.Point(87, 34);
+            this.dtreport_date1.Location = new System.Drawing.Point(86, 34);
             this.dtreport_date1.Name = "dtreport_date1";
             this.dtreport_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtreport_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtreport_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtreport_date1.Properties.Mask.BeepOnError = true;
             this.dtreport_date1.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtreport_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtreport_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtreport_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtreport_date1.Size = new System.Drawing.Size(135, 22);
             this.dtreport_date1.TabIndex = 2;
             this.dtreport_date1.Tag = "2";
@@ -1436,7 +1472,7 @@
             // 
             // label48
             // 
-            this.label48.Location = new System.Drawing.Point(7, 16);
+            this.label48.Location = new System.Drawing.Point(6, 16);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(71, 13);
             this.label48.TabIndex = 177;
@@ -1447,17 +1483,17 @@
             // 
             this.dtinvoice_date1.EditValue = "";
             this.dtinvoice_date1.EnterMoveNextControl = true;
-            this.dtinvoice_date1.Location = new System.Drawing.Point(87, 80);
+            this.dtinvoice_date1.Location = new System.Drawing.Point(86, 80);
             this.dtinvoice_date1.Name = "dtinvoice_date1";
             this.dtinvoice_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtinvoice_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtinvoice_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtinvoice_date1.Properties.Mask.BeepOnError = true;
             this.dtinvoice_date1.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtinvoice_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtinvoice_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtinvoice_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtinvoice_date1.Size = new System.Drawing.Size(135, 22);
             this.dtinvoice_date1.TabIndex = 6;
             this.dtinvoice_date1.Tag = "2";
@@ -1467,17 +1503,17 @@
             // 
             this.dtinvoice_date2.EditValue = "";
             this.dtinvoice_date2.EnterMoveNextControl = true;
-            this.dtinvoice_date2.Location = new System.Drawing.Point(269, 80);
+            this.dtinvoice_date2.Location = new System.Drawing.Point(268, 80);
             this.dtinvoice_date2.Name = "dtinvoice_date2";
             this.dtinvoice_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtinvoice_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtinvoice_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtinvoice_date2.Properties.Mask.BeepOnError = true;
             this.dtinvoice_date2.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtinvoice_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtinvoice_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtinvoice_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtinvoice_date2.Size = new System.Drawing.Size(135, 22);
             this.dtinvoice_date2.TabIndex = 7;
             this.dtinvoice_date2.Tag = "2";
@@ -1485,7 +1521,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(6, 85);
+            this.label1.Location = new System.Drawing.Point(5, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 15);
             this.label1.TabIndex = 190;
@@ -1495,7 +1531,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 85);
+            this.label2.Location = new System.Drawing.Point(240, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 12);
             this.label2.TabIndex = 191;
@@ -1503,8 +1539,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.groupBox1.Controls.Add(this.chkSelectAllAC);
             this.groupBox1.Controls.Add(this.dtPdd1);
@@ -1553,7 +1589,7 @@
             // chkSelectAllAC
             // 
             this.chkSelectAllAC.BackColor = System.Drawing.Color.Thistle;
-            this.chkSelectAllAC.Location = new System.Drawing.Point(591, 196);
+            this.chkSelectAllAC.Location = new System.Drawing.Point(570, 196);
             this.chkSelectAllAC.Name = "chkSelectAllAC";
             this.chkSelectAllAC.Size = new System.Drawing.Size(74, 16);
             this.chkSelectAllAC.TabIndex = 214;
@@ -1565,17 +1601,17 @@
             // 
             this.dtPdd1.EditValue = "";
             this.dtPdd1.EnterMoveNextControl = true;
-            this.dtPdd1.Location = new System.Drawing.Point(87, 126);
+            this.dtPdd1.Location = new System.Drawing.Point(86, 126);
             this.dtPdd1.Name = "dtPdd1";
             this.dtPdd1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtPdd1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtPdd1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtPdd1.Properties.Mask.BeepOnError = true;
             this.dtPdd1.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtPdd1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtPdd1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtPdd1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtPdd1.Size = new System.Drawing.Size(135, 22);
             this.dtPdd1.TabIndex = 210;
             this.dtPdd1.Tag = "2";
@@ -1585,17 +1621,17 @@
             // 
             this.dtPdd2.EditValue = "";
             this.dtPdd2.EnterMoveNextControl = true;
-            this.dtPdd2.Location = new System.Drawing.Point(269, 126);
+            this.dtPdd2.Location = new System.Drawing.Point(268, 126);
             this.dtPdd2.Name = "dtPdd2";
             this.dtPdd2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtPdd2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtPdd2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtPdd2.Properties.Mask.BeepOnError = true;
             this.dtPdd2.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtPdd2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtPdd2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtPdd2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtPdd2.Size = new System.Drawing.Size(135, 22);
             this.dtPdd2.TabIndex = 211;
             this.dtPdd2.Tag = "2";
@@ -1603,7 +1639,7 @@
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label15.Location = new System.Drawing.Point(6, 131);
+            this.label15.Location = new System.Drawing.Point(5, 131);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 15);
             this.label15.TabIndex = 212;
@@ -1613,7 +1649,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(241, 131);
+            this.label16.Location = new System.Drawing.Point(240, 131);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(13, 12);
             this.label16.TabIndex = 213;
@@ -1624,7 +1660,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.radioGroup2);
             this.panel2.Controls.Add(this.radioGroup1);
-            this.panel2.Location = new System.Drawing.Point(87, 175);
+            this.panel2.Location = new System.Drawing.Point(86, 175);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(318, 32);
             this.panel2.TabIndex = 209;
@@ -1660,7 +1696,7 @@
             // 
             this.txtSales_group1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.txtSales_group1.FormattingEnabled = true;
-            this.txtSales_group1.Location = new System.Drawing.Point(269, 150);
+            this.txtSales_group1.Location = new System.Drawing.Point(268, 150);
             this.txtSales_group1.MaxLength = 1;
             this.txtSales_group1.Name = "txtSales_group1";
             this.txtSales_group1.Size = new System.Drawing.Size(135, 22);
@@ -1668,7 +1704,7 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(226, 154);
+            this.label12.Location = new System.Drawing.Point(225, 154);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 15);
             this.label12.TabIndex = 208;
@@ -1678,7 +1714,7 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label11.Location = new System.Drawing.Point(9, 182);
+            this.label11.Location = new System.Drawing.Point(8, 182);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 15);
             this.label11.TabIndex = 205;
@@ -1689,7 +1725,7 @@
             // 
             this.txtbrand1.EditValue = "";
             this.txtbrand1.EnterMoveNextControl = true;
-            this.txtbrand1.Location = new System.Drawing.Point(87, 150);
+            this.txtbrand1.Location = new System.Drawing.Point(86, 150);
             this.txtbrand1.Name = "txtbrand1";
             this.txtbrand1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtbrand1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1700,7 +1736,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(28, 154);
+            this.label9.Location = new System.Drawing.Point(27, 154);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 15);
             this.label9.TabIndex = 203;
@@ -1710,7 +1746,7 @@
             // chkSelectAllPDD
             // 
             this.chkSelectAllPDD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.chkSelectAllPDD.Location = new System.Drawing.Point(506, 196);
+            this.chkSelectAllPDD.Location = new System.Drawing.Point(485, 196);
             this.chkSelectAllPDD.Name = "chkSelectAllPDD";
             this.chkSelectAllPDD.Size = new System.Drawing.Size(79, 16);
             this.chkSelectAllPDD.TabIndex = 200;
@@ -1722,7 +1758,7 @@
             // 
             this.btnTotal.Image = global::cf01.Properties.Resources.Excel1;
             this.btnTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTotal.Location = new System.Drawing.Point(526, 67);
+            this.btnTotal.Location = new System.Drawing.Point(512, 67);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(127, 40);
             this.btnTotal.TabIndex = 197;
@@ -1735,17 +1771,17 @@
             // 
             this.dtCreate_date1.EditValue = "";
             this.dtCreate_date1.EnterMoveNextControl = true;
-            this.dtCreate_date1.Location = new System.Drawing.Point(87, 103);
+            this.dtCreate_date1.Location = new System.Drawing.Point(86, 103);
             this.dtCreate_date1.Name = "dtCreate_date1";
             this.dtCreate_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtCreate_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtCreate_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date1.Properties.Mask.BeepOnError = true;
             this.dtCreate_date1.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtCreate_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtCreate_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtCreate_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date1.Size = new System.Drawing.Size(135, 22);
             this.dtCreate_date1.TabIndex = 193;
             this.dtCreate_date1.Tag = "2";
@@ -1755,17 +1791,17 @@
             // 
             this.dtCreate_date2.EditValue = "";
             this.dtCreate_date2.EnterMoveNextControl = true;
-            this.dtCreate_date2.Location = new System.Drawing.Point(269, 103);
+            this.dtCreate_date2.Location = new System.Drawing.Point(268, 103);
             this.dtCreate_date2.Name = "dtCreate_date2";
             this.dtCreate_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtCreate_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtCreate_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date2.Properties.Mask.BeepOnError = true;
             this.dtCreate_date2.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtCreate_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtCreate_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtCreate_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date2.Size = new System.Drawing.Size(135, 22);
             this.dtCreate_date2.TabIndex = 194;
             this.dtCreate_date2.Tag = "2";
@@ -1773,7 +1809,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(6, 108);
+            this.label3.Location = new System.Drawing.Point(5, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 15);
             this.label3.TabIndex = 195;
@@ -1783,7 +1819,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(241, 108);
+            this.label4.Location = new System.Drawing.Point(240, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 12);
             this.label4.TabIndex = 196;
@@ -1793,7 +1829,7 @@
             // 
             this.btnInvoice.Image = global::cf01.Properties.Resources.Excel1;
             this.btnInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInvoice.Location = new System.Drawing.Point(526, 17);
+            this.btnInvoice.Location = new System.Drawing.Point(512, 17);
             this.btnInvoice.Name = "btnInvoice";
             this.btnInvoice.Size = new System.Drawing.Size(127, 40);
             this.btnInvoice.TabIndex = 192;
@@ -1806,8 +1842,8 @@
             // 
             this.dgvFind.AllowUserToAddRows = false;
             this.dgvFind.AllowUserToDeleteRows = false;
-            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFind.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -2036,6 +2072,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 741);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panel1);
@@ -2055,14 +2092,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtconfirm_ac_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtconfirm_pdd_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtconfirm_pdd_by.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtremark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtamount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbrand.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtinvoice_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtown_reference.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtreport_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_by.Properties)).EndInit();
@@ -2070,6 +2106,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeamount_unit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtinvoice_id.Properties)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSalesGroup)).EndInit();
@@ -2082,27 +2120,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtinvoice_id1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtreport_date2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtreport_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtreport_date1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtinvoice_date2.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtPdd1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPdd1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtPdd1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtPdd2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPdd2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtPdd2.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbrand1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotal)).EndInit();
@@ -2148,7 +2186,6 @@
         private System.Windows.Forms.Label lblinvoice_id;
         private DevExpress.XtraEditors.TextEdit txtbrand;
         private System.Windows.Forms.Label lblbrand;
-        private DevExpress.XtraEditors.TextEdit txtinvoice_id;
         private DevExpress.XtraEditors.TextEdit txtown_reference;
         private System.Windows.Forms.Label lblown_reference;
         private System.Windows.Forms.Label lblreport_date;
@@ -2255,5 +2292,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox chkSelectAllAC;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnMultInvoice;
+        private DevExpress.XtraGrid.Columns.GridColumn invoice_id;
+        private DevExpress.XtraEditors.ButtonEdit txtinvoice_id;
     }
 }
