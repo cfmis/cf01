@@ -139,24 +139,24 @@ namespace cf01.CLS
 
                             for (int i = 0; i < dtControlName.Rows.Count; i++)
                             {
-                                int intIndex = dtControlName.Rows[i]["formname"].ToString().IndexOf('_');
-                                int intLength = dtControlName.Rows[i]["formname"].ToString().Length;
-                                if (dtControlName.Rows[i]["formname"].ToString().Substring(intIndex + 1, intLength - (intIndex + 1)) == strName)
+                                int intIndex = dtControlName.Rows[i]["formname"].ToString().Trim().IndexOf('_');
+                                int intLength = dtControlName.Rows[i]["formname"].ToString().Trim().Length;
+                                if (dtControlName.Rows[i]["formname"].ToString().Trim().Substring(intIndex + 1, intLength - (intIndex + 1)) == strName)
                                 {
-                                    switch (dtControlName.Rows[i]["columntype"].ToString())
+                                    switch (dtControlName.Rows[i]["columntype"].ToString().Trim())
                                     {
                                         case "DataGridViewTextBoxColumn":
                                             {
-                                                dgv.Columns.Add(dtControlName.Rows[i]["col_code"].ToString(), dtControlName.Rows[i]["show_name"].ToString());
-                                                dgv.Columns[dtControlName.Rows[i]["col_code"].ToString()].DataPropertyName = dtControlName.Rows[i]["source_field"].ToString();
-                                                dgv.Columns[dtControlName.Rows[i]["col_code"].ToString()].Width = Convert.ToInt32(dtControlName.Rows[i]["tb_col_width"]);
-                                                if (dtControlName.Rows[i]["fl_visible"].ToString() == "Y")
+                                                dgv.Columns.Add(dtControlName.Rows[i]["col_code"].ToString().Trim(), dtControlName.Rows[i]["show_name"].ToString().Trim());
+                                                dgv.Columns[dtControlName.Rows[i]["col_code"].ToString().Trim()].DataPropertyName = dtControlName.Rows[i]["source_field"].ToString().Trim();
+                                                dgv.Columns[dtControlName.Rows[i]["col_code"].ToString().Trim()].Width = Convert.ToInt32(dtControlName.Rows[i]["tb_col_width"]);
+                                                if (dtControlName.Rows[i]["fl_visible"].ToString().Trim() == "Y")
                                                 {
-                                                    dgv.Columns[dtControlName.Rows[i]["col_code"].ToString()].Visible = true;
+                                                    dgv.Columns[dtControlName.Rows[i]["col_code"].ToString().Trim()].Visible = true;
                                                 }
                                                 else
                                                 {
-                                                    dgv.Columns[dtControlName.Rows[i]["col_code"].ToString()].Visible = false;
+                                                    dgv.Columns[dtControlName.Rows[i]["col_code"].ToString().Trim()].Visible = false;
                                                 }
                                             }
                                             break;
