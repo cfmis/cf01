@@ -1042,12 +1042,17 @@ namespace cf01.ReportForm
                 //如果匯出到Excel中文變亂碼，可以嘗試改一下這個編碼方式
                 StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));//utf-8
                 string str = " ";
+                DateTime dt = DateTime.Now;
+                str += "導出時日期:" + string.Format("{0:G}", dt);
+                //string.Format("{0:G}",dt);//2005-11-5 14:23:23 
+                sw.WriteLine(str);
+                str = " ";
                 str += "序號";
                 str += "\t" + "制單編號";
                 str += "\t" + "物料編號";
                 str += "\t" + "物料描述";
                 str += "\t" + "移交數量";
-                str += "\t" + "移交數量";
+                str += "\t" + "移交重量";
                 str += "\t" + "包數";
                 str += "\t" + "負責部門";
                 str += "\t" + "負責部門描述";
@@ -1055,6 +1060,9 @@ namespace cf01.ReportForm
                 str += "\t" + "收貨部門描述";
                 str += "\t" + "移交單編號";
                 str += "\t" + "移交單日期";
+                str += "\t" + "供應商編號";
+                str += "\t" + "電鍍顏色";
+                //
 
                 sw.WriteLine(str);
 
@@ -1074,6 +1082,8 @@ namespace cf01.ReportForm
                     tempstr += "\t" + gridView1.GetRowCellValue(i, "in_dept_name").ToString();
                     tempstr += "\t" + gridView1.GetRowCellValue(i, "id").ToString();
                     tempstr += "\t" + "=\"" + gridView1.GetRowCellValue(i, "con_date").ToString() + "\"";
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "vendor_id").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "do_color").ToString();
                     sw.WriteLine(tempstr);
                 }
                 sw.Close();

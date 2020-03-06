@@ -138,8 +138,7 @@ namespace cf01.Forms
                 }
                 else
                 {
-                    SetObjValue.ClearObjValue(panel1.Controls, "2");//清空全部數據
-                    return;
+                    SetObjValue.ClearObjValue(panel1.Controls, "2");//清空全部數據                   
                 }
                  
                 if (dgvDetails.RowCount > 0)//已保存有發票資料
@@ -379,8 +378,9 @@ namespace cf01.Forms
         /// </summary>
         private void AddNew_Item()
         {
-            if (!String.IsNullOrEmpty(txtID.Text.Trim()) && !String.IsNullOrEmpty(txtinvoice_id.Text.Trim())) // 有內容
-            {
+            //if (!String.IsNullOrEmpty(txtID.Text.Trim()) && !String.IsNullOrEmpty(txtinvoice_id.Text.Trim())) // 有內容
+            if (!String.IsNullOrEmpty(txtID.Text.Trim())) // 有內容
+                {
                 if (Check_Details_Valid())
                 {
                     return;
@@ -390,7 +390,7 @@ namespace cf01.Forms
                 dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "id", txtID.Text);
                 dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "invoice_id",txtinvoice_id.Text.Trim());
                 dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sequence_id", (dgvDetails.RowCount).ToString("000"));
-                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "is_pass", false);              
+                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "is_pass", false);
 
                 ColumnView view = (ColumnView)dgvDetails;//初始單元格焦點
                 view.FocusedColumn = view.Columns["test_item_id"];
@@ -550,9 +550,21 @@ namespace cf01.Forms
                     try
                     {
                         if (mState == "NEW")
+                        {
                             myCommand.CommandText = sql_i;
+                            //****2020-02-25
+                            //因主鍵后期改成報告編號+發票編號,從Testexcel畫面第一次生成INVOICE時發票字段是空白,項目新增時主鍵為空會有問題,故做以下處理                            
+                            int cur_row;
+                            for (int i = 0; i < dgvDetails.RowCount; i++)
+                            {
+                                cur_row = dgvDetails.GetRowHandle(i);
+                                dgvDetails.SetRowCellValue(cur_row, "invoice_id", txtinvoice_id.Text.Trim());
+                            }
+                        }
                         else
+                        {
                             myCommand.CommandText = sql_u;
+                        }
                         myCommand.Parameters.Clear();
                         myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());
                         myCommand.Parameters.AddWithValue("@report_date", clsApp.Return_String_Date(dtreport_date.EditValue.ToString()));
@@ -585,7 +597,7 @@ namespace cf01.Forms
                         int curRow;
                         string rowStatus;
                         if (dgvDetails.RowCount > 0)
-                        {
+                        {                            
                             const string sql_item_i =
                                  @"INSERT INTO dbo.bs_test_invoice_details
                                 (id,invoice_id,sequence_id,sales_group,mat_id,color_id,product_type_id,cust_color,trim_code,test_item_id,expiry_date,ref_mo,is_pass) VALUES
@@ -683,7 +695,7 @@ namespace cf01.Forms
         {
             if (txtID.Text == "" || dtreport_date.Text == "" || txtinvoice_id.Text == "" || dtinvoice_date.Text == "")
             {
-                MessageBox.Show("報告編號、報告日期、發票編號、發票日期不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("報告編號、報告日期、發票編號或者發票日期不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else

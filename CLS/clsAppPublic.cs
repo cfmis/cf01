@@ -266,7 +266,7 @@ namespace cf01.CLS
                         RadioGroup ts9 = (RadioGroup)ct;
                         object_id = ts9.Name;
                         object_value = ts9.SelectedIndex.ToString();
-                        break;                  
+                        break;
                     default:
                         object_id = "";
                         object_value = "";
