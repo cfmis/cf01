@@ -72,7 +72,6 @@
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel44 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
@@ -83,7 +82,6 @@
             this.xrCheckBox2 = new DevExpress.XtraReports.UI.XRCheckBox();
             this.xrLabel36 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrCheckBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
-            this.xrLabel34 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
@@ -166,7 +164,6 @@
             this.xrLabel33,
             this.xrLabel24,
             this.xrLine4,
-            this.xrLine3,
             this.xrLine2,
             this.xrLabel44,
             this.xrLabel43,
@@ -177,7 +174,6 @@
             this.xrCheckBox2,
             this.xrLabel36,
             this.xrCheckBox1,
-            this.xrLabel34,
             this.xrLabel32,
             this.xrLabel31,
             this.xrLabel29,
@@ -702,14 +698,6 @@
             this.xrLine4.Name = "xrLine4";
             this.xrLine4.SizeF = new System.Drawing.SizeF(314.2982F, 5F);
             // 
-            // xrLine3
-            // 
-            this.xrLine3.Dpi = 254F;
-            this.xrLine3.LineWidth = 3;
-            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(493.8177F, 646.3287F);
-            this.xrLine3.Name = "xrLine3";
-            this.xrLine3.SizeF = new System.Drawing.SizeF(133.8793F, 5.503418F);
-            // 
             // xrLine2
             // 
             this.xrLine2.Dpi = 254F;
@@ -832,21 +820,6 @@
             this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(630.237F, 605.9009F);
             this.xrCheckBox1.Name = "xrCheckBox1";
             this.xrCheckBox1.SizeF = new System.Drawing.SizeF(42.33331F, 45.71997F);
-            // 
-            // xrLabel34
-            // 
-            this.xrLabel34.CanGrow = false;
-            this.xrLabel34.Dpi = 254F;
-            this.xrLabel34.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold);
-            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(335.8083F, 608.4409F);
-            this.xrLabel34.Name = "xrLabel34";
-            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel34.SizeF = new System.Drawing.SizeF(158.0093F, 40.64001F);
-            this.xrLabel34.StylePriority.UseFont = false;
-            this.xrLabel34.StylePriority.UseTextAlignment = false;
-            this.xrLabel34.Text = "生產數量:";
-            this.xrLabel34.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel34.WordWrap = false;
             // 
             // xrLabel32
             // 
@@ -1350,7 +1323,7 @@
             this.ShowPreviewMarginLines = false;
             this.ShowPrintMarginsWarning = false;
             this.SnapGridSize = 2.54F;
-            this.Version = "11.2";
+            this.Version = "14.2";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xtaWork_No_BarCode_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -1386,7 +1359,6 @@
         private DevExpress.XtraReports.UI.XRCheckBox xrCheckBox2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel36;
         private DevExpress.XtraReports.UI.XRCheckBox xrCheckBox1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel34;
         private DevExpress.XtraReports.UI.XRLabel xrLabel32;
         private DevExpress.XtraReports.UI.XRLabel xrLabel31;
         private DevExpress.XtraReports.UI.XRLabel xrLabel29;
@@ -1401,7 +1373,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel43;
         private DevExpress.XtraReports.UI.XRLabel xrLabel44;
         private DevExpress.XtraReports.UI.XRLine xrLine2;
-        private DevExpress.XtraReports.UI.XRLine xrLine3;
         private DevExpress.XtraReports.UI.XRLine xrLine4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel24;
         private DevExpress.XtraReports.UI.XRLabel xrLabel30;

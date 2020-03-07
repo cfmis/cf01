@@ -83,6 +83,7 @@ namespace cf01.ReportForm
             txtgoods_name.Text = "";
             txtPer_qty.Text = "";
             txtPro_qty.Text = "";
+            txtFact_qty.Text = "";
         }
 
         /// <summary>
@@ -105,9 +106,17 @@ namespace cf01.ReportForm
                 return false;
             }
 
+            if (!Information.IsNumeric(txtFact_qty.Text.Trim()))
+            {
+                MessageBox.Show("實際生產數量只能輸入數字格式，請重新輸入!");
+                txtFact_qty.Focus();
+                txtFact_qty.SelectAll();
+                return false;
+            }
+
             if (!Information.IsNumeric(txtPer_qty.Text.Trim()))
             {
-                MessageBox.Show("每次生產數量只能輸入數字格式，請重新輸入。");
+                MessageBox.Show("每次生產數量只能輸入數字格式，請重新輸入!");
                 txtPer_qty.Focus();
                 txtPer_qty.SelectAll();
                 return false;
@@ -131,6 +140,7 @@ namespace cf01.ReportForm
                     txtgoods_name.Text = lsModel[i].goods_name;
                     txtPer_qty.Text = lsModel[i].prod_qty.ToString();
                     txtPro_qty.Text = lsModel[i].prod_qty.ToString();
+                    txtFact_qty.Text = lsModel[i].prod_qty.ToString();
                     txtNextDep.Text = lsModel[i].next_wp_id;//
                     txtNextDepName.Text = lsModel[i].next_wp_name;
                     txtCompDate.Text = lsModel[i].t_complete_date;
@@ -373,8 +383,11 @@ namespace cf01.ReportForm
                     int PrintCopies = Convert.ToInt32(txtPrintCopies.Text.Trim());  //列印份數
                     int Per_qty = Convert.ToInt32(txtPer_qty.Text.Trim());  //每次生產數量
                     if (Per_qty == 0)
+                    {
                         Per_qty = 1;
-                    int Total_qty = Convert.ToInt32(txtPro_qty.Text.Trim());    //生產總量
+                    }
+                    //int Total_qty = Convert.ToInt32(txtPro_qty.Text.Trim());    //生產總量
+                    int Total_qty = Convert.ToInt32(txtFact_qty.Text.Trim());    //實際生產總量
                     int NumPage = 0;     //報表頁數
 
                     DataTable dtNewWork = new DataTable();
@@ -415,10 +428,14 @@ namespace cf01.ReportForm
                     
                     if (Total_qty > 0)
                     {
-                        if (Total_qty % Per_qty > 0)                        
-                            NumPage = (Total_qty / Per_qty) + 1;                        
-                        else                        
-                            NumPage = (Total_qty / Per_qty);                        
+                        if (Total_qty % Per_qty > 0)
+                        {
+                            NumPage = (Total_qty / Per_qty) + 1;
+                        }
+                        else
+                        {
+                            NumPage = (Total_qty / Per_qty);
+                        }                    
                     }
                     else
                     {
@@ -429,9 +446,9 @@ namespace cf01.ReportForm
                     }
 
                     DataRow dr = null;
-                    for (int j = 1; j <= PrintCopies; j++)
+                    for (int j = 1; j <= PrintCopies; j++)//列印份數
                     {
-                        for (int i = 1; i <= NumPage; i++)
+                        for (int i = 1; i <= NumPage; i++)//分頁
                         {
                             dr = dtNewWork.NewRow();
                             dr["total_page"] = NumPage;
@@ -960,15 +977,5 @@ namespace cf01.ReportForm
                 e.Handled = true;//經過判斷爲數字可以輸入
             }
         }
-
-       
-
-
-
-
-
-
-
-
     }
 }
