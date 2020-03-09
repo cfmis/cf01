@@ -212,7 +212,8 @@ namespace cf01.ReportForm
                 return;
             }
             dtReport.Clear();
-            dtReport = dtDetails.Clone();            
+            dtReport = dtDetails.Clone();
+            dtReport.Columns.Add("report_name", typeof(string));
             int li_total_page;
 
             DataRow drs;
@@ -229,6 +230,12 @@ namespace cf01.ReportForm
                     }                    
                 }
             }
+
+            for (int i = 0; i < dtReport.Rows.Count; i++)
+            {               
+                dtReport.Rows[i]["report_name"] = "工序卡" + "(" + dtReport.Rows[i]["wp_id"] + ")"; 
+            }
+
             if (dtReport.Rows.Count == 0)
             {
                 MessageBox.Show("無需要列印之數!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);

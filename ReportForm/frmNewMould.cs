@@ -138,7 +138,7 @@ namespace cf01.ReportForm
 
         private void Load_data()
         {
-            string sql = "SELECT DISTINCT A.mould_no,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,C.name,MD.brand_no,(cc.picture_path+'\\'+AT.picture_name) AS picture_name " +
+            string sql = "SELECT DISTINCT A.id, A.mould_no,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,C.name,MD.brand_no,(cc.picture_path+'\\'+AT.picture_name) AS picture_name " +
              " FROM (select within_code,id,mould_no,MAX(check_date) as check_date,MAX(ver)as ver from dbo.so_mould_notice_mostly with(nolock) Where state='1' group by within_code,id,mould_no) A " +
              " INNER JOIN dbo.so_mould_notice_details B with(nolock) on A.within_code =B.within_code AND A.id=B.id AND A.ver =B.ver" +
              " INNER JOIN dbo.cd_department C ON B.within_code =C.within_code AND B.dept_id =C.id AND C.dept_type='M' " +
@@ -168,7 +168,7 @@ namespace cf01.ReportForm
             if (txtDept2.Text != "")
             {
                 sql += String.Format(" AND B.dept_id<='{0}'", txtDept2.Text.Trim());
-            }
+            }            
             DataTable dtMould = clsConErp.GetDataTable(sql);
 
 
@@ -181,7 +181,7 @@ namespace cf01.ReportForm
                     strMsg = "Query does not meet the requirements of the data.";
                 }
                 MessageBox.Show(strMsg, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dtMould.DefaultView.Sort = "dept_id ASC,check_date ASC";  //排序             
+                dtMould.DefaultView.Sort = "dept_id ASC,id";  //排序             
                 return;
             }
 
