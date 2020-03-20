@@ -23,7 +23,7 @@ namespace cf01.CLS
         public static string cust_artwork_path = @"\\192.168.3.12\cf_artwork\quo_photo";
         public static bool Process_Excel(string _ExcelFile, System.Windows.Forms.ProgressBar progressBar)
         {
-            //创建Application对象             
+            //创建Application对象
             Microsoft.Office.Interop.Excel.Application xApp = new Microsoft.Office.Interop.Excel.Application() { Visible = true };
             Microsoft.Office.Interop.Excel.Workbook xBook = xApp.Workbooks._Open(_ExcelFile,
             Missing.Value, Missing.Value, Missing.Value, Missing.Value
@@ -39,17 +39,17 @@ namespace cf01.CLS
             @"Sales Group,Quote Date,Season,Season Desc,Brand,Brand Desc,Division,Contact,Material,Size,Product Desc,Customer Code,CF Code,Customer Color,CF Color,USD,HKD,RMB,Price Unit,
             Salesman,MOQ,MOQ Desc,MOQ Unit,MWQ,MWQ Unit,Lead Time Min,Lead Time Max,Lead Time Unit,Mould Charge in,Mould Charge CNY,Mould Charge Unit,Remark,Comment,Die Mould USD,Die Mould CNY,
             Account Code,Valid Date,Number Eenter,HKD EX-FTY,USD EX-FTY,Date Req Rcvd,AW,Sub_1,Sub_2,Sub_3,Sub_4,Sub_5,Sub_6,Sub_7,Status,Sample Request,Needle Test,Other Remark,Remark For PDD,
-            PLM Code,Trim Color Code,Test Sample For HK,SMS,Sample Card,Meeting Recap,USD DAP,USD Lab Test Prx,MOQ For Test,Formula ID,Create by,";
+            PLM Code,Trim Color Code,Test Sample For HK,SMS,Sample Card,Meeting Recap,USD DAP,USD Lab Test Prx,MOQ For Test,Formula ID,Create by,Term Price Remark,";
 
             const string strSql_i =
             @"Insert into quotation 
             (ver,sales_group,temp_code,[date],brand,brand_desc,season,season_desc,formula_id,division,contact,material,[size],product_desc,cust_code,cf_code,cust_color,cf_color,price_usd,price_hkd,price_rmb,price_unit,salesman,moq,moq_desc,moq_unit,mwq,mwq_unit,
             lead_time_min,lead_time_max,lead_time_unit,md_charge,md_charge_cny,md_charge_unit,remark,comment,die_mould_usd,die_mould_cny,account_code,valid_date,number_enter,hkd_ex_fty,usd_ex_fty,date_req,aw,
-            Sub_1,Sub_2,Sub_3,Sub_4,Sub_5,Sub_6,Sub_7,status,sample_request,needle_test,remark_other,remark_pdd,crusr,crtim,plm_code,trim_color_code,test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,moq_for_test,rmb_remark)            
+            Sub_1,Sub_2,Sub_3,Sub_4,Sub_5,Sub_6,Sub_7,status,sample_request,needle_test,remark_other,remark_pdd,crusr,crtim,plm_code,trim_color_code,test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,moq_for_test,rmb_remark,termremark)            
             VALUES
             (@ver,@sales_group,@temp_code,CASE LEN(@date) WHEN 0 THEN null ELSE @date END,@brand,@brand_desc,@season,@season_desc,@formula_id,@division,@contact,@material,@size,@product_desc,@cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,
             @price_unit,@salesman,@moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,@lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@md_charge_unit,@remark,@comment,@die_mould_usd,@die_mould_cny,@account_code,@valid_date,@number_enter,@hkd_ex_fty,@usd_ex_fty,@date_req,@aw,
-            @Sub_1,@Sub_2,@Sub_3,@Sub_4,@Sub_5,@Sub_6,@Sub_7,@status,@sample_request,@needle_test,@remark_other,@remark_pdd,@user_id,getdate(),@plm_code,@trim_color_code,@test_sample_hk,@sms,@sample_card,@meeting_recap,@usd_dap,@usd_lab_test_prx,@moq_for_test,@rmb_remark)";
+            @Sub_1,@Sub_2,@Sub_3,@Sub_4,@Sub_5,@Sub_6,@Sub_7,@status,@sample_request,@needle_test,@remark_other,@remark_pdd,@user_id,getdate(),@plm_code,@trim_color_code,@test_sample_hk,@sms,@sample_card,@meeting_recap,@usd_dap,@usd_lab_test_prx,@moq_for_test,@rmb_remark,@termremark)";
             const string strSql_i_sub =
             @"INSERT INTO quotation_group(temp_code,seq_id,group_id,crusr,crtim) VALUES(@temp_code,'001',@group_id,@user_id,getdate())";
             const string strsql_sub_mo =
@@ -134,7 +134,7 @@ namespace cf01.CLS
                             }
 
                             myCommand.Parameters.Clear();
-                            rng = xSheet.Cells[ii, "BO"]; //更新標識欄位                            
+                            rng = xSheet.Cells[ii, "BP"]; //更新標識欄位                            
                             if (rng.get_Value() == "OK")
                             {
                                 myTrans.Commit(); //數據提交
@@ -283,7 +283,7 @@ namespace cf01.CLS
                             myCommand.Parameters.AddWithValue("@usd_dap", rng.Text);
                             rng = xSheet.Cells[ii, "BJ"]; //USD Lap Test Prx
                             myCommand.Parameters.AddWithValue("@usd_lab_test_prx", rng.Text);
-                            rng = xSheet.Cells[ii, "BK"]; //MOQ For Test                            
+                            rng = xSheet.Cells[ii, "BK"]; //MOQ For Test   
                             //myCommand.Parameters.AddWithValue("@moq_for_test", rng.Text);
                             myCommand.Parameters.AddWithValue("@moq_for_test", int.Parse(Get_int_string(rng.Text)));                           
                             rng = xSheet.Cells[ii, "BL"]; //Formula ID
@@ -292,6 +292,8 @@ namespace cf01.CLS
                             rng = xSheet.Cells[ii, "BM"]; //Create By
                             create_by = string.IsNullOrEmpty(rng.Text) ? DBUtility._user_id : rng.Text;
                             myCommand.Parameters.AddWithValue("@user_id", create_by);
+                            rng = xSheet.Cells[ii, "BN"]; //Term Price Remark
+                            myCommand.Parameters.AddWithValue("@termremark", rng.Text);
                             //myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                             ls_rmb_remark = Get_Rmb_Remark(ls_formula);
                             myCommand.Parameters.AddWithValue("@rmb_remark", ls_rmb_remark);
@@ -322,8 +324,8 @@ namespace cf01.CLS
                                 }
                             }
                             myTrans.Commit(); //數據提交
-                            rng = xSheet.Cells[ii, "BN"]; //記錄是否更新成功的標識                            
-                            rng = xSheet.get_Range("BN" + ii, Missing.Value);
+                            rng = xSheet.Cells[ii, "BO"]; //記錄是否更新成功的標識                            
+                            rng = xSheet.get_Range("BO" + ii, Missing.Value);
                             rng.Value2 = "OK";
                         }
 
@@ -338,7 +340,7 @@ namespace cf01.CLS
                 catch (Exception E)
                 {
                     myTrans.Rollback(); //數據回滾                    
-                    rng = xSheet.get_Range("BN" + row_precessing, Missing.Value);
+                    rng = xSheet.get_Range("BO" + row_precessing, Missing.Value);
                     rng.Value2 = "NG";
                     rng.Interior.ColorIndex = 6; //设置Range的背景色 
                     xBook.Save();
