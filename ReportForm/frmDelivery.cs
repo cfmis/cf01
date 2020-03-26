@@ -28,8 +28,8 @@ namespace cf01.ReportForm
         private DataTable dtParts = new DataTable();
         //將已選中的記錄加到臨時表中，此表沒有重覆
         private DataTable dtPrint = new DataTable();
-        public string strUserid = DBUtility._user_id;
-
+        private string strUserid = DBUtility._user_id;
+        private string within_code = DBUtility.within_code;
         public frmDelivery()
         {
             InitializeComponent();
@@ -258,8 +258,27 @@ namespace cf01.ReportForm
             loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-
-            
+            dtDelivery.Columns.Add("current_goods_id", typeof(string));
+            dtDelivery.Columns.Add("current_goods_name", typeof(string));
+            dtDelivery.Columns.Add("current_req_date", typeof(string));
+            dtDelivery.Columns.Add("current_prod_qty", typeof(float));
+            dtDelivery.Columns.Add("next_wp_id", typeof(string));
+            dtDelivery.Columns.Add("next_wp_name", typeof(string));
+            for (int i=0;i<dtDelivery.Rows.Count;i++)
+            {
+                DataRow dr = dtDelivery.Rows[i];
+                DataTable dt=getNextDepItem(dr["mo_id"].ToString(), dr["in_dept"].ToString(), dr["goods_id"].ToString());
+                if(dt.Rows.Count>0)
+                {
+                    DataRow drCurrent = dt.Rows[0];
+                    dr["current_goods_id"] = drCurrent["goods_id"];
+                    dr["current_goods_name"] = drCurrent["goods_name"];
+                    dr["next_wp_id"] = drCurrent["next_wp_id"];
+                    dr["next_wp_name"] = drCurrent["next_wp_name"];
+                    dr["current_prod_qty"] = drCurrent["prod_qty"];
+                    dr["current_req_date"] = drCurrent["req_date"];
+                }
+            }
         }
 
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
@@ -303,16 +322,19 @@ namespace cf01.ReportForm
 
         private void BTNPRINT_Click(object sender, EventArgs e)
         {
-          Print("1");
+            txtID2.Focus();
+            Print("1");
         }
 
         private void BTNPRINTA4_Click(object sender, EventArgs e)
         {
+            txtID2.Focus();
             Print("2");
         }
 
         private void BTNPRINTA41_Click(object sender, EventArgs e)
         {
+            txtID2.Focus();
             Print("3");
         }
 
@@ -1062,6 +1084,12 @@ namespace cf01.ReportForm
                 str += "\t" + "移交單日期";
                 str += "\t" + "供應商編號";
                 str += "\t" + "電鍍顏色";
+                str += "\t" + "本部門物料編號";
+                str += "\t" + "本部門物料描述";
+                str += "\t" + "下部門編號";
+                str += "\t" + "下部門描述";
+                str += "\t" + "本部門計劃數量";
+                str += "\t" + "本部門計劃完成日期";
                 //
 
                 sw.WriteLine(str);
@@ -1084,6 +1112,12 @@ namespace cf01.ReportForm
                     tempstr += "\t" + "=\"" + gridView1.GetRowCellValue(i, "con_date").ToString() + "\"";
                     tempstr += "\t" + gridView1.GetRowCellValue(i, "vendor_id").ToString();
                     tempstr += "\t" + gridView1.GetRowCellValue(i, "do_color").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "current_goods_id").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "current_goods_name").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "next_wp_id").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "next_wp_name").ToString();
+                    tempstr += "\t" + gridView1.GetRowCellValue(i, "current_prod_qty").ToString();
+                    tempstr += "\t" + "=\"" + gridView1.GetRowCellValue(i, "current_req_date").ToString() + "\"";
                     sw.WriteLine(tempstr);
                 }
                 sw.Close();
@@ -1195,6 +1229,7 @@ namespace cf01.ReportForm
 
         private void btnPrintProductCart_Click(object sender, EventArgs e)
         {
+            txtID2.Focus();
             //以下為舊的列印方法
             if (gridView1.RowCount > 0)
             {
@@ -1233,5 +1268,23 @@ namespace cf01.ReportForm
                 MessageBox.Show("請查詢數據后，再打印報表.");
             }
         }
+
+        private DataTable getNextDepItem(string mo_id, string wp_id, string goods_id)
+        {
+            string strSql = "";
+            strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
+                    ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
+            strSql += " FROM jo_bill_mostly a";
+            strSql += " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
+                    " INNER JOIN jo_bill_materiel_details c ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
+                    " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
+                    " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
+                    " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND c.materiel_id='" + goods_id + "'" +
+                    " AND b.wp_id='" + wp_id + "'";
+
+            DataTable dt = clsConErp.GetDataTable(strSql);
+            return dt;
+        }
+
     }
 }

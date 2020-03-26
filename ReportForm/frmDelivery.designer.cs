@@ -101,12 +101,19 @@
             this.in_dept_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.con_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.package_num = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.vendor_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.do_color = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sent_bef_year = new DevExpress.XtraGrid.Columns.GridColumn();
             this.picture_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.do_color = new DevExpress.XtraGrid.Columns.GridColumn();
             this.goods_mat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seq_id_flag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.remark = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.current_goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.current_goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.next_wp_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.next_wp_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.current_prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.current_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkJx = new DevExpress.XtraEditors.CheckEdit();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
             this.chkDelivery = new DevExpress.XtraEditors.CheckEdit();
@@ -117,7 +124,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.vendor_id = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -294,7 +300,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(81, 36);
+            this.BTNSAVESET.Size = new System.Drawing.Size(84, 36);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVESET.ToolTipText = "保存查找條件";
@@ -305,7 +311,7 @@
             this.BTNSAVEPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVEPRINT.Image")));
             this.BTNSAVEPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVEPRINT.Name = "BTNSAVEPRINT";
-            this.BTNSAVEPRINT.Size = new System.Drawing.Size(81, 36);
+            this.BTNSAVEPRINT.Size = new System.Drawing.Size(84, 36);
             this.BTNSAVEPRINT.Text = "保存列印數據";
             this.BTNSAVEPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVEPRINT.Click += new System.EventHandler(this.BTNSAVEPRINT_Click);
@@ -320,7 +326,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(83, 36);
+            this.BTNPRINT.Size = new System.Drawing.Size(87, 36);
             this.BTNPRINT.Text = "工序卡列印(&P)";
             this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
@@ -335,7 +341,7 @@
             this.BTNPRINTA4.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINTA4.Image")));
             this.BTNPRINTA4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINTA4.Name = "BTNPRINTA4";
-            this.BTNPRINTA4.Size = new System.Drawing.Size(103, 36);
+            this.BTNPRINTA4.Size = new System.Drawing.Size(107, 36);
             this.BTNPRINTA4.Text = "工序卡列印(A4紙)";
             this.BTNPRINTA4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINTA4.Click += new System.EventHandler(this.BTNPRINTA4_Click);
@@ -345,7 +351,7 @@
             this.BTNPRINTA41.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINTA41.Image")));
             this.BTNPRINTA41.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINTA41.Name = "BTNPRINTA41";
-            this.BTNPRINTA41.Size = new System.Drawing.Size(91, 36);
+            this.BTNPRINTA41.Size = new System.Drawing.Size(95, 36);
             this.BTNPRINTA41.Text = "移交清單(A4紙)";
             this.BTNPRINTA41.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINTA41.Click += new System.EventHandler(this.BTNPRINTA41_Click);
@@ -366,7 +372,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(93, 36);
+            this.BTNSAVE.Size = new System.Drawing.Size(97, 36);
             this.BTNSAVE.Text = "保存JX移交數據";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
@@ -736,10 +742,17 @@
             this.picture_name,
             this.goods_mat,
             this.seq_id_flag,
-            this.remark});
+            this.remark,
+            this.current_goods_id,
+            this.current_goods_name,
+            this.next_wp_id,
+            this.next_wp_name,
+            this.current_prod_qty,
+            this.current_req_date});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.PaintStyleName = "Style3D";
             this.gridView1.RowHeight = 22;
@@ -758,7 +771,7 @@
             this.flag_select.OptionsFilter.AllowFilter = false;
             this.flag_select.Visible = true;
             this.flag_select.VisibleIndex = 0;
-            this.flag_select.Width = 30;
+            this.flag_select.Width = 20;
             // 
             // clFlag_select
             // 
@@ -780,7 +793,7 @@
             this.id.Tag = "2";
             this.id.Visible = true;
             this.id.VisibleIndex = 1;
-            this.id.Width = 95;
+            this.id.Width = 100;
             // 
             // sequence_id
             // 
@@ -795,7 +808,7 @@
             this.sequence_id.Tag = "2";
             this.sequence_id.Visible = true;
             this.sequence_id.VisibleIndex = 2;
-            this.sequence_id.Width = 35;
+            this.sequence_id.Width = 60;
             // 
             // mo_id
             // 
@@ -809,7 +822,7 @@
             this.mo_id.OptionsFilter.AllowFilter = false;
             this.mo_id.Visible = true;
             this.mo_id.VisibleIndex = 3;
-            this.mo_id.Width = 78;
+            this.mo_id.Width = 80;
             // 
             // goods_id
             // 
@@ -838,7 +851,7 @@
             this.goods_name.OptionsFilter.AllowFilter = false;
             this.goods_name.Visible = true;
             this.goods_name.VisibleIndex = 5;
-            this.goods_name.Width = 126;
+            this.goods_name.Width = 200;
             // 
             // con_qty
             // 
@@ -853,7 +866,7 @@
             this.con_qty.Tag = "2";
             this.con_qty.Visible = true;
             this.con_qty.VisibleIndex = 6;
-            this.con_qty.Width = 52;
+            this.con_qty.Width = 80;
             // 
             // sec_qty
             // 
@@ -868,7 +881,7 @@
             this.sec_qty.Tag = "2";
             this.sec_qty.Visible = true;
             this.sec_qty.VisibleIndex = 7;
-            this.sec_qty.Width = 33;
+            this.sec_qty.Width = 80;
             // 
             // out_dept
             // 
@@ -883,7 +896,7 @@
             this.out_dept.Tag = "2";
             this.out_dept.Visible = true;
             this.out_dept.VisibleIndex = 8;
-            this.out_dept.Width = 48;
+            this.out_dept.Width = 80;
             // 
             // out_dept_name
             // 
@@ -897,7 +910,7 @@
             this.out_dept_name.OptionsFilter.AllowFilter = false;
             this.out_dept_name.Visible = true;
             this.out_dept_name.VisibleIndex = 9;
-            this.out_dept_name.Width = 68;
+            this.out_dept_name.Width = 80;
             // 
             // in_dept
             // 
@@ -912,7 +925,7 @@
             this.in_dept.Tag = "2";
             this.in_dept.Visible = true;
             this.in_dept.VisibleIndex = 10;
-            this.in_dept.Width = 48;
+            this.in_dept.Width = 80;
             // 
             // in_dept_name
             // 
@@ -926,7 +939,7 @@
             this.in_dept_name.OptionsFilter.AllowFilter = false;
             this.in_dept_name.Visible = true;
             this.in_dept_name.VisibleIndex = 11;
-            this.in_dept_name.Width = 67;
+            this.in_dept_name.Width = 80;
             // 
             // con_date
             // 
@@ -941,7 +954,7 @@
             this.con_date.Tag = "2";
             this.con_date.Visible = true;
             this.con_date.VisibleIndex = 12;
-            this.con_date.Width = 66;
+            this.con_date.Width = 80;
             // 
             // package_num
             // 
@@ -955,23 +968,19 @@
             this.package_num.OptionsColumn.ReadOnly = true;
             this.package_num.Visible = true;
             this.package_num.VisibleIndex = 13;
-            this.package_num.Width = 69;
+            this.package_num.Width = 80;
             // 
-            // sent_bef_year
+            // vendor_id
             // 
-            this.sent_bef_year.Caption = "sent_bef_year";
-            this.sent_bef_year.FieldName = "sent_bef_year";
-            this.sent_bef_year.Name = "sent_bef_year";
-            this.sent_bef_year.OptionsColumn.AllowSize = false;
-            this.sent_bef_year.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.sent_bef_year.OptionsColumn.ReadOnly = true;
-            this.sent_bef_year.Width = 83;
-            // 
-            // picture_name
-            // 
-            this.picture_name.Caption = "圖樣路徑";
-            this.picture_name.FieldName = "picture_name";
-            this.picture_name.Name = "picture_name";
+            this.vendor_id.Caption = "供應商";
+            this.vendor_id.FieldName = "vendor_id";
+            this.vendor_id.Name = "vendor_id";
+            this.vendor_id.OptionsColumn.AllowSize = false;
+            this.vendor_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.vendor_id.OptionsColumn.ReadOnly = true;
+            this.vendor_id.Visible = true;
+            this.vendor_id.VisibleIndex = 14;
+            this.vendor_id.Width = 80;
             // 
             // do_color
             // 
@@ -983,12 +992,30 @@
             this.do_color.OptionsColumn.ReadOnly = true;
             this.do_color.Visible = true;
             this.do_color.VisibleIndex = 15;
+            this.do_color.Width = 100;
+            // 
+            // sent_bef_year
+            // 
+            this.sent_bef_year.Caption = "sent_bef_year";
+            this.sent_bef_year.FieldName = "sent_bef_year";
+            this.sent_bef_year.Name = "sent_bef_year";
+            this.sent_bef_year.OptionsColumn.AllowSize = false;
+            this.sent_bef_year.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.sent_bef_year.OptionsColumn.ReadOnly = true;
+            this.sent_bef_year.Width = 80;
+            // 
+            // picture_name
+            // 
+            this.picture_name.Caption = "圖樣路徑";
+            this.picture_name.FieldName = "picture_name";
+            this.picture_name.Name = "picture_name";
             // 
             // goods_mat
             // 
             this.goods_mat.Caption = "原料編號";
             this.goods_mat.FieldName = "goods_mat";
             this.goods_mat.Name = "goods_mat";
+            this.goods_mat.Width = 120;
             // 
             // seq_id_flag
             // 
@@ -1001,6 +1028,60 @@
             this.remark.Caption = "稱交備註";
             this.remark.FieldName = "remark";
             this.remark.Name = "remark";
+            // 
+            // current_goods_id
+            // 
+            this.current_goods_id.Caption = "本部門物料編號";
+            this.current_goods_id.FieldName = "current_goods_id";
+            this.current_goods_id.Name = "current_goods_id";
+            this.current_goods_id.Visible = true;
+            this.current_goods_id.VisibleIndex = 16;
+            this.current_goods_id.Width = 120;
+            // 
+            // current_goods_name
+            // 
+            this.current_goods_name.Caption = "本部門物料描述";
+            this.current_goods_name.FieldName = "current_goods_name";
+            this.current_goods_name.Name = "current_goods_name";
+            this.current_goods_name.Visible = true;
+            this.current_goods_name.VisibleIndex = 17;
+            this.current_goods_name.Width = 200;
+            // 
+            // next_wp_id
+            // 
+            this.next_wp_id.Caption = "下部門編號";
+            this.next_wp_id.FieldName = "next_wp_id";
+            this.next_wp_id.Name = "next_wp_id";
+            this.next_wp_id.Visible = true;
+            this.next_wp_id.VisibleIndex = 18;
+            this.next_wp_id.Width = 80;
+            // 
+            // next_wp_name
+            // 
+            this.next_wp_name.Caption = "下部門描述";
+            this.next_wp_name.FieldName = "next_wp_name";
+            this.next_wp_name.Name = "next_wp_name";
+            this.next_wp_name.Visible = true;
+            this.next_wp_name.VisibleIndex = 19;
+            this.next_wp_name.Width = 80;
+            // 
+            // current_prod_qty
+            // 
+            this.current_prod_qty.Caption = "本部門計劃生產數量";
+            this.current_prod_qty.FieldName = "current_prod_qty";
+            this.current_prod_qty.Name = "current_prod_qty";
+            this.current_prod_qty.Visible = true;
+            this.current_prod_qty.VisibleIndex = 20;
+            this.current_prod_qty.Width = 80;
+            // 
+            // current_req_date
+            // 
+            this.current_req_date.Caption = "本部門計劃完成日期";
+            this.current_req_date.FieldName = "current_req_date";
+            this.current_req_date.Name = "current_req_date";
+            this.current_req_date.Visible = true;
+            this.current_req_date.VisibleIndex = 21;
+            this.current_req_date.Width = 80;
             // 
             // chkJx
             // 
@@ -1101,17 +1182,6 @@
             this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // vendor_id
-            // 
-            this.vendor_id.Caption = "供應商";
-            this.vendor_id.FieldName = "vendor_id";
-            this.vendor_id.Name = "vendor_id";
-            this.vendor_id.OptionsColumn.AllowSize = false;
-            this.vendor_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.vendor_id.OptionsColumn.ReadOnly = true;
-            this.vendor_id.Visible = true;
-            this.vendor_id.VisibleIndex = 14;
             // 
             // frmDelivery
             // 
@@ -1268,5 +1338,11 @@
         private System.Windows.Forms.ToolStripButton btnPrintProductCart;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private DevExpress.XtraGrid.Columns.GridColumn vendor_id;
+        private DevExpress.XtraGrid.Columns.GridColumn current_goods_id;
+        private DevExpress.XtraGrid.Columns.GridColumn current_goods_name;
+        private DevExpress.XtraGrid.Columns.GridColumn next_wp_id;
+        private DevExpress.XtraGrid.Columns.GridColumn next_wp_name;
+        private DevExpress.XtraGrid.Columns.GridColumn current_prod_qty;
+        private DevExpress.XtraGrid.Columns.GridColumn current_req_date;
     }
 }
