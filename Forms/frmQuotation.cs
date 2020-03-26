@@ -333,7 +333,7 @@ namespace cf01.Forms
             int curent_row = 0; //從查詢窗體返回當前焦點所在行 
             using (frmQuotationFind ofrmFind = new frmQuotationFind() { flag_call = "Quotation" })
             {
-                ofrmFind.ShowDialog();
+                ofrmFind.ShowDialog();                 
                 curent_row = ofrmFind.Current_row;//返回行號 
                 if (ofrmFind.dt.Rows.Count > 0)
                 {
@@ -341,7 +341,8 @@ namespace cf01.Forms
                     dtDetail = ofrmFind.dt;//.Copy();
                     dgvDetails.DataSource = dtDetail;//設置tabpage1數據源
                 }
-            }    
+            }
+            
             if (dtDetail.Rows.Count > 0 && curent_row > 0)
             {
                 //定行到當前行 注意指定的當前列不可以隱藏的
@@ -990,19 +991,17 @@ namespace cf01.Forms
             {
                 if (txtCf_code.Text.Length >= 7)
                 {
-                    string strArtwork = txtCf_code.Text.Substring(0, 7);
+                    string strArtwork = txtCf_code.Text.Substring(0, 7);                 
                     string strSql = string.Format(
-                    @"SELECT C.picture_path+'\'+ISNULL(B.picture_name,'') AS picture_name
+                    @"SELECT ISNULL(B.picture_name,'') AS picture_name
                     FROM cd_pattern A with(nolock) 
-	                INNER JOIN (select within_code,id,max(picture_name) as picture_name 
-				                from dbo.cd_pattern_details with(nolock) group by within_code,id) B ON A.within_code=B.within_code AND A.id=B.id,
-                    dbo.cd_company C with(nolock) 
-                    WHERE A.within_code='0000' AND A.state<>'2' AND A.id='{0}'", strArtwork);
+	                INNER JOIN (select within_code,id,max(picture_name) as picture_name from dbo.cd_pattern_details with(nolock) group by within_code,id) B ON A.within_code=B.within_code AND A.id=B.id                   
+                    WHERE A.within_code='0000' AND A.id='{0}' AND A.state='1'", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);
                     if (dt.Rows.Count > 0)
                     {
-                        strArtwork = dt.Rows[0]["picture_name"].ToString();
+                        strArtwork = DBUtility.imagePath + dt.Rows[0]["picture_name"].ToString();
                         if (!string.IsNullOrEmpty(strArtwork))
                         {
                             if (File.Exists(strArtwork))

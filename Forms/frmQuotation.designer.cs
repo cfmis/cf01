@@ -165,6 +165,15 @@
             this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.group_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSub = new System.Windows.Forms.DataGridView();
+            this.seq_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attn_path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approval_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approval_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approval_status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnApproved = new DevExpress.XtraEditors.SimpleButton();
             this.txtFormula = new DevExpress.XtraEditors.ButtonEdit();
             this.lblFormula = new System.Windows.Forms.Label();
@@ -507,15 +516,6 @@
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seq_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attn_path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approval_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approval_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approval_status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.pnlHeard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTermremark.Properties)).BeginInit();
@@ -588,10 +588,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDivision.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterial.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSales_group.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProduct_desc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValid_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValid_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValid_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLead_time_unit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
@@ -886,8 +886,8 @@
             // 
             // pnlHeard
             // 
-            this.pnlHeard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHeard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlHeard.Controls.Add(this.txtTermremark);
             this.pnlHeard.Controls.Add(this.btnLabTest);
@@ -1155,7 +1155,7 @@
             // chkSpecialPrice
             // 
             this.chkSpecialPrice.Enabled = false;
-            this.chkSpecialPrice.Location = new System.Drawing.Point(1055, 26);
+            this.chkSpecialPrice.Location = new System.Drawing.Point(1069, 26);
             this.chkSpecialPrice.Name = "chkSpecialPrice";
             this.chkSpecialPrice.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.chkSpecialPrice.Properties.Appearance.Options.UseForeColor = true;
@@ -1278,7 +1278,7 @@
             this.txtReason_edit.EditValue = "";
             this.txtReason_edit.Enabled = false;
             this.txtReason_edit.EnterMoveNextControl = true;
-            this.txtReason_edit.Location = new System.Drawing.Point(955, 207);
+            this.txtReason_edit.Location = new System.Drawing.Point(969, 207);
             this.txtReason_edit.Name = "txtReason_edit";
             this.txtReason_edit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtReason_edit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1414,7 +1414,7 @@
             // 
             this.txtSample_card.EditValue = "";
             this.txtSample_card.EnterMoveNextControl = true;
-            this.txtSample_card.Location = new System.Drawing.Point(955, 162);
+            this.txtSample_card.Location = new System.Drawing.Point(969, 162);
             this.txtSample_card.Name = "txtSample_card";
             this.txtSample_card.Properties.MaxLength = 100;
             this.txtSample_card.Properties.ReadOnly = true;
@@ -1424,7 +1424,7 @@
             // 
             // lblSample_Card
             // 
-            this.lblSample_Card.Location = new System.Drawing.Point(833, 166);
+            this.lblSample_Card.Location = new System.Drawing.Point(847, 166);
             this.lblSample_Card.Name = "lblSample_Card";
             this.lblSample_Card.Size = new System.Drawing.Size(123, 13);
             this.lblSample_Card.TabIndex = 161;
@@ -1435,7 +1435,7 @@
             // 
             this.txtSms.EditValue = "";
             this.txtSms.EnterMoveNextControl = true;
-            this.txtSms.Location = new System.Drawing.Point(955, 184);
+            this.txtSms.Location = new System.Drawing.Point(969, 184);
             this.txtSms.Name = "txtSms";
             this.txtSms.Properties.MaxLength = 100;
             this.txtSms.Properties.ReadOnly = true;
@@ -1445,7 +1445,7 @@
             // 
             // lblSms
             // 
-            this.lblSms.Location = new System.Drawing.Point(924, 188);
+            this.lblSms.Location = new System.Drawing.Point(938, 188);
             this.lblSms.Name = "lblSms";
             this.lblSms.Size = new System.Drawing.Size(32, 13);
             this.lblSms.TabIndex = 159;
@@ -1456,7 +1456,7 @@
             // 
             this.txtTest_sample_hk.EditValue = "";
             this.txtTest_sample_hk.EnterMoveNextControl = true;
-            this.txtTest_sample_hk.Location = new System.Drawing.Point(955, 139);
+            this.txtTest_sample_hk.Location = new System.Drawing.Point(969, 139);
             this.txtTest_sample_hk.Name = "txtTest_sample_hk";
             this.txtTest_sample_hk.Properties.MaxLength = 100;
             this.txtTest_sample_hk.Properties.ReadOnly = true;
@@ -1466,7 +1466,7 @@
             // 
             // lblTest_sample_hk
             // 
-            this.lblTest_sample_hk.Location = new System.Drawing.Point(833, 143);
+            this.lblTest_sample_hk.Location = new System.Drawing.Point(847, 143);
             this.lblTest_sample_hk.Name = "lblTest_sample_hk";
             this.lblTest_sample_hk.Size = new System.Drawing.Size(123, 13);
             this.lblTest_sample_hk.TabIndex = 157;
@@ -1543,7 +1543,7 @@
             // 
             this.txtPlm_code.EditValue = "";
             this.txtPlm_code.EnterMoveNextControl = true;
-            this.txtPlm_code.Location = new System.Drawing.Point(955, 117);
+            this.txtPlm_code.Location = new System.Drawing.Point(969, 117);
             this.txtPlm_code.Name = "txtPlm_code";
             this.txtPlm_code.Properties.MaxLength = 100;
             this.txtPlm_code.Properties.ReadOnly = true;
@@ -1555,7 +1555,7 @@
             // 
             this.txtTrim_color_code.EditValue = "";
             this.txtTrim_color_code.EnterMoveNextControl = true;
-            this.txtTrim_color_code.Location = new System.Drawing.Point(955, 95);
+            this.txtTrim_color_code.Location = new System.Drawing.Point(969, 95);
             this.txtTrim_color_code.Name = "txtTrim_color_code";
             this.txtTrim_color_code.Properties.MaxLength = 100;
             this.txtTrim_color_code.Properties.ReadOnly = true;
@@ -1565,7 +1565,7 @@
             // 
             // lblTrim_color_code
             // 
-            this.lblTrim_color_code.Location = new System.Drawing.Point(835, 96);
+            this.lblTrim_color_code.Location = new System.Drawing.Point(849, 96);
             this.lblTrim_color_code.Name = "lblTrim_color_code";
             this.lblTrim_color_code.Size = new System.Drawing.Size(121, 13);
             this.lblTrim_color_code.TabIndex = 147;
@@ -1678,8 +1678,8 @@
             // 
             this.dgvSub.AllowUserToAddRows = false;
             this.dgvSub.AllowUserToDeleteRows = false;
-            this.dgvSub.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSub.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSub.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.seq_id,
@@ -1701,9 +1701,84 @@
             this.dgvSub.TabIndex = 139;
             this.dgvSub.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSub_CellDoubleClick);
             // 
+            // seq_id
+            // 
+            this.seq_id.DataPropertyName = "seq_id";
+            this.seq_id.HeaderText = "No.";
+            this.seq_id.Name = "seq_id";
+            this.seq_id.ReadOnly = true;
+            this.seq_id.Width = 25;
+            // 
+            // sub
+            // 
+            this.sub.DataPropertyName = "sub";
+            this.sub.HeaderText = "Sub MO";
+            this.sub.Name = "sub";
+            this.sub.ReadOnly = true;
+            this.sub.Width = 75;
+            // 
+            // pvh_no
+            // 
+            this.pvh_no.DataPropertyName = "pvh_no";
+            this.pvh_no.HeaderText = "PVH/JV REF. NO.";
+            this.pvh_no.Name = "pvh_no";
+            this.pvh_no.ReadOnly = true;
+            this.pvh_no.Width = 150;
+            // 
+            // attn_path
+            // 
+            this.attn_path.DataPropertyName = "attn_path";
+            this.attn_path.HeaderText = "Attn Path";
+            this.attn_path.Name = "attn_path";
+            this.attn_path.ReadOnly = true;
+            this.attn_path.Width = 60;
+            // 
+            // status_sub
+            // 
+            this.status_sub.DataPropertyName = "status";
+            this.status_sub.HeaderText = "Status";
+            this.status_sub.Name = "status_sub";
+            this.status_sub.ReadOnly = true;
+            this.status_sub.Width = 80;
+            // 
+            // approval_by
+            // 
+            this.approval_by.DataPropertyName = "approval_by";
+            this.approval_by.HeaderText = "Set Satus by";
+            this.approval_by.Name = "approval_by";
+            this.approval_by.ReadOnly = true;
+            this.approval_by.Width = 86;
+            // 
+            // approval_date
+            // 
+            this.approval_date.DataPropertyName = "approval_date";
+            this.approval_date.HeaderText = "Set Status Date";
+            this.approval_date.Name = "approval_date";
+            this.approval_date.ReadOnly = true;
+            this.approval_date.Width = 75;
+            // 
+            // remark_sub
+            // 
+            this.remark_sub.DataPropertyName = "remark_sub";
+            this.remark_sub.HeaderText = "Remark";
+            this.remark_sub.Name = "remark_sub";
+            this.remark_sub.ReadOnly = true;
+            this.remark_sub.Width = 200;
+            // 
+            // approval_status
+            // 
+            this.approval_status.DataPropertyName = "approval_status";
+            this.approval_status.HeaderText = "Approved";
+            this.approval_status.Name = "approval_status";
+            this.approval_status.ReadOnly = true;
+            this.approval_status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.approval_status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.approval_status.Visible = false;
+            this.approval_status.Width = 60;
+            // 
             // btnApproved
             // 
-            this.btnApproved.Location = new System.Drawing.Point(1174, 204);
+            this.btnApproved.Location = new System.Drawing.Point(1188, 204);
             this.btnApproved.Name = "btnApproved";
             this.btnApproved.Size = new System.Drawing.Size(78, 22);
             this.btnApproved.TabIndex = 138;
@@ -1785,7 +1860,7 @@
             // pic_artwork
             // 
             this.pic_artwork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_artwork.Location = new System.Drawing.Point(1176, 27);
+            this.pic_artwork.Location = new System.Drawing.Point(1183, 27);
             this.pic_artwork.Name = "pic_artwork";
             this.pic_artwork.Size = new System.Drawing.Size(155, 155);
             this.pic_artwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1809,7 +1884,7 @@
             this.txtMd_charge_unit.Properties.NullText = "";
             this.txtMd_charge_unit.Properties.ShowHeader = false;
             this.txtMd_charge_unit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtMd_charge_unit.Size = new System.Drawing.Size(45, 20);
+            this.txtMd_charge_unit.Size = new System.Drawing.Size(55, 20);
             this.txtMd_charge_unit.TabIndex = 42;
             this.txtMd_charge_unit.Tag = "2";
             // 
@@ -1940,7 +2015,7 @@
             // 
             // lblVersion
             // 
-            this.lblVersion.Location = new System.Drawing.Point(1083, 211);
+            this.lblVersion.Location = new System.Drawing.Point(1097, 211);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(45, 13);
             this.lblVersion.TabIndex = 111;
@@ -1952,7 +2027,7 @@
             this.txtMoq_unit.EditValue = "";
             this.txtMoq_unit.Enabled = false;
             this.txtMoq_unit.EnterMoveNextControl = true;
-            this.txtMoq_unit.Location = new System.Drawing.Point(955, 5);
+            this.txtMoq_unit.Location = new System.Drawing.Point(969, 5);
             this.txtMoq_unit.Name = "txtMoq_unit";
             this.txtMoq_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtMoq_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1995,7 +2070,7 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(906, 30);
+            this.lblStatus.Location = new System.Drawing.Point(920, 30);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(48, 13);
             this.lblStatus.TabIndex = 103;
@@ -2114,7 +2189,7 @@
             // 
             this.txtNeedle_test.EditValue = "";
             this.txtNeedle_test.EnterMoveNextControl = true;
-            this.txtNeedle_test.Location = new System.Drawing.Point(955, 72);
+            this.txtNeedle_test.Location = new System.Drawing.Point(969, 72);
             this.txtNeedle_test.Name = "txtNeedle_test";
             this.txtNeedle_test.Properties.MaxLength = 100;
             this.txtNeedle_test.Properties.ReadOnly = true;
@@ -2133,7 +2208,7 @@
             // 
             // lblNeedle_test
             // 
-            this.lblNeedle_test.Location = new System.Drawing.Point(871, 73);
+            this.lblNeedle_test.Location = new System.Drawing.Point(885, 73);
             this.lblNeedle_test.Name = "lblNeedle_test";
             this.lblNeedle_test.Size = new System.Drawing.Size(83, 13);
             this.lblNeedle_test.TabIndex = 88;
@@ -2144,7 +2219,7 @@
             // 
             this.txtSample_request.EditValue = "";
             this.txtSample_request.EnterMoveNextControl = true;
-            this.txtSample_request.Location = new System.Drawing.Point(955, 49);
+            this.txtSample_request.Location = new System.Drawing.Point(969, 49);
             this.txtSample_request.Name = "txtSample_request";
             this.txtSample_request.Properties.MaxLength = 100;
             this.txtSample_request.Properties.ReadOnly = true;
@@ -2154,7 +2229,7 @@
             // 
             // lblSample_request
             // 
-            this.lblSample_request.Location = new System.Drawing.Point(871, 51);
+            this.lblSample_request.Location = new System.Drawing.Point(885, 51);
             this.lblSample_request.Name = "lblSample_request";
             this.lblSample_request.Size = new System.Drawing.Size(83, 13);
             this.lblSample_request.TabIndex = 86;
@@ -2165,7 +2240,7 @@
             // 
             this.txtAw.EditValue = "";
             this.txtAw.EnterMoveNextControl = true;
-            this.txtAw.Location = new System.Drawing.Point(1054, 5);
+            this.txtAw.Location = new System.Drawing.Point(1068, 5);
             this.txtAw.Name = "txtAw";
             this.txtAw.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAw.Properties.MaxLength = 100;
@@ -2176,7 +2251,7 @@
             // 
             // lblAw
             // 
-            this.lblAw.Location = new System.Drawing.Point(999, 9);
+            this.lblAw.Location = new System.Drawing.Point(1013, 9);
             this.lblAw.Name = "lblAw";
             this.lblAw.Size = new System.Drawing.Size(54, 13);
             this.lblAw.TabIndex = 79;
@@ -2374,7 +2449,7 @@
             // 
             // lblMoq_unit
             // 
-            this.lblMoq_unit.Location = new System.Drawing.Point(926, 9);
+            this.lblMoq_unit.Location = new System.Drawing.Point(940, 9);
             this.lblMoq_unit.Name = "lblMoq_unit";
             this.lblMoq_unit.Size = new System.Drawing.Size(28, 13);
             this.lblMoq_unit.TabIndex = 55;
@@ -2705,14 +2780,14 @@
             this.txtDate.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDate.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.txtDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtDate.Properties.Mask.BeepOnError = true;
             this.txtDate.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.txtDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDate.Properties.MaxLength = 10;
-            this.txtDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDate.Size = new System.Drawing.Size(88, 20);
             this.txtDate.TabIndex = 2;
             this.txtDate.Tag = "2";
@@ -2741,14 +2816,14 @@
             this.txtValid_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtValid_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtValid_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtValid_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.txtValid_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtValid_date.Properties.Mask.BeepOnError = true;
             this.txtValid_date.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.txtValid_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtValid_date.Properties.MaxLength = 10;
-            this.txtValid_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtValid_date.Size = new System.Drawing.Size(168, 20);
             this.txtValid_date.TabIndex = 45;
             this.txtValid_date.Tag = "2";
@@ -2777,7 +2852,7 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.EnterMoveNextControl = true;
-            this.txtID.Location = new System.Drawing.Point(1192, 4);
+            this.txtID.Location = new System.Drawing.Point(1199, 4);
             this.txtID.Name = "txtID";
             this.txtID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Properties.MaxLength = 20;
@@ -2845,7 +2920,7 @@
             // 
             this.txtVersion.EditValue = "";
             this.txtVersion.Enabled = false;
-            this.txtVersion.Location = new System.Drawing.Point(1129, 207);
+            this.txtVersion.Location = new System.Drawing.Point(1143, 207);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVersion.Properties.MaxLength = 2;
@@ -2995,7 +3070,7 @@
             // 
             this.txtStatus.EditValue = "";
             this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(955, 27);
+            this.txtStatus.Location = new System.Drawing.Point(969, 27);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -3095,7 +3170,7 @@
             // 
             // lblReason_edit
             // 
-            this.lblReason_edit.Location = new System.Drawing.Point(833, 211);
+            this.lblReason_edit.Location = new System.Drawing.Point(847, 211);
             this.lblReason_edit.Name = "lblReason_edit";
             this.lblReason_edit.Size = new System.Drawing.Size(123, 13);
             this.lblReason_edit.TabIndex = 180;
@@ -3194,7 +3269,7 @@
             // 
             // lblPlm_code
             // 
-            this.lblPlm_code.Location = new System.Drawing.Point(900, 121);
+            this.lblPlm_code.Location = new System.Drawing.Point(914, 121);
             this.lblPlm_code.Name = "lblPlm_code";
             this.lblPlm_code.Size = new System.Drawing.Size(57, 13);
             this.lblPlm_code.TabIndex = 149;
@@ -3411,9 +3486,9 @@
             // tabControl1
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(2, 459);
@@ -3450,9 +3525,9 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDetails.ColumnHeadersHeight = 40;
@@ -4327,8 +4402,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.BTNFORMULA);
             this.panel1.Controls.Add(this.chkAllPrice);
@@ -4425,9 +4500,9 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(-2, 42);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -5600,81 +5675,6 @@
             this.dataGridViewTextBoxColumn59.ReadOnly = true;
             this.dataGridViewTextBoxColumn59.Visible = false;
             // 
-            // seq_id
-            // 
-            this.seq_id.DataPropertyName = "seq_id";
-            this.seq_id.HeaderText = "No.";
-            this.seq_id.Name = "seq_id";
-            this.seq_id.ReadOnly = true;
-            this.seq_id.Width = 25;
-            // 
-            // sub
-            // 
-            this.sub.DataPropertyName = "sub";
-            this.sub.HeaderText = "Sub MO";
-            this.sub.Name = "sub";
-            this.sub.ReadOnly = true;
-            this.sub.Width = 75;
-            // 
-            // pvh_no
-            // 
-            this.pvh_no.DataPropertyName = "pvh_no";
-            this.pvh_no.HeaderText = "PVH/JV REF. NO.";
-            this.pvh_no.Name = "pvh_no";
-            this.pvh_no.ReadOnly = true;
-            this.pvh_no.Width = 150;
-            // 
-            // attn_path
-            // 
-            this.attn_path.DataPropertyName = "attn_path";
-            this.attn_path.HeaderText = "Attn Path";
-            this.attn_path.Name = "attn_path";
-            this.attn_path.ReadOnly = true;
-            this.attn_path.Width = 60;
-            // 
-            // status_sub
-            // 
-            this.status_sub.DataPropertyName = "status";
-            this.status_sub.HeaderText = "Status";
-            this.status_sub.Name = "status_sub";
-            this.status_sub.ReadOnly = true;
-            this.status_sub.Width = 80;
-            // 
-            // approval_by
-            // 
-            this.approval_by.DataPropertyName = "approval_by";
-            this.approval_by.HeaderText = "Set Satus by";
-            this.approval_by.Name = "approval_by";
-            this.approval_by.ReadOnly = true;
-            this.approval_by.Width = 86;
-            // 
-            // approval_date
-            // 
-            this.approval_date.DataPropertyName = "approval_date";
-            this.approval_date.HeaderText = "Set Status Date";
-            this.approval_date.Name = "approval_date";
-            this.approval_date.ReadOnly = true;
-            this.approval_date.Width = 75;
-            // 
-            // remark_sub
-            // 
-            this.remark_sub.DataPropertyName = "remark_sub";
-            this.remark_sub.HeaderText = "Remark";
-            this.remark_sub.Name = "remark_sub";
-            this.remark_sub.ReadOnly = true;
-            this.remark_sub.Width = 200;
-            // 
-            // approval_status
-            // 
-            this.approval_status.DataPropertyName = "approval_status";
-            this.approval_status.HeaderText = "Approved";
-            this.approval_status.Name = "approval_status";
-            this.approval_status.ReadOnly = true;
-            this.approval_status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.approval_status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.approval_status.Visible = false;
-            this.approval_status.Width = 60;
-            // 
             // frmQuotation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -5763,10 +5763,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDivision.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterial.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSales_group.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProduct_desc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValid_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValid_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValid_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLead_time_unit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();

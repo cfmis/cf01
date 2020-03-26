@@ -281,7 +281,7 @@ namespace cf01.Forms
             else
             {
                 Current_row = 0;
-            }
+            }           
         }
 
         private void BTNCOLUMN_Click(object sender, EventArgs e)

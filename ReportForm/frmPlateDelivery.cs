@@ -407,51 +407,59 @@ namespace cf01.ReportForm
                 progressBar1.Step = 1;
                 progressBar1.Maximum = dtExcel.Rows.Count;
 
-                for (int i = 0; i < dtExcel.Rows.Count; i++)
+                try
                 {
-                    progressBar1.Value += progressBar1.Step;
-                    if (progressBar1.Value == progressBar1.Maximum)
+                    for (int i = 0; i < dtExcel.Rows.Count; i++)
                     {
-                        progressBar1.Enabled = false;
-                        progressBar1.Visible = false;
-                    }
+                        progressBar1.Value += progressBar1.Step;
+                        if (progressBar1.Value == progressBar1.Maximum)
+                        {
+                            progressBar1.Enabled = false;
+                            progressBar1.Visible = false;
+                        }
 
-                    strmo_id = dtExcel.Rows[i]["未完成頁數"].ToString().Trim();
-                    if (String.IsNullOrEmpty(strmo_id))
-                    {
-                        continue;
-                    }
-                    strmo_type = dtExcel.Rows[i]["急/特急狀態"].ToString().Trim();
-                    strwp_id = dtExcel.Rows[i]["當前部門"].ToString().Trim();
-                    mo_type_sort = strmo_type.Length;
+                        strmo_id = dtExcel.Rows[i]["未完成頁數"].ToString().Trim();
+                        if (String.IsNullOrEmpty(strmo_id))
+                        {
+                            continue;
+                        }
+                        strmo_type = dtExcel.Rows[i]["急/特急狀態"].ToString().Trim();
+                        strwp_id = dtExcel.Rows[i]["當前部門"].ToString().Trim();//20200326通常當前部門只有一個,但PMC經常多打幾個部門引入起出錯,現暫時加工字段長度
+                        mo_type_sort = strmo_type.Length;
 
-                    SqlCommand cmd = new SqlCommand(strSql_f, sqlconn);
-                    cmd.Parameters.AddWithValue("@user_id", strUser_id);
-                    cmd.Parameters.AddWithValue("@mo_id", strmo_id);
-                    cmd.Parameters.AddWithValue("@rpt_type", rpt_type);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    if (!dr.Read())
-                    {
-                        cmd.Dispose();
-                        dr.Close();
-                        dr.Dispose();
-                        SqlCommand sqlcmd = new SqlCommand(strSql_i, sqlconn);
-                        sqlcmd.Parameters.AddWithValue("@user_id", strUser_id);
-                        sqlcmd.Parameters.AddWithValue("@mo_id", strmo_id);
-                        sqlcmd.Parameters.AddWithValue("@rpt_type", rpt_type);
-                        sqlcmd.Parameters.AddWithValue("@mo_type", strmo_type);
-                        sqlcmd.Parameters.AddWithValue("@wp_id", strwp_id);
-                        sqlcmd.Parameters.AddWithValue("@mo_type_sort", mo_type_sort);
-                        sqlcmd.ExecuteNonQuery();
-                        sqlcmd.Dispose();
-                    }
-                    else
-                    {
-                        cmd.Dispose();
-                        dr.Close();
-                        dr.Dispose();
+                        SqlCommand cmd = new SqlCommand(strSql_f, sqlconn);
+                        cmd.Parameters.AddWithValue("@user_id", strUser_id);
+                        cmd.Parameters.AddWithValue("@mo_id", strmo_id);
+                        cmd.Parameters.AddWithValue("@rpt_type", rpt_type);
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        if (!dr.Read())
+                        {
+                            cmd.Dispose();
+                            dr.Close();
+                            dr.Dispose();
+                            SqlCommand sqlcmd = new SqlCommand(strSql_i, sqlconn);
+                            sqlcmd.Parameters.AddWithValue("@user_id", strUser_id);
+                            sqlcmd.Parameters.AddWithValue("@mo_id", strmo_id);
+                            sqlcmd.Parameters.AddWithValue("@rpt_type", rpt_type);
+                            sqlcmd.Parameters.AddWithValue("@mo_type", strmo_type);
+                            sqlcmd.Parameters.AddWithValue("@wp_id", strwp_id);
+                            sqlcmd.Parameters.AddWithValue("@mo_type_sort", mo_type_sort);
+                            sqlcmd.ExecuteNonQuery();
+                            sqlcmd.Dispose();
+                        }
+                        else
+                        {
+                            cmd.Dispose();
+                            dr.Close();
+                            dr.Dispose();
+                        }
                     }
                 }
+                catch (Exception E)
+                {
+                    throw new Exception(E.Message);
+                }
+                
                 progressBar1.Enabled = false;
                 progressBar1.Visible = false;
                 sqlconn.Close();
