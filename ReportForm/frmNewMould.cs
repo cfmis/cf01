@@ -168,7 +168,8 @@ namespace cf01.ReportForm
             if (txtDept2.Text != "")
             {
                 sql += String.Format(" AND B.dept_id<='{0}'", txtDept2.Text.Trim());
-            }            
+            }
+            sql += " ORDER BY B.dept_id,Convert(char(10),A.check_date,120),A.id ";
             DataTable dtMould = clsConErp.GetDataTable(sql);
 
 
@@ -181,7 +182,7 @@ namespace cf01.ReportForm
                     strMsg = "Query does not meet the requirements of the data.";
                 }
                 MessageBox.Show(strMsg, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dtMould.DefaultView.Sort = "dept_id ASC,id";  //排序             
+                //dtMould.DefaultView.Sort = "dept_id,check_date,id";  //排序             
                 return;
             }
 

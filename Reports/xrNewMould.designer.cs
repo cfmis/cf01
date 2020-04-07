@@ -357,6 +357,7 @@
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.ReportPrintOptions.DetailCountOnEmptyDataSource = 12;
+            this.ShowPreviewMarginLines = false;
             this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

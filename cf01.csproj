@@ -1630,6 +1630,12 @@
     <Compile Include="ReportForm\frmModulePlace.Designer.cs">
       <DependentUpon>frmModulePlace.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmMoPlanHold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmMoPlanHold.Designer.cs">
+      <DependentUpon>frmMoPlanHold.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmMoStockQuery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3171,6 +3177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmModulePlace.resx">
       <DependentUpon>frmModulePlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmMoPlanHold.resx">
+      <DependentUpon>frmMoPlanHold.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmMoStockQuery.resx">
       <DependentUpon>frmMoStockQuery.cs</DependentUpon>
