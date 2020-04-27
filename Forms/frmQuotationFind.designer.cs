@@ -294,6 +294,7 @@
             this.price_salesperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_kind = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark_salesperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_below_over = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -503,8 +504,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lblTestReportPath);
             this.panel1.Controls.Add(this.btnTestReport);
             this.panel1.Controls.Add(this.label26);
@@ -869,9 +870,9 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDetails.ColumnHeadersHeight = 50;
@@ -903,6 +904,7 @@
             this.price_salesperson,
             this.price_kind,
             this.remark_salesperson,
+            this.moq_below_over,
             this.moq,
             this.moq_desc,
             this.moq_unit,
@@ -2408,6 +2410,13 @@
             this.remark_salesperson.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.remark_salesperson.Width = 150;
             // 
+            // moq_below_over
+            // 
+            this.moq_below_over.DataPropertyName = "moq_below_over";
+            this.moq_below_over.HeaderText = "Moq Type";
+            this.moq_below_over.Name = "moq_below_over";
+            this.moq_below_over.Width = 50;
+            // 
             // moq
             // 
             this.moq.DataPropertyName = "moq";
@@ -3195,6 +3204,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_salesperson;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_kind;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_salesperson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq_below_over;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_unit;

@@ -83,7 +83,7 @@ namespace cf01.Forms
 
             const string strsql =
             @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,A.date,A.brand,A.brand_desc,A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,
-            A.number_enter,A.price_usd,A.price_hkd,A.price_rmb,A.hkd_ex_fty,A.price_unit,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
+            A.number_enter,A.price_usd,A.price_hkd,A.price_rmb,A.hkd_ex_fty,A.price_unit,A.moq_below_over,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
             A.lead_time_unit,A.md_charge,A.md_charge_cny,A.md_charge_unit,A.die_mould_usd,A.die_mould_cny,A.valid_date,A.date_req,A.aw,A.status,
             A.sample_request,A.needle_test,A.comment,A.remark,A.remark_other,A.remark_pdd,A.division,A.contact,A.crusr,A.crtim,A.amusr,A.amtim,A.flag_del,A.mo_id,A.id,A.temp_code,A.polo_care,A.moq_for_test,
             A.plm_code,trim_color_code,A.test_sample_hk,A.sms,A.sample_card,A.meeting_recap,A.usd_dap,A.usd_lab_test_prx,A.ex_fty_hkd,A.ex_fty_usd,
@@ -529,14 +529,14 @@ namespace cf01.Forms
             bool save_flag = false;                         
             const string sql_new =
             @"INSERT INTO quotation(sales_group,temp_code,date,brand,brand_desc,formula_id,season,season_desc,division,contact,material,size,product_desc,
-                    cust_code,cf_code,cust_color,cf_color,price_usd,price_hkd,price_rmb,price_unit,salesman,moq,moq_desc,moq_unit,mwq,mwq_unit,
+                    cust_code,cf_code,cust_color,cf_color,price_usd,price_hkd,price_rmb,price_unit,salesman,moq_below_over,moq,moq_desc,moq_unit,mwq,mwq_unit,
                     lead_time_min,lead_time_max,lead_time_unit,md_charge,md_charge_cny,md_charge_unit,remark,remark_other,die_mould_usd,die_mould_cny,account_code,valid_date,
                     number_enter,hkd_ex_fty,date_req,aw,status,sample_request,
                     needle_test,ver,crusr,crtim,comment,remark_pdd,mo_id,polo_care,moq_for_test,plm_code,trim_color_code,
                     test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,
                     discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,labtest_prod_type,termremark)
             VALUES(@sales_group,@temp_code,CASE LEN(@date) WHEN 0 THEN null ELSE @date END,@brand,@brand_desc,@formula_id,@season,@season_desc,@division,@contact,@material,@size,@product_desc,
-                    @cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,
+                    @cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq_below_over,@moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,
                     @lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@md_charge_unit,@remark,@remark_other,@die_mould_usd,@die_mould_cny,@account_code,
                     CASE LEN(@valid_date) WHEN 0 THEN null ELSE @valid_date END ,
                     @number_enter,@hkd_ex_fty,@date_req,@aw,@status,@sample_request,
@@ -546,7 +546,7 @@ namespace cf01.Forms
             const string sql_update =
             @"UPDATE quotation 
             SET sales_group=@sales_group,temp_code=@temp_code,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,season=@season,season_desc=@season_desc,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
-                cust_code=@cust_code,cf_code=@cf_code,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,price_unit=@price_unit,salesman=@salesman,moq=@moq,moq_desc=@moq_desc,moq_unit=@moq_unit,mwq=@mwq,mwq_unit=@mwq_unit,
+                cust_code=@cust_code,cf_code=@cf_code,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,price_unit=@price_unit,salesman=@salesman,moq_below_over=@moq_below_over,moq=@moq,moq_desc=@moq_desc,moq_unit=@moq_unit,mwq=@mwq,mwq_unit=@mwq_unit,
                 lead_time_min=@lead_time_min,lead_time_max=@lead_time_max,lead_time_unit=@lead_time_unit,md_charge=@md_charge,md_charge_cny=@md_charge_cny,md_charge_unit=@md_charge_unit,remark=@remark,remark_other=@remark_other,die_mould_usd=@die_mould_usd,die_mould_cny=@die_mould_cny,account_code=@account_code,
                 valid_date = CASE LEN(@valid_date) WHEN 0 THEN null ELSE @valid_date END,
                 number_enter=@number_enter,hkd_ex_fty=@hkd_ex_fty,date_req=@date_req,aw=@aw,status=@status,sample_request=@sample_request,
@@ -606,6 +606,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@price_rmb", clsApp.Return_Float_Value(txtPrice_rmb.Text));
                     myCommand.Parameters.AddWithValue("@price_unit", txtPrice_unit.EditValue);
                     myCommand.Parameters.AddWithValue("@salesman", txtSalesman.Text);
+                    myCommand.Parameters.AddWithValue("@moq_below_over", cmbmoq_below_over.Text);
                     myCommand.Parameters.AddWithValue("@moq", clsApp.Return_Float_Value(txtMoq.Text));
                     myCommand.Parameters.AddWithValue("@moq_desc", txtMoq_Desc.Text);
                     myCommand.Parameters.AddWithValue("@moq_unit", txtMoq_unit.EditValue);
@@ -904,7 +905,8 @@ namespace cf01.Forms
             txtPrice_hkd.EditValue = pdr.Cells["price_hkd"].Value;
             txtPrice_rmb.EditValue = pdr.Cells["price_rmb"].Value;
             txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
-            txtSalesman.Text = pdr.Cells["salesman"].Value.ToString();                    
+            txtSalesman.Text = pdr.Cells["salesman"].Value.ToString(); 
+            cmbmoq_below_over.EditValue= pdr.Cells["moq_below_over"].Value.ToString();
             txtMoq.EditValue = pdr.Cells["moq"].Value;
             txtMoq_Desc.Text = pdr.Cells["moq_desc"].Value.ToString();
             txtMoq_unit.EditValue = pdr.Cells["moq_unit"].Value;
@@ -2156,7 +2158,8 @@ namespace cf01.Forms
                     row["price_hkd"] = clsApp.Return_Float_Value(txtPrice_hkd.Text);
                     row["price_rmb"] = clsApp.Return_Float_Value(txtPrice_rmb.Text);
                     row["price_unit"] = txtPrice_unit.EditValue;
-                    row["salesman"] = txtSalesman.Text;                    
+                    row["salesman"] = txtSalesman.Text;
+                    row["moq_below_over"] = cmbmoq_below_over.Text ;
                     row["moq"] = clsApp.Return_Float_Value(txtMoq.Text);
                     row["moq_desc"] = txtMoq_Desc.Text;
                     row["moq_unit"] = txtMoq_unit.EditValue;
@@ -2245,6 +2248,7 @@ namespace cf01.Forms
                     dtDetail.Rows[row_reset]["price_rmb"] = txtPrice_rmb.EditValue;
                     dtDetail.Rows[row_reset]["price_unit"] = txtPrice_unit.EditValue;
                     dtDetail.Rows[row_reset]["salesman"] = txtSalesman.Text;
+                    dtDetail.Rows[row_reset]["moq_below_over"] = cmbmoq_below_over.Text;
                     dtDetail.Rows[row_reset]["moq"] = txtMoq.EditValue;
                     dtDetail.Rows[row_reset]["moq_desc"] = txtMoq_Desc.Text;
                     dtDetail.Rows[row_reset]["moq_unit"] = txtMoq_unit.EditValue;

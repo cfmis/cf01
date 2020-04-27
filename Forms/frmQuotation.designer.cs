@@ -122,6 +122,7 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCalculatePrice = new System.Windows.Forms.ToolStripButton();
             this.pnlHeard = new System.Windows.Forms.Panel();
+            this.cmbmoq_below_over = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtTermremark = new DevExpress.XtraEditors.TextEdit();
             this.btnLabTest = new System.Windows.Forms.Button();
             this.lueLabtest = new DevExpress.XtraEditors.LookUpEdit();
@@ -340,6 +341,7 @@
             this.price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_below_over = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -518,6 +520,7 @@
             this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.pnlHeard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbmoq_below_over.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTermremark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueLabtest.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCost_price.Properties)).BeginInit();
@@ -889,6 +892,7 @@
             this.pnlHeard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlHeard.Controls.Add(this.cmbmoq_below_over);
             this.pnlHeard.Controls.Add(this.txtTermremark);
             this.pnlHeard.Controls.Add(this.btnLabTest);
             this.pnlHeard.Controls.Add(this.lueLabtest);
@@ -1062,6 +1066,26 @@
             this.pnlHeard.Name = "pnlHeard";
             this.pnlHeard.Size = new System.Drawing.Size(1357, 418);
             this.pnlHeard.TabIndex = 11;
+            // 
+            // cmbmoq_below_over
+            // 
+            this.cmbmoq_below_over.EditValue = "";
+            this.cmbmoq_below_over.Enabled = false;
+            this.cmbmoq_below_over.EnterMoveNextControl = true;
+            this.cmbmoq_below_over.Location = new System.Drawing.Point(594, 5);
+            this.cmbmoq_below_over.Name = "cmbmoq_below_over";
+            this.cmbmoq_below_over.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.cmbmoq_below_over.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.cmbmoq_below_over.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbmoq_below_over.Properties.Items.AddRange(new object[] {
+            "",
+            "Below",
+            "Over"});
+            this.cmbmoq_below_over.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbmoq_below_over.Size = new System.Drawing.Size(59, 20);
+            this.cmbmoq_below_over.TabIndex = 202;
+            this.cmbmoq_below_over.Tag = "2";
             // 
             // txtTermremark
             // 
@@ -1953,18 +1977,18 @@
             // 
             this.txtMoq_Desc.EditValue = "";
             this.txtMoq_Desc.EnterMoveNextControl = true;
-            this.txtMoq_Desc.Location = new System.Drawing.Point(759, 5);
+            this.txtMoq_Desc.Location = new System.Drawing.Point(787, 5);
             this.txtMoq_Desc.Name = "txtMoq_Desc";
             this.txtMoq_Desc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMoq_Desc.Properties.MaxLength = 100;
             this.txtMoq_Desc.Properties.ReadOnly = true;
-            this.txtMoq_Desc.Size = new System.Drawing.Size(165, 20);
+            this.txtMoq_Desc.Size = new System.Drawing.Size(147, 20);
             this.txtMoq_Desc.TabIndex = 34;
             this.txtMoq_Desc.Tag = "2";
             // 
             // lblMoqDesc
             // 
-            this.lblMoqDesc.Location = new System.Drawing.Point(722, 9);
+            this.lblMoqDesc.Location = new System.Drawing.Point(748, 9);
             this.lblMoqDesc.Name = "lblMoqDesc";
             this.lblMoqDesc.Size = new System.Drawing.Size(39, 13);
             this.lblMoqDesc.TabIndex = 119;
@@ -2460,7 +2484,7 @@
             // 
             this.txtMoq.EditValue = "";
             this.txtMoq.EnterMoveNextControl = true;
-            this.txtMoq.Location = new System.Drawing.Point(665, 5);
+            this.txtMoq.Location = new System.Drawing.Point(693, 5);
             this.txtMoq.Name = "txtMoq";
             this.txtMoq.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMoq.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -2469,13 +2493,13 @@
             this.txtMoq.Properties.MaxLength = 20;
             this.txtMoq.Properties.ReadOnly = true;
             this.txtMoq.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMoq.Size = new System.Drawing.Size(58, 20);
+            this.txtMoq.Size = new System.Drawing.Size(54, 20);
             this.txtMoq.TabIndex = 33;
             this.txtMoq.Tag = "2";
             // 
             // lblMoq
             // 
-            this.lblMoq.Location = new System.Drawing.Point(627, 9);
+            this.lblMoq.Location = new System.Drawing.Point(655, 9);
             this.lblMoq.Name = "lblMoq";
             this.lblMoq.Size = new System.Drawing.Size(37, 13);
             this.lblMoq.TabIndex = 53;
@@ -2607,7 +2631,7 @@
             this.txtCust_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCust_code.Properties.MaxLength = 100;
             this.txtCust_code.Properties.ReadOnly = true;
-            this.txtCust_code.Size = new System.Drawing.Size(250, 20);
+            this.txtCust_code.Size = new System.Drawing.Size(211, 20);
             this.txtCust_code.TabIndex = 16;
             this.txtCust_code.Tag = "2";
             // 
@@ -3555,6 +3579,7 @@
             this.price_rmb,
             this.hkd_ex_fty,
             this.price_unit,
+            this.moq_below_over,
             this.moq,
             this.moq_desc,
             this.moq_unit,
@@ -3826,6 +3851,13 @@
             this.price_unit.MaxInputLength = 5;
             this.price_unit.Name = "price_unit";
             this.price_unit.Width = 40;
+            // 
+            // moq_below_over
+            // 
+            this.moq_below_over.DataPropertyName = "moq_below_over";
+            this.moq_below_over.HeaderText = "MOQ Type";
+            this.moq_below_over.Name = "moq_below_over";
+            this.moq_below_over.Width = 50;
             // 
             // moq
             // 
@@ -5693,6 +5725,7 @@
             this.toolStrip1.PerformLayout();
             this.pnlHeard.ResumeLayout(false);
             this.pnlHeard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbmoq_below_over.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTermremark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueLabtest.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCost_price.Properties)).EndInit();
@@ -6132,6 +6165,16 @@
         private DevExpress.XtraEditors.ButtonEdit txtPrice_rmb;
         private DevExpress.XtraEditors.TextEdit txtTermremark;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seq_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pvh_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attn_path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status_sub;
+        private System.Windows.Forms.DataGridViewTextBoxColumn approval_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn approval_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark_sub;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn approval_status;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbmoq_below_over;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -6155,6 +6198,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
         private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq_below_over;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_unit;
@@ -6225,14 +6269,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn labtest_prod_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn termremark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seq_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pvh_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn attn_path;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status_sub;
-        private System.Windows.Forms.DataGridViewTextBoxColumn approval_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn approval_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark_sub;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn approval_status;
     }
 }
