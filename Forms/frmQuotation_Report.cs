@@ -1966,6 +1966,14 @@ namespace cf01.Forms
                         myReport19.ShowPreviewDialog();
                     }
                     break;
+                case "24"://格式二十(Usd ex_fty & price remark)
+                    using (xrQuotation20 myReport20 = new xrQuotation20() { DataSource = dt })
+                    {
+                        myReport20.CreateDocument();
+                        myReport20.PrintingSystem.ShowMarginsWarning = false;
+                        myReport20.ShowPreviewDialog();
+                    }
+                    break;
             }
         }
 

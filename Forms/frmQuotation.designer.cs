@@ -892,6 +892,7 @@
             this.pnlHeard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlHeard.Controls.Add(this.txtMoq_unit);
             this.pnlHeard.Controls.Add(this.cmbmoq_below_over);
             this.pnlHeard.Controls.Add(this.txtTermremark);
             this.pnlHeard.Controls.Add(this.btnLabTest);
@@ -952,7 +953,6 @@
             this.pnlHeard.Controls.Add(this.txtRemark_other);
             this.pnlHeard.Controls.Add(this.lblRemark_other);
             this.pnlHeard.Controls.Add(this.lblVersion);
-            this.pnlHeard.Controls.Add(this.txtMoq_unit);
             this.pnlHeard.Controls.Add(this.txtPrice_unit);
             this.pnlHeard.Controls.Add(this.lblStatus);
             this.pnlHeard.Controls.Add(this.txtAmtim);
@@ -969,7 +969,6 @@
             this.pnlHeard.Controls.Add(this.txtSample_request);
             this.pnlHeard.Controls.Add(this.lblSample_request);
             this.pnlHeard.Controls.Add(this.txtAw);
-            this.pnlHeard.Controls.Add(this.lblAw);
             this.pnlHeard.Controls.Add(this.txtDate_req);
             this.pnlHeard.Controls.Add(this.lblDate_req);
             this.pnlHeard.Controls.Add(this.txtNumber_enter);
@@ -1062,6 +1061,7 @@
             this.pnlHeard.Controls.Add(this.lblRmb_remark);
             this.pnlHeard.Controls.Add(this.txtPrice_rmb);
             this.pnlHeard.Controls.Add(this.label2);
+            this.pnlHeard.Controls.Add(this.lblAw);
             this.pnlHeard.Location = new System.Drawing.Point(3, 42);
             this.pnlHeard.Name = "pnlHeard";
             this.pnlHeard.Size = new System.Drawing.Size(1357, 418);
@@ -1072,7 +1072,7 @@
             this.cmbmoq_below_over.EditValue = "";
             this.cmbmoq_below_over.Enabled = false;
             this.cmbmoq_below_over.EnterMoveNextControl = true;
-            this.cmbmoq_below_over.Location = new System.Drawing.Point(594, 5);
+            this.cmbmoq_below_over.Location = new System.Drawing.Point(580, 319);
             this.cmbmoq_below_over.Name = "cmbmoq_below_over";
             this.cmbmoq_below_over.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.cmbmoq_below_over.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1598,9 +1598,9 @@
             // 
             // lblMoq_for_test
             // 
-            this.lblMoq_for_test.Location = new System.Drawing.Point(578, 322);
+            this.lblMoq_for_test.Location = new System.Drawing.Point(641, 322);
             this.lblMoq_for_test.Name = "lblMoq_for_test";
-            this.lblMoq_for_test.Size = new System.Drawing.Size(83, 13);
+            this.lblMoq_for_test.Size = new System.Drawing.Size(77, 13);
             this.lblMoq_for_test.TabIndex = 145;
             this.lblMoq_for_test.Text = "MOQ For Test";
             this.lblMoq_for_test.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -1609,7 +1609,7 @@
             // 
             this.txtMoq_for_test.EditValue = "";
             this.txtMoq_for_test.EnterMoveNextControl = true;
-            this.txtMoq_for_test.Location = new System.Drawing.Point(665, 319);
+            this.txtMoq_for_test.Location = new System.Drawing.Point(722, 319);
             this.txtMoq_for_test.Name = "txtMoq_for_test";
             this.txtMoq_for_test.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMoq_for_test.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1618,7 +1618,7 @@
             this.txtMoq_for_test.Properties.MaxLength = 20;
             this.txtMoq_for_test.Properties.ReadOnly = true;
             this.txtMoq_for_test.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMoq_for_test.Size = new System.Drawing.Size(168, 20);
+            this.txtMoq_for_test.Size = new System.Drawing.Size(111, 20);
             this.txtMoq_for_test.TabIndex = 51;
             this.txtMoq_for_test.Tag = "2";
             // 
@@ -1977,18 +1977,18 @@
             // 
             this.txtMoq_Desc.EditValue = "";
             this.txtMoq_Desc.EnterMoveNextControl = true;
-            this.txtMoq_Desc.Location = new System.Drawing.Point(787, 5);
+            this.txtMoq_Desc.Location = new System.Drawing.Point(764, 5);
             this.txtMoq_Desc.Name = "txtMoq_Desc";
             this.txtMoq_Desc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMoq_Desc.Properties.MaxLength = 100;
             this.txtMoq_Desc.Properties.ReadOnly = true;
-            this.txtMoq_Desc.Size = new System.Drawing.Size(147, 20);
+            this.txtMoq_Desc.Size = new System.Drawing.Size(170, 20);
             this.txtMoq_Desc.TabIndex = 34;
             this.txtMoq_Desc.Tag = "2";
             // 
             // lblMoqDesc
             // 
-            this.lblMoqDesc.Location = new System.Drawing.Point(748, 9);
+            this.lblMoqDesc.Location = new System.Drawing.Point(725, 9);
             this.lblMoqDesc.Name = "lblMoqDesc";
             this.lblMoqDesc.Size = new System.Drawing.Size(39, 13);
             this.lblMoqDesc.TabIndex = 119;
@@ -2063,7 +2063,7 @@
             this.txtMoq_unit.Properties.NullText = "";
             this.txtMoq_unit.Properties.ShowHeader = false;
             this.txtMoq_unit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtMoq_unit.Size = new System.Drawing.Size(45, 20);
+            this.txtMoq_unit.Size = new System.Drawing.Size(50, 20);
             this.txtMoq_unit.TabIndex = 53;
             this.txtMoq_unit.Tag = "2";
             // 
@@ -2275,9 +2275,9 @@
             // 
             // lblAw
             // 
-            this.lblAw.Location = new System.Drawing.Point(1013, 9);
+            this.lblAw.Location = new System.Drawing.Point(1017, 9);
             this.lblAw.Name = "lblAw";
-            this.lblAw.Size = new System.Drawing.Size(54, 13);
+            this.lblAw.Size = new System.Drawing.Size(50, 13);
             this.lblAw.TabIndex = 79;
             this.lblAw.Text = "AW";
             this.lblAw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2484,7 +2484,7 @@
             // 
             this.txtMoq.EditValue = "";
             this.txtMoq.EnterMoveNextControl = true;
-            this.txtMoq.Location = new System.Drawing.Point(693, 5);
+            this.txtMoq.Location = new System.Drawing.Point(665, 5);
             this.txtMoq.Name = "txtMoq";
             this.txtMoq.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMoq.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -2493,13 +2493,13 @@
             this.txtMoq.Properties.MaxLength = 20;
             this.txtMoq.Properties.ReadOnly = true;
             this.txtMoq.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMoq.Size = new System.Drawing.Size(54, 20);
+            this.txtMoq.Size = new System.Drawing.Size(58, 20);
             this.txtMoq.TabIndex = 33;
             this.txtMoq.Tag = "2";
             // 
             // lblMoq
             // 
-            this.lblMoq.Location = new System.Drawing.Point(655, 9);
+            this.lblMoq.Location = new System.Drawing.Point(627, 9);
             this.lblMoq.Name = "lblMoq";
             this.lblMoq.Size = new System.Drawing.Size(37, 13);
             this.lblMoq.TabIndex = 53;
@@ -2631,7 +2631,7 @@
             this.txtCust_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCust_code.Properties.MaxLength = 100;
             this.txtCust_code.Properties.ReadOnly = true;
-            this.txtCust_code.Size = new System.Drawing.Size(211, 20);
+            this.txtCust_code.Size = new System.Drawing.Size(250, 20);
             this.txtCust_code.TabIndex = 16;
             this.txtCust_code.Tag = "2";
             // 
