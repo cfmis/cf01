@@ -146,7 +146,7 @@ namespace cf01.Forms
             txtleadtime_sample.Text = "14 Days";
             txtsurcharge_usa.Text = "NA";
             txtsurcharge_eur.Text = "NA";
-            txtleadtime_bulk.Text = "28 Days";
+            txtleadtime_bulk.Text = "30 Days";
             txttrim_must_tommy.Text = "YES";
             txtoekotex.Text = "OEKO-TEX STANDARD 100 # HKS 18549 TESTEX";
             txttemp_pvh_no.Text = "";
