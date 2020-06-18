@@ -78,10 +78,10 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblShowMsg = new System.Windows.Forms.Label();
             this.chkArrange = new System.Windows.Forms.CheckBox();
             this.lblOldArrangeDate = new System.Windows.Forms.Label();
             this.mkOldArrangeDate = new System.Windows.Forms.MaskedTextBox();
-            this.lblShowMsg = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -371,14 +371,15 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetails.Location = new System.Drawing.Point(0, 217);
             this.dgvDetails.Name = "dgvDetails";
-            this.dgvDetails.RowHeadersWidth = 18;
+            this.dgvDetails.RowHeadersWidth = 30;
             this.dgvDetails.RowTemplate.Height = 24;
             this.dgvDetails.Size = new System.Drawing.Size(1096, 455);
             this.dgvDetails.TabIndex = 1;
+            this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             // 
             // toolStrip1
             // 
@@ -442,7 +443,7 @@
             this.tsBtnExportToExce.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnExportToExce.Image")));
             this.tsBtnExportToExce.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnExportToExce.Name = "tsBtnExportToExce";
-            this.tsBtnExportToExce.Size = new System.Drawing.Size(71, 35);
+            this.tsBtnExportToExce.Size = new System.Drawing.Size(77, 35);
             this.tsBtnExportToExce.Text = "匯出到Excel";
             this.tsBtnExportToExce.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsBtnExportToExce.Click += new System.EventHandler(this.tsBtnExportToExce_Click);
@@ -457,7 +458,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(81, 35);
+            this.toolStripButton2.Size = new System.Drawing.Size(84, 35);
             this.toolStripButton2.Text = "匯出簡易計劃";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
@@ -487,7 +488,7 @@
             // 
             this.ExpSimpePlan.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExpSimpePlan.Name = "ExpSimpePlan";
-            this.ExpSimpePlan.Size = new System.Drawing.Size(185, 35);
+            this.ExpSimpePlan.Size = new System.Drawing.Size(188, 35);
             this.ExpSimpePlan.Text = "匯出簡易計劃(這個速度慢，不用)";
             this.ExpSimpePlan.Visible = false;
             this.ExpSimpePlan.Click += new System.EventHandler(this.ExpSimpePlan_Click);
@@ -498,7 +499,7 @@
             this.cmdShowData.Image = ((System.Drawing.Image)(resources.GetObject("cmdShowData.Image")));
             this.cmdShowData.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cmdShowData.Name = "cmdShowData";
-            this.cmdShowData.Size = new System.Drawing.Size(57, 35);
+            this.cmdShowData.Size = new System.Drawing.Size(60, 35);
             this.cmdShowData.Text = "顯示報表";
             this.cmdShowData.Click += new System.EventHandler(this.cmdShowData_Click);
             // 
@@ -512,7 +513,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(81, 35);
+            this.toolStripButton1.Size = new System.Drawing.Size(84, 35);
             this.toolStripButton1.Text = "更新制單狀態";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -580,6 +581,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "匯出排期表，請選擇此選項";
             // 
+            // lblShowMsg
+            // 
+            this.lblShowMsg.AutoSize = true;
+            this.lblShowMsg.Location = new System.Drawing.Point(410, 18);
+            this.lblShowMsg.Name = "lblShowMsg";
+            this.lblShowMsg.Size = new System.Drawing.Size(218, 12);
+            this.lblShowMsg.TabIndex = 26;
+            this.lblShowMsg.Text = "步驟：1.建立排期表;2.查詢;3.匯出排期表";
+            // 
             // chkArrange
             // 
             this.chkArrange.AutoSize = true;
@@ -610,15 +620,6 @@
             this.mkOldArrangeDate.Size = new System.Drawing.Size(105, 22);
             this.mkOldArrangeDate.TabIndex = 3;
             this.mkOldArrangeDate.ValidatingType = typeof(System.DateTime);
-            // 
-            // lblShowMsg
-            // 
-            this.lblShowMsg.AutoSize = true;
-            this.lblShowMsg.Location = new System.Drawing.Point(410, 18);
-            this.lblShowMsg.Name = "lblShowMsg";
-            this.lblShowMsg.Size = new System.Drawing.Size(218, 12);
-            this.lblShowMsg.TabIndex = 26;
-            this.lblShowMsg.Text = "步驟：1.建立排期表;2.查詢;3.匯出排期表";
             // 
             // frmPlan01
             // 

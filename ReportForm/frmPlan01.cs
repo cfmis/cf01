@@ -24,7 +24,8 @@ namespace cf01.ReportForm
         public frmPlan01()
         {
             InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;
+            //Control.CheckForIllegalCrossThreadCalls = false;
+            CheckForIllegalCrossThreadCalls = false;
         }
       
         
@@ -35,6 +36,7 @@ namespace cf01.ReportForm
 
         private void frmPlan01_Load(object sender, EventArgs e)
         {
+            
             mkCmpDat1.Text = DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             mkCmpDat2.Text = DateTime.Now.ToString("yyyy/MM/dd");
 
@@ -43,6 +45,7 @@ namespace cf01.ReportForm
             //綁定表格
             commUse.BuilDataGridView(dgvDetails, "frmPlan01_grid", lang_id);
             dgvDetails.AutoGenerateColumns = false;
+            dgvDetails.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             dgvDetails.Refresh();
             //增加圖片列
             //DataGridViewImageColumn colImage = new DataGridViewImageColumn();
@@ -102,10 +105,55 @@ namespace cf01.ReportForm
                     return;
                 }
             }
+
+            //new System.Threading.Thread(new System.Threading.ThreadStart(invokeThread)).Start();
+            //return;
             Thread thread = new Thread(new ThreadStart(StartSomeWorkFromUIThread));
             thread.IsBackground = true;
             thread.Start();
+            
         }
+
+
+        // 使用invoke方法
+        public delegate void dTest();
+        void invokeThread()
+        {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Reset();
+            sw.Start();
+            //for (int i = 0; i < 100; i++)
+            //{
+                if (this.InvokeRequired)
+                {
+                    //this.Invoke(new dTest(test));
+                BeginInvoke(new EventHandler(RunsOnWorkerThread), null);
+
+                find_data();
+            }
+                else
+                {
+                    test();
+                }
+                System.Threading.Thread.Sleep(10);
+            //}
+            sw.Stop();
+            Console.WriteLine(sw.Elapsed);
+        }
+
+        // 模拟一个实际应用
+        // 对label1付值后立马检查他的值,如果已经被改过则抛出异常
+
+        void test()
+        {
+            string strText = Guid.NewGuid().ToString();
+            this.label1.Text = strText;
+            if (this.label1.Text != strText)
+            {
+                // 测试性能时把这一句注释掉！！！！！！！！！！！！！！！！！！！！！！1
+                throw new Exception(" label1的值意外改变 ");
+            }
+        } 
 
         private void find_data()
         {
@@ -210,7 +258,7 @@ namespace cf01.ReportForm
             if (this.InvokeRequired)
             {
                 BeginInvoke(new EventHandler(RunsOnWorkerThread), null);
-
+                
                 find_data();
             }
             else
@@ -551,7 +599,7 @@ namespace cf01.ReportForm
                 string str = " ";
                 //写标题
 
-                for (int i = 0; i < dgvDetails.ColumnCount - 2; i++)//最後兩欄組別、機器代碼不用匯出，影像到Excel報表計算
+                for (int i = 0; i < dgvDetails.ColumnCount; i++)//最後兩欄組別、機器代碼不用匯出，影響到Excel報表計算
                 {
                     if (i > 0)
                     {
@@ -562,7 +610,7 @@ namespace cf01.ReportForm
                 sw.WriteLine(str);
                 //写内容
                 string pre_id, cur_id, col_value;
-                for (int rowNo = 0; rowNo < dgvDetails.RowCount-2; rowNo++)//最後兩欄組別、機器代碼不用匯出，影像到Excel報表計算
+                for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
                 {
                     cur_id = dgvDetails.Rows[rowNo].Cells[39].Value.ToString().Trim();
                     if (rowNo == 0)
@@ -570,7 +618,7 @@ namespace cf01.ReportForm
                     else
                         pre_id = dgvDetails.Rows[rowNo - 1].Cells[39].Value.ToString().Trim();
                     string tempstr = " ";
-                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount; columnNo++)
+                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount; columnNo++)//最後兩欄組別、機器代碼不用匯出，影響到Excel報表計算
                     {
 
                         if (columnNo > 0)
@@ -803,7 +851,8 @@ namespace cf01.ReportForm
                 str += "\t" + "記錄號";
                 str += "\t" + "生產組別";
                 str += "\t" + "生產機器";
-                str += "\t|" + "到貨狀態";
+                str += "\t" + "到貨狀態";
+                str += "\t" + "落單日期";
                 sw.WriteLine(str);
                 //写内容
                 string pre_id, cur_id, col_value;
@@ -846,6 +895,7 @@ namespace cf01.ReportForm
                         tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[40].Value.ToString().Trim();//生產組別
                         tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[41].Value.ToString().Trim();//生產機器
                         tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[12].Value.ToString().Trim();//到貨狀態
+                        tempstr += "\t" + "=\"" + dgvDetails.Rows[rowNo].Cells[42].Value.ToString().Trim() + "\"";//落單日期
                         sw.WriteLine(tempstr);
 
                         excelNo++;
@@ -877,7 +927,7 @@ namespace cf01.ReportForm
                 //写标题
                 str += "序號";
                 str += "\t" + "狀態";
-                str += "\t" + "追貨狀態";
+                str += "\t" + "落單日期";//追貨狀態
                 str += "\t" + "到貨狀態";
                 str += "\t" + "制單編號";
                 str += "\t" + "排期日期";
@@ -902,7 +952,7 @@ namespace cf01.ReportForm
                     string tempstr = " ";
                     tempstr += dr["arrange_seq"].ToString();//序號
                     tempstr += "\t" + dr["mo_urgent_cdesc"].ToString();//狀態
-                    tempstr += "\t" + dr["mo_req_status"].ToString();//追貨狀態
+                    tempstr += "\t" + "=\"" + dr["order_date"].ToString() + "\"";//落單日期//追貨狀態mo_req_status
                     tempstr += "\t" + dr["pre_dep_deliver_flag"].ToString();//到貨狀態
                     tempstr += "\t" + dr["mo_id"].ToString();//制單編號
                     tempstr += "\t" + "=\"" + dr["arrange_date"].ToString() + "\"";//排期日期
@@ -968,6 +1018,20 @@ namespace cf01.ReportForm
         private void btnArrange_Click(object sender, EventArgs e)
         {
             ExpArrangeData();
+        }
+
+        private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+                e.RowBounds.Location.Y,
+                dgvDetails.RowHeadersWidth - 4,
+                e.RowBounds.Height);
+
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+                dgvDetails.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
 
         private void mkChkDat1_Leave(object sender, EventArgs e)
