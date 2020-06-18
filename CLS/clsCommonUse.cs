@@ -170,7 +170,6 @@ namespace cf01.CLS
             string strSql = "select * from v_dict_group where [formname] = '" + form_name + "' AND [language_id]='" + lang_id + "' order by tb_col_sort ";
 
             DataGridView dgv = (DataGridView)obj;
-            
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
             {
@@ -187,6 +186,7 @@ namespace cf01.CLS
                 }
             }
             dgv.ScrollBars = ScrollBars.Both;
+            
         }
         #endregion
 
