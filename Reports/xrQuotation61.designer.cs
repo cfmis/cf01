@@ -841,15 +841,15 @@
             // 
             this.xrLblusd.CanShrink = true;
             this.xrLblusd.Dpi = 254F;
-            this.xrLblusd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1304.48F, 879.1458F);
+            this.xrLblusd.Font = new System.Drawing.Font("Arial", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1301.48F, 879.1458F);
             this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(81.63855F, 50.68756F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(84.63855F, 50.68756F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "USD$\r\n (FOB)";
+            this.xrLblusd.Text = "FOB HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel56
@@ -1026,15 +1026,15 @@
             // 
             this.xrLblhkd.CanShrink = true;
             this.xrLblhkd.Dpi = 254F;
-            this.xrLblhkd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1392.075F, 879.1458F);
+            this.xrLblhkd.Font = new System.Drawing.Font("Arial", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1391.075F, 879.1458F);
             this.xrLblhkd.Multiline = true;
             this.xrLblhkd.Name = "xrLblhkd";
             this.xrLblhkd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblhkd.SizeF = new System.Drawing.SizeF(85.70435F, 50.68768F);
+            this.xrLblhkd.SizeF = new System.Drawing.SizeF(86.70435F, 50.68768F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "HKD$\r\n (FOB)";
+            this.xrLblhkd.Text = "FOB HK HKD$";
             this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel21

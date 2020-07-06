@@ -876,14 +876,14 @@
             this.xrLblusd.CanShrink = true;
             this.xrLblusd.Dpi = 254F;
             this.xrLblusd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1472.274F, 878.1458F);
+            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1470.274F, 878.1458F);
             this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(101.6385F, 50.68756F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(103.6385F, 50.68756F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "USD$\r\n";
+            this.xrLblusd.Text = "FOB HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
@@ -1076,14 +1076,14 @@
             this.xrLblhkd.CanShrink = true;
             this.xrLblhkd.Dpi = 254F;
             this.xrLblhkd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1579.655F, 878.1458F);
+            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1577.655F, 878.1458F);
             this.xrLblhkd.Multiline = true;
             this.xrLblhkd.Name = "xrLblhkd";
             this.xrLblhkd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblhkd.SizeF = new System.Drawing.SizeF(97.70435F, 50.68768F);
+            this.xrLblhkd.SizeF = new System.Drawing.SizeF(99.70435F, 50.68768F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "HKD$\r\n";
+            this.xrLblhkd.Text = "FOB HK HKD$\r\n";
             this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21

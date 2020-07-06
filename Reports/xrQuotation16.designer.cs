@@ -616,7 +616,7 @@
             this.xrLabel63.SizeF = new System.Drawing.SizeF(1948.294F, 35.33319F);
             this.xrLabel63.StylePriority.UseFont = false;
             this.xrLabel63.StylePriority.UseTextAlignment = false;
-            this.xrLabel63.Text = "14) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
+            this.xrLabel63.Text = "13) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
     "ply if the MOQ per order / colour cannot be met .";
             this.xrLabel63.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel63.WordWrap = false;
@@ -632,7 +632,7 @@
             this.xrLabel62.SizeF = new System.Drawing.SizeF(1948.294F, 39.33319F);
             this.xrLabel62.StylePriority.UseFont = false;
             this.xrLabel62.StylePriority.UseTextAlignment = false;
-            this.xrLabel62.Text = "13) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
+            this.xrLabel62.Text = "12) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
     "/ colour cannot met .";
             this.xrLabel62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel62.WordWrap = false;
@@ -844,14 +844,14 @@
             this.xrLblusd.CanShrink = true;
             this.xrLblusd.Dpi = 254F;
             this.xrLblusd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1612.578F, 921.9044F);
+            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1609.578F, 921.9044F);
             this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(114.6385F, 50.68756F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(118.6385F, 50.68756F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "USD$\r\n";
+            this.xrLblusd.Text = "FOB HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56

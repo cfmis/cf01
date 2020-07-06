@@ -774,30 +774,30 @@
             this.xrLabel62.CanShrink = true;
             this.xrLabel62.Dpi = 254F;
             this.xrLabel62.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLabel62.LocationFloat = new DevExpress.Utils.PointFloat(1570.956F, 843.821F);
+            this.xrLabel62.LocationFloat = new DevExpress.Utils.PointFloat(1568.956F, 855.507F);
             this.xrLabel62.Multiline = true;
             this.xrLabel62.Name = "xrLabel62";
             this.xrLabel62.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel62.SizeF = new System.Drawing.SizeF(88.63843F, 90.94983F);
+            this.xrLabel62.SizeF = new System.Drawing.SizeF(92.63843F, 79.26392F);
             this.xrLabel62.StylePriority.UseFont = false;
             this.xrLabel62.StylePriority.UseTextAlignment = false;
-            this.xrLabel62.Text = "USD $\r\n(FOB Price)";
-            this.xrLabel62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLabel62.Text = "FOB HK  USD$\r\n";
+            this.xrLabel62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel47
             // 
             this.xrLabel47.CanShrink = true;
             this.xrLabel47.Dpi = 254F;
             this.xrLabel47.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLabel47.LocationFloat = new DevExpress.Utils.PointFloat(1665.324F, 843.821F);
+            this.xrLabel47.LocationFloat = new DevExpress.Utils.PointFloat(1660.324F, 855.507F);
             this.xrLabel47.Multiline = true;
             this.xrLabel47.Name = "xrLabel47";
             this.xrLabel47.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel47.SizeF = new System.Drawing.SizeF(81.26843F, 90.94983F);
+            this.xrLabel47.SizeF = new System.Drawing.SizeF(93.03503F, 79.26379F);
             this.xrLabel47.StylePriority.UseFont = false;
             this.xrLabel47.StylePriority.UseTextAlignment = false;
-            this.xrLabel47.Text = "HKD $\r\n(FOB Price)";
-            this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLabel47.Text = "FOB HK HKD$";
+            this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel58
             // 
@@ -939,15 +939,15 @@
             this.xrLblusd.CanShrink = true;
             this.xrLblusd.Dpi = 254F;
             this.xrLblusd.Font = new System.Drawing.Font("Arial", 5F, System.Drawing.FontStyle.Bold);
-            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1384.201F, 843.821F);
+            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1382.201F, 855.507F);
             this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(87.63855F, 90.94989F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(88.63843F, 79.26392F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "USD $ (Ex-Factory Price)";
-            this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLblusd.Text = "Ex-fty HK USD$";
+            this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
             // 
@@ -1118,15 +1118,15 @@
             this.xrLblhkd.CanShrink = true;
             this.xrLblhkd.Dpi = 254F;
             this.xrLblhkd.Font = new System.Drawing.Font("Arial", 5F, System.Drawing.FontStyle.Bold);
-            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1482.182F, 843.821F);
+            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1478.182F, 855.507F);
             this.xrLblhkd.Multiline = true;
             this.xrLblhkd.Name = "xrLblhkd";
             this.xrLblhkd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblhkd.SizeF = new System.Drawing.SizeF(81.70435F, 90.94983F);
+            this.xrLblhkd.SizeF = new System.Drawing.SizeF(88.70435F, 79.26379F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "HKD $ (Ex-Factory Price)";
-            this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLblhkd.Text = "Ex-fty HK HKD$";
+            this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21
             // 
@@ -1286,15 +1286,15 @@
             this.xrLblrmb.CanShrink = true;
             this.xrLblrmb.Dpi = 254F;
             this.xrLblrmb.Font = new System.Drawing.Font("Arial", 5F, System.Drawing.FontStyle.Bold);
-            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1753.359F, 843.821F);
+            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1761.359F, 869.0833F);
             this.xrLblrmb.Multiline = true;
             this.xrLblrmb.Name = "xrLblrmb";
             this.xrLblrmb.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblrmb.SizeF = new System.Drawing.SizeF(94.92151F, 66.94983F);
+            this.xrLblrmb.SizeF = new System.Drawing.SizeF(94.92151F, 43.68744F);
             this.xrLblrmb.StylePriority.UseFont = false;
             this.xrLblrmb.StylePriority.UseTextAlignment = false;
-            this.xrLblrmb.Text = "RMB\r\n(including VAT TAX)";
-            this.xrLblrmb.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLblrmb.Text = "RMB";
+            this.xrLblrmb.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel6
             // 

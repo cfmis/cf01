@@ -807,18 +807,18 @@
             // 
             // xrLblusd
             // 
-            this.xrLblusd.CanGrow = false;
+            this.xrLblusd.CanShrink = true;
             this.xrLblusd.Dpi = 254F;
             this.xrLblusd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
             this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1640.821F, 812.6791F);
+            this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(120.6177F, 50.68756F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(122.6177F, 50.68756F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "FOB USD$";
+            this.xrLblusd.Text = "FOB HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLblusd.WordWrap = false;
             // 
             // xrLabel56
             // 

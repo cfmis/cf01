@@ -79,11 +79,11 @@ namespace cf01.ReportForm
                     progressBar.Value = 0;
                     progressBar.Step = 1;                   
                     Microsoft.Office.Interop.Excel.Range rng;
-                    xSheet.Columns["Q:Q"].ColumnWidth = 12; //設置圖片列寬度
-                    rng = xSheet.Cells[1, "Q"];                    
+                    xSheet.Columns["R:R"].ColumnWidth = 12; //設置圖片列寬度
+                    rng = xSheet.Cells[1, "R"];                    
                     rng.Value2 = "圖樣";
                     xSheet.Columns[17].VerticalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //豎直方向居中對齊
-                    xSheet.Range["Q1:Q1"].Merge(0);//合并单元格
+                    xSheet.Range["R1:R1"].Merge(0);//合并单元格
 
                     int row_precessing = 0;
                     int row_total = xSheet.UsedRange.Rows.Count;//總行數
@@ -99,14 +99,15 @@ namespace cf01.ReportForm
                             progressBar.Enabled = false;
                             progressBar.Visible = false;
                         }
-                        xSheet.Rows[ii].RowHeight = 70;
-                        rng = xSheet.Cells[ii, "F"]; //貨品編號 
+                        xSheet.Rows[ii].RowHeight = 70;                       
+                        rng = xSheet.Cells[ii, "G"]; //貨品編號 
                         goods_id = rng.get_Value();
                         //取圖樣路徑
                         strPictrue_name = clsConErp.ExecuteSqlReturnObject(String.Format("Select dbo.Fn_get_picture_name('0000','{0}','out')", goods_id));
                         if (File.Exists(strPictrue_name))
                         {
-                            InsertPicture("Q" + ii, xSheet, strPictrue_name);//插入圖片
+                            //InsertPicture("Q" + ii, xSheet, strPictrue_name);//插入圖片
+                            InsertPicture("R" + ii, xSheet, strPictrue_name);//插入圖片
                         }
                     }
                     //xBook.Save();                    

@@ -565,8 +565,8 @@
             this.xrLblusd.SizeF = new System.Drawing.SizeF(130.7043F, 98.25F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "Normal Price USD$\r\n";
-            this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLblusd.Text = "FOB HK USD$\r\n";
+            this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
             // 
@@ -760,8 +760,8 @@
             this.xrLblhkd.SizeF = new System.Drawing.SizeF(130.7043F, 98.25F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "Normal Price HKD$\r\n";
-            this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLblhkd.Text = "FOB HK HKD$";
+            this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21
             // 

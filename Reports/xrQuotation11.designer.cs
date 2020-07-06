@@ -958,7 +958,7 @@
             this.xrLblusd.SizeF = new System.Drawing.SizeF(117.8959F, 62.95013F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "UNIT PRICE USD EX-FTY";
+            this.xrLblusd.Text = "Ex-fty HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
@@ -1137,7 +1137,7 @@
             this.xrLblhkd.SizeF = new System.Drawing.SizeF(117.79F, 62.95013F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "UNIT PRICE HKD EX-FTY";
+            this.xrLblhkd.Text = "Ex-fty HK HKD$";
             this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21
@@ -1297,15 +1297,15 @@
             // 
             this.xrLblrmb.CanShrink = true;
             this.xrLblrmb.Dpi = 254F;
-            this.xrLblrmb.Font = new System.Drawing.Font("Arial", 4F, System.Drawing.FontStyle.Bold);
-            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1747.174F, 845.8212F);
+            this.xrLblrmb.Font = new System.Drawing.Font("Arial", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1747.174F, 852.821F);
             this.xrLblrmb.Multiline = true;
             this.xrLblrmb.Name = "xrLblrmb";
             this.xrLblrmb.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblrmb.SizeF = new System.Drawing.SizeF(109.922F, 80.35815F);
+            this.xrLblrmb.SizeF = new System.Drawing.SizeF(114.0585F, 68.35846F);
             this.xrLblrmb.StylePriority.UseFont = false;
             this.xrLblrmb.StylePriority.UseTextAlignment = false;
-            this.xrLblrmb.Text = "UNIT PRICE RMB\r\n(including 17%VAT TAX)";
+            this.xrLblrmb.Text = "UNIT PRICE RMB";
             this.xrLblrmb.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel38

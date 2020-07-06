@@ -3241,8 +3241,8 @@ namespace cf01.Forms
                     worksheet.Cells[3, 8] = "CF Code#/Artwork Code";
                     worksheet.Cells[3, 9] = "Customer Colour";
                     worksheet.Cells[3, 10] = "CF Colour";
-                    worksheet.Cells[3, 11] = "USD$ (Ex-Fty-USD)";
-                    worksheet.Cells[3, 12] = "HKD$ (Ex-Fty-HK)";
+                    worksheet.Cells[3, 11] = "Ex-fty HK USD$";
+                    worksheet.Cells[3, 12] = "Ex-fty HK HKD$";
                     worksheet.Cells[3, 13] = "Unit";
                     worksheet.Cells[3, 14] = "ArtWork";
                     worksheet.Cells[3, 15] = "MOQ";

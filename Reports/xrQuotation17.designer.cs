@@ -883,10 +883,10 @@
             this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(117.8959F, 62.95013F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(117.8959F, 52.95013F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "UNIT PRICE USD EX-FTY";
+            this.xrLblusd.Text = "Ex-fty HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
@@ -1062,10 +1062,10 @@
             this.xrLblhkd.Multiline = true;
             this.xrLblhkd.Name = "xrLblhkd";
             this.xrLblhkd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblhkd.SizeF = new System.Drawing.SizeF(117.79F, 62.95013F);
+            this.xrLblhkd.SizeF = new System.Drawing.SizeF(117.79F, 52.95013F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "UNIT PRICE HKD EX-FTY";
+            this.xrLblhkd.Text = "Ex-fty HK HKD$";
             this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21

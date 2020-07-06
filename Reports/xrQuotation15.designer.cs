@@ -669,7 +669,7 @@
             this.xrLabel62.SizeF = new System.Drawing.SizeF(1948.294F, 31.33319F);
             this.xrLabel62.StylePriority.UseFont = false;
             this.xrLabel62.StylePriority.UseTextAlignment = false;
-            this.xrLabel62.Text = "13) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
+            this.xrLabel62.Text = "12) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
     "/ colour cannot met .";
             this.xrLabel62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel62.WordWrap = false;
@@ -685,7 +685,7 @@
             this.xrLabel63.SizeF = new System.Drawing.SizeF(1948.294F, 30.33319F);
             this.xrLabel63.StylePriority.UseFont = false;
             this.xrLabel63.StylePriority.UseTextAlignment = false;
-            this.xrLabel63.Text = "14) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
+            this.xrLabel63.Text = "13) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
     "ply if the MOQ per order / colour cannot be met .";
             this.xrLabel63.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel63.WordWrap = false;
@@ -912,14 +912,14 @@
             this.xrLblusd.CanShrink = true;
             this.xrLblusd.Dpi = 254F;
             this.xrLblusd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1471.274F, 924.1458F);
+            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1470.274F, 924.1458F);
             this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(101.6385F, 50.68756F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(102.6385F, 50.68756F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "USD$\r\n";
+            this.xrLblusd.Text = "FOB HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
@@ -1097,11 +1097,11 @@
             this.xrLblrmb.CanShrink = true;
             this.xrLblrmb.Dpi = 254F;
             this.xrLblrmb.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1681.408F, 928.1458F);
+            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1681.408F, 925.1458F);
             this.xrLblrmb.Multiline = true;
             this.xrLblrmb.Name = "xrLblrmb";
             this.xrLblrmb.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblrmb.SizeF = new System.Drawing.SizeF(105.0251F, 30.10962F);
+            this.xrLblrmb.SizeF = new System.Drawing.SizeF(119.0251F, 35.10962F);
             this.xrLblrmb.StylePriority.UseFont = false;
             this.xrLblrmb.StylePriority.UseTextAlignment = false;
             this.xrLblrmb.Text = "RMB";
@@ -1112,14 +1112,14 @@
             this.xrLblhkd.CanShrink = true;
             this.xrLblhkd.Dpi = 254F;
             this.xrLblhkd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1578.655F, 924.1458F);
+            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1577.655F, 924.1458F);
             this.xrLblhkd.Multiline = true;
             this.xrLblhkd.Name = "xrLblhkd";
             this.xrLblhkd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblhkd.SizeF = new System.Drawing.SizeF(94.70435F, 50.68768F);
+            this.xrLblhkd.SizeF = new System.Drawing.SizeF(96.70435F, 50.68768F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "HKD$\r\n";
+            this.xrLblhkd.Text = "FOB HK HKD$\r\n";
             this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21
@@ -1477,7 +1477,7 @@
             this.xrCrossBandBox2.BorderWidth = 1F;
             this.xrCrossBandBox2.Dpi = 254F;
             this.xrCrossBandBox2.EndBand = this.GroupHeader1;
-            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(1975.792F, 872.0718F);
+            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(1975.792F, 872.0719F);
             this.xrCrossBandBox2.LocationFloat = new DevExpress.Utils.PointFloat(1975.792F, 489.9375F);
             this.xrCrossBandBox2.Name = "xrCrossBandBox2";
             this.xrCrossBandBox2.StartBand = this.GroupHeader1;

@@ -883,15 +883,15 @@
             // 
             this.xrLblusd.CanShrink = true;
             this.xrLblusd.Dpi = 254F;
-            this.xrLblusd.Font = new System.Drawing.Font("Arial", 5F, System.Drawing.FontStyle.Bold);
-            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1480.785F, 867.5294F);
+            this.xrLblusd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLblusd.LocationFloat = new DevExpress.Utils.PointFloat(1476.785F, 867.5294F);
             this.xrLblusd.Multiline = true;
             this.xrLblusd.Name = "xrLblusd";
             this.xrLblusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblusd.SizeF = new System.Drawing.SizeF(91.63855F, 72.95007F);
+            this.xrLblusd.SizeF = new System.Drawing.SizeF(104.6385F, 72.95007F);
             this.xrLblusd.StylePriority.UseFont = false;
             this.xrLblusd.StylePriority.UseTextAlignment = false;
-            this.xrLblusd.Text = "USD $ (Ex-Fty USD)";
+            this.xrLblusd.Text = "Ex-fty HK USD$";
             this.xrLblusd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
@@ -1062,15 +1062,15 @@
             // 
             this.xrLblhkd.CanShrink = true;
             this.xrLblhkd.Dpi = 254F;
-            this.xrLblhkd.Font = new System.Drawing.Font("Arial", 5F, System.Drawing.FontStyle.Bold);
-            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1593.288F, 867.5294F);
+            this.xrLblhkd.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLblhkd.LocationFloat = new DevExpress.Utils.PointFloat(1578.288F, 867.5294F);
             this.xrLblhkd.Multiline = true;
             this.xrLblhkd.Name = "xrLblhkd";
             this.xrLblhkd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblhkd.SizeF = new System.Drawing.SizeF(81.70435F, 72.95007F);
+            this.xrLblhkd.SizeF = new System.Drawing.SizeF(104.7045F, 72.95001F);
             this.xrLblhkd.StylePriority.UseFont = false;
             this.xrLblhkd.StylePriority.UseTextAlignment = false;
-            this.xrLblhkd.Text = "HKD $ (Ex-Fty HK)";
+            this.xrLblhkd.Text = "Ex-fty HK HKD$";
             this.xrLblhkd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel21
@@ -1233,15 +1233,15 @@
             this.xrLblrmb.CanShrink = true;
             this.xrLblrmb.Dpi = 254F;
             this.xrLblrmb.Font = new System.Drawing.Font("Arial", 5F, System.Drawing.FontStyle.Bold);
-            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1690.192F, 853.5294F);
+            this.xrLblrmb.LocationFloat = new DevExpress.Utils.PointFloat(1690.192F, 874.7919F);
             this.xrLblrmb.Multiline = true;
             this.xrLblrmb.Name = "xrLblrmb";
             this.xrLblrmb.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLblrmb.SizeF = new System.Drawing.SizeF(106.925F, 61.94983F);
+            this.xrLblrmb.SizeF = new System.Drawing.SizeF(106.925F, 43.68732F);
             this.xrLblrmb.StylePriority.UseFont = false;
             this.xrLblrmb.StylePriority.UseTextAlignment = false;
-            this.xrLblrmb.Text = "RMB\r\n(including VAT TAX)";
-            this.xrLblrmb.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLblrmb.Text = "RMB";
+            this.xrLblrmb.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel6
             // 

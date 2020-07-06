@@ -73,7 +73,7 @@ namespace cf01.Forms
                 dat1 = mtbOrder_date1.Text;
             if (mtbOrder_date2.Text.Trim() != "/  /")
                 dat2 = Convert.ToDateTime(mtbOrder_date2.Text).AddDays(1).ToString("yyyy/MM/dd");
-            string mo_group = (lueMoGroup.EditValue != "" ? lueMoGroup.EditValue.ToString() : "");
+            string mo_group = (lueMoGroup.EditValue.ToString() != "" ? lueMoGroup.EditValue.ToString() : "");
             int find_mo_flag = 0;//不從訂單中查找備註等資料
             dtDgvDetails = clsZipperOrder.findIdDetails(find_mo_flag,txtId.Text.Trim(), dat1, dat2, txtIt_customer.Text.Trim()
                                     , txtMo_id.Text.Trim(), txtGoods_id.Text.Trim(), txtCust_po.Text.Trim(), mo_group);
