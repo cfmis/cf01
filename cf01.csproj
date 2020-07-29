@@ -1660,6 +1660,12 @@
     <Compile Include="ReportForm\frmNewMould.designer.cs">
       <DependentUpon>frmNewMould.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmOcCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmOcCount.designer.cs">
+      <DependentUpon>frmOcCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmOcCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3205,6 +3211,9 @@
     <EmbeddedResource Include="ReportForm\frmNewMould.resx">
       <DependentUpon>frmNewMould.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmOcCount.resx">
+      <DependentUpon>frmOcCount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmOcCustomer.resx">
       <DependentUpon>frmOcCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -3588,7 +3597,6 @@
     <EmbeddedResource Include="Reports\xrQuotation19.resx">
       <DependentUpon>xrQuotation19.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\xrQuotation20.resx" />
     <EmbeddedResource Include="Reports\xrQuotation21.resx">
       <DependentUpon>xrQuotation21.cs</DependentUpon>
     </EmbeddedResource>

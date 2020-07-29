@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentTommy));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,34 +57,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trim_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_jv_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.artwork_limit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiered_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.m_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.normal_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.hang_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.spray = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.spray_rubber = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rubber_button = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.is_ck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.flag_green = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flag_purple = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.division = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.division_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtsize3 = new DevExpress.XtraEditors.TextEdit();
@@ -297,6 +269,55 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtfactory_name = new DevExpress.XtraEditors.TextEdit();
+            this.label52 = new System.Windows.Forms.Label();
+            this.txtmat_supplier_code = new DevExpress.XtraEditors.TextEdit();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.txtweight_per_pc = new DevExpress.XtraEditors.TextEdit();
+            this.txtsustainable_process = new DevExpress.XtraEditors.TextEdit();
+            this.label56 = new System.Windows.Forms.Label();
+            this.txtsustainability_certificate = new DevExpress.XtraEditors.TextEdit();
+            this.label57 = new System.Windows.Forms.Label();
+            this.txtfile_available_3d = new DevExpress.XtraEditors.TextEdit();
+            this.label58 = new System.Windows.Forms.Label();
+            this.txtsample_vr_status = new DevExpress.XtraEditors.TextEdit();
+            this.label59 = new System.Windows.Forms.Label();
+            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trim_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_jv_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artwork_limit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiered_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.m_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.normal_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.hang_plate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.spray = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.spray_rubber = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rubber_button = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.is_ck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.flag_green = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_purple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.division = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.division_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mat_supplier_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight_per_pc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sustainable_process = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sustainability_certificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_vr_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.file_available_3d = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -318,7 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtcolor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsize.Properties)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpvh_jv_ref.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtserial_no.Properties)).BeginInit();
@@ -429,11 +450,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfactory_name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtmat_supplier_code.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtweight_per_pc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainable_process.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainability_certificate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfile_available_3d.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsample_vr_status.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -579,7 +607,7 @@
             // label7
             // 
             this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(217, 4);
+            this.label7.Location = new System.Drawing.Point(218, 4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 16);
             this.label7.TabIndex = 40;
@@ -588,10 +616,11 @@
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(1, 4);
+            this.label3.Location = new System.Drawing.Point(0, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 34;
             this.label3.Text = "Serial No.:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -600,9 +629,9 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -633,7 +662,14 @@
             this.flag_green,
             this.flag_purple,
             this.division,
-            this.division_desc});
+            this.division_desc,
+            this.mat_supplier_code,
+            this.factory_name,
+            this.weight_per_pc,
+            this.sustainable_process,
+            this.sustainability_certificate,
+            this.sample_vr_status,
+            this.file_available_3d});
             this.dgvDetails.Location = new System.Drawing.Point(2, 631);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -643,238 +679,11 @@
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
             // 
-            // serial_no
-            // 
-            this.serial_no.DataPropertyName = "serial_no";
-            this.serial_no.HeaderText = "Serial No.";
-            this.serial_no.Name = "serial_no";
-            this.serial_no.ReadOnly = true;
-            this.serial_no.Width = 90;
-            // 
-            // season
-            // 
-            this.season.DataPropertyName = "season";
-            this.season.HeaderText = "Season";
-            this.season.Name = "season";
-            this.season.ReadOnly = true;
-            this.season.Width = 60;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle4.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle4;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // trim_code
-            // 
-            this.trim_code.DataPropertyName = "trim_code";
-            this.trim_code.HeaderText = "Trim Code";
-            this.trim_code.Name = "trim_code";
-            this.trim_code.ReadOnly = true;
-            this.trim_code.Width = 110;
-            // 
-            // requests_by
-            // 
-            this.requests_by.DataPropertyName = "requests_by";
-            this.requests_by.HeaderText = "Requests by";
-            this.requests_by.Name = "requests_by";
-            this.requests_by.ReadOnly = true;
-            this.requests_by.Width = 90;
-            // 
-            // delivery
-            // 
-            this.delivery.DataPropertyName = "delivery";
-            this.delivery.HeaderText = "Delivery";
-            this.delivery.Name = "delivery";
-            this.delivery.ReadOnly = true;
-            // 
-            // pvh_jv_ref
-            // 
-            this.pvh_jv_ref.DataPropertyName = "pvh_jv_ref";
-            this.pvh_jv_ref.HeaderText = "PVH JV REF";
-            this.pvh_jv_ref.Name = "pvh_jv_ref";
-            this.pvh_jv_ref.ReadOnly = true;
-            // 
-            // supplier_name
-            // 
-            this.supplier_name.DataPropertyName = "supplier_name";
-            this.supplier_name.HeaderText = "Supplier Name";
-            this.supplier_name.Name = "supplier_name";
-            this.supplier_name.ReadOnly = true;
-            // 
-            // material
-            // 
-            this.material.DataPropertyName = "material";
-            this.material.HeaderText = "Material Content";
-            this.material.Name = "material";
-            this.material.ReadOnly = true;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "Size";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            // 
-            // country
-            // 
-            this.country.DataPropertyName = "country";
-            this.country.HeaderText = "Country of Origin";
-            this.country.Name = "country";
-            this.country.ReadOnly = true;
-            // 
-            // color
-            // 
-            this.color.DataPropertyName = "color";
-            this.color.HeaderText = "Color";
-            this.color.Name = "color";
-            this.color.ReadOnly = true;
-            this.color.Visible = false;
-            this.color.Width = 120;
-            // 
-            // artwork_limit
-            // 
-            this.artwork_limit.DataPropertyName = "artwork_limit";
-            this.artwork_limit.HeaderText = "Artwork limittations";
-            this.artwork_limit.Name = "artwork_limit";
-            this.artwork_limit.ReadOnly = true;
-            this.artwork_limit.Visible = false;
-            this.artwork_limit.Width = 150;
-            // 
-            // tiered_qty1
-            // 
-            this.tiered_qty1.DataPropertyName = "tiered_qty1";
-            this.tiered_qty1.HeaderText = "Tiered Quantity1";
-            this.tiered_qty1.Name = "tiered_qty1";
-            this.tiered_qty1.ReadOnly = true;
-            // 
-            // m_id1
-            // 
-            this.m_id1.DataPropertyName = "m_id1";
-            this.m_id1.HeaderText = "Currency1";
-            this.m_id1.Name = "m_id1";
-            this.m_id1.ReadOnly = true;
-            this.m_id1.Width = 60;
-            // 
-            // price1
-            // 
-            this.price1.DataPropertyName = "price1";
-            this.price1.HeaderText = "Price1";
-            this.price1.Name = "price1";
-            this.price1.ReadOnly = true;
-            this.price1.Width = 80;
-            // 
-            // p_unit1
-            // 
-            this.p_unit1.DataPropertyName = "p_unit1";
-            this.p_unit1.HeaderText = "Price Unit1";
-            this.p_unit1.Name = "p_unit1";
-            this.p_unit1.ReadOnly = true;
-            this.p_unit1.Width = 80;
-            // 
-            // pvh_no
-            // 
-            this.pvh_no.DataPropertyName = "pvh_no";
-            this.pvh_no.HeaderText = "pvh_no";
-            this.pvh_no.Name = "pvh_no";
-            this.pvh_no.ReadOnly = true;
-            this.pvh_no.Visible = false;
-            // 
-            // normal_plate
-            // 
-            this.normal_plate.DataPropertyName = "normal_plate";
-            this.normal_plate.HeaderText = "Normal Plate";
-            this.normal_plate.Name = "normal_plate";
-            this.normal_plate.ReadOnly = true;
-            this.normal_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.normal_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // hang_plate
-            // 
-            this.hang_plate.DataPropertyName = "hang_plate";
-            this.hang_plate.HeaderText = "Hang Plate";
-            this.hang_plate.Name = "hang_plate";
-            this.hang_plate.ReadOnly = true;
-            this.hang_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.hang_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // spray
-            // 
-            this.spray.DataPropertyName = "spray";
-            this.spray.HeaderText = "Spray";
-            this.spray.Name = "spray";
-            this.spray.ReadOnly = true;
-            this.spray.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.spray.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // spray_rubber
-            // 
-            this.spray_rubber.DataPropertyName = "spray_rubber";
-            this.spray_rubber.HeaderText = "Spray Rubber";
-            this.spray_rubber.Name = "spray_rubber";
-            this.spray_rubber.ReadOnly = true;
-            this.spray_rubber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.spray_rubber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // rubber_button
-            // 
-            this.rubber_button.DataPropertyName = "rubber_button";
-            this.rubber_button.HeaderText = "Rubber Button";
-            this.rubber_button.Name = "rubber_button";
-            this.rubber_button.ReadOnly = true;
-            this.rubber_button.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.rubber_button.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // is_ck
-            // 
-            this.is_ck.DataPropertyName = "is_ck";
-            this.is_ck.HeaderText = "CK";
-            this.is_ck.Name = "is_ck";
-            this.is_ck.ReadOnly = true;
-            this.is_ck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.is_ck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // flag_green
-            // 
-            this.flag_green.DataPropertyName = "flag_green";
-            this.flag_green.HeaderText = "flag_green";
-            this.flag_green.Name = "flag_green";
-            this.flag_green.ReadOnly = true;
-            this.flag_green.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.flag_green.Visible = false;
-            // 
-            // flag_purple
-            // 
-            this.flag_purple.DataPropertyName = "flag_purple";
-            this.flag_purple.HeaderText = "flag_purple";
-            this.flag_purple.Name = "flag_purple";
-            this.flag_purple.ReadOnly = true;
-            this.flag_purple.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.flag_purple.Visible = false;
-            // 
-            // division
-            // 
-            this.division.DataPropertyName = "division";
-            this.division.HeaderText = "division";
-            this.division.Name = "division";
-            this.division.ReadOnly = true;
-            // 
-            // division_desc
-            // 
-            this.division_desc.DataPropertyName = "division_desc";
-            this.division_desc.HeaderText = "Division Desc.";
-            this.division_desc.Name = "division_desc";
-            this.division_desc.ReadOnly = true;
-            // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
@@ -891,8 +700,8 @@
             // 
             // panel9
             // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.txtsize3);
             this.panel9.Controls.Add(this.txtsize2);
@@ -913,7 +722,7 @@
             this.panel9.Controls.Add(this.txtmo_id1);
             this.panel9.Controls.Add(this.label38);
             this.panel9.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel9.Location = new System.Drawing.Point(3, 561);
+            this.panel9.Location = new System.Drawing.Point(3, 562);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(996, 68);
             this.panel9.TabIndex = 81;
@@ -1155,9 +964,17 @@
             // 
             // panel8
             // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.txtsample_vr_status);
+            this.panel8.Controls.Add(this.label59);
+            this.panel8.Controls.Add(this.txtsustainable_process);
+            this.panel8.Controls.Add(this.label56);
+            this.panel8.Controls.Add(this.txtweight_per_pc);
+            this.panel8.Controls.Add(this.label55);
+            this.panel8.Controls.Add(this.txtfactory_name);
+            this.panel8.Controls.Add(this.label52);
             this.panel8.Controls.Add(this.txtartwork_limit);
             this.panel8.Controls.Add(this.txtsupplier_name);
             this.panel8.Controls.Add(this.txtcountry);
@@ -1172,13 +989,13 @@
             this.panel8.Controls.Add(this.txtsize);
             this.panel8.Location = new System.Drawing.Point(463, 1);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(536, 89);
+            this.panel8.Size = new System.Drawing.Size(536, 126);
             this.panel8.TabIndex = 80;
             // 
             // txtartwork_limit
             // 
             this.txtartwork_limit.EnterMoveNextControl = true;
-            this.txtartwork_limit.Location = new System.Drawing.Point(102, 64);
+            this.txtartwork_limit.Location = new System.Drawing.Point(102, 61);
             this.txtartwork_limit.Name = "txtartwork_limit";
             this.txtartwork_limit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtartwork_limit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1204,7 +1021,7 @@
             // txtcountry
             // 
             this.txtcountry.EnterMoveNextControl = true;
-            this.txtcountry.Location = new System.Drawing.Point(102, 43);
+            this.txtcountry.Location = new System.Drawing.Point(102, 41);
             this.txtcountry.Name = "txtcountry";
             this.txtcountry.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtcountry.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1217,7 +1034,7 @@
             // txtmaterial
             // 
             this.txtmaterial.EnterMoveNextControl = true;
-            this.txtmaterial.Location = new System.Drawing.Point(102, 22);
+            this.txtmaterial.Location = new System.Drawing.Point(102, 21);
             this.txtmaterial.Name = "txtmaterial";
             this.txtmaterial.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtmaterial.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1230,7 +1047,7 @@
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label16.Location = new System.Drawing.Point(2, 65);
+            this.label16.Location = new System.Drawing.Point(2, 62);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(101, 19);
             this.label16.TabIndex = 74;
@@ -1239,7 +1056,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(2, 47);
+            this.label4.Location = new System.Drawing.Point(2, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 70;
@@ -1248,7 +1065,7 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(2, 24);
+            this.label12.Location = new System.Drawing.Point(2, 23);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(101, 15);
             this.label12.TabIndex = 66;
@@ -1257,7 +1074,7 @@
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(1, 4);
+            this.label17.Location = new System.Drawing.Point(1, 3);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(101, 13);
             this.label17.TabIndex = 50;
@@ -1267,7 +1084,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(254, 47);
+            this.label2.Location = new System.Drawing.Point(254, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 15);
             this.label2.TabIndex = 72;
@@ -1287,13 +1104,13 @@
             // txtcolor
             // 
             this.txtcolor.EnterMoveNextControl = true;
-            this.txtcolor.Location = new System.Drawing.Point(290, 43);
+            this.txtcolor.Location = new System.Drawing.Point(290, 42);
             this.txtcolor.Name = "txtcolor";
             this.txtcolor.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtcolor.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtcolor.Properties.MaxLength = 300;
             this.txtcolor.Properties.ReadOnly = true;
-            this.txtcolor.Size = new System.Drawing.Size(242, 42);
+            this.txtcolor.Size = new System.Drawing.Size(242, 38);
             this.txtcolor.TabIndex = 4;
             this.txtcolor.Tag = "2";
             // 
@@ -1305,13 +1122,15 @@
             this.txtsize.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtsize.Properties.MaxLength = 500;
             this.txtsize.Properties.ReadOnly = true;
-            this.txtsize.Size = new System.Drawing.Size(242, 41);
+            this.txtsize.Size = new System.Drawing.Size(242, 40);
             this.txtsize.TabIndex = 2;
             this.txtsize.Tag = "2";
             // 
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.txtfile_available_3d);
+            this.panel7.Controls.Add(this.txtmat_supplier_code);
             this.panel7.Controls.Add(this.dtdate);
             this.panel7.Controls.Add(this.txtpvh_jv_ref);
             this.panel7.Controls.Add(this.txtserial_no);
@@ -1327,9 +1146,11 @@
             this.panel7.Controls.Add(this.label3);
             this.panel7.Controls.Add(this.txttemp_pvh_no);
             this.panel7.Controls.Add(this.txttrim_code);
+            this.panel7.Controls.Add(this.label53);
+            this.panel7.Controls.Add(this.label58);
             this.panel7.Location = new System.Drawing.Point(3, 1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(458, 89);
+            this.panel7.Size = new System.Drawing.Size(458, 126);
             this.panel7.TabIndex = 79;
             // 
             // dtdate
@@ -1343,6 +1164,8 @@
             this.dtdate.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.dtdate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtdate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtdate.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtdate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtdate.Properties.Mask.BeepOnError = true;
@@ -1350,8 +1173,6 @@
             this.dtdate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtdate.Properties.MaxLength = 10;
             this.dtdate.Properties.NullDate = "";
-            this.dtdate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtdate.Size = new System.Drawing.Size(152, 20);
             this.dtdate.TabIndex = 1;
             this.dtdate.Tag = "2";
@@ -1360,15 +1181,15 @@
             // 
             this.txtpvh_jv_ref.EditValue = "";
             this.txtpvh_jv_ref.EnterMoveNextControl = true;
-            this.txtpvh_jv_ref.Location = new System.Drawing.Point(303, 43);
+            this.txtpvh_jv_ref.Location = new System.Drawing.Point(302, 41);
             this.txtpvh_jv_ref.Name = "txtpvh_jv_ref";
-            toolTipTitleItem2.Text = "提示：";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "【新增】模式之下方可以Gen PVH 流水號";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
+            toolTipTitleItem1.Text = "提示：";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "【新增】模式之下方可以Gen PVH 流水號";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
             this.txtpvh_jv_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, superToolTip2, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, superToolTip1, true)});
             this.txtpvh_jv_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtpvh_jv_ref.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpvh_jv_ref.Properties.MaxLength = 50;
@@ -1380,20 +1201,20 @@
             // txtserial_no
             // 
             this.txtserial_no.EnterMoveNextControl = true;
-            this.txtserial_no.Location = new System.Drawing.Point(65, 1);
+            this.txtserial_no.Location = new System.Drawing.Point(56, 1);
             this.txtserial_no.Name = "txtserial_no";
             this.txtserial_no.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtserial_no.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtserial_no.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtserial_no.Properties.MaxLength = 12;
             this.txtserial_no.Properties.ReadOnly = true;
-            this.txtserial_no.Size = new System.Drawing.Size(149, 20);
+            this.txtserial_no.Size = new System.Drawing.Size(138, 20);
             this.txtserial_no.TabIndex = 0;
             this.txtserial_no.Tag = "1";
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(217, 23);
+            this.label13.Location = new System.Drawing.Point(218, 23);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(85, 15);
             this.label13.TabIndex = 68;
@@ -1402,7 +1223,7 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(217, 44);
+            this.label14.Location = new System.Drawing.Point(218, 42);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(85, 15);
             this.label14.TabIndex = 72;
@@ -1411,7 +1232,7 @@
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(239, 65);
+            this.label15.Location = new System.Drawing.Point(240, 64);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 15);
             this.label15.TabIndex = 70;
@@ -1420,9 +1241,10 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(1, 24);
+            this.label1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(0, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 50;
             this.label1.Text = "Season";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1430,7 +1252,7 @@
             // txtdelivery
             // 
             this.txtdelivery.EnterMoveNextControl = true;
-            this.txtdelivery.Location = new System.Drawing.Point(302, 64);
+            this.txtdelivery.Location = new System.Drawing.Point(302, 62);
             this.txtdelivery.Name = "txtdelivery";
             this.txtdelivery.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtdelivery.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1444,7 +1266,7 @@
             // 
             this.txtseason.Enabled = false;
             this.txtseason.EnterMoveNextControl = true;
-            this.txtseason.Location = new System.Drawing.Point(65, 22);
+            this.txtseason.Location = new System.Drawing.Point(56, 22);
             this.txtseason.Name = "txtseason";
             this.txtseason.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtseason.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1461,28 +1283,29 @@
             this.txtseason.Properties.ShowHeader = false;
             this.txtseason.Properties.Tag = "2";
             this.txtseason.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtseason.Size = new System.Drawing.Size(150, 20);
+            this.txtseason.Size = new System.Drawing.Size(138, 20);
             this.txtseason.TabIndex = 2;
             this.txtseason.Tag = "2";
             // 
             // txtrequests_by
             // 
             this.txtrequests_by.EnterMoveNextControl = true;
-            this.txtrequests_by.Location = new System.Drawing.Point(303, 22);
+            this.txtrequests_by.Location = new System.Drawing.Point(302, 20);
             this.txtrequests_by.Name = "txtrequests_by";
             this.txtrequests_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtrequests_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtrequests_by.Properties.MaxLength = 50;
             this.txtrequests_by.Properties.ReadOnly = true;
-            this.txtrequests_by.Size = new System.Drawing.Size(151, 20);
+            this.txtrequests_by.Size = new System.Drawing.Size(152, 20);
             this.txtrequests_by.TabIndex = 3;
             this.txtrequests_by.Tag = "2";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(1, 44);
+            this.label5.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Location = new System.Drawing.Point(0, 44);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 15);
+            this.label5.Size = new System.Drawing.Size(57, 15);
             this.label5.TabIndex = 66;
             this.label5.Text = "Trim Code";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1503,26 +1326,25 @@
             // 
             // txttrim_code
             // 
-            this.txttrim_code.Location = new System.Drawing.Point(65, 43);
+            this.txttrim_code.Location = new System.Drawing.Point(56, 43);
             this.txttrim_code.Name = "txttrim_code";
             this.txttrim_code.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txttrim_code.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txttrim_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txttrim_code.Properties.MaxLength = 100;
             this.txttrim_code.Properties.ReadOnly = true;
-            this.txttrim_code.Size = new System.Drawing.Size(150, 42);
+            this.txttrim_code.Size = new System.Drawing.Size(138, 77);
             this.txttrim_code.TabIndex = 4;
             this.txttrim_code.Tag = "2";
             this.txttrim_code.Leave += new System.EventHandler(this.txttrim_code_Leave);
             // 
             // panel6
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.panel14);
             this.panel6.Controls.Add(this.panel13);
-            this.panel6.Controls.Add(this.label25);
             this.panel6.Controls.Add(this.panel12);
             this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.panel10);
@@ -1536,12 +1358,13 @@
             this.panel6.Controls.Add(this.label20);
             this.panel6.Controls.Add(this.txtsurcharge_usa);
             this.panel6.Controls.Add(this.label19);
+            this.panel6.Controls.Add(this.label25);
             this.panel6.Controls.Add(this.txtsurcharge_eur);
             this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.txtmoq_eur);
-            this.panel6.Location = new System.Drawing.Point(3, 91);
+            this.panel6.Location = new System.Drawing.Point(3, 127);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(996, 120);
+            this.panel6.Size = new System.Drawing.Size(996, 99);
             this.panel6.TabIndex = 78;
             // 
             // panel14
@@ -1799,12 +1622,13 @@
             // 
             // label25
             // 
-            this.label25.Location = new System.Drawing.Point(507, 76);
+            this.label25.Location = new System.Drawing.Point(734, 76);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(149, 15);
             this.label25.TabIndex = 98;
             this.label25.Text = "Surcharge-EUR only";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label25.Visible = false;
             // 
             // panel12
             // 
@@ -2189,7 +2013,7 @@
             // txtleadtime_sample
             // 
             this.txtleadtime_sample.EnterMoveNextControl = true;
-            this.txtleadtime_sample.Location = new System.Drawing.Point(127, 94);
+            this.txtleadtime_sample.Location = new System.Drawing.Point(127, 73);
             this.txtleadtime_sample.Name = "txtleadtime_sample";
             this.txtleadtime_sample.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtleadtime_sample.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2211,7 +2035,7 @@
             // 
             // label27
             // 
-            this.label27.Location = new System.Drawing.Point(505, 99);
+            this.label27.Location = new System.Drawing.Point(505, 78);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(149, 15);
             this.label27.TabIndex = 102;
@@ -2230,7 +2054,7 @@
             // txtleadtime_bulk
             // 
             this.txtleadtime_bulk.EnterMoveNextControl = true;
-            this.txtleadtime_bulk.Location = new System.Drawing.Point(659, 94);
+            this.txtleadtime_bulk.Location = new System.Drawing.Point(659, 73);
             this.txtleadtime_bulk.Name = "txtleadtime_bulk";
             this.txtleadtime_bulk.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtleadtime_bulk.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2244,20 +2068,20 @@
             // txtmoq_usa
             // 
             this.txtmoq_usa.EnterMoveNextControl = true;
-            this.txtmoq_usa.Location = new System.Drawing.Point(127, 50);
+            this.txtmoq_usa.Location = new System.Drawing.Point(178, 50);
             this.txtmoq_usa.Name = "txtmoq_usa";
             this.txtmoq_usa.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtmoq_usa.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtmoq_usa.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtmoq_usa.Properties.MaxLength = 50;
             this.txtmoq_usa.Properties.ReadOnly = true;
-            this.txtmoq_usa.Size = new System.Drawing.Size(357, 22);
+            this.txtmoq_usa.Size = new System.Drawing.Size(306, 22);
             this.txtmoq_usa.TabIndex = 20;
             this.txtmoq_usa.Tag = "2";
             // 
             // label28
             // 
-            this.label28.Location = new System.Drawing.Point(9, 95);
+            this.label28.Location = new System.Drawing.Point(9, 74);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(117, 17);
             this.label28.TabIndex = 100;
@@ -2266,12 +2090,12 @@
             // 
             // label20
             // 
-            this.label20.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label20.Location = new System.Drawing.Point(3, 52);
+            this.label20.Font = new System.Drawing.Font("PMingLiU", 9.75F);
+            this.label20.Location = new System.Drawing.Point(13, 53);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(120, 12);
+            this.label20.Size = new System.Drawing.Size(152, 12);
             this.label20.TabIndex = 70;
-            this.label20.Text = "MOQ-USA Special only";
+            this.label20.Text = "Minimum/Upcharge-Sample";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtsurcharge_usa
@@ -2294,51 +2118,56 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(149, 15);
             this.label19.TabIndex = 72;
-            this.label19.Text = "Surcharge-USA Special only";
+            this.label19.Text = "Minimum/Upcharge-Bulk";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtsurcharge_eur
             // 
             this.txtsurcharge_eur.EnterMoveNextControl = true;
-            this.txtsurcharge_eur.Location = new System.Drawing.Point(659, 73);
+            this.txtsurcharge_eur.Location = new System.Drawing.Point(885, 75);
             this.txtsurcharge_eur.Name = "txtsurcharge_eur";
             this.txtsurcharge_eur.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtsurcharge_eur.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtsurcharge_eur.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtsurcharge_eur.Properties.MaxLength = 50;
             this.txtsurcharge_eur.Properties.ReadOnly = true;
-            this.txtsurcharge_eur.Size = new System.Drawing.Size(332, 22);
+            this.txtsurcharge_eur.Size = new System.Drawing.Size(106, 22);
             this.txtsurcharge_eur.TabIndex = 23;
             this.txtsurcharge_eur.Tag = "2";
+            this.txtsurcharge_eur.Visible = false;
             // 
             // label26
             // 
-            this.label26.Location = new System.Drawing.Point(9, 73);
+            this.label26.Location = new System.Drawing.Point(400, 76);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(117, 16);
+            this.label26.Size = new System.Drawing.Size(52, 16);
             this.label26.TabIndex = 96;
             this.label26.Text = "MOQ-EUR only";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label26.Visible = false;
             // 
             // txtmoq_eur
             // 
             this.txtmoq_eur.EnterMoveNextControl = true;
-            this.txtmoq_eur.Location = new System.Drawing.Point(127, 73);
+            this.txtmoq_eur.Location = new System.Drawing.Point(403, 74);
             this.txtmoq_eur.Name = "txtmoq_eur";
             this.txtmoq_eur.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtmoq_eur.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtmoq_eur.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtmoq_eur.Properties.MaxLength = 50;
             this.txtmoq_eur.Properties.ReadOnly = true;
-            this.txtmoq_eur.Size = new System.Drawing.Size(357, 22);
+            this.txtmoq_eur.Size = new System.Drawing.Size(71, 22);
             this.txtmoq_eur.TabIndex = 22;
             this.txtmoq_eur.Tag = "2";
+            this.txtmoq_eur.Visible = false;
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.txtsustainability_certificate);
+            this.panel5.Controls.Add(this.label57);
             this.panel5.Controls.Add(this.txtfabric_limitations);
             this.panel5.Controls.Add(this.txttrim_must_tommy);
             this.panel5.Controls.Add(this.label32);
@@ -2356,7 +2185,7 @@
             this.panel5.Controls.Add(this.label54);
             this.panel5.Controls.Add(this.txtsuggested_care);
             this.panel5.Controls.Add(this.lblCrusr);
-            this.panel5.Location = new System.Drawing.Point(3, 212);
+            this.panel5.Location = new System.Drawing.Point(3, 227);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(996, 101);
             this.panel5.TabIndex = 77;
@@ -2364,7 +2193,7 @@
             // txtfabric_limitations
             // 
             this.txtfabric_limitations.EnterMoveNextControl = true;
-            this.txtfabric_limitations.Location = new System.Drawing.Point(679, 78);
+            this.txtfabric_limitations.Location = new System.Drawing.Point(679, 76);
             this.txtfabric_limitations.Name = "txtfabric_limitations";
             this.txtfabric_limitations.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtfabric_limitations.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2377,7 +2206,7 @@
             // txttrim_must_tommy
             // 
             this.txttrim_must_tommy.EnterMoveNextControl = true;
-            this.txttrim_must_tommy.Location = new System.Drawing.Point(258, 2);
+            this.txttrim_must_tommy.Location = new System.Drawing.Point(258, 1);
             this.txttrim_must_tommy.Name = "txttrim_must_tommy";
             this.txttrim_must_tommy.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txttrim_must_tommy.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2390,7 +2219,7 @@
             // label32
             // 
             this.label32.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(3, 1);
+            this.label32.Location = new System.Drawing.Point(3, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(252, 13);
             this.label32.TabIndex = 50;
@@ -2400,7 +2229,7 @@
             // txtCreate_date
             // 
             this.txtCreate_date.Enabled = false;
-            this.txtCreate_date.Location = new System.Drawing.Point(845, 2);
+            this.txtCreate_date.Location = new System.Drawing.Point(845, 1);
             this.txtCreate_date.Name = "txtCreate_date";
             this.txtCreate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCreate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2412,7 +2241,7 @@
             // txtCreate_by
             // 
             this.txtCreate_by.Enabled = false;
-            this.txtCreate_by.Location = new System.Drawing.Point(679, 2);
+            this.txtCreate_by.Location = new System.Drawing.Point(679, 1);
             this.txtCreate_by.Name = "txtCreate_by";
             this.txtCreate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCreate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2424,7 +2253,7 @@
             // txtoekotex
             // 
             this.txtoekotex.EnterMoveNextControl = true;
-            this.txtoekotex.Location = new System.Drawing.Point(258, 23);
+            this.txtoekotex.Location = new System.Drawing.Point(258, 22);
             this.txtoekotex.Name = "txtoekotex";
             this.txtoekotex.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtoekotex.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2437,7 +2266,7 @@
             // txtUpdate_by
             // 
             this.txtUpdate_by.Enabled = false;
-            this.txtUpdate_by.Location = new System.Drawing.Point(845, 23);
+            this.txtUpdate_by.Location = new System.Drawing.Point(845, 22);
             this.txtUpdate_by.Name = "txtUpdate_by";
             this.txtUpdate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2449,7 +2278,7 @@
             // txtUpdate_date
             // 
             this.txtUpdate_date.Enabled = false;
-            this.txtUpdate_date.Location = new System.Drawing.Point(845, 43);
+            this.txtUpdate_date.Location = new System.Drawing.Point(845, 42);
             this.txtUpdate_date.Name = "txtUpdate_date";
             this.txtUpdate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2461,7 +2290,7 @@
             // label39
             // 
             this.label39.Font = new System.Drawing.Font("Tahoma", 8.5F);
-            this.label39.Location = new System.Drawing.Point(42, 13);
+            this.label39.Location = new System.Drawing.Point(42, 12);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(210, 14);
             this.label39.TabIndex = 93;
@@ -2471,7 +2300,7 @@
             // label31
             // 
             this.label31.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.label31.Location = new System.Drawing.Point(-2, 25);
+            this.label31.Location = new System.Drawing.Point(-2, 24);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(261, 15);
             this.label31.TabIndex = 66;
@@ -2481,7 +2310,7 @@
             // label29
             // 
             this.label29.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(3, 39);
+            this.label29.Location = new System.Drawing.Point(3, 63);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(83, 27);
             this.label29.TabIndex = 70;
@@ -2490,7 +2319,7 @@
             // 
             // lblAmtim
             // 
-            this.lblAmtim.Location = new System.Drawing.Point(777, 47);
+            this.lblAmtim.Location = new System.Drawing.Point(777, 46);
             this.lblAmtim.Name = "lblAmtim";
             this.lblAmtim.Size = new System.Drawing.Size(68, 13);
             this.lblAmtim.TabIndex = 92;
@@ -2499,7 +2328,7 @@
             // 
             // lblCrtim
             // 
-            this.lblCrtim.Location = new System.Drawing.Point(777, 5);
+            this.lblCrtim.Location = new System.Drawing.Point(777, 4);
             this.lblCrtim.Name = "lblCrtim";
             this.lblCrtim.Size = new System.Drawing.Size(68, 13);
             this.lblCrtim.TabIndex = 90;
@@ -2508,7 +2337,7 @@
             // 
             // lblAmusr
             // 
-            this.lblAmusr.Location = new System.Drawing.Point(787, 26);
+            this.lblAmusr.Location = new System.Drawing.Point(787, 25);
             this.lblAmusr.Name = "lblAmusr";
             this.lblAmusr.Size = new System.Drawing.Size(58, 13);
             this.lblAmusr.TabIndex = 91;
@@ -2518,7 +2347,7 @@
             // label54
             // 
             this.label54.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(672, 63);
+            this.label54.Location = new System.Drawing.Point(672, 61);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(103, 15);
             this.label54.TabIndex = 96;
@@ -2528,19 +2357,19 @@
             // txtsuggested_care
             // 
             this.txtsuggested_care.EnterMoveNextControl = true;
-            this.txtsuggested_care.Location = new System.Drawing.Point(86, 44);
+            this.txtsuggested_care.Location = new System.Drawing.Point(86, 62);
             this.txtsuggested_care.Name = "txtsuggested_care";
             this.txtsuggested_care.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtsuggested_care.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtsuggested_care.Properties.MaxLength = 600;
             this.txtsuggested_care.Properties.ReadOnly = true;
-            this.txtsuggested_care.Size = new System.Drawing.Size(587, 55);
+            this.txtsuggested_care.Size = new System.Drawing.Size(587, 35);
             this.txtsuggested_care.TabIndex = 2;
             this.txtsuggested_care.Tag = "2";
             // 
             // lblCrusr
             // 
-            this.lblCrusr.Location = new System.Drawing.Point(616, 6);
+            this.lblCrusr.Location = new System.Drawing.Point(616, 5);
             this.lblCrusr.Name = "lblCrusr";
             this.lblCrusr.Size = new System.Drawing.Size(64, 13);
             this.lblCrusr.TabIndex = 89;
@@ -2549,8 +2378,8 @@
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.chkcan_tumble_drying);
             this.panel4.Controls.Add(this.memquality_callouts);
@@ -2563,9 +2392,9 @@
             this.panel4.Controls.Add(this.chkdo_not_dryclean);
             this.panel4.Controls.Add(this.chkdryclean_only);
             this.panel4.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel4.Location = new System.Drawing.Point(3, 314);
+            this.panel4.Location = new System.Drawing.Point(3, 328);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(996, 72);
+            this.panel4.Size = new System.Drawing.Size(996, 62);
             this.panel4.TabIndex = 76;
             // 
             // chkcan_tumble_drying
@@ -2590,7 +2419,7 @@
             this.memquality_callouts.Name = "memquality_callouts";
             this.memquality_callouts.Properties.MaxLength = 600;
             this.memquality_callouts.Properties.ReadOnly = true;
-            this.memquality_callouts.Size = new System.Drawing.Size(729, 43);
+            this.memquality_callouts.Size = new System.Drawing.Size(729, 33);
             this.memquality_callouts.TabIndex = 7;
             this.memquality_callouts.Tag = "2";
             // 
@@ -2612,7 +2441,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1, 42);
+            this.label8.Location = new System.Drawing.Point(1, 30);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
             this.label8.TabIndex = 102;
@@ -2622,7 +2451,7 @@
             // chkuse_for_childrenswear
             // 
             this.chkuse_for_childrenswear.Enabled = false;
-            this.chkuse_for_childrenswear.Location = new System.Drawing.Point(821, 44);
+            this.chkuse_for_childrenswear.Location = new System.Drawing.Point(821, 29);
             this.chkuse_for_childrenswear.Name = "chkuse_for_childrenswear";
             this.chkuse_for_childrenswear.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.chkuse_for_childrenswear.Properties.Appearance.Options.UseFont = true;
@@ -2715,8 +2544,8 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.label34);
             this.panel3.Controls.Add(this.label9);
@@ -2733,7 +2562,7 @@
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.txtbulk_reference);
             this.panel3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel3.Location = new System.Drawing.Point(3, 387);
+            this.panel3.Location = new System.Drawing.Point(3, 391);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(996, 73);
             this.panel3.TabIndex = 75;
@@ -2908,8 +2737,8 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.chkDivision);
             this.panel2.Controls.Add(this.txtdivision_desc);
@@ -2942,7 +2771,7 @@
             this.panel2.Controls.Add(this.chkth_spw_msw);
             this.panel2.Controls.Add(this.chkbranding);
             this.panel2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel2.Location = new System.Drawing.Point(3, 461);
+            this.panel2.Location = new System.Drawing.Point(3, 464);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(996, 98);
             this.panel2.TabIndex = 74;
@@ -3408,9 +3237,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -3505,9 +3334,9 @@
             // 
             this.dgvFind.AllowUserToAddRows = false;
             this.dgvFind.AllowUserToDeleteRows = false;
-            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.serialno});
@@ -3609,6 +3438,8 @@
             this.dtDat1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDat1.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.dtDat1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDat1.Properties.EditFormat.FormatString = "yyyy/MM/dd";
@@ -3616,8 +3447,6 @@
             this.dtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat1.Properties.MaxLength = 10;
-            this.dtDat1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDat1.Size = new System.Drawing.Size(137, 22);
             this.dtDat1.TabIndex = 2;
             this.dtDat1.Leave += new System.EventHandler(this.dtDat1_Leave);
@@ -3631,6 +3460,8 @@
             this.dtDat2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDat2.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.dtDat2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDat2.Properties.EditFormat.FormatString = "yyyy/MM/dd";
@@ -3638,8 +3469,6 @@
             this.dtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat2.Properties.MaxLength = 10;
-            this.dtDat2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDat2.Size = new System.Drawing.Size(137, 22);
             this.dtDat2.TabIndex = 3;
             // 
@@ -3684,9 +3513,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle5.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -3827,8 +3656,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle6.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -3841,6 +3670,443 @@
             this.dataGridViewTextBoxColumn21.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // txtfactory_name
+            // 
+            this.txtfactory_name.EnterMoveNextControl = true;
+            this.txtfactory_name.Location = new System.Drawing.Point(102, 82);
+            this.txtfactory_name.Name = "txtfactory_name";
+            this.txtfactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtfactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtfactory_name.Properties.MaxLength = 100;
+            this.txtfactory_name.Properties.ReadOnly = true;
+            this.txtfactory_name.Size = new System.Drawing.Size(154, 20);
+            this.txtfactory_name.TabIndex = 75;
+            this.txtfactory_name.Tag = "2";
+            // 
+            // label52
+            // 
+            this.label52.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label52.Location = new System.Drawing.Point(1, 83);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(101, 19);
+            this.label52.TabIndex = 76;
+            this.label52.Text = "Factory Name";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtmat_supplier_code
+            // 
+            this.txtmat_supplier_code.EnterMoveNextControl = true;
+            this.txtmat_supplier_code.Location = new System.Drawing.Point(302, 82);
+            this.txtmat_supplier_code.Name = "txtmat_supplier_code";
+            this.txtmat_supplier_code.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtmat_supplier_code.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtmat_supplier_code.Properties.MaxLength = 100;
+            this.txtmat_supplier_code.Properties.ReadOnly = true;
+            this.txtmat_supplier_code.Size = new System.Drawing.Size(152, 20);
+            this.txtmat_supplier_code.TabIndex = 121;
+            this.txtmat_supplier_code.Tag = "2";
+            // 
+            // label53
+            // 
+            this.label53.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label53.Location = new System.Drawing.Point(191, 84);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(109, 15);
+            this.label53.TabIndex = 122;
+            this.label53.Text = "Material Supplier Code";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label55
+            // 
+            this.label55.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label55.Location = new System.Drawing.Point(262, 82);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(101, 19);
+            this.label55.TabIndex = 77;
+            this.label55.Text = "Weight per pc/meter";
+            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtweight_per_pc
+            // 
+            this.txtweight_per_pc.EnterMoveNextControl = true;
+            this.txtweight_per_pc.Location = new System.Drawing.Point(363, 81);
+            this.txtweight_per_pc.Name = "txtweight_per_pc";
+            this.txtweight_per_pc.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtweight_per_pc.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtweight_per_pc.Properties.MaxLength = 100;
+            this.txtweight_per_pc.Properties.ReadOnly = true;
+            this.txtweight_per_pc.Size = new System.Drawing.Size(169, 20);
+            this.txtweight_per_pc.TabIndex = 78;
+            this.txtweight_per_pc.Tag = "2";
+            // 
+            // txtsustainable_process
+            // 
+            this.txtsustainable_process.EnterMoveNextControl = true;
+            this.txtsustainable_process.Location = new System.Drawing.Point(363, 102);
+            this.txtsustainable_process.Name = "txtsustainable_process";
+            this.txtsustainable_process.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtsustainable_process.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtsustainable_process.Properties.MaxLength = 100;
+            this.txtsustainable_process.Properties.ReadOnly = true;
+            this.txtsustainable_process.Size = new System.Drawing.Size(169, 20);
+            this.txtsustainable_process.TabIndex = 80;
+            this.txtsustainable_process.Tag = "2";
+            // 
+            // label56
+            // 
+            this.label56.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label56.Location = new System.Drawing.Point(262, 103);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(101, 19);
+            this.label56.TabIndex = 79;
+            this.label56.Text = "Sustainable Process";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtsustainability_certificate
+            // 
+            this.txtsustainability_certificate.EnterMoveNextControl = true;
+            this.txtsustainability_certificate.Location = new System.Drawing.Point(321, 42);
+            this.txtsustainability_certificate.Name = "txtsustainability_certificate";
+            this.txtsustainability_certificate.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtsustainability_certificate.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtsustainability_certificate.Properties.MaxLength = 100;
+            this.txtsustainability_certificate.Properties.ReadOnly = true;
+            this.txtsustainability_certificate.Size = new System.Drawing.Size(461, 20);
+            this.txtsustainability_certificate.TabIndex = 98;
+            this.txtsustainability_certificate.Tag = "2";
+            // 
+            // label57
+            // 
+            this.label57.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.label57.Location = new System.Drawing.Point(3, 44);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(312, 15);
+            this.label57.TabIndex = 99;
+            this.label57.Text = "Sustainablility Certificate Number and Expiration (MM/DD/YYYY)";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtfile_available_3d
+            // 
+            this.txtfile_available_3d.EnterMoveNextControl = true;
+            this.txtfile_available_3d.Location = new System.Drawing.Point(302, 102);
+            this.txtfile_available_3d.Name = "txtfile_available_3d";
+            this.txtfile_available_3d.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtfile_available_3d.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtfile_available_3d.Properties.MaxLength = 100;
+            this.txtfile_available_3d.Properties.ReadOnly = true;
+            this.txtfile_available_3d.Size = new System.Drawing.Size(154, 20);
+            this.txtfile_available_3d.TabIndex = 123;
+            this.txtfile_available_3d.Tag = "2";
+            // 
+            // label58
+            // 
+            this.label58.Font = new System.Drawing.Font("PMingLiU", 9.75F);
+            this.label58.Location = new System.Drawing.Point(199, 103);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(101, 15);
+            this.label58.TabIndex = 124;
+            this.label58.Text = "3D file available";
+            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtsample_vr_status
+            // 
+            this.txtsample_vr_status.EnterMoveNextControl = true;
+            this.txtsample_vr_status.Location = new System.Drawing.Point(102, 103);
+            this.txtsample_vr_status.Name = "txtsample_vr_status";
+            this.txtsample_vr_status.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtsample_vr_status.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtsample_vr_status.Properties.MaxLength = 100;
+            this.txtsample_vr_status.Properties.ReadOnly = true;
+            this.txtsample_vr_status.Size = new System.Drawing.Size(154, 20);
+            this.txtsample_vr_status.TabIndex = 125;
+            this.txtsample_vr_status.Tag = "2";
+            // 
+            // label59
+            // 
+            this.label59.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label59.Location = new System.Drawing.Point(1, 106);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(99, 15);
+            this.label59.TabIndex = 126;
+            this.label59.Text = "Sample VR Status";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // serial_no
+            // 
+            this.serial_no.DataPropertyName = "serial_no";
+            this.serial_no.HeaderText = "Serial No.";
+            this.serial_no.Name = "serial_no";
+            this.serial_no.ReadOnly = true;
+            this.serial_no.Width = 90;
+            // 
+            // season
+            // 
+            this.season.DataPropertyName = "season";
+            this.season.HeaderText = "Season";
+            this.season.Name = "season";
+            this.season.ReadOnly = true;
+            this.season.Width = 60;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle1;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // trim_code
+            // 
+            this.trim_code.DataPropertyName = "trim_code";
+            this.trim_code.HeaderText = "Trim Code";
+            this.trim_code.Name = "trim_code";
+            this.trim_code.ReadOnly = true;
+            this.trim_code.Width = 110;
+            // 
+            // requests_by
+            // 
+            this.requests_by.DataPropertyName = "requests_by";
+            this.requests_by.HeaderText = "Requests by";
+            this.requests_by.Name = "requests_by";
+            this.requests_by.ReadOnly = true;
+            this.requests_by.Width = 90;
+            // 
+            // delivery
+            // 
+            this.delivery.DataPropertyName = "delivery";
+            this.delivery.HeaderText = "Delivery";
+            this.delivery.Name = "delivery";
+            this.delivery.ReadOnly = true;
+            // 
+            // pvh_jv_ref
+            // 
+            this.pvh_jv_ref.DataPropertyName = "pvh_jv_ref";
+            this.pvh_jv_ref.HeaderText = "PVH JV REF";
+            this.pvh_jv_ref.Name = "pvh_jv_ref";
+            this.pvh_jv_ref.ReadOnly = true;
+            // 
+            // supplier_name
+            // 
+            this.supplier_name.DataPropertyName = "supplier_name";
+            this.supplier_name.HeaderText = "Supplier Name";
+            this.supplier_name.Name = "supplier_name";
+            this.supplier_name.ReadOnly = true;
+            // 
+            // material
+            // 
+            this.material.DataPropertyName = "material";
+            this.material.HeaderText = "Material Content";
+            this.material.Name = "material";
+            this.material.ReadOnly = true;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            // 
+            // country
+            // 
+            this.country.DataPropertyName = "country";
+            this.country.HeaderText = "Country of Origin";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
+            // 
+            // color
+            // 
+            this.color.DataPropertyName = "color";
+            this.color.HeaderText = "Color";
+            this.color.Name = "color";
+            this.color.ReadOnly = true;
+            this.color.Visible = false;
+            this.color.Width = 120;
+            // 
+            // artwork_limit
+            // 
+            this.artwork_limit.DataPropertyName = "artwork_limit";
+            this.artwork_limit.HeaderText = "Artwork limittations";
+            this.artwork_limit.Name = "artwork_limit";
+            this.artwork_limit.ReadOnly = true;
+            this.artwork_limit.Visible = false;
+            this.artwork_limit.Width = 150;
+            // 
+            // tiered_qty1
+            // 
+            this.tiered_qty1.DataPropertyName = "tiered_qty1";
+            this.tiered_qty1.HeaderText = "Tiered Quantity1";
+            this.tiered_qty1.Name = "tiered_qty1";
+            this.tiered_qty1.ReadOnly = true;
+            // 
+            // m_id1
+            // 
+            this.m_id1.DataPropertyName = "m_id1";
+            this.m_id1.HeaderText = "Currency1";
+            this.m_id1.Name = "m_id1";
+            this.m_id1.ReadOnly = true;
+            this.m_id1.Width = 60;
+            // 
+            // price1
+            // 
+            this.price1.DataPropertyName = "price1";
+            this.price1.HeaderText = "Price1";
+            this.price1.Name = "price1";
+            this.price1.ReadOnly = true;
+            this.price1.Width = 80;
+            // 
+            // p_unit1
+            // 
+            this.p_unit1.DataPropertyName = "p_unit1";
+            this.p_unit1.HeaderText = "Price Unit1";
+            this.p_unit1.Name = "p_unit1";
+            this.p_unit1.ReadOnly = true;
+            this.p_unit1.Width = 80;
+            // 
+            // pvh_no
+            // 
+            this.pvh_no.DataPropertyName = "pvh_no";
+            this.pvh_no.HeaderText = "pvh_no";
+            this.pvh_no.Name = "pvh_no";
+            this.pvh_no.ReadOnly = true;
+            this.pvh_no.Visible = false;
+            // 
+            // normal_plate
+            // 
+            this.normal_plate.DataPropertyName = "normal_plate";
+            this.normal_plate.HeaderText = "Normal Plate";
+            this.normal_plate.Name = "normal_plate";
+            this.normal_plate.ReadOnly = true;
+            this.normal_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.normal_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // hang_plate
+            // 
+            this.hang_plate.DataPropertyName = "hang_plate";
+            this.hang_plate.HeaderText = "Hang Plate";
+            this.hang_plate.Name = "hang_plate";
+            this.hang_plate.ReadOnly = true;
+            this.hang_plate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.hang_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // spray
+            // 
+            this.spray.DataPropertyName = "spray";
+            this.spray.HeaderText = "Spray";
+            this.spray.Name = "spray";
+            this.spray.ReadOnly = true;
+            this.spray.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.spray.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // spray_rubber
+            // 
+            this.spray_rubber.DataPropertyName = "spray_rubber";
+            this.spray_rubber.HeaderText = "Spray Rubber";
+            this.spray_rubber.Name = "spray_rubber";
+            this.spray_rubber.ReadOnly = true;
+            this.spray_rubber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.spray_rubber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // rubber_button
+            // 
+            this.rubber_button.DataPropertyName = "rubber_button";
+            this.rubber_button.HeaderText = "Rubber Button";
+            this.rubber_button.Name = "rubber_button";
+            this.rubber_button.ReadOnly = true;
+            this.rubber_button.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.rubber_button.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // is_ck
+            // 
+            this.is_ck.DataPropertyName = "is_ck";
+            this.is_ck.HeaderText = "CK";
+            this.is_ck.Name = "is_ck";
+            this.is_ck.ReadOnly = true;
+            this.is_ck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.is_ck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // flag_green
+            // 
+            this.flag_green.DataPropertyName = "flag_green";
+            this.flag_green.HeaderText = "flag_green";
+            this.flag_green.Name = "flag_green";
+            this.flag_green.ReadOnly = true;
+            this.flag_green.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.flag_green.Visible = false;
+            // 
+            // flag_purple
+            // 
+            this.flag_purple.DataPropertyName = "flag_purple";
+            this.flag_purple.HeaderText = "flag_purple";
+            this.flag_purple.Name = "flag_purple";
+            this.flag_purple.ReadOnly = true;
+            this.flag_purple.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.flag_purple.Visible = false;
+            // 
+            // division
+            // 
+            this.division.DataPropertyName = "division";
+            this.division.HeaderText = "division";
+            this.division.Name = "division";
+            this.division.ReadOnly = true;
+            // 
+            // division_desc
+            // 
+            this.division_desc.DataPropertyName = "division_desc";
+            this.division_desc.HeaderText = "Division Desc.";
+            this.division_desc.Name = "division_desc";
+            this.division_desc.ReadOnly = true;
+            // 
+            // mat_supplier_code
+            // 
+            this.mat_supplier_code.DataPropertyName = "mat_supplier_code";
+            this.mat_supplier_code.HeaderText = "Material Supplier Code";
+            this.mat_supplier_code.Name = "mat_supplier_code";
+            this.mat_supplier_code.ReadOnly = true;
+            // 
+            // factory_name
+            // 
+            this.factory_name.DataPropertyName = "factory_name";
+            this.factory_name.HeaderText = "Factory Name";
+            this.factory_name.Name = "factory_name";
+            this.factory_name.ReadOnly = true;
+            // 
+            // weight_per_pc
+            // 
+            this.weight_per_pc.DataPropertyName = "weight_per_pc";
+            this.weight_per_pc.HeaderText = "Weight per pc/meter";
+            this.weight_per_pc.Name = "weight_per_pc";
+            this.weight_per_pc.ReadOnly = true;
+            // 
+            // sustainable_process
+            // 
+            this.sustainable_process.DataPropertyName = "sustainable_process";
+            this.sustainable_process.HeaderText = "Sustainable Process";
+            this.sustainable_process.Name = "sustainable_process";
+            this.sustainable_process.ReadOnly = true;
+            // 
+            // sustainability_certificate
+            // 
+            this.sustainability_certificate.DataPropertyName = "sustainability_certificate";
+            this.sustainability_certificate.HeaderText = "Sustainability Certificate";
+            this.sustainability_certificate.Name = "sustainability_certificate";
+            this.sustainability_certificate.ReadOnly = true;
+            // 
+            // sample_vr_status
+            // 
+            this.sample_vr_status.DataPropertyName = "sample_vr_status";
+            this.sample_vr_status.HeaderText = "Sample VR Status";
+            this.sample_vr_status.Name = "sample_vr_status";
+            this.sample_vr_status.ReadOnly = true;
+            // 
+            // file_available_3d
+            // 
+            this.file_available_3d.DataPropertyName = "file_available_3d";
+            this.file_available_3d.HeaderText = "3D file available";
+            this.file_available_3d.Name = "file_available_3d";
+            this.file_available_3d.ReadOnly = true;
             // 
             // frmDevelopmentTommy
             // 
@@ -3878,7 +4144,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtcolor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsize.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpvh_jv_ref.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtserial_no.Properties)).EndInit();
@@ -3989,11 +4255,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfactory_name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtmat_supplier_code.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtweight_per_pc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainable_process.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainability_certificate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfile_available_3d.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsample_vr_status.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4233,6 +4506,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private DevExpress.XtraEditors.TextEdit txtdivision_desc;
         private DevExpress.XtraEditors.CheckEdit chkDivision;
+        private DevExpress.XtraEditors.TextEdit txtsustainable_process;
+        private System.Windows.Forms.Label label56;
+        private DevExpress.XtraEditors.TextEdit txtweight_per_pc;
+        private System.Windows.Forms.Label label55;
+        private DevExpress.XtraEditors.TextEdit txtfactory_name;
+        private System.Windows.Forms.Label label52;
+        private DevExpress.XtraEditors.TextEdit txtfile_available_3d;
+        internal System.Windows.Forms.Label label58;
+        private DevExpress.XtraEditors.TextEdit txtmat_supplier_code;
+        internal System.Windows.Forms.Label label53;
+        private DevExpress.XtraEditors.TextEdit txtsustainability_certificate;
+        private System.Windows.Forms.Label label57;
+        private DevExpress.XtraEditors.TextEdit txtsample_vr_status;
+        internal System.Windows.Forms.Label label59;
         private System.Windows.Forms.DataGridViewTextBoxColumn serial_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn season;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
@@ -4261,5 +4548,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn flag_purple;
         private System.Windows.Forms.DataGridViewCheckBoxColumn division;
         private System.Windows.Forms.DataGridViewTextBoxColumn division_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mat_supplier_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn factory_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weight_per_pc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sustainable_process;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sustainability_certificate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sample_vr_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn file_available_3d;
     }
 }
