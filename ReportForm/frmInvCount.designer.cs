@@ -98,6 +98,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtInv2 = new DevExpress.XtraEditors.TextEdit();
             this.it_customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oi_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -285,6 +287,8 @@
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.it_customer,
+            this.customer_code,
+            this.customer_name,
             this.id,
             this.oi_date,
             this.sequence_id,
@@ -650,10 +654,24 @@
             this.it_customer.DataPropertyName = "it_customer";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.it_customer.DefaultCellStyle = dataGridViewCellStyle1;
-            this.it_customer.HeaderText = "客户类型";
+            this.it_customer.HeaderText = "客戶類型";
             this.it_customer.Name = "it_customer";
             this.it_customer.ReadOnly = true;
             this.it_customer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // customer_code
+            // 
+            this.customer_code.DataPropertyName = "customer_code";
+            this.customer_code.HeaderText = "客戶代碼";
+            this.customer_code.Name = "customer_code";
+            this.customer_code.ReadOnly = true;
+            // 
+            // customer_name
+            // 
+            this.customer_name.DataPropertyName = "customer_name";
+            this.customer_name.HeaderText = "客戶名稱";
+            this.customer_name.Name = "customer_name";
+            this.customer_name.ReadOnly = true;
             // 
             // id
             // 
@@ -838,6 +856,8 @@
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtInv2;
         private System.Windows.Forms.DataGridViewTextBoxColumn it_customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customer_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customer_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn oi_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
