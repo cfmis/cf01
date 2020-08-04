@@ -78,6 +78,14 @@
             this.txtmo_id1 = new DevExpress.XtraEditors.TextEdit();
             this.label38 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtsample_vr_status = new DevExpress.XtraEditors.TextEdit();
+            this.label59 = new System.Windows.Forms.Label();
+            this.txtsustainable_process = new DevExpress.XtraEditors.TextEdit();
+            this.label56 = new System.Windows.Forms.Label();
+            this.txtweight_per_pc = new DevExpress.XtraEditors.TextEdit();
+            this.label55 = new System.Windows.Forms.Label();
+            this.txtfactory_name = new DevExpress.XtraEditors.TextEdit();
+            this.label52 = new System.Windows.Forms.Label();
             this.txtartwork_limit = new DevExpress.XtraEditors.TextEdit();
             this.txtsupplier_name = new DevExpress.XtraEditors.TextEdit();
             this.txtcountry = new DevExpress.XtraEditors.TextEdit();
@@ -91,6 +99,8 @@
             this.txtcolor = new DevExpress.XtraEditors.MemoEdit();
             this.txtsize = new DevExpress.XtraEditors.MemoEdit();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtfile_available_3d = new DevExpress.XtraEditors.TextEdit();
+            this.txtmat_supplier_code = new DevExpress.XtraEditors.TextEdit();
             this.dtdate = new DevExpress.XtraEditors.DateEdit();
             this.txtpvh_jv_ref = new DevExpress.XtraEditors.ButtonEdit();
             this.txtserial_no = new DevExpress.XtraEditors.TextEdit();
@@ -104,6 +114,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txttemp_pvh_no = new DevExpress.XtraEditors.TextEdit();
             this.txttrim_code = new DevExpress.XtraEditors.MemoEdit();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.txttiered_qty5 = new DevExpress.XtraEditors.TextEdit();
@@ -119,7 +131,6 @@
             this.lkem_id4 = new DevExpress.XtraEditors.LookUpEdit();
             this.lkep_unit4 = new DevExpress.XtraEditors.LookUpEdit();
             this.txtprice_size4 = new DevExpress.XtraEditors.TextEdit();
-            this.label25 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txttiered_qty3 = new DevExpress.XtraEditors.TextEdit();
             this.lkem_id3 = new DevExpress.XtraEditors.LookUpEdit();
@@ -151,10 +162,13 @@
             this.label20 = new System.Windows.Forms.Label();
             this.txtsurcharge_usa = new DevExpress.XtraEditors.TextEdit();
             this.label19 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.txtsurcharge_eur = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
             this.txtmoq_eur = new DevExpress.XtraEditors.TextEdit();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtsustainability_certificate = new DevExpress.XtraEditors.TextEdit();
+            this.label57 = new System.Windows.Forms.Label();
             this.txtfabric_limitations = new DevExpress.XtraEditors.TextEdit();
             this.txttrim_must_tommy = new DevExpress.XtraEditors.TextEdit();
             this.label32 = new System.Windows.Forms.Label();
@@ -269,20 +283,8 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtfactory_name = new DevExpress.XtraEditors.TextEdit();
-            this.label52 = new System.Windows.Forms.Label();
-            this.txtmat_supplier_code = new DevExpress.XtraEditors.TextEdit();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.txtweight_per_pc = new DevExpress.XtraEditors.TextEdit();
-            this.txtsustainable_process = new DevExpress.XtraEditors.TextEdit();
-            this.label56 = new System.Windows.Forms.Label();
-            this.txtsustainability_certificate = new DevExpress.XtraEditors.TextEdit();
-            this.label57 = new System.Windows.Forms.Label();
-            this.txtfile_available_3d = new DevExpress.XtraEditors.TextEdit();
-            this.label58 = new System.Windows.Forms.Label();
-            this.txtsample_vr_status = new DevExpress.XtraEditors.TextEdit();
-            this.label59 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.txtfinish = new DevExpress.XtraEditors.TextEdit();
             this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -318,6 +320,7 @@
             this.sustainability_certificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sample_vr_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.file_available_3d = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -332,6 +335,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id1.Properties)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsample_vr_status.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainable_process.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtweight_per_pc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfactory_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtartwork_limit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtcountry.Properties)).BeginInit();
@@ -339,6 +346,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtcolor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsize.Properties)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfile_available_3d.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtmat_supplier_code.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpvh_jv_ref.Properties)).BeginInit();
@@ -386,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_eur.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_eur.Properties)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainability_certificate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtfabric_limitations.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttrim_must_tommy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).BeginInit();
@@ -455,13 +465,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtfactory_name.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtmat_supplier_code.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtweight_per_pc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsustainable_process.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsustainability_certificate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtfile_available_3d.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsample_vr_status.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfinish.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -669,7 +673,8 @@
             this.sustainable_process,
             this.sustainability_certificate,
             this.sample_vr_status,
-            this.file_available_3d});
+            this.file_available_3d,
+            this.finish});
             this.dgvDetails.Location = new System.Drawing.Point(2, 631);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -992,6 +997,98 @@
             this.panel8.Size = new System.Drawing.Size(536, 126);
             this.panel8.TabIndex = 80;
             // 
+            // txtsample_vr_status
+            // 
+            this.txtsample_vr_status.EnterMoveNextControl = true;
+            this.txtsample_vr_status.Location = new System.Drawing.Point(102, 103);
+            this.txtsample_vr_status.Name = "txtsample_vr_status";
+            this.txtsample_vr_status.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtsample_vr_status.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtsample_vr_status.Properties.MaxLength = 100;
+            this.txtsample_vr_status.Properties.ReadOnly = true;
+            this.txtsample_vr_status.Size = new System.Drawing.Size(154, 20);
+            this.txtsample_vr_status.TabIndex = 125;
+            this.txtsample_vr_status.Tag = "2";
+            // 
+            // label59
+            // 
+            this.label59.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label59.Location = new System.Drawing.Point(1, 106);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(99, 15);
+            this.label59.TabIndex = 126;
+            this.label59.Text = "Sample VR Status";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtsustainable_process
+            // 
+            this.txtsustainable_process.EnterMoveNextControl = true;
+            this.txtsustainable_process.Location = new System.Drawing.Point(363, 102);
+            this.txtsustainable_process.Name = "txtsustainable_process";
+            this.txtsustainable_process.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtsustainable_process.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtsustainable_process.Properties.MaxLength = 100;
+            this.txtsustainable_process.Properties.ReadOnly = true;
+            this.txtsustainable_process.Size = new System.Drawing.Size(169, 20);
+            this.txtsustainable_process.TabIndex = 80;
+            this.txtsustainable_process.Tag = "2";
+            // 
+            // label56
+            // 
+            this.label56.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label56.Location = new System.Drawing.Point(262, 103);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(101, 19);
+            this.label56.TabIndex = 79;
+            this.label56.Text = "Sustainable Process";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtweight_per_pc
+            // 
+            this.txtweight_per_pc.EnterMoveNextControl = true;
+            this.txtweight_per_pc.Location = new System.Drawing.Point(363, 81);
+            this.txtweight_per_pc.Name = "txtweight_per_pc";
+            this.txtweight_per_pc.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtweight_per_pc.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtweight_per_pc.Properties.MaxLength = 100;
+            this.txtweight_per_pc.Properties.ReadOnly = true;
+            this.txtweight_per_pc.Size = new System.Drawing.Size(169, 20);
+            this.txtweight_per_pc.TabIndex = 78;
+            this.txtweight_per_pc.Tag = "2";
+            // 
+            // label55
+            // 
+            this.label55.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label55.Location = new System.Drawing.Point(262, 82);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(101, 19);
+            this.label55.TabIndex = 77;
+            this.label55.Text = "Weight per pc/meter";
+            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtfactory_name
+            // 
+            this.txtfactory_name.EnterMoveNextControl = true;
+            this.txtfactory_name.Location = new System.Drawing.Point(102, 82);
+            this.txtfactory_name.Name = "txtfactory_name";
+            this.txtfactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtfactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtfactory_name.Properties.MaxLength = 100;
+            this.txtfactory_name.Properties.ReadOnly = true;
+            this.txtfactory_name.Size = new System.Drawing.Size(154, 20);
+            this.txtfactory_name.TabIndex = 75;
+            this.txtfactory_name.Tag = "2";
+            // 
+            // label52
+            // 
+            this.label52.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label52.Location = new System.Drawing.Point(1, 83);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(101, 19);
+            this.label52.TabIndex = 76;
+            this.label52.Text = "Factory Name";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txtartwork_limit
             // 
             this.txtartwork_limit.EnterMoveNextControl = true;
@@ -1129,6 +1226,8 @@
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.txtfinish);
+            this.panel7.Controls.Add(this.label51);
             this.panel7.Controls.Add(this.txtfile_available_3d);
             this.panel7.Controls.Add(this.txtmat_supplier_code);
             this.panel7.Controls.Add(this.dtdate);
@@ -1152,6 +1251,32 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(458, 126);
             this.panel7.TabIndex = 79;
+            // 
+            // txtfile_available_3d
+            // 
+            this.txtfile_available_3d.EnterMoveNextControl = true;
+            this.txtfile_available_3d.Location = new System.Drawing.Point(302, 102);
+            this.txtfile_available_3d.Name = "txtfile_available_3d";
+            this.txtfile_available_3d.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtfile_available_3d.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtfile_available_3d.Properties.MaxLength = 100;
+            this.txtfile_available_3d.Properties.ReadOnly = true;
+            this.txtfile_available_3d.Size = new System.Drawing.Size(154, 20);
+            this.txtfile_available_3d.TabIndex = 123;
+            this.txtfile_available_3d.Tag = "2";
+            // 
+            // txtmat_supplier_code
+            // 
+            this.txtmat_supplier_code.EnterMoveNextControl = true;
+            this.txtmat_supplier_code.Location = new System.Drawing.Point(302, 82);
+            this.txtmat_supplier_code.Name = "txtmat_supplier_code";
+            this.txtmat_supplier_code.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtmat_supplier_code.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtmat_supplier_code.Properties.MaxLength = 100;
+            this.txtmat_supplier_code.Properties.ReadOnly = true;
+            this.txtmat_supplier_code.Size = new System.Drawing.Size(152, 20);
+            this.txtmat_supplier_code.TabIndex = 121;
+            this.txtmat_supplier_code.Tag = "2";
             // 
             // dtdate
             // 
@@ -1333,10 +1458,30 @@
             this.txttrim_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txttrim_code.Properties.MaxLength = 100;
             this.txttrim_code.Properties.ReadOnly = true;
-            this.txttrim_code.Size = new System.Drawing.Size(138, 77);
+            this.txttrim_code.Size = new System.Drawing.Size(138, 58);
             this.txttrim_code.TabIndex = 4;
             this.txttrim_code.Tag = "2";
             this.txttrim_code.Leave += new System.EventHandler(this.txttrim_code_Leave);
+            // 
+            // label53
+            // 
+            this.label53.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label53.Location = new System.Drawing.Point(191, 84);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(109, 15);
+            this.label53.TabIndex = 122;
+            this.label53.Text = "Material Supplier Code";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label58
+            // 
+            this.label58.Font = new System.Drawing.Font("PMingLiU", 9.75F);
+            this.label58.Location = new System.Drawing.Point(199, 103);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(101, 15);
+            this.label58.TabIndex = 124;
+            this.label58.Text = "3D file available";
+            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel6
             // 
@@ -1619,16 +1764,6 @@
             this.txtprice_size4.Size = new System.Drawing.Size(50, 22);
             this.txtprice_size4.TabIndex = 1;
             this.txtprice_size4.Tag = "2";
-            // 
-            // label25
-            // 
-            this.label25.Location = new System.Drawing.Point(734, 76);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(149, 15);
-            this.label25.TabIndex = 98;
-            this.label25.Text = "Surcharge-EUR only";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label25.Visible = false;
             // 
             // panel12
             // 
@@ -2121,6 +2256,16 @@
             this.label19.Text = "Minimum/Upcharge-Bulk";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label25
+            // 
+            this.label25.Location = new System.Drawing.Point(734, 76);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(149, 15);
+            this.label25.TabIndex = 98;
+            this.label25.Text = "Surcharge-EUR only";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label25.Visible = false;
+            // 
             // txtsurcharge_eur
             // 
             this.txtsurcharge_eur.EnterMoveNextControl = true;
@@ -2189,6 +2334,29 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(996, 101);
             this.panel5.TabIndex = 77;
+            // 
+            // txtsustainability_certificate
+            // 
+            this.txtsustainability_certificate.EnterMoveNextControl = true;
+            this.txtsustainability_certificate.Location = new System.Drawing.Point(321, 42);
+            this.txtsustainability_certificate.Name = "txtsustainability_certificate";
+            this.txtsustainability_certificate.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtsustainability_certificate.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtsustainability_certificate.Properties.MaxLength = 100;
+            this.txtsustainability_certificate.Properties.ReadOnly = true;
+            this.txtsustainability_certificate.Size = new System.Drawing.Size(461, 20);
+            this.txtsustainability_certificate.TabIndex = 98;
+            this.txtsustainability_certificate.Tag = "2";
+            // 
+            // label57
+            // 
+            this.label57.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.label57.Location = new System.Drawing.Point(3, 44);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(312, 15);
+            this.label57.TabIndex = 99;
+            this.label57.Text = "Sustainablility Certificate Number and Expiration (MM/DD/YYYY)";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtfabric_limitations
             // 
@@ -3671,166 +3839,28 @@
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             // 
-            // txtfactory_name
+            // label51
             // 
-            this.txtfactory_name.EnterMoveNextControl = true;
-            this.txtfactory_name.Location = new System.Drawing.Point(102, 82);
-            this.txtfactory_name.Name = "txtfactory_name";
-            this.txtfactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtfactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtfactory_name.Properties.MaxLength = 100;
-            this.txtfactory_name.Properties.ReadOnly = true;
-            this.txtfactory_name.Size = new System.Drawing.Size(154, 20);
-            this.txtfactory_name.TabIndex = 75;
-            this.txtfactory_name.Tag = "2";
+            this.label51.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label51.Location = new System.Drawing.Point(4, 105);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(47, 15);
+            this.label51.TabIndex = 125;
+            this.label51.Text = "Finish";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label52
+            // txtfinish
             // 
-            this.label52.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label52.Location = new System.Drawing.Point(1, 83);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(101, 19);
-            this.label52.TabIndex = 76;
-            this.label52.Text = "Factory Name";
-            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtmat_supplier_code
-            // 
-            this.txtmat_supplier_code.EnterMoveNextControl = true;
-            this.txtmat_supplier_code.Location = new System.Drawing.Point(302, 82);
-            this.txtmat_supplier_code.Name = "txtmat_supplier_code";
-            this.txtmat_supplier_code.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtmat_supplier_code.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtmat_supplier_code.Properties.MaxLength = 100;
-            this.txtmat_supplier_code.Properties.ReadOnly = true;
-            this.txtmat_supplier_code.Size = new System.Drawing.Size(152, 20);
-            this.txtmat_supplier_code.TabIndex = 121;
-            this.txtmat_supplier_code.Tag = "2";
-            // 
-            // label53
-            // 
-            this.label53.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label53.Location = new System.Drawing.Point(191, 84);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(109, 15);
-            this.label53.TabIndex = 122;
-            this.label53.Text = "Material Supplier Code";
-            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label55
-            // 
-            this.label55.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label55.Location = new System.Drawing.Point(262, 82);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(101, 19);
-            this.label55.TabIndex = 77;
-            this.label55.Text = "Weight per pc/meter";
-            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtweight_per_pc
-            // 
-            this.txtweight_per_pc.EnterMoveNextControl = true;
-            this.txtweight_per_pc.Location = new System.Drawing.Point(363, 81);
-            this.txtweight_per_pc.Name = "txtweight_per_pc";
-            this.txtweight_per_pc.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtweight_per_pc.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtweight_per_pc.Properties.MaxLength = 100;
-            this.txtweight_per_pc.Properties.ReadOnly = true;
-            this.txtweight_per_pc.Size = new System.Drawing.Size(169, 20);
-            this.txtweight_per_pc.TabIndex = 78;
-            this.txtweight_per_pc.Tag = "2";
-            // 
-            // txtsustainable_process
-            // 
-            this.txtsustainable_process.EnterMoveNextControl = true;
-            this.txtsustainable_process.Location = new System.Drawing.Point(363, 102);
-            this.txtsustainable_process.Name = "txtsustainable_process";
-            this.txtsustainable_process.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtsustainable_process.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtsustainable_process.Properties.MaxLength = 100;
-            this.txtsustainable_process.Properties.ReadOnly = true;
-            this.txtsustainable_process.Size = new System.Drawing.Size(169, 20);
-            this.txtsustainable_process.TabIndex = 80;
-            this.txtsustainable_process.Tag = "2";
-            // 
-            // label56
-            // 
-            this.label56.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label56.Location = new System.Drawing.Point(262, 103);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(101, 19);
-            this.label56.TabIndex = 79;
-            this.label56.Text = "Sustainable Process";
-            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtsustainability_certificate
-            // 
-            this.txtsustainability_certificate.EnterMoveNextControl = true;
-            this.txtsustainability_certificate.Location = new System.Drawing.Point(321, 42);
-            this.txtsustainability_certificate.Name = "txtsustainability_certificate";
-            this.txtsustainability_certificate.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtsustainability_certificate.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtsustainability_certificate.Properties.MaxLength = 100;
-            this.txtsustainability_certificate.Properties.ReadOnly = true;
-            this.txtsustainability_certificate.Size = new System.Drawing.Size(461, 20);
-            this.txtsustainability_certificate.TabIndex = 98;
-            this.txtsustainability_certificate.Tag = "2";
-            // 
-            // label57
-            // 
-            this.label57.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.label57.Location = new System.Drawing.Point(3, 44);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(312, 15);
-            this.label57.TabIndex = 99;
-            this.label57.Text = "Sustainablility Certificate Number and Expiration (MM/DD/YYYY)";
-            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtfile_available_3d
-            // 
-            this.txtfile_available_3d.EnterMoveNextControl = true;
-            this.txtfile_available_3d.Location = new System.Drawing.Point(302, 102);
-            this.txtfile_available_3d.Name = "txtfile_available_3d";
-            this.txtfile_available_3d.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtfile_available_3d.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtfile_available_3d.Properties.MaxLength = 100;
-            this.txtfile_available_3d.Properties.ReadOnly = true;
-            this.txtfile_available_3d.Size = new System.Drawing.Size(154, 20);
-            this.txtfile_available_3d.TabIndex = 123;
-            this.txtfile_available_3d.Tag = "2";
-            // 
-            // label58
-            // 
-            this.label58.Font = new System.Drawing.Font("PMingLiU", 9.75F);
-            this.label58.Location = new System.Drawing.Point(199, 103);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(101, 15);
-            this.label58.TabIndex = 124;
-            this.label58.Text = "3D file available";
-            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtsample_vr_status
-            // 
-            this.txtsample_vr_status.EnterMoveNextControl = true;
-            this.txtsample_vr_status.Location = new System.Drawing.Point(102, 103);
-            this.txtsample_vr_status.Name = "txtsample_vr_status";
-            this.txtsample_vr_status.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtsample_vr_status.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtsample_vr_status.Properties.MaxLength = 100;
-            this.txtsample_vr_status.Properties.ReadOnly = true;
-            this.txtsample_vr_status.Size = new System.Drawing.Size(154, 20);
-            this.txtsample_vr_status.TabIndex = 125;
-            this.txtsample_vr_status.Tag = "2";
-            // 
-            // label59
-            // 
-            this.label59.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label59.Location = new System.Drawing.Point(1, 106);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(99, 15);
-            this.label59.TabIndex = 126;
-            this.label59.Text = "Sample VR Status";
-            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtfinish.EnterMoveNextControl = true;
+            this.txtfinish.Location = new System.Drawing.Point(55, 102);
+            this.txtfinish.Name = "txtfinish";
+            this.txtfinish.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtfinish.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtfinish.Properties.MaxLength = 100;
+            this.txtfinish.Properties.ReadOnly = true;
+            this.txtfinish.Size = new System.Drawing.Size(139, 20);
+            this.txtfinish.TabIndex = 126;
+            this.txtfinish.Tag = "2";
             // 
             // serial_no
             // 
@@ -4108,6 +4138,14 @@
             this.file_available_3d.Name = "file_available_3d";
             this.file_available_3d.ReadOnly = true;
             // 
+            // finish
+            // 
+            this.finish.DataPropertyName = "finish";
+            this.finish.HeaderText = "Finish";
+            this.finish.Name = "finish";
+            this.finish.ReadOnly = true;
+            this.finish.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // frmDevelopmentTommy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -4137,6 +4175,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id1.Properties)).EndInit();
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtsample_vr_status.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainable_process.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtweight_per_pc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfactory_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtartwork_limit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtcountry.Properties)).EndInit();
@@ -4144,6 +4186,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtcolor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsize.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtfile_available_3d.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtmat_supplier_code.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpvh_jv_ref.Properties)).EndInit();
@@ -4191,6 +4235,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_eur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_eur.Properties)).EndInit();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtsustainability_certificate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtfabric_limitations.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttrim_must_tommy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).EndInit();
@@ -4260,13 +4305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtfactory_name.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtmat_supplier_code.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtweight_per_pc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsustainable_process.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsustainability_certificate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtfile_available_3d.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsample_vr_status.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtfinish.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4555,5 +4594,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sustainability_certificate;
         private System.Windows.Forms.DataGridViewTextBoxColumn sample_vr_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn file_available_3d;
+        private System.Windows.Forms.DataGridViewTextBoxColumn finish;
+        private DevExpress.XtraEditors.TextEdit txtfinish;
+        private System.Windows.Forms.Label label51;
     }
 }

@@ -139,7 +139,7 @@ namespace cf01.Forms
             txtCreate_date.Text = DateTime.Now.Date.ToString();
             dtdate.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
             txtserial_no.Text = clsTommyTest.GetSeqNo("development_tommy","serial_no");
-            txtsupplier_name.Text = "CHING FUNG / CHING FUNG METAL MANUFACTORY (LONGNAM)CO.,LTD";
+            txtsupplier_name.Text = "CHING FUNG APPAREL ACCESSORIES CO.LTD."; 
             txtcountry.Text = "MADE IN CHINA";
             txtmoq_usa.Text = "NA";
             txtmoq_eur.Text = "NA";
@@ -150,6 +150,7 @@ namespace cf01.Forms
             txttrim_must_tommy.Text = "YES";
             txtoekotex.Text = "OEKO-TEX STANDARD 100 # HKS 18549 TESTEX";
             txttemp_pvh_no.Text = "";
+            txtfactory_name.Text = "CHING FUNG METAL MANUFACTORY (LONGNAM) CO., LTD";
 
             txtserial_no.Properties.ReadOnly = true;
             txtserial_no.BackColor = Color.White;
@@ -180,14 +181,14 @@ namespace cf01.Forms
             use_for_swimwear,use_for_childrenswear,cannot_pass_needle,quality_callouts,used_on_sms_eur,latest_submit_ref,best_vendor_do,bulk_reference,color_approved_size,
             quality_approval,size_approved_color,submit1,submit2,submit3,urgent,cs_mens,cs_womens,cs_boys,cs_girls,thm,thd,branding,th_spw_msw,th_spw_wsw,th_col_msw,th_col_wsw,
             th_kids,th_swim,th_underwear,th_acc_ftw,th_tailored,tommy_jeans,th_sport,mo_id1,mo_id2,mo_id3,color1,color2,color3,size1,size2,size3,create_by,create_date, normal_plate,hang_plate,spray,spray_rubber,rubber_button,is_ck,flag_green,flag_purple,division_desc,division,
-            mat_supplier_code,factory_name,weight_per_pc,sustainable_process,sustainability_certificate,sample_vr_status,file_available_3d) 
+            mat_supplier_code,factory_name,weight_per_pc,sustainable_process,sustainability_certificate,sample_vr_status,file_available_3d,finish) 
             VALUES(@serial_no,@season,@date,@trim_code,@requests_by,@delivery,@pvh_jv_ref,@supplier_name,@material,@size,@country,@color,@artwork_limit,
             @tiered_qty1,@price_size1,@m_id1,@price1,@p_unit1,@tiered_qty2,@price_size2,@m_id2,@price2,@p_unit2,@tiered_qty3,@price_size3,@m_id3,@price3,@p_unit3,@tiered_qty4,@price_size4,@m_id4,@price4,@p_unit4,@tiered_qty5,@price_size5,@m_id5,@price5,@p_unit5,
             @moq_usa,@surcharge_usa,@moq_eur,@surcharge_eur,@leadtime_sample,@leadtime_bulk,@trim_must_tommy,@oekotex,@suggested_care,@fabric_limitations,@machine_washable,@drycleanable,@dryclean_only,@do_not_dryclean,@can_tumble_drying,
             @use_for_swimwear,@use_for_childrenswear,@cannot_pass_needle,@quality_callouts,@used_on_sms_eur,@latest_submit_ref,@best_vendor_do,@bulk_reference,@color_approved_size,
             @quality_approval,@size_approved_color,@submit1,@submit2,@submit3,@urgent,@cs_mens,@cs_womens,@cs_boys,@cs_girls,@thm,@thd,@branding,@th_spw_msw,@th_spw_wsw,@th_col_msw,@th_col_wsw,
             @th_kids,@th_swim,@th_underwear,@th_acc_ftw,@th_tailored,@tommy_jeans,@th_sport,@mo_id1,@mo_id2,@mo_id3,@color1,@color2,@color3,@size1,@size2,@size3,@user_id,getdate(),@normal_plate,@hang_plate,@spray,@spray_rubber,@rubber_button,@is_ck,@flag_green,@flag_purple,@division_desc,@division,
-            @mat_supplier_code,@factory_name,@weight_per_pc,@sustainable_process,@sustainability_certificate,@sample_vr_status,@file_available_3d)";
+            @mat_supplier_code,@factory_name,@weight_per_pc,@sustainable_process,@sustainability_certificate,@sample_vr_status,@file_available_3d,@finish)";
 
             const string sql_update =
             @"Update development_tommy 
@@ -199,7 +200,7 @@ namespace cf01.Forms
             quality_approval=@quality_approval,size_approved_color=@size_approved_color,submit1=@submit1,submit2=@submit2,submit3=@submit3,urgent=@urgent,cs_mens=@cs_mens,cs_womens=@cs_womens,cs_boys=@cs_boys,cs_girls=@cs_girls,thm=@thm,thd=@thd,branding=@branding,th_spw_msw=@th_spw_msw,th_spw_wsw=@th_spw_wsw,th_col_msw=@th_col_msw,th_col_wsw=@th_col_wsw,
             th_kids=@th_kids,th_swim=@th_swim,th_underwear=@th_underwear,th_acc_ftw=@th_acc_ftw,th_tailored=@th_tailored,tommy_jeans=@tommy_jeans,th_sport=@th_sport,mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3,color1=@color1,color2=@color2,color3=@color3,size1=@size1,size2=@size2,size3=@size3,update_by=@user_id,update_date=getdate(),
             normal_plate=@normal_plate,hang_plate=@hang_plate,spray=@spray,spray_rubber=@spray_rubber,rubber_button=@rubber_button,is_ck=@is_ck,flag_green=@flag_green,flag_purple=@flag_purple,division_desc=@division_desc,division=@division,mat_supplier_code=@mat_supplier_code,factory_name=@factory_name,weight_per_pc=@weight_per_pc,sustainable_process=@sustainable_process,
-            sustainability_certificate=@sustainability_certificate,sample_vr_status=@sample_vr_status,file_available_3d=@file_available_3d
+            sustainability_certificate=@sustainability_certificate,sample_vr_status=@sample_vr_status,file_available_3d=@file_available_3d,finish=@finish
             WHERE serial_no=@serial_no";
 
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -341,6 +342,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@sustainability_certificate", txtsustainability_certificate.Text);
                     myCommand.Parameters.AddWithValue("@sample_vr_status", txtsample_vr_status.Text);
                     myCommand.Parameters.AddWithValue("@file_available_3d", txtfile_available_3d.Text);
+                    myCommand.Parameters.AddWithValue("@finish", txtfinish.Text);
 
                     //綠色選項
                     if (chkth_spw_msw.Checked || chkth_spw_wsw.Checked || chkth_col_msw.Checked || chkth_col_wsw.Checked || chkth_kids.Checked || chkth_tailored.Checked || chktommy_jeans.Checked||chkDivision.Checked ||chkth_acc_ftw.Checked)
@@ -739,7 +741,7 @@ namespace cf01.Forms
                     row["sustainability_certificate"] = txtsustainability_certificate.Text;
                     row["sample_vr_status"] = txtsample_vr_status.Text;
                     row["file_available_3d"] = txtfile_available_3d.Text;
-
+                    row["finish"] = txtfinish.Text;
 
                     dtDetail.Rows.Add(row);
                 }
@@ -873,7 +875,8 @@ namespace cf01.Forms
                     dtDetail.Rows[row_reset]["sustainability_certificate"] = txtsustainability_certificate.Text;
                     dtDetail.Rows[row_reset]["sample_vr_status"] = txtsample_vr_status.Text;
                     dtDetail.Rows[row_reset]["file_available_3d"] = txtfile_available_3d.Text;
-                     
+                    dtDetail.Rows[row_reset]["finish"] = txtfinish.Text;
+
                 }
                 dtDetail.AcceptChanges();
                 dgvDetails.DataSource = dtDetail;
@@ -1041,8 +1044,8 @@ namespace cf01.Forms
             txtsustainable_process.Text = pdr.Cells["sustainable_process"].Value.ToString();
             txtsustainability_certificate.Text = pdr.Cells["sustainability_certificate"].Value.ToString();
             txtsample_vr_status.Text = pdr.Cells["sample_vr_status"].Value.ToString();
-            txtfile_available_3d.Text= pdr.Cells["file_available_3d"].Value.ToString(); ;
-
+            txtfile_available_3d.Text= pdr.Cells["file_available_3d"].Value.ToString();
+            txtfinish.Text =pdr.Cells["finish"].Value.ToString();
 
         }
 
