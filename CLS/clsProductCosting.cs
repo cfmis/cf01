@@ -113,7 +113,7 @@ namespace cf01.CLS
                 " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
                 " LEFT JOIN " + remote_db + "cd_department d ON b.within_code=d.within_code  AND b.wp_id=d.id" +
                 " LEFT JOIN " + remote_db + "cd_department e ON b.within_code=e.within_code  AND b.next_wp_id=e.id" +
-                " INNER JOIN " + remote_db + "so_order_manage f ON a.within_code=f.within_code AND a.order_no=f.id AND a.so_ver=f.ver" +
+                " INNER JOIN " + remote_db + "so_order_manage f ON a.within_code=f.within_code AND a.order_no=f.id" +// AND a.so_ver=f.ver
                 " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + productMo + "'" +
                 " Order By right ('0000000000'+b.flag,10)";
             strSql += " ) aa";
@@ -329,8 +329,8 @@ namespace cf01.CLS
                         " INNER JOIN " + remote_db + "it_goods mm ON b.within_code=mm.within_code  AND b.goods_id=mm.id" +
                         " INNER JOIN " + remote_db + "cd_department d ON b.within_code=d.within_code AND b.wp_id=d.id" +
                         " INNER JOIN " + remote_db + "cd_department e ON b.within_code=e.within_code AND b.next_wp_id=e.id" +
-                        " INNER JOIN " + remote_db + "so_order_manage f ON a.within_code=f.within_code AND a.order_no=f.id AND a.so_ver=f.ver" +
-                        " WHERE a.within_code='" + within_code + "'";
+                        " INNER JOIN " + remote_db + "so_order_manage f ON a.within_code=f.within_code AND a.order_no=f.id" +
+                        " WHERE a.within_code='" + within_code + "'";// AND a.so_ver=f.ver
                     if (productMo != "")
                         strSql += " AND a.mo_id='" + productMo + "'";
                     else
@@ -556,57 +556,70 @@ namespace cf01.CLS
         {
             DataTable dtDepPrice = new DataTable();
             string processId = "";
-            bool flag = false;
             string strSql = "";
-            if (depId == "102" || depId == "105")
+            strSql = "Select a.process_id,a.line_qty,b.cost_price,b.product_qty,b.line_qty AS base_line_qty,a.prd_machine,a.prd_machine_level,a.job_type " +
+                " From bs_product_process_cost a" +
+                " Left Join jo_dept_product_cost b On a.Prd_dep=b.dept_id And a.Process_id=b.process_id" +
+                " Where a.Prd_item='" + productId + "' And a.Prd_dep='" + depId + "'";
+            //當產品沒有標準加工費時，以部門的標準
+            dtDepPrice = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtDepPrice.Rows.Count == 0)
             {
-                strSql = "Select b.cost_price,b.product_qty " +
-                    " From bs_product_process_cost a" +
-                    " Inner Join jo_dept_product_cost b On a.Prd_dep=b.dept_id And a.Process_id=b.process_id" +
-                    " Where a.Prd_dep='" + depId + "' And a.Prd_item='" + productId + "'";
-                dtDepPrice = clsPublicOfCF01.GetDataTable(strSql);
-                if (dtDepPrice.Rows.Count == 0)
-                {
-                    strSql = "Select Top 1 prd_machine,job_type From dgcf_pad.dbo.product_records " +
-                        " Where prd_dep='" + depId + "' And prd_item='" + productId + "' And prd_work_type='A02'";
-                    if (depId == "105")
-                        strSql += " And job_type<>'' ";
-                    DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
-                    if (dt.Rows.Count > 0)
-                    {
-                        flag = true;
-                        if (depId == "102" && dt.Rows[0]["prd_machine"].ToString().Length>3)
-                            processId = dt.Rows[0]["prd_machine"].ToString().Substring(0, 3);
-                        else
-                            processId = dt.Rows[0]["job_type"].ToString();
-                    }
-                }
-            }
-            else
-            {
-                flag = true;
                 processId = "*";
-            }
-            if(flag==true)
-            {
-                strSql = "Select a.cost_price,a.product_qty " +
+                strSql = "Select a.cost_price,a.product_qty,a.line_qty " +
                     " From jo_dept_product_cost a" +
                     " Where a.dept_id='" + depId + "' And a.process_id='" + processId + "'";
                 dtDepPrice = clsPublicOfCF01.GetDataTable(strSql);
             }
+
+            if (depId == "202" || depId == "203")
+            {
+                int prd_machine_level = dtDepPrice.Rows[0]["prd_machine_level"].ToString() != "" ? Convert.ToInt32(dtDepPrice.Rows[0]["prd_machine_level"]) : 0;
+                processId = dtDepPrice.Rows[0]["process_id"].ToString().Trim();
+                string prd_machine = dtDepPrice.Rows[0]["prd_machine"].ToString().Trim();
+                string job_type = dtDepPrice.Rows[0]["job_type"].ToString().Trim();
+                int line_qty = dtDepPrice.Rows[0]["line_qty"].ToString() != "" ? Convert.ToInt32(dtDepPrice.Rows[0]["line_qty"]) : 0;
+                //202、203標準加工費
+                strSql = "SELECT TOP 1 dept_id AS prd_dep,product_type,goods_id AS prd_item,ISNULL(machine_id,'') AS prd_machine,type_work AS job_type,ISNULL(machine2,'') AS machine2" +
+                    ",machine_gear AS prd_machine_level,per_stele_qty AS line_qty,machine_seconds AS cost_price,standard_qty AS product_qty" +
+                    " FROM " + remote_db + "cd_machine_standard" +
+                    " WHERE within_code='" + within_code + "' AND dept_id='" + depId + "'";
+                if (depId == "202")
+                {
+                    //標準是按: 部門 + 機器 + 檔位
+                    if (processId == "K-L-W")
+                        strSql += " AND machine_id='" + prd_machine + "' AND machine_gear ='" + prd_machine_level + "'";
+                    else
+                    {
+                        //標準是按: 部門 + 機器 + 每碑數
+                        if (processId == "K-J-E")
+                            strSql += " AND machine_id='" + prd_machine + "' AND per_stele_qty ='" + line_qty + "'";
+                        else
+                        {
+                            //標準是按: 按工種 + 類型 + 圖樣
+                            if (processId == "K-M-A" || processId== "K-I-S")
+                                strSql += " AND type_work='" + job_type + "' AND product_type ='" + productId.Substring(2, 2) + "' AND goods_id='" + productId.Substring(4, 7) + "'";
+                        }
+                    }
+                }
+                else
+                {
+                    strSql += " AND type_work='" + job_type + "' AND product_type ='" + productId.Substring(2, 2) + "' AND goods_id='" + productId.Substring(4, 7) + "'";
+                }
+                dtDepPrice = clsPublicOfCF01.GetDataTable(strSql);
+            }
             if (dtDepPrice.Rows.Count > 0)
             {
-                if (depId == "302")
+                //合金部是按每碑來計費的，要將每碑轉換為粒數
+                //而且當產品沒有每碑數時,用默認設定的每碑數:base_line_qty
+                if (depId == "302"||depId=="322")
                 {
-                    strSql = "Select Min(line_num) AS line_num From dgcf_pad.dbo.product_records " +
-                        " Where prd_dep='" + depId + "' And prd_item='" + productId + "' And prd_work_type='A02'";
-                    DataTable dtDep302 = clsPublicOfCF01.GetDataTable(strSql);
-                    if (dtDep302.Rows.Count > 0)
-                        dtDepPrice.Rows[0]["product_qty"] = dtDep302.Rows[0]["line_num"].ToString() != "" ? Convert.ToDecimal(dtDep302.Rows[0]["line_num"].ToString()) : 8;
+                    if ((dtDepPrice.Rows[0]["line_qty"].ToString() != "" ? Convert.ToInt32(dtDepPrice.Rows[0]["line_qty"]) : 0) > 0)
+                        dtDepPrice.Rows[0]["product_qty"] = Convert.ToInt32(dtDepPrice.Rows[0]["line_qty"]);
                     else
-                        dtDepPrice.Rows[0]["product_qty"] = 8;
+                        dtDepPrice.Rows[0]["product_qty"] = Convert.ToInt32(dtDepPrice.Rows[0]["base_line_qty"]);
                 }
-             }
+            }
             return dtDepPrice;
         }
 
@@ -925,7 +938,7 @@ namespace cf01.CLS
                 strSql += " And mat_item='" + materialId + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
-                stdProductWeight = dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0;
+                stdProductWeight = (dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0) * 1000;
             return stdProductWeight;
         }
     }

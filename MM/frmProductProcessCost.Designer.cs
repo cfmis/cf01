@@ -67,20 +67,6 @@
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_item_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProcess_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProcess_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProduct_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRef_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colJob_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colJob_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_machine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMachine_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.lueJob_type = new DevExpress.XtraEditors.LookUpEdit();
@@ -100,6 +86,24 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_item_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProcess_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProcess_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProduct_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDefaultLineQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDefaultJobType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrdMachine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDefaultPrdMachineLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRef_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJob_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJob_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_machine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMachine_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).BeginInit();
@@ -169,7 +173,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1042, 139);
+            this.panelControl1.Size = new System.Drawing.Size(1192, 139);
             this.panelControl1.TabIndex = 0;
             // 
             // txtPlanDateTo
@@ -462,7 +466,7 @@
             this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1042, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1192, 38);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -513,6 +517,10 @@
             this.colProcess_name,
             this.colCost_price,
             this.colProduct_qty,
+            this.colDefaultLineQty,
+            this.colDefaultJobType,
+            this.colPrdMachine,
+            this.colDefaultPrdMachineLevel,
             this.colRef_mo,
             this.colJob_type,
             this.colJob_desc,
@@ -524,122 +532,9 @@
             this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowHeadersWidth = 20;
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1042, 308);
+            this.dgvDetails.Size = new System.Drawing.Size(1192, 324);
             this.dgvDetails.TabIndex = 2;
             this.dgvDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellDoubleClick);
-            // 
-            // colSelect
-            // 
-            this.colSelect.DataPropertyName = "chk_flag";
-            this.colSelect.FillWeight = 60F;
-            this.colSelect.HeaderText = "";
-            this.colSelect.Name = "colSelect";
-            this.colSelect.ReadOnly = true;
-            this.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelect.Width = 40;
-            // 
-            // colDep
-            // 
-            this.colDep.DataPropertyName = "Prd_dep";
-            this.colDep.FillWeight = 80F;
-            this.colDep.HeaderText = "部門";
-            this.colDep.Name = "colDep";
-            this.colDep.ReadOnly = true;
-            this.colDep.Width = 80;
-            // 
-            // colPrd_mo
-            // 
-            this.colPrd_mo.DataPropertyName = "Prd_mo";
-            this.colPrd_mo.HeaderText = "制單編號";
-            this.colPrd_mo.Name = "colPrd_mo";
-            this.colPrd_mo.ReadOnly = true;
-            // 
-            // colPrd_item
-            // 
-            this.colPrd_item.DataPropertyName = "Prd_item";
-            this.colPrd_item.FillWeight = 180F;
-            this.colPrd_item.HeaderText = "物料編號";
-            this.colPrd_item.Name = "colPrd_item";
-            this.colPrd_item.ReadOnly = true;
-            this.colPrd_item.Width = 180;
-            // 
-            // colPrd_item_cdesc
-            // 
-            this.colPrd_item_cdesc.DataPropertyName = "Prd_item_cdesc";
-            this.colPrd_item_cdesc.FillWeight = 200F;
-            this.colPrd_item_cdesc.HeaderText = "物料描述";
-            this.colPrd_item_cdesc.Name = "colPrd_item_cdesc";
-            this.colPrd_item_cdesc.ReadOnly = true;
-            this.colPrd_item_cdesc.Width = 200;
-            // 
-            // colProcess_id
-            // 
-            this.colProcess_id.DataPropertyName = "Process_id";
-            this.colProcess_id.HeaderText = "公式類型";
-            this.colProcess_id.Name = "colProcess_id";
-            this.colProcess_id.ReadOnly = true;
-            this.colProcess_id.Width = 80;
-            // 
-            // colProcess_name
-            // 
-            this.colProcess_name.DataPropertyName = "process_name";
-            this.colProcess_name.HeaderText = "公式描述";
-            this.colProcess_name.Name = "colProcess_name";
-            this.colProcess_name.ReadOnly = true;
-            // 
-            // colCost_price
-            // 
-            this.colCost_price.DataPropertyName = "cost_price";
-            this.colCost_price.HeaderText = "單價";
-            this.colCost_price.Name = "colCost_price";
-            this.colCost_price.ReadOnly = true;
-            this.colCost_price.Width = 80;
-            // 
-            // colProduct_qty
-            // 
-            this.colProduct_qty.DataPropertyName = "product_qty";
-            this.colProduct_qty.HeaderText = "數量";
-            this.colProduct_qty.Name = "colProduct_qty";
-            this.colProduct_qty.ReadOnly = true;
-            this.colProduct_qty.Width = 80;
-            // 
-            // colRef_mo
-            // 
-            this.colRef_mo.DataPropertyName = "ref_mo";
-            this.colRef_mo.HeaderText = "生產制單";
-            this.colRef_mo.Name = "colRef_mo";
-            this.colRef_mo.ReadOnly = true;
-            // 
-            // colJob_type
-            // 
-            this.colJob_type.DataPropertyName = "job_type";
-            this.colJob_type.HeaderText = "工种";
-            this.colJob_type.Name = "colJob_type";
-            this.colJob_type.ReadOnly = true;
-            this.colJob_type.Width = 80;
-            // 
-            // colJob_desc
-            // 
-            this.colJob_desc.DataPropertyName = "job_desc";
-            this.colJob_desc.HeaderText = "工種描述";
-            this.colJob_desc.Name = "colJob_desc";
-            this.colJob_desc.ReadOnly = true;
-            // 
-            // colPrd_machine
-            // 
-            this.colPrd_machine.DataPropertyName = "prd_machine";
-            this.colPrd_machine.HeaderText = "生產機器";
-            this.colPrd_machine.Name = "colPrd_machine";
-            this.colPrd_machine.ReadOnly = true;
-            this.colPrd_machine.Width = 80;
-            // 
-            // colMachine_desc
-            // 
-            this.colMachine_desc.DataPropertyName = "machine_desc";
-            this.colMachine_desc.HeaderText = "機器描述";
-            this.colMachine_desc.Name = "colMachine_desc";
-            this.colMachine_desc.ReadOnly = true;
             // 
             // panelControl2
             // 
@@ -650,7 +545,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 177);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1042, 64);
+            this.panelControl2.Size = new System.Drawing.Size(1192, 64);
             this.panelControl2.TabIndex = 3;
             // 
             // btnSave
@@ -794,11 +689,154 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "機器描述";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
+            // colSelect
+            // 
+            this.colSelect.DataPropertyName = "chk_flag";
+            this.colSelect.FillWeight = 60F;
+            this.colSelect.HeaderText = "";
+            this.colSelect.Name = "colSelect";
+            this.colSelect.ReadOnly = true;
+            this.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelect.Width = 40;
+            // 
+            // colDep
+            // 
+            this.colDep.DataPropertyName = "Prd_dep";
+            this.colDep.FillWeight = 80F;
+            this.colDep.HeaderText = "部門";
+            this.colDep.Name = "colDep";
+            this.colDep.ReadOnly = true;
+            this.colDep.Width = 80;
+            // 
+            // colPrd_mo
+            // 
+            this.colPrd_mo.DataPropertyName = "Prd_mo";
+            this.colPrd_mo.HeaderText = "制單編號";
+            this.colPrd_mo.Name = "colPrd_mo";
+            this.colPrd_mo.ReadOnly = true;
+            // 
+            // colPrd_item
+            // 
+            this.colPrd_item.DataPropertyName = "Prd_item";
+            this.colPrd_item.FillWeight = 180F;
+            this.colPrd_item.HeaderText = "物料編號";
+            this.colPrd_item.Name = "colPrd_item";
+            this.colPrd_item.ReadOnly = true;
+            this.colPrd_item.Width = 180;
+            // 
+            // colPrd_item_cdesc
+            // 
+            this.colPrd_item_cdesc.DataPropertyName = "Prd_item_cdesc";
+            this.colPrd_item_cdesc.FillWeight = 200F;
+            this.colPrd_item_cdesc.HeaderText = "物料描述";
+            this.colPrd_item_cdesc.Name = "colPrd_item_cdesc";
+            this.colPrd_item_cdesc.ReadOnly = true;
+            this.colPrd_item_cdesc.Width = 200;
+            // 
+            // colProcess_id
+            // 
+            this.colProcess_id.DataPropertyName = "Process_id";
+            this.colProcess_id.HeaderText = "公式類型";
+            this.colProcess_id.Name = "colProcess_id";
+            this.colProcess_id.ReadOnly = true;
+            this.colProcess_id.Width = 80;
+            // 
+            // colProcess_name
+            // 
+            this.colProcess_name.DataPropertyName = "process_name";
+            this.colProcess_name.HeaderText = "公式描述";
+            this.colProcess_name.Name = "colProcess_name";
+            this.colProcess_name.ReadOnly = true;
+            // 
+            // colCost_price
+            // 
+            this.colCost_price.DataPropertyName = "cost_price";
+            this.colCost_price.HeaderText = "單價";
+            this.colCost_price.Name = "colCost_price";
+            this.colCost_price.ReadOnly = true;
+            this.colCost_price.Width = 80;
+            // 
+            // colProduct_qty
+            // 
+            this.colProduct_qty.DataPropertyName = "product_qty";
+            this.colProduct_qty.HeaderText = "基數";
+            this.colProduct_qty.Name = "colProduct_qty";
+            this.colProduct_qty.ReadOnly = true;
+            this.colProduct_qty.Width = 80;
+            // 
+            // colDefaultLineQty
+            // 
+            this.colDefaultLineQty.DataPropertyName = "default_line_qty";
+            this.colDefaultLineQty.HeaderText = "每碑數(預設)";
+            this.colDefaultLineQty.Name = "colDefaultLineQty";
+            this.colDefaultLineQty.ReadOnly = true;
+            // 
+            // colDefaultJobType
+            // 
+            this.colDefaultJobType.DataPropertyName = "default_job_type";
+            this.colDefaultJobType.HeaderText = "工種(預設)";
+            this.colDefaultJobType.Name = "colDefaultJobType";
+            this.colDefaultJobType.ReadOnly = true;
+            // 
+            // colPrdMachine
+            // 
+            this.colPrdMachine.DataPropertyName = "default_prd_machine";
+            this.colPrdMachine.HeaderText = "生產機器(預設)";
+            this.colPrdMachine.Name = "colPrdMachine";
+            this.colPrdMachine.ReadOnly = true;
+            this.colPrdMachine.Width = 120;
+            // 
+            // colDefaultPrdMachineLevel
+            // 
+            this.colDefaultPrdMachineLevel.DataPropertyName = "default_prd_machine_level";
+            this.colDefaultPrdMachineLevel.HeaderText = "扣部檔位(預設)";
+            this.colDefaultPrdMachineLevel.Name = "colDefaultPrdMachineLevel";
+            this.colDefaultPrdMachineLevel.ReadOnly = true;
+            this.colDefaultPrdMachineLevel.Width = 120;
+            // 
+            // colRef_mo
+            // 
+            this.colRef_mo.DataPropertyName = "ref_mo";
+            this.colRef_mo.HeaderText = "生產制單";
+            this.colRef_mo.Name = "colRef_mo";
+            this.colRef_mo.ReadOnly = true;
+            // 
+            // colJob_type
+            // 
+            this.colJob_type.DataPropertyName = "job_type";
+            this.colJob_type.HeaderText = "工种";
+            this.colJob_type.Name = "colJob_type";
+            this.colJob_type.ReadOnly = true;
+            this.colJob_type.Width = 80;
+            // 
+            // colJob_desc
+            // 
+            this.colJob_desc.DataPropertyName = "job_desc";
+            this.colJob_desc.HeaderText = "工種描述";
+            this.colJob_desc.Name = "colJob_desc";
+            this.colJob_desc.ReadOnly = true;
+            // 
+            // colPrd_machine
+            // 
+            this.colPrd_machine.DataPropertyName = "prd_machine";
+            this.colPrd_machine.HeaderText = "生產機器";
+            this.colPrd_machine.Name = "colPrd_machine";
+            this.colPrd_machine.ReadOnly = true;
+            this.colPrd_machine.Width = 80;
+            // 
+            // colMachine_desc
+            // 
+            this.colMachine_desc.DataPropertyName = "machine_desc";
+            this.colMachine_desc.HeaderText = "機器描述";
+            this.colMachine_desc.Name = "colMachine_desc";
+            this.colMachine_desc.ReadOnly = true;
+            // 
             // frmProductProcessCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 549);
+            this.ClientSize = new System.Drawing.Size(1192, 565);
             this.Controls.Add(this.chkSelect);
             this.Controls.Add(this.dgvDetails);
             this.Controls.Add(this.panelControl2);
@@ -914,11 +952,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProcess_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduct_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDefaultLineQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDefaultJobType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrdMachine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDefaultPrdMachineLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRef_mo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJob_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJob_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_machine;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMachine_desc;
-
     }
 }

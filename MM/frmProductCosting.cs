@@ -27,6 +27,7 @@ namespace cf01.MM
         private bool firstLevel;
         private bool firstCount;
         private DataTable dtBomDetails = new DataTable();
+        private double hkd_rmb_rate = 1.176;
         public frmProductCosting()
         {
             InitializeComponent();
@@ -498,8 +499,8 @@ namespace cf01.MM
                 DataTable dtDepPrice=clsProductCosting.getDepPrice(dr2["DepId"].ToString(), productId);// getDepPrice(dr2["DepId"].ToString(), productId);
                 if (dtDepPrice.Rows.Count > 0)
                 {
-                    depPrice = Math.Round((dtDepPrice.Rows[0]["cost_price"].ToString() != "" ? Convert.ToDecimal(dtDepPrice.Rows[0]["cost_price"]) : 0)
-                        / (dtDepPrice.Rows[0]["product_qty"].ToString() != "" ? Convert.ToDecimal(dtDepPrice.Rows[0]["product_qty"]) : 1)
+                    depPrice = Math.Round(((dtDepPrice.Rows[0]["cost_price"].ToString() != "" ? Convert.ToDecimal(dtDepPrice.Rows[0]["cost_price"]) : 0)
+                        / (dtDepPrice.Rows[0]["product_qty"].ToString() != "" ? Convert.ToDecimal(dtDepPrice.Rows[0]["product_qty"]) : 1))* (decimal)hkd_rmb_rate
                         , 4);
                     dr2["DepStdPrice"] = dtDepPrice.Rows[0]["cost_price"].ToString();
                     dr2["DepStdQty"] = dtDepPrice.Rows[0]["product_qty"].ToString();
