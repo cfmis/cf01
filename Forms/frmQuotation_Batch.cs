@@ -41,6 +41,7 @@ namespace cf01.Forms
                 }
             }
             clsQuotation.IsDisplayRemark_PDD(this.dgvDetails, remark_pdd);
+            txtValid_date.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -189,7 +190,7 @@ namespace cf01.Forms
             }
             if (string.IsNullOrEmpty(txtValid_date.EditValue.ToString()))
             {
-                MessageBox.Show("請輸入有效日期!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("請輸入有效報價單建立日期!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtValid_date.Focus();
                 return;
             }
@@ -210,13 +211,13 @@ namespace cf01.Forms
             int result_u;
             float bp,disc_rate,temp_disc_rate;
             const string sql_update =
-            @"UPDATE quotation SET number_enter=@number_enter,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,hkd_ex_fty=@hkd_ex_fty,
+            @"UPDATE quotation SET date=@valid_date, number_enter=@number_enter,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,hkd_ex_fty=@hkd_ex_fty,
                     usd_ex_fty=@usd_ex_fty,discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty
-                    ,valid_date=CASE LEN(@valid_date) WHEN 0 THEN null ELSE @valid_date END,
+                    ,valid_date=CONVERT(varchar(10),DATEADD(DAY,30,@valid_date),120),
                     remark=CASE LEN(@remark) WHEN 0 THEN remark ELSE @remark END,
                     remark_pdd=CASE LEN(@remark_pdd) WHEN 0 THEN remark_pdd ELSE @remark_pdd END,amusr=@user_id,amtim=Getdate()
             WHERE id=@id";
-           
+            //valid_date=CASE LEN(@valid_date) WHEN 0 THEN null ELSE @valid_date END
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 strSelect = dt.Rows[i]["flag_select"].ToString();
@@ -389,7 +390,7 @@ namespace cf01.Forms
         {                     
             if (this.dgvDetails.Columns[e.ColumnIndex].Name == "ver")
             {  
-                using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+                using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[e.RowIndex].Cells["id"].Value.ToString(),true ))
                 {
                     ofrm.ShowDialog();                   
                 }   

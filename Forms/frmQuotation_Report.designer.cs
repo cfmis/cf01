@@ -424,6 +424,9 @@
             this.special_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_artwork = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_usd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_hkd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_rmb_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTerm_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtim.Properties)).BeginInit();
@@ -3314,7 +3317,10 @@
             this.rmb_remark,
             this.special_price,
             this.cust_artwork,
-            this.cost_price});
+            this.cost_price,
+            this.price_usd_ver,
+            this.price_hkd_ver,
+            this.price_rmb_ver});
             dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle29.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -4655,6 +4661,30 @@
             this.cost_price.ReadOnly = true;
             this.cost_price.Visible = false;
             // 
+            // price_usd_ver
+            // 
+            this.price_usd_ver.DataPropertyName = "price_usd_ver";
+            this.price_usd_ver.HeaderText = "Price USD(old version)";
+            this.price_usd_ver.Name = "price_usd_ver";
+            this.price_usd_ver.ReadOnly = true;
+            this.price_usd_ver.Visible = false;
+            // 
+            // price_hkd_ver
+            // 
+            this.price_hkd_ver.DataPropertyName = "price_hkd_ver";
+            this.price_hkd_ver.HeaderText = "Price HKD(old version)";
+            this.price_hkd_ver.Name = "price_hkd_ver";
+            this.price_hkd_ver.ReadOnly = true;
+            this.price_hkd_ver.Visible = false;
+            // 
+            // price_rmb_ver
+            // 
+            this.price_rmb_ver.DataPropertyName = "price_rmb_ver";
+            this.price_rmb_ver.HeaderText = "Price RMB(old version)";
+            this.price_rmb_ver.Name = "price_rmb_ver";
+            this.price_rmb_ver.ReadOnly = true;
+            this.price_rmb_ver.Visible = false;
+            // 
             // frmQuotation_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -5104,5 +5134,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn special_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_artwork;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb_ver;
     }
 }

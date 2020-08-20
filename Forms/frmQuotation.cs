@@ -1673,7 +1673,7 @@ namespace cf01.Forms
             
             if (dgvDetails.Columns[e.ColumnIndex].Name == "ver")
             {
-                using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[e.RowIndex].Cells["temp_code"].Value.ToString()))
+                using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[e.RowIndex].Cells["temp_code"].Value.ToString(),is_group_pdd))
                 {
                     ofrm.ShowDialog();
                 }
@@ -2014,7 +2014,7 @@ namespace cf01.Forms
            
         private void cl_ver_DoubleClick(object sender, EventArgs e)
         {
-            using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "temp_code").ToString()))
+            using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "temp_code").ToString(),is_group_pdd))
             {
                 ofrm.ShowDialog();
             }
@@ -3294,7 +3294,7 @@ namespace cf01.Forms
             {
                 return;
             }
-            using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[cur_row].Cells["temp_code"].Value.ToString()))
+            using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[cur_row].Cells["temp_code"].Value.ToString(), is_group_pdd))
             {
                 ofrm.ShowDialog();
             }

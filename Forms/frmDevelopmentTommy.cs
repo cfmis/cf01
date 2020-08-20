@@ -1967,7 +1967,7 @@ namespace cf01.Forms
                 
                 chkmachine_washable.Checked = true;
                 chkdrycleanable.Checked = true;
-                txtsuggested_care.Text = "Normal wash";
+                txtsuggested_care.Text = "NORMAL WASH";
             }
             else
                 txtsuggested_care.Text = "";
@@ -1984,8 +1984,9 @@ namespace cf01.Forms
 
                 chkmachine_washable.Checked = true;
                 chkdrycleanable.Checked = true;
-                string str = "1.Normal wash" + "\r\n" + "2.High Shine Finsh trims should be turn inside out to wash, but if the button placement is at bottom hem,cuff opening,waistband(close to opening end) etc which" +
-                       " cannot protect the button after turn inside out leading the exposure during laundry,we suggest to put the garment IN MESH BAG during machine wash.";
+                string str = "1.NORMAL WASH" + "\r\n" + 
+                "2.HIGH SHINE FINSH TRIMS SHOULD BE TURN INSIDE OUT TO WASH,BUT IF THE BUTTON PLACEMENT IS AT BOTTOM HEM,CUFF OPENING,WAISTBAND(CLOSE TO OPENING END) ETC WHICH " +
+                " CANNOT PROTECT THE BUTTON AFTER TURN INSIDE OUT LEADING THE EXPOSURE DURING LAUNDRY,WE SUGGEST TO PUT THE GARMENT IN MESH BAG DURING MACHINE WASH.";
                 txtsuggested_care.Text = str;
             }
             else
@@ -2007,9 +2008,9 @@ namespace cf01.Forms
 
                 chkmachine_washable.Checked = true;
                 chkdrycleanable.Checked = true;
-                string str = "1.Used on similar color fabric.Normal wash with similar color clothes " + "\r\n" +
-                "2.Enamel trims should be turn inside out to wash,but if the button placement is at bottom hem,cuff opening,waistband(close to opening end) etc which cannot protect " +
-                "the button after turn inside out leading the exposure during laundry,we suggest to put the garment IN MESH BAG during machine wash.";
+                string str = "1.USED ON SIMILAR COLOR FABRIC.NORMAL WASH WITH SIMILAR COLOR CLOTHES " + "\r\n" +
+                "2.ENAMEL TRIMS SHOULD BE TURN INSIDE OUT TO WASH,BUT IF THE BUTTON PLACEMENT IS AT BOTTOM HEM,CUFF OPENING,WAISTBAND(CLOSE TO OPENING END) ETC WHICH CANNOT PROTECT " +
+                "THE BUTTON AFTER TURN INSIDE OUT LEADING THE EXPOSURE DURING LAUNDRY,WE SUGGEST TO PUT THE GARMENT IN MESH BAG DURING MACHINE WASH.";
                 txtsuggested_care.Text = str;
             }
             else
@@ -2031,12 +2032,12 @@ namespace cf01.Forms
                 
                 chkmachine_washable.Checked = true;
                 chkdo_not_dryclean.Checked = true;
-                string str = "1.Used on similar color fabric.Normal wash with similar color clothes " + "\r\n" +
-                "2.Rubberized Enamel trims should be turn inside out to wash,but if the button placement is at bottom hem,cuff opening,waistband(close to opening end) etc which cannot protect " +
-                "the button after turn inside out leading the exposure during laundry,we suggest to put the garment IN MESH BAG during machine wash.";
+                string str = "1.USED ON SIMILAR COLOR FABRIC.NORMAL WASH WITH SIMILAR COLOR CLOTHES " + "\r\n" +
+                "2.RUBBERIZED ENAMEL TRIMS SHOULD BE TURN INSIDE OUT TO WASH,BUT IF THE BUTTON PLACEMENT IS AT BOTTOM HEM,CUFF OPENING,WAISTBAND(CLOSE TO OPENING END) ETC WHICH CANNOT PROTECT " +
+                "THE BUTTON AFTER TURN INSIDE OUT LEADING THE EXPOSURE DURING LAUNDRY,WE SUGGEST TO PUT THE GARMENT IN MESH BAG DURING MACHINE WASH.";
                 txtsuggested_care.Text = str;
-                str = "Rubberized enamel will be soiled or stained easily,and cannot be repaired. Customer must be careful and take good care of all rubberized enamel items during" + "\r\n" +
-                 "production-environment and toolds must be tidy and clean. Proper packaging is required. Customer have to take his/her won responsibility if handle inappropriate.";
+                str = "RUBBERIZED ENAMEL WILL BE SOILED OR STAINED EASILY,AND CANNOT BE REPAIRED. CUSTOMER MUST BE CAREFUL AND TAKE GOOD CARE OF ALL RUBBERIZED ENAMEL ITEMS DURING" + "\r\n" +
+                 "PRODUCTION-ENVIRONMENT AND TOOLDS MUST BE TIDY AND CLEAN. PROPER PACKAGING IS REQUIRED. CUSTOMER HAVE TO TAKE HIS/HER WON RESPONSIBILITY IF HANDLE INAPPROPRIATE.";
                 memquality_callouts.Text = str;
             }
             else
@@ -2059,9 +2060,9 @@ namespace cf01.Forms
 
                 chkmachine_washable.Checked = true;
                 chkdo_not_dryclean.Checked = true;
-                string str = "1.Used on similar color fabric.Normal wash with similar color clothes " + "\r\n" +
-                "2.Trims should be turn inside out to wash,but if the button placement is at bottom hem,cuff opening,waistband(close to opening end) etc which cannot protect " +
-                "the button after turn inside out leading the exposure during laundry,we suggest to put the garment IN MESH BAG during machine wash.";
+                string str = "1.USED ON SIMILAR COLOR FABRIC.NORMAL WASH WITH SIMILAR COLOR CLOTHES " + "\r\n" +
+                "2.TRIMS SHOULD BE TURN INSIDE OUT TO WASH,BUT IF THE BUTTON PLACEMENT IS AT BOTTOM HEM,CUFF OPENING,WAISTBAND(CLOSE TO OPENING END) ETC WHICH CANNOT PROTECT " +
+                "THE BUTTON AFTER TURN INSIDE OUT LEADING THE EXPOSURE DURING LAUNDRY,WE SUGGEST TO PUT THE GARMENT IN MESH BAG DURING MACHINE WASH.";
                 txtsuggested_care.Text = str;
             }
             else

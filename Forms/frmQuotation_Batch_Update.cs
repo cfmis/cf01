@@ -324,7 +324,7 @@ namespace cf01.Forms
         {                     
             if (this.dgvDetails.Columns[e.ColumnIndex].Name == "ver")
             {  
-                using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[e.RowIndex].Cells["id"].Value.ToString()))
+                using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[e.RowIndex].Cells["id"].Value.ToString(),true))
                 {
                     ofrm.ShowDialog();                   
                 }   

@@ -362,6 +362,9 @@
             this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labtest_prod_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.termremark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_usd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_hkd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_rmb_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -971,7 +974,10 @@
             this.cust_artwork,
             this.cost_price,
             this.labtest_prod_type,
-            this.termremark});
+            this.termremark,
+            this.price_usd_ver,
+            this.price_hkd_ver,
+            this.price_rmb_ver});
             this.dgvDetails.Location = new System.Drawing.Point(4, 211);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 45;
@@ -2988,6 +2994,27 @@
             this.termremark.Name = "termremark";
             this.termremark.ReadOnly = true;
             // 
+            // price_usd_ver
+            // 
+            this.price_usd_ver.DataPropertyName = "price_usd_ver";
+            this.price_usd_ver.HeaderText = "Price USD(old version)";
+            this.price_usd_ver.Name = "price_usd_ver";
+            this.price_usd_ver.ReadOnly = true;
+            // 
+            // price_hkd_ver
+            // 
+            this.price_hkd_ver.DataPropertyName = "price_hkd_ver";
+            this.price_hkd_ver.HeaderText = "Price HKD(old version)";
+            this.price_hkd_ver.Name = "price_hkd_ver";
+            this.price_hkd_ver.ReadOnly = true;
+            // 
+            // price_rmb_ver
+            // 
+            this.price_rmb_ver.DataPropertyName = "price_rmb_ver";
+            this.price_rmb_ver.HeaderText = "Price RMB(old version)";
+            this.price_rmb_ver.Name = "price_rmb_ver";
+            this.price_rmb_ver.ReadOnly = true;
+            // 
             // frmQuotationFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3272,5 +3299,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn labtest_prod_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn termremark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb_ver;
     }
 }

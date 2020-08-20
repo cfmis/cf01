@@ -57,6 +57,7 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +73,7 @@
             this.disc_price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rmb_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_pdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,9 +84,9 @@
             // 
             this.dgvPriceList.AllowUserToAddRows = false;
             this.dgvPriceList.AllowUserToDeleteRows = false;
-            this.dgvPriceList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPriceList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPriceList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPriceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPriceList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -103,6 +105,7 @@
             this.disc_price_rmb,
             this.disc_hkd_ex_fty,
             this.rmb_remark,
+            this.remark_pdd,
             this.remark,
             this.amtim,
             this.amusr});
@@ -123,6 +126,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Temp Code";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn1.Width = 75;
             // 
             // dataGridViewTextBoxColumn2
@@ -131,6 +135,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Ver";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn2.Width = 30;
             // 
             // dataGridViewTextBoxColumn3
@@ -139,6 +144,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "BP";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn3.Width = 60;
             // 
             // dataGridViewTextBoxColumn4
@@ -147,6 +153,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "USD";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn4.Width = 55;
             // 
             // dataGridViewTextBoxColumn5
@@ -155,6 +162,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "HKD";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn5.Width = 55;
             // 
             // dataGridViewTextBoxColumn6
@@ -163,6 +171,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "RMB";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn6.Width = 55;
             // 
             // dataGridViewTextBoxColumn7
@@ -171,6 +180,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "HKD Ex-Fty";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn7.Width = 60;
             // 
             // dataGridViewTextBoxColumn8
@@ -179,6 +189,7 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "USD Ex-Fty";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn8.Width = 60;
             // 
             // dataGridViewTextBoxColumn9
@@ -187,6 +198,7 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "Price Unit";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn9.Width = 40;
             // 
             // dataGridViewTextBoxColumn10
@@ -198,6 +210,7 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "Discount (%)";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn10.Width = 50;
             // 
             // dataGridViewTextBoxColumn11
@@ -208,6 +221,7 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "Discounted USD";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn11.Width = 65;
             // 
             // dataGridViewTextBoxColumn12
@@ -218,6 +232,7 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "Discounted HKD";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn12.Width = 65;
             // 
             // dataGridViewTextBoxColumn13
@@ -228,6 +243,7 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "Discounted RMB";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn13.Width = 65;
             // 
             // dataGridViewTextBoxColumn14
@@ -238,6 +254,7 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Discounted HKD Ex-Fty";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn14.Width = 75;
             // 
             // dataGridViewTextBoxColumn15
@@ -246,6 +263,7 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Remark for RMB";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn15.Width = 110;
             // 
             // dataGridViewTextBoxColumn16
@@ -254,6 +272,8 @@
             this.dataGridViewTextBoxColumn16.HeaderText = "Remark";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn16.Width = 150;
             // 
             // dataGridViewTextBoxColumn17
             // 
@@ -261,6 +281,7 @@
             this.dataGridViewTextBoxColumn17.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn17.Width = 110;
             // 
             // dataGridViewTextBoxColumn18
@@ -269,7 +290,16 @@
             this.dataGridViewTextBoxColumn18.HeaderText = "Update by";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn18.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "amusr";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Update by";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn19.Width = 80;
             // 
             // temp_code
             // 
@@ -417,6 +447,16 @@
             this.rmb_remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.rmb_remark.Width = 110;
             // 
+            // remark_pdd
+            // 
+            this.remark_pdd.DataPropertyName = "remark_pdd";
+            this.remark_pdd.HeaderText = "Remark for PDD";
+            this.remark_pdd.Name = "remark_pdd";
+            this.remark_pdd.ReadOnly = true;
+            this.remark_pdd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.remark_pdd.Visible = false;
+            this.remark_pdd.Width = 150;
+            // 
             // remark
             // 
             this.remark.DataPropertyName = "remark";
@@ -455,6 +495,7 @@
             this.Name = "frmQuotation_Price_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Version List";
+            this.Load += new System.EventHandler(this.frmQuotation_Price_List_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPriceList)).EndInit();
             this.ResumeLayout(false);
 
@@ -463,24 +504,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPriceList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn temp_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number_enter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_usd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_hkd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_rmb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rmb_remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amusr;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -499,5 +522,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn temp_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number_enter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_hkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_rmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rmb_remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amusr;
     }
 }
