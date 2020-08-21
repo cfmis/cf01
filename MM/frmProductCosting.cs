@@ -353,7 +353,7 @@ namespace cf01.MM
                 //提取自定的物料重量
                 if (depId == "102" || depId == "104" || depId == "122" || depId == "124" || depId == "202" || depId == "302" || depId == "322")
                     materialId1 = materialId;
-                stdProductWeight = clsProductCosting.findStdProductWeight(productId, materialId1);
+                stdProductWeight = clsProductCosting.findStdProductWeight(depId,productId, materialId1);
                 //如果是原料或採購料，則從採購單中提取原料單價
                 if (productId.Substring(0, 2) == "ML" || productId.Substring(0, 2) == "PL")
                 {
@@ -613,7 +613,7 @@ namespace cf01.MM
             {
                 vFlag = false;
                 tEnabled = true;
-                lblOriginalPrice.Text = "電鍍單價:";
+                lblOriginalPrice.Text = "電鍍單價/Kg:";
                 lblWasteRate.Text = "電鍍損耗:";
                 lblMaterialPrice.Text = "電鍍單價(G):";
                 lblMaterialCost.Text = "電鍍成本(G):";
@@ -622,7 +622,7 @@ namespace cf01.MM
             {
                 vFlag = false;
                 tEnabled = true;
-                lblOriginalPrice.Text = "噴油單價:";
+                lblOriginalPrice.Text = "噴油單價/Kg:";
                 lblWasteRate.Text = "噴油損耗:";
                 lblMaterialPrice.Text = "噴油單價(G):";
                 lblMaterialCost.Text = "噴油成本(G):";
@@ -630,7 +630,7 @@ namespace cf01.MM
             else
             {
                 vFlag = true;
-                lblOriginalPrice.Text = "原始單價:";
+                lblOriginalPrice.Text = "原始單價/Kg:";
                 lblWasteRate.Text = "原料損耗:";
                 lblMaterialPrice.Text = "原料單價(G):";
                 lblMaterialCost.Text = "原料成本(G):";
@@ -1292,6 +1292,9 @@ namespace cf01.MM
             frm.Dispose();
         }
 
-        
+        private void txtOtherCost3_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

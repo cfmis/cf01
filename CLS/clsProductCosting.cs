@@ -930,15 +930,18 @@ namespace cf01.CLS
                 result = false;
             return result;
         }
-        public static decimal findStdProductWeight(string productId, string materialId)
+        public static decimal findStdProductWeight(string depId,string productId, string materialId)
         {
             decimal stdProductWeight = 0;
             string strSql = "Select kg_qty_rate,pcs_weg From bs_mat_rate Where prd_item='" + productId + "'";
-            if (materialId != "")
-                strSql += " And mat_item='" + materialId + "'";
+            //if (materialId != "")
+            //    strSql += " And mat_item='" + materialId + "'";
+            if (depId != "")
+                strSql += " And Substring(dep_id,1,1)='" + depId.Substring(0, 1) + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            //重量由Kg轉換為：G
             if (dt.Rows.Count > 0)
-                stdProductWeight = (dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0) * 1000;
+                stdProductWeight = dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0;
             return stdProductWeight;
         }
     }
