@@ -137,6 +137,19 @@
         HhdpKOx6v7LWDcl9gidmtayCAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGISURBVFhHxZIBloMwCER7dI/mzSxDGBcixHTV9r83G4uE
+        GXz7+oBtWZbNnn8CzFVfD2KG27quewjom0H2ABRr0KNB/PaZ8I56KkgIABPqriDhstNhe/cu6GqQLQN1
+        ah+Mei+p3/FFNlk3DAaoB3P0mPh1PFeDlCFG5jTyXAlSh0DdBuN3b0ojz1kQ04EyBM1JZprVqiA2L0KT
+        KkRmMFtjEJ3flNJMByF6kdkguJNuLzQzvGTSKoTrmTFlTe82HYjmzkBPvDMBrYvIyNTDe6JAbk7hPU70
+        mADqM6as6ZzKnP8glbQPp/RmISpTD3ptVqANn1QfjAKjIG5GBE04IDZjIJ893aAg35/dRQ/myhmx4n4J
+        4kYgGzasySyVq2G+KcU3DLevanJNpYQfDc6Vs4ZfggJj00YIYA9+CWmh5pgJIl1uYPPFPX2wOwQNp9tn
+        nAVpISDztIdL22fMBpE/luQP9P9r+4zZIKy53ns5C0Lw7rbtM0ZBXP15siA4H90+ow+C2q/4YPvX6w2f
+        ewq70jBF8gAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="colMo_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -146,19 +159,28 @@
   <metadata name="colGoods_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="colQty_pcs.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colCostingPcs.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colMmCosting.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colAmt_hkd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="colSAmtDef.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colTotalAmtHkd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colAmt_def.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colAmt_def_per.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colQty_pcs.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colOrder_qty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -179,6 +201,9 @@
   <metadata name="colOrderDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="colIsFree.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colCust.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -186,6 +211,9 @@
     <value>True</value>
   </metadata>
   <metadata name="colBrand.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colProductMo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

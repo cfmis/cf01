@@ -48,6 +48,8 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSetProductWeight = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnOrder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.tvBom = new System.Windows.Forms.TreeView();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
@@ -110,8 +112,12 @@
             this.txtStdPriceFlag = new DevExpress.XtraEditors.TextEdit();
             this.txtStdWeightFlag = new DevExpress.XtraEditors.TextEdit();
             this.lblDepTotalCost = new DevExpress.XtraEditors.LabelControl();
+            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
             this.txtDoColor = new DevExpress.XtraEditors.TextEdit();
+            this.txtDepCdesc = new DevExpress.XtraEditors.TextEdit();
+            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
             this.txtDepTotalCost = new DevExpress.XtraEditors.TextEdit();
+            this.lblDepCdesc = new DevExpress.XtraEditors.LabelControl();
             this.txtOriginWeight = new DevExpress.XtraEditors.TextEdit();
             this.txtProductCostDzs = new DevExpress.XtraEditors.TextEdit();
             this.btnFindDepCost = new DevExpress.XtraEditors.SimpleButton();
@@ -121,12 +127,10 @@
             this.lblProductCostGrs = new DevExpress.XtraEditors.LabelControl();
             this.lblProductCostDzs = new DevExpress.XtraEditors.LabelControl();
             this.lblProductCost = new DevExpress.XtraEditors.LabelControl();
-            this.lblDepCdesc = new DevExpress.XtraEditors.LabelControl();
             this.lblOtherCost3 = new DevExpress.XtraEditors.LabelControl();
             this.lblOtherCost2 = new DevExpress.XtraEditors.LabelControl();
             this.lblOtherCost1 = new DevExpress.XtraEditors.LabelControl();
             this.lblRollUpCost = new DevExpress.XtraEditors.LabelControl();
-            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
             this.lblMaterialPrice = new DevExpress.XtraEditors.LabelControl();
             this.lblOriginalPrice = new DevExpress.XtraEditors.LabelControl();
             this.lblDepCost = new DevExpress.XtraEditors.LabelControl();
@@ -141,9 +145,7 @@
             this.txtWasteRate = new DevExpress.XtraEditors.TextEdit();
             this.txtDepCost = new DevExpress.XtraEditors.TextEdit();
             this.txtMaterialRequest = new DevExpress.XtraEditors.TextEdit();
-            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
             this.txtOriginalPrice = new DevExpress.XtraEditors.TextEdit();
-            this.txtDepCdesc = new DevExpress.XtraEditors.TextEdit();
             this.txtMaterialPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtDepPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtMaterialCost = new DevExpress.XtraEditors.TextEdit();
@@ -224,6 +226,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStdPriceFlag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdWeightFlag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDoColor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepCdesc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepTotalCost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOriginWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductCostDzs.Properties)).BeginInit();
@@ -231,9 +235,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWasteRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepCost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialRequest.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOriginalPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepCdesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialCost.Properties)).BeginInit();
@@ -272,7 +274,9 @@
             this.btnSetProductPrice,
             this.toolStripSeparator8,
             this.btnSetProductWeight,
-            this.toolStripSeparator9});
+            this.toolStripSeparator9,
+            this.btnOrder,
+            this.toolStripSeparator10});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1158, 38);
@@ -423,6 +427,22 @@
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.AutoSize = false;
+            this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
+            this.btnOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(70, 35);
+            this.btnOrder.Text = "訂單成本";
+            this.btnOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 38);
             // 
             // tvBom
             // 
@@ -1060,6 +1080,14 @@
             this.lblDepTotalCost.TabIndex = 12;
             this.lblDepTotalCost.Text = "部門總價:";
             // 
+            // lblDepId
+            // 
+            this.lblDepId.Location = new System.Drawing.Point(56, 34);
+            this.lblDepId.Name = "lblDepId";
+            this.lblDepId.Size = new System.Drawing.Size(52, 14);
+            this.lblDepId.TabIndex = 4;
+            this.lblDepId.Text = "部門編號:";
+            // 
             // txtDoColor
             // 
             this.txtDoColor.Location = new System.Drawing.Point(975, 18);
@@ -1067,6 +1095,20 @@
             this.txtDoColor.Size = new System.Drawing.Size(145, 20);
             this.txtDoColor.TabIndex = 11;
             this.txtDoColor.Visible = false;
+            // 
+            // txtDepCdesc
+            // 
+            this.txtDepCdesc.Location = new System.Drawing.Point(350, 32);
+            this.txtDepCdesc.Name = "txtDepCdesc";
+            this.txtDepCdesc.Size = new System.Drawing.Size(145, 20);
+            this.txtDepCdesc.TabIndex = 3;
+            // 
+            // txtDepId
+            // 
+            this.txtDepId.Location = new System.Drawing.Point(114, 32);
+            this.txtDepId.Name = "txtDepId";
+            this.txtDepId.Size = new System.Drawing.Size(145, 20);
+            this.txtDepId.TabIndex = 3;
             // 
             // txtDepTotalCost
             // 
@@ -1076,6 +1118,14 @@
             this.txtDepTotalCost.Properties.Appearance.Options.UseBackColor = true;
             this.txtDepTotalCost.Size = new System.Drawing.Size(145, 20);
             this.txtDepTotalCost.TabIndex = 10;
+            // 
+            // lblDepCdesc
+            // 
+            this.lblDepCdesc.Location = new System.Drawing.Point(292, 34);
+            this.lblDepCdesc.Name = "lblDepCdesc";
+            this.lblDepCdesc.Size = new System.Drawing.Size(52, 14);
+            this.lblDepCdesc.TabIndex = 4;
+            this.lblDepCdesc.Text = "部門描述:";
             // 
             // txtOriginWeight
             // 
@@ -1158,14 +1208,6 @@
             this.lblProductCost.TabIndex = 4;
             this.lblProductCost.Text = "產品成本(PCS):";
             // 
-            // lblDepCdesc
-            // 
-            this.lblDepCdesc.Location = new System.Drawing.Point(292, 34);
-            this.lblDepCdesc.Name = "lblDepCdesc";
-            this.lblDepCdesc.Size = new System.Drawing.Size(52, 14);
-            this.lblDepCdesc.TabIndex = 4;
-            this.lblDepCdesc.Text = "部門描述:";
-            // 
             // lblOtherCost3
             // 
             this.lblOtherCost3.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -1201,14 +1243,6 @@
             this.lblRollUpCost.Size = new System.Drawing.Size(76, 14);
             this.lblRollUpCost.TabIndex = 4;
             this.lblRollUpCost.Text = "子件累計成本:";
-            // 
-            // lblDepId
-            // 
-            this.lblDepId.Location = new System.Drawing.Point(56, 34);
-            this.lblDepId.Name = "lblDepId";
-            this.lblDepId.Size = new System.Drawing.Size(52, 14);
-            this.lblDepId.TabIndex = 4;
-            this.lblDepId.Text = "部門編號:";
             // 
             // lblMaterialPrice
             // 
@@ -1337,13 +1371,6 @@
             this.txtMaterialRequest.TabIndex = 3;
             this.txtMaterialRequest.Leave += new System.EventHandler(this.txtProductWeight_Leave);
             // 
-            // txtDepId
-            // 
-            this.txtDepId.Location = new System.Drawing.Point(114, 32);
-            this.txtDepId.Name = "txtDepId";
-            this.txtDepId.Size = new System.Drawing.Size(145, 20);
-            this.txtDepId.TabIndex = 3;
-            // 
             // txtOriginalPrice
             // 
             this.txtOriginalPrice.Location = new System.Drawing.Point(114, 79);
@@ -1353,13 +1380,6 @@
             this.txtOriginalPrice.Size = new System.Drawing.Size(112, 20);
             this.txtOriginalPrice.TabIndex = 3;
             this.txtOriginalPrice.Leave += new System.EventHandler(this.txtOriginalPrice_Leave);
-            // 
-            // txtDepCdesc
-            // 
-            this.txtDepCdesc.Location = new System.Drawing.Point(350, 32);
-            this.txtDepCdesc.Name = "txtDepCdesc";
-            this.txtDepCdesc.Size = new System.Drawing.Size(145, 20);
-            this.txtDepCdesc.TabIndex = 3;
             // 
             // txtMaterialPrice
             // 
@@ -1955,6 +1975,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStdPriceFlag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdWeightFlag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDoColor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepCdesc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepTotalCost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOriginWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductCostDzs.Properties)).EndInit();
@@ -1962,9 +1984,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWasteRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepCost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialRequest.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOriginalPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepCdesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialCost.Properties)).EndInit();
@@ -2166,5 +2186,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colOriginWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private System.Windows.Forms.ToolStripButton btnOrder;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
     }
 }

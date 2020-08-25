@@ -502,8 +502,13 @@ namespace cf01.MM
                     depPrice = Math.Round(((dtDepPrice.Rows[0]["cost_price"].ToString() != "" ? Convert.ToDecimal(dtDepPrice.Rows[0]["cost_price"]) : 0)
                         / (dtDepPrice.Rows[0]["product_qty"].ToString() != "" ? Convert.ToDecimal(dtDepPrice.Rows[0]["product_qty"]) : 1))* (decimal)hkd_rmb_rate
                         , 4);
-                    dr2["DepStdPrice"] = dtDepPrice.Rows[0]["cost_price"].ToString();
-                    dr2["DepStdQty"] = dtDepPrice.Rows[0]["product_qty"].ToString();
+                    if (dtDepPrice.Rows[0]["cost_price"].ToString() == "")
+                        MessageBox.Show(productId + "沒有單價！");
+                    else
+                    {
+                        dr2["DepStdPrice"] = dtDepPrice.Rows[0]["cost_price"].ToString();
+                        dr2["DepStdQty"] = dtDepPrice.Rows[0]["product_qty"].ToString();
+                    }
                 }
                 dr2["DepPrice"] = depPrice;
                 dr2["DepCost"] = dr2["DepPrice"];
@@ -1295,6 +1300,14 @@ namespace cf01.MM
         private void txtOtherCost3_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            frmOrderCosting.getProductId = txtProductId.Text;
+            frmOrderCosting frm = new frmOrderCosting();
+            frm.ShowDialog();
+            frm.Dispose();
         }
     }
 }
