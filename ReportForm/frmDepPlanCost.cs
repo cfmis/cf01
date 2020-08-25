@@ -33,7 +33,7 @@ namespace cf01.ReportForm
         }
         private void findData()
         {
-            txtPrd_dep.Focus();
+            txtMoFrom.Focus();
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -48,48 +48,38 @@ namespace cf01.ReportForm
         }
         private void findDataProcess()
         {
-            string Prd_dep = txtPrd_dep.Text;
             int Report_type = 0;
             if (rdgReportType.SelectedIndex == 1)
                 Report_type = 1;
-            string Plan_date_from=txtPlanDateFrom.Text;
-            string Plan_date_to=txtPlanDateTo.Text;
-            string strSql = "usp_DepPlanCost";
-            SqlParameter[] parameters = {new SqlParameter("@Report_type", Report_type)
-                        ,new SqlParameter("@Prd_dep", Prd_dep)
-                        ,new SqlParameter("@plan_date_from", Plan_date_from)
-                        ,new SqlParameter("@plan_date_to", Plan_date_to)
+            string Plan_date_from = txtOrderDateFrom.Text;
+            string Plan_date_to = txtOrderDateTo.Text;
+            string strSql = "usp_CountOrderPlanCost";
+            SqlParameter[] parameters = {new SqlParameter("@isSetCost", Report_type)
+                        ,new SqlParameter("@order_date1", Plan_date_from)
+                        ,new SqlParameter("@order_date2", Plan_date_to)
                         ,new SqlParameter("@mo_from", txtMoFrom.Text)
                         ,new SqlParameter("@mo_to", txtMoTo.Text)
                         };
 
-
+            Color colorLine = Color.FromArgb(224, 224, 224);
             DataTable dtCost = clsPublicOfCF01.ExecuteProcedureReturnTable(strSql, parameters);
-            if (Report_type == 0)
+            dgvDetails.DataSource = dtCost;
+            if (this.dgvDetails.Rows.Count != 0)
             {
-                dgvSum.DataSource = dtCost;
-                dgvSum.Visible = true;
-                dgvDetails.Visible = false;
-            }
-            else
-            {
-                dgvDetails.DataSource = dtCost;
-                dgvSum.Visible = false;
-                dgvDetails.Visible = true;
+                for (int i = 1; i < this.dgvDetails.Rows.Count;)
+                {
+                    this.dgvDetails.Rows[i].DefaultCellStyle.BackColor = colorLine;// System.Drawing.Color.SlateGray;//.DarkGray;//.Pink;
+                    i += 2;
+                }
             }
         }
 
         private void frmProductProcessCost_Load(object sender, EventArgs e)
         {
             dgvDetails.AutoGenerateColumns = false;
-            dgvSum.AutoGenerateColumns = false;
+            rdgReportType.SelectedIndex = 1;
         }
 
-
-        private void txtPlanDateFrom_Leave(object sender, EventArgs e)
-        {
-            txtPlanDateTo.Text = txtPlanDateFrom.Text;
-        }
 
         private void txtMoFrom_Leave(object sender, EventArgs e)
         {
@@ -127,79 +117,48 @@ namespace cf01.ReportForm
                 myStream = saveFile.OpenFile();
                 StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));
                 string str = " ";
-                if (rdgReportType.SelectedIndex == 0)
+
+                //写标题
+                for (int i = 0; i < dgvDetails.ColumnCount; i++)
                 {
-                    //写标题
-                    for (int i = 0; i < dgvSum.ColumnCount; i++)
-                    {
-                        str += dgvSum.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
-                        str += "\t";
-                    }
-                    sw.WriteLine(str);
-
-                    //写内容
-                    string col_value;
-
-                    for (int rowNo = 0; rowNo < dgvSum.RowCount; rowNo++)
-                    {
-                        string tempstr = " ";
-                        for (int columnNo = 0; columnNo < dgvSum.ColumnCount; columnNo++)
-                        {
-                            if (dgvSum.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() != null)
-                            {
-                                if (columnNo == 0)
-                                    //col_value = "=\"" + dgvSum.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() + "\"";
-                                    col_value = dgvSum.Rows[rowNo].Cells[columnNo].Value.ToString().Trim();
-                                else
-                                    col_value = dgvSum.Rows[rowNo].Cells[columnNo].Value.ToString().Trim();
-                            }
-                            else
-                                col_value = "";
-                            tempstr += col_value;
-                            tempstr += "\t";
-                        }
-                        sw.WriteLine(tempstr);
-                    }
+                    str += dgvDetails.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
+                    str += "\t";
                 }
-                else
+                sw.WriteLine(str);
+
+                //写内容
+                string col_value;
+
+                for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
                 {
-                    //写标题
-                    for (int i = 0; i < dgvDetails.ColumnCount; i++)
+                    string tempstr = " ";
+                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount - 1; columnNo++)
                     {
-                        str += dgvDetails.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
-                        str += "\t";
-                    }
-                    sw.WriteLine(str);
-
-                    //写内容
-                    string col_value;
-
-                    for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
-                    {
-                        string tempstr = " ";
-                        for (int columnNo = 0; columnNo < dgvDetails.ColumnCount - 1; columnNo++)
+                        if (dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() != null)
                         {
-                            if (dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() != null)
-                            {
-                                if (columnNo == 13)
-                                    //col_value = "=\"" + dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() + "\"";
-                                    col_value = dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim();
-                                else
-                                    col_value = dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim();
-                            }
+                            if (columnNo == 13)
+                                //col_value = "=\"" + dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() + "\"";
+                                col_value = dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim();
                             else
-                                col_value = "";
-                            tempstr += col_value;
-                            tempstr += "\t";
+                                col_value = dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim();
                         }
-                        sw.WriteLine(tempstr);
+                        else
+                            col_value = "";
+                        tempstr += col_value;
+                        tempstr += "\t";
                     }
+                    sw.WriteLine(tempstr);
                 }
                 sw.Close();
                 myStream.Close();
                 //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
                 MessageBox.Show("已匯出記錄！");
             }
+        }
+
+        private void txtOrderDateFrom_Leave(object sender, EventArgs e)
+        {
+            txtOrderDateTo.Text = txtOrderDateFrom.Text;
         }
     }
 }

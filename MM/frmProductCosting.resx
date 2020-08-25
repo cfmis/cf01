@@ -5216,6 +5216,14 @@
         UdU/A0IGBA0Ho3sBgUp8Mqp6t0GTP5qN8QLmJht/XSeM0gAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnOrder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAATCAYAAACdkl3yAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABlSURBVDhP1ZBRCoAwDEN79N5cF2l/YroWv9yDhzCTMGbn
+        4O7XxIjXIAS4yEa8RpWUEa9BqOM9hIOBjBwCXGSZzzdCkY2FYB10PGMtxdD6MTTZDOV3b4JrK2VJ2TJ4
+        u3OHZv4PsxuB/eMiO3qxxwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="colParentLevel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

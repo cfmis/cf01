@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrderCosting));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtDateTo = new DevExpress.XtraEditors.DateEdit();
+            this.txtDateFrom = new DevExpress.XtraEditors.DateEdit();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rdbAll = new System.Windows.Forms.RadioButton();
             this.rdbIsCosting = new System.Windows.Forms.RadioButton();
@@ -46,10 +52,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtMo_from = new DevExpress.XtraEditors.TextEdit();
             this.lblPrd_mo = new DevExpress.XtraEditors.LabelControl();
-            this.txtDate_to = new DevExpress.XtraEditors.TextEdit();
-            this.txtDate_from = new DevExpress.XtraEditors.TextEdit();
             this.lblOrder_date = new DevExpress.XtraEditors.LabelControl();
-            this.dgvOrderCosting = new System.Windows.Forms.DataGridView();
+            this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,34 +71,45 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGoods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGoods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQty_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCostingPcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMmCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmt_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSAmtDef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotalAmtHkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmt_def = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmt_def_per = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQty_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrder_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGoods_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colP_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIsFree = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCust = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCust_cname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateTo.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateTo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtItem_to.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItem_from.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_to.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_from.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDate_to.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDate_from.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderCosting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -104,7 +119,9 @@
             this.btnExit,
             this.toolStripSeparator1,
             this.btnFind,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.btnExcel,
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(865, 38);
@@ -143,8 +160,26 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
             // 
+            // btnExcel
+            // 
+            this.btnExcel.AutoSize = false;
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(65, 35);
+            this.btnExcel.Text = "匯出(&E)";
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
+            // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtDateTo);
+            this.panelControl1.Controls.Add(this.txtDateFrom);
             this.panelControl1.Controls.Add(this.panel1);
             this.panelControl1.Controls.Add(this.txtItem_to);
             this.panelControl1.Controls.Add(this.txtItem_from);
@@ -152,14 +187,47 @@
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.txtMo_from);
             this.panelControl1.Controls.Add(this.lblPrd_mo);
-            this.panelControl1.Controls.Add(this.txtDate_to);
-            this.panelControl1.Controls.Add(this.txtDate_from);
             this.panelControl1.Controls.Add(this.lblOrder_date);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(865, 100);
             this.panelControl1.TabIndex = 1;
+            // 
+            // txtDateTo
+            // 
+            this.txtDateTo.EditValue = null;
+            this.txtDateTo.Location = new System.Drawing.Point(237, 15);
+            this.txtDateTo.Name = "txtDateTo";
+            this.txtDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtDateTo.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtDateTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtDateTo.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.txtDateTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtDateTo.Properties.Mask.EditMask = "yyyy/MM/dd";
+            this.txtDateTo.Size = new System.Drawing.Size(144, 20);
+            this.txtDateTo.TabIndex = 11;
+            // 
+            // txtDateFrom
+            // 
+            this.txtDateFrom.EditValue = null;
+            this.txtDateFrom.Location = new System.Drawing.Point(87, 15);
+            this.txtDateFrom.Name = "txtDateFrom";
+            this.txtDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtDateFrom.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtDateFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtDateFrom.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.txtDateFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtDateFrom.Properties.Mask.EditMask = "yyyy/MM/dd";
+            this.txtDateFrom.Size = new System.Drawing.Size(144, 20);
+            this.txtDateFrom.TabIndex = 10;
+            this.txtDateFrom.Leave += new System.EventHandler(this.txtDateFrom_Leave);
             // 
             // panel1
             // 
@@ -177,7 +245,7 @@
             this.rdbAll.AutoSize = true;
             this.rdbAll.Location = new System.Drawing.Point(203, 7);
             this.rdbAll.Name = "rdbAll";
-            this.rdbAll.Size = new System.Drawing.Size(47, 16);
+            this.rdbAll.Size = new System.Drawing.Size(49, 18);
             this.rdbAll.TabIndex = 10;
             this.rdbAll.Text = "所有";
             this.rdbAll.UseVisualStyleBackColor = true;
@@ -188,7 +256,7 @@
             this.rdbIsCosting.Checked = true;
             this.rdbIsCosting.Location = new System.Drawing.Point(11, 7);
             this.rdbIsCosting.Name = "rdbIsCosting";
-            this.rdbIsCosting.Size = new System.Drawing.Size(83, 16);
+            this.rdbIsCosting.Size = new System.Drawing.Size(85, 18);
             this.rdbIsCosting.TabIndex = 9;
             this.rdbIsCosting.TabStop = true;
             this.rdbIsCosting.Text = "已設定成本";
@@ -199,7 +267,7 @@
             this.rdbNoCosting.AutoSize = true;
             this.rdbNoCosting.Location = new System.Drawing.Point(100, 7);
             this.rdbNoCosting.Name = "rdbNoCosting";
-            this.rdbNoCosting.Size = new System.Drawing.Size(83, 16);
+            this.rdbNoCosting.Size = new System.Drawing.Size(85, 18);
             this.rdbNoCosting.TabIndex = 8;
             this.rdbNoCosting.Text = "未設定成本";
             this.rdbNoCosting.UseVisualStyleBackColor = true;
@@ -250,23 +318,6 @@
             this.lblPrd_mo.TabIndex = 5;
             this.lblPrd_mo.Text = "制單編號:";
             // 
-            // txtDate_to
-            // 
-            this.txtDate_to.Location = new System.Drawing.Point(237, 15);
-            this.txtDate_to.Name = "txtDate_to";
-            this.txtDate_to.Properties.Mask.EditMask = "9999/99/99";
-            this.txtDate_to.Size = new System.Drawing.Size(144, 20);
-            this.txtDate_to.TabIndex = 1;
-            // 
-            // txtDate_from
-            // 
-            this.txtDate_from.Location = new System.Drawing.Point(87, 15);
-            this.txtDate_from.Name = "txtDate_from";
-            this.txtDate_from.Properties.Mask.EditMask = "9999/99/99";
-            this.txtDate_from.Size = new System.Drawing.Size(144, 20);
-            this.txtDate_from.TabIndex = 0;
-            this.txtDate_from.Leave += new System.EventHandler(this.txtDate_from_Leave);
-            // 
             // lblOrder_date
             // 
             this.lblOrder_date.Location = new System.Drawing.Point(30, 18);
@@ -275,36 +326,41 @@
             this.lblOrder_date.TabIndex = 2;
             this.lblOrder_date.Text = "訂單日期:";
             // 
-            // dgvOrderCosting
+            // dgvDetails
             // 
-            this.dgvOrderCosting.AllowUserToAddRows = false;
-            this.dgvOrderCosting.ColumnHeadersHeight = 25;
-            this.dgvOrderCosting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvOrderCosting.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDetails.AllowUserToAddRows = false;
+            this.dgvDetails.ColumnHeadersHeight = 25;
+            this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMo_id,
             this.colGoods_id,
             this.colGoods_name,
+            this.colQty_pcs,
+            this.colCostingPcs,
             this.colMmCosting,
             this.colAmt_hkd,
+            this.colSAmtDef,
+            this.colTotalAmtHkd,
             this.colAmt_def,
             this.colAmt_def_per,
-            this.colQty_pcs,
             this.colOrder_qty,
             this.colGoods_unit,
             this.colUnit_price,
             this.colP_unit,
             this.colMid,
             this.colOrderDate,
+            this.colIsFree,
             this.colCust,
             this.colCust_cname,
-            this.colBrand});
-            this.dgvOrderCosting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOrderCosting.Location = new System.Drawing.Point(0, 138);
-            this.dgvOrderCosting.Name = "dgvOrderCosting";
-            this.dgvOrderCosting.RowHeadersWidth = 20;
-            this.dgvOrderCosting.RowTemplate.Height = 24;
-            this.dgvOrderCosting.Size = new System.Drawing.Size(865, 421);
-            this.dgvOrderCosting.TabIndex = 2;
+            this.colBrand,
+            this.colProductMo});
+            this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetails.Location = new System.Drawing.Point(0, 138);
+            this.dgvDetails.Name = "dgvDetails";
+            this.dgvDetails.RowHeadersWidth = 20;
+            this.dgvDetails.RowTemplate.Height = 24;
+            this.dgvDetails.Size = new System.Drawing.Size(865, 421);
+            this.dgvDetails.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -335,12 +391,16 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "amt_hkd";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn5.HeaderText = "成本价";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "amt_hkd";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn6.HeaderText = "金額(HKD)";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
@@ -355,6 +415,7 @@
             this.dataGridViewTextBoxColumn8.DataPropertyName = "order_qty";
             this.dataGridViewTextBoxColumn8.HeaderText = "訂單數量";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 90;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -417,6 +478,34 @@
             this.dataGridViewTextBoxColumn17.DataPropertyName = "brand_id";
             this.dataGridViewTextBoxColumn17.HeaderText = "牌子編號";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "cust_cname";
+            this.dataGridViewTextBoxColumn18.HeaderText = "客戶描述";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "brand_id";
+            this.dataGridViewTextBoxColumn19.HeaderText = "牌子編號";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "brand_id";
+            this.dataGridViewTextBoxColumn20.HeaderText = "牌子編號";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "brand_id";
+            this.dataGridViewTextBoxColumn21.HeaderText = "牌子編號";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
             // colMo_id
             // 
@@ -438,37 +527,57 @@
             this.colGoods_name.Name = "colGoods_name";
             this.colGoods_name.Width = 180;
             // 
+            // colQty_pcs
+            // 
+            this.colQty_pcs.DataPropertyName = "qty_pcs";
+            this.colQty_pcs.HeaderText = "訂單數量(PCS)";
+            this.colQty_pcs.Name = "colQty_pcs";
+            // 
+            // colCostingPcs
+            // 
+            this.colCostingPcs.DataPropertyName = "costing_pcs";
+            this.colCostingPcs.HeaderText = "成本單價/PCS";
+            this.colCostingPcs.Name = "colCostingPcs";
+            // 
             // colMmCosting
             // 
             this.colMmCosting.DataPropertyName = "mmcosting";
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.colMmCosting.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colMmCosting.HeaderText = "成本价";
+            this.colMmCosting.HeaderText = "成本金額(HKD)";
             this.colMmCosting.Name = "colMmCosting";
             // 
             // colAmt_hkd
             // 
             this.colAmt_hkd.DataPropertyName = "amt_hkd";
-            this.colAmt_hkd.HeaderText = "金額(HKD)";
+            this.colAmt_hkd.HeaderText = "訂單金額(HKD)";
             this.colAmt_hkd.Name = "colAmt_hkd";
+            // 
+            // colSAmtDef
+            // 
+            this.colSAmtDef.DataPropertyName = "s_amt_def";
+            this.colSAmtDef.HeaderText = "S單補收差額";
+            this.colSAmtDef.Name = "colSAmtDef";
+            this.colSAmtDef.Width = 90;
+            // 
+            // colTotalAmtHkd
+            // 
+            this.colTotalAmtHkd.DataPropertyName = "total_amt_hkd";
+            this.colTotalAmtHkd.HeaderText = "訂單合計金額";
+            this.colTotalAmtHkd.Name = "colTotalAmtHkd";
             // 
             // colAmt_def
             // 
             this.colAmt_def.DataPropertyName = "amt_def";
-            this.colAmt_def.HeaderText = "金額對比(HKD)";
+            this.colAmt_def.HeaderText = "訂單對比成本差額";
             this.colAmt_def.Name = "colAmt_def";
+            this.colAmt_def.Width = 120;
             // 
             // colAmt_def_per
             // 
             this.colAmt_def_per.DataPropertyName = "amt_def_per";
             this.colAmt_def_per.HeaderText = "差額百分比(%)";
             this.colAmt_def_per.Name = "colAmt_def_per";
-            // 
-            // colQty_pcs
-            // 
-            this.colQty_pcs.DataPropertyName = "qty_pcs";
-            this.colQty_pcs.HeaderText = "數量(PCS)";
-            this.colQty_pcs.Name = "colQty_pcs";
             // 
             // colOrder_qty
             // 
@@ -511,6 +620,12 @@
             this.colOrderDate.Name = "colOrderDate";
             this.colOrderDate.Width = 80;
             // 
+            // colIsFree
+            // 
+            this.colIsFree.DataPropertyName = "is_free";
+            this.colIsFree.HeaderText = "免費";
+            this.colIsFree.Name = "colIsFree";
+            // 
             // colCust
             // 
             this.colCust.DataPropertyName = "it_customer";
@@ -530,12 +645,18 @@
             this.colBrand.HeaderText = "牌子編號";
             this.colBrand.Name = "colBrand";
             // 
+            // colProductMo
+            // 
+            this.colProductMo.DataPropertyName = "ProductMo";
+            this.colProductMo.HeaderText = "成本參考制單";
+            this.colProductMo.Name = "colProductMo";
+            // 
             // frmOrderCosting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 559);
-            this.Controls.Add(this.dgvOrderCosting);
+            this.Controls.Add(this.dgvDetails);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmOrderCosting";
@@ -546,15 +667,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateTo.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateTo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateFrom.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtItem_to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItem_from.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_from.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDate_to.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDate_from.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderCosting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -567,9 +690,7 @@
         private System.Windows.Forms.ToolStripButton btnFind;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.DataGridView dgvOrderCosting;
-        private DevExpress.XtraEditors.TextEdit txtDate_to;
-        private DevExpress.XtraEditors.TextEdit txtDate_from;
+        private System.Windows.Forms.DataGridView dgvDetails;
         private DevExpress.XtraEditors.LabelControl lblOrder_date;
         private DevExpress.XtraEditors.TextEdit txtMo_to;
         private DevExpress.XtraEditors.TextEdit txtMo_from;
@@ -598,22 +719,35 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private DevExpress.XtraEditors.DateEdit txtDateTo;
+        private DevExpress.XtraEditors.DateEdit txtDateFrom;
+        private System.Windows.Forms.ToolStripButton btnExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGoods_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGoods_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQty_pcs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCostingPcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMmCosting;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmt_hkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSAmtDef;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotalAmtHkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmt_def;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmt_def_per;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQty_pcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrder_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGoods_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnit_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn colP_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIsFree;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCust;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCust_cname;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBrand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductMo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
     }
 }
