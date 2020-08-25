@@ -457,6 +457,7 @@ namespace cf01.Forms
             //txtID.Properties.ReadOnly = false;
             dgvDetails.Enabled = false;
             txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
+            txtValid_date.EditValue = DateTime.Now.Date.AddDays(30).ToString("yyyy-MM-dd").Substring(0, 10);
             txtPrice_unit.EditValue = "GRS";
             txtMoq_unit.EditValue = "GRS";
             txtLead_time_unit.EditValue = "Weeks";            
@@ -3300,6 +3301,13 @@ namespace cf01.Forms
             }
         }
 
+        private void txtDate_Leave(object sender, EventArgs e)
+        {
+            if (mState != "" && txtDate.Text!="")
+            {
+                txtValid_date.EditValue = DateTime.Parse(txtDate.Text).Date.AddDays(30).ToString("yyyy-MM-dd").Substring(0, 10); 
+            }
+        }
     }
     
 }
