@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.XtraReports.UI.DetailBand Detail;
+            this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine20 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel54 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine19 = new DevExpress.XtraReports.UI.XRLine();
@@ -123,6 +124,7 @@
             // Detail
             // 
             Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel28,
             this.xrLine20,
             this.xrLabel54,
             this.xrLine19,
@@ -213,6 +215,21 @@
             Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             Detail.PageBreak = DevExpress.XtraReports.UI.PageBreak.BeforeBand;
             Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel28
+            // 
+            this.xrLabel28.CanGrow = false;
+            this.xrLabel28.Dpi = 254F;
+            this.xrLabel28.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold);
+            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(508.1238F, 830.3841F);
+            this.xrLabel28.Name = "xrLabel28";
+            this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel28.SizeF = new System.Drawing.SizeF(545.2354F, 37.72028F);
+            this.xrLabel28.StylePriority.UseFont = false;
+            this.xrLabel28.StylePriority.UseTextAlignment = false;
+            this.xrLabel28.Text = "客要求交貨日期:【[arrive_date]】";
+            this.xrLabel28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel28.WordWrap = false;
             // 
             // xrLine20
             // 
@@ -1419,5 +1436,6 @@
         private DevExpress.XtraReports.UI.XRLine xrLine19;
         private DevExpress.XtraReports.UI.XRLabel xrLabel40;
         private DevExpress.XtraReports.UI.XRLine xrLine20;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel28;
     }
 }

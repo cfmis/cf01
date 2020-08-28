@@ -1787,7 +1787,20 @@ namespace cf01.Forms
                     {
                         myReport1.CreateDocument();
                         myReport1.PrintingSystem.ShowMarginsWarning = false;
-                        myReport1.ShowPreviewDialog();
+                        //myReport1.ShowPreviewDialog();
+
+                        //報表轉成圖片
+                        //FolderBrowserDialog fbd = new FolderBrowserDialog();
+                        ////选择导出文件位置
+                        //if (fbd.ShowDialog() == DialogResult.OK)
+                        //{
+                        //    //导出路径
+                        //    string outPath = fbd.SelectedPath.ToString();
+                        //    string fileName = @"\\dgfs2\cf_artwork\Artwork\ProductCard\" + "頁數" + ".jpg";
+                        //    //输出图片到指定位置
+                        //    myReport1.ExportToImage(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        //}
+                        
                     }
                     break;
                 case "02": //格式二(1)，一般格式USD,HKD,RMB

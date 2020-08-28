@@ -258,7 +258,6 @@ namespace cf01.ReportForm
             dtGoodsInfo = clsMo_for_jx.GetGoods_DetailsById(txtDept1.Text, txtMoId.Text, "");
             if (dtGoodsInfo.Rows.Count > 0)
             {
-
                 lsModel.Clear();
                 for (int i = 0; i < dtGoodsInfo.Rows.Count; i++)
                 {
@@ -274,7 +273,8 @@ namespace cf01.ReportForm
                         order_qty = string.IsNullOrEmpty(txtOrderQty.Text) ? 0 : Convert.ToInt32(txtOrderQty.Text), 
                         next_wp_id = dtGoodsInfo.Rows[i]["next_wp_id"].ToString(), 
                         next_wp_name = dtGoodsInfo.Rows[i]["next_wp_name"].ToString(), 
-                        t_complete_date = dtGoodsInfo.Rows[i]["t_complete_date"].ToString(), 
+                        t_complete_date = dtGoodsInfo.Rows[i]["t_complete_date"].ToString(),
+                        arrive_date = dtGoodsInfo.Rows[i]["arrive_date"].ToString(),
                         brand_id = dtGoodsInfo.Rows[i]["brand_id"].ToString(), 
                         get_color_sample = dtGoodsInfo.Rows[i]["get_color_sample"].ToString(), 
                         order_unit = txtOrderUnit.Text, 
@@ -309,6 +309,7 @@ namespace cf01.ReportForm
                 else
                     txtPrdRemark.Text = clsMo_for_jx.Get_Repair_Mo_Product_Remark(str_mo_id);
                 txtBrandId.Text = dtGoodsInfo.Rows[0]["brand_id"].ToString();
+                txtArrive_date.Text = dtGoodsInfo.Rows[0]["arrive_date"].ToString();
                 txtRemark.Text = dtGoodsInfo.Rows[0]["remark"].ToString();
                 txtCust.Text = dtGoodsInfo.Rows[0]["customer_id"].ToString();
                 txtVer.Text = dtGoodsInfo.Rows[0]["ver"].ToString();
@@ -372,7 +373,7 @@ namespace cf01.ReportForm
         {
             if (!ValidateWeight())
                 return;
-            String dep, mo;
+            string dep, mo;
             dep = txtDept1.Text.Trim();
             mo = txtMoId.Text.Trim();
             if (dep != "" && mo != "" && goods_id != "")
@@ -502,9 +503,13 @@ namespace cf01.ReportForm
                             dr["page_num"] = i;
                             dr["wh_location"] = txtWh_location.Text;
 
-                            if (txtCompDate.Text.Trim() != "" && txtCompDate.Text.Trim() != null)
+                            if (!string.IsNullOrEmpty(txtCompDate.Text))                              
                             {
                                 dr["t_complete_date"] = Convert.ToDateTime(txtCompDate.Text).ToString("yyyy/MM/dd");
+                            }
+                            if (!string.IsNullOrEmpty(txtArrive_date.Text))
+                            {
+                                dr["arrive_date"] = Convert.ToDateTime(txtArrive_date.Text).ToString("yyyy/MM/dd");
                             }
 
                             if (i == NumPage && Per_qty != 0)

@@ -43,7 +43,7 @@ namespace cf01.Reports
                 per_qty = "0";
             }
             per_qty = per_qty.Replace(",", "");
-            if (Int32.Parse(per_qty) == 0)
+            if (int.Parse(per_qty) == 0)
             {
                 lblper_qty.Text = GetCurrentColumnValue("prod_qty").ToString();
             }

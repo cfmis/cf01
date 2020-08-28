@@ -74,7 +74,7 @@ namespace cf01.ReportForm
                 string dateTo = Convert.ToDateTime(txtDat2.Text).AddDays(1).ToString("yyyy/MM/dd");
                 strSql += " AND a.issue_date>='" + txtDat1.Text.Trim() + "' AND a.issue_date<'" + dateTo + "'";
             }
-            if (txtVendor_id1.EditValue != "" && txtVendor_id2.EditValue != "")
+            if (txtVendor_id1.Text != "" && txtVendor_id2.Text != "")
                 strSql += " AND a.vendor_id>='" + txtVendor_id1.EditValue + "' AND a.vendor_id<='" + txtVendor_id2.EditValue + "'";
             if (txtDepFrom.Text != "" && txtDepTo.Text != "")
                 strSql += " AND a.department_id>='" + txtDepFrom.Text + "' AND a.department_id<='" + txtDepTo.Text + "'";
@@ -244,7 +244,7 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
 
-            String dep, mo, item, Request_date, Remark;
+            string dep, mo, item, Request_date, Remark;
 
             DataTable dtNewWork = new DataTable();
             dtNewWork.Columns.Add("wp_id", typeof(string));
@@ -282,6 +282,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("page_num", typeof(int));
             dtNewWork.Columns.Add("per_qty", typeof(string));
             dtNewWork.Columns.Add("t_complete_date", typeof(string));
+            dtNewWork.Columns.Add("arrive_date", typeof(string));
             dtNewWork.Columns.Add("total_page", typeof(int));
             dtNewWork.Columns.Add("get_color_sample_name", typeof(string));
             dtNewWork.Columns.Add("vendor_id", typeof(string));
@@ -440,9 +441,13 @@ namespace cf01.ReportForm
                                 else
                                     dr["report_name"] = "工序卡" + "(" + dep + ")";
 
-                                if (drDtWk["t_complete_date"].ToString() != "" && drDtWk["t_complete_date"].ToString() != null)
+                                if (!string.IsNullOrEmpty(drDtWk["t_complete_date"].ToString()))
                                 {
                                     dr["t_complete_date"] = Convert.ToDateTime(drDtWk["t_complete_date"]).ToString("yyyy/MM/dd");
+                                }
+                                if (!string.IsNullOrEmpty(drDtWk["arrive_date"].ToString()))
+                                {
+                                    dr["arrive_date"] = Convert.ToDateTime(drDtWk["arrive_date"]).ToString("yyyy/MM/dd");
                                 }
 
                                 if (i == NumPage && Per_qty != 0)

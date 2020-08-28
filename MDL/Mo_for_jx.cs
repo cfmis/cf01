@@ -54,7 +54,9 @@ namespace cf01.MDL
         public string do_color;
         public string wh_location;
         public int flevel;
-        
+        public string arrive_date;
+
+
 
     }
 }

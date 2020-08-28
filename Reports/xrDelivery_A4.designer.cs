@@ -62,11 +62,13 @@
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel19,
             this.xrLabel18,
             this.xrLine7,
             this.xrLabel17,
@@ -274,7 +276,7 @@
             this.xrLabel8,
             this.xrLabel7});
             this.xrPnl.Dpi = 254F;
-            this.xrPnl.LocationFloat = new DevExpress.Utils.PointFloat(474.9376F, 3.999998F);
+            this.xrPnl.LocationFloat = new DevExpress.Utils.PointFloat(39.40005F, 3.999998F);
             this.xrPnl.Name = "xrPnl";
             this.xrPnl.SizeF = new System.Drawing.SizeF(148.5451F, 47.35425F);
             this.xrPnl.Visible = false;
@@ -497,6 +499,21 @@
             this.PageHeader.HeightF = 0F;
             this.PageHeader.Name = "PageHeader";
             // 
+            // xrLabel19
+            // 
+            this.xrLabel19.CanGrow = false;
+            this.xrLabel19.Dpi = 254F;
+            this.xrLabel19.Font = new System.Drawing.Font("SimSun", 8F, System.Drawing.FontStyle.Bold);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(538.75F, 10.54337F);
+            this.xrLabel19.Name = "xrLabel19";
+            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(470.879F, 39.81088F);
+            this.xrLabel19.StylePriority.UseFont = false;
+            this.xrLabel19.StylePriority.UseTextAlignment = false;
+            this.xrLabel19.Text = "客要求交貨日期:【[arrive_date]】";
+            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel19.WordWrap = false;
+            // 
             // xrDelivery_A4
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -507,14 +524,14 @@
             this.PageHeader});
             this.Dpi = 254F;
             this.Margins = new System.Drawing.Printing.Margins(21, 11, 0, 0);
-            this.PageHeight = 2969;
-            this.PageWidth = 2101;
+            this.PageHeight = 2970;
+            this.PageWidth = 2100;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.PaperName = "24x6";
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.ShowPreviewMarginLines = false;
             this.SnapGridSize = 31.75F;
-            this.Version = "11.2";
+            this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -555,5 +572,6 @@
         private DevExpress.XtraReports.UI.XRLine xrLine7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.XRLabel xrLabel18;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel19;
     }
 }

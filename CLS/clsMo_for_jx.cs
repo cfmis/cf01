@@ -25,9 +25,9 @@ namespace cf01.CLS
             string strSql = "";
             strSql=String.Format(
                 @"SELECT b.wp_id, a.mo_id, b.goods_id, c.name, b.prod_qty, b.within_code" +
-                  ",b.OBLIGATE_QTY, a.bill_date,b.t_complete_date,b.next_wp_id,d.name AS next_wp_name" +
+                  ",b.OBLIGATE_QTY, a.bill_date,convert(varchar(10),b.t_complete_date,120) as t_complete_date,b.next_wp_id,d.name AS next_wp_name" +
                   ",a.check_date, b.goods_unit, a.customer_id, e.brand_id, e.get_color_sample" +
-                  ",e.goods_unit AS order_unit, f.production_remark, f.nickle_free, f.plumbum_free, a.remark" +
+                  ",e.goods_unit AS order_unit,convert(varchar(10),e.arrive_date,120) as arrive_date, f.production_remark, f.nickle_free, f.plumbum_free, a.remark" +
                   ",convert(int,g.base_qty) as base_qty, g.unit_code, convert(int,g.rate) AS base_rate, g.basic_unit, b.vendor_id" +
                   ",CONVERT(Decimal(10), b.c_sec_qty_ok) as c_sec_qty_ok, dp.name as get_color_sample_name, a.id, a.ver" +
                   ",b.sequence_id, c.blueprint_id, CONVERT(Decimal(10),b.predept_rechange_qty) AS predept_rechange_qty, c.color" +

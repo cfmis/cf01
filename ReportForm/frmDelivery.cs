@@ -385,10 +385,11 @@ namespace cf01.ReportForm
                     newRow["plan_complete"] = dtDelivery.Rows[i]["plan_complete"].ToString();
                     newRow["location_list"] = dtDelivery.Rows[i]["location_list"].ToString();
                     newRow["remark"] = dtDelivery.Rows[i]["remark"].ToString();
-                    newRow["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString(); 
+                    newRow["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString();
+                    newRow["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
 
                     //處理有幾包就列印幾張 2016-01-15
-                    if(dtDelivery.Rows[i]["package_num"].ToString()!="1")
+                    if (dtDelivery.Rows[i]["package_num"].ToString()!="1")
                     {
                         if (pType == "1" || pType == "2") //列印標簽時才進行此處理
                         {
@@ -426,7 +427,8 @@ namespace cf01.ReportForm
                                 dr["plan_complete"] = dtDelivery.Rows[i]["plan_complete"].ToString();
                                 dr["location_list"] = dtDelivery.Rows[i]["location_list"].ToString();
                                 dr["remark"] = dtDelivery.Rows[i]["remark"].ToString();
-                                dr["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString();                                
+                                dr["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString();
+                                dr["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
                                 dtReport.Rows.Add(dr);
                             }
                         }

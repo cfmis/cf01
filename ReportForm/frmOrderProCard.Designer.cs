@@ -114,6 +114,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.chkPA5 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtFact_qty = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtProd_date = new DevExpress.XtraEditors.DateEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -154,8 +156,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtFact_qty = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.txtArrive_date = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -976,6 +977,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtArrive_date);
             this.panel1.Controls.Add(this.txtFact_qty);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.txtProd_date);
@@ -1062,6 +1064,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1026, 660);
             this.panel1.TabIndex = 80;
+            // 
+            // txtFact_qty
+            // 
+            this.txtFact_qty.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.txtFact_qty.Location = new System.Drawing.Point(85, 173);
+            this.txtFact_qty.Name = "txtFact_qty";
+            this.txtFact_qty.Size = new System.Drawing.Size(112, 26);
+            this.txtFact_qty.TabIndex = 97;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 179);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 12);
+            this.label11.TabIndex = 98;
+            this.label11.Text = "實際生產數量";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtProd_date
             // 
@@ -1428,23 +1448,14 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // txtFact_qty
+            // txtArrive_date
             // 
-            this.txtFact_qty.Font = new System.Drawing.Font("Tahoma", 11.25F);
-            this.txtFact_qty.Location = new System.Drawing.Point(85, 173);
-            this.txtFact_qty.Name = "txtFact_qty";
-            this.txtFact_qty.Size = new System.Drawing.Size(112, 26);
-            this.txtFact_qty.TabIndex = 97;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 179);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 12);
-            this.label11.TabIndex = 98;
-            this.label11.Text = "實際生產數量";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtArrive_date.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtArrive_date.Location = new System.Drawing.Point(213, 553);
+            this.txtArrive_date.Name = "txtArrive_date";
+            this.txtArrive_date.ReadOnly = true;
+            this.txtArrive_date.Size = new System.Drawing.Size(122, 23);
+            this.txtArrive_date.TabIndex = 99;
             // 
             // frmOrderProCard
             // 
@@ -1599,5 +1610,6 @@
         private DevExpress.XtraEditors.DateEdit txtProd_date;
         private System.Windows.Forms.TextBox txtFact_qty;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtArrive_date;
     }
 }
