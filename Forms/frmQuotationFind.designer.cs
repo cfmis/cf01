@@ -365,6 +365,8 @@
             this.price_usd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_hkd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_rmb_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -977,7 +979,9 @@
             this.termremark,
             this.price_usd_ver,
             this.price_hkd_ver,
-            this.price_rmb_ver});
+            this.price_rmb_ver,
+            this.usd_ex_fty_ver,
+            this.hkd_ex_fty_ver});
             this.dgvDetails.Location = new System.Drawing.Point(4, 211);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 45;
@@ -3015,6 +3019,20 @@
             this.price_rmb_ver.Name = "price_rmb_ver";
             this.price_rmb_ver.ReadOnly = true;
             // 
+            // usd_ex_fty_ver
+            // 
+            this.usd_ex_fty_ver.DataPropertyName = "usd_ex_fty_ver";
+            this.usd_ex_fty_ver.HeaderText = "Price USD-Ex_Fty(old version)";
+            this.usd_ex_fty_ver.Name = "usd_ex_fty_ver";
+            this.usd_ex_fty_ver.ReadOnly = true;
+            // 
+            // hkd_ex_fty_ver
+            // 
+            this.hkd_ex_fty_ver.DataPropertyName = "hkd_ex_fty_ver";
+            this.hkd_ex_fty_ver.HeaderText = "Price HKD-Ex_Fty(old version)";
+            this.hkd_ex_fty_ver.Name = "hkd_ex_fty_ver";
+            this.hkd_ex_fty_ver.ReadOnly = true;
+            // 
             // frmQuotationFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3302,5 +3320,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_usd_ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd_ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty_ver;
     }
 }
