@@ -1787,7 +1787,7 @@ namespace cf01.Forms
                     {
                         myReport1.CreateDocument();
                         myReport1.PrintingSystem.ShowMarginsWarning = false;
-                        //myReport1.ShowPreviewDialog();
+                        myReport1.ShowPreviewDialog();
 
                         //報表轉成圖片
                         //FolderBrowserDialog fbd = new FolderBrowserDialog();
