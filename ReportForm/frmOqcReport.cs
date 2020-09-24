@@ -751,7 +751,7 @@ namespace cf01.ReportForm
                 {
                     //加載報表
                     xrOqcReport MyReport = new xrOqcReport(ds_report);//{ DataSource = ds_report };                    
-                    MyReport.ShowPreview();                   
+                    MyReport.ShowPreviewDialog();                   
                 }
             }
             else
