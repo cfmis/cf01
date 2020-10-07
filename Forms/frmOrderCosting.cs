@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using cf01.CLS;
 using System.IO;
+using System.Threading;
 
 namespace cf01.Forms
 {
@@ -53,6 +54,25 @@ namespace cf01.Forms
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+
+            txtMo_to.Focus();
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+
+            //**********************
+            findDataProcess(); //数据处理
+            //**********************
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+            
+            
+        }
+        private void findDataProcess()
+        {
             int type = 3;
             if (rdbIsCosting.Checked == true)
                 type = 1;
@@ -61,7 +81,7 @@ namespace cf01.Forms
             DataTable dtOrderCosting = clsMmCosting.findOrderCosting(type, txtDateFrom.Text, txtDateTo.Text, txtItem_from.Text
                 , txtItem_to.Text, txtMo_from.Text, txtMo_to.Text);
             dgvDetails.DataSource = dtOrderCosting;
-            if(dgvDetails.Rows.Count==0)
+            if (dgvDetails.Rows.Count == 0)
             {
                 MessageBox.Show("沒有符合條件的記錄!");
                 return;
@@ -75,9 +95,7 @@ namespace cf01.Forms
                     i += 2;
                 }
             }
-            
         }
-
         private void txtDateFrom_Leave(object sender, EventArgs e)
         {
             txtDateTo.Text = txtDateFrom.Text;
@@ -129,7 +147,7 @@ namespace cf01.Forms
                 for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
                 {
                     string tempstr = " ";
-                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount - 1; columnNo++)
+                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount; columnNo++)
                     {
                         if (dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() != null)
                         {

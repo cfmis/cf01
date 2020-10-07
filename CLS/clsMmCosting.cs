@@ -191,7 +191,7 @@ namespace cf01.CLS
         }
         public static DataTable findOrderCosting(int type,string dat1,string dat2,string item1,string item2,string mo1,string mo2)
         {
-            string strSql = "usp_OrderCosting";
+            string strSql = "usp_CountOrderCosting";
             SqlParameter[] parameters = {new SqlParameter("@type", type)
                         ,new SqlParameter("@dat1", dat1)
                         ,new SqlParameter("@dat2", dat2)

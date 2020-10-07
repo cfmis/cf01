@@ -90,20 +90,23 @@ namespace cf01.MM
                 wForm.ShowDialog();
             }).Start();
 
-            //**********************
-            initTreeView(productMo,productId,productName); //数据处理
+            DataTable dtWipData = clsProductCosting.getWipData(productMo);//獲取制單的生產流程
+            dgvWipData.DataSource = dtWipData;
 
+            //**********************
+            initTreeView(productId,productName); //数据处理
+            doBomTreeView();//重新遍歷TreeView，將Tree的記錄重新插入到dtBomDetails表中
             //genBomTree(pid);
             //**********************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
         }
-        protected void initTreeView(string productMo, string productId, string productName)
+        protected void initTreeView(string productId, string productName)
         {
-            initBomDataTable();
+            //initBomDataTable();//初始化一個空表:dtBomDetails，將Tree展開的記錄重新填回到這個表中
             tvBom.Nodes.Clear();
 
-            DataTable dtWipData = clsProductCosting.getWipData(productMo);
-            dgvWipData.DataSource = dtWipData;
+            //DataTable dtWipData = clsProductCosting.getWipData(productMo);//獲取制單的生產流程
+            //dgvWipData.DataSource = dtWipData;
             //添加主菜单
             TreeNode TopNode;
             //獲取首層F0
@@ -118,9 +121,9 @@ namespace cf01.MM
                 TopNode.Tag = productId;//goods_id ;//保存表單名
                 TopNode.ImageIndex = 2;
                 tvBom.Nodes.Add(TopNode);
-                addChildNodeBom(TopNode, productId);//递归调用
+                addChildNodeBom(TopNode, productId);//递归调用，從Bom表中生成TreeView
                 tvBom.ExpandAll();//展開
-                doBomTree();
+                
             //}
 
         }
@@ -131,6 +134,7 @@ namespace cf01.MM
         /// <param name="tsi"></param>
         public void addChildNodeBom(TreeNode subNode, string pid)
         {
+            #region 递归调用方法，添加菜单的子菜单
             TreeNode subNode1;
             DataTable dtBom_d = clsProductCosting.getBomCid(pid);
             if (dtBom_d.Rows.Count == 0)
@@ -153,6 +157,7 @@ namespace cf01.MM
                     //}
                 }
             }
+            #endregion
         }
         protected void genBomTree(string pid)
         {
@@ -177,7 +182,7 @@ namespace cf01.MM
                 tvBom.Nodes.Add(TopNode);
                 addChildNode(TopNode, productMo, searchProductId);//递归调用
                 tvBom.ExpandAll();//展開
-                doBomTree();
+                doBomTreeView();
                 //TopNode.ImageIndex = TopNode.SelectedImageIndex = 2;                        
             //}
             #endregion
@@ -220,8 +225,9 @@ namespace cf01.MM
         }
 
         //Bom在Tree中顯示後，再遞歸Tree控件，將所有子件加入到Table中，以表格的形式顯示
-        private void doBomTree()
+        private void doBomTreeView()
         {
+            initBomDataTable();//初始化一個空表:dtBomDetails，將Tree展開的記錄重新填回到這個表中
             #region 递归
             //1.获取TreeView的所有根节点
             foreach (TreeNode tn in tvBom.Nodes)
@@ -274,14 +280,14 @@ namespace cf01.MM
             bomLevel = tn.Level.ToString();
             tnText = tn.Text.Trim();
             productName = tnText.Substring(tnText.IndexOf("[") + 1, (tnText.Length - (tnText.IndexOf("[") + 1) - 1));
-            addBomToTable(parentLevel, bomLevel, tn.Tag.ToString(), productName,childId); 
+            addBomTreeToTable(parentLevel, bomLevel, tn.Tag.ToString(), productName,childId); 
             foreach (TreeNode tnSub in tn.Nodes)
             {
                 expandBomTree(tnSub);
             }
         }
         //將每個子件插入到表格，同時查找若存在單價設定的就顯示，若沒有的，就從生產流程中獲取初始值
-        private void addBomToTable(string parentLevel, string bomLevel, string productId, string productName,string materialId)
+        private void addBomTreeToTable(string parentLevel, string bomLevel, string productId, string productName,string materialId)
         {
             string productMo = txtProductMo.Text.Trim();
             DataTable dtCost = new DataTable();
@@ -778,6 +784,8 @@ namespace cf01.MM
         //當文本框的值改變時，同時更新表格的對應值，并自動更新每一件的成本：從當前記錄開始，倒序重新計算每件的子件累計成本及產品成本，直到頂層
         private void fillDgvBomDetails()
         {
+            if (dgvBomDetails.Rows.Count == 0)
+                return;
             int row=dgvBomDetails.CurrentRow.Index;
             DataGridViewRow dgr = dgvBomDetails.Rows[row];
             dgr.Cells["colRollUpCost"].Value = txtRollUpCost.Text != "" ? Convert.ToDecimal(txtRollUpCost.Text) : 0;
@@ -834,6 +842,7 @@ namespace cf01.MM
             if (!validData())
                 return;
             save();
+            btnRefresh_Click(sender, e);
         }
         private bool validData()
         {
@@ -1308,6 +1317,93 @@ namespace cf01.MM
             frmOrderCosting frm = new frmOrderCosting();
             frm.ShowDialog();
             frm.Dispose();
+        }
+
+        private void btnBatchUpdate_Click(object sender, EventArgs e)
+        {
+            bool showF0 = true;
+            DataTable dtProductCosting = clsProductCosting.findProductCosting(1, 0, showF0, "", ""
+                , "", "", "", ""
+                , "", "", "", ""
+                , "", "", "2020/09/10", "2020/09/10", "", ""
+                );
+            for (int i=0;i<dtProductCosting.Rows.Count;i++)
+            {
+                string ProductMo = "", ProductId = "", ProductName = "";
+                DataRow drProductCosting = dtProductCosting.Rows[i];
+                
+                ProductId = drProductCosting["goods_id"].ToString();
+                ProductName = drProductCosting["goods_cname"].ToString();
+                ProductMo = drProductCosting["mo_id"].ToString();
+                txtProductId.Text = ProductId;
+                txtProductName.Text = ProductName;
+                txtProductMo.Text = ProductMo;
+                firstCount = true;
+                showBomTree(ProductMo, ProductId, ProductName);
+                save1();
+            }
+        }
+
+
+        private void save1()
+        {
+            string result = "";
+            List<mdlProductCosting> lsModel = new List<mdlProductCosting>();
+            for (int i = 0; i < dgvBomDetails.Rows.Count; i++)
+            {
+                DataGridViewRow dgr = dgvBomDetails.Rows[i];
+
+                bool isExist = false;
+                string productId = dgr.Cells["colProductId"].Value.ToString();
+                //如果物料編號已在列表中，則不再加入，以免重複加入
+                for (int j = 0; j < lsModel.Count; j++)
+                {
+                    if (productId == lsModel[j].productId)
+                    {
+                        isExist = true;
+                        break;
+                    }
+                }
+                if (!isExist)
+                {
+                    mdlProductCosting objModel = new mdlProductCosting();
+                    objModel.productId = productId;
+                    objModel.productMo = txtProductMo.Text.Trim();
+                    objModel.rollUpCost = dgr.Cells["colRollUpCost"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colRollUpCost"].Value) : 0;
+                    objModel.productWeight = dgr.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductWeight"].Value) : 0;
+                    objModel.originWeight = dgr.Cells["colOriginWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colOriginWeight"].Value) : 0;
+                    objModel.wasteRate = dgr.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colWasteRate"].Value) : 0;
+                    objModel.materialRequest = dgr.Cells["colMaterialRequest"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialRequest"].Value) : 0;
+                    objModel.originalPrice = dgr.Cells["colOriginalPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colOriginalPrice"].Value) : 0;
+                    objModel.materialPrice = dgr.Cells["colMaterialPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialPrice"].Value) : 0;
+                    objModel.materialPriceQty = dgr.Cells["colMaterialPriceQty"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialPriceQty"].Value) : 0;
+                    objModel.materialCost = dgr.Cells["colMaterialCost"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colMaterialCost"].Value) : 0;
+                    objModel.depId = dgr.Cells["colDepId"].Value.ToString();
+                    objModel.depPrice = dgr.Cells["colDepPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colDepPrice"].Value) : 0;
+                    objModel.depCost = dgr.Cells["colDepCost"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colDepCost"].Value) : 0;
+                    objModel.depTotalCost = dgr.Cells["colDepTotalCost"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colDepTotalCost"].Value) : 0;
+                    objModel.depStdPrice = dgr.Cells["colDepStdPrice"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colDepStdPrice"].Value) : 0;
+                    objModel.depStdQty = dgr.Cells["colDepStdQty"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colDepStdQty"].Value) : 0;
+                    objModel.otherCost1 = dgr.Cells["colOtherCost1"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colOtherCost1"].Value) : 0;
+                    objModel.otherCost2 = dgr.Cells["colOtherCost2"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colOtherCost2"].Value) : 0;
+                    objModel.otherCost3 = dgr.Cells["colOtherCost3"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colOtherCost3"].Value) : 0;
+                    objModel.productCost = dgr.Cells["colProductCost"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductCost"].Value) : 0;
+                    objModel.productCostGrs = dgr.Cells["colProductCostGrs"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductCostGrs"].Value) : 0;
+                    objModel.productCostK = dgr.Cells["colProductCostK"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductCostK"].Value) : 0;
+                    objModel.productCostDzs = dgr.Cells["colProductCostDzs"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductCostDzs"].Value) : 0;
+                    objModel.createUser = DBUtility._user_id.ToUpper();
+                    objModel.createTime = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                    lsModel.Add(objModel);
+                }
+            }
+            result = clsProductCosting.updateProductCosting(lsModel);
+            if (result == "")
+            {
+                MessageBox.Show("更新產品成本成功!");
+                chkSelectAll.Checked = false;
+            }
+            else
+                MessageBox.Show("更新產品成本失敗!");
         }
     }
 }
