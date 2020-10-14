@@ -101,13 +101,19 @@ namespace cf01.ReportForm
                 //刪除舊的頁數                           
                 SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
                 sqlconn.Open();
-                const string sql_del = "Delete From dbo.z_rpt_plate where user_id =@user_id and rpt_type=@rpt_type";
-                SqlCommand sqlcmd = new SqlCommand(sql_del, sqlconn);
-                sqlcmd.Parameters.AddWithValue("@user_id", strUser_id);
-                sqlcmd.Parameters.AddWithValue("@rpt_type", rpt_type);
-                sqlcmd.ExecuteNonQuery();
-                sqlcmd.Dispose();
-                sqlconn.Close();
+                //const string sql_del = "Delete From dbo.z_rpt_plate where user_id =@user_id and rpt_type=@rpt_type";
+                //SqlCommand sqlcmd = new SqlCommand(sql_del, sqlconn);
+                //sqlcmd.Parameters.AddWithValue("@user_id", strUser_id);
+                //sqlcmd.Parameters.AddWithValue("@rpt_type", rpt_type);
+                //sqlcmd.ExecuteNonQuery();
+                //sqlcmd.Dispose();
+                //sqlconn.Close();
+                const string sql_del = "truncate table dbo.z_rpt_plate";
+                using (SqlCommand sqlcmd = new SqlCommand(sql_del, sqlconn))
+                {
+                    sqlcmd.ExecuteNonQuery();
+                    sqlconn.Close();
+                }
 
                 //導入EXCEL頁數               
                 try

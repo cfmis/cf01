@@ -596,14 +596,12 @@
             this.chkdivision.Name = "chkdivision";
             this.chkdivision.SizeF = new System.Drawing.SizeF(18.00009F, 23F);
             this.chkdivision.StylePriority.UseFont = false;
-            this.chkdivision.Visible = false;
             // 
             // xrLine56
             // 
             this.xrLine56.LocationFloat = new DevExpress.Utils.PointFloat(481.1609F, 152.125F);
             this.xrLine56.Name = "xrLine56";
             this.xrLine56.SizeF = new System.Drawing.SizeF(280.839F, 2.999985F);
-            this.xrLine56.Visible = false;
             // 
             // xrLabel1
             // 
@@ -612,12 +610,11 @@
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(483.0839F, 133F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(271.9161F, 18.99998F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(271.9981F, 18.99998F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.Text = "[division_desc]";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel1.Visible = false;
             this.xrLabel1.WordWrap = false;
             // 
             // xrPictureBox2

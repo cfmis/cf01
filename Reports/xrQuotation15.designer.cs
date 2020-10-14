@@ -562,7 +562,7 @@
             this.xrLabel2.SizeF = new System.Drawing.SizeF(1948.29F, 649.3647F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
-            this.xrLabel2.Text = "[terms]";
+            this.xrLabel2.Text = "[terms_other]";
             this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel1
@@ -669,7 +669,7 @@
             this.xrLabel62.SizeF = new System.Drawing.SizeF(1948.294F, 31.33319F);
             this.xrLabel62.StylePriority.UseFont = false;
             this.xrLabel62.StylePriority.UseTextAlignment = false;
-            this.xrLabel62.Text = "13) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
+            this.xrLabel62.Text = "12) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
     "/ colour cannot met .";
             this.xrLabel62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel62.WordWrap = false;
@@ -685,7 +685,7 @@
             this.xrLabel63.SizeF = new System.Drawing.SizeF(1948.294F, 30.33319F);
             this.xrLabel63.StylePriority.UseFont = false;
             this.xrLabel63.StylePriority.UseTextAlignment = false;
-            this.xrLabel63.Text = "14) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
+            this.xrLabel63.Text = "13) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
     "ply if the MOQ per order / colour cannot be met .";
             this.xrLabel63.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel63.WordWrap = false;
