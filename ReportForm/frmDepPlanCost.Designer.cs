@@ -83,6 +83,20 @@
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,16 +113,21 @@
             this.colMaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialPriceQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCost_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductCostNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNeed_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepTotalProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderQtyPcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderAmtHkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSAmtHkdDef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmt_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotalAmtHkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCostHkdOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal_mm_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderProdAmtDef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderProdAmtPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,6 +140,23 @@
             this.colItCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBrandId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBase_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBase_check_moudle_cost_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBase_req_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStyle_pcs_tot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBase_color_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBase_req_color_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColor_pcs_tot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMoq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMonthly_pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMonthly_day = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDay_work_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHour_pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCheck_moudle_times = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAvg_check_moudle_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAvg_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTo.Properties)).BeginInit();
@@ -297,7 +333,7 @@
             // dgvDetails
             // 
             this.dgvDetails.AllowUserToAddRows = false;
-            this.dgvDetails.ColumnHeadersHeight = 30;
+            this.dgvDetails.ColumnHeadersHeight = 32;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPrd_mo,
@@ -316,16 +352,21 @@
             this.colMaterialPrice,
             this.colMaterialPriceQty,
             this.colMaterialCost,
+            this.colProdQty,
             this.colDepPrice,
             this.colProductCost_hkd,
             this.colProductCost,
-            this.colProdQty,
+            this.colProductCostNew,
             this.colDepProductCost,
+            this.colNeed_check_moudle_cost,
+            this.colDepTotalProductCost,
             this.colOrderQtyPcs,
             this.colOrderAmtHkd,
             this.colSAmtHkdDef,
+            this.colAmt_check_moudle_cost,
             this.colTotalAmtHkd,
             this.colProductCostHkdOrder,
+            this.colTotal_mm_cost,
             this.colOrderProdAmtDef,
             this.colOrderProdAmtPer,
             this.colOrderQty,
@@ -337,10 +378,28 @@
             this.colIsFree,
             this.colItCustomer,
             this.colCustCname,
-            this.colBrandId});
+            this.colBrandId,
+            this.colBase_class,
+            this.colPrd_cdesc,
+            this.colId,
+            this.colBase_check_moudle_cost_moq,
+            this.colBase_req_check_moudle_cost,
+            this.colStyle_pcs_tot,
+            this.colBase_color_moq,
+            this.colBase_req_color_cost,
+            this.colColor_pcs_tot,
+            this.colMoq,
+            this.colMonthly_pay,
+            this.colMonthly_day,
+            this.colDay_work_time,
+            this.colHour_pay,
+            this.colCheck_moudle_times,
+            this.colAvg_check_moudle_time,
+            this.colAvg_check_moudle_cost});
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetails.Location = new System.Drawing.Point(0, 102);
             this.dgvDetails.Name = "dgvDetails";
+            this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowHeadersWidth = 20;
             this.dgvDetails.RowTemplate.Height = 24;
             this.dgvDetails.Size = new System.Drawing.Size(1115, 514);
@@ -350,6 +409,7 @@
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Prd_dep";
             this.dataGridViewTextBoxColumn1.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "部門";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Width = 80;
@@ -357,6 +417,7 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Prd_item";
+            this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "制單編號";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Width = 60;
@@ -365,6 +426,7 @@
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Prd_item";
             this.dataGridViewTextBoxColumn3.FillWeight = 180F;
+            this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "物料編號";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 180;
@@ -373,6 +435,7 @@
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Prd_item_cdesc";
             this.dataGridViewTextBoxColumn4.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn4.Frozen = true;
             this.dataGridViewTextBoxColumn4.HeaderText = "物料描述";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 200;
@@ -381,6 +444,7 @@
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Process_id";
             this.dataGridViewTextBoxColumn5.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn5.Frozen = true;
             this.dataGridViewTextBoxColumn5.HeaderText = "工種類型";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Width = 80;
@@ -388,6 +452,7 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "process_name";
+            this.dataGridViewTextBoxColumn6.Frozen = true;
             this.dataGridViewTextBoxColumn6.HeaderText = "類型描述";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
@@ -448,6 +513,7 @@
             this.dataGridViewTextBoxColumn14.DataPropertyName = "Prd_item_cost";
             this.dataGridViewTextBoxColumn14.HeaderText = "生產成本";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 65;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -503,6 +569,7 @@
             this.dataGridViewTextBoxColumn22.DataPropertyName = "process_name";
             this.dataGridViewTextBoxColumn22.HeaderText = "公式描述";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Width = 50;
             // 
             // dataGridViewTextBoxColumn23
             // 
@@ -530,6 +597,7 @@
             this.dataGridViewTextBoxColumn26.DataPropertyName = "Rec_dep_cdesc";
             this.dataGridViewTextBoxColumn26.HeaderText = "收貨部門";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.Width = 50;
             // 
             // dataGridViewTextBoxColumn27
             // 
@@ -571,6 +639,7 @@
             this.dataGridViewTextBoxColumn32.DataPropertyName = "brand_id";
             this.dataGridViewTextBoxColumn32.HeaderText = "牌子代號";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.Width = 40;
             // 
             // dataGridViewTextBoxColumn33
             // 
@@ -584,6 +653,7 @@
             this.dataGridViewTextBoxColumn34.DataPropertyName = "brand_id";
             this.dataGridViewTextBoxColumn34.HeaderText = "牌子代號";
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.Width = 40;
             // 
             // dataGridViewTextBoxColumn35
             // 
@@ -597,6 +667,7 @@
             this.dataGridViewTextBoxColumn36.DataPropertyName = "it_customer";
             this.dataGridViewTextBoxColumn36.HeaderText = "客戶編號";
             this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.Width = 40;
             // 
             // dataGridViewTextBoxColumn37
             // 
@@ -610,244 +681,447 @@
             this.dataGridViewTextBoxColumn38.DataPropertyName = "brand_id";
             this.dataGridViewTextBoxColumn38.HeaderText = "牌子代號";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "brand_id";
+            this.dataGridViewTextBoxColumn39.HeaderText = "牌子代號";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "brand_id";
+            this.dataGridViewTextBoxColumn40.HeaderText = "牌子代號";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "brand_id";
+            this.dataGridViewTextBoxColumn41.HeaderText = "牌子代號";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn42
+            // 
+            this.dataGridViewTextBoxColumn42.DataPropertyName = "brand_id";
+            this.dataGridViewTextBoxColumn42.HeaderText = "牌子代號";
+            this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            this.dataGridViewTextBoxColumn42.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            this.dataGridViewTextBoxColumn43.DataPropertyName = "base_class";
+            this.dataGridViewTextBoxColumn43.HeaderText = "產品類型";
+            this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            this.dataGridViewTextBoxColumn43.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn44
+            // 
+            this.dataGridViewTextBoxColumn44.DataPropertyName = "prd_cdesc";
+            this.dataGridViewTextBoxColumn44.HeaderText = "產品類型";
+            this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
+            this.dataGridViewTextBoxColumn44.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn45
+            // 
+            this.dataGridViewTextBoxColumn45.DataPropertyName = "moq";
+            this.dataGridViewTextBoxColumn45.HeaderText = "校模應收MOQ";
+            this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
+            this.dataGridViewTextBoxColumn45.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn46
+            // 
+            this.dataGridViewTextBoxColumn46.DataPropertyName = "monthly_pay";
+            this.dataGridViewTextBoxColumn46.HeaderText = "月薪";
+            this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
+            this.dataGridViewTextBoxColumn46.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn47
+            // 
+            this.dataGridViewTextBoxColumn47.DataPropertyName = "monthly_day";
+            this.dataGridViewTextBoxColumn47.HeaderText = "月上班天數";
+            this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
+            this.dataGridViewTextBoxColumn47.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn48
+            // 
+            this.dataGridViewTextBoxColumn48.DataPropertyName = "day_work_time";
+            this.dataGridViewTextBoxColumn48.HeaderText = "日上班小時";
+            this.dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
+            this.dataGridViewTextBoxColumn48.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn49
+            // 
+            this.dataGridViewTextBoxColumn49.DataPropertyName = "hour_pay";
+            this.dataGridViewTextBoxColumn49.HeaderText = "時薪";
+            this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
+            this.dataGridViewTextBoxColumn49.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn50
+            // 
+            this.dataGridViewTextBoxColumn50.DataPropertyName = "check_moudle_times";
+            this.dataGridViewTextBoxColumn50.HeaderText = "換模次數";
+            this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            this.dataGridViewTextBoxColumn50.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn51
+            // 
+            this.dataGridViewTextBoxColumn51.DataPropertyName = "avg_check_moudle_time";
+            this.dataGridViewTextBoxColumn51.HeaderText = "平均校模時數";
+            this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            this.dataGridViewTextBoxColumn51.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            this.dataGridViewTextBoxColumn52.DataPropertyName = "avg_check_moudle_cost";
+            this.dataGridViewTextBoxColumn52.HeaderText = "平均校模費用";
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            this.dataGridViewTextBoxColumn52.Width = 40;
             // 
             // colPrd_mo
             // 
             this.colPrd_mo.DataPropertyName = "mo_id";
+            this.colPrd_mo.Frozen = true;
             this.colPrd_mo.HeaderText = "制單編號";
             this.colPrd_mo.Name = "colPrd_mo";
+            this.colPrd_mo.ReadOnly = true;
+            this.colPrd_mo.Width = 80;
             // 
             // colSeq
             // 
             this.colSeq.DataPropertyName = "Sequence_id";
+            this.colSeq.Frozen = true;
             this.colSeq.HeaderText = "序號";
             this.colSeq.Name = "colSeq";
+            this.colSeq.ReadOnly = true;
             this.colSeq.Width = 60;
             // 
             // colPrd_item
             // 
             this.colPrd_item.DataPropertyName = "goods_id";
             this.colPrd_item.FillWeight = 180F;
+            this.colPrd_item.Frozen = true;
             this.colPrd_item.HeaderText = "產品編號";
             this.colPrd_item.Name = "colPrd_item";
+            this.colPrd_item.ReadOnly = true;
             this.colPrd_item.Width = 180;
             // 
             // colPrd_item_cdesc
             // 
             this.colPrd_item_cdesc.DataPropertyName = "goods_cname";
             this.colPrd_item_cdesc.FillWeight = 200F;
+            this.colPrd_item_cdesc.Frozen = true;
             this.colPrd_item_cdesc.HeaderText = "產品描述";
             this.colPrd_item_cdesc.Name = "colPrd_item_cdesc";
+            this.colPrd_item_cdesc.ReadOnly = true;
             this.colPrd_item_cdesc.Width = 200;
             // 
             // colDep
             // 
             this.colDep.DataPropertyName = "wp_id";
             this.colDep.FillWeight = 80F;
+            this.colDep.Frozen = true;
             this.colDep.HeaderText = "負責部門";
             this.colDep.Name = "colDep";
-            this.colDep.Width = 80;
+            this.colDep.ReadOnly = true;
+            this.colDep.Width = 40;
             // 
             // colPrd_dep_cdesc
             // 
             this.colPrd_dep_cdesc.DataPropertyName = "wp_cdesc";
+            this.colPrd_dep_cdesc.Frozen = true;
             this.colPrd_dep_cdesc.HeaderText = "部門描述";
             this.colPrd_dep_cdesc.Name = "colPrd_dep_cdesc";
+            this.colPrd_dep_cdesc.ReadOnly = true;
             // 
             // colNextWpId
             // 
             this.colNextWpId.DataPropertyName = "next_wp_id";
             this.colNextWpId.HeaderText = "收貨部門";
             this.colNextWpId.Name = "colNextWpId";
-            this.colNextWpId.Width = 80;
+            this.colNextWpId.ReadOnly = true;
+            this.colNextWpId.Width = 40;
             // 
             // colNextWpCdesc
             // 
             this.colNextWpCdesc.DataPropertyName = "next_wp_cdesc";
             this.colNextWpCdesc.HeaderText = "收貨部門";
             this.colNextWpCdesc.Name = "colNextWpCdesc";
+            this.colNextWpCdesc.ReadOnly = true;
             // 
             // colC_qty_ok
             // 
             this.colC_qty_ok.DataPropertyName = "c_qty_ok";
             this.colC_qty_ok.HeaderText = "完成數量";
             this.colC_qty_ok.Name = "colC_qty_ok";
-            this.colC_qty_ok.Width = 80;
+            this.colC_qty_ok.ReadOnly = true;
+            this.colC_qty_ok.Width = 40;
             // 
             // colDepStdPrice
             // 
             this.colDepStdPrice.DataPropertyName = "DepStdPrice";
             this.colDepStdPrice.HeaderText = "標準單價";
             this.colDepStdPrice.Name = "colDepStdPrice";
-            this.colDepStdPrice.Width = 80;
+            this.colDepStdPrice.ReadOnly = true;
+            this.colDepStdPrice.Width = 40;
             // 
             // colDepStdQty
             // 
             this.colDepStdQty.DataPropertyName = "DepStdQty";
             this.colDepStdQty.HeaderText = "基數";
             this.colDepStdQty.Name = "colDepStdQty";
-            this.colDepStdQty.Width = 80;
+            this.colDepStdQty.ReadOnly = true;
+            this.colDepStdQty.Width = 40;
             // 
             // colRollupcost
             // 
             this.colRollupcost.DataPropertyName = "Rollupcost";
             this.colRollupcost.HeaderText = "子件成本/PCS";
             this.colRollupcost.Name = "colRollupcost";
+            this.colRollupcost.ReadOnly = true;
+            this.colRollupcost.Width = 50;
             // 
             // colMaterialRequest
             // 
             this.colMaterialRequest.DataPropertyName = "Materialrequest";
-            this.colMaterialRequest.HeaderText = "原料需求g/PCS";
+            this.colMaterialRequest.HeaderText = "原料需求G/PCS";
             this.colMaterialRequest.Name = "colMaterialRequest";
+            this.colMaterialRequest.ReadOnly = true;
+            this.colMaterialRequest.Width = 60;
             // 
             // colMaterialPrice
             // 
             this.colMaterialPrice.DataPropertyName = "MaterialPrice";
-            this.colMaterialPrice.HeaderText = "原料/外發單價";
+            this.colMaterialPrice.HeaderText = "原料(外發)單價/G";
             this.colMaterialPrice.Name = "colMaterialPrice";
+            this.colMaterialPrice.ReadOnly = true;
+            this.colMaterialPrice.Width = 65;
             // 
             // colMaterialPriceQty
             // 
             this.colMaterialPriceQty.DataPropertyName = "MaterialPriceQty";
-            this.colMaterialPriceQty.HeaderText = "外發單價(數量)";
+            this.colMaterialPriceQty.HeaderText = "外發單價/PCS";
             this.colMaterialPriceQty.Name = "colMaterialPriceQty";
+            this.colMaterialPriceQty.ReadOnly = true;
+            this.colMaterialPriceQty.Width = 55;
             // 
             // colMaterialCost
             // 
             this.colMaterialCost.DataPropertyName = "MaterialCost";
             this.colMaterialCost.HeaderText = "原料成本";
             this.colMaterialCost.Name = "colMaterialCost";
-            // 
-            // colDepPrice
-            // 
-            this.colDepPrice.DataPropertyName = "DepPrice";
-            this.colDepPrice.HeaderText = "部門單價/PCS";
-            this.colDepPrice.Name = "colDepPrice";
-            // 
-            // colProductCost_hkd
-            // 
-            this.colProductCost_hkd.DataPropertyName = "ProductCost_hkd";
-            this.colProductCost_hkd.HeaderText = "部門加工費";
-            this.colProductCost_hkd.Name = "colProductCost_hkd";
-            // 
-            // colProductCost
-            // 
-            this.colProductCost.DataPropertyName = "ProductCost";
-            this.colProductCost.HeaderText = "產品成本/PCS";
-            this.colProductCost.Name = "colProductCost";
-            this.colProductCost.Width = 120;
+            this.colMaterialCost.ReadOnly = true;
+            this.colMaterialCost.Width = 40;
             // 
             // colProdQty
             // 
             this.colProdQty.DataPropertyName = "prod_qty";
             this.colProdQty.HeaderText = "計劃數量";
             this.colProdQty.Name = "colProdQty";
-            this.colProdQty.Width = 80;
+            this.colProdQty.ReadOnly = true;
+            this.colProdQty.Width = 40;
+            // 
+            // colDepPrice
+            // 
+            this.colDepPrice.DataPropertyName = "DepPrice";
+            this.colDepPrice.HeaderText = "加工費單價/PCS";
+            this.colDepPrice.Name = "colDepPrice";
+            this.colDepPrice.ReadOnly = true;
+            this.colDepPrice.Width = 55;
+            // 
+            // colProductCost_hkd
+            // 
+            this.colProductCost_hkd.DataPropertyName = "ProductCost_hkd";
+            this.colProductCost_hkd.HeaderText = "加工費金額";
+            this.colProductCost_hkd.Name = "colProductCost_hkd";
+            this.colProductCost_hkd.ReadOnly = true;
+            this.colProductCost_hkd.Width = 50;
+            // 
+            // colProductCost
+            // 
+            this.colProductCost.DataPropertyName = "ProductCost";
+            this.colProductCost.HeaderText = "產品成本/PCS";
+            this.colProductCost.Name = "colProductCost";
+            this.colProductCost.ReadOnly = true;
+            this.colProductCost.Width = 50;
+            // 
+            // colProductCostNew
+            // 
+            this.colProductCostNew.DataPropertyName = "ProductCostNew";
+            this.colProductCostNew.HeaderText = "產品成本1/PCS";
+            this.colProductCostNew.Name = "colProductCostNew";
+            this.colProductCostNew.ReadOnly = true;
+            this.colProductCostNew.Width = 55;
             // 
             // colDepProductCost
             // 
             this.colDepProductCost.DataPropertyName = "DepProductCost";
-            this.colDepProductCost.HeaderText = "產品計劃成本";
+            this.colDepProductCost.HeaderText = "部門計劃成本";
             this.colDepProductCost.Name = "colDepProductCost";
+            this.colDepProductCost.ReadOnly = true;
+            this.colDepProductCost.Width = 50;
+            // 
+            // colNeed_check_moudle_cost
+            // 
+            this.colNeed_check_moudle_cost.DataPropertyName = "need_check_moudle_cost";
+            this.colNeed_check_moudle_cost.HeaderText = "應收校模費";
+            this.colNeed_check_moudle_cost.Name = "colNeed_check_moudle_cost";
+            this.colNeed_check_moudle_cost.ReadOnly = true;
+            this.colNeed_check_moudle_cost.Width = 50;
+            // 
+            // colDepTotalProductCost
+            // 
+            this.colDepTotalProductCost.DataPropertyName = "DepTotalProductCost";
+            this.colDepTotalProductCost.HeaderText = "部門合計成本";
+            this.colDepTotalProductCost.Name = "colDepTotalProductCost";
+            this.colDepTotalProductCost.ReadOnly = true;
+            this.colDepTotalProductCost.Width = 50;
             // 
             // colOrderQtyPcs
             // 
             this.colOrderQtyPcs.DataPropertyName = "order_qty_pcs";
             this.colOrderQtyPcs.HeaderText = "訂單數量(PCS)";
             this.colOrderQtyPcs.Name = "colOrderQtyPcs";
+            this.colOrderQtyPcs.ReadOnly = true;
+            this.colOrderQtyPcs.Width = 55;
             // 
             // colOrderAmtHkd
             // 
             this.colOrderAmtHkd.DataPropertyName = "order_amt_hkd";
-            this.colOrderAmtHkd.HeaderText = "訂單金額(HKD)";
+            this.colOrderAmtHkd.HeaderText = "訂單金額";
             this.colOrderAmtHkd.Name = "colOrderAmtHkd";
+            this.colOrderAmtHkd.ReadOnly = true;
+            this.colOrderAmtHkd.Width = 40;
             // 
             // colSAmtHkdDef
             // 
             this.colSAmtHkdDef.DataPropertyName = "s_amt_hkd_def";
-            this.colSAmtHkdDef.HeaderText = "S單補收金額";
+            this.colSAmtHkdDef.HeaderText = "訂單不足單補收噴色費";
             this.colSAmtHkdDef.Name = "colSAmtHkdDef";
+            this.colSAmtHkdDef.ReadOnly = true;
+            this.colSAmtHkdDef.Width = 60;
+            // 
+            // colAmt_check_moudle_cost
+            // 
+            this.colAmt_check_moudle_cost.DataPropertyName = "amt_check_moudle_cost";
+            this.colAmt_check_moudle_cost.HeaderText = "訂單不足補收辦費";
+            this.colAmt_check_moudle_cost.Name = "colAmt_check_moudle_cost";
+            this.colAmt_check_moudle_cost.ReadOnly = true;
+            this.colAmt_check_moudle_cost.Width = 50;
             // 
             // colTotalAmtHkd
             // 
             this.colTotalAmtHkd.DataPropertyName = "total_amt_hkd";
             this.colTotalAmtHkd.HeaderText = "訂單合計金額";
             this.colTotalAmtHkd.Name = "colTotalAmtHkd";
+            this.colTotalAmtHkd.ReadOnly = true;
+            this.colTotalAmtHkd.Width = 50;
             // 
             // colProductCostHkdOrder
             // 
-            this.colProductCostHkdOrder.DataPropertyName = "ProductCost_hkd_order";
-            this.colProductCostHkdOrder.HeaderText = "訂單成本";
+            this.colProductCostHkdOrder.DataPropertyName = "order_cost_hkd";
+            this.colProductCostHkdOrder.HeaderText = "訂單數量成本";
             this.colProductCostHkdOrder.Name = "colProductCostHkdOrder";
+            this.colProductCostHkdOrder.ReadOnly = true;
+            this.colProductCostHkdOrder.Width = 50;
+            // 
+            // colTotal_mm_cost
+            // 
+            this.colTotal_mm_cost.DataPropertyName = "total_mm_cost";
+            this.colTotal_mm_cost.HeaderText = "訂單合計成本";
+            this.colTotal_mm_cost.Name = "colTotal_mm_cost";
+            this.colTotal_mm_cost.ReadOnly = true;
+            this.colTotal_mm_cost.Width = 50;
             // 
             // colOrderProdAmtDef
             // 
             this.colOrderProdAmtDef.DataPropertyName = "order_prod_amt_def";
-            this.colOrderProdAmtDef.HeaderText = "訂單金額對比成本";
+            this.colOrderProdAmtDef.HeaderText = "訂單對比成本差額";
             this.colOrderProdAmtDef.Name = "colOrderProdAmtDef";
-            this.colOrderProdAmtDef.Width = 120;
+            this.colOrderProdAmtDef.ReadOnly = true;
+            this.colOrderProdAmtDef.Width = 60;
             // 
             // colOrderProdAmtPer
             // 
             this.colOrderProdAmtPer.DataPropertyName = "order_prod_amt_per";
-            this.colOrderProdAmtPer.HeaderText = "訂單金額對比成本(%)";
+            this.colOrderProdAmtPer.HeaderText = "差額百分比(%)";
             this.colOrderProdAmtPer.Name = "colOrderProdAmtPer";
-            this.colOrderProdAmtPer.Width = 160;
+            this.colOrderProdAmtPer.ReadOnly = true;
+            this.colOrderProdAmtPer.Width = 60;
             // 
             // colOrderQty
             // 
             this.colOrderQty.DataPropertyName = "order_qty";
             this.colOrderQty.HeaderText = "訂單數量";
             this.colOrderQty.Name = "colOrderQty";
+            this.colOrderQty.ReadOnly = true;
+            this.colOrderQty.Width = 40;
             // 
             // colGoodsUnit
             // 
             this.colGoodsUnit.DataPropertyName = "goods_unit";
             this.colGoodsUnit.HeaderText = "數量單位";
             this.colGoodsUnit.Name = "colGoodsUnit";
+            this.colGoodsUnit.ReadOnly = true;
+            this.colGoodsUnit.Width = 40;
             // 
             // colUnitPrice
             // 
             this.colUnitPrice.DataPropertyName = "unit_price";
             this.colUnitPrice.HeaderText = "單價";
             this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.ReadOnly = true;
+            this.colUnitPrice.Width = 40;
             // 
             // colPUnit
             // 
             this.colPUnit.DataPropertyName = "p_unit";
             this.colPUnit.HeaderText = "單價單位";
             this.colPUnit.Name = "colPUnit";
+            this.colPUnit.ReadOnly = true;
+            this.colPUnit.Width = 40;
             // 
             // colM_id
             // 
             this.colM_id.DataPropertyName = "m_id";
             this.colM_id.HeaderText = "貨幣代號";
             this.colM_id.Name = "colM_id";
+            this.colM_id.ReadOnly = true;
+            this.colM_id.Width = 40;
             // 
             // colTotalSum
             // 
             this.colTotalSum.DataPropertyName = "total_sum";
             this.colTotalSum.HeaderText = "訂單金額";
             this.colTotalSum.Name = "colTotalSum";
+            this.colTotalSum.ReadOnly = true;
+            this.colTotalSum.Width = 40;
             // 
             // colIsFree
             // 
             this.colIsFree.DataPropertyName = "is_free";
             this.colIsFree.HeaderText = "是否免費";
             this.colIsFree.Name = "colIsFree";
-            this.colIsFree.Width = 80;
+            this.colIsFree.ReadOnly = true;
+            this.colIsFree.Width = 40;
             // 
             // colItCustomer
             // 
             this.colItCustomer.DataPropertyName = "it_customer";
             this.colItCustomer.HeaderText = "客戶編號";
             this.colItCustomer.Name = "colItCustomer";
+            this.colItCustomer.ReadOnly = true;
+            this.colItCustomer.Width = 80;
             // 
             // colCustCname
             // 
             this.colCustCname.DataPropertyName = "cust_cname";
             this.colCustCname.HeaderText = "客戶描述";
             this.colCustCname.Name = "colCustCname";
+            this.colCustCname.ReadOnly = true;
             this.colCustCname.Width = 160;
             // 
             // colBrandId
@@ -855,6 +1129,144 @@
             this.colBrandId.DataPropertyName = "brand_id";
             this.colBrandId.HeaderText = "牌子代號";
             this.colBrandId.Name = "colBrandId";
+            this.colBrandId.ReadOnly = true;
+            this.colBrandId.Width = 80;
+            // 
+            // colBase_class
+            // 
+            this.colBase_class.DataPropertyName = "base_class";
+            this.colBase_class.HeaderText = "產品類型";
+            this.colBase_class.Name = "colBase_class";
+            this.colBase_class.ReadOnly = true;
+            this.colBase_class.Width = 40;
+            // 
+            // colPrd_cdesc
+            // 
+            this.colPrd_cdesc.DataPropertyName = "prd_cdesc";
+            this.colPrd_cdesc.HeaderText = "產品類型";
+            this.colPrd_cdesc.Name = "colPrd_cdesc";
+            this.colPrd_cdesc.ReadOnly = true;
+            this.colPrd_cdesc.Width = 80;
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "id";
+            this.colId.HeaderText = "OC編號";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Width = 60;
+            // 
+            // colBase_check_moudle_cost_moq
+            // 
+            this.colBase_check_moudle_cost_moq.DataPropertyName = "base_check_moudle_cost_moq";
+            this.colBase_check_moudle_cost_moq.HeaderText = "辦費參考MOQ";
+            this.colBase_check_moudle_cost_moq.Name = "colBase_check_moudle_cost_moq";
+            this.colBase_check_moudle_cost_moq.ReadOnly = true;
+            this.colBase_check_moudle_cost_moq.Width = 50;
+            // 
+            // colBase_req_check_moudle_cost
+            // 
+            this.colBase_req_check_moudle_cost.DataPropertyName = "base_req_check_moudle_cost";
+            this.colBase_req_check_moudle_cost.HeaderText = "應收辦費";
+            this.colBase_req_check_moudle_cost.Name = "colBase_req_check_moudle_cost";
+            this.colBase_req_check_moudle_cost.ReadOnly = true;
+            this.colBase_req_check_moudle_cost.Width = 50;
+            // 
+            // colStyle_pcs_tot
+            // 
+            this.colStyle_pcs_tot.DataPropertyName = "style_pcs_tot";
+            this.colStyle_pcs_tot.HeaderText = "PI產品同款總數";
+            this.colStyle_pcs_tot.Name = "colStyle_pcs_tot";
+            this.colStyle_pcs_tot.ReadOnly = true;
+            this.colStyle_pcs_tot.Width = 50;
+            // 
+            // colBase_color_moq
+            // 
+            this.colBase_color_moq.DataPropertyName = "base_color_moq";
+            this.colBase_color_moq.HeaderText = "噴色參考MOQ";
+            this.colBase_color_moq.Name = "colBase_color_moq";
+            this.colBase_color_moq.ReadOnly = true;
+            this.colBase_color_moq.Width = 50;
+            // 
+            // colBase_req_color_cost
+            // 
+            this.colBase_req_color_cost.DataPropertyName = "base_req_color_cost";
+            this.colBase_req_color_cost.HeaderText = "應收噴色費";
+            this.colBase_req_color_cost.Name = "colBase_req_color_cost";
+            this.colBase_req_color_cost.ReadOnly = true;
+            this.colBase_req_color_cost.Width = 50;
+            // 
+            // colColor_pcs_tot
+            // 
+            this.colColor_pcs_tot.DataPropertyName = "color_pcs_tot";
+            this.colColor_pcs_tot.HeaderText = "PI產品同色總數";
+            this.colColor_pcs_tot.Name = "colColor_pcs_tot";
+            this.colColor_pcs_tot.ReadOnly = true;
+            this.colColor_pcs_tot.Width = 50;
+            // 
+            // colMoq
+            // 
+            this.colMoq.DataPropertyName = "moq";
+            this.colMoq.HeaderText = "校模應收MOQ";
+            this.colMoq.Name = "colMoq";
+            this.colMoq.ReadOnly = true;
+            this.colMoq.Width = 60;
+            // 
+            // colMonthly_pay
+            // 
+            this.colMonthly_pay.DataPropertyName = "monthly_pay";
+            this.colMonthly_pay.HeaderText = "月薪";
+            this.colMonthly_pay.Name = "colMonthly_pay";
+            this.colMonthly_pay.ReadOnly = true;
+            this.colMonthly_pay.Width = 40;
+            // 
+            // colMonthly_day
+            // 
+            this.colMonthly_day.DataPropertyName = "monthly_day";
+            this.colMonthly_day.HeaderText = "月上班天數";
+            this.colMonthly_day.Name = "colMonthly_day";
+            this.colMonthly_day.ReadOnly = true;
+            this.colMonthly_day.Width = 40;
+            // 
+            // colDay_work_time
+            // 
+            this.colDay_work_time.DataPropertyName = "day_work_time";
+            this.colDay_work_time.HeaderText = "日上班小時";
+            this.colDay_work_time.Name = "colDay_work_time";
+            this.colDay_work_time.ReadOnly = true;
+            this.colDay_work_time.Width = 40;
+            // 
+            // colHour_pay
+            // 
+            this.colHour_pay.DataPropertyName = "hour_pay";
+            this.colHour_pay.HeaderText = "時薪";
+            this.colHour_pay.Name = "colHour_pay";
+            this.colHour_pay.ReadOnly = true;
+            this.colHour_pay.Width = 40;
+            // 
+            // colCheck_moudle_times
+            // 
+            this.colCheck_moudle_times.DataPropertyName = "check_moudle_times";
+            this.colCheck_moudle_times.HeaderText = "換模次數";
+            this.colCheck_moudle_times.Name = "colCheck_moudle_times";
+            this.colCheck_moudle_times.ReadOnly = true;
+            this.colCheck_moudle_times.Width = 40;
+            // 
+            // colAvg_check_moudle_time
+            // 
+            this.colAvg_check_moudle_time.DataPropertyName = "avg_check_moudle_time";
+            this.colAvg_check_moudle_time.HeaderText = "平均校模時數";
+            this.colAvg_check_moudle_time.Name = "colAvg_check_moudle_time";
+            this.colAvg_check_moudle_time.ReadOnly = true;
+            this.colAvg_check_moudle_time.Width = 50;
+            // 
+            // colAvg_check_moudle_cost
+            // 
+            this.colAvg_check_moudle_cost.DataPropertyName = "avg_check_moudle_cost";
+            this.colAvg_check_moudle_cost.HeaderText = "平均校模費用";
+            this.colAvg_check_moudle_cost.Name = "colAvg_check_moudle_cost";
+            this.colAvg_check_moudle_cost.ReadOnly = true;
+            this.colAvg_check_moudle_cost.Width = 50;
             // 
             // frmDepPlanCost
             // 
@@ -866,6 +1278,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmDepPlanCost";
             this.Text = "frmDepPlanCost";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmProductProcessCost_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -936,6 +1349,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_mo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSeq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_item;
@@ -952,16 +1383,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPriceQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCost_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProdQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductCostNew;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepProductCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNeed_check_moudle_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepTotalProductCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderQtyPcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderAmtHkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSAmtHkdDef;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAmt_check_moudle_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotalAmtHkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCostHkdOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal_mm_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderProdAmtDef;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderProdAmtPer;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderQty;
@@ -974,9 +1410,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colItCustomer;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCustCname;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBrandId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBase_class;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_cdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBase_check_moudle_cost_moq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBase_req_check_moudle_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStyle_pcs_tot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBase_color_moq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBase_req_color_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColor_pcs_tot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMoq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMonthly_pay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMonthly_day;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDay_work_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHour_pay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCheck_moudle_times;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAvg_check_moudle_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAvg_check_moudle_cost;
     }
 }

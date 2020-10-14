@@ -330,22 +330,24 @@ namespace cf01.CLS
                         " INNER JOIN " + remote_db + "cd_department d ON b.within_code=d.within_code AND b.wp_id=d.id" +
                         " INNER JOIN " + remote_db + "cd_department e ON b.within_code=e.within_code AND b.next_wp_id=e.id" +
                         " INNER JOIN " + remote_db + "so_order_manage f ON a.within_code=f.within_code AND a.order_no=f.id" +
+                        " INNER JOIN " + remote_db + "so_order_manage od ON a.within_code=od.within_code AND a.order_no=od.id" +
                         " WHERE a.within_code='" + within_code + "'";// AND a.so_ver=f.ver
                     if (productMo != "")
                         strSql += " AND a.mo_id='" + productMo + "'";
-                    else
+                    //else
+                    //{
+                    if (dateFrom != "" && dateTo != "")
                     {
-                        if (dateFrom != "" && dateTo != "")
-                        {
-                            string dateTo1 = Convert.ToDateTime(dateTo).AddDays(1).ToString("yyyy/MM/dd");
-                            strSql += " And a.bill_date>='" + dateFrom + "' And a.bill_date<'" + dateTo1 + "'";
-                        }
+                        string dateTo1 = Convert.ToDateTime(dateTo).AddDays(1).ToString("yyyy/MM/dd");
+                        strSql += " And a.bill_date>='" + dateFrom + "' And a.bill_date<'" + dateTo1 + "'";
+                        strSql += " And od.order_date>='" + dateFrom + "' And od.order_date<'" + dateTo1 + "'";
+                    }
                         if (moGroup != "")
                             strSql += " And Substring(a.mo_id,3,1)='" + moGroup + "'";
                         //strSql += " And f.seller_id='" + moGroup + "'";
                         if (Sales != "")
                             strSql += " And f.seller_id='" + Sales + "'";
-                    }
+                    //}
                     if (showF0 == true)
                         strSql += " And b.goods_id>='F0' And b.goods_id<='F0-ZZZZZZZ-ZZZ'";
                     strSql += strWhere;

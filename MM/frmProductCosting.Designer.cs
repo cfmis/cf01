@@ -52,6 +52,7 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.tvBom = new System.Windows.Forms.TreeView();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.dgvBomDetails = new System.Windows.Forms.DataGridView();
             this.colParentLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,8 +88,8 @@
             this.colDepStdPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepStdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOriginWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgvWipData = new System.Windows.Forms.DataGridView();
             this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,9 +105,10 @@
             this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnBatchUpdate = new System.Windows.Forms.Button();
             this.lblMaterialPriceQty = new DevExpress.XtraEditors.LabelControl();
             this.txtMaterialPriceQty = new DevExpress.XtraEditors.TextEdit();
             this.txtStdPriceFlag = new DevExpress.XtraEditors.TextEdit();
@@ -213,13 +215,15 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+            this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBomDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPriceQty.Properties)).BeginInit();
@@ -462,20 +466,35 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.tvBom);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.chkSelectAll);
-            this.splitContainerControl1.Panel2.Controls.Add(this.dgvBomDetails);
-            this.splitContainerControl1.Panel2.Controls.Add(this.panelControl3);
-            this.splitContainerControl1.Panel2.Controls.Add(this.dgvWipData);
-            this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
+            this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1158, 381);
             this.splitContainerControl1.SplitterPosition = 319;
             this.splitContainerControl1.TabIndex = 2;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
+            // splitContainerControl2
+            // 
+            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl2.Horizontal = false;
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl2.Name = "splitContainerControl2";
+            this.splitContainerControl2.Panel1.Controls.Add(this.chkSelectAll);
+            this.splitContainerControl2.Panel1.Controls.Add(this.dgvBomDetails);
+            this.splitContainerControl2.Panel1.Controls.Add(this.panelControl2);
+            this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.dgvWipData);
+            this.splitContainerControl2.Panel2.Controls.Add(this.panelControl3);
+            this.splitContainerControl2.Panel2.Text = "Panel2";
+            this.splitContainerControl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainerControl2.Size = new System.Drawing.Size(834, 381);
+            this.splitContainerControl2.SplitterPosition = 222;
+            this.splitContainerControl2.TabIndex = 6;
+            this.splitContainerControl2.Text = "splitContainerControl2";
+            // 
             // chkSelectAll
             // 
-            this.chkSelectAll.Location = new System.Drawing.Point(152, 39);
+            this.chkSelectAll.Location = new System.Drawing.Point(152, 40);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Properties.Caption = "";
             this.chkSelectAll.Size = new System.Drawing.Size(19, 19);
@@ -527,7 +546,7 @@
             this.dgvBomDetails.RowHeadersWidth = 20;
             this.dgvBomDetails.RowTemplate.Height = 24;
             this.dgvBomDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBomDetails.Size = new System.Drawing.Size(834, 84);
+            this.dgvBomDetails.Size = new System.Drawing.Size(834, 188);
             this.dgvBomDetails.TabIndex = 1;
             this.dgvBomDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBomDetails_CellDoubleClick);
             this.dgvBomDetails.SelectionChanged += new System.EventHandler(this.dgvBomDetails_SelectionChanged);
@@ -799,22 +818,22 @@
             this.colOriginWeight.Name = "colOriginWeight";
             this.colOriginWeight.Width = 80;
             // 
-            // panelControl3
+            // panelControl2
             // 
-            this.panelControl3.Controls.Add(this.labelControl2);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 118);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(834, 34);
-            this.panelControl3.TabIndex = 3;
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(834, 34);
+            this.panelControl2.TabIndex = 2;
             // 
-            // labelControl2
+            // labelControl1
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 9);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(76, 14);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "制單生產流程:";
+            this.labelControl1.Location = new System.Drawing.Point(5, 9);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(64, 14);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "產品結構表:";
             // 
             // dgvWipData
             // 
@@ -836,14 +855,14 @@
             this.colWipDoColor,
             this.colWipNextDep,
             this.colWipNextDepId});
-            this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvWipData.Location = new System.Drawing.Point(0, 152);
+            this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWipData.Location = new System.Drawing.Point(0, 34);
             this.dgvWipData.Name = "dgvWipData";
             this.dgvWipData.ReadOnly = true;
             this.dgvWipData.RowHeadersWidth = 20;
             this.dgvWipData.RowTemplate.Height = 24;
             this.dgvWipData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWipData.Size = new System.Drawing.Size(834, 229);
+            this.dgvWipData.Size = new System.Drawing.Size(834, 120);
             this.dgvWipData.TabIndex = 4;
             // 
             // colWipSeq
@@ -956,25 +975,26 @@
             this.colWipNextDepId.Name = "colWipNextDepId";
             this.colWipNextDepId.ReadOnly = true;
             // 
-            // panelControl2
+            // panelControl3
             // 
-            this.panelControl2.Controls.Add(this.labelControl1);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 0);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(834, 34);
-            this.panelControl2.TabIndex = 2;
+            this.panelControl3.Controls.Add(this.labelControl2);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(0, 0);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(834, 34);
+            this.panelControl3.TabIndex = 3;
             // 
-            // labelControl1
+            // labelControl2
             // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 9);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(64, 14);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "產品結構表:";
+            this.labelControl2.Location = new System.Drawing.Point(5, 9);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(76, 14);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "制單生產流程:";
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnBatchUpdate);
             this.panelControl1.Controls.Add(this.lblMaterialPriceQty);
             this.panelControl1.Controls.Add(this.txtMaterialPriceQty);
             this.panelControl1.Controls.Add(this.txtStdPriceFlag);
@@ -1032,6 +1052,16 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1158, 154);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnBatchUpdate
+            // 
+            this.btnBatchUpdate.Location = new System.Drawing.Point(1015, 71);
+            this.btnBatchUpdate.Name = "btnBatchUpdate";
+            this.btnBatchUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnBatchUpdate.TabIndex = 16;
+            this.btnBatchUpdate.Text = "button1";
+            this.btnBatchUpdate.UseVisualStyleBackColor = true;
+            this.btnBatchUpdate.Click += new System.EventHandler(this.btnBatchUpdate_Click);
             // 
             // lblMaterialPriceQty
             // 
@@ -1959,15 +1989,17 @@
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+            this.splitContainerControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBomDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -2188,5 +2220,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private System.Windows.Forms.ToolStripButton btnOrder;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+        private System.Windows.Forms.Button btnBatchUpdate;
     }
 }

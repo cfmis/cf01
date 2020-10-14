@@ -33,7 +33,7 @@ namespace cf01.ReportForm
         }
         private void findData()
         {
-            txtMoFrom.Focus();
+            txtMoTo.Focus();
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -53,7 +53,7 @@ namespace cf01.ReportForm
                 Report_type = 1;
             string Plan_date_from = txtOrderDateFrom.Text;
             string Plan_date_to = txtOrderDateTo.Text;
-            string strSql = "usp_CountOrderPlanCost";
+            string strSql = "usp_CountPlanCosting";
             SqlParameter[] parameters = {new SqlParameter("@isSetCost", Report_type)
                         ,new SqlParameter("@order_date1", Plan_date_from)
                         ,new SqlParameter("@order_date2", Plan_date_to)
@@ -132,7 +132,7 @@ namespace cf01.ReportForm
                 for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
                 {
                     string tempstr = " ";
-                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount - 1; columnNo++)
+                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount; columnNo++)
                     {
                         if (dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() != null)
                         {

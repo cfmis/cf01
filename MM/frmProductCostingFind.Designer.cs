@@ -571,7 +571,6 @@
             this.dgvCosting.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCosting.Location = new System.Drawing.Point(2, 2);
             this.dgvCosting.Name = "dgvCosting";
-            this.dgvCosting.ReadOnly = true;
             this.dgvCosting.RowHeadersWidth = 20;
             this.dgvCosting.RowTemplate.Height = 24;
             this.dgvCosting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -584,7 +583,6 @@
             // 
             this.colSetCosting.HeaderText = "設定成本";
             this.colSetCosting.Name = "colSetCosting";
-            this.colSetCosting.ReadOnly = true;
             this.colSetCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colSetCosting.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colSetCosting.Width = 65;
@@ -594,7 +592,6 @@
             this.colProductMo.DataPropertyName = "mo_id";
             this.colProductMo.HeaderText = "制單編號";
             this.colProductMo.Name = "colProductMo";
-            this.colProductMo.ReadOnly = true;
             this.colProductMo.Width = 80;
             // 
             // colProductId
@@ -602,7 +599,6 @@
             this.colProductId.DataPropertyName = "goods_id";
             this.colProductId.HeaderText = "物料編號";
             this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
             this.colProductId.Width = 160;
             // 
             // colProductName
@@ -610,7 +606,6 @@
             this.colProductName.DataPropertyName = "goods_cname";
             this.colProductName.HeaderText = "物料描述";
             this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
             this.colProductName.Width = 260;
             // 
             // Column1
@@ -618,7 +613,6 @@
             this.Column1.DataPropertyName = "pcs_weg";
             this.Column1.HeaderText = "每PCS重量";
             this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             this.Column1.Width = 70;
             // 
             // Column13
@@ -626,7 +620,6 @@
             this.Column13.DataPropertyName = "ProductWeight";
             this.Column13.HeaderText = "每PCS重量(自定)";
             this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
             this.Column13.Width = 120;
             // 
             // colProdQty
@@ -634,7 +627,6 @@
             this.colProdQty.DataPropertyName = "prod_qty";
             this.colProdQty.HeaderText = "生產數量";
             this.colProdQty.Name = "colProdQty";
-            this.colProdQty.ReadOnly = true;
             this.colProdQty.Width = 65;
             // 
             // Column3
@@ -642,7 +634,6 @@
             this.Column3.DataPropertyName = "c_sec_qty_ok";
             this.Column3.HeaderText = "完成重量";
             this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             this.Column3.Width = 65;
             // 
             // Column2
@@ -650,7 +641,6 @@
             this.Column2.DataPropertyName = "c_qty_ok";
             this.Column2.HeaderText = "完成數量";
             this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             this.Column2.Width = 65;
             // 
             // dataGridViewTextBoxColumn35
@@ -658,7 +648,6 @@
             this.dataGridViewTextBoxColumn35.DataPropertyName = "ProductPrice";
             this.dataGridViewTextBoxColumn35.HeaderText = "單價(自定)";
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            this.dataGridViewTextBoxColumn35.ReadOnly = true;
             this.dataGridViewTextBoxColumn35.Width = 80;
             // 
             // Column16
@@ -666,7 +655,6 @@
             this.Column16.DataPropertyName = "PriceUnit";
             this.Column16.HeaderText = "單位(自定)";
             this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
             this.Column16.Width = 80;
             // 
             // colProductCosting
@@ -674,7 +662,6 @@
             this.colProductCosting.DataPropertyName = "ProductCost";
             this.colProductCosting.HeaderText = "產品成本/G";
             this.colProductCosting.Name = "colProductCosting";
-            this.colProductCosting.ReadOnly = true;
             this.colProductCosting.Width = 80;
             // 
             // Column5
@@ -682,7 +669,6 @@
             this.Column5.DataPropertyName = "wp_id";
             this.Column5.HeaderText = "負責部門";
             this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             this.Column5.Width = 65;
             // 
             // Column6
@@ -690,7 +676,6 @@
             this.Column6.DataPropertyName = "DepCdesc";
             this.Column6.HeaderText = "負責部門";
             this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             this.Column6.Width = 80;
             // 
             // Column7
@@ -698,7 +683,6 @@
             this.Column7.DataPropertyName = "next_wp_id";
             this.Column7.HeaderText = "收貨部門";
             this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
             this.Column7.Width = 65;
             // 
             // Column8
@@ -706,7 +690,6 @@
             this.Column8.DataPropertyName = "NextDepCdesc";
             this.Column8.HeaderText = "收貨部門";
             this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
             this.Column8.Width = 80;
             // 
             // colDoColor
@@ -714,7 +697,6 @@
             this.colDoColor.DataPropertyName = "DoColor";
             this.colDoColor.HeaderText = "顏色做法";
             this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
             this.colDoColor.Width = 160;
             // 
             // Column4
@@ -722,7 +704,6 @@
             this.Column4.DataPropertyName = "bill_date";
             this.Column4.HeaderText = "開單日期";
             this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             this.Column4.Width = 80;
             // 
             // Column9
@@ -730,7 +711,6 @@
             this.Column9.DataPropertyName = "mo_group";
             this.Column9.HeaderText = "組別";
             this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
             this.Column9.Width = 40;
             // 
             // Column10
@@ -738,7 +718,6 @@
             this.Column10.DataPropertyName = "seller_id";
             this.Column10.HeaderText = "營業員";
             this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
             this.Column10.Width = 60;
             // 
             // panelControl3
