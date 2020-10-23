@@ -53,7 +53,7 @@ namespace cf01.ReportForm
                     string str = txtBarCode.Text;
                     string is_by_mo,str1, str2, strId, strSeq, str_mo, strGoods_id,id_type;
                     str_mo = "";
-                    str1 = str.Substring(0, 1);
+                    str1 = str.Substring(0, 2); //移交單號DT,LT開頭
                     str2 = str.Substring(0,3);
 
                     bool isbymo = chkByMo.Checked;
@@ -66,9 +66,10 @@ namespace cf01.ReportForm
                     if (!isbymo)
                     {
                         //按整張單據掃描
-                        is_by_mo = "N";                        
-                        if ((str1 == "T" && str.Substring(0, 2)!="TW") || str2 == "DAA" )
-                        {
+                        is_by_mo = "N";
+                        //if ((str1 == "T" && str.Substring(0, 2)!="TW") || str2 == "DAA" )
+                        if (str1 == "DT" || str1 == "LT" || str2 == "DAA")
+                            {
                             if (str1 == "T")
                                 id_type = "T";  //移交單
                             else
@@ -114,7 +115,7 @@ namespace cf01.ReportForm
 	                            INNER JOIN st_i_subordination B with(nolock) ON A.within_code =B.within_code AND A.id=B.id
                             WHERE A.within_code='0000' AND A.id='{0}' AND A.state<>'2' AND B.sequence_id='{1}'", strId, strSeq);
                            
-                            if (str1 == "T" && str.Substring(0, 2) != "TW")
+                            if ((str1 == "DT"|| str1=="LT") && str.Substring(0, 2) != "TW")
                             {
                                 //移交單
                                 id_type = "T";  //移交單
@@ -373,7 +374,7 @@ namespace cf01.ReportForm
                 string str;
                 str = txtID.Text;
                 string str1, str2, id_type;
-                str1 = str.Substring(0, 1);
+                str1 = str.Substring(0, 2);//移交單:DT,LT
                 str2 = str.Substring(0, 3);
                 id_type = "";
                 txtBarCode.Text = "";
@@ -381,12 +382,20 @@ namespace cf01.ReportForm
                 cmbItems.Items.Clear();
                 cmbItems.Text = "";
 
-                if ((str1 == "T" && str.Substring(0, 2) != "TW") || str2 == "DAA")
+                //if (str1=="T" && str.Substring(0, 2) != "TW" || str2 == "DAA")//cancel on 2020-10-22 by 
+                if (str1 == "DT" || str1 == "LT" || str2 == "DAA")
                 {
-                    if (str1 == "T")
+                    if (str1 == "DT")
                         id_type = "T";  //移交單
                     else
                         id_type = "D";  //倉庫發料                    
+                }
+                else
+                {
+                    MessageBox.Show("單據編號不正確(只限于正常的移交單,倉庫發料)！請返回檢查","提示信息");
+                    txtID.Text = "";
+                    txtBarCode.Focus();
+                    return;
                 }
 
                 Load_Data("N","",id_type, txtID.Text, txtMO.Text, cmbItems.Text);
