@@ -446,6 +446,7 @@
             this.price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_below_over = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -500,7 +501,6 @@
             this.disc_price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sub_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sub_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sub_3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -3584,6 +3584,7 @@
             this.price_hkd,
             this.price_rmb,
             this.hkd_ex_fty,
+            this.usd_ex_fty,
             this.price_unit,
             this.moq_below_over,
             this.moq,
@@ -3638,7 +3639,6 @@
             this.disc_price_hkd,
             this.disc_price_rmb,
             this.disc_hkd_ex_fty,
-            this.usd_ex_fty,
             this.sub_1,
             this.sub_2,
             this.sub_3,
@@ -5145,6 +5145,14 @@
             this.hkd_ex_fty.Name = "hkd_ex_fty";
             this.hkd_ex_fty.Width = 60;
             // 
+            // usd_ex_fty
+            // 
+            this.usd_ex_fty.DataPropertyName = "usd_ex_fty";
+            this.usd_ex_fty.HeaderText = "USD EX-FTY";
+            this.usd_ex_fty.Name = "usd_ex_fty";
+            this.usd_ex_fty.ReadOnly = true;
+            this.usd_ex_fty.Width = 60;
+            // 
             // price_unit
             // 
             this.price_unit.DataPropertyName = "price_unit";
@@ -5567,14 +5575,6 @@
             this.disc_hkd_ex_fty.Name = "disc_hkd_ex_fty";
             this.disc_hkd_ex_fty.ReadOnly = true;
             this.disc_hkd_ex_fty.Width = 50;
-            // 
-            // usd_ex_fty
-            // 
-            this.usd_ex_fty.DataPropertyName = "usd_ex_fty";
-            this.usd_ex_fty.HeaderText = "USD EX-FTY";
-            this.usd_ex_fty.Name = "usd_ex_fty";
-            this.usd_ex_fty.ReadOnly = true;
-            this.usd_ex_fty.Width = 60;
             // 
             // sub_1
             // 
@@ -6248,6 +6248,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
         private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_below_over;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq;
@@ -6302,7 +6303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_rmb;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_3;
