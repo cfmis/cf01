@@ -118,7 +118,7 @@ namespace cf01.CLS
                 " Order By right ('0000000000'+b.flag,10)";
             strSql += " ) aa";
             strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId";
-            strSql += " LEFT JOIN bs_mat_rate cc ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item";
+            strSql += " LEFT JOIN bs_product_qty_rate cc ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item";
             strSql += " LEFT JOIN mm_ProductPrice dd ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
@@ -140,7 +140,7 @@ namespace cf01.CLS
                 " Order By b.log_no";
             strSql += " ) aa";
             strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId";
-            strSql += " LEFT JOIN bs_mat_rate cc ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item";
+            strSql += " LEFT JOIN bs_product_qty_rate cc ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item";
             strSql += " LEFT JOIN mm_ProductPrice dd ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId";
 
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
@@ -150,7 +150,7 @@ namespace cf01.CLS
         //這個是在原制單中獲取完成重量后，若仍然沒有重量的，則重新在計劃中按物料編號查找重量
         //但膠料是不會在流程表中而是在成分表中的，所以先從成分表中查找，若不存在再從流程表中查找；其它物料都是從流程表中查找
         //獲取物料每PCS的重量
-        public static decimal getProductWeight(string matType,string productMo,string productId)
+        public static decimal getProductWeight(string productMo,string productId)
         {
             decimal pcsWeg = 0;
             string strSql = "";
@@ -164,7 +164,7 @@ namespace cf01.CLS
                 " WHERE b.within_code='" + within_code + "' AND b.goods_id='" + productId + "' AND b.c_qty_ok>0 AND b.c_sec_qty_ok>0";
             strSql1 += " ORDER BY b.c_qty_ok Desc";
             strSql1 += ") aa";
-            if (matType == "PL")
+            if (productId.Substring(0,2) == "PL")
             {
                 strSql = " SELECT a.mo_id,CASE c.i_qty WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(c.i_sec_qty/c.i_qty)*1000) END AS pcs_weg" +
                     " FROM jo_bill_mostly a" +
@@ -298,7 +298,7 @@ namespace cf01.CLS
                 ",c.ProductPrice,c.PriceUnit " +
                 " From mm_ProductCosting a" +
                 " Inner join geo_it_goods mm On a.ProductId=mm.id" +
-                " Left Join bs_mat_rate b On a.ProductId=b.prd_item" +
+                " Left Join bs_product_qty_rate b On a.ProductId=b.prd_item" +
                 " Left Join mm_ProductPrice c On a.ProductId=c.ProductId" +
                 " Where a.ProductId>=''";
                 if (productMo != "")
@@ -354,7 +354,7 @@ namespace cf01.CLS
                     strSql += " ORDER BY b.goods_id,b.c_qty_ok Desc";
                     strSql += ") aa";
                     strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId ";
-                    strSql += " Left Join bs_mat_rate cc On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item ";
+                    strSql += " Left Join bs_product_qty_rate cc On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item ";
                     strSql += " Left Join mm_ProductPrice dd On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId ";
                     strSql += " ) bbb ";
                     if (isSetCosting == 1)//未設定成本
@@ -368,7 +368,7 @@ namespace cf01.CLS
                         ",c.ProductPrice,c.PriceUnit" +
                         " From geo_it_goods mm" +
                         " Left join mm_ProductCosting a On mm.id=a.ProductId" +
-                        " Left Join bs_mat_rate b On mm.id=b.prd_item" +
+                        " Left Join bs_product_qty_rate b On mm.id=b.prd_item" +
                         " Left Join mm_ProductPrice c On mm.id=c.ProductId" +
                         " Where mm.id>=''";
                     if (showF0 == true)
@@ -843,7 +843,7 @@ namespace cf01.CLS
                 strSql = "Select a.prd_item AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
                 ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg,a.mat_item,mm1.name As mat_cdesc" +
                 ",a.dep_id AS DepId,b.dep_cdesc AS DepName,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim"+
-                " From bs_mat_rate a" +
+                " From bs_product_qty_rate a" +
                 " Inner join geo_it_goods mm On a.prd_item=mm.id" +
                 " Left join geo_it_goods mm1 On a.mat_item=mm1.id" +
                 " Left join bs_dep b On a.dep_id=b.dep_id"+
@@ -861,7 +861,7 @@ namespace cf01.CLS
                     ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg" +
                     ",a.mat_item,a.dep_id AS DepId,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim" +
                     " From geo_it_goods mm" +
-                    " Left join bs_mat_rate a On mm.id=a.prd_item" +
+                    " Left join bs_product_qty_rate a On mm.id=a.prd_item" +
                      " Where mm.id>=''";
                 strSql += strWhere;
                 if (showF0 == true)
@@ -892,12 +892,12 @@ namespace cf01.CLS
             for (int i = 0; i < lsModel.Count; i++)
             {
                 if (!checkProductWeight(lsModel[i].prdItem,lsModel[i].matItem,lsModel[i].depId))
-                    strSql += string.Format(@" Insert Into bs_mat_rate (prd_item,mat_item,dep_id,pcs_weg,prd_kg_qty_rate,crusr,crtim)
+                    strSql += string.Format(@" Insert Into bs_product_qty_rate (prd_item,mat_item,dep_id,pcs_weg,prd_kg_qty_rate,crusr,crtim)
                         Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
                         , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId, lsModel[i].pcsWeg, lsModel[i].prdKgQtyRate
                         , lsModel[i].crUser, lsModel[i].crTime);
                 else
-                    strSql += string.Format(@" Update bs_mat_rate Set pcs_weg='{0}',prd_kg_qty_rate='{1}',crusr='{2}',crtim='{3}'
+                    strSql += string.Format(@" Update bs_product_qty_rate Set pcs_weg='{0}',prd_kg_qty_rate='{1}',crusr='{2}',crtim='{3}'
                         Where prd_item='{4}' AND mat_item='{5}' AND dep_id='{6}'"
                         , lsModel[i].pcsWeg, lsModel[i].prdKgQtyRate, lsModel[i].crUser, lsModel[i].crTime
                         , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId);
@@ -914,7 +914,7 @@ namespace cf01.CLS
             strSql += string.Format(@" BEGIN TRANSACTION ");
             for (int i = 0; i < lsModel.Count; i++)
             {
-                    strSql += string.Format(@" Delete From bs_mat_rate Where prd_item='{0}' AND mat_item='{1}' AND dep_id='{2}'"
+                    strSql += string.Format(@" Delete From bs_product_qty_rate Where prd_item='{0}' AND mat_item='{1}' AND dep_id='{2}'"
                         , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
@@ -924,7 +924,7 @@ namespace cf01.CLS
         private static bool checkProductWeight(string prdItem,string matItem,string depId)
         {
             bool result = true;
-            string strSql = "Select prd_item,pcs_weg,kg_qty_rate From bs_mat_rate Where prd_item='" + prdItem + "' AND mat_item='" + matItem + "' AND dep_id='" + depId + "'";
+            string strSql = "Select prd_item,pcs_weg,kg_qty_rate From bs_product_qty_rate Where prd_item='" + prdItem + "' AND mat_item='" + matItem + "' AND dep_id='" + depId + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
                 result = true;
@@ -935,7 +935,7 @@ namespace cf01.CLS
         public static decimal findStdProductWeight(string depId,string productId, string materialId)
         {
             decimal stdProductWeight = 0;
-            string strSql = "Select kg_qty_rate,pcs_weg From bs_mat_rate Where prd_item='" + productId + "'";
+            string strSql = "Select kg_qty_rate,pcs_weg From bs_product_qty_rate Where prd_item='" + productId + "'";
             //if (materialId != "")
             //    strSql += " And mat_item='" + materialId + "'";
             if (depId != "")

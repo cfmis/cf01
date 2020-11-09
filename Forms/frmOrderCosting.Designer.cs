@@ -88,12 +88,23 @@
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGoods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGoods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQty_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCostingPcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMmCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMo_product_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNeed_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal_mm_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmt_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -372,6 +383,7 @@
             this.colQty_pcs,
             this.colCostingPcs,
             this.colMmCosting,
+            this.colMo_product_c,
             this.colNeed_check_moudle_cost,
             this.colTotal_mm_cost,
             this.colAmt_hkd,
@@ -459,6 +471,7 @@
             this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn6.HeaderText = "金額(HKD)";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 80;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -563,6 +576,7 @@
             this.dataGridViewTextBoxColumn21.DataPropertyName = "brand_id";
             this.dataGridViewTextBoxColumn21.HeaderText = "牌子編號";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Width = 80;
             // 
             // dataGridViewTextBoxColumn22
             // 
@@ -582,6 +596,7 @@
             this.dataGridViewTextBoxColumn24.DataPropertyName = "ProductMo";
             this.dataGridViewTextBoxColumn24.HeaderText = "成本參考制單";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.Width = 180;
             // 
             // dataGridViewTextBoxColumn25
             // 
@@ -594,6 +609,7 @@
             this.dataGridViewTextBoxColumn26.DataPropertyName = "avg_check_moudle_cost";
             this.dataGridViewTextBoxColumn26.HeaderText = "平均校模費用";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.Width = 80;
             // 
             // dataGridViewTextBoxColumn27
             // 
@@ -651,6 +667,74 @@
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.Width = 80;
             // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "avg_check_moudle_time";
+            this.dataGridViewTextBoxColumn35.HeaderText = "平均校模時數";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "avg_check_moudle_cost";
+            this.dataGridViewTextBoxColumn36.HeaderText = "平均校模費用";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.DataPropertyName = "monthly_pay";
+            this.dataGridViewTextBoxColumn37.HeaderText = "月薪";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.DataPropertyName = "monthly_day";
+            this.dataGridViewTextBoxColumn38.HeaderText = "上班天數";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "day_work_time";
+            this.dataGridViewTextBoxColumn39.HeaderText = "上班小時";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "hour_pay";
+            this.dataGridViewTextBoxColumn40.HeaderText = "時薪";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "check_moudle_times";
+            this.dataGridViewTextBoxColumn41.HeaderText = "試模次數";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn42
+            // 
+            this.dataGridViewTextBoxColumn42.DataPropertyName = "wip_dep";
+            this.dataGridViewTextBoxColumn42.HeaderText = "開料部門";
+            this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            this.dataGridViewTextBoxColumn42.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            this.dataGridViewTextBoxColumn43.DataPropertyName = "base_class";
+            this.dataGridViewTextBoxColumn43.HeaderText = "產品類型";
+            this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            this.dataGridViewTextBoxColumn43.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn44
+            // 
+            this.dataGridViewTextBoxColumn44.DataPropertyName = "prd_cdesc";
+            this.dataGridViewTextBoxColumn44.HeaderText = "類型描述";
+            this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
+            this.dataGridViewTextBoxColumn44.Width = 80;
+            // 
             // colMo_id
             // 
             this.colMo_id.DataPropertyName = "mo_id";
@@ -692,6 +776,13 @@
             this.colMmCosting.HeaderText = "成本金額";
             this.colMmCosting.Name = "colMmCosting";
             this.colMmCosting.Width = 80;
+            // 
+            // colMo_product_c
+            // 
+            this.colMo_product_c.DataPropertyName = "mo_product_c";
+            this.colMo_product_c.HeaderText = "生產配件數";
+            this.colMo_product_c.Name = "colMo_product_c";
+            this.colMo_product_c.Width = 50;
             // 
             // colNeed_check_moudle_cost
             // 
@@ -1037,6 +1128,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colQty_pcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCostingPcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMmCosting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMo_product_c;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNeed_check_moudle_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal_mm_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmt_hkd;
@@ -1074,5 +1166,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWip_dep;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBase_class;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_cdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
     }
 }

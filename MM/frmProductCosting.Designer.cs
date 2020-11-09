@@ -61,8 +61,12 @@
             this.colIsSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRollUpCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStdWeightFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWasteRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialRequest = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,18 +76,14 @@
             this.colStdPriceFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOtherCost1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOtherCost2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOtherCost3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCostDzs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCostGrs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCostK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepStdPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepStdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,13 +94,13 @@
             this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipStdWeightFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipCplQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipCplWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -283,7 +283,7 @@
             this.toolStripSeparator10});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1158, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1164, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -450,12 +450,13 @@
             // 
             // tvBom
             // 
+            this.tvBom.CheckBoxes = true;
             this.tvBom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvBom.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tvBom.ItemHeight = 25;
             this.tvBom.Location = new System.Drawing.Point(0, 0);
             this.tvBom.Name = "tvBom";
-            this.tvBom.Size = new System.Drawing.Size(319, 381);
+            this.tvBom.Size = new System.Drawing.Size(319, 431);
             this.tvBom.TabIndex = 1;
             this.tvBom.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvBom_NodeMouseClick);
             // 
@@ -468,7 +469,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1158, 381);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1164, 431);
             this.splitContainerControl1.SplitterPosition = 319;
             this.splitContainerControl1.TabIndex = 2;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -487,8 +488,8 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.panelControl3);
             this.splitContainerControl2.Panel2.Text = "Panel2";
             this.splitContainerControl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainerControl2.Size = new System.Drawing.Size(834, 381);
-            this.splitContainerControl2.SplitterPosition = 222;
+            this.splitContainerControl2.Size = new System.Drawing.Size(840, 431);
+            this.splitContainerControl2.SplitterPosition = 319;
             this.splitContainerControl2.TabIndex = 6;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -513,8 +514,12 @@
             this.colIsSelect,
             this.colProductId,
             this.colProductName,
+            this.colDepId,
+            this.colDepCdesc,
             this.colRollUpCost,
             this.colProductWeight,
+            this.colDepCost,
+            this.colProductCost,
             this.colStdWeightFlag,
             this.colWasteRate,
             this.colMaterialRequest,
@@ -524,18 +529,14 @@
             this.colStdPriceFlag,
             this.colMaterialCost,
             this.colDepPrice,
-            this.colDepCost,
             this.colOtherCost1,
             this.colOtherCost2,
             this.colOtherCost3,
             this.colDepTotalCost,
-            this.colProductCost,
             this.colProductCostDzs,
             this.colProductCostGrs,
             this.colProductCostK,
             this.colDoColor,
-            this.colDepId,
-            this.colDepCdesc,
             this.colProductMo,
             this.colDepStdPrice,
             this.colDepStdQty,
@@ -546,7 +547,7 @@
             this.dgvBomDetails.RowHeadersWidth = 20;
             this.dgvBomDetails.RowTemplate.Height = 24;
             this.dgvBomDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBomDetails.Size = new System.Drawing.Size(834, 188);
+            this.dgvBomDetails.Size = new System.Drawing.Size(840, 285);
             this.dgvBomDetails.TabIndex = 1;
             this.dgvBomDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBomDetails_CellDoubleClick);
             this.dgvBomDetails.SelectionChanged += new System.EventHandler(this.dgvBomDetails_SelectionChanged);
@@ -606,6 +607,22 @@
             this.colProductName.ReadOnly = true;
             this.colProductName.Width = 300;
             // 
+            // colDepId
+            // 
+            this.colDepId.DataPropertyName = "DepId";
+            this.colDepId.FillWeight = 80F;
+            this.colDepId.HeaderText = "部門編號";
+            this.colDepId.Name = "colDepId";
+            this.colDepId.ReadOnly = true;
+            this.colDepId.Width = 65;
+            // 
+            // colDepCdesc
+            // 
+            this.colDepCdesc.DataPropertyName = "DepCdesc";
+            this.colDepCdesc.HeaderText = "部門描述";
+            this.colDepCdesc.Name = "colDepCdesc";
+            this.colDepCdesc.ReadOnly = true;
+            // 
             // colRollUpCost
             // 
             this.colRollUpCost.DataPropertyName = "RollUpCost";
@@ -621,6 +638,23 @@
             this.colProductWeight.Name = "colProductWeight";
             this.colProductWeight.ReadOnly = true;
             this.colProductWeight.Width = 80;
+            // 
+            // colDepCost
+            // 
+            this.colDepCost.DataPropertyName = "DepCost";
+            this.colDepCost.FillWeight = 80F;
+            this.colDepCost.HeaderText = "部門成本";
+            this.colDepCost.Name = "colDepCost";
+            this.colDepCost.ReadOnly = true;
+            this.colDepCost.Width = 65;
+            // 
+            // colProductCost
+            // 
+            this.colProductCost.DataPropertyName = "ProductCost";
+            this.colProductCost.HeaderText = "產品成本";
+            this.colProductCost.Name = "colProductCost";
+            this.colProductCost.ReadOnly = true;
+            this.colProductCost.Width = 65;
             // 
             // colStdWeightFlag
             // 
@@ -696,15 +730,6 @@
             this.colDepPrice.ReadOnly = true;
             this.colDepPrice.Width = 65;
             // 
-            // colDepCost
-            // 
-            this.colDepCost.DataPropertyName = "DepCost";
-            this.colDepCost.FillWeight = 80F;
-            this.colDepCost.HeaderText = "部門成本";
-            this.colDepCost.Name = "colDepCost";
-            this.colDepCost.ReadOnly = true;
-            this.colDepCost.Width = 65;
-            // 
             // colOtherCost1
             // 
             this.colOtherCost1.DataPropertyName = "OtherCost1";
@@ -739,14 +764,6 @@
             this.colDepTotalCost.Name = "colDepTotalCost";
             this.colDepTotalCost.Width = 65;
             // 
-            // colProductCost
-            // 
-            this.colProductCost.DataPropertyName = "ProductCost";
-            this.colProductCost.HeaderText = "產品成本";
-            this.colProductCost.Name = "colProductCost";
-            this.colProductCost.ReadOnly = true;
-            this.colProductCost.Width = 65;
-            // 
             // colProductCostDzs
             // 
             this.colProductCostDzs.DataPropertyName = "ProductCostDzs";
@@ -773,22 +790,6 @@
             this.colDoColor.HeaderText = "顏色做法";
             this.colDoColor.Name = "colDoColor";
             this.colDoColor.ReadOnly = true;
-            // 
-            // colDepId
-            // 
-            this.colDepId.DataPropertyName = "DepId";
-            this.colDepId.FillWeight = 80F;
-            this.colDepId.HeaderText = "部門編號";
-            this.colDepId.Name = "colDepId";
-            this.colDepId.ReadOnly = true;
-            this.colDepId.Width = 65;
-            // 
-            // colDepCdesc
-            // 
-            this.colDepCdesc.DataPropertyName = "DepCdesc";
-            this.colDepCdesc.HeaderText = "部門描述";
-            this.colDepCdesc.Name = "colDepCdesc";
-            this.colDepCdesc.ReadOnly = true;
             // 
             // colProductMo
             // 
@@ -824,7 +825,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(834, 34);
+            this.panelControl2.Size = new System.Drawing.Size(840, 34);
             this.panelControl2.TabIndex = 2;
             // 
             // labelControl1
@@ -844,13 +845,13 @@
             this.colWipSeq,
             this.colWipGoodsId,
             this.colWipGoodsCname,
+            this.colWipWpId,
+            this.colWipDepCdesc,
             this.colWipPcsWeg,
             this.colWipStdWeightFlag,
             this.colWipProdQty,
             this.colWipCplQty,
             this.colWipCplWeg,
-            this.colWipWpId,
-            this.colWipDepCdesc,
             this.colWipProductMo,
             this.colWipDoColor,
             this.colWipNextDep,
@@ -862,7 +863,7 @@
             this.dgvWipData.RowHeadersWidth = 20;
             this.dgvWipData.RowTemplate.Height = 24;
             this.dgvWipData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWipData.Size = new System.Drawing.Size(834, 120);
+            this.dgvWipData.Size = new System.Drawing.Size(840, 73);
             this.dgvWipData.TabIndex = 4;
             // 
             // colWipSeq
@@ -888,6 +889,22 @@
             this.colWipGoodsCname.Name = "colWipGoodsCname";
             this.colWipGoodsCname.ReadOnly = true;
             this.colWipGoodsCname.Width = 260;
+            // 
+            // colWipWpId
+            // 
+            this.colWipWpId.DataPropertyName = "wp_id";
+            this.colWipWpId.FillWeight = 80F;
+            this.colWipWpId.HeaderText = "負責部門";
+            this.colWipWpId.Name = "colWipWpId";
+            this.colWipWpId.ReadOnly = true;
+            this.colWipWpId.Width = 80;
+            // 
+            // colWipDepCdesc
+            // 
+            this.colWipDepCdesc.DataPropertyName = "DepCdesc";
+            this.colWipDepCdesc.HeaderText = "部門描述";
+            this.colWipDepCdesc.Name = "colWipDepCdesc";
+            this.colWipDepCdesc.ReadOnly = true;
             // 
             // colWipPcsWeg
             // 
@@ -929,22 +946,6 @@
             this.colWipCplWeg.ReadOnly = true;
             this.colWipCplWeg.Width = 80;
             // 
-            // colWipWpId
-            // 
-            this.colWipWpId.DataPropertyName = "wp_id";
-            this.colWipWpId.FillWeight = 80F;
-            this.colWipWpId.HeaderText = "負責部門";
-            this.colWipWpId.Name = "colWipWpId";
-            this.colWipWpId.ReadOnly = true;
-            this.colWipWpId.Width = 80;
-            // 
-            // colWipDepCdesc
-            // 
-            this.colWipDepCdesc.DataPropertyName = "DepCdesc";
-            this.colWipDepCdesc.HeaderText = "部門描述";
-            this.colWipDepCdesc.Name = "colWipDepCdesc";
-            this.colWipDepCdesc.ReadOnly = true;
-            // 
             // colWipProductMo
             // 
             this.colWipProductMo.DataPropertyName = "mo_id";
@@ -981,7 +982,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(834, 34);
+            this.panelControl3.Size = new System.Drawing.Size(840, 34);
             this.panelControl3.TabIndex = 3;
             // 
             // labelControl2
@@ -1050,17 +1051,19 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1158, 154);
+            this.panelControl1.Size = new System.Drawing.Size(1164, 154);
             this.panelControl1.TabIndex = 0;
             // 
             // btnBatchUpdate
             // 
+            this.btnBatchUpdate.Enabled = false;
             this.btnBatchUpdate.Location = new System.Drawing.Point(1015, 71);
             this.btnBatchUpdate.Name = "btnBatchUpdate";
             this.btnBatchUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnBatchUpdate.TabIndex = 16;
             this.btnBatchUpdate.Text = "button1";
             this.btnBatchUpdate.UseVisualStyleBackColor = true;
+            this.btnBatchUpdate.Visible = false;
             this.btnBatchUpdate.Click += new System.EventHandler(this.btnBatchUpdate_Click);
             // 
             // lblMaterialPriceQty
@@ -1567,7 +1570,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 192);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1158, 100);
+            this.panelControl4.Size = new System.Drawing.Size(1164, 100);
             this.panelControl4.TabIndex = 3;
             // 
             // labelControl7
@@ -1976,7 +1979,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 673);
+            this.ClientSize = new System.Drawing.Size(1164, 723);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl1);
@@ -2162,20 +2165,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripButton btnSetProductWeight;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsCname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipPcsWeg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipStdWeightFlag;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProdQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplWeg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipWpId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDepCdesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDoColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
         private DevExpress.XtraEditors.TextEdit txtStdPriceFlag;
@@ -2183,14 +2172,38 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
         private DevExpress.XtraEditors.LabelControl lblMaterialPriceQty;
         private DevExpress.XtraEditors.TextEdit txtMaterialPriceQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private System.Windows.Forms.ToolStripButton btnOrder;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+        private System.Windows.Forms.Button btnBatchUpdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsCname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipWpId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDepCdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipPcsWeg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipStdWeightFlag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProdQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplWeg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDoColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colParentLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBomLevel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsSetFlag;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepCdesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRollUpCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStdWeightFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWasteRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialRequest;
@@ -2200,27 +2213,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStdPriceFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDepCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOtherCost1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOtherCost2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOtherCost3;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepTotalCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCostDzs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCostGrs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCostK;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDepId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDepCdesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductMo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepStdPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepStdQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOriginWeight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private System.Windows.Forms.ToolStripButton btnOrder;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
-        private System.Windows.Forms.Button btnBatchUpdate;
     }
 }

@@ -119,6 +119,7 @@
             this.colProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCostNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMo_product_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNeed_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepTotalProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderQtyPcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -358,6 +359,7 @@
             this.colProductCost,
             this.colProductCostNew,
             this.colDepProductCost,
+            this.colMo_product_c,
             this.colNeed_check_moudle_cost,
             this.colDepTotalProductCost,
             this.colOrderQtyPcs,
@@ -964,6 +966,14 @@
             this.colDepProductCost.ReadOnly = true;
             this.colDepProductCost.Width = 50;
             // 
+            // colMo_product_c
+            // 
+            this.colMo_product_c.DataPropertyName = "mo_product_c";
+            this.colMo_product_c.HeaderText = "生產配件數";
+            this.colMo_product_c.Name = "colMo_product_c";
+            this.colMo_product_c.ReadOnly = true;
+            this.colMo_product_c.Width = 50;
+            // 
             // colNeed_check_moudle_cost
             // 
             this.colNeed_check_moudle_cost.DataPropertyName = "need_check_moudle_cost";
@@ -1389,6 +1399,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCostNew;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepProductCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMo_product_c;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNeed_check_moudle_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepTotalProductCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderQtyPcs;
