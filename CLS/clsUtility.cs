@@ -680,6 +680,19 @@ namespace cf01.CLS
             return str_datetime;
         }
 
+        public static void setDataGridViewSeq(DataGridView dgv, DataGridViewRowPostPaintEventArgs e)
+        {
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+                e.RowBounds.Location.Y,
+                dgv.RowHeadersWidth - 4,
+                e.RowBounds.Height);
+
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+                dgv.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dgv.RowHeadersDefaultCellStyle.ForeColor,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+        }
 
     }
 }

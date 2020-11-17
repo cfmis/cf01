@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Reflection;//反射
 using cf01.MDL;
 using cf01.CLS;
 using cf01.Forms;
@@ -28,7 +29,7 @@ namespace cf01.MM
         private bool firstCount;
         private DataTable dtBomDetails = new DataTable();
         private double hkd_rmb_rate = 1.176;
-        private int selectGridView = 0;
+        private frmProductCostingFind frmProductCostingFind;
         public frmProductCosting()
         {
             InitializeComponent();
@@ -36,7 +37,12 @@ namespace cf01.MM
         private void frmProductCosting_Load(object sender, EventArgs e)
         {
             dgvBomDetails.AutoGenerateColumns = false;
+            dgvWipData.AutoGenerateColumns = false;
             initBomDataTable();
+            for (int i = 0; i < this.dgvBomDetails.Columns.Count; i++)
+            {
+                this.dgvBomDetails.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -45,27 +51,38 @@ namespace cf01.MM
             searchProductName = "";
             searchDepId = "";
             searchPrice = 0;
+            if (frmProductCostingFind != null)
+                frmProductCostingFind.Dispose();
             this.Close();
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
             searchProductId = txtProductId.Text;
-            frmProductCostingFind frmProductCostingFind = new frmProductCostingFind();
-            frmProductCostingFind.searchProductMo = txtProductMo.Text;
-            frmProductCostingFind.ShowDialog();
+            if (frmProductCostingFind == null)
+            {
+                frmProductCostingFind = new frmProductCostingFind();
+                frmProductCostingFind.searchProductMo = txtProductMo.Text;
+                frmProductCostingFind.ShowDialog();
+            }
+            else
+            {
+                //frmProductCostingFind.Visible = true;
+                frmProductCostingFind.ShowDialog();
+            }
             if (searchProductId != "")
             {
                 txtProductId.Text = searchProductId;
                 txtProductName.Text = searchProductName;
                 txtProductMo.Text = searchProductMo;
                 firstCount = true;
-                showBomTree(searchProductMo,searchProductId,searchProductName);
+                showBomTree(searchProductMo, searchProductId, searchProductName);
                 firstCount = false;
             }
-            frmProductCostingFind.Dispose();
+            //frmProductCostingFind.Dispose();
             chkSelectAll.Checked = false;
         }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             if (dgvBomDetails.Rows.Count == 0)
@@ -77,7 +94,7 @@ namespace cf01.MM
             showBomTree(txtProductMo.Text, txtProductId.Text, txtProductName.Text);
             chkSelectAll.Checked = false;
         }
-        private void showBomTree(string productMo,string productId,string productName)
+        private void showBomTree(string productMo, string productId, string productName)
         {
             if (txtProductId.Text.Trim() == "")
             {
@@ -95,7 +112,7 @@ namespace cf01.MM
             dgvWipData.DataSource = dtWipData;
 
             //**********************
-            initTreeView(productId,productName); //將BOM以TreeView的形式顯示
+            initTreeView(productId, productName); //將BOM以TreeView的形式顯示
             //doBomTreeView();//遍歷TreeView，將Tree的記錄重新插入到dtBomDetails表中
             exeBomTreeView();//遍歷TreeView，將Tree的記錄重新插入到dtBomDetails表中
             //genBomTree(pid);
@@ -117,17 +134,17 @@ namespace cf01.MM
             //DataTable dtBom_h = clsProductCosting.getBomPid(pid);
             //if (dtBom_h.Rows.Count > 0)
             //{
-                //string id = dtBom_h.Rows[0]["id"].ToString();
-                //string goods_id = dtBom_h.Rows[0]["goods_id"].ToString();
-                //string goods_name = dtBom_h.Rows[0]["goods_name"].ToString();
-                TopNode = new TreeNode();
-                TopNode.Text = productId + "[" + productName + "]";
-                TopNode.Tag = productId;//goods_id ;//保存表單名
-                TopNode.ImageIndex = 2;
-                tvBom.Nodes.Add(TopNode);
-                addChildNodeBom(TopNode, productId);//递归调用，從Bom表中生成TreeView
-                tvBom.ExpandAll();//展開
-                
+            //string id = dtBom_h.Rows[0]["id"].ToString();
+            //string goods_id = dtBom_h.Rows[0]["goods_id"].ToString();
+            //string goods_name = dtBom_h.Rows[0]["goods_name"].ToString();
+            TopNode = new TreeNode();
+            TopNode.Text = productId + "[" + productName + "]";
+            TopNode.Tag = productId;//goods_id ;//保存表單名
+            TopNode.ImageIndex = 2;
+            tvBom.Nodes.Add(TopNode);
+            addChildNodeBom(TopNode, productId);//递归调用，從Bom表中生成TreeView
+            tvBom.ExpandAll();//展開
+
             //}
 
         }
@@ -139,7 +156,7 @@ namespace cf01.MM
         #region 递归调用方法，添加菜单的子菜单
         public void addChildNodeBom(TreeNode subNode, string pid)
         {
-            
+
             TreeNode subNode1;
             DataTable dtBom_d = clsProductCosting.getBomCid(pid);
             if (dtBom_d.Rows.Count == 0)
@@ -162,7 +179,7 @@ namespace cf01.MM
                     //}
                 }
             }
-            
+
         }
         #endregion
         #region 從生產計劃中生成BOM,暫不用
@@ -203,7 +220,7 @@ namespace cf01.MM
         #region 從生產計劃中生成BOM,暫不用
         public void addChildNode(TreeNode subNode, string mo_id, string pid)
         {
-            
+
             TreeNode subNode1;
             DataTable dtBom_d = clsProductCosting.getBomCidFromWip(mo_id, pid);
             if (dtBom_d.Rows.Count == 0)
@@ -231,7 +248,7 @@ namespace cf01.MM
                     //}
                 }
             }
-            
+
         }
         #endregion
 
@@ -250,18 +267,18 @@ namespace cf01.MM
             dgvBomDetails.DataSource = dtBomDetails;
             if (dtBomDetails.Rows.Count > 0)
             {
-                
+
                 for (int i = dtBomDetails.Rows.Count - 1; i >= 0; i--)
                 {
                     //重新查找數據後，若該主件是未設定成本的，則自動計算每一件的成本：從最後的記錄開始，倒序重新計算每件的子件累計成本及產品成本，直到頂層
                     //if ((bool)dgvBomDetails.Rows[i].Cells["colIsSetFlag"].Value == false)
-                        //countAllItemCost(dgvBomDetails.Rows.Count - 1);
-                        countProductCostingRoll(i);
+                    //countAllItemCost(dgvBomDetails.Rows.Count - 1);
+                    countProductCostingRoll(i);
                 }
-                        //并初始化將文本框記錄顯示定位到頂層主件的記錄
+                //并初始化將文本框記錄顯示定位到頂層主件的記錄
                 fillControlsValue(0);
             }
-            
+
         }
 
         private void expandBomTree(TreeNode tn)
@@ -283,10 +300,11 @@ namespace cf01.MM
             dgvBomDetails.DataSource = dtBomDetails;
             if (dtBomDetails.Rows.Count > 0)
             {
-                for (int i = dtBomDetails.Rows.Count - 1; i >= 0; i--)
-                {
-                    countProductWeightRoll(i);
-                }
+                //for (int i = dtBomDetails.Rows.Count - 1; i >= 0; i--)
+                //{
+                //    countProductWeightRoll(i);
+                //}
+                countProductWeightRoll(dtBomDetails.Rows.Count);
                 for (int i = dtBomDetails.Rows.Count - 1; i >= 0; i--)
                 {
                     ////重新查找數據後，若該主件是未設定成本的，則自動計算每一件的成本：
@@ -296,6 +314,7 @@ namespace cf01.MM
                     //countProductWeightRoll(i);
                     countProductCostingRoll(i);
                 }
+
                 //countProductCostingRoll(dtBomDetails.Rows.Count - 1);
                 //并初始化將文本框記錄顯示定位到頂層主件的記錄
                 fillControlsValue(0);
@@ -344,9 +363,27 @@ namespace cf01.MM
             tnText = tn.Text.Trim();
             productId = tn.Tag.ToString();
             productName = tnText.Substring(tnText.IndexOf("[") + 1, (tnText.Length - (tnText.IndexOf("[") + 1) - 1));
-            DataTable dtCost = clsProductCosting.getProductCosting(productId);
             DataRow dr2 = dtBomDetails.NewRow();
-            dr2["ParentLevel"] = parentLevel;
+            string depId = "";
+            if (productId.Substring(0, 2) != "ML")
+            {
+                DataTable dtDep = clsProductCosting.getProductDepFromBom(productId);
+                if (dtDep.Rows.Count > 0)
+                {
+                    DataRow dr = dtDep.Rows[0];
+                    dr2["DepId"] = dr["dept_id"].ToString();
+                    dr2["DepCdesc"] = dr["DepCdesc"].ToString();
+                    dr2["DoColor"] = dr["DoColor"].ToString();
+                }
+            }
+            else
+            {
+                dr2["DepId"] = "802";
+                dr2["DepCdesc"] = "原料倉";
+            }
+            depId = dr2["DepId"].ToString();
+            DataTable dtCost = clsProductCosting.getProductCosting(productId, depId);
+             dr2["ParentLevel"] = parentLevel;
             dr2["BomLevel"] = bomLevel;
             dr2["ProductId"] = productId;
             dr2["ProductName"] = productName;
@@ -359,14 +396,14 @@ namespace cf01.MM
             }
             else
             {
-                doNoExistRecordToBomDetails(dr2, dtCost,productId, materialId);//不存在的成本記錄，從計劃、歷史記錄中查找，并加入到BomDetails表中
+                doNoExistRecordToBomDetails(dr2, dtCost, productId, materialId);//不存在的成本記錄，從計劃、歷史記錄中查找，并加入到BomDetails表中
             }
             dtBomDetails.Rows.Add(dr2);
         }
 
 
         //將存在的成本記錄加入到BomDetails表中
-        private void addExistRecordToBomDetails(DataRow dr2,DataTable dtCost)
+        private void addExistRecordToBomDetails(DataRow dr2, DataTable dtCost)
         {
             DataRow dr = dtCost.Rows[0];
             dr2["IsSetFlag"] = true;
@@ -380,7 +417,7 @@ namespace cf01.MM
             dr2["MaterialPriceQty"] = dr["MaterialPriceQty"].ToString() != "" ? dr["MaterialPriceQty"].ToString() : "0";
             dr2["MaterialCost"] = dr["MaterialCost"].ToString() != "" ? dr["MaterialCost"].ToString() : "0";
             dr2["RollUpCost"] = dr["RollUpCost"].ToString() != "" ? dr["RollUpCost"].ToString() : "0";
-            dr2["DepId"] = dr["DepId"].ToString() != "" ? dr["DepId"].ToString() : "0";
+            dr2["DepId"] = dr["DepId"].ToString() != "" ? dr["DepId"].ToString() : "";
             dr2["DepCdesc"] = dr["DepCdesc"].ToString() != "" ? dr["DepCdesc"].ToString() : "";
             dr2["DepPrice"] = dr["DepPrice"].ToString() != "" ? dr["DepPrice"].ToString() : "";
             dr2["DepStdPrice"] = dr["DepStdPrice"].ToString() != "" ? Convert.ToDecimal(dr["DepStdPrice"]) : 0;
@@ -398,7 +435,7 @@ namespace cf01.MM
         }
 
         //不存在的成本記錄，從計劃、歷史記錄中查找，并加入到BomDetails表中
-        private void doNoExistRecordToBomDetails(DataRow dr2, DataTable dtCost, string productId,string materialId)
+        private void doNoExistRecordToBomDetails(DataRow dr2, DataTable dtCost, string productId, string materialId)
         {
             dr2["IsSetFlag"] = false;
             decimal materialPrice = 0, materialPriceQty = 0;
@@ -407,6 +444,7 @@ namespace cf01.MM
             decimal stdProductPrice = 0;
             string productMo = txtProductMo.Text.Trim();
             string depId = "", depCdesc = "", doColor = "";
+            bool startDep = false;
             string materialId1 = "";
             string matType = productId.Substring(0, 2);
             dr2["OriginWeight"] = 0;
@@ -415,34 +453,27 @@ namespace cf01.MM
             dr2["WasteRate"] = 1;
             dr2["DepStdPrice"] = 0;
             dr2["DepStdQty"] = 0;
-            DataTable dtDep = clsProductCosting.getProductDepFromBom(productId);
-            if (dtDep.Rows.Count > 0)
+            depId = dr2["DepId"].ToString();
+            depCdesc = dr2["DepCdesc"].ToString();
+            doColor = dr2["DoColor"].ToString();
+             //提取自定的物料重量
+            if (depId == "102" || depId == "104" || depId == "122" || depId == "124" || depId == "202"
+                || depId == "302" || depId == "322" || matType == "PL")
             {
-                depId = dtDep.Rows[0]["dept_id"].ToString();
-                depCdesc = dtDep.Rows[0]["DepCdesc"].ToString();
-                doColor = dtDep.Rows[0]["DoColor"].ToString();
-                dr2["DepId"] = depId;
-                dr2["DepCdesc"] = depCdesc;
-                dr2["DoColor"] = doColor;
-            }
-            //提取自定的物料重量
-            if (depId == "102" || depId == "104" || depId == "122" || depId == "124" || depId == "202" || depId == "302" || depId == "322")
+                startDep = true;
                 materialId1 = materialId;
-            //獲取預設的重量
-            stdProductWeight = clsProductCosting.findStdProductWeight(depId, productId, materialId1);
-            if (stdProductWeight > 0)
-            {
-                dr2["StdWeightFlag"] = "Y";
-                dr2["ProductWeight"] = stdProductWeight;
+                //獲取預設的重量
+                stdProductWeight = clsProductCosting.findStdProductWeight(depId, productId, materialId1);
+                if (stdProductWeight > 0)
+                {
+                    dr2["StdWeightFlag"] = "Y";
+                    dr2["ProductWeight"] = stdProductWeight;
+                }
             }
             //如果是原料或採購料，則從採購單中提取原料單價
             if (matType == "ML" || matType == "PL")
             {
-                if (matType == "ML")
-                {
-                    depId = "802";
-                    depCdesc = "原料倉";
-                }
+
                 //從自定義中查找單價，若不存在，再從採購單中查找
                 DataTable dtPrice = clsProductCosting.findStdProductPrice(productId);//從自定中提取單價
                 if (dtPrice.Rows.Count > 0)
@@ -471,13 +502,15 @@ namespace cf01.MM
                 }
                 //如果是採購件，但又不存在預設的重量，就從該制單的流程中提取移交數，再換算成重量
                 if (matType == "PL" && stdProductWeight == 0)
-                    dr2["ProductWeight"] = clsProductCosting.getProductWeight(productMo, productId);
+                    stdProductWeight = clsProductCosting.getProductWeight(productMo, productId);
                 //獲取產品的損耗率
                 wasteRate = getWasteRate(productId, depId);
+                dr2["ProductWeight"] = stdProductWeight;
                 dr2["OriginWeight"] = dr2["ProductWeight"];
                 dr2["DepId"] = depId;
                 dr2["DepCdesc"] = depCdesc;
                 dr2["MaterialPrice"] = materialPrice;
+                dr2["MaterialPriceQty"] = materialPriceQty;
                 dr2["WasteRate"] = wasteRate;
                 ////原料/膠料/噴油/挂電都是按粒計算成本的，所以不用乘以重量 (1-2019/12/14日取消，不用計算，在countProductCostingRoll中計算)
                 //dr2["MaterialCost"] = Math.Round(materialPrice * wasteRate, 4);
@@ -500,7 +533,7 @@ namespace cf01.MM
                         }
                         dr2["ProductMo"] = dr.Cells["colWipProductMo"].Value.ToString();
                         //設置產品的重量
-                        if (stdProductWeight == 0)//1 如果不存在預設的重量，就套用本制單中換算的重量
+                        if (startDep == true && stdProductWeight == 0)//1 如果不存在預設的重量，就套用本制單中換算的重量
                         {
                             if ((dr.Cells["colWipPcsWeg"].Value.ToString() != "" ? Convert.ToDecimal(dr.Cells["colWipPcsWeg"].Value) : 0) > 0)
                                 dr2["ProductWeight"] = dr.Cells["colWipPcsWeg"].Value;
@@ -562,13 +595,13 @@ namespace cf01.MM
                     }
                 }
             }
-            getDepPrice(dr2,productId);//獲取部門的加工費單價
-            
-           
+            getDepPrice(dr2, productId);//獲取部門的加工費單價
+
+
         }
 
         //獲取部門的加工費單價
-        private void getDepPrice(DataRow dr2,string productId)
+        private void getDepPrice(DataRow dr2, string productId)
         {
             decimal depPrice = 0;
             DataTable dtDepPrice = clsProductCosting.getDepPrice(dr2["DepId"].ToString(), productId);// getDepPrice(dr2["DepId"].ToString(), productId);
@@ -601,7 +634,7 @@ namespace cf01.MM
         }
         private void initBomDataTable()
         {
-            dtBomDetails = clsProductCosting.getProductCosting("");
+            dtBomDetails = clsProductCosting.getProductCosting("","");
             //將BOM填入到表中
             dtBomDetails.Columns.Add("ParentLevel", typeof(string)); //数据类型为 文本
             dtBomDetails.Columns.Add("BomLevel", typeof(string));
@@ -646,22 +679,36 @@ namespace cf01.MM
             //countRollUpCost(row, currentLevel);
             //判斷下一層是否原料層
             firstLevel = getFirstLevel(currentLevel, row);
-            
-            setControlsDesc(txtDepId.Text.Trim(),firstLevel);
+
+            setControlsDesc(txtDepId.Text.Trim(), firstLevel);
             selectdgvWipDataRow(txtProductId.Text);
             printTreeViewNode(tvBom.Nodes, dgvBomDetails.Rows[dgvBomDetails.CurrentRow.Index].Cells["colProductId"].Value.ToString());
         }
         //檢查當層是否最開始的層
-        private bool getFirstLevel(string currentLevel,int row)
+        private bool getFirstLevel(string currentLevel, int row)
         {
             bool firstLevelFlag = false;
             int nextRow = row + 1;
             if (nextRow < dgvBomDetails.Rows.Count)
             {
-                if (currentLevel == dgvBomDetails.Rows[nextRow].Cells["colParentLevel"].Value.ToString() && dgvBomDetails.Rows[nextRow].Cells["colProductId"].Value.ToString().Substring(0, 2) == "ML")
-                    firstLevelFlag = true;
-                else
-                    firstLevelFlag = false;
+                if (currentLevel == dgvBomDetails.Rows[nextRow].Cells["colParentLevel"].Value.ToString())
+                {
+                    string matType = dgvBomDetails.Rows[nextRow].Cells["colProductId"].Value.ToString().Substring(0, 2);
+                    if (matType == "ML")
+                        firstLevelFlag = true;
+                    else if (matType == "PL")//如果是PL的，要再判斷下一層以判斷是否是開始物料：TBV030699
+                    {
+                        string Level1 = dgvBomDetails.Rows[nextRow].Cells["colBomLevel"].Value.ToString();
+                        nextRow++;
+                        if (nextRow < dgvBomDetails.Rows.Count)
+                        {
+                            if (Level1 != dgvBomDetails.Rows[nextRow].Cells["colParentLevel"].Value.ToString())
+                                firstLevel = true;
+                        }
+                        else
+                            firstLevelFlag = true;
+                    }
+                }
             }
             return firstLevelFlag;
         }
@@ -686,7 +733,7 @@ namespace cf01.MM
         //    DataGridViewRow dgr = dgvBomDetails.Rows[dgvBomDetails.CurrentRow.Index];
         //    dgr.Cells["colRollUpCost"].Value = txtRollUpCost.Text != "" ? Convert.ToDecimal(txtRollUpCost.Text) : 0;
         //}
-        private void setControlsDesc(string depId,bool firstLevel)
+        private void setControlsDesc(string depId, bool firstLevel)
         {
             bool vFlag = true;
             bool tEnabled = firstLevel;
@@ -848,7 +895,7 @@ namespace cf01.MM
                 ////    txtMaterialCost.Text = Math.Round(wasteRate * materialPrice, 4).ToString();
                 ////else
                 ////    txtMaterialCost.Text = Math.Round(productWeight * wasteRate * materialPrice, 4).ToString();
-                txtMaterialCost.Text = Math.Round((productWeight * wasteRate * materialPrice)+ (wasteRate * materialPriceQty), 4).ToString();
+                txtMaterialCost.Text = Math.Round((productWeight * wasteRate * materialPrice) + (wasteRate * materialPriceQty), 4).ToString();
 
             }
             countProductCosting();
@@ -858,7 +905,7 @@ namespace cf01.MM
         {
             if (dgvBomDetails.Rows.Count == 0)
                 return;
-            int row=dgvBomDetails.CurrentRow.Index;
+            int row = dgvBomDetails.CurrentRow.Index;
             DataGridViewRow dgr = dgvBomDetails.Rows[row];
             dgr.Cells["colRollUpCost"].Value = txtRollUpCost.Text != "" ? Convert.ToDecimal(txtRollUpCost.Text) : 0;
             dgr.Cells["colProductWeight"].Value = txtProductWeight.Text != "" ? Convert.ToDecimal(txtProductWeight.Text) : 0;
@@ -881,10 +928,11 @@ namespace cf01.MM
             countProductCostInGrid(row);
             //可以使用，暫時取消
             //countAllItemCost(row);//自動更新每一件的成本：從當前記錄開始，倒序重新計算每件的子件累計成本及產品成本，直到頂層
-            for (int i = row - 1; i >= 0; i--)
-            {
-                countProductWeightRoll(i);
-            }
+            //for (int i = row - 1; i >= 0; i--)
+            //{
+            //    countProductWeightRoll(i);
+            //}
+            countProductWeightRoll(row);
             countProductCostingRoll(row);
         }
 
@@ -945,10 +993,11 @@ namespace cf01.MM
                 {
                     bool isExist = false;
                     string productId = dgr.Cells["colProductId"].Value.ToString();
+                    string depId = dgr.Cells["colDepId"].Value.ToString();
                     //如果物料編號已在列表中，則不再加入，以免重複加入
                     for (int j = 0; j < lsModel.Count; j++)
                     {
-                        if (productId == lsModel[j].productId)
+                        if (productId == lsModel[j].productId && depId == lsModel[j].depId)
                         {
                             isExist = true;
                             break;
@@ -1015,7 +1064,8 @@ namespace cf01.MM
             string parentLevel = dgrCurrent.Cells["colParentLevel"].Value.ToString();//2
             decimal wasteRate = 0;
             string matType = dgrCurrent.Cells["colProductId"].Value.ToString().Substring(0, 2);
-            if ( matType== "ML")
+
+            if (matType == "ML")
             {
                 if (parentLevel == currentLevel)//判斷本層是否屬於上層的
                 {
@@ -1049,7 +1099,7 @@ namespace cf01.MM
             {
                 if ((bool)dgrCurrent.Cells["colIsSetFlag"].Value == false)//如果是已設定的，就不再計算
                 {
-                    
+
                     wasteRate = dgrCurrent.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgrCurrent.Cells["colWasteRate"].Value.ToString()) : 0;
                     wasteRate = wasteRate != 0 ? wasteRate : 1;
                     //物料成本 = 重量成本 + 數量成本
@@ -1072,11 +1122,11 @@ namespace cf01.MM
                 {
                     if ((bool)dgrParent.Cells["colIsSetFlag"].Value == false)//如果是已設定的，就不再計算
                     {
-                        if (dgrParent.Cells["colStdWeightFlag"].Value.ToString() != "Y")//如果沒有自定的重量，就套用上部門的重量
-                        {
-                            dgrParent.Cells["colProductWeight"].Value = dgrCurrent.Cells["colProductWeight"].Value;//因為外發的金額是按照NEP計算的，所以要將上層的重量帶入到本層,作為本層的重量
-                            dgrParent.Cells["colOriginWeight"].Value = dgrParent.Cells["colProductWeight"].Value;
-                        }
+                        //if (dgrParent.Cells["colStdWeightFlag"].Value.ToString() != "Y")//如果沒有自定的重量，就套用上部門的重量
+                        //{
+                        //    dgrParent.Cells["colProductWeight"].Value = dgrCurrent.Cells["colProductWeight"].Value;//因為外發的金額是按照NEP計算的，所以要將上層的重量帶入到本層,作為本層的重量
+                        //    dgrParent.Cells["colOriginWeight"].Value = dgrParent.Cells["colProductWeight"].Value;
+                        //}
                         wasteRate = dgrParent.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgrParent.Cells["colWasteRate"].Value.ToString()) : 0;
                         //物料成本 = 重量成本 + 數量成本
                         dgrParent.Cells["colMaterialCost"].Value = Math.Round(
@@ -1093,6 +1143,8 @@ namespace cf01.MM
                     }
                 }
             }
+
+
             //從本層的上層開始，重新計算子件累計成本
             for (int i = parentRow; i >= 0; i--)
             {
@@ -1153,14 +1205,14 @@ namespace cf01.MM
                 decimal rollUpCost = 0;
                 DataGridViewRow dgr = dgvBomDetails.Rows[i];
                 string currentLevel = dgr.Cells["colBomLevel"].Value.ToString();
-                rollUpCost = countChildCost(startRow,i, currentLevel);
+                rollUpCost = countChildCost(startRow, i, currentLevel);
                 dgr.Cells["colRollUpCost"].Value = rollUpCost.ToString();
                 countProductCostInGrid(i);
-             }
-            
+            }
+
         }
         //計算子件累計成本=該件對應的下一層的產品成本之和
-        private decimal countChildCost(int startRow,int row, string currentLevel)
+        private decimal countChildCost(int startRow, int row, string currentLevel)
         {
             decimal rollUpCost = 0;
             for (int i = row + 1; i < dgvBomDetails.Rows.Count; i++)
@@ -1274,50 +1326,75 @@ namespace cf01.MM
         #endregion
 
         //循環計算產品的重量
-        private void countProductWeightRoll(int currentRow)
+        private void countProductWeightRoll(int rows)
         {
-            //if (currentRow == 0)
-            //    return;
-            //當本層是原料，要將單價帶到上層，并重新計算上層的原料需求及成本
-            // 上層---本層
-            //   1 --  2 ---parentRow
-            //   2 --  3 ---currentRow
-            int rowCount = dgvBomDetails.Rows.Count;
-            decimal wasteRate = 0;
-            decimal rollWeight = 0;
-            //從本層的上層開始，重新計算子件累計成本
 
-            DataGridViewRow dgr = dgvBomDetails.Rows[currentRow];
-            //if ((bool)dgr.Cells["colIsSetFlag"].Value == false)//如果是已設定的，就不再計算
+            //for (int i = row - 1; i >= 0; i--)
             //{
-            int nextRow = currentRow + 1;
-            string upLevel = dgr.Cells["colBomLevel"].Value.ToString();
-            for (int j = nextRow; j < rowCount; j++)
+            //    countProductWeightRoll(i);
+            //}
+            //for (int i = dtBomDetails.Rows.Count - 1; i >= 0; i--)
+            //{
+            //    countProductWeightRoll(i);
+            //}
+            //if (rows < dgvBomDetails.Rows.Count)
+            //{
+
+            for (int currentRow = rows - 1; currentRow >= 0; currentRow--)
             {
-                DataGridViewRow dgrRoll = dgvBomDetails.Rows[j];
-                string jCurrentLevel = dgrRoll.Cells["colBomLevel"].Value.ToString();
-                string jParentLevel = dgrRoll.Cells["colParentLevel"].Value.ToString();
-                if (string.Compare(upLevel, jParentLevel) > 0)
-                    break;
-                if (upLevel == jParentLevel)
+                //if (currentRow == 0)
+                //    return;
+                //當本層是原料，要將單價帶到上層，并重新計算上層的原料需求及成本
+                // 上層---本層
+                //   1 --  2 ---parentRow
+                //   2 --  3 ---currentRow
+
+                decimal wasteRate = 0;
+                decimal rollWeight = 0;
+                //從本層的上層開始，重新計算子件累計成本
+
+                DataGridViewRow dgr = dgvBomDetails.Rows[currentRow];
+                if (currentRow < dgvBomDetails.Rows.Count - 1)
                 {
-                    if (dgrRoll.Cells["colProductId"].Value.ToString().Substring(0, 2) == "ML")
-                        rollWeight = dgr.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductWeight"].Value) : 0;
-                    else
-                        rollWeight += dgrRoll.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgrRoll.Cells["colProductWeight"].Value) : 0;
+                    //if ((bool)dgr.Cells["colIsSetFlag"].Value == false)//如果是已設定的，就不再計算
+                    //{
+                    string upLevel = dgr.Cells["colBomLevel"].Value.ToString();
+
+                    int nextRow = currentRow + 1;
+
+                    for (int j = nextRow; j < dgvBomDetails.Rows.Count; j++)
+                    {
+                        DataGridViewRow dgrRoll = dgvBomDetails.Rows[j];
+                        string jCurrentLevel = dgrRoll.Cells["colBomLevel"].Value.ToString();
+                        string jParentLevel = dgrRoll.Cells["colParentLevel"].Value.ToString();
+                        string matType = dgrRoll.Cells["colProductId"].Value.ToString().Substring(0, 2);
+                        if (string.Compare(upLevel, jParentLevel) > 0)
+                            break;
+                        if (upLevel == jParentLevel)
+                        {
+                            if (matType == "ML")
+                                rollWeight = dgr.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductWeight"].Value) : 0;
+                            else
+                                rollWeight += dgrRoll.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgrRoll.Cells["colProductWeight"].Value) : 0;
+                        }
+                    }
+
+                    dgr.Cells["colProductWeight"].Value = rollWeight;
+                    //判斷這層是否是開始層
+                    firstLevel = getFirstLevel(upLevel, currentRow);
+                    if (firstLevel == true)
+                    {
+                        wasteRate = dgr.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colWasteRate"].Value) : 0;
+                        dgr.Cells["colMaterialRequest"].Value = Math.Round(rollWeight * wasteRate, 4);
+                    }
+                }
+                else
+                {
+                    dgr.Cells["colMaterialRequest"].Value = Math.Round(
+                        (dgr.Cells["colProductWeight"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colProductWeight"].Value) : 0)
+                        * (dgr.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colWasteRate"].Value) : 0), 4);
                 }
             }
-
-            dgr.Cells["colProductWeight"].Value = rollWeight;
-            //判斷下一層是否原料層
-            firstLevel = getFirstLevel(upLevel, currentRow);
-            if (firstLevel == true)
-            {
-                wasteRate = dgr.Cells["colWasteRate"].Value.ToString() != "" ? Convert.ToDecimal(dgr.Cells["colWasteRate"].Value) : 0;
-                dgr.Cells["colMaterialRequest"].Value = Math.Round(rollWeight * wasteRate, 4);
-            }
-            //countProductCostInGrid(currentRow);
-            //}
         }
 
         private void btnFindPrdPrice_Click(object sender, EventArgs e)
@@ -1352,7 +1429,7 @@ namespace cf01.MM
             if (searchPrice != 0)
             {
                 //txtDepPrice.Text = searchPrice.ToString();
-                int row=dgvBomDetails.CurrentRow.Index;
+                int row = dgvBomDetails.CurrentRow.Index;
                 dgvBomDetails.Rows[row].Cells["colDepStdPrice"].Value = sentDepPrice.depStdPrice;
                 dgvBomDetails.Rows[row].Cells["colDepStdQty"].Value = sentDepPrice.depStdQty;
                 txtDepPrice.Text = sentDepPrice.depPrice.ToString();
@@ -1442,7 +1519,7 @@ namespace cf01.MM
         }
         #region 遞歸遍歷TreeView，并且判斷節點是否和表格中選中的一樣，如果相等的則將節點標識為選中的狀態
         //如果是高亮的形式顯示，則前面一定要加：tvBom.Focus();
-        public void printTreeViewNode(TreeNodeCollection node,string selectStr)
+        private void printTreeViewNode(TreeNodeCollection node, string selectStr)
         {
             //tvBom.Focus();
             //string selectStr = "BRCRPREM016095N024";
@@ -1459,59 +1536,59 @@ namespace cf01.MM
                 }
                 else
                     n.Checked = false;
-                printTreeViewNode(n.Nodes,selectStr);
+                printTreeViewNode(n.Nodes, selectStr);
             }
         }
         #endregion
         private void btnBatchUpdate_Click(object sender, EventArgs e)
         {
-            for (int i = dtBomDetails.Rows.Count - 1; i >= 0; i--)
-            {
-                ////重新查找數據後，若該主件是未設定成本的，則自動計算每一件的成本：
-                ////從最後的記錄開始，倒序重新計算每件的子件累計成本及產品成本，直到頂層
-                //if ((bool)dgvBomDetails.Rows[i].Cells["colIsSetFlag"].Value == false)
-                //countAllItemCost(dgvBomDetails.Rows.Count - 1);
-                countProductWeightRoll(i);
-                //countProductCostingRoll(i);
-            }
-            return;
+            //for (int i = dtBomDetails.Rows.Count - 1; i >= 0; i--)
+            //{
+            //    ////重新查找數據後，若該主件是未設定成本的，則自動計算每一件的成本：
+            //    ////從最後的記錄開始，倒序重新計算每件的子件累計成本及產品成本，直到頂層
+            //    //if ((bool)dgvBomDetails.Rows[i].Cells["colIsSetFlag"].Value == false)
+            //    //countAllItemCost(dgvBomDetails.Rows.Count - 1);
+            //    countProductWeightRoll(i);
+            //    //countProductCostingRoll(i);
+            //}
+            //return;
 
 
-            printTreeViewNode(tvBom.Nodes, "BRCRPREM016095N024");
-            return;
+            //printTreeViewNode(tvBom.Nodes, "BRCRPREM016095N024");
+            //return;
 
-            tvBom.Focus();
-            tvBom.SelectedImageIndex = 2;
-            tvBom.Focus();
-            string selectStr = "BRCRPREM016095N024";
-            for (int i = 0; i < tvBom.Nodes.Count; i++)
-            {
-                for (int j = 0; j < tvBom.Nodes[i].Nodes.Count; j++)
-                {
-                    string str = tvBom.Nodes[i].Nodes[j].Text.Substring(0, 18);
-                    if (tvBom.Nodes[i].Nodes[j].Text.Substring(0,18) == selectStr)
-                    {
-                        var node = tvBom.Nodes[i].Nodes[j];
-                        tvBom.SelectedNode = tvBom.Nodes[i].Nodes[j];//选中
-                                                                     //treeView.Nodes[i].Nodes[j].Checked = true;
-                        //tvBom.Nodes[i].Expand();//展开父级
-                        tvBom.ExpandAll();
-                        return;
-                    }
-                }
-            }
-            return;
+            //tvBom.Focus();
+            //tvBom.SelectedImageIndex = 2;
+            //tvBom.Focus();
+            //string selectStr = "BRCRPREM016095N024";
+            //for (int i = 0; i < tvBom.Nodes.Count; i++)
+            //{
+            //    for (int j = 0; j < tvBom.Nodes[i].Nodes.Count; j++)
+            //    {
+            //        string str = tvBom.Nodes[i].Nodes[j].Text.Substring(0, 18);
+            //        if (tvBom.Nodes[i].Nodes[j].Text.Substring(0,18) == selectStr)
+            //        {
+            //            var node = tvBom.Nodes[i].Nodes[j];
+            //            tvBom.SelectedNode = tvBom.Nodes[i].Nodes[j];//选中
+            //                                                         //treeView.Nodes[i].Nodes[j].Checked = true;
+            //            //tvBom.Nodes[i].Expand();//展开父级
+            //            tvBom.ExpandAll();
+            //            return;
+            //        }
+            //    }
+            //}
+            //return;
             bool showF0 = true;
             DataTable dtProductCosting = clsProductCosting.findProductCosting(1, 0, showF0, "", ""
                 , "", "", "", ""
                 , "", "", "", ""
                 , "", "", "2020/09/10", "2020/09/10", "", ""
                 );
-            for (int i=0;i<dtProductCosting.Rows.Count;i++)
+            for (int i = 0; i < dtProductCosting.Rows.Count; i++)
             {
                 string ProductMo = "", ProductId = "", ProductName = "";
                 DataRow drProductCosting = dtProductCosting.Rows[i];
-                
+
                 ProductId = drProductCosting["goods_id"].ToString();
                 ProductName = drProductCosting["goods_cname"].ToString();
                 ProductMo = drProductCosting["mo_id"].ToString();
@@ -1579,11 +1656,53 @@ namespace cf01.MM
             result = clsProductCosting.updateProductCosting(lsModel);
             if (result == "")
             {
-                MessageBox.Show("更新產品成本成功!");
+                //MessageBox.Show("更新產品成本成功!");
                 chkSelectAll.Checked = false;
             }
             else
                 MessageBox.Show("更新產品成本失敗!");
+        }
+
+        private void dgvBomDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            clsUtility.setDataGridViewSeq(dgvBomDetails, e);
+        }
+
+        private void dgvWipData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            clsUtility.setDataGridViewSeq(dgvWipData, e);
+        }
+
+        private void Delete()
+        {
+            string result = "";
+            List<mdlProductCosting> lsModel = new List<mdlProductCosting>();
+            for (int i = 0; i < dgvBomDetails.Rows.Count; i++)
+            {
+                DataGridViewRow dgr = dgvBomDetails.Rows[i];
+                if ((bool)dgr.Cells["colIsSelect"].Value == true)
+                {
+                    mdlProductCosting mdj = new mdlProductCosting();
+                    mdj.productId = dgr.Cells["colProductId"].Value.ToString();
+                    mdj.depId = dgr.Cells["colDepId"].Value.ToString();
+                    lsModel.Add(mdj);
+                }
+            }
+            result = clsProductCosting.deleteProductCosting(lsModel);
+            if (result == "")
+            {
+                MessageBox.Show("刪除產品成本成功!");
+                chkSelectAll.Checked = false;
+            }
+            else
+                MessageBox.Show("刪除產品成本失敗!");
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            txtDepId.Focus();
+            Delete();
+            btnRefresh_Click(sender, e);
         }
     }
 }

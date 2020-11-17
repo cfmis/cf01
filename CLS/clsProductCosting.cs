@@ -87,13 +87,13 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
             return dt;
         }
-        public static DataTable getProductCosting(string productId)
+        public static DataTable getProductCosting(string productId,string depId)
         {
             string strSql = "Select a.*,b.name AS ProductName,b.do_color AS DoColor,c.dep_cdesc AS DepCdesc" +
                 " From mm_ProductCosting a" +
                 " Left Join geo_it_goods b ON a.ProductId=b.id" +
                 " Left Join bs_dep c ON a.DepId=c.dep_id" +
-                " Where ProductId='" + productId + "'";
+                " Where ProductId='" + productId + "' AND DepId='" + depId + "'";
             DataTable dtCost = clsPublicOfCF01.GetDataTable(strSql);
             return dtCost;
         }
@@ -103,7 +103,7 @@ namespace cf01.CLS
             string strSql = "";
             strSql += " SELECT aa.*,bb.ProductCost,cc.pcs_weg AS ProductWeight,dd.ProductPrice,dd.PriceUnit,dd.ProductPriceQty";
             strSql += " FROM ( ";
-            strSql += " SELECT TOP 100000 a.mo_id,b.flag,b.goods_id,c.name AS goods_cname,c.do_color AS DoColor,b.wp_id,d.name AS DepCdesc,b.next_wp_id,e.name AS NextDepCdesc"+
+            strSql += " SELECT TOP 100000 a.mo_id,b.sequence_id,b.flag,b.goods_id,c.name AS goods_cname,c.do_color AS DoColor,b.wp_id,d.name AS DepCdesc,b.next_wp_id,e.name AS NextDepCdesc"+
                 ",Convert(Varchar(20),a.bill_date,111) AS bill_date,Convert(Int,b.prod_qty) AS prod_qty,Convert(Int,b.c_qty_ok) AS c_qty_ok" +
                 ",Convert(Decimal(18,2),b.c_sec_qty_ok) AS c_sec_qty_ok" +
                 ",CASE b.c_qty_ok WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(b.c_sec_qty_ok/b.c_qty_ok)*1000) END AS pcs_weg" +
@@ -179,6 +179,15 @@ namespace cf01.CLS
                     dt = clsPublicOfGEO.GetDataTable(strSql1);
                     if (dt.Rows.Count > 0)
                         pcsWeg = dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0;
+                    else
+                    {
+                        strSql = " SELECT CASE a.receipt_qty WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(a.sec_qty/a.receipt_qty)*1000) END AS pcs_weg" +
+                            " FROM po_receipt_details a" +
+                            " WHERE a.within_code='" + within_code + "' AND a.goods_id='" + productId + "' AND a.receipt_qty>0";
+                        dt = clsPublicOfGEO.GetDataTable(strSql);
+                        if (dt.Rows.Count > 0)
+                            pcsWeg = dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0;
+                    }
                 }
             }
             else
@@ -197,7 +206,7 @@ namespace cf01.CLS
             strSql += string.Format(@" BEGIN TRANSACTION ");
             for (int i = 0; i < lsModel.Count; i++)
             {
-                if (!checkProductId(lsModel[i].productId))
+                if (!checkProductId(lsModel[i].productId,lsModel[i].depId))
                     strSql += string.Format(@" Insert Into mm_ProductCosting (ProductId,ProductMo,ProductWeight,OriginWeight,WasteRate,MaterialRequest,OriginalPrice,MaterialPrice
                         ,MaterialPriceQty,MaterialCost,RollUpCost,DepId,DepPrice,DepCost,DepTotalCost,DepStdPrice,DepStdQty,OtherCost1,OtherCost2,OtherCost3,ProductCost
                         ,ProductCostDzs,ProductCostGrs,ProductCostK,CreateUser,CreateTime)
@@ -209,14 +218,14 @@ namespace cf01.CLS
                         , lsModel[i].productCost, lsModel[i].productCostDzs, lsModel[i].productCostGrs, lsModel[i].productCostK
                         , lsModel[i].createUser, lsModel[i].createTime);
                 else
-                    strSql += string.Format(@" Update mm_ProductCosting Set ProductMo='{1}',ProductWeight='{2}',WasteRate='{3}',MaterialRequest='{4}'
-                        ,OriginalPrice='{5}',MaterialPrice='{6}',MaterialCost='{7}',RollUpCost='{8}',DepId='{9}',DepPrice='{10}',DepCost='{11}'
+                    strSql += string.Format(@" Update mm_ProductCosting Set ProductMo='{2}',ProductWeight='{3}',WasteRate='{4}',MaterialRequest='{5}'
+                        ,OriginalPrice='{6}',MaterialPrice='{7}',MaterialCost='{8}',RollUpCost='{9}',DepPrice='{10}',DepCost='{11}'
                         ,DepStdPrice='{12}',DepStdQty='{13}',OtherCost1='{14}',OtherCost2='{15}',OtherCost3='{16}'
                         ,ProductCost='{17}',ProductCostDzs='{18}',ProductCostGrs='{19}',ProductCostK='{20}',AmendUser='{21}',AmendTime='{22}',OriginWeight='{23}'
                         ,DepTotalCost='{24}',MaterialPriceQty='{25}'
-                        Where ProductId='{0}'"
-                        , lsModel[i].productId, lsModel[i].productMo, lsModel[i].productWeight, lsModel[i].wasteRate, lsModel[i].materialRequest, lsModel[i].originalPrice
-                        , lsModel[i].materialPrice, lsModel[i].materialCost, lsModel[i].rollUpCost, lsModel[i].depId, lsModel[i].depPrice, lsModel[i].depCost
+                        Where ProductId='{0}' AND DepId='{1}'"
+                        , lsModel[i].productId, lsModel[i].depId, lsModel[i].productMo, lsModel[i].productWeight, lsModel[i].wasteRate, lsModel[i].materialRequest, lsModel[i].originalPrice
+                        , lsModel[i].materialPrice, lsModel[i].materialCost, lsModel[i].rollUpCost, lsModel[i].depPrice, lsModel[i].depCost
                         , lsModel[i].depStdPrice, lsModel[i].depStdQty, lsModel[i].otherCost1, lsModel[i].otherCost2, lsModel[i].otherCost3
                         , lsModel[i].productCost, lsModel[i].productCostDzs, lsModel[i].productCostGrs, lsModel[i].productCostK
                         , lsModel[i].createUser, lsModel[i].createTime, lsModel[i].originWeight, lsModel[i].depTotalCost, lsModel[i].materialPriceQty);
@@ -226,15 +235,31 @@ namespace cf01.CLS
             return result;
         }
 
-        private static bool checkProductId(string productId)
+        private static bool checkProductId(string productId,string depId)
         {
             bool result = true;
-            string strSql = "Select ProductId From mm_ProductCosting Where ProductId='" + productId + "'";
+            string strSql = "Select ProductId From mm_ProductCosting Where ProductId='" + productId + "' AND DepId='" + depId + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
                 result = true;
             else
                 result = false;
+            return result;
+        }
+
+        public static string deleteProductCosting(List<mdlProductCosting> lsModel)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            for (int i = 0; i < lsModel.Count; i++)
+            {
+                strSql += string.Format(@" Delete From mm_ProductCosting Where ProductId='{0}' AND DepId='{1}'"
+                    , lsModel[i].productId, lsModel[i].depId);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
         }
 
@@ -353,7 +378,7 @@ namespace cf01.CLS
                     strSql += strWhere;
                     strSql += " ORDER BY b.goods_id,b.c_qty_ok Desc";
                     strSql += ") aa";
-                    strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId ";
+                    strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId AND aa.wp_id COLLATE chinese_taiwan_stroke_CI_AS=bb.DepId ";
                     strSql += " Left Join bs_product_qty_rate cc On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=cc.prd_item ";
                     strSql += " Left Join mm_ProductPrice dd On aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId ";
                     strSql += " ) bbb ";
@@ -891,16 +916,16 @@ namespace cf01.CLS
             strSql += string.Format(@" BEGIN TRANSACTION ");
             for (int i = 0; i < lsModel.Count; i++)
             {
-                if (!checkProductWeight(lsModel[i].prdItem,lsModel[i].matItem,lsModel[i].depId))
+                if (!checkProductWeight(lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId))
                     strSql += string.Format(@" Insert Into bs_product_qty_rate (prd_item,mat_item,dep_id,pcs_weg,prd_kg_qty_rate,crusr,crtim)
                         Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
                         , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId, lsModel[i].pcsWeg, lsModel[i].prdKgQtyRate
                         , lsModel[i].crUser, lsModel[i].crTime);
                 else
                     strSql += string.Format(@" Update bs_product_qty_rate Set pcs_weg='{0}',prd_kg_qty_rate='{1}',crusr='{2}',crtim='{3}'
-                        Where prd_item='{4}' AND mat_item='{5}' AND dep_id='{6}'"
+                        Where prd_item='{4}'"
                         , lsModel[i].pcsWeg, lsModel[i].prdKgQtyRate, lsModel[i].crUser, lsModel[i].crTime
-                        , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId);
+                        , lsModel[i].prdItem);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
@@ -914,8 +939,8 @@ namespace cf01.CLS
             strSql += string.Format(@" BEGIN TRANSACTION ");
             for (int i = 0; i < lsModel.Count; i++)
             {
-                    strSql += string.Format(@" Delete From bs_product_qty_rate Where prd_item='{0}' AND mat_item='{1}' AND dep_id='{2}'"
-                        , lsModel[i].prdItem, lsModel[i].matItem, lsModel[i].depId);
+                    strSql += string.Format(@" Delete From bs_product_qty_rate Where prd_item='{0}'"
+                        , lsModel[i].prdItem);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
@@ -924,7 +949,7 @@ namespace cf01.CLS
         private static bool checkProductWeight(string prdItem,string matItem,string depId)
         {
             bool result = true;
-            string strSql = "Select prd_item,pcs_weg,kg_qty_rate From bs_product_qty_rate Where prd_item='" + prdItem + "' AND mat_item='" + matItem + "' AND dep_id='" + depId + "'";
+            string strSql = "Select prd_item,pcs_weg,kg_qty_rate From bs_product_qty_rate Where prd_item='" + prdItem + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
                 result = true;
@@ -945,6 +970,19 @@ namespace cf01.CLS
             if (dt.Rows.Count > 0)
                 stdProductWeight = dt.Rows[0]["pcs_weg"].ToString() != "" ? Convert.ToDecimal(dt.Rows[0]["pcs_weg"]) : 0;
             return stdProductWeight;
+        }
+
+        public static DataTable getWipMatData(string productMo,string Seq)
+        {
+            string strSql = " SELECT c.materiel_id,d.name AS goods_cname,Convert(Numeric(18,0),c.fl_qty) AS fl_qty,c.location" +
+                    ",Convert(Numeric(18,2),c.sec_qty) AS sec_qty,Convert(Numeric(18,0),c.i_qty) AS i_qty" +
+                    " FROM jo_bill_mostly a" +
+                    " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
+                    " INNER JOIN jo_bill_materiel_details c ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
+                    " INNER JOIN it_goods d ON c.within_code=d.within_code AND c.materiel_id=d.id" +
+                    " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + productMo + "' AND b.sequence_id='" + Seq + "'";
+            DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
+            return dt;
         }
     }
     

@@ -106,6 +106,9 @@
             this.colMmCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMo_product_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNeed_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQc_fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlate_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPack_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal_mm_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmt_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSAmtDef = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -385,6 +388,9 @@
             this.colMmCosting,
             this.colMo_product_c,
             this.colNeed_check_moudle_cost,
+            this.colQc_fee,
+            this.colPlate_fee_moq,
+            this.colPack_fee_moq,
             this.colTotal_mm_cost,
             this.colAmt_hkd,
             this.colSAmtDef,
@@ -791,6 +797,27 @@
             this.colNeed_check_moudle_cost.Name = "colNeed_check_moudle_cost";
             this.colNeed_check_moudle_cost.Width = 80;
             // 
+            // colQc_fee
+            // 
+            this.colQc_fee.DataPropertyName = "qc_fee";
+            this.colQc_fee.HeaderText = "QC費用";
+            this.colQc_fee.Name = "colQc_fee";
+            this.colQc_fee.Width = 60;
+            // 
+            // colPlate_fee_moq
+            // 
+            this.colPlate_fee_moq.DataPropertyName = "plate_fee_moq";
+            this.colPlate_fee_moq.HeaderText = "外發選貨費MOQ";
+            this.colPlate_fee_moq.Name = "colPlate_fee_moq";
+            this.colPlate_fee_moq.Width = 80;
+            // 
+            // colPack_fee_moq
+            // 
+            this.colPack_fee_moq.DataPropertyName = "pack_fee_moq";
+            this.colPack_fee_moq.HeaderText = "貨倉費用MOQ";
+            this.colPack_fee_moq.Name = "colPack_fee_moq";
+            this.colPack_fee_moq.Width = 80;
+            // 
             // colTotal_mm_cost
             // 
             this.colTotal_mm_cost.DataPropertyName = "total_mm_cost";
@@ -1122,6 +1149,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGoods_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGoods_name;
@@ -1130,6 +1167,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMmCosting;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMo_product_c;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNeed_check_moudle_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQc_fee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlate_fee_moq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPack_fee_moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal_mm_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmt_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSAmtDef;
@@ -1166,15 +1206,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWip_dep;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBase_class;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_cdesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
     }
 }

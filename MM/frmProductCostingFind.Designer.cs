@@ -99,6 +99,8 @@
             this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,13 +109,19 @@
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipProductCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMatData = new System.Windows.Forms.DataGridView();
+            this.colMatGoods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMatGoods_cname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFl_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLocationg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMatSec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMatI_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.dgvBomData = new System.Windows.Forms.DataGridView();
             this.colBomSetCosting = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -171,6 +179,7 @@
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).BeginInit();
@@ -205,6 +214,7 @@
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatData)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBomData)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -212,12 +222,16 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnReSearch);
             this.panelControl1.Controls.Add(this.palShowF0);
             this.panelControl1.Controls.Add(this.txtSales);
+            this.panelControl1.Controls.Add(this.txtShowProductName);
             this.panelControl1.Controls.Add(this.txtMoGroup);
+            this.panelControl1.Controls.Add(this.txtShowProductId);
             this.panelControl1.Controls.Add(this.lblSales);
             this.panelControl1.Controls.Add(this.lblMoGroup);
             this.panelControl1.Controls.Add(this.lblIsSetCosting);
+            this.panelControl1.Controls.Add(this.lblShowProductId);
             this.panelControl1.Controls.Add(this.lblSource);
             this.panelControl1.Controls.Add(this.rdgSource);
             this.panelControl1.Controls.Add(this.lblDate);
@@ -241,10 +255,11 @@
             this.panelControl1.Controls.Add(this.rdgIsSetCosting);
             this.panelControl1.Controls.Add(this.txtProductMo);
             this.panelControl1.Controls.Add(this.lblProductMo);
+            this.panelControl1.Controls.Add(this.groupBox1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1049, 115);
+            this.panelControl1.Size = new System.Drawing.Size(1049, 155);
             this.panelControl1.TabIndex = 0;
             // 
             // palShowF0
@@ -537,9 +552,9 @@
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Controls.Add(this.xtraTabControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 153);
+            this.panelControl2.Location = new System.Drawing.Point(0, 193);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1049, 495);
+            this.panelControl2.Size = new System.Drawing.Size(1049, 455);
             this.panelControl2.TabIndex = 1;
             // 
             // dgvCosting
@@ -571,12 +586,13 @@
             this.dgvCosting.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCosting.Location = new System.Drawing.Point(2, 2);
             this.dgvCosting.Name = "dgvCosting";
-            this.dgvCosting.RowHeadersWidth = 20;
+            this.dgvCosting.RowHeadersWidth = 30;
             this.dgvCosting.RowTemplate.Height = 24;
             this.dgvCosting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCosting.Size = new System.Drawing.Size(1045, 129);
+            this.dgvCosting.Size = new System.Drawing.Size(1045, 153);
             this.dgvCosting.TabIndex = 0;
             this.dgvCosting.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCosting_CellContentClick);
+            this.dgvCosting.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvCosting_RowPostPaint);
             this.dgvCosting.SelectionChanged += new System.EventHandler(this.dgvCosting_SelectionChanged);
             // 
             // colSetCosting
@@ -722,24 +738,20 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Controls.Add(this.btnReSearch);
             this.panelControl3.Controls.Add(this.btnSetProductPrice1);
-            this.panelControl3.Controls.Add(this.txtShowProductName);
-            this.panelControl3.Controls.Add(this.txtShowProductId);
             this.panelControl3.Controls.Add(this.btnSetProductWeight1);
             this.panelControl3.Controls.Add(this.labelControl2);
-            this.panelControl3.Controls.Add(this.lblShowProductId);
             this.panelControl3.Controls.Add(this.btnPrintWipData);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(2, 131);
+            this.panelControl3.Location = new System.Drawing.Point(2, 155);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1045, 62);
+            this.panelControl3.Size = new System.Drawing.Size(1045, 40);
             this.panelControl3.TabIndex = 6;
             // 
             // btnReSearch
             // 
             this.btnReSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnReSearch.Image")));
-            this.btnReSearch.Location = new System.Drawing.Point(756, 3);
+            this.btnReSearch.Location = new System.Drawing.Point(737, 117);
             this.btnReSearch.Name = "btnReSearch";
             this.btnReSearch.Size = new System.Drawing.Size(75, 28);
             this.btnReSearch.TabIndex = 3;
@@ -750,7 +762,7 @@
             // 
             this.btnSetProductPrice1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopLeft;
             this.btnSetProductPrice1.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
-            this.btnSetProductPrice1.Location = new System.Drawing.Point(318, 30);
+            this.btnSetProductPrice1.Location = new System.Drawing.Point(318, 5);
             this.btnSetProductPrice1.Name = "btnSetProductPrice1";
             this.btnSetProductPrice1.Size = new System.Drawing.Size(75, 28);
             this.btnSetProductPrice1.TabIndex = 3;
@@ -759,7 +771,7 @@
             // 
             // txtShowProductName
             // 
-            this.txtShowProductName.Location = new System.Drawing.Point(410, 6);
+            this.txtShowProductName.Location = new System.Drawing.Point(352, 121);
             this.txtShowProductName.Name = "txtShowProductName";
             this.txtShowProductName.Properties.ReadOnly = true;
             this.txtShowProductName.Size = new System.Drawing.Size(321, 20);
@@ -767,7 +779,7 @@
             // 
             // txtShowProductId
             // 
-            this.txtShowProductId.Location = new System.Drawing.Point(225, 6);
+            this.txtShowProductId.Location = new System.Drawing.Point(167, 121);
             this.txtShowProductId.Name = "txtShowProductId";
             this.txtShowProductId.Properties.ReadOnly = true;
             this.txtShowProductId.Size = new System.Drawing.Size(168, 20);
@@ -775,7 +787,7 @@
             // 
             // btnSetProductWeight1
             // 
-            this.btnSetProductWeight1.Location = new System.Drawing.Point(410, 30);
+            this.btnSetProductWeight1.Location = new System.Drawing.Point(410, 5);
             this.btnSetProductWeight1.Name = "btnSetProductWeight1";
             this.btnSetProductWeight1.Size = new System.Drawing.Size(75, 28);
             this.btnSetProductWeight1.TabIndex = 2;
@@ -784,7 +796,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(8, 37);
+            this.labelControl2.Location = new System.Drawing.Point(8, 12);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(209, 14);
             this.labelControl2.TabIndex = 0;
@@ -792,7 +804,7 @@
             // 
             // lblShowProductId
             // 
-            this.lblShowProductId.Location = new System.Drawing.Point(69, 9);
+            this.lblShowProductId.Location = new System.Drawing.Point(10, 124);
             this.lblShowProductId.Name = "lblShowProductId";
             this.lblShowProductId.Size = new System.Drawing.Size(148, 14);
             this.lblShowProductId.TabIndex = 0;
@@ -801,7 +813,7 @@
             // btnPrintWipData
             // 
             this.btnPrintWipData.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintWipData.Image")));
-            this.btnPrintWipData.Location = new System.Drawing.Point(225, 30);
+            this.btnPrintWipData.Location = new System.Drawing.Point(225, 5);
             this.btnPrintWipData.Name = "btnPrintWipData";
             this.btnPrintWipData.Size = new System.Drawing.Size(75, 28);
             this.btnPrintWipData.TabIndex = 1;
@@ -811,10 +823,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.xtraTabControl1.Location = new System.Drawing.Point(2, 193);
+            this.xtraTabControl1.Location = new System.Drawing.Point(2, 195);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1045, 300);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1045, 258);
             this.xtraTabControl1.TabIndex = 7;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -824,8 +836,9 @@
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.dgvWipData);
+            this.xtraTabPage1.Controls.Add(this.dgvMatData);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1039, 271);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1039, 229);
             this.xtraTabPage1.Text = "制單生產流程";
             // 
             // dgvWipData
@@ -839,6 +852,8 @@
             this.colWipSeq,
             this.colWipGoodsId,
             this.colWipGoodsCname,
+            this.colWipWpId,
+            this.colWipDepCdesc,
             this.Column14,
             this.colWipPcsWeg,
             this.colWipProdQty,
@@ -847,23 +862,24 @@
             this.Column15,
             this.dataGridViewTextBoxColumn36,
             this.colWipProductCosting,
-            this.colWipWpId,
-            this.colWipDepCdesc,
             this.colWipNextDep,
             this.colWipNextDepId,
             this.colWipDoColor,
             this.Column11,
-            this.Column12});
+            this.Column12,
+            this.colSequence_id});
             this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWipData.Location = new System.Drawing.Point(0, 0);
             this.dgvWipData.Name = "dgvWipData";
             this.dgvWipData.ReadOnly = true;
-            this.dgvWipData.RowHeadersWidth = 20;
+            this.dgvWipData.RowHeadersWidth = 30;
             this.dgvWipData.RowTemplate.Height = 24;
             this.dgvWipData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWipData.Size = new System.Drawing.Size(1039, 271);
+            this.dgvWipData.Size = new System.Drawing.Size(1039, 143);
             this.dgvWipData.TabIndex = 5;
             this.dgvWipData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWipData_CellContentClick);
+            this.dgvWipData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvWipData_RowPostPaint);
+            this.dgvWipData.SelectionChanged += new System.EventHandler(this.dgvWipData_SelectionChanged);
             // 
             // colWipSetCosting
             // 
@@ -904,6 +920,22 @@
             this.colWipGoodsCname.Name = "colWipGoodsCname";
             this.colWipGoodsCname.ReadOnly = true;
             this.colWipGoodsCname.Width = 260;
+            // 
+            // colWipWpId
+            // 
+            this.colWipWpId.DataPropertyName = "wp_id";
+            this.colWipWpId.FillWeight = 80F;
+            this.colWipWpId.HeaderText = "負責部門";
+            this.colWipWpId.Name = "colWipWpId";
+            this.colWipWpId.ReadOnly = true;
+            this.colWipWpId.Width = 65;
+            // 
+            // colWipDepCdesc
+            // 
+            this.colWipDepCdesc.DataPropertyName = "DepCdesc";
+            this.colWipDepCdesc.HeaderText = "部門描述";
+            this.colWipDepCdesc.Name = "colWipDepCdesc";
+            this.colWipDepCdesc.ReadOnly = true;
             // 
             // Column14
             // 
@@ -969,22 +1001,6 @@
             this.colWipProductCosting.ReadOnly = true;
             this.colWipProductCosting.Width = 80;
             // 
-            // colWipWpId
-            // 
-            this.colWipWpId.DataPropertyName = "wp_id";
-            this.colWipWpId.FillWeight = 80F;
-            this.colWipWpId.HeaderText = "負責部門";
-            this.colWipWpId.Name = "colWipWpId";
-            this.colWipWpId.ReadOnly = true;
-            this.colWipWpId.Width = 65;
-            // 
-            // colWipDepCdesc
-            // 
-            this.colWipDepCdesc.DataPropertyName = "DepCdesc";
-            this.colWipDepCdesc.HeaderText = "部門描述";
-            this.colWipDepCdesc.Name = "colWipDepCdesc";
-            this.colWipDepCdesc.ReadOnly = true;
-            // 
             // colWipNextDep
             // 
             this.colWipNextDep.DataPropertyName = "next_wp_id";
@@ -1022,6 +1038,83 @@
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             this.Column12.Width = 60;
+            // 
+            // colSequence_id
+            // 
+            this.colSequence_id.DataPropertyName = "sequence_id";
+            this.colSequence_id.HeaderText = "序號";
+            this.colSequence_id.Name = "colSequence_id";
+            this.colSequence_id.ReadOnly = true;
+            this.colSequence_id.Width = 80;
+            // 
+            // dgvMatData
+            // 
+            this.dgvMatData.AllowUserToAddRows = false;
+            this.dgvMatData.ColumnHeadersHeight = 28;
+            this.dgvMatData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvMatData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMatGoods_id,
+            this.colMatGoods_cname,
+            this.colFl_qty,
+            this.colLocationg,
+            this.colMatSec_qty,
+            this.colMatI_qty});
+            this.dgvMatData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvMatData.Location = new System.Drawing.Point(0, 143);
+            this.dgvMatData.Name = "dgvMatData";
+            this.dgvMatData.ReadOnly = true;
+            this.dgvMatData.RowHeadersWidth = 30;
+            this.dgvMatData.RowTemplate.Height = 24;
+            this.dgvMatData.Size = new System.Drawing.Size(1039, 86);
+            this.dgvMatData.TabIndex = 6;
+            this.dgvMatData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvMatData_RowPostPaint);
+            // 
+            // colMatGoods_id
+            // 
+            this.colMatGoods_id.DataPropertyName = "materiel_id";
+            this.colMatGoods_id.HeaderText = "物料編號";
+            this.colMatGoods_id.Name = "colMatGoods_id";
+            this.colMatGoods_id.ReadOnly = true;
+            this.colMatGoods_id.Width = 160;
+            // 
+            // colMatGoods_cname
+            // 
+            this.colMatGoods_cname.DataPropertyName = "goods_cname";
+            this.colMatGoods_cname.HeaderText = "物料描述";
+            this.colMatGoods_cname.Name = "colMatGoods_cname";
+            this.colMatGoods_cname.ReadOnly = true;
+            this.colMatGoods_cname.Width = 220;
+            // 
+            // colFl_qty
+            // 
+            this.colFl_qty.DataPropertyName = "fl_qty";
+            this.colFl_qty.HeaderText = "安排領料數量";
+            this.colFl_qty.Name = "colFl_qty";
+            this.colFl_qty.ReadOnly = true;
+            // 
+            // colLocationg
+            // 
+            this.colLocationg.DataPropertyName = "location";
+            this.colLocationg.HeaderText = "倉庫號";
+            this.colLocationg.Name = "colLocationg";
+            this.colLocationg.ReadOnly = true;
+            this.colLocationg.Width = 80;
+            // 
+            // colMatSec_qty
+            // 
+            this.colMatSec_qty.DataPropertyName = "sec_qty";
+            this.colMatSec_qty.HeaderText = "重量";
+            this.colMatSec_qty.Name = "colMatSec_qty";
+            this.colMatSec_qty.ReadOnly = true;
+            this.colMatSec_qty.Width = 80;
+            // 
+            // colMatI_qty
+            // 
+            this.colMatI_qty.DataPropertyName = "i_qty";
+            this.colMatI_qty.HeaderText = "發料數量";
+            this.colMatI_qty.Name = "colMatI_qty";
+            this.colMatI_qty.ReadOnly = true;
+            this.colMatI_qty.Width = 80;
             // 
             // xtraTabPage2
             // 
@@ -1497,6 +1590,14 @@
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.Width = 60;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(5, 106);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(858, 42);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            // 
             // frmProductCostingFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1547,6 +1648,7 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWipData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatData)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBomData)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -1660,26 +1762,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewButtonColumn colWipSetCosting;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsCname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipPcsWeg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProdQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplWeg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductCosting;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipWpId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDepCdesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDoColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private DevExpress.XtraEditors.TextEdit txtShowProductId;
         private DevExpress.XtraEditors.LabelControl lblShowProductId;
         private DevExpress.XtraEditors.TextEdit txtShowProductName;
@@ -1699,5 +1781,34 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private System.Windows.Forms.DataGridView dgvMatData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMatGoods_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMatGoods_cname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFl_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLocationg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMatSec_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMatI_qty;
+        private System.Windows.Forms.DataGridViewButtonColumn colWipSetCosting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsCname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipWpId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDepCdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipPcsWeg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProdQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplWeg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductCosting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDoColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSequence_id;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -40,7 +40,9 @@ namespace cf01.MM
             frmProductCosting.searchProductId = "";
             frmProductCosting.searchProductName = "";
             frmProductCosting.searchProductMo = "";
-            this.Close();
+            //this.Visible = false;
+            //this.Close();
+            this.Hide();
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -229,7 +231,7 @@ namespace cf01.MM
                 frmProductCosting.searchProductId = dgr.Cells["colWipGoodsId"].Value.ToString();
                 frmProductCosting.searchProductName = dgr.Cells["colWipGoodsCname"].Value.ToString();
                 frmProductCosting.searchProductMo = dgr.Cells["colWipProductMo"].Value.ToString();
-                this.Close();
+                this.Hide();
             }
         }
 
@@ -251,8 +253,10 @@ namespace cf01.MM
                     frmProductCosting.searchProductId = dgr.Cells["colProductId"].Value.ToString();
                     frmProductCosting.searchProductName = dgr.Cells["colProductName"].Value.ToString();
                 }
-                
-                this.Close();
+
+                //this.Close();
+                //this.Visible = false;
+                this.Hide();
             }
         }
 
@@ -338,6 +342,32 @@ namespace cf01.MM
         private void xtraTabControl1_Click(object sender, EventArgs e)
         {
             loadProductWip();
+        }
+
+        private void dgvCosting_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            clsUtility.setDataGridViewSeq(dgvCosting, e);
+        }
+
+        private void dgvWipData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            clsUtility.setDataGridViewSeq(dgvWipData, e);
+        }
+
+        private void dgvWipData_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvWipData.CurrentRow == null)
+                return;
+            DataGridViewRow dr = dgvWipData.Rows[dgvWipData.CurrentRow.Index]; //.CurrentCell.RowIndex
+            string productMo = dr.Cells["colWipProductMo"].Value == null ? "" : dr.Cells["colWipProductMo"].Value.ToString();
+            string Seq= dr.Cells["colSequence_id"].Value.ToString();
+            DataTable dtMatData = clsProductCosting.getWipMatData(productMo,Seq);
+            dgvMatData.DataSource = dtMatData;
+        }
+
+        private void dgvMatData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            clsUtility.setDataGridViewSeq(dgvMatData, e);
         }
     }
 }

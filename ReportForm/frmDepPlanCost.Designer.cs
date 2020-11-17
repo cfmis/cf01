@@ -121,6 +121,9 @@
             this.colDepProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMo_product_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNeed_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQc_fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlate_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPack_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepTotalProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderQtyPcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOrderAmtHkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -361,6 +364,9 @@
             this.colDepProductCost,
             this.colMo_product_c,
             this.colNeed_check_moudle_cost,
+            this.colQc_fee,
+            this.colPlate_fee_moq,
+            this.colPack_fee_moq,
             this.colDepTotalProductCost,
             this.colOrderQtyPcs,
             this.colOrderAmtHkd,
@@ -982,6 +988,30 @@
             this.colNeed_check_moudle_cost.ReadOnly = true;
             this.colNeed_check_moudle_cost.Width = 50;
             // 
+            // colQc_fee
+            // 
+            this.colQc_fee.DataPropertyName = "qc_fee";
+            this.colQc_fee.HeaderText = "QC費用";
+            this.colQc_fee.Name = "colQc_fee";
+            this.colQc_fee.ReadOnly = true;
+            this.colQc_fee.Width = 60;
+            // 
+            // colPlate_fee_moq
+            // 
+            this.colPlate_fee_moq.DataPropertyName = "plate_fee_moq";
+            this.colPlate_fee_moq.HeaderText = "外發選貨費MOQ";
+            this.colPlate_fee_moq.Name = "colPlate_fee_moq";
+            this.colPlate_fee_moq.ReadOnly = true;
+            this.colPlate_fee_moq.Width = 80;
+            // 
+            // colPack_fee_moq
+            // 
+            this.colPack_fee_moq.DataPropertyName = "pack_fee_moq";
+            this.colPack_fee_moq.HeaderText = "貨倉費用MOQ";
+            this.colPack_fee_moq.Name = "colPack_fee_moq";
+            this.colPack_fee_moq.ReadOnly = true;
+            this.colPack_fee_moq.Width = 80;
+            // 
             // colDepTotalProductCost
             // 
             this.colDepTotalProductCost.DataPropertyName = "DepTotalProductCost";
@@ -1401,6 +1431,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepProductCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMo_product_c;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNeed_check_moudle_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQc_fee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlate_fee_moq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPack_fee_moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepTotalProductCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderQtyPcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderAmtHkd;
