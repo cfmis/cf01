@@ -421,15 +421,13 @@ namespace cf01.CLS
         public string GetLocalIP()
         {
             string strLocalIP = "";
-            //获取说有网卡信息
+            //获取本地网卡信息
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
             foreach (NetworkInterface adapter in nics)
             {
                 //判断是否为以太网卡
                 //Wireless80211         无线网卡    Ppp     宽带连接
-                //Ethernet              以太网卡   
-                //这里篇幅有限贴几个常用的，其他的返回值大家就自己百度吧！
-
+                //Ethernet              以太网卡
                 if (adapter.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
                 {
                     //获取以太网卡网络接口信息
@@ -443,7 +441,6 @@ namespace cf01.CLS
                         if (ipadd.Address.AddressFamily == AddressFamily.InterNetwork)
                         //判断是否为ipv4
                         {
-
                             strLocalIP = ipadd.Address.ToString();//获取ip
                             return strLocalIP;//获取ip
 
