@@ -89,7 +89,12 @@ namespace cf01.CLS
         }
         public static DataTable getProductCosting(string productId,string depId)
         {
-            string strSql = "Select a.*,b.name AS ProductName,b.do_color AS DoColor,c.dep_cdesc AS DepCdesc" +
+            string strSql = "Select a.ProductId,a.DepId,a.ProductMo,a.ProductWeight,a.WasteRate,a.MaterialRequest"+
+                ",a.OriginalPrice,a.MaterialPrice,a.MaterialPriceQty,a.MaterialCost,a.RollUpCost,a.DepPrice,a.DepCost"+
+                ",a.DepStdPrice,a.DepStdQty,a.OtherCost1,a.OtherCost2,a.OtherCost3,a.ProductCost,a.ProductCostGrs"+
+                ",a.ProductCostK,a.ProductCostDzs,a.CreateUser,Convert(Varchar(20),a.CreateTime,120) AS CreateTime"+
+                ",a.AmendUser,Convert(Varchar(20),a.AmendTime,120) AS AmendTime,a.OriginWeight,a.DepTotalCost"+
+                ",b.name AS ProductName,b.do_color AS DoColor,c.dep_cdesc AS DepCdesc" +
                 " From mm_ProductCosting a" +
                 " Left Join geo_it_goods b ON a.ProductId=b.id" +
                 " Left Join bs_dep c ON a.DepId=c.dep_id" +
@@ -957,14 +962,14 @@ namespace cf01.CLS
                 result = false;
             return result;
         }
-        public static decimal findStdProductWeight(string depId,string productId, string materialId)
+        public static decimal findStdProductWeight(string productId, string materialId)
         {
             decimal stdProductWeight = 0;
             string strSql = "Select kg_qty_rate,pcs_weg From bs_product_qty_rate Where prd_item='" + productId + "'";
             //if (materialId != "")
             //    strSql += " And mat_item='" + materialId + "'";
-            if (depId != "")
-                strSql += " And Substring(dep_id,1,1)='" + depId.Substring(0, 1) + "'";
+            //if (depId != "")
+            //    strSql += " And Substring(dep_id,1,1)='" + depId.Substring(0, 1) + "'";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             //重量由Kg轉換為：G
             if (dt.Rows.Count > 0)

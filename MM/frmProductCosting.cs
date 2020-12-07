@@ -432,6 +432,10 @@ namespace cf01.MM
             dr2["ProductCostK"] = dr["ProductCostK"].ToString() != "" ? dr["ProductCostK"].ToString() : "0";
             dr2["ProductCostDzs"] = dr["ProductCostDzs"].ToString() != "" ? dr["ProductCostDzs"].ToString() : "0";
             dr2["DoColor"] = dr["DoColor"].ToString() != "" ? dr["DoColor"].ToString() : "";
+            dr2["CreateUser"]= dr["CreateUser"].ToString() != "" ? dr["CreateUser"].ToString() : "";
+            dr2["CreateTime"] = dr["CreateTime"].ToString() != "" ? dr["CreateTime"].ToString() : "";
+            dr2["AmendUser"] = dr["AmendUser"].ToString() != "" ? dr["AmendUser"].ToString() : "";
+            dr2["AmendTime"] = dr["AmendTime"].ToString() != "" ? dr["AmendTime"].ToString() : "";
         }
 
         //不存在的成本記錄，從計劃、歷史記錄中查找，并加入到BomDetails表中
@@ -458,12 +462,12 @@ namespace cf01.MM
             doColor = dr2["DoColor"].ToString();
              //提取自定的物料重量
             if (depId == "102" || depId == "104" || depId == "122" || depId == "124" || depId == "202"
-                || depId == "302" || depId == "322" || matType == "PL")
+                || depId == "302" || depId == "322" || depId == "J15" || matType == "PL")
             {
                 startDep = true;
                 materialId1 = materialId;
                 //獲取預設的重量
-                stdProductWeight = clsProductCosting.findStdProductWeight(depId, productId, materialId1);
+                stdProductWeight = clsProductCosting.findStdProductWeight(productId, materialId1);
                 if (stdProductWeight > 0)
                 {
                     dr2["StdWeightFlag"] = "Y";
@@ -676,6 +680,10 @@ namespace cf01.MM
             txtProductCostK.Text = dgr.Cells["colProductCostK"].Value.ToString();
             txtProductCostDzs.Text = dgr.Cells["colProductCostDzs"].Value.ToString();
             txtRollUpCost.Text = dgr.Cells["colRollUpCost"].Value.ToString();
+            txtCreateUser.Text = dgr.Cells["colCreateUser"].Value.ToString();
+            txtCreateTime.Text = dgr.Cells["colCreateTime"].Value.ToString();
+            txtAmendUser.Text = dgr.Cells["colAmendUser"].Value.ToString();
+            txtAmendTime.Text = dgr.Cells["colAmendTime"].Value.ToString();
             //countRollUpCost(row, currentLevel);
             //判斷下一層是否原料層
             firstLevel = getFirstLevel(currentLevel, row);
