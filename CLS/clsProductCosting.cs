@@ -606,11 +606,18 @@ namespace cf01.CLS
 
             if (depId == "202" || depId == "203")
             {
-                int prd_machine_level = dtDepPrice.Rows[0]["prd_machine_level"].ToString() != "" ? Convert.ToInt32(dtDepPrice.Rows[0]["prd_machine_level"]) : 0;
-                processId = dtDepPrice.Rows[0]["process_id"].ToString().Trim();
-                string prd_machine = dtDepPrice.Rows[0]["prd_machine"].ToString().Trim();
-                string job_type = dtDepPrice.Rows[0]["job_type"].ToString().Trim();
-                int line_qty = dtDepPrice.Rows[0]["line_qty"].ToString() != "" ? Convert.ToInt32(dtDepPrice.Rows[0]["line_qty"]) : 0;
+                int prd_machine_level = 0;
+                string prd_machine = "";
+                string job_type = "";
+                int line_qty = 0;
+                if (dtDepPrice.Rows.Count > 0)
+                {
+                    prd_machine_level = dtDepPrice.Rows[0]["prd_machine_level"].ToString() != "" ? Convert.ToInt32(dtDepPrice.Rows[0]["prd_machine_level"]) : 0;
+                    processId = dtDepPrice.Rows[0]["process_id"].ToString().Trim();
+                    prd_machine = dtDepPrice.Rows[0]["prd_machine"].ToString().Trim();
+                    job_type = dtDepPrice.Rows[0]["job_type"].ToString().Trim();
+                    line_qty = dtDepPrice.Rows[0]["line_qty"].ToString() != "" ? Convert.ToInt32(dtDepPrice.Rows[0]["line_qty"]) : 0;
+                }
                 //202、203標準加工費
                 strSql = "SELECT TOP 1 dept_id AS prd_dep,product_type,goods_id AS prd_item,ISNULL(machine_id,'') AS prd_machine,type_work AS job_type,ISNULL(machine2,'') AS machine2" +
                     ",machine_gear AS prd_machine_level,per_stele_qty AS line_qty,machine_seconds AS cost_price,standard_qty AS product_qty" +
