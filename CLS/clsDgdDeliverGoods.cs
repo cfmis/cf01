@@ -703,7 +703,7 @@ namespace cf01.CLS
                 FROM so_invoice_mostly A with(nolock)
                 INNER JOIN so_invoice_details B with(nolock) ON A.within_code=B.within_code and A.id=B.id and A.ver=B.ver 
                 LEFT JOIN {0}it_customer C with(nolock) ON A.within_code=B.within_code and A.it_customer collate Chinese_PRC_CI_AS =C.id
-                WHERE A.within_code='0000' AND A.id not like 'L-%'", remote_db);
+                WHERE A.within_code='0000' AND A.id like 'L-%'", remote_db);
             if (id1 != "")
                 sql += String.Format(" and A.id>='{0}'", id1);
             if (id2 != "")
@@ -746,9 +746,9 @@ namespace cf01.CLS
             SqlParameter[] paras = new SqlParameter[]{
                new SqlParameter("@id1",id1),
                new SqlParameter("@id2",id2),
-                new SqlParameter("@mo_id1",mo_id1),
+               new SqlParameter("@mo_id1",mo_id1),
                new SqlParameter("@mo_id2",mo_id2),
-                new SqlParameter("@date1",date1),
+               new SqlParameter("@date1",date1),
                new SqlParameter("@date2",date2)
             };
 
