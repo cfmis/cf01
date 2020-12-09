@@ -30,54 +30,54 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMould_Process));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -95,8 +95,49 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.con_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mould_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.application_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.require_finish_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lister_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_yes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sample_no = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.md_new = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.md_reproduced = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.universal_machine_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.universal_machine_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.universal_machine_md_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.universal_machine_md_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.universal_machine_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.universal_machine_test_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.universal_machine_confirm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.universal_machine_confirm_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_md_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_md_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_test_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_confirm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eye_machine_confirm_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mould_instructions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mould_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mould_require = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drawing_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mould_location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picture_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtmould_location = new DevExpress.XtraEditors.TextEdit();
+            this.label34 = new System.Windows.Forms.Label();
             this.txtgoods_name = new DevExpress.XtraEditors.TextEdit();
             this.label33 = new System.Windows.Forms.Label();
             this.txtgoods_id = new DevExpress.XtraEditors.TextEdit();
@@ -106,9 +147,17 @@
             this.dtcon_date = new DevExpress.XtraEditors.DateEdit();
             this.label15 = new System.Windows.Forms.Label();
             this.txtmo_id = new DevExpress.XtraEditors.TextEdit();
+            this.lineX8 = new cf01.ModuleClass.LineX();
+            this.lineX7 = new cf01.ModuleClass.LineX();
             this.txtdrawing_no = new DevExpress.XtraEditors.TextEdit();
             this.label8 = new System.Windows.Forms.Label();
+            this.lineX6 = new cf01.ModuleClass.LineX();
+            this.lineY7 = new cf01.ModuleClass.LineY();
             this.label32 = new System.Windows.Forms.Label();
+            this.lineX5 = new cf01.ModuleClass.LineX();
+            this.lineY6 = new cf01.ModuleClass.LineY();
+            this.lineX4 = new cf01.ModuleClass.LineX();
+            this.lineX3 = new cf01.ModuleClass.LineX();
             this.txteye_machine_confirm_sign = new DevExpress.XtraEditors.TextEdit();
             this.label23 = new System.Windows.Forms.Label();
             this.txteye_machine_test_sign = new DevExpress.XtraEditors.TextEdit();
@@ -125,6 +174,12 @@
             this.label30 = new System.Windows.Forms.Label();
             this.txteye_machine_receive_sign = new DevExpress.XtraEditors.TextEdit();
             this.label31 = new System.Windows.Forms.Label();
+            this.lineY5 = new cf01.ModuleClass.LineY();
+            this.lineY4 = new cf01.ModuleClass.LineY();
+            this.lineY3 = new cf01.ModuleClass.LineY();
+            this.lineY2 = new cf01.ModuleClass.LineY();
+            this.lineY1 = new cf01.ModuleClass.LineY();
+            this.lineX2 = new cf01.ModuleClass.LineX();
             this.txtuniversal_machine_confirm_sign = new DevExpress.XtraEditors.TextEdit();
             this.label22 = new System.Windows.Forms.Label();
             this.txtuniversal_machine_test_sign = new DevExpress.XtraEditors.TextEdit();
@@ -140,6 +195,7 @@
             this.chksample_no = new DevExpress.XtraEditors.CheckEdit();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lineX1 = new cf01.ModuleClass.LineX();
             this.lbllister_by = new System.Windows.Forms.Label();
             this.txtlister_by = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
@@ -172,6 +228,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkPrintAll = new System.Windows.Forms.CheckBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.BTNSAVESET = new System.Windows.Forms.Button();
@@ -187,13 +244,21 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.dgvFind = new System.Windows.Forms.DataGridView();
+            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.con_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mould_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.require_finish_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.application_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_yes1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.md_new1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.md_reproduced1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_by2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_date2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label34 = new System.Windows.Forms.Label();
-            this.txtmould_location = new DevExpress.XtraEditors.TextEdit();
-            this.sample_yes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sample_no = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.md_new = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.md_reproduced = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -243,107 +308,43 @@
             this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lineX8 = new cf01.ModuleClass.LineX();
-            this.lineX7 = new cf01.ModuleClass.LineX();
-            this.lineX6 = new cf01.ModuleClass.LineX();
-            this.lineY7 = new cf01.ModuleClass.LineY();
-            this.lineX5 = new cf01.ModuleClass.LineX();
-            this.lineY6 = new cf01.ModuleClass.LineY();
-            this.lineX4 = new cf01.ModuleClass.LineX();
-            this.lineX3 = new cf01.ModuleClass.LineX();
-            this.lineY5 = new cf01.ModuleClass.LineY();
-            this.lineY4 = new cf01.ModuleClass.LineY();
-            this.lineY3 = new cf01.ModuleClass.LineY();
-            this.lineY2 = new cf01.ModuleClass.LineY();
-            this.lineY1 = new cf01.ModuleClass.LineY();
-            this.lineX2 = new cf01.ModuleClass.LineX();
-            this.lineX1 = new cf01.ModuleClass.LineX();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.con_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mould_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.application_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.require_finish_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lister_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_md_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_md_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_test_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_confirm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.universal_machine_confirm_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_md_receive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_md_receive_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_test_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_confirm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eye_machine_confirm_sign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mould_instructions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mould_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mould_require = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawing_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mould_location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.picture_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.con_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mould_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.require_finish_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.application_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sample_yes1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sample_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.md_new1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.md_reproduced1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_by2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_date2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_by2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_date2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkPrintAll = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtmould_location.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgoods_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgoods_id.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_receive.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_receive.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_receive.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtapplication_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtapplication_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtapplication_date.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtrequire_finish_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtrequire_finish_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtrequire_finish_date.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdrawing_no.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_confirm_sign.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_test_sign.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_md_receive_sign.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_confirm.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_confirm.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_confirm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_test.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_test.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_test.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_md_receive.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_md_receive.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_md_receive.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_receive.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_receive.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_receive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_receive_sign.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuniversal_machine_confirm_sign.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuniversal_machine_test_sign.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuniversal_machine_md_receive_sign.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_confirm.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_confirm.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_confirm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_test.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_test.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_test.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_md_receive.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_md_receive.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_md_receive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chksample_no.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtlister_by.Properties)).BeginInit();
@@ -366,15 +367,14 @@
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtid1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmould_id2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmould_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtid2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtmould_location.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -520,9 +520,9 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -573,11 +573,346 @@
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "模具編號";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // con_date
+            // 
+            this.con_date.DataPropertyName = "con_date";
+            dataGridViewCellStyle1.NullValue = null;
+            this.con_date.DefaultCellStyle = dataGridViewCellStyle1;
+            this.con_date.HeaderText = "入單日期";
+            this.con_date.Name = "con_date";
+            this.con_date.ReadOnly = true;
+            this.con_date.Width = 90;
+            // 
+            // mould_id
+            // 
+            this.mould_id.DataPropertyName = "mould_id";
+            this.mould_id.HeaderText = "通知單編號";
+            this.mould_id.Name = "mould_id";
+            this.mould_id.ReadOnly = true;
+            this.mould_id.Width = 120;
+            // 
+            // application_date
+            // 
+            this.application_date.DataPropertyName = "application_date";
+            dataGridViewCellStyle2.NullValue = null;
+            this.application_date.DefaultCellStyle = dataGridViewCellStyle2;
+            this.application_date.HeaderText = "來稿日期";
+            this.application_date.Name = "application_date";
+            this.application_date.ReadOnly = true;
+            // 
+            // require_finish_date
+            // 
+            this.require_finish_date.DataPropertyName = "require_finish_date";
+            dataGridViewCellStyle3.NullValue = null;
+            this.require_finish_date.DefaultCellStyle = dataGridViewCellStyle3;
+            this.require_finish_date.HeaderText = "要求完成日期";
+            this.require_finish_date.Name = "require_finish_date";
+            this.require_finish_date.ReadOnly = true;
+            this.require_finish_date.Width = 90;
+            // 
+            // lister_by
+            // 
+            this.lister_by.DataPropertyName = "lister_by";
+            this.lister_by.HeaderText = "制表人";
+            this.lister_by.Name = "lister_by";
+            this.lister_by.ReadOnly = true;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "貨品編號";
+            this.goods_id.Name = "goods_id";
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品名稱";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            // 
+            // sample_yes
+            // 
+            this.sample_yes.DataPropertyName = "sample_yes";
+            this.sample_yes.HeaderText = "有辦";
+            this.sample_yes.Name = "sample_yes";
+            this.sample_yes.ReadOnly = true;
+            this.sample_yes.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sample_yes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.sample_yes.Width = 50;
+            // 
+            // sample_no
+            // 
+            this.sample_no.DataPropertyName = "sample_no";
+            this.sample_no.HeaderText = "無辦";
+            this.sample_no.Name = "sample_no";
+            this.sample_no.ReadOnly = true;
+            this.sample_no.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sample_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.sample_no.Width = 50;
+            // 
+            // md_new
+            // 
+            this.md_new.DataPropertyName = "md_new";
+            this.md_new.HeaderText = "新模制作";
+            this.md_new.Name = "md_new";
+            this.md_new.ReadOnly = true;
+            this.md_new.Width = 50;
+            // 
+            // md_reproduced
+            // 
+            this.md_reproduced.DataPropertyName = "md_reproduced";
+            this.md_reproduced.HeaderText = "工模再制";
+            this.md_reproduced.Name = "md_reproduced";
+            this.md_reproduced.ReadOnly = true;
+            this.md_reproduced.Width = 50;
+            // 
+            // universal_machine_receive
+            // 
+            this.universal_machine_receive.DataPropertyName = "universal_machine_receive";
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle4.NullValue = null;
+            this.universal_machine_receive.DefaultCellStyle = dataGridViewCellStyle4;
+            this.universal_machine_receive.HeaderText = "車間接收(萬能機)";
+            this.universal_machine_receive.Name = "universal_machine_receive";
+            this.universal_machine_receive.ReadOnly = true;
+            // 
+            // universal_machine_receive_sign
+            // 
+            this.universal_machine_receive_sign.DataPropertyName = "universal_machine_receive_sign";
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Maroon;
+            this.universal_machine_receive_sign.DefaultCellStyle = dataGridViewCellStyle5;
+            this.universal_machine_receive_sign.HeaderText = "車間簽名(萬能機)";
+            this.universal_machine_receive_sign.Name = "universal_machine_receive_sign";
+            this.universal_machine_receive_sign.ReadOnly = true;
+            // 
+            // universal_machine_md_receive
+            // 
+            this.universal_machine_md_receive.DataPropertyName = "universal_machine_md_receive";
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle6.NullValue = null;
+            this.universal_machine_md_receive.DefaultCellStyle = dataGridViewCellStyle6;
+            this.universal_machine_md_receive.HeaderText = "模具組接收(萬能機)";
+            this.universal_machine_md_receive.Name = "universal_machine_md_receive";
+            this.universal_machine_md_receive.ReadOnly = true;
+            // 
+            // universal_machine_md_receive_sign
+            // 
+            this.universal_machine_md_receive_sign.DataPropertyName = "universal_machine_md_receive_sign";
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Maroon;
+            this.universal_machine_md_receive_sign.DefaultCellStyle = dataGridViewCellStyle7;
+            this.universal_machine_md_receive_sign.HeaderText = "模具組簽收(萬能機)";
+            this.universal_machine_md_receive_sign.Name = "universal_machine_md_receive_sign";
+            this.universal_machine_md_receive_sign.ReadOnly = true;
+            // 
+            // universal_machine_test
+            // 
+            this.universal_machine_test.DataPropertyName = "universal_machine_test";
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle8.NullValue = null;
+            this.universal_machine_test.DefaultCellStyle = dataGridViewCellStyle8;
+            this.universal_machine_test.HeaderText = "車間試模(萬能機)";
+            this.universal_machine_test.Name = "universal_machine_test";
+            this.universal_machine_test.ReadOnly = true;
+            // 
+            // universal_machine_test_sign
+            // 
+            this.universal_machine_test_sign.DataPropertyName = "universal_machine_test_sign";
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Maroon;
+            this.universal_machine_test_sign.DefaultCellStyle = dataGridViewCellStyle9;
+            this.universal_machine_test_sign.HeaderText = "車間試模簽名(萬能機)";
+            this.universal_machine_test_sign.Name = "universal_machine_test_sign";
+            this.universal_machine_test_sign.ReadOnly = true;
+            // 
+            // universal_machine_confirm
+            // 
+            this.universal_machine_confirm.DataPropertyName = "universal_machine_confirm";
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle10.NullValue = null;
+            this.universal_machine_confirm.DefaultCellStyle = dataGridViewCellStyle10;
+            this.universal_machine_confirm.HeaderText = "經理確認(萬能機)";
+            this.universal_machine_confirm.Name = "universal_machine_confirm";
+            this.universal_machine_confirm.ReadOnly = true;
+            // 
+            // universal_machine_confirm_sign
+            // 
+            this.universal_machine_confirm_sign.DataPropertyName = "universal_machine_confirm_sign";
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Maroon;
+            this.universal_machine_confirm_sign.DefaultCellStyle = dataGridViewCellStyle11;
+            this.universal_machine_confirm_sign.HeaderText = "經理簽名(萬能機)";
+            this.universal_machine_confirm_sign.Name = "universal_machine_confirm_sign";
+            this.universal_machine_confirm_sign.ReadOnly = true;
+            // 
+            // eye_machine_receive
+            // 
+            this.eye_machine_receive.DataPropertyName = "eye_machine_receive";
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle12.NullValue = null;
+            this.eye_machine_receive.DefaultCellStyle = dataGridViewCellStyle12;
+            this.eye_machine_receive.HeaderText = "車間接收(雞眼)";
+            this.eye_machine_receive.Name = "eye_machine_receive";
+            this.eye_machine_receive.ReadOnly = true;
+            // 
+            // eye_machine_receive_sign
+            // 
+            this.eye_machine_receive_sign.DataPropertyName = "eye_machine_receive_sign";
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Green;
+            this.eye_machine_receive_sign.DefaultCellStyle = dataGridViewCellStyle13;
+            this.eye_machine_receive_sign.HeaderText = "車間簽名(雞眼)";
+            this.eye_machine_receive_sign.Name = "eye_machine_receive_sign";
+            this.eye_machine_receive_sign.ReadOnly = true;
+            // 
+            // eye_machine_md_receive
+            // 
+            this.eye_machine_md_receive.DataPropertyName = "eye_machine_md_receive";
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle14.NullValue = null;
+            this.eye_machine_md_receive.DefaultCellStyle = dataGridViewCellStyle14;
+            this.eye_machine_md_receive.HeaderText = "模具組接收(雞眼)";
+            this.eye_machine_md_receive.Name = "eye_machine_md_receive";
+            this.eye_machine_md_receive.ReadOnly = true;
+            // 
+            // eye_machine_md_receive_sign
+            // 
+            this.eye_machine_md_receive_sign.DataPropertyName = "eye_machine_md_receive_sign";
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Green;
+            this.eye_machine_md_receive_sign.DefaultCellStyle = dataGridViewCellStyle15;
+            this.eye_machine_md_receive_sign.HeaderText = "模具組簽名(雞眼）";
+            this.eye_machine_md_receive_sign.Name = "eye_machine_md_receive_sign";
+            this.eye_machine_md_receive_sign.ReadOnly = true;
+            // 
+            // eye_machine_test
+            // 
+            this.eye_machine_test.DataPropertyName = "eye_machine_test";
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle16.NullValue = null;
+            this.eye_machine_test.DefaultCellStyle = dataGridViewCellStyle16;
+            this.eye_machine_test.HeaderText = "車間試模(雞眼)";
+            this.eye_machine_test.Name = "eye_machine_test";
+            this.eye_machine_test.ReadOnly = true;
+            // 
+            // eye_machine_test_sign
+            // 
+            this.eye_machine_test_sign.DataPropertyName = "eye_machine_test_sign";
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Green;
+            this.eye_machine_test_sign.DefaultCellStyle = dataGridViewCellStyle17;
+            this.eye_machine_test_sign.HeaderText = "車間試模簽名(雞眼）";
+            this.eye_machine_test_sign.Name = "eye_machine_test_sign";
+            this.eye_machine_test_sign.ReadOnly = true;
+            // 
+            // eye_machine_confirm
+            // 
+            this.eye_machine_confirm.DataPropertyName = "eye_machine_confirm";
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle18.NullValue = null;
+            this.eye_machine_confirm.DefaultCellStyle = dataGridViewCellStyle18;
+            this.eye_machine_confirm.HeaderText = "經理確認(雞眼)";
+            this.eye_machine_confirm.Name = "eye_machine_confirm";
+            this.eye_machine_confirm.ReadOnly = true;
+            // 
+            // eye_machine_confirm_sign
+            // 
+            this.eye_machine_confirm_sign.DataPropertyName = "eye_machine_confirm_sign";
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Green;
+            this.eye_machine_confirm_sign.DefaultCellStyle = dataGridViewCellStyle19;
+            this.eye_machine_confirm_sign.HeaderText = "經理簽名(雞眼)";
+            this.eye_machine_confirm_sign.Name = "eye_machine_confirm_sign";
+            this.eye_machine_confirm_sign.ReadOnly = true;
+            // 
+            // mould_instructions
+            // 
+            this.mould_instructions.DataPropertyName = "mould_instructions";
+            this.mould_instructions.HeaderText = "模具說明";
+            this.mould_instructions.Name = "mould_instructions";
+            this.mould_instructions.ReadOnly = true;
+            // 
+            // mould_qty
+            // 
+            this.mould_qty.DataPropertyName = "mould_qty";
+            this.mould_qty.HeaderText = "做模數量";
+            this.mould_qty.Name = "mould_qty";
+            this.mould_qty.ReadOnly = true;
+            // 
+            // mould_require
+            // 
+            this.mould_require.DataPropertyName = "mould_require";
+            this.mould_require.HeaderText = "做模要求";
+            this.mould_require.Name = "mould_require";
+            this.mould_require.ReadOnly = true;
+            // 
+            // drawing_no
+            // 
+            this.drawing_no.DataPropertyName = "drawing_no";
+            this.drawing_no.HeaderText = "圖紙編號";
+            this.drawing_no.Name = "drawing_no";
+            this.drawing_no.ReadOnly = true;
+            // 
+            // mould_location
+            // 
+            this.mould_location.DataPropertyName = "mould_location";
+            this.mould_location.HeaderText = "模具位置";
+            this.mould_location.Name = "mould_location";
+            this.mould_location.ReadOnly = true;
+            // 
+            // create_by
+            // 
+            this.create_by.DataPropertyName = "create_by";
+            this.create_by.HeaderText = "Create by";
+            this.create_by.Name = "create_by";
+            this.create_by.ReadOnly = true;
+            this.create_by.Visible = false;
+            this.create_by.Width = 80;
+            // 
+            // create_date
+            // 
+            this.create_date.DataPropertyName = "create_date";
+            this.create_date.HeaderText = "Create Date";
+            this.create_date.Name = "create_date";
+            this.create_date.ReadOnly = true;
+            this.create_date.Visible = false;
+            // 
+            // update_by
+            // 
+            this.update_by.DataPropertyName = "update_by";
+            this.update_by.HeaderText = "Update by";
+            this.update_by.Name = "update_by";
+            this.update_by.ReadOnly = true;
+            this.update_by.Visible = false;
+            // 
+            // update_date
+            // 
+            this.update_date.DataPropertyName = "update_date";
+            this.update_date.HeaderText = "Update Date";
+            this.update_date.Name = "update_date";
+            this.update_date.ReadOnly = true;
+            this.update_date.Visible = false;
+            // 
+            // picture_name
+            // 
+            this.picture_name.DataPropertyName = "picture_name";
+            this.picture_name.HeaderText = "picture_name";
+            this.picture_name.Name = "picture_name";
+            this.picture_name.ReadOnly = true;
+            this.picture_name.Visible = false;
+            // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.dgvDetails);
             this.panel1.Location = new System.Drawing.Point(1, 1);
@@ -587,8 +922,8 @@
             // 
             // panel7
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.Controls.Add(this.txtmould_location);
             this.panel7.Controls.Add(this.label34);
             this.panel7.Controls.Add(this.txtgoods_name);
@@ -685,6 +1020,31 @@
             this.panel7.Size = new System.Drawing.Size(994, 508);
             this.panel7.TabIndex = 79;
             // 
+            // txtmould_location
+            // 
+            this.txtmould_location.EditValue = "";
+            this.txtmould_location.EnterMoveNextControl = true;
+            this.txtmould_location.Location = new System.Drawing.Point(96, 101);
+            this.txtmould_location.Name = "txtmould_location";
+            this.txtmould_location.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtmould_location.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtmould_location.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtmould_location.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtmould_location.Properties.MaxLength = 20;
+            this.txtmould_location.Properties.ReadOnly = true;
+            this.txtmould_location.Size = new System.Drawing.Size(142, 22);
+            this.txtmould_location.TabIndex = 273;
+            this.txtmould_location.Tag = "2";
+            // 
+            // label34
+            // 
+            this.label34.Location = new System.Drawing.Point(17, 103);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(77, 16);
+            this.label34.TabIndex = 272;
+            this.label34.Text = "模具位置:";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txtgoods_name
             // 
             this.txtgoods_name.EditValue = "";
@@ -741,6 +1101,8 @@
             this.dtuniversal_machine_receive.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtuniversal_machine_receive.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtuniversal_machine_receive.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_receive.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:ss";
             this.dtuniversal_machine_receive.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtuniversal_machine_receive.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:ss";
@@ -749,8 +1111,6 @@
             this.dtuniversal_machine_receive.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtuniversal_machine_receive.Properties.MaxLength = 16;
             this.dtuniversal_machine_receive.Properties.NullDate = "";
-            this.dtuniversal_machine_receive.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_receive.Size = new System.Drawing.Size(152, 22);
             this.dtuniversal_machine_receive.TabIndex = 12;
             this.dtuniversal_machine_receive.Tag = "2";
@@ -767,6 +1127,8 @@
             this.dtapplication_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtapplication_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtapplication_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtapplication_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtapplication_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtapplication_date.Properties.EditFormat.FormatString = "yyyy-MM-dd";
@@ -775,8 +1137,6 @@
             this.dtapplication_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtapplication_date.Properties.MaxLength = 10;
             this.dtapplication_date.Properties.NullDate = "";
-            this.dtapplication_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtapplication_date.Size = new System.Drawing.Size(157, 22);
             this.dtapplication_date.TabIndex = 2;
             this.dtapplication_date.Tag = "2";
@@ -793,6 +1153,8 @@
             this.dtrequire_finish_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtrequire_finish_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtrequire_finish_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtrequire_finish_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtrequire_finish_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtrequire_finish_date.Properties.EditFormat.FormatString = "yyyy-MM-dd";
@@ -801,8 +1163,6 @@
             this.dtrequire_finish_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtrequire_finish_date.Properties.MaxLength = 10;
             this.dtrequire_finish_date.Properties.NullDate = "";
-            this.dtrequire_finish_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtrequire_finish_date.Size = new System.Drawing.Size(164, 22);
             this.dtrequire_finish_date.TabIndex = 3;
             this.dtrequire_finish_date.Tag = "2";
@@ -819,6 +1179,8 @@
             this.dtcon_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtcon_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtcon_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtcon_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtcon_date.Properties.EditFormat.FormatString = "yyyy-MM-dd";
@@ -827,8 +1189,6 @@
             this.dtcon_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtcon_date.Properties.MaxLength = 10;
             this.dtcon_date.Properties.NullDate = "";
-            this.dtcon_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date.Size = new System.Drawing.Size(142, 22);
             this.dtcon_date.TabIndex = 266;
             this.dtcon_date.Tag = "2";
@@ -858,6 +1218,24 @@
             this.txtmo_id.TabIndex = 9;
             this.txtmo_id.Tag = "2";
             // 
+            // lineX8
+            // 
+            this.lineX8.LineColor = System.Drawing.Color.Snow;
+            this.lineX8.LineWidth = 1;
+            this.lineX8.Location = new System.Drawing.Point(9, 500);
+            this.lineX8.Name = "lineX8";
+            this.lineX8.Size = new System.Drawing.Size(975, 1);
+            this.lineX8.TabIndex = 263;
+            // 
+            // lineX7
+            // 
+            this.lineX7.LineColor = System.Drawing.Color.Snow;
+            this.lineX7.LineWidth = 1;
+            this.lineX7.Location = new System.Drawing.Point(10, 467);
+            this.lineX7.Name = "lineX7";
+            this.lineX7.Size = new System.Drawing.Size(975, 1);
+            this.lineX7.TabIndex = 262;
+            // 
             // txtdrawing_no
             // 
             this.txtdrawing_no.EnterMoveNextControl = true;
@@ -882,6 +1260,24 @@
             this.label8.Text = "圖紙編號:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lineX6
+            // 
+            this.lineX6.LineColor = System.Drawing.Color.Snow;
+            this.lineX6.LineWidth = 1;
+            this.lineX6.Location = new System.Drawing.Point(9, 437);
+            this.lineX6.Name = "lineX6";
+            this.lineX6.Size = new System.Drawing.Size(638, 1);
+            this.lineX6.TabIndex = 259;
+            // 
+            // lineY7
+            // 
+            this.lineY7.LineColor = System.Drawing.Color.Snow;
+            this.lineY7.LineWidth = 1;
+            this.lineY7.Location = new System.Drawing.Point(771, 304);
+            this.lineY7.Name = "lineY7";
+            this.lineY7.Size = new System.Drawing.Size(1, 30);
+            this.lineY7.TabIndex = 258;
+            // 
             // label32
             // 
             this.label32.Location = new System.Drawing.Point(660, 312);
@@ -890,6 +1286,42 @@
             this.label32.TabIndex = 257;
             this.label32.Text = "模具制作數量";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lineX5
+            // 
+            this.lineX5.LineColor = System.Drawing.Color.Snow;
+            this.lineX5.LineWidth = 1;
+            this.lineX5.Location = new System.Drawing.Point(10, 333);
+            this.lineX5.Name = "lineX5";
+            this.lineX5.Size = new System.Drawing.Size(975, 1);
+            this.lineX5.TabIndex = 256;
+            // 
+            // lineY6
+            // 
+            this.lineY6.LineColor = System.Drawing.Color.Snow;
+            this.lineY6.LineWidth = 1;
+            this.lineY6.Location = new System.Drawing.Point(646, 304);
+            this.lineY6.Name = "lineY6";
+            this.lineY6.Size = new System.Drawing.Size(1, 164);
+            this.lineY6.TabIndex = 255;
+            // 
+            // lineX4
+            // 
+            this.lineX4.LineColor = System.Drawing.Color.Snow;
+            this.lineX4.LineWidth = 1;
+            this.lineX4.Location = new System.Drawing.Point(10, 303);
+            this.lineX4.Name = "lineX4";
+            this.lineX4.Size = new System.Drawing.Size(975, 1);
+            this.lineX4.TabIndex = 254;
+            // 
+            // lineX3
+            // 
+            this.lineX3.LineColor = System.Drawing.Color.Snow;
+            this.lineX3.LineWidth = 1;
+            this.lineX3.Location = new System.Drawing.Point(9, 297);
+            this.lineX3.Name = "lineX3";
+            this.lineX3.Size = new System.Drawing.Size(975, 1);
+            this.lineX3.TabIndex = 253;
             // 
             // txteye_machine_confirm_sign
             // 
@@ -983,6 +1415,8 @@
             this.dteye_machine_confirm.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dteye_machine_confirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteye_machine_confirm.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_confirm.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:ss";
             this.dteye_machine_confirm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteye_machine_confirm.Properties.EditFormat.FormatString = "yyyy/MM/dd hh:ss";
@@ -990,8 +1424,6 @@
             this.dteye_machine_confirm.Properties.Mask.EditMask = "yyyy/MM/dd HH:ss";
             this.dteye_machine_confirm.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dteye_machine_confirm.Properties.MaxLength = 10;
-            this.dteye_machine_confirm.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_confirm.Size = new System.Drawing.Size(164, 22);
             this.dteye_machine_confirm.TabIndex = 26;
             this.dteye_machine_confirm.Tag = "2";
@@ -1020,6 +1452,8 @@
             this.dteye_machine_test.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dteye_machine_test.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteye_machine_test.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_test.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:ss";
             this.dteye_machine_test.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteye_machine_test.Properties.EditFormat.FormatString = "yyyy/MM/dd hh:ss";
@@ -1027,8 +1461,6 @@
             this.dteye_machine_test.Properties.Mask.EditMask = "yyyy/MM/dd HH:ss";
             this.dteye_machine_test.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dteye_machine_test.Properties.MaxLength = 10;
-            this.dteye_machine_test.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_test.Size = new System.Drawing.Size(164, 22);
             this.dteye_machine_test.TabIndex = 24;
             this.dteye_machine_test.Tag = "2";
@@ -1057,6 +1489,8 @@
             this.dteye_machine_md_receive.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dteye_machine_md_receive.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteye_machine_md_receive.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_md_receive.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:ss";
             this.dteye_machine_md_receive.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteye_machine_md_receive.Properties.EditFormat.FormatString = "yyyy/MM/dd hh:ss";
@@ -1064,8 +1498,6 @@
             this.dteye_machine_md_receive.Properties.Mask.EditMask = "yyyy/MM/dd HH:ss";
             this.dteye_machine_md_receive.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dteye_machine_md_receive.Properties.MaxLength = 10;
-            this.dteye_machine_md_receive.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_md_receive.Size = new System.Drawing.Size(152, 22);
             this.dteye_machine_md_receive.TabIndex = 22;
             this.dteye_machine_md_receive.Tag = "2";
@@ -1094,6 +1526,8 @@
             this.dteye_machine_receive.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dteye_machine_receive.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteye_machine_receive.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_receive.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:ss";
             this.dteye_machine_receive.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteye_machine_receive.Properties.EditFormat.FormatString = "yyyy/MM/dd hh:ss";
@@ -1101,8 +1535,6 @@
             this.dteye_machine_receive.Properties.Mask.EditMask = "yyyy/MM/dd HH:ss";
             this.dteye_machine_receive.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dteye_machine_receive.Properties.MaxLength = 10;
-            this.dteye_machine_receive.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteye_machine_receive.Size = new System.Drawing.Size(152, 22);
             this.dteye_machine_receive.TabIndex = 20;
             this.dteye_machine_receive.Tag = "2";
@@ -1142,6 +1574,60 @@
             this.label31.TabIndex = 238;
             this.label31.Text = "簽名:";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lineY5
+            // 
+            this.lineY5.LineColor = System.Drawing.Color.Snow;
+            this.lineY5.LineWidth = 1;
+            this.lineY5.Location = new System.Drawing.Point(646, 129);
+            this.lineY5.Name = "lineY5";
+            this.lineY5.Size = new System.Drawing.Size(1, 169);
+            this.lineY5.TabIndex = 236;
+            // 
+            // lineY4
+            // 
+            this.lineY4.LineColor = System.Drawing.Color.Snow;
+            this.lineY4.LineWidth = 1;
+            this.lineY4.Location = new System.Drawing.Point(417, 129);
+            this.lineY4.Name = "lineY4";
+            this.lineY4.Size = new System.Drawing.Size(1, 169);
+            this.lineY4.TabIndex = 235;
+            // 
+            // lineY3
+            // 
+            this.lineY3.LineColor = System.Drawing.Color.Snow;
+            this.lineY3.LineWidth = 1;
+            this.lineY3.Location = new System.Drawing.Point(215, 129);
+            this.lineY3.Name = "lineY3";
+            this.lineY3.Size = new System.Drawing.Size(1, 169);
+            this.lineY3.TabIndex = 234;
+            // 
+            // lineY2
+            // 
+            this.lineY2.LineColor = System.Drawing.Color.Snow;
+            this.lineY2.LineWidth = 1;
+            this.lineY2.Location = new System.Drawing.Point(984, 129);
+            this.lineY2.Name = "lineY2";
+            this.lineY2.Size = new System.Drawing.Size(1, 372);
+            this.lineY2.TabIndex = 233;
+            // 
+            // lineY1
+            // 
+            this.lineY1.LineColor = System.Drawing.Color.Snow;
+            this.lineY1.LineWidth = 1;
+            this.lineY1.Location = new System.Drawing.Point(9, 129);
+            this.lineY1.Name = "lineY1";
+            this.lineY1.Size = new System.Drawing.Size(1, 372);
+            this.lineY1.TabIndex = 232;
+            // 
+            // lineX2
+            // 
+            this.lineX2.LineColor = System.Drawing.Color.Snow;
+            this.lineX2.LineWidth = 2;
+            this.lineX2.Location = new System.Drawing.Point(10, 210);
+            this.lineX2.Name = "lineX2";
+            this.lineX2.Size = new System.Drawing.Size(975, 2);
+            this.lineX2.TabIndex = 231;
             // 
             // txtuniversal_machine_confirm_sign
             // 
@@ -1235,6 +1721,8 @@
             this.dtuniversal_machine_confirm.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtuniversal_machine_confirm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtuniversal_machine_confirm.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_confirm.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:ss";
             this.dtuniversal_machine_confirm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtuniversal_machine_confirm.Properties.EditFormat.FormatString = "yyyy/MM/dd hh:ss";
@@ -1242,8 +1730,6 @@
             this.dtuniversal_machine_confirm.Properties.Mask.EditMask = "yyyy/MM/dd HH:ss";
             this.dtuniversal_machine_confirm.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtuniversal_machine_confirm.Properties.MaxLength = 10;
-            this.dtuniversal_machine_confirm.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_confirm.Size = new System.Drawing.Size(164, 22);
             this.dtuniversal_machine_confirm.TabIndex = 18;
             this.dtuniversal_machine_confirm.Tag = "2";
@@ -1272,6 +1758,8 @@
             this.dtuniversal_machine_test.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtuniversal_machine_test.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtuniversal_machine_test.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_test.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:ss";
             this.dtuniversal_machine_test.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtuniversal_machine_test.Properties.EditFormat.FormatString = "yyyy/MM/dd hh:ss";
@@ -1279,8 +1767,6 @@
             this.dtuniversal_machine_test.Properties.Mask.EditMask = "yyyy/MM/dd HH:ss";
             this.dtuniversal_machine_test.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtuniversal_machine_test.Properties.MaxLength = 10;
-            this.dtuniversal_machine_test.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_test.Size = new System.Drawing.Size(164, 22);
             this.dtuniversal_machine_test.TabIndex = 16;
             this.dtuniversal_machine_test.Tag = "2";
@@ -1309,6 +1795,8 @@
             this.dtuniversal_machine_md_receive.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtuniversal_machine_md_receive.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtuniversal_machine_md_receive.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_md_receive.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:ss";
             this.dtuniversal_machine_md_receive.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtuniversal_machine_md_receive.Properties.EditFormat.FormatString = "yyyy/MM/dd HH:ss";
@@ -1316,8 +1804,6 @@
             this.dtuniversal_machine_md_receive.Properties.Mask.EditMask = "yyyy/MM/dd HH:ss";
             this.dtuniversal_machine_md_receive.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtuniversal_machine_md_receive.Properties.MaxLength = 10;
-            this.dtuniversal_machine_md_receive.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtuniversal_machine_md_receive.Size = new System.Drawing.Size(152, 22);
             this.dtuniversal_machine_md_receive.TabIndex = 14;
             this.dtuniversal_machine_md_receive.Tag = "2";
@@ -1367,6 +1853,15 @@
             this.label11.TabIndex = 215;
             this.label11.Text = "新模制作/工模再制控制流程";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lineX1
+            // 
+            this.lineX1.LineColor = System.Drawing.Color.Snow;
+            this.lineX1.LineWidth = 1;
+            this.lineX1.Location = new System.Drawing.Point(10, 128);
+            this.lineX1.Name = "lineX1";
+            this.lineX1.Size = new System.Drawing.Size(975, 1);
+            this.lineX1.TabIndex = 214;
             // 
             // lbllister_by
             // 
@@ -1706,9 +2201,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -1770,6 +2265,16 @@
             this.panel2.Size = new System.Drawing.Size(992, 109);
             this.panel2.TabIndex = 215;
             // 
+            // chkPrintAll
+            // 
+            this.chkPrintAll.AutoSize = true;
+            this.chkPrintAll.Location = new System.Drawing.Point(498, 15);
+            this.chkPrintAll.Name = "chkPrintAll";
+            this.chkPrintAll.Size = new System.Drawing.Size(180, 16);
+            this.chkPrintAll.TabIndex = 215;
+            this.chkPrintAll.Text = "是否連續列印多張模具編號？";
+            this.chkPrintAll.UseVisualStyleBackColor = true;
+            // 
             // btnSearch
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
@@ -1814,14 +2319,14 @@
             this.txtid1.Name = "txtid1";
             this.txtid1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtid1.Properties.MaxLength = 12;
-            this.txtid1.Size = new System.Drawing.Size(137, 22);
+            this.txtid1.Size = new System.Drawing.Size(132, 22);
             this.txtid1.TabIndex = 0;
             this.txtid1.Leave += new System.EventHandler(this.txtId1_Leave);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(278, 43);
+            this.label1.Location = new System.Drawing.Point(275, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 17);
             this.label1.TabIndex = 170;
@@ -1837,6 +2342,8 @@
             this.dtcon_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtcon_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtcon_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date2.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.dtcon_date2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtcon_date2.Properties.EditFormat.FormatString = "yyyy/MM/dd";
@@ -1844,9 +2351,7 @@
             this.dtcon_date2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtcon_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtcon_date2.Properties.MaxLength = 10;
-            this.dtcon_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtcon_date2.Size = new System.Drawing.Size(137, 22);
+            this.dtcon_date2.Size = new System.Drawing.Size(131, 22);
             this.dtcon_date2.TabIndex = 3;
             // 
             // txtmould_id2
@@ -1856,7 +2361,7 @@
             this.txtmould_id2.Name = "txtmould_id2";
             this.txtmould_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtmould_id2.Properties.MaxLength = 12;
-            this.txtmould_id2.Size = new System.Drawing.Size(137, 22);
+            this.txtmould_id2.Size = new System.Drawing.Size(131, 22);
             this.txtmould_id2.TabIndex = 168;
             // 
             // dtcon_date1
@@ -1868,6 +2373,8 @@
             this.dtcon_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtcon_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtcon_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtcon_date1.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.dtcon_date1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtcon_date1.Properties.EditFormat.FormatString = "yyyy/MM/dd";
@@ -1875,9 +2382,7 @@
             this.dtcon_date1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtcon_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtcon_date1.Properties.MaxLength = 10;
-            this.dtcon_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtcon_date1.Size = new System.Drawing.Size(137, 22);
+            this.dtcon_date1.Size = new System.Drawing.Size(132, 22);
             this.dtcon_date1.TabIndex = 2;
             this.dtcon_date1.Leave += new System.EventHandler(this.dtDat1_Leave);
             // 
@@ -1888,7 +2393,7 @@
             this.txtmould_id1.Name = "txtmould_id1";
             this.txtmould_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtmould_id1.Properties.MaxLength = 12;
-            this.txtmould_id1.Size = new System.Drawing.Size(137, 22);
+            this.txtmould_id1.Size = new System.Drawing.Size(132, 22);
             this.txtmould_id1.TabIndex = 167;
             // 
             // txtid2
@@ -1898,7 +2403,7 @@
             this.txtid2.Name = "txtid2";
             this.txtid2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtid2.Properties.MaxLength = 12;
-            this.txtid2.Size = new System.Drawing.Size(137, 22);
+            this.txtid2.Size = new System.Drawing.Size(131, 22);
             this.txtid2.TabIndex = 1;
             // 
             // label2
@@ -1914,7 +2419,7 @@
             // label35
             // 
             this.label35.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label35.Location = new System.Drawing.Point(278, 16);
+            this.label35.Location = new System.Drawing.Point(275, 16);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(25, 17);
             this.label35.TabIndex = 161;
@@ -1924,7 +2429,7 @@
             // label36
             // 
             this.label36.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label36.Location = new System.Drawing.Point(278, 71);
+            this.label36.Location = new System.Drawing.Point(275, 71);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(25, 17);
             this.label36.TabIndex = 165;
@@ -1945,18 +2450,18 @@
             // 
             this.dgvFind.AllowUserToAddRows = false;
             this.dgvFind.AllowUserToDeleteRows = false;
-            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFind.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id1,
@@ -1973,96 +2478,148 @@
             this.create_date2,
             this.update_by2,
             this.update_date2});
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgvFind.Location = new System.Drawing.Point(5, 114);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgvFind.RowTemplate.Height = 24;
             this.dgvFind.Size = new System.Drawing.Size(996, 619);
             this.dgvFind.TabIndex = 171;
             this.dgvFind.DoubleClick += new System.EventHandler(this.dgvFind_DoubleClick);
+            // 
+            // id1
+            // 
+            this.id1.DataPropertyName = "id";
+            this.id1.HeaderText = "模具編號";
+            this.id1.Name = "id1";
+            this.id1.ReadOnly = true;
+            this.id1.Width = 90;
+            // 
+            // con_date1
+            // 
+            this.con_date1.DataPropertyName = "con_date";
+            dataGridViewCellStyle21.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle21.NullValue = null;
+            this.con_date1.DefaultCellStyle = dataGridViewCellStyle21;
+            this.con_date1.HeaderText = "輸單日期";
+            this.con_date1.Name = "con_date1";
+            this.con_date1.ReadOnly = true;
+            // 
+            // mould_id1
+            // 
+            this.mould_id1.DataPropertyName = "mould_id";
+            this.mould_id1.HeaderText = "做模通知書編號";
+            this.mould_id1.Name = "mould_id1";
+            this.mould_id1.ReadOnly = true;
+            this.mould_id1.Width = 120;
+            // 
+            // require_finish_date1
+            // 
+            this.require_finish_date1.DataPropertyName = "require_finish_date";
+            this.require_finish_date1.HeaderText = "要求完成日期";
+            this.require_finish_date1.Name = "require_finish_date1";
+            this.require_finish_date1.ReadOnly = true;
+            this.require_finish_date1.Width = 200;
+            // 
+            // goods_id1
+            // 
+            this.goods_id1.DataPropertyName = "goods_id";
+            this.goods_id1.HeaderText = "貨品編號";
+            this.goods_id1.Name = "goods_id1";
+            this.goods_id1.ReadOnly = true;
+            // 
+            // application_date1
+            // 
+            this.application_date1.DataPropertyName = "application_date";
+            this.application_date1.HeaderText = "申請日期";
+            this.application_date1.Name = "application_date1";
+            this.application_date1.ReadOnly = true;
+            // 
+            // sample_yes1
+            // 
+            this.sample_yes1.DataPropertyName = "sample_yes";
+            this.sample_yes1.HeaderText = "有辦";
+            this.sample_yes1.Name = "sample_yes1";
+            this.sample_yes1.ReadOnly = true;
+            this.sample_yes1.Width = 60;
+            // 
+            // sample_no1
+            // 
+            this.sample_no1.DataPropertyName = "sample_no";
+            this.sample_no1.HeaderText = "無辦";
+            this.sample_no1.Name = "sample_no1";
+            this.sample_no1.ReadOnly = true;
+            this.sample_no1.Width = 60;
+            // 
+            // md_new1
+            // 
+            this.md_new1.DataPropertyName = "md_new";
+            this.md_new1.HeaderText = "新模";
+            this.md_new1.Name = "md_new1";
+            this.md_new1.ReadOnly = true;
+            this.md_new1.Width = 60;
+            // 
+            // md_reproduced1
+            // 
+            this.md_reproduced1.DataPropertyName = "md_reproduced";
+            this.md_reproduced1.HeaderText = "工模再制";
+            this.md_reproduced1.Name = "md_reproduced1";
+            this.md_reproduced1.ReadOnly = true;
+            this.md_reproduced1.Width = 80;
+            // 
+            // create_by2
+            // 
+            this.create_by2.DataPropertyName = "create_by";
+            this.create_by2.HeaderText = "Create by";
+            this.create_by2.Name = "create_by2";
+            this.create_by2.ReadOnly = true;
+            this.create_by2.Visible = false;
+            this.create_by2.Width = 80;
+            // 
+            // create_date2
+            // 
+            this.create_date2.DataPropertyName = "create_date";
+            this.create_date2.HeaderText = "Create Date";
+            this.create_date2.Name = "create_date2";
+            this.create_date2.ReadOnly = true;
+            this.create_date2.Visible = false;
+            // 
+            // update_by2
+            // 
+            this.update_by2.DataPropertyName = "update_by";
+            this.update_by2.HeaderText = "Update by";
+            this.update_by2.Name = "update_by2";
+            this.update_by2.ReadOnly = true;
+            this.update_by2.Visible = false;
+            // 
+            // update_date2
+            // 
+            this.update_date2.DataPropertyName = "update_date";
+            this.update_date2.HeaderText = "Update Date";
+            this.update_date2.Name = "update_date2";
+            this.update_date2.ReadOnly = true;
+            this.update_date2.Visible = false;
             // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "tb_query.png");
-            // 
-            // label34
-            // 
-            this.label34.Location = new System.Drawing.Point(17, 103);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(77, 16);
-            this.label34.TabIndex = 272;
-            this.label34.Text = "模具位置:";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtmould_location
-            // 
-            this.txtmould_location.EditValue = "";
-            this.txtmould_location.EnterMoveNextControl = true;
-            this.txtmould_location.Location = new System.Drawing.Point(96, 101);
-            this.txtmould_location.Name = "txtmould_location";
-            this.txtmould_location.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtmould_location.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtmould_location.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtmould_location.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtmould_location.Properties.MaxLength = 20;
-            this.txtmould_location.Properties.ReadOnly = true;
-            this.txtmould_location.Size = new System.Drawing.Size(142, 22);
-            this.txtmould_location.TabIndex = 273;
-            this.txtmould_location.Tag = "2";
-            // 
-            // sample_yes
-            // 
-            this.sample_yes.DataPropertyName = "sample_yes";
-            this.sample_yes.HeaderText = "有辦";
-            this.sample_yes.Name = "sample_yes";
-            this.sample_yes.ReadOnly = true;
-            this.sample_yes.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sample_yes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.sample_yes.Width = 50;
-            // 
-            // sample_no
-            // 
-            this.sample_no.DataPropertyName = "sample_no";
-            this.sample_no.HeaderText = "無辦";
-            this.sample_no.Name = "sample_no";
-            this.sample_no.ReadOnly = true;
-            this.sample_no.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sample_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.sample_no.Width = 50;
-            // 
-            // md_new
-            // 
-            this.md_new.DataPropertyName = "md_new";
-            this.md_new.HeaderText = "新模制作";
-            this.md_new.Name = "md_new";
-            this.md_new.ReadOnly = true;
-            this.md_new.Width = 50;
-            // 
-            // md_reproduced
-            // 
-            this.md_reproduced.DataPropertyName = "md_reproduced";
-            this.md_reproduced.HeaderText = "工模再制";
-            this.md_reproduced.Name = "md_reproduced";
-            this.md_reproduced.ReadOnly = true;
-            this.md_reproduced.Width = 50;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2075,9 +2632,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "form_date";
-            dataGridViewCellStyle53.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle53.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle24.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle24.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn2.HeaderText = "Date";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -2094,9 +2651,9 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "mo_list";
-            dataGridViewCellStyle54.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle54.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle25.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle25.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn4.HeaderText = "MO List";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -2105,9 +2662,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "cust_no";
-            dataGridViewCellStyle55.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle55.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle26.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle26.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn5.HeaderText = "C / NO.";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -2133,10 +2690,10 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "po_no";
-            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle56.Format = "g";
-            dataGridViewCellStyle56.NullValue = null;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle27.Format = "g";
+            dataGridViewCellStyle27.NullValue = null;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewTextBoxColumn8.HeaderText = "PO No.";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -2144,8 +2701,8 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "create_by";
-            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.Maroon;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Maroon;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn9.HeaderText = "Create by";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
@@ -2155,10 +2712,10 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "create_date";
-            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle58.Format = "g";
-            dataGridViewCellStyle58.NullValue = null;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle29.Format = "g";
+            dataGridViewCellStyle29.NullValue = null;
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn10.HeaderText = "Create Date";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -2167,8 +2724,8 @@
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "update_by";
-            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.Maroon;
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Maroon;
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn11.HeaderText = "Update by";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -2177,10 +2734,10 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "update_date";
-            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle60.Format = "g";
-            dataGridViewCellStyle60.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle31.Format = "g";
+            dataGridViewCellStyle31.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle31;
             this.dataGridViewTextBoxColumn12.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -2189,8 +2746,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "serial_no";
-            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.Maroon;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Maroon;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewTextBoxColumn13.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -2199,9 +2756,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "form_date";
-            dataGridViewCellStyle62.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle62.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle33.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle33.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle33;
             this.dataGridViewTextBoxColumn14.HeaderText = "Date";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -2209,8 +2766,8 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "oc_no";
-            dataGridViewCellStyle63.ForeColor = System.Drawing.Color.Maroon;
-            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Maroon;
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridViewTextBoxColumn15.HeaderText = "OC NO.";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
@@ -2219,10 +2776,10 @@
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "mo_list";
-            dataGridViewCellStyle64.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle64.Format = "g";
-            dataGridViewCellStyle64.NullValue = null;
-            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle35.Format = "g";
+            dataGridViewCellStyle35.NullValue = null;
+            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle35;
             this.dataGridViewTextBoxColumn16.HeaderText = "MO List";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
@@ -2231,8 +2788,8 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "cust_no";
-            dataGridViewCellStyle65.ForeColor = System.Drawing.Color.Green;
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Green;
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridViewTextBoxColumn17.HeaderText = "C / NO.";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
@@ -2240,10 +2797,10 @@
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "shipping_remark";
-            dataGridViewCellStyle66.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle66.Format = "g";
-            dataGridViewCellStyle66.NullValue = null;
-            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle37.Format = "g";
+            dataGridViewCellStyle37.NullValue = null;
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle37;
             this.dataGridViewTextBoxColumn18.HeaderText = "Shipping Remark";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
@@ -2252,8 +2809,8 @@
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "job_no";
-            dataGridViewCellStyle67.ForeColor = System.Drawing.Color.Green;
-            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Green;
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridViewTextBoxColumn19.HeaderText = "Job No.";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
@@ -2261,10 +2818,10 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "po_no";
-            dataGridViewCellStyle68.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle68.Format = "g";
-            dataGridViewCellStyle68.NullValue = null;
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle39.Format = "g";
+            dataGridViewCellStyle39.NullValue = null;
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridViewTextBoxColumn20.HeaderText = "PO No.";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -2272,8 +2829,8 @@
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "create_by";
-            dataGridViewCellStyle69.ForeColor = System.Drawing.Color.Green;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Green;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridViewTextBoxColumn21.HeaderText = "Create by";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -2283,10 +2840,10 @@
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.DataPropertyName = "create_date";
-            dataGridViewCellStyle70.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle70.Format = "g";
-            dataGridViewCellStyle70.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle41.Format = "g";
+            dataGridViewCellStyle41.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridViewTextBoxColumn22.HeaderText = "Create Date";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
@@ -2295,8 +2852,8 @@
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "update_by";
-            dataGridViewCellStyle71.ForeColor = System.Drawing.Color.Green;
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Green;
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataGridViewTextBoxColumn23.HeaderText = "Update by";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
@@ -2305,10 +2862,10 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "update_date";
-            dataGridViewCellStyle72.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle72.Format = "g";
-            dataGridViewCellStyle72.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle43.Format = "g";
+            dataGridViewCellStyle43.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle43;
             this.dataGridViewTextBoxColumn25.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
@@ -2317,8 +2874,8 @@
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.DataPropertyName = "mould_qty";
-            dataGridViewCellStyle73.ForeColor = System.Drawing.Color.Green;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Green;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridViewTextBoxColumn26.HeaderText = "做模數量";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
@@ -2384,9 +2941,9 @@
             // dataGridViewTextBoxColumn34
             // 
             this.dataGridViewTextBoxColumn34.DataPropertyName = "form_date";
-            dataGridViewCellStyle74.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle74.NullValue = null;
-            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle45.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle45.NullValue = null;
+            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle45;
             this.dataGridViewTextBoxColumn34.HeaderText = "Date";
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.ReadOnly = true;
@@ -2396,9 +2953,9 @@
             // dataGridViewTextBoxColumn35
             // 
             this.dataGridViewTextBoxColumn35.DataPropertyName = "oc_no";
-            dataGridViewCellStyle75.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle75.NullValue = null;
-            this.dataGridViewTextBoxColumn35.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle46.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle46.NullValue = null;
+            this.dataGridViewTextBoxColumn35.DefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridViewTextBoxColumn35.HeaderText = "OC NO.";
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
             this.dataGridViewTextBoxColumn35.ReadOnly = true;
@@ -2417,9 +2974,9 @@
             // dataGridViewTextBoxColumn37
             // 
             this.dataGridViewTextBoxColumn37.DataPropertyName = "cust_no";
-            dataGridViewCellStyle76.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle76.NullValue = null;
-            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle47.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle47.NullValue = null;
+            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridViewTextBoxColumn37.HeaderText = "C / NO.";
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
             this.dataGridViewTextBoxColumn37.ReadOnly = true;
@@ -2428,9 +2985,9 @@
             // dataGridViewTextBoxColumn38
             // 
             this.dataGridViewTextBoxColumn38.DataPropertyName = "shipping_remark";
-            dataGridViewCellStyle77.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle77.NullValue = null;
-            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle48.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle48.NullValue = null;
+            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridViewTextBoxColumn38.HeaderText = "Shipping Remark";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             this.dataGridViewTextBoxColumn38.ReadOnly = true;
@@ -2539,563 +3096,6 @@
             this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
             this.dataGridViewTextBoxColumn50.Visible = false;
             // 
-            // lineX8
-            // 
-            this.lineX8.LineColor = System.Drawing.Color.Snow;
-            this.lineX8.LineWidth = 1;
-            this.lineX8.Location = new System.Drawing.Point(9, 500);
-            this.lineX8.Name = "lineX8";
-            this.lineX8.Size = new System.Drawing.Size(975, 1);
-            this.lineX8.TabIndex = 263;
-            // 
-            // lineX7
-            // 
-            this.lineX7.LineColor = System.Drawing.Color.Snow;
-            this.lineX7.LineWidth = 1;
-            this.lineX7.Location = new System.Drawing.Point(10, 467);
-            this.lineX7.Name = "lineX7";
-            this.lineX7.Size = new System.Drawing.Size(975, 1);
-            this.lineX7.TabIndex = 262;
-            // 
-            // lineX6
-            // 
-            this.lineX6.LineColor = System.Drawing.Color.Snow;
-            this.lineX6.LineWidth = 1;
-            this.lineX6.Location = new System.Drawing.Point(9, 437);
-            this.lineX6.Name = "lineX6";
-            this.lineX6.Size = new System.Drawing.Size(638, 1);
-            this.lineX6.TabIndex = 259;
-            // 
-            // lineY7
-            // 
-            this.lineY7.LineColor = System.Drawing.Color.Snow;
-            this.lineY7.LineWidth = 1;
-            this.lineY7.Location = new System.Drawing.Point(771, 304);
-            this.lineY7.Name = "lineY7";
-            this.lineY7.Size = new System.Drawing.Size(1, 30);
-            this.lineY7.TabIndex = 258;
-            // 
-            // lineX5
-            // 
-            this.lineX5.LineColor = System.Drawing.Color.Snow;
-            this.lineX5.LineWidth = 1;
-            this.lineX5.Location = new System.Drawing.Point(10, 333);
-            this.lineX5.Name = "lineX5";
-            this.lineX5.Size = new System.Drawing.Size(975, 1);
-            this.lineX5.TabIndex = 256;
-            // 
-            // lineY6
-            // 
-            this.lineY6.LineColor = System.Drawing.Color.Snow;
-            this.lineY6.LineWidth = 1;
-            this.lineY6.Location = new System.Drawing.Point(646, 304);
-            this.lineY6.Name = "lineY6";
-            this.lineY6.Size = new System.Drawing.Size(1, 164);
-            this.lineY6.TabIndex = 255;
-            // 
-            // lineX4
-            // 
-            this.lineX4.LineColor = System.Drawing.Color.Snow;
-            this.lineX4.LineWidth = 1;
-            this.lineX4.Location = new System.Drawing.Point(10, 303);
-            this.lineX4.Name = "lineX4";
-            this.lineX4.Size = new System.Drawing.Size(975, 1);
-            this.lineX4.TabIndex = 254;
-            // 
-            // lineX3
-            // 
-            this.lineX3.LineColor = System.Drawing.Color.Snow;
-            this.lineX3.LineWidth = 1;
-            this.lineX3.Location = new System.Drawing.Point(9, 297);
-            this.lineX3.Name = "lineX3";
-            this.lineX3.Size = new System.Drawing.Size(975, 1);
-            this.lineX3.TabIndex = 253;
-            // 
-            // lineY5
-            // 
-            this.lineY5.LineColor = System.Drawing.Color.Snow;
-            this.lineY5.LineWidth = 1;
-            this.lineY5.Location = new System.Drawing.Point(646, 129);
-            this.lineY5.Name = "lineY5";
-            this.lineY5.Size = new System.Drawing.Size(1, 169);
-            this.lineY5.TabIndex = 236;
-            // 
-            // lineY4
-            // 
-            this.lineY4.LineColor = System.Drawing.Color.Snow;
-            this.lineY4.LineWidth = 1;
-            this.lineY4.Location = new System.Drawing.Point(417, 129);
-            this.lineY4.Name = "lineY4";
-            this.lineY4.Size = new System.Drawing.Size(1, 169);
-            this.lineY4.TabIndex = 235;
-            // 
-            // lineY3
-            // 
-            this.lineY3.LineColor = System.Drawing.Color.Snow;
-            this.lineY3.LineWidth = 1;
-            this.lineY3.Location = new System.Drawing.Point(215, 129);
-            this.lineY3.Name = "lineY3";
-            this.lineY3.Size = new System.Drawing.Size(1, 169);
-            this.lineY3.TabIndex = 234;
-            // 
-            // lineY2
-            // 
-            this.lineY2.LineColor = System.Drawing.Color.Snow;
-            this.lineY2.LineWidth = 1;
-            this.lineY2.Location = new System.Drawing.Point(984, 129);
-            this.lineY2.Name = "lineY2";
-            this.lineY2.Size = new System.Drawing.Size(1, 372);
-            this.lineY2.TabIndex = 233;
-            // 
-            // lineY1
-            // 
-            this.lineY1.LineColor = System.Drawing.Color.Snow;
-            this.lineY1.LineWidth = 1;
-            this.lineY1.Location = new System.Drawing.Point(9, 129);
-            this.lineY1.Name = "lineY1";
-            this.lineY1.Size = new System.Drawing.Size(1, 372);
-            this.lineY1.TabIndex = 232;
-            // 
-            // lineX2
-            // 
-            this.lineX2.LineColor = System.Drawing.Color.Snow;
-            this.lineX2.LineWidth = 2;
-            this.lineX2.Location = new System.Drawing.Point(10, 210);
-            this.lineX2.Name = "lineX2";
-            this.lineX2.Size = new System.Drawing.Size(975, 2);
-            this.lineX2.TabIndex = 231;
-            // 
-            // lineX1
-            // 
-            this.lineX1.LineColor = System.Drawing.Color.Snow;
-            this.lineX1.LineWidth = 1;
-            this.lineX1.Location = new System.Drawing.Point(10, 128);
-            this.lineX1.Name = "lineX1";
-            this.lineX1.Size = new System.Drawing.Size(975, 1);
-            this.lineX1.TabIndex = 214;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "模具編號";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // con_date
-            // 
-            this.con_date.DataPropertyName = "con_date";
-            dataGridViewCellStyle78.NullValue = null;
-            this.con_date.DefaultCellStyle = dataGridViewCellStyle78;
-            this.con_date.HeaderText = "入單日期";
-            this.con_date.Name = "con_date";
-            this.con_date.ReadOnly = true;
-            this.con_date.Width = 90;
-            // 
-            // mould_id
-            // 
-            this.mould_id.DataPropertyName = "mould_id";
-            this.mould_id.HeaderText = "通知單編號";
-            this.mould_id.Name = "mould_id";
-            this.mould_id.ReadOnly = true;
-            this.mould_id.Width = 120;
-            // 
-            // application_date
-            // 
-            this.application_date.DataPropertyName = "application_date";
-            dataGridViewCellStyle79.NullValue = null;
-            this.application_date.DefaultCellStyle = dataGridViewCellStyle79;
-            this.application_date.HeaderText = "來稿日期";
-            this.application_date.Name = "application_date";
-            this.application_date.ReadOnly = true;
-            // 
-            // require_finish_date
-            // 
-            this.require_finish_date.DataPropertyName = "require_finish_date";
-            dataGridViewCellStyle80.NullValue = null;
-            this.require_finish_date.DefaultCellStyle = dataGridViewCellStyle80;
-            this.require_finish_date.HeaderText = "要求完成日期";
-            this.require_finish_date.Name = "require_finish_date";
-            this.require_finish_date.ReadOnly = true;
-            this.require_finish_date.Width = 90;
-            // 
-            // lister_by
-            // 
-            this.lister_by.DataPropertyName = "lister_by";
-            this.lister_by.HeaderText = "制表人";
-            this.lister_by.Name = "lister_by";
-            this.lister_by.ReadOnly = true;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "頁數";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "貨品編號";
-            this.goods_id.Name = "goods_id";
-            // 
-            // goods_name
-            // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "貨品名稱";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.ReadOnly = true;
-            // 
-            // universal_machine_receive
-            // 
-            this.universal_machine_receive.DataPropertyName = "universal_machine_receive";
-            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle81.NullValue = null;
-            this.universal_machine_receive.DefaultCellStyle = dataGridViewCellStyle81;
-            this.universal_machine_receive.HeaderText = "車間接收(萬能機)";
-            this.universal_machine_receive.Name = "universal_machine_receive";
-            this.universal_machine_receive.ReadOnly = true;
-            // 
-            // universal_machine_receive_sign
-            // 
-            this.universal_machine_receive_sign.DataPropertyName = "universal_machine_receive_sign";
-            dataGridViewCellStyle82.ForeColor = System.Drawing.Color.Maroon;
-            this.universal_machine_receive_sign.DefaultCellStyle = dataGridViewCellStyle82;
-            this.universal_machine_receive_sign.HeaderText = "車間簽名(萬能機)";
-            this.universal_machine_receive_sign.Name = "universal_machine_receive_sign";
-            this.universal_machine_receive_sign.ReadOnly = true;
-            // 
-            // universal_machine_md_receive
-            // 
-            this.universal_machine_md_receive.DataPropertyName = "universal_machine_md_receive";
-            dataGridViewCellStyle83.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle83.NullValue = null;
-            this.universal_machine_md_receive.DefaultCellStyle = dataGridViewCellStyle83;
-            this.universal_machine_md_receive.HeaderText = "模具組接收(萬能機)";
-            this.universal_machine_md_receive.Name = "universal_machine_md_receive";
-            this.universal_machine_md_receive.ReadOnly = true;
-            // 
-            // universal_machine_md_receive_sign
-            // 
-            this.universal_machine_md_receive_sign.DataPropertyName = "universal_machine_md_receive_sign";
-            dataGridViewCellStyle84.ForeColor = System.Drawing.Color.Maroon;
-            this.universal_machine_md_receive_sign.DefaultCellStyle = dataGridViewCellStyle84;
-            this.universal_machine_md_receive_sign.HeaderText = "模具組簽收(萬能機)";
-            this.universal_machine_md_receive_sign.Name = "universal_machine_md_receive_sign";
-            this.universal_machine_md_receive_sign.ReadOnly = true;
-            // 
-            // universal_machine_test
-            // 
-            this.universal_machine_test.DataPropertyName = "universal_machine_test";
-            dataGridViewCellStyle85.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle85.NullValue = null;
-            this.universal_machine_test.DefaultCellStyle = dataGridViewCellStyle85;
-            this.universal_machine_test.HeaderText = "車間試模(萬能機)";
-            this.universal_machine_test.Name = "universal_machine_test";
-            this.universal_machine_test.ReadOnly = true;
-            // 
-            // universal_machine_test_sign
-            // 
-            this.universal_machine_test_sign.DataPropertyName = "universal_machine_test_sign";
-            dataGridViewCellStyle86.ForeColor = System.Drawing.Color.Maroon;
-            this.universal_machine_test_sign.DefaultCellStyle = dataGridViewCellStyle86;
-            this.universal_machine_test_sign.HeaderText = "車間試模簽名(萬能機)";
-            this.universal_machine_test_sign.Name = "universal_machine_test_sign";
-            this.universal_machine_test_sign.ReadOnly = true;
-            // 
-            // universal_machine_confirm
-            // 
-            this.universal_machine_confirm.DataPropertyName = "universal_machine_confirm";
-            dataGridViewCellStyle87.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle87.NullValue = null;
-            this.universal_machine_confirm.DefaultCellStyle = dataGridViewCellStyle87;
-            this.universal_machine_confirm.HeaderText = "經理確認(萬能機)";
-            this.universal_machine_confirm.Name = "universal_machine_confirm";
-            this.universal_machine_confirm.ReadOnly = true;
-            // 
-            // universal_machine_confirm_sign
-            // 
-            this.universal_machine_confirm_sign.DataPropertyName = "universal_machine_confirm_sign";
-            dataGridViewCellStyle88.ForeColor = System.Drawing.Color.Maroon;
-            this.universal_machine_confirm_sign.DefaultCellStyle = dataGridViewCellStyle88;
-            this.universal_machine_confirm_sign.HeaderText = "經理簽名(萬能機)";
-            this.universal_machine_confirm_sign.Name = "universal_machine_confirm_sign";
-            this.universal_machine_confirm_sign.ReadOnly = true;
-            // 
-            // eye_machine_receive
-            // 
-            this.eye_machine_receive.DataPropertyName = "eye_machine_receive";
-            dataGridViewCellStyle89.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle89.NullValue = null;
-            this.eye_machine_receive.DefaultCellStyle = dataGridViewCellStyle89;
-            this.eye_machine_receive.HeaderText = "車間接收(雞眼)";
-            this.eye_machine_receive.Name = "eye_machine_receive";
-            this.eye_machine_receive.ReadOnly = true;
-            // 
-            // eye_machine_receive_sign
-            // 
-            this.eye_machine_receive_sign.DataPropertyName = "eye_machine_receive_sign";
-            dataGridViewCellStyle90.ForeColor = System.Drawing.Color.Green;
-            this.eye_machine_receive_sign.DefaultCellStyle = dataGridViewCellStyle90;
-            this.eye_machine_receive_sign.HeaderText = "車間簽名(雞眼)";
-            this.eye_machine_receive_sign.Name = "eye_machine_receive_sign";
-            this.eye_machine_receive_sign.ReadOnly = true;
-            // 
-            // eye_machine_md_receive
-            // 
-            this.eye_machine_md_receive.DataPropertyName = "eye_machine_md_receive";
-            dataGridViewCellStyle91.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle91.NullValue = null;
-            this.eye_machine_md_receive.DefaultCellStyle = dataGridViewCellStyle91;
-            this.eye_machine_md_receive.HeaderText = "模具組接收(雞眼)";
-            this.eye_machine_md_receive.Name = "eye_machine_md_receive";
-            this.eye_machine_md_receive.ReadOnly = true;
-            // 
-            // eye_machine_md_receive_sign
-            // 
-            this.eye_machine_md_receive_sign.DataPropertyName = "eye_machine_md_receive_sign";
-            dataGridViewCellStyle92.ForeColor = System.Drawing.Color.Green;
-            this.eye_machine_md_receive_sign.DefaultCellStyle = dataGridViewCellStyle92;
-            this.eye_machine_md_receive_sign.HeaderText = "模具組簽名(雞眼）";
-            this.eye_machine_md_receive_sign.Name = "eye_machine_md_receive_sign";
-            this.eye_machine_md_receive_sign.ReadOnly = true;
-            // 
-            // eye_machine_test
-            // 
-            this.eye_machine_test.DataPropertyName = "eye_machine_test";
-            dataGridViewCellStyle93.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle93.NullValue = null;
-            this.eye_machine_test.DefaultCellStyle = dataGridViewCellStyle93;
-            this.eye_machine_test.HeaderText = "車間試模(雞眼)";
-            this.eye_machine_test.Name = "eye_machine_test";
-            this.eye_machine_test.ReadOnly = true;
-            // 
-            // eye_machine_test_sign
-            // 
-            this.eye_machine_test_sign.DataPropertyName = "eye_machine_test_sign";
-            dataGridViewCellStyle94.ForeColor = System.Drawing.Color.Green;
-            this.eye_machine_test_sign.DefaultCellStyle = dataGridViewCellStyle94;
-            this.eye_machine_test_sign.HeaderText = "車間試模簽名(雞眼）";
-            this.eye_machine_test_sign.Name = "eye_machine_test_sign";
-            this.eye_machine_test_sign.ReadOnly = true;
-            // 
-            // eye_machine_confirm
-            // 
-            this.eye_machine_confirm.DataPropertyName = "eye_machine_confirm";
-            dataGridViewCellStyle95.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle95.NullValue = null;
-            this.eye_machine_confirm.DefaultCellStyle = dataGridViewCellStyle95;
-            this.eye_machine_confirm.HeaderText = "經理確認(雞眼)";
-            this.eye_machine_confirm.Name = "eye_machine_confirm";
-            this.eye_machine_confirm.ReadOnly = true;
-            // 
-            // eye_machine_confirm_sign
-            // 
-            this.eye_machine_confirm_sign.DataPropertyName = "eye_machine_confirm_sign";
-            dataGridViewCellStyle96.ForeColor = System.Drawing.Color.Green;
-            this.eye_machine_confirm_sign.DefaultCellStyle = dataGridViewCellStyle96;
-            this.eye_machine_confirm_sign.HeaderText = "經理簽名(雞眼)";
-            this.eye_machine_confirm_sign.Name = "eye_machine_confirm_sign";
-            this.eye_machine_confirm_sign.ReadOnly = true;
-            // 
-            // mould_instructions
-            // 
-            this.mould_instructions.DataPropertyName = "mould_instructions";
-            this.mould_instructions.HeaderText = "模具說明";
-            this.mould_instructions.Name = "mould_instructions";
-            this.mould_instructions.ReadOnly = true;
-            // 
-            // mould_qty
-            // 
-            this.mould_qty.DataPropertyName = "mould_qty";
-            this.mould_qty.HeaderText = "做模數量";
-            this.mould_qty.Name = "mould_qty";
-            this.mould_qty.ReadOnly = true;
-            // 
-            // mould_require
-            // 
-            this.mould_require.DataPropertyName = "mould_require";
-            this.mould_require.HeaderText = "做模要求";
-            this.mould_require.Name = "mould_require";
-            this.mould_require.ReadOnly = true;
-            // 
-            // drawing_no
-            // 
-            this.drawing_no.DataPropertyName = "drawing_no";
-            this.drawing_no.HeaderText = "圖紙編號";
-            this.drawing_no.Name = "drawing_no";
-            this.drawing_no.ReadOnly = true;
-            // 
-            // mould_location
-            // 
-            this.mould_location.DataPropertyName = "mould_location";
-            this.mould_location.HeaderText = "模具位置";
-            this.mould_location.Name = "mould_location";
-            this.mould_location.ReadOnly = true;
-            // 
-            // create_by
-            // 
-            this.create_by.DataPropertyName = "create_by";
-            this.create_by.HeaderText = "Create by";
-            this.create_by.Name = "create_by";
-            this.create_by.ReadOnly = true;
-            this.create_by.Visible = false;
-            this.create_by.Width = 80;
-            // 
-            // create_date
-            // 
-            this.create_date.DataPropertyName = "create_date";
-            this.create_date.HeaderText = "Create Date";
-            this.create_date.Name = "create_date";
-            this.create_date.ReadOnly = true;
-            this.create_date.Visible = false;
-            // 
-            // update_by
-            // 
-            this.update_by.DataPropertyName = "update_by";
-            this.update_by.HeaderText = "Update by";
-            this.update_by.Name = "update_by";
-            this.update_by.ReadOnly = true;
-            this.update_by.Visible = false;
-            // 
-            // update_date
-            // 
-            this.update_date.DataPropertyName = "update_date";
-            this.update_date.HeaderText = "Update Date";
-            this.update_date.Name = "update_date";
-            this.update_date.ReadOnly = true;
-            this.update_date.Visible = false;
-            // 
-            // picture_name
-            // 
-            this.picture_name.DataPropertyName = "picture_name";
-            this.picture_name.HeaderText = "picture_name";
-            this.picture_name.Name = "picture_name";
-            this.picture_name.ReadOnly = true;
-            this.picture_name.Visible = false;
-            // 
-            // id1
-            // 
-            this.id1.DataPropertyName = "id";
-            this.id1.HeaderText = "模具編號";
-            this.id1.Name = "id1";
-            this.id1.ReadOnly = true;
-            this.id1.Width = 90;
-            // 
-            // con_date1
-            // 
-            this.con_date1.DataPropertyName = "con_date";
-            dataGridViewCellStyle50.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle50.NullValue = null;
-            this.con_date1.DefaultCellStyle = dataGridViewCellStyle50;
-            this.con_date1.HeaderText = "輸單日期";
-            this.con_date1.Name = "con_date1";
-            this.con_date1.ReadOnly = true;
-            // 
-            // mould_id1
-            // 
-            this.mould_id1.DataPropertyName = "mould_id";
-            this.mould_id1.HeaderText = "做模通知書編號";
-            this.mould_id1.Name = "mould_id1";
-            this.mould_id1.ReadOnly = true;
-            this.mould_id1.Width = 120;
-            // 
-            // require_finish_date1
-            // 
-            this.require_finish_date1.DataPropertyName = "require_finish_date";
-            this.require_finish_date1.HeaderText = "要求完成日期";
-            this.require_finish_date1.Name = "require_finish_date1";
-            this.require_finish_date1.ReadOnly = true;
-            this.require_finish_date1.Width = 200;
-            // 
-            // goods_id1
-            // 
-            this.goods_id1.DataPropertyName = "goods_id";
-            this.goods_id1.HeaderText = "貨品編號";
-            this.goods_id1.Name = "goods_id1";
-            this.goods_id1.ReadOnly = true;
-            // 
-            // application_date1
-            // 
-            this.application_date1.DataPropertyName = "application_date";
-            this.application_date1.HeaderText = "申請日期";
-            this.application_date1.Name = "application_date1";
-            this.application_date1.ReadOnly = true;
-            // 
-            // sample_yes1
-            // 
-            this.sample_yes1.DataPropertyName = "sample_yes";
-            this.sample_yes1.HeaderText = "有辦";
-            this.sample_yes1.Name = "sample_yes1";
-            this.sample_yes1.ReadOnly = true;
-            this.sample_yes1.Width = 60;
-            // 
-            // sample_no1
-            // 
-            this.sample_no1.DataPropertyName = "sample_no";
-            this.sample_no1.HeaderText = "無辦";
-            this.sample_no1.Name = "sample_no1";
-            this.sample_no1.ReadOnly = true;
-            this.sample_no1.Width = 60;
-            // 
-            // md_new1
-            // 
-            this.md_new1.DataPropertyName = "md_new";
-            this.md_new1.HeaderText = "新模";
-            this.md_new1.Name = "md_new1";
-            this.md_new1.ReadOnly = true;
-            this.md_new1.Width = 60;
-            // 
-            // md_reproduced1
-            // 
-            this.md_reproduced1.DataPropertyName = "md_reproduced";
-            this.md_reproduced1.HeaderText = "工模再制";
-            this.md_reproduced1.Name = "md_reproduced1";
-            this.md_reproduced1.ReadOnly = true;
-            this.md_reproduced1.Width = 80;
-            // 
-            // create_by2
-            // 
-            this.create_by2.DataPropertyName = "create_by";
-            this.create_by2.HeaderText = "Create by";
-            this.create_by2.Name = "create_by2";
-            this.create_by2.ReadOnly = true;
-            this.create_by2.Visible = false;
-            this.create_by2.Width = 80;
-            // 
-            // create_date2
-            // 
-            this.create_date2.DataPropertyName = "create_date";
-            this.create_date2.HeaderText = "Create Date";
-            this.create_date2.Name = "create_date2";
-            this.create_date2.ReadOnly = true;
-            this.create_date2.Visible = false;
-            // 
-            // update_by2
-            // 
-            this.update_by2.DataPropertyName = "update_by";
-            this.update_by2.HeaderText = "Update by";
-            this.update_by2.Name = "update_by2";
-            this.update_by2.ReadOnly = true;
-            this.update_by2.Visible = false;
-            // 
-            // update_date2
-            // 
-            this.update_date2.DataPropertyName = "update_date";
-            this.update_date2.HeaderText = "Update Date";
-            this.update_date2.Name = "update_date2";
-            this.update_date2.ReadOnly = true;
-            this.update_date2.Visible = false;
-            // 
-            // chkPrintAll
-            // 
-            this.chkPrintAll.AutoSize = true;
-            this.chkPrintAll.Location = new System.Drawing.Point(498, 15);
-            this.chkPrintAll.Name = "chkPrintAll";
-            this.chkPrintAll.Size = new System.Drawing.Size(180, 16);
-            this.chkPrintAll.TabIndex = 215;
-            this.chkPrintAll.Text = "是否連續列印多張模具編號？";
-            this.chkPrintAll.UseVisualStyleBackColor = true;
-            // 
             // frmMould_Process
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3113,38 +3113,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtmould_location.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgoods_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtgoods_id.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_receive.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_receive.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_receive.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtapplication_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtapplication_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtapplication_date.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtrequire_finish_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtrequire_finish_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtrequire_finish_date.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmo_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdrawing_no.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_confirm_sign.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_test_sign.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_md_receive_sign.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_confirm.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_confirm.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_confirm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_test.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_test.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_test.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_md_receive.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_md_receive.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_md_receive.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_receive.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_receive.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteye_machine_receive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteye_machine_receive_sign.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuniversal_machine_confirm_sign.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuniversal_machine_test_sign.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuniversal_machine_md_receive_sign.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_confirm.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_confirm.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_confirm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_test.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_test.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_test.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_md_receive.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_md_receive.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtuniversal_machine_md_receive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chksample_no.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtlister_by.Properties)).EndInit();
@@ -3168,15 +3169,14 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtid1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmould_id2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtcon_date1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmould_id1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtid2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtmould_location.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

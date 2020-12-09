@@ -53,7 +53,7 @@ namespace cf01.Forms
             }
             if (dtcon_date2.Text == "")
             {
-                dtcon_date2.EditValue = DateTime.Now.ToString("yyyy/MM/dd").Substring(0, 10);
+                dtcon_date2.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
             }
             chkPrintAll.Checked = false;
         }
@@ -184,7 +184,7 @@ namespace cf01.Forms
             //新增時判斷主鍵是否已存在
             if (mState == "NEW")
             {
-                if (!Valid_Date())
+                if (!ValidData())
                 {
                     return;
                 }
@@ -353,14 +353,17 @@ namespace cf01.Forms
         /// 新增時判斷主鍵是否已存在
         /// </summary>
         /// <returns></returns>
-        private bool Valid_Date()
+        private bool ValidData()
         {
             bool result=false ;
             string ls_sql = string.Format(@"select '1' from dbo.jo_mould_button Where id='{0}'", txtID.Text);
             if (clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql) == "")
-                result = true ;
+                result = true;
             else
+            {
+                MessageBox.Show(string.Format("已存在[{0}]畫稿編號,不可以重復錄入!", txtID.Text), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 result = false;
+            }
             return result;
         }
 
