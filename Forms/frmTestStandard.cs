@@ -47,11 +47,11 @@ namespace cf01.Forms
         public static string ststrRef_mo = "";  //參考頁數
         public static Boolean stbolFlag_Return = false;
 
-		DataTable dtStandard_mostly = new DataTable();
-		DataTable dtStandard_details = new DataTable();
-		DataTable dtTempDel = new DataTable();
-		DataTable dtTestItem = new DataTable();
-		DataTable dtType_condition = new DataTable();
+        public DataTable dtStandard_mostly = new DataTable();
+        public DataTable dtStandard_details = new DataTable();
+        public DataTable dtTempDel = new DataTable();
+        public DataTable dtTestItem = new DataTable();
+        public DataTable dtType_condition = new DataTable();
         private DataTable dtReport_Path_List = new DataTable();
 
 
@@ -74,13 +74,13 @@ namespace cf01.Forms
 
         private void frmTestStandard_FormClosed(object sender, FormClosedEventArgs e)
         {
-            clsConErp = null;
-            dtStandard_mostly = null;
-            dtStandard_details = null;
-            dtTempDel = null;
-            dtTestItem = null;
-            dtType_condition = null;
-            dtReport_Path_List.Dispose();
+            //clsConErp = null;
+            //dtStandard_mostly = null;
+            //dtStandard_details = null;
+            //dtTempDel = null;
+            //dtTestItem = null;
+            //dtType_condition = null;
+            //dtReport_Path_List.Dispose();
         }  
 
 		private void frmTestStandard_Load(object sender, EventArgs e)

@@ -21,12 +21,12 @@ namespace cf01.Forms
         private void btnSearchByParam_Click(object sender, EventArgs e)
         {
             btnSearchByParam.Focus();
-            if (txtSales_group.Text == "")
-            {
-                MessageBox.Show("請輸入組別資料!", "提示信息");
-                txtSales_group.Focus();
-                return;
-            }
+            //if (txtSales_group.Text == "")
+            //{
+            //    MessageBox.Show("請輸入組別資料!", "提示信息");
+            //    txtSales_group.Focus();
+            //    return;
+            //}
             GetTestExcel();
             if (dtTe.Rows.Count > 0)
             {

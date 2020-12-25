@@ -738,7 +738,7 @@ namespace cf01.CLS
                             LEFT JOIN bs_test_mat_type b ON a.mat_id=b.id
                             LEFT JOIN bs_test_color_category c ON a.color_id=c.id
                             LEFT JOIN bs_test_product_type d ON a.poduct_type_id=d.id
-                            Where 1>0");
+                            Where 1>0 ");
             if (objTe.mat_id != "" && objTe.mat_id != null)
             {
                 sb.Append(String.Format(" AND a.mat_id='{0}'", objTe.mat_id));
