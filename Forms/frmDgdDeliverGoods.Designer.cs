@@ -161,6 +161,8 @@
             this.txtGoods_id = new DevExpress.XtraEditors.TextEdit();
             this.xtbPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.txtGroup = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.btnPacking = new System.Windows.Forms.Button();
             this.radGrp2 = new DevExpress.XtraEditors.RadioGroup();
             this.btnInvoice = new System.Windows.Forms.Button();
@@ -193,7 +195,6 @@
             this.box_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvInvoice = new System.Windows.Forms.DataGridView();
-            this.radGrp1 = new DevExpress.XtraEditors.RadioGroup();
             this.invoice_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -217,6 +218,7 @@
             this.send_to_info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.treams_info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poitem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radGrp1 = new DevExpress.XtraEditors.RadioGroup();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIt_Customer.Properties)).BeginInit();
@@ -275,6 +277,7 @@
             this.xtbPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).BeginInit();
@@ -1230,7 +1233,7 @@
             this.chkIs_print.Name = "chkIs_print";
             this.chkIs_print.Properties.AutoWidth = true;
             this.chkIs_print.Properties.Caption = "列印";
-            this.chkIs_print.Size = new System.Drawing.Size(47, 19);
+            this.chkIs_print.Size = new System.Drawing.Size(46, 19);
             this.chkIs_print.TabIndex = 25;
             this.chkIs_print.EditValueChanged += new System.EventHandler(this.txtMo_id_EditValueChanged);
             // 
@@ -1624,11 +1627,13 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.Appearance.BackColor = System.Drawing.Color.LightGray;
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.panelControl2.Controls.Add(this.txtGroup);
+            this.panelControl2.Controls.Add(this.labelControl6);
             this.panelControl2.Controls.Add(this.btnPacking);
             this.panelControl2.Controls.Add(this.radGrp2);
             this.panelControl2.Controls.Add(this.btnInvoice);
@@ -1647,15 +1652,35 @@
             this.panelControl2.Controls.Add(this.labelControl2);
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1302, 71);
+            this.panelControl2.Size = new System.Drawing.Size(1302, 109);
             this.panelControl2.TabIndex = 2;
+            // 
+            // txtGroup
+            // 
+            this.txtGroup.EditValue = "C";
+            this.txtGroup.EnterMoveNextControl = true;
+            this.txtGroup.Location = new System.Drawing.Point(407, 68);
+            this.txtGroup.Name = "txtGroup";
+            this.txtGroup.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtGroup.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGroup.Properties.MaxLength = 1;
+            this.txtGroup.Size = new System.Drawing.Size(39, 22);
+            this.txtGroup.TabIndex = 21;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(307, 72);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(90, 14);
+            this.labelControl6.TabIndex = 22;
+            this.labelControl6.Text = " 匯出EXCEL組別:";
             // 
             // btnPacking
             // 
             this.btnPacking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnPacking.Image = global::cf01.Properties.Resources.Excel1;
             this.btnPacking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPacking.Location = new System.Drawing.Point(974, 16);
+            this.btnPacking.Location = new System.Drawing.Point(1031, 16);
             this.btnPacking.Name = "btnPacking";
             this.btnPacking.Size = new System.Drawing.Size(113, 39);
             this.btnPacking.TabIndex = 20;
@@ -1666,7 +1691,7 @@
             // 
             // radGrp2
             // 
-            this.radGrp2.Location = new System.Drawing.Point(387, 38);
+            this.radGrp2.Location = new System.Drawing.Point(407, 38);
             this.radGrp2.Name = "radGrp2";
             this.radGrp2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "送 貨 單"),
@@ -1680,7 +1705,7 @@
             this.btnInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnInvoice.Image = global::cf01.Properties.Resources.Excel1;
             this.btnInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInvoice.Location = new System.Drawing.Point(855, 16);
+            this.btnInvoice.Location = new System.Drawing.Point(900, 16);
             this.btnInvoice.Name = "btnInvoice";
             this.btnInvoice.Size = new System.Drawing.Size(113, 39);
             this.btnInvoice.TabIndex = 18;
@@ -1709,7 +1734,7 @@
             // 
             this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
             this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcel.Location = new System.Drawing.Point(725, 16);
+            this.btnExcel.Location = new System.Drawing.Point(765, 16);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(113, 39);
             this.btnExcel.TabIndex = 8;
@@ -1722,7 +1747,7 @@
             // 
             this.btnSearch.Image = global::cf01.Properties.Resources.find;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(619, 16);
+            this.btnSearch.Location = new System.Drawing.Point(653, 16);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(95, 39);
             this.btnSearch.TabIndex = 7;
@@ -1734,7 +1759,7 @@
             // mktDate2
             // 
             this.mktDate2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.mktDate2.Location = new System.Drawing.Point(503, 12);
+            this.mktDate2.Location = new System.Drawing.Point(523, 12);
             this.mktDate2.Mask = "0000/00/00";
             this.mktDate2.Name = "mktDate2";
             this.mktDate2.PromptChar = ' ';
@@ -1745,7 +1770,7 @@
             // mktDate1
             // 
             this.mktDate1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.mktDate1.Location = new System.Drawing.Point(387, 12);
+            this.mktDate1.Location = new System.Drawing.Point(407, 12);
             this.mktDate1.Mask = "0000/00/00";
             this.mktDate1.Name = "mktDate1";
             this.mktDate1.PromptChar = ' ';
@@ -1811,7 +1836,7 @@
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(325, 15);
+            this.lblDate.Location = new System.Drawing.Point(345, 15);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(52, 14);
             this.lblDate.TabIndex = 0;
@@ -1829,9 +1854,9 @@
             // 
             this.dgvExcel.AllowUserToAddRows = false;
             this.dgvExcel.AllowUserToDeleteRows = false;
-            this.dgvExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExcel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -1848,11 +1873,11 @@
             this.package_num,
             this.box_no,
             this.remark});
-            this.dgvExcel.Location = new System.Drawing.Point(3, 73);
+            this.dgvExcel.Location = new System.Drawing.Point(3, 112);
             this.dgvExcel.Name = "dgvExcel";
             this.dgvExcel.ReadOnly = true;
             this.dgvExcel.RowTemplate.Height = 24;
-            this.dgvExcel.Size = new System.Drawing.Size(1295, 559);
+            this.dgvExcel.Size = new System.Drawing.Size(1295, 520);
             this.dgvExcel.TabIndex = 32;
             // 
             // id
@@ -1957,9 +1982,9 @@
             // 
             this.dgvInvoice.AllowUserToAddRows = false;
             this.dgvInvoice.AllowUserToDeleteRows = false;
-            this.dgvInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.invoice_id,
@@ -1985,27 +2010,14 @@
             this.send_to_info,
             this.treams_info,
             this.poitem});
-            this.dgvInvoice.Location = new System.Drawing.Point(3, 73);
+            this.dgvInvoice.Location = new System.Drawing.Point(3, 112);
             this.dgvInvoice.Name = "dgvInvoice";
             this.dgvInvoice.ReadOnly = true;
             this.dgvInvoice.RowTemplate.Height = 30;
-            this.dgvInvoice.Size = new System.Drawing.Size(1295, 559);
+            this.dgvInvoice.Size = new System.Drawing.Size(1295, 520);
             this.dgvInvoice.TabIndex = 33;
             this.dgvInvoice.Visible = false;
             this.dgvInvoice.SelectionChanged += new System.EventHandler(this.dgvInvoice_SelectionChanged);
-            // 
-            // radGrp1
-            // 
-            this.radGrp1.Location = new System.Drawing.Point(413, 4);
-            this.radGrp1.Name = "radGrp1";
-            this.radGrp1.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.radGrp1.Properties.Appearance.Options.UseBackColor = true;
-            this.radGrp1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.radGrp1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "按箱號排序"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "按P.O.排序")});
-            this.radGrp1.Size = new System.Drawing.Size(187, 28);
-            this.radGrp1.TabIndex = 24;
             // 
             // invoice_id
             // 
@@ -2203,6 +2215,19 @@
             this.poitem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.poitem.Visible = false;
             // 
+            // radGrp1
+            // 
+            this.radGrp1.Location = new System.Drawing.Point(413, 4);
+            this.radGrp1.Name = "radGrp1";
+            this.radGrp1.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.radGrp1.Properties.Appearance.Options.UseBackColor = true;
+            this.radGrp1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.radGrp1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "按箱號排序"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "按P.O.排序")});
+            this.radGrp1.Size = new System.Drawing.Size(187, 28);
+            this.radGrp1.TabIndex = 24;
+            // 
             // frmDgdDeliverGoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2276,6 +2301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).EndInit();
@@ -2478,5 +2504,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn send_to_info;
         private System.Windows.Forms.DataGridViewTextBoxColumn treams_info;
         private System.Windows.Forms.DataGridViewTextBoxColumn poitem;
+        private DevExpress.XtraEditors.TextEdit txtGroup;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }

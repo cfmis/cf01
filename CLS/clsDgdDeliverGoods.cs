@@ -694,8 +694,8 @@ namespace cf01.CLS
         }
 
         //匯出EXCEL資料
-        public static DataTable Get_Report_Data(string id1,string id2,string mo_id1,string mo_id2,string date1,string date2, int rpt_type)
-        {
+        public static DataTable Get_Report_Data(string id1,string id2,string mo_id1,string mo_id2,string date1,string date2,int rpt_type, string sales_group)
+        {            
             string sql = string.Format(
                @"SELECT A.id ,convert(varchar(10),A.ship_date,111) as ship_date,A.it_customer,C.name as customer_name,B.mo_id,Isnull(B.contract_cid,'') as contract_cid,B.table_head,
                  B.goods_name,Convert(int,B.u_invoice_qty) as u_invoice_qty,B.goods_unit,convert(Decimal(12,2),B.sec_qty) as sec_qty,convert(int,isnull(B.package_num,0)) as package_num,
@@ -703,7 +703,7 @@ namespace cf01.CLS
                 FROM so_invoice_mostly A with(nolock)
                 INNER JOIN so_invoice_details B with(nolock) ON A.within_code=B.within_code and A.id=B.id and A.ver=B.ver 
                 LEFT JOIN {0}it_customer C with(nolock) ON A.within_code=B.within_code and A.it_customer collate Chinese_PRC_CI_AS =C.id
-                WHERE A.within_code='0000' AND A.id like 'L-%'", remote_db);
+                WHERE A.within_code='0000' AND A.id like '{1}-%'", remote_db, sales_group);
             if (id1 != "")
                 sql += String.Format(" and A.id>='{0}'", id1);
             if (id2 != "")
@@ -759,7 +759,7 @@ namespace cf01.CLS
         public static string getUserGroup(string user_id)
         {
             string result = "";
-            string strSql = String.Format("Select user_group From tb_sy_user Where uname='{0}'", user_id);
+            string strSql = String.Format("Select isnull(user_group,'') as user_group From tb_sy_user Where uname='{0}'", user_id);
             DataTable dtUser=clsPublicOfCF01.GetDataTable(strSql);
             if (dtUser.Rows.Count > 0)
             {

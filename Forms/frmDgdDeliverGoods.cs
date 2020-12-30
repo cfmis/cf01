@@ -934,9 +934,9 @@ namespace cf01.Forms
                        
             if (radGrp2.SelectedIndex == 0)
             {
-                //查手寫東莞D
+                //查手寫東莞D或者L組入單數據
                 Set_Visible(0);
-                dtExcel = clsDgdDeliverGoods.Get_Report_Data(txtId1.Text, txtId2.Text, txtMo_id1.Text, txtMo_id2.Text, date1, date2, radGrp1.SelectedIndex);
+                dtExcel = clsDgdDeliverGoods.Get_Report_Data(txtId1.Text, txtId2.Text, txtMo_id1.Text, txtMo_id2.Text, date1, date2, radGrp1.SelectedIndex,txtGroup.Text);
                 dgvExcel.DataSource = dtExcel;
             }
             else
