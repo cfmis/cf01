@@ -107,6 +107,7 @@
             this.colMo_product_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNeed_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQc_fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_mo_fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPlate_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPack_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal_mm_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,6 +138,9 @@
             this.colMoq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAvg_check_moudle_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAvg_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_tot_amt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_qty_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonthly_pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMonthly_day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDay_work_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -389,6 +393,7 @@
             this.colMo_product_c,
             this.colNeed_check_moudle_cost,
             this.colQc_fee,
+            this.colTest_mo_fee,
             this.colPlate_fee_moq,
             this.colPack_fee_moq,
             this.colTotal_mm_cost,
@@ -419,6 +424,9 @@
             this.colMoq,
             this.colAvg_check_moudle_time,
             this.colAvg_check_moudle_cost,
+            this.colTest_tot_amt,
+            this.colTest_qty_pcs,
+            this.colTest_mo_id,
             this.colMonthly_pay,
             this.colMonthly_day,
             this.colDay_work_time,
@@ -804,6 +812,13 @@
             this.colQc_fee.Name = "colQc_fee";
             this.colQc_fee.Width = 60;
             // 
+            // colTest_mo_fee
+            // 
+            this.colTest_mo_fee.DataPropertyName = "test_mo_fee";
+            this.colTest_mo_fee.HeaderText = "外測費用";
+            this.colTest_mo_fee.Name = "colTest_mo_fee";
+            this.colTest_mo_fee.Width = 60;
+            // 
             // colPlate_fee_moq
             // 
             this.colPlate_fee_moq.DataPropertyName = "plate_fee_moq";
@@ -1003,6 +1018,24 @@
             this.colAvg_check_moudle_cost.HeaderText = "平均校模費用";
             this.colAvg_check_moudle_cost.Name = "colAvg_check_moudle_cost";
             // 
+            // colTest_tot_amt
+            // 
+            this.colTest_tot_amt.DataPropertyName = "test_tot_amt";
+            this.colTest_tot_amt.HeaderText = "外測總額";
+            this.colTest_tot_amt.Name = "colTest_tot_amt";
+            // 
+            // colTest_qty_pcs
+            // 
+            this.colTest_qty_pcs.DataPropertyName = "test_qty_pcs";
+            this.colTest_qty_pcs.HeaderText = "相同外測總數量";
+            this.colTest_qty_pcs.Name = "colTest_qty_pcs";
+            // 
+            // colTest_mo_id
+            // 
+            this.colTest_mo_id.DataPropertyName = "test_mo_id";
+            this.colTest_mo_id.HeaderText = "相同外測總單數";
+            this.colTest_mo_id.Name = "colTest_mo_id";
+            // 
             // colMonthly_pay
             // 
             this.colMonthly_pay.DataPropertyName = "monthly_pay";
@@ -1168,6 +1201,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMo_product_c;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNeed_check_moudle_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQc_fee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_mo_fee;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlate_fee_moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPack_fee_moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal_mm_cost;
@@ -1198,6 +1232,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMoq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAvg_check_moudle_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAvg_check_moudle_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_tot_amt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_qty_pcs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_mo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMonthly_pay;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMonthly_day;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDay_work_time;

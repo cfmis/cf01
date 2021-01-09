@@ -313,7 +313,7 @@ namespace cf01.MM
                         productId = dgvBomData.Rows[dgvBomData.CurrentRow.Index].Cells["colBomGoodsId"].Value.ToString();
                 }
             }
-             frmSetProductWeight.getProductId = productId;
+            frmSetProductWeight.getProductId = productId;
             frmSetProductWeight frm = new frmSetProductWeight();
             frm.ShowDialog();
             frm.Dispose();
@@ -325,14 +325,24 @@ namespace cf01.MM
         }
         private void setProductPrice(int selectType)
         {
+            frmSetProductPrice.getProductId = "";
             if (selectType == 1)
-                frmSetProductPrice.getProductId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            {
+                if (dgvCosting.Rows.Count > 0)
+                    frmSetProductPrice.getProductId = dgvCosting.Rows[dgvCosting.CurrentRow.Index].Cells["colProductId"].Value.ToString();
+            }
             else
             {
                 if (xtraTabControl1.SelectedTabPageIndex == 0)
-                    frmSetProductPrice.getProductId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+                {
+                    if (dgvWipData.Rows.Count > 0)
+                        frmSetProductPrice.getProductId = dgvWipData.Rows[dgvWipData.CurrentRow.Index].Cells["colWipGoodsId"].Value.ToString();
+                }
                 else
-                    frmSetProductPrice.getProductId = dgvBomData.Rows[dgvBomData.CurrentRow.Index].Cells["colBomGoodsId"].Value.ToString();
+                {
+                    if (dgvBomData.Rows.Count > 0)
+                        frmSetProductPrice.getProductId = dgvBomData.Rows[dgvBomData.CurrentRow.Index].Cells["colBomGoodsId"].Value.ToString();
+                }
             }
             frmSetProductPrice frm = new frmSetProductPrice();
             frm.ShowDialog();

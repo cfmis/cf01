@@ -17,6 +17,7 @@ namespace cf01.MM
         public static string getDepId = "";
         public static string getProductId = "";
         public static string getProductName = "";
+        public static string modality = "";
         public frmProductCostingFindPrice()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace cf01.MM
             string itemPart = "";
             if (txtMaterialId.Text.Trim().Length > 2)
                 itemPart = txtMaterialId.Text.Substring(0, 2);
-            if (itemPart == "ML" || itemPart == "PL")
+            if (modality=="2" || itemPart=="ML" || itemPart=="PL")//採購件
                 xtcFind.SelectedTabPageIndex = 0;
             else
             {
@@ -46,6 +47,8 @@ namespace cf01.MM
                 //    xtcFind.SelectedTabPageIndex = 1;
             }
             //selectFind();
+            if (getProductId != "")
+                btnFind_Click(sender, e);
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -75,7 +78,7 @@ namespace cf01.MM
         }
         private void findMaterialPrice()
         {
-            DataTable dtMaterialPrice = clsProductCosting.findMaterialPrice(txtMaterialId.Text.Trim(),txtMaterialName.Text.Trim());
+            DataTable dtMaterialPrice = clsProductCosting.findMaterialPrice("FIND",txtMaterialId.Text.Trim(),txtMaterialName.Text.Trim());
             dgvDetails1.DataSource = dtMaterialPrice;
             if (dgvDetails1.Rows.Count == 0)
                 MessageBox.Show("沒有找到符合條件的記錄!");

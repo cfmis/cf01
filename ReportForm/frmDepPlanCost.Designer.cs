@@ -122,6 +122,7 @@
             this.colMo_product_c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNeed_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQc_fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_mo_fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPlate_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPack_fee_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepTotalProductCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -147,6 +148,9 @@
             this.colBase_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_tot_amt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_qty_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest_mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBase_check_moudle_cost_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBase_req_check_moudle_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStyle_pcs_tot = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -365,6 +369,7 @@
             this.colMo_product_c,
             this.colNeed_check_moudle_cost,
             this.colQc_fee,
+            this.colTest_mo_fee,
             this.colPlate_fee_moq,
             this.colPack_fee_moq,
             this.colDepTotalProductCost,
@@ -390,6 +395,9 @@
             this.colBase_class,
             this.colPrd_cdesc,
             this.colId,
+            this.colTest_tot_amt,
+            this.colTest_qty_pcs,
+            this.colTest_mo_id,
             this.colBase_check_moudle_cost_moq,
             this.colBase_req_check_moudle_cost,
             this.colStyle_pcs_tot,
@@ -996,6 +1004,14 @@
             this.colQc_fee.ReadOnly = true;
             this.colQc_fee.Width = 60;
             // 
+            // colTest_mo_fee
+            // 
+            this.colTest_mo_fee.DataPropertyName = "test_mo_fee";
+            this.colTest_mo_fee.HeaderText = "外測費用";
+            this.colTest_mo_fee.Name = "colTest_mo_fee";
+            this.colTest_mo_fee.ReadOnly = true;
+            this.colTest_mo_fee.Width = 60;
+            // 
             // colPlate_fee_moq
             // 
             this.colPlate_fee_moq.DataPropertyName = "plate_fee_moq";
@@ -1195,6 +1211,27 @@
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
             this.colId.Width = 60;
+            // 
+            // colTest_tot_amt
+            // 
+            this.colTest_tot_amt.DataPropertyName = "test_tot_amt";
+            this.colTest_tot_amt.HeaderText = "外測總費用";
+            this.colTest_tot_amt.Name = "colTest_tot_amt";
+            this.colTest_tot_amt.ReadOnly = true;
+            // 
+            // colTest_qty_pcs
+            // 
+            this.colTest_qty_pcs.DataPropertyName = "test_qty_pcs";
+            this.colTest_qty_pcs.HeaderText = "相同外測報告總數量";
+            this.colTest_qty_pcs.Name = "colTest_qty_pcs";
+            this.colTest_qty_pcs.ReadOnly = true;
+            // 
+            // colTest_mo_id
+            // 
+            this.colTest_mo_id.DataPropertyName = "test_mo_id";
+            this.colTest_mo_id.HeaderText = "相同外測報告總單數";
+            this.colTest_mo_id.Name = "colTest_mo_id";
+            this.colTest_mo_id.ReadOnly = true;
             // 
             // colBase_check_moudle_cost_moq
             // 
@@ -1432,6 +1469,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMo_product_c;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNeed_check_moudle_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQc_fee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_mo_fee;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlate_fee_moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPack_fee_moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepTotalProductCost;
@@ -1457,6 +1495,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colBase_class;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_cdesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_tot_amt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_qty_pcs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTest_mo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBase_check_moudle_cost_moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBase_req_check_moudle_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStyle_pcs_tot;

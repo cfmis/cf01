@@ -36,6 +36,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnReCount = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
@@ -57,12 +59,23 @@
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.dgvBomDetails = new System.Windows.Forms.DataGridView();
+            this.colIsSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colIsSetFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgvWipData = new System.Windows.Forms.DataGridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtOriginalPriceUnit = new DevExpress.XtraEditors.TextEdit();
+            this.txtAmendTime = new System.Windows.Forms.TextBox();
+            this.txtAmendUser = new System.Windows.Forms.TextBox();
+            this.txtCreateTime = new System.Windows.Forms.TextBox();
+            this.txtCreateUser = new System.Windows.Forms.TextBox();
+            this.lblAmendTime = new System.Windows.Forms.Label();
+            this.lblAmendUser = new System.Windows.Forms.Label();
+            this.lblCreateTime = new System.Windows.Forms.Label();
+            this.lblCreateUser = new System.Windows.Forms.Label();
             this.btnBatchUpdate = new System.Windows.Forms.Button();
             this.lblMaterialPriceQty = new DevExpress.XtraEditors.LabelControl();
             this.txtMaterialPriceQty = new DevExpress.XtraEditors.TextEdit();
@@ -171,22 +184,9 @@
             this.dataGridViewTextBoxColumn47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipStdWeightFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipCplQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipCplWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIsSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colIsSetFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colParentLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBomLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,6 +201,7 @@
             this.colWasteRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialRequest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOriginalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOriginalPriceUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialPriceQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStdPriceFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -216,20 +217,28 @@
             this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepStdPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepStdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOriginWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmendUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmendTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCreateUser = new System.Windows.Forms.Label();
-            this.txtCreateUser = new System.Windows.Forms.TextBox();
-            this.lblCreateTime = new System.Windows.Forms.Label();
-            this.txtCreateTime = new System.Windows.Forms.TextBox();
-            this.lblAmendUser = new System.Windows.Forms.Label();
-            this.txtAmendUser = new System.Windows.Forms.TextBox();
-            this.lblAmendTime = new System.Windows.Forms.Label();
-            this.txtAmendTime = new System.Windows.Forms.TextBox();
+            this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipStdWeightFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipCplQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipCplWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -244,6 +253,7 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOriginalPriceUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPriceQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdPriceFlag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdWeightFlag.Properties)).BeginInit();
@@ -283,10 +293,12 @@
             this.toolStripSeparator1,
             this.btnSave,
             this.toolStripSeparator3,
-            this.btnRefresh,
-            this.toolStripSeparator2,
             this.btnFind,
             this.toolStripSeparator4,
+            this.btnRefresh,
+            this.toolStripSeparator2,
+            this.btnReCount,
+            this.toolStripSeparator12,
             this.btnDelete,
             this.toolStripSeparator11,
             this.btnPrint,
@@ -354,6 +366,22 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnReCount
+            // 
+            this.btnReCount.AutoSize = false;
+            this.btnReCount.Image = ((System.Drawing.Image)(resources.GetObject("btnReCount.Image")));
+            this.btnReCount.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReCount.Name = "btnReCount";
+            this.btnReCount.Size = new System.Drawing.Size(60, 35);
+            this.btnReCount.Text = "重新計價";
+            this.btnReCount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReCount.Click += new System.EventHandler(this.btnReCount_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 38);
             // 
             // btnFind
             // 
@@ -560,6 +588,7 @@
             this.colWasteRate,
             this.colMaterialRequest,
             this.colOriginalPrice,
+            this.colOriginalPriceUnit,
             this.colMaterialPrice,
             this.colMaterialPriceQty,
             this.colStdPriceFlag,
@@ -575,6 +604,7 @@
             this.colDoColor,
             this.colProductMo,
             this.colDepStdPrice,
+            this.colModality,
             this.colDepStdQty,
             this.colOriginWeight,
             this.colCreateUser,
@@ -592,6 +622,25 @@
             this.dgvBomDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBomDetails_CellDoubleClick);
             this.dgvBomDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvBomDetails_RowPostPaint);
             this.dgvBomDetails.SelectionChanged += new System.EventHandler(this.dgvBomDetails_SelectionChanged);
+            // 
+            // colIsSelect
+            // 
+            this.colIsSelect.DataPropertyName = "IsSelect";
+            this.colIsSelect.Frozen = true;
+            this.colIsSelect.HeaderText = "";
+            this.colIsSelect.Name = "colIsSelect";
+            this.colIsSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colIsSelect.Width = 40;
+            // 
+            // colIsSetFlag
+            // 
+            this.colIsSetFlag.DataPropertyName = "IsSetFlag";
+            this.colIsSetFlag.Frozen = true;
+            this.colIsSetFlag.HeaderText = "已設";
+            this.colIsSetFlag.Name = "colIsSetFlag";
+            this.colIsSetFlag.ReadOnly = true;
+            this.colIsSetFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colIsSetFlag.Width = 40;
             // 
             // panelControl2
             // 
@@ -628,6 +677,7 @@
             this.colWipCplWeg,
             this.colWipProductMo,
             this.colWipDoColor,
+            this.colWipModality,
             this.colWipNextDep,
             this.colWipNextDepId});
             this.dgvWipData.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -660,6 +710,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtOriginalPriceUnit);
             this.panelControl1.Controls.Add(this.txtAmendTime);
             this.panelControl1.Controls.Add(this.txtAmendUser);
             this.panelControl1.Controls.Add(this.txtCreateTime);
@@ -727,10 +778,85 @@
             this.panelControl1.Size = new System.Drawing.Size(1164, 181);
             this.panelControl1.TabIndex = 0;
             // 
+            // txtOriginalPriceUnit
+            // 
+            this.txtOriginalPriceUnit.Location = new System.Drawing.Point(200, 79);
+            this.txtOriginalPriceUnit.Name = "txtOriginalPriceUnit";
+            this.txtOriginalPriceUnit.Size = new System.Drawing.Size(43, 20);
+            this.txtOriginalPriceUnit.TabIndex = 19;
+            // 
+            // txtAmendTime
+            // 
+            this.txtAmendTime.Location = new System.Drawing.Point(856, 149);
+            this.txtAmendTime.Name = "txtAmendTime";
+            this.txtAmendTime.ReadOnly = true;
+            this.txtAmendTime.Size = new System.Drawing.Size(145, 22);
+            this.txtAmendTime.TabIndex = 18;
+            // 
+            // txtAmendUser
+            // 
+            this.txtAmendUser.Location = new System.Drawing.Point(619, 149);
+            this.txtAmendUser.Name = "txtAmendUser";
+            this.txtAmendUser.ReadOnly = true;
+            this.txtAmendUser.Size = new System.Drawing.Size(145, 22);
+            this.txtAmendUser.TabIndex = 18;
+            // 
+            // txtCreateTime
+            // 
+            this.txtCreateTime.Location = new System.Drawing.Point(353, 149);
+            this.txtCreateTime.Name = "txtCreateTime";
+            this.txtCreateTime.ReadOnly = true;
+            this.txtCreateTime.Size = new System.Drawing.Size(170, 22);
+            this.txtCreateTime.TabIndex = 18;
+            // 
+            // txtCreateUser
+            // 
+            this.txtCreateUser.Location = new System.Drawing.Point(98, 149);
+            this.txtCreateUser.Name = "txtCreateUser";
+            this.txtCreateUser.ReadOnly = true;
+            this.txtCreateUser.Size = new System.Drawing.Size(145, 22);
+            this.txtCreateUser.TabIndex = 18;
+            // 
+            // lblAmendTime
+            // 
+            this.lblAmendTime.AutoSize = true;
+            this.lblAmendTime.Location = new System.Drawing.Point(794, 153);
+            this.lblAmendTime.Name = "lblAmendTime";
+            this.lblAmendTime.Size = new System.Drawing.Size(59, 14);
+            this.lblAmendTime.TabIndex = 17;
+            this.lblAmendTime.Text = "修改日期:";
+            // 
+            // lblAmendUser
+            // 
+            this.lblAmendUser.AutoSize = true;
+            this.lblAmendUser.Location = new System.Drawing.Point(570, 153);
+            this.lblAmendUser.Name = "lblAmendUser";
+            this.lblAmendUser.Size = new System.Drawing.Size(47, 14);
+            this.lblAmendUser.TabIndex = 17;
+            this.lblAmendUser.Text = "修改人:";
+            // 
+            // lblCreateTime
+            // 
+            this.lblCreateTime.AutoSize = true;
+            this.lblCreateTime.Location = new System.Drawing.Point(288, 153);
+            this.lblCreateTime.Name = "lblCreateTime";
+            this.lblCreateTime.Size = new System.Drawing.Size(59, 14);
+            this.lblCreateTime.TabIndex = 17;
+            this.lblCreateTime.Text = "建立日期:";
+            // 
+            // lblCreateUser
+            // 
+            this.lblCreateUser.AutoSize = true;
+            this.lblCreateUser.Location = new System.Drawing.Point(45, 153);
+            this.lblCreateUser.Name = "lblCreateUser";
+            this.lblCreateUser.Size = new System.Drawing.Size(47, 14);
+            this.lblCreateUser.TabIndex = 17;
+            this.lblCreateUser.Text = "建立人:";
+            // 
             // btnBatchUpdate
             // 
             this.btnBatchUpdate.Enabled = false;
-            this.btnBatchUpdate.Location = new System.Drawing.Point(1015, 71);
+            this.btnBatchUpdate.Location = new System.Drawing.Point(1050, 71);
             this.btnBatchUpdate.Name = "btnBatchUpdate";
             this.btnBatchUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnBatchUpdate.TabIndex = 16;
@@ -741,7 +867,7 @@
             // 
             // lblMaterialPriceQty
             // 
-            this.lblMaterialPriceQty.Location = new System.Drawing.Point(504, 82);
+            this.lblMaterialPriceQty.Location = new System.Drawing.Point(539, 82);
             this.lblMaterialPriceQty.Name = "lblMaterialPriceQty";
             this.lblMaterialPriceQty.Size = new System.Drawing.Size(78, 14);
             this.lblMaterialPriceQty.TabIndex = 15;
@@ -749,7 +875,7 @@
             // 
             // txtMaterialPriceQty
             // 
-            this.txtMaterialPriceQty.Location = new System.Drawing.Point(584, 79);
+            this.txtMaterialPriceQty.Location = new System.Drawing.Point(619, 79);
             this.txtMaterialPriceQty.Name = "txtMaterialPriceQty";
             this.txtMaterialPriceQty.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtMaterialPriceQty.Properties.Appearance.Options.UseBackColor = true;
@@ -759,7 +885,7 @@
             // 
             // txtStdPriceFlag
             // 
-            this.txtStdPriceFlag.Location = new System.Drawing.Point(471, 79);
+            this.txtStdPriceFlag.Location = new System.Drawing.Point(499, 79);
             this.txtStdPriceFlag.Name = "txtStdPriceFlag";
             this.txtStdPriceFlag.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtStdPriceFlag.Properties.Appearance.Options.UseBackColor = true;
@@ -769,7 +895,7 @@
             // 
             // txtStdWeightFlag
             // 
-            this.txtStdWeightFlag.Location = new System.Drawing.Point(496, 55);
+            this.txtStdWeightFlag.Location = new System.Drawing.Point(499, 55);
             this.txtStdWeightFlag.Name = "txtStdWeightFlag";
             this.txtStdWeightFlag.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtStdWeightFlag.Properties.Appearance.Options.UseBackColor = true;
@@ -780,7 +906,7 @@
             // lblDepTotalCost
             // 
             this.lblDepTotalCost.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblDepTotalCost.Location = new System.Drawing.Point(56, 58);
+            this.lblDepTotalCost.Location = new System.Drawing.Point(40, 58);
             this.lblDepTotalCost.Name = "lblDepTotalCost";
             this.lblDepTotalCost.Size = new System.Drawing.Size(52, 14);
             this.lblDepTotalCost.TabIndex = 12;
@@ -788,7 +914,7 @@
             // 
             // lblDepId
             // 
-            this.lblDepId.Location = new System.Drawing.Point(56, 34);
+            this.lblDepId.Location = new System.Drawing.Point(40, 34);
             this.lblDepId.Name = "lblDepId";
             this.lblDepId.Size = new System.Drawing.Size(52, 14);
             this.lblDepId.TabIndex = 4;
@@ -796,7 +922,7 @@
             // 
             // txtDoColor
             // 
-            this.txtDoColor.Location = new System.Drawing.Point(975, 18);
+            this.txtDoColor.Location = new System.Drawing.Point(1010, 18);
             this.txtDoColor.Name = "txtDoColor";
             this.txtDoColor.Size = new System.Drawing.Size(145, 20);
             this.txtDoColor.TabIndex = 11;
@@ -804,21 +930,21 @@
             // 
             // txtDepCdesc
             // 
-            this.txtDepCdesc.Location = new System.Drawing.Point(350, 32);
+            this.txtDepCdesc.Location = new System.Drawing.Point(353, 32);
             this.txtDepCdesc.Name = "txtDepCdesc";
-            this.txtDepCdesc.Size = new System.Drawing.Size(145, 20);
+            this.txtDepCdesc.Size = new System.Drawing.Size(170, 20);
             this.txtDepCdesc.TabIndex = 3;
             // 
             // txtDepId
             // 
-            this.txtDepId.Location = new System.Drawing.Point(114, 32);
+            this.txtDepId.Location = new System.Drawing.Point(98, 32);
             this.txtDepId.Name = "txtDepId";
             this.txtDepId.Size = new System.Drawing.Size(145, 20);
             this.txtDepId.TabIndex = 3;
             // 
             // txtDepTotalCost
             // 
-            this.txtDepTotalCost.Location = new System.Drawing.Point(114, 55);
+            this.txtDepTotalCost.Location = new System.Drawing.Point(98, 55);
             this.txtDepTotalCost.Name = "txtDepTotalCost";
             this.txtDepTotalCost.Properties.Appearance.BackColor = System.Drawing.Color.Chartreuse;
             this.txtDepTotalCost.Properties.Appearance.Options.UseBackColor = true;
@@ -827,7 +953,7 @@
             // 
             // lblDepCdesc
             // 
-            this.lblDepCdesc.Location = new System.Drawing.Point(292, 34);
+            this.lblDepCdesc.Location = new System.Drawing.Point(295, 34);
             this.lblDepCdesc.Name = "lblDepCdesc";
             this.lblDepCdesc.Size = new System.Drawing.Size(52, 14);
             this.lblDepCdesc.TabIndex = 4;
@@ -835,7 +961,7 @@
             // 
             // txtOriginWeight
             // 
-            this.txtOriginWeight.Location = new System.Drawing.Point(423, 55);
+            this.txtOriginWeight.Location = new System.Drawing.Point(426, 55);
             this.txtOriginWeight.Name = "txtOriginWeight";
             this.txtOriginWeight.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtOriginWeight.Properties.Appearance.Options.UseBackColor = true;
@@ -845,15 +971,15 @@
             // 
             // txtProductCostDzs
             // 
-            this.txtProductCostDzs.Location = new System.Drawing.Point(350, 126);
+            this.txtProductCostDzs.Location = new System.Drawing.Point(353, 126);
             this.txtProductCostDzs.Name = "txtProductCostDzs";
-            this.txtProductCostDzs.Size = new System.Drawing.Size(145, 20);
+            this.txtProductCostDzs.Size = new System.Drawing.Size(170, 20);
             this.txtProductCostDzs.TabIndex = 8;
             this.txtProductCostDzs.Leave += new System.EventHandler(this.txtProductCostDzs_Leave);
             // 
             // btnFindDepCost
             // 
-            this.btnFindDepCost.Location = new System.Drawing.Point(227, 101);
+            this.btnFindDepCost.Location = new System.Drawing.Point(245, 101);
             this.btnFindDepCost.Name = "btnFindDepCost";
             this.btnFindDepCost.Size = new System.Drawing.Size(32, 23);
             this.btnFindDepCost.TabIndex = 6;
@@ -862,7 +988,7 @@
             // 
             // btnFindPrdPrice
             // 
-            this.btnFindPrdPrice.Location = new System.Drawing.Point(227, 77);
+            this.btnFindPrdPrice.Location = new System.Drawing.Point(245, 77);
             this.btnFindPrdPrice.Name = "btnFindPrdPrice";
             this.btnFindPrdPrice.Size = new System.Drawing.Size(32, 23);
             this.btnFindPrdPrice.TabIndex = 5;
@@ -872,7 +998,7 @@
             // lblMaterialCost
             // 
             this.lblMaterialCost.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblMaterialCost.Location = new System.Drawing.Point(748, 82);
+            this.lblMaterialCost.Location = new System.Drawing.Point(783, 82);
             this.lblMaterialCost.Name = "lblMaterialCost";
             this.lblMaterialCost.Size = new System.Drawing.Size(70, 14);
             this.lblMaterialCost.TabIndex = 4;
@@ -881,7 +1007,7 @@
             // lblProductCostK
             // 
             this.lblProductCostK.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblProductCostK.Location = new System.Drawing.Point(749, 128);
+            this.lblProductCostK.Location = new System.Drawing.Point(784, 128);
             this.lblProductCostK.Name = "lblProductCostK";
             this.lblProductCostK.Size = new System.Drawing.Size(69, 14);
             this.lblProductCostK.TabIndex = 4;
@@ -890,7 +1016,7 @@
             // lblProductCostGrs
             // 
             this.lblProductCostGrs.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblProductCostGrs.Location = new System.Drawing.Point(498, 128);
+            this.lblProductCostGrs.Location = new System.Drawing.Point(533, 128);
             this.lblProductCostGrs.Name = "lblProductCostGrs";
             this.lblProductCostGrs.Size = new System.Drawing.Size(84, 14);
             this.lblProductCostGrs.TabIndex = 4;
@@ -899,7 +1025,7 @@
             // lblProductCostDzs
             // 
             this.lblProductCostDzs.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblProductCostDzs.Location = new System.Drawing.Point(260, 128);
+            this.lblProductCostDzs.Location = new System.Drawing.Point(263, 128);
             this.lblProductCostDzs.Name = "lblProductCostDzs";
             this.lblProductCostDzs.Size = new System.Drawing.Size(84, 14);
             this.lblProductCostDzs.TabIndex = 4;
@@ -908,7 +1034,7 @@
             // lblProductCost
             // 
             this.lblProductCost.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblProductCost.Location = new System.Drawing.Point(735, 34);
+            this.lblProductCost.Location = new System.Drawing.Point(770, 34);
             this.lblProductCost.Name = "lblProductCost";
             this.lblProductCost.Size = new System.Drawing.Size(83, 14);
             this.lblProductCost.TabIndex = 4;
@@ -917,7 +1043,7 @@
             // lblOtherCost3
             // 
             this.lblOtherCost3.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblOtherCost3.Location = new System.Drawing.Point(49, 131);
+            this.lblOtherCost3.Location = new System.Drawing.Point(33, 131);
             this.lblOtherCost3.Name = "lblOtherCost3";
             this.lblOtherCost3.Size = new System.Drawing.Size(59, 14);
             this.lblOtherCost3.TabIndex = 4;
@@ -926,7 +1052,7 @@
             // lblOtherCost2
             // 
             this.lblOtherCost2.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblOtherCost2.Location = new System.Drawing.Point(759, 105);
+            this.lblOtherCost2.Location = new System.Drawing.Point(794, 105);
             this.lblOtherCost2.Name = "lblOtherCost2";
             this.lblOtherCost2.Size = new System.Drawing.Size(59, 14);
             this.lblOtherCost2.TabIndex = 4;
@@ -935,7 +1061,7 @@
             // lblOtherCost1
             // 
             this.lblOtherCost1.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblOtherCost1.Location = new System.Drawing.Point(523, 105);
+            this.lblOtherCost1.Location = new System.Drawing.Point(558, 105);
             this.lblOtherCost1.Name = "lblOtherCost1";
             this.lblOtherCost1.Size = new System.Drawing.Size(59, 14);
             this.lblOtherCost1.TabIndex = 4;
@@ -944,7 +1070,7 @@
             // lblRollUpCost
             // 
             this.lblRollUpCost.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lblRollUpCost.Location = new System.Drawing.Point(506, 34);
+            this.lblRollUpCost.Location = new System.Drawing.Point(541, 34);
             this.lblRollUpCost.Name = "lblRollUpCost";
             this.lblRollUpCost.Size = new System.Drawing.Size(76, 14);
             this.lblRollUpCost.TabIndex = 4;
@@ -953,7 +1079,7 @@
             // lblMaterialPrice
             // 
             this.lblMaterialPrice.Appearance.ForeColor = System.Drawing.Color.Fuchsia;
-            this.lblMaterialPrice.Location = new System.Drawing.Point(279, 82);
+            this.lblMaterialPrice.Location = new System.Drawing.Point(282, 82);
             this.lblMaterialPrice.Name = "lblMaterialPrice";
             this.lblMaterialPrice.Size = new System.Drawing.Size(65, 14);
             this.lblMaterialPrice.TabIndex = 4;
@@ -964,16 +1090,16 @@
             this.lblOriginalPrice.Appearance.ForeColor = System.Drawing.Color.Fuchsia;
             this.lblOriginalPrice.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lblOriginalPrice.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblOriginalPrice.Location = new System.Drawing.Point(37, 82);
+            this.lblOriginalPrice.Location = new System.Drawing.Point(13, 82);
             this.lblOriginalPrice.Name = "lblOriginalPrice";
-            this.lblOriginalPrice.Size = new System.Drawing.Size(71, 14);
+            this.lblOriginalPrice.Size = new System.Drawing.Size(79, 14);
             this.lblOriginalPrice.TabIndex = 4;
-            this.lblOriginalPrice.Text = "原始單價/Kg:";
+            this.lblOriginalPrice.Text = "原始單價:";
             // 
             // lblDepCost
             // 
             this.lblDepCost.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblDepCost.Location = new System.Drawing.Point(280, 106);
+            this.lblDepCost.Location = new System.Drawing.Point(283, 106);
             this.lblDepCost.Name = "lblDepCost";
             this.lblDepCost.Size = new System.Drawing.Size(64, 14);
             this.lblDepCost.TabIndex = 4;
@@ -982,7 +1108,7 @@
             // lblMaterialRequest
             // 
             this.lblMaterialRequest.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lblMaterialRequest.Location = new System.Drawing.Point(766, 58);
+            this.lblMaterialRequest.Location = new System.Drawing.Point(801, 58);
             this.lblMaterialRequest.Name = "lblMaterialRequest";
             this.lblMaterialRequest.Size = new System.Drawing.Size(52, 14);
             this.lblMaterialRequest.TabIndex = 4;
@@ -992,7 +1118,7 @@
             // 
             this.lblWasteRate.Appearance.ForeColor = System.Drawing.Color.Green;
             this.lblWasteRate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblWasteRate.Location = new System.Drawing.Point(530, 58);
+            this.lblWasteRate.Location = new System.Drawing.Point(565, 58);
             this.lblWasteRate.Name = "lblWasteRate";
             this.lblWasteRate.Size = new System.Drawing.Size(52, 14);
             this.lblWasteRate.TabIndex = 4;
@@ -1000,7 +1126,7 @@
             // 
             // lblDepPrice
             // 
-            this.lblDepPrice.Location = new System.Drawing.Point(44, 106);
+            this.lblDepPrice.Location = new System.Drawing.Point(28, 106);
             this.lblDepPrice.Name = "lblDepPrice";
             this.lblDepPrice.Size = new System.Drawing.Size(64, 14);
             this.lblDepPrice.TabIndex = 4;
@@ -1008,7 +1134,7 @@
             // 
             // lblProductName
             // 
-            this.lblProductName.Location = new System.Drawing.Point(292, 15);
+            this.lblProductName.Location = new System.Drawing.Point(295, 15);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(52, 14);
             this.lblProductName.TabIndex = 4;
@@ -1017,7 +1143,7 @@
             // lblProductWeight
             // 
             this.lblProductWeight.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lblProductWeight.Location = new System.Drawing.Point(265, 58);
+            this.lblProductWeight.Location = new System.Drawing.Point(268, 58);
             this.lblProductWeight.Name = "lblProductWeight";
             this.lblProductWeight.Size = new System.Drawing.Size(79, 14);
             this.lblProductWeight.TabIndex = 4;
@@ -1025,7 +1151,7 @@
             // 
             // lblProductMo
             // 
-            this.lblProductMo.Location = new System.Drawing.Point(766, 12);
+            this.lblProductMo.Location = new System.Drawing.Point(801, 12);
             this.lblProductMo.Name = "lblProductMo";
             this.lblProductMo.Size = new System.Drawing.Size(52, 14);
             this.lblProductMo.TabIndex = 4;
@@ -1033,7 +1159,7 @@
             // 
             // lblProductId
             // 
-            this.lblProductId.Location = new System.Drawing.Point(56, 12);
+            this.lblProductId.Location = new System.Drawing.Point(40, 12);
             this.lblProductId.Name = "lblProductId";
             this.lblProductId.Size = new System.Drawing.Size(52, 14);
             this.lblProductId.TabIndex = 4;
@@ -1041,7 +1167,7 @@
             // 
             // txtProductWeight
             // 
-            this.txtProductWeight.Location = new System.Drawing.Point(350, 55);
+            this.txtProductWeight.Location = new System.Drawing.Point(353, 55);
             this.txtProductWeight.Name = "txtProductWeight";
             this.txtProductWeight.Size = new System.Drawing.Size(72, 20);
             this.txtProductWeight.TabIndex = 3;
@@ -1049,7 +1175,7 @@
             // 
             // txtWasteRate
             // 
-            this.txtWasteRate.Location = new System.Drawing.Point(584, 55);
+            this.txtWasteRate.Location = new System.Drawing.Point(619, 55);
             this.txtWasteRate.Name = "txtWasteRate";
             this.txtWasteRate.Size = new System.Drawing.Size(145, 20);
             this.txtWasteRate.TabIndex = 3;
@@ -1057,19 +1183,19 @@
             // 
             // txtDepCost
             // 
-            this.txtDepCost.Location = new System.Drawing.Point(350, 103);
+            this.txtDepCost.Location = new System.Drawing.Point(353, 103);
             this.txtDepCost.Name = "txtDepCost";
             this.txtDepCost.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtDepCost.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtDepCost.Properties.Appearance.Options.UseBackColor = true;
             this.txtDepCost.Properties.Appearance.Options.UseForeColor = true;
-            this.txtDepCost.Size = new System.Drawing.Size(145, 20);
+            this.txtDepCost.Size = new System.Drawing.Size(170, 20);
             this.txtDepCost.TabIndex = 3;
             this.txtDepCost.Leave += new System.EventHandler(this.txtRollUpCost_Leave);
             // 
             // txtMaterialRequest
             // 
-            this.txtMaterialRequest.Location = new System.Drawing.Point(821, 55);
+            this.txtMaterialRequest.Location = new System.Drawing.Point(856, 55);
             this.txtMaterialRequest.Name = "txtMaterialRequest";
             this.txtMaterialRequest.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtMaterialRequest.Properties.Appearance.Options.UseBackColor = true;
@@ -1079,39 +1205,39 @@
             // 
             // txtOriginalPrice
             // 
-            this.txtOriginalPrice.Location = new System.Drawing.Point(114, 79);
+            this.txtOriginalPrice.Location = new System.Drawing.Point(98, 79);
             this.txtOriginalPrice.Name = "txtOriginalPrice";
             this.txtOriginalPrice.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtOriginalPrice.Properties.Appearance.Options.UseBackColor = true;
-            this.txtOriginalPrice.Size = new System.Drawing.Size(112, 20);
+            this.txtOriginalPrice.Size = new System.Drawing.Size(101, 20);
             this.txtOriginalPrice.TabIndex = 3;
             this.txtOriginalPrice.Leave += new System.EventHandler(this.txtOriginalPrice_Leave);
             // 
             // txtMaterialPrice
             // 
-            this.txtMaterialPrice.Location = new System.Drawing.Point(350, 79);
+            this.txtMaterialPrice.Location = new System.Drawing.Point(353, 79);
             this.txtMaterialPrice.Name = "txtMaterialPrice";
             this.txtMaterialPrice.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtMaterialPrice.Properties.Appearance.Options.UseBackColor = true;
-            this.txtMaterialPrice.Size = new System.Drawing.Size(119, 20);
+            this.txtMaterialPrice.Size = new System.Drawing.Size(145, 20);
             this.txtMaterialPrice.TabIndex = 3;
             this.txtMaterialPrice.Leave += new System.EventHandler(this.txtProductWeight_Leave);
             // 
             // txtDepPrice
             // 
-            this.txtDepPrice.Location = new System.Drawing.Point(114, 103);
+            this.txtDepPrice.Location = new System.Drawing.Point(98, 103);
             this.txtDepPrice.Name = "txtDepPrice";
             this.txtDepPrice.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtDepPrice.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtDepPrice.Properties.Appearance.Options.UseBackColor = true;
             this.txtDepPrice.Properties.Appearance.Options.UseForeColor = true;
-            this.txtDepPrice.Size = new System.Drawing.Size(112, 20);
+            this.txtDepPrice.Size = new System.Drawing.Size(145, 20);
             this.txtDepPrice.TabIndex = 3;
             this.txtDepPrice.Leave += new System.EventHandler(this.txtDepPrice_Leave);
             // 
             // txtMaterialCost
             // 
-            this.txtMaterialCost.Location = new System.Drawing.Point(821, 79);
+            this.txtMaterialCost.Location = new System.Drawing.Point(856, 79);
             this.txtMaterialCost.Name = "txtMaterialCost";
             this.txtMaterialCost.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtMaterialCost.Properties.Appearance.Options.UseBackColor = true;
@@ -1121,7 +1247,7 @@
             // 
             // txtOtherCost3
             // 
-            this.txtOtherCost3.Location = new System.Drawing.Point(114, 126);
+            this.txtOtherCost3.Location = new System.Drawing.Point(98, 126);
             this.txtOtherCost3.Name = "txtOtherCost3";
             this.txtOtherCost3.Size = new System.Drawing.Size(145, 20);
             this.txtOtherCost3.TabIndex = 3;
@@ -1130,7 +1256,7 @@
             // 
             // txtOtherCost2
             // 
-            this.txtOtherCost2.Location = new System.Drawing.Point(821, 103);
+            this.txtOtherCost2.Location = new System.Drawing.Point(856, 103);
             this.txtOtherCost2.Name = "txtOtherCost2";
             this.txtOtherCost2.Size = new System.Drawing.Size(145, 20);
             this.txtOtherCost2.TabIndex = 3;
@@ -1138,7 +1264,7 @@
             // 
             // txtOtherCost1
             // 
-            this.txtOtherCost1.Location = new System.Drawing.Point(584, 103);
+            this.txtOtherCost1.Location = new System.Drawing.Point(619, 103);
             this.txtOtherCost1.Name = "txtOtherCost1";
             this.txtOtherCost1.Size = new System.Drawing.Size(145, 20);
             this.txtOtherCost1.TabIndex = 3;
@@ -1146,7 +1272,7 @@
             // 
             // txtRollUpCost
             // 
-            this.txtRollUpCost.Location = new System.Drawing.Point(584, 32);
+            this.txtRollUpCost.Location = new System.Drawing.Point(619, 32);
             this.txtRollUpCost.Name = "txtRollUpCost";
             this.txtRollUpCost.Properties.Appearance.BackColor = System.Drawing.Color.Chartreuse;
             this.txtRollUpCost.Properties.Appearance.Options.UseBackColor = true;
@@ -1156,7 +1282,7 @@
             // 
             // txtProductCostK
             // 
-            this.txtProductCostK.Location = new System.Drawing.Point(821, 126);
+            this.txtProductCostK.Location = new System.Drawing.Point(856, 126);
             this.txtProductCostK.Name = "txtProductCostK";
             this.txtProductCostK.Size = new System.Drawing.Size(145, 20);
             this.txtProductCostK.TabIndex = 3;
@@ -1164,7 +1290,7 @@
             // 
             // txtProductCostGrs
             // 
-            this.txtProductCostGrs.Location = new System.Drawing.Point(584, 126);
+            this.txtProductCostGrs.Location = new System.Drawing.Point(619, 126);
             this.txtProductCostGrs.Name = "txtProductCostGrs";
             this.txtProductCostGrs.Size = new System.Drawing.Size(145, 20);
             this.txtProductCostGrs.TabIndex = 3;
@@ -1172,7 +1298,7 @@
             // 
             // txtProductCost
             // 
-            this.txtProductCost.Location = new System.Drawing.Point(821, 32);
+            this.txtProductCost.Location = new System.Drawing.Point(856, 32);
             this.txtProductCost.Name = "txtProductCost";
             this.txtProductCost.Properties.Appearance.BackColor = System.Drawing.Color.Chartreuse;
             this.txtProductCost.Properties.Appearance.Options.UseBackColor = true;
@@ -1182,21 +1308,21 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(350, 9);
+            this.txtProductName.Location = new System.Drawing.Point(353, 9);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(379, 20);
+            this.txtProductName.Size = new System.Drawing.Size(411, 20);
             this.txtProductName.TabIndex = 2;
             // 
             // txtProductMo
             // 
-            this.txtProductMo.Location = new System.Drawing.Point(821, 9);
+            this.txtProductMo.Location = new System.Drawing.Point(856, 9);
             this.txtProductMo.Name = "txtProductMo";
             this.txtProductMo.Size = new System.Drawing.Size(145, 20);
             this.txtProductMo.TabIndex = 1;
             // 
             // txtProductId
             // 
-            this.txtProductId.Location = new System.Drawing.Point(114, 9);
+            this.txtProductId.Location = new System.Drawing.Point(98, 9);
             this.txtProductId.Name = "txtProductId";
             this.txtProductId.Size = new System.Drawing.Size(145, 20);
             this.txtProductId.TabIndex = 0;
@@ -1429,6 +1555,7 @@
             this.dataGridViewTextBoxColumn18.HeaderText = "部門價錢";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn18.Width = 80;
             // 
             // dataGridViewTextBoxColumn19
@@ -1629,6 +1756,7 @@
             // dataGridViewTextBoxColumn41
             // 
             this.dataGridViewTextBoxColumn41.DataPropertyName = "NextDepCdesc";
+            this.dataGridViewTextBoxColumn41.FillWeight = 80F;
             this.dataGridViewTextBoxColumn41.HeaderText = "部門描述";
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.ReadOnly = true;
@@ -1671,6 +1799,7 @@
             this.dataGridViewTextBoxColumn46.DataPropertyName = "mo_id";
             this.dataGridViewTextBoxColumn46.HeaderText = "制單編號";
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
+            this.dataGridViewTextBoxColumn46.ReadOnly = true;
             this.dataGridViewTextBoxColumn46.Width = 80;
             // 
             // dataGridViewTextBoxColumn47
@@ -1678,12 +1807,15 @@
             this.dataGridViewTextBoxColumn47.DataPropertyName = "DoColor";
             this.dataGridViewTextBoxColumn47.HeaderText = "顏色做法";
             this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
+            this.dataGridViewTextBoxColumn47.ReadOnly = true;
+            this.dataGridViewTextBoxColumn47.Width = 80;
             // 
             // dataGridViewTextBoxColumn48
             // 
             this.dataGridViewTextBoxColumn48.DataPropertyName = "next_wp_id";
             this.dataGridViewTextBoxColumn48.HeaderText = "收貨部門";
             this.dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
+            this.dataGridViewTextBoxColumn48.ReadOnly = true;
             this.dataGridViewTextBoxColumn48.Width = 80;
             // 
             // dataGridViewTextBoxColumn49
@@ -1691,135 +1823,30 @@
             this.dataGridViewTextBoxColumn49.DataPropertyName = "NextDepCdesc";
             this.dataGridViewTextBoxColumn49.HeaderText = "部門描述";
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
+            this.dataGridViewTextBoxColumn49.ReadOnly = true;
+            this.dataGridViewTextBoxColumn49.Width = 80;
             // 
-            // colWipSeq
+            // dataGridViewTextBoxColumn50
             // 
-            this.colWipSeq.DataPropertyName = "flag";
-            this.colWipSeq.HeaderText = "序號";
-            this.colWipSeq.Name = "colWipSeq";
-            this.colWipSeq.ReadOnly = true;
-            this.colWipSeq.Width = 40;
+            this.dataGridViewTextBoxColumn50.DataPropertyName = "NextDepCdesc";
+            this.dataGridViewTextBoxColumn50.HeaderText = "部門描述";
+            this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            this.dataGridViewTextBoxColumn50.ReadOnly = true;
+            this.dataGridViewTextBoxColumn50.Width = 80;
             // 
-            // colWipGoodsId
+            // dataGridViewTextBoxColumn51
             // 
-            this.colWipGoodsId.DataPropertyName = "goods_id";
-            this.colWipGoodsId.HeaderText = "物料編號";
-            this.colWipGoodsId.Name = "colWipGoodsId";
-            this.colWipGoodsId.ReadOnly = true;
-            this.colWipGoodsId.Width = 160;
+            this.dataGridViewTextBoxColumn51.DataPropertyName = "NextDepCdesc";
+            this.dataGridViewTextBoxColumn51.HeaderText = "部門描述";
+            this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            this.dataGridViewTextBoxColumn51.ReadOnly = true;
+            this.dataGridViewTextBoxColumn51.Width = 80;
             // 
-            // colWipGoodsCname
+            // dataGridViewTextBoxColumn52
             // 
-            this.colWipGoodsCname.DataPropertyName = "goods_cname";
-            this.colWipGoodsCname.HeaderText = "物料描述";
-            this.colWipGoodsCname.Name = "colWipGoodsCname";
-            this.colWipGoodsCname.ReadOnly = true;
-            this.colWipGoodsCname.Width = 260;
-            // 
-            // colWipWpId
-            // 
-            this.colWipWpId.DataPropertyName = "wp_id";
-            this.colWipWpId.FillWeight = 80F;
-            this.colWipWpId.HeaderText = "負責部門";
-            this.colWipWpId.Name = "colWipWpId";
-            this.colWipWpId.ReadOnly = true;
-            this.colWipWpId.Width = 80;
-            // 
-            // colWipDepCdesc
-            // 
-            this.colWipDepCdesc.DataPropertyName = "DepCdesc";
-            this.colWipDepCdesc.HeaderText = "部門描述";
-            this.colWipDepCdesc.Name = "colWipDepCdesc";
-            this.colWipDepCdesc.ReadOnly = true;
-            // 
-            // colWipPcsWeg
-            // 
-            this.colWipPcsWeg.DataPropertyName = "pcs_weg";
-            this.colWipPcsWeg.HeaderText = "每PCS重量";
-            this.colWipPcsWeg.Name = "colWipPcsWeg";
-            this.colWipPcsWeg.ReadOnly = true;
-            this.colWipPcsWeg.Width = 80;
-            // 
-            // colWipStdWeightFlag
-            // 
-            this.colWipStdWeightFlag.DataPropertyName = "ProductWeight";
-            this.colWipStdWeightFlag.HeaderText = "每PCS重量(自定)";
-            this.colWipStdWeightFlag.Name = "colWipStdWeightFlag";
-            this.colWipStdWeightFlag.ReadOnly = true;
-            this.colWipStdWeightFlag.Width = 120;
-            // 
-            // colWipProdQty
-            // 
-            this.colWipProdQty.DataPropertyName = "prod_qty";
-            this.colWipProdQty.HeaderText = "生產數量";
-            this.colWipProdQty.Name = "colWipProdQty";
-            this.colWipProdQty.ReadOnly = true;
-            this.colWipProdQty.Width = 80;
-            // 
-            // colWipCplQty
-            // 
-            this.colWipCplQty.DataPropertyName = "c_qty_ok";
-            this.colWipCplQty.HeaderText = "完成數量";
-            this.colWipCplQty.Name = "colWipCplQty";
-            this.colWipCplQty.ReadOnly = true;
-            this.colWipCplQty.Width = 80;
-            // 
-            // colWipCplWeg
-            // 
-            this.colWipCplWeg.DataPropertyName = "c_sec_qty_ok";
-            this.colWipCplWeg.HeaderText = "完成重量";
-            this.colWipCplWeg.Name = "colWipCplWeg";
-            this.colWipCplWeg.ReadOnly = true;
-            this.colWipCplWeg.Width = 80;
-            // 
-            // colWipProductMo
-            // 
-            this.colWipProductMo.DataPropertyName = "mo_id";
-            this.colWipProductMo.HeaderText = "制單編號";
-            this.colWipProductMo.Name = "colWipProductMo";
-            this.colWipProductMo.ReadOnly = true;
-            this.colWipProductMo.Width = 80;
-            // 
-            // colWipDoColor
-            // 
-            this.colWipDoColor.DataPropertyName = "DoColor";
-            this.colWipDoColor.HeaderText = "顏色做法";
-            this.colWipDoColor.Name = "colWipDoColor";
-            this.colWipDoColor.ReadOnly = true;
-            // 
-            // colWipNextDep
-            // 
-            this.colWipNextDep.DataPropertyName = "next_wp_id";
-            this.colWipNextDep.HeaderText = "收貨部門";
-            this.colWipNextDep.Name = "colWipNextDep";
-            this.colWipNextDep.ReadOnly = true;
-            this.colWipNextDep.Width = 80;
-            // 
-            // colWipNextDepId
-            // 
-            this.colWipNextDepId.DataPropertyName = "NextDepCdesc";
-            this.colWipNextDepId.HeaderText = "部門描述";
-            this.colWipNextDepId.Name = "colWipNextDepId";
-            this.colWipNextDepId.ReadOnly = true;
-            // 
-            // colIsSelect
-            // 
-            this.colIsSelect.DataPropertyName = "IsSelect";
-            this.colIsSelect.Frozen = true;
-            this.colIsSelect.HeaderText = "";
-            this.colIsSelect.Name = "colIsSelect";
-            this.colIsSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colIsSelect.Width = 40;
-            // 
-            // colIsSetFlag
-            // 
-            this.colIsSetFlag.DataPropertyName = "IsSetFlag";
-            this.colIsSetFlag.Frozen = true;
-            this.colIsSetFlag.HeaderText = "已設";
-            this.colIsSetFlag.Name = "colIsSetFlag";
-            this.colIsSetFlag.ReadOnly = true;
-            this.colIsSetFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colIsSetFlag.Width = 40;
+            this.dataGridViewTextBoxColumn52.DataPropertyName = "NextDepCdesc";
+            this.dataGridViewTextBoxColumn52.HeaderText = "部門描述";
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
             // 
             // colParentLevel
             // 
@@ -1940,6 +1967,13 @@
             this.colOriginalPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colOriginalPrice.Width = 65;
             // 
+            // colOriginalPriceUnit
+            // 
+            this.colOriginalPriceUnit.DataPropertyName = "OriginalPriceUnit";
+            this.colOriginalPriceUnit.HeaderText = "單價單位";
+            this.colOriginalPriceUnit.Name = "colOriginalPriceUnit";
+            this.colOriginalPriceUnit.Width = 65;
+            // 
             // colMaterialPrice
             // 
             this.colMaterialPrice.DataPropertyName = "MaterialPrice";
@@ -2048,6 +2082,13 @@
             this.colDepStdPrice.Name = "colDepStdPrice";
             this.colDepStdPrice.Width = 65;
             // 
+            // colModality
+            // 
+            this.colModality.DataPropertyName = "modality";
+            this.colModality.HeaderText = "管制類型";
+            this.colModality.Name = "colModality";
+            this.colModality.Width = 60;
+            // 
             // colDepStdQty
             // 
             this.colDepStdQty.DataPropertyName = "DepStdQty";
@@ -2090,73 +2131,123 @@
             this.colAmendTime.Name = "colAmendTime";
             this.colAmendTime.Width = 120;
             // 
-            // lblCreateUser
+            // colWipSeq
             // 
-            this.lblCreateUser.AutoSize = true;
-            this.lblCreateUser.Location = new System.Drawing.Point(61, 154);
-            this.lblCreateUser.Name = "lblCreateUser";
-            this.lblCreateUser.Size = new System.Drawing.Size(47, 14);
-            this.lblCreateUser.TabIndex = 17;
-            this.lblCreateUser.Text = "建立人:";
+            this.colWipSeq.DataPropertyName = "flag";
+            this.colWipSeq.HeaderText = "序號";
+            this.colWipSeq.Name = "colWipSeq";
+            this.colWipSeq.ReadOnly = true;
+            this.colWipSeq.Width = 40;
             // 
-            // txtCreateUser
+            // colWipGoodsId
             // 
-            this.txtCreateUser.Location = new System.Drawing.Point(114, 150);
-            this.txtCreateUser.Name = "txtCreateUser";
-            this.txtCreateUser.ReadOnly = true;
-            this.txtCreateUser.Size = new System.Drawing.Size(145, 22);
-            this.txtCreateUser.TabIndex = 18;
+            this.colWipGoodsId.DataPropertyName = "goods_id";
+            this.colWipGoodsId.HeaderText = "物料編號";
+            this.colWipGoodsId.Name = "colWipGoodsId";
+            this.colWipGoodsId.ReadOnly = true;
+            this.colWipGoodsId.Width = 160;
             // 
-            // lblCreateTime
+            // colWipGoodsCname
             // 
-            this.lblCreateTime.AutoSize = true;
-            this.lblCreateTime.Location = new System.Drawing.Point(285, 154);
-            this.lblCreateTime.Name = "lblCreateTime";
-            this.lblCreateTime.Size = new System.Drawing.Size(59, 14);
-            this.lblCreateTime.TabIndex = 17;
-            this.lblCreateTime.Text = "建立日期:";
+            this.colWipGoodsCname.DataPropertyName = "ProductName";
+            this.colWipGoodsCname.HeaderText = "物料描述";
+            this.colWipGoodsCname.Name = "colWipGoodsCname";
+            this.colWipGoodsCname.ReadOnly = true;
+            this.colWipGoodsCname.Width = 260;
             // 
-            // txtCreateTime
+            // colWipWpId
             // 
-            this.txtCreateTime.Location = new System.Drawing.Point(350, 150);
-            this.txtCreateTime.Name = "txtCreateTime";
-            this.txtCreateTime.ReadOnly = true;
-            this.txtCreateTime.Size = new System.Drawing.Size(145, 22);
-            this.txtCreateTime.TabIndex = 18;
+            this.colWipWpId.DataPropertyName = "wp_id";
+            this.colWipWpId.FillWeight = 80F;
+            this.colWipWpId.HeaderText = "負責部門";
+            this.colWipWpId.Name = "colWipWpId";
+            this.colWipWpId.ReadOnly = true;
+            this.colWipWpId.Width = 80;
             // 
-            // lblAmendUser
+            // colWipDepCdesc
             // 
-            this.lblAmendUser.AutoSize = true;
-            this.lblAmendUser.Location = new System.Drawing.Point(535, 154);
-            this.lblAmendUser.Name = "lblAmendUser";
-            this.lblAmendUser.Size = new System.Drawing.Size(47, 14);
-            this.lblAmendUser.TabIndex = 17;
-            this.lblAmendUser.Text = "修改人:";
+            this.colWipDepCdesc.DataPropertyName = "wp_id_cdesc";
+            this.colWipDepCdesc.HeaderText = "部門描述";
+            this.colWipDepCdesc.Name = "colWipDepCdesc";
+            this.colWipDepCdesc.ReadOnly = true;
             // 
-            // txtAmendUser
+            // colWipPcsWeg
             // 
-            this.txtAmendUser.Location = new System.Drawing.Point(584, 150);
-            this.txtAmendUser.Name = "txtAmendUser";
-            this.txtAmendUser.ReadOnly = true;
-            this.txtAmendUser.Size = new System.Drawing.Size(145, 22);
-            this.txtAmendUser.TabIndex = 18;
+            this.colWipPcsWeg.DataPropertyName = "pcs_weg";
+            this.colWipPcsWeg.HeaderText = "每PCS重量";
+            this.colWipPcsWeg.Name = "colWipPcsWeg";
+            this.colWipPcsWeg.ReadOnly = true;
+            this.colWipPcsWeg.Width = 80;
             // 
-            // lblAmendTime
+            // colWipStdWeightFlag
             // 
-            this.lblAmendTime.AutoSize = true;
-            this.lblAmendTime.Location = new System.Drawing.Point(759, 154);
-            this.lblAmendTime.Name = "lblAmendTime";
-            this.lblAmendTime.Size = new System.Drawing.Size(59, 14);
-            this.lblAmendTime.TabIndex = 17;
-            this.lblAmendTime.Text = "修改日期:";
+            this.colWipStdWeightFlag.DataPropertyName = "ProductWeight";
+            this.colWipStdWeightFlag.HeaderText = "每PCS重量(自定)";
+            this.colWipStdWeightFlag.Name = "colWipStdWeightFlag";
+            this.colWipStdWeightFlag.ReadOnly = true;
+            this.colWipStdWeightFlag.Width = 120;
             // 
-            // txtAmendTime
+            // colWipProdQty
             // 
-            this.txtAmendTime.Location = new System.Drawing.Point(821, 150);
-            this.txtAmendTime.Name = "txtAmendTime";
-            this.txtAmendTime.ReadOnly = true;
-            this.txtAmendTime.Size = new System.Drawing.Size(145, 22);
-            this.txtAmendTime.TabIndex = 18;
+            this.colWipProdQty.DataPropertyName = "prod_qty";
+            this.colWipProdQty.HeaderText = "生產數量";
+            this.colWipProdQty.Name = "colWipProdQty";
+            this.colWipProdQty.ReadOnly = true;
+            this.colWipProdQty.Width = 80;
+            // 
+            // colWipCplQty
+            // 
+            this.colWipCplQty.DataPropertyName = "c_qty_ok";
+            this.colWipCplQty.HeaderText = "完成數量";
+            this.colWipCplQty.Name = "colWipCplQty";
+            this.colWipCplQty.ReadOnly = true;
+            this.colWipCplQty.Width = 80;
+            // 
+            // colWipCplWeg
+            // 
+            this.colWipCplWeg.DataPropertyName = "c_sec_qty_ok";
+            this.colWipCplWeg.HeaderText = "完成重量";
+            this.colWipCplWeg.Name = "colWipCplWeg";
+            this.colWipCplWeg.ReadOnly = true;
+            this.colWipCplWeg.Width = 80;
+            // 
+            // colWipProductMo
+            // 
+            this.colWipProductMo.DataPropertyName = "mo_id";
+            this.colWipProductMo.HeaderText = "制單編號";
+            this.colWipProductMo.Name = "colWipProductMo";
+            this.colWipProductMo.ReadOnly = true;
+            this.colWipProductMo.Width = 80;
+            // 
+            // colWipDoColor
+            // 
+            this.colWipDoColor.DataPropertyName = "DoColor";
+            this.colWipDoColor.HeaderText = "顏色做法";
+            this.colWipDoColor.Name = "colWipDoColor";
+            this.colWipDoColor.ReadOnly = true;
+            // 
+            // colWipModality
+            // 
+            this.colWipModality.DataPropertyName = "modality";
+            this.colWipModality.HeaderText = "管制類型";
+            this.colWipModality.Name = "colWipModality";
+            this.colWipModality.ReadOnly = true;
+            this.colWipModality.Width = 80;
+            // 
+            // colWipNextDep
+            // 
+            this.colWipNextDep.DataPropertyName = "next_wp_id";
+            this.colWipNextDep.HeaderText = "收貨部門";
+            this.colWipNextDep.Name = "colWipNextDep";
+            this.colWipNextDep.ReadOnly = true;
+            this.colWipNextDep.Width = 80;
+            // 
+            // colWipNextDepId
+            // 
+            this.colWipNextDepId.DataPropertyName = "NextDepCdesc";
+            this.colWipNextDepId.HeaderText = "部門描述";
+            this.colWipNextDepId.Name = "colWipNextDepId";
+            this.colWipNextDepId.ReadOnly = true;
             // 
             // frmProductCosting
             // 
@@ -2189,6 +2280,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOriginalPriceUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaterialPriceQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdPriceFlag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStdWeightFlag.Properties)).EndInit();
@@ -2361,22 +2453,22 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private System.Windows.Forms.Button btnBatchUpdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsCname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipWpId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDepCdesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipPcsWeg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipStdWeightFlag;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProdQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplWeg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDoColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
+        private System.Windows.Forms.TextBox txtAmendTime;
+        private System.Windows.Forms.TextBox txtAmendUser;
+        private System.Windows.Forms.TextBox txtCreateTime;
+        private System.Windows.Forms.TextBox txtCreateUser;
+        private System.Windows.Forms.Label lblAmendTime;
+        private System.Windows.Forms.Label lblAmendUser;
+        private System.Windows.Forms.Label lblCreateTime;
+        private System.Windows.Forms.Label lblCreateUser;
+        private DevExpress.XtraEditors.TextEdit txtOriginalPriceUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsSelect;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsSetFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colParentLevel;
@@ -2393,6 +2485,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWasteRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialRequest;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOriginalPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOriginalPriceUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPriceQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStdPriceFlag;
@@ -2408,23 +2501,31 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductMo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepStdPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colModality;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepStdQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOriginWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreateUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmendUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmendTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
-        private System.Windows.Forms.TextBox txtAmendTime;
-        private System.Windows.Forms.TextBox txtAmendUser;
-        private System.Windows.Forms.TextBox txtCreateTime;
-        private System.Windows.Forms.TextBox txtCreateUser;
-        private System.Windows.Forms.Label lblAmendTime;
-        private System.Windows.Forms.Label lblAmendUser;
-        private System.Windows.Forms.Label lblCreateTime;
-        private System.Windows.Forms.Label lblCreateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private System.Windows.Forms.ToolStripButton btnReCount;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipGoodsCname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipWpId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDepCdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipPcsWeg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipStdWeightFlag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProdQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipCplWeg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipProductMo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipDoColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipModality;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
     }
 }

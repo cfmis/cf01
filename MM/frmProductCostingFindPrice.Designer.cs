@@ -39,14 +39,6 @@
             this.dgvDetails1 = new System.Windows.Forms.DataGridView();
             this.xtpFindPlatePrice = new DevExpress.XtraTab.XtraTabPage();
             this.dgvDetails2 = new System.Windows.Forms.DataGridView();
-            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
-            this.lblMaterialName = new DevExpress.XtraEditors.LabelControl();
-            this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
-            this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
-            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
-            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,10 +67,19 @@
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
+            this.lblMaterialName = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
+            this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
+            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
+            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialPriceHkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPriceHKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,9 +87,15 @@
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOrder_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunit_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSec_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReceiveId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcFind)).BeginInit();
             this.xtcFind.SuspendLayout();
@@ -178,6 +185,7 @@
             this.Column2,
             this.Column3,
             this.colMaterialPriceHkd,
+            this.colPriceHKD,
             this.colMaterialPrice,
             this.Column5,
             this.Column6,
@@ -185,6 +193,11 @@
             this.Column34,
             this.Column35,
             this.Column12,
+            this.colOrder_qty,
+            this.colunit_code,
+            this.colSec_qty,
+            this.colSec_unit,
+            this.colReceiveId,
             this.Column7,
             this.Column8,
             this.Column9});
@@ -248,77 +261,6 @@
             this.dgvDetails2.Size = new System.Drawing.Size(987, 449);
             this.dgvDetails2.TabIndex = 0;
             this.dgvDetails2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails2_CellDoubleClick);
-            // 
-            // txtMaterialName
-            // 
-            this.txtMaterialName.Location = new System.Drawing.Point(326, 17);
-            this.txtMaterialName.Name = "txtMaterialName";
-            this.txtMaterialName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMaterialName.Size = new System.Drawing.Size(353, 20);
-            this.txtMaterialName.TabIndex = 1;
-            // 
-            // lblMaterialName
-            // 
-            this.lblMaterialName.Location = new System.Drawing.Point(268, 20);
-            this.lblMaterialName.Name = "lblMaterialName";
-            this.lblMaterialName.Size = new System.Drawing.Size(52, 14);
-            this.lblMaterialName.TabIndex = 0;
-            this.lblMaterialName.Text = "物料編號:";
-            // 
-            // txtMaterialId
-            // 
-            this.txtMaterialId.Location = new System.Drawing.Point(86, 17);
-            this.txtMaterialId.Name = "txtMaterialId";
-            this.txtMaterialId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMaterialId.Size = new System.Drawing.Size(177, 20);
-            this.txtMaterialId.TabIndex = 1;
-            // 
-            // lblMaterialId
-            // 
-            this.lblMaterialId.Location = new System.Drawing.Point(28, 20);
-            this.lblMaterialId.Name = "lblMaterialId";
-            this.lblMaterialId.Size = new System.Drawing.Size(52, 14);
-            this.lblMaterialId.TabIndex = 0;
-            this.lblMaterialId.Text = "物料編號:";
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.lblShowMsg);
-            this.panelControl2.Controls.Add(this.txtMaterialName);
-            this.panelControl2.Controls.Add(this.lblDepId);
-            this.panelControl2.Controls.Add(this.lblMaterialId);
-            this.panelControl2.Controls.Add(this.lblMaterialName);
-            this.panelControl2.Controls.Add(this.txtDepId);
-            this.panelControl2.Controls.Add(this.txtMaterialId);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 38);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(993, 70);
-            this.panelControl2.TabIndex = 2;
-            // 
-            // lblShowMsg
-            // 
-            this.lblShowMsg.Location = new System.Drawing.Point(86, 43);
-            this.lblShowMsg.Name = "lblShowMsg";
-            this.lblShowMsg.Size = new System.Drawing.Size(203, 14);
-            this.lblShowMsg.TabIndex = 2;
-            this.lblShowMsg.Text = "注：所有單價貨幣已統一轉換為HKD。";
-            // 
-            // lblDepId
-            // 
-            this.lblDepId.Location = new System.Drawing.Point(686, 20);
-            this.lblDepId.Name = "lblDepId";
-            this.lblDepId.Size = new System.Drawing.Size(52, 14);
-            this.lblDepId.TabIndex = 0;
-            this.lblDepId.Text = "部門編號:";
-            // 
-            // txtDepId
-            // 
-            this.txtDepId.Location = new System.Drawing.Point(744, 17);
-            this.txtDepId.Name = "txtDepId";
-            this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDepId.Size = new System.Drawing.Size(177, 20);
-            this.txtDepId.TabIndex = 1;
             // 
             // Column4
             // 
@@ -550,6 +492,79 @@
             this.Column28.ReadOnly = true;
             this.Column28.Width = 80;
             // 
+            // txtMaterialName
+            // 
+            this.txtMaterialName.Location = new System.Drawing.Point(326, 17);
+            this.txtMaterialName.Name = "txtMaterialName";
+            this.txtMaterialName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaterialName.Size = new System.Drawing.Size(353, 20);
+            this.txtMaterialName.TabIndex = 1;
+            // 
+            // lblMaterialName
+            // 
+            this.lblMaterialName.Location = new System.Drawing.Point(268, 20);
+            this.lblMaterialName.Name = "lblMaterialName";
+            this.lblMaterialName.Size = new System.Drawing.Size(52, 14);
+            this.lblMaterialName.TabIndex = 0;
+            this.lblMaterialName.Text = "物料編號:";
+            // 
+            // txtMaterialId
+            // 
+            this.txtMaterialId.Location = new System.Drawing.Point(86, 17);
+            this.txtMaterialId.Name = "txtMaterialId";
+            this.txtMaterialId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaterialId.Size = new System.Drawing.Size(177, 20);
+            this.txtMaterialId.TabIndex = 1;
+            // 
+            // lblMaterialId
+            // 
+            this.lblMaterialId.Location = new System.Drawing.Point(28, 20);
+            this.lblMaterialId.Name = "lblMaterialId";
+            this.lblMaterialId.Size = new System.Drawing.Size(52, 14);
+            this.lblMaterialId.TabIndex = 0;
+            this.lblMaterialId.Text = "物料編號:";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Controls.Add(this.lblShowMsg);
+            this.panelControl2.Controls.Add(this.txtMaterialName);
+            this.panelControl2.Controls.Add(this.lblDepId);
+            this.panelControl2.Controls.Add(this.lblMaterialId);
+            this.panelControl2.Controls.Add(this.lblMaterialName);
+            this.panelControl2.Controls.Add(this.txtDepId);
+            this.panelControl2.Controls.Add(this.txtMaterialId);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 38);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(993, 70);
+            this.panelControl2.TabIndex = 2;
+            // 
+            // lblShowMsg
+            // 
+            this.lblShowMsg.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblShowMsg.Location = new System.Drawing.Point(16, 43);
+            this.lblShowMsg.Name = "lblShowMsg";
+            this.lblShowMsg.Size = new System.Drawing.Size(202, 14);
+            this.lblShowMsg.TabIndex = 2;
+            this.lblShowMsg.Text = "注: 1--所有單價貨幣已統一轉換為HKD";
+            // 
+            // lblDepId
+            // 
+            this.lblDepId.Location = new System.Drawing.Point(686, 20);
+            this.lblDepId.Name = "lblDepId";
+            this.lblDepId.Size = new System.Drawing.Size(52, 14);
+            this.lblDepId.TabIndex = 0;
+            this.lblDepId.Text = "部門編號:";
+            // 
+            // txtDepId
+            // 
+            this.txtDepId.Location = new System.Drawing.Point(744, 17);
+            this.txtDepId.Name = "txtDepId";
+            this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDepId.Size = new System.Drawing.Size(177, 20);
+            this.txtDepId.TabIndex = 1;
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "goods_id";
@@ -569,30 +584,38 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "price_g";
-            this.Column3.HeaderText = "單價/G";
+            this.Column3.HeaderText = "單價/g";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 60;
             // 
             // colMaterialPriceHkd
             // 
-            this.colMaterialPriceHkd.DataPropertyName = "PriceHkd";
-            this.colMaterialPriceHkd.HeaderText = "單價/Kg";
+            this.colMaterialPriceHkd.DataPropertyName = "price_pcs";
+            this.colMaterialPriceHkd.HeaderText = "單價/PCS";
             this.colMaterialPriceHkd.Name = "colMaterialPriceHkd";
             this.colMaterialPriceHkd.ReadOnly = true;
             this.colMaterialPriceHkd.Width = 80;
             // 
+            // colPriceHKD
+            // 
+            this.colPriceHKD.DataPropertyName = "PriceHkd";
+            this.colPriceHKD.HeaderText = "單價HKD";
+            this.colPriceHKD.Name = "colPriceHKD";
+            this.colPriceHKD.ReadOnly = true;
+            this.colPriceHKD.Width = 65;
+            // 
             // colMaterialPrice
             // 
             this.colMaterialPrice.DataPropertyName = "price";
-            this.colMaterialPrice.HeaderText = "單價";
+            this.colMaterialPrice.HeaderText = "原幣單價";
             this.colMaterialPrice.Name = "colMaterialPrice";
             this.colMaterialPrice.ReadOnly = true;
-            this.colMaterialPrice.Width = 60;
+            this.colMaterialPrice.Width = 65;
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "p_unit";
+            this.Column5.DataPropertyName = "PriceUnit";
             this.Column5.HeaderText = "單價單位";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -635,6 +658,45 @@
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             // 
+            // colOrder_qty
+            // 
+            this.colOrder_qty.DataPropertyName = "order_qty";
+            this.colOrder_qty.HeaderText = "採購數量";
+            this.colOrder_qty.Name = "colOrder_qty";
+            this.colOrder_qty.ReadOnly = true;
+            this.colOrder_qty.Width = 80;
+            // 
+            // colunit_code
+            // 
+            this.colunit_code.DataPropertyName = "unit_code";
+            this.colunit_code.HeaderText = "數量單位";
+            this.colunit_code.Name = "colunit_code";
+            this.colunit_code.ReadOnly = true;
+            this.colunit_code.Width = 80;
+            // 
+            // colSec_qty
+            // 
+            this.colSec_qty.DataPropertyName = "sec_qty";
+            this.colSec_qty.HeaderText = "採購重量";
+            this.colSec_qty.Name = "colSec_qty";
+            this.colSec_qty.ReadOnly = true;
+            this.colSec_qty.Width = 80;
+            // 
+            // colSec_unit
+            // 
+            this.colSec_unit.DataPropertyName = "sec_unit";
+            this.colSec_unit.HeaderText = "重量單位";
+            this.colSec_unit.Name = "colSec_unit";
+            this.colSec_unit.ReadOnly = true;
+            this.colSec_unit.Width = 80;
+            // 
+            // colReceiveId
+            // 
+            this.colReceiveId.DataPropertyName = "receive_id";
+            this.colReceiveId.HeaderText = "收貨單號";
+            this.colReceiveId.Name = "colReceiveId";
+            this.colReceiveId.ReadOnly = true;
+            // 
             // Column7
             // 
             this.Column7.DataPropertyName = "order_date";
@@ -657,6 +719,15 @@
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Width = 80;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl1.Location = new System.Drawing.Point(225, 43);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(721, 14);
+            this.labelControl1.TabIndex = 3;
+            this.labelControl1.Text = "2--如果單價單位是按長度(米)購買的,且採購單中也沒有輸入重量的時候,則只能從收貨中獲取重量,以轉化成重量的單價,如:SAE006222。";
             // 
             // frmProductCostingFindPrice
             // 
@@ -709,20 +780,6 @@
         private DevExpress.XtraEditors.LabelControl lblDepId;
         private DevExpress.XtraEditors.TextEdit txtDepId;
         private DevExpress.XtraEditors.LabelControl lblShowMsg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPriceHkd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -751,5 +808,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPriceHkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPriceHKD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOrder_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colunit_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSec_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSec_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReceiveId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }
