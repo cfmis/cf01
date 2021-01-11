@@ -345,6 +345,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -397,7 +398,6 @@
             this.polo_care = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_for_test1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sub_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trim_color_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.test_sample_hk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sms = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -3241,6 +3241,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
+            this.plm_code,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
@@ -3293,7 +3294,6 @@
             this.polo_care,
             this.moq_for_test1,
             this.sub_mo,
-            this.plm_code,
             this.trim_color_code,
             this.test_sample_hk,
             this.sms,
@@ -3984,6 +3984,13 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Width = 110;
             // 
+            // plm_code
+            // 
+            this.plm_code.DataPropertyName = "plm_code";
+            this.plm_code.HeaderText = "PLM Code";
+            this.plm_code.Name = "plm_code";
+            this.plm_code.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "cust_code";
@@ -4468,13 +4475,6 @@
             this.sub_mo.HeaderText = "Sub Mo";
             this.sub_mo.Name = "sub_mo";
             this.sub_mo.ReadOnly = true;
-            // 
-            // plm_code
-            // 
-            this.plm_code.DataPropertyName = "plm_code";
-            this.plm_code.HeaderText = "PLM Code";
-            this.plm_code.Name = "plm_code";
-            this.plm_code.ReadOnly = true;
             // 
             // trim_color_code
             // 
@@ -5075,6 +5075,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -5127,7 +5128,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn polo_care;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_for_test1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sub_mo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn trim_color_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn test_sample_hk;
         private System.Windows.Forms.DataGridViewTextBoxColumn sms;

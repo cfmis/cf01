@@ -437,6 +437,7 @@
             this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cf_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cust_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -486,7 +487,6 @@
             this.tempver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.polo_care = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_for_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trim_color_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.test_sample_hk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sms = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -3575,6 +3575,7 @@
             this.material,
             this.size,
             this.product_desc,
+            this.plm_code,
             this.cust_code,
             this.cf_code,
             this.cust_color,
@@ -3624,7 +3625,6 @@
             this.tempver,
             this.polo_care,
             this.moq_for_test,
-            this.plm_code,
             this.trim_color_code,
             this.test_sample_hk,
             this.sms,
@@ -5072,6 +5072,14 @@
             this.product_desc.MaxInputLength = 100;
             this.product_desc.Name = "product_desc";
             // 
+            // plm_code
+            // 
+            this.plm_code.DataPropertyName = "plm_code";
+            this.plm_code.HeaderText = "PLM Code";
+            this.plm_code.Name = "plm_code";
+            this.plm_code.ReadOnly = true;
+            this.plm_code.Visible = false;
+            // 
             // cust_code
             // 
             this.cust_code.DataPropertyName = "cust_code";
@@ -5459,14 +5467,6 @@
             this.moq_for_test.HeaderText = "Moq For Test";
             this.moq_for_test.Name = "moq_for_test";
             this.moq_for_test.ReadOnly = true;
-            // 
-            // plm_code
-            // 
-            this.plm_code.DataPropertyName = "plm_code";
-            this.plm_code.HeaderText = "PLM Code";
-            this.plm_code.Name = "plm_code";
-            this.plm_code.ReadOnly = true;
-            this.plm_code.Visible = false;
             // 
             // trim_color_code
             // 
@@ -6239,6 +6239,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn material;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn cust_color;
@@ -6288,7 +6289,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tempver;
         private System.Windows.Forms.DataGridViewTextBoxColumn polo_care;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_for_test;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn trim_color_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn test_sample_hk;
         private System.Windows.Forms.DataGridViewTextBoxColumn sms;
