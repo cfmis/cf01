@@ -2156,7 +2156,6 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle1.NullValue = false;
             this.flag_select.DefaultCellStyle = dataGridViewCellStyle1;
-            this.flag_select.Frozen = true;
             this.flag_select.HeaderText = "Select";
             this.flag_select.Name = "flag_select";
             this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.False;
