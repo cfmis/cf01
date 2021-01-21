@@ -631,7 +631,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@sample_request", txtSample_request.Text);
                     myCommand.Parameters.AddWithValue("@needle_test", txtNeedle_test.Text);
                     myCommand.Parameters.AddWithValue("@comment", txtComment.Text);
-                    myCommand.Parameters.AddWithValue("@remark_pdd", txtRemark_pdd.Text);
+                    myCommand.Parameters.AddWithValue("@remark_pdd", memRemark_pdd.Text);
                     myCommand.Parameters.AddWithValue("@mo_id", txtMo_id.Text);
                     myCommand.Parameters.AddWithValue("@polo_care", txtPolo_care.EditValue);
                     myCommand.Parameters.AddWithValue("@moq_for_test", clsApp.Return_Float_Value(txtMoq_for_test.Text));
@@ -941,7 +941,7 @@ namespace cf01.Forms
             txtNeedle_test.Text = pdr.Cells["needle_test"].Value.ToString();
             txtVersion.Text = pdr.Cells["ver"].Value.ToString();
             txtMo_id.Text = pdr.Cells["mo_id"].Value.ToString();
-            txtRemark_pdd.Text = pdr.Cells["remark_pdd"].Value.ToString();
+            memRemark_pdd.Text = pdr.Cells["remark_pdd"].Value.ToString();
             
             txtCrusr.Text = pdr.Cells["crusr"].Value.ToString();
             txtCrtim.Text = pdr.Cells["crtim"].Value.ToString();
@@ -2188,7 +2188,7 @@ namespace cf01.Forms
                     row["needle_test"] = txtNeedle_test.Text;
                     row["ver"] = txtVersion.Text;
                     row["mo_id"] = txtMo_id.Text;
-                    row["remark_pdd"] = txtRemark_pdd.Text;  
+                    row["remark_pdd"] = memRemark_pdd.Text;  
                     row["crusr"] = dtReSet.Rows[0]["crusr"].ToString();
                     row["crtim"] = dtReSet.Rows[0]["crtim"].ToString();                    
                     row["comment"] = txtComment.Text;
@@ -2277,11 +2277,10 @@ namespace cf01.Forms
                     dtDetail.Rows[row_reset]["needle_test"] = txtNeedle_test.Text;
                     dtDetail.Rows[row_reset]["ver"] = txtVersion.Text;
                     dtDetail.Rows[row_reset]["mo_id"] = txtMo_id.Text;
-                    dtDetail.Rows[row_reset]["remark_pdd"] = txtRemark_pdd.Text;                    
+                    dtDetail.Rows[row_reset]["remark_pdd"] = memRemark_pdd.Text;                    
                     dtDetail.Rows[row_reset]["amusr"] = dtReSet.Rows[0]["amusr"].ToString();
                     dtDetail.Rows[row_reset]["amtim"] = dtReSet.Rows[0]["amtim"].ToString();
-                    dtDetail.Rows[row_reset]["comment"] = txtComment.Text;
-                    dtDetail.Rows[row_reset]["remark_pdd"] = txtRemark_pdd.Text;
+                    dtDetail.Rows[row_reset]["comment"] = txtComment.Text;                    
                     dtDetail.Rows[row_reset]["polo_care"] = txtPolo_care.EditValue;
                     dtDetail.Rows[row_reset]["moq_for_test"] = txtMoq_for_test.EditValue;
                     dtDetail.Rows[row_reset]["plm_code"] = txtPlm_code.Text;
