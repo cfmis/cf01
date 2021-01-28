@@ -206,7 +206,7 @@ namespace cf01.MM
             if (xtraTabControl1.SelectedTabPageIndex==0)
             {
                 string productMo = dr.Cells["colProductMo"].Value == null ? "" : dr.Cells["colProductMo"].Value.ToString();
-                dtWipData = clsProductCosting.getWipData(productMo);
+                dtWipData = clsProductCosting.getWipData(productMo, true);
                 dgvWipData.DataSource = dtWipData;
                 for (int i = 0; i < dgvWipData.Rows.Count; i++)
                 {

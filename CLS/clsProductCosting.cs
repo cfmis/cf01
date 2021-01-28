@@ -102,7 +102,7 @@ namespace cf01.CLS
             DataTable dtCost = clsPublicOfCF01.GetDataTable(strSql);
             return dtCost;
         }
-        public static DataTable getWipData(string productMo)
+        public static DataTable getWipData(string productMo,bool reCount)
         {
             string strSql = "";
             strSql += " SELECT aa.*" +
@@ -115,10 +115,10 @@ namespace cf01.CLS
                 ",dd.ProductPrice,dd.PriceUnit,dd.ProductPriceQty" +
                 ",ee.kg_qty_rate AS std_kq_qty_rate,ee.pcs_weg AS std_pcs_weg";
             strSql += " FROM ( ";
-            strSql += " SELECT TOP 100000 a.mo_id,b.sequence_id,b.flag,b.goods_id,c.name AS ProductName,c.modality,c.do_color AS DoColor" +
+            strSql += " SELECT TOP 100000 a.id,a.mo_id,b.sequence_id,b.flag,b.goods_id,c.name AS ProductName,c.modality,c.do_color AS DoColor" +
                 ",b.wp_id,d.name AS wp_id_cdesc,b.next_wp_id,e.name AS NextDepCdesc" +
                 ",Convert(Varchar(20),a.bill_date,111) AS bill_date,Convert(Int,b.prod_qty) AS prod_qty,Convert(Int,b.c_qty_ok) AS c_qty_ok" +
-                ",Convert(Decimal(18,2),b.c_sec_qty_ok) AS c_sec_qty_ok" +
+                ",Convert(Decimal(18,2),b.c_sec_qty_ok) AS c_sec_qty_ok,b.vendor_id" +
                 ",CASE b.c_qty_ok WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(b.c_sec_qty_ok/b.c_qty_ok)*1000) END AS pcs_weg" +
                 ",f.seller_id,Substring(a.mo_id,3,1) AS mo_group" +
                 ",g.dept_id AS StdProductDep,h.name AS DepCdesc" +
@@ -138,6 +138,29 @@ namespace cf01.CLS
             strSql += " LEFT JOIN mm_ProductPrice dd ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=dd.ProductId";
             strSql += " LEFT JOIN bs_product_qty_rate ee ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=ee.prd_item";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            //獲取外發供應商
+            if (reCount == false)//如果是重新計算的，就不再獲取外發供應商，減少緩慢
+            {
+                string id = dt.Rows[0]["id"].ToString();
+                strSql = "Select a.wp_id,a.next_wp_id,a.vendor_id,b.goods_id,b.materiel_id" +
+                    " From jo_bill_goods_details a" +
+                    " Inner Join jo_bill_materiel_details b On a.within_code=b.within_code And a.id=b.id And a.ver=b.ver And a.goods_id=b.materiel_id" +
+                    " Where a.within_code='" + within_code + "' And a.id='" + id + "'";
+                DataTable dtMat = clsPublicOfGEO.GetDataTable(strSql);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    string wp_id = dr["wp_id"].ToString().Trim();
+                    if (wp_id.Substring(0, 1) == "5")
+                    {
+                        string goods_id = dr["goods_id"].ToString().Trim();
+                        DataRow[] dr1 = dtMat.Select("goods_id='" + goods_id + "' AND next_wp_id='" + wp_id + "'");
+                        if (dr1.Length > 0)
+                            dr["vendor_id"] = dr1[0]["vendor_id"].ToString();
+                    }
+                }
+            }
             return dt;
         }
 
@@ -560,7 +583,7 @@ namespace cf01.CLS
             DataTable dtWeight = clsPublicOfGEO.GetDataTable(strSql);
             return dtWeight;
         }
-        public static DataTable findPlatePrice(string depId,string materialId, string materialName)
+        public static DataTable findPlatePrice(string productMo,string depId,string materialId, string materialName)
         {
             string materialName1 = materialName;
             string strSql = " SELECT a.id,Convert(Varchar(20),a.issue_date,111) AS issue_date,a.vendor_id,a.vendor" +
@@ -583,6 +606,8 @@ namespace cf01.CLS
                         " WHERE b.within_code='" + within_code + "'";
             if (depId != "")
                 strSql += " AND a.department_id = '" + depId + "'";
+            if (productMo != "")
+                strSql += " AND b.mo_id='" + productMo + "'";
             if (materialId != "")
             {
                 if (materialId.Length == 18)

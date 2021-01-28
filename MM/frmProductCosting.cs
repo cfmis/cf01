@@ -113,7 +113,7 @@ namespace cf01.MM
                 wForm.ShowDialog();
             }).Start();
 
-            dtWipData = clsProductCosting.getWipData(productMo);//獲取制單的生產流程
+            dtWipData = clsProductCosting.getWipData(productMo, reCount);//獲取制單的生產流程
             dgvWipData.DataSource = dtWipData;
             //**********************
             initTreeView(productId, productName); //將BOM以TreeView的形式顯示
@@ -193,7 +193,7 @@ namespace cf01.MM
             initBomDataTable();
             tvBom.Nodes.Clear();
             string productMo = txtProductMo.Text.Trim();
-            DataTable dtWipData = clsProductCosting.getWipData(productMo);
+            DataTable dtWipData = clsProductCosting.getWipData(productMo,reCount);
             dgvWipData.DataSource = dtWipData;
             //添加主菜单
             TreeNode TopNode;
@@ -424,8 +424,6 @@ namespace cf01.MM
             dr2["IsSelect"] = false;
             dr2["StdPriceFlag"] = "";
             dr2["StdWeightFlag"] = "";
-            if (productId == "SSSGXXSG020112NEP0")
-                depId = "";
             DataRow[] dr1;
             dr1 = dtWipData.Select("ProductId= '" + productId + "' and DepId = '" + depId + "'");
             if (dr1.Length>0)
@@ -693,7 +691,11 @@ namespace cf01.MM
                             if (modality == "1" || depId == "501" || depId == "510")//外發加工
                             {
                                 ////默認從之前的外發加工單中提取單價
-                                dtPrice = clsProductCosting.findPlatePrice(depId, productId, "");
+                                //1--找該MO的外發單價
+                                //2--若MO的外發單價不存在，找該物料的歷史單價
+                                dtPrice = clsProductCosting.findPlatePrice(productMo,depId, productId, "");
+                                if(dtPrice.Rows.Count==0)
+                                    dtPrice = clsProductCosting.findPlatePrice("", depId, productId, "");
                                 if (dtPrice.Rows.Count > 0)
                                 {
                                     drPrice = dtPrice.Rows[0];
@@ -1143,10 +1145,23 @@ namespace cf01.MM
 
         private void txtOriginalPrice_Leave(object sender, EventArgs e)
         {
-            txtMaterialPrice.Text = (txtOriginalPrice.Text != "" ? Math.Round(Convert.ToDecimal(txtOriginalPrice.Text) / 1000, 4) : 0).ToString();
+            txtMaterialPrice.Text = "0";
+            txtMaterialPriceQty.Text = "0";
+            string unit = txtOriginalPriceUnit.Text.Trim().ToUpper();
+            if (unit == "KG")
+                txtMaterialPrice.Text = (txtOriginalPrice.Text != "" ? Math.Round(Convert.ToDecimal(txtOriginalPrice.Text) / 1000, 4) : 0).ToString();
+            else if (unit == "PCS")
+                txtMaterialPriceQty.Text = txtOriginalPrice.Text;
+            else if (unit == "K")
+                txtMaterialPriceQty.Text = (txtOriginalPrice.Text != "" ? Math.Round(Convert.ToDecimal(txtOriginalPrice.Text) / 1000, 4) : 0).ToString();
+            else if (unit == "DZS")
+                txtMaterialPriceQty.Text = (txtOriginalPrice.Text != "" ? Math.Round(Convert.ToDecimal(txtOriginalPrice.Text) / 12, 4) : 0).ToString();
+            else if (unit == "GRS")
+                txtMaterialPriceQty.Text = (txtOriginalPrice.Text != "" ? Math.Round(Convert.ToDecimal(txtOriginalPrice.Text) / 144, 4) : 0).ToString();
             countMaterialCost();
             fillDgvBomDetails();
         }
+
         private void txtMaterialPriceQty_Leave(object sender, EventArgs e)
         {
             countMaterialCost();
@@ -1359,6 +1374,7 @@ namespace cf01.MM
             decimal wasteRate = 0;
             string matType = dgrCurrent.Cells["colProductId"].Value.ToString().Substring(0, 2);
             string modality = dgrCurrent.Cells["colModality"].Value.ToString().Trim();//物料管制類型,採購件
+            string depId = dgrParent.Cells["colDepId"].Value.ToString().Trim();
             if (matType == "ML")
             {
                 if (parentLevel == currentLevel)//判斷本層是否屬於上層的
@@ -1410,7 +1426,7 @@ namespace cf01.MM
                     countProductCostInGrid(currentRow);
                 }
             }
-            else if (dgrParent.Cells["colDepId"].Value.ToString().Trim() == "501" || dgrParent.Cells["colDepId"].Value.ToString().Trim() == "510")//
+            else if (depId.Length>0 && depId.Substring(0,1) == "5")//
             {
                 if (parentLevel == currentLevel)
                 {

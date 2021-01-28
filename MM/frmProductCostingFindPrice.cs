@@ -85,7 +85,7 @@ namespace cf01.MM
         }
         private void findPlatePrice()
         {
-            DataTable dtPlatePrice = clsProductCosting.findPlatePrice(txtDepId.Text.Trim(),txtMaterialId.Text.Trim(), txtMaterialName.Text.Trim());
+            DataTable dtPlatePrice = clsProductCosting.findPlatePrice("",txtDepId.Text.Trim(),txtMaterialId.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails2.DataSource = dtPlatePrice;
             if (dgvDetails2.Rows.Count == 0)
                 MessageBox.Show("沒有找到符合條件的記錄!");
