@@ -315,6 +315,8 @@
             this.dataGridViewTextBoxColumn81 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn82 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn83 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkMat = new System.Windows.Forms.CheckBox();
+            this.chkBrand = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBP.Properties)).BeginInit();
@@ -331,7 +333,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(768, 41);
+            this.label8.Location = new System.Drawing.Point(839, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 12);
             this.label8.TabIndex = 15;
@@ -340,15 +342,15 @@
             // 
             // txtCf_color
             // 
-            this.txtCf_color.Location = new System.Drawing.Point(894, 38);
+            this.txtCf_color.Location = new System.Drawing.Point(964, 37);
             this.txtCf_color.MaxLength = 100;
             this.txtCf_color.Name = "txtCf_color";
-            this.txtCf_color.Size = new System.Drawing.Size(188, 22);
+            this.txtCf_color.Size = new System.Drawing.Size(159, 22);
             this.txtCf_color.TabIndex = 9;
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(469, 41);
+            this.label7.Location = new System.Drawing.Point(557, 41);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 15);
             this.label7.TabIndex = 13;
@@ -357,7 +359,7 @@
             // 
             // txtCust_color
             // 
-            this.txtCust_color.Location = new System.Drawing.Point(601, 38);
+            this.txtCust_color.Location = new System.Drawing.Point(687, 37);
             this.txtCust_color.MaxLength = 100;
             this.txtCust_color.Name = "txtCust_color";
             this.txtCust_color.Size = new System.Drawing.Size(143, 22);
@@ -366,7 +368,7 @@
             // label6
             // 
             this.label6.AllowDrop = true;
-            this.label6.Location = new System.Drawing.Point(257, 41);
+            this.label6.Location = new System.Drawing.Point(296, 41);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 15);
             this.label6.TabIndex = 11;
@@ -375,7 +377,7 @@
             // 
             // txtSeason
             // 
-            this.txtSeason.Location = new System.Drawing.Point(342, 38);
+            this.txtSeason.Location = new System.Drawing.Point(381, 37);
             this.txtSeason.MaxLength = 100;
             this.txtSeason.Name = "txtSeason";
             this.txtSeason.Size = new System.Drawing.Size(123, 22);
@@ -393,7 +395,7 @@
             // txtBrand
             // 
             this.txtBrand.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBrand.Location = new System.Drawing.Point(122, 38);
+            this.txtBrand.Location = new System.Drawing.Point(122, 37);
             this.txtBrand.MaxLength = 100;
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(132, 22);
@@ -401,7 +403,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(469, 15);
+            this.label4.Location = new System.Drawing.Point(557, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 15);
             this.label4.TabIndex = 7;
@@ -411,7 +413,7 @@
             // txtCust_code
             // 
             this.txtCust_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCust_code.Location = new System.Drawing.Point(601, 13);
+            this.txtCust_code.Location = new System.Drawing.Point(687, 12);
             this.txtCust_code.MaxLength = 100;
             this.txtCust_code.Name = "txtCust_code";
             this.txtCust_code.Size = new System.Drawing.Size(143, 22);
@@ -420,7 +422,7 @@
             // label3
             // 
             this.label3.AllowDrop = true;
-            this.label3.Location = new System.Drawing.Point(257, 15);
+            this.label3.Location = new System.Drawing.Point(296, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 15);
             this.label3.TabIndex = 5;
@@ -429,7 +431,7 @@
             // 
             // txtMaterial
             // 
-            this.txtMaterial.Location = new System.Drawing.Point(342, 13);
+            this.txtMaterial.Location = new System.Drawing.Point(381, 12);
             this.txtMaterial.MaxLength = 100;
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Size = new System.Drawing.Size(123, 22);
@@ -437,7 +439,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(768, 15);
+            this.label2.Location = new System.Drawing.Point(839, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 12);
             this.label2.TabIndex = 3;
@@ -447,10 +449,10 @@
             // txtCf_code
             // 
             this.txtCf_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCf_code.Location = new System.Drawing.Point(894, 13);
+            this.txtCf_code.Location = new System.Drawing.Point(964, 12);
             this.txtCf_code.MaxLength = 100;
             this.txtCf_code.Name = "txtCf_code";
-            this.txtCf_code.Size = new System.Drawing.Size(188, 22);
+            this.txtCf_code.Size = new System.Drawing.Size(159, 22);
             this.txtCf_code.TabIndex = 8;
             // 
             // label1
@@ -465,17 +467,17 @@
             // 
             // txtDate2
             // 
-            this.txtDate2.Location = new System.Drawing.Point(894, 63);
+            this.txtDate2.Location = new System.Drawing.Point(964, 63);
             this.txtDate2.Mask = "0000/00/00";
             this.txtDate2.Name = "txtDate2";
-            this.txtDate2.Size = new System.Drawing.Size(188, 22);
+            this.txtDate2.Size = new System.Drawing.Size(159, 22);
             this.txtDate2.TabIndex = 24;
             this.txtDate2.ValidatingType = typeof(System.DateTime);
             // 
             // lblDate2
             // 
             this.lblDate2.ForeColor = System.Drawing.Color.Blue;
-            this.lblDate2.Location = new System.Drawing.Point(763, 66);
+            this.lblDate2.Location = new System.Drawing.Point(834, 66);
             this.lblDate2.Name = "lblDate2";
             this.lblDate2.Size = new System.Drawing.Size(128, 15);
             this.lblDate2.TabIndex = 23;
@@ -484,7 +486,7 @@
             // 
             // txtDate1
             // 
-            this.txtDate1.Location = new System.Drawing.Point(601, 63);
+            this.txtDate1.Location = new System.Drawing.Point(687, 63);
             this.txtDate1.Mask = "0000/00/00";
             this.txtDate1.Name = "txtDate1";
             this.txtDate1.Size = new System.Drawing.Size(143, 22);
@@ -494,7 +496,7 @@
             // lblDate1
             // 
             this.lblDate1.ForeColor = System.Drawing.Color.Blue;
-            this.lblDate1.Location = new System.Drawing.Point(469, 66);
+            this.lblDate1.Location = new System.Drawing.Point(557, 66);
             this.lblDate1.Name = "lblDate1";
             this.lblDate1.Size = new System.Drawing.Size(128, 15);
             this.lblDate1.TabIndex = 20;
@@ -504,7 +506,7 @@
             // lblSize
             // 
             this.lblSize.AllowDrop = true;
-            this.lblSize.Location = new System.Drawing.Point(257, 66);
+            this.lblSize.Location = new System.Drawing.Point(296, 66);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(83, 15);
             this.lblSize.TabIndex = 19;
@@ -513,7 +515,7 @@
             // 
             // txtSize
             // 
-            this.txtSize.Location = new System.Drawing.Point(342, 63);
+            this.txtSize.Location = new System.Drawing.Point(381, 63);
             this.txtSize.MaxLength = 100;
             this.txtSize.Name = "txtSize";
             this.txtSize.Size = new System.Drawing.Size(123, 22);
@@ -540,7 +542,7 @@
             // txtSales_group
             // 
             this.txtSales_group.FormattingEnabled = true;
-            this.txtSales_group.Location = new System.Drawing.Point(122, 13);
+            this.txtSales_group.Location = new System.Drawing.Point(122, 12);
             this.txtSales_group.MaxLength = 1;
             this.txtSales_group.Name = "txtSales_group";
             this.txtSales_group.Size = new System.Drawing.Size(132, 20);
@@ -1619,6 +1621,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.chkBrand);
+            this.groupBox2.Controls.Add(this.chkMat);
             this.groupBox2.Controls.Add(this.txtReason);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.txtProductDesc);
@@ -1679,15 +1683,15 @@
             // 
             // txtProductDesc
             // 
-            this.txtProductDesc.Location = new System.Drawing.Point(894, 88);
+            this.txtProductDesc.Location = new System.Drawing.Point(964, 88);
             this.txtProductDesc.MaxLength = 50;
             this.txtProductDesc.Name = "txtProductDesc";
-            this.txtProductDesc.Size = new System.Drawing.Size(188, 22);
+            this.txtProductDesc.Size = new System.Drawing.Size(159, 22);
             this.txtProductDesc.TabIndex = 33;
             // 
             // lblProductDesc
             // 
-            this.lblProductDesc.Location = new System.Drawing.Point(765, 90);
+            this.lblProductDesc.Location = new System.Drawing.Point(836, 90);
             this.lblProductDesc.Name = "lblProductDesc";
             this.lblProductDesc.Size = new System.Drawing.Size(128, 15);
             this.lblProductDesc.TabIndex = 34;
@@ -1696,7 +1700,7 @@
             // 
             // txtPlm_code
             // 
-            this.txtPlm_code.Location = new System.Drawing.Point(601, 88);
+            this.txtPlm_code.Location = new System.Drawing.Point(687, 88);
             this.txtPlm_code.MaxLength = 50;
             this.txtPlm_code.Name = "txtPlm_code";
             this.txtPlm_code.Size = new System.Drawing.Size(143, 22);
@@ -1704,7 +1708,7 @@
             // 
             // lblPlm_code
             // 
-            this.lblPlm_code.Location = new System.Drawing.Point(469, 91);
+            this.lblPlm_code.Location = new System.Drawing.Point(557, 91);
             this.lblPlm_code.Name = "lblPlm_code";
             this.lblPlm_code.Size = new System.Drawing.Size(128, 15);
             this.lblPlm_code.TabIndex = 30;
@@ -1713,7 +1717,7 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(257, 93);
+            this.label12.Location = new System.Drawing.Point(296, 93);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 13);
             this.label12.TabIndex = 28;
@@ -1723,7 +1727,7 @@
             // txtSub
             // 
             this.txtSub.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSub.Location = new System.Drawing.Point(342, 88);
+            this.txtSub.Location = new System.Drawing.Point(381, 88);
             this.txtSub.MaxLength = 9;
             this.txtSub.Name = "txtSub";
             this.txtSub.Size = new System.Drawing.Size(123, 22);
@@ -2701,6 +2705,30 @@
             this.dataGridViewTextBoxColumn83.Name = "dataGridViewTextBoxColumn83";
             this.dataGridViewTextBoxColumn83.ReadOnly = true;
             // 
+            // chkMat
+            // 
+            this.chkMat.AutoSize = true;
+            this.chkMat.Checked = true;
+            this.chkMat.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMat.Location = new System.Drawing.Point(505, 16);
+            this.chkMat.Name = "chkMat";
+            this.chkMat.Size = new System.Drawing.Size(48, 16);
+            this.chkMat.TabIndex = 202;
+            this.chkMat.Text = "包含";
+            this.chkMat.UseVisualStyleBackColor = true;
+            // 
+            // chkBrand
+            // 
+            this.chkBrand.AutoSize = true;
+            this.chkBrand.Checked = true;
+            this.chkBrand.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkBrand.Location = new System.Drawing.Point(255, 41);
+            this.chkBrand.Name = "chkBrand";
+            this.chkBrand.Size = new System.Drawing.Size(48, 16);
+            this.chkBrand.TabIndex = 203;
+            this.chkBrand.Text = "包含";
+            this.chkBrand.UseVisualStyleBackColor = true;
+            // 
             // frmQuotation_Batch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2969,5 +2997,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_kind;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_salesperson;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
+        private System.Windows.Forms.CheckBox chkBrand;
+        private System.Windows.Forms.CheckBox chkMat;
     }
 }

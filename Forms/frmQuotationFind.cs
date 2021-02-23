@@ -141,8 +141,10 @@ namespace cf01.Forms
                        new SqlParameter("@other_remark",txtRmk_other.Text),
                        new SqlParameter("@remark_for_pdd",txtRmk_pdd.Text),  
                        new SqlParameter("@crtim_s",ls_crtim1),
-                       new SqlParameter("@crtim_e",ls_crtim2)
-                      
+                       new SqlParameter("@crtim_e",ls_crtim2),
+                       new SqlParameter("@include_mat","1"),
+                       new SqlParameter("@include_brand","1")
+
             };
 
             //是示查詢進度

@@ -1218,7 +1218,9 @@ namespace cf01.Forms
                        new SqlParameter("@remark_for_pdd",""),
                        new SqlParameter("@reason_edit",""),
                        new SqlParameter("@crtim_s",ls_crtim1),
-                       new SqlParameter("@crtim_e",ls_crtim2)
+                       new SqlParameter("@crtim_e",ls_crtim2),
+                       new SqlParameter("@include_mat","1"),
+                       new SqlParameter("@include_brand","1")
             };
 
             frmProgress wForm = new frmProgress();
