@@ -53,6 +53,25 @@ namespace cf01.Forms
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            txtMaterial.Focus();
+            bool select_flag = false;
+            DataRow[] drs = null;
+            if (dgvDetails.RowCount > 0)
+            {
+                for (int i = 0; i < dgvDetails.RowCount; i++)
+                {
+                    if (dt.Rows[i]["flag_select"].ToString() == "True")
+                    {
+                        select_flag = true;
+                        break;
+                    }
+                }
+                if (select_flag)
+                {
+                    drs = dt.Select("flag_select=true");
+                }
+            }
+
             string strDat1 = txtDate1.Text;
             string strDat2 = txtDate2.Text;  
             if (strDat1 == "    /  /")
@@ -63,10 +82,7 @@ namespace cf01.Forms
             {
                 strDat2 = "";
             }
-            if(chkMat.Checked)
-            {
-
-            }
+            
             SqlParameter[] paras = new SqlParameter[] 
             { 
                 new SqlParameter("@user_id",DBUtility._user_id),
@@ -98,6 +114,37 @@ namespace cf01.Forms
             dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find",paras);
             //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
             dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
+
+            //------------ 
+            //導入前一次打勾的記錄
+            if (drs != null)
+            {
+                if (drs.Length > 0)
+                {
+                    DataRow[] drs_del;
+                    foreach (DataRow row in drs)
+                    {
+                        drs_del = dt.Select(string.Format("id={0}", row["id"]));
+                        foreach (DataRow row_del in drs_del)
+                        {
+                            dt.Rows.Remove(row_del);//先移走已存在的行
+                        }
+                    }
+                    //將打勾的添加進新查詢的結果中                   
+                    foreach (DataRow dr in drs)
+                    {
+                        dt.ImportRow(dr);
+                    }
+                }
+            }
+            //------------
+
+            //處理排序
+            //this.dgvDetails.Sort(this.dgvDetails.Columns["flag_select"], ListSortDirection.Descending);  
+            DataView dv = dt.DefaultView;
+            dv.Sort = "flag_select DESC";  //按Flag_select列 排序            
+            dt = dv.ToTable();
+
             this.dgvDetails.DataSource = dt;            
             if (dt.Rows.Count == 0)
             {
