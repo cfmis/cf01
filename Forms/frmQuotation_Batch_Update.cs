@@ -53,7 +53,7 @@ namespace cf01.Forms
             txtUpdate.Properties.DisplayMember = "column_name";
 
             txtDate.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
-
+            chkHidenCancel.Checked = true;
             //dtpCrtim1.Format = DateTimePickerFormat.Custom;
             //dtpCrtim1.CustomFormat = "yyyy-MM-dd HH:mm";
 
@@ -123,8 +123,9 @@ namespace cf01.Forms
                 new SqlParameter("@reason_edit",txtReason.Text),
                 new SqlParameter("@remark",txtRmk.Text),
                 new SqlParameter("@other_remark",txtRmk_other.Text),
-                new SqlParameter("@remark_for_pdd",txtRmk_pdd.Text)
-                
+                new SqlParameter("@remark_for_pdd",txtRmk_pdd.Text),
+                new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0")
+
             };
             dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find_batch_update", paras);
             //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));

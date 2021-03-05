@@ -44,6 +44,7 @@ namespace cf01.Forms
             txtValid_date.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
             chkBrand.Checked = true;
             chkMat.Checked = true;
+            chkHidenCancel.Checked = true;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -109,7 +110,8 @@ namespace cf01.Forms
                 new SqlParameter("@crtim_s",""),
                 new SqlParameter("@crtim_e",""),
                 new SqlParameter("@include_mat",chkMat.Checked?"1":""),
-                new SqlParameter("@include_brand",chkBrand.Checked?"1":"")
+                new SqlParameter("@include_brand",chkBrand.Checked?"1":""),
+                new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0")
             };
             dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find",paras);
             //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
