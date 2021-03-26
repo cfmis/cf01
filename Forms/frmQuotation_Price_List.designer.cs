@@ -58,6 +58,8 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,9 +76,11 @@
             this.disc_hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rmb_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark_pdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPriceList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,9 +110,11 @@
             this.disc_hkd_ex_fty,
             this.rmb_remark,
             this.remark_pdd,
-            this.remark,
+            this.date,
+            this.crtim,
             this.amtim,
-            this.amusr});
+            this.amusr,
+            this.remark});
             this.dgvPriceList.Location = new System.Drawing.Point(4, 4);
             this.dgvPriceList.MultiSelect = false;
             this.dgvPriceList.Name = "dgvPriceList";
@@ -273,11 +279,13 @@
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn16.Visible = false;
             this.dataGridViewTextBoxColumn16.Width = 150;
             // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "amtim";
+            this.dataGridViewTextBoxColumn17.FillWeight = 70F;
             this.dataGridViewTextBoxColumn17.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
@@ -300,6 +308,21 @@
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn19.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "amusr";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Update by";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn20.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "remark";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Remark";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // temp_code
             // 
@@ -457,13 +480,24 @@
             this.remark_pdd.Visible = false;
             this.remark_pdd.Width = 150;
             // 
-            // remark
+            // date
             // 
-            this.remark.DataPropertyName = "remark";
-            this.remark.HeaderText = "Remark";
-            this.remark.Name = "remark";
-            this.remark.ReadOnly = true;
-            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.date.DataPropertyName = "date";
+            this.date.FillWeight = 55F;
+            this.date.HeaderText = "Date.";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.date.Width = 80;
+            // 
+            // crtim
+            // 
+            this.crtim.DataPropertyName = "crtim";
+            this.crtim.HeaderText = "Crate Date";
+            this.crtim.Name = "crtim";
+            this.crtim.ReadOnly = true;
+            this.crtim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.crtim.Width = 110;
             // 
             // amtim
             // 
@@ -482,6 +516,14 @@
             this.amusr.ReadOnly = true;
             this.amusr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.amusr.Width = 80;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "Remark";
+            this.remark.Name = "remark";
+            this.remark.ReadOnly = true;
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmQuotation_Price_List
             // 
@@ -539,8 +581,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn rmb_remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn crtim;
         private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
         private System.Windows.Forms.DataGridViewTextBoxColumn amusr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
     }
 }

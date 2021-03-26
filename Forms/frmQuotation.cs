@@ -535,7 +535,7 @@ namespace cf01.Forms
                     number_enter,hkd_ex_fty,date_req,aw,status,sample_request,
                     needle_test,ver,crusr,crtim,comment,remark_pdd,mo_id,polo_care,moq_for_test,plm_code,trim_color_code,
                     test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,
-                    discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,labtest_prod_type,termremark)
+                    discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,labtest_prod_type,termremark,pending)
             VALUES(@sales_group,@temp_code,CASE LEN(@date) WHEN 0 THEN null ELSE @date END,@brand,@brand_desc,@formula_id,@season,@season_desc,@division,@contact,@material,@size,@product_desc,
                     @cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq_below_over,@moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,
                     @lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@md_charge_unit,@remark,@remark_other,@die_mould_usd,@die_mould_cny,@account_code,
@@ -543,7 +543,7 @@ namespace cf01.Forms
                     @number_enter,@hkd_ex_fty,@date_req,@aw,@status,@sample_request,
                     @needle_test,@ver,@user_id,getdate(),@comment,@remark_pdd,@mo_id,@polo_care,@moq_for_test,@plm_code,@trim_color_code,
                     @test_sample_hk,@sms,@sample_card,@meeting_recap,@usd_dap,@usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,
-                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark)";
+                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark,@pending)";
             const string sql_update =
             @"UPDATE quotation 
             SET sales_group=@sales_group,temp_code=@temp_code,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,season=@season,season_desc=@season_desc,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
@@ -554,7 +554,7 @@ namespace cf01.Forms
                 needle_test=@needle_test,ver=@ver,amusr=@user_id,amtim=Getdate(),comment=@comment,remark_pdd=@remark_pdd,mo_id=@mo_id,polo_care=@polo_care,moq_for_test=@moq_for_test,
                 plm_code=@plm_code,trim_color_code=@trim_color_code,test_sample_hk=@test_sample_hk,sms=@sms,sample_card=@sample_card,meeting_recap=@meeting_recap,usd_dap=@usd_dap,usd_lab_test_prx=@usd_lab_test_prx,ex_fty_hkd=@ex_fty_hkd,ex_fty_usd=@ex_fty_usd,
                 discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty,usd_ex_fty=@usd_ex_fty,reason_edit=@reason_edit,rmb_remark=@rmb_remark,special_price=@special_price,cust_artwork=@cust_artwork,cost_price=@cost_price,
-                labtest_prod_type=@labtest_prod_type,termremark=@termremark
+                labtest_prod_type=@labtest_prod_type,termremark=@termremark,pending=@pending
             WHERE id=@id";
 
             //組別設置
@@ -663,7 +663,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@cust_artwork", txtCustartwork.Text);
                     myCommand.Parameters.AddWithValue("@cost_price", clsApp.Return_Float_Value(txtCost_price.Text));
                     myCommand.Parameters.AddWithValue("@labtest_prod_type", lueLabtest.EditValue.ToString());
-                    myCommand.Parameters.AddWithValue("@termremark", txtTermremark.Text);                    
+                    myCommand.Parameters.AddWithValue("@termremark", txtTermremark.Text);
+                    myCommand.Parameters.AddWithValue("@pending", txtPending.Text);
                     myCommand.ExecuteNonQuery();
                     
                     //設置組別
@@ -989,7 +990,8 @@ namespace cf01.Forms
             txtCost_price.EditValue = pdr.Cells["cost_price"].Value;
             lueLabtest.EditValue = pdr.Cells["labtest_prod_type"].Value;
             txtTermremark.Text = pdr.Cells["termremark"].Value.ToString();
-            
+            txtPending.EditValue = pdr.Cells["pending"].Value.ToString();
+
             if (txtCf_code.Text != "")
             {
                 if (txtCf_code.Text.Length >= 7)
@@ -1065,8 +1067,17 @@ namespace cf01.Forms
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
             {
-                grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
-                grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
+                {
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                }
+                else
+                {
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
+                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                }
+                
 
                 ////備註字段不顯示刪除線
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
@@ -2218,6 +2229,7 @@ namespace cf01.Forms
                     row["cust_artwork"] = txtCustartwork.Text;
                     row["labtest_prod_type"] = lueLabtest.EditValue.ToString();
                     row["termremark"] = txtTermremark.Text;
+                    row["pending"] = txtPending.Text;
 
                     dtDetail.Rows.Add(row);
                 }
@@ -2307,8 +2319,8 @@ namespace cf01.Forms
                     dtDetail.Rows[row_reset]["cust_artwork"] = txtCustartwork.Text ;
                     dtDetail.Rows[row_reset]["cost_price"] = txtCost_price.EditValue;
                     dtDetail.Rows[row_reset]["labtest_prod_type"] =lueLabtest.EditValue;
-                    dtDetail.Rows[row_reset]["termremark"] = txtTermremark.Text; 
-                    
+                    dtDetail.Rows[row_reset]["termremark"] = txtTermremark.Text;
+                    dtDetail.Rows[row_reset]["pending"] = txtPending.Text;
                 }
                 dtDetail.AcceptChanges();                
             }

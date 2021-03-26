@@ -227,8 +227,16 @@ namespace cf01.Forms
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
             {
-                grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
-                grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
+                {
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                }
+                else
+                {
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
+                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                }
 
                 ////備註字段不顯示刪除線
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
