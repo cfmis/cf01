@@ -1000,7 +1000,10 @@ namespace cf01.Forms
                     string strSql = string.Format(
                     @"SELECT ISNULL(B.picture_name,'') AS picture_name
                     FROM cd_pattern A with(nolock) 
-	                INNER JOIN (select within_code,id,max(picture_name) as picture_name from dbo.cd_pattern_details with(nolock) group by within_code,id) B ON A.within_code=B.within_code AND A.id=B.id                   
+	                INNER JOIN (select within_code,id,max(picture_name) as picture_name 
+                                from dbo.cd_pattern_details with(nolock) 
+                                where  within_code='0000' AND id='{0}'
+                                group by within_code,id) B ON A.within_code=B.within_code AND A.id=B.id                   
                     WHERE A.within_code='0000' AND A.id='{0}' AND A.state='1'", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);
