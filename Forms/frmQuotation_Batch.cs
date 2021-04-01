@@ -113,9 +113,8 @@ namespace cf01.Forms
                 new SqlParameter("@include_brand",chkBrand.Checked?"1":""),
                 new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0")
             };
-            dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find",paras);
-            //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-            dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
+            dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find",paras);           
+            //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
 
             //------------ 
             //導入前一次打勾的記錄
@@ -479,6 +478,10 @@ namespace cf01.Forms
                 }
             }
         }
-   
+
+        private void txtSales_group_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);//小寫轉大寫
+        }
     }
 }

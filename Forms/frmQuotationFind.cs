@@ -798,7 +798,7 @@ namespace cf01.Forms
 
         private void txtSales_group_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.KeyChar = char.ToUpper(e.KeyChar);//小寫轉大寫           
+            e.KeyChar = char.ToUpper(e.KeyChar);//小寫轉大寫
         }
              
    
