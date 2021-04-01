@@ -1748,7 +1748,7 @@ namespace cf01.Forms
         {
             if (txtDate.Text != "")
             {
-                txtValid_date.EditValue = txtDate.DateTime.AddDays(30).ToString("yyyy-MM-dd");
+                txtValid_date.EditValue = txtDate.DateTime.AddDays(90).ToString("yyyy-MM-dd");
             }
         }
 
@@ -2694,9 +2694,13 @@ namespace cf01.Forms
 
         private void get_print_data()
         {
-          string strsql = string.Format(
+            /*2021/04/01改為報價單日期加3個月,
+             *New code:dbo.fn_getTermRemark(A.term_id, A.quota_date, '0')
+             *original code:dbo.fn_getTermRemark(A.term_id, A.valid_date, '0')
+            */
+            string strsql = string.Format(
           @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
-            dbo.fn_getTermRemark(A.term_id,A.valid_date,'0') as terms,dbo.fn_getTermRemark(A.term_id,A.valid_date,'1') as terms_other,
+            dbo.fn_getTermRemark(A.term_id,A.quota_date,'0') as terms,dbo.fn_getTermRemark(A.term_id,A.quota_date,'1') as terms_other,
             dbo.fn_getAddress(A.address_id) as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,
             A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
             B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,Isnull(B.remark,'') as remark,

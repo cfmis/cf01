@@ -669,6 +669,7 @@
             this.xrLabel23.StylePriority.UseTextAlignment = false;
             this.xrLabel23.Text = "Contact : ";
             this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel23.Visible = false;
             // 
             // xrLabel61
             // 
@@ -887,6 +888,7 @@
             this.xrLabel54.StylePriority.UseTextAlignment = false;
             this.xrLabel54.Text = "[contact_h]";
             this.xrLabel54.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel54.Visible = false;
             this.xrLabel54.WordWrap = false;
             // 
             // xrLabel53

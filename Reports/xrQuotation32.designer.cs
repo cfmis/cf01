@@ -984,6 +984,7 @@
             this.xrLabel40.StylePriority.UseTextAlignment = false;
             this.xrLabel40.Text = "Valid Date : ";
             this.xrLabel40.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel40.Visible = false;
             // 
             // xrLabel41
             // 
@@ -996,6 +997,7 @@
             this.xrLabel41.SizeF = new System.Drawing.SizeF(260.0659F, 39.6875F);
             this.xrLabel41.StylePriority.UseFont = false;
             this.xrLabel41.Text = "[valid_date]";
+            this.xrLabel41.Visible = false;
             this.xrLabel41.WordWrap = false;
             // 
             // xrLabel37

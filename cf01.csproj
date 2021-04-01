@@ -3597,6 +3597,9 @@
     <EmbeddedResource Include="Reports\xrQuotation19.resx">
       <DependentUpon>xrQuotation19.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrQuotation20.resx">
+      <DependentUpon>xrQuotation20.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQuotation21.resx">
       <DependentUpon>xrQuotation21.cs</DependentUpon>
     </EmbeddedResource>
