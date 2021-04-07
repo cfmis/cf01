@@ -1134,9 +1134,9 @@
             // 
             this.xrLine1.Dpi = 254F;
             this.xrLine1.LineWidth = 3;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 948.2417F);
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(5.421631F, 948.2417F);
             this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(2873.2F, 5.080017F);
+            this.xrLine1.SizeF = new System.Drawing.SizeF(2874.914F, 5.080017F);
             // 
             // xrLabel4
             // 
