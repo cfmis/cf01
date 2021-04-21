@@ -1474,6 +1474,12 @@
     <Compile Include="ReportForm\frmColorPlateFee.Designer.cs">
       <DependentUpon>frmColorPlateFee.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmCountOcPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmCountOcPlan.designer.cs">
+      <DependentUpon>frmCountOcPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmCustLable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3117,6 +3123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmColorPlateFee.resx">
       <DependentUpon>frmColorPlateFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmCountOcPlan.resx">
+      <DependentUpon>frmCountOcPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmCustLable.resx">
       <DependentUpon>frmCustLable.cs</DependentUpon>
