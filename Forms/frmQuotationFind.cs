@@ -144,7 +144,8 @@ namespace cf01.Forms
                        new SqlParameter("@crtim_e",ls_crtim2),
                        new SqlParameter("@include_mat","1"),
                        new SqlParameter("@include_brand","1"),
-                       new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0")
+                       new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
+                       new SqlParameter("@account_code",txtAccount_Code.Text)
 
             };
 

@@ -111,7 +111,8 @@ namespace cf01.Forms
                 new SqlParameter("@crtim_e",""),
                 new SqlParameter("@include_mat",chkMat.Checked?"1":""),
                 new SqlParameter("@include_brand",chkBrand.Checked?"1":""),
-                new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0")
+                new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
+                new SqlParameter("@account_code",txtReason.Text),
             };
             dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find",paras);           
             //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));

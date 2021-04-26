@@ -318,6 +318,8 @@
             this.dataGridViewTextBoxColumn81 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn82 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn83 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtAccount_Code = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBP.Properties)).BeginInit();
@@ -1623,6 +1625,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.txtAccount_Code);
             this.groupBox2.Controls.Add(this.chkHidenCancel);
             this.groupBox2.Controls.Add(this.chkBrand);
             this.groupBox2.Controls.Add(this.chkMat);
@@ -2744,6 +2748,24 @@
             this.dataGridViewTextBoxColumn83.Name = "dataGridViewTextBoxColumn83";
             this.dataGridViewTextBoxColumn83.ReadOnly = true;
             // 
+            // label14
+            // 
+            this.label14.AllowDrop = true;
+            this.label14.Location = new System.Drawing.Point(602, 115);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 15);
+            this.label14.TabIndex = 215;
+            this.label14.Text = "Account Code";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtAccount_Code
+            // 
+            this.txtAccount_Code.Location = new System.Drawing.Point(687, 113);
+            this.txtAccount_Code.MaxLength = 100;
+            this.txtAccount_Code.Name = "txtAccount_Code";
+            this.txtAccount_Code.Size = new System.Drawing.Size(143, 22);
+            this.txtAccount_Code.TabIndex = 214;
+            // 
             // frmQuotation_Batch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3015,5 +3037,7 @@
         private System.Windows.Forms.CheckBox chkBrand;
         private System.Windows.Forms.CheckBox chkMat;
         private System.Windows.Forms.CheckBox chkHidenCancel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtAccount_Code;
     }
 }
