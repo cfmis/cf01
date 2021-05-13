@@ -607,14 +607,15 @@
             this.TopMargin,
             this.BottomMargin});
             this.Dpi = 254F;
+            this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0);
-            this.PageHeight = 500;
-            this.PageWidth = 1100;
+            this.PageHeight = 700;
+            this.PageWidth = 1220;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "11x5";
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.SnapGridSize = 31.75F;
-            this.Version = "11.2";
+            this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

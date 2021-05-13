@@ -24,27 +24,26 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql=String.Format(
-                @"SELECT b.wp_id, a.mo_id, b.goods_id, c.name, b.prod_qty, b.within_code" +
-                  ",b.OBLIGATE_QTY, a.bill_date,convert(varchar(10),b.t_complete_date,120) as t_complete_date,b.next_wp_id,d.name AS next_wp_name" +
-                  ",a.check_date, b.goods_unit, a.customer_id, e.brand_id, e.get_color_sample" +
-                  ",e.goods_unit AS order_unit,convert(varchar(10),e.arrive_date,120) as arrive_date, f.production_remark, f.nickle_free, f.plumbum_free, a.remark" +
-                  ",convert(int,g.base_qty) as base_qty, g.unit_code, convert(int,g.rate) AS base_rate, g.basic_unit, b.vendor_id" +
-                  ",CONVERT(Decimal(10), b.c_sec_qty_ok) as c_sec_qty_ok, dp.name as get_color_sample_name, a.id, a.ver" +
-                  ",b.sequence_id, c.blueprint_id, CONVERT(Decimal(10),b.predept_rechange_qty) AS predept_rechange_qty, c.color" +
-                  ",b.flevel,c.color as color_id,h.do_color, h.name as color_name" +
-                " FROM  " + remote_db + "jo_bill_mostly a with(nolock)" +
-                " INNER JOIN " + remote_db + "jo_bill_goods_details b with(nolock) ON a.within_code = b.within_code AND  a.id = b.id AND  a.ver = b.ver " +
-                " INNER JOIN " + remote_db + "it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id" +
-                " INNER JOIN " + remote_db + "cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id" +
-                " LEFT JOIN " + remote_db + "so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id" +
-                " LEFT JOIN " + remote_db + "so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence " +
-                " LEFT JOIN " + remote_db + "it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id" +
-                " LEFT JOIN " + remote_db + "cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id" +
-                " LEFT JOIN "+remote_db+"cd_color h ON c.within_code=h.within_code AND c.color=h.id"+
-                " WHERE a.within_code='{0}' and b.wp_id ='{1}' and  a.mo_id ='{2}'", "0000", wp_id, mo_id);
+                @"SELECT a.id, a.ver,a.bill_date, a.mo_id, a.check_date, a.customer_id, a.remark, b.within_code,b.wp_id, b.goods_id, b.prod_qty, b.obligate_qty, b.sequence_id, b.flevel,
+                  Convert(varchar(10), b.t_complete_date,120) AS t_complete_date, b.next_wp_id, b.goods_unit, b.vendor_id, CONVERT(Decimal(10),b.c_sec_qty_ok) AS c_sec_qty_ok,
+                  CONVERT(Decimal(10), b.predept_rechange_qty) AS predept_rechange_qty, c.name,c.color AS color_id, c.blueprint_id, c.color, d.name AS next_wp_name,
+                  e.brand_id, e.get_color_sample, e.goods_unit AS order_unit, convert(varchar(10), e.arrive_date,120) AS arrive_date, f.production_remark,f.nickle_free,f.plumbum_free,
+                  Convert(int,g.base_qty) AS base_qty, g.unit_code, Convert(int,g.rate) AS base_rate, g.basic_unit, dp.name AS get_color_sample_name, h.do_color,h.name as color_name 
+                 FROM {0}jo_bill_mostly a with(nolock) 
+                 INNER JOIN {0}jo_bill_goods_details b with(nolock) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver 
+                 INNER JOIN {0}it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id
+                 INNER JOIN {0}cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id
+                 LEFT JOIN {0}so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id
+                 INNER JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence 
+                 LEFT JOIN {0}it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id
+                 LEFT JOIN {0}cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id
+                 INNER JOIN {0}cd_color h ON c.within_code=h.within_code AND c.color=h.id
+                 WHERE a.within_code='0000' and b.wp_id ='{1}' and  a.mo_id ='{2}' ", remote_db,wp_id, mo_id);
             //"," + remote_db + "Fn_z_get_wh_location(b.goods_id,b.next_wp_id) as wh_location
             if (goods_id != "")
+            {
                 strSql += String.Format(" AND b.goods_id='{0}' ", goods_id);
+            }
             DataTable dtGoods = clsPublicOfCF01.GetDataTable(strSql);
             if(dtGoods.Rows.Count>0)
             {
@@ -54,14 +53,11 @@ namespace cf01.CLS
                     string goods_id1 = dtGoods.Rows[i]["goods_id"].ToString();
                     string next_wp_id = dtGoods.Rows[i]["next_wp_id"].ToString();
                     strSql = "Select dbo.Fn_z_get_wh_location(" + "'" + goods_id1 + "'" + ",'" + next_wp_id + "') as wh_location";
-                    DataTable dt = clsConErp.GetDataTable(strSql);
-                    //        SqlParameter[] paras = new SqlParameter[] {
-                    //   new SqlParameter("@goods_id",goods_id1),
-                    //   new SqlParameter("@dept_id",next_wp_id)
-                    //};
-                    //        DataTable dt = clsConErp.ExecuteProcedureReturnTable("Fn_z_get_wh_location", paras);
+                    DataTable dt = clsConErp.GetDataTable(strSql);                    
                     if (dt.Rows.Count > 0)
+                    {
                         dtGoods.Rows[i]["wh_location"] = dt.Rows[0]["wh_location"].ToString();
+                    }
                 }
             }
             return dtGoods;
