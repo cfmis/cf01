@@ -258,6 +258,7 @@ namespace cf01.ReportForm
             loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
+            //======查找當前責任部門,當冼貨品的下一步流程的相關信息======
             dtDelivery.Columns.Add("current_goods_id", typeof(string));
             dtDelivery.Columns.Add("current_goods_name", typeof(string));
             dtDelivery.Columns.Add("current_req_date", typeof(string));
@@ -279,6 +280,7 @@ namespace cf01.ReportForm
                     dr["current_req_date"] = drCurrent["req_date"];
                 }
             }
+            //======
         }
 
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)

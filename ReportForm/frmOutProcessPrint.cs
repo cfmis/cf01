@@ -68,20 +68,33 @@ namespace cf01.ReportForm
                 " INNER JOIN op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
                 " INNER JOIN it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id" +
                 " INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id" +
-                " WHERE a.within_code='" + within_code + "' AND a.state<>'2'";
-            if (txtDat1.Text != "" && txtDat2.Text != "")
+                " WHERE a.within_code='" + within_code + "' AND a.state<>'2'";           
+            if (txtDat1.Text != "")
+            {               
+                strSql += " AND a.issue_date>='" + txtDat1.Text.Trim() + "'";
+            }
+            if (txtDat2.Text != "")
             {
                 string dateTo = Convert.ToDateTime(txtDat2.Text).AddDays(1).ToString("yyyy/MM/dd");
-                strSql += " AND a.issue_date>='" + txtDat1.Text.Trim() + "' AND a.issue_date<'" + dateTo + "'";
+                strSql += " AND a.issue_date<'" + dateTo + "'";
             }
-            if (txtVendor_id1.Text != "" && txtVendor_id2.Text != "")
-                strSql += " AND a.vendor_id>='" + txtVendor_id1.EditValue + "' AND a.vendor_id<='" + txtVendor_id2.EditValue + "'";
-            if (txtDepFrom.Text != "" && txtDepTo.Text != "")
-                strSql += " AND a.department_id>='" + txtDepFrom.Text + "' AND a.department_id<='" + txtDepTo.Text + "'";
-            if (txtMoFrom.Text != "" && txtMoTo.Text != "")
-                strSql += " AND b.mo_id>='" + txtMoFrom.Text + "' AND b.mo_id<='" + txtMoTo.Text + "'";
-            if (txtID1.Text != "" && txtID2.Text != "")
-                strSql += " AND a.id>='" + txtID1.Text + "' AND a.id<='" + txtID2.Text + "'";
+            if (txtVendor_id1.Text != "" )
+                strSql += " AND a.vendor_id>='" + txtVendor_id1.EditValue + "'";
+            if (txtVendor_id2.Text != "")
+                strSql += " AND a.vendor_id<='" + txtVendor_id2.EditValue + "'";
+            if (txtDepFrom.Text != "")
+                strSql += " AND a.department_id>='" + txtDepFrom.Text + "'";
+            if (txtDepTo.Text != "")
+                strSql += " AND a.department_id<='" + txtDepTo.Text + "'";           
+            if (txtID1.Text != "")
+                strSql += " AND a.id>='" + txtID1.Text + "'";
+            if (txtID2.Text != "")
+                strSql += " AND a.id<='" + txtID2.Text + "'";
+            if (txtMoFrom.Text != "")
+                strSql += " AND b.mo_id>='" + txtMoFrom.Text + "'";
+            if (txtMoTo.Text != "")
+                strSql += " AND b.mo_id<='" + txtMoTo.Text + "'";
+
             strSql += " ORDER BY a.department_id,a.vendor_id,a.issue_date,a.id";
 
 
@@ -143,7 +156,8 @@ namespace cf01.ReportForm
         private void findData()
         {
             txtVendor_id2.Focus();
-            if (txtDat1.Text == "" && txtDat2.Text == "" && txtID1.Text == "" && txtID2.Text == "" && txtVendor_id1.Text == "" && txtVendor_id2.Text == "")
+            if (txtDat1.Text == "" && txtDat2.Text == "" && txtID1.Text == "" && txtID2.Text == "" && txtVendor_id1.Text == "" && txtVendor_id2.Text == ""&&
+                txtDepFrom.Text=="" &&txtDepTo.Text == "" && txtMoFrom.Text=="" && txtMoTo.Text=="")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
