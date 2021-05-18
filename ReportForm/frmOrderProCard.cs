@@ -725,6 +725,7 @@ namespace cf01.ReportForm
         {
             ShowByItem();
 
+            //以下代處理合金工序
             string strMO = txtMoId.Text;
             string strMat_Goods = lueGoodsId.Text;
             string strDept = txtDept1.Text;

@@ -22,6 +22,8 @@ namespace cf01.ReportForm
         private clsAppPublic clsApp = new clsAppPublic();
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtDelivery = new DataTable();
+        DataTable dtProductCard = new DataTable();
+        DataSet dstReport = new DataSet();
         DataTable dtDept = new DataTable();
         DataTable dtVendor = new DataTable();
         private DataTable dtDataForPrint = new DataTable();
@@ -98,6 +100,8 @@ namespace cf01.ReportForm
             dtDelivery.Dispose();
             dtDept.Dispose();
             dtVendor.Dispose();
+            dtProductCard.Dispose();
+            dstReport.Dispose();
         }
 
         private void txtDat1_Leave(object sender, EventArgs e)
@@ -254,11 +258,14 @@ namespace cf01.ReportForm
                     new SqlParameter("@flag_jx", flag_jx),
                     new SqlParameter("@flag_print", flag_print)
             };
-            dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
-            loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
+            dstReport = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_delivery_all", paras, "");
+            dtDelivery = dstReport.Tables[0];
+            dtProductCard = dstReport.Tables[1];//本部部門工序卡數據
+            //loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);//2021.05.14 Cancel
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-            //======查找當前責任部門,當冼貨品的下一步流程的相關信息======
+            
+            //======查找當前責任部門,當前貨品的下一步流程的相關信息======
             dtDelivery.Columns.Add("current_goods_id", typeof(string));
             dtDelivery.Columns.Add("current_goods_name", typeof(string));
             dtDelivery.Columns.Add("current_req_date", typeof(string));
@@ -340,6 +347,12 @@ namespace cf01.ReportForm
             Print("3");
         }
 
+        private void btnCurrentDept_Click(object sender, EventArgs e)
+        {
+            txtID2.Focus();
+            PrintProductCard();
+        }
+
         private void Print(string pType)
         {
             txtID2.Focus();
@@ -347,10 +360,10 @@ namespace cf01.ReportForm
             {
                 MessageBox.Show("請先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }
-           
+            }           
             //---Modify by 20150717
-            gridView1.CloseEditor();
+            gridView1.CloseEditor();           
+
             DataTable dtReport = new DataTable();
             dtReport = dtDelivery.Clone();
             int ii;
@@ -471,6 +484,91 @@ namespace cf01.ReportForm
                 oRepot.PrintingSystem.ShowMarginsWarning = false;
                 oRepot.ShowPreview();
             }  
+        }
+
+        private void PrintProductCard()
+        {
+            //當前部門工序卡
+            txtID2.Focus();
+            if (dtDelivery.Rows.Count == 0)
+            {
+                MessageBox.Show("請先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }        
+            gridView1.CloseEditor();
+            
+            DataTable dtCard = new DataTable();
+            dtCard = dtProductCard.Clone();
+            for (int i = 0; i < dtDelivery.Rows.Count; i++)
+            {               
+                if (dtDelivery.Rows[i]["flag_select"].ToString() == "True")
+                {
+                    DataRow[] drow = dtProductCard.Select(string.Format("rowid={0}", dtDelivery.Rows[i]["rowid"]));
+                    if (drow.Length > 0)//是否已存在記錄
+                    {
+                        DataRow dr = dtCard.NewRow();
+                        dr["report_name"] = drow[0]["report_name"].ToString();
+                        dr["mo_id"] = drow[0]["mo_id"].ToString();
+                        dr["ver"] = drow[0]["ver"].ToString();
+                        dr["get_color_sample_name"] = drow[0]["get_color_sample_name"].ToString();
+                        dr["goods_name"] = drow[0]["goods_name"].ToString();
+                        dr["barcode_id"] = drow[0]["barcode_id"].ToString();
+                        dr["goods_id"] = drow[0]["goods_id"].ToString();
+                        dr["brand_id"] = drow[0]["brand_id"].ToString();
+                        dr["prod_qty"] = string.IsNullOrEmpty(drow[0]["prod_qty"].ToString()) ? 0 : drow[0]["prod_qty"];
+                        dr["order_qty_pcs"] = string.IsNullOrEmpty(drow[0]["order_qty_pcs"].ToString()) ? 0 : drow[0]["order_qty_pcs"];
+                        dr["color_name"] = drow[0]["color_name"].ToString();
+                        dr["predept_rechange_qty"] = string.IsNullOrEmpty(drow[0]["predept_rechange_qty"].ToString()) ? 0 : drow[0]["predept_rechange_qty"];
+                        dr["c_sec_qty_ok"] = string.IsNullOrEmpty(drow[0]["c_sec_qty_ok"].ToString()) ? 0 : drow[0]["c_sec_qty_ok"];
+                        dr["do_color"] = drow[0]["do_color"].ToString();
+                        dr["wh_location"] = drow[0]["wh_location"].ToString();
+                        dr["prod_date"] = drow[0]["prod_date"].ToString();
+                        dr["t_complete_date"] = drow[0]["t_complete_date"].ToString();
+                        dr["per_qty"] = string.IsNullOrEmpty(drow[0]["per_qty"].ToString()) ? 0 : drow[0]["per_qty"];
+                        dr["net_weight"] = drow[0]["net_weight"].ToString();
+                        dr["base_qty"] = string.IsNullOrEmpty(drow[0]["base_qty"].ToString()) ? 0 : drow[0]["base_qty"];
+                        dr["unit_code"] = drow[0]["unit_code"].ToString();
+                        dr["base_rate"] = string.IsNullOrEmpty(drow[0]["base_rate"].ToString()) ? 0 : drow[0]["base_rate"];
+                        dr["basic_unit"] = drow[0]["basic_unit"].ToString();
+                        dr["page_num"] = drow[0]["page_num"].ToString();
+                        dr["total_page"] = drow[0]["total_page"].ToString();
+                        dr["vendor_id"] = drow[0]["vendor_id"].ToString();
+                        dr["production_remark"] = drow[0]["production_remark"].ToString();
+                        dr["remark"] = drow[0]["remark"].ToString();
+
+                        dr["arrive_date"] = drow[0]["arrive_date"].ToString();
+                        dr["next_wp_id"] = drow[0]["next_wp_id"].ToString();
+                        dr["next_dep_name"] = drow[0]["next_dep_name"].ToString();
+                        dr["next_goods_id"] = drow[0]["next_goods_id"].ToString();
+                        dr["next_goods_name"] = drow[0]["next_goods_name"].ToString();
+                        dr["next_do_color"] = drow[0]["next_do_color"].ToString();
+                        dr["next_vendor_id"] = drow[0]["next_vendor_id"].ToString();
+                        dr["next_next_wp_id"] = drow[0]["next_next_wp_id"].ToString();
+                        dr["next_next_dep_name"] = drow[0]["next_next_dep_name"].ToString();
+                        dtCard.Rows.Add(dr);
+                    }
+                }                
+            }
+
+            if (dtCard.Rows.Count > 0)
+            {
+                using (xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtCard })
+                {
+                    xr.CreateDocument();
+                    xr.PrintingSystem.ShowMarginsWarning = false;
+                    xr.ShowPreviewDialog();
+                }
+                //xtaWork_No_BarCode oRpt = new xtaWork_No_BarCode() { DataSource = dtCard };
+                //oRpt.CreateDocument();
+                //oRpt.PrintingSystem.ShowMarginsWarning = false;
+                //oRpt.ShowPreview();
+            }
+            else
+            {
+                MessageBox.Show("請首先選擇要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);               
+            }
+
+
         }
 
         private void BTNCANCEL_Click(object sender, EventArgs e)
@@ -1290,5 +1388,6 @@ namespace cf01.ReportForm
             return dt;
         }
 
+       
     }
 }

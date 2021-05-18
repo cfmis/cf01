@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -52,6 +52,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNPRINTA4 = new System.Windows.Forms.ToolStripButton();
             this.BTNPRINTA41 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCurrentDept = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
@@ -114,6 +116,7 @@
             this.next_wp_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.current_prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.current_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rowid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkJx = new DevExpress.XtraEditors.CheckEdit();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
             this.chkDelivery = new DevExpress.XtraEditors.CheckEdit();
@@ -124,8 +127,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.btnCurrentDept = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -360,6 +361,22 @@
             this.BTNPRINTA41.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINTA41.Click += new System.EventHandler(this.BTNPRINTA41_Click);
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 39);
+            // 
+            // btnCurrentDept
+            // 
+            this.btnCurrentDept.Image = ((System.Drawing.Image)(resources.GetObject("btnCurrentDept.Image")));
+            this.btnCurrentDept.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCurrentDept.Name = "btnCurrentDept";
+            this.btnCurrentDept.Size = new System.Drawing.Size(89, 36);
+            this.btnCurrentDept.Text = "工序卡(本部門)";
+            this.btnCurrentDept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCurrentDept.Click += new System.EventHandler(this.btnCurrentDept_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
@@ -565,8 +582,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -577,8 +594,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -589,8 +606,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -752,7 +769,8 @@
             this.next_wp_id,
             this.next_wp_name,
             this.current_prod_qty,
-            this.current_req_date});
+            this.current_req_date,
+            this.rowid});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -1087,6 +1105,20 @@
             this.current_req_date.VisibleIndex = 21;
             this.current_req_date.Width = 80;
             // 
+            // rowid
+            // 
+            this.rowid.Caption = "rowid";
+            this.rowid.FieldName = "rowid";
+            this.rowid.Name = "rowid";
+            this.rowid.OptionsColumn.AllowEdit = false;
+            this.rowid.OptionsColumn.AllowFocus = false;
+            this.rowid.OptionsColumn.AllowIncrementalSearch = false;
+            this.rowid.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.rowid.OptionsColumn.AllowMove = false;
+            this.rowid.OptionsColumn.ReadOnly = true;
+            this.rowid.OptionsFilter.AllowAutoFilter = false;
+            this.rowid.OptionsFilter.AllowFilter = false;
+            // 
             // chkJx
             // 
             this.chkJx.Location = new System.Drawing.Point(159, 172);
@@ -1186,20 +1218,6 @@
             this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // btnCurrentDept
-            // 
-            this.btnCurrentDept.Image = ((System.Drawing.Image)(resources.GetObject("btnCurrentDept.Image")));
-            this.btnCurrentDept.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCurrentDept.Name = "btnCurrentDept";
-            this.btnCurrentDept.Size = new System.Drawing.Size(89, 36);
-            this.btnCurrentDept.Text = "工序卡(本部門)";
-            this.btnCurrentDept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 39);
             // 
             // frmDelivery
             // 
@@ -1364,5 +1382,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn current_req_date;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton btnCurrentDept;
+        private DevExpress.XtraGrid.Columns.GridColumn rowid;
     }
 }
