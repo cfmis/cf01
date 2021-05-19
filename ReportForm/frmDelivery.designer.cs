@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -116,7 +116,6 @@
             this.next_wp_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.current_prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.current_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rowid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkJx = new DevExpress.XtraEditors.CheckEdit();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
             this.chkDelivery = new DevExpress.XtraEditors.CheckEdit();
@@ -582,8 +581,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -594,8 +593,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -606,8 +605,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -769,8 +768,7 @@
             this.next_wp_id,
             this.next_wp_name,
             this.current_prod_qty,
-            this.current_req_date,
-            this.rowid});
+            this.current_req_date});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -1105,20 +1103,6 @@
             this.current_req_date.VisibleIndex = 21;
             this.current_req_date.Width = 80;
             // 
-            // rowid
-            // 
-            this.rowid.Caption = "rowid";
-            this.rowid.FieldName = "rowid";
-            this.rowid.Name = "rowid";
-            this.rowid.OptionsColumn.AllowEdit = false;
-            this.rowid.OptionsColumn.AllowFocus = false;
-            this.rowid.OptionsColumn.AllowIncrementalSearch = false;
-            this.rowid.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.rowid.OptionsColumn.AllowMove = false;
-            this.rowid.OptionsColumn.ReadOnly = true;
-            this.rowid.OptionsFilter.AllowAutoFilter = false;
-            this.rowid.OptionsFilter.AllowFilter = false;
-            // 
             // chkJx
             // 
             this.chkJx.Location = new System.Drawing.Point(159, 172);
@@ -1382,6 +1366,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn current_req_date;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton btnCurrentDept;
-        private DevExpress.XtraGrid.Columns.GridColumn rowid;
     }
 }

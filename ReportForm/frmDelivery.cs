@@ -258,10 +258,11 @@ namespace cf01.ReportForm
                     new SqlParameter("@flag_jx", flag_jx),
                     new SqlParameter("@flag_print", flag_print)
             };
-            dstReport = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_delivery_all", paras, "");
-            dtDelivery = dstReport.Tables[0];
-            dtProductCard = dstReport.Tables[1];//本部部門工序卡數據
-            //loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);//2021.05.14 Cancel
+            //dstReport = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_delivery_all", paras, "");
+            //dtDelivery = dstReport.Tables[0];
+            dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
+            //dtProductCard = dstReport.Tables[1];//本部部門工序卡數據
+            loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
             
@@ -496,63 +497,132 @@ namespace cf01.ReportForm
                 return;
             }        
             gridView1.CloseEditor();
-            
-            DataTable dtCard = new DataTable();
-            dtCard = dtProductCard.Clone();
+
+            DataTable dtNewWork = new DataTable();            
+            dtNewWork.Rows.Clear();
+            dtNewWork.Columns.Add("report_name", typeof(string));
+            dtNewWork.Columns.Add("mo_id", typeof(string));
+            dtNewWork.Columns.Add("ver", typeof(string));
+            dtNewWork.Columns.Add("get_color_sample_name", typeof(string));
+            dtNewWork.Columns.Add("goods_name", typeof(string));
+            dtNewWork.Columns.Add("barcode_id", typeof(string));
+            dtNewWork.Columns.Add("goods_id", typeof(string));
+            dtNewWork.Columns.Add("brand_id", typeof(string));
+            dtNewWork.Columns.Add("prod_qty", typeof(string)); 
+            dtNewWork.Columns.Add("order_qty_pcs", typeof(string));
+            dtNewWork.Columns.Add("goods_unit", typeof(string));
+            dtNewWork.Columns.Add("color_name", typeof(string)); 
+            dtNewWork.Columns.Add("predept_rechange_qty", typeof(string)); 
+            dtNewWork.Columns.Add("c_sec_qty_ok", typeof(string));
+            dtNewWork.Columns.Add("do_color", typeof(string));
+            dtNewWork.Columns.Add("wh_location", typeof(string));
+            dtNewWork.Columns.Add("prod_date", typeof(string));
+            dtNewWork.Columns.Add("t_complete_date", typeof(string));
+            dtNewWork.Columns.Add("per_qty", typeof(string));
+            dtNewWork.Columns.Add("net_weight", typeof(string));
+            dtNewWork.Columns.Add("base_qty", typeof(int));
+            dtNewWork.Columns.Add("unit_code", typeof(string));
+            dtNewWork.Columns.Add("base_rate", typeof(int));
+            dtNewWork.Columns.Add("basic_unit", typeof(string));
+            dtNewWork.Columns.Add("page_num", typeof(int));
+            dtNewWork.Columns.Add("total_page", typeof(int));
+            dtNewWork.Columns.Add("vendor_id", typeof(string));
+            dtNewWork.Columns.Add("production_remark", typeof(string));
+            dtNewWork.Columns.Add("remark", typeof(string));
+
+            dtNewWork.Columns.Add("arrive_date", typeof(string));
+            dtNewWork.Columns.Add("next_wp_id", typeof(string));
+            dtNewWork.Columns.Add("next_dep_name", typeof(string));
+            dtNewWork.Columns.Add("next_goods_id", typeof(string));
+            dtNewWork.Columns.Add("next_goods_name", typeof(string));
+            dtNewWork.Columns.Add("next_do_color", typeof(string));
+            dtNewWork.Columns.Add("next_vendor_id", typeof(string));
+            dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
+            dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
+                        
+
+            DataTable dtCard = new DataTable();           
+            string in_dept = "";
+            string mo_id = "";
+            string goods_id = "";
+            string barcode_id = "";
+            int page_num = 0;
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {               
                 if (dtDelivery.Rows[i]["flag_select"].ToString() == "True")
                 {
-                    DataRow[] drow = dtProductCard.Select(string.Format("rowid={0}", dtDelivery.Rows[i]["rowid"]));
-                    if (drow.Length > 0)//是否已存在記錄
-                    {
-                        DataRow dr = dtCard.NewRow();
-                        dr["report_name"] = drow[0]["report_name"].ToString();
-                        dr["mo_id"] = drow[0]["mo_id"].ToString();
-                        dr["ver"] = drow[0]["ver"].ToString();
-                        dr["get_color_sample_name"] = drow[0]["get_color_sample_name"].ToString();
-                        dr["goods_name"] = drow[0]["goods_name"].ToString();
-                        dr["barcode_id"] = drow[0]["barcode_id"].ToString();
-                        dr["goods_id"] = drow[0]["goods_id"].ToString();
-                        dr["brand_id"] = drow[0]["brand_id"].ToString();
-                        dr["prod_qty"] = string.IsNullOrEmpty(drow[0]["prod_qty"].ToString()) ? 0 : drow[0]["prod_qty"];
-                        dr["order_qty_pcs"] = string.IsNullOrEmpty(drow[0]["order_qty_pcs"].ToString()) ? 0 : drow[0]["order_qty_pcs"];
-                        dr["color_name"] = drow[0]["color_name"].ToString();
-                        dr["predept_rechange_qty"] = string.IsNullOrEmpty(drow[0]["predept_rechange_qty"].ToString()) ? 0 : drow[0]["predept_rechange_qty"];
-                        dr["c_sec_qty_ok"] = string.IsNullOrEmpty(drow[0]["c_sec_qty_ok"].ToString()) ? 0 : drow[0]["c_sec_qty_ok"];
-                        dr["do_color"] = drow[0]["do_color"].ToString();
-                        dr["wh_location"] = drow[0]["wh_location"].ToString();
-                        dr["prod_date"] = drow[0]["prod_date"].ToString();
-                        dr["t_complete_date"] = drow[0]["t_complete_date"].ToString();
-                        dr["per_qty"] = string.IsNullOrEmpty(drow[0]["per_qty"].ToString()) ? 0 : drow[0]["per_qty"];
-                        dr["net_weight"] = drow[0]["net_weight"].ToString();
-                        dr["base_qty"] = string.IsNullOrEmpty(drow[0]["base_qty"].ToString()) ? 0 : drow[0]["base_qty"];
-                        dr["unit_code"] = drow[0]["unit_code"].ToString();
-                        dr["base_rate"] = string.IsNullOrEmpty(drow[0]["base_rate"].ToString()) ? 0 : drow[0]["base_rate"];
-                        dr["basic_unit"] = drow[0]["basic_unit"].ToString();
-                        dr["page_num"] = drow[0]["page_num"].ToString();
-                        dr["total_page"] = drow[0]["total_page"].ToString();
-                        dr["vendor_id"] = drow[0]["vendor_id"].ToString();
-                        dr["production_remark"] = drow[0]["production_remark"].ToString();
-                        dr["remark"] = drow[0]["remark"].ToString();
+                    in_dept = dtDelivery.Rows[i]["in_dept"].ToString();
+                    mo_id= dtDelivery.Rows[i]["mo_id"].ToString();
+                    goods_id = dtDelivery.Rows[i]["goods_id"].ToString();
+                    barcode_id= dtDelivery.Rows[i]["barcode_id"].ToString();
+                    page_num = string.IsNullOrEmpty(dtDelivery.Rows[i]["package_num"].ToString())?0:int.Parse(dtDelivery.Rows[i]["package_num"].ToString());
 
-                        dr["arrive_date"] = drow[0]["arrive_date"].ToString();
-                        dr["next_wp_id"] = drow[0]["next_wp_id"].ToString();
-                        dr["next_dep_name"] = drow[0]["next_dep_name"].ToString();
-                        dr["next_goods_id"] = drow[0]["next_goods_id"].ToString();
-                        dr["next_goods_name"] = drow[0]["next_goods_name"].ToString();
-                        dr["next_do_color"] = drow[0]["next_do_color"].ToString();
-                        dr["next_vendor_id"] = drow[0]["next_vendor_id"].ToString();
-                        dr["next_next_wp_id"] = drow[0]["next_next_wp_id"].ToString();
-                        dr["next_next_dep_name"] = drow[0]["next_next_dep_name"].ToString();
-                        dtCard.Rows.Add(dr);
+                    SqlParameter[] paras = new SqlParameter[]
+                    {
+                       new SqlParameter("@in_dept", in_dept),
+                       new SqlParameter("@mo_id",mo_id),
+                       new SqlParameter("@goods_id",goods_id)
+                    };
+                    dtCard = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_product_card", paras);
+
+                    if(dtCard.Rows.Count>0)
+                    {
+                        for(int j = 0; j< dtCard.Rows.Count;j++)
+                        {
+                            DataRow dr = dtNewWork.NewRow();
+                            dr["report_name"] = dtCard.Rows[j]["report_name"].ToString();
+                            dr["mo_id"] = dtCard.Rows[j]["mo_id"].ToString();
+                            dr["ver"] = dtCard.Rows[j]["ver"].ToString();
+                            dr["get_color_sample_name"] = dtCard.Rows[j]["get_color_sample_name"].ToString();
+                            dr["goods_name"] = dtCard.Rows[j]["goods_name"].ToString();
+                            dr["barcode_id"] = barcode_id;
+                            dr["goods_id"] = dtCard.Rows[j]["goods_id"].ToString();
+                            dr["brand_id"] = dtCard.Rows[j]["brand_id"].ToString();
+                            dr["prod_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["prod_qty"].ToString()) ? 0 : dtCard.Rows[j]["prod_qty"];
+                            dr["order_qty_pcs"] = string.IsNullOrEmpty(dtCard.Rows[j]["order_qty_pcs"].ToString()) ? 0 : dtCard.Rows[j]["order_qty_pcs"];
+                            dr["goods_unit"] = dtCard.Rows[j]["goods_unit"].ToString();
+                            dr["color_name"] = dtCard.Rows[j]["color_name"].ToString();
+                            dr["predept_rechange_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["predept_rechange_qty"].ToString()) ? 0 : dtCard.Rows[j]["predept_rechange_qty"];
+                            dr["c_sec_qty_ok"] = string.IsNullOrEmpty(dtCard.Rows[j]["c_sec_qty_ok"].ToString()) ? 0 : dtCard.Rows[j]["c_sec_qty_ok"];
+                            dr["do_color"] = dtCard.Rows[j]["do_color"].ToString();
+                            dr["wh_location"] = dtCard.Rows[j]["wh_location"].ToString();
+                            dr["prod_date"] = dtCard.Rows[j]["prod_date"].ToString();
+                            dr["t_complete_date"] = dtCard.Rows[j]["t_complete_date"].ToString();
+                            dr["per_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["per_qty"].ToString()) ? 0 : dtCard.Rows[j]["per_qty"];
+                            dr["net_weight"] = dtCard.Rows[j]["net_weight"].ToString();
+                            dr["base_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["base_qty"].ToString()) ? 0 : dtCard.Rows[j]["base_qty"];
+                            dr["unit_code"] = dtCard.Rows[j]["unit_code"].ToString();
+                            dr["base_rate"] = string.IsNullOrEmpty(dtCard.Rows[j]["base_rate"].ToString()) ? 0 : dtCard.Rows[j]["base_rate"];
+                            dr["basic_unit"] = dtCard.Rows[j]["basic_unit"].ToString();
+                            dr["page_num"] = page_num;
+                            dr["total_page"] = page_num;
+                            dr["vendor_id"] = dtCard.Rows[j]["vendor_id"].ToString();
+                            dr["production_remark"] = dtCard.Rows[j]["production_remark"].ToString();
+                            dr["remark"] = dtCard.Rows[j]["remark"].ToString();
+
+                            dr["arrive_date"] = dtCard.Rows[j]["arrive_date"].ToString();
+                            dr["next_wp_id"] = dtCard.Rows[j]["next_wp_id"].ToString();
+                            dr["next_dep_name"] = dtCard.Rows[j]["next_dep_name"].ToString();
+                            dr["next_goods_id"] = dtCard.Rows[j]["next_goods_id"].ToString();
+                            dr["next_goods_name"] = dtCard.Rows[j]["next_goods_name"].ToString();
+                            dr["next_do_color"] = dtCard.Rows[j]["next_do_color"].ToString();
+                            dr["next_vendor_id"] = dtCard.Rows[j]["next_vendor_id"].ToString();
+                            dr["next_next_wp_id"] = dtCard.Rows[j]["next_next_wp_id"].ToString();
+                            dr["next_next_dep_name"] = dtCard.Rows[j]["next_next_dep_name"].ToString();
+
+                            dtNewWork.Rows.Add(dr);                            
+                        }
                     }
+
+
+
+                   
                 }                
             }
 
-            if (dtCard.Rows.Count > 0)
+            if (dtNewWork.Rows.Count > 0)
             {
-                using (xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtCard })
+                using (xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtNewWork })
                 {
                     xr.CreateDocument();
                     xr.PrintingSystem.ShowMarginsWarning = false;
@@ -565,7 +635,7 @@ namespace cf01.ReportForm
             }
             else
             {
-                MessageBox.Show("請首先選擇要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);               
+                MessageBox.Show("查不到相關的工序卡資料!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);               
             }
 
 
