@@ -20,12 +20,9 @@ namespace cf01.ReportForm
 {
     public partial class frmProductRecord : Form
     {
-        //string strConn = System.Configuration.ConfigurationManager.AppSettings["conn_db_for_wm"]; // dgpc-602
-        //String strConn = "server=192.168.3.10;uid=sa;pwd=268709;database=dgcf_pad;Connect Timeout=30";
-        private string remote_db = DBUtility.remote_db;
-        private string hr_db_server = DBUtility.hr_db_server;
         private DataTable dtPrd = new DataTable();
         private clsCommonUse commUse = new clsCommonUse();
+        private clsAppPublic clsAppPublic = new clsAppPublic();
         public frmProductRecord()
         {
             InitializeComponent();
@@ -33,10 +30,15 @@ namespace cf01.ReportForm
 
         private void frmProductRecord_Load(object sender, EventArgs e)
         {
-            clsControlInfoHelper forminit = new clsControlInfoHelper(this.Name, this.Controls);
-            forminit.GenerateContorl();
+            //clsControlInfoHelper forminit = new clsControlInfoHelper(this.Name, this.Controls);
+            //forminit.GenerateContorl();
+            dgvDetails.AutoGenerateColumns = false;
+            dgvSummary.AutoGenerateColumns = false;
             detDate1.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
             detDate2.Text = detDate1.Text;
+            string localIp = clsAppPublic.GetLocalIP();
+            if (localIp.Substring(0, 10) == "192.168.18" || localIp.Substring(0, 10) == "192.168.19")
+                rdbJX.Checked = true;
         }
 
         private void BTNEXIT_Click(object sender, EventArgs e)
@@ -58,21 +60,53 @@ namespace cf01.ReportForm
         }
         private void BTNFIND_Click(object sender, EventArgs e)
         {
-
             if (!validData())
                 return;
-            //SqlConnection m_Conn = null;
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+
+            findData();
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            if(rdbSummary.Checked==true)
+            {
+                dgvDetails.Visible = false;
+                dgvSummary.Visible = true;
+            }
+            else
+            {
+                dgvDetails.Visible = true;
+                dgvSummary.Visible = false;
+            }
+        }
+        private void findData()
+        {
             string strSql = "";
-            strSql = "Select a.prd_dep,a.prd_pdate,a.prd_date,a.prd_mo,a.prd_item,c.name AS goods_name,a.prd_qty,a.prd_weg,a.prd_machine,b.work_type_desc,substring(a.prd_worker,6,5) AS prd_worker,a.prd_class" +
-                ",Work_code,Difficulty_level,Speed_lever,Job_type,Start_run,End_run,Prd_Run_qty,Sample_no,Sample_weg,a.ok_qty,a.ok_weg,a.no_ok_qty,a.no_ok_weg" +
-                ",prd_group,prd_start_time,prd_end_time,prd_normal_time,prd_ot_time,line_num,hour_run_num,hour_std_qty,transfer_flag,CONVERT(varchar(100),transfer_time, 120) AS transfer_time" +
-                ",crusr,CONVERT(varchar(100),crtim, 120) AS crtim,amusr,CONVERT(varchar(100),amtim, 120) AS amtim,d.id,d.sequence_id,e.hrm1name AS prd_worker_name" +
-                " from product_records a" +
-                " Left Outer Join work_type b on a.prd_work_type=b.work_type_id " +
-                " Left Outer Join dgcf_db.dbo.geo_it_goods c on a.prd_item COLLATE Chinese_Taiwan_Stroke_CI_AS = c.id" +
-                " Left Outer Join " + remote_db +"jo_data_upkeep_details d ON a.prd_id=d.prd_id"+
-                " Left Outer Join " + hr_db_server + "hrm01 e ON a.prd_worker COLLATE Chinese_Taiwan_Stroke_CI_AS = e.hrm1wid" +
-                " where a. prd_dep >= '' ";
+            int rpt_type = 1;
+            if (rdbDetails1.Checked == true)
+                rpt_type = 0;
+            strSql += " Select a.prd_id,a.prd_dep,a.prd_pdate,a.prd_date,a.prd_mo,a.prd_item,a.prd_qty,a.prd_weg,a.prd_machine" +
+                ",a.prd_work_type,b.work_type_desc,substring(a.prd_worker, 6, 5) AS prd_worker, a.prd_class" +
+                ",a.Work_code,a.Difficulty_level,a.Speed_lever,a.Job_type,c.job_desc,a.Start_run,a.End_run,a.Prd_Run_qty" +
+                ",a.prd_group,a.prd_start_time,a.prd_end_time,a.prd_normal_time,a.prd_ot_time,a.line_num,a.hour_run_num,a.hour_std_qty" +
+                ",a.crusr,CONVERT(varchar(100), a.crtim, 120) AS crtim, a.amusr,CONVERT(varchar(100), a.amtim, 120) AS amtim" +
+                ", e.hrm1name AS prd_worker_name";
+            strSql += " INTO #tb_prd00 ";
+            
+            if(rdbJX.Checked==true)//JX
+                strSql += " From lnsql1.dgcf_pad.dbo.product_records a " +
+                    " Left Join lnsql1.dgcf_pad.dbo.work_type b on a.prd_work_type = b.work_type_id " +
+                    " Left Join lnsql1.dgcf_pad.dbo.job_type c ON a.job_type = c.job_type AND a.prd_dep = c.dep " +
+                    " Left Join lnfs1.hr_db.dbo.hrm01 e ON a.prd_worker COLLATE Chinese_Taiwan_Stroke_CI_AS = e.hrm1wid ";
+            else//DG
+                strSql += " From product_records a " +
+                        " Left Join work_type b on a.prd_work_type = b.work_type_id " +
+                        " Left Join job_type c ON a.job_type = c.job_type AND a.prd_dep = c.dep " +
+                        " Left Join dgsql1.dghr.dbo.hrm01 e ON a.prd_worker COLLATE Chinese_Taiwan_Stroke_CI_AS = e.hrm1wid ";
+            strSql += " WHERE a.prd_dep>''";
             if (clsValidRule.CheckDateIsEmpty(this.detDate1.Text) == false)
                 strSql += " and a.prd_date >= '" + this.detDate1.Text.ToString() + "'";
             if (clsValidRule.CheckDateIsEmpty(this.detDate2.Text) == false)
@@ -87,64 +121,41 @@ namespace cf01.ReportForm
                 strSql += " and a.prd_work_type >= '" + txtWorkType1.Text.Trim() + "'" + " and a.prd_work_type <= '" + txtWorkType2.Text.Trim() + "'";
             if (txtGroup1.Text.Trim() != "" && txtGroup2.Text.Trim() != "")
                 strSql += " and a.prd_group >= '" + txtGroup1.Text.Trim() + "'" + " and a.prd_group <= '" + txtGroup2.Text.Trim() + "'";
-            if(rdbIsComp.Checked==true)
+            if (rdbIsComp.Checked == true)
                 strSql += " and a.prd_start_time <> '" + "" + "'" + " and a.prd_end_time <> '" + "" + "'";
             if (rdbNoComp.Checked == true)
                 strSql += " and (a.prd_start_time = '" + "" + "'" + " or a.prd_end_time = '" + "" + "')";
-            if (chkIsProd.Checked == false)
-                strSql += " and a.prd_work_type <> '" + "A03" + "'";
+            if (rpt_type == 0)
+                strSql += " Select * From #tb_prd00 Order By prd_dep,prd_mo,prd_work_type,prd_date";
             else
-                strSql += " and a.prd_work_type = '" + "A03" + "'";
-            dtPrd = clsPublicOfPad.GetDataTable(strSql);
-
-            //try
-            //{
-            //    m_Conn = new SqlConnection(strConn);
-            //    //m_Cmd = new SqlCommand();
-            //    //m_Cmd.Connection = m_Conn;
-            //}
-            //catch (Exception er)
-            //{
-            //    throw er;
-            //}
-            //DataSet ds = null;
-
-            //try
-            //{
-            //    SqlDataAdapter sda = new SqlDataAdapter(strSql, m_Conn);
-            //    ds = new DataSet();
-            //    sda.Fill(dtPrd);
-            //}
-            //catch (Exception er)
-            //{
-            //    throw er;
-            //}
-
-
-
-            dtPrd.Columns.Add("prd_qty_std", typeof(string));
-            dtPrd.Columns.Add("prd_qty_std_def", typeof(string));
-            //for (int i = 0; i < dtPrd.Rows.Count; i++)
-            //{
-                
-            //}
-            foreach (DataRow rows in dtPrd.Rows) //开始循环赋值
             {
-                //DataRow row = dtPrd.NewRow(); //创建一个行
-                rows["prd_qty_std"] = Math.Round(
-                    ((rows["prd_normal_time"].ToString()!=""?Convert.ToSingle(rows["prd_normal_time"].ToString()):0)
-                    + (rows["prd_ot_time"].ToString()!=""?Convert.ToSingle(rows["prd_ot_time"].ToString()):0))
-                    * (rows["hour_std_qty"].ToString()!=""?Convert.ToSingle(rows["hour_std_qty"].ToString()):0)
-                    ,0).ToString();  //从总的Datatable中读取行数据赋值给新的Datatable
-                rows["prd_qty_std_def"] = ((rows["prd_qty"].ToString()!=""?Convert.ToSingle(rows["prd_qty"]):0) - (rows["prd_qty_std"].ToString()!=""?Convert.ToSingle(rows["prd_qty_std"]):0)).ToString();
-                //dtPrd.Rows.Add(row);//添加次行
+                strSql += " UPDATE #tb_prd00 SET prd_work_type=job_type,work_type_desc=job_desc WHERE prd_dep='J07' ";
+                strSql += " SELECT prd_dep,prd_date,prd_work_type,work_type_desc,Convert(Decimal(18,2),SUM(prd_qty)) AS prd_qty"+
+                    ", Convert(Decimal(18,2),SUM(prd_weg)) AS prd_weg" +
+                    ", Convert(Decimal(18,2),SUM(prd_run_qty)) AS prd_run_qty" +
+                    ", Convert(Decimal(18,2),SUM(prd_normal_time)) AS prd_normal_time"+
+                    ", Convert(Decimal(18,2),SUM(prd_ot_time)) AS prd_ot_time"+
+                    ", Convert(Decimal(18,2),SUM(prd_normal_time + prd_ot_time)) AS prd_time" +
+                    " INTO #tb_prd01 " +
+                    " FROM #tb_prd00 " +
+                    " GROUP BY prd_dep, prd_date, prd_work_type, work_type_desc ";
+                strSql += " INSERT INTO #tb_prd01 (prd_dep,prd_date,prd_work_type,work_type_desc,prd_qty,prd_weg,prd_run_qty,prd_normal_time,prd_ot_time,prd_time) " +
+                        " SELECT prd_dep, prd_date, '小計' AS prd_work_type, '' AS work_type_desc, SUM(prd_qty) AS prd_qty, SUM(prd_weg) AS prd_weg " +
+                        ", SUM(prd_run_qty) AS prd_run_qty" +
+                        ", SUM(prd_normal_time) AS prd_normal_time, SUM(prd_ot_time) AS prd_ot_time, SUM(prd_time) AS prd_time" +
+                    " FROM #tb_prd01 " +
+                    " GROUP BY prd_dep, prd_date";
+                strSql += " SELECT * FROM #tb_prd01 ORDER BY prd_dep,prd_date,prd_work_type";
+                strSql += " DROP TABLE #tb_prd01";
             }
-
-            dtPrd.DefaultView.Sort = "id";
-            dgvDetails.DataSource = dtPrd;
-            //m_Conn.Close();
+            strSql += " DROP TABLE #tb_prd00 ";
+            clsPublicOfPad clsConErp = new clsPublicOfPad();
+            dtPrd = clsConErp.GetDataTableWithSqlString(strSql);
+            if (rdbDetails1.Checked == true)
+                dgvDetails.DataSource = dtPrd;
+            else
+                dgvSummary.DataSource = dtPrd;
         }
-
         private void textBox1_Leave(object sender, EventArgs e)
         {
             txtTdep.Text = txtFdep.Text;
@@ -182,36 +193,60 @@ namespace cf01.ReportForm
                 myStream = saveFile.OpenFile();
                 StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));
                 string str = " ";
-                //写标题
-
-                for (int i = 0; i < dgvDetails.ColumnCount; i++)
+                
+                if (rdbDetails1.Checked == true)//明細表
                 {
-                    str += dgvDetails.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
-                    str += "\t";
-                }
-                sw.WriteLine(str);
-                //写内容
-                string col_value;
-                for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
-                {
-                    string tempstr = " ";
-                    for (int columnNo = 0; columnNo < dgvDetails.ColumnCount; columnNo++)
+                    //写标题
+                    for (int i = 0; i < dgvDetails.ColumnCount; i++)
                     {
-                        if (dgvDetails.Columns[columnNo].Name == "colPrd_date"
-                            || dgvDetails.Columns[columnNo].Name == "colTransfer_time"
-                            || dgvDetails.Columns[columnNo].Name == "colPrd_pdate"
-                            || dgvDetails.Columns[columnNo].Name == "colCrtim"
-                            || dgvDetails.Columns[columnNo].Name == "colAmtim"
-                            || dgvDetails.Columns[columnNo].Name == "colSeq")
-                            col_value = "=\"" + dgvDetails.Rows[rowNo].Cells[columnNo].Value + "\"";
-                        else
-                            col_value = clsUtility.FormatNullableString(dgvDetails.Rows[rowNo].Cells[columnNo].Value);
-                        tempstr += col_value;
-                        tempstr += "\t";
+                        str += dgvDetails.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
+                        str += "\t";
                     }
-                    sw.WriteLine(tempstr);
+                    sw.WriteLine(str);
+                    //写内容
+                    string col_value;
+                    for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
+                    {
+                        string tempstr = " ";
+                        for (int columnNo = 0; columnNo < dgvDetails.ColumnCount; columnNo++)
+                        {
+                            if (dgvDetails.Columns[columnNo].Name == "colPrd_date"
+                                || dgvDetails.Columns[columnNo].Name == "colTransfer_time"
+                                || dgvDetails.Columns[columnNo].Name == "colPrd_pdate"
+                                || dgvDetails.Columns[columnNo].Name == "colCrtim"
+                                || dgvDetails.Columns[columnNo].Name == "colAmtim"
+                                || dgvDetails.Columns[columnNo].Name == "colSeq")
+                                col_value = "=\"" + dgvDetails.Rows[rowNo].Cells[columnNo].Value + "\"";
+                            else
+                                col_value = clsUtility.FormatNullableString(dgvDetails.Rows[rowNo].Cells[columnNo].Value);
+                            tempstr += col_value;
+                            tempstr += "\t";
+                        }
+                        sw.WriteLine(tempstr);
+                    }
+                }else//匯總表
+                {
+                    //写标题
+                    for (int i = 0; i < dgvSummary.ColumnCount; i++)
+                    {
+                        str += dgvSummary.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
+                        str += "\t";
+                    }
+                    sw.WriteLine(str);
+                    //写内容
+                    string col_value;
+                    for (int rowNo = 0; rowNo < dgvSummary.RowCount; rowNo++)
+                    {
+                        string tempstr = " ";
+                        for (int columnNo = 0; columnNo < dgvSummary.ColumnCount; columnNo++)
+                        {
+                            col_value = clsUtility.FormatNullableString(dgvSummary.Rows[rowNo].Cells[columnNo].Value);
+                            tempstr += col_value;
+                            tempstr += "\t";
+                        }
+                        sw.WriteLine(tempstr);
+                    }
                 }
-
                 sw.Close();
                 myStream.Close();
                 MessageBox.Show("已匯出記錄！");
