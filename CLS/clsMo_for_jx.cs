@@ -34,7 +34,7 @@ namespace cf01.CLS
                  INNER JOIN {0}it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id
                  INNER JOIN {0}cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id
                  LEFT JOIN {0}so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id
-                 INNER JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence 
+                 LEFT JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence 
                  LEFT JOIN {0}it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id
                  LEFT JOIN {0}cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id
                  INNER JOIN {0}cd_color h ON c.within_code=h.within_code AND c.color=h.id
