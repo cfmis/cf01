@@ -22,8 +22,7 @@ namespace cf01.ReportForm
         private clsAppPublic clsApp = new clsAppPublic();
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtDelivery = new DataTable();
-        DataTable dtProductCard = new DataTable();
-        DataSet dstReport = new DataSet();
+        DataTable dtProductCard = new DataTable();       
         DataTable dtDept = new DataTable();
         DataTable dtVendor = new DataTable();
         private DataTable dtDataForPrint = new DataTable();
@@ -100,8 +99,7 @@ namespace cf01.ReportForm
             dtDelivery.Dispose();
             dtDept.Dispose();
             dtVendor.Dispose();
-            dtProductCard.Dispose();
-            dstReport.Dispose();
+            dtProductCard.Dispose();           
         }
 
         private void txtDat1_Leave(object sender, EventArgs e)
@@ -497,8 +495,7 @@ namespace cf01.ReportForm
                 return;
             }        
             gridView1.CloseEditor();
-
-            DataTable dtNewWork = new DataTable();            
+            DataTable dtNewWork = new DataTable();
             dtNewWork.Rows.Clear();
             dtNewWork.Columns.Add("report_name", typeof(string));
             dtNewWork.Columns.Add("mo_id", typeof(string));
@@ -508,11 +505,11 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("barcode_id", typeof(string));
             dtNewWork.Columns.Add("goods_id", typeof(string));
             dtNewWork.Columns.Add("brand_id", typeof(string));
-            dtNewWork.Columns.Add("prod_qty", typeof(string)); 
+            dtNewWork.Columns.Add("prod_qty", typeof(string));
             dtNewWork.Columns.Add("order_qty_pcs", typeof(string));
             dtNewWork.Columns.Add("goods_unit", typeof(string));
-            dtNewWork.Columns.Add("color_name", typeof(string)); 
-            dtNewWork.Columns.Add("predept_rechange_qty", typeof(string)); 
+            dtNewWork.Columns.Add("color_name", typeof(string));
+            dtNewWork.Columns.Add("predept_rechange_qty", typeof(string));
             dtNewWork.Columns.Add("c_sec_qty_ok", typeof(string));
             dtNewWork.Columns.Add("do_color", typeof(string));
             dtNewWork.Columns.Add("wh_location", typeof(string));
@@ -529,7 +526,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("vendor_id", typeof(string));
             dtNewWork.Columns.Add("production_remark", typeof(string));
             dtNewWork.Columns.Add("remark", typeof(string));
-
+            dtNewWork.Columns.Add("picture_name", typeof(string)); 
             dtNewWork.Columns.Add("arrive_date", typeof(string));
             dtNewWork.Columns.Add("next_wp_id", typeof(string));
             dtNewWork.Columns.Add("next_dep_name", typeof(string));
@@ -539,35 +536,51 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_vendor_id", typeof(string));
             dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
             dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
-                        
 
-            DataTable dtCard = new DataTable();           
-            string in_dept = "";
-            string mo_id = "";
-            string goods_id = "";
-            string barcode_id = "";
-            int page_num = 0;
-            for (int i = 0; i < dtDelivery.Rows.Count; i++)
-            {               
-                if (dtDelivery.Rows[i]["flag_select"].ToString() == "True")
+            DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));
+            int row_total = drw.Length;
+            if (row_total > 0)
+            {
+                DataTable dtCard = new DataTable();
+                string in_dept = "";
+                string mo_id = "";
+                string goods_id = "";
+                string barcode_id = "";
+                int page_num = 0;
+
+                int row_precessing = 0;
+                progressBar1.Enabled = true;
+                progressBar1.Visible = true;
+                progressBar1.Value = 0;
+                progressBar1.Step = 1;
+                progressBar1.Maximum = row_total;
+
+                for (int i = 0; i < drw.Length; i++)
                 {
-                    in_dept = dtDelivery.Rows[i]["in_dept"].ToString();
-                    mo_id= dtDelivery.Rows[i]["mo_id"].ToString();
-                    goods_id = dtDelivery.Rows[i]["goods_id"].ToString();
-                    barcode_id= dtDelivery.Rows[i]["barcode_id"].ToString();
-                    page_num = string.IsNullOrEmpty(dtDelivery.Rows[i]["package_num"].ToString())?0:int.Parse(dtDelivery.Rows[i]["package_num"].ToString());
-
-                    SqlParameter[] paras = new SqlParameter[]
+                    row_precessing = i + 1;//記錄更在更新的行
+                    progressBar1.Value += progressBar1.Step;
+                    if (progressBar1.Value == progressBar1.Maximum)
                     {
-                       new SqlParameter("@in_dept", in_dept),
-                       new SqlParameter("@mo_id",mo_id),
-                       new SqlParameter("@goods_id",goods_id)
+                        progressBar1.Enabled = false;
+                        progressBar1.Visible = false;
+                    }
+
+                    in_dept = drw[i]["in_dept"].ToString();// dtDelivery.Rows[i]["in_dept"].ToString();
+                    mo_id = drw[i]["mo_id"].ToString();
+                    goods_id = drw[i]["goods_id"].ToString();
+                    barcode_id = drw[i]["barcode_id"].ToString();
+                    page_num = string.IsNullOrEmpty(drw[i]["package_num"].ToString()) ? 0 : int.Parse(drw[i]["package_num"].ToString());
+
+                    SqlParameter[] paras = new SqlParameter[] {
+                           new SqlParameter("@in_dept", in_dept),
+                           new SqlParameter("@mo_id",mo_id),
+                           new SqlParameter("@goods_id",goods_id)
                     };
                     dtCard = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_product_card", paras);
 
-                    if(dtCard.Rows.Count>0)
+                    if (dtCard.Rows.Count > 0)
                     {
-                        for(int j = 0; j< dtCard.Rows.Count;j++)
+                        for (int j = 0; j < dtCard.Rows.Count; j++)
                         {
                             DataRow dr = dtNewWork.NewRow();
                             dr["report_name"] = dtCard.Rows[j]["report_name"].ToString();
@@ -599,7 +612,7 @@ namespace cf01.ReportForm
                             dr["vendor_id"] = dtCard.Rows[j]["vendor_id"].ToString();
                             dr["production_remark"] = dtCard.Rows[j]["production_remark"].ToString();
                             dr["remark"] = dtCard.Rows[j]["remark"].ToString();
-
+                            dr["picture_name"]= dtCard.Rows[j]["picture_name"].ToString();
                             dr["arrive_date"] = dtCard.Rows[j]["arrive_date"].ToString();
                             dr["next_wp_id"] = dtCard.Rows[j]["next_wp_id"].ToString();
                             dr["next_dep_name"] = dtCard.Rows[j]["next_dep_name"].ToString();
@@ -610,14 +623,15 @@ namespace cf01.ReportForm
                             dr["next_next_wp_id"] = dtCard.Rows[j]["next_next_wp_id"].ToString();
                             dr["next_next_dep_name"] = dtCard.Rows[j]["next_next_dep_name"].ToString();
 
-                            dtNewWork.Rows.Add(dr);                            
+                            dtNewWork.Rows.Add(dr);
                         }
                     }
-
-
-
-                   
-                }                
+                }
+            }
+            else
+            {
+                MessageBox.Show("請首先選取要列印工序卡的頁數資料!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             if (dtNewWork.Rows.Count > 0)

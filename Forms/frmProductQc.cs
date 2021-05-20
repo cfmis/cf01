@@ -401,6 +401,7 @@ namespace cf01.Forms
             if (dgvDetails.RowCount > 0)
             {
                 dtQcRecrod.Rows.Clear();
+                dtQcRecrod.Columns.Add("dep_no", typeof(string));
                 dtQcRecrod.Columns.Add("ser_no", typeof(int));
                 dtQcRecrod.Columns.Add("prd_mo", typeof(string));
                 dtQcRecrod.Columns.Add("NameAddSize", typeof(string));
@@ -424,6 +425,7 @@ namespace cf01.Forms
                 for (int i = 0; i < dgvDetails.Rows.Count; i++)
                 {
                     dr = dtQcRecrod.NewRow();
+                    dr["dep_no"] = clsUtility.FormatNullableString(dgvDetails.Rows[i].Cells["dep_no"].Value);
                     dr["ser_no"] = i + 1;
                     dr["prd_mo"] = clsUtility.FormatNullableString(dgvDetails.Rows[i].Cells["colMo_no"].Value);
                     dr["facade_std_ac"] = clsUtility.FormatNullableInt32(dgvDetails.Rows[i].Cells["facade_std_ac"].Value);
