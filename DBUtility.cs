@@ -39,6 +39,7 @@ namespace cf01
         public static string dgcf_pad_connectionString = System.Configuration.ConfigurationManager.AppSettings["conn_db_for_wm"]; // For PAD
         public static string conn_str_hkerp1 = System.Configuration.ConfigurationManager.AppSettings["conn_string_hkerp1"];  // DGERP2
         public static string conn_str_lnerp1 = System.Configuration.ConfigurationManager.AppSettings["conn_string_lnerp1"];  // DGERP2
+        public static string conn_ln_pad = System.Configuration.ConfigurationManager.AppSettings["conn_ln_pad"];  // DGERP2
         private clsAppPublic clsAppPublic = new clsAppPublic();
         #region  加解密函數
 

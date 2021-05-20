@@ -12,6 +12,18 @@ namespace cf01.CLS
     public class clsPublicOfPad
     {
         private static String strConn = DBUtility.dgcf_pad_connectionString;
+        private clsAppPublic clsAppPublic = new clsAppPublic();
+
+        public clsPublicOfPad()
+        {
+            //根据本机IP，连接哪一边(HK)的数据库
+            string localIp = clsAppPublic.GetLocalIP();
+            if (localIp.Length >= 11)
+            {
+                if (localIp.Substring(0, 10) == "192.168.18" || localIp.Substring(0, 10) == "192.168.19")
+                    strConn = DBUtility.conn_ln_pad;
+            }
+        }
 
         public static int GenNo(string gen_id)
         {
@@ -408,6 +420,32 @@ namespace cf01.CLS
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+            }
+            return dtData;
+        }
+
+        /// <summary>
+        /// 執行SQL，返回 DataTable 類型
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetDataTableWithSqlString(string strSQL)
+        {
+            DataTable dtData = new DataTable();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(strConn))
+                {
+                    conn.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(strSQL, conn))
+                    {
+                        da.Fill(dtData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
                 MessageBox.Show(ex.Message);
             }
             return dtData;
