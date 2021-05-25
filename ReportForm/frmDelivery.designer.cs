@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -97,6 +97,8 @@
             this.goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.con_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sec_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.per_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.out_dept = new DevExpress.XtraGrid.Columns.GridColumn();
             this.out_dept_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.in_dept = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -114,8 +116,8 @@
             this.current_goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.next_wp_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.next_wp_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.current_prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.current_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.current_prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkJx = new DevExpress.XtraEditors.CheckEdit();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
             this.chkDelivery = new DevExpress.XtraEditors.CheckEdit();
@@ -142,6 +144,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFlag_select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkJx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).BeginInit();
@@ -582,8 +585,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -594,8 +597,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -606,8 +609,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -733,7 +736,8 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.clFlag_select});
+            this.clFlag_select,
+            this.qty});
             this.gridControl1.Size = new System.Drawing.Size(1093, 436);
             this.gridControl1.TabIndex = 137;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -751,6 +755,7 @@
             this.goods_name,
             this.con_qty,
             this.sec_qty,
+            this.per_qty,
             this.out_dept,
             this.out_dept_name,
             this.in_dept,
@@ -768,8 +773,8 @@
             this.current_goods_name,
             this.next_wp_id,
             this.next_wp_name,
-            this.current_prod_qty,
-            this.current_req_date});
+            this.current_req_date,
+            this.current_prod_qty});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -829,7 +834,7 @@
             this.sequence_id.Tag = "2";
             this.sequence_id.Visible = true;
             this.sequence_id.VisibleIndex = 2;
-            this.sequence_id.Width = 60;
+            this.sequence_id.Width = 50;
             // 
             // mo_id
             // 
@@ -872,11 +877,11 @@
             this.goods_name.OptionsFilter.AllowFilter = false;
             this.goods_name.Visible = true;
             this.goods_name.VisibleIndex = 5;
-            this.goods_name.Width = 200;
+            this.goods_name.Width = 193;
             // 
             // con_qty
             // 
-            this.con_qty.Caption = "數量";
+            this.con_qty.Caption = "移交數量";
             this.con_qty.FieldName = "con_qty";
             this.con_qty.Name = "con_qty";
             this.con_qty.OptionsColumn.AllowSize = false;
@@ -891,7 +896,7 @@
             // 
             // sec_qty
             // 
-            this.sec_qty.Caption = "重量";
+            this.sec_qty.Caption = "移交重量";
             this.sec_qty.FieldName = "sec_qty";
             this.sec_qty.Name = "sec_qty";
             this.sec_qty.OptionsColumn.AllowSize = false;
@@ -902,7 +907,30 @@
             this.sec_qty.Tag = "2";
             this.sec_qty.Visible = true;
             this.sec_qty.VisibleIndex = 7;
-            this.sec_qty.Width = 80;
+            this.sec_qty.Width = 70;
+            // 
+            // per_qty
+            // 
+            this.per_qty.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.per_qty.AppearanceCell.Options.UseBackColor = true;
+            this.per_qty.Caption = "每次生產數量";
+            this.per_qty.ColumnEdit = this.qty;
+            this.per_qty.FieldName = "per_qty";
+            this.per_qty.Name = "per_qty";
+            this.per_qty.Visible = true;
+            this.per_qty.VisibleIndex = 8;
+            this.per_qty.Width = 89;
+            // 
+            // qty
+            // 
+            this.qty.AutoHeight = false;
+            this.qty.DisplayFormat.FormatString = "n0";
+            this.qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.qty.EditFormat.FormatString = "n0";
+            this.qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.qty.Mask.EditMask = "n0";
+            this.qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.qty.Name = "qty";
             // 
             // out_dept
             // 
@@ -916,7 +944,7 @@
             this.out_dept.OptionsFilter.AllowFilter = false;
             this.out_dept.Tag = "2";
             this.out_dept.Visible = true;
-            this.out_dept.VisibleIndex = 8;
+            this.out_dept.VisibleIndex = 9;
             this.out_dept.Width = 80;
             // 
             // out_dept_name
@@ -930,7 +958,7 @@
             this.out_dept_name.OptionsFilter.AllowAutoFilter = false;
             this.out_dept_name.OptionsFilter.AllowFilter = false;
             this.out_dept_name.Visible = true;
-            this.out_dept_name.VisibleIndex = 9;
+            this.out_dept_name.VisibleIndex = 10;
             this.out_dept_name.Width = 80;
             // 
             // in_dept
@@ -945,7 +973,7 @@
             this.in_dept.OptionsFilter.AllowFilter = false;
             this.in_dept.Tag = "2";
             this.in_dept.Visible = true;
-            this.in_dept.VisibleIndex = 10;
+            this.in_dept.VisibleIndex = 11;
             this.in_dept.Width = 80;
             // 
             // in_dept_name
@@ -959,7 +987,7 @@
             this.in_dept_name.OptionsFilter.AllowAutoFilter = false;
             this.in_dept_name.OptionsFilter.AllowFilter = false;
             this.in_dept_name.Visible = true;
-            this.in_dept_name.VisibleIndex = 11;
+            this.in_dept_name.VisibleIndex = 12;
             this.in_dept_name.Width = 80;
             // 
             // con_date
@@ -974,7 +1002,7 @@
             this.con_date.OptionsFilter.AllowFilter = false;
             this.con_date.Tag = "2";
             this.con_date.Visible = true;
-            this.con_date.VisibleIndex = 12;
+            this.con_date.VisibleIndex = 13;
             this.con_date.Width = 80;
             // 
             // package_num
@@ -988,7 +1016,7 @@
             this.package_num.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.package_num.OptionsColumn.ReadOnly = true;
             this.package_num.Visible = true;
-            this.package_num.VisibleIndex = 13;
+            this.package_num.VisibleIndex = 14;
             this.package_num.Width = 80;
             // 
             // vendor_id
@@ -1000,7 +1028,7 @@
             this.vendor_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.vendor_id.OptionsColumn.ReadOnly = true;
             this.vendor_id.Visible = true;
-            this.vendor_id.VisibleIndex = 14;
+            this.vendor_id.VisibleIndex = 15;
             this.vendor_id.Width = 80;
             // 
             // do_color
@@ -1012,7 +1040,7 @@
             this.do_color.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.do_color.OptionsColumn.ReadOnly = true;
             this.do_color.Visible = true;
-            this.do_color.VisibleIndex = 15;
+            this.do_color.VisibleIndex = 16;
             this.do_color.Width = 100;
             // 
             // sent_bef_year
@@ -1056,7 +1084,7 @@
             this.current_goods_id.FieldName = "current_goods_id";
             this.current_goods_id.Name = "current_goods_id";
             this.current_goods_id.Visible = true;
-            this.current_goods_id.VisibleIndex = 16;
+            this.current_goods_id.VisibleIndex = 17;
             this.current_goods_id.Width = 120;
             // 
             // current_goods_name
@@ -1065,7 +1093,7 @@
             this.current_goods_name.FieldName = "current_goods_name";
             this.current_goods_name.Name = "current_goods_name";
             this.current_goods_name.Visible = true;
-            this.current_goods_name.VisibleIndex = 17;
+            this.current_goods_name.VisibleIndex = 18;
             this.current_goods_name.Width = 200;
             // 
             // next_wp_id
@@ -1074,7 +1102,7 @@
             this.next_wp_id.FieldName = "next_wp_id";
             this.next_wp_id.Name = "next_wp_id";
             this.next_wp_id.Visible = true;
-            this.next_wp_id.VisibleIndex = 18;
+            this.next_wp_id.VisibleIndex = 19;
             this.next_wp_id.Width = 80;
             // 
             // next_wp_name
@@ -1083,17 +1111,8 @@
             this.next_wp_name.FieldName = "next_wp_name";
             this.next_wp_name.Name = "next_wp_name";
             this.next_wp_name.Visible = true;
-            this.next_wp_name.VisibleIndex = 19;
+            this.next_wp_name.VisibleIndex = 20;
             this.next_wp_name.Width = 80;
-            // 
-            // current_prod_qty
-            // 
-            this.current_prod_qty.Caption = "本部門計劃生產數量";
-            this.current_prod_qty.FieldName = "current_prod_qty";
-            this.current_prod_qty.Name = "current_prod_qty";
-            this.current_prod_qty.Visible = true;
-            this.current_prod_qty.VisibleIndex = 20;
-            this.current_prod_qty.Width = 80;
             // 
             // current_req_date
             // 
@@ -1102,7 +1121,19 @@
             this.current_req_date.Name = "current_req_date";
             this.current_req_date.Visible = true;
             this.current_req_date.VisibleIndex = 21;
-            this.current_req_date.Width = 80;
+            this.current_req_date.Width = 122;
+            // 
+            // current_prod_qty
+            // 
+            this.current_prod_qty.AppearanceHeader.Options.UseTextOptions = true;
+            this.current_prod_qty.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.current_prod_qty.Caption = "本部門計劃生產數量";
+            this.current_prod_qty.ColumnEdit = this.qty;
+            this.current_prod_qty.FieldName = "current_prod_qty";
+            this.current_prod_qty.Name = "current_prod_qty";
+            this.current_prod_qty.Visible = true;
+            this.current_prod_qty.VisibleIndex = 22;
+            this.current_prod_qty.Width = 127;
             // 
             // chkJx
             // 
@@ -1271,6 +1302,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFlag_select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkJx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).EndInit();
@@ -1379,5 +1411,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton btnCurrentDept;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit qty;
+        private DevExpress.XtraGrid.Columns.GridColumn per_qty;
     }
 }
