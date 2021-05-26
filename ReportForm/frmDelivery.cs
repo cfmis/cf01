@@ -490,8 +490,7 @@ namespace cf01.ReportForm
 
         private void PrintProductCard()
         {
-            //當前部門工序卡
-            txtID2.Focus();
+            //當前部門工序卡           
             if (dtDelivery.Rows.Count == 0)
             {
                 MessageBox.Show("請先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -549,27 +548,18 @@ namespace cf01.ReportForm
                 string mo_id = "";
                 string goods_id = "";
                 string barcode_id = "";
-                int page_num = 0, Per_qty = 0,prod_qty=0, numPage = 1;
-                
+                int page_num = 0, Per_qty = 0,prod_qty=0, numPage = 1;               
 
-                int row_precessing = 0;
-                progressBar1.Enabled = true;
-                progressBar1.Visible = true;
-                progressBar1.Value = 0;
-                progressBar1.Step = 1;
-                progressBar1.Maximum = row_total;
+                frmProgress wForm = new frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();                
 
                 for (int i = 0; i < drw.Length; i++)
                 {
-                    row_precessing = i + 1;//記錄更在更新的行
-                    progressBar1.Value += progressBar1.Step;
-                    if (progressBar1.Value == progressBar1.Maximum)
-                    {
-                        progressBar1.Enabled = false;
-                        progressBar1.Visible = false;
-                    }
-
-                    in_dept = drw[i]["in_dept"].ToString();// dtDelivery.Rows[i]["in_dept"].ToString();
+                    in_dept = drw[i]["in_dept"].ToString();
                     mo_id = drw[i]["mo_id"].ToString();
                     goods_id = drw[i]["goods_id"].ToString();
                     barcode_id = drw[i]["barcode_id"].ToString();
@@ -662,6 +652,7 @@ namespace cf01.ReportForm
                         }
                     }
                 }
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             }
             else
             {
@@ -676,11 +667,7 @@ namespace cf01.ReportForm
                     xr.CreateDocument();
                     xr.PrintingSystem.ShowMarginsWarning = false;
                     xr.ShowPreviewDialog();
-                }
-                //xtaWork_No_BarCode oRpt = new xtaWork_No_BarCode() { DataSource = dtCard };
-                //oRpt.CreateDocument();
-                //oRpt.PrintingSystem.ShowMarginsWarning = false;
-                //oRpt.ShowPreview();
+                }                
             }
             else
             {
