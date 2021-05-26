@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -96,9 +96,9 @@
             this.goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.con_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.sec_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.per_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.out_dept = new DevExpress.XtraGrid.Columns.GridColumn();
             this.out_dept_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.in_dept = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,6 +128,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
             this.btnExcel = new System.Windows.Forms.Button();
+            this.net_weight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -143,13 +145,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFlag_select)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkJx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID1
@@ -584,8 +587,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -596,8 +599,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -608,8 +611,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -736,7 +739,8 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clFlag_select,
-            this.qty});
+            this.colQty,
+            this.colSec_qty});
             this.gridControl1.Size = new System.Drawing.Size(1093, 436);
             this.gridControl1.TabIndex = 137;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -755,6 +759,7 @@
             this.con_qty,
             this.sec_qty,
             this.per_qty,
+            this.net_weight,
             this.out_dept,
             this.out_dept_name,
             this.in_dept,
@@ -881,7 +886,7 @@
             // con_qty
             // 
             this.con_qty.Caption = "移交數量";
-            this.con_qty.ColumnEdit = this.qty;
+            this.con_qty.ColumnEdit = this.colQty;
             this.con_qty.FieldName = "con_qty";
             this.con_qty.Name = "con_qty";
             this.con_qty.OptionsColumn.AllowSize = false;
@@ -893,6 +898,17 @@
             this.con_qty.Visible = true;
             this.con_qty.VisibleIndex = 6;
             this.con_qty.Width = 80;
+            // 
+            // colQty
+            // 
+            this.colQty.AutoHeight = false;
+            this.colQty.DisplayFormat.FormatString = "n0";
+            this.colQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colQty.EditFormat.FormatString = "n0";
+            this.colQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colQty.Mask.EditMask = "n0";
+            this.colQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colQty.Name = "colQty";
             // 
             // sec_qty
             // 
@@ -914,23 +930,12 @@
             this.per_qty.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.per_qty.AppearanceCell.Options.UseBackColor = true;
             this.per_qty.Caption = "每次生產數量";
-            this.per_qty.ColumnEdit = this.qty;
+            this.per_qty.ColumnEdit = this.colQty;
             this.per_qty.FieldName = "per_qty";
             this.per_qty.Name = "per_qty";
             this.per_qty.Visible = true;
             this.per_qty.VisibleIndex = 8;
             this.per_qty.Width = 89;
-            // 
-            // qty
-            // 
-            this.qty.AutoHeight = false;
-            this.qty.DisplayFormat.FormatString = "n0";
-            this.qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.qty.EditFormat.FormatString = "n0";
-            this.qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.qty.Mask.EditMask = "n0";
-            this.qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.qty.Name = "qty";
             // 
             // out_dept
             // 
@@ -944,7 +949,7 @@
             this.out_dept.OptionsFilter.AllowFilter = false;
             this.out_dept.Tag = "2";
             this.out_dept.Visible = true;
-            this.out_dept.VisibleIndex = 9;
+            this.out_dept.VisibleIndex = 10;
             this.out_dept.Width = 80;
             // 
             // out_dept_name
@@ -958,7 +963,7 @@
             this.out_dept_name.OptionsFilter.AllowAutoFilter = false;
             this.out_dept_name.OptionsFilter.AllowFilter = false;
             this.out_dept_name.Visible = true;
-            this.out_dept_name.VisibleIndex = 10;
+            this.out_dept_name.VisibleIndex = 11;
             this.out_dept_name.Width = 80;
             // 
             // in_dept
@@ -973,7 +978,7 @@
             this.in_dept.OptionsFilter.AllowFilter = false;
             this.in_dept.Tag = "2";
             this.in_dept.Visible = true;
-            this.in_dept.VisibleIndex = 11;
+            this.in_dept.VisibleIndex = 12;
             this.in_dept.Width = 80;
             // 
             // in_dept_name
@@ -987,7 +992,7 @@
             this.in_dept_name.OptionsFilter.AllowAutoFilter = false;
             this.in_dept_name.OptionsFilter.AllowFilter = false;
             this.in_dept_name.Visible = true;
-            this.in_dept_name.VisibleIndex = 12;
+            this.in_dept_name.VisibleIndex = 13;
             this.in_dept_name.Width = 80;
             // 
             // con_date
@@ -1002,7 +1007,7 @@
             this.con_date.OptionsFilter.AllowFilter = false;
             this.con_date.Tag = "2";
             this.con_date.Visible = true;
-            this.con_date.VisibleIndex = 13;
+            this.con_date.VisibleIndex = 14;
             this.con_date.Width = 80;
             // 
             // package_num
@@ -1016,7 +1021,7 @@
             this.package_num.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.package_num.OptionsColumn.ReadOnly = true;
             this.package_num.Visible = true;
-            this.package_num.VisibleIndex = 14;
+            this.package_num.VisibleIndex = 15;
             this.package_num.Width = 80;
             // 
             // vendor_id
@@ -1028,7 +1033,7 @@
             this.vendor_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.vendor_id.OptionsColumn.ReadOnly = true;
             this.vendor_id.Visible = true;
-            this.vendor_id.VisibleIndex = 15;
+            this.vendor_id.VisibleIndex = 16;
             this.vendor_id.Width = 80;
             // 
             // do_color
@@ -1040,7 +1045,7 @@
             this.do_color.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.do_color.OptionsColumn.ReadOnly = true;
             this.do_color.Visible = true;
-            this.do_color.VisibleIndex = 16;
+            this.do_color.VisibleIndex = 17;
             this.do_color.Width = 100;
             // 
             // sent_bef_year
@@ -1084,7 +1089,7 @@
             this.current_goods_id.FieldName = "current_goods_id";
             this.current_goods_id.Name = "current_goods_id";
             this.current_goods_id.Visible = true;
-            this.current_goods_id.VisibleIndex = 17;
+            this.current_goods_id.VisibleIndex = 18;
             this.current_goods_id.Width = 120;
             // 
             // current_goods_name
@@ -1093,7 +1098,7 @@
             this.current_goods_name.FieldName = "current_goods_name";
             this.current_goods_name.Name = "current_goods_name";
             this.current_goods_name.Visible = true;
-            this.current_goods_name.VisibleIndex = 18;
+            this.current_goods_name.VisibleIndex = 19;
             this.current_goods_name.Width = 200;
             // 
             // next_wp_id
@@ -1102,7 +1107,7 @@
             this.next_wp_id.FieldName = "next_wp_id";
             this.next_wp_id.Name = "next_wp_id";
             this.next_wp_id.Visible = true;
-            this.next_wp_id.VisibleIndex = 19;
+            this.next_wp_id.VisibleIndex = 20;
             this.next_wp_id.Width = 80;
             // 
             // next_wp_name
@@ -1111,7 +1116,7 @@
             this.next_wp_name.FieldName = "next_wp_name";
             this.next_wp_name.Name = "next_wp_name";
             this.next_wp_name.Visible = true;
-            this.next_wp_name.VisibleIndex = 20;
+            this.next_wp_name.VisibleIndex = 21;
             this.next_wp_name.Width = 80;
             // 
             // current_req_date
@@ -1120,7 +1125,7 @@
             this.current_req_date.FieldName = "current_req_date";
             this.current_req_date.Name = "current_req_date";
             this.current_req_date.Visible = true;
-            this.current_req_date.VisibleIndex = 21;
+            this.current_req_date.VisibleIndex = 22;
             this.current_req_date.Width = 122;
             // 
             // current_prod_qty
@@ -1128,11 +1133,11 @@
             this.current_prod_qty.AppearanceHeader.Options.UseTextOptions = true;
             this.current_prod_qty.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.current_prod_qty.Caption = "本部門計劃生產數量";
-            this.current_prod_qty.ColumnEdit = this.qty;
+            this.current_prod_qty.ColumnEdit = this.colQty;
             this.current_prod_qty.FieldName = "current_prod_qty";
             this.current_prod_qty.Name = "current_prod_qty";
             this.current_prod_qty.Visible = true;
-            this.current_prod_qty.VisibleIndex = 22;
+            this.current_prod_qty.VisibleIndex = 23;
             this.current_prod_qty.Width = 127;
             // 
             // chkJx
@@ -1235,6 +1240,29 @@
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
+            // net_weight
+            // 
+            this.net_weight.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.net_weight.AppearanceCell.Options.UseBackColor = true;
+            this.net_weight.Caption = "生產重量";
+            this.net_weight.ColumnEdit = this.colSec_qty;
+            this.net_weight.FieldName = "net_weight";
+            this.net_weight.Name = "net_weight";
+            this.net_weight.Visible = true;
+            this.net_weight.VisibleIndex = 9;
+            this.net_weight.Width = 69;
+            // 
+            // colSec_qty
+            // 
+            this.colSec_qty.AutoHeight = false;
+            this.colSec_qty.DisplayFormat.FormatString = "n2";
+            this.colSec_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.EditFormat.FormatString = "n2";
+            this.colSec_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.Mask.EditMask = "n2";
+            this.colSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colSec_qty.Name = "colSec_qty";
+            // 
             // frmDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1291,13 +1319,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFlag_select)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkJx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1399,7 +1428,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn current_req_date;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton btnCurrentDept;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit qty;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit colQty;
         private DevExpress.XtraGrid.Columns.GridColumn per_qty;
+        private DevExpress.XtraGrid.Columns.GridColumn net_weight;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit colSec_qty;
     }
 }
