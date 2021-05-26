@@ -159,7 +159,7 @@ namespace cf01.ReportForm
             string strID2 = txtID2.Text;
             if ((strID1 != "" && strID1.Length >= 2) && (strID2 != "" && strID2.Length >= 2))
             {
-                if (strID1.Substring(0, 2) == "DA" && strID2.Substring(0, 2) == "DA")
+                if (  (strID1.Substring(0, 2) == "DA" && strID2.Substring(0, 2) == "DA") || (strID1.Substring(0, 2) == "LA" && strID2.Substring(0, 2) == "LA"))
                 {
                     radioGroup1.SelectedIndex = 1;//倉庫轉倉
                 }
