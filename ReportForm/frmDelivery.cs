@@ -159,7 +159,7 @@ namespace cf01.ReportForm
             string strID2 = txtID2.Text;
             if ((strID1 != "" && strID1.Length >= 2) && (strID2 != "" && strID2.Length >= 2))
             {
-                if (strID1.Substring(0, 2) == "DA" && strID2.Substring(0, 2) == "DA")
+                if (  (strID1.Substring(0, 2) == "DA" && strID2.Substring(0, 2) == "DA") || (strID1.Substring(0, 2) == "LA" && strID2.Substring(0, 2) == "LA"))
                 {
                     radioGroup1.SelectedIndex = 1;//倉庫轉倉
                 }
@@ -272,6 +272,7 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("next_wp_id", typeof(string));
             dtDelivery.Columns.Add("next_wp_name", typeof(string));
             dtDelivery.Columns.Add("per_qty", typeof(int));
+            dtDelivery.Columns.Add("net_weight", typeof(float));
             
             //dtDelivery.Columns.Add("prod_qty_every_time", typeof(float));
             for (int i=0;i<dtDelivery.Rows.Count;i++)
@@ -499,8 +500,7 @@ namespace cf01.ReportForm
 
         private void PrintProductCard()
         {
-            //當前部門工序卡
-            txtID2.Focus();
+            //當前部門工序卡           
             if (dtDelivery.Rows.Count == 0)
             {
                 MessageBox.Show("請先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -528,7 +528,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("prod_date", typeof(string));
             dtNewWork.Columns.Add("t_complete_date", typeof(string));
             dtNewWork.Columns.Add("per_qty", typeof(string));
-            dtNewWork.Columns.Add("net_weight", typeof(string));
+            dtNewWork.Columns.Add("net_weight", typeof(string));//**
             dtNewWork.Columns.Add("base_qty", typeof(int));
             dtNewWork.Columns.Add("unit_code", typeof(string));
             dtNewWork.Columns.Add("base_rate", typeof(int));
@@ -559,31 +559,24 @@ namespace cf01.ReportForm
                 string goods_id = "";
                 string barcode_id = "";
                 int page_num = 0, Per_qty = 0,prod_qty=0, numPage = 1;
-                
-
-                int row_precessing = 0;
-                progressBar1.Enabled = true;
-                progressBar1.Visible = true;
-                progressBar1.Value = 0;
-                progressBar1.Step = 1;
-                progressBar1.Maximum = row_total;
+                decimal net_weight = 0, sec_qty=0;
+                frmProgress wForm = new frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();                
 
                 for (int i = 0; i < drw.Length; i++)
                 {
-                    row_precessing = i + 1;//記錄更在更新的行
-                    progressBar1.Value += progressBar1.Step;
-                    if (progressBar1.Value == progressBar1.Maximum)
-                    {
-                        progressBar1.Enabled = false;
-                        progressBar1.Visible = false;
-                    }
-
-                    in_dept = drw[i]["in_dept"].ToString();// dtDelivery.Rows[i]["in_dept"].ToString();
+                    in_dept = drw[i]["in_dept"].ToString();
                     mo_id = drw[i]["mo_id"].ToString();
                     goods_id = drw[i]["goods_id"].ToString();
                     barcode_id = drw[i]["barcode_id"].ToString();
                     page_num = string.IsNullOrEmpty(drw[i]["package_num"].ToString()) ? 0 : int.Parse(drw[i]["package_num"].ToString());
                     Per_qty = string.IsNullOrEmpty(drw[i]["per_qty"].ToString()) ? 0 : Int32.Parse(drw[i]["per_qty"].ToString());//每次生產數量
+                    net_weight = string.IsNullOrEmpty(drw[i]["net_weight"].ToString()) ? 0 : decimal.Parse(drw[i]["net_weight"].ToString());//生產重量
+                    sec_qty = string.IsNullOrEmpty(drw[i]["sec_qty"].ToString()) ? 0 : decimal.Parse(drw[i]["sec_qty"].ToString());
                     SqlParameter[] paras = new SqlParameter[] {
                            new SqlParameter("@in_dept", in_dept),
                            new SqlParameter("@mo_id",mo_id),
@@ -645,7 +638,10 @@ namespace cf01.ReportForm
                                 else
                                     dr["per_qty"] = Per_qty;
                                 //dr["per_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["per_qty"].ToString()) ? 0 : dtCard.Rows[j]["per_qty"];
-                                dr["net_weight"] = dtCard.Rows[j]["net_weight"].ToString();
+                                if (net_weight > 0)
+                                    dr["net_weight"] = net_weight;
+                                else
+                                    dr["net_weight"] = sec_qty;
                                 dr["base_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["base_qty"].ToString()) ? 0 : dtCard.Rows[j]["base_qty"];
                                 dr["unit_code"] = dtCard.Rows[j]["unit_code"].ToString();
                                 dr["base_rate"] = string.IsNullOrEmpty(dtCard.Rows[j]["base_rate"].ToString()) ? 0 : dtCard.Rows[j]["base_rate"];
@@ -671,6 +667,7 @@ namespace cf01.ReportForm
                         }
                     }
                 }
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             }
             else
             {
@@ -685,11 +682,7 @@ namespace cf01.ReportForm
                     xr.CreateDocument();
                     xr.PrintingSystem.ShowMarginsWarning = false;
                     xr.ShowPreviewDialog();
-                }
-                //xtaWork_No_BarCode oRpt = new xtaWork_No_BarCode() { DataSource = dtCard };
-                //oRpt.CreateDocument();
-                //oRpt.PrintingSystem.ShowMarginsWarning = false;
-                //oRpt.ShowPreview();
+                }                
             }
             else
             {
