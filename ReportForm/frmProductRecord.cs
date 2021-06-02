@@ -38,7 +38,10 @@ namespace cf01.ReportForm
             detDate2.Text = detDate1.Text;
             string localIp = clsAppPublic.GetLocalIP();
             if (localIp.Substring(0, 10) == "192.168.18" || localIp.Substring(0, 10) == "192.168.19")
+            {
                 rdbJX.Checked = true;
+                rdbDG.Enabled = false;
+            }
         }
 
         private void BTNEXIT_Click(object sender, EventArgs e)

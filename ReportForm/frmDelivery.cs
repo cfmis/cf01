@@ -297,18 +297,27 @@ namespace cf01.ReportForm
             string prdDep = dep;
             if (dep == "125")
                 prdDep = "105";
-            else if (dep == "128")
+            else if (dep == "128")//如果是128的，則包含108、102的記錄都要一起提取出來
                 prdDep = "108";
+            string strSelect = "", strWhere1 = "", strWhere2 = "";
             string strSql = "";
-            strSql = "Select a.Prd_id,a.Transfer_date,a.Prd_dep,c.dep_cdesc AS Prd_dep_cdesc,a.prd_item,b.name As goods_name"+
+            strSelect = "Select a.Prd_id,a.Transfer_date,a.Prd_dep,c.dep_cdesc AS Prd_dep_cdesc,a.prd_item,b.name As goods_name"+
                 ",a.prd_mo,a.Transfer_flag,a.transfer_qty,a.transfer_weg" +
                 ",a.wip_id,d.dep_cdesc AS wip_id_cdesc,a.to_dep,a.pack_num " +
                 " From dgcf_pad.dbo.product_transfer_jx_details a" +
                 " Left Join geo_it_goods b On a.prd_item COLLATE chinese_taiwan_stroke_CI_AS=b.id" +
                 " Left Join bs_dep c On a.Prd_dep COLLATE chinese_taiwan_stroke_CI_AS=c.dep_id" +
                 " Left Join bs_dep d On a.wip_id COLLATE chinese_taiwan_stroke_CI_AS=d.dep_id";
-            strSql += " Where a.Prd_dep='" + prdDep + "'";
-            strSql += " And a.Transfer_date>='" + dateFrom + "' And a.Transfer_date<='" + dateTo + "'";
+            strWhere1 = " Where a.Prd_dep='" + prdDep + "'";
+            strWhere2 = " And a.Transfer_date>='" + dateFrom + "' And a.Transfer_date<='" + dateTo + "'";
+            strSql = strSelect + strWhere1 + strWhere2;
+            if(dep=="128")
+            {
+                prdDep = "102";
+                strWhere1 = " Where a.Prd_dep='" + prdDep + "'";
+                strSql += " UNION ";
+                strSql += strSelect + strWhere1 + strWhere2;
+            }
             DataTable dtJx = clsPublicOfCF01.GetDataTable(strSql);
             for (int i=0;i<dtJx.Rows.Count;i++)
             {
