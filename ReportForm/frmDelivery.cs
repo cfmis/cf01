@@ -908,7 +908,7 @@ namespace cf01.ReportForm
         {           
             if (chkDelivery.Checked)
             {
-                gridView1.CloseEditor();//將當前行所有更改立即定入綁定的數據源 NND折騰一天時間
+                gridView1.CloseEditor();//將當前行所有更改立即定入綁定的數據源
                 string strID = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id").ToString();
                 string value_select = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "flag_select").ToString();
                 bool flag;
