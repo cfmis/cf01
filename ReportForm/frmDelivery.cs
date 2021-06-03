@@ -260,7 +260,7 @@ namespace cf01.ReportForm
             //dtDelivery = dstReport.Tables[0];
             dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
             //dtProductCard = dstReport.Tables[1];//本部部門工序卡數據
-            loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
+            
             //客戶端加bool字段或後端返回(bit型)都可以
             dtDelivery.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
             
@@ -273,12 +273,13 @@ namespace cf01.ReportForm
             dtDelivery.Columns.Add("next_wp_name", typeof(string));
             dtDelivery.Columns.Add("per_qty", typeof(int));
             dtDelivery.Columns.Add("net_weight", typeof(float));
-            
+            loadJxData(in_dept1, txtDat1.Text, txtDat2.Text, txtMo_id1.Text, txtMo_id2.Text);
             //dtDelivery.Columns.Add("prod_qty_every_time", typeof(float));
             for (int i=0;i<dtDelivery.Rows.Count;i++)
             {
-                DataRow dr = dtDelivery.Rows[i];
-                DataTable dt=getNextDepItem(dr["mo_id"].ToString(), dr["in_dept"].ToString(), dr["goods_id"].ToString());
+                DataRow dr = dtDelivery.Rows[i];//
+                string dep = dr["in_dept"].ToString();
+                DataTable dt = getNextDepItem(dr["mo_id"].ToString(), dep, dr["goods_id"].ToString());
                 if(dt.Rows.Count>0)
                 {
                     DataRow drCurrent = dt.Rows[0];
@@ -288,11 +289,42 @@ namespace cf01.ReportForm
                     dr["next_wp_name"] = drCurrent["next_wp_name"];
                     dr["current_prod_qty"] = drCurrent["prod_qty"];
                     dr["current_req_date"] = drCurrent["req_date"];
+                    if (dep == "102" || dep == "108")
+                        dr["do_color"] = drCurrent["next_do_color"];
                 }
             }
             //======
         }
-
+        private DataTable getNextDepItem(string mo_id, string wp_id, string goods_id)
+        {
+            string strSql = "";
+            //如果是102或108的，則只提取該部門發出物料的相關流程即可
+            if (wp_id == "102" || wp_id == "108")
+            {
+                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
+                    ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
+                strSql += " FROM jo_bill_mostly a";
+                strSql += " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
+                        " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
+                        " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
+                        " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND b.goods_id='" + goods_id + "'" +
+                        " AND b.wp_id='" + wp_id + "'";
+            }
+            else
+            {
+                strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
+                    ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
+                strSql += " FROM jo_bill_mostly a";
+                strSql += " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
+                        " INNER JOIN jo_bill_materiel_details c ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
+                        " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
+                        " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
+                        " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND c.materiel_id='" + goods_id + "'" +
+                        " AND b.wp_id='" + wp_id + "'";
+            }
+            DataTable dt = clsConErp.GetDataTable(strSql);
+            return dt;
+        }
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
         {
             string prdDep = dep;
@@ -311,6 +343,8 @@ namespace cf01.ReportForm
                 " Left Join bs_dep d On a.wip_id COLLATE chinese_taiwan_stroke_CI_AS=d.dep_id";
             strWhere1 = " Where a.Prd_dep='" + prdDep + "'";
             strWhere2 = " And a.Transfer_date>='" + dateFrom + "' And a.Transfer_date<='" + dateTo + "'";
+            if (moFrom != "" && moTo != "")
+                strWhere2 += " And a.prd_mo>='" + moFrom + "' And a.prd_mo<='" + moTo + "'";
             strSql = strSelect + strWhere1 + strWhere2;
             if(dep=="128")
             {
@@ -337,6 +371,7 @@ namespace cf01.ReportForm
                 drNew["con_date"] = drJx["Transfer_date"];
                 drNew["id"] = drJx["Prd_id"].ToString();
                 drNew["sequence_id"] = drJx["Prd_id"].ToString();
+                drNew["next_wp_id"] = drJx["to_dep"].ToString();
                 dtDelivery.Rows.Add(drNew);
             }
         }
@@ -1076,10 +1111,7 @@ namespace cf01.ReportForm
 
         private void txtMo_id1_Leave(object sender, EventArgs e)
         {
-            if(txtMo_id1.Text!="")
-            {
-                txtMo_id2.Text = txtMo_id1.Text;
-            }
+            txtMo_id2.Text = txtMo_id1.Text;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -1492,22 +1524,7 @@ namespace cf01.ReportForm
             }
         }
 
-        private DataTable getNextDepItem(string mo_id, string wp_id, string goods_id)
-        {
-            string strSql = "";
-            strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
-                    ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
-            strSql += " FROM jo_bill_mostly a";
-            strSql += " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
-                    " INNER JOIN jo_bill_materiel_details c ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
-                    " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
-                    " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
-                    " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND c.materiel_id='" + goods_id + "'" +
-                    " AND b.wp_id='" + wp_id + "'";
-
-            DataTable dt = clsConErp.GetDataTable(strSql);
-            return dt;
-        }
+        
 
        
     }

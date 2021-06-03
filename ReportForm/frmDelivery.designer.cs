@@ -99,6 +99,8 @@
             this.colQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.sec_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.per_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.net_weight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.out_dept = new DevExpress.XtraGrid.Columns.GridColumn();
             this.out_dept_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.in_dept = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,8 +130,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.net_weight = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -146,13 +146,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFlag_select)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkJx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID1
@@ -937,9 +937,32 @@
             this.per_qty.VisibleIndex = 8;
             this.per_qty.Width = 89;
             // 
+            // net_weight
+            // 
+            this.net_weight.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.net_weight.AppearanceCell.Options.UseBackColor = true;
+            this.net_weight.Caption = "生產重量";
+            this.net_weight.ColumnEdit = this.colSec_qty;
+            this.net_weight.FieldName = "net_weight";
+            this.net_weight.Name = "net_weight";
+            this.net_weight.Visible = true;
+            this.net_weight.VisibleIndex = 9;
+            this.net_weight.Width = 69;
+            // 
+            // colSec_qty
+            // 
+            this.colSec_qty.AutoHeight = false;
+            this.colSec_qty.DisplayFormat.FormatString = "n2";
+            this.colSec_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.EditFormat.FormatString = "n2";
+            this.colSec_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colSec_qty.Mask.EditMask = "n2";
+            this.colSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colSec_qty.Name = "colSec_qty";
+            // 
             // out_dept
             // 
-            this.out_dept.Caption = "負責部門";
+            this.out_dept.Caption = "發貨部門";
             this.out_dept.FieldName = "out_dept";
             this.out_dept.Name = "out_dept";
             this.out_dept.OptionsColumn.AllowSize = false;
@@ -954,7 +977,7 @@
             // 
             // out_dept_name
             // 
-            this.out_dept_name.Caption = "負責部門名稱";
+            this.out_dept_name.Caption = "發貨部門描述";
             this.out_dept_name.FieldName = "out_dept_name";
             this.out_dept_name.Name = "out_dept_name";
             this.out_dept_name.OptionsColumn.AllowSize = false;
@@ -968,7 +991,7 @@
             // 
             // in_dept
             // 
-            this.in_dept.Caption = "接收部門";
+            this.in_dept.Caption = "收貨部門";
             this.in_dept.FieldName = "in_dept";
             this.in_dept.Name = "in_dept";
             this.in_dept.OptionsColumn.AllowSize = false;
@@ -983,7 +1006,7 @@
             // 
             // in_dept_name
             // 
-            this.in_dept_name.Caption = "接收部門名稱";
+            this.in_dept_name.Caption = "收貨部門描述";
             this.in_dept_name.FieldName = "in_dept_name";
             this.in_dept_name.Name = "in_dept_name";
             this.in_dept_name.OptionsColumn.AllowSize = false;
@@ -1085,7 +1108,7 @@
             // 
             // current_goods_id
             // 
-            this.current_goods_id.Caption = "本部門物料編號";
+            this.current_goods_id.Caption = "收貨部門的物料編號";
             this.current_goods_id.FieldName = "current_goods_id";
             this.current_goods_id.Name = "current_goods_id";
             this.current_goods_id.Visible = true;
@@ -1094,7 +1117,7 @@
             // 
             // current_goods_name
             // 
-            this.current_goods_name.Caption = "本部門物料描述";
+            this.current_goods_name.Caption = "收貨部門的物料描述";
             this.current_goods_name.FieldName = "current_goods_name";
             this.current_goods_name.Name = "current_goods_name";
             this.current_goods_name.Visible = true;
@@ -1103,7 +1126,7 @@
             // 
             // next_wp_id
             // 
-            this.next_wp_id.Caption = "下部門編號";
+            this.next_wp_id.Caption = "收貨部門的下部門編號";
             this.next_wp_id.FieldName = "next_wp_id";
             this.next_wp_id.Name = "next_wp_id";
             this.next_wp_id.Visible = true;
@@ -1112,7 +1135,7 @@
             // 
             // next_wp_name
             // 
-            this.next_wp_name.Caption = "下部門描述";
+            this.next_wp_name.Caption = "收貨部門的下部門描述";
             this.next_wp_name.FieldName = "next_wp_name";
             this.next_wp_name.Name = "next_wp_name";
             this.next_wp_name.Visible = true;
@@ -1121,7 +1144,7 @@
             // 
             // current_req_date
             // 
-            this.current_req_date.Caption = "本部門計劃完成日期";
+            this.current_req_date.Caption = "收貨部門的計劃完成日期";
             this.current_req_date.FieldName = "current_req_date";
             this.current_req_date.Name = "current_req_date";
             this.current_req_date.Visible = true;
@@ -1132,7 +1155,7 @@
             // 
             this.current_prod_qty.AppearanceHeader.Options.UseTextOptions = true;
             this.current_prod_qty.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.current_prod_qty.Caption = "本部門計劃生產數量";
+            this.current_prod_qty.Caption = "收貨部門的計劃生產數量";
             this.current_prod_qty.ColumnEdit = this.colQty;
             this.current_prod_qty.FieldName = "current_prod_qty";
             this.current_prod_qty.Name = "current_prod_qty";
@@ -1240,29 +1263,6 @@
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
-            // net_weight
-            // 
-            this.net_weight.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.net_weight.AppearanceCell.Options.UseBackColor = true;
-            this.net_weight.Caption = "生產重量";
-            this.net_weight.ColumnEdit = this.colSec_qty;
-            this.net_weight.FieldName = "net_weight";
-            this.net_weight.Name = "net_weight";
-            this.net_weight.Visible = true;
-            this.net_weight.VisibleIndex = 9;
-            this.net_weight.Width = 69;
-            // 
-            // colSec_qty
-            // 
-            this.colSec_qty.AutoHeight = false;
-            this.colSec_qty.DisplayFormat.FormatString = "n2";
-            this.colSec_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colSec_qty.EditFormat.FormatString = "n2";
-            this.colSec_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colSec_qty.Mask.EditMask = "n2";
-            this.colSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.colSec_qty.Name = "colSec_qty";
-            // 
             // frmDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1321,13 +1321,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clFlag_select)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkJx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelect.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDelivery.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPrint.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSec_qty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
