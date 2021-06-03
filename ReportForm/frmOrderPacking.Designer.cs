@@ -194,7 +194,7 @@
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id2.Properties.MaxLength = 9;
             this.txtMo_id2.Size = new System.Drawing.Size(177, 20);
-            this.txtMo_id2.TabIndex = 153;
+            this.txtMo_id2.TabIndex = 4;
             // 
             // label5
             // 
@@ -213,7 +213,8 @@
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id1.Properties.MaxLength = 9;
             this.txtMo_id1.Size = new System.Drawing.Size(177, 20);
-            this.txtMo_id1.TabIndex = 152;
+            this.txtMo_id1.TabIndex = 3;
+            this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
             // 
             // lblOut_dept
             // 
@@ -241,7 +242,7 @@
             this.txtLocation.Properties.ShowHeader = false;
             this.txtLocation.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtLocation.Size = new System.Drawing.Size(177, 20);
-            this.txtLocation.TabIndex = 154;
+            this.txtLocation.TabIndex = 0;
             // 
             // label1
             // 
@@ -260,7 +261,7 @@
             this.txtGoods_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGoods_id2.Properties.MaxLength = 15;
             this.txtGoods_id2.Size = new System.Drawing.Size(177, 20);
-            this.txtGoods_id2.TabIndex = 149;
+            this.txtGoods_id2.TabIndex = 6;
             // 
             // lblID
             // 
@@ -303,7 +304,7 @@
             this.txtCheck_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtCheck_date2.Properties.MaxLength = 30;
             this.txtCheck_date2.Size = new System.Drawing.Size(177, 20);
-            this.txtCheck_date2.TabIndex = 151;
+            this.txtCheck_date2.TabIndex = 2;
             this.txtCheck_date2.Tag = "2";
             // 
             // txtCheck_date1
@@ -320,8 +321,9 @@
             this.txtCheck_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtCheck_date1.Properties.MaxLength = 30;
             this.txtCheck_date1.Size = new System.Drawing.Size(177, 20);
-            this.txtCheck_date1.TabIndex = 150;
+            this.txtCheck_date1.TabIndex = 1;
             this.txtCheck_date1.Tag = "2";
+            this.txtCheck_date1.Leave += new System.EventHandler(this.txtCheck_date1_Leave);
             // 
             // txtGoods_id1
             // 
@@ -331,7 +333,8 @@
             this.txtGoods_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGoods_id1.Properties.MaxLength = 15;
             this.txtGoods_id1.Size = new System.Drawing.Size(177, 20);
-            this.txtGoods_id1.TabIndex = 148;
+            this.txtGoods_id1.TabIndex = 5;
+            this.txtGoods_id1.Leave += new System.EventHandler(this.txtGoods_id1_Leave);
             // 
             // gridControl1
             // 

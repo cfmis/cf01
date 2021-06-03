@@ -27,6 +27,27 @@ namespace cf01.ReportForm
             chkSelect.Checked = false;
         }
 
+        private void frmOderPacking1_Load(object sender, EventArgs e)
+        {
+            dtDept = clsBaseData.Get_Department();
+            DataRow dr0 = dtDept.NewRow(); //插一空行        
+            dtDept.Rows.InsertAt(dr0, 0);
+            txtLocation.Properties.DataSource = dtDept;
+            txtLocation.Properties.ValueMember = "id";
+            txtLocation.Properties.DisplayMember = "cdesc";
+
+
+            //if (string.IsNullOrEmpty(txtCheck_date1.Text))
+            //{
+            //    txtCheck_date1.EditValue = System.DateTime.Now;
+            //}
+            //if (string.IsNullOrEmpty(txtCheck_date2.Text))
+            //{
+            //    txtCheck_date2.EditValue = System.DateTime.Now.ToString("s");                
+            //}
+        }
+
+
         private void BTNFIND_Click(object sender, EventArgs e)
         {
             frmProgress wForm = new frmProgress();
@@ -77,25 +98,7 @@ namespace cf01.ReportForm
 
         }
 
-        private void frmOderPacking1_Load(object sender, EventArgs e)
-        {
-            dtDept = clsBaseData.Get_Department();
-            DataRow dr0 = dtDept.NewRow(); //插一空行        
-            dtDept.Rows.InsertAt(dr0, 0);
-            txtLocation.Properties.DataSource = dtDept;
-            txtLocation.Properties.ValueMember = "id";
-            txtLocation.Properties.DisplayMember = "cdesc";
 
-
-            if (string.IsNullOrEmpty(txtCheck_date1.Text))
-            {
-                txtCheck_date1.EditValue = DateTime.Now;
-            }
-            if (string.IsNullOrEmpty(txtCheck_date2.Text))
-            {
-                txtCheck_date2.EditValue = System.DateTime.Now.ToString("s");
-            }
-        }
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
         {
@@ -174,6 +177,21 @@ namespace cf01.ReportForm
                 }
                 gridView1.CloseEditor();
             }
+        }
+
+        private void txtMo_id1_Leave(object sender, EventArgs e)
+        {
+            txtMo_id2.Text = txtMo_id1.Text;
+        }
+
+        private void txtGoods_id1_Leave(object sender, EventArgs e)
+        {
+            txtGoods_id2.Text = txtGoods_id1.Text;
+        }
+
+        private void txtCheck_date1_Leave(object sender, EventArgs e)
+        {
+            txtCheck_date2.EditValue = txtCheck_date1.EditValue;
         }
     }
     
