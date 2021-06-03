@@ -514,7 +514,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("ver", typeof(string));
             dtNewWork.Columns.Add("get_color_sample_name", typeof(string));
             dtNewWork.Columns.Add("goods_name", typeof(string));
-            dtNewWork.Columns.Add("barcode_id", typeof(string));
+            dtNewWork.Columns.Add("BarCode", typeof(string));
             dtNewWork.Columns.Add("goods_id", typeof(string));
             dtNewWork.Columns.Add("brand_id", typeof(string));
             dtNewWork.Columns.Add("prod_qty", typeof(string));
@@ -557,7 +557,7 @@ namespace cf01.ReportForm
                 string in_dept = "";
                 string mo_id = "";
                 string goods_id = "";
-                string barcode_id = "";
+                //string barcode_id = "";
                 int page_num = 0, Per_qty = 0,prod_qty=0, numPage = 1;
                 decimal net_weight = 0, sec_qty=0;
                 frmProgress wForm = new frmProgress();
@@ -572,7 +572,7 @@ namespace cf01.ReportForm
                     in_dept = drw[i]["in_dept"].ToString();
                     mo_id = drw[i]["mo_id"].ToString();
                     goods_id = drw[i]["goods_id"].ToString();
-                    barcode_id = drw[i]["barcode_id"].ToString();
+                    //barcode_id = drw[i]["barcode_id"].ToString();
                     page_num = string.IsNullOrEmpty(drw[i]["package_num"].ToString()) ? 0 : int.Parse(drw[i]["package_num"].ToString());
                     Per_qty = string.IsNullOrEmpty(drw[i]["per_qty"].ToString()) ? 0 : Int32.Parse(drw[i]["per_qty"].ToString());//每次生產數量
                     net_weight = string.IsNullOrEmpty(drw[i]["net_weight"].ToString()) ? 0 : decimal.Parse(drw[i]["net_weight"].ToString());//生產重量
@@ -620,7 +620,7 @@ namespace cf01.ReportForm
                                 dr["ver"] = dtCard.Rows[j]["ver"].ToString();
                                 dr["get_color_sample_name"] = dtCard.Rows[j]["get_color_sample_name"].ToString();
                                 dr["goods_name"] = dtCard.Rows[j]["goods_name"].ToString();
-                                dr["barcode_id"] = barcode_id;
+                                dr["BarCode"] = dtCard.Rows[j]["BarCode"].ToString();
                                 dr["goods_id"] = dtCard.Rows[j]["goods_id"].ToString();
                                 dr["brand_id"] = dtCard.Rows[j]["brand_id"].ToString();
                                 dr["prod_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["prod_qty"].ToString()) ? 0 : dtCard.Rows[j]["prod_qty"];
