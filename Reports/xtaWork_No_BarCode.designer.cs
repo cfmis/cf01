@@ -646,7 +646,7 @@
             // xrlblImage
             // 
             this.xrlblImage.Dpi = 254F;
-            this.xrlblImage.LocationFloat = new DevExpress.Utils.PointFloat(45.33919F, 223.7925F);
+            this.xrlblImage.LocationFloat = new DevExpress.Utils.PointFloat(25F, 190.4524F);
             this.xrlblImage.Name = "xrlblImage";
             this.xrlblImage.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrlblImage.SizeF = new System.Drawing.SizeF(101.1766F, 35.62907F);
