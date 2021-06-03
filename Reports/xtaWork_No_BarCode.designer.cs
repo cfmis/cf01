@@ -412,7 +412,7 @@
             this.xrLabel42.Multiline = true;
             this.xrLabel42.Name = "xrLabel42";
             this.xrLabel42.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel42.SizeF = new System.Drawing.SizeF(1055.125F, 175.3444F);
+            this.xrLabel42.SizeF = new System.Drawing.SizeF(1055.396F, 175.3444F);
             this.xrLabel42.StylePriority.UseFont = false;
             this.xrLabel42.Text = "[production_remark];[remark]";
             // 
