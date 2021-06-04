@@ -127,12 +127,12 @@ namespace cf01.ReportForm
             dtblReport = dtblPacking.Clone();
             DataRow[] drw = dtblPacking.Select(string.Format("flag_select={0}", true));
             if(drw.Length>0)
-            {                
-                //添加選中的記錄至臨時表中                   
+            {
+                //添加選中的記錄至臨時表中
                 foreach (DataRow dr in drw)
                 {
-                    dtblReport.ImportRow(dr);
-                }
+                    dtblReport.ImportRow(dr);                                      
+                }                
             }
             else
             {
