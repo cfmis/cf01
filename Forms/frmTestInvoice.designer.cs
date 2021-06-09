@@ -122,8 +122,8 @@
             this.is_pass = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clIs_pass = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.invoice_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
             this.txtinvoice_id2 = new DevExpress.XtraEditors.TextEdit();
@@ -163,6 +163,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnInvoice = new System.Windows.Forms.Button();
             this.dgvFind = new System.Windows.Forms.DataGridView();
+            this.dgvTotal = new System.Windows.Forms.DataGridView();
+            this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sales_group1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.report_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -179,9 +182,6 @@
             this.chemical_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.physical_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTotal = new System.Windows.Forms.DataGridView();
-            this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtphysical_test.Properties)).BeginInit();
@@ -423,6 +423,7 @@
             this.BTNCONFIRM_PDD.Name = "BTNCONFIRM_PDD";
             this.BTNCONFIRM_PDD.Size = new System.Drawing.Size(90, 25);
             this.BTNCONFIRM_PDD.Text = "Confirm PDD";
+            this.BTNCONFIRM_PDD.Visible = false;
             this.BTNCONFIRM_PDD.Click += new System.EventHandler(this.BTNCONFIRM_PDD_Click);
             // 
             // toolStripSeparator7
@@ -1308,17 +1309,17 @@
             this.id.Tag = "2";
             this.id.Width = 20;
             // 
-            // sequence_id
-            // 
-            this.sequence_id.Caption = "序號";
-            this.sequence_id.FieldName = "sequence_id";
-            this.sequence_id.Name = "sequence_id";
-            // 
             // invoice_id
             // 
             this.invoice_id.Caption = "發票編號";
             this.invoice_id.FieldName = "invoice_id";
             this.invoice_id.Name = "invoice_id";
+            // 
+            // sequence_id
+            // 
+            this.sequence_id.Caption = "序號";
+            this.sequence_id.FieldName = "sequence_id";
+            this.sequence_id.Name = "sequence_id";
             // 
             // btnSearch
             // 
@@ -1752,6 +1753,7 @@
             this.chkSelectAllPDD.TabIndex = 200;
             this.chkSelectAllPDD.Text = "全選(PDD)";
             this.chkSelectAllPDD.UseVisualStyleBackColor = false;
+            this.chkSelectAllPDD.Visible = false;
             this.chkSelectAllPDD.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkSelectAllPDD_MouseUp);
             // 
             // btnTotal
@@ -1886,6 +1888,37 @@
             this.dgvFind.TabIndex = 9;
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
             // 
+            // dgvTotal
+            // 
+            this.dgvTotal.AllowUserToAddRows = false;
+            this.dgvTotal.AllowUserToDeleteRows = false;
+            this.dgvTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTotal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.brand,
+            this.amount});
+            this.dgvTotal.Location = new System.Drawing.Point(474, 218);
+            this.dgvTotal.Name = "dgvTotal";
+            this.dgvTotal.RowTemplate.Height = 24;
+            this.dgvTotal.Size = new System.Drawing.Size(165, 75);
+            this.dgvTotal.TabIndex = 198;
+            this.dgvTotal.Visible = false;
+            // 
+            // brand
+            // 
+            this.brand.DataPropertyName = "brand";
+            this.brand.HeaderText = "Brand";
+            this.brand.Name = "brand";
+            this.brand.ReadOnly = true;
+            this.brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // amount
+            // 
+            this.amount.DataPropertyName = "amount";
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            this.amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // sales_group1
             // 
             this.sales_group1.DataPropertyName = "sales_group";
@@ -1964,6 +1997,7 @@
             this.confirm_pdd.DefaultCellStyle = dataGridViewCellStyle3;
             this.confirm_pdd.HeaderText = "PDD Confirm";
             this.confirm_pdd.Name = "confirm_pdd";
+            this.confirm_pdd.Visible = false;
             this.confirm_pdd.Width = 80;
             // 
             // confirm_ac
@@ -2035,37 +2069,6 @@
             this.mo_id.ReadOnly = true;
             this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.mo_id.Width = 90;
-            // 
-            // dgvTotal
-            // 
-            this.dgvTotal.AllowUserToAddRows = false;
-            this.dgvTotal.AllowUserToDeleteRows = false;
-            this.dgvTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTotal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.brand,
-            this.amount});
-            this.dgvTotal.Location = new System.Drawing.Point(474, 218);
-            this.dgvTotal.Name = "dgvTotal";
-            this.dgvTotal.RowTemplate.Height = 24;
-            this.dgvTotal.Size = new System.Drawing.Size(165, 75);
-            this.dgvTotal.TabIndex = 198;
-            this.dgvTotal.Visible = false;
-            // 
-            // brand
-            // 
-            this.brand.DataPropertyName = "brand";
-            this.brand.HeaderText = "Brand";
-            this.brand.Name = "brand";
-            this.brand.ReadOnly = true;
-            this.brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // amount
-            // 
-            this.amount.DataPropertyName = "amount";
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            this.amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmTestInvoice
             // 
@@ -2271,6 +2274,15 @@
         private DevExpress.XtraEditors.TextEdit txtchemical_test;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private DevExpress.XtraEditors.DateEdit dtPdd1;
+        private DevExpress.XtraEditors.DateEdit dtPdd2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.CheckBox chkSelectAllAC;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnMultInvoice;
+        private DevExpress.XtraGrid.Columns.GridColumn invoice_id;
+        private DevExpress.XtraEditors.ButtonEdit txtinvoice_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn report_date1;
@@ -2287,14 +2299,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chemical_test;
         private System.Windows.Forms.DataGridViewTextBoxColumn physical_test;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
-        private DevExpress.XtraEditors.DateEdit dtPdd1;
-        private DevExpress.XtraEditors.DateEdit dtPdd2;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox chkSelectAllAC;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnMultInvoice;
-        private DevExpress.XtraGrid.Columns.GridColumn invoice_id;
-        private DevExpress.XtraEditors.ButtonEdit txtinvoice_id;
     }
 }

@@ -97,6 +97,7 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.dtDate2 = new DevExpress.XtraEditors.DateEdit();
             this.dtDate1 = new DevExpress.XtraEditors.DateEdit();
+            this.currency_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -115,9 +116,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDept1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor_id1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -259,9 +260,9 @@
             // 
             // gcDetails
             // 
-            this.gcDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcDetails.Location = new System.Drawing.Point(1, 161);
             this.gcDetails.MainView = this.dgvDetails;
             this.gcDetails.Name = "gcDetails";
@@ -298,6 +299,7 @@
             this.sec_qty,
             this.qty,
             this.amt_deduction,
+            this.currency_id,
             this.details_remark});
             this.dgvDetails.GridControl = this.gcDetails;
             this.dgvDetails.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -658,7 +660,7 @@
             this.details_remark.OptionsFilter.AllowAutoFilter = false;
             this.details_remark.OptionsFilter.AllowFilter = false;
             this.details_remark.Visible = true;
-            this.details_remark.VisibleIndex = 21;
+            this.details_remark.VisibleIndex = 22;
             // 
             // txtId1
             // 
@@ -724,8 +726,8 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.panelControl1.Controls.Add(this.chkSelectAll);
             this.panelControl1.Controls.Add(this.label7);
@@ -821,7 +823,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(26, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 12);
+            this.label5.Size = new System.Drawing.Size(59, 14);
             this.label5.TabIndex = 211;
             this.label5.Text = "部門編號:";
             // 
@@ -861,7 +863,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(384, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 12);
+            this.label4.Size = new System.Drawing.Size(59, 14);
             this.label4.TabIndex = 207;
             this.label4.Text = "申請日期:";
             // 
@@ -870,7 +872,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(26, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 12);
+            this.label3.Size = new System.Drawing.Size(59, 14);
             this.label3.TabIndex = 206;
             this.label3.Text = "單據編號:";
             // 
@@ -879,7 +881,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(384, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 12);
+            this.label2.Size = new System.Drawing.Size(59, 14);
             this.label2.TabIndex = 205;
             this.label2.Text = "制單編號:";
             // 
@@ -888,7 +890,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 12);
+            this.label1.Size = new System.Drawing.Size(71, 14);
             this.label1.TabIndex = 204;
             this.label1.Text = "供應商編號:";
             // 
@@ -939,12 +941,12 @@
             this.dtDate2.Name = "dtDate2";
             this.dtDate2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDate2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate2.Properties.Mask.BeepOnError = true;
             this.dtDate2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDate2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDate2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtDate2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate2.Size = new System.Drawing.Size(107, 20);
             this.dtDate2.TabIndex = 5;
             this.dtDate2.Tag = "2";
@@ -957,16 +959,32 @@
             this.dtDate1.Name = "dtDate1";
             this.dtDate1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDate1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate1.Properties.Mask.BeepOnError = true;
             this.dtDate1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDate1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDate1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtDate1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate1.Size = new System.Drawing.Size(107, 20);
             this.dtDate1.TabIndex = 4;
             this.dtDate1.Tag = "2";
             this.dtDate1.Leave += new System.EventHandler(this.dtDate1_Leave);
+            // 
+            // currency_id
+            // 
+            this.currency_id.Caption = "貨幣";
+            this.currency_id.FieldName = "currency_id";
+            this.currency_id.Name = "currency_id";
+            this.currency_id.OptionsColumn.AllowEdit = false;
+            this.currency_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.currency_id.OptionsColumn.AllowMove = false;
+            this.currency_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.currency_id.OptionsColumn.ReadOnly = true;
+            this.currency_id.OptionsFilter.AllowAutoFilter = false;
+            this.currency_id.OptionsFilter.AllowFilter = false;
+            this.currency_id.Visible = true;
+            this.currency_id.VisibleIndex = 21;
+            this.currency_id.Width = 60;
             // 
             // frmProductionRepair_Find
             // 
@@ -1000,9 +1018,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDept1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor_id1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1079,5 +1097,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton BTNACSETTING;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private DevExpress.XtraGrid.Columns.GridColumn currency_id;
     }
 }

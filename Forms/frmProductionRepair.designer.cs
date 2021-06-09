@@ -72,6 +72,8 @@
             this.is_deduct_amount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clIs_deduct_amount = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.amt_deduction = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.currency_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clCurrencyID = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.details_remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.is_ac_deduct = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clIs_ac_deduct = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -108,8 +110,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.clAmtount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clInteger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clIs_deduct_amount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clCurrencyID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clIs_ac_deduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtorder_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtorder_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtorder_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luedepartment_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memremark.Properties)).BeginInit();
@@ -323,9 +326,9 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(0, 176);
             this.gridControl1.MainView = this.dgvDetails;
             this.gridControl1.Name = "gridControl1";
@@ -336,7 +339,8 @@
             this.clIs_deduct_amount,
             this.clAmtount,
             this.clInteger,
-            this.clIs_ac_deduct});
+            this.clIs_ac_deduct,
+            this.clCurrencyID});
             this.gridControl1.Size = new System.Drawing.Size(1014, 560);
             this.gridControl1.TabIndex = 68;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -358,6 +362,7 @@
             this.qty,
             this.is_deduct_amount,
             this.amt_deduction,
+            this.currency_id,
             this.details_remark,
             this.is_ac_deduct,
             this.ac_bill_id,
@@ -646,7 +651,7 @@
             // 
             this.amt_deduction.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.amt_deduction.AppearanceCell.Options.UseForeColor = true;
-            this.amt_deduction.Caption = "扣數金額(HKD)";
+            this.amt_deduction.Caption = "扣數金額";
             this.amt_deduction.ColumnEdit = this.clAmtount;
             this.amt_deduction.FieldName = "amt_deduction";
             this.amt_deduction.Name = "amt_deduction";
@@ -661,6 +666,34 @@
             this.amt_deduction.VisibleIndex = 11;
             this.amt_deduction.Width = 91;
             // 
+            // currency_id
+            // 
+            this.currency_id.AppearanceCell.Options.UseTextOptions = true;
+            this.currency_id.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.currency_id.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.currency_id.Caption = "貨幣";
+            this.currency_id.ColumnEdit = this.clCurrencyID;
+            this.currency_id.FieldName = "currency_id";
+            this.currency_id.Name = "currency_id";
+            this.currency_id.Visible = true;
+            this.currency_id.VisibleIndex = 12;
+            this.currency_id.Width = 60;
+            // 
+            // clCurrencyID
+            // 
+            this.clCurrencyID.Appearance.Options.UseTextOptions = true;
+            this.clCurrencyID.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.clCurrencyID.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.clCurrencyID.AutoHeight = false;
+            this.clCurrencyID.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.clCurrencyID.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.clCurrencyID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.clCurrencyID.Items.AddRange(new object[] {
+            "HKD",
+            "RMB"});
+            this.clCurrencyID.Name = "clCurrencyID";
+            // 
             // details_remark
             // 
             this.details_remark.Caption = "其它備註";
@@ -671,7 +704,7 @@
             this.details_remark.OptionsFilter.AllowAutoFilter = false;
             this.details_remark.OptionsFilter.AllowFilter = false;
             this.details_remark.Visible = true;
-            this.details_remark.VisibleIndex = 12;
+            this.details_remark.VisibleIndex = 13;
             this.details_remark.Width = 120;
             // 
             // is_ac_deduct
@@ -689,7 +722,7 @@
             this.is_ac_deduct.OptionsFilter.AllowAutoFilter = false;
             this.is_ac_deduct.OptionsFilter.AllowFilter = false;
             this.is_ac_deduct.Visible = true;
-            this.is_ac_deduct.VisibleIndex = 13;
+            this.is_ac_deduct.VisibleIndex = 14;
             this.is_ac_deduct.Width = 90;
             // 
             // clIs_ac_deduct
@@ -716,7 +749,7 @@
             this.ac_bill_id.OptionsFilter.AllowAutoFilter = false;
             this.ac_bill_id.OptionsFilter.AllowFilter = false;
             this.ac_bill_id.Visible = true;
-            this.ac_bill_id.VisibleIndex = 14;
+            this.ac_bill_id.VisibleIndex = 15;
             this.ac_bill_id.Width = 120;
             // 
             // id
@@ -751,6 +784,8 @@
             this.dtorder_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtorder_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtorder_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtorder_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtorder_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtorder_date.Properties.Mask.BeepOnError = true;
@@ -758,8 +793,6 @@
             this.dtorder_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtorder_date.Properties.MaxLength = 10;
             this.dtorder_date.Properties.NullDate = "";
-            this.dtorder_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtorder_date.Size = new System.Drawing.Size(149, 22);
             this.dtorder_date.TabIndex = 3;
             this.dtorder_date.Tag = "2";
@@ -1030,8 +1063,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.clAmtount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clInteger)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clIs_deduct_amount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clCurrencyID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clIs_ac_deduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtorder_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtorder_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtorder_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luedepartment_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memremark.Properties)).EndInit();
@@ -1119,5 +1153,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn ac_bill_id;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clIs_ac_deduct;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private DevExpress.XtraGrid.Columns.GridColumn currency_id;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox clCurrencyID;
     }
 }

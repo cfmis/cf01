@@ -107,6 +107,7 @@ namespace cf01.Forms
                 }
             }
             radioGroup1.SelectedIndex = 2;
+            radioGroup2.SelectedIndex = 1;
             Add_Data();
         }
 
@@ -286,9 +287,10 @@ namespace cf01.Forms
             {
                 return;
             }
-            if (!string.IsNullOrEmpty(txtconfirm_pdd_by.Text))
+            //if (!string.IsNullOrEmpty(txtconfirm_pdd_by.Text))
+            if (!string.IsNullOrEmpty(txtconfirm_ac_by.Text)) //2021/06/09取消PDD確認,故改為判斷AC是否確認.
             {
-                MessageBox.Show("PDD 已確認，不可以再進行更改!");
+                MessageBox.Show("AC 已確認，當前操作無效!");
                 return;
             }
             SetButtonSatus(false);
@@ -333,9 +335,10 @@ namespace cf01.Forms
             {
                 return;
             }
-            if (!string.IsNullOrEmpty(txtconfirm_pdd_by.Text))
+            //if (!string.IsNullOrEmpty(txtconfirm_pdd_by.Text))
+            if (!string.IsNullOrEmpty(txtconfirm_ac_by.Text)) //2021/06/09取消PDD確認,故改為判斷AC是否確認.
             {
-                MessageBox.Show("PDD 已確認，不可以再進行更改!");
+                MessageBox.Show("AC 已確認，當前操作無效!");
                 return;
             }
             DialogResult result = MessageBox.Show("此操作將刪除主表及明細中的資料,請謹慎操作!", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -957,7 +960,7 @@ namespace cf01.Forms
 
         private void BTNCONFIRM_PDD_Click(object sender, EventArgs e)
         {
-            Update_Confirm("PDD");
+            //Update_Confirm("PDD"); //2021/06/09 CANCEL
         }
 
         private void BTNCONFIRM_AC_Click(object sender, EventArgs e)
@@ -1391,6 +1394,5 @@ namespace cf01.Forms
                 }
             }            
         }
-
     }
 }

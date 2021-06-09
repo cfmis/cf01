@@ -316,6 +316,7 @@ namespace cf01.Forms
                 dgvDetails.AddNewRow();//新增
                 dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "id", txtID.Text);
                 dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sequence_id", (dgvDetails.RowCount).ToString("000"));
+                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "currency_id", "HKD");
                 SetFocuse(dgvDetails, dgvDetails.FocusedRowHandle, "mo_id"); //重定位到新增行并定位焦點單元格
             }
             else
@@ -468,14 +469,14 @@ namespace cf01.Forms
 
             //新增明細表
             const string sql_detail_insert =
-            @"INSERT INTO dbo.jo_pp_repair_details(id,sequence_id,mo_id,ref_id,ref_id_date,goods_id,do_color,qty,sec_qty,amt_deduction,reason_repair,details_remark,is_deduct_amount,is_ac_deduct,ac_bill_id)
+            @"INSERT INTO dbo.jo_pp_repair_details(id,sequence_id,mo_id,ref_id,ref_id_date,goods_id,do_color,qty,sec_qty,amt_deduction,currency_id,reason_repair,details_remark,is_deduct_amount,is_ac_deduct,ac_bill_id)
             Values(@id,@sequence_id,@mo_id,@ref_id,CASE LEN(@ref_id_date) WHEN 0 THEN null ELSE @ref_id_date END,
-            @goods_id,@do_color,@qty,@sec_qty,@amt_deduction,@reason_repair,@details_remark,@is_deduct_amount,@is_ac_deduct,@ac_bill_id)";
+            @goods_id,@do_color,@qty,@sec_qty,@amt_deduction,@currency_id,@reason_repair,@details_remark,@is_deduct_amount,@is_ac_deduct,@ac_bill_id)";
             //更新明細表
             const string sql_detail_update =
             @"UPDATE dbo.jo_pp_repair_details
             SET mo_id=@mo_id,ref_id=@ref_id,ref_id_date=CASE LEN(@ref_id_date) WHEN 0 THEN null ELSE @ref_id_date END,
-            goods_id=@goods_id,do_color=@do_color,qty=@qty,sec_qty=@sec_qty,amt_deduction=@amt_deduction,reason_repair=@reason_repair,details_remark=@details_remark,is_deduct_amount=@is_deduct_amount,
+            goods_id=@goods_id,do_color=@do_color,qty=@qty,sec_qty=@sec_qty,amt_deduction=@amt_deduction,currency_id=@currency_id,reason_repair=@reason_repair,details_remark=@details_remark,is_deduct_amount=@is_deduct_amount,
             is_ac_deduct=@is_ac_deduct,ac_bill_id=@ac_bill_id 
             WHERE id=@id and sequence_id=@sequence_id";
             const string sql_item_d = @"DELETE FROM dbo.jo_pp_repair_details WHERE id=@id AND sequence_id=@sequence_id";
@@ -558,6 +559,7 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@qty",string.IsNullOrEmpty(dtDetails.Rows[i]["qty"].ToString())?0:int.Parse(dtDetails.Rows[i]["qty"].ToString()));
                                 myCommand.Parameters.AddWithValue("@sec_qty", clsApp.Return_Float_Value(dtDetails.Rows[i]["sec_qty"].ToString()));//重量
                                 myCommand.Parameters.AddWithValue("@amt_deduction", clsApp.Return_Float_Value(dtDetails.Rows[i]["amt_deduction"].ToString()));//扣款金額
+                                myCommand.Parameters.AddWithValue("@currency_id", dtDetails.Rows[i]["currency_id"].ToString());                                
                                 myCommand.Parameters.AddWithValue("@reason_repair", dtDetails.Rows[i]["reason_repair"].ToString());
                                 myCommand.Parameters.AddWithValue("@details_remark", dtDetails.Rows[i]["details_remark"].ToString());
                                
