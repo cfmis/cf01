@@ -425,6 +425,9 @@
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlRemarkPDD_dg = new System.Windows.Forms.Panel();
+            this.memDgRmkPdd = new DevExpress.XtraEditors.MemoEdit();
+            this.lbldgRmkPdd = new System.Windows.Forms.Label();
             this.flagSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sales_group = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -475,6 +478,7 @@
             this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark_pdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_pdd_dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -636,6 +640,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cl_number_enter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_amt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_discount)).BeginInit();
+            this.pnlRemarkPDD_dg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memDgRmkPdd.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -900,6 +906,7 @@
             this.pnlHeard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlHeard.Controls.Add(this.pnlRemarkPDD_dg);
             this.pnlHeard.Controls.Add(this.txtPending);
             this.pnlHeard.Controls.Add(this.txtMoq_unit);
             this.pnlHeard.Controls.Add(this.cmbmoq_below_over);
@@ -1073,7 +1080,7 @@
             this.pnlHeard.Controls.Add(this.lblAw);
             this.pnlHeard.Location = new System.Drawing.Point(3, 42);
             this.pnlHeard.Name = "pnlHeard";
-            this.pnlHeard.Size = new System.Drawing.Size(1357, 424);
+            this.pnlHeard.Size = new System.Drawing.Size(1357, 454);
             this.pnlHeard.TabIndex = 11;
             // 
             // txtPending
@@ -1899,7 +1906,7 @@
             this.pnlRemarkPDD.Controls.Add(this.lblRemark_pdd);
             this.pnlRemarkPDD.Location = new System.Drawing.Point(13, 378);
             this.pnlRemarkPDD.Name = "pnlRemarkPDD";
-            this.pnlRemarkPDD.Size = new System.Drawing.Size(560, 42);
+            this.pnlRemarkPDD.Size = new System.Drawing.Size(560, 72);
             this.pnlRemarkPDD.TabIndex = 131;
             this.pnlRemarkPDD.Visible = false;
             // 
@@ -1914,7 +1921,7 @@
             this.memRemark_pdd.Properties.MaxLength = 300;
             this.memRemark_pdd.Properties.ReadOnly = true;
             this.memRemark_pdd.Properties.Tag = "2";
-            this.memRemark_pdd.Size = new System.Drawing.Size(495, 37);
+            this.memRemark_pdd.Size = new System.Drawing.Size(495, 68);
             this.memRemark_pdd.TabIndex = 119;
             this.memRemark_pdd.Tag = "2";
             // 
@@ -1924,7 +1931,7 @@
             this.lblRemark_pdd.Name = "lblRemark_pdd";
             this.lblRemark_pdd.Size = new System.Drawing.Size(59, 24);
             this.lblRemark_pdd.TabIndex = 118;
-            this.lblRemark_pdd.Text = "Remark for PDD";
+            this.lblRemark_pdd.Text = "Remark for PDD(HK)";
             this.lblRemark_pdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pic_artwork
@@ -3541,11 +3548,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(2, 464);
+            this.tabControl1.Location = new System.Drawing.Point(2, 497);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1359, 267);
+            this.tabControl1.Size = new System.Drawing.Size(1359, 235);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -3556,7 +3563,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1351, 241);
+            this.tabPage1.Size = new System.Drawing.Size(1351, 209);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "資料錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3632,6 +3639,7 @@
             this.remark,
             this.remark_other,
             this.remark_pdd,
+            this.remark_pdd_dg,
             this.division,
             this.contact,
             this.crusr,
@@ -3685,7 +3693,7 @@
             this.dgvDetails.Location = new System.Drawing.Point(-2, -2);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1350, 239);
+            this.dgvDetails.Size = new System.Drawing.Size(1350, 207);
             this.dgvDetails.TabIndex = 13;
             this.dgvDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellDoubleClick);
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
@@ -4981,6 +4989,40 @@
             this.dataGridViewTextBoxColumn59.ReadOnly = true;
             this.dataGridViewTextBoxColumn59.Visible = false;
             // 
+            // pnlRemarkPDD_dg
+            // 
+            this.pnlRemarkPDD_dg.Controls.Add(this.memDgRmkPdd);
+            this.pnlRemarkPDD_dg.Controls.Add(this.lbldgRmkPdd);
+            this.pnlRemarkPDD_dg.Location = new System.Drawing.Point(573, 416);
+            this.pnlRemarkPDD_dg.Name = "pnlRemarkPDD_dg";
+            this.pnlRemarkPDD_dg.Size = new System.Drawing.Size(777, 34);
+            this.pnlRemarkPDD_dg.TabIndex = 204;
+            this.pnlRemarkPDD_dg.Visible = false;
+            // 
+            // memDgRmkPdd
+            // 
+            this.memDgRmkPdd.EnterMoveNextControl = true;
+            this.memDgRmkPdd.Location = new System.Drawing.Point(92, 2);
+            this.memDgRmkPdd.Name = "memDgRmkPdd";
+            this.memDgRmkPdd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.memDgRmkPdd.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.memDgRmkPdd.Properties.LinesCount = 3;
+            this.memDgRmkPdd.Properties.MaxLength = 300;
+            this.memDgRmkPdd.Properties.ReadOnly = true;
+            this.memDgRmkPdd.Properties.Tag = "2";
+            this.memDgRmkPdd.Size = new System.Drawing.Size(682, 30);
+            this.memDgRmkPdd.TabIndex = 119;
+            this.memDgRmkPdd.Tag = "2";
+            // 
+            // lbldgRmkPdd
+            // 
+            this.lbldgRmkPdd.Location = new System.Drawing.Point(4, 1);
+            this.lbldgRmkPdd.Name = "lbldgRmkPdd";
+            this.lbldgRmkPdd.Size = new System.Drawing.Size(86, 24);
+            this.lbldgRmkPdd.TabIndex = 118;
+            this.lbldgRmkPdd.Text = "Remark for PDD";
+            this.lbldgRmkPdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // flagSelect
             // 
             this.flagSelect.DataPropertyName = "flag_select";
@@ -5383,9 +5425,16 @@
             // remark_pdd
             // 
             this.remark_pdd.DataPropertyName = "remark_pdd";
-            this.remark_pdd.HeaderText = "Remark for PDD";
+            this.remark_pdd.HeaderText = "Remark PDD(HK)";
             this.remark_pdd.Name = "remark_pdd";
             this.remark_pdd.Visible = false;
+            // 
+            // remark_pdd_dg
+            // 
+            this.remark_pdd_dg.DataPropertyName = "remark_pdd_dg";
+            this.remark_pdd_dg.HeaderText = "Remrk PDD";
+            this.remark_pdd_dg.Name = "remark_pdd_dg";
+            this.remark_pdd_dg.Visible = false;
             // 
             // division
             // 
@@ -5915,6 +5964,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cl_number_enter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_amt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_discount)).EndInit();
+            this.pnlRemarkPDD_dg.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memDgRmkPdd.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6255,6 +6306,9 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmbmoq_below_over;
         private DevExpress.XtraEditors.MemoEdit memRemark_pdd;
         private DevExpress.XtraEditors.ComboBoxEdit txtPending;
+        private System.Windows.Forms.Panel pnlRemarkPDD_dg;
+        private DevExpress.XtraEditors.MemoEdit memDgRmkPdd;
+        private System.Windows.Forms.Label lbldgRmkPdd;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -6305,6 +6359,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_other;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd_dg;
         private System.Windows.Forms.DataGridViewTextBoxColumn division;
         private System.Windows.Forms.DataGridViewTextBoxColumn contact;
         private System.Windows.Forms.DataGridViewTextBoxColumn crusr;

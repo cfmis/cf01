@@ -88,7 +88,8 @@ namespace cf01.Forms
             A.sample_request,A.needle_test,A.comment,A.remark,A.remark_other,A.remark_pdd,A.division,A.contact,A.crusr,A.crtim,A.amusr,A.amtim,A.flag_del,A.mo_id,A.id,A.temp_code,A.polo_care,A.moq_for_test,
             A.plm_code,trim_color_code,A.test_sample_hk,A.sms,A.sample_card,A.meeting_recap,A.usd_dap,A.usd_lab_test_prx,A.ex_fty_hkd,A.ex_fty_usd,
             A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.usd_ex_fty,
-            A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark
+            A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
+            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
             WHERE 1=0";
@@ -186,7 +187,7 @@ namespace cf01.Forms
             tabPage2.Parent = null;
             
             //顯示PDD備註
-            strSql = string.Format(@"Select '1' From sys_user WHERE user_id='{0}' AND (group_id='DG_PDD' OR group_id='HK_PDD')", DBUtility._user_id);
+            strSql = string.Format(@"Select group_id From sys_user WHERE user_id='{0}' AND (group_id='DG_PDD' OR group_id='HK_PDD')", DBUtility._user_id);
             System.Data.DataTable dt = new System.Data.DataTable();
             dt = clsConErp.GetDataTable(strSql);
             if (dt.Rows.Count == 0)
@@ -194,24 +195,43 @@ namespace cf01.Forms
                 if (DBUtility._user_id.ToUpper() != "ADMIN")
                 {
                     pnlRemarkPDD.Visible = false;
+                    pnlRemarkPDD_dg.Visible = false;
                     remark_pdd.Visible = false;
+                    remark_pdd_dg.Visible = false;
                     gridColumn18.Visible = false;
+                    gridColumn19.Visible = false;
                     is_group_pdd = false; 
                 }
                 else
                 {
                     pnlRemarkPDD.Visible = true;
+                    pnlRemarkPDD_dg.Visible = true;
                     remark_pdd.Visible = true;
+                    remark_pdd_dg.Visible = true;
                     gridColumn18.Visible = true;
-                    is_group_pdd = true; 
+                    gridColumn19.Visible = true;
+                    is_group_pdd = true; //是否可查看歷史單價
                 }
             }
             else
             {
-                pnlRemarkPDD.Visible = true;
-                remark_pdd.Visible = true;
-                gridColumn18.Visible = true;
-                is_group_pdd = true; 
+                if (dt.Rows[0]["group_id"].ToString() == "HK_PDD")
+                {
+                    pnlRemarkPDD.Visible = true;
+                    remark_pdd.Visible = true;
+                    gridColumn18.Visible = true;
+
+                    pnlRemarkPDD_dg.Visible = true;
+                    remark_pdd_dg.Visible = true;
+                    gridColumn19.Visible = true;
+                }
+                if (dt.Rows[0]["group_id"].ToString() == "DG_PDD")
+                {
+                    pnlRemarkPDD_dg.Visible = true;
+                    remark_pdd_dg.Visible = true;
+                    gridColumn19.Visible = true;                    
+                }
+                is_group_pdd = true;//是否可查看歷史單價
             }
 
             dgvDetails.AutoGenerateColumns = false;
@@ -535,7 +555,7 @@ namespace cf01.Forms
                     number_enter,hkd_ex_fty,date_req,aw,status,sample_request,
                     needle_test,ver,crusr,crtim,comment,remark_pdd,mo_id,polo_care,moq_for_test,plm_code,trim_color_code,
                     test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,
-                    discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,labtest_prod_type,termremark,pending)
+                    discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,labtest_prod_type,termremark,pending,remark_pdd_dg)
             VALUES(@sales_group,@temp_code,CASE LEN(@date) WHEN 0 THEN null ELSE @date END,@brand,@brand_desc,@formula_id,@season,@season_desc,@division,@contact,@material,@size,@product_desc,
                     @cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq_below_over,@moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,
                     @lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@md_charge_unit,@remark,@remark_other,@die_mould_usd,@die_mould_cny,@account_code,
@@ -543,7 +563,7 @@ namespace cf01.Forms
                     @number_enter,@hkd_ex_fty,@date_req,@aw,@status,@sample_request,
                     @needle_test,@ver,@user_id,getdate(),@comment,@remark_pdd,@mo_id,@polo_care,@moq_for_test,@plm_code,@trim_color_code,
                     @test_sample_hk,@sms,@sample_card,@meeting_recap,@usd_dap,@usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,
-                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark,@pending)";
+                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark,@pending,@remark_pdd_dg)";
             const string sql_update =
             @"UPDATE quotation 
             SET sales_group=@sales_group,temp_code=@temp_code,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,season=@season,season_desc=@season_desc,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
@@ -554,7 +574,7 @@ namespace cf01.Forms
                 needle_test=@needle_test,ver=@ver,amusr=@user_id,amtim=Getdate(),comment=@comment,remark_pdd=@remark_pdd,mo_id=@mo_id,polo_care=@polo_care,moq_for_test=@moq_for_test,
                 plm_code=@plm_code,trim_color_code=@trim_color_code,test_sample_hk=@test_sample_hk,sms=@sms,sample_card=@sample_card,meeting_recap=@meeting_recap,usd_dap=@usd_dap,usd_lab_test_prx=@usd_lab_test_prx,ex_fty_hkd=@ex_fty_hkd,ex_fty_usd=@ex_fty_usd,
                 discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty,usd_ex_fty=@usd_ex_fty,reason_edit=@reason_edit,rmb_remark=@rmb_remark,special_price=@special_price,cust_artwork=@cust_artwork,cost_price=@cost_price,
-                labtest_prod_type=@labtest_prod_type,termremark=@termremark,pending=@pending
+                labtest_prod_type=@labtest_prod_type,termremark=@termremark,pending=@pending,remark_pdd_dg=@remark_pdd_dg
             WHERE id=@id";
 
             //組別設置
@@ -664,7 +684,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@cost_price", clsApp.Return_Float_Value(txtCost_price.Text));
                     myCommand.Parameters.AddWithValue("@labtest_prod_type", lueLabtest.EditValue.ToString());
                     myCommand.Parameters.AddWithValue("@termremark", txtTermremark.Text);
-                    myCommand.Parameters.AddWithValue("@pending", txtPending.Text);
+                    myCommand.Parameters.AddWithValue("@pending", txtPending.Text); 
+                    myCommand.Parameters.AddWithValue("@remark_pdd_dg", memDgRmkPdd.Text);
                     myCommand.ExecuteNonQuery();
                     
                     //設置組別
@@ -991,7 +1012,8 @@ namespace cf01.Forms
             lueLabtest.EditValue = pdr.Cells["labtest_prod_type"].Value;
             txtTermremark.Text = pdr.Cells["termremark"].Value.ToString();
             txtPending.EditValue = pdr.Cells["pending"].Value.ToString();
-
+            memDgRmkPdd.Text = pdr.Cells["remark_pdd_dg"].Value.ToString();
+            
             if (txtCf_code.Text != "")
             {
                 if (txtCf_code.Text.Length >= 7)
@@ -2233,6 +2255,8 @@ namespace cf01.Forms
                     row["labtest_prod_type"] = lueLabtest.EditValue.ToString();
                     row["termremark"] = txtTermremark.Text;
                     row["pending"] = txtPending.Text;
+                    row["remark_pdd_dg"] = memDgRmkPdd.Text;
+                   
 
                     dtDetail.Rows.Add(row);
                 }
@@ -2324,6 +2348,8 @@ namespace cf01.Forms
                     dtDetail.Rows[row_reset]["labtest_prod_type"] =lueLabtest.EditValue;
                     dtDetail.Rows[row_reset]["termremark"] = txtTermremark.Text;
                     dtDetail.Rows[row_reset]["pending"] = txtPending.Text;
+                    dtDetail.Rows[row_reset]["remark_pdd_dg"] = memDgRmkPdd.Text;
+                   
                 }
                 dtDetail.AcceptChanges();                
             }
