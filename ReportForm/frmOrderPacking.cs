@@ -193,6 +193,27 @@ namespace cf01.ReportForm
         {
             txtCheck_date2.EditValue = txtCheck_date1.EditValue;
         }
+
+        private void chkSelect_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dtblPacking.Rows.Count > 0)
+            {
+                Boolean blSetValue = true;
+                if (chkSelect.Checked)
+                {
+                    blSetValue = true;//Select All                    
+                }
+                else
+                {
+                    blSetValue = false;
+                }
+                for (int i = 0; i < dtblPacking.Rows.Count; i++)
+                {
+                    gridView1.SetRowCellValue(i, "flag_select", blSetValue);
+                }
+
+            }
+        }
     }
     
 }

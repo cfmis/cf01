@@ -643,6 +643,7 @@
             this.chkSelect.Properties.Caption = "全選";
             this.chkSelect.Size = new System.Drawing.Size(48, 19);
             this.chkSelect.TabIndex = 163;
+            this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
             // 
             // chkDelivery
             // 
