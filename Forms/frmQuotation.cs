@@ -1099,7 +1099,9 @@ namespace cf01.Forms
                 }
                 else
                 {
+                    //紫色字體
                     grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
+                    //刪除線
                     grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
                 }
                 
@@ -3271,7 +3273,7 @@ namespace cf01.Forms
             }
         }
 
-        private void btnCalculatePrice_Click(object sender, EventArgs e)
+        private void BTNCALCULATEPRICE_Click(object sender, EventArgs e)
         {
             sent_quotation = txtTemp_code.Text;
             //bool isExist_flag = false;
