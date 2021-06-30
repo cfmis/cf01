@@ -1558,6 +1558,12 @@
     <Compile Include="ReportForm\frmInvCount.designer.cs">
       <DependentUpon>frmInvCount.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmInvData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmInvData.designer.cs">
+      <DependentUpon>frmInvData.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmInvForPrd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3177,6 +3183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmInvCount.resx">
       <DependentUpon>frmInvCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmInvData.resx">
+      <DependentUpon>frmInvData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmInvForPrd.resx">
       <DependentUpon>frmInvForPrd.cs</DependentUpon>

@@ -1054,6 +1054,7 @@ namespace cf01.Forms
             {
                 dtSubmo.Clear();
                 //dgvSub.DataSource = null;
+                memRemark_pdd.Text = "";
             }
             //顯示grop 列表
             Display_Group_List(txtTemp_code.Text);
@@ -1387,6 +1388,7 @@ namespace cf01.Forms
                 AddNew();
                 mState_NewCopy = "NEWCOPY";
                 Set_head(dgvrow);
+                memDgRmkPdd.Text = "";
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
                 txtVersion.Text = "0";
                 txtID.EditValue = "";
