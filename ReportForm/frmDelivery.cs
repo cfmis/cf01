@@ -668,10 +668,18 @@ namespace cf01.ReportForm
                                 dr["wh_location"] = dtCard.Rows[j]["wh_location"].ToString();
                                 dr["prod_date"] = dtCard.Rows[j]["prod_date"].ToString();
                                 dr["t_complete_date"] = dtCard.Rows[j]["t_complete_date"].ToString();
-                                if (prod_qty % Per_qty > 0 && ii == numPage)
-                                    dr["per_qty"] = prod_qty % Per_qty;
-                                else
+                                if (in_dept == "128")
+                                {
+                                    //洗油的上部門來多少就交多少
                                     dr["per_qty"] = Per_qty;
+                                }
+                                else
+                                {
+                                    if (prod_qty % Per_qty > 0 && ii == numPage)
+                                        dr["per_qty"] = prod_qty % Per_qty;
+                                    else
+                                        dr["per_qty"] = Per_qty;
+                                }
                                 //dr["per_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["per_qty"].ToString()) ? 0 : dtCard.Rows[j]["per_qty"];
                                 if (net_weight > 0)
                                     dr["net_weight"] = net_weight;
