@@ -668,9 +668,9 @@ namespace cf01.ReportForm
                                 dr["wh_location"] = dtCard.Rows[j]["wh_location"].ToString();
                                 dr["prod_date"] = dtCard.Rows[j]["prod_date"].ToString();
                                 dr["t_complete_date"] = dtCard.Rows[j]["t_complete_date"].ToString();
-                                if (in_dept == "128")
+                                if (in_dept == "128" || in_dept == "108")
                                 {
-                                    //洗油的上部門來多少就交多少
+                                    //移交到洗油部上部門交過來多少,就移交下部門多少
                                     dr["per_qty"] = Per_qty;
                                 }
                                 else

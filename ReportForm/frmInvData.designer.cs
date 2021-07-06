@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtDat2 = new DevExpress.XtraEditors.DateEdit();
@@ -60,30 +60,9 @@
             this.BTNEXCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.big_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.big_class_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.base_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.base_class_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brand_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rate_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.m_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.m_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_sum_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_sum_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oi_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblInv = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,7 +90,30 @@
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.big_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.big_class_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.base_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.base_class_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rate_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.m_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.m_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_sum_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_sum_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oi_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.it_customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -307,7 +309,9 @@
             this.total_sum_hkd,
             this.total_sum_usd,
             this.oi_date,
-            this.id});
+            this.id,
+            this.it_customer,
+            this.customer_name});
             this.dgvDetails.Location = new System.Drawing.Point(4, 191);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -316,185 +320,6 @@
             this.dgvDetails.Size = new System.Drawing.Size(996, 431);
             this.dgvDetails.TabIndex = 142;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.FillWeight = 60F;
-            this.goods_id.HeaderText = "貨品編號";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.ReadOnly = true;
-            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // goods_name
-            // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "貨品描述";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.ReadOnly = true;
-            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_name.Width = 90;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "尺碼";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            this.size.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.size.Width = 70;
-            // 
-            // big_class
-            // 
-            this.big_class.DataPropertyName = "big_class";
-            this.big_class.HeaderText = "大類";
-            this.big_class.Name = "big_class";
-            this.big_class.ReadOnly = true;
-            this.big_class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // big_class_name
-            // 
-            this.big_class_name.DataPropertyName = "big_class_name";
-            this.big_class_name.HeaderText = "大類描述";
-            this.big_class_name.Name = "big_class_name";
-            this.big_class_name.ReadOnly = true;
-            this.big_class_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.big_class_name.Width = 120;
-            // 
-            // base_class
-            // 
-            this.base_class.DataPropertyName = "base_class";
-            this.base_class.HeaderText = "中類";
-            this.base_class.Name = "base_class";
-            this.base_class.ReadOnly = true;
-            this.base_class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.base_class.Width = 200;
-            // 
-            // base_class_name
-            // 
-            this.base_class_name.DataPropertyName = "base_class_name";
-            dataGridViewCellStyle29.NullValue = null;
-            this.base_class_name.DefaultCellStyle = dataGridViewCellStyle29;
-            this.base_class_name.HeaderText = "中類描述";
-            this.base_class_name.Name = "base_class_name";
-            this.base_class_name.ReadOnly = true;
-            this.base_class_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.base_class_name.Width = 120;
-            // 
-            // order_qty
-            // 
-            this.order_qty.DataPropertyName = "order_qty";
-            this.order_qty.HeaderText = "訂單數量(PCS)";
-            this.order_qty.Name = "order_qty";
-            this.order_qty.ReadOnly = true;
-            this.order_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "頁數";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mo_id.Width = 120;
-            // 
-            // brand_id
-            // 
-            this.brand_id.DataPropertyName = "brand_id";
-            this.brand_id.HeaderText = "牌子編號";
-            this.brand_id.Name = "brand_id";
-            this.brand_id.ReadOnly = true;
-            this.brand_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // season
-            // 
-            this.season.DataPropertyName = "season";
-            this.season.HeaderText = "季度";
-            this.season.Name = "season";
-            this.season.ReadOnly = true;
-            this.season.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // customer_goods
-            // 
-            this.customer_goods.DataPropertyName = "customer_goods";
-            this.customer_goods.HeaderText = "客產品編號";
-            this.customer_goods.Name = "customer_goods";
-            this.customer_goods.ReadOnly = true;
-            this.customer_goods.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // customer_color_id
-            // 
-            this.customer_color_id.DataPropertyName = "customer_color_id";
-            this.customer_color_id.HeaderText = "客顏色編號";
-            this.customer_color_id.Name = "customer_color_id";
-            this.customer_color_id.ReadOnly = true;
-            this.customer_color_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // price
-            // 
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "單價";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // p_unit
-            // 
-            this.p_unit.DataPropertyName = "p_unit";
-            this.p_unit.HeaderText = "單價單位";
-            this.p_unit.Name = "p_unit";
-            this.p_unit.ReadOnly = true;
-            this.p_unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.p_unit.Width = 70;
-            // 
-            // rate_price
-            // 
-            this.rate_price.DataPropertyName = "rate_price";
-            this.rate_price.HeaderText = "单价单位匯率";
-            this.rate_price.Name = "rate_price";
-            this.rate_price.ReadOnly = true;
-            // 
-            // m_id
-            // 
-            this.m_id.DataPropertyName = "m_id";
-            this.m_id.HeaderText = "貨幣";
-            this.m_id.Name = "m_id";
-            this.m_id.ReadOnly = true;
-            // 
-            // m_rate
-            // 
-            this.m_rate.DataPropertyName = "m_rate";
-            this.m_rate.HeaderText = "貨幣匯率";
-            this.m_rate.Name = "m_rate";
-            this.m_rate.ReadOnly = true;
-            // 
-            // total_sum_hkd
-            // 
-            this.total_sum_hkd.DataPropertyName = "total_sum_hkd";
-            this.total_sum_hkd.HeaderText = "總金額(HKD)";
-            this.total_sum_hkd.Name = "total_sum_hkd";
-            this.total_sum_hkd.ReadOnly = true;
-            // 
-            // total_sum_usd
-            // 
-            this.total_sum_usd.DataPropertyName = "total_sum_usd";
-            this.total_sum_usd.HeaderText = "總金額(USD)";
-            this.total_sum_usd.Name = "total_sum_usd";
-            this.total_sum_usd.ReadOnly = true;
-            // 
-            // oi_date
-            // 
-            this.oi_date.DataPropertyName = "oi_date";
-            this.oi_date.HeaderText = "發票日期";
-            this.oi_date.Name = "oi_date";
-            this.oi_date.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "發票編號";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
             // 
             // lblInv
             // 
@@ -513,6 +338,15 @@
             this.label1.TabIndex = 152;
             this.label1.Text = "* 牌子输入格式:SPEE-01,SPEE-02";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // textBox1
+            // 
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Location = new System.Drawing.Point(100, 84);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(350, 70);
+            this.textBox1.TabIndex = 153;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -577,9 +411,9 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "weg_normal";
-            dataGridViewCellStyle30.Format = "N0";
-            dataGridViewCellStyle30.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn7.HeaderText = "正常班重量";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -589,9 +423,9 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "qty_normal";
-            dataGridViewCellStyle31.Format = "N0";
-            dataGridViewCellStyle31.NullValue = null;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn8.HeaderText = "正常班數量";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -601,9 +435,9 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "prd_ot_time";
-            dataGridViewCellStyle32.Format = "N0";
-            dataGridViewCellStyle32.NullValue = null;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn9.HeaderText = "加班小時";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
@@ -613,9 +447,9 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "weg_ot";
-            dataGridViewCellStyle33.Format = "N4";
-            dataGridViewCellStyle33.NullValue = null;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle5.Format = "N4";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn10.HeaderText = "重班重量";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -625,9 +459,9 @@
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "qty_ot";
-            dataGridViewCellStyle34.Format = "N0";
-            dataGridViewCellStyle34.NullValue = null;
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn11.HeaderText = "加班數量";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -637,9 +471,9 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "normal_ot_time";
-            dataGridViewCellStyle35.Format = "N2";
-            dataGridViewCellStyle35.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn12.HeaderText = "正常+加班小時";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -649,8 +483,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "weg_normal_ot";
-            dataGridViewCellStyle36.NullValue = null;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn13.FillWeight = 60F;
             this.dataGridViewTextBoxColumn13.HeaderText = "正常+加班重量";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
@@ -662,9 +496,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "qty_normal_ot";
-            dataGridViewCellStyle37.Format = "N0";
-            dataGridViewCellStyle37.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn14.FillWeight = 60F;
             this.dataGridViewTextBoxColumn14.HeaderText = "正常+加班數量";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
@@ -720,9 +554,9 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "members_d";
-            dataGridViewCellStyle38.Format = "N0";
-            dataGridViewCellStyle38.NullValue = null;
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle10.Format = "N0";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn20.HeaderText = "臺號人數";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -731,9 +565,9 @@
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "prd_nomal_time_d";
-            dataGridViewCellStyle39.Format = "N2";
-            dataGridViewCellStyle39.NullValue = "0";
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = "0";
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn21.HeaderText = "正常上班";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -743,9 +577,9 @@
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.DataPropertyName = "prd_qty_d";
-            dataGridViewCellStyle40.Format = "N0";
-            dataGridViewCellStyle40.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle12.Format = "N0";
+            dataGridViewCellStyle12.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn22.HeaderText = "生產數量";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
@@ -755,9 +589,9 @@
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "prd_weg_d";
-            dataGridViewCellStyle41.Format = "N2";
-            dataGridViewCellStyle41.NullValue = "0";
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = "0";
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn23.HeaderText = "生產重量";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
@@ -767,9 +601,9 @@
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "prd_ot_weg";
-            dataGridViewCellStyle42.Format = "N2";
-            dataGridViewCellStyle42.NullValue = "0";
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = "0";
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn24.HeaderText = "加班重量";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
@@ -798,14 +632,202 @@
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
             this.dataGridViewTextBoxColumn27.Visible = false;
             // 
-            // textBox1
+            // goods_id
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Location = new System.Drawing.Point(100, 84);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 70);
-            this.textBox1.TabIndex = 153;
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.FillWeight = 60F;
+            this.goods_id.HeaderText = "貨品編號";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品描述";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_name.Width = 90;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "尺碼";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            this.size.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.size.Width = 30;
+            // 
+            // big_class
+            // 
+            this.big_class.DataPropertyName = "big_class";
+            this.big_class.HeaderText = "大類";
+            this.big_class.Name = "big_class";
+            this.big_class.ReadOnly = true;
+            this.big_class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.big_class.Width = 40;
+            // 
+            // big_class_name
+            // 
+            this.big_class_name.DataPropertyName = "big_class_name";
+            this.big_class_name.HeaderText = "大類描述";
+            this.big_class_name.Name = "big_class_name";
+            this.big_class_name.ReadOnly = true;
+            this.big_class_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.big_class_name.Width = 70;
+            // 
+            // base_class
+            // 
+            this.base_class.DataPropertyName = "base_class";
+            this.base_class.HeaderText = "中類";
+            this.base_class.Name = "base_class";
+            this.base_class.ReadOnly = true;
+            this.base_class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.base_class.Width = 40;
+            // 
+            // base_class_name
+            // 
+            this.base_class_name.DataPropertyName = "base_class_name";
+            dataGridViewCellStyle1.NullValue = null;
+            this.base_class_name.DefaultCellStyle = dataGridViewCellStyle1;
+            this.base_class_name.HeaderText = "中類描述";
+            this.base_class_name.Name = "base_class_name";
+            this.base_class_name.ReadOnly = true;
+            this.base_class_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.base_class_name.Width = 60;
+            // 
+            // order_qty
+            // 
+            this.order_qty.DataPropertyName = "order_qty";
+            this.order_qty.HeaderText = "發票數量(PCS)";
+            this.order_qty.Name = "order_qty";
+            this.order_qty.ReadOnly = true;
+            this.order_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mo_id.Width = 80;
+            // 
+            // brand_id
+            // 
+            this.brand_id.DataPropertyName = "brand_id";
+            this.brand_id.HeaderText = "牌子編號";
+            this.brand_id.Name = "brand_id";
+            this.brand_id.ReadOnly = true;
+            this.brand_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.brand_id.Width = 60;
+            // 
+            // season
+            // 
+            this.season.DataPropertyName = "season";
+            this.season.HeaderText = "季度";
+            this.season.Name = "season";
+            this.season.ReadOnly = true;
+            this.season.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.season.Width = 60;
+            // 
+            // customer_goods
+            // 
+            this.customer_goods.DataPropertyName = "customer_goods";
+            this.customer_goods.HeaderText = "客產品編號";
+            this.customer_goods.Name = "customer_goods";
+            this.customer_goods.ReadOnly = true;
+            this.customer_goods.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // customer_color_id
+            // 
+            this.customer_color_id.DataPropertyName = "customer_color_id";
+            this.customer_color_id.HeaderText = "客顏色編號";
+            this.customer_color_id.Name = "customer_color_id";
+            this.customer_color_id.ReadOnly = true;
+            this.customer_color_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "單價";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // p_unit
+            // 
+            this.p_unit.DataPropertyName = "p_unit";
+            this.p_unit.HeaderText = "單價單位";
+            this.p_unit.Name = "p_unit";
+            this.p_unit.ReadOnly = true;
+            this.p_unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.p_unit.Width = 50;
+            // 
+            // rate_price
+            // 
+            this.rate_price.DataPropertyName = "rate_price";
+            this.rate_price.HeaderText = "单价单位匯率";
+            this.rate_price.Name = "rate_price";
+            this.rate_price.ReadOnly = true;
+            // 
+            // m_id
+            // 
+            this.m_id.DataPropertyName = "m_id";
+            this.m_id.HeaderText = "貨幣";
+            this.m_id.Name = "m_id";
+            this.m_id.ReadOnly = true;
+            this.m_id.Width = 40;
+            // 
+            // m_rate
+            // 
+            this.m_rate.DataPropertyName = "m_rate";
+            this.m_rate.HeaderText = "貨幣匯率";
+            this.m_rate.Name = "m_rate";
+            this.m_rate.ReadOnly = true;
+            // 
+            // total_sum_hkd
+            // 
+            this.total_sum_hkd.DataPropertyName = "total_sum_hkd";
+            this.total_sum_hkd.HeaderText = "總金額(HKD)";
+            this.total_sum_hkd.Name = "total_sum_hkd";
+            this.total_sum_hkd.ReadOnly = true;
+            // 
+            // total_sum_usd
+            // 
+            this.total_sum_usd.DataPropertyName = "total_sum_usd";
+            this.total_sum_usd.HeaderText = "總金額(USD)";
+            this.total_sum_usd.Name = "total_sum_usd";
+            this.total_sum_usd.ReadOnly = true;
+            // 
+            // oi_date
+            // 
+            this.oi_date.DataPropertyName = "oi_date";
+            this.oi_date.HeaderText = "發票日期";
+            this.oi_date.Name = "oi_date";
+            this.oi_date.ReadOnly = true;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "發票編號";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // it_customer
+            // 
+            this.it_customer.DataPropertyName = "it_customer";
+            this.it_customer.HeaderText = "客戶編號";
+            this.it_customer.Name = "it_customer";
+            this.it_customer.ReadOnly = true;
+            // 
+            // customer_name
+            // 
+            this.customer_name.DataPropertyName = "customer_name";
+            this.customer_name.HeaderText = "客戶名稱";
+            this.customer_name.Name = "customer_name";
+            this.customer_name.ReadOnly = true;
             // 
             // frmInvData
             // 
@@ -886,6 +908,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.Label lblInv;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
@@ -908,6 +931,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total_sum_usd;
         private System.Windows.Forms.DataGridViewTextBoxColumn oi_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn it_customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customer_name;
     }
 }
