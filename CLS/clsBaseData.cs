@@ -16,7 +16,7 @@ namespace cf01.CLS
         /// <returns></returns>
         public static DataTable Get_Department()
         {
-            string sql = @"SELECT id,id+'['+name+']' AS cdesc FROM cd_productline WHERE type<>'07' AND state='0' ORDER BY id";
+            string sql = @"SELECT id,id+'['+name+']' AS cdesc FROM cd_productline WHERE within_code='0000' and type<>'07' AND state='0' ORDER BY id";
             DataTable dt = clsPublicOfGEO.GetDataTable(sql);
             return dt;
         }
@@ -27,7 +27,7 @@ namespace cf01.CLS
         /// <returns></returns>
         public static DataTable Get_Plate_Vendor()
         {
-            string sql = @"SELECT id,id + '[' + name + ']' as cdesc FROM it_vendor WHERE isnull(Abbrev_id,'')<> '' AND state ='1' ORDER BY id";
+            string sql = @"SELECT id,id + '[' + name + ']' as cdesc FROM within_code='0000' and it_vendor WHERE isnull(Abbrev_id,'')<> '' AND state ='1' ORDER BY id";
             DataTable dt = clsPublicOfGEO.GetDataTable(sql);
             return dt;
         }

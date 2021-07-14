@@ -103,6 +103,7 @@
             this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_usd_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rate_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,6 +115,8 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.it_customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -301,6 +304,7 @@
             this.season,
             this.customer_goods,
             this.customer_color_id,
+            this.price_usd_pcs,
             this.price,
             this.p_unit,
             this.rate_price,
@@ -311,7 +315,9 @@
             this.oi_date,
             this.id,
             this.it_customer,
-            this.customer_name});
+            this.customer_name,
+            this.po_no,
+            this.order_date});
             this.dgvDetails.Location = new System.Drawing.Point(4, 191);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -748,6 +754,13 @@
             this.customer_color_id.ReadOnly = true;
             this.customer_color_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // price_usd_pcs
+            // 
+            this.price_usd_pcs.DataPropertyName = "price_usd_pcs";
+            this.price_usd_pcs.HeaderText = "單價(USD)/PCS";
+            this.price_usd_pcs.Name = "price_usd_pcs";
+            this.price_usd_pcs.ReadOnly = true;
+            // 
             // price
             // 
             this.price.DataPropertyName = "price";
@@ -828,6 +841,20 @@
             this.customer_name.HeaderText = "客戶名稱";
             this.customer_name.Name = "customer_name";
             this.customer_name.ReadOnly = true;
+            // 
+            // po_no
+            // 
+            this.po_no.DataPropertyName = "po_no";
+            this.po_no.HeaderText = "訂單編號";
+            this.po_no.Name = "po_no";
+            this.po_no.ReadOnly = true;
+            // 
+            // order_date
+            // 
+            this.order_date.DataPropertyName = "order_date";
+            this.order_date.HeaderText = "落單日期";
+            this.order_date.Name = "order_date";
+            this.order_date.ReadOnly = true;
             // 
             // frmInvData
             // 
@@ -922,6 +949,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn season;
         private System.Windows.Forms.DataGridViewTextBoxColumn customer_goods;
         private System.Windows.Forms.DataGridViewTextBoxColumn customer_color_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd_pcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn p_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn rate_price;
@@ -933,5 +961,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn it_customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn customer_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn po_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
     }
 }
