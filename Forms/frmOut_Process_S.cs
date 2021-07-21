@@ -170,7 +170,7 @@ namespace cf01.Forms
             else
             {
                 //加載報表
-                using (xrOut_process_out_s mMyRepot = new xrOut_process_out_s() { DataSource = dtPlate })
+                using (xrOut_process_out_s2 mMyRepot = new xrOut_process_out_s2() { DataSource = dtPlate })
                 {
                     mMyRepot.CreateDocument();
                     mMyRepot.PrintingSystem.ShowMarginsWarning = false;

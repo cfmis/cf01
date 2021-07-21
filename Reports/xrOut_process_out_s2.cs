@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace cf01.Reports
 {
-    public partial class xrOut_process_out_s : DevExpress.XtraReports.UI.XtraReport
+    public partial class xrOut_process_out_s2 : DevExpress.XtraReports.UI.XtraReport
     {
-        public xrOut_process_out_s()
+        public xrOut_process_out_s2()
         {
             InitializeComponent();            
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
@@ -27,24 +27,23 @@ namespace cf01.Reports
 
         private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            string strFile = GetCurrentColumnValue("picture_name").ToString();
-            if (!string.IsNullOrEmpty(strFile))
-            {
-                if (System.IO.File.Exists(strFile))
-                {
-                    BindImage(strFile);
-                }
-                else
-                {                   
-                    xrPictureBox1.ImageUrl = null ;
-                }
-            }
-            else
-            {
-                xrPictureBox1.ImageUrl = null ;
-            }
-            // BindImage();
-            //  GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] { new DevExpress.XtraReports.UI.GroupField("page_num", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending) });
+            //string strFile = GetCurrentColumnValue("picture_name").ToString();
+            //if (!string.IsNullOrEmpty(strFile))
+            //{
+            //    if (System.IO.File.Exists(strFile))
+            //    {
+            //        BindImage(strFile);
+            //    }
+            //    else
+            //    {                   
+            //        xrPictureBox1.ImageUrl = null ;
+            //    }
+            //}
+            //else
+            //{
+            //    xrPictureBox1.ImageUrl = null ;
+            //}
+           
         }
 
         private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

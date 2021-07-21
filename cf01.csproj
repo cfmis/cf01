@@ -2154,6 +2154,12 @@
     <Compile Include="Reports\xrOut_process_out_s.designer.cs">
       <DependentUpon>xrOut_process_out_s.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrOut_process_out_s2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_s2.designer.cs">
+      <DependentUpon>xrOut_process_out_s2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrOut_return.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3521,6 +3527,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrOut_process_out_s.resx">
       <DependentUpon>xrOut_process_out_s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrOut_process_out_s2.resx">
+      <DependentUpon>xrOut_process_out_s2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrOut_return.resx">
       <DependentUpon>xrOut_return.cs</DependentUpon>
