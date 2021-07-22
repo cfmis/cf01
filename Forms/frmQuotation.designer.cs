@@ -1177,11 +1177,11 @@
             // 
             this.txtTermremark.EditValue = "";
             this.txtTermremark.EnterMoveNextControl = true;
-            this.txtTermremark.Location = new System.Drawing.Point(665, 389);
+            this.txtTermremark.Location = new System.Drawing.Point(395, 228);
             this.txtTermremark.Name = "txtTermremark";
             this.txtTermremark.Properties.MaxLength = 100;
             this.txtTermremark.Properties.ReadOnly = true;
-            this.txtTermremark.Size = new System.Drawing.Size(168, 20);
+            this.txtTermremark.Size = new System.Drawing.Size(176, 20);
             this.txtTermremark.TabIndex = 100;
             this.txtTermremark.Tag = "2";
             // 
@@ -1926,7 +1926,7 @@
             // 
             // lblMo_id
             // 
-            this.lblMo_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMo_id.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMo_id.Location = new System.Drawing.Point(3, 253);
             this.lblMo_id.Name = "lblMo_id";
             this.lblMo_id.Size = new System.Drawing.Size(73, 13);
@@ -2709,7 +2709,7 @@
             this.txtSize.Name = "txtSize";
             this.txtSize.Properties.MaxLength = 250;
             this.txtSize.Properties.ReadOnly = true;
-            this.txtSize.Size = new System.Drawing.Size(495, 20);
+            this.txtSize.Size = new System.Drawing.Size(215, 20);
             this.txtSize.TabIndex = 10;
             this.txtSize.Tag = "2";
             // 
@@ -2787,7 +2787,7 @@
             // 
             this.txtMaterial.EditValue = "";
             this.txtMaterial.EnterMoveNextControl = true;
-            this.txtMaterial.Location = new System.Drawing.Point(76, 207);
+            this.txtMaterial.Location = new System.Drawing.Point(76, 206);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Properties.MaxLength = 100;
             this.txtMaterial.Properties.ReadOnly = true;
@@ -2798,7 +2798,7 @@
             // lblMaterial
             // 
             this.lblMaterial.ForeColor = System.Drawing.Color.Blue;
-            this.lblMaterial.Location = new System.Drawing.Point(3, 212);
+            this.lblMaterial.Location = new System.Drawing.Point(3, 210);
             this.lblMaterial.Name = "lblMaterial";
             this.lblMaterial.Size = new System.Drawing.Size(73, 13);
             this.lblMaterial.TabIndex = 20;
@@ -3467,9 +3467,9 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(569, 392);
+            this.label2.Location = new System.Drawing.Point(288, 231);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.Size = new System.Drawing.Size(101, 13);
             this.label2.TabIndex = 201;
             this.label2.Text = "Term Price Remark";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
