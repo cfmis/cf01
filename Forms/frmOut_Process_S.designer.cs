@@ -48,6 +48,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNEXCEL = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issue_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,11 +83,11 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BTNEXCEL = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).BeginInit();
+            this.rbtnReport1 = new System.Windows.Forms.RadioButton();
+            this.rbtnReport2 = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
@@ -104,11 +106,11 @@
             this.txtDat2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Size = new System.Drawing.Size(171, 22);
             this.txtDat2.TabIndex = 17;
             this.txtDat2.Tag = "2";
@@ -123,11 +125,11 @@
             this.txtDat1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Size = new System.Drawing.Size(171, 22);
             this.txtDat1.TabIndex = 16;
             this.txtDat1.Tag = "2";
@@ -289,13 +291,27 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
             // 
+            // BTNEXCEL
+            // 
+            this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
+            this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNEXCEL.Name = "BTNEXCEL";
+            this.BTNEXCEL.Size = new System.Drawing.Size(86, 35);
+            this.BTNEXCEL.Text = "匯出EXCEL";
+            this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+            // 
             // dgvDetails
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -460,6 +476,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbtnReport2);
+            this.panel1.Controls.Add(this.rbtnReport1);
             this.panel1.Controls.Add(this.cboVendor_id2);
             this.panel1.Controls.Add(this.cboVendor_id1);
             this.panel1.Controls.Add(this.txtDat1);
@@ -623,19 +641,27 @@
             this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn14.Visible = false;
             // 
-            // BTNEXCEL
+            // rbtnReport1
             // 
-            this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
-            this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(86, 35);
-            this.BTNEXCEL.Text = "匯出EXCEL";
-            this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
+            this.rbtnReport1.AutoSize = true;
+            this.rbtnReport1.Checked = true;
+            this.rbtnReport1.Location = new System.Drawing.Point(179, 119);
+            this.rbtnReport1.Name = "rbtnReport1";
+            this.rbtnReport1.Size = new System.Drawing.Size(95, 16);
+            this.rbtnReport1.TabIndex = 126;
+            this.rbtnReport1.TabStop = true;
+            this.rbtnReport1.Text = "豎向報表格式";
+            this.rbtnReport1.UseVisualStyleBackColor = true;
             // 
-            // toolStripSeparator5
+            // rbtnReport2
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+            this.rbtnReport2.AutoSize = true;
+            this.rbtnReport2.Location = new System.Drawing.Point(289, 119);
+            this.rbtnReport2.Name = "rbtnReport2";
+            this.rbtnReport2.Size = new System.Drawing.Size(95, 16);
+            this.rbtnReport2.TabIndex = 127;
+            this.rbtnReport2.Text = "橫向報表格式";
+            this.rbtnReport2.UseVisualStyleBackColor = true;
             // 
             // frmOut_Process_S
             // 
@@ -651,9 +677,9 @@
             this.Text = "frmOut_Process_S";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmOut_Process_S_FormClosed);
             this.Load += new System.EventHandler(this.frmOut_Process_S_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).EndInit();
@@ -724,5 +750,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.ToolStripButton BTNEXCEL;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.RadioButton rbtnReport2;
+        private System.Windows.Forms.RadioButton rbtnReport1;
     }
 }

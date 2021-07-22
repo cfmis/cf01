@@ -170,14 +170,29 @@ namespace cf01.Forms
             else
             {
                 //加載報表
-                using (xrOut_process_out_s2 mMyRepot = new xrOut_process_out_s2() { DataSource = dtPlate })
+                if (rbtnReport1.Checked)
                 {
-                    mMyRepot.CreateDocument();
-                    mMyRepot.PrintingSystem.ShowMarginsWarning = false;
-                    mMyRepot.ShowPreviewDialog();
+                    //豎向報表
+                    using (xrOut_process_out_s2 mMyRepot = new xrOut_process_out_s2() { DataSource = dtPlate })
+                    {
+                        mMyRepot.CreateDocument();
+                        mMyRepot.PrintingSystem.ShowMarginsWarning = false;
+                        mMyRepot.ShowPreviewDialog();
+                    }
+                }
+                if (rbtnReport2.Checked)
+                {
+                    //橫向報表
+                    using (xrOut_process_out_s mMyRepot = new xrOut_process_out_s() { DataSource = dtPlate })
+                    {
+                        mMyRepot.CreateDocument();
+                        mMyRepot.PrintingSystem.ShowMarginsWarning = false;
+                        mMyRepot.ShowPreviewDialog();
+                    }
                 }
             }
         }
+       
 
         private void dgvDetails_DoubleClick(object sender, EventArgs e)
         {
