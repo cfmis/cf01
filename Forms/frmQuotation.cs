@@ -42,7 +42,7 @@ namespace cf01.Forms
         public int cur_row;//row_delete;
         public int row_reset=0;
         public string strTemp_Code = "";
-        string m_language = DBUtility._language;//保存當前登彔的語言        
+        string mLanguage = DBUtility._language;//保存當前登彔的語言        
         public System.Data.DataTable dtDetail = new System.Data.DataTable();
         public System.Data.DataTable dtReSet = new System.Data.DataTable();
         public System.Data.DataTable dtVersion = new System.Data.DataTable();
@@ -51,6 +51,8 @@ namespace cf01.Forms
         readonly MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public static string sent_quotation = "";
+        public BindingSource bds1 = new BindingSource();
+
         public bool is_group_pdd { set; get; }
         //bool flag_import;
         string strFile_Excel = "";
@@ -58,67 +60,51 @@ namespace cf01.Forms
          
         public frmQuotation()
         {
-            InitializeComponent();            
-            try
-            {
-                //舊的菜單按鈕的權限及翻譯
-                //clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
-                //control.GenerateContorl();
-                //控件翻譯
-                clsTranslate obj_ctl = new clsTranslate(this.Name, this.Controls, DBUtility._language);
-                obj_ctl.Translate();
-                //設置菜單按鈕的權限
-                //clsApp.SetToolBarEnable(this.Name, this.Controls);                
-                clsToolBar obj = new clsToolBar(this.Name, this.Controls);
-                obj.SetToolBar();
-                
-                clsApp.RetSetImage(toolStrip1);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            InitializeComponent();
+            
+            
+
+            //舊的菜單按鈕的權限及翻譯
+            //clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
+            //control.GenerateContorl();
+            //控件翻譯
+            clsTranslate obj_ctl = new clsTranslate(this.Name, this.Controls, DBUtility._language);
+            obj_ctl.Translate();
+            //設置菜單按鈕的權限                          
+            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
+            obj.SetToolBar();                
+            clsApp.RetSetImage(toolStrip1);
+            
             dgvDetails.RowHeadersVisible = true;  //因類clsControlInfoHelper DataGridView中已屏蔽行標頭,此處重新恢覆回來
             dgvDetails.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect; //因類clsControlInfoHelper的問題，此處重新恢覆整行選中的屬性
 
             const string strsql =
             @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,A.date,A.brand,A.brand_desc,A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,
             A.number_enter,A.price_usd,A.price_hkd,A.price_rmb,A.hkd_ex_fty,A.price_unit,A.moq_below_over,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
-            A.lead_time_unit,A.md_charge,A.md_charge_cny,A.md_charge_unit,A.die_mould_usd,A.die_mould_cny,A.valid_date,A.date_req,A.aw,A.status,
+            A.lead_time_unit,A.md_charge,A.md_charge_cny,A.md_charge_unit,A.die_mould_usd,A.die_mould_cny,A.valid_date,A.date_req,A.aw,A.status,A.pending,
             A.sample_request,A.needle_test,A.comment,A.remark,A.remark_other,A.remark_pdd,A.division,A.contact,A.crusr,A.crtim,A.amusr,A.amtim,A.flag_del,A.mo_id,A.id,A.temp_code,A.polo_care,A.moq_for_test,
             A.plm_code,trim_color_code,A.test_sample_hk,A.sms,A.sample_card,A.meeting_recap,A.usd_dap,A.usd_lab_test_prx,A.ex_fty_hkd,A.ex_fty_usd,
             A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.usd_ex_fty,
             A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
-            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg
+            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
-            WHERE 1=0";
+            WHERE 1=0";            
             dtDetail = clsPublicOfCF01.GetDataTable(strsql);
-            dgvDetails.DataSource = dtDetail;
+            bds1.DataSource = dtDetail;
+            dgvDetails.DataSource = bds1;// dtDetail;
         }
 
         private void frmQuotationTest_Load(object sender, EventArgs e)
-        {            
+        {           
             //System.Data.DataTable dtUnit = new System.Data.DataTable();
             //dtUnit = clsPublicOfCF01.GetDataTable(@"SELECT '' AS id Union SELECT unit_id as id FROM dbo.bs_unit Where unit_id<>'000'");
             //txtPrice_unit.Properties.DataSource = dtUnit;
             //txtPrice_unit.Properties.ValueMember = "id";
             //txtPrice_unit.Properties.DisplayMember = "id";
-            clsQuotation.Set_Unit(txtPrice_unit);//數量單位
-
-            //txtMoq_unit.Properties.DataSource = dtUnit;
-            //txtMoq_unit.Properties.ValueMember = "id";
-            //txtMoq_unit.Properties.DisplayMember = "id";
-            clsQuotation.Set_Unit(txtMoq_unit);
-
-            //txtMwq_unit.Properties.DataSource = dtUnit;
-            //txtMwq_unit.Properties.ValueMember = "id";
-            //txtMwq_unit.Properties.DisplayMember = "id";
-            clsQuotation.Set_Unit(txtMwq_unit);
-
-            //txtMd_charge_unit.Properties.DataSource = dtUnit;
-            //txtMd_charge_unit.Properties.ValueMember = "id";
-            //txtMd_charge_unit.Properties.DisplayMember = "id";
+            clsQuotation.Set_Unit(txtPrice_unit);//數量單位            
+            clsQuotation.Set_Unit(txtMoq_unit);           
+            clsQuotation.Set_Unit(txtMwq_unit);            
             clsQuotation.Set_Unit(txtMd_charge_unit);            
             
             System.Data.DataTable dtMoney = clsConErp.GetDataTable(@"SELECT '' as id,'' as cdesc Union SELECT id,name as cdesc FROM dbo.cd_money WHERE state='0'");
@@ -181,8 +167,7 @@ namespace cf01.Forms
             lueLabtest.Properties.DataSource = dtLabtest;
             lueLabtest.Properties.ValueMember = "id";
             lueLabtest.Properties.DisplayMember = "name";
-
-
+            
             gridView1.IndicatorWidth = 50;
             tabPage2.Parent = null;
             
@@ -233,7 +218,7 @@ namespace cf01.Forms
                 }
                 is_group_pdd = true;//是否可查看歷史單價
             }
-
+           
             dgvDetails.AutoGenerateColumns = false;
             Init_Column_isEnable();
 
@@ -250,7 +235,104 @@ namespace cf01.Forms
             if (ls_ip_address.Contains("192.168.18."))
             {
                 mImagePath = @"\\192.168.18.24\cf_artwork";
-            }            
+            }
+            //數據綁定
+            SetDataBindings();
+        }
+
+        private void SetDataBindings()
+        {            
+            txtID.DataBindings.Add("Text", bds1, "id");
+            txtSales_group.DataBindings.Add("EditValue", bds1, "sales_group");          
+            txtDate.DataBindings.Add("EditValue", bds1, "date");
+            txtTemp_code.DataBindings.Add("Text", bds1, "temp_code"); 
+            txtBrand.DataBindings.Add("EditValue", bds1, "brand"); 
+            txtBrandDesc.DataBindings.Add("Text", bds1, "brand_desc"); 
+            txtSeason.DataBindings.Add("EditValue", bds1, "season");
+            txtSeasonDesc.DataBindings.Add("Text", bds1, "season_desc"); 
+            txtFormula.DataBindings.Add("Text", bds1, "formula_id");  
+            txtDivision.DataBindings.Add("Text", bds1, "division");
+            txtContact.DataBindings.Add("Text", bds1, "contact");
+            txtMaterial.DataBindings.Add("Text", bds1, "material");
+            txtSize.DataBindings.Add("Text", bds1, "size"); 
+            txtProduct_desc.DataBindings.Add("Text", bds1, "product_desc");
+            txtRemark.DataBindings.Add("Text", bds1, "remark");
+            txtRemark_other.DataBindings.Add("Text", bds1, "remark_other"); 
+            txtCust_code.DataBindings.Add("Text", bds1, "cust_code");
+            txtCf_code.DataBindings.Add("Text", bds1, "cf_code");
+            txtCust_color.DataBindings.Add("Text", bds1, "cust_color");
+            txtCf_color.DataBindings.Add("Text", bds1, "cf_color"); 
+            txtNumber_enter.DataBindings.Add("Text", bds1, "number_enter"); 
+            txtPrice_usd.DataBindings.Add("Text", bds1, "price_usd");
+            txtPrice_hkd.DataBindings.Add("Text", bds1, "price_hkd");
+            txtPrice_rmb.DataBindings.Add("Text", bds1, "price_rmb");
+            txtPrice_unit.DataBindings.Add("EditValue", bds1, "price_unit");
+            txtSalesman.DataBindings.Add("Text", bds1, "salesman");
+            cmbmoq_below_over.DataBindings.Add("EditValue", bds1, "moq_below_over");
+            txtMoq.DataBindings.Add("EditValue", bds1, "moq"); 
+            txtMoq_Desc.DataBindings.Add("Text", bds1, "moq_desc");
+            txtMoq_unit.DataBindings.Add("EditValue", bds1, "moq_unit");
+            txtMwq.DataBindings.Add("EditValue", bds1, "mwq");
+            txtMwq_unit.DataBindings.Add("EditValue", bds1, "mwq_unit");
+
+            txtLead_time_min.DataBindings.Add("EditValue", bds1, "lead_time_min");
+            txtLead_time_max.DataBindings.Add("EditValue", bds1, "lead_time_max");
+            txtLead_time_unit.DataBindings.Add("EditValue", bds1, "lead_time_unit");
+            txtMd_charge.DataBindings.Add("EditValue", bds1, "md_charge");
+            txtMd_charge_cny.DataBindings.Add("EditValue", bds1, "md_charge_cny"); 
+            txtMd_charge_unit.DataBindings.Add("EditValue", bds1, "md_charge_unit");
+            txtDie_mould_usd.DataBindings.Add("EditValue", bds1, "die_mould_usd"); 
+            txtDie_mould_cny.DataBindings.Add("EditValue", bds1, "die_mould_cny");
+            txtAccount_code.DataBindings.Add("Text", bds1, "account_code");           
+            txtValid_date.DataBindings.Add("EditValue", bds1, "valid_date");           
+            txtHkd_ex_fty.DataBindings.Add("EditValue", bds1, "hkd_ex_fty");
+            txtUsd_ex_fty.DataBindings.Add("EditValue", bds1, "usd_ex_fty");
+            txtDate_req.DataBindings.Add("Text", bds1, "date_req");
+            txtAw.DataBindings.Add("Text", bds1, "aw");
+            txtStatus.DataBindings.Add("Text", bds1, "status"); //??
+            txtSample_request.DataBindings.Add("Text", bds1, "sample_request");
+            txtNeedle_test.DataBindings.Add("Text", bds1, "needle_test");
+            txtVersion.DataBindings.Add("Text", bds1, "ver");
+            txtMo_id.DataBindings.Add("Text", bds1, "mo_id");
+            memRemark_pdd.DataBindings.Add("Text", bds1, "remark_pdd");
+            
+            txtCrusr.DataBindings.Add("Text", bds1, "crusr");
+            txtCrtim.DataBindings.Add("Text", bds1, "crtim");
+            txtAmusr.DataBindings.Add("Text", bds1, "amusr");
+            txtAmtim.DataBindings.Add("Text", bds1, "amtim");
+            txtComment.DataBindings.Add("Text", bds1, "comment");
+            txtPolo_care.DataBindings.Add("EditValue", bds1, "polo_care");
+            txtMoq_for_test.DataBindings.Add("EditValue", bds1, "moq_for_test");
+            
+            txtPlm_code.DataBindings.Add("Text", bds1, "plm_code");
+            txtTrim_color_code.DataBindings.Add("Text", bds1, "trim_color_code"); 
+            txtTest_sample_hk.DataBindings.Add("Text", bds1, "test_sample_hk");
+            txtSms.DataBindings.Add("Text", bds1, "sms");
+            txtSample_card.DataBindings.Add("Text", bds1, "sample_card");
+            txtMeeting_recap.DataBindings.Add("Text", bds1, "meeting_recap");
+            txtUsd_dap.DataBindings.Add("EditValue", bds1, "usd_dap");
+            txtUsd_lab_test_prx.DataBindings.Add("EditValue", bds1, "usd_lab_test_prx");
+            txtEx_fty_hkd.DataBindings.Add("EditValue", bds1, "ex_fty_hkd");
+            txtEx_fty_usd.DataBindings.Add("EditValue", bds1, "ex_fty_usd");
+            
+            txtDisc.DataBindings.Add("EditValue", bds1, "discount");
+            txtDisc_usd.DataBindings.Add("EditValue", bds1, "disc_price_usd");
+            txtDisc_hkd.DataBindings.Add("EditValue", bds1, "disc_price_hkd"); 
+            txtDisc_rmb.DataBindings.Add("EditValue", bds1, "disc_price_rmb");
+            txtDisc_hkd_ex_fty.DataBindings.Add("EditValue", bds1, "disc_hkd_ex_fty");
+            txtReason_edit.DataBindings.Add("EditValue", bds1, "reason_edit"); 
+
+            txtRmb_remark.DataBindings.Add("Text", bds1, "rmb_remark");
+            txtPrice_salesperson.DataBindings.Add("EditValue", bds1, "price_salesperson");
+            txtPrice_kind.DataBindings.Add("Text", bds1, "price_kind");
+            txtRemark_salesperson.DataBindings.Add("Text", bds1, "remark_salesperson");
+            txtCustartwork.DataBindings.Add("Text", bds1, "cust_artwork");            
+            txtCost_price.DataBindings.Add("EditValue", bds1, "cost_price");           
+            lueLabtest.DataBindings.Add("EditValue", bds1, "labtest_prod_type");
+            txtTermremark.DataBindings.Add("Text", bds1, "termremark");
+            memDgRmkPdd.DataBindings.Add("Text", bds1, "remark_pdd_dg");            
+            txtPending.DataBindings.Add("Text", bds1, "pending");
+
         }
 
         private void Init_Column_isEnable()
@@ -350,19 +432,31 @@ namespace cf01.Forms
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {
-            int curent_row = 0; //從查詢窗體返回當前焦點所在行 
-            using (frmQuotationFind ofrmFind = new frmQuotationFind() { flag_call = "Quotation" })
-            {
-                ofrmFind.ShowDialog();                 
-                curent_row = ofrmFind.Current_row;//返回行號 
-                if (ofrmFind.dt.Rows.Count > 0)
-                {
-                    //dtDetail.Clear();
-                    dtDetail = ofrmFind.dt;//.Copy();
-                    dgvDetails.DataSource = dtDetail;//設置tabpage1數據源
-                }
+            int curent_row = 0; //從查詢窗體返回當前焦點所在行
+            //using (frmQuotationFind ofrmFind = new frmQuotationFind() { flag_call = "Quotation" })
+            //{
+            //    ofrmFind.ShowDialog();
+            //    curent_row = ofrmFind.Current_row;//返回行號 
+            //    if (ofrmFind.dt.Rows.Count > 0)
+            //    {
+            //        //dtDetail.Clear();
+            //        dtDetail = ofrmFind.dt;//.Copy();
+            //        dgvDetails.DataSource = dtDetail;//設置tabpage1數據源
+            //    }
+            //}
+
+            frmQuotationFind ofrmFind = new frmQuotationFind() { flag_call = "Quotation" };
+            ofrmFind.ShowDialog();
+            curent_row = ofrmFind.Current_row;//返回行號 
+            if (ofrmFind.dt.Rows.Count > 0)
+            {               
+               dtDetail = ofrmFind.dt;//.Copy();
+                bds1.DataSource = dtDetail;
+                dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源
             }
-            
+            ofrmFind.Dispose();
+
+
             if (dtDetail.Rows.Count > 0 && curent_row > 0)
             {
                 //定行到當前行 注意指定的當前列不可以隱藏的
@@ -414,8 +508,7 @@ namespace cf01.Forms
             BTNNEWVER.Enabled = _flag;
             BTNQUOTATION.Enabled = _flag;
             BTNDEL_BATCH.Enabled = _flag;
-            //clsApp.SetToolBarEnable(this.Name, this.Controls);
-
+            
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
         }
@@ -461,6 +554,9 @@ namespace cf01.Forms
         private void AddNew()  //新增
         {
             mState = "NEW";
+
+            bds1.AddNew();
+
             txtSales_group.Focus();
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(pnlHeard.Controls, true);
@@ -501,8 +597,7 @@ namespace cf01.Forms
             SetObjValue.SetEditBackColor(pnlHeard.Controls, true);
             tabPage2.Parent = null;
             dgvDetails.Enabled = false;
-            mState = "EDIT";
-
+            mState = "EDIT";            
             txtTemp_code.Properties.ReadOnly = true;
             txtTemp_code.BackColor = System.Drawing.Color.White;
             txtFormula.Properties.ReadOnly = true;            
@@ -519,7 +614,9 @@ namespace cf01.Forms
 
         private void Cancel() //取消
         {
-            SetButtonSatus(true);
+            bds1.CancelEdit();
+
+            SetButtonSatus(true);            
             SetObjValue.SetEditBackColor(pnlHeard.Controls, false);
             chkSelectAll.Enabled = true;
             txtID.Properties.ReadOnly = false;
@@ -532,7 +629,7 @@ namespace cf01.Forms
             mState_NewCopy = "";
             tabPage2.Parent = null;
             
-            if (!String.IsNullOrEmpty(mID) && dgvDetails.RowCount>0)
+            if (!string.IsNullOrEmpty(mID) && dgvDetails.RowCount>0)
             {
                 dgvDetails.Focus();
                 dgvDetails.CurrentCell = dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
@@ -547,6 +644,7 @@ namespace cf01.Forms
             {
                 return;
             }
+            bds1.EndEdit();
             bool save_flag = false;                         
             const string sql_new =
             @"INSERT INTO quotation(sales_group,temp_code,date,brand,brand_desc,formula_id,season,season_desc,division,contact,material,size,product_desc,
@@ -575,7 +673,7 @@ namespace cf01.Forms
                 plm_code=@plm_code,trim_color_code=@trim_color_code,test_sample_hk=@test_sample_hk,sms=@sms,sample_card=@sample_card,meeting_recap=@meeting_recap,usd_dap=@usd_dap,usd_lab_test_prx=@usd_lab_test_prx,ex_fty_hkd=@ex_fty_hkd,ex_fty_usd=@ex_fty_usd,
                 discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty,usd_ex_fty=@usd_ex_fty,reason_edit=@reason_edit,rmb_remark=@rmb_remark,special_price=@special_price,cust_artwork=@cust_artwork,cost_price=@cost_price,
                 labtest_prod_type=@labtest_prod_type,termremark=@termremark,pending=@pending,remark_pdd_dg=@remark_pdd_dg
-            WHERE id=@id";
+            WHERE temp_code=@temp_code";
 
             //組別設置
             const string sql_group_i =
@@ -595,6 +693,10 @@ namespace cf01.Forms
                         myCommand.CommandText = sql_new;
                         strTemp_Code = clsQuotation.Get_Quote_SeqNo();//Get_Quote_SeqNo(txtSales_group.EditValue.ToString());
                         myCommand.Parameters.AddWithValue("@temp_code", strTemp_Code);
+                        if (mState_NewCopy == "NEWCOPY")
+                        {
+                            txtTemp_code.Text = strTemp_Code;
+                        }
                     }
                     else
                     {
@@ -721,7 +823,6 @@ namespace cf01.Forms
                         }
                     }
                     myTrans.Commit(); //數據提交
-
                    
                     //復制新增時執行此代碼=========2019-07-23 by Allen
                     if (mState_NewCopy == "NEWCOPY")
@@ -764,7 +865,7 @@ namespace cf01.Forms
                     myTrans.Dispose();
                 }
             }
-            SetButtonSatus(true);
+            SetButtonSatus(true);           
             SetObjValue.SetEditBackColor(pnlHeard.Controls, false);
             chkSelectAll.Enabled = true;
             dgvDetails.Enabled = true;
@@ -773,8 +874,7 @@ namespace cf01.Forms
             //Set_Row_Position(txtID.Text.Trim());           
             tabPage2.Parent = null;
             if (save_flag)
-            {
-                ReSet_Datagrid_Value();
+            {                
                 //定位到當前行
                 int curent_row;
                 if (mState == "NEW")
@@ -866,8 +966,58 @@ namespace cf01.Forms
             if (dgvDetails.RowCount > 0)
             {
                 row_reset = dgvDetails.CurrentCell.RowIndex;
-                dgvrow = dgvDetails.CurrentRow;
-                Set_head(dgvrow);                
+                //dgvrow = dgvDetails.CurrentRow;
+                //Set_head(dgvrow);
+                //if(dgvrow.Cells["special_price"].Value.ToString() == "True")   
+                if (dgvDetails.Rows[row_reset].Cells["special_price"].Value.ToString() =="True")                             
+                    chkSpecialPrice.Checked = true;                
+                else
+                    chkSpecialPrice.Checked = false;
+                //顯示是否存在已計价
+                if (clsMmCalculatePrice.getIdByQuotationId(txtTemp_code.Text) != "")
+                    lblIsCalPrice.Visible = true;
+                else
+                    lblIsCalPrice.Visible = false;
+
+                if (txtCf_code.Text != "")
+                {
+                    if (txtCf_code.Text.Length >= 7)
+                    {
+                        string strArtwork = txtCf_code.Text.Substring(0, 7);                        
+                        string strSql = string.Format(@"SELECT id, max(picture_name) as picture_name FROM cd_pattern_details WHERE within_code='0000' AND id='{0}' and  Isnull(picture_name, '') <> '' group by id", strArtwork);
+
+                        System.Data.DataTable dt = new System.Data.DataTable();
+                        dt = clsConErp.GetDataTable(strSql);
+                        if (dt.Rows.Count > 0)
+                        {
+                            strArtwork = DBUtility.imagePath + dt.Rows[0]["picture_name"].ToString();
+                            if (!string.IsNullOrEmpty(strArtwork))
+                            {
+                                if (File.Exists(strArtwork))
+                                    pic_artwork.Image = Image.FromFile(strArtwork);
+                                else
+                                    pic_artwork.Image = null;
+                            }
+                            else
+                                pic_artwork.Image = null;
+                        }
+                        else
+                            pic_artwork.Image = null;
+                    }
+                    else
+                        pic_artwork.Image = null;
+                }
+
+                //顯示Sub 列表            
+                Display_Sub_List(txtTemp_code.Text);
+                if (mState_NewCopy == "NEWCOPY")
+                {
+                    dtSubmo.Clear();
+                    //dgvSub.DataSource = null;
+                    memRemark_pdd.Text = "";
+                }
+                //顯示grop 列表
+                Display_Group_List(txtTemp_code.Text);
             }
         }
 
@@ -883,8 +1033,8 @@ namespace cf01.Forms
                 dgvDetails.CurrentCell = dgvDetails.Rows[cur_row].Cells[2]; //设置当前单元格
                 dgvDetails.Rows[cur_row].Selected = true; //選中整行
                 row_reset = dgvDetails.CurrentCell.RowIndex;
-                dgvrow = dgvDetails.CurrentRow;
-                Set_head(dgvrow);
+                //dgvrow = dgvDetails.CurrentRow;
+                //Set_head(dgvrow);
             }
         }
 
@@ -892,7 +1042,6 @@ namespace cf01.Forms
         private void Set_head(DataGridViewRow pdr)
         {
             mID = pdr.Cells["id"].Value.ToString();
-
             txtID.EditValue = pdr.Cells["id"].Value.ToString();
             txtSales_group.EditValue = pdr.Cells["sales_group"].Value.ToString();
             string strDat = pdr.Cells["date"].Value.ToString();
@@ -1018,15 +1167,16 @@ namespace cf01.Forms
             {
                 if (txtCf_code.Text.Length >= 7)
                 {
-                    string strArtwork = txtCf_code.Text.Substring(0, 7);                 
-                    string strSql = string.Format(
-                    @"SELECT ISNULL(B.picture_name,'') AS picture_name
-                    FROM cd_pattern A with(nolock) 
-	                INNER JOIN (select within_code,id,max(picture_name) as picture_name 
-                                from dbo.cd_pattern_details with(nolock) 
-                                where  within_code='0000' AND id='{0}'
-                                group by within_code,id) B ON A.within_code=B.within_code AND A.id=B.id                   
-                    WHERE A.within_code='0000' AND A.id='{0}' AND A.state='1'", strArtwork);
+                    string strArtwork = txtCf_code.Text.Substring(0, 7);
+                    //   string strSql = string.Format(
+                    //   @"SELECT ISNULL(B.picture_name,'') AS picture_name
+                    //   FROM cd_pattern A with(nolock) 
+                    //INNER JOIN (select within_code,id,max(picture_name) as picture_name 
+                    //               from dbo.cd_pattern_details with(nolock) 
+                    //               where  within_code='0000' AND id='{0}'
+                    //               group by within_code,id) B ON A.within_code=B.within_code AND A.id=B.id                   
+                    //   WHERE A.within_code='0000' AND A.id='{0}' AND A.state='1'", strArtwork);
+                    string strSql = string.Format(@"SELECT id, max(picture_name) as picture_name FROM cd_pattern_details WHERE within_code='0000' AND id='{0}' and  Isnull(picture_name, '') <> '' group by id", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);
                     if (dt.Rows.Count > 0)
@@ -1111,9 +1261,10 @@ namespace cf01.Forms
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
             }
-
+            
             if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
             {
+                //特別單價亮藍色背景
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;                
             }
         }
@@ -1382,7 +1533,7 @@ namespace cf01.Forms
         {
             if (dgvDetails.RowCount > 0)
             {
-                //string oldTemp_code = txtTemp_code.Text;
+                //string oldTemp_code = txtTemp_code.Text;                
                 mOld_Temp_Code = txtTemp_code.Text;
                 dgvrow = dgvDetails.CurrentRow;
                 AddNew();
@@ -1446,11 +1597,11 @@ namespace cf01.Forms
         private void chkConvert_CheckedChanged(object sender, EventArgs e)
         {
             string strLang = "";
-            if (m_language == "0")
+            if (mLanguage == "0")
                 strLang = "2";//英文
             else
                 strLang = "0";//繁體
-            m_language = strLang;
+            mLanguage = strLang;
             clsTranslate oCtl = new clsTranslate(Name, Controls, strLang);
             oCtl.Translate();
             clsApp.RetSetImage(toolStrip1);
@@ -1766,12 +1917,8 @@ namespace cf01.Forms
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            //int cur_row = gridView1.FocusedRowHandle;
-            //row_reset = cur_row;
-            //Set_head(dtDetail, cur_row);
-            Set_CurrentRow_for_new_version(gridView1.FocusedRowHandle);
-            
+        {       
+            Set_CurrentRow_for_new_version(gridView1.FocusedRowHandle);            
         }
 
      
@@ -2158,207 +2305,6 @@ namespace cf01.Forms
             }
         }
 
-        #region ReSet_Datagrid_Value()
-        /// <summary>
-        /// 新增或編號時更新Datagridview的值
-        /// 不必從服務端重新下載
-        /// </summary>
-        private void ReSet_Datagrid_Value()
-        {
-            if (mState == "NEW" || mState == "EDIT")
-            {
-                //取得當前新增或修改的行
-                dtReSet=clsPublicOfCF01.GetDataTable(string.Format("Select id,crusr,crtim,amusr,amtim From dbo.quotation WHERE temp_code='{0}'", strTemp_Code));               
-                if (mState == "NEW")
-                {
-                    //dgvDetails.AllowUserToAddRows = true;                    
-                    DataRow row = dtDetail.NewRow();//插一空行
-                    row["sales_group"] = txtSales_group.EditValue;
-                    row["temp_code"] = strTemp_Code;
-                    row["date"] = txtDate.Text;//System.DateTime.Parse(txtDate.Text)
-                    row["id"] = dtReSet.Rows[0]["id"];
-                    txtID.Text = strTemp_Code;
-                    row["brand"] = txtBrand.EditValue;
-                    row["brand_desc"] = txtBrandDesc.Text;
-                    row["season"] = txtSeason.EditValue;
-                    row["season_desc"] = txtSeasonDesc.Text;
-                    row["formula_id"] = txtFormula.Text;
-                    row["division"] = txtDivision.Text;
-                    row["contact"] = txtContact.Text;
-                    row["material"] = txtMaterial.Text;
-                    row["size"] = txtSize.Text;
-                    row["product_desc"] = txtProduct_desc.Text;
-                    row["remark"] = txtRemark.Text;
-                    row["remark_other"] = txtRemark_other.Text;
-                    row["cust_code"] = txtCust_code.Text;
-                    row["cf_code"] = txtCf_code.Text;
-                    row["cust_color"] = txtCust_color.Text;
-                    row["cf_color"] = txtCf_color.Text;
-                    row["number_enter"] = clsApp.Return_Float_Value(txtNumber_enter.Text);
-                    row["price_usd"] = clsApp.Return_Float_Value(txtPrice_usd.Text);
-                    row["price_hkd"] = clsApp.Return_Float_Value(txtPrice_hkd.Text);
-                    row["price_rmb"] = clsApp.Return_Float_Value(txtPrice_rmb.Text);
-                    row["price_unit"] = txtPrice_unit.EditValue;
-                    row["salesman"] = txtSalesman.Text;
-                    row["moq_below_over"] = cmbmoq_below_over.Text ;
-                    row["moq"] = clsApp.Return_Float_Value(txtMoq.Text);
-                    row["moq_desc"] = txtMoq_Desc.Text;
-                    row["moq_unit"] = txtMoq_unit.EditValue;
-                    row["mwq"] = clsApp.Return_Float_Value(txtMwq.Text);
-                    row["mwq_unit"] = txtMwq_unit.EditValue;
-                    row["lead_time_min"] = clsApp.Return_Float_Value(txtLead_time_min.Text);
-                    row["lead_time_max"] = clsApp.Return_Float_Value(txtLead_time_max.Text);
-                    row["lead_time_unit"] = txtLead_time_unit.EditValue;
-                    row["md_charge"] = clsApp.Return_Float_Value(txtMd_charge.Text);
-                    row["md_charge_cny"] = txtMd_charge_cny.EditValue;
-                    row["md_charge_unit"] = txtMd_charge_unit.EditValue;
-                    row["die_mould_usd"] = clsApp.Return_Float_Value(txtDie_mould_usd.Text);
-                    row["die_mould_cny"] = txtDie_mould_cny.EditValue;
-                    row["account_code"] = txtAccount_code.Text;
-                    if (!string.IsNullOrEmpty(txtValid_date.Text))
-                    {
-                        row["valid_date"] = System.DateTime.Parse(txtValid_date.Text);
-                    }                    
-                    row["hkd_ex_fty"] = clsApp.Return_Float_Value(txtHkd_ex_fty.Text);
-                    row["usd_ex_fty"] = clsApp.Return_Float_Value(txtUsd_ex_fty.Text);
-                    row["date_req"] = txtDate_req.Text;
-                    row["aw"] = txtAw.Text;
-                    row["status"] = txtStatus.Text;
-                    row["sample_request"] = txtSample_request.Text;
-                    row["needle_test"] = txtNeedle_test.Text;
-                    row["ver"] = txtVersion.Text;
-                    row["mo_id"] = txtMo_id.Text;
-                    row["remark_pdd"] = memRemark_pdd.Text;  
-                    row["crusr"] = dtReSet.Rows[0]["crusr"].ToString();
-                    row["crtim"] = dtReSet.Rows[0]["crtim"].ToString();                    
-                    row["comment"] = txtComment.Text;
-                    row["polo_care"] = txtPolo_care.EditValue;
-                    row["moq_for_test"] = clsApp.Return_Float_Value(txtMoq_for_test.Text);
-                    
-                    row["plm_code"] = txtPlm_code.Text;
-                    row["trim_color_code"] = txtTrim_color_code.Text;
-                    row["test_sample_hk"] = txtTest_sample_hk.Text;
-                    row["sms"] = txtSms.Text;
-                    row["sample_card"] = txtSample_card.Text;
-                    row["meeting_recap"] = txtMeeting_recap.Text;
-                    row["usd_dap"] = clsApp.Return_Float_Value(txtUsd_dap.Text);
-                    row["usd_lab_test_prx"] = clsApp.Return_Float_Value(txtUsd_lab_test_prx.Text);
-                    row["ex_fty_hkd"] = clsApp.Return_Float_Value(txtEx_fty_hkd.Text);
-                    row["ex_fty_usd"] = clsApp.Return_Float_Value(txtEx_fty_usd.Text);
-
-                    row["discount"] = clsApp.Return_Float_Value(txtDisc.Text);
-                    row["disc_price_usd"] = clsApp.Return_Float_Value(txtDisc_usd.Text);
-                    row["disc_price_hkd"] = clsApp.Return_Float_Value(txtDisc_hkd.Text);
-                    row["disc_price_rmb"] = clsApp.Return_Float_Value(txtDisc_rmb.Text);
-                    row["disc_hkd_ex_fty"] = clsApp.Return_Float_Value(txtDisc_hkd_ex_fty.Text);
-                    
-                    row["reason_edit"] = txtReason_edit.EditValue;
-                    row["rmb_remark"] = txtRmb_remark.Text ;
-                    row["special_price"] = chkSpecialPrice.Checked ?true:false;
-                    row["cust_artwork"] = txtCustartwork.Text;
-                    row["labtest_prod_type"] = lueLabtest.EditValue.ToString();
-                    row["termremark"] = txtTermremark.Text;
-                    row["pending"] = txtPending.Text;
-                    row["remark_pdd_dg"] = memDgRmkPdd.Text;
-                   
-
-                    dtDetail.Rows.Add(row);
-                }
-                else
-                {
-                    //dgvDetails.Rows[0].Cells["sales_group"].Value = txtSales_group.EditValue;
-                    dtDetail.Rows[row_reset]["sales_group"] = txtSales_group.EditValue;
-                    dtDetail.Rows[row_reset]["date"] = txtDate.Text;
-                    dtDetail.Rows[row_reset]["brand"] = txtBrand.EditValue;
-                    dtDetail.Rows[row_reset]["brand_desc"] = txtBrandDesc.Text;
-                    dtDetail.Rows[row_reset]["season"] = txtSeason.EditValue;                    
-                    dtDetail.Rows[row_reset]["brand"] = txtBrand.EditValue;
-                    dtDetail.Rows[row_reset]["season_desc"] = txtSeasonDesc.Text;
-                    dtDetail.Rows[row_reset]["formula_id"] = txtFormula.Text;
-                    dtDetail.Rows[row_reset]["division"] = txtDivision.Text;
-                    dtDetail.Rows[row_reset]["contact"] = txtContact.Text;
-                    dtDetail.Rows[row_reset]["material"] = txtMaterial.Text;
-                    dtDetail.Rows[row_reset]["size"] = txtSize.Text;
-                    dtDetail.Rows[row_reset]["product_desc"] = txtProduct_desc.Text;
-                    dtDetail.Rows[row_reset]["remark"] = txtRemark.Text;
-                    dtDetail.Rows[row_reset]["remark_other"] = txtRemark_other.Text;
-                    dtDetail.Rows[row_reset]["cust_code"] = txtCust_code.Text;
-                    dtDetail.Rows[row_reset]["cf_code"] = txtCf_code.Text;
-                    dtDetail.Rows[row_reset]["cust_color"] = txtCust_color.Text;
-                    dtDetail.Rows[row_reset]["cf_color"] = txtCf_color.Text;
-                    dtDetail.Rows[row_reset]["number_enter"] = txtNumber_enter.EditValue;
-                    dtDetail.Rows[row_reset]["price_usd"] = txtPrice_usd.EditValue;
-                    dtDetail.Rows[row_reset]["price_hkd"] = txtPrice_hkd.EditValue;
-                    dtDetail.Rows[row_reset]["price_rmb"] = txtPrice_rmb.EditValue;
-                    dtDetail.Rows[row_reset]["price_unit"] = txtPrice_unit.EditValue;
-                    dtDetail.Rows[row_reset]["salesman"] = txtSalesman.Text;
-                    dtDetail.Rows[row_reset]["moq_below_over"] = cmbmoq_below_over.Text;
-                    dtDetail.Rows[row_reset]["moq"] = txtMoq.EditValue;
-                    dtDetail.Rows[row_reset]["moq_desc"] = txtMoq_Desc.Text;
-                    dtDetail.Rows[row_reset]["moq_unit"] = txtMoq_unit.EditValue;
-                    dtDetail.Rows[row_reset]["mwq"] = txtMwq.EditValue;
-                    dtDetail.Rows[row_reset]["mwq_unit"] = txtMwq_unit.EditValue;
-                    dtDetail.Rows[row_reset]["lead_time_min"] = txtLead_time_min.EditValue;
-                    dtDetail.Rows[row_reset]["lead_time_max"] = txtLead_time_max.EditValue;
-                    dtDetail.Rows[row_reset]["lead_time_unit"] = txtLead_time_unit.EditValue;
-                    dtDetail.Rows[row_reset]["md_charge"] = txtMd_charge.EditValue;
-                    dtDetail.Rows[row_reset]["md_charge_cny"] = txtMd_charge_cny.EditValue;
-                    dtDetail.Rows[row_reset]["md_charge_unit"] = txtMd_charge_unit.EditValue;
-                    dtDetail.Rows[row_reset]["die_mould_usd"] = txtDie_mould_usd.EditValue;
-                    dtDetail.Rows[row_reset]["die_mould_cny"] = txtDie_mould_cny.EditValue;
-                    dtDetail.Rows[row_reset]["account_code"] = txtAccount_code.Text;
-                    if (!string.IsNullOrEmpty(txtValid_date.Text))
-                    {
-                        dtDetail.Rows[row_reset]["valid_date"] = DateTime.Parse(txtValid_date.Text);
-                    }                     
-                    dtDetail.Rows[row_reset]["hkd_ex_fty"] = txtHkd_ex_fty.EditValue;
-                    dtDetail.Rows[row_reset]["usd_ex_fty"] = txtUsd_ex_fty.EditValue;
-                    dtDetail.Rows[row_reset]["date_req"] = txtDate_req.Text;
-                    dtDetail.Rows[row_reset]["aw"] = txtAw.Text;
-                    dtDetail.Rows[row_reset]["status"] = txtStatus.Text;
-                    dtDetail.Rows[row_reset]["sample_request"] = txtSample_request.Text;
-                    dtDetail.Rows[row_reset]["needle_test"] = txtNeedle_test.Text;
-                    dtDetail.Rows[row_reset]["ver"] = txtVersion.Text;
-                    dtDetail.Rows[row_reset]["mo_id"] = txtMo_id.Text;
-                    dtDetail.Rows[row_reset]["remark_pdd"] = memRemark_pdd.Text;                    
-                    dtDetail.Rows[row_reset]["amusr"] = dtReSet.Rows[0]["amusr"].ToString();
-                    dtDetail.Rows[row_reset]["amtim"] = dtReSet.Rows[0]["amtim"].ToString();
-                    dtDetail.Rows[row_reset]["comment"] = txtComment.Text;                    
-                    dtDetail.Rows[row_reset]["polo_care"] = txtPolo_care.EditValue;
-                    dtDetail.Rows[row_reset]["moq_for_test"] = txtMoq_for_test.EditValue;
-                    dtDetail.Rows[row_reset]["plm_code"] = txtPlm_code.Text;
-                    dtDetail.Rows[row_reset]["trim_color_code"] = txtTrim_color_code.Text;
-
-                    dtDetail.Rows[row_reset]["test_sample_hk"] = txtTest_sample_hk.Text;
-                    dtDetail.Rows[row_reset]["sms"] = txtSms.Text;
-                    dtDetail.Rows[row_reset]["sample_card"] = txtSample_card.Text;
-                    dtDetail.Rows[row_reset]["meeting_recap"] = txtMeeting_recap.Text;
-                    dtDetail.Rows[row_reset]["usd_dap"] = txtUsd_dap.EditValue;
-                    dtDetail.Rows[row_reset]["usd_lab_test_prx"] = txtUsd_lab_test_prx.EditValue;
-                    dtDetail.Rows[row_reset]["ex_fty_hkd"] = txtEx_fty_hkd.EditValue;
-                    dtDetail.Rows[row_reset]["ex_fty_usd"] = txtEx_fty_usd.EditValue;
-
-                    dtDetail.Rows[row_reset]["discount"] = txtDisc.EditValue;
-                    dtDetail.Rows[row_reset]["disc_price_usd"] = txtDisc_usd.EditValue;
-                    dtDetail.Rows[row_reset]["disc_price_hkd"] = txtDisc_hkd.EditValue;
-                    dtDetail.Rows[row_reset]["disc_price_rmb"] = txtDisc_rmb.EditValue;
-                    dtDetail.Rows[row_reset]["disc_hkd_ex_fty"] = txtDisc_hkd_ex_fty.EditValue;
-
-                    dtDetail.Rows[row_reset]["reason_edit"] = txtReason_edit.EditValue;
-                    dtDetail.Rows[row_reset]["rmb_remark"] = txtRmb_remark.Text;
-                    dtDetail.Rows[row_reset]["special_price"] = chkSpecialPrice.Checked ? "True" : "False";
-                    dtDetail.Rows[row_reset]["cust_artwork"] = txtCustartwork.Text ;
-                    dtDetail.Rows[row_reset]["cost_price"] = txtCost_price.EditValue;
-                    dtDetail.Rows[row_reset]["labtest_prod_type"] =lueLabtest.EditValue;
-                    dtDetail.Rows[row_reset]["termremark"] = txtTermremark.Text;
-                    dtDetail.Rows[row_reset]["pending"] = txtPending.Text;
-                    dtDetail.Rows[row_reset]["remark_pdd_dg"] = memDgRmkPdd.Text;
-                   
-                }
-                dtDetail.AcceptChanges();                
-            }
-        }
-        #endregion
 
         private void cl_number_enter_Leave(object sender, EventArgs e)
         {
@@ -2712,13 +2658,6 @@ namespace cf01.Forms
                     Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;
                     Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
                     Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1  
-
-                    //cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
-                    //new Thread((ThreadStart)delegate
-                    //{
-                    //    wForm.TopMost = true;
-                    //    wForm.ShowDialog();
-                    //}).Start();
 
                     //寫入欄位標題
                     string field_name = "";
@@ -3351,7 +3290,9 @@ namespace cf01.Forms
             {
                 txtValid_date.EditValue = DateTime.Parse(txtDate.Text).Date.AddDays(30).ToString("yyyy-MM-dd").Substring(0, 10); 
             }
-        }
+        }       
+
+        
     }
     
 }

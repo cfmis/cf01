@@ -17,9 +17,10 @@ namespace cf01.Forms
 {
     public partial class frmOut_Process_S : Form
     {
-       private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-       private DataTable dtPlate = new DataTable();
-       private DataTable dtMo_Data = new DataTable();
+        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        private DataTable dtPlate = new DataTable();
+        private DataTable dtMo_Data = new DataTable();
+        private static string find_flag = "OUT";
         public frmOut_Process_S()
         {
             InitializeComponent();
@@ -77,7 +78,10 @@ namespace cf01.Forms
             //        strDat2 = strDat2.Substring(0, 10);
             //    }
             //}
-
+            if(rgrp1.SelectedIndex == 0)            
+                find_flag = "OUT";
+            else
+                find_flag = "IN";
             SqlParameter[] paras = new SqlParameter[]
             {       
                     new SqlParameter("@within_code", "0000"),
@@ -86,9 +90,10 @@ namespace cf01.Forms
                     new SqlParameter("@id", txtID1.Text),
                     new SqlParameter("@id_end", txtID2.Text),
                     new SqlParameter("@vendor_id", cboVendor_id1.Text),
-                    new SqlParameter("@vendor_id_end", cboVendor_id2.Text)
-			};
-            dtPlate = clsConErp.ExecuteProcedureReturnTable("z_rpt_out_process_out_s", paras);            
+                    new SqlParameter("@vendor_id_end", cboVendor_id2.Text),
+                    new SqlParameter("@in_out_type", find_flag)
+            };
+            dtPlate = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_out_process_out", paras);
             //--
             if (dtPlate.Rows.Count == 0)
             {
@@ -168,11 +173,12 @@ namespace cf01.Forms
                 return;
             }
             else
-            {
+            {                
                 //加載報表
-                if (rbtnReport1.Checked)
+                if (find_flag=="OUT")
                 {
-                    //豎向報表
+                    //發貨豎向報表
+                    rgrp1.SelectedIndex = 0;
                     using (xrOut_process_out_s2 mMyRepot = new xrOut_process_out_s2() { DataSource = dtPlate })
                     {
                         mMyRepot.CreateDocument();
@@ -180,16 +186,16 @@ namespace cf01.Forms
                         mMyRepot.ShowPreviewDialog();
                     }
                 }
-                if (rbtnReport2.Checked)
-                {
-                    //橫向報表
-                    using (xrOut_process_out_s mMyRepot = new xrOut_process_out_s() { DataSource = dtPlate })
+                else {
+                    //收貨
+                    rgrp1.SelectedIndex = 1;
+                    using (xrOut_process_out_s3 mMyRepot = new xrOut_process_out_s3() { DataSource = dtPlate })
                     {
                         mMyRepot.CreateDocument();
                         mMyRepot.PrintingSystem.ShowMarginsWarning = false;
                         mMyRepot.ShowPreviewDialog();
                     }
-                }
+                }                
             }
         }
        
@@ -233,11 +239,11 @@ namespace cf01.Forms
         private void BTNFIND_Click(object sender, EventArgs e)
         {
             cboVendor_id2.Focus();
-            if (txtDat1.Text == "" && txtDat2.Text == "" && txtID1.Text == "" && txtID2.Text == "" && cboVendor_id1.Text == "" && cboVendor_id2.Text == "")
-            {
-                MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //if (txtDat1.Text == "" && txtDat2.Text == "" && txtID1.Text == "" && txtID2.Text == "" && cboVendor_id1.Text == "" && cboVendor_id2.Text == "")
+            //{
+            //    MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
 
             //是示查詢進度
             frmProgress wForm = new frmProgress();

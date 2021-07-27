@@ -20,6 +20,7 @@ namespace cf01.Forms
         public DataTable dt = new DataTable();        
         public int Current_row=0;
         public string flag_call = "";
+        
         public frmQuotationFind()
         {
             InitializeComponent();
@@ -163,7 +164,7 @@ namespace cf01.Forms
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             
             //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-            dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
+            //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
             
             //------------ 
             //導入前一次打勾的記錄
@@ -525,7 +526,7 @@ namespace cf01.Forms
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
             //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-            dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
+            //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
 
             //------------ 
             //導入前一次打勾的記錄
