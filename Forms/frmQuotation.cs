@@ -449,7 +449,8 @@ namespace cf01.Forms
             ofrmFind.ShowDialog();
             curent_row = ofrmFind.Current_row;//返回行號 
             if (ofrmFind.dt.Rows.Count > 0)
-            {               
+            {
+                dtDetail = null;
                 dtDetail = ofrmFind.dt;//.Copy();
                 bds1.DataSource = dtDetail;
                 dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源
