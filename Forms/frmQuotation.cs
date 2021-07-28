@@ -450,22 +450,28 @@ namespace cf01.Forms
             curent_row = ofrmFind.Current_row;//返回行號 
             if (ofrmFind.dt.Rows.Count > 0)
             {               
-               dtDetail = ofrmFind.dt;//.Copy();
+                dtDetail = ofrmFind.dt;//.Copy();
                 bds1.DataSource = dtDetail;
                 dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源
             }
             ofrmFind.Dispose();
-
 
             if (dtDetail.Rows.Count > 0 && curent_row > 0)
             {
                 //定行到當前行 注意指定的當前列不可以隱藏的
                 //dgvDetails.Rows[curent_row].Cells[1].Selected = true;
                 dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
-                dgvDetails.Rows[curent_row].Selected = true; //選中整行
+                dgvDetails.Rows[curent_row].Selected = true; //選中整行                
                 //this.dgvDetails.CurrentCell = dgvDetails[1, curent_row]; //设置当前单元格
                 //dgvDetails.BeginEdit(true);
             }
+
+            if (dgvDetails.RowCount > 0 )            
+                lblOf.Text = dgvDetails.RowCount.ToString();            
+            else            
+                lblOf.Text = "";               
+            
+
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)
@@ -959,13 +965,14 @@ namespace cf01.Forms
             }
         }
 
-        //===========以下爲控件中的方法================     
+        //===========以下爲控件中的方法================
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvDetails.RowCount > 0)
             {
                 row_reset = dgvDetails.CurrentCell.RowIndex;
+                lblOf.Text = (row_reset + 1).ToString() + " of " + dgvDetails.RowCount.ToString();
                 //dgvrow = dgvDetails.CurrentRow;
                 //Set_head(dgvrow);
                 //if(dgvrow.Cells["special_price"].Value.ToString() == "True")   
@@ -1228,17 +1235,17 @@ namespace cf01.Forms
 
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            //產生行號
-            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
-                e.RowBounds.Location.Y,
-                dgvDetails.RowHeadersWidth - 4,
-                e.RowBounds.Height);
+            ////產生行號
+            //System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+            //    e.RowBounds.Location.Y,
+            //    dgvDetails.RowHeadersWidth - 4,
+            //    e.RowBounds.Height);
 
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
-                dgvDetails.RowHeadersDefaultCellStyle.Font,
-                rectangle,
-                dgvDetails.RowHeadersDefaultCellStyle.ForeColor = Color.Brown,
-                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+            //TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+            //    dgvDetails.RowHeadersDefaultCellStyle.Font,
+            //    rectangle,
+            //    dgvDetails.RowHeadersDefaultCellStyle.ForeColor = Color.Brown,
+            //    TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
 
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
@@ -1267,6 +1274,7 @@ namespace cf01.Forms
                 //特別單價亮藍色背景
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;                
             }
+            
         }
 
 

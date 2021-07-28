@@ -196,35 +196,45 @@ namespace cf01.Forms
             dv.Sort = "flag_select DESC";  //按Flag_select列 排序            
             dt = dv.ToTable();
 
-            dgvDetails.DataSource = dt;
+            dgvDetails.DataSource = dt;            
             if (dt.Rows.Count == 0)
             {
+                lblOf.Text = "";
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                lblOf.Text = dgvDetails.Rows.Count.ToString();
             }
         }
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvDetails.RowCount > 0)
+            {
                 Current_row = dgvDetails.CurrentRow.Index;
+                lblOf.Text = (Current_row + 1).ToString() + " of " + dgvDetails.RowCount.ToString();               
+            }
             else
-                Current_row = 0;
+            {
+                Current_row = 0;               
+            }
                
         }
 
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            //產生行號
-            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
-                e.RowBounds.Location.Y,
-                dgvDetails.RowHeadersWidth - 4,
-                e.RowBounds.Height);
+            ////產生行號
+            //System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+            //    e.RowBounds.Location.Y,
+            //    dgvDetails.RowHeadersWidth - 4,
+            //    e.RowBounds.Height);
 
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
-                dgvDetails.RowHeadersDefaultCellStyle.Font,
-                rectangle,
-                dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
-                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);            
+            //TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+            //    dgvDetails.RowHeadersDefaultCellStyle.Font,
+            //    rectangle,
+            //    dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
+            //    TextFormatFlags.VerticalCenter | TextFormatFlags.Right);            
 
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
@@ -239,7 +249,6 @@ namespace cf01.Forms
                     grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
                     grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
                 }
-
                 ////備註字段不顯示刪除線
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
