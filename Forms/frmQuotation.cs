@@ -238,6 +238,18 @@ namespace cf01.Forms
             }
             //數據綁定
             SetDataBindings();
+            //當PDD備註隱藏時重新調整表格位置以顯示更多內容
+            if (!is_group_pdd)
+            {
+                pnlHeard.Height = 400;                
+                this.tabControl1.Location = new System.Drawing.Point(-3, 440);                
+                Screen screen = Screen.PrimaryScreen;
+                int screen_width = screen.Bounds.Width;
+                int screen_height = screen.Bounds.Height;
+                this.pnlHeard.Width = screen_width-10;
+                this.tabControl1.Width = screen_width-2;
+                this.tabControl1.Height = screen_height - (pnlHeard.Height + toolStrip1.Height + 115);
+            }            
         }
 
         private void SetDataBindings()
