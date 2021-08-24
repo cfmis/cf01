@@ -1882,6 +1882,12 @@
     <Compile Include="ReportForm\frmProgressBar.Designer.cs">
       <DependentUpon>frmProgressBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmPurReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmPurReceipt.Designer.cs">
+      <DependentUpon>frmPurReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmQuotation_Count.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3357,6 +3363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmProgressBar.resx">
       <DependentUpon>frmProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmPurReceipt.resx">
+      <DependentUpon>frmPurReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmQuotation_Count.resx">
       <DependentUpon>frmQuotation_Count.cs</DependentUpon>

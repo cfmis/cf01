@@ -11,7 +11,7 @@ namespace cf01.CLS
         private static clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
         
         /// <summary>
-        /// 部門資料
+        /// 各車間資料
         /// </summary>
         /// <returns></returns>
         public static DataTable Get_Department()
@@ -38,6 +38,17 @@ namespace cf01.CLS
                 " From bs_dep a" +
                 " Order By a.dep_id";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+
+        /// <summary>
+        /// 部門資料
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable Get_Dept()
+        {
+            string sql = @"SELECT id,id+'['+name+']' AS cdesc FROM cd_department WHERE within_code='0000' AND state='0' ORDER BY id";
+            DataTable dt = clsPublicOfGEO.GetDataTable(sql);
             return dt;
         }
     }
