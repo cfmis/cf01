@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurReceipt));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,19 +57,6 @@
             this.cboDept_id1 = new DevExpress.XtraEditors.LookUpEdit();
             this.chkMl = new DevExpress.XtraEditors.CheckEdit();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dept_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receipt_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtid1 = new DevExpress.XtraEditors.TextEdit();
             this.lblID = new System.Windows.Forms.Label();
@@ -87,6 +74,19 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receipt_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
@@ -371,122 +371,6 @@
             this.dgvDetails.TabIndex = 0;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             // 
-            // flag_select
-            // 
-            this.flag_select.DataPropertyName = "flag_select";
-            this.flag_select.HeaderText = "";
-            this.flag_select.Name = "flag_select";
-            this.flag_select.Width = 60;
-            // 
-            // order_date
-            // 
-            this.order_date.DataPropertyName = "order_date";
-            this.order_date.HeaderText = "採購日期";
-            this.order_date.Name = "order_date";
-            this.order_date.ReadOnly = true;
-            this.order_date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.order_date.Width = 90;
-            // 
-            // dept_id
-            // 
-            this.dept_id.DataPropertyName = "dept_id";
-            this.dept_id.HeaderText = "部門編號";
-            this.dept_id.Name = "dept_id";
-            this.dept_id.ReadOnly = true;
-            this.dept_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dept_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dept_id.Width = 70;
-            // 
-            // dept_name
-            // 
-            this.dept_name.DataPropertyName = "dept_name";
-            this.dept_name.HeaderText = "部門名稱";
-            this.dept_name.Name = "dept_name";
-            this.dept_name.ReadOnly = true;
-            this.dept_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dept_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "採購單號";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "頁數";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            this.mo_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "物料編號";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.ReadOnly = true;
-            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_id.Width = 180;
-            // 
-            // goods_name
-            // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "物料名稱";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.ReadOnly = true;
-            this.goods_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_name.Width = 180;
-            // 
-            // order_qty
-            // 
-            this.order_qty.DataPropertyName = "order_qty";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.order_qty.DefaultCellStyle = dataGridViewCellStyle1;
-            this.order_qty.HeaderText = "訂單數量";
-            this.order_qty.Name = "order_qty";
-            this.order_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // sec_qty
-            // 
-            this.sec_qty.DataPropertyName = "sec_qty";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.sec_qty.DefaultCellStyle = dataGridViewCellStyle2;
-            this.sec_qty.HeaderText = "重量";
-            this.sec_qty.Name = "sec_qty";
-            this.sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // receipt_qty
-            // 
-            this.receipt_qty.DataPropertyName = "receipt_qty";
-            this.receipt_qty.HeaderText = "已收貨數量";
-            this.receipt_qty.Name = "receipt_qty";
-            this.receipt_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            this.remark.HeaderText = "備註";
-            this.remark.Name = "remark";
-            this.remark.ReadOnly = true;
-            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.remark.Width = 200;
-            // 
-            // sequence_id
-            // 
-            this.sequence_id.DataPropertyName = "sequence_id";
-            this.sequence_id.HeaderText = "序號";
-            this.sequence_id.Name = "sequence_id";
-            this.sequence_id.ReadOnly = true;
-            this.sequence_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sequence_id.Visible = false;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -659,6 +543,128 @@
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn11.Width = 200;
+            // 
+            // flag_select
+            // 
+            this.flag_select.DataPropertyName = "flag_select";
+            this.flag_select.HeaderText = "";
+            this.flag_select.Name = "flag_select";
+            this.flag_select.Width = 60;
+            // 
+            // order_date
+            // 
+            this.order_date.DataPropertyName = "order_date";
+            this.order_date.HeaderText = "採購日期";
+            this.order_date.Name = "order_date";
+            this.order_date.ReadOnly = true;
+            this.order_date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.order_date.Width = 70;
+            // 
+            // dept_id
+            // 
+            this.dept_id.DataPropertyName = "dept_id";
+            this.dept_id.HeaderText = "部門編號";
+            this.dept_id.Name = "dept_id";
+            this.dept_id.ReadOnly = true;
+            this.dept_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dept_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dept_id.Width = 40;
+            // 
+            // dept_name
+            // 
+            this.dept_name.DataPropertyName = "dept_name";
+            this.dept_name.HeaderText = "部門名稱";
+            this.dept_name.Name = "dept_name";
+            this.dept_name.ReadOnly = true;
+            this.dept_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dept_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dept_name.Width = 80;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "採購單號";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 80;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            this.mo_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mo_id.Width = 80;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "物料編號";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_id.Width = 150;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "物料名稱";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            this.goods_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_name.Width = 150;
+            // 
+            // order_qty
+            // 
+            this.order_qty.DataPropertyName = "order_qty";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.order_qty.DefaultCellStyle = dataGridViewCellStyle1;
+            this.order_qty.HeaderText = "訂單數量";
+            this.order_qty.Name = "order_qty";
+            this.order_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.order_qty.Width = 80;
+            // 
+            // sec_qty
+            // 
+            this.sec_qty.DataPropertyName = "sec_qty";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.sec_qty.DefaultCellStyle = dataGridViewCellStyle2;
+            this.sec_qty.HeaderText = "重量";
+            this.sec_qty.Name = "sec_qty";
+            this.sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sec_qty.Width = 70;
+            // 
+            // receipt_qty
+            // 
+            this.receipt_qty.DataPropertyName = "receipt_qty";
+            this.receipt_qty.HeaderText = "已收貨數量";
+            this.receipt_qty.Name = "receipt_qty";
+            this.receipt_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.receipt_qty.Width = 80;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "備註";
+            this.remark.Name = "remark";
+            this.remark.ReadOnly = true;
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.remark.Width = 180;
+            // 
+            // sequence_id
+            // 
+            this.sequence_id.DataPropertyName = "sequence_id";
+            this.sequence_id.HeaderText = "序號";
+            this.sequence_id.Name = "sequence_id";
+            this.sequence_id.ReadOnly = true;
+            this.sequence_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sequence_id.Visible = false;
             // 
             // frmPurReceipt
             // 
