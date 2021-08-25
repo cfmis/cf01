@@ -2316,6 +2316,12 @@
     <Compile Include="Reports\xrPurOutBuy.Designer.cs">
       <DependentUpon>xrPurOutBuy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrPurReceipt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrPurReceipt.designer.cs">
+      <DependentUpon>xrPurReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrQcTestReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3620,6 +3626,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrPurOutBuy.resx">
       <DependentUpon>xrPurOutBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrPurReceipt.resx">
+      <DependentUpon>xrPurReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQcTestReport.resx">
       <DependentUpon>xrQcTestReport.cs</DependentUpon>

@@ -1,4 +1,6 @@
 ﻿using cf01.CLS;
+using cf01.Reports;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,15 +99,28 @@ namespace cf01.ReportForm
 
         private void BTNPRINT_Click(object sender, EventArgs e)
         {
-            //    if (dtDelivery.Rows.Count ==0)
-            //    {
-            //        MessageBox.Show("請先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        return;
-            //    }
-            //    xrPurReceipt rpt = new xrPurReceipt() { DataSource = dtDelivery };
-            //    rpt.CreateDocument();
-            //    rpt.PrintingSystem.ShowMarginsWarning = false;
-            //    rpt.ShowPreview();
+            if (dtDelivery.Rows.Count == 0)
+            {
+                MessageBox.Show("請首先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DataRow[] drs = dtDelivery.Select("flag_select=true");
+            if(drs.Length==0)
+            {
+                MessageBox.Show("請選中需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DataTable dtReport = dtDelivery.Clone();
+            foreach (DataRow dr in drs)
+            {
+                dtReport.ImportRow(dr);
+            }           
+            using (xrPurReceipt rpt = new xrPurReceipt() { DataSource = dtReport })
+            {
+                rpt.CreateDocument();
+                rpt.PrintingSystem.ShowMarginsWarning = false;
+                rpt.ShowPreviewDialog();
+            }
         }
 
         private void dtDat1_Leave(object sender, EventArgs e)
