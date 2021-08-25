@@ -104,6 +104,7 @@ namespace cf01.ReportForm
                 MessageBox.Show("請首先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            txtid2.Focus();
             DataRow[] drs = dtDelivery.Select("flag_select=true");
             if(drs.Length==0)
             {
