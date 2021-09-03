@@ -316,19 +316,26 @@ namespace cf01.ReportForm
                             range.Cells.Interior.Color = System.Drawing.Color.FromArgb(241, 230, 220).ToArgb(); //设置单元格的背景色 
                             //列宽自适应
                             //sheet.Columns.EntireColumn.AutoFit();
-                            //劃線
+                            
+                            //劃格線
                             //获取Excel多个单元格区域
-                            string rang = string.Format("I{0}", lastRow);//右下角座標
-                            Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)sheet.get_Range("A1", rang);
+                            string bottom_right = string.Format("I{0}", lastRow);//右下角座標
+                            Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)sheet.get_Range("A1", bottom_right);
                             //单元格边框线类型(线型,虚线型)
                             excelRange.Borders.LineStyle = 1;
                             excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+
+                            //設置數字顯示格式
+                            range = sheet.get_Range("C4", "F"+ lastRow.ToString());//获取多个单元格
+                            range.NumberFormat = "#,##0";//整數
+                            range = sheet.get_Range("G4", bottom_right);//获取多个单元格
+                            range.NumberFormat = "#,##0.00"; 
                         }                        
                     }
                     else
                     {
                         //Summary sheet
-                        sheet = GetSummarySheet(sheet, dtReport_summary_brand);                       
+                        sheet = GetSummarySheet(sheet, dtReport_summary_brand);
                     }
                     
                 }//for loop
@@ -484,14 +491,20 @@ namespace cf01.ReportForm
                                 range.Cells.Interior.Color = System.Drawing.Color.FromArgb(241, 230, 220).ToArgb();//设置单元格的背景色 
                                 //列宽自适应        
                                 //sheet.Columns.EntireColumn.AutoFit();
-                                    
+
                                 //劃線
                                 //获取Excel多个单元格区域
-                                string rang = string.Format("K{0}", lastRow);//右下角座標
-                                Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)sheet.get_Range("A1", rang);
+                                string bottom_right = string.Format("K{0}", lastRow);//右下角座標                                
+                                Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)sheet.get_Range("A1", bottom_right);
                                 //单元格边框线类型(线型,虚线型)
                                 excelRange.Borders.LineStyle = 1;
                                 excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+
+                                //設置數字顯示格式
+                                range = sheet.get_Range("E4", "H" + lastRow.ToString());//获取多个单元格
+                                range.NumberFormat = "#,##0";//整數
+                                range = sheet.get_Range("I4", bottom_right);//获取多个单元格
+                                range.NumberFormat = "#,##0.00";
                             }
                         }
                         else
@@ -584,11 +597,17 @@ namespace cf01.ReportForm
                 range.Cells.Interior.Color = System.Drawing.Color.FromArgb(241, 230, 220).ToArgb();//设置单元格的背景色
                 //劃線
                 //获取Excel多个单元格区域
-                string rang = string.Format("H{0}", lastRow);//右下角座標
-                Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)sheet.get_Range("A1", rang);
+                string bottom_right = string.Format("H{0}", lastRow);//右下角座標
+                Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)sheet.get_Range("A1", bottom_right);
                 //单元格边框线类型(线型,虚线型)
                 excelRange.Borders.LineStyle = 1;
                 excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+
+                //設置數字顯示格式
+                range = sheet.get_Range("B3", "E" + lastRow.ToString());//获取多个单元格
+                range.NumberFormat = "#,##0";//整數
+                range = sheet.get_Range("F3", bottom_right);//获取多个单元格
+                range.NumberFormat = "#,##0.00";
 
             }
             return sheet;

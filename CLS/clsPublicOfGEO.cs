@@ -51,21 +51,43 @@ namespace cf01.CLS
 
         public DataTable GetDataTable(string strSQL)
         {
+            //DataTable dtData = new DataTable();
+            //try
+            //{
+            //    using (SqlConnection conn = new SqlConnection(strConn))
+            //    {
+                    
+            //        SqlDataAdapter sda = new SqlDataAdapter(strSQL, conn);                    
+            //        //sda.CommandTimeout = 1800;//連接30分鐘
+            //        sda.Fill(dtData);
+            //        sda.Dispose();
+            //        conn.Close();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    MessageBox.Show(ex.Message);
+            //}
+            //return dtData;
+
             DataTable dtData = new DataTable();
             try
             {
                 using (SqlConnection conn = new SqlConnection(strConn))
                 {
-
-                    SqlDataAdapter sda = new SqlDataAdapter(strSQL, conn);
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandTimeout = 1800;//連接30分鐘
+                    cmd.CommandText = strSQL;
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     sda.Fill(dtData);
-                    sda.Dispose();
-                    conn.Close();
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             return dtData;
