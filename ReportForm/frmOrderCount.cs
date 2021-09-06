@@ -471,8 +471,8 @@ namespace cf01.ReportForm
                                     k = k + 1;
                                 }
                                 sheet.Columns[2].ColumnWidth = 28;
-                                sheet.Columns[3].ColumnWidth = 28;
-                                sheet.Columns[4].ColumnWidth = 11;
+                                sheet.Columns[3].ColumnWidth = 8;
+                                sheet.Columns[4].ColumnWidth = 30;
                                 sheet.Columns[5].ColumnWidth = 11;
                                 sheet.Columns[6].ColumnWidth = 13;
                                 sheet.Columns[7].ColumnWidth = 13;
