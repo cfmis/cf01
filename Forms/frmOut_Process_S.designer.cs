@@ -51,25 +51,6 @@
             this.BTNEXCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.picArt = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cboVendor_id2 = new System.Windows.Forms.ComboBox();
-            this.cboVendor_id1 = new System.Windows.Forms.ComboBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rgrp1 = new DevExpress.XtraEditors.RadioGroup();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issue_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +67,26 @@
             this.picture_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goods_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sec_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picArt = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rgrp1 = new DevExpress.XtraEditors.RadioGroup();
+            this.cboVendor_id2 = new System.Windows.Forms.ComboBox();
+            this.cboVendor_id1 = new System.Windows.Forms.ComboBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkOther = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -344,6 +345,144 @@
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
             this.dgvDetails.DoubleClick += new System.EventHandler(this.dgvDetails_DoubleClick);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "單據編號";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // issue_date
+            // 
+            this.issue_date.DataPropertyName = "issue_date";
+            this.issue_date.HeaderText = "開單日期";
+            this.issue_date.Name = "issue_date";
+            this.issue_date.ReadOnly = true;
+            this.issue_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.issue_date.Width = 80;
+            // 
+            // vendor_id
+            // 
+            this.vendor_id.DataPropertyName = "vendor_id";
+            this.vendor_id.HeaderText = "供應商編號";
+            this.vendor_id.Name = "vendor_id";
+            this.vendor_id.ReadOnly = true;
+            this.vendor_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vendor_id.Width = 80;
+            // 
+            // vendor_name
+            // 
+            this.vendor_name.DataPropertyName = "vendor_name";
+            this.vendor_name.HeaderText = "供應商名稱";
+            this.vendor_name.Name = "vendor_name";
+            this.vendor_name.ReadOnly = true;
+            this.vendor_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vendor_name.Width = 80;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "制單編號";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mo_id.Width = 85;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "貨品編號";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_id.Width = 140;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品名稱";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_name.Width = 150;
+            // 
+            // color
+            // 
+            this.color.DataPropertyName = "color";
+            this.color.HeaderText = "顏色";
+            this.color.Name = "color";
+            this.color.ReadOnly = true;
+            this.color.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.color.Width = 40;
+            // 
+            // prod_qty
+            // 
+            this.prod_qty.DataPropertyName = "prod_qty";
+            this.prod_qty.HeaderText = "數量";
+            this.prod_qty.Name = "prod_qty";
+            this.prod_qty.ReadOnly = true;
+            this.prod_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.prod_qty.Width = 70;
+            // 
+            // sec_qty
+            // 
+            this.sec_qty.DataPropertyName = "sec_qty";
+            this.sec_qty.HeaderText = "重量";
+            this.sec_qty.Name = "sec_qty";
+            this.sec_qty.ReadOnly = true;
+            this.sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sec_qty.Width = 60;
+            // 
+            // package_num
+            // 
+            this.package_num.DataPropertyName = "package_num";
+            this.package_num.HeaderText = "包數";
+            this.package_num.Name = "package_num";
+            this.package_num.ReadOnly = true;
+            this.package_num.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.package_num.Width = 80;
+            // 
+            // t_complete_date
+            // 
+            this.t_complete_date.DataPropertyName = "t_complete_date";
+            this.t_complete_date.HeaderText = "交貨期";
+            this.t_complete_date.Name = "t_complete_date";
+            this.t_complete_date.ReadOnly = true;
+            this.t_complete_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.t_complete_date.Width = 90;
+            // 
+            // depart_name
+            // 
+            this.depart_name.DataPropertyName = "depart_name";
+            this.depart_name.HeaderText = "發貨部門";
+            this.depart_name.Name = "depart_name";
+            this.depart_name.ReadOnly = true;
+            this.depart_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // picture_name
+            // 
+            this.picture_name.DataPropertyName = "picture_name";
+            this.picture_name.HeaderText = "pictrue_name";
+            this.picture_name.Name = "picture_name";
+            this.picture_name.ReadOnly = true;
+            this.picture_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.picture_name.Visible = false;
+            // 
+            // goods_unit
+            // 
+            this.goods_unit.DataPropertyName = "goods_unit";
+            this.goods_unit.HeaderText = "數量單位";
+            this.goods_unit.Name = "goods_unit";
+            this.goods_unit.ReadOnly = true;
+            // 
+            // sec_unit
+            // 
+            this.sec_unit.DataPropertyName = "sec_unit";
+            this.sec_unit.HeaderText = "重量單位";
+            this.sec_unit.Name = "sec_unit";
+            this.sec_unit.ReadOnly = true;
+            // 
             // picArt
             // 
             this.picArt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -356,6 +495,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkOther);
             this.panel1.Controls.Add(this.rgrp1);
             this.panel1.Controls.Add(this.cboVendor_id2);
             this.panel1.Controls.Add(this.cboVendor_id1);
@@ -373,6 +513,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(585, 158);
             this.panel1.TabIndex = 133;
+            // 
+            // rgrp1
+            // 
+            this.rgrp1.Location = new System.Drawing.Point(93, 112);
+            this.rgrp1.Name = "rgrp1";
+            this.rgrp1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "發貨"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "收貨")});
+            this.rgrp1.Size = new System.Drawing.Size(171, 23);
+            this.rgrp1.TabIndex = 128;
             // 
             // cboVendor_id2
             // 
@@ -520,153 +670,15 @@
             this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn14.Visible = false;
             // 
-            // rgrp1
+            // chkOther
             // 
-            this.rgrp1.Location = new System.Drawing.Point(93, 112);
-            this.rgrp1.Name = "rgrp1";
-            this.rgrp1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "發貨"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "收貨")});
-            this.rgrp1.Size = new System.Drawing.Size(171, 23);
-            this.rgrp1.TabIndex = 128;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "單據編號";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // issue_date
-            // 
-            this.issue_date.DataPropertyName = "issue_date";
-            this.issue_date.HeaderText = "開單日期";
-            this.issue_date.Name = "issue_date";
-            this.issue_date.ReadOnly = true;
-            this.issue_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.issue_date.Width = 80;
-            // 
-            // vendor_id
-            // 
-            this.vendor_id.DataPropertyName = "vendor_id";
-            this.vendor_id.HeaderText = "供應商編號";
-            this.vendor_id.Name = "vendor_id";
-            this.vendor_id.ReadOnly = true;
-            this.vendor_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.vendor_id.Width = 80;
-            // 
-            // vendor_name
-            // 
-            this.vendor_name.DataPropertyName = "vendor_name";
-            this.vendor_name.HeaderText = "供應商名稱";
-            this.vendor_name.Name = "vendor_name";
-            this.vendor_name.ReadOnly = true;
-            this.vendor_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.vendor_name.Width = 80;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "制單編號";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mo_id.Width = 85;
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "貨品編號";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.ReadOnly = true;
-            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_id.Width = 140;
-            // 
-            // goods_name
-            // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "貨品名稱";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.ReadOnly = true;
-            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_name.Width = 150;
-            // 
-            // color
-            // 
-            this.color.DataPropertyName = "color";
-            this.color.HeaderText = "顏色";
-            this.color.Name = "color";
-            this.color.ReadOnly = true;
-            this.color.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.color.Width = 40;
-            // 
-            // prod_qty
-            // 
-            this.prod_qty.DataPropertyName = "prod_qty";
-            this.prod_qty.HeaderText = "數量";
-            this.prod_qty.Name = "prod_qty";
-            this.prod_qty.ReadOnly = true;
-            this.prod_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.prod_qty.Width = 70;
-            // 
-            // sec_qty
-            // 
-            this.sec_qty.DataPropertyName = "sec_qty";
-            this.sec_qty.HeaderText = "重量";
-            this.sec_qty.Name = "sec_qty";
-            this.sec_qty.ReadOnly = true;
-            this.sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sec_qty.Width = 60;
-            // 
-            // package_num
-            // 
-            this.package_num.DataPropertyName = "package_num";
-            this.package_num.HeaderText = "包數";
-            this.package_num.Name = "package_num";
-            this.package_num.ReadOnly = true;
-            this.package_num.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.package_num.Width = 80;
-            // 
-            // t_complete_date
-            // 
-            this.t_complete_date.DataPropertyName = "t_complete_date";
-            this.t_complete_date.HeaderText = "交貨期";
-            this.t_complete_date.Name = "t_complete_date";
-            this.t_complete_date.ReadOnly = true;
-            this.t_complete_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.t_complete_date.Width = 90;
-            // 
-            // depart_name
-            // 
-            this.depart_name.DataPropertyName = "depart_name";
-            this.depart_name.HeaderText = "發貨部門";
-            this.depart_name.Name = "depart_name";
-            this.depart_name.ReadOnly = true;
-            this.depart_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // picture_name
-            // 
-            this.picture_name.DataPropertyName = "picture_name";
-            this.picture_name.HeaderText = "pictrue_name";
-            this.picture_name.Name = "picture_name";
-            this.picture_name.ReadOnly = true;
-            this.picture_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.picture_name.Visible = false;
-            // 
-            // goods_unit
-            // 
-            this.goods_unit.DataPropertyName = "goods_unit";
-            this.goods_unit.HeaderText = "數量單位";
-            this.goods_unit.Name = "goods_unit";
-            this.goods_unit.ReadOnly = true;
-            // 
-            // sec_unit
-            // 
-            this.sec_unit.DataPropertyName = "sec_unit";
-            this.sec_unit.HeaderText = "重量單位";
-            this.sec_unit.Name = "sec_unit";
-            this.sec_unit.ReadOnly = true;
+            this.chkOther.AutoSize = true;
+            this.chkOther.Location = new System.Drawing.Point(289, 119);
+            this.chkOther.Name = "chkOther";
+            this.chkOther.Size = new System.Drawing.Size(72, 16);
+            this.chkOther.TabIndex = 129;
+            this.chkOther.Text = "其他格式";
+            this.chkOther.UseVisualStyleBackColor = true;
             // 
             // frmOut_Process_S
             // 
@@ -759,5 +771,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn picture_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit;
+        private System.Windows.Forms.CheckBox chkOther;
     }
 }
