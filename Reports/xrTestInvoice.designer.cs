@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrCheckBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
             this.lblprod_qty = new DevExpress.XtraReports.UI.XRLabel();
@@ -45,6 +46,7 @@
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrLabel38 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
@@ -53,8 +55,6 @@
             this.xrCrossBandLine3 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine4 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine6 = new DevExpress.XtraReports.UI.XRCrossBandLine();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrCheckBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -71,6 +71,15 @@
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.Detail.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.Detail_BeforePrint);
+            // 
+            // xrCheckBox1
+            // 
+            this.xrCheckBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(576.5259F, 10.00001F);
+            this.xrCheckBox1.Name = "xrCheckBox1";
+            this.xrCheckBox1.SizeF = new System.Drawing.SizeF(20.83344F, 23F);
+            this.xrCheckBox1.StylePriority.UseFont = false;
+            this.xrCheckBox1.Visible = false;
             // 
             // xrLabel2
             // 
@@ -169,7 +178,7 @@
             this.xrLabel9.SizeF = new System.Drawing.SizeF(109.125F, 36.41666F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
-            this.xrLabel9.Text = "日  期";
+            this.xrLabel9.Text = "發票日期";
             this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrLabel9.WordWrap = false;
             // 
@@ -183,7 +192,7 @@
             this.xrLabel10.SizeF = new System.Drawing.SizeF(70.33122F, 36.41666F);
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
-            this.xrLabel10.Text = "序  號";
+            this.xrLabel10.Text = "序 號";
             this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrLabel10.WordWrap = false;
             // 
@@ -211,7 +220,7 @@
             this.xrLabel12.SizeF = new System.Drawing.SizeF(64.62494F, 36.41666F);
             this.xrLabel12.StylePriority.UseFont = false;
             this.xrLabel12.StylePriority.UseTextAlignment = false;
-            this.xrLabel12.Text = "組  別";
+            this.xrLabel12.Text = "組 別";
             this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel13
@@ -252,6 +261,21 @@
             this.xrLabel6.StylePriority.UseTextAlignment = false;
             this.xrLabel6.Text = "Lab  Test  Report";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.CanGrow = false;
+            this.xrLabel1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(530.375F, 81.08333F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(37.98428F, 36.41666F);
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
+            this.xrLabel1.Text = "AC是否已確認";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel1.Visible = false;
+            this.xrLabel1.WordWrap = false;
             // 
             // xrPageInfo1
             // 
@@ -336,30 +360,6 @@
             this.xrCrossBandLine6.StartBand = this.PageHeader;
             this.xrCrossBandLine6.StartPointFloat = new DevExpress.Utils.PointFloat(571.5F, 76.45833F);
             this.xrCrossBandLine6.WidthF = 1.041687F;
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.CanGrow = false;
-            this.xrLabel1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(530.375F, 81.08333F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(37.98428F, 36.41666F);
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "AC是否已確認";
-            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLabel1.Visible = false;
-            this.xrLabel1.WordWrap = false;
-            // 
-            // xrCheckBox1
-            // 
-            this.xrCheckBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(576.5259F, 10.00001F);
-            this.xrCheckBox1.Name = "xrCheckBox1";
-            this.xrCheckBox1.SizeF = new System.Drawing.SizeF(20.83344F, 23F);
-            this.xrCheckBox1.StylePriority.UseFont = false;
-            this.xrCheckBox1.Visible = false;
             // 
             // xrTestInvoice
             // 
