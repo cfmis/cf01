@@ -15,8 +15,8 @@ using cf01.CLS;
 using cf01.MDL;
 using System.IO;
 using System.Threading;
-
-
+using DevExpress.XtraReports.UI;
+using cf01.Reports;
 
 namespace cf01.Forms
 {
@@ -258,8 +258,33 @@ namespace cf01.Forms
 
         private void BTNPRINT_Click(object sender, EventArgs e)
         {
-            //
-        }
+            if (dtFind_Date.Rows.Count == 0)
+            {
+                MessageBox.Show("請首先查詢出需要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DataTable dtReport = new DataTable();
+            dtReport.Columns.Add("invoice_date", typeof(string));
+            dtReport.Columns.Add("invoice_id", typeof(string));            
+            dtReport.Columns.Add("seq", typeof(Int32));
+            dtReport.Columns.Add("sales_group", typeof(string));
+            dtReport.Columns.Add("confirm_ac", typeof(bool));
+            for (int i=0;i< dtFind_Date.Rows.Count; i++)
+            {
+                DataRow drw = dtReport.Rows.Add();
+                drw["invoice_date"] = dtFind_Date.Rows[i]["invoice_date"].ToString();
+                drw["invoice_id"] = dtFind_Date.Rows[i]["invoice_id"].ToString();
+                drw["seq"] = i+1;
+                drw["sales_group"] = dtFind_Date.Rows[i]["sales_group"].ToString();
+                drw["confirm_ac"] = dtFind_Date.Rows[i]["confirm_ac"];                
+            }
+            using (xrTestInvoice rpt = new xrTestInvoice() { DataSource = dtReport })
+            {
+                rpt.CreateDocument();
+                rpt.PrintingSystem.ShowMarginsWarning = false;
+                rpt.ShowPreviewDialog();
+            }
+        }        
 
         private void AddNew()  //新增
         {

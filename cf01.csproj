@@ -2508,6 +2508,12 @@
     <Compile Include="Reports\xrTakeMoSample_Card.Designer.cs">
       <DependentUpon>xrTakeMoSample_Card.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrTestInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrTestInvoice.designer.cs">
+      <DependentUpon>xrTestInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrTommyTest1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3722,6 +3728,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrTakeMoSample_Card.resx">
       <DependentUpon>xrTakeMoSample_Card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrTestInvoice.resx">
+      <DependentUpon>xrTestInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrTommyTest1.resx">
       <DependentUpon>xrTommyTest1.cs</DependentUpon>
