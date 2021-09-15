@@ -733,7 +733,8 @@ namespace cf01.CLS
                                     ,a.expiry_date, a.remark,a.ref_mo, a.crusr, a.crtim, a.amusr, a.amtim, a.test_report_path 
                                     ,a.mat_id+'('+b.name+')' as mat_cdesc,a.color_id+'('+c.cdesc+')'as color_cdesc
                                     ,a.poduct_type_id+'('+ d.cdesc+')' as prod_type_cdesc,'' as test_item_cdesc
-                                    ,a.size,a.cf_color,a.sales_group,a.doc_type,CONVERT(date,GETDATE(),120) as valid_date,a.test_report_no as report_no                                    
+                                    ,a.size,a.cf_color,a.sales_group,a.doc_type,CONVERT(date,GETDATE(),120) as valid_date
+                                    ,a.test_report_no as report_no,a.test_dept                               
                             FROM bs_test_excel a
                             LEFT JOIN bs_test_mat_type b ON a.mat_id=b.id
                             LEFT JOIN bs_test_color_category c ON a.color_id=c.id
@@ -802,6 +803,10 @@ namespace cf01.CLS
             if (objTe.doc_type != "")
             {
                 sb.Append(String.Format(" AND a.doc_type Like '%{0}%'", objTe.doc_type));
+            }
+            if (objTe.test_dept != "")
+            {
+                sb.Append(String.Format(" AND a.test_dept='{0}'", objTe.test_dept));
             }
             if (objTe.crusr != "")
             {
@@ -937,6 +942,12 @@ namespace cf01.CLS
         public static void SetColorType(LookUpEdit objLookUpEdit)
         {
             DataTable dtColor = clsPublicOfCF01.GetDataTable(@"SELECT id,id +' ('+ cdesc+')' AS cdesc,edesc FROM dbo.bs_test_color_category");
+            SetTypeDropValue(dtColor, objLookUpEdit);
+        }
+        //測試機構
+        public static void SetTestDept(LookUpEdit objLookUpEdit)
+        {
+            DataTable dtColor = clsPublicOfCF01.GetDataTable(@"SELECT typ_cdesc as id,typ_cdesc as cdesc FROM dbo.bs_type where typ_group='ZD' ORDER BY typ_code");
             SetTypeDropValue(dtColor, objLookUpEdit);
         }
         //設置原材料類別

@@ -80,6 +80,8 @@
             this.lueProductType = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMat = new DevExpress.XtraEditors.LookUpEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lueTest_dept = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnGetmoinfo = new System.Windows.Forms.Button();
             this.btnTestItem = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -168,6 +170,7 @@
             this.sales_group = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clSales_group = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.doc_type = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.test_dept = new DevExpress.XtraGrid.Columns.GridColumn();
             this.crusr = new DevExpress.XtraGrid.Columns.GridColumn();
             this.crtim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.amusr = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -184,6 +187,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTest_dept.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmusr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim.Properties)).BeginInit();
@@ -396,7 +400,7 @@
             this.txtTestReportNo.MaxLength = 20;
             this.txtTestReportNo.Name = "txtTestReportNo";
             this.txtTestReportNo.ReadOnly = true;
-            this.txtTestReportNo.Size = new System.Drawing.Size(240, 22);
+            this.txtTestReportNo.Size = new System.Drawing.Size(226, 22);
             this.txtTestReportNo.TabIndex = 9;
             this.txtTestReportNo.Tag = "2";
             this.txtTestReportNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTestReportNo_KeyPress);
@@ -415,7 +419,7 @@
             this.btnEditTest_report_Path.Properties.ReadOnly = true;
             this.btnEditTest_report_Path.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEditTest_report_Path_Properties_ButtonClick);
             this.btnEditTest_report_Path.Properties.DoubleClick += new System.EventHandler(this.btnEditTest_report_Path_Properties_DoubleClick);
-            this.btnEditTest_report_Path.Size = new System.Drawing.Size(624, 22);
+            this.btnEditTest_report_Path.Size = new System.Drawing.Size(630, 22);
             this.btnEditTest_report_Path.TabIndex = 13;
             this.btnEditTest_report_Path.Tag = "2";
             this.btnEditTest_report_Path.ToolTip = "雙擊鼠標左鍵可以開啟對應的測試報告";
@@ -425,7 +429,7 @@
             // 
             this.deExpriy.EditValue = "";
             this.deExpriy.EnterMoveNextControl = true;
-            this.deExpriy.Location = new System.Drawing.Point(656, 58);
+            this.deExpriy.Location = new System.Drawing.Point(853, 58);
             this.deExpriy.Name = "deExpriy";
             this.deExpriy.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.deExpriy.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -440,7 +444,7 @@
             this.deExpriy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.deExpriy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deExpriy.Properties.MaxLength = 10;
-            this.deExpriy.Size = new System.Drawing.Size(291, 22);
+            this.deExpriy.Size = new System.Drawing.Size(100, 22);
             this.deExpriy.TabIndex = 12;
             this.deExpriy.Tag = "2";
             // 
@@ -452,7 +456,7 @@
             this.txtTrim_code.MaxLength = 30;
             this.txtTrim_code.Name = "txtTrim_code";
             this.txtTrim_code.ReadOnly = true;
-            this.txtTrim_code.Size = new System.Drawing.Size(240, 22);
+            this.txtTrim_code.Size = new System.Drawing.Size(226, 22);
             this.txtTrim_code.TabIndex = 7;
             this.txtTrim_code.Tag = "2";
             this.txtTrim_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTrim_code_KeyPress);
@@ -464,7 +468,7 @@
             this.txtRemark.MaxLength = 255;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.ReadOnly = true;
-            this.txtRemark.Size = new System.Drawing.Size(624, 22);
+            this.txtRemark.Size = new System.Drawing.Size(630, 22);
             this.txtRemark.TabIndex = 14;
             this.txtRemark.Tag = "2";
             this.txtRemark.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRemark_KeyPress);
@@ -477,7 +481,7 @@
             this.txtRef_mo.MaxLength = 9;
             this.txtRef_mo.Name = "txtRef_mo";
             this.txtRef_mo.ReadOnly = true;
-            this.txtRef_mo.Size = new System.Drawing.Size(240, 22);
+            this.txtRef_mo.Size = new System.Drawing.Size(226, 22);
             this.txtRef_mo.TabIndex = 8;
             this.txtRef_mo.Tag = "2";
             this.txtRef_mo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRef_mo_KeyPress);
@@ -505,7 +509,7 @@
             this.txtTrim_color_code.MaxLength = 20;
             this.txtTrim_color_code.Name = "txtTrim_color_code";
             this.txtTrim_color_code.ReadOnly = true;
-            this.txtTrim_color_code.Size = new System.Drawing.Size(291, 22);
+            this.txtTrim_color_code.Size = new System.Drawing.Size(297, 22);
             this.txtTrim_color_code.TabIndex = 11;
             this.txtTrim_color_code.Tag = "2";
             this.txtTrim_color_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTrim_color_code_KeyPress);
@@ -517,7 +521,7 @@
             this.txtFinish_name.MaxLength = 150;
             this.txtFinish_name.Name = "txtFinish_name";
             this.txtFinish_name.ReadOnly = true;
-            this.txtFinish_name.Size = new System.Drawing.Size(291, 22);
+            this.txtFinish_name.Size = new System.Drawing.Size(297, 22);
             this.txtFinish_name.TabIndex = 10;
             this.txtFinish_name.Tag = "2";
             this.txtFinish_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFinish_name_KeyPress);
@@ -566,7 +570,7 @@
             // lblExpirydate
             // 
             this.lblExpirydate.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblExpirydate.Location = new System.Drawing.Point(594, 59);
+            this.lblExpirydate.Location = new System.Drawing.Point(791, 59);
             this.lblExpirydate.Name = "lblExpirydate";
             this.lblExpirydate.Size = new System.Drawing.Size(60, 14);
             this.lblExpirydate.TabIndex = 2;
@@ -711,6 +715,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lueTest_dept);
+            this.panel1.Controls.Add(this.labelControl2);
             this.panel1.Controls.Add(this.btnGetmoinfo);
             this.panel1.Controls.Add(this.btnTestItem);
             this.panel1.Controls.Add(this.label7);
@@ -762,11 +768,42 @@
             this.panel1.Size = new System.Drawing.Size(1014, 219);
             this.panel1.TabIndex = 14;
             // 
+            // lueTest_dept
+            // 
+            this.lueTest_dept.EditValue = "";
+            this.lueTest_dept.Enabled = false;
+            this.lueTest_dept.EnterMoveNextControl = true;
+            this.lueTest_dept.Location = new System.Drawing.Point(656, 58);
+            this.lueTest_dept.Name = "lueTest_dept";
+            this.lueTest_dept.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lueTest_dept.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lueTest_dept.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.lueTest_dept.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueTest_dept.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 50, "id")});
+            this.lueTest_dept.Properties.NullText = "";
+            this.lueTest_dept.Properties.ShowHeader = false;
+            this.lueTest_dept.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueTest_dept.Size = new System.Drawing.Size(130, 22);
+            this.lueTest_dept.TabIndex = 42;
+            this.lueTest_dept.Tag = "2";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl2.Location = new System.Drawing.Point(557, 58);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(94, 14);
+            this.labelControl2.TabIndex = 41;
+            this.labelControl2.Text = "測試機構(公正行)";
+            this.labelControl2.UseMnemonic = false;
+            // 
             // btnGetmoinfo
             // 
             this.btnGetmoinfo.Enabled = false;
             this.btnGetmoinfo.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnGetmoinfo.Location = new System.Drawing.Point(563, 30);
+            this.btnGetmoinfo.Location = new System.Drawing.Point(549, 30);
             this.btnGetmoinfo.Name = "btnGetmoinfo";
             this.btnGetmoinfo.Size = new System.Drawing.Size(29, 22);
             this.btnGetmoinfo.TabIndex = 40;
@@ -789,7 +826,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("PMingLiU", 8F);
-            this.label7.Location = new System.Drawing.Point(953, 72);
+            this.label7.Location = new System.Drawing.Point(956, 72);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 57);
             this.label7.TabIndex = 38;
@@ -871,7 +908,7 @@
             this.txtAmtim.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtAmtim.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtAmtim.Properties.ReadOnly = true;
-            this.txtAmtim.Size = new System.Drawing.Size(191, 22);
+            this.txtAmtim.Size = new System.Drawing.Size(197, 22);
             this.txtAmtim.TabIndex = 32;
             this.txtAmtim.Tag = "2";
             // 
@@ -949,7 +986,7 @@
             this.txtDoc_type.Location = new System.Drawing.Point(323, 163);
             this.txtDoc_type.MaxLength = 10;
             this.txtDoc_type.Name = "txtDoc_type";
-            this.txtDoc_type.Size = new System.Drawing.Size(240, 20);
+            this.txtDoc_type.Size = new System.Drawing.Size(226, 20);
             this.txtDoc_type.TabIndex = 16;
             this.txtDoc_type.Tag = "2";
             this.txtDoc_type.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDoc_type_KeyPress);
@@ -980,7 +1017,7 @@
             this.txtCf_color.MaxLength = 100;
             this.txtCf_color.Name = "txtCf_color";
             this.txtCf_color.ReadOnly = true;
-            this.txtCf_color.Size = new System.Drawing.Size(624, 22);
+            this.txtCf_color.Size = new System.Drawing.Size(630, 22);
             this.txtCf_color.TabIndex = 15;
             this.txtCf_color.Tag = "2";
             this.txtCf_color.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCf_color_KeyPress);
@@ -1387,6 +1424,7 @@
             this.cf_color,
             this.sales_group,
             this.doc_type,
+            this.test_dept,
             this.crusr,
             this.crtim,
             this.amusr,
@@ -1779,6 +1817,20 @@
             this.doc_type.Visible = true;
             this.doc_type.VisibleIndex = 17;
             // 
+            // test_dept
+            // 
+            this.test_dept.Caption = "公正行";
+            this.test_dept.FieldName = "test_dept";
+            this.test_dept.Name = "test_dept";
+            this.test_dept.OptionsColumn.AllowMove = false;
+            this.test_dept.OptionsColumn.AllowShowHide = false;
+            this.test_dept.OptionsColumn.AllowSize = false;
+            this.test_dept.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.test_dept.OptionsFilter.AllowAutoFilter = false;
+            this.test_dept.OptionsFilter.AllowFilter = false;
+            this.test_dept.Visible = true;
+            this.test_dept.VisibleIndex = 18;
+            // 
             // crusr
             // 
             this.crusr.Caption = "建檔人";
@@ -1847,6 +1899,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueMat.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTest_dept.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmusr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim.Properties)).EndInit();
@@ -2014,5 +2067,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private DevExpress.XtraEditors.LookUpEdit lueTest_dept;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraGrid.Columns.GridColumn test_dept;
     }
 }

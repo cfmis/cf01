@@ -69,6 +69,7 @@ namespace cf01.MDL
         public string amount_unit;
         public string own_reference;
         public string remark2;
+        public string test_dept;
 
     }
 
@@ -83,7 +84,8 @@ namespace cf01.MDL
         public string trim_code;
         public string test_item_id;
         public string expiry_date;
-        public string ref_mo;      
+        public string ref_mo;
+        public string test_dept;    
           
     }
 

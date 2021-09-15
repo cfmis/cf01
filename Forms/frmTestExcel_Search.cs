@@ -73,6 +73,7 @@ namespace cf01.Forms
             objTe.sales_group = txtSales_group.Text;
             objTe.doc_type = txtDoc_type.Text;
             objTe.crusr = txtcrusr.Text;
+            objTe.test_dept = lueDept_dept.Text;
             if (!string.IsNullOrEmpty(dtCreate_date1.Text))
             {
                 objTe.crtim = DateTime.Parse(dtCreate_date1.Text);
@@ -92,6 +93,8 @@ namespace cf01.Forms
             clsTestProductPlan.SetProductType(lueProductType_sq);
             clsTestProductPlan.SetTest_item(lueTestItem_sq);
             clsTestProductPlan.SetColorType(lueColor_sq);
+            clsTestProductPlan.SetTestDept(lueDept_dept);
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

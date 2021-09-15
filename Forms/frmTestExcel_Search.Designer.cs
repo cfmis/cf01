@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestExcel_Search));
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.lueDept_dept = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtcrusr = new System.Windows.Forms.TextBox();
             this.dtCreate_date1 = new DevExpress.XtraEditors.DateEdit();
@@ -71,11 +73,12 @@
             this.lueProductType_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMat_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.SearchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueDept_dept.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTestItem_sq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).BeginInit();
@@ -85,6 +88,8 @@
             // 
             // SearchPanel
             // 
+            this.SearchPanel.Controls.Add(this.labelControl6);
+            this.SearchPanel.Controls.Add(this.lueDept_dept);
             this.SearchPanel.Controls.Add(this.labelControl4);
             this.SearchPanel.Controls.Add(this.txtcrusr);
             this.SearchPanel.Controls.Add(this.dtCreate_date1);
@@ -131,6 +136,31 @@
             this.SearchPanel.Size = new System.Drawing.Size(842, 328);
             this.SearchPanel.TabIndex = 12;
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl6.Location = new System.Drawing.Point(16, 163);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(48, 28);
+            this.labelControl6.TabIndex = 205;
+            this.labelControl6.Text = "測試機構\r\n(公正行)";
+            // 
+            // lueDept_dept
+            // 
+            this.lueDept_dept.EnterMoveNextControl = true;
+            this.lueDept_dept.Location = new System.Drawing.Point(69, 168);
+            this.lueDept_dept.Name = "lueDept_dept";
+            this.lueDept_dept.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.lueDept_dept.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueDept_dept.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 50, "Id")});
+            this.lueDept_dept.Properties.NullText = "";
+            this.lueDept_dept.Properties.ShowHeader = false;
+            this.lueDept_dept.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueDept_dept.Size = new System.Drawing.Size(130, 22);
+            this.lueDept_dept.TabIndex = 203;
+            // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(246, 170);
@@ -156,13 +186,13 @@
             this.dtCreate_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtCreate_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtCreate_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date1.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtCreate_date1.Properties.Mask.BeepOnError = true;
             this.dtCreate_date1.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtCreate_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtCreate_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtCreate_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date1.Size = new System.Drawing.Size(127, 22);
             this.dtCreate_date1.TabIndex = 197;
             this.dtCreate_date1.Tag = "2";
@@ -177,13 +207,13 @@
             this.dtCreate_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtCreate_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtCreate_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date2.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtCreate_date2.Properties.Mask.BeepOnError = true;
             this.dtCreate_date2.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtCreate_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtCreate_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtCreate_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtCreate_date2.Size = new System.Drawing.Size(127, 22);
             this.dtCreate_date2.TabIndex = 198;
             this.dtCreate_date2.Tag = "2";
@@ -313,14 +343,14 @@
             this.deExpriy.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.deExpriy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deExpriy.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deExpriy.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.deExpriy.Properties.EditFormat.FormatString = "yyyy-MM-dd";
             this.deExpriy.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.deExpriy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.deExpriy.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deExpriy.Properties.MaxLength = 10;
-            this.deExpriy.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deExpriy.Size = new System.Drawing.Size(155, 22);
             this.deExpriy.TabIndex = 4;
             // 
@@ -577,11 +607,12 @@
             this.Load += new System.EventHandler(this.frmSearchTestExcel_Load);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueDept_dept.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTestItem_sq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).EndInit();
@@ -634,5 +665,7 @@
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.TextBox txtcrusr;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LookUpEdit lueDept_dept;
     }
 }

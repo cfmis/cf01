@@ -78,8 +78,9 @@ namespace cf01.Forms
             clSales_group.DataSource = dtSales_Group;
             clSales_group.ValueMember = "id";
             clSales_group.DisplayMember = "cdesc";
-
-                                    
+            //測試機構
+            clsTestProductPlan.SetTestDept(lueTest_dept);
+            
             OperationType = clsUtility.enumOperationType.Load;
             ControlState();            
           
@@ -298,7 +299,13 @@ namespace cf01.Forms
                          data_valid_flag = false;
                          break;     
                      }
-                 }
+                    if (dgvDetails.GetRowCellValue(i, "test_dept").ToString() == "")
+                    {
+                        MessageBox.Show("測試機構(公正行)不可爲空!");
+                        data_valid_flag = false;
+                        break;
+                    }
+                }
             }
 
             if (!data_valid_flag)
@@ -307,19 +314,19 @@ namespace cf01.Forms
             }
 
             //註意DATETIME字段傳遞NULL值的處理                            
-            const string sql_i = 
+            const string sql_i =
             @"INSERT INTO bs_test_excel
             (mat_id,seq_id,color_id,finish_name,poduct_type_id,trim_color_code,trim_code,test_item_id,test_report_no,test_report_path,pattern_id,
-            remark, ref_mo,crusr, crtim, size,cf_color,sales_group,doc_type,[expiry_date])
+            remark, ref_mo,crusr, crtim, size,cf_color,sales_group,doc_type,[expiry_date],test_dept)
             VALUES(@mat_id,@seq_id, @color_id, @finish_name, @poduct_type_id,@trim_color_code, @trim_code, @test_item_id, @test_report_no, @test_report_path,@pattern_id,
-            @remark, @ref_mo,@user_id,GETDATE(),@size,@cf_color,@sales_group,@doc_type,CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END)";
+            @remark, @ref_mo,@user_id,GETDATE(),@size,@cf_color,@sales_group,@doc_type,CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END,@test_dept)";
 
-            const string sql_u = 
+            const string sql_u =
             @"UPDATE bs_test_excel SET color_id=@color_id, finish_name=@finish_name, poduct_type_id=@poduct_type_id ,trim_color_code=@trim_color_code,
             trim_code=@trim_code,test_item_id=@test_item_id, test_report_no=@test_report_no,test_report_path=@test_report_path,
             pattern_id=@pattern_id, remark=@remark,ref_mo=@ref_mo, amusr=@user_id, amtim=getdate(),
             size=@size,cf_color=@cf_color,sales_group=@sales_group,doc_type=@doc_type,
-            [expiry_date]=CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END
+            [expiry_date]=CASE LEN(@expiry_date) WHEN 0 THEN null ELSE @expiry_date END,test_dept=@test_dept
             WHERE mat_id=@mat_id AND seq_id=@seq_id";
 
             string str_date="";
@@ -388,6 +395,7 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@cf_color", dgvDetails.GetRowCellValue(i, "cf_color").ToString());
                         myCommand.Parameters.AddWithValue("@sales_group", dgvDetails.GetRowCellValue(i, "sales_group").ToString());
                         myCommand.Parameters.AddWithValue("@doc_type", dgvDetails.GetRowCellValue(i, "doc_type").ToString());
+                        myCommand.Parameters.AddWithValue("@test_dept", dgvDetails.GetRowCellValue(i, "test_dept").ToString());
                         myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                         myCommand.ExecuteNonQuery();
 
@@ -1005,6 +1013,7 @@ namespace cf01.Forms
             dgvDetails.SetRowCellValue(cur_row, "sales_group", txtSales_group.EditValue);
             dgvDetails.SetRowCellValue(cur_row, "doc_type", txtDoc_type.Text);
             dgvDetails.SetRowCellValue(cur_row, "valid_date", valid_date);
+            dgvDetails.SetRowCellValue(cur_row, "test_dept", lueTest_dept.EditValue);
         }
 
         private void Set_head(int  pRow)
@@ -1026,6 +1035,7 @@ namespace cf01.Forms
             txtDoc_type.Text = dtTe.Rows[pRow]["doc_type"].ToString();
             txtFinish_name.Text = dtTe.Rows[pRow]["finish_name"].ToString();
             txtTrim_color_code.Text = dtTe.Rows[pRow]["trim_color_code"].ToString();
+            lueTest_dept.EditValue = dtTe.Rows[pRow]["test_dept"].ToString();
             string strDat = dtTe.Rows[pRow]["expiry_date"].ToString();
             if (!string.IsNullOrEmpty(strDat))
             {                
@@ -1475,7 +1485,8 @@ namespace cf01.Forms
                         trim_code = dt.Rows[i]["trim_code"].ToString(),
                         test_item_id = dt.Rows[i]["test_item_id"].ToString(),
                         expiry_date = clsAppPublic.Return_String_Date(dt.Rows[i]["expiry_date"].ToString()),
-                        ref_mo = dt.Rows[i]["ref_mo"].ToString()
+                        ref_mo = dt.Rows[i]["ref_mo"].ToString(),
+                        test_dept = dt.Rows[i]["test_dept"].ToString()
                     };
                     lstModel.Add(oMdl);
                 }

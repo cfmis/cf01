@@ -106,6 +106,9 @@ namespace cf01.Forms
                     txtSales_group1.Items.Add(dtSales_Group.Rows[i][0].ToString());
                 }
             }
+            //測試機構
+            clsTestProductPlan.SetTestDept(lueTest_dept);
+            clsTestProductPlan.SetTestDept(lueTest_dept1);
             radioGroup1.SelectedIndex = 2;
             radioGroup2.SelectedIndex = 1;
             Add_Data();
@@ -269,6 +272,7 @@ namespace cf01.Forms
             dtReport.Columns.Add("seq", typeof(Int32));
             dtReport.Columns.Add("sales_group", typeof(string));
             dtReport.Columns.Add("confirm_ac", typeof(bool));
+            dtReport.Columns.Add("test_dept", typeof(string));
             for (int i=0;i< dtFind_Date.Rows.Count; i++)
             {
                 DataRow drw = dtReport.Rows.Add();
@@ -276,7 +280,8 @@ namespace cf01.Forms
                 drw["invoice_id"] = dtFind_Date.Rows[i]["invoice_id"].ToString();
                 drw["seq"] = i+1;
                 drw["sales_group"] = dtFind_Date.Rows[i]["sales_group"].ToString();
-                drw["confirm_ac"] = dtFind_Date.Rows[i]["confirm_ac"];                
+                drw["confirm_ac"] = dtFind_Date.Rows[i]["confirm_ac"];
+                drw["test_dept"] = dtFind_Date.Rows[i]["test_dept"].ToString();
             }
             using (xrTestInvoice rpt = new xrTestInvoice() { DataSource = dtReport })
             {
@@ -511,24 +516,7 @@ namespace cf01.Forms
             {
                 return;
             }
-            if (float.Parse(txtamount.Text) == 0)
-            {
-                MessageBox.Show("發票金額不可為空!", "提示信息");
-                txtamount.Focus();
-                return;
-            }
-            if (lkeamount_unit.Text == "")
-            {
-                MessageBox.Show("貨幣單位不可為空!", "提示信息");
-                lkeamount_unit.Focus();
-                return;
-            }
-            if (txtSales_group.Text == "")
-            {
-                MessageBox.Show("組別不可為空!", "提示信息");
-                txtSales_group.Focus();
-                return;
-            }
+            
             if (Check_Details_Valid())//檢查明細資料的有效性
             {
                 return;
@@ -548,8 +536,8 @@ namespace cf01.Forms
                     }
                 }
                 const string sql_i =
-                @"INSERT INTO dbo.bs_test_invoice_mostly(id,report_date,brand,invoice_id,invoice_date,amount,amount_unit,chemical_test,physical_test,own_reference,remark,create_by,create_date,sales_group)
-                 VALUES(@id,@report_date,@brand,@invoice_id,@invoice_date,@amount,@amount_unit,@chemical_test,@physical_test,@own_reference,@remark,@user_id,getdate(),@sales_group)";
+                @"INSERT INTO dbo.bs_test_invoice_mostly(id,report_date,brand,invoice_id,invoice_date,amount,amount_unit,chemical_test,physical_test,own_reference,remark,create_by,create_date,sales_group,test_dept)
+                 VALUES(@id,@report_date,@brand,@invoice_id,@invoice_date,@amount,@amount_unit,@chemical_test,@physical_test,@own_reference,@remark,@user_id,getdate(),@sales_group,@test_dept)";
                 string sql_u = "";
                 if (m_invoice_id_old == "")
                 {
@@ -557,7 +545,7 @@ namespace cf01.Forms
                     sql_u =
                     @"Update bs_test_invoice_mostly 
                     SET report_date=@report_date,brand=@brand,invoice_date=@invoice_date,amount=@amount,amount_unit=@amount_unit,chemical_test=@chemical_test,physical_test=@physical_test,
-                    own_reference=@own_reference,remark=@remark,update_by=@user_id,update_date=getdate(),sales_group=@sales_group
+                    own_reference=@own_reference,remark=@remark,update_by=@user_id,update_date=getdate(),sales_group=@sales_group,test_dept=@test_dept
                     WHERE id=@id and invoice_id=@invoice_id";
                 }
                 else
@@ -566,8 +554,8 @@ namespace cf01.Forms
                     sql_u =
                     @"Update bs_test_invoice_mostly 
                     SET invoice_id=@invoice_id,report_date=@report_date,brand=@brand,invoice_date=@invoice_date,amount=@amount,amount_unit=@amount_unit,chemical_test=@chemical_test,physical_test=@physical_test,
-                    own_reference=@own_reference,remark=@remark,update_by=@user_id,update_date=getdate(),sales_group=@sales_group
-                    WHERE id=@id and invoice_id='"+ m_invoice_id_old+"'";
+                    own_reference=@own_reference,remark=@remark,update_by=@user_id,update_date=getdate(),sales_group=@sales_group,test_dept=@test_dept
+                    WHERE id=@id and invoice_id='" + m_invoice_id_old+"'";
                 }
 
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString); //connect to dgsql2
@@ -605,6 +593,7 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@physical_test", clsApp.Return_Float_Value(txtphysical_test.Text));
                         myCommand.Parameters.AddWithValue("@own_reference", txtown_reference.Text);
                         myCommand.Parameters.AddWithValue("@remark", txtremark.Text);
+                        myCommand.Parameters.AddWithValue("@test_dept", lueTest_dept.Text);
                         myCommand.Parameters.AddWithValue("@sales_group", txtSales_group.Text);                        
                         myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                         myCommand.ExecuteNonQuery();
@@ -721,13 +710,57 @@ namespace cf01.Forms
 
         private bool Save_Before_Valid() //保存前檢查主檔資料有效性
         {
-            if (txtID.Text == "" || dtreport_date.Text == "" || txtinvoice_id.Text == "" || dtinvoice_date.Text == "")
+            bool flag_valid = true;
+            if (txtID.Text == "")
             {
-                MessageBox.Show("報告編號、報告日期、發票編號或者發票日期不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
+                txtID.Focus();
+                MessageBox.Show("報告編號!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flag_valid = false;
             }
-            else
-                return true;
+            if (dtreport_date.Text == "")
+            {
+                MessageBox.Show("報告日期不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtreport_date.Focus();
+                flag_valid = false;
+            }
+            if (txtinvoice_id.Text == "")
+            {
+                MessageBox.Show("發票編號不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtinvoice_id.Focus();
+                flag_valid = false;
+            }
+            if (dtinvoice_date.Text == "")
+            {
+                MessageBox.Show("發票日期不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtreport_date.Focus();
+                flag_valid = false;
+            }            
+            if (float.Parse(txtamount.Text) == 0)
+            {
+                MessageBox.Show("發票金額不可為空!", "提示信息");
+                txtamount.Focus();
+                flag_valid = false;
+            }
+            if (lkeamount_unit.Text == "")
+            {
+                MessageBox.Show("貨幣單位不可為空!", "提示信息");
+                lkeamount_unit.Focus();
+                flag_valid = false;
+            }
+            if (txtSales_group.Text == "")
+            {
+                MessageBox.Show("組別不可為空!", "提示信息");
+                txtSales_group.Focus();
+                flag_valid = false;
+            }
+            if (lueTest_dept.Text == "")
+            {
+                MessageBox.Show("公正行(測試機構)不可為空!", "提示信息");
+                lueTest_dept.Focus();
+                flag_valid = false;
+            }
+
+            return flag_valid;
         }
 
         public static string Get_Details_Seq(string id,string invoice_id) //取明細最大序號
@@ -779,7 +812,8 @@ namespace cf01.Forms
             txtconfirm_pdd_date.Text = dt.Rows[0]["confirm_pdd_date"].ToString();
             txtconfirm_ac_by.Text = dt.Rows[0]["confirm_ac_by"].ToString();
             txtconfirm_ac_date.Text = dt.Rows[0]["confirm_ac_date"].ToString();
-            txtSales_group.Text = dt.Rows[0]["sales_group"].ToString();            
+            txtSales_group.Text = dt.Rows[0]["sales_group"].ToString();
+            lueTest_dept.EditValue = dt.Rows[0]["test_dept"].ToString();   
         }
 
         private void txtID_Leave(object sender, EventArgs e)
@@ -855,7 +889,8 @@ namespace cf01.Forms
                 new SqlParameter("@confirm_by",radioGroup1.SelectedIndex),
                 new SqlParameter("@pdd_or_ac",radioGroup2.SelectedIndex),
                 new SqlParameter("@pdd_confirm_date1",dtPdd1.Text),
-                new SqlParameter("@pdd_confirm_date2",dtPdd2.Text)
+                new SqlParameter("@pdd_confirm_date2",dtPdd2.Text),
+                new SqlParameter("@test_dept",lueTest_dept1.Text)
             };            
             DataSet dts = clsPublicOfCF01.ExecuteProcedureReturnDataSet("usp_rpt_test_invoice", spars, null);
             dtFind_Date = dts.Tables[0];
@@ -872,10 +907,12 @@ namespace cf01.Forms
             if (dgvFind.RowCount > 0)
             {
                 string id_inv = txtID.Text + txtinvoice_id.Text;
-                string cur_id_inv = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString() + dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["invoice_id1"].Value.ToString();
+                string cur_id_inv = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString() + 
+                    dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["invoice_id1"].Value.ToString();
                 if (id_inv != cur_id_inv)
                 {                   
-                    Find_doc(dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString(), dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["invoice_id1"].Value.ToString());
+                    Find_doc(dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["id1"].Value.ToString(), 
+                        dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["invoice_id1"].Value.ToString());
                 }
             }
         }
@@ -1333,7 +1370,7 @@ namespace cf01.Forms
                     if (!string.IsNullOrEmpty(test_report_no))
                     {
                         string ls_sql = string.Format(
-                        @"Select A.id,A.report_date,A.brand,A.amount_unit,A.sales_group,A.remark,
+                        @"Select A.id,A.report_date,A.brand,A.amount_unit,A.sales_group,A.remark,A.test_dept,
                         B.sales_group as sales_group_d,B.mat_id,B.color_id,B.product_type_id,B.cust_color,B.trim_code,B.test_item_id,B.ref_mo,B.expiry_date
                         From dbo.bs_test_invoice_mostly A,dbo.bs_test_invoice_details B
                         Where A.id=B.id and A.invoice_id=B.invoice_id and A.id='{0}' and A.invoice_id='{1}' Order by B.sequence_id", test_report_no, txtinvoice_id.Text);
@@ -1356,6 +1393,7 @@ namespace cf01.Forms
                                     txtbrand.Text = dt.Rows[i]["brand"].ToString();
                                     dtreport_date.EditValue = dt.Rows[i]["report_date"].ToString();
                                     lkeamount_unit.EditValue = dt.Rows[i]["amount_unit"].ToString();
+                                    lueTest_dept.EditValue = dt.Rows[i]["test_dept"].ToString();
                                     txtremark.Text = dt.Rows[i]["remark"].ToString();
                                 }
                                 dgvDetails.AddNewRow();//新增
