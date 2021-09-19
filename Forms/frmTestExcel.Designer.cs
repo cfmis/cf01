@@ -796,7 +796,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(94, 14);
             this.labelControl2.TabIndex = 41;
-            this.labelControl2.Text = "測試機構(公正行)";
+            this.labelControl2.Text = "公正行(測試機構)";
             this.labelControl2.UseMnemonic = false;
             // 
             // btnGetmoinfo

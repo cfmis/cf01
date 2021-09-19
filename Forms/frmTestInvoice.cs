@@ -188,7 +188,11 @@ namespace cf01.Forms
         {
             if (txtSales_group.Text == "" && mState == "NEW")
             {
-                txtSales_group.Text = objmdl.sales_group;//自動生成單據時更新主檔組別
+                txtSales_group.Text = objmdl.sales_group;//自動生成單據時更新主檔組別               
+            }
+            if (lueTest_dept.Text == "" && mState == "NEW")
+            {               
+                lueTest_dept.EditValue = objmdl.test_dept;
             }
             dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sales_group", objmdl.sales_group);
             dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "mat_id", objmdl.mat_id);

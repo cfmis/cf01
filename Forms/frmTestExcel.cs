@@ -301,7 +301,7 @@ namespace cf01.Forms
                      }
                     if (dgvDetails.GetRowCellValue(i, "test_dept").ToString() == "")
                     {
-                        MessageBox.Show("測試機構(公正行)不可爲空!");
+                        MessageBox.Show("公正行(測試機構)不可爲空!");
                         data_valid_flag = false;
                         break;
                     }
@@ -1150,7 +1150,7 @@ namespace cf01.Forms
             btnEditTest_report_Path.DataBindings.Add("Text", bds1, "test_report_path");//            
             txtCf_color.DataBindings.Add("Text", bds1, "cf_color");
             txtDoc_type.DataBindings.Add("Text", bds1, "doc_type");
-           
+            lueTest_dept.DataBindings.Add("EditValue", bds1, "test_dept");
             txtRef_mo.DataBindings.Add("Text", bds1, "ref_mo");
             txtRemark.DataBindings.Add("Text", bds1, "remark");
             txtCrusr.DataBindings.Add("Text", bds1, "crusr");
