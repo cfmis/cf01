@@ -607,7 +607,7 @@
             this.TopMargin,
             this.BottomMargin});
             this.Dpi = 254F;
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0);
+            this.Margins = new System.Drawing.Printing.Margins(58, 0, 0, 0);
             this.PageHeight = 700;
             this.PageWidth = 1220;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
