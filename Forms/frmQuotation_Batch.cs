@@ -264,7 +264,7 @@ namespace cf01.Forms
                 return;
             } 
             bool save_flag = false;
-            string id,temp_code,ver, new_ver, strSelect, remark,remark_pdd,valid_date,brand_id;            
+            string id,temp_code,ver, new_ver, strSelect, remark,remark_pdd,valid_date,brand_id,price_unit;            
             int result_u;
             float bp,disc_rate,temp_disc_rate;
             const string sql_update =
@@ -285,6 +285,7 @@ namespace cf01.Forms
                     ver = dt.Rows[i]["ver"].ToString();                    
                     new_ver =clsQuotation.Return_New_Version(ver);
                     brand_id = dt.Rows[i]["brand"].ToString();
+                    price_unit= dt.Rows[i]["price_unit"].ToString();
                     bp = clsApp.Return_Float_Value(dt.Rows[i]["number_enter"].ToString());            
                     valid_date = clsApp.Return_String_Date(txtValid_date.Text);
                     remark = txtRemark.Text.Trim();
@@ -311,12 +312,12 @@ namespace cf01.Forms
                    //disc_rate如大于0，則用原定價表中的折扣率,否則利用公式中設置的折扣率
                    if (disc_rate > 0)
                    {
-                       objDiscount = clsQuotation.Get_Cust_Formula_Disc(brand_id, disc_rate.ToString(), objResult);
+                       objDiscount = clsQuotation.Get_Cust_Formula_Disc(brand_id, disc_rate.ToString(), objResult, price_unit);
                        temp_disc_rate = disc_rate;
                    }
                    else
                    {                       
-                       objDiscount = clsQuotation.Get_Cust_Formula_Disc(brand_id, objResult.discount.ToString(), objResult);
+                       objDiscount = clsQuotation.Get_Cust_Formula_Disc(brand_id, objResult.discount.ToString(), objResult, price_unit);
                        temp_disc_rate = objResult.discount;
                    }
                    

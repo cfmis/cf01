@@ -500,6 +500,15 @@ namespace cf01.CLS
         public static mdlFormula_Result Get_Cust_Formula(string pBrand_id, string strFormula_id, string strBP, string pUnit)
         {
             int iDecimal = Get_Decimal(pBrand_id);
+            //*--------------------------------------------------------
+            //PCS,SET,所有牌子取小數點后三位 2021.09.28 Sze 
+            const string strDecimal3 = "PCS,SET,PC,Pcs,pcs,Set,set";
+            if (strDecimal3.Contains(pUnit))
+            {
+                iDecimal = 3;
+            }
+            //*---------------------------------------------------------
+
             mdlFormula_Result objResult = new mdlFormula_Result();
             const string strSql_all = @"SELECT brand_id,usd1,usd2,isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount FROM dbo.quotation_formula WHERE brand_id='*'";
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -536,8 +545,6 @@ namespace cf01.CLS
             hkd2 = float.Parse(dt.Rows[0]["hkd2"].ToString());
             usd3 = float.Parse(dt.Rows[0]["usd3"].ToString());
 
-
-
             if (string.IsNullOrEmpty(strBP))
                 bp = 0.00f;
             else
@@ -572,7 +579,11 @@ namespace cf01.CLS
             if (number_input > 0)
             {
                 objResult.price_usd = float.Parse(Math.Round((number_input * usd1) / usd2, iDecimal).ToString());//USD公式：(入機數 X 1.15)/7.72 保留3位小數點
-                objResult.price_rmb = float.Parse(Math.Round(number_input * rmb1 * rmb2, iDecimal).ToString()); //RMB 17%VAT 公式：入機數*1.17*0.82
+                //RMB 17%VAT 公式：入機數*1.17*0.82
+                //objResult.price_rmb = float.Parse(Math.Round(number_input * rmb1 * rmb2, iDecimal).ToString()); //2021.09.28 cancel
+                //*----------------------------2021.09.28
+                objResult.price_rmb = float.Parse(Math.Round(number_input * rmb1 * rmb2, 2).ToString()); //2021.09.28 iDecimal update to 2                
+                //*----------------------------
             }
             else
             {
@@ -583,7 +594,7 @@ namespace cf01.CLS
             if (objResult.price_usd > 0)
                 number_input = objResult.price_usd;
             else
-                number_input = 0.00f;
+                number_input = 0.00f;           
 
             if (number_input > 0)
                 objResult.price_hkd = float.Parse(Math.Round(number_input * hkd1, iDecimal).ToString());
@@ -605,6 +616,9 @@ namespace cf01.CLS
             //對不同的單位進行四舍五入         
             const string str1 = "PCS,SET,DZ,DZS,PC,Pcs,pcs,Set,set";//小單位        
             const string str2 = "GRS,H,K,THD,GR,Grs";      //大單位
+            
+            /*----------------------------------------------------
+             * 
             if (str1.Contains(pUnit)) //小單位
             {
                 //objResult.price_hkd=clsAppPublic.Return_Float_Value(String.Format("{0:N1}", objResult.price_hkd));//1位;
@@ -614,6 +628,10 @@ namespace cf01.CLS
                 //objResult.price_usd =(float)Math.Round(objResult.price_usd,iDecimal);
                 //objResult.price_rmb =(float)Math.Round(objResult.price_rmb,iDecimal);
             }
+            */
+            //----------------------------------------------------
+
+
             if (str2.Contains(pUnit)) //大單位
             {
                 if (objResult.price_hkd > 1)
@@ -656,24 +674,32 @@ namespace cf01.CLS
         }
 
         /// <summary>
-        /// 計算折扣公式 2016-11-15
+        /// 計算折扣公式 2016-11-15, 2021/09/28增加單價單位參數pUnit
         /// </summary>
         /// <param name="pBrand_id"></param>
         /// <param name="pDisc"></param>
         /// <param name="stuDisc"></param>
         /// <returns></returns>
-        public static mdlFormula_Result Get_Cust_Formula_Disc(string pBrand_id, string pDisc, mdlFormula_Result stuDisc)
+        public static mdlFormula_Result Get_Cust_Formula_Disc(string pBrand_id, string pDisc, mdlFormula_Result stuDisc,string pUnit)
         {
             int iDecimal = Get_Decimal(pBrand_id);
+            //*--------------------------------------------------------
+            //PCS,SET,所有牌子取小數點后三位 2021.09.28 Sze 
+            const string strDecimal3 = "PCS,SET,PC,Pcs,pcs,Set,set";
+            if (strDecimal3.Contains(pUnit))
+            {
+                iDecimal = 3;
+            }
+            //*---------------------------------------------------------
 
-            float fDisc;
+            float fltDisc;
             if (string.IsNullOrEmpty(pDisc))
-                fDisc = 0;
+                fltDisc = 0;
             else
-                fDisc = clsAppPublic.Return_Float_Value(pDisc);
+                fltDisc = clsAppPublic.Return_Float_Value(pDisc);
 
             mdlFormula_Result objResult = new mdlFormula_Result();
-            if (fDisc == 0)
+            if (fltDisc == 0)
             {
                 objResult.disc_price_usd = stuDisc.price_usd;
                 objResult.disc_price_hkd = stuDisc.price_hkd;
@@ -682,10 +708,11 @@ namespace cf01.CLS
             }
             else
             {
-                objResult.disc_price_usd = (float)Math.Round(stuDisc.price_usd * (1 - fDisc / 100), iDecimal);
-                objResult.disc_price_hkd = (float)Math.Round(stuDisc.price_hkd * (1 - fDisc / 100), iDecimal);
-                objResult.disc_price_rmb = (float)Math.Round(stuDisc.price_rmb * (1 - fDisc / 100), iDecimal);
-                objResult.disc_hkd_ex_fty = (float)Math.Round(stuDisc.hkd_ex_fty * (1 - fDisc / 100), iDecimal);
+                objResult.disc_price_usd = (float)Math.Round(stuDisc.price_usd * (1 - fltDisc / 100), iDecimal);
+                objResult.disc_price_hkd = (float)Math.Round(stuDisc.price_hkd * (1 - fltDisc / 100), iDecimal);
+                //objResult.disc_price_rmb = (float)Math.Round(stuDisc.price_rmb * (1 - fltDisc / 100), iDecimal); //2021.09.28 cancel
+                objResult.disc_price_rmb = (float)Math.Round(stuDisc.price_rmb * (1 - fltDisc / 100), 2); //2021.09.28 iDecimal updated to 2
+                objResult.disc_hkd_ex_fty = (float)Math.Round(stuDisc.hkd_ex_fty * (1 - fltDisc / 100), iDecimal);
             }
             return objResult;
         }

@@ -2473,7 +2473,8 @@ namespace cf01.Forms
 
                 //返回折扣后單價
                 objDisc = clsQuotation.Get_Cust_Formula_Disc(gridView1.GetRowCellValue(row, "brand").ToString(),
-                                                             gridView1.GetRowCellValue(row, "discount").ToString(), objDisc);
+                                                             gridView1.GetRowCellValue(row, "discount").ToString(), objDisc, 
+                                                             gridView1.GetRowCellValue(row, "price_unit").ToString());
                 gridView1.SetRowCellValue(row, "disc_price_usd", objDisc.disc_price_usd.ToString());
                 gridView1.SetRowCellValue(row, "disc_price_hkd", objDisc.disc_price_hkd.ToString());
                 gridView1.SetRowCellValue(row, "disc_price_rmb", objDisc.disc_price_rmb.ToString());

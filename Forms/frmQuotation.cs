@@ -2371,7 +2371,7 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(i, "discount", objResult.discount);
             }
 
-            objResult = clsQuotation.Get_Cust_Formula_Disc(brand_id, temp_disc_rate.ToString(), objResult);           
+            objResult = clsQuotation.Get_Cust_Formula_Disc(brand_id, temp_disc_rate.ToString(), objResult,txtPrice_unit.EditValue.ToString());           
             gridView1.SetRowCellValue(i, "disc_price_usd", objResult.disc_price_usd);
             gridView1.SetRowCellValue(i, "disc_price_rmb", objResult.disc_price_rmb);
             gridView1.SetRowCellValue(i, "disc_price_hkd", objResult.disc_price_hkd);
@@ -2389,7 +2389,7 @@ namespace cf01.Forms
             objDisc.price_hkd = float.Parse(gridView1.GetRowCellValue(i, "price_hkd").ToString());
             objDisc.price_rmb = float.Parse(gridView1.GetRowCellValue(i, "price_rmb").ToString());
             objDisc.hkd_ex_fty = float.Parse(gridView1.GetRowCellValue(i, "hkd_ex_fty").ToString());
-            objDisc = clsQuotation.Get_Cust_Formula_Disc(brand_id, strDisc, objDisc);
+            objDisc = clsQuotation.Get_Cust_Formula_Disc(brand_id, strDisc, objDisc, txtPrice_unit.EditValue.ToString());
 
             gridView1.SetRowCellValue(i, "disc_price_usd", objDisc.disc_price_usd);
             gridView1.SetRowCellValue(i, "disc_price_rmb", objDisc.disc_price_rmb);
@@ -2638,7 +2638,7 @@ namespace cf01.Forms
             objDisc.price_hkd = clsApp.Return_Float_Value(txtPrice_hkd.Text);
             objDisc.price_rmb = clsApp.Return_Float_Value(txtPrice_rmb.Text);
             objDisc.hkd_ex_fty = clsApp.Return_Float_Value(txtHkd_ex_fty.Text);
-            objDisc = clsQuotation.Get_Cust_Formula_Disc(txtBrand.EditValue.ToString(), pDisc, objDisc);
+            objDisc = clsQuotation.Get_Cust_Formula_Disc(txtBrand.EditValue.ToString(), pDisc, objDisc, txtPrice_unit.EditValue.ToString());
 
             txtDisc_usd.Text = objDisc.disc_price_usd.ToString();
             txtDisc_hkd.Text = objDisc.disc_price_hkd.ToString();
