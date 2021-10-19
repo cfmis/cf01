@@ -78,86 +78,61 @@ namespace cf01.ReportForm
             {
                 dgvDetails.Visible = false;
                 dgvSummary.Visible = true;
+                dgvPrdWorker.Visible = false;
             }
-            else
+            else if (rdbDetails1.Checked == true)
             {
                 dgvDetails.Visible = true;
                 dgvSummary.Visible = false;
+                dgvPrdWorker.Visible = false;
+            }
+            else
+            {
+                dgvDetails.Visible = false;
+                dgvSummary.Visible = false;
+                dgvPrdWorker.Visible = true;
             }
         }
         private void findData()
         {
-            string strSql = "";
-            int rpt_type = 1;
-            if (rdbDetails1.Checked == true)
-                rpt_type = 0;
-            strSql += " Select a.prd_id,a.prd_dep,a.prd_pdate,a.prd_date,a.prd_mo,a.prd_item,a.prd_qty,a.prd_weg,a.prd_machine" +
-                ",a.prd_work_type,b.work_type_desc,substring(a.prd_worker, 6, 5) AS prd_worker, a.prd_class" +
-                ",a.Work_code,a.Difficulty_level,a.Speed_lever,a.Job_type,c.job_desc,a.Start_run,a.End_run,a.Prd_Run_qty" +
-                ",a.prd_group,a.prd_start_time,a.prd_end_time,a.prd_normal_time,a.prd_ot_time,a.line_num,a.hour_run_num,a.hour_std_qty" +
-                ",a.crusr,CONVERT(varchar(100), a.crtim, 120) AS crtim, a.amusr,CONVERT(varchar(100), a.amtim, 120) AS amtim" +
-                ", e.hrm1name AS prd_worker_name";
-            strSql += " INTO #tb_prd00 ";
+            clsCommonUse commUse = new clsCommonUse();
             
-            if(rdbJX.Checked==true)//JX
-                strSql += " From lnsql1.dgcf_pad.dbo.product_records a " +
-                    " Left Join lnsql1.dgcf_pad.dbo.work_type b on a.prd_work_type = b.work_type_id " +
-                    " Left Join lnsql1.dgcf_pad.dbo.job_type c ON a.job_type = c.job_type AND a.prd_dep = c.dep " +
-                    " Left Join lnfs1.hr_db.dbo.hrm01 e ON a.prd_worker COLLATE Chinese_Taiwan_Stroke_CI_AS = e.hrm1wid ";
-            else//DG
-                strSql += " From product_records a " +
-                        " Left Join work_type b on a.prd_work_type = b.work_type_id " +
-                        " Left Join job_type c ON a.job_type = c.job_type AND a.prd_dep = c.dep " +
-                        " Left Join dgsql1.dghr.dbo.hrm01 e ON a.prd_worker COLLATE Chinese_Taiwan_Stroke_CI_AS = e.hrm1wid ";
-            strSql += " WHERE a.prd_dep>''";
-            if (clsValidRule.CheckDateIsEmpty(this.detDate1.Text) == false)
-                strSql += " and a.prd_date >= '" + this.detDate1.Text.ToString() + "'";
-            if (clsValidRule.CheckDateIsEmpty(this.detDate2.Text) == false)
-                strSql += " and a.prd_date <= '" + this.detDate2.Text.ToString() + "'";
-            if (txtFdep.Text.Trim() != "" && txtTdep.Text.Trim() != "")
-                strSql += " and a.prd_dep >= '" + txtFdep.Text.Trim() + "'" + " and a.prd_dep <= '" + txtTdep.Text.Trim() + "'";
-            if (textMo1.Text.Trim() != "" && textMo2.Text.Trim() != "")
-                strSql += " and a.prd_mo >= '" + textMo1.Text.Trim() + "'" + " and a.prd_mo <= '" + textMo2.Text.Trim() + "'";
-            if (txtMac1.Text.Trim() != "" && txtMac1.Text.Trim() != "")
-                strSql += " and a.prd_machine >= '" + txtMac1.Text.Trim() + "'" + " and a.prd_machine <= '" + txtMac2.Text.Trim() + "'";
-            if (txtWorkType1.Text.Trim() != "" && txtWorkType2.Text.Trim() != "")
-                strSql += " and a.prd_work_type >= '" + txtWorkType1.Text.Trim() + "'" + " and a.prd_work_type <= '" + txtWorkType2.Text.Trim() + "'";
-            if (txtGroup1.Text.Trim() != "" && txtGroup2.Text.Trim() != "")
-                strSql += " and a.prd_group >= '" + txtGroup1.Text.Trim() + "'" + " and a.prd_group <= '" + txtGroup2.Text.Trim() + "'";
-            if (rdbIsComp.Checked == true)
-                strSql += " and a.prd_start_time <> '" + "" + "'" + " and a.prd_end_time <> '" + "" + "'";
-            if (rdbNoComp.Checked == true)
-                strSql += " and (a.prd_start_time = '" + "" + "'" + " or a.prd_end_time = '" + "" + "')";
-            if (rpt_type == 0)
-                strSql += " Select * From #tb_prd00 Order By prd_dep,prd_mo,prd_work_type,prd_date";
-            else
-            {
-                strSql += " UPDATE #tb_prd00 SET prd_work_type=job_type,work_type_desc=job_desc WHERE prd_dep='J07' ";
-                strSql += " SELECT prd_dep,prd_date,prd_work_type,work_type_desc,Convert(Decimal(18,2),SUM(prd_qty)) AS prd_qty"+
-                    ", Convert(Decimal(18,2),SUM(prd_weg)) AS prd_weg" +
-                    ", Convert(Decimal(18,2),SUM(prd_run_qty)) AS prd_run_qty" +
-                    ", Convert(Decimal(18,2),SUM(prd_normal_time)) AS prd_normal_time"+
-                    ", Convert(Decimal(18,2),SUM(prd_ot_time)) AS prd_ot_time"+
-                    ", Convert(Decimal(18,2),SUM(prd_normal_time + prd_ot_time)) AS prd_time" +
-                    " INTO #tb_prd01 " +
-                    " FROM #tb_prd00 " +
-                    " GROUP BY prd_dep, prd_date, prd_work_type, work_type_desc ";
-                strSql += " INSERT INTO #tb_prd01 (prd_dep,prd_date,prd_work_type,work_type_desc,prd_qty,prd_weg,prd_run_qty,prd_normal_time,prd_ot_time,prd_time) " +
-                        " SELECT prd_dep, prd_date, '小計' AS prd_work_type, '' AS work_type_desc, SUM(prd_qty) AS prd_qty, SUM(prd_weg) AS prd_weg " +
-                        ", SUM(prd_run_qty) AS prd_run_qty" +
-                        ", SUM(prd_normal_time) AS prd_normal_time, SUM(prd_ot_time) AS prd_ot_time, SUM(prd_time) AS prd_time" +
-                    " FROM #tb_prd01 " +
-                    " GROUP BY prd_dep, prd_date";
-                strSql += " SELECT * FROM #tb_prd01 ORDER BY prd_dep,prd_date,prd_work_type";
-                strSql += " DROP TABLE #tb_prd01";
-            }
-            strSql += " DROP TABLE #tb_prd00 ";
-            clsPublicOfPad clsConErp = new clsPublicOfPad();
-            dtPrd = clsConErp.GetDataTableWithSqlString(strSql);
+            
+            int rpt_type = 1;//按工種匯總
+            if (rdbDetails1.Checked == true)//明細表
+                rpt_type = 0;
+            else if (rdbPrdWorker.Checked == true)//按工號匯總表
+                rpt_type = 2;
+            string source_type = "DG";
+            if (rdbJX.Checked == true)
+                source_type = "JX";
+            string date_from = detDate1.Text.ToString();
+            string date_to = detDate2.Text.ToString();
+            string dep_from = txtFdep.Text.Trim();
+            string dep_to = txtTdep.Text.Trim();
+            string mo_from = textMo1.Text.Trim();
+            string mo_to = textMo2.Text.Trim();
+            string mac_from = txtMac1.Text.Trim();
+            string mac_to = txtMac2.Text.Trim();
+            string work_from = txtWorkType1.Text.Trim();
+            string work_to = txtWorkType2.Text.Trim();
+            string group_from = txtGroup1.Text.Trim();
+            string group_to = txtGroup2.Text.Trim();
+            int complete_state = 1;//已完成
+            if (rdbNotComp.Checked == true)//未完成
+                complete_state = 0;
+            else if (rdbAll.Checked == true)//全部
+                complete_state = 2;
+            dtPrd = commUse.getDataProcedure("usp_LoadProductionRecords",
+                new object[] { rpt_type,source_type, date_from,date_to,dep_from, dep_to, mo_from, mo_to
+                    , mac_from, mac_to, work_from, work_to, group_from,group_to, complete_state
+                    });
             if (rdbDetails1.Checked == true)
                 dgvDetails.DataSource = dtPrd;
-            else
+            else if (rdbSummary.Checked == true)
                 dgvSummary.DataSource = dtPrd;
+            else
+                dgvPrdWorker.DataSource = dtPrd;
         }
         private void textBox1_Leave(object sender, EventArgs e)
         {
@@ -229,21 +204,26 @@ namespace cf01.ReportForm
                     }
                 }else//匯總表
                 {
+                    DataGridView dgvObj = new DataGridView();
+                    if (rdbSummary.Checked == true)
+                        dgvObj = dgvSummary;
+                    else
+                        dgvObj = dgvPrdWorker;
                     //写标题
-                    for (int i = 0; i < dgvSummary.ColumnCount; i++)
+                    for (int i = 0; i < dgvObj.ColumnCount; i++)
                     {
-                        str += dgvSummary.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
+                        str += dgvObj.Columns[i].HeaderText.ToString();// dv.Table.Columns[i].ColumnName;
                         str += "\t";
                     }
                     sw.WriteLine(str);
                     //写内容
                     string col_value;
-                    for (int rowNo = 0; rowNo < dgvSummary.RowCount; rowNo++)
+                    for (int rowNo = 0; rowNo < dgvObj.RowCount; rowNo++)
                     {
                         string tempstr = " ";
-                        for (int columnNo = 0; columnNo < dgvSummary.ColumnCount; columnNo++)
+                        for (int columnNo = 0; columnNo < dgvObj.ColumnCount; columnNo++)
                         {
-                            col_value = clsUtility.FormatNullableString(dgvSummary.Rows[rowNo].Cells[columnNo].Value);
+                            col_value = clsUtility.FormatNullableString(dgvObj.Rows[rowNo].Cells[columnNo].Value);
                             tempstr += col_value;
                             tempstr += "\t";
                         }
@@ -347,7 +327,7 @@ namespace cf01.ReportForm
                 dat2 = Convert.ToDateTime(this.detDate2.Text).AddDays(1).ToString("yyyy/MM/dd");
             if(rdbIsComp.Checked==true)
                 compl_flag = 0;
-            if (rdbNoComp.Checked == true)
+            if (rdbNotComp.Checked == true)
                 compl_flag = 1;
             DataTable dt = commUse.getDataProcedure("usp_SelectOutsideGoods",
                 new object[] { rpt_type,txtFdep.Text.Trim(), txtTdep.Text.Trim(), dat1, dat2, compl_flag });

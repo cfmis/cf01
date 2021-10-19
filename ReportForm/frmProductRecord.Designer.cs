@@ -54,7 +54,7 @@
             this.txtMac1 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rdbIsComp = new System.Windows.Forms.RadioButton();
-            this.rdbNoComp = new System.Windows.Forms.RadioButton();
+            this.rdbNotComp = new System.Windows.Forms.RadioButton();
             this.rdbAll = new System.Windows.Forms.RadioButton();
             this.detDate2 = new DevExpress.XtraEditors.DateEdit();
             this.detDate1 = new DevExpress.XtraEditors.DateEdit();
@@ -70,8 +70,52 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPrdDep = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_work_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGoods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJob_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_Worker_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTransfer_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_pdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCrtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOk_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOk_weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNoOk_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNoOk_weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.palRptType = new System.Windows.Forms.Panel();
+            this.rdbPrdWorker = new System.Windows.Forms.RadioButton();
             this.rdbDetails1 = new System.Windows.Forms.RadioButton();
             this.rdbSummary = new System.Windows.Forms.RadioButton();
             this.lblRptType = new System.Windows.Forms.Label();
@@ -80,7 +124,18 @@
             this.rdbJX = new System.Windows.Forms.RadioButton();
             this.rdbDG = new System.Windows.Forms.RadioButton();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn83 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWork_type_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvPrdWorker = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,59 +187,18 @@
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_work_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGoods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colJob_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_Worker_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTransfer_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_pdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCrtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOk_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOk_weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNoOk_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNoOk_weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn83 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWork_type_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -198,6 +212,7 @@
             this.palSource.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrdWorker)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -416,7 +431,7 @@
             // 
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.rdbIsComp);
-            this.flowLayoutPanel1.Controls.Add(this.rdbNoComp);
+            this.flowLayoutPanel1.Controls.Add(this.rdbNotComp);
             this.flowLayoutPanel1.Controls.Add(this.rdbAll);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(77, 62);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -435,16 +450,16 @@
             this.rdbIsComp.Text = "已完成";
             this.rdbIsComp.UseVisualStyleBackColor = true;
             // 
-            // rdbNoComp
+            // rdbNotComp
             // 
-            this.rdbNoComp.AutoSize = true;
-            this.rdbNoComp.Location = new System.Drawing.Point(68, 3);
-            this.rdbNoComp.Name = "rdbNoComp";
-            this.rdbNoComp.Size = new System.Drawing.Size(59, 16);
-            this.rdbNoComp.TabIndex = 1;
-            this.rdbNoComp.TabStop = true;
-            this.rdbNoComp.Text = "未完成";
-            this.rdbNoComp.UseVisualStyleBackColor = true;
+            this.rdbNotComp.AutoSize = true;
+            this.rdbNotComp.Location = new System.Drawing.Point(68, 3);
+            this.rdbNotComp.Name = "rdbNotComp";
+            this.rdbNotComp.Size = new System.Drawing.Size(59, 16);
+            this.rdbNotComp.TabIndex = 1;
+            this.rdbNotComp.TabStop = true;
+            this.rdbNotComp.Text = "未完成";
+            this.rdbNotComp.UseVisualStyleBackColor = true;
             // 
             // rdbAll
             // 
@@ -652,6 +667,277 @@
             this.dgvDetails.TabIndex = 0;
             this.dgvDetails.Visible = false;
             // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "prd_id";
+            this.colId.HeaderText = "單據編號";
+            this.colId.Name = "colId";
+            // 
+            // colPrd_date
+            // 
+            this.colPrd_date.DataPropertyName = "prd_date";
+            this.colPrd_date.HeaderText = "生產日期";
+            this.colPrd_date.Name = "colPrd_date";
+            this.colPrd_date.Width = 80;
+            // 
+            // colPrd_work_type
+            // 
+            this.colPrd_work_type.DataPropertyName = "prd_work_type";
+            this.colPrd_work_type.HeaderText = "工作類型";
+            this.colPrd_work_type.Name = "colPrd_work_type";
+            this.colPrd_work_type.Width = 80;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "work_type_desc";
+            this.Column8.HeaderText = "工作類型";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 80;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "prd_mo";
+            this.Column3.HeaderText = "制單編號";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "prd_item";
+            this.Column4.HeaderText = "物料編號";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 160;
+            // 
+            // colGoods_name
+            // 
+            this.colGoods_name.DataPropertyName = "goods_name";
+            this.colGoods_name.HeaderText = "物料描述";
+            this.colGoods_name.Name = "colGoods_name";
+            this.colGoods_name.Width = 180;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "prd_qty";
+            this.Column5.HeaderText = "生產數量";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "prd_start_time";
+            this.Column12.HeaderText = "開始時間";
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 60;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "prd_end_time";
+            this.Column13.HeaderText = "結束時間";
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 60;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "prd_normal_time";
+            this.Column14.HeaderText = "正常班";
+            this.Column14.Name = "Column14";
+            this.Column14.Width = 50;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "prd_ot_time";
+            this.Column15.HeaderText = "加班";
+            this.Column15.Name = "Column15";
+            this.Column15.Width = 50;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "prd_machine";
+            this.Column7.HeaderText = "生產機器";
+            this.Column7.Name = "Column7";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "prd_weg";
+            this.Column6.HeaderText = "生產重量";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 80;
+            // 
+            // Column29
+            // 
+            this.Column29.DataPropertyName = "Job_type";
+            this.Column29.HeaderText = "工種";
+            this.Column29.Name = "Column29";
+            // 
+            // colJob_desc
+            // 
+            this.colJob_desc.DataPropertyName = "job_desc";
+            this.colJob_desc.HeaderText = "工種描述";
+            this.colJob_desc.Name = "colJob_desc";
+            this.colJob_desc.Width = 80;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "prd_worker";
+            this.Column9.HeaderText = "生產人員";
+            this.Column9.Name = "Column9";
+            // 
+            // colPrd_Worker_name
+            // 
+            this.colPrd_Worker_name.DataPropertyName = "prd_worker_name";
+            this.colPrd_Worker_name.HeaderText = "姓名";
+            this.colPrd_Worker_name.Name = "colPrd_Worker_name";
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "prd_class";
+            this.Column10.HeaderText = "班次";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "prd_group";
+            this.Column11.HeaderText = "組別";
+            this.Column11.Name = "Column11";
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "line_num";
+            this.Column16.HeaderText = "每行(碑)數";
+            this.Column16.Name = "Column16";
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "hour_run_num";
+            this.Column17.HeaderText = "每小時轉數";
+            this.Column17.Name = "Column17";
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "hour_std_qty";
+            this.Column18.HeaderText = "每小時標準數量";
+            this.Column18.Name = "Column18";
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "transfer_flag";
+            this.Column19.HeaderText = "傳入狀態";
+            this.Column19.Name = "Column19";
+            // 
+            // colTransfer_time
+            // 
+            this.colTransfer_time.DataPropertyName = "transfer_time";
+            this.colTransfer_time.HeaderText = "傳入時間";
+            this.colTransfer_time.Name = "colTransfer_time";
+            // 
+            // colPrd_pdate
+            // 
+            this.colPrd_pdate.DataPropertyName = "prd_pdate";
+            this.colPrd_pdate.HeaderText = "安排日期";
+            this.colPrd_pdate.Name = "colPrd_pdate";
+            // 
+            // Column22
+            // 
+            this.Column22.DataPropertyName = "crusr";
+            this.Column22.HeaderText = "建立人員";
+            this.Column22.Name = "Column22";
+            // 
+            // colCrtim
+            // 
+            this.colCrtim.DataPropertyName = "crtim";
+            this.colCrtim.HeaderText = "建立日期";
+            this.colCrtim.Name = "colCrtim";
+            // 
+            // Column25
+            // 
+            this.Column25.DataPropertyName = "amusr";
+            this.Column25.HeaderText = "錄入(生產)人員";
+            this.Column25.Name = "Column25";
+            // 
+            // colAmtim
+            // 
+            this.colAmtim.DataPropertyName = "amtim";
+            this.colAmtim.HeaderText = "錄入(生產)日期";
+            this.colAmtim.Name = "colAmtim";
+            // 
+            // Column26
+            // 
+            this.Column26.DataPropertyName = "Work_code";
+            this.Column26.HeaderText = "標準編碼";
+            this.Column26.Name = "Column26";
+            // 
+            // Column27
+            // 
+            this.Column27.DataPropertyName = "Difficulty_level";
+            this.Column27.HeaderText = "難度";
+            this.Column27.Name = "Column27";
+            // 
+            // Column28
+            // 
+            this.Column28.DataPropertyName = "Speed_lever";
+            this.Column28.HeaderText = "檔位";
+            this.Column28.Name = "Column28";
+            // 
+            // Column30
+            // 
+            this.Column30.DataPropertyName = "Start_run";
+            this.Column30.HeaderText = "開始碑數";
+            this.Column30.Name = "Column30";
+            // 
+            // Column31
+            // 
+            this.Column31.DataPropertyName = "End_run";
+            this.Column31.HeaderText = "結束碑數";
+            this.Column31.Name = "Column31";
+            // 
+            // Column32
+            // 
+            this.Column32.DataPropertyName = "Prd_Run_qty";
+            this.Column32.HeaderText = "實際碑數";
+            this.Column32.Name = "Column32";
+            // 
+            // Column33
+            // 
+            this.Column33.DataPropertyName = "Sample_no";
+            this.Column33.HeaderText = "圍數個數";
+            this.Column33.Name = "Column33";
+            // 
+            // Column34
+            // 
+            this.Column34.DataPropertyName = "Sample_weg";
+            this.Column34.HeaderText = "圍數重量";
+            this.Column34.Name = "Column34";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "prd_dep";
+            this.Column1.HeaderText = "部門";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 50;
+            // 
+            // colOk_qty
+            // 
+            this.colOk_qty.DataPropertyName = "ok_qty";
+            this.colOk_qty.HeaderText = "良品數量";
+            this.colOk_qty.Name = "colOk_qty";
+            // 
+            // colOk_weg
+            // 
+            this.colOk_weg.DataPropertyName = "ok_weg";
+            this.colOk_weg.HeaderText = "良品重量";
+            this.colOk_weg.Name = "colOk_weg";
+            // 
+            // colNoOk_qty
+            // 
+            this.colNoOk_qty.DataPropertyName = "nook_qty";
+            this.colNoOk_qty.HeaderText = "不良品數量";
+            this.colNoOk_qty.Name = "colNoOk_qty";
+            // 
+            // colNoOk_weg
+            // 
+            this.colNoOk_weg.DataPropertyName = "nook_weg";
+            this.colNoOk_weg.HeaderText = "不良品重量";
+            this.colNoOk_weg.Name = "colNoOk_weg";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.palRptType);
@@ -689,12 +975,24 @@
             // palRptType
             // 
             this.palRptType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.palRptType.Controls.Add(this.rdbPrdWorker);
             this.palRptType.Controls.Add(this.rdbDetails1);
             this.palRptType.Controls.Add(this.rdbSummary);
             this.palRptType.Location = new System.Drawing.Point(77, 93);
             this.palRptType.Name = "palRptType";
             this.palRptType.Size = new System.Drawing.Size(219, 25);
             this.palRptType.TabIndex = 14;
+            // 
+            // rdbPrdWorker
+            // 
+            this.rdbPrdWorker.AutoSize = true;
+            this.rdbPrdWorker.Location = new System.Drawing.Point(135, 5);
+            this.rdbPrdWorker.Name = "rdbPrdWorker";
+            this.rdbPrdWorker.Size = new System.Drawing.Size(83, 16);
+            this.rdbPrdWorker.TabIndex = 15;
+            this.rdbPrdWorker.TabStop = true;
+            this.rdbPrdWorker.Text = "按工號匯總";
+            this.rdbPrdWorker.UseVisualStyleBackColor = true;
             // 
             // rdbDetails1
             // 
@@ -794,8 +1092,79 @@
             this.dgvSummary.Size = new System.Drawing.Size(1047, 577);
             this.dgvSummary.TabIndex = 4;
             // 
+            // dataGridViewTextBoxColumn83
+            // 
+            this.dataGridViewTextBoxColumn83.DataPropertyName = "prd_dep";
+            this.dataGridViewTextBoxColumn83.HeaderText = "部門";
+            this.dataGridViewTextBoxColumn83.Name = "dataGridViewTextBoxColumn83";
+            this.dataGridViewTextBoxColumn83.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn46
+            // 
+            this.dataGridViewTextBoxColumn46.DataPropertyName = "prd_date";
+            this.dataGridViewTextBoxColumn46.HeaderText = "生產日期";
+            this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
+            this.dataGridViewTextBoxColumn46.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn59
+            // 
+            this.dataGridViewTextBoxColumn59.DataPropertyName = "prd_work_type";
+            this.dataGridViewTextBoxColumn59.HeaderText = "工作類型";
+            this.dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
+            this.dataGridViewTextBoxColumn59.Width = 80;
+            // 
+            // colWork_type_desc
+            // 
+            this.colWork_type_desc.DataPropertyName = "work_type_desc";
+            this.colWork_type_desc.HeaderText = "工作類型";
+            this.colWork_type_desc.Name = "colWork_type_desc";
+            this.colWork_type_desc.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn50
+            // 
+            this.dataGridViewTextBoxColumn50.DataPropertyName = "prd_qty";
+            this.dataGridViewTextBoxColumn50.HeaderText = "生產數量";
+            this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            this.dataGridViewTextBoxColumn50.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn58
+            // 
+            this.dataGridViewTextBoxColumn58.DataPropertyName = "prd_weg";
+            this.dataGridViewTextBoxColumn58.HeaderText = "生產重量";
+            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
+            this.dataGridViewTextBoxColumn58.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn78
+            // 
+            this.dataGridViewTextBoxColumn78.DataPropertyName = "prd_run_qty";
+            this.dataGridViewTextBoxColumn78.HeaderText = "生產碑數";
+            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
+            this.dataGridViewTextBoxColumn78.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "prd_normal_time";
+            this.dataGridViewTextBoxColumn55.HeaderText = "正常班時數";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            this.dataGridViewTextBoxColumn55.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn56
+            // 
+            this.dataGridViewTextBoxColumn56.DataPropertyName = "prd_ot_time";
+            this.dataGridViewTextBoxColumn56.HeaderText = "加班時數";
+            this.dataGridViewTextBoxColumn56.Name = "dataGridViewTextBoxColumn56";
+            this.dataGridViewTextBoxColumn56.Width = 80;
+            // 
+            // colPrd_time
+            // 
+            this.colPrd_time.DataPropertyName = "prd_time";
+            this.colPrd_time.HeaderText = "生產時數";
+            this.colPrd_time.Name = "colPrd_time";
+            this.colPrd_time.Width = 80;
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.dgvPrdWorker);
             this.panel3.Controls.Add(this.dgvSummary);
             this.panel3.Controls.Add(this.dgvDetails);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -803,6 +1172,33 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1047, 577);
             this.panel3.TabIndex = 5;
+            // 
+            // dgvPrdWorker
+            // 
+            this.dgvPrdWorker.AllowUserToAddRows = false;
+            this.dgvPrdWorker.ColumnHeadersHeight = 28;
+            this.dgvPrdWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPrdWorker.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn54,
+            this.dataGridViewTextBoxColumn57,
+            this.Column2,
+            this.Column20,
+            this.dataGridViewTextBoxColumn60,
+            this.dataGridViewTextBoxColumn61,
+            this.dataGridViewTextBoxColumn62,
+            this.dataGridViewTextBoxColumn63,
+            this.dataGridViewTextBoxColumn64,
+            this.dataGridViewTextBoxColumn65,
+            this.dataGridViewTextBoxColumn66,
+            this.dataGridViewTextBoxColumn67});
+            this.dgvPrdWorker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPrdWorker.Location = new System.Drawing.Point(0, 0);
+            this.dgvPrdWorker.Name = "dgvPrdWorker";
+            this.dgvPrdWorker.RowHeadersWidth = 20;
+            this.dgvPrdWorker.RowTemplate.Height = 24;
+            this.dgvPrdWorker.Size = new System.Drawing.Size(1047, 577);
+            this.dgvPrdWorker.TabIndex = 15;
+            this.dgvPrdWorker.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1137,346 +1533,89 @@
             this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
             this.dataGridViewTextBoxColumn53.Width = 80;
             // 
-            // colId
+            // dataGridViewTextBoxColumn54
             // 
-            this.colId.DataPropertyName = "prd_id";
-            this.colId.HeaderText = "單據編號";
-            this.colId.Name = "colId";
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "prd_dep";
+            this.dataGridViewTextBoxColumn54.HeaderText = "部門";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.Width = 50;
             // 
-            // colPrd_date
+            // dataGridViewTextBoxColumn57
             // 
-            this.colPrd_date.DataPropertyName = "prd_date";
-            this.colPrd_date.HeaderText = "生產日期";
-            this.colPrd_date.Name = "colPrd_date";
-            this.colPrd_date.Width = 80;
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "prd_date";
+            this.dataGridViewTextBoxColumn57.HeaderText = "生產日期";
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            this.dataGridViewTextBoxColumn57.Width = 80;
             // 
-            // colPrd_work_type
+            // Column2
             // 
-            this.colPrd_work_type.DataPropertyName = "prd_work_type";
-            this.colPrd_work_type.HeaderText = "工作類型";
-            this.colPrd_work_type.Name = "colPrd_work_type";
-            this.colPrd_work_type.Width = 80;
+            this.Column2.DataPropertyName = "prd_worker_d";
+            this.Column2.HeaderText = "工號";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 80;
             // 
-            // Column8
+            // Column20
             // 
-            this.Column8.DataPropertyName = "work_type_desc";
-            this.Column8.HeaderText = "工作類型";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 80;
+            this.Column20.DataPropertyName = "prd_worker_name_d";
+            this.Column20.HeaderText = "姓名";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 80;
             // 
-            // Column3
+            // dataGridViewTextBoxColumn60
             // 
-            this.Column3.DataPropertyName = "prd_mo";
-            this.Column3.HeaderText = "制單編號";
-            this.Column3.Name = "Column3";
+            this.dataGridViewTextBoxColumn60.DataPropertyName = "prd_work_type";
+            this.dataGridViewTextBoxColumn60.HeaderText = "工作類型";
+            this.dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
+            this.dataGridViewTextBoxColumn60.Width = 80;
             // 
-            // Column4
+            // dataGridViewTextBoxColumn61
             // 
-            this.Column4.DataPropertyName = "prd_item";
-            this.Column4.HeaderText = "物料編號";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 160;
+            this.dataGridViewTextBoxColumn61.DataPropertyName = "work_type_desc";
+            this.dataGridViewTextBoxColumn61.HeaderText = "工作類型";
+            this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
+            this.dataGridViewTextBoxColumn61.Width = 80;
             // 
-            // colGoods_name
+            // dataGridViewTextBoxColumn62
             // 
-            this.colGoods_name.DataPropertyName = "goods_name";
-            this.colGoods_name.HeaderText = "物料描述";
-            this.colGoods_name.Name = "colGoods_name";
-            this.colGoods_name.Width = 180;
+            this.dataGridViewTextBoxColumn62.DataPropertyName = "prd_qty";
+            this.dataGridViewTextBoxColumn62.HeaderText = "生產數量";
+            this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
+            this.dataGridViewTextBoxColumn62.Width = 80;
             // 
-            // Column5
+            // dataGridViewTextBoxColumn63
             // 
-            this.Column5.DataPropertyName = "prd_qty";
-            this.Column5.HeaderText = "生產數量";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
+            this.dataGridViewTextBoxColumn63.DataPropertyName = "prd_weg";
+            this.dataGridViewTextBoxColumn63.HeaderText = "生產重量";
+            this.dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
+            this.dataGridViewTextBoxColumn63.Width = 80;
             // 
-            // Column12
+            // dataGridViewTextBoxColumn64
             // 
-            this.Column12.DataPropertyName = "prd_start_time";
-            this.Column12.HeaderText = "開始時間";
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 60;
+            this.dataGridViewTextBoxColumn64.DataPropertyName = "prd_run_qty";
+            this.dataGridViewTextBoxColumn64.HeaderText = "生產碑數";
+            this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
+            this.dataGridViewTextBoxColumn64.Width = 80;
             // 
-            // Column13
+            // dataGridViewTextBoxColumn65
             // 
-            this.Column13.DataPropertyName = "prd_end_time";
-            this.Column13.HeaderText = "結束時間";
-            this.Column13.Name = "Column13";
-            this.Column13.Width = 60;
+            this.dataGridViewTextBoxColumn65.DataPropertyName = "prd_normal_time";
+            this.dataGridViewTextBoxColumn65.HeaderText = "正常班時數";
+            this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
+            this.dataGridViewTextBoxColumn65.Width = 80;
             // 
-            // Column14
+            // dataGridViewTextBoxColumn66
             // 
-            this.Column14.DataPropertyName = "prd_normal_time";
-            this.Column14.HeaderText = "正常班";
-            this.Column14.Name = "Column14";
-            this.Column14.Width = 50;
+            this.dataGridViewTextBoxColumn66.DataPropertyName = "prd_ot_time";
+            this.dataGridViewTextBoxColumn66.HeaderText = "加班時數";
+            this.dataGridViewTextBoxColumn66.Name = "dataGridViewTextBoxColumn66";
+            this.dataGridViewTextBoxColumn66.Width = 80;
             // 
-            // Column15
+            // dataGridViewTextBoxColumn67
             // 
-            this.Column15.DataPropertyName = "prd_ot_time";
-            this.Column15.HeaderText = "加班";
-            this.Column15.Name = "Column15";
-            this.Column15.Width = 50;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "prd_machine";
-            this.Column7.HeaderText = "生產機器";
-            this.Column7.Name = "Column7";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "prd_weg";
-            this.Column6.HeaderText = "生產重量";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column29
-            // 
-            this.Column29.DataPropertyName = "Job_type";
-            this.Column29.HeaderText = "工種";
-            this.Column29.Name = "Column29";
-            // 
-            // colJob_desc
-            // 
-            this.colJob_desc.DataPropertyName = "job_desc";
-            this.colJob_desc.HeaderText = "工種描述";
-            this.colJob_desc.Name = "colJob_desc";
-            this.colJob_desc.Width = 80;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "prd_worker";
-            this.Column9.HeaderText = "生產人員";
-            this.Column9.Name = "Column9";
-            // 
-            // colPrd_Worker_name
-            // 
-            this.colPrd_Worker_name.DataPropertyName = "prd_worker_name";
-            this.colPrd_Worker_name.HeaderText = "姓名";
-            this.colPrd_Worker_name.Name = "colPrd_Worker_name";
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "prd_class";
-            this.Column10.HeaderText = "班次";
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "prd_group";
-            this.Column11.HeaderText = "組別";
-            this.Column11.Name = "Column11";
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "line_num";
-            this.Column16.HeaderText = "每行(碑)數";
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "hour_run_num";
-            this.Column17.HeaderText = "每小時轉數";
-            this.Column17.Name = "Column17";
-            // 
-            // Column18
-            // 
-            this.Column18.DataPropertyName = "hour_std_qty";
-            this.Column18.HeaderText = "每小時標準數量";
-            this.Column18.Name = "Column18";
-            // 
-            // Column19
-            // 
-            this.Column19.DataPropertyName = "transfer_flag";
-            this.Column19.HeaderText = "傳入狀態";
-            this.Column19.Name = "Column19";
-            // 
-            // colTransfer_time
-            // 
-            this.colTransfer_time.DataPropertyName = "transfer_time";
-            this.colTransfer_time.HeaderText = "傳入時間";
-            this.colTransfer_time.Name = "colTransfer_time";
-            // 
-            // colPrd_pdate
-            // 
-            this.colPrd_pdate.DataPropertyName = "prd_pdate";
-            this.colPrd_pdate.HeaderText = "安排日期";
-            this.colPrd_pdate.Name = "colPrd_pdate";
-            // 
-            // Column22
-            // 
-            this.Column22.DataPropertyName = "crusr";
-            this.Column22.HeaderText = "建立人員";
-            this.Column22.Name = "Column22";
-            // 
-            // colCrtim
-            // 
-            this.colCrtim.DataPropertyName = "crtim";
-            this.colCrtim.HeaderText = "建立日期";
-            this.colCrtim.Name = "colCrtim";
-            // 
-            // Column25
-            // 
-            this.Column25.DataPropertyName = "amusr";
-            this.Column25.HeaderText = "錄入(生產)人員";
-            this.Column25.Name = "Column25";
-            // 
-            // colAmtim
-            // 
-            this.colAmtim.DataPropertyName = "amtim";
-            this.colAmtim.HeaderText = "錄入(生產)日期";
-            this.colAmtim.Name = "colAmtim";
-            // 
-            // Column26
-            // 
-            this.Column26.DataPropertyName = "Work_code";
-            this.Column26.HeaderText = "標準編碼";
-            this.Column26.Name = "Column26";
-            // 
-            // Column27
-            // 
-            this.Column27.DataPropertyName = "Difficulty_level";
-            this.Column27.HeaderText = "難度";
-            this.Column27.Name = "Column27";
-            // 
-            // Column28
-            // 
-            this.Column28.DataPropertyName = "Speed_lever";
-            this.Column28.HeaderText = "檔位";
-            this.Column28.Name = "Column28";
-            // 
-            // Column30
-            // 
-            this.Column30.DataPropertyName = "Start_run";
-            this.Column30.HeaderText = "開始碑數";
-            this.Column30.Name = "Column30";
-            // 
-            // Column31
-            // 
-            this.Column31.DataPropertyName = "End_run";
-            this.Column31.HeaderText = "結束碑數";
-            this.Column31.Name = "Column31";
-            // 
-            // Column32
-            // 
-            this.Column32.DataPropertyName = "Prd_Run_qty";
-            this.Column32.HeaderText = "實際碑數";
-            this.Column32.Name = "Column32";
-            // 
-            // Column33
-            // 
-            this.Column33.DataPropertyName = "Sample_no";
-            this.Column33.HeaderText = "圍數個數";
-            this.Column33.Name = "Column33";
-            // 
-            // Column34
-            // 
-            this.Column34.DataPropertyName = "Sample_weg";
-            this.Column34.HeaderText = "圍數重量";
-            this.Column34.Name = "Column34";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "prd_dep";
-            this.Column1.HeaderText = "部門";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
-            // 
-            // colOk_qty
-            // 
-            this.colOk_qty.DataPropertyName = "ok_qty";
-            this.colOk_qty.HeaderText = "良品數量";
-            this.colOk_qty.Name = "colOk_qty";
-            // 
-            // colOk_weg
-            // 
-            this.colOk_weg.DataPropertyName = "ok_weg";
-            this.colOk_weg.HeaderText = "良品重量";
-            this.colOk_weg.Name = "colOk_weg";
-            // 
-            // colNoOk_qty
-            // 
-            this.colNoOk_qty.DataPropertyName = "nook_qty";
-            this.colNoOk_qty.HeaderText = "不良品數量";
-            this.colNoOk_qty.Name = "colNoOk_qty";
-            // 
-            // colNoOk_weg
-            // 
-            this.colNoOk_weg.DataPropertyName = "nook_weg";
-            this.colNoOk_weg.HeaderText = "不良品重量";
-            this.colNoOk_weg.Name = "colNoOk_weg";
-            // 
-            // dataGridViewTextBoxColumn83
-            // 
-            this.dataGridViewTextBoxColumn83.DataPropertyName = "prd_dep";
-            this.dataGridViewTextBoxColumn83.HeaderText = "部門";
-            this.dataGridViewTextBoxColumn83.Name = "dataGridViewTextBoxColumn83";
-            this.dataGridViewTextBoxColumn83.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn46
-            // 
-            this.dataGridViewTextBoxColumn46.DataPropertyName = "prd_date";
-            this.dataGridViewTextBoxColumn46.HeaderText = "生產日期";
-            this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
-            this.dataGridViewTextBoxColumn46.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn59
-            // 
-            this.dataGridViewTextBoxColumn59.DataPropertyName = "prd_work_type";
-            this.dataGridViewTextBoxColumn59.HeaderText = "工作類型";
-            this.dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
-            this.dataGridViewTextBoxColumn59.Width = 80;
-            // 
-            // colWork_type_desc
-            // 
-            this.colWork_type_desc.DataPropertyName = "work_type_desc";
-            this.colWork_type_desc.HeaderText = "工作類型";
-            this.colWork_type_desc.Name = "colWork_type_desc";
-            this.colWork_type_desc.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn50
-            // 
-            this.dataGridViewTextBoxColumn50.DataPropertyName = "prd_qty";
-            this.dataGridViewTextBoxColumn50.HeaderText = "生產數量";
-            this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
-            this.dataGridViewTextBoxColumn50.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn58
-            // 
-            this.dataGridViewTextBoxColumn58.DataPropertyName = "prd_weg";
-            this.dataGridViewTextBoxColumn58.HeaderText = "生產重量";
-            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
-            this.dataGridViewTextBoxColumn58.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn78
-            // 
-            this.dataGridViewTextBoxColumn78.DataPropertyName = "prd_run_qty";
-            this.dataGridViewTextBoxColumn78.HeaderText = "生產碑數";
-            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
-            this.dataGridViewTextBoxColumn78.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn55
-            // 
-            this.dataGridViewTextBoxColumn55.DataPropertyName = "prd_normal_time";
-            this.dataGridViewTextBoxColumn55.HeaderText = "正常班時數";
-            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
-            this.dataGridViewTextBoxColumn55.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn56
-            // 
-            this.dataGridViewTextBoxColumn56.DataPropertyName = "prd_ot_time";
-            this.dataGridViewTextBoxColumn56.HeaderText = "加班時數";
-            this.dataGridViewTextBoxColumn56.Name = "dataGridViewTextBoxColumn56";
-            this.dataGridViewTextBoxColumn56.Width = 80;
-            // 
-            // colPrd_time
-            // 
-            this.colPrd_time.DataPropertyName = "prd_time";
-            this.colPrd_time.HeaderText = "生產時數";
-            this.colPrd_time.Name = "colPrd_time";
-            this.colPrd_time.Width = 80;
+            this.dataGridViewTextBoxColumn67.DataPropertyName = "prd_time";
+            this.dataGridViewTextBoxColumn67.HeaderText = "生產時數";
+            this.dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
+            this.dataGridViewTextBoxColumn67.Width = 80;
             // 
             // frmProductRecord
             // 
@@ -1509,6 +1648,7 @@
             this.palSource.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrdWorker)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1559,7 +1699,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.RadioButton rdbIsComp;
-        private System.Windows.Forms.RadioButton rdbNoComp;
+        private System.Windows.Forms.RadioButton rdbNotComp;
         private System.Windows.Forms.RadioButton rdbAll;
         private System.Windows.Forms.Label lblPrdState;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
@@ -1671,5 +1811,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
+        private System.Windows.Forms.RadioButton rdbPrdWorker;
+        private System.Windows.Forms.DataGridView dgvPrdWorker;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn64;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn65;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn66;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
     }
 }
