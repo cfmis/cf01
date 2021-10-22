@@ -734,7 +734,7 @@ namespace cf01.CLS
                                     ,a.mat_id+'('+b.name+')' as mat_cdesc,a.color_id+'('+c.cdesc+')'as color_cdesc
                                     ,a.poduct_type_id+'('+ d.cdesc+')' as prod_type_cdesc,'' as test_item_cdesc
                                     ,a.size,a.cf_color,a.sales_group,a.doc_type,CONVERT(date,GETDATE(),120) as valid_date
-                                    ,a.test_report_no as report_no,a.test_dept                               
+                                    ,a.test_report_no as report_no,a.test_dept,a.invoice_id                            
                             FROM bs_test_excel a
                             LEFT JOIN bs_test_mat_type b ON a.mat_id=b.id
                             LEFT JOIN bs_test_color_category c ON a.color_id=c.id
@@ -742,84 +742,88 @@ namespace cf01.CLS
                             Where 1>0 ");
             if (objTe.mat_id != "" && objTe.mat_id != null)
             {
-                sb.Append(String.Format(" AND a.mat_id='{0}'", objTe.mat_id));
+                sb.Append(string.Format(" AND a.mat_id='{0}'", objTe.mat_id));
             }
 
             if (objTe.poduct_type_id != "" && objTe.poduct_type_id != null)
             {
-                sb.Append(String.Format(" AND a.poduct_type_id='{0}'", objTe.poduct_type_id));
+                sb.Append(string.Format(" AND a.poduct_type_id='{0}'", objTe.poduct_type_id));
             }
 
             if (objTe.test_item_id != "" && objTe.test_item_id != null)
             {
-                sb.Append(String.Format(" AND a.test_item_id='{0}'", objTe.test_item_id));
+                sb.Append(string.Format(" AND a.test_item_id='{0}'", objTe.test_item_id));
             }
 
             if (objTe.color_id != "" && objTe.color_id != null)
             {
-                sb.Append(String.Format(" AND a.color_id='{0}'", objTe.color_id));
+                sb.Append(string.Format(" AND a.color_id='{0}'", objTe.color_id));
             }
             if (objTe.pattern_id != "")
             {
-                sb.Append(String.Format(" AND a.pattern_id LIKE '%{0}%'", objTe.pattern_id));
+                sb.Append(string.Format(" AND a.pattern_id LIKE '%{0}%'", objTe.pattern_id));
             }
             if (objTe.finish_name != "")
             {
-                sb.Append(String.Format(" AND a.finish_name Like '%{0}%'", objTe.finish_name));
+                sb.Append(string.Format(" AND a.finish_name Like '%{0}%'", objTe.finish_name));
             }
             if (objTe.trim_color_code != "")
             {
-                sb.Append(String.Format(" AND a.trim_color_code Like '%{0}%'", objTe.trim_color_code));
+                sb.Append(string.Format(" AND a.trim_color_code Like '%{0}%'", objTe.trim_color_code));
             }
             if (objTe.trim_code != "")
             {
-                sb.Append(String.Format(" AND a.trim_code Like '%{0}%'", objTe.trim_code));
+                sb.Append(string.Format(" AND a.trim_code Like '%{0}%'", objTe.trim_code));
             }
             if (objTe.test_report_no != "")
             {                
-                sb.Append(String.Format(" AND a.test_report_no Like '%{0}%'", objTe.test_report_no));
+                sb.Append(string.Format(" AND a.test_report_no Like '%{0}%'", objTe.test_report_no));
             }
 
             if (!string.IsNullOrEmpty(objTe.expiry_date))
             {
-                sb.Append(String.Format(" AND a.expiry_date='{0}'", objTe.expiry_date));
+                sb.Append(string.Format(" AND a.expiry_date='{0}'", objTe.expiry_date));
             }
             if (objTe.ref_mo != "")
             {                
-                sb.Append(String.Format(" AND a.ref_mo='{0}'", objTe.ref_mo));
+                sb.Append(string.Format(" AND a.ref_mo='{0}'", objTe.ref_mo));
             }
             if (objTe.size != "")
             {
-                sb.Append(String.Format(" AND a.size Like '%{0}%'", objTe.size));
+                sb.Append(string.Format(" AND a.size Like '%{0}%'", objTe.size));
             }
             if (objTe.cf_color != "")
             {
-                sb.Append(String.Format(" AND a.cf_color Like '%{0}%'", objTe.cf_color));
+                sb.Append(string.Format(" AND a.cf_color Like '%{0}%'", objTe.cf_color));
             }
             if (objTe.sales_group != "")
             {
-                sb.Append(String.Format(" AND a.sales_group Like '%{0}%'", objTe.sales_group));
+                sb.Append(string.Format(" AND a.sales_group Like '%{0}%'", objTe.sales_group));
             }
             if (objTe.doc_type != "")
             {
-                sb.Append(String.Format(" AND a.doc_type Like '%{0}%'", objTe.doc_type));
+                sb.Append(string.Format(" AND a.doc_type Like '%{0}%'", objTe.doc_type));
             }
             if (objTe.test_dept != "")
             {
-                sb.Append(String.Format(" AND a.test_dept='{0}'", objTe.test_dept));
+                sb.Append(string.Format(" AND a.test_dept='{0}'", objTe.test_dept));
             }
             if (objTe.crusr != "")
             {
-                sb.Append(String.Format(" AND a.crusr='{0}'", objTe.crusr));
+                sb.Append(string.Format(" AND a.crusr='{0}'", objTe.crusr));
+            }
+            if (objTe.invoice_id != "")
+            {
+                sb.Append(string.Format(" AND a.invoice_id='{0}'", objTe.invoice_id));
             }
             //空日期的判斷 DateTime數據類型空時0001-01-01
-            if(DateTime.Parse(objTe.crtim.ToString()).Date.ToString("yyyy-MM-dd")!="0001-01-01")
+            if (DateTime.Parse(objTe.crtim.ToString()).Date.ToString("yyyy-MM-dd")!="0001-01-01")
             {
-                sb.Append(String.Format(" AND a.crtim>='{0}'", objTe.crtim.ToString("yyyy-MM-dd")));
+                sb.Append(string.Format(" AND a.crtim>='{0}'", objTe.crtim.ToString("yyyy-MM-dd")));
             }
             if (DateTime.Parse(objTe.amtim.ToString()).Date.ToString("yyyy-MM-dd") != "0001-01-01")
             {     
-                sb.Append(String.Format(" AND a.crtim<'{0}'", DateTime.Parse(objTe.amtim.ToString("yyyy-MM-dd")).Date.AddDays(1).ToString("yyyy-MM-dd")));
+                sb.Append(string.Format(" AND a.crtim<'{0}'", DateTime.Parse(objTe.amtim.ToString("yyyy-MM-dd")).Date.AddDays(1).ToString("yyyy-MM-dd")));
             }
             sb.Append(" ORDER BY a.test_report_no,a.mat_id,a.seq_id");
 
@@ -830,7 +834,7 @@ namespace cf01.CLS
                 DataTable dtTestItem = GetTestItemForLue();
                 for (int i = 0; i < dtTe.Rows.Count; i++)
                 {
-                    DataRow[] dr = dtTestItem.Select(String.Format("test_item_id='{0}'", dtTe.Rows[i]["test_item_id"]));
+                    DataRow[] dr = dtTestItem.Select(string.Format("test_item_id='{0}'", dtTe.Rows[i]["test_item_id"]));
                     if (dr.Length > 0)
                     {
                         dtTe.Rows[i]["Test_item_cdesc"] = dr[0]["test_item_cdesc"].ToString();

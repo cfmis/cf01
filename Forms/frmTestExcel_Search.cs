@@ -57,7 +57,6 @@ namespace cf01.Forms
             {
                 objTe.test_item_id = lueTestItem_sq.EditValue.ToString();
             }
-
             if (deExpriy.Text != "")            
             {                
                 objTe.expiry_date = deExpriy.Text.Replace('/', '-');
@@ -74,6 +73,7 @@ namespace cf01.Forms
             objTe.doc_type = txtDoc_type.Text;
             objTe.crusr = txtcrusr.Text;
             objTe.test_dept = lueDept_dept.Text;
+            objTe.invoice_id = txtInvoice_id.Text;
             if (!string.IsNullOrEmpty(dtCreate_date1.Text))
             {
                 objTe.crtim = DateTime.Parse(dtCreate_date1.Text);
