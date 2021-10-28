@@ -2295,10 +2295,10 @@ namespace cf01.Forms
 
         private void txtSeasonDesc_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            using (frmSeason ofrm = new frmSeason())
-            {               
-                ofrm.ShowDialog();
-            }
+            //using (frmSeason ofrm = new frmSeason())
+            //{               
+            //    ofrm.ShowDialog();
+            //}
         }
 
         private void btnAddsub_Click(object sender, EventArgs e)
