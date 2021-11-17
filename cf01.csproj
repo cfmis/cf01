@@ -1720,6 +1720,12 @@
     <Compile Include="ReportForm\frmOc_ckj.designer.cs">
       <DependentUpon>frmOc_ckj.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmOrderColorCleaner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmOrderColorCleaner.designer.cs">
+      <DependentUpon>frmOrderColorCleaner.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmOrderPacking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3294,6 +3300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmOc_ckj.resx">
       <DependentUpon>frmOc_ckj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmOrderColorCleaner.resx">
+      <DependentUpon>frmOrderColorCleaner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmOrderPacking.resx">
       <DependentUpon>frmOrderPacking.cs</DependentUpon>
