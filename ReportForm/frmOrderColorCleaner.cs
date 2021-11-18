@@ -109,7 +109,8 @@ namespace cf01.ReportForm
                 return;
             }
             ExpToExcel objXls = new ExpToExcel();
-            objXls.ExportExcel(dgvDetails);
+            //objXls.ExportExcel(dgvDetails);
+            objXls.ExportToExcel_Fast(dgvDetails);
             objXls = null;
         }     
 
