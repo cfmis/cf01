@@ -18,8 +18,7 @@ namespace cf01.Forms
         private string strSeq_id = "";
         private string test_public_path = "";
         
-        private clsUtility.enumOperationType OperationType;
-        
+        private clsUtility.enumOperationType OperationType;       
         public DataTable dtTe = new DataTable();
         private DataTable dtReport_Path_List = new DataTable();
         private string flag_new_copy = "";        
@@ -896,7 +895,7 @@ namespace cf01.Forms
 
             if (OperationType == clsUtility.enumOperationType.Add || OperationType == clsUtility.enumOperationType.Update)
             {
-                string strSql = String.Format(@"SELECT '1' FROM dbo.so_order_manage A with(nolock),dbo.so_order_details B with(nolock)                
+                string strSql = string.Format(@"SELECT '1' FROM dbo.so_order_manage A with(nolock),dbo.so_order_details B with(nolock)                
                                 WHERE A.within_code=B.within_code AND A.id=B.id AND A.within_code='0000' AND B.mo_id='{0}' AND  A.state not in ('2') ", strRef_mo);
                 try
                 {
@@ -937,7 +936,7 @@ namespace cf01.Forms
         {
             int months = Convert.ToInt16(numUpDown1.Value);
             if (months > 0)
-            {
+            {               
                 dtTe = clsTestProductPlan.Get_test_expriy(months, txtGroup.Text);
                 bds1.DataSource = dtTe;
                 gridControl1.DataSource = bds1;
@@ -1540,11 +1539,6 @@ namespace cf01.Forms
                 }
             }
         }
-
-    
-
-            
-           
 
     }
 }

@@ -82,6 +82,13 @@ namespace cf01.Forms
             {
                 objTe.amtim = DateTime.Parse(dtCreate_date2.Text);
             }
+            if(chkExpiry.Checked)
+            {
+                objTe.is_display_expiry_date = "1";
+            }else
+            {
+                objTe.is_display_expiry_date = "";
+            }
 
             dtTe = clsTestProductPlan.GetTestExcel(objTe);
         }
@@ -94,6 +101,7 @@ namespace cf01.Forms
             clsTestProductPlan.SetTest_item(lueTestItem_sq);
             clsTestProductPlan.SetColorType(lueColor_sq);
             clsTestProductPlan.SetTestDept(lueDept_dept);
+            this.chkExpiry.Checked = true;
 
         }
 

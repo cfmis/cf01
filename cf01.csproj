@@ -259,6 +259,7 @@
     <Compile Include="CLS\clsMoRepair.cs" />
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
+    <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsPackingList.cs" />
     <Compile Include="CLS\clsPlateFee.cs" />
     <Compile Include="CLS\clsPrdTransfer.cs" />
@@ -1725,6 +1726,12 @@
     </Compile>
     <Compile Include="ReportForm\frmOrderColorCleaner.designer.cs">
       <DependentUpon>frmOrderColorCleaner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\frmOrderFareCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmOrderFareCharge.designer.cs">
+      <DependentUpon>frmOrderFareCharge.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\frmOrderPacking.cs">
       <SubType>Form</SubType>
@@ -3303,6 +3310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmOrderColorCleaner.resx">
       <DependentUpon>frmOrderColorCleaner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmOrderFareCharge.resx">
+      <DependentUpon>frmOrderFareCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmOrderPacking.resx">
       <DependentUpon>frmOrderPacking.cs</DependentUpon>

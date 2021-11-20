@@ -808,6 +808,10 @@ namespace cf01.CLS
             {
                 sb.Append(string.Format(" AND a.test_dept='{0}'", objTe.test_dept));
             }
+            if(objTe.is_display_expiry_date !="")
+            {
+                sb.Append(" AND (a.expiry_date>CONVERT(date,GETDATE(),120) OR a.expiry_date IS NULL)");
+            }
             if (objTe.crusr != "")
             {
                 sb.Append(string.Format(" AND a.crusr='{0}'", objTe.crusr));

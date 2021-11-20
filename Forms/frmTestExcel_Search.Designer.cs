@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestExcel_Search));
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtInvoice_id = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.lueDept_dept = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -72,8 +74,7 @@
             this.lueColor_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.lueProductType_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMat_sq = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtInvoice_id = new System.Windows.Forms.TextBox();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.chkExpiry = new DevExpress.XtraEditors.CheckEdit();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueDept_dept.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).BeginInit();
@@ -86,10 +87,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType_sq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat_sq.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchPanel
             // 
+            this.SearchPanel.Controls.Add(this.chkExpiry);
             this.SearchPanel.Controls.Add(this.labelControl5);
             this.SearchPanel.Controls.Add(this.txtInvoice_id);
             this.SearchPanel.Controls.Add(this.labelControl6);
@@ -139,6 +142,22 @@
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(842, 328);
             this.SearchPanel.TabIndex = 12;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(18, 190);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(48, 14);
+            this.labelControl5.TabIndex = 207;
+            this.labelControl5.Text = "發票編號";
+            // 
+            // txtInvoice_id
+            // 
+            this.txtInvoice_id.Location = new System.Drawing.Point(69, 189);
+            this.txtInvoice_id.MaxLength = 30;
+            this.txtInvoice_id.Name = "txtInvoice_id";
+            this.txtInvoice_id.Size = new System.Drawing.Size(130, 22);
+            this.txtInvoice_id.TabIndex = 206;
             // 
             // labelControl6
             // 
@@ -596,21 +615,14 @@
             this.lueMat_sq.Size = new System.Drawing.Size(130, 22);
             this.lueMat_sq.TabIndex = 0;
             // 
-            // txtInvoice_id
+            // chkExpiry
             // 
-            this.txtInvoice_id.Location = new System.Drawing.Point(69, 189);
-            this.txtInvoice_id.MaxLength = 30;
-            this.txtInvoice_id.Name = "txtInvoice_id";
-            this.txtInvoice_id.Size = new System.Drawing.Size(130, 22);
-            this.txtInvoice_id.TabIndex = 206;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(18, 190);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(48, 14);
-            this.labelControl5.TabIndex = 207;
-            this.labelControl5.Text = "發票編號";
+            this.chkExpiry.EditValue = true;
+            this.chkExpiry.Location = new System.Drawing.Point(552, 190);
+            this.chkExpiry.Name = "chkExpiry";
+            this.chkExpiry.Properties.Caption = "不顯示測試報告有效期過期的資料";
+            this.chkExpiry.Size = new System.Drawing.Size(215, 19);
+            this.chkExpiry.TabIndex = 208;
             // 
             // frmTestExcel_Search
             // 
@@ -638,6 +650,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType_sq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat_sq.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -689,5 +702,6 @@
         private DevExpress.XtraEditors.LookUpEdit lueDept_dept;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.TextBox txtInvoice_id;
+        private DevExpress.XtraEditors.CheckEdit chkExpiry;
     }
 }

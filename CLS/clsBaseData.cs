@@ -51,5 +51,16 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfGEO.GetDataTable(sql);
             return dt;
         }
+
+        /// <summary>
+        /// 附加費資料
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetFareInfo()
+        {
+            string sql = @"SELECT id,id+'['+name+']' AS cdesc FROM cd_tack_fare WHERE within_code='0000' AND use_sell = '1' AND state='0' ORDER BY id";            
+            DataTable dt = clsPublicOfGEO.GetDataTable(sql);
+            return dt;
+        }
     }
 }

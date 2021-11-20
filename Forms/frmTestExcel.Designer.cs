@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestExcel));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -80,6 +80,7 @@
             this.lueProductType = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMat = new DevExpress.XtraEditors.LookUpEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtInvoice_id = new DevExpress.XtraEditors.TextEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.lueTest_dept = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -180,7 +181,6 @@
             this.valid_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.report_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtInvoice_id = new DevExpress.XtraEditors.TextEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditTest_report_Path.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.CalendarTimeProperties)).BeginInit();
@@ -190,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInvoice_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTest_dept.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmusr.Properties)).BeginInit();
@@ -209,7 +210,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSales_group)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInvoice_id.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -774,6 +774,18 @@
             this.panel1.Size = new System.Drawing.Size(1014, 219);
             this.panel1.TabIndex = 14;
             // 
+            // txtInvoice_id
+            // 
+            this.txtInvoice_id.Location = new System.Drawing.Point(756, 138);
+            this.txtInvoice_id.Name = "txtInvoice_id";
+            this.txtInvoice_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtInvoice_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtInvoice_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtInvoice_id.Properties.ReadOnly = true;
+            this.txtInvoice_id.Size = new System.Drawing.Size(197, 22);
+            this.txtInvoice_id.TabIndex = 45;
+            this.txtInvoice_id.Tag = "2";
+            // 
             // label8
             // 
             this.label8.Location = new System.Drawing.Point(702, 142);
@@ -871,7 +883,7 @@
             // label6
             // 
             this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(568, 165);
+            this.label6.Location = new System.Drawing.Point(552, 165);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(235, 18);
             this.label6.TabIndex = 34;
@@ -1235,10 +1247,10 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "crusr";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.Format = "d";
-            dataGridViewCellStyle25.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn12.HeaderText = "創建人";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -1336,9 +1348,9 @@
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "report_date";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.Format = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn24.HeaderText = "Report Date";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
@@ -1360,10 +1372,10 @@
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "Invoice_date";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.Format = "d";
-            dataGridViewCellStyle27.NullValue = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn27.HeaderText = "Invoice Date";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
@@ -1906,18 +1918,6 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ShowAlways = true;
             // 
-            // txtInvoice_id
-            // 
-            this.txtInvoice_id.Location = new System.Drawing.Point(756, 138);
-            this.txtInvoice_id.Name = "txtInvoice_id";
-            this.txtInvoice_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtInvoice_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtInvoice_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtInvoice_id.Properties.ReadOnly = true;
-            this.txtInvoice_id.Size = new System.Drawing.Size(197, 22);
-            this.txtInvoice_id.TabIndex = 45;
-            this.txtInvoice_id.Tag = "2";
-            // 
             // frmTestExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1942,6 +1942,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueMat.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInvoice_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTest_dept.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmusr.Properties)).EndInit();
@@ -1962,7 +1963,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clExpiry_date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSales_group)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInvoice_id.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

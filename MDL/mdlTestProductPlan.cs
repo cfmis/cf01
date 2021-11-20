@@ -70,6 +70,7 @@ namespace cf01.MDL
         public string own_reference;
         public string remark2;
         public string test_dept;
+        public string is_display_expiry_date;
 
     }
 
