@@ -4,9 +4,9 @@ using cf01.CLS;
 
 namespace cf01.Reports
 {
-    public partial class xrQuotation21 : DevExpress.XtraReports.UI.XtraReport
+    public partial class xrQuotation2b : DevExpress.XtraReports.UI.XtraReport
     {
-        public xrQuotation21()
+        public xrQuotation2b()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace cf01.Reports
             if (xrLabel32.Text == "H")
             {
                 xrLabel32.Text = "100PCS";
-            }            
+            }  
         }
 
         private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -57,12 +57,6 @@ namespace cf01.Reports
         {
             xrPictureBox1.ImageUrl = pFile;
         }
-
-        private void xrQuotation21_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-
-        }
-
      
        
     }

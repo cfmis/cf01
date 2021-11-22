@@ -1,6 +1,6 @@
 ﻿namespace cf01.Reports
 {
-    partial class xrQuotation21
+    partial class xrQuotation2a
     {
         /// <summary>
         /// Required designer variable.

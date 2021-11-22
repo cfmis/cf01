@@ -2419,17 +2419,17 @@
     <Compile Include="Reports\xrQuotation20.designer.cs">
       <DependentUpon>xrQuotation20.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrQuotation21.cs">
+    <Compile Include="Reports\xrQuotation2a.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\xrQuotation21.designer.cs">
-      <DependentUpon>xrQuotation21.cs</DependentUpon>
+    <Compile Include="Reports\xrQuotation2a.designer.cs">
+      <DependentUpon>xrQuotation2a.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrQuotation22.cs">
+    <Compile Include="Reports\xrQuotation2b.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\xrQuotation22.designer.cs">
-      <DependentUpon>xrQuotation22.cs</DependentUpon>
+    <Compile Include="Reports\xrQuotation2b.designer.cs">
+      <DependentUpon>xrQuotation2b.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrQuotation31.cs">
       <SubType>Component</SubType>
@@ -3697,11 +3697,11 @@
     <EmbeddedResource Include="Reports\xrQuotation20.resx">
       <DependentUpon>xrQuotation20.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\xrQuotation21.resx">
-      <DependentUpon>xrQuotation21.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\xrQuotation2a.resx">
+      <DependentUpon>xrQuotation2a.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\xrQuotation22.resx">
-      <DependentUpon>xrQuotation22.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\xrQuotation2b.resx">
+      <DependentUpon>xrQuotation2b.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQuotation31.resx">
       <DependentUpon>xrQuotation31.cs</DependentUpon>

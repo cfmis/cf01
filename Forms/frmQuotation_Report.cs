@@ -1817,7 +1817,7 @@ namespace cf01.Forms
                     }
                     break;
                 case "02": //格式二(1)，一般格式USD,HKD,RMB
-                     using (xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt })
+                     using (xrQuotation2a myReport21 = new xrQuotation2a() { DataSource = dt })
                     {
                         myReport21.CreateDocument();
                         myReport21.PrintingSystem.ShowMarginsWarning = false;
@@ -1825,7 +1825,7 @@ namespace cf01.Forms
                     }
                     break;
                 case "03": //格式二(2)，一般格式USD
-                    using (xrQuotation22 myReport22 = new xrQuotation22() { DataSource = dt })
+                    using (xrQuotation2b myReport22 = new xrQuotation2b() { DataSource = dt })
                     {
                         myReport22.CreateDocument();
                         myReport22.PrintingSystem.ShowMarginsWarning = false;
