@@ -1,0 +1,48 @@
+﻿using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using DevExpress.XtraReports.UI;
+
+namespace cf01.Reports
+{
+    public partial class xrOut_process_out_vendor2 : DevExpress.XtraReports.UI.XtraReport
+    {
+        public xrOut_process_out_vendor2()
+        {
+            InitializeComponent();            
+            lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
+            lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
+            lblSec_qty.DataBindings.Add("Text", DataSource, "sec_qty");
+
+            lblPackag_num_total.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
+            lblProd_qty_total.DataBindings.Add("Text", DataSource, "prod_qty");
+            lblSec_qty_total.DataBindings.Add("Text", DataSource, "sec_qty");
+        }
+       
+
+        private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            //分組
+            GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("id", XRColumnSortOrder.Ascending) });
+        }    
+
+        private void xrLabel10_TextChanged(object sender, EventArgs e)
+        {
+            if (GetCurrentColumnValue("in_out_type").ToString() == "IN")
+            {
+                lblIn.Visible = true;
+                lblTitleIn.Visible = true;
+                lblOut.Visible = false;
+                lblTitleOut.Visible = false;
+            }
+            else
+            {
+                lblIn.Visible = false;
+                lblTitleIn.Visible = false;
+                lblOut.Visible = true;
+                lblTitleOut.Visible = true;
+            }
+        }
+    }
+}

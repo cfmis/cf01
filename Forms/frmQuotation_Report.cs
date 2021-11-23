@@ -2000,6 +2000,14 @@ namespace cf01.Forms
                         myReport20.ShowPreviewDialog();
                     }
                     break;
+                case "25"://格式二十一(VM ex_fty)
+                    using (xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt })
+                    {
+                        myReport21.CreateDocument();
+                        myReport21.PrintingSystem.ShowMarginsWarning = false;
+                        myReport21.ShowPreviewDialog();
+                    }
+                    break;
             }
         }
 

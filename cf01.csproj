@@ -629,6 +629,12 @@
     <Compile Include="Forms\frmOrderCosting.Designer.cs">
       <DependentUpon>frmOrderCosting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmOut_Process_S2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOut_Process_S2.designer.cs">
+      <DependentUpon>frmOut_Process_S2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmProductionRepair.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2185,6 +2191,18 @@
     <Compile Include="Reports\xrOut_process_out_s3.designer.cs">
       <DependentUpon>xrOut_process_out_s3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor.designer.cs">
+      <DependentUpon>xrOut_process_out_vendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor2.designer.cs">
+      <DependentUpon>xrOut_process_out_vendor2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrOut_return.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2418,6 +2436,12 @@
     </Compile>
     <Compile Include="Reports\xrQuotation20.designer.cs">
       <DependentUpon>xrQuotation20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrQuotation21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrQuotation21.designer.cs">
+      <DependentUpon>xrQuotation21.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrQuotation2a.cs">
       <SubType>Component</SubType>
@@ -2775,6 +2799,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOrderCosting.resx">
       <DependentUpon>frmOrderCosting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOut_Process_S2.resx">
+      <DependentUpon>frmOut_Process_S2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmProductionRepair.resx">
       <DependentUpon>frmProductionRepair.cs</DependentUpon>
@@ -3580,6 +3607,12 @@
     <EmbeddedResource Include="Reports\xrOut_process_out_s3.resx">
       <DependentUpon>xrOut_process_out_s3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrOut_process_out_vendor.resx">
+      <DependentUpon>xrOut_process_out_vendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrOut_process_out_vendor2.resx">
+      <DependentUpon>xrOut_process_out_vendor2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrOut_return.resx">
       <DependentUpon>xrOut_return.cs</DependentUpon>
     </EmbeddedResource>
@@ -3696,6 +3729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQuotation20.resx">
       <DependentUpon>xrQuotation20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrQuotation21.resx">
+      <DependentUpon>xrQuotation21.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQuotation2a.resx">
       <DependentUpon>xrQuotation2a.cs</DependentUpon>
