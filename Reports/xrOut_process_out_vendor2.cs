@@ -27,21 +27,17 @@ namespace cf01.Reports
             GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("id", XRColumnSortOrder.Ascending) });
         }    
 
-        private void xrLabel10_TextChanged(object sender, EventArgs e)
+        private void xrLabel18_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("in_out_type").ToString() == "IN")
-            {
-                lblIn.Visible = true;
-                lblTitleIn.Visible = true;
-                lblOut.Visible = false;
-                lblTitleOut.Visible = false;
+            if (GetCurrentColumnValue("vendor_id").ToString() == "CL-T0011")
+            {               
+                lblTitle1.Visible = true;   //大通
+                lblTitle2.Visible = false;  //榮烽
             }
             else
-            {
-                lblIn.Visible = false;
-                lblTitleIn.Visible = false;
-                lblOut.Visible = true;
-                lblTitleOut.Visible = true;
+            {                
+                lblTitle1.Visible = false;               
+                lblTitle2.Visible = true;
             }
         }
     }

@@ -169,8 +169,9 @@ namespace cf01.Forms
             else
             {                
                 //加載報表
-                if (dtPlate.Rows[0]["vendor_id"].ToString() == "CL-T0011")
-                {                               
+                if (rgrp1.SelectedIndex == 0)
+                {         
+                    //送貨單                      
                     using (xrOut_process_out_vendor mMyRepot = new xrOut_process_out_vendor() { DataSource = dtPlate })
                     {
                         mMyRepot.CreateDocument();
@@ -179,8 +180,9 @@ namespace cf01.Forms
                     }
                     return;
                 }
-                if (dtPlate.Rows[0]["vendor_id"].ToString() == "CR-Y0018")
-                {                                   
+                else 
+                {           
+                    //收貨單                        
                     using (xrOut_process_out_vendor2 mMyRepot = new xrOut_process_out_vendor2() { DataSource = dtPlate })
                     {
                         mMyRepot.CreateDocument();

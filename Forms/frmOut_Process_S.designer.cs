@@ -69,6 +69,7 @@
             this.sec_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picArt = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkOther = new System.Windows.Forms.CheckBox();
             this.rgrp1 = new DevExpress.XtraEditors.RadioGroup();
             this.cboVendor_id2 = new System.Windows.Forms.ComboBox();
             this.cboVendor_id1 = new System.Windows.Forms.ComboBox();
@@ -86,7 +87,6 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkOther = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -514,12 +514,22 @@
             this.panel1.Size = new System.Drawing.Size(585, 158);
             this.panel1.TabIndex = 133;
             // 
+            // chkOther
+            // 
+            this.chkOther.AutoSize = true;
+            this.chkOther.Location = new System.Drawing.Point(289, 119);
+            this.chkOther.Name = "chkOther";
+            this.chkOther.Size = new System.Drawing.Size(72, 16);
+            this.chkOther.TabIndex = 129;
+            this.chkOther.Text = "其他格式";
+            this.chkOther.UseVisualStyleBackColor = true;
+            // 
             // rgrp1
             // 
             this.rgrp1.Location = new System.Drawing.Point(93, 112);
             this.rgrp1.Name = "rgrp1";
             this.rgrp1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "發貨"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "送貨"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "收貨")});
             this.rgrp1.Size = new System.Drawing.Size(171, 23);
             this.rgrp1.TabIndex = 128;
@@ -669,16 +679,6 @@
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn14.Visible = false;
-            // 
-            // chkOther
-            // 
-            this.chkOther.AutoSize = true;
-            this.chkOther.Location = new System.Drawing.Point(289, 119);
-            this.chkOther.Name = "chkOther";
-            this.chkOther.Size = new System.Drawing.Size(72, 16);
-            this.chkOther.TabIndex = 129;
-            this.chkOther.Text = "其他格式";
-            this.chkOther.UseVisualStyleBackColor = true;
             // 
             // frmOut_Process_S
             // 
