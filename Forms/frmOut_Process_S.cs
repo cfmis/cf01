@@ -28,14 +28,16 @@ namespace cf01.Forms
 
         private void frmOut_Process_S_Load(object sender, EventArgs e)
         {
-            DataTable dtVendor = clsBaseData.Get_Plate_Vendor();
-            //DataRow dr0 = dtVendor.NewRow(); //插一空行        
-            //dtVendor.Rows.InsertAt(dr0, 0);
-            for (int i = 0; i < dtVendor.Rows.Count; i++)
-            {
-                cboVendor_id1.Items.Add(dtVendor.Rows[i]["id"].ToString());
-                cboVendor_id2.Items.Add(dtVendor.Rows[i]["id"].ToString());
-            }
+            //DataTable dtVendor = clsBaseData.Get_Plate_Vendor();
+            ////DataRow dr0 = dtVendor.NewRow(); //插一空行        
+            ////dtVendor.Rows.InsertAt(dr0, 0);
+            //for (int i = 0; i < dtVendor.Rows.Count; i++)
+            //{
+            //    cboVendor_id1.Items.Add(dtVendor.Rows[i]["id"].ToString());
+            //    cboVendor_id2.Items.Add(dtVendor.Rows[i]["id"].ToString());
+            //}
+
+
             //txtVendor_id1.Properties.DataSource = dtVendor;
             //txtVendor_id1.Properties.ValueMember = "id";
             //txtVendor_id1.Properties.DisplayMember = "cdesc";

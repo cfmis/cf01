@@ -526,6 +526,9 @@
             // 
             this.cboVendor_id2.Font = new System.Drawing.Font("Tahoma", 9F);
             this.cboVendor_id2.FormattingEnabled = true;
+            this.cboVendor_id2.Items.AddRange(new object[] {
+            "CL-T0011",
+            "CR-Y0018"});
             this.cboVendor_id2.Location = new System.Drawing.Point(289, 84);
             this.cboVendor_id2.Name = "cboVendor_id2";
             this.cboVendor_id2.Size = new System.Drawing.Size(171, 22);
@@ -535,6 +538,9 @@
             // 
             this.cboVendor_id1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.cboVendor_id1.FormattingEnabled = true;
+            this.cboVendor_id1.Items.AddRange(new object[] {
+            "CL-T0011",
+            "CR-Y0018"});
             this.cboVendor_id1.Location = new System.Drawing.Point(93, 84);
             this.cboVendor_id1.Name = "cboVendor_id1";
             this.cboVendor_id1.Size = new System.Drawing.Size(171, 22);
