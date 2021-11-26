@@ -25,6 +25,7 @@ namespace cf01.Reports
         {
             //分組
             GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("id", XRColumnSortOrder.Ascending) });
+            //GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("vendor_id", XRColumnSortOrder.Ascending), new GroupField("issue_date", XRColumnSortOrder.Ascending) });
         }    
 
         private void xrLabel18_TextChanged(object sender, EventArgs e)
