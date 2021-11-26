@@ -81,10 +81,7 @@ namespace cf01.Forms
             if(rgrp1.SelectedIndex == 0)            
                 find_flag = "OUT";
             else
-                find_flag = "IN";
-            string flag_other = "";
-            if (chkOther.Checked)
-                flag_other = "SPC";
+                find_flag = "IN";            
             SqlParameter[] paras = new SqlParameter[]
             {       
                     new SqlParameter("@within_code", "0000"),
@@ -94,8 +91,7 @@ namespace cf01.Forms
                     new SqlParameter("@id_end", txtID2.Text),
                     new SqlParameter("@vendor_id", cboVendor_id1.Text),
                     new SqlParameter("@vendor_id_end", cboVendor_id2.Text),
-                    new SqlParameter("@in_out_type", find_flag),
-                    new SqlParameter("@flag_other", flag_other)
+                    new SqlParameter("@in_out_type", find_flag)                    
             };
             dtPlate = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_out_process_out", paras);
             //--

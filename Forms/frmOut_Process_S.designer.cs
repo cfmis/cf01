@@ -69,7 +69,6 @@
             this.sec_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picArt = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chkOther = new System.Windows.Forms.CheckBox();
             this.rgrp1 = new DevExpress.XtraEditors.RadioGroup();
             this.cboVendor_id2 = new System.Windows.Forms.ComboBox();
             this.cboVendor_id1 = new System.Windows.Forms.ComboBox();
@@ -495,7 +494,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.chkOther);
             this.panel1.Controls.Add(this.rgrp1);
             this.panel1.Controls.Add(this.cboVendor_id2);
             this.panel1.Controls.Add(this.cboVendor_id1);
@@ -513,16 +511,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(585, 158);
             this.panel1.TabIndex = 133;
-            // 
-            // chkOther
-            // 
-            this.chkOther.AutoSize = true;
-            this.chkOther.Location = new System.Drawing.Point(289, 119);
-            this.chkOther.Name = "chkOther";
-            this.chkOther.Size = new System.Drawing.Size(72, 16);
-            this.chkOther.TabIndex = 129;
-            this.chkOther.Text = "其他格式";
-            this.chkOther.UseVisualStyleBackColor = true;
             // 
             // rgrp1
             // 
@@ -771,6 +759,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn picture_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit;
-        private System.Windows.Forms.CheckBox chkOther;
     }
 }
