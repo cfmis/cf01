@@ -3106,6 +3106,7 @@
             this.ref_temp_code.HeaderText = "ref_temp_code";
             this.ref_temp_code.Name = "ref_temp_code";
             this.ref_temp_code.ReadOnly = true;
+            this.ref_temp_code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ref_temp_code.Visible = false;
             // 
             // frmQuotationFind

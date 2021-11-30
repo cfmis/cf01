@@ -520,11 +520,11 @@
             this.xrLabel2.CanShrink = true;
             this.xrLabel2.Dpi = 254F;
             this.xrLabel2.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(17.99999F, 134.6768F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(11.99999F, 129.6768F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(1948.29F, 658.3647F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(1948.29F, 669.3647F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "[terms_other]";
@@ -535,7 +535,7 @@
             this.xrLabel1.CanShrink = true;
             this.xrLabel1.Dpi = 254F;
             this.xrLabel1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(577.5F, 40.50002F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(577.5F, 31.50002F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -610,7 +610,7 @@
             this.xrLabel63.CanGrow = false;
             this.xrLabel63.Dpi = 254F;
             this.xrLabel63.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel63.LocationFloat = new DevExpress.Utils.PointFloat(17.78F, 836.3494F);
+            this.xrLabel63.LocationFloat = new DevExpress.Utils.PointFloat(11.78F, 841.3494F);
             this.xrLabel63.Name = "xrLabel63";
             this.xrLabel63.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel63.SizeF = new System.Drawing.SizeF(1948.294F, 35.33319F);
@@ -626,7 +626,7 @@
             this.xrLabel62.CanGrow = false;
             this.xrLabel62.Dpi = 254F;
             this.xrLabel62.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel62.LocationFloat = new DevExpress.Utils.PointFloat(17.99999F, 794.0417F);
+            this.xrLabel62.LocationFloat = new DevExpress.Utils.PointFloat(11.99999F, 801.0417F);
             this.xrLabel62.Name = "xrLabel62";
             this.xrLabel62.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel62.SizeF = new System.Drawing.SizeF(1948.294F, 39.33319F);

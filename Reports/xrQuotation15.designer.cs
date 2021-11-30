@@ -555,11 +555,11 @@
             this.xrLabel2.CanShrink = true;
             this.xrLabel2.Dpi = 254F;
             this.xrLabel2.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(17.99999F, 157.6769F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(12.99999F, 146.6769F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(1948.29F, 649.3647F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(1958.29F, 662.3647F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "[terms_other]";
@@ -570,7 +570,7 @@
             this.xrLabel1.CanShrink = true;
             this.xrLabel1.Dpi = 254F;
             this.xrLabel1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(571.5F, 33.50002F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(571.5F, 28.50002F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -663,10 +663,10 @@
             this.xrLabel62.CanGrow = false;
             this.xrLabel62.Dpi = 254F;
             this.xrLabel62.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel62.LocationFloat = new DevExpress.Utils.PointFloat(17.78F, 809.0416F);
+            this.xrLabel62.LocationFloat = new DevExpress.Utils.PointFloat(12.78F, 809.0416F);
             this.xrLabel62.Name = "xrLabel62";
             this.xrLabel62.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel62.SizeF = new System.Drawing.SizeF(1948.294F, 31.33319F);
+            this.xrLabel62.SizeF = new System.Drawing.SizeF(1958.294F, 31.33319F);
             this.xrLabel62.StylePriority.UseFont = false;
             this.xrLabel62.StylePriority.UseTextAlignment = false;
             this.xrLabel62.Text = "12) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
@@ -679,10 +679,10 @@
             this.xrLabel63.CanGrow = false;
             this.xrLabel63.Dpi = 254F;
             this.xrLabel63.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrLabel63.LocationFloat = new DevExpress.Utils.PointFloat(17.55997F, 841.3493F);
+            this.xrLabel63.LocationFloat = new DevExpress.Utils.PointFloat(12.55997F, 841.3493F);
             this.xrLabel63.Name = "xrLabel63";
             this.xrLabel63.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel63.SizeF = new System.Drawing.SizeF(1948.294F, 30.33319F);
+            this.xrLabel63.SizeF = new System.Drawing.SizeF(1958.294F, 30.33319F);
             this.xrLabel63.StylePriority.UseFont = false;
             this.xrLabel63.StylePriority.UseTextAlignment = false;
             this.xrLabel63.Text = "13) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
@@ -1479,7 +1479,7 @@
             this.xrCrossBandBox2.BorderWidth = 1F;
             this.xrCrossBandBox2.Dpi = 254F;
             this.xrCrossBandBox2.EndBand = this.GroupHeader1;
-            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(1975.792F, 872.0719F);
+            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(1975.792F, 872.072F);
             this.xrCrossBandBox2.LocationFloat = new DevExpress.Utils.PointFloat(1975.792F, 489.9375F);
             this.xrCrossBandBox2.Name = "xrCrossBandBox2";
             this.xrCrossBandBox2.StartBand = this.GroupHeader1;

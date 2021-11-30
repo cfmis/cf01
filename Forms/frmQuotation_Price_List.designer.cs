@@ -41,6 +41,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPriceList = new System.Windows.Forms.DataGridView();
             this.dgvSub = new System.Windows.Forms.DataGridView();
+            this.seq_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attn_path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approval_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approval_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.approval_status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,14 +80,6 @@
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seq_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attn_path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approval_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approval_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -172,6 +172,68 @@
             this.dgvSub.RowTemplate.Height = 18;
             this.dgvSub.Size = new System.Drawing.Size(1214, 214);
             this.dgvSub.TabIndex = 140;
+            // 
+            // seq_id
+            // 
+            this.seq_id.DataPropertyName = "seq_id";
+            this.seq_id.HeaderText = "No.";
+            this.seq_id.Name = "seq_id";
+            this.seq_id.ReadOnly = true;
+            this.seq_id.Width = 25;
+            // 
+            // sub
+            // 
+            this.sub.DataPropertyName = "sub";
+            this.sub.HeaderText = "Sub MO";
+            this.sub.Name = "sub";
+            this.sub.ReadOnly = true;
+            this.sub.Width = 75;
+            // 
+            // pvh_no
+            // 
+            this.pvh_no.DataPropertyName = "pvh_no";
+            this.pvh_no.HeaderText = "PVH/JV REF. NO.";
+            this.pvh_no.Name = "pvh_no";
+            this.pvh_no.ReadOnly = true;
+            this.pvh_no.Width = 150;
+            // 
+            // attn_path
+            // 
+            this.attn_path.DataPropertyName = "attn_path";
+            this.attn_path.HeaderText = "Attn Path";
+            this.attn_path.Name = "attn_path";
+            this.attn_path.ReadOnly = true;
+            // 
+            // status_sub
+            // 
+            this.status_sub.DataPropertyName = "status";
+            this.status_sub.HeaderText = "Status";
+            this.status_sub.Name = "status_sub";
+            this.status_sub.ReadOnly = true;
+            this.status_sub.Width = 80;
+            // 
+            // approval_by
+            // 
+            this.approval_by.DataPropertyName = "approval_by";
+            this.approval_by.HeaderText = "Set Satus by";
+            this.approval_by.Name = "approval_by";
+            this.approval_by.ReadOnly = true;
+            this.approval_by.Width = 86;
+            // 
+            // approval_date
+            // 
+            this.approval_date.DataPropertyName = "approval_date";
+            this.approval_date.HeaderText = "Set Status Date";
+            this.approval_date.Name = "approval_date";
+            this.approval_date.ReadOnly = true;
+            // 
+            // remark_sub
+            // 
+            this.remark_sub.DataPropertyName = "remark_sub";
+            this.remark_sub.HeaderText = "Remark";
+            this.remark_sub.Name = "remark_sub";
+            this.remark_sub.ReadOnly = true;
+            this.remark_sub.Width = 200;
             // 
             // approval_status
             // 
@@ -448,68 +510,6 @@
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.Width = 200;
             // 
-            // seq_id
-            // 
-            this.seq_id.DataPropertyName = "seq_id";
-            this.seq_id.HeaderText = "No.";
-            this.seq_id.Name = "seq_id";
-            this.seq_id.ReadOnly = true;
-            this.seq_id.Width = 25;
-            // 
-            // sub
-            // 
-            this.sub.DataPropertyName = "sub";
-            this.sub.HeaderText = "Sub MO";
-            this.sub.Name = "sub";
-            this.sub.ReadOnly = true;
-            this.sub.Width = 75;
-            // 
-            // pvh_no
-            // 
-            this.pvh_no.DataPropertyName = "pvh_no";
-            this.pvh_no.HeaderText = "PVH/JV REF. NO.";
-            this.pvh_no.Name = "pvh_no";
-            this.pvh_no.ReadOnly = true;
-            this.pvh_no.Width = 150;
-            // 
-            // attn_path
-            // 
-            this.attn_path.DataPropertyName = "attn_path";
-            this.attn_path.HeaderText = "Attn Path";
-            this.attn_path.Name = "attn_path";
-            this.attn_path.ReadOnly = true;
-            // 
-            // status_sub
-            // 
-            this.status_sub.DataPropertyName = "status";
-            this.status_sub.HeaderText = "Status";
-            this.status_sub.Name = "status_sub";
-            this.status_sub.ReadOnly = true;
-            this.status_sub.Width = 80;
-            // 
-            // approval_by
-            // 
-            this.approval_by.DataPropertyName = "approval_by";
-            this.approval_by.HeaderText = "Set Satus by";
-            this.approval_by.Name = "approval_by";
-            this.approval_by.ReadOnly = true;
-            this.approval_by.Width = 86;
-            // 
-            // approval_date
-            // 
-            this.approval_date.DataPropertyName = "approval_date";
-            this.approval_date.HeaderText = "Set Status Date";
-            this.approval_date.Name = "approval_date";
-            this.approval_date.ReadOnly = true;
-            // 
-            // remark_sub
-            // 
-            this.remark_sub.DataPropertyName = "remark_sub";
-            this.remark_sub.HeaderText = "Remark";
-            this.remark_sub.Name = "remark_sub";
-            this.remark_sub.ReadOnly = true;
-            this.remark_sub.Width = 200;
-            // 
             // temp_code
             // 
             this.temp_code.DataPropertyName = "temp_code";
@@ -654,7 +654,6 @@
             this.rmb_remark.Name = "rmb_remark";
             this.rmb_remark.ReadOnly = true;
             this.rmb_remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.rmb_remark.Width = 110;
             // 
             // remark_pdd
             // 
@@ -664,7 +663,7 @@
             this.remark_pdd.ReadOnly = true;
             this.remark_pdd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.remark_pdd.Visible = false;
-            this.remark_pdd.Width = 150;
+            this.remark_pdd.Width = 130;
             // 
             // date
             // 
@@ -674,7 +673,7 @@
             this.date.Name = "date";
             this.date.ReadOnly = true;
             this.date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.date.Width = 70;
+            this.date.Width = 60;
             // 
             // ref_temp_code
             // 
