@@ -43,5 +43,8 @@ namespace cf01.CLS
                 Result = int.Parse(pString);
             return Result;
         }
+
+       
+
     }
 }

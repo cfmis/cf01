@@ -39,7 +39,7 @@
             this.lblTotal_prices = new DevExpress.XtraReports.UI.XRLabel();
             this.lblMould_fee = new DevExpress.XtraReports.UI.XRLabel();
             this.lblSec_price = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblPlateRemark = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
@@ -112,7 +112,7 @@
             this.lblTotal_prices,
             this.lblMould_fee,
             this.lblSec_price,
-            this.xrLabel31,
+            this.lblPlateRemark,
             this.xrLabel30,
             this.xrLabel29,
             this.xrLabel27,
@@ -250,19 +250,20 @@
             this.lblSec_price.WordWrap = false;
             this.lblSec_price.TextChanged += new System.EventHandler(this.lblSec_price_TextChanged);
             // 
-            // xrLabel31
+            // lblPlateRemark
             // 
-            this.xrLabel31.AnchorVertical = DevExpress.XtraReports.UI.VerticalAnchorStyles.Top;
-            this.xrLabel31.Dpi = 254F;
-            this.xrLabel31.Font = new System.Drawing.Font("SimSun", 10F);
-            this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(2115.369F, 0F);
-            this.xrLabel31.Name = "xrLabel31";
-            this.xrLabel31.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel31.SizeF = new System.Drawing.SizeF(362.1172F, 43.18F);
-            this.xrLabel31.StylePriority.UseFont = false;
-            this.xrLabel31.StylePriority.UseTextAlignment = false;
-            this.xrLabel31.Text = "[remark]";
-            this.xrLabel31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.lblPlateRemark.AnchorVertical = DevExpress.XtraReports.UI.VerticalAnchorStyles.Top;
+            this.lblPlateRemark.Dpi = 254F;
+            this.lblPlateRemark.Font = new System.Drawing.Font("SimSun", 10F);
+            this.lblPlateRemark.LocationFloat = new DevExpress.Utils.PointFloat(2115.369F, 0F);
+            this.lblPlateRemark.Name = "lblPlateRemark";
+            this.lblPlateRemark.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lblPlateRemark.SizeF = new System.Drawing.SizeF(362.1172F, 43.18F);
+            this.lblPlateRemark.StylePriority.UseFont = false;
+            this.lblPlateRemark.StylePriority.UseTextAlignment = false;
+            this.lblPlateRemark.Text = "[remark]";
+            this.lblPlateRemark.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.lblPlateRemark.TextChanged += new System.EventHandler(this.lblPlateRemark_TextChanged);
             // 
             // xrLabel30
             // 
@@ -1025,7 +1026,7 @@
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.ShowPreviewMarginLines = false;
             this.SnapGridSize = 12.7F;
-            this.Version = "11.2";
+            this.Version = "14.2";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrOut_process_out_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -1072,7 +1073,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel24;
         private DevExpress.XtraReports.UI.XRLabel xrLabel23;
         private DevExpress.XtraReports.UI.XRLabel xrLabel22;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel31;
+        private DevExpress.XtraReports.UI.XRLabel lblPlateRemark;
         private DevExpress.XtraReports.UI.XRLabel xrLabel30;
         private DevExpress.XtraReports.UI.XRLabel xrLabel29;
         private DevExpress.XtraReports.UI.XRLabel xrLabel27;

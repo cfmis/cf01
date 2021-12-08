@@ -245,6 +245,7 @@
     <Compile Include="CLS\clsCustomDelivery.cs" />
     <Compile Include="CLS\clsDeliveryBill.cs" />
     <Compile Include="CLS\clsDepWasteRate.cs" />
+    <Compile Include="CLS\clsDevelopentPvh.cs" />
     <Compile Include="CLS\clsDgdDeliverGoods.cs" />
     <Compile Include="CLS\clsGeneralDataConvert.cs" />
     <Compile Include="CLS\clsGeoDepartment.cs" />
@@ -514,6 +515,12 @@
     </Compile>
     <Compile Include="Forms\frmDevelopmentCalvin.designer.cs">
       <DependentUpon>frmDevelopmentCalvin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDevelopmentPvh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDevelopmentPvh.designer.cs">
+      <DependentUpon>frmDevelopmentPvh.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmDgdDeliverGoods.cs">
       <SubType>Form</SubType>
@@ -2353,6 +2360,12 @@
     <Compile Include="Reports\xrPurReceipt.designer.cs">
       <DependentUpon>xrPurReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrPvh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrPvh.designer.cs">
+      <DependentUpon>xrPvh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrQcTestReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2742,6 +2755,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDevelopmentCalvin.resx">
       <DependentUpon>frmDevelopmentCalvin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDevelopmentPvh.resx">
+      <DependentUpon>frmDevelopmentPvh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDgdDeliverGoods.resx">
       <DependentUpon>frmDgdDeliverGoods.cs</DependentUpon>
@@ -3687,6 +3703,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrPurReceipt.resx">
       <DependentUpon>xrPurReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrPvh.resx">
+      <DependentUpon>xrPvh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQcTestReport.resx">
       <DependentUpon>xrQcTestReport.cs</DependentUpon>

@@ -9,10 +9,13 @@ namespace cf01.Reports
     public partial class xrOut_process_out : DevExpress.XtraReports.UI.XtraReport
     {
         public bool isDisplayPrice;
-        public xrOut_process_out(bool is_display_price)
+        public bool isDisplayPlateRemark;
+        public xrOut_process_out(bool is_display_price,bool is_display_plate_remark)
         {
             InitializeComponent();
             isDisplayPrice = is_display_price;
+            isDisplayPlateRemark = is_display_plate_remark;
+
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
             lblSec_qty.DataBindings.Add("Text", DataSource, "sec_qty");
@@ -155,6 +158,18 @@ namespace cf01.Reports
             }
         }
 
+        private void lblPlateRemark_TextChanged(object sender, EventArgs e)
+        {
+            // 是否顯示電鍍備註
+            if (isDisplayPrice)
+            {
+                lblPlateRemark.Visible = true;                
+            }
+            else
+            {
+                lblPlateRemark.Visible = false;
+            }
+        }
         private void txtfl_by_TextChanged(object sender, EventArgs e)
         {
             if (txtfl_by.Text == "501")
