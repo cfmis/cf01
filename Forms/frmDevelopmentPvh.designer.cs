@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -53,6 +53,21 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.submit1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.submit2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.submit3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.urgent_bulk_order = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lueSize_already_approved = new DevExpress.XtraEditors.LookUpEdit();
             this.label54 = new System.Windows.Forms.Label();
@@ -205,7 +220,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.txtRsl_certificate_expiry_date = new DevExpress.XtraEditors.TextEdit();
             this.label31 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lueCert4_type = new DevExpress.XtraEditors.LookUpEdit();
@@ -281,21 +295,7 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.submit1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.submit2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.submit3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.urgent_bulk_order = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dtRsl_certificate_expiry_date = new DevExpress.XtraEditors.DateEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -390,7 +390,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSuitable_for_tumble_dry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMachine_washable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRsl_certificate_expiry_date.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert4_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert3_type.Properties)).BeginInit();
@@ -426,6 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -622,6 +623,124 @@
             this.dgvDetails.TabIndex = 50;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
+            // 
+            // serial_no
+            // 
+            this.serial_no.DataPropertyName = "serial_no";
+            this.serial_no.HeaderText = "Serial No.";
+            this.serial_no.Name = "serial_no";
+            this.serial_no.ReadOnly = true;
+            this.serial_no.Width = 90;
+            // 
+            // division
+            // 
+            this.division.DataPropertyName = "division";
+            this.division.HeaderText = "Division";
+            this.division.Name = "division";
+            this.division.ReadOnly = true;
+            // 
+            // handing_office
+            // 
+            this.handing_office.DataPropertyName = "handing_office";
+            this.handing_office.HeaderText = "Handing Office";
+            this.handing_office.Name = "handing_office";
+            this.handing_office.ReadOnly = true;
+            this.handing_office.Width = 110;
+            // 
+            // season
+            // 
+            this.season.DataPropertyName = "season";
+            this.season.HeaderText = "Season";
+            this.season.Name = "season";
+            this.season.ReadOnly = true;
+            this.season.Width = 60;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle1;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // requests_by
+            // 
+            this.requests_by.DataPropertyName = "requests_by";
+            this.requests_by.HeaderText = "Requests by";
+            this.requests_by.Name = "requests_by";
+            this.requests_by.ReadOnly = true;
+            this.requests_by.Width = 90;
+            // 
+            // plm_material_code
+            // 
+            this.plm_material_code.DataPropertyName = "plm_material_code";
+            this.plm_material_code.HeaderText = "Plm Material Code";
+            this.plm_material_code.Name = "plm_material_code";
+            this.plm_material_code.ReadOnly = true;
+            // 
+            // supplier_ref_no
+            // 
+            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
+            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
+            this.supplier_ref_no.Name = "supplier_ref_no";
+            this.supplier_ref_no.ReadOnly = true;
+            // 
+            // pvh_submit_ref
+            // 
+            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
+            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
+            this.pvh_submit_ref.Name = "pvh_submit_ref";
+            this.pvh_submit_ref.ReadOnly = true;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            // 
+            // colour
+            // 
+            this.colour.DataPropertyName = "colour";
+            this.colour.HeaderText = "Colour";
+            this.colour.Name = "colour";
+            this.colour.ReadOnly = true;
+            this.colour.Visible = false;
+            this.colour.Width = 120;
+            // 
+            // submit1
+            // 
+            this.submit1.DataPropertyName = "submit1";
+            this.submit1.HeaderText = "Submit1";
+            this.submit1.Name = "submit1";
+            this.submit1.ReadOnly = true;
+            this.submit1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // submit2
+            // 
+            this.submit2.DataPropertyName = "submit2";
+            this.submit2.HeaderText = "Submit2";
+            this.submit2.Name = "submit2";
+            this.submit2.ReadOnly = true;
+            this.submit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // submit3
+            // 
+            this.submit3.DataPropertyName = "submit3";
+            this.submit3.HeaderText = "Submit3";
+            this.submit3.Name = "submit3";
+            this.submit3.ReadOnly = true;
+            this.submit3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // urgent_bulk_order
+            // 
+            this.urgent_bulk_order.DataPropertyName = "urgent_bulk_order";
+            this.urgent_bulk_order.HeaderText = "URGENT BULK";
+            this.urgent_bulk_order.Name = "urgent_bulk_order";
+            this.urgent_bulk_order.ReadOnly = true;
+            this.urgent_bulk_order.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // panel1
             // 
@@ -2636,6 +2755,7 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.dtRsl_certificate_expiry_date);
             this.panel5.Controls.Add(this.txtQuality_callouts);
             this.panel5.Controls.Add(this.label45);
             this.panel5.Controls.Add(this.lueComplies_with_cfr);
@@ -2663,7 +2783,6 @@
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label29);
             this.panel5.Controls.Add(this.label57);
-            this.panel5.Controls.Add(this.txtRsl_certificate_expiry_date);
             this.panel5.Controls.Add(this.label31);
             this.panel5.Location = new System.Drawing.Point(2, 536);
             this.panel5.Name = "panel5";
@@ -3036,7 +3155,7 @@
             this.label34.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label34.Font = new System.Drawing.Font("Tahoma", 9F);
             this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(713, 0);
+            this.label34.Location = new System.Drawing.Point(847, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(130, 13);
             this.label34.TabIndex = 186;
@@ -3062,7 +3181,7 @@
             this.lueRsl_certificate_type.Properties.ShowHeader = false;
             this.lueRsl_certificate_type.Properties.Tag = "2";
             this.lueRsl_certificate_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueRsl_certificate_type.Size = new System.Drawing.Size(514, 22);
+            this.lueRsl_certificate_type.Size = new System.Drawing.Size(671, 22);
             this.lueRsl_certificate_type.TabIndex = 0;
             this.lueRsl_certificate_type.Tag = "2";
             // 
@@ -3113,19 +3232,6 @@
             this.label57.TabIndex = 99;
             this.label57.Text = "Suggested care instruction";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtRsl_certificate_expiry_date
-            // 
-            this.txtRsl_certificate_expiry_date.EnterMoveNextControl = true;
-            this.txtRsl_certificate_expiry_date.Location = new System.Drawing.Point(684, 17);
-            this.txtRsl_certificate_expiry_date.Name = "txtRsl_certificate_expiry_date";
-            this.txtRsl_certificate_expiry_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtRsl_certificate_expiry_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtRsl_certificate_expiry_date.Properties.MaxLength = 100;
-            this.txtRsl_certificate_expiry_date.Properties.ReadOnly = true;
-            this.txtRsl_certificate_expiry_date.Size = new System.Drawing.Size(302, 20);
-            this.txtRsl_certificate_expiry_date.TabIndex = 1;
-            this.txtRsl_certificate_expiry_date.Tag = "2";
             // 
             // label31
             // 
@@ -3960,9 +4066,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle7.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -4103,8 +4209,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle8.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -4118,123 +4224,29 @@
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             // 
-            // serial_no
+            // dtRsl_certificate_expiry_date
             // 
-            this.serial_no.DataPropertyName = "serial_no";
-            this.serial_no.HeaderText = "Serial No.";
-            this.serial_no.Name = "serial_no";
-            this.serial_no.ReadOnly = true;
-            this.serial_no.Width = 90;
-            // 
-            // division
-            // 
-            this.division.DataPropertyName = "division";
-            this.division.HeaderText = "Division";
-            this.division.Name = "division";
-            this.division.ReadOnly = true;
-            // 
-            // handing_office
-            // 
-            this.handing_office.DataPropertyName = "handing_office";
-            this.handing_office.HeaderText = "Handing Office";
-            this.handing_office.Name = "handing_office";
-            this.handing_office.ReadOnly = true;
-            this.handing_office.Width = 110;
-            // 
-            // season
-            // 
-            this.season.DataPropertyName = "season";
-            this.season.HeaderText = "Season";
-            this.season.Name = "season";
-            this.season.ReadOnly = true;
-            this.season.Width = 60;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            dataGridViewCellStyle9.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle9.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle9;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // requests_by
-            // 
-            this.requests_by.DataPropertyName = "requests_by";
-            this.requests_by.HeaderText = "Requests by";
-            this.requests_by.Name = "requests_by";
-            this.requests_by.ReadOnly = true;
-            this.requests_by.Width = 90;
-            // 
-            // plm_material_code
-            // 
-            this.plm_material_code.DataPropertyName = "plm_material_code";
-            this.plm_material_code.HeaderText = "Plm Material Code";
-            this.plm_material_code.Name = "plm_material_code";
-            this.plm_material_code.ReadOnly = true;
-            // 
-            // supplier_ref_no
-            // 
-            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
-            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
-            this.supplier_ref_no.Name = "supplier_ref_no";
-            this.supplier_ref_no.ReadOnly = true;
-            // 
-            // pvh_submit_ref
-            // 
-            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
-            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
-            this.pvh_submit_ref.Name = "pvh_submit_ref";
-            this.pvh_submit_ref.ReadOnly = true;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "Size";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            // 
-            // colour
-            // 
-            this.colour.DataPropertyName = "colour";
-            this.colour.HeaderText = "Colour";
-            this.colour.Name = "colour";
-            this.colour.ReadOnly = true;
-            this.colour.Visible = false;
-            this.colour.Width = 120;
-            // 
-            // submit1
-            // 
-            this.submit1.DataPropertyName = "submit1";
-            this.submit1.HeaderText = "Submit1";
-            this.submit1.Name = "submit1";
-            this.submit1.ReadOnly = true;
-            this.submit1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // submit2
-            // 
-            this.submit2.DataPropertyName = "submit2";
-            this.submit2.HeaderText = "Submit2";
-            this.submit2.Name = "submit2";
-            this.submit2.ReadOnly = true;
-            this.submit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // submit3
-            // 
-            this.submit3.DataPropertyName = "submit3";
-            this.submit3.HeaderText = "Submit3";
-            this.submit3.Name = "submit3";
-            this.submit3.ReadOnly = true;
-            this.submit3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // urgent_bulk_order
-            // 
-            this.urgent_bulk_order.DataPropertyName = "urgent_bulk_order";
-            this.urgent_bulk_order.HeaderText = "URGENT BULK";
-            this.urgent_bulk_order.Name = "urgent_bulk_order";
-            this.urgent_bulk_order.ReadOnly = true;
-            this.urgent_bulk_order.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtRsl_certificate_expiry_date.EditValue = "";
+            this.dtRsl_certificate_expiry_date.Enabled = false;
+            this.dtRsl_certificate_expiry_date.EnterMoveNextControl = true;
+            this.dtRsl_certificate_expiry_date.Location = new System.Drawing.Point(843, 17);
+            this.dtRsl_certificate_expiry_date.Name = "dtRsl_certificate_expiry_date";
+            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.dtRsl_certificate_expiry_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtRsl_certificate_expiry_date.Properties.Mask.BeepOnError = true;
+            this.dtRsl_certificate_expiry_date.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dtRsl_certificate_expiry_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.dtRsl_certificate_expiry_date.Properties.MaxLength = 10;
+            this.dtRsl_certificate_expiry_date.Properties.NullDate = "";
+            this.dtRsl_certificate_expiry_date.Size = new System.Drawing.Size(143, 20);
+            this.dtRsl_certificate_expiry_date.TabIndex = 208;
+            this.dtRsl_certificate_expiry_date.Tag = "2";
             // 
             // frmDevelopmentPvh
             // 
@@ -4344,7 +4356,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSuitable_for_tumble_dry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMachine_washable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRsl_certificate_expiry_date.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueCert4_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert3_type.Properties)).EndInit();
@@ -4380,6 +4391,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4429,7 +4442,6 @@
         private DevExpress.XtraEditors.TextEdit txtprice2;
         private DevExpress.XtraEditors.LookUpEdit luePrice1_unit;
         private System.Windows.Forms.Label label31;
-        private DevExpress.XtraEditors.TextEdit txtRsl_certificate_expiry_date;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label27;
         private DevExpress.XtraEditors.TextEdit txtleadtime_bulk;
@@ -4650,5 +4662,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn submit2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn submit3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn urgent_bulk_order;
+        private DevExpress.XtraEditors.DateEdit dtRsl_certificate_expiry_date;
     }
 }

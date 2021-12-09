@@ -118,5 +118,10 @@ namespace cf01.Reports
         {
             xrLabel64.Text = DateTime.Parse(GetCurrentColumnValue("date").ToString()).Date.ToString("dd/MM/yyyy");
         }
+
+        private void lblRsl_certificate_expiry_date_TextChanged(object sender, EventArgs e)
+        {
+            lblRsl_certificate_expiry_date.Text = DateTime.Parse(GetCurrentColumnValue("date").ToString()).Date.ToString("dd-MM-yy");
+        }
     }
 }
