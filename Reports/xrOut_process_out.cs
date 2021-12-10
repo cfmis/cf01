@@ -161,7 +161,7 @@ namespace cf01.Reports
         private void lblPlateRemark_TextChanged(object sender, EventArgs e)
         {
             // 是否顯示電鍍備註
-            if (isDisplayPrice)
+            if (isDisplayPlateRemark)
             {
                 lblPlateRemark.Visible = true;                
             }

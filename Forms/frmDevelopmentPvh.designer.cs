@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -53,21 +54,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.submit1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.submit2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.submit3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.urgent_bulk_order = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lueSize_already_approved = new DevExpress.XtraEditors.LookUpEdit();
             this.label54 = new System.Windows.Forms.Label();
@@ -193,6 +179,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtmoq_color = new DevExpress.XtraEditors.TextEdit();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dtRsl_certificate_expiry_date = new DevExpress.XtraEditors.DateEdit();
             this.txtQuality_callouts = new DevExpress.XtraEditors.TextEdit();
             this.label45 = new System.Windows.Forms.Label();
             this.lueComplies_with_cfr = new DevExpress.XtraEditors.LookUpEdit();
@@ -263,7 +250,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvFind = new System.Windows.Forms.DataGridView();
-            this.serialno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -295,7 +281,213 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtRsl_certificate_expiry_date = new DevExpress.XtraEditors.DateEdit();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn75 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn77 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn79 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn80 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn81 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn82 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn83 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn84 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn85 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn86 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn87 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn88 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn89 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn90 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn91 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn92 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn94 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn95 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn96 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn97 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn98 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn99 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn101 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn102 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn103 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn104 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn105 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn106 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn107 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn108 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn109 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn110 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material_subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.process = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previous_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previous_submit_vr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obj_fbx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price3_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price4_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price5_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price6_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bulk_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leadtime_sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leadtime_bulk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rsl_certificate_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rsl_certificate_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machine_washable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dry_cleanable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dry_clean_only = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.do_not_dry_clean = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suitable_for_tumble_dry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suitable_for_swimwear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passes_metal_detection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.complies_with_pvh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.complies_with_cfr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quality_callouts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.submit1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.submit2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.submit3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.urgent_bulk_order = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.for_bulk_feference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.for_quality_approval = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label80 = new System.Windows.Forms.Label();
+            this.txtPvh_submit_ref2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtPvh_submit_ref1 = new DevExpress.XtraEditors.TextEdit();
+            this.label81 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -379,6 +571,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_eur.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_color.Properties)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_cfr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_pvh.Properties)).BeginInit();
@@ -425,8 +619,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -609,138 +803,117 @@
             this.plm_material_code,
             this.supplier_ref_no,
             this.pvh_submit_ref,
+            this.supplier_name,
+            this.factory_name,
+            this.material_subtype,
             this.size,
             this.colour,
+            this.finish,
+            this.process,
+            this.previous_submit_ref,
+            this.sample_type,
+            this.previous_submit_vr,
+            this.weight,
+            this.weight_uom,
+            this.obj_fbx,
+            this.raw_mat1_compostion,
+            this.raw_mat1_percent,
+            this.raw_mat1_l3,
+            this.raw_mat1_l4,
+            this.raw_mat1_l5,
+            this.raw_mat2_compostion,
+            this.raw_mat2_percent,
+            this.raw_mat2_l3,
+            this.raw_mat2_l4,
+            this.raw_mat2_l5,
+            this.raw_mat3_compostion,
+            this.raw_mat3_percent,
+            this.raw_mat3_l3,
+            this.raw_mat3_l4,
+            this.raw_mat3_l5,
+            this.raw_mat4_compostion,
+            this.raw_mat4_percent,
+            this.raw_mat4_l3,
+            this.raw_mat4_l4,
+            this.raw_mat4_l5,
+            this.raw_mat5_compostion,
+            this.raw_mat5_percent,
+            this.raw_mat5_l3,
+            this.raw_mat5_l4,
+            this.raw_mat5_l5,
+            this.currency,
+            this.price1,
+            this.price1_unit,
+            this.price2,
+            this.price2_unit,
+            this.price3,
+            this.price3_unit,
+            this.price4,
+            this.price4_unit,
+            this.price5,
+            this.price5_unit,
+            this.price6,
+            this.price6_unit,
+            this.surcharge,
+            this.bulk_moq,
+            this.moq_color,
+            this.leadtime_sample,
+            this.leadtime_bulk,
+            this.cert1_mat_finish,
+            this.cert1_type,
+            this.cert1_type_other,
+            this.cert1_scope_no,
+            this.cert1_expiry_date,
+            this.cert1_scope_holder,
+            this.cert2_mat_finish,
+            this.cert2_type,
+            this.cert2_type_other,
+            this.cert2_scope_no,
+            this.cert2_expiry_date,
+            this.cert2_scope_holder,
+            this.cert3_mat_finish,
+            this.cert3_type,
+            this.cert3_type_other,
+            this.cert3_scope_no,
+            this.cert3_expiry_date,
+            this.cert3_scope_holder,
+            this.cert4_mat_finish,
+            this.cert4_type,
+            this.cert4_type_other,
+            this.cert4_scope_no,
+            this.cert4_expiry_date,
+            this.cert4_scope_holder,
+            this.rsl_certificate_type,
+            this.rsl_certificate_expiry_date,
+            this.machine_washable,
+            this.dry_cleanable,
+            this.dry_clean_only,
+            this.do_not_dry_clean,
+            this.suitable_for_tumble_dry,
+            this.suitable_for_swimwear,
+            this.passes_metal_detection,
+            this.complies_with_pvh,
+            this.complies_with_cfr,
+            this.quality_callouts,
             this.submit1,
             this.submit2,
             this.submit3,
-            this.urgent_bulk_order});
+            this.urgent_bulk_order,
+            this.for_bulk_feference,
+            this.for_quality_approval,
+            this.color_already_approved,
+            this.size_already_approved,
+            this.create_by,
+            this.create_date,
+            this.update_by,
+            this.update_date});
             this.dgvDetails.Location = new System.Drawing.Point(2, 716);
             this.dgvDetails.Name = "dgvDetails";
-            this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowTemplate.Height = 24;
             this.dgvDetails.Size = new System.Drawing.Size(997, 96);
             this.dgvDetails.TabIndex = 50;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
-            // 
-            // serial_no
-            // 
-            this.serial_no.DataPropertyName = "serial_no";
-            this.serial_no.HeaderText = "Serial No.";
-            this.serial_no.Name = "serial_no";
-            this.serial_no.ReadOnly = true;
-            this.serial_no.Width = 90;
-            // 
-            // division
-            // 
-            this.division.DataPropertyName = "division";
-            this.division.HeaderText = "Division";
-            this.division.Name = "division";
-            this.division.ReadOnly = true;
-            // 
-            // handing_office
-            // 
-            this.handing_office.DataPropertyName = "handing_office";
-            this.handing_office.HeaderText = "Handing Office";
-            this.handing_office.Name = "handing_office";
-            this.handing_office.ReadOnly = true;
-            this.handing_office.Width = 110;
-            // 
-            // season
-            // 
-            this.season.DataPropertyName = "season";
-            this.season.HeaderText = "Season";
-            this.season.Name = "season";
-            this.season.ReadOnly = true;
-            this.season.Width = 60;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle1.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle1;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // requests_by
-            // 
-            this.requests_by.DataPropertyName = "requests_by";
-            this.requests_by.HeaderText = "Requests by";
-            this.requests_by.Name = "requests_by";
-            this.requests_by.ReadOnly = true;
-            this.requests_by.Width = 90;
-            // 
-            // plm_material_code
-            // 
-            this.plm_material_code.DataPropertyName = "plm_material_code";
-            this.plm_material_code.HeaderText = "Plm Material Code";
-            this.plm_material_code.Name = "plm_material_code";
-            this.plm_material_code.ReadOnly = true;
-            // 
-            // supplier_ref_no
-            // 
-            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
-            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
-            this.supplier_ref_no.Name = "supplier_ref_no";
-            this.supplier_ref_no.ReadOnly = true;
-            // 
-            // pvh_submit_ref
-            // 
-            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
-            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
-            this.pvh_submit_ref.Name = "pvh_submit_ref";
-            this.pvh_submit_ref.ReadOnly = true;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "Size";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            // 
-            // colour
-            // 
-            this.colour.DataPropertyName = "colour";
-            this.colour.HeaderText = "Colour";
-            this.colour.Name = "colour";
-            this.colour.ReadOnly = true;
-            this.colour.Visible = false;
-            this.colour.Width = 120;
-            // 
-            // submit1
-            // 
-            this.submit1.DataPropertyName = "submit1";
-            this.submit1.HeaderText = "Submit1";
-            this.submit1.Name = "submit1";
-            this.submit1.ReadOnly = true;
-            this.submit1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // submit2
-            // 
-            this.submit2.DataPropertyName = "submit2";
-            this.submit2.HeaderText = "Submit2";
-            this.submit2.Name = "submit2";
-            this.submit2.ReadOnly = true;
-            this.submit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // submit3
-            // 
-            this.submit3.DataPropertyName = "submit3";
-            this.submit3.HeaderText = "Submit3";
-            this.submit3.Name = "submit3";
-            this.submit3.ReadOnly = true;
-            this.submit3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // urgent_bulk_order
-            // 
-            this.urgent_bulk_order.DataPropertyName = "urgent_bulk_order";
-            this.urgent_bulk_order.HeaderText = "URGENT BULK";
-            this.urgent_bulk_order.Name = "urgent_bulk_order";
-            this.urgent_bulk_order.ReadOnly = true;
-            this.urgent_bulk_order.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // panel1
             // 
@@ -900,6 +1073,7 @@
             this.chksubmit1.Size = new System.Drawing.Size(70, 23);
             this.chksubmit1.TabIndex = 81;
             this.chksubmit1.Tag = "2";
+            this.chksubmit1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chksubmit1_MouseUp);
             // 
             // chksubmit2
             // 
@@ -915,6 +1089,7 @@
             this.chksubmit2.Size = new System.Drawing.Size(71, 23);
             this.chksubmit2.TabIndex = 82;
             this.chksubmit2.Tag = "2";
+            this.chksubmit2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chksubmit2_MouseUp);
             // 
             // chksubmit3
             // 
@@ -930,6 +1105,7 @@
             this.chksubmit3.Size = new System.Drawing.Size(72, 23);
             this.chksubmit3.TabIndex = 83;
             this.chksubmit3.Tag = "2";
+            this.chksubmit3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chksubmit3_MouseUp);
             // 
             // chkurgent_bulk_order
             // 
@@ -945,6 +1121,7 @@
             this.chkurgent_bulk_order.Size = new System.Drawing.Size(202, 23);
             this.chkurgent_bulk_order.TabIndex = 84;
             this.chkurgent_bulk_order.Tag = "2";
+            this.chkurgent_bulk_order.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkurgent_bulk_order_MouseUp);
             // 
             // panel8
             // 
@@ -2789,6 +2966,30 @@
             this.panel5.Size = new System.Drawing.Size(995, 134);
             this.panel5.TabIndex = 77;
             // 
+            // dtRsl_certificate_expiry_date
+            // 
+            this.dtRsl_certificate_expiry_date.EditValue = "";
+            this.dtRsl_certificate_expiry_date.Enabled = false;
+            this.dtRsl_certificate_expiry_date.EnterMoveNextControl = true;
+            this.dtRsl_certificate_expiry_date.Location = new System.Drawing.Point(843, 17);
+            this.dtRsl_certificate_expiry_date.Name = "dtRsl_certificate_expiry_date";
+            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.dtRsl_certificate_expiry_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtRsl_certificate_expiry_date.Properties.Mask.BeepOnError = true;
+            this.dtRsl_certificate_expiry_date.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dtRsl_certificate_expiry_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.dtRsl_certificate_expiry_date.Properties.MaxLength = 10;
+            this.dtRsl_certificate_expiry_date.Properties.NullDate = "";
+            this.dtRsl_certificate_expiry_date.Size = new System.Drawing.Size(143, 20);
+            this.dtRsl_certificate_expiry_date.TabIndex = 208;
+            this.dtRsl_certificate_expiry_date.Tag = "2";
+            // 
             // txtQuality_callouts
             // 
             this.txtQuality_callouts.EnterMoveNextControl = true;
@@ -3878,6 +4079,10 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.label80);
+            this.tabPage2.Controls.Add(this.txtPvh_submit_ref2);
+            this.tabPage2.Controls.Add(this.txtPvh_submit_ref1);
+            this.tabPage2.Controls.Add(this.label81);
             this.tabPage2.Controls.Add(this.dgvFind);
             this.tabPage2.Controls.Add(this.label36);
             this.tabPage2.Controls.Add(this.label37);
@@ -3909,25 +4114,18 @@
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.serialno});
-            this.dgvFind.Location = new System.Drawing.Point(6, 79);
+            this.dgvFind.Location = new System.Drawing.Point(6, 160);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
             this.dgvFind.RowTemplate.Height = 24;
-            this.dgvFind.Size = new System.Drawing.Size(995, 733);
+            this.dgvFind.Size = new System.Drawing.Size(995, 652);
             this.dgvFind.TabIndex = 166;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
-            // 
-            // serialno
-            // 
-            this.serialno.DataPropertyName = "serial_no";
-            this.serialno.HeaderText = "Serial No.";
-            this.serialno.Name = "serialno";
-            this.serialno.ReadOnly = true;
             // 
             // label36
             // 
             this.label36.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label36.Location = new System.Drawing.Point(275, 52);
+            this.label36.Location = new System.Drawing.Point(275, 69);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(25, 17);
             this.label36.TabIndex = 165;
@@ -3937,7 +4135,7 @@
             // label37
             // 
             this.label37.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label37.Location = new System.Drawing.Point(21, 55);
+            this.label37.Location = new System.Drawing.Point(29, 72);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(98, 15);
             this.label37.TabIndex = 162;
@@ -3947,7 +4145,7 @@
             // label35
             // 
             this.label35.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label35.Location = new System.Drawing.Point(275, 21);
+            this.label35.Location = new System.Drawing.Point(275, 15);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(25, 17);
             this.label35.TabIndex = 161;
@@ -3957,7 +4155,7 @@
             // txtId2
             // 
             this.txtId2.EnterMoveNextControl = true;
-            this.txtId2.Location = new System.Drawing.Point(300, 20);
+            this.txtId2.Location = new System.Drawing.Point(300, 14);
             this.txtId2.Name = "txtId2";
             this.txtId2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId2.Properties.MaxLength = 12;
@@ -3967,7 +4165,7 @@
             // txtId1
             // 
             this.txtId1.EnterMoveNextControl = true;
-            this.txtId1.Location = new System.Drawing.Point(135, 20);
+            this.txtId1.Location = new System.Drawing.Point(135, 14);
             this.txtId1.Name = "txtId1";
             this.txtId1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId1.Properties.MaxLength = 12;
@@ -3979,7 +4177,7 @@
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(491, 26);
+            this.btnSearch.Location = new System.Drawing.Point(470, 29);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(78, 37);
             this.btnSearch.TabIndex = 157;
@@ -3991,7 +4189,7 @@
             // lblDept
             // 
             this.lblDept.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblDept.Location = new System.Drawing.Point(21, 24);
+            this.lblDept.Location = new System.Drawing.Point(29, 18);
             this.lblDept.Name = "lblDept";
             this.lblDept.Size = new System.Drawing.Size(98, 15);
             this.lblDept.TabIndex = 158;
@@ -4002,7 +4200,7 @@
             // 
             this.dtDat1.EditValue = new System.DateTime(2018, 10, 30, 0, 0, 0, 0);
             this.dtDat1.EnterMoveNextControl = true;
-            this.dtDat1.Location = new System.Drawing.Point(135, 51);
+            this.dtDat1.Location = new System.Drawing.Point(135, 68);
             this.dtDat1.Name = "dtDat1";
             this.dtDat1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -4017,14 +4215,14 @@
             this.dtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat1.Properties.MaxLength = 10;
             this.dtDat1.Size = new System.Drawing.Size(137, 22);
-            this.dtDat1.TabIndex = 2;
+            this.dtDat1.TabIndex = 4;
             this.dtDat1.Leave += new System.EventHandler(this.dtDat1_Leave);
             // 
             // dtDat2
             // 
             this.dtDat2.EditValue = new System.DateTime(2018, 10, 30, 0, 0, 0, 0);
             this.dtDat2.EnterMoveNextControl = true;
-            this.dtDat2.Location = new System.Drawing.Point(300, 51);
+            this.dtDat2.Location = new System.Drawing.Point(300, 68);
             this.dtDat2.Name = "dtDat2";
             this.dtDat2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -4039,7 +4237,7 @@
             this.dtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat2.Properties.MaxLength = 10;
             this.dtDat2.Size = new System.Drawing.Size(137, 22);
-            this.dtDat2.TabIndex = 3;
+            this.dtDat2.TabIndex = 5;
             // 
             // imageList1
             // 
@@ -4066,9 +4264,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -4085,6 +4283,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
+            dataGridViewCellStyle10.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -4164,6 +4365,8 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Tiered Quantity1";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            this.dataGridViewTextBoxColumn14.Width = 120;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -4209,8 +4412,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -4224,29 +4427,1480 @@
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             // 
-            // dtRsl_certificate_expiry_date
+            // dataGridViewTextBoxColumn22
             // 
-            this.dtRsl_certificate_expiry_date.EditValue = "";
-            this.dtRsl_certificate_expiry_date.Enabled = false;
-            this.dtRsl_certificate_expiry_date.EnterMoveNextControl = true;
-            this.dtRsl_certificate_expiry_date.Location = new System.Drawing.Point(843, 17);
-            this.dtRsl_certificate_expiry_date.Name = "dtRsl_certificate_expiry_date";
-            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.dtRsl_certificate_expiry_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtRsl_certificate_expiry_date.Properties.Mask.BeepOnError = true;
-            this.dtRsl_certificate_expiry_date.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.dtRsl_certificate_expiry_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.dtRsl_certificate_expiry_date.Properties.MaxLength = 10;
-            this.dtRsl_certificate_expiry_date.Properties.NullDate = "";
-            this.dtRsl_certificate_expiry_date.Size = new System.Drawing.Size(143, 20);
-            this.dtRsl_certificate_expiry_date.TabIndex = 208;
-            this.dtRsl_certificate_expiry_date.Tag = "2";
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "obj_fbx";
+            this.dataGridViewTextBoxColumn22.HeaderText = "obj_fbx";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "raw_mat1_compostion";
+            this.dataGridViewTextBoxColumn23.HeaderText = "raw_mat1_compostion";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "raw_mat1_percent";
+            this.dataGridViewTextBoxColumn24.HeaderText = "raw_mat1_percent";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "raw_mat1_l3";
+            this.dataGridViewTextBoxColumn25.HeaderText = "raw_mat1_l3";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "raw_mat1_l4";
+            this.dataGridViewTextBoxColumn26.HeaderText = "raw_mat1_l4";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "raw_mat1_l5";
+            this.dataGridViewTextBoxColumn27.HeaderText = "raw_mat1_l5";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "raw_mat2_compostion";
+            this.dataGridViewTextBoxColumn28.HeaderText = "raw_mat2_compostion";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "raw_mat2_percent";
+            this.dataGridViewTextBoxColumn29.HeaderText = "raw_mat2_percent";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "raw_mat2_l3";
+            this.dataGridViewTextBoxColumn30.HeaderText = "raw_mat2_l3";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "raw_mat2_l4";
+            this.dataGridViewTextBoxColumn31.HeaderText = "raw_mat2_l4";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "raw_mat2_l5";
+            this.dataGridViewTextBoxColumn32.HeaderText = "raw_mat2_l5";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "raw_mat3_compostion";
+            this.dataGridViewTextBoxColumn33.HeaderText = "raw_mat3_compostion";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "raw_mat3_percent";
+            this.dataGridViewTextBoxColumn34.HeaderText = "raw_mat3_percent";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "raw_mat3_l3";
+            this.dataGridViewTextBoxColumn35.HeaderText = "raw_mat3_l3";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "raw_mat3_l4";
+            this.dataGridViewTextBoxColumn36.HeaderText = "raw_mat3_l4";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.DataPropertyName = "raw_mat3_l5";
+            this.dataGridViewTextBoxColumn37.HeaderText = "raw_mat3_l5";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.DataPropertyName = "raw_mat4_compostion";
+            this.dataGridViewTextBoxColumn38.HeaderText = "raw_mat4_compostion";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "raw_mat4_percent";
+            this.dataGridViewTextBoxColumn39.HeaderText = "raw_mat4_percent";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "raw_mat4_l3";
+            this.dataGridViewTextBoxColumn40.HeaderText = "raw_mat4_l3";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "raw_mat4_l4";
+            this.dataGridViewTextBoxColumn41.HeaderText = "raw_mat4_l4";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn42
+            // 
+            this.dataGridViewTextBoxColumn42.DataPropertyName = "raw_mat4_l5";
+            this.dataGridViewTextBoxColumn42.HeaderText = "raw_mat4_l5";
+            this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            this.dataGridViewTextBoxColumn42.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            this.dataGridViewTextBoxColumn43.DataPropertyName = "raw_mat5_compostion";
+            this.dataGridViewTextBoxColumn43.HeaderText = "raw_mat5_compostion";
+            this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            this.dataGridViewTextBoxColumn43.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn44
+            // 
+            this.dataGridViewTextBoxColumn44.DataPropertyName = "raw_mat5_percent";
+            this.dataGridViewTextBoxColumn44.HeaderText = "raw_mat5_percent";
+            this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
+            this.dataGridViewTextBoxColumn44.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn45
+            // 
+            this.dataGridViewTextBoxColumn45.DataPropertyName = "raw_mat5_l3";
+            this.dataGridViewTextBoxColumn45.HeaderText = "raw_mat5_l3";
+            this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
+            this.dataGridViewTextBoxColumn45.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn46
+            // 
+            this.dataGridViewTextBoxColumn46.DataPropertyName = "raw_mat5_l4";
+            this.dataGridViewTextBoxColumn46.HeaderText = "raw_mat5_l4";
+            this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
+            this.dataGridViewTextBoxColumn46.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn47
+            // 
+            this.dataGridViewTextBoxColumn47.DataPropertyName = "raw_mat5_l5";
+            this.dataGridViewTextBoxColumn47.HeaderText = "raw_mat5_l5";
+            this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
+            this.dataGridViewTextBoxColumn47.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn48
+            // 
+            this.dataGridViewTextBoxColumn48.DataPropertyName = "currency";
+            this.dataGridViewTextBoxColumn48.HeaderText = "currency";
+            this.dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
+            this.dataGridViewTextBoxColumn48.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn49
+            // 
+            this.dataGridViewTextBoxColumn49.DataPropertyName = "price1";
+            this.dataGridViewTextBoxColumn49.HeaderText = "price1";
+            this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
+            this.dataGridViewTextBoxColumn49.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn50
+            // 
+            this.dataGridViewTextBoxColumn50.DataPropertyName = "price1_unit";
+            this.dataGridViewTextBoxColumn50.HeaderText = "price1_unit";
+            this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            this.dataGridViewTextBoxColumn50.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn51
+            // 
+            this.dataGridViewTextBoxColumn51.DataPropertyName = "price2";
+            this.dataGridViewTextBoxColumn51.HeaderText = "price2";
+            this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            this.dataGridViewTextBoxColumn51.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            this.dataGridViewTextBoxColumn52.DataPropertyName = "price2_unit";
+            this.dataGridViewTextBoxColumn52.HeaderText = "price2_unit";
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            this.dataGridViewTextBoxColumn52.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn53
+            // 
+            this.dataGridViewTextBoxColumn53.DataPropertyName = "price3";
+            this.dataGridViewTextBoxColumn53.HeaderText = "price3";
+            this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
+            this.dataGridViewTextBoxColumn53.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "price3_unit";
+            this.dataGridViewTextBoxColumn54.HeaderText = "price3_unit";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "price4";
+            this.dataGridViewTextBoxColumn55.HeaderText = "price4";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn56
+            // 
+            this.dataGridViewTextBoxColumn56.DataPropertyName = "price4_unit";
+            this.dataGridViewTextBoxColumn56.HeaderText = "price4_unit";
+            this.dataGridViewTextBoxColumn56.Name = "dataGridViewTextBoxColumn56";
+            this.dataGridViewTextBoxColumn56.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "price5";
+            this.dataGridViewTextBoxColumn57.HeaderText = "price5";
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            this.dataGridViewTextBoxColumn57.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn58
+            // 
+            this.dataGridViewTextBoxColumn58.DataPropertyName = "price5_unit";
+            this.dataGridViewTextBoxColumn58.HeaderText = "price5_unit";
+            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
+            this.dataGridViewTextBoxColumn58.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn59
+            // 
+            this.dataGridViewTextBoxColumn59.DataPropertyName = "price6";
+            this.dataGridViewTextBoxColumn59.HeaderText = "price6";
+            this.dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
+            this.dataGridViewTextBoxColumn59.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn60
+            // 
+            this.dataGridViewTextBoxColumn60.DataPropertyName = "price6_unit";
+            this.dataGridViewTextBoxColumn60.HeaderText = "price6_unit";
+            this.dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
+            this.dataGridViewTextBoxColumn60.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn61
+            // 
+            this.dataGridViewTextBoxColumn61.DataPropertyName = "surcharge";
+            this.dataGridViewTextBoxColumn61.HeaderText = "surcharge";
+            this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
+            this.dataGridViewTextBoxColumn61.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn62
+            // 
+            this.dataGridViewTextBoxColumn62.DataPropertyName = "bulk_moq";
+            this.dataGridViewTextBoxColumn62.HeaderText = "bulk_moq";
+            this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
+            this.dataGridViewTextBoxColumn62.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn63
+            // 
+            this.dataGridViewTextBoxColumn63.DataPropertyName = "moq_color";
+            this.dataGridViewTextBoxColumn63.HeaderText = "moq_color";
+            this.dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
+            this.dataGridViewTextBoxColumn63.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn64
+            // 
+            this.dataGridViewTextBoxColumn64.DataPropertyName = "leadtime_sample";
+            this.dataGridViewTextBoxColumn64.HeaderText = "leadtime_sample";
+            this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
+            this.dataGridViewTextBoxColumn64.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn65
+            // 
+            this.dataGridViewTextBoxColumn65.DataPropertyName = "leadtime_bulk";
+            this.dataGridViewTextBoxColumn65.HeaderText = "leadtime_bulk";
+            this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
+            this.dataGridViewTextBoxColumn65.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn66
+            // 
+            this.dataGridViewTextBoxColumn66.DataPropertyName = "cert1_mat_finish";
+            this.dataGridViewTextBoxColumn66.HeaderText = "cert1_mat_finish";
+            this.dataGridViewTextBoxColumn66.Name = "dataGridViewTextBoxColumn66";
+            this.dataGridViewTextBoxColumn66.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn67
+            // 
+            this.dataGridViewTextBoxColumn67.DataPropertyName = "cert1_type";
+            this.dataGridViewTextBoxColumn67.HeaderText = "cert1_type";
+            this.dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
+            this.dataGridViewTextBoxColumn67.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn68
+            // 
+            this.dataGridViewTextBoxColumn68.DataPropertyName = "cert1_type_other";
+            this.dataGridViewTextBoxColumn68.HeaderText = "cert1_type_other";
+            this.dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
+            this.dataGridViewTextBoxColumn68.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn69
+            // 
+            this.dataGridViewTextBoxColumn69.DataPropertyName = "cert1_scope_no";
+            this.dataGridViewTextBoxColumn69.HeaderText = "cert1_scope_no";
+            this.dataGridViewTextBoxColumn69.Name = "dataGridViewTextBoxColumn69";
+            this.dataGridViewTextBoxColumn69.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn70
+            // 
+            this.dataGridViewTextBoxColumn70.DataPropertyName = "cert1_expiry_date";
+            this.dataGridViewTextBoxColumn70.HeaderText = "cert1_expiry_date";
+            this.dataGridViewTextBoxColumn70.Name = "dataGridViewTextBoxColumn70";
+            this.dataGridViewTextBoxColumn70.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn71
+            // 
+            this.dataGridViewTextBoxColumn71.DataPropertyName = "cert1_scope_holder";
+            this.dataGridViewTextBoxColumn71.HeaderText = "cert1_scope_holder";
+            this.dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
+            this.dataGridViewTextBoxColumn71.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn72
+            // 
+            this.dataGridViewTextBoxColumn72.DataPropertyName = "cert2_mat_finish";
+            this.dataGridViewTextBoxColumn72.HeaderText = "cert2_mat_finish";
+            this.dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
+            this.dataGridViewTextBoxColumn72.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn73
+            // 
+            this.dataGridViewTextBoxColumn73.DataPropertyName = "cert2_type";
+            this.dataGridViewTextBoxColumn73.HeaderText = "cert2_type";
+            this.dataGridViewTextBoxColumn73.Name = "dataGridViewTextBoxColumn73";
+            this.dataGridViewTextBoxColumn73.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn74
+            // 
+            this.dataGridViewTextBoxColumn74.DataPropertyName = "cert2_type_other";
+            this.dataGridViewTextBoxColumn74.HeaderText = "cert2_type_other";
+            this.dataGridViewTextBoxColumn74.Name = "dataGridViewTextBoxColumn74";
+            this.dataGridViewTextBoxColumn74.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn75
+            // 
+            this.dataGridViewTextBoxColumn75.DataPropertyName = "cert2_scope_no";
+            this.dataGridViewTextBoxColumn75.HeaderText = "cert2_scope_no";
+            this.dataGridViewTextBoxColumn75.Name = "dataGridViewTextBoxColumn75";
+            this.dataGridViewTextBoxColumn75.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn76
+            // 
+            this.dataGridViewTextBoxColumn76.DataPropertyName = "cert2_expiry_date";
+            this.dataGridViewTextBoxColumn76.HeaderText = "cert2_expiry_date";
+            this.dataGridViewTextBoxColumn76.Name = "dataGridViewTextBoxColumn76";
+            this.dataGridViewTextBoxColumn76.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn77
+            // 
+            this.dataGridViewTextBoxColumn77.DataPropertyName = "cert2_scope_holder";
+            this.dataGridViewTextBoxColumn77.HeaderText = "cert2_scope_holder";
+            this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
+            this.dataGridViewTextBoxColumn77.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn78
+            // 
+            this.dataGridViewTextBoxColumn78.DataPropertyName = "cert3_mat_finish";
+            this.dataGridViewTextBoxColumn78.HeaderText = "cert3_mat_finish";
+            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
+            this.dataGridViewTextBoxColumn78.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn79
+            // 
+            this.dataGridViewTextBoxColumn79.DataPropertyName = "cert3_type";
+            this.dataGridViewTextBoxColumn79.HeaderText = "cert3_type";
+            this.dataGridViewTextBoxColumn79.Name = "dataGridViewTextBoxColumn79";
+            this.dataGridViewTextBoxColumn79.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn80
+            // 
+            this.dataGridViewTextBoxColumn80.DataPropertyName = "cert3_type_other";
+            this.dataGridViewTextBoxColumn80.HeaderText = "cert3_type_other";
+            this.dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
+            this.dataGridViewTextBoxColumn80.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn81
+            // 
+            this.dataGridViewTextBoxColumn81.DataPropertyName = "cert3_scope_no";
+            this.dataGridViewTextBoxColumn81.HeaderText = "cert3_scope_no";
+            this.dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
+            this.dataGridViewTextBoxColumn81.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn82
+            // 
+            this.dataGridViewTextBoxColumn82.DataPropertyName = "cert3_expiry_date";
+            this.dataGridViewTextBoxColumn82.HeaderText = "cert3_expiry_date";
+            this.dataGridViewTextBoxColumn82.Name = "dataGridViewTextBoxColumn82";
+            this.dataGridViewTextBoxColumn82.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn83
+            // 
+            this.dataGridViewTextBoxColumn83.DataPropertyName = "cert3_scope_holder";
+            this.dataGridViewTextBoxColumn83.HeaderText = "cert3_scope_holder";
+            this.dataGridViewTextBoxColumn83.Name = "dataGridViewTextBoxColumn83";
+            this.dataGridViewTextBoxColumn83.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn84
+            // 
+            this.dataGridViewTextBoxColumn84.DataPropertyName = "cert4_mat_finish";
+            this.dataGridViewTextBoxColumn84.HeaderText = "cert4_mat_finish";
+            this.dataGridViewTextBoxColumn84.Name = "dataGridViewTextBoxColumn84";
+            this.dataGridViewTextBoxColumn84.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn85
+            // 
+            this.dataGridViewTextBoxColumn85.DataPropertyName = "cert4_type";
+            this.dataGridViewTextBoxColumn85.HeaderText = "cert4_type";
+            this.dataGridViewTextBoxColumn85.Name = "dataGridViewTextBoxColumn85";
+            this.dataGridViewTextBoxColumn85.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn86
+            // 
+            this.dataGridViewTextBoxColumn86.DataPropertyName = "cert4_type_other";
+            this.dataGridViewTextBoxColumn86.HeaderText = "cert4_type_other";
+            this.dataGridViewTextBoxColumn86.Name = "dataGridViewTextBoxColumn86";
+            this.dataGridViewTextBoxColumn86.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn87
+            // 
+            this.dataGridViewTextBoxColumn87.DataPropertyName = "cert4_scope_no";
+            this.dataGridViewTextBoxColumn87.HeaderText = "cert4_scope_no";
+            this.dataGridViewTextBoxColumn87.Name = "dataGridViewTextBoxColumn87";
+            this.dataGridViewTextBoxColumn87.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn88
+            // 
+            this.dataGridViewTextBoxColumn88.DataPropertyName = "cert4_expiry_date";
+            this.dataGridViewTextBoxColumn88.HeaderText = "cert4_expiry_date";
+            this.dataGridViewTextBoxColumn88.Name = "dataGridViewTextBoxColumn88";
+            this.dataGridViewTextBoxColumn88.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn89
+            // 
+            this.dataGridViewTextBoxColumn89.DataPropertyName = "cert4_scope_holder";
+            this.dataGridViewTextBoxColumn89.HeaderText = "cert4_scope_holder";
+            this.dataGridViewTextBoxColumn89.Name = "dataGridViewTextBoxColumn89";
+            this.dataGridViewTextBoxColumn89.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn90
+            // 
+            this.dataGridViewTextBoxColumn90.DataPropertyName = "rsl_certificate_type";
+            this.dataGridViewTextBoxColumn90.HeaderText = "rsl_certificate_type";
+            this.dataGridViewTextBoxColumn90.Name = "dataGridViewTextBoxColumn90";
+            this.dataGridViewTextBoxColumn90.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn91
+            // 
+            this.dataGridViewTextBoxColumn91.DataPropertyName = "rsl_certificate_expiry_date";
+            this.dataGridViewTextBoxColumn91.HeaderText = "rsl_certificate_expiry_date";
+            this.dataGridViewTextBoxColumn91.Name = "dataGridViewTextBoxColumn91";
+            this.dataGridViewTextBoxColumn91.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn92
+            // 
+            this.dataGridViewTextBoxColumn92.DataPropertyName = "machine_washable";
+            this.dataGridViewTextBoxColumn92.HeaderText = "machine_washable";
+            this.dataGridViewTextBoxColumn92.Name = "dataGridViewTextBoxColumn92";
+            this.dataGridViewTextBoxColumn92.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn93
+            // 
+            this.dataGridViewTextBoxColumn93.DataPropertyName = "dry_cleanable";
+            this.dataGridViewTextBoxColumn93.HeaderText = "dry_cleanable";
+            this.dataGridViewTextBoxColumn93.Name = "dataGridViewTextBoxColumn93";
+            this.dataGridViewTextBoxColumn93.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn94
+            // 
+            this.dataGridViewTextBoxColumn94.DataPropertyName = "dry_clean_only";
+            this.dataGridViewTextBoxColumn94.HeaderText = "dry_clean_only";
+            this.dataGridViewTextBoxColumn94.Name = "dataGridViewTextBoxColumn94";
+            this.dataGridViewTextBoxColumn94.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn95
+            // 
+            this.dataGridViewTextBoxColumn95.DataPropertyName = "do_not_dry_clean";
+            this.dataGridViewTextBoxColumn95.HeaderText = "do_not_dry_clean";
+            this.dataGridViewTextBoxColumn95.Name = "dataGridViewTextBoxColumn95";
+            this.dataGridViewTextBoxColumn95.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn96
+            // 
+            this.dataGridViewTextBoxColumn96.DataPropertyName = "suitable_for_tumble_dry";
+            this.dataGridViewTextBoxColumn96.HeaderText = "suitable_for_tumble_dry";
+            this.dataGridViewTextBoxColumn96.Name = "dataGridViewTextBoxColumn96";
+            this.dataGridViewTextBoxColumn96.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn97
+            // 
+            this.dataGridViewTextBoxColumn97.DataPropertyName = "suitable_for_swimwear";
+            this.dataGridViewTextBoxColumn97.HeaderText = "suitable_for_swimwear";
+            this.dataGridViewTextBoxColumn97.Name = "dataGridViewTextBoxColumn97";
+            this.dataGridViewTextBoxColumn97.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn98
+            // 
+            this.dataGridViewTextBoxColumn98.DataPropertyName = "passes_metal_detection";
+            this.dataGridViewTextBoxColumn98.HeaderText = "passes_metal_detection";
+            this.dataGridViewTextBoxColumn98.Name = "dataGridViewTextBoxColumn98";
+            this.dataGridViewTextBoxColumn98.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn99
+            // 
+            this.dataGridViewTextBoxColumn99.DataPropertyName = "complies_with_pvh";
+            this.dataGridViewTextBoxColumn99.HeaderText = "complies_with_pvh";
+            this.dataGridViewTextBoxColumn99.Name = "dataGridViewTextBoxColumn99";
+            this.dataGridViewTextBoxColumn99.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn100
+            // 
+            this.dataGridViewTextBoxColumn100.DataPropertyName = "complies_with_cfr";
+            this.dataGridViewTextBoxColumn100.HeaderText = "complies_with_cfr";
+            this.dataGridViewTextBoxColumn100.Name = "dataGridViewTextBoxColumn100";
+            this.dataGridViewTextBoxColumn100.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn101
+            // 
+            this.dataGridViewTextBoxColumn101.DataPropertyName = "quality_callouts";
+            this.dataGridViewTextBoxColumn101.HeaderText = "quality_callouts";
+            this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
+            this.dataGridViewTextBoxColumn101.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn102
+            // 
+            this.dataGridViewTextBoxColumn102.DataPropertyName = "for_bulk_feference";
+            this.dataGridViewTextBoxColumn102.HeaderText = "for_bulk_feference";
+            this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
+            this.dataGridViewTextBoxColumn102.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn103
+            // 
+            this.dataGridViewTextBoxColumn103.DataPropertyName = "for_quality_approval";
+            this.dataGridViewTextBoxColumn103.HeaderText = "for_quality_approval";
+            this.dataGridViewTextBoxColumn103.Name = "dataGridViewTextBoxColumn103";
+            this.dataGridViewTextBoxColumn103.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn104
+            // 
+            this.dataGridViewTextBoxColumn104.DataPropertyName = "color_already_approved";
+            this.dataGridViewTextBoxColumn104.HeaderText = "color_already_approved";
+            this.dataGridViewTextBoxColumn104.Name = "dataGridViewTextBoxColumn104";
+            this.dataGridViewTextBoxColumn104.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn105
+            // 
+            this.dataGridViewTextBoxColumn105.DataPropertyName = "size_already_approved";
+            this.dataGridViewTextBoxColumn105.HeaderText = "size_already_approved";
+            this.dataGridViewTextBoxColumn105.Name = "dataGridViewTextBoxColumn105";
+            this.dataGridViewTextBoxColumn105.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn106
+            // 
+            this.dataGridViewTextBoxColumn106.DataPropertyName = "create_by";
+            this.dataGridViewTextBoxColumn106.HeaderText = "create_by";
+            this.dataGridViewTextBoxColumn106.Name = "dataGridViewTextBoxColumn106";
+            this.dataGridViewTextBoxColumn106.ReadOnly = true;
+            this.dataGridViewTextBoxColumn106.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn107
+            // 
+            this.dataGridViewTextBoxColumn107.DataPropertyName = "create_date";
+            this.dataGridViewTextBoxColumn107.HeaderText = "create_date";
+            this.dataGridViewTextBoxColumn107.Name = "dataGridViewTextBoxColumn107";
+            this.dataGridViewTextBoxColumn107.ReadOnly = true;
+            this.dataGridViewTextBoxColumn107.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn108
+            // 
+            this.dataGridViewTextBoxColumn108.DataPropertyName = "update_by";
+            this.dataGridViewTextBoxColumn108.HeaderText = "update_by";
+            this.dataGridViewTextBoxColumn108.Name = "dataGridViewTextBoxColumn108";
+            this.dataGridViewTextBoxColumn108.ReadOnly = true;
+            this.dataGridViewTextBoxColumn108.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn109
+            // 
+            this.dataGridViewTextBoxColumn109.DataPropertyName = "update_date";
+            this.dataGridViewTextBoxColumn109.HeaderText = "update_date";
+            this.dataGridViewTextBoxColumn109.Name = "dataGridViewTextBoxColumn109";
+            this.dataGridViewTextBoxColumn109.ReadOnly = true;
+            this.dataGridViewTextBoxColumn109.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn110
+            // 
+            this.dataGridViewTextBoxColumn110.DataPropertyName = "serial_no";
+            this.dataGridViewTextBoxColumn110.HeaderText = "Serial No.";
+            this.dataGridViewTextBoxColumn110.Name = "dataGridViewTextBoxColumn110";
+            // 
+            // serialno
+            // 
+            this.serialno.DataPropertyName = "serial_no";
+            this.serialno.HeaderText = "Serial No.";
+            this.serialno.Name = "serialno";
+            this.serialno.ReadOnly = true;
+            // 
+            // serial_no
+            // 
+            this.serial_no.DataPropertyName = "serial_no";
+            this.serial_no.HeaderText = "Serial No.";
+            this.serial_no.Name = "serial_no";
+            this.serial_no.Width = 90;
+            // 
+            // division
+            // 
+            this.division.DataPropertyName = "division";
+            this.division.HeaderText = "Division";
+            this.division.Name = "division";
+            // 
+            // handing_office
+            // 
+            this.handing_office.DataPropertyName = "handing_office";
+            this.handing_office.HeaderText = "Handing Office";
+            this.handing_office.Name = "handing_office";
+            this.handing_office.Width = 110;
+            // 
+            // season
+            // 
+            this.season.DataPropertyName = "season";
+            this.season.HeaderText = "Season";
+            this.season.Name = "season";
+            this.season.Width = 60;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            dataGridViewCellStyle12.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle12.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle12;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            // 
+            // requests_by
+            // 
+            this.requests_by.DataPropertyName = "requests_by";
+            this.requests_by.HeaderText = "Requests by";
+            this.requests_by.Name = "requests_by";
+            this.requests_by.Width = 90;
+            // 
+            // plm_material_code
+            // 
+            this.plm_material_code.DataPropertyName = "plm_material_code";
+            this.plm_material_code.HeaderText = "Plm Material Code";
+            this.plm_material_code.Name = "plm_material_code";
+            // 
+            // supplier_ref_no
+            // 
+            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
+            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
+            this.supplier_ref_no.Name = "supplier_ref_no";
+            // 
+            // pvh_submit_ref
+            // 
+            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
+            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
+            this.pvh_submit_ref.Name = "pvh_submit_ref";
+            // 
+            // supplier_name
+            // 
+            this.supplier_name.DataPropertyName = "supplier_name";
+            this.supplier_name.HeaderText = "Supplier Name";
+            this.supplier_name.Name = "supplier_name";
+            this.supplier_name.ReadOnly = true;
+            // 
+            // factory_name
+            // 
+            this.factory_name.DataPropertyName = "factory_name";
+            this.factory_name.HeaderText = "FactoryNname";
+            this.factory_name.Name = "factory_name";
+            this.factory_name.ReadOnly = true;
+            // 
+            // material_subtype
+            // 
+            this.material_subtype.DataPropertyName = "material_subtype";
+            this.material_subtype.HeaderText = "Material Subtype";
+            this.material_subtype.Name = "material_subtype";
+            this.material_subtype.ReadOnly = true;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            // 
+            // colour
+            // 
+            this.colour.DataPropertyName = "colour";
+            this.colour.HeaderText = "Colour";
+            this.colour.Name = "colour";
+            this.colour.Visible = false;
+            this.colour.Width = 120;
+            // 
+            // finish
+            // 
+            this.finish.DataPropertyName = "finish";
+            this.finish.HeaderText = "Finish";
+            this.finish.Name = "finish";
+            this.finish.ReadOnly = true;
+            // 
+            // process
+            // 
+            this.process.DataPropertyName = "process";
+            this.process.HeaderText = "Process";
+            this.process.Name = "process";
+            this.process.ReadOnly = true;
+            // 
+            // previous_submit_ref
+            // 
+            this.previous_submit_ref.DataPropertyName = "previous_submit_ref";
+            this.previous_submit_ref.HeaderText = "Previous Submit Ref";
+            this.previous_submit_ref.Name = "previous_submit_ref";
+            this.previous_submit_ref.ReadOnly = true;
+            // 
+            // sample_type
+            // 
+            this.sample_type.DataPropertyName = "sample_type";
+            this.sample_type.HeaderText = "Sample Type";
+            this.sample_type.Name = "sample_type";
+            this.sample_type.ReadOnly = true;
+            // 
+            // previous_submit_vr
+            // 
+            this.previous_submit_vr.DataPropertyName = "previous_submit_vr";
+            this.previous_submit_vr.HeaderText = "Previous Submit VR";
+            this.previous_submit_vr.Name = "previous_submit_vr";
+            this.previous_submit_vr.ReadOnly = true;
+            // 
+            // weight
+            // 
+            this.weight.DataPropertyName = "weight";
+            this.weight.HeaderText = "Weight";
+            this.weight.Name = "weight";
+            this.weight.ReadOnly = true;
+            // 
+            // weight_uom
+            // 
+            this.weight_uom.DataPropertyName = "weight_uom";
+            this.weight_uom.HeaderText = "Weight Uom";
+            this.weight_uom.Name = "weight_uom";
+            this.weight_uom.ReadOnly = true;
+            // 
+            // obj_fbx
+            // 
+            this.obj_fbx.DataPropertyName = "obj_fbx";
+            this.obj_fbx.HeaderText = "obj_fbx";
+            this.obj_fbx.Name = "obj_fbx";
+            this.obj_fbx.ReadOnly = true;
+            // 
+            // raw_mat1_compostion
+            // 
+            this.raw_mat1_compostion.DataPropertyName = "raw_mat1_compostion";
+            this.raw_mat1_compostion.HeaderText = "raw_mat1_compostion";
+            this.raw_mat1_compostion.Name = "raw_mat1_compostion";
+            this.raw_mat1_compostion.ReadOnly = true;
+            // 
+            // raw_mat1_percent
+            // 
+            this.raw_mat1_percent.DataPropertyName = "raw_mat1_percent";
+            this.raw_mat1_percent.HeaderText = "raw_mat1_percent";
+            this.raw_mat1_percent.Name = "raw_mat1_percent";
+            this.raw_mat1_percent.ReadOnly = true;
+            // 
+            // raw_mat1_l3
+            // 
+            this.raw_mat1_l3.DataPropertyName = "raw_mat1_l3";
+            this.raw_mat1_l3.HeaderText = "raw_mat1_l3";
+            this.raw_mat1_l3.Name = "raw_mat1_l3";
+            this.raw_mat1_l3.ReadOnly = true;
+            // 
+            // raw_mat1_l4
+            // 
+            this.raw_mat1_l4.DataPropertyName = "raw_mat1_l4";
+            this.raw_mat1_l4.HeaderText = "raw_mat1_l4";
+            this.raw_mat1_l4.Name = "raw_mat1_l4";
+            this.raw_mat1_l4.ReadOnly = true;
+            // 
+            // raw_mat1_l5
+            // 
+            this.raw_mat1_l5.DataPropertyName = "raw_mat1_l5";
+            this.raw_mat1_l5.HeaderText = "raw_mat1_l5";
+            this.raw_mat1_l5.Name = "raw_mat1_l5";
+            this.raw_mat1_l5.ReadOnly = true;
+            // 
+            // raw_mat2_compostion
+            // 
+            this.raw_mat2_compostion.DataPropertyName = "raw_mat2_compostion";
+            this.raw_mat2_compostion.HeaderText = "raw_mat2_compostion";
+            this.raw_mat2_compostion.Name = "raw_mat2_compostion";
+            this.raw_mat2_compostion.ReadOnly = true;
+            // 
+            // raw_mat2_percent
+            // 
+            this.raw_mat2_percent.DataPropertyName = "raw_mat2_percent";
+            this.raw_mat2_percent.HeaderText = "raw_mat2_percent";
+            this.raw_mat2_percent.Name = "raw_mat2_percent";
+            this.raw_mat2_percent.ReadOnly = true;
+            // 
+            // raw_mat2_l3
+            // 
+            this.raw_mat2_l3.DataPropertyName = "raw_mat2_l3";
+            this.raw_mat2_l3.HeaderText = "raw_mat2_l3";
+            this.raw_mat2_l3.Name = "raw_mat2_l3";
+            this.raw_mat2_l3.ReadOnly = true;
+            // 
+            // raw_mat2_l4
+            // 
+            this.raw_mat2_l4.DataPropertyName = "raw_mat2_l4";
+            this.raw_mat2_l4.HeaderText = "raw_mat2_l4";
+            this.raw_mat2_l4.Name = "raw_mat2_l4";
+            this.raw_mat2_l4.ReadOnly = true;
+            // 
+            // raw_mat2_l5
+            // 
+            this.raw_mat2_l5.DataPropertyName = "raw_mat2_l5";
+            this.raw_mat2_l5.HeaderText = "raw_mat2_l5";
+            this.raw_mat2_l5.Name = "raw_mat2_l5";
+            this.raw_mat2_l5.ReadOnly = true;
+            // 
+            // raw_mat3_compostion
+            // 
+            this.raw_mat3_compostion.DataPropertyName = "raw_mat3_compostion";
+            this.raw_mat3_compostion.HeaderText = "raw_mat3_compostion";
+            this.raw_mat3_compostion.Name = "raw_mat3_compostion";
+            this.raw_mat3_compostion.ReadOnly = true;
+            // 
+            // raw_mat3_percent
+            // 
+            this.raw_mat3_percent.DataPropertyName = "raw_mat3_percent";
+            this.raw_mat3_percent.HeaderText = "raw_mat3_percent";
+            this.raw_mat3_percent.Name = "raw_mat3_percent";
+            this.raw_mat3_percent.ReadOnly = true;
+            // 
+            // raw_mat3_l3
+            // 
+            this.raw_mat3_l3.DataPropertyName = "raw_mat3_l3";
+            this.raw_mat3_l3.HeaderText = "raw_mat3_l3";
+            this.raw_mat3_l3.Name = "raw_mat3_l3";
+            this.raw_mat3_l3.ReadOnly = true;
+            // 
+            // raw_mat3_l4
+            // 
+            this.raw_mat3_l4.DataPropertyName = "raw_mat3_l4";
+            this.raw_mat3_l4.HeaderText = "raw_mat3_l4";
+            this.raw_mat3_l4.Name = "raw_mat3_l4";
+            this.raw_mat3_l4.ReadOnly = true;
+            // 
+            // raw_mat3_l5
+            // 
+            this.raw_mat3_l5.DataPropertyName = "raw_mat3_l5";
+            this.raw_mat3_l5.HeaderText = "raw_mat3_l5";
+            this.raw_mat3_l5.Name = "raw_mat3_l5";
+            this.raw_mat3_l5.ReadOnly = true;
+            // 
+            // raw_mat4_compostion
+            // 
+            this.raw_mat4_compostion.DataPropertyName = "raw_mat4_compostion";
+            this.raw_mat4_compostion.HeaderText = "raw_mat4_compostion";
+            this.raw_mat4_compostion.Name = "raw_mat4_compostion";
+            this.raw_mat4_compostion.ReadOnly = true;
+            // 
+            // raw_mat4_percent
+            // 
+            this.raw_mat4_percent.DataPropertyName = "raw_mat4_percent";
+            this.raw_mat4_percent.HeaderText = "raw_mat4_percent";
+            this.raw_mat4_percent.Name = "raw_mat4_percent";
+            this.raw_mat4_percent.ReadOnly = true;
+            // 
+            // raw_mat4_l3
+            // 
+            this.raw_mat4_l3.DataPropertyName = "raw_mat4_l3";
+            this.raw_mat4_l3.HeaderText = "raw_mat4_l3";
+            this.raw_mat4_l3.Name = "raw_mat4_l3";
+            this.raw_mat4_l3.ReadOnly = true;
+            // 
+            // raw_mat4_l4
+            // 
+            this.raw_mat4_l4.DataPropertyName = "raw_mat4_l4";
+            this.raw_mat4_l4.HeaderText = "raw_mat4_l4";
+            this.raw_mat4_l4.Name = "raw_mat4_l4";
+            this.raw_mat4_l4.ReadOnly = true;
+            // 
+            // raw_mat4_l5
+            // 
+            this.raw_mat4_l5.DataPropertyName = "raw_mat4_l5";
+            this.raw_mat4_l5.HeaderText = "raw_mat4_l5";
+            this.raw_mat4_l5.Name = "raw_mat4_l5";
+            this.raw_mat4_l5.ReadOnly = true;
+            // 
+            // raw_mat5_compostion
+            // 
+            this.raw_mat5_compostion.DataPropertyName = "raw_mat5_compostion";
+            this.raw_mat5_compostion.HeaderText = "raw_mat5_compostion";
+            this.raw_mat5_compostion.Name = "raw_mat5_compostion";
+            this.raw_mat5_compostion.ReadOnly = true;
+            // 
+            // raw_mat5_percent
+            // 
+            this.raw_mat5_percent.DataPropertyName = "raw_mat5_percent";
+            this.raw_mat5_percent.HeaderText = "raw_mat5_percent";
+            this.raw_mat5_percent.Name = "raw_mat5_percent";
+            this.raw_mat5_percent.ReadOnly = true;
+            // 
+            // raw_mat5_l3
+            // 
+            this.raw_mat5_l3.DataPropertyName = "raw_mat5_l3";
+            this.raw_mat5_l3.HeaderText = "raw_mat5_l3";
+            this.raw_mat5_l3.Name = "raw_mat5_l3";
+            this.raw_mat5_l3.ReadOnly = true;
+            // 
+            // raw_mat5_l4
+            // 
+            this.raw_mat5_l4.DataPropertyName = "raw_mat5_l4";
+            this.raw_mat5_l4.HeaderText = "raw_mat5_l4";
+            this.raw_mat5_l4.Name = "raw_mat5_l4";
+            this.raw_mat5_l4.ReadOnly = true;
+            // 
+            // raw_mat5_l5
+            // 
+            this.raw_mat5_l5.DataPropertyName = "raw_mat5_l5";
+            this.raw_mat5_l5.HeaderText = "raw_mat5_l5";
+            this.raw_mat5_l5.Name = "raw_mat5_l5";
+            this.raw_mat5_l5.ReadOnly = true;
+            // 
+            // currency
+            // 
+            this.currency.DataPropertyName = "currency";
+            this.currency.HeaderText = "currency";
+            this.currency.Name = "currency";
+            this.currency.ReadOnly = true;
+            // 
+            // price1
+            // 
+            this.price1.DataPropertyName = "price1";
+            this.price1.HeaderText = "price1";
+            this.price1.Name = "price1";
+            this.price1.ReadOnly = true;
+            // 
+            // price1_unit
+            // 
+            this.price1_unit.DataPropertyName = "price1_unit";
+            this.price1_unit.HeaderText = "price1_unit";
+            this.price1_unit.Name = "price1_unit";
+            this.price1_unit.ReadOnly = true;
+            // 
+            // price2
+            // 
+            this.price2.DataPropertyName = "price2";
+            this.price2.HeaderText = "price2";
+            this.price2.Name = "price2";
+            this.price2.ReadOnly = true;
+            // 
+            // price2_unit
+            // 
+            this.price2_unit.DataPropertyName = "price2_unit";
+            this.price2_unit.HeaderText = "price2_unit";
+            this.price2_unit.Name = "price2_unit";
+            this.price2_unit.ReadOnly = true;
+            // 
+            // price3
+            // 
+            this.price3.DataPropertyName = "price3";
+            this.price3.HeaderText = "price3";
+            this.price3.Name = "price3";
+            this.price3.ReadOnly = true;
+            // 
+            // price3_unit
+            // 
+            this.price3_unit.DataPropertyName = "price3_unit";
+            this.price3_unit.HeaderText = "price3_unit";
+            this.price3_unit.Name = "price3_unit";
+            this.price3_unit.ReadOnly = true;
+            // 
+            // price4
+            // 
+            this.price4.DataPropertyName = "price4";
+            this.price4.HeaderText = "price4";
+            this.price4.Name = "price4";
+            this.price4.ReadOnly = true;
+            // 
+            // price4_unit
+            // 
+            this.price4_unit.DataPropertyName = "price4_unit";
+            this.price4_unit.HeaderText = "price4_unit";
+            this.price4_unit.Name = "price4_unit";
+            this.price4_unit.ReadOnly = true;
+            // 
+            // price5
+            // 
+            this.price5.DataPropertyName = "price5";
+            this.price5.HeaderText = "price5";
+            this.price5.Name = "price5";
+            this.price5.ReadOnly = true;
+            // 
+            // price5_unit
+            // 
+            this.price5_unit.DataPropertyName = "price5_unit";
+            this.price5_unit.HeaderText = "price5_unit";
+            this.price5_unit.Name = "price5_unit";
+            this.price5_unit.ReadOnly = true;
+            // 
+            // price6
+            // 
+            this.price6.DataPropertyName = "price6";
+            this.price6.HeaderText = "price6";
+            this.price6.Name = "price6";
+            this.price6.ReadOnly = true;
+            // 
+            // price6_unit
+            // 
+            this.price6_unit.DataPropertyName = "price6_unit";
+            this.price6_unit.HeaderText = "price6_unit";
+            this.price6_unit.Name = "price6_unit";
+            this.price6_unit.ReadOnly = true;
+            // 
+            // surcharge
+            // 
+            this.surcharge.DataPropertyName = "surcharge";
+            this.surcharge.HeaderText = "surcharge";
+            this.surcharge.Name = "surcharge";
+            this.surcharge.ReadOnly = true;
+            // 
+            // bulk_moq
+            // 
+            this.bulk_moq.DataPropertyName = "bulk_moq";
+            this.bulk_moq.HeaderText = "bulk_moq";
+            this.bulk_moq.Name = "bulk_moq";
+            this.bulk_moq.ReadOnly = true;
+            // 
+            // moq_color
+            // 
+            this.moq_color.DataPropertyName = "moq_color";
+            this.moq_color.HeaderText = "moq_color";
+            this.moq_color.Name = "moq_color";
+            this.moq_color.ReadOnly = true;
+            // 
+            // leadtime_sample
+            // 
+            this.leadtime_sample.DataPropertyName = "leadtime_sample";
+            this.leadtime_sample.HeaderText = "leadtime_sample";
+            this.leadtime_sample.Name = "leadtime_sample";
+            this.leadtime_sample.ReadOnly = true;
+            // 
+            // leadtime_bulk
+            // 
+            this.leadtime_bulk.DataPropertyName = "leadtime_bulk";
+            this.leadtime_bulk.HeaderText = "leadtime_bulk";
+            this.leadtime_bulk.Name = "leadtime_bulk";
+            this.leadtime_bulk.ReadOnly = true;
+            // 
+            // cert1_mat_finish
+            // 
+            this.cert1_mat_finish.DataPropertyName = "cert1_mat_finish";
+            this.cert1_mat_finish.HeaderText = "cert1_mat_finish";
+            this.cert1_mat_finish.Name = "cert1_mat_finish";
+            this.cert1_mat_finish.ReadOnly = true;
+            // 
+            // cert1_type
+            // 
+            this.cert1_type.DataPropertyName = "cert1_type";
+            this.cert1_type.HeaderText = "cert1_type";
+            this.cert1_type.Name = "cert1_type";
+            this.cert1_type.ReadOnly = true;
+            // 
+            // cert1_type_other
+            // 
+            this.cert1_type_other.DataPropertyName = "cert1_type_other";
+            this.cert1_type_other.HeaderText = "cert1_type_other";
+            this.cert1_type_other.Name = "cert1_type_other";
+            this.cert1_type_other.ReadOnly = true;
+            // 
+            // cert1_scope_no
+            // 
+            this.cert1_scope_no.DataPropertyName = "cert1_scope_no";
+            this.cert1_scope_no.HeaderText = "cert1_scope_no";
+            this.cert1_scope_no.Name = "cert1_scope_no";
+            this.cert1_scope_no.ReadOnly = true;
+            // 
+            // cert1_expiry_date
+            // 
+            this.cert1_expiry_date.DataPropertyName = "cert1_expiry_date";
+            this.cert1_expiry_date.HeaderText = "cert1_expiry_date";
+            this.cert1_expiry_date.Name = "cert1_expiry_date";
+            this.cert1_expiry_date.ReadOnly = true;
+            // 
+            // cert1_scope_holder
+            // 
+            this.cert1_scope_holder.DataPropertyName = "cert1_scope_holder";
+            this.cert1_scope_holder.HeaderText = "cert1_scope_holder";
+            this.cert1_scope_holder.Name = "cert1_scope_holder";
+            this.cert1_scope_holder.ReadOnly = true;
+            // 
+            // cert2_mat_finish
+            // 
+            this.cert2_mat_finish.DataPropertyName = "cert2_mat_finish";
+            this.cert2_mat_finish.HeaderText = "cert2_mat_finish";
+            this.cert2_mat_finish.Name = "cert2_mat_finish";
+            this.cert2_mat_finish.ReadOnly = true;
+            // 
+            // cert2_type
+            // 
+            this.cert2_type.DataPropertyName = "cert2_type";
+            this.cert2_type.HeaderText = "cert2_type";
+            this.cert2_type.Name = "cert2_type";
+            this.cert2_type.ReadOnly = true;
+            // 
+            // cert2_type_other
+            // 
+            this.cert2_type_other.DataPropertyName = "cert2_type_other";
+            this.cert2_type_other.HeaderText = "cert2_type_other";
+            this.cert2_type_other.Name = "cert2_type_other";
+            this.cert2_type_other.ReadOnly = true;
+            // 
+            // cert2_scope_no
+            // 
+            this.cert2_scope_no.DataPropertyName = "cert2_scope_no";
+            this.cert2_scope_no.HeaderText = "cert2_scope_no";
+            this.cert2_scope_no.Name = "cert2_scope_no";
+            this.cert2_scope_no.ReadOnly = true;
+            // 
+            // cert2_expiry_date
+            // 
+            this.cert2_expiry_date.DataPropertyName = "cert2_expiry_date";
+            this.cert2_expiry_date.HeaderText = "cert2_expiry_date";
+            this.cert2_expiry_date.Name = "cert2_expiry_date";
+            this.cert2_expiry_date.ReadOnly = true;
+            // 
+            // cert2_scope_holder
+            // 
+            this.cert2_scope_holder.DataPropertyName = "cert2_scope_holder";
+            this.cert2_scope_holder.HeaderText = "cert2_scope_holder";
+            this.cert2_scope_holder.Name = "cert2_scope_holder";
+            this.cert2_scope_holder.ReadOnly = true;
+            // 
+            // cert3_mat_finish
+            // 
+            this.cert3_mat_finish.DataPropertyName = "cert3_mat_finish";
+            this.cert3_mat_finish.HeaderText = "cert3_mat_finish";
+            this.cert3_mat_finish.Name = "cert3_mat_finish";
+            this.cert3_mat_finish.ReadOnly = true;
+            // 
+            // cert3_type
+            // 
+            this.cert3_type.DataPropertyName = "cert3_type";
+            this.cert3_type.HeaderText = "cert3_type";
+            this.cert3_type.Name = "cert3_type";
+            this.cert3_type.ReadOnly = true;
+            // 
+            // cert3_type_other
+            // 
+            this.cert3_type_other.DataPropertyName = "cert3_type_other";
+            this.cert3_type_other.HeaderText = "cert3_type_other";
+            this.cert3_type_other.Name = "cert3_type_other";
+            this.cert3_type_other.ReadOnly = true;
+            // 
+            // cert3_scope_no
+            // 
+            this.cert3_scope_no.DataPropertyName = "cert3_scope_no";
+            this.cert3_scope_no.HeaderText = "cert3_scope_no";
+            this.cert3_scope_no.Name = "cert3_scope_no";
+            this.cert3_scope_no.ReadOnly = true;
+            // 
+            // cert3_expiry_date
+            // 
+            this.cert3_expiry_date.DataPropertyName = "cert3_expiry_date";
+            this.cert3_expiry_date.HeaderText = "cert3_expiry_date";
+            this.cert3_expiry_date.Name = "cert3_expiry_date";
+            this.cert3_expiry_date.ReadOnly = true;
+            // 
+            // cert3_scope_holder
+            // 
+            this.cert3_scope_holder.DataPropertyName = "cert3_scope_holder";
+            this.cert3_scope_holder.HeaderText = "cert3_scope_holder";
+            this.cert3_scope_holder.Name = "cert3_scope_holder";
+            this.cert3_scope_holder.ReadOnly = true;
+            // 
+            // cert4_mat_finish
+            // 
+            this.cert4_mat_finish.DataPropertyName = "cert4_mat_finish";
+            this.cert4_mat_finish.HeaderText = "cert4_mat_finish";
+            this.cert4_mat_finish.Name = "cert4_mat_finish";
+            this.cert4_mat_finish.ReadOnly = true;
+            // 
+            // cert4_type
+            // 
+            this.cert4_type.DataPropertyName = "cert4_type";
+            this.cert4_type.HeaderText = "cert4_type";
+            this.cert4_type.Name = "cert4_type";
+            this.cert4_type.ReadOnly = true;
+            // 
+            // cert4_type_other
+            // 
+            this.cert4_type_other.DataPropertyName = "cert4_type_other";
+            this.cert4_type_other.HeaderText = "cert4_type_other";
+            this.cert4_type_other.Name = "cert4_type_other";
+            this.cert4_type_other.ReadOnly = true;
+            // 
+            // cert4_scope_no
+            // 
+            this.cert4_scope_no.DataPropertyName = "cert4_scope_no";
+            this.cert4_scope_no.HeaderText = "cert4_scope_no";
+            this.cert4_scope_no.Name = "cert4_scope_no";
+            this.cert4_scope_no.ReadOnly = true;
+            // 
+            // cert4_expiry_date
+            // 
+            this.cert4_expiry_date.DataPropertyName = "cert4_expiry_date";
+            this.cert4_expiry_date.HeaderText = "cert4_expiry_date";
+            this.cert4_expiry_date.Name = "cert4_expiry_date";
+            this.cert4_expiry_date.ReadOnly = true;
+            // 
+            // cert4_scope_holder
+            // 
+            this.cert4_scope_holder.DataPropertyName = "cert4_scope_holder";
+            this.cert4_scope_holder.HeaderText = "cert4_scope_holder";
+            this.cert4_scope_holder.Name = "cert4_scope_holder";
+            this.cert4_scope_holder.ReadOnly = true;
+            // 
+            // rsl_certificate_type
+            // 
+            this.rsl_certificate_type.DataPropertyName = "rsl_certificate_type";
+            this.rsl_certificate_type.HeaderText = "rsl_certificate_type";
+            this.rsl_certificate_type.Name = "rsl_certificate_type";
+            this.rsl_certificate_type.ReadOnly = true;
+            // 
+            // rsl_certificate_expiry_date
+            // 
+            this.rsl_certificate_expiry_date.DataPropertyName = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.HeaderText = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.Name = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.ReadOnly = true;
+            // 
+            // machine_washable
+            // 
+            this.machine_washable.DataPropertyName = "machine_washable";
+            this.machine_washable.HeaderText = "machine_washable";
+            this.machine_washable.Name = "machine_washable";
+            this.machine_washable.ReadOnly = true;
+            // 
+            // dry_cleanable
+            // 
+            this.dry_cleanable.DataPropertyName = "dry_cleanable";
+            this.dry_cleanable.HeaderText = "dry_cleanable";
+            this.dry_cleanable.Name = "dry_cleanable";
+            this.dry_cleanable.ReadOnly = true;
+            // 
+            // dry_clean_only
+            // 
+            this.dry_clean_only.DataPropertyName = "dry_clean_only";
+            this.dry_clean_only.HeaderText = "dry_clean_only";
+            this.dry_clean_only.Name = "dry_clean_only";
+            this.dry_clean_only.ReadOnly = true;
+            // 
+            // do_not_dry_clean
+            // 
+            this.do_not_dry_clean.DataPropertyName = "do_not_dry_clean";
+            this.do_not_dry_clean.HeaderText = "do_not_dry_clean";
+            this.do_not_dry_clean.Name = "do_not_dry_clean";
+            this.do_not_dry_clean.ReadOnly = true;
+            // 
+            // suitable_for_tumble_dry
+            // 
+            this.suitable_for_tumble_dry.DataPropertyName = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.HeaderText = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.Name = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.ReadOnly = true;
+            // 
+            // suitable_for_swimwear
+            // 
+            this.suitable_for_swimwear.DataPropertyName = "suitable_for_swimwear";
+            this.suitable_for_swimwear.HeaderText = "suitable_for_swimwear";
+            this.suitable_for_swimwear.Name = "suitable_for_swimwear";
+            this.suitable_for_swimwear.ReadOnly = true;
+            // 
+            // passes_metal_detection
+            // 
+            this.passes_metal_detection.DataPropertyName = "passes_metal_detection";
+            this.passes_metal_detection.HeaderText = "passes_metal_detection";
+            this.passes_metal_detection.Name = "passes_metal_detection";
+            this.passes_metal_detection.ReadOnly = true;
+            // 
+            // complies_with_pvh
+            // 
+            this.complies_with_pvh.DataPropertyName = "complies_with_pvh";
+            this.complies_with_pvh.HeaderText = "complies_with_pvh";
+            this.complies_with_pvh.Name = "complies_with_pvh";
+            this.complies_with_pvh.ReadOnly = true;
+            // 
+            // complies_with_cfr
+            // 
+            this.complies_with_cfr.DataPropertyName = "complies_with_cfr";
+            this.complies_with_cfr.HeaderText = "complies_with_cfr";
+            this.complies_with_cfr.Name = "complies_with_cfr";
+            this.complies_with_cfr.ReadOnly = true;
+            // 
+            // quality_callouts
+            // 
+            this.quality_callouts.DataPropertyName = "quality_callouts";
+            this.quality_callouts.HeaderText = "quality_callouts";
+            this.quality_callouts.Name = "quality_callouts";
+            this.quality_callouts.ReadOnly = true;
+            // 
+            // submit1
+            // 
+            this.submit1.DataPropertyName = "submit1";
+            this.submit1.FalseValue = "False";
+            this.submit1.HeaderText = "Submit1";
+            this.submit1.Name = "submit1";
+            this.submit1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.submit1.TrueValue = "True";
+            // 
+            // submit2
+            // 
+            this.submit2.DataPropertyName = "submit2";
+            this.submit2.FalseValue = "False";
+            this.submit2.HeaderText = "Submit2";
+            this.submit2.Name = "submit2";
+            this.submit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.submit2.TrueValue = "True";
+            // 
+            // submit3
+            // 
+            this.submit3.DataPropertyName = "submit3";
+            this.submit3.FalseValue = "False";
+            this.submit3.HeaderText = "Submit3";
+            this.submit3.Name = "submit3";
+            this.submit3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.submit3.TrueValue = "True";
+            // 
+            // urgent_bulk_order
+            // 
+            this.urgent_bulk_order.DataPropertyName = "urgent_bulk_order";
+            this.urgent_bulk_order.FalseValue = "False";
+            this.urgent_bulk_order.HeaderText = "URGENT BULK";
+            this.urgent_bulk_order.Name = "urgent_bulk_order";
+            this.urgent_bulk_order.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.urgent_bulk_order.TrueValue = "True";
+            // 
+            // for_bulk_feference
+            // 
+            this.for_bulk_feference.DataPropertyName = "for_bulk_feference";
+            this.for_bulk_feference.HeaderText = "for_bulk_feference";
+            this.for_bulk_feference.Name = "for_bulk_feference";
+            this.for_bulk_feference.ReadOnly = true;
+            // 
+            // for_quality_approval
+            // 
+            this.for_quality_approval.DataPropertyName = "for_quality_approval";
+            this.for_quality_approval.HeaderText = "for_quality_approval";
+            this.for_quality_approval.Name = "for_quality_approval";
+            this.for_quality_approval.ReadOnly = true;
+            // 
+            // color_already_approved
+            // 
+            this.color_already_approved.DataPropertyName = "color_already_approved";
+            this.color_already_approved.HeaderText = "color_already_approved";
+            this.color_already_approved.Name = "color_already_approved";
+            this.color_already_approved.ReadOnly = true;
+            // 
+            // size_already_approved
+            // 
+            this.size_already_approved.DataPropertyName = "size_already_approved";
+            this.size_already_approved.HeaderText = "size_already_approved";
+            this.size_already_approved.Name = "size_already_approved";
+            this.size_already_approved.ReadOnly = true;
+            // 
+            // create_by
+            // 
+            this.create_by.DataPropertyName = "create_by";
+            this.create_by.HeaderText = "create_by";
+            this.create_by.Name = "create_by";
+            this.create_by.ReadOnly = true;
+            this.create_by.Visible = false;
+            // 
+            // create_date
+            // 
+            this.create_date.DataPropertyName = "create_date";
+            this.create_date.HeaderText = "create_date";
+            this.create_date.Name = "create_date";
+            this.create_date.ReadOnly = true;
+            this.create_date.Visible = false;
+            // 
+            // update_by
+            // 
+            this.update_by.DataPropertyName = "update_by";
+            this.update_by.HeaderText = "update_by";
+            this.update_by.Name = "update_by";
+            this.update_by.ReadOnly = true;
+            this.update_by.Visible = false;
+            // 
+            // update_date
+            // 
+            this.update_date.DataPropertyName = "update_date";
+            this.update_date.HeaderText = "update_date";
+            this.update_date.Name = "update_date";
+            this.update_date.ReadOnly = true;
+            this.update_date.Visible = false;
+            // 
+            // label80
+            // 
+            this.label80.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label80.Location = new System.Drawing.Point(275, 42);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(25, 17);
+            this.label80.TabIndex = 170;
+            this.label80.Text = "~";
+            this.label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPvh_submit_ref2
+            // 
+            this.txtPvh_submit_ref2.EnterMoveNextControl = true;
+            this.txtPvh_submit_ref2.Location = new System.Drawing.Point(300, 41);
+            this.txtPvh_submit_ref2.Name = "txtPvh_submit_ref2";
+            this.txtPvh_submit_ref2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtPvh_submit_ref2.Properties.MaxLength = 20;
+            this.txtPvh_submit_ref2.Size = new System.Drawing.Size(137, 22);
+            this.txtPvh_submit_ref2.TabIndex = 3;
+            // 
+            // txtPvh_submit_ref1
+            // 
+            this.txtPvh_submit_ref1.EnterMoveNextControl = true;
+            this.txtPvh_submit_ref1.Location = new System.Drawing.Point(135, 41);
+            this.txtPvh_submit_ref1.Name = "txtPvh_submit_ref1";
+            this.txtPvh_submit_ref1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtPvh_submit_ref1.Properties.MaxLength = 20;
+            this.txtPvh_submit_ref1.Size = new System.Drawing.Size(137, 22);
+            this.txtPvh_submit_ref1.TabIndex = 2;
+            this.txtPvh_submit_ref1.Leave += new System.EventHandler(this.txtPvh_submit_ref1_Leave);
+            // 
+            // label81
+            // 
+            this.label81.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label81.Location = new System.Drawing.Point(14, 45);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(113, 15);
+            this.label81.TabIndex = 169;
+            this.label81.Text = "PVH Submit REF：";
+            this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmDevelopmentPvh
             // 
@@ -4345,6 +5999,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_eur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_color.Properties)).EndInit();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_cfr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_pvh.Properties)).EndInit();
@@ -4391,8 +6047,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4647,6 +6303,7 @@
         private System.Windows.Forms.Label label46;
         private DevExpress.XtraEditors.TextEdit txtSeason;
         private System.Windows.Forms.Label label79;
+        private DevExpress.XtraEditors.DateEdit dtRsl_certificate_expiry_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn serial_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn division;
         private System.Windows.Forms.DataGridViewTextBoxColumn handing_office;
@@ -4656,12 +6313,202 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn plm_material_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier_ref_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn pvh_submit_ref;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn factory_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn material_subtype;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn colour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn finish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn process;
+        private System.Windows.Forms.DataGridViewTextBoxColumn previous_submit_ref;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sample_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn previous_submit_vr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weight_uom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn obj_fbx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat1_compostion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat1_percent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat1_l3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat1_l4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat1_l5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat2_compostion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat2_percent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat2_l3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat2_l4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat2_l5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat3_compostion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat3_percent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat3_l3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat3_l4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat3_l5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat4_compostion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat4_percent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat4_l3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat4_l4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat4_l5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat5_compostion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat5_percent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat5_l3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat5_l4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat5_l5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price1_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price2_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price3_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price4_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price5_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price6_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surcharge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bulk_moq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq_color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn leadtime_sample;
+        private System.Windows.Forms.DataGridViewTextBoxColumn leadtime_bulk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert1_mat_finish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert1_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert1_type_other;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert1_scope_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert1_expiry_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert1_scope_holder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert2_mat_finish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert2_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert2_type_other;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert2_scope_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert2_expiry_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert2_scope_holder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert3_mat_finish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert3_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert3_type_other;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert3_scope_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert3_expiry_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert3_scope_holder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert4_mat_finish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert4_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert4_type_other;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert4_scope_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert4_expiry_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cert4_scope_holder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rsl_certificate_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rsl_certificate_expiry_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn machine_washable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dry_cleanable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dry_clean_only;
+        private System.Windows.Forms.DataGridViewTextBoxColumn do_not_dry_clean;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suitable_for_tumble_dry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suitable_for_swimwear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passes_metal_detection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn complies_with_pvh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn complies_with_cfr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quality_callouts;
         private System.Windows.Forms.DataGridViewCheckBoxColumn submit1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn submit2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn submit3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn urgent_bulk_order;
-        private DevExpress.XtraEditors.DateEdit dtRsl_certificate_expiry_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn for_bulk_feference;
+        private System.Windows.Forms.DataGridViewTextBoxColumn for_quality_approval;
+        private System.Windows.Forms.DataGridViewTextBoxColumn color_already_approved;
+        private System.Windows.Forms.DataGridViewTextBoxColumn size_already_approved;
+        private System.Windows.Forms.DataGridViewTextBoxColumn create_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn create_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn update_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn update_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn56;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn64;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn65;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn66;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn68;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn69;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn73;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn75;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn76;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn77;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn81;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn82;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn83;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn84;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn85;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn86;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn87;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn88;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn89;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn90;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn91;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn92;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn93;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn94;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn95;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn96;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn97;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn98;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn99;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn101;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn102;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn103;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn104;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn105;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn106;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn107;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn108;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn109;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn110;
+        private System.Windows.Forms.Label label80;
+        private DevExpress.XtraEditors.TextEdit txtPvh_submit_ref2;
+        private DevExpress.XtraEditors.TextEdit txtPvh_submit_ref1;
+        private System.Windows.Forms.Label label81;
     }
 }

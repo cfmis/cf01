@@ -37,17 +37,18 @@ namespace cf01.Forms
 
             //權限
             objToolbar = new clsToolBar(this.Name, this.Controls);
-            objToolbar.SetToolBar();            
-              
+            objToolbar.SetToolBar();
+
+            const string sql = @"SELECT * From development_pvh with(nolock) where 1=0 ";
+            dtDetail = clsPublicOfCF01.GetDataTable(sql);
+            bds1.DataSource = dtDetail;
+            dgvDetails.DataSource = bds1;// dtDetail;
         }
 
         private void frmDevelopmentPvh_Load(object sender, EventArgs e)
         {
             //Load_Date();
-            const string sql = @"SELECT * From development_pvh with(nolock) where 1=0 ";
-            dtDetail = clsPublicOfCF01.GetDataTable(sql);           
-            bds1.DataSource = dtDetail;
-            dgvDetails.DataSource = bds1;// dtDetail;            
+           
             clsDevelopentPvh.SetDropBox(lueDivision, "divisions");
             clsDevelopentPvh.SetDropBox(lueHandling_office, "hand_office");
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
@@ -363,10 +364,11 @@ namespace cf01.Forms
             lueColor_already_approved.DataBindings.Add("EditValue", bds1, "color_already_approved");
             lueSize_already_approved.DataBindings.Add("EditValue", bds1, "size_already_approved");
 
-            chksubmit1.DataBindings.Add("Checked", bds1, "submit1");
-            chksubmit2.DataBindings.Add("Checked", bds1, "submit2");
-            chksubmit3.DataBindings.Add("Checked", bds1, "submit3");
-            chkurgent_bulk_order.DataBindings.Add("Checked", bds1, "urgent_bulk_order");
+            //chksubmit1.DataBindings.Add("Checked", bds1, "submit1");
+            //chksubmit2.DataBindings.Add("Checked", bds1, "submit2");
+            //chksubmit3.DataBindings.Add("Checked", bds1, "submit3");
+            //chkurgent_bulk_order.DataBindings.Add("Checked", bds1, "urgent_bulk_order");
+
             //myCommand.Parameters.AddWithValue("@submit1", chksubmit1.Checked ? true : false);
             //myCommand.Parameters.AddWithValue("@submit2", chksubmit2.Checked ? true : false);
             //myCommand.Parameters.AddWithValue("@submit3", chksubmit3.Checked ? true : false);
@@ -415,9 +417,11 @@ namespace cf01.Forms
             tabControl1.SelectTab(0);
             bds1.AddNew();
             mState = "NEW";
+
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, true);
             SetObjValue.ClearObjValue(tabControl1.TabPages[0].Controls, "1");
+            dgvDetails.Enabled = false;
             //新增時設置初始值            
             txtDate.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
             txtSerial_no.Text = clsTommyTest.GetSeqNo("development_pvh","serial_no");
@@ -433,7 +437,7 @@ namespace cf01.Forms
             txtPvh_submit_ref.Properties.ReadOnly = true;
             txtPvh_submit_ref.BackColor = Color.White;
 
-            dgvDetails.Enabled = false;
+            //dgvDetails.Enabled = false;
             lueDivision.Focus();    
         }
 
@@ -446,9 +450,7 @@ namespace cf01.Forms
                 txtDate.Focus();
                 return;
             }
-            bds1.EndEdit();
-            //dgvDetails.CurrentCell.RowIndex;行號 
-            //Select a Cell Focus            
+            bds1.EndEdit();                    
             bool save_flag = false;
             const string sql_new =
             @"INSERT INTO development_pvh(serial_no,division,handling_office,season,date,requested_by,supplier_ref_no,plm_material_code,pvh_submit_ref,supplier_name,
@@ -517,11 +519,11 @@ namespace cf01.Forms
                         myCommand.CommandText = sql_update;
                         myCommand.Parameters.AddWithValue("@serial_no", txtSerial_no.Text);
                         strSerial_no = txtSerial_no.Text;
-                    }//"@requested_by".
-                    myCommand.Parameters.AddWithValue("@division", lueDivision.EditValue);
-                    myCommand.Parameters.AddWithValue("@season", txtSeason.EditValue);
+                    }
+                    myCommand.Parameters.AddWithValue("@division", lueDivision.EditValue.ToString());
+                    myCommand.Parameters.AddWithValue("@season", txtSeason.Text);
                     myCommand.Parameters.AddWithValue("@date", clsApp.Return_String_Date(txtDate.Text));                   
-                    myCommand.Parameters.AddWithValue("@handling_office", lueHandling_office.EditValue);
+                    myCommand.Parameters.AddWithValue("@handling_office", lueHandling_office.EditValue.ToString());
                     myCommand.Parameters.AddWithValue("@requested_by", txtRequested_by.Text);
                     myCommand.Parameters.AddWithValue("@supplier_ref_no", txtSupplier_ref_no.Text);
                     myCommand.Parameters.AddWithValue("@plm_material_code", txtPlm_material_code.Text);
@@ -613,7 +615,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@cert4_scope_holder", txtCert4_scope_holder.Text);
                     //-----------------------------------------------------------------------------------                
                     myCommand.Parameters.AddWithValue("@rsl_certificate_type", lueRsl_certificate_type.EditValue);
-                    myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", dtRsl_certificate_expiry_date.EditValue);
+                   // string ss = dtRsl_certificate_expiry_date.EditValue.ToString();
+                    myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", dtRsl_certificate_expiry_date.EditValue.ToString());//clsApp.Return_String_Date(txtDate.Text)
                     myCommand.Parameters.AddWithValue("@machine_washable", lueMachine_washable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_cleanable", lueDry_cleanable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_clean_only", lueDry_clean_only.EditValue);
@@ -658,7 +661,7 @@ namespace cf01.Forms
 
             if (save_flag)
             {
-                //ReSet_Datagrid_Value();
+                dgvDetails.Enabled = true;
                 //新增狀態下定位到新增的行
                 if (mState == "NEW")
                 {
@@ -724,7 +727,8 @@ namespace cf01.Forms
             tabControl1.SelectTab(0);
             mState = "EDIT";
             SetButtonSatus(false);
-            SetObjValue.SetEditBackColor(panel1.Controls, true);            
+            SetObjValue.SetEditBackColor(panel1.Controls, true);
+            dgvDetails.Enabled = false;
             txtSerial_no.Properties.ReadOnly = true;
             txtSerial_no.BackColor = Color.White;
             txtPvh_submit_ref.Properties.ReadOnly = true;
@@ -746,16 +750,18 @@ namespace cf01.Forms
 
         private void BTNCANCEL_Click(object sender, EventArgs e)
         {
-            bds1.CancelEdit();
+            dtDetail.RejectChanges();//取消數據更改
+            bds1.CancelEdit();//取消數據綁定
+            
             SetButtonSatus(true);
             SetObjValue.SetEditBackColor(panel1.Controls, false);
-            SetObjValue.ClearObjValue(panel1.Controls, "1");
+            //SetObjValue.ClearObjValue(panel1.Controls, "1");
             mState = "";
            
             txtSerial_no.Properties.ReadOnly = true;
             txtPvh_submit_ref.Properties.ReadOnly = true;
             dgvDetails.Enabled = true;
-            if (!String.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
+            if (!string.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
             {
                 dgvDetails.CurrentCell = dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
                 dgvDetails.Rows[row_reset].Selected = true; //選中整行
@@ -776,10 +782,12 @@ namespace cf01.Forms
         {
             dtDetail.Clear();
             string sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            if (txtId1.Text == "" && txtId2.Text == "" && dtDat1.Text == "" && dtDat2.Text == "")
+            if (txtId1.Text == "" && txtId2.Text == "" && dtDat1.Text == "" && dtDat2.Text == "" && txtPvh_submit_ref1.Text=="" && txtPvh_submit_ref2.Text=="")
+            {
                 sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
+            }
             else
-            {                
+            {
                 if (txtId1.Text != "")
                 {
                     sql = sql + string.Format(" and serial_no>='{0}'", txtId1.Text);
@@ -787,6 +795,14 @@ namespace cf01.Forms
                 if (txtId2.Text != "")
                 {
                     sql = sql + string.Format(" and serial_no<='{0}'", txtId2.Text);
+                }
+                if (txtPvh_submit_ref1.Text != "")
+                {
+                    sql = sql + string.Format(" and pvh_submit_ref>='{0}'", txtPvh_submit_ref1.Text);
+                }
+                if (txtPvh_submit_ref2.Text != "")
+                {
+                    sql = sql + string.Format(" and pvh_submit_ref<='{0}'", txtPvh_submit_ref2.Text);
                 }
                 if (dtDat1.Text != "")
                 {
@@ -796,11 +812,16 @@ namespace cf01.Forms
                 {
                     sql = sql + string.Format(" and date<='{0}'", clsApp.Return_String_Date(dtDat2.Text));
                 }
+
             }           
             dtDetail = clsPublicOfCF01.GetDataTable(sql);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
             dgvFind.DataSource = dtDetail;
+            if(dtDetail.Rows.Count>0)
+            {
+                tabControl1.SelectTab(0);
+            }
         }
      
         private void txtprice1_Click(object sender, EventArgs e)
@@ -1019,7 +1040,7 @@ namespace cf01.Forms
 
         private void dtDat1_Leave(object sender, EventArgs e)
         {
-            dtDat2.Text = dtDat1.Text;
+            dtDat2.EditValue = dtDat1.EditValue;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -1067,6 +1088,43 @@ namespace cf01.Forms
             }
             tabControl1.SelectedIndex = 0;
         }
-       
+
+        private void chksubmit1_MouseUp(object sender, MouseEventArgs e)
+        {
+            SetSubmitValue(chksubmit1, "submit1");
+        }
+
+        private void chksubmit2_MouseUp(object sender, MouseEventArgs e)
+        {
+            SetSubmitValue(chksubmit2, "submit2");
+        }
+
+        private void chksubmit3_MouseUp(object sender, MouseEventArgs e)
+        {
+            SetSubmitValue(chksubmit3, "submit3");
+        }
+
+        private void chkurgent_bulk_order_MouseUp(object sender, MouseEventArgs e)
+        {
+            SetSubmitValue(chkurgent_bulk_order, "urgent_bulk_order");
+        }
+
+        private void SetSubmitValue(DevExpress.XtraEditors.CheckEdit obj,string SubmitName)
+        {
+            int current_index = dgvDetails.CurrentRow.Index;
+            if (obj.Checked)
+            {
+                dgvDetails.CurrentRow.Cells[SubmitName].Value = true;
+            }
+            else
+            {
+                dgvDetails.CurrentRow.Cells[SubmitName].Value = false;
+            }
+        }
+
+        private void txtPvh_submit_ref1_Leave(object sender, EventArgs e)
+        {
+            txtPvh_submit_ref2.Text = txtPvh_submit_ref1.Text;
+        }
     }
 }
