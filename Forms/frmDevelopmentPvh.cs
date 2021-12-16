@@ -23,9 +23,9 @@ namespace cf01.Forms
     {
         public string mID = "";    //臨時的主鍵值
         public int row_reset = 0;
-        public DataTable dtDetail = new DataTable();
-        public DataTable dtMO = new DataTable();
+        public DataTable dtDetail = new DataTable();        
         public string mState = "";
+        private string user_group = clsDgdDeliverGoods.getUserGroup(DBUtility._user_id);
         clsToolBar objToolbar;
         private clsAppPublic clsApp = new clsAppPublic();
         private DataGridViewRow dgvrow = new DataGridViewRow();
@@ -46,17 +46,26 @@ namespace cf01.Forms
         }
 
         private void frmDevelopmentPvh_Load(object sender, EventArgs e)
-        {
-            //Load_Date();
-           
-            clsDevelopentPvh.SetDropBox(lueDivision, "divisions");
+        {            
+            //Load_Date();           
+            //clsDevelopentPvh.SetDropBox(lueDivision, "divisions");
             clsDevelopentPvh.SetDropBox(lueHandling_office, "hand_office");
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type");           
             clsDevelopentPvh.SetDropBox(lueFinish, "finish");
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");
-            
-            string strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "compositions");
+            clsDevelopentPvh.SetDropBox(lueProcess, "processes");
+            string strSql = "";
+            string strGroup = "V,E,W";
+            if (strGroup.Contains(user_group))
+                strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' AND sales_group='{1}' ORDER BY sort", "divisions", user_group);
+            else            
+                strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "divisions");            
+            DataTable dtDivision = clsPublicOfCF01.GetDataTable(strSql);
+            lueDivision.Properties.DataSource = dtDivision;
+            lueDivision.Properties.ValueMember = "id";
+            lueDivision.Properties.DisplayMember = "id";
+            strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "compositions");
             DataTable dtComposition = clsPublicOfCF01.GetDataTable(strSql);
             lueRaw_mat1_compostion.Properties.DataSource = dtComposition;
             lueRaw_mat1_compostion.Properties.ValueMember = "id";
@@ -267,7 +276,7 @@ namespace cf01.Forms
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
             lueFinish.DataBindings.Add("EditValue", bds1, "finish");
-            txtProcess.DataBindings.Add("Text", bds1, "process");
+            lueProcess.DataBindings.Add("EditValue", bds1, "process");
             txtPrevious_submit_ref.DataBindings.Add("Text", bds1, "previous_submit_ref");
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
             txtPrevious_submit_vr.DataBindings.Add("Text", bds1, "previous_submit_vr");
@@ -363,7 +372,9 @@ namespace cf01.Forms
             lueFor_quality_approval.DataBindings.Add("EditValue", bds1, "for_quality_approval");
             lueColor_already_approved.DataBindings.Add("EditValue", bds1, "color_already_approved");
             lueSize_already_approved.DataBindings.Add("EditValue", bds1, "size_already_approved");
-
+            txtMo_id1.DataBindings.Add("Text", bds1, "mo_id1");
+            txtMo_id2.DataBindings.Add("Text", bds1, "mo_id2");
+            txtMo_id3.DataBindings.Add("Text", bds1, "mo_id3");
             //chksubmit1.DataBindings.Add("Checked", bds1, "submit1");
             //chksubmit2.DataBindings.Add("Checked", bds1, "submit2");
             //chksubmit3.DataBindings.Add("Checked", bds1, "submit3");
@@ -462,7 +473,7 @@ namespace cf01.Forms
             cert2_type_other,cert2_scope_no,cert2_expiry_date,cert2_scope_holder,cert3_mat_finish,cert3_type,cert3_type_other,cert3_scope_no,cert3_expiry_date,cert3_scope_holder,
             cert4_mat_finish,cert4_type,cert4_type_other,cert4_scope_no,cert4_expiry_date,cert4_scope_holder,rsl_certificate_type,rsl_certificate_expiry_date,machine_washable,
             dry_cleanable,dry_clean_only,do_not_dry_clean,suitable_for_tumble_dry,suitable_for_swimwear,passes_metal_detection,complies_with_pvh,complies_with_cfr,quality_callouts,
-            submit1,submit2,submit3,urgent_bulk_order,for_bulk_feference,for_quality_approval,color_already_approved,size_already_approved,create_by,create_date) 
+            submit1,submit2,submit3,urgent_bulk_order,for_bulk_feference,for_quality_approval,color_already_approved,size_already_approved,create_by,create_date,mo_id1,mo_id2,mo_id3) 
             VALUES(@serial_no,@division,@handling_office,@season,@date,@requested_by,@supplier_ref_no,@plm_material_code,@pvh_submit_ref,@supplier_name,@factory_name,
             @material_subtype,@size,@colour,@finish,@process,@previous_submit_ref,@sample_type,@previous_submit_vr,@weight,@weight_uom,@obj_fbx,@u3ma,@raw_mat1_compostion,
             @raw_mat1_percent,@raw_mat1_l3,@raw_mat1_l4,@raw_mat1_l5,@raw_mat2_compostion,@raw_mat2_percent,@raw_mat2_l3,@raw_mat2_l4,@raw_mat2_l5,@raw_mat3_compostion,@raw_mat3_percent,
@@ -473,7 +484,7 @@ namespace cf01.Forms
             @cert4_mat_finish,@cert4_type,@cert4_type_other,@cert4_scope_no,@cert4_expiry_date,@cert4_scope_holder,@rsl_certificate_type,
             CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END ,@machine_washable,
             @dry_cleanable,@dry_clean_only,@do_not_dry_clean,@suitable_for_tumble_dry,@suitable_for_swimwear,@passes_metal_detection,@complies_with_pvh,@complies_with_cfr,@quality_callouts,
-            @submit1,@submit2,@submit3,@urgent_bulk_order,@for_bulk_feference,@for_quality_approval,@color_already_approved,@size_already_approved,@user_id,getdate())";
+            @submit1,@submit2,@submit3,@urgent_bulk_order,@for_bulk_feference,@for_quality_approval,@color_already_approved,@size_already_approved,@user_id,getdate(),@mo_id1,@mo_id2,@mo_id3)";
 
             const string sql_update =
             @"Update development_pvh 
@@ -494,7 +505,7 @@ namespace cf01.Forms
             dry_cleanable=@dry_cleanable,dry_clean_only=@dry_clean_only,do_not_dry_clean=@do_not_dry_clean,suitable_for_tumble_dry=@suitable_for_tumble_dry,suitable_for_swimwear=@suitable_for_swimwear,
             passes_metal_detection=@passes_metal_detection,complies_with_pvh=@complies_with_pvh,complies_with_cfr=@complies_with_cfr,quality_callouts=@quality_callouts,submit1=@submit1,submit2=@submit2,submit3=@submit3,
             urgent_bulk_order=@urgent_bulk_order,for_bulk_feference=@for_bulk_feference,for_quality_approval=@for_quality_approval,color_already_approved=@color_already_approved,size_already_approved=@size_already_approved,
-            update_by=@user_id,update_date=getdate()
+            update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3
             WHERE serial_no=@serial_no";
 
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -535,7 +546,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
                     myCommand.Parameters.AddWithValue("@finish", lueFinish.EditValue);
-                    myCommand.Parameters.AddWithValue("@process", txtProcess.Text);
+                    myCommand.Parameters.AddWithValue("@process", lueProcess.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_ref", txtPrevious_submit_ref.Text);
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_vr", txtPrevious_submit_vr.Text);
@@ -637,7 +648,9 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@color_already_approved", lueColor_already_approved.EditValue);
                     myCommand.Parameters.AddWithValue("@size_already_approved", lueSize_already_approved.EditValue);
                     myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
-
+                    myCommand.Parameters.AddWithValue("@mo_id1", txtMo_id1.Text);
+                    myCommand.Parameters.AddWithValue("@mo_id2", txtMo_id2.Text);
+                    myCommand.Parameters.AddWithValue("@mo_id3", txtMo_id3.Text);
                     myCommand.ExecuteNonQuery();
                     myTrans.Commit(); //數據提交                    
                     save_flag = true;
@@ -737,8 +750,7 @@ namespace cf01.Forms
 
         private void frmDevelopmentPvh_FormClosed(object sender, FormClosedEventArgs e)
         {
-           dtDetail.Dispose();         
-           dtMO.Dispose();
+           dtDetail.Dispose();
            objToolbar = null;
            clsApp = null;
         }
@@ -812,16 +824,28 @@ namespace cf01.Forms
                 {
                     sql = sql + string.Format(" and date<='{0}'", clsApp.Return_String_Date(dtDat2.Text));
                 }
+                if (txtMo1.Text != "")
+                {
+                    sql = sql + string.Format(" and mo_id1='{0}'", txtMo1.Text);
+                }
+                if (txtMo2.Text != "")
+                {
+                    sql = sql + string.Format(" and mo_id2='{0}'", txtMo2.Text);
+                }
+                if (txtMo3.Text != "")
+                {
+                    sql = sql + string.Format(" and mo_id3='{0}'", txtMo3.Text);
+                }
 
             }           
             dtDetail = clsPublicOfCF01.GetDataTable(sql);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
             dgvFind.DataSource = dtDetail;
-            if(dtDetail.Rows.Count>0)
-            {
-                tabControl1.SelectTab(0);
-            }
+            //if(dtDetail.Rows.Count>0)
+            //{
+            //    tabControl1.SelectTab(0);
+            //}
         }
      
         private void txtprice1_Click(object sender, EventArgs e)
@@ -898,7 +922,7 @@ namespace cf01.Forms
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();
             lueFinish.EditValue = pdr.Cells["finish"].Value.ToString();
-            txtProcess.Text = pdr.Cells["process"].Value.ToString();
+            lueProcess.EditValue = pdr.Cells["process"].Value.ToString();
             txtPrevious_submit_ref.Text = pdr.Cells["previous_submit_ref"].Value.ToString();
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
             txtPrevious_submit_vr.Text = pdr.Cells["previous_submit_vr"].Value.ToString();
@@ -1087,6 +1111,12 @@ namespace cf01.Forms
                 return;
             }
             tabControl1.SelectedIndex = 0;
+            int index = dgvFind.CurrentRow.Index;
+            if (index >= 0)
+            {
+                dgvDetails.ClearSelection();
+                dgvDetails.Rows[index].Selected = true;
+            }            
         }
 
         private void chksubmit1_MouseUp(object sender, MouseEventArgs e)
