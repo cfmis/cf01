@@ -56,7 +56,11 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");
             clsDevelopentPvh.SetDropBox(lueProcess, "processes");
             string strSql = "";
-            string strGroup = "V,E,W";
+            string strGroup = "V,E";
+            if (user_group == "W")
+            {
+                user_group = "E";
+            }
             if (strGroup.Contains(user_group))
                 strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' AND sales_group='{1}' ORDER BY sort", "divisions", user_group);
             else            
