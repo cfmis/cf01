@@ -1110,17 +1110,18 @@ namespace cf01.Forms
         
         private void dgvFind_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvFind.Rows.Count == 0)
-            {
-                return;
-            }
-            tabControl1.SelectedIndex = 0;
-            int index = dgvFind.CurrentRow.Index;
-            if (index >= 0)
-            {
-                dgvDetails.ClearSelection();
-                dgvDetails.Rows[index].Selected = true;
-            }            
+            //if (dgvFind.Rows.Count == 0)
+            //{
+            //    return;
+            //}
+            //tabControl1.SelectedIndex = 0;
+            //int index = dgvFind.CurrentRow.Index;
+            //if (index >= 0)
+            //{
+            //    dgvDetails.ClearSelection();
+            //    dgvDetails.Rows[index].Selected = true;
+            //    dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
+            //}            
         }
 
         private void chksubmit1_MouseUp(object sender, MouseEventArgs e)
@@ -1159,6 +1160,21 @@ namespace cf01.Forms
         private void txtPvh_submit_ref1_Leave(object sender, EventArgs e)
         {
             txtPvh_submit_ref2.Text = txtPvh_submit_ref1.Text;
+        }
+
+        private void dgvFind_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvFind.Rows.Count == 0)
+            {
+                return;
+            }            
+            int index = dgvFind.CurrentRow.Index;
+            if (index >= 0)
+            {
+                dgvDetails.ClearSelection();
+                dgvDetails.Rows[index].Selected = true;
+                dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
+            }
         }
     }
 }
