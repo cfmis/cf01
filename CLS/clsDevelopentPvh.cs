@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -40,6 +41,17 @@ namespace cf01.CLS
                 result = "CF-" + mm + "-" + (Int32.Parse(result.Substring(6, 3)) + 1).ToString().PadLeft(3, '0') + "/" + yy; ; //CF-12-001/21
             }
             return result;
+        }
+
+        public static DataTable GetPvhCustomerInfo(string strMo)
+        {
+            string remote_db = DBUtility.remote_db;
+            string strSql = string.Format(
+            @"SELECT SUBSTRING(goods_id,4,7) AS artwork,ISNULL(customer_goods,'') AS customer_goods ,
+            ISNULL(customer_size,'') AS customer_size,ISNULL(customer_color_name,'') AS customer_color_name
+            FROM {0}so_order_details WHERE within_code='0000' AND mo_id='{1}'", remote_db,strMo);
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
         }
     }
 }

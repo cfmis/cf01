@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -503,6 +503,7 @@
             this.dataGridViewTextBoxColumn108 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn109 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn110 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -642,6 +643,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -931,10 +933,10 @@
             this.mo_id1,
             this.mo_id2,
             this.mo_id3});
-            this.dgvDetails.Location = new System.Drawing.Point(2, 717);
+            this.dgvDetails.Location = new System.Drawing.Point(2, 656);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(997, 96);
+            this.dgvDetails.Size = new System.Drawing.Size(997, 157);
             this.dgvDetails.TabIndex = 50;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
@@ -969,9 +971,9 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle5.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle5.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle21.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle21;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             // 
@@ -1766,30 +1768,13 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.txtMo_id3);
-            this.panel1.Controls.Add(this.label84);
-            this.panel1.Controls.Add(this.txtMo_id2);
-            this.panel1.Controls.Add(this.label83);
-            this.panel1.Controls.Add(this.txtMo_id1);
-            this.panel1.Controls.Add(this.lueSize_already_approved);
-            this.panel1.Controls.Add(this.label54);
-            this.panel1.Controls.Add(this.lueColor_already_approved);
-            this.panel1.Controls.Add(this.lueFor_quality_approval);
-            this.panel1.Controls.Add(this.label47);
-            this.panel1.Controls.Add(this.lueFor_bulk_feference);
-            this.panel1.Controls.Add(this.chksubmit1);
-            this.panel1.Controls.Add(this.chksubmit2);
-            this.panel1.Controls.Add(this.chksubmit3);
-            this.panel1.Controls.Add(this.chkurgent_bulk_order);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.dgvDetails);
-            this.panel1.Controls.Add(this.label46);
-            this.panel1.Controls.Add(this.label48);
-            this.panel1.Controls.Add(this.label82);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1001, 815);
@@ -1797,7 +1782,7 @@
             // 
             // txtMo_id3
             // 
-            this.txtMo_id3.Location = new System.Drawing.Point(322, 695);
+            this.txtMo_id3.Location = new System.Drawing.Point(318, 26);
             this.txtMo_id3.Name = "txtMo_id3";
             this.txtMo_id3.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMo_id3.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1811,7 +1796,7 @@
             // label84
             // 
             this.label84.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label84.Location = new System.Drawing.Point(291, 697);
+            this.label84.Location = new System.Drawing.Point(287, 28);
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(32, 18);
             this.label84.TabIndex = 202;
@@ -1820,7 +1805,7 @@
             // 
             // txtMo_id2
             // 
-            this.txtMo_id2.Location = new System.Drawing.Point(177, 695);
+            this.txtMo_id2.Location = new System.Drawing.Point(173, 26);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMo_id2.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1830,11 +1815,12 @@
             this.txtMo_id2.Size = new System.Drawing.Size(102, 20);
             this.txtMo_id2.TabIndex = 199;
             this.txtMo_id2.Tag = "2";
+            this.txtMo_id2.Leave += new System.EventHandler(this.txtMo_id2_Leave);
             // 
             // label83
             // 
             this.label83.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(146, 697);
+            this.label83.Location = new System.Drawing.Point(142, 28);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(32, 18);
             this.label83.TabIndex = 200;
@@ -1843,7 +1829,7 @@
             // 
             // txtMo_id1
             // 
-            this.txtMo_id1.Location = new System.Drawing.Point(38, 695);
+            this.txtMo_id1.Location = new System.Drawing.Point(34, 26);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMo_id1.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1858,7 +1844,7 @@
             // 
             this.lueSize_already_approved.Enabled = false;
             this.lueSize_already_approved.EnterMoveNextControl = true;
-            this.lueSize_already_approved.Location = new System.Drawing.Point(920, 692);
+            this.lueSize_already_approved.Location = new System.Drawing.Point(915, 23);
             this.lueSize_already_approved.Name = "lueSize_already_approved";
             this.lueSize_already_approved.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueSize_already_approved.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1881,7 +1867,7 @@
             // label54
             // 
             this.label54.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(691, 693);
+            this.label54.Location = new System.Drawing.Point(687, 24);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(223, 14);
             this.label54.TabIndex = 196;
@@ -1892,7 +1878,7 @@
             // 
             this.lueColor_already_approved.Enabled = false;
             this.lueColor_already_approved.EnterMoveNextControl = true;
-            this.lueColor_already_approved.Location = new System.Drawing.Point(632, 692);
+            this.lueColor_already_approved.Location = new System.Drawing.Point(628, 23);
             this.lueColor_already_approved.Name = "lueColor_already_approved";
             this.lueColor_already_approved.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueColor_already_approved.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1916,7 +1902,7 @@
             // 
             this.lueFor_quality_approval.Enabled = false;
             this.lueFor_quality_approval.EnterMoveNextControl = true;
-            this.lueFor_quality_approval.Location = new System.Drawing.Point(920, 670);
+            this.lueFor_quality_approval.Location = new System.Drawing.Point(915, 1);
             this.lueFor_quality_approval.Name = "lueFor_quality_approval";
             this.lueFor_quality_approval.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueFor_quality_approval.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1939,7 +1925,7 @@
             // label47
             // 
             this.label47.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(691, 672);
+            this.label47.Location = new System.Drawing.Point(687, 3);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(223, 18);
             this.label47.TabIndex = 192;
@@ -1950,7 +1936,7 @@
             // 
             this.lueFor_bulk_feference.Enabled = false;
             this.lueFor_bulk_feference.EnterMoveNextControl = true;
-            this.lueFor_bulk_feference.Location = new System.Drawing.Point(632, 670);
+            this.lueFor_bulk_feference.Location = new System.Drawing.Point(628, 1);
             this.lueFor_bulk_feference.Name = "lueFor_bulk_feference";
             this.lueFor_bulk_feference.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueFor_bulk_feference.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1973,7 +1959,7 @@
             // chksubmit1
             // 
             this.chksubmit1.Enabled = false;
-            this.chksubmit1.Location = new System.Drawing.Point(3, 671);
+            this.chksubmit1.Location = new System.Drawing.Point(-1, 2);
             this.chksubmit1.Name = "chksubmit1";
             this.chksubmit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksubmit1.Properties.Appearance.Options.UseFont = true;
@@ -1989,7 +1975,7 @@
             // chksubmit2
             // 
             this.chksubmit2.Enabled = false;
-            this.chksubmit2.Location = new System.Drawing.Point(75, 671);
+            this.chksubmit2.Location = new System.Drawing.Point(71, 2);
             this.chksubmit2.Name = "chksubmit2";
             this.chksubmit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksubmit2.Properties.Appearance.Options.UseFont = true;
@@ -2005,7 +1991,7 @@
             // chksubmit3
             // 
             this.chksubmit3.Enabled = false;
-            this.chksubmit3.Location = new System.Drawing.Point(148, 671);
+            this.chksubmit3.Location = new System.Drawing.Point(144, 2);
             this.chksubmit3.Name = "chksubmit3";
             this.chksubmit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksubmit3.Properties.Appearance.Options.UseFont = true;
@@ -2021,7 +2007,7 @@
             // chkurgent_bulk_order
             // 
             this.chkurgent_bulk_order.Enabled = false;
-            this.chkurgent_bulk_order.Location = new System.Drawing.Point(222, 671);
+            this.chkurgent_bulk_order.Location = new System.Drawing.Point(218, 2);
             this.chkurgent_bulk_order.Name = "chkurgent_bulk_order";
             this.chkurgent_bulk_order.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkurgent_bulk_order.Properties.Appearance.Options.UseFont = true;
@@ -2106,7 +2092,7 @@
             this.panel8.Controls.Add(this.txtColour);
             this.panel8.Location = new System.Drawing.Point(2, 49);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(995, 251);
+            this.panel8.Size = new System.Drawing.Size(995, 207);
             this.panel8.TabIndex = 80;
             // 
             // lueProcess
@@ -3086,20 +3072,20 @@
             this.label6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label6.Location = new System.Drawing.Point(3, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 15);
+            this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 68;
             this.label6.Text = "Size";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtSize
             // 
-            this.txtSize.Location = new System.Drawing.Point(103, 78);
+            this.txtSize.Location = new System.Drawing.Point(47, 78);
             this.txtSize.Name = "txtSize";
             this.txtSize.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtSize.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtSize.Properties.MaxLength = 50;
             this.txtSize.Properties.ReadOnly = true;
-            this.txtSize.Size = new System.Drawing.Size(124, 20);
+            this.txtSize.Size = new System.Drawing.Size(180, 20);
             this.txtSize.TabIndex = 3;
             this.txtSize.Tag = "2";
             // 
@@ -3117,6 +3103,8 @@
             // 
             // panel7
             // 
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel7.Controls.Add(this.lueHandling_office);
             this.panel7.Controls.Add(this.txtPvh_submit_ref);
@@ -3384,7 +3372,7 @@
             this.panel6.Controls.Add(this.txtsurcharge_eur);
             this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.txtmoq_color);
-            this.panel6.Location = new System.Drawing.Point(2, 301);
+            this.panel6.Location = new System.Drawing.Point(2, 258);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(995, 122);
             this.panel6.TabIndex = 78;
@@ -3881,7 +3869,7 @@
             this.panel5.Controls.Add(this.label29);
             this.panel5.Controls.Add(this.label57);
             this.panel5.Controls.Add(this.label31);
-            this.panel5.Location = new System.Drawing.Point(2, 536);
+            this.panel5.Location = new System.Drawing.Point(2, 469);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(995, 134);
             this.panel5.TabIndex = 77;
@@ -4407,9 +4395,9 @@
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.txtCert1_type_other);
             this.panel3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel3.Location = new System.Drawing.Point(2, 424);
+            this.panel3.Location = new System.Drawing.Point(2, 381);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(995, 110);
+            this.panel3.Size = new System.Drawing.Size(995, 87);
             this.panel3.TabIndex = 75;
             // 
             // lueCert4_type
@@ -4955,7 +4943,7 @@
             // label46
             // 
             this.label46.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(436, 672);
+            this.label46.Location = new System.Drawing.Point(432, 3);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(196, 18);
             this.label46.TabIndex = 190;
@@ -4965,7 +4953,7 @@
             // label48
             // 
             this.label48.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(386, 694);
+            this.label48.Location = new System.Drawing.Point(382, 25);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(246, 14);
             this.label48.TabIndex = 194;
@@ -4975,7 +4963,7 @@
             // label82
             // 
             this.label82.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.Location = new System.Drawing.Point(7, 697);
+            this.label82.Location = new System.Drawing.Point(3, 28);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(32, 18);
             this.label82.TabIndex = 198;
@@ -5315,9 +5303,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle6.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle22.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5334,9 +5322,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle7.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle23.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5463,8 +5451,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle8.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -6104,6 +6092,34 @@
             this.dataGridViewTextBoxColumn110.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn110.Name = "dataGridViewTextBoxColumn110";
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.chksubmit3);
+            this.panel2.Controls.Add(this.txtMo_id3);
+            this.panel2.Controls.Add(this.label82);
+            this.panel2.Controls.Add(this.label84);
+            this.panel2.Controls.Add(this.label48);
+            this.panel2.Controls.Add(this.txtMo_id2);
+            this.panel2.Controls.Add(this.label46);
+            this.panel2.Controls.Add(this.label83);
+            this.panel2.Controls.Add(this.chkurgent_bulk_order);
+            this.panel2.Controls.Add(this.txtMo_id1);
+            this.panel2.Controls.Add(this.chksubmit2);
+            this.panel2.Controls.Add(this.lueSize_already_approved);
+            this.panel2.Controls.Add(this.chksubmit1);
+            this.panel2.Controls.Add(this.label54);
+            this.panel2.Controls.Add(this.lueFor_bulk_feference);
+            this.panel2.Controls.Add(this.lueColor_already_approved);
+            this.panel2.Controls.Add(this.label47);
+            this.panel2.Controls.Add(this.lueFor_quality_approval);
+            this.panel2.Location = new System.Drawing.Point(1, 604);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(996, 51);
+            this.panel2.TabIndex = 203;
+            // 
             // frmDevelopmentPvh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6257,6 +6273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6733,5 +6750,6 @@
         private System.Windows.Forms.Label label86;
         private DevExpress.XtraEditors.TextEdit txtMo1;
         private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Panel panel2;
     }
 }

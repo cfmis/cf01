@@ -1176,5 +1176,27 @@ namespace cf01.Forms
                 dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
             }
         }
+
+        private void txtMo_id2_Leave(object sender, EventArgs e)
+        {
+            if (mState != "" && txtMo_id2.Text != "")
+            {
+                DataTable dtMo = clsDevelopentPvh.GetPvhCustomerInfo(txtMo_id2.Text);
+                if (dtMo.Rows.Count > 0)
+                {
+                    txtPlm_material_code.Text = dtMo.Rows[0]["customer_goods"].ToString();
+                    txtSupplier_ref_no.Text = dtMo.Rows[0]["artwork"].ToString();
+                    txtColour.Text = dtMo.Rows[0]["customer_color_name"].ToString();
+                    txtSize.Text = dtMo.Rows[0]["customer_size"].ToString();
+                }
+                else
+                {
+                    txtPlm_material_code.Text = "";
+                    txtSupplier_ref_no.Text = "";
+                    txtColour.Text = "";
+                    txtSize.Text = "";
+                }
+            }
+        }
     }
 }
