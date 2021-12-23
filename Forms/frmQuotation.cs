@@ -2420,66 +2420,69 @@ namespace cf01.Forms
         private void BTNQUOTATION_Click(object sender, EventArgs e)
         {
             if (dgvDetails.RowCount == 0)
+            {
                 return;
-            txtTemp_code.Focus();
-                       
+            }               
+            txtTemp_code.Focus();                       
             List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
             bool isSelect = false;
             //mdlQuotation_Reprot objModel = new mdlQuotation_Reprot();
-            for (int i = 0; i < dtDetail.Rows.Count; i++)
+            //System.Data.DataTable dtTempAdd = clsQuotation.GetSortDataTable(dgvDetails);//按用戶的排序先后順序插入表格            
+            //return;
+            for (int i = 0; i < dgvDetails.RowCount; i++)
             {
-                if (dtDetail.Rows[i]["flag_select"].ToString() == "True")
+                if (dgvDetails.Rows[i].Cells["flagSelect"].Value.ToString() == "True")
                 {
-                    mdlQuotation_Reprot objModel = new mdlQuotation_Reprot() { 
-                        brand = dtDetail.Rows[i]["brand"].ToString(), 
-                        division = dtDetail.Rows[i]["division"].ToString(), 
-                        contact = dtDetail.Rows[i]["contact"].ToString(), 
-                        material = dtDetail.Rows[i]["material"].ToString(), 
-                        size = dtDetail.Rows[i]["size"].ToString(), 
-                        product_desc = dtDetail.Rows[i]["product_desc"].ToString(), 
-                        cust_code = dtDetail.Rows[i]["cust_code"].ToString(), 
-                        cf_code = dtDetail.Rows[i]["cf_code"].ToString(), 
-                        cust_color = dtDetail.Rows[i]["cust_color"].ToString(), 
-                        cf_color = dtDetail.Rows[i]["cf_color"].ToString(), 
-                        price_usd = clsApp.Return_Float_Value(dtDetail.Rows[i]["price_usd"].ToString()), 
-                        price_hkd = clsApp.Return_Float_Value(dtDetail.Rows[i]["price_hkd"].ToString()), 
-                        price_rmb = clsApp.Return_Float_Value(dtDetail.Rows[i]["price_rmb"].ToString()), 
-                        moq = Int32.Parse(dtDetail.Rows[i]["moq"].ToString()), 
-                        price_unit = dtDetail.Rows[i]["price_unit"].ToString(), 
-                        temp_code = dtDetail.Rows[i]["temp_code"].ToString(), 
-                        ver = dtDetail.Rows[i]["ver"].ToString(), 
-                        remark = dtDetail.Rows[i]["remark"].ToString(),
-                        moq_desc = dtDetail.Rows[i]["moq_desc"].ToString(), 
-                        moq_unit = dtDetail.Rows[i]["moq_unit"].ToString(), 
-                        season = dtDetail.Rows[i]["season"].ToString(), 
-                        salesman = dtDetail.Rows[i]["salesman"].ToString(), 
-                        mwq = Int32.Parse(dtDetail.Rows[i]["mwq"].ToString()), 
-                        lead_time_min = Int32.Parse(dtDetail.Rows[i]["lead_time_min"].ToString()), 
-                        lead_time_max = Int32.Parse(dtDetail.Rows[i]["lead_time_max"].ToString()), 
-                        lead_time_unit = dtDetail.Rows[i]["lead_time_unit"].ToString(), 
-                        md_charge = clsApp.Return_Float_Value(dtDetail.Rows[i]["md_charge"].ToString()), 
-                        md_charge_cny = dtDetail.Rows[i]["md_charge_cny"].ToString(), 
-                        number_enter = clsApp.Return_Float_Value(dtDetail.Rows[i]["number_enter"].ToString()), 
-                        hkd_ex_fty = clsApp.Return_Float_Value(dtDetail.Rows[i]["hkd_ex_fty"].ToString()), 
-                        usd_ex_fty = clsApp.Return_Float_Value(dtDetail.Rows[i]["usd_ex_fty"].ToString()), 
-                        sales_group = dtDetail.Rows[i]["sales_group"].ToString(), 
-                        moq_for_test = clsApp.Return_Float_Value(dtDetail.Rows[i]["moq_for_test"].ToString()), 
-                        /*objModel.moq_for_test = float.Parse(dtDetail.Rows[i]["moq_for_test"].ToString());*/
-                        usd_dap = clsApp.Return_Float_Value(dtDetail.Rows[i]["usd_dap"].ToString()), 
-                        usd_lab_test_prx = clsApp.Return_Float_Value(dtDetail.Rows[i]["usd_lab_test_prx"].ToString()), 
-                        ex_fty_hkd = clsApp.Return_Float_Value(dtDetail.Rows[i]["ex_fty_hkd"].ToString()), 
-                        ex_fty_usd = clsApp.Return_Float_Value(dtDetail.Rows[i]["ex_fty_usd"].ToString()), 
-                        discount = clsApp.Return_Float_Value(dtDetail.Rows[i]["discount"].ToString()), 
-                        disc_price_usd = clsApp.Return_Float_Value(dtDetail.Rows[i]["disc_price_usd"].ToString()), 
-                        disc_price_hkd = clsApp.Return_Float_Value(dtDetail.Rows[i]["disc_price_hkd"].ToString()), 
-                        disc_price_rmb = clsApp.Return_Float_Value(dtDetail.Rows[i]["disc_price_rmb"].ToString()), 
-                        disc_hkd_ex_fty = clsApp.Return_Float_Value(dtDetail.Rows[i]["disc_hkd_ex_fty"].ToString()), 
-                        die_mould_usd = clsApp.Return_Float_Value(dtDetail.Rows[i]["die_mould_usd"].ToString()), 
-                        die_mould_cny = dtDetail.Rows[i]["die_mould_cny"].ToString(),
-                        rmb_remark = dtDetail.Rows[i]["rmb_remark"].ToString(),
-                        cust_artwork = dtDetail.Rows[i]["cust_artwork"].ToString()
-                    };                    
-                    
+                    mdlQuotation_Reprot objModel = new mdlQuotation_Reprot()
+                    {
+                        brand = dgvDetails.Rows[i].Cells["brand"].Value.ToString(),
+                        division = dgvDetails.Rows[i].Cells["division"].Value.ToString(),
+                        contact = dgvDetails.Rows[i].Cells["contact"].Value.ToString(),
+                        material = dgvDetails.Rows[i].Cells["material"].Value.ToString(),
+                        size = dgvDetails.Rows[i].Cells["size"].Value.ToString(),
+                        product_desc = dgvDetails.Rows[i].Cells["product_desc"].Value.ToString(),
+                        cust_code = dgvDetails.Rows[i].Cells["cust_code"].Value.ToString(),
+                        cf_code = dgvDetails.Rows[i].Cells["cf_code"].Value.ToString(),
+                        cust_color = dgvDetails.Rows[i].Cells["cust_color"].Value.ToString(),
+                        cf_color = dgvDetails.Rows[i].Cells["cf_color"].Value.ToString(),
+                        price_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_usd"].Value.ToString()),
+                        price_hkd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_hkd"].Value.ToString()),
+                        price_rmb = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_rmb"].Value.ToString()),
+                        moq = Int32.Parse(dgvDetails.Rows[i].Cells["moq"].Value.ToString()),
+                        price_unit = dgvDetails.Rows[i].Cells["price_unit"].Value.ToString(),
+                        temp_code = dgvDetails.Rows[i].Cells["temp_code"].Value.ToString(),
+                        ver = dgvDetails.Rows[i].Cells["ver"].Value.ToString(),
+                        remark = dgvDetails.Rows[i].Cells["remark"].Value.ToString(),
+                        moq_desc = dgvDetails.Rows[i].Cells["moq_desc"].Value.ToString(),
+                        moq_unit = dgvDetails.Rows[i].Cells["moq_unit"].Value.ToString(),
+                        season = dgvDetails.Rows[i].Cells["season"].Value.ToString(),
+                        salesman = dgvDetails.Rows[i].Cells["salesman"].Value.ToString(),
+                        mwq = Int32.Parse(dgvDetails.Rows[i].Cells["mwq"].Value.ToString()),
+                        lead_time_min = Int32.Parse(dgvDetails.Rows[i].Cells["lead_time_min"].Value.ToString()),
+                        lead_time_max = Int32.Parse(dgvDetails.Rows[i].Cells["lead_time_max"].Value.ToString()),
+                        lead_time_unit = dgvDetails.Rows[i].Cells["lead_time_unit"].Value.ToString(),
+                        md_charge = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["md_charge"].Value.ToString()),
+                        md_charge_cny = dgvDetails.Rows[i].Cells["md_charge_cny"].Value.ToString(),
+                        number_enter = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["number_enter"].Value.ToString()),
+                        hkd_ex_fty = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["hkd_ex_fty"].Value.ToString()),
+                        usd_ex_fty = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["usd_ex_fty"].Value.ToString()),
+                        sales_group = dgvDetails.Rows[i].Cells["sales_group"].Value.ToString(),
+                        moq_for_test = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["moq_for_test"].Value.ToString()),
+                        /*objModel.moq_for_test = float.Parse(dgvDetails.Rows[i].Cells["moq_for_test"].Value.ToString());*/
+                        usd_dap = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["usd_dap"].Value.ToString()),
+                        usd_lab_test_prx = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["usd_lab_test_prx"].Value.ToString()),
+                        ex_fty_hkd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["ex_fty_hkd"].Value.ToString()),
+                        ex_fty_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["ex_fty_usd"].Value.ToString()),
+                        discount = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["discount"].Value.ToString()),
+                        disc_price_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_price_usd"].Value.ToString()),
+                        disc_price_hkd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_price_hkd"].Value.ToString()),
+                        disc_price_rmb = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_price_rmb"].Value.ToString()),
+                        disc_hkd_ex_fty = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_hkd_ex_fty"].Value.ToString()),
+                        die_mould_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["die_mould_usd"].Value.ToString()),
+                        die_mould_cny = dgvDetails.Rows[i].Cells["die_mould_cny"].Value.ToString(),
+                        rmb_remark = dgvDetails.Rows[i].Cells["rmb_remark"].Value.ToString(),
+                        cust_artwork = dgvDetails.Rows[i].Cells["cust_artwork"].Value.ToString()
+                    };
                     mList.Add(objModel);
                     isSelect = true;
                 }

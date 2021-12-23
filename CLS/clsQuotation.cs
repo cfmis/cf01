@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using cf01.MDL;
 using System.IO;
+using System.Data;
 
 namespace cf01.CLS
 {
@@ -917,6 +918,21 @@ namespace cf01.CLS
             int lenth_public = _public_path.Length;
             str_result = _all_path.Substring(lenth_public, lenth_all - lenth_public);
             return str_result;
+        }
+
+        /// <summary>
+        /// 按用戶自定義的排序次序生成DataTable
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <returns></returns>
+        public static System.Data.DataTable GetSortDataTable(DataGridView dgv)
+        {
+            DataView dv = (dgv.DataSource as System.Data.DataTable).DefaultView;//得到DataView
+            if (dgv.SortedColumn != null)//判断是否有排序
+            {
+                dv.Sort = dgv.SortedColumn.DataPropertyName + (dgv.SortOrder == System.Windows.Forms.SortOrder.Ascending ? " asc" : " desc");//排序
+            }
+            return dv.ToTable();//返回DataTable
         }
 
     }
