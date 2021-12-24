@@ -164,7 +164,7 @@
             // 
             this.xrLabel50.CanShrink = true;
             this.xrLabel50.Dpi = 254F;
-            this.xrLabel50.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel50.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel50.LocationFloat = new DevExpress.Utils.PointFloat(2350.814F, 1.576117F);
             this.xrLabel50.Multiline = true;
             this.xrLabel50.Name = "xrLabel50";
@@ -179,7 +179,7 @@
             // 
             this.xrLabel48.CanGrow = false;
             this.xrLabel48.Dpi = 254F;
-            this.xrLabel48.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel48.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel48.LocationFloat = new DevExpress.Utils.PointFloat(2280.137F, 1.576082F);
             this.xrLabel48.Name = "xrLabel48";
             this.xrLabel48.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -194,7 +194,7 @@
             // 
             this.xrLabel45.CanGrow = false;
             this.xrLabel45.Dpi = 254F;
-            this.xrLabel45.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel45.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel45.LocationFloat = new DevExpress.Utils.PointFloat(2206.424F, 1.576019F);
             this.xrLabel45.Name = "xrLabel45";
             this.xrLabel45.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -209,7 +209,7 @@
             // 
             this.xrLabel43.CanGrow = false;
             this.xrLabel43.Dpi = 254F;
-            this.xrLabel43.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel43.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(2057.13F, 1.576086F);
             this.xrLabel43.Name = "xrLabel43";
             this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -224,7 +224,7 @@
             // 
             this.xrLabel35.CanGrow = false;
             this.xrLabel35.Dpi = 254F;
-            this.xrLabel35.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel35.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel35.LocationFloat = new DevExpress.Utils.PointFloat(2134.039F, 1.576082F);
             this.xrLabel35.Name = "xrLabel35";
             this.xrLabel35.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -239,7 +239,7 @@
             // 
             this.xrLabel25.CanShrink = true;
             this.xrLabel25.Dpi = 254F;
-            this.xrLabel25.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel25.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(183.0011F, 1.000033F);
             this.xrLabel25.Multiline = true;
             this.xrLabel25.Name = "xrLabel25";
@@ -253,7 +253,7 @@
             // txtusd
             // 
             this.txtusd.Dpi = 254F;
-            this.txtusd.Font = new System.Drawing.Font("Arial", 6F);
+            this.txtusd.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtusd.LocationFloat = new DevExpress.Utils.PointFloat(1610.578F, 2.576082F);
             this.txtusd.Name = "txtusd";
             this.txtusd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -274,7 +274,7 @@
             // xrLabel32
             // 
             this.xrLabel32.Dpi = 254F;
-            this.xrLabel32.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel32.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(1733.91F, 1.576096F);
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -289,7 +289,7 @@
             // 
             this.xrLabel30.CanGrow = false;
             this.xrLabel30.Dpi = 254F;
-            this.xrLabel30.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel30.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(1941.536F, 1.57605F);
             this.xrLabel30.Name = "xrLabel30";
             this.xrLabel30.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -305,7 +305,7 @@
             // 
             this.xrLabel22.CanShrink = true;
             this.xrLabel22.Dpi = 254F;
-            this.xrLabel22.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel22.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(1462.325F, 1.576033F);
             this.xrLabel22.Multiline = true;
             this.xrLabel22.Name = "xrLabel22";
@@ -320,7 +320,7 @@
             // 
             this.xrLabel20.CanShrink = true;
             this.xrLabel20.Dpi = 254F;
-            this.xrLabel20.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel20.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(1306.678F, 1.576019F);
             this.xrLabel20.Multiline = true;
             this.xrLabel20.Name = "xrLabel20";
@@ -335,7 +335,7 @@
             // 
             this.xrLabel18.CanShrink = true;
             this.xrLabel18.Dpi = 254F;
-            this.xrLabel18.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel18.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(1160.177F, 1.57605F);
             this.xrLabel18.Multiline = true;
             this.xrLabel18.Name = "xrLabel18";
@@ -350,7 +350,7 @@
             // 
             this.xrLabel16.CanShrink = true;
             this.xrLabel16.Dpi = 254F;
-            this.xrLabel16.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel16.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(958.1458F, 1.576117F);
             this.xrLabel16.Multiline = true;
             this.xrLabel16.Name = "xrLabel16";
@@ -365,7 +365,7 @@
             // 
             this.xrLabel12.CanShrink = true;
             this.xrLabel12.Dpi = 254F;
-            this.xrLabel12.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel12.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(603.1467F, 1.576096F);
             this.xrLabel12.Multiline = true;
             this.xrLabel12.Name = "xrLabel12";
@@ -380,7 +380,7 @@
             // 
             this.xrLabel7.CanShrink = true;
             this.xrLabel7.Dpi = 254F;
-            this.xrLabel7.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel7.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(300.5778F, 0.9999854F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
@@ -395,7 +395,7 @@
             // 
             this.xrLabel3.CanShrink = true;
             this.xrLabel3.Dpi = 254F;
-            this.xrLabel3.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel3.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(12.70001F, 0.999939F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
@@ -410,7 +410,7 @@
             // 
             this.xrLabel10.CanShrink = true;
             this.xrLabel10.Dpi = 254F;
-            this.xrLabel10.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel10.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(440.6932F, 1.576096F);
             this.xrLabel10.Multiline = true;
             this.xrLabel10.Name = "xrLabel10";
@@ -425,7 +425,7 @@
             // 
             this.xrLabel14.CanShrink = true;
             this.xrLabel14.Dpi = 254F;
-            this.xrLabel14.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel14.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(759.0355F, 1.576096F);
             this.xrLabel14.Multiline = true;
             this.xrLabel14.Name = "xrLabel14";
@@ -440,7 +440,7 @@
             // 
             this.xrLabel59.CanGrow = false;
             this.xrLabel59.Dpi = 254F;
-            this.xrLabel59.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel59.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel59.LocationFloat = new DevExpress.Utils.PointFloat(2454.889F, 1.576131F);
             this.xrLabel59.Name = "xrLabel59";
             this.xrLabel59.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -455,7 +455,7 @@
             // 
             this.xrLabel60.CanGrow = false;
             this.xrLabel60.Dpi = 254F;
-            this.xrLabel60.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel60.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel60.LocationFloat = new DevExpress.Utils.PointFloat(2582.523F, 1.576106F);
             this.xrLabel60.Name = "xrLabel60";
             this.xrLabel60.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -479,7 +479,7 @@
             // 
             this.xrLabel8.CanShrink = true;
             this.xrLabel8.Dpi = 254F;
-            this.xrLabel8.Font = new System.Drawing.Font("Arial", 6F);
+            this.xrLabel8.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(2650.513F, 1.576131F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
