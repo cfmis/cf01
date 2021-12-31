@@ -2366,11 +2366,11 @@
     <Compile Include="Reports\xrPurReceipt.designer.cs">
       <DependentUpon>xrPurReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrPvh.cs">
+    <Compile Include="Reports\xrPvh_bak.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\xrPvh.designer.cs">
-      <DependentUpon>xrPvh.cs</DependentUpon>
+    <Compile Include="Reports\xrPvh_bak.designer.cs">
+      <DependentUpon>xrPvh_bak.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrQcTestReport.cs">
       <SubType>Component</SubType>
@@ -3713,8 +3713,8 @@
     <EmbeddedResource Include="Reports\xrPurReceipt.resx">
       <DependentUpon>xrPurReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\xrPvh.resx">
-      <DependentUpon>xrPvh.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\xrPvh_bak.resx">
+      <DependentUpon>xrPvh_bak.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQcTestReport.resx">
       <DependentUpon>xrQcTestReport.cs</DependentUpon>

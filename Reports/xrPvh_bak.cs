@@ -3,9 +3,9 @@ using DevExpress.XtraReports.UI;
 
 namespace cf01.Reports
 {
-    public partial class xrPvh : DevExpress.XtraReports.UI.XtraReport
+    public partial class xrPvh_bak : DevExpress.XtraReports.UI.XtraReport
     {
-        public xrPvh()
+        public xrPvh_bak()
         {
             InitializeComponent();
         }

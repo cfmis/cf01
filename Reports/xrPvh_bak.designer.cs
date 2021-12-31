@@ -1,6 +1,6 @@
 ﻿namespace cf01.Reports
 {
-    partial class xrPvh
+    partial class xrPvh_bak
     {
         /// <summary>
         /// Required designer variable.
