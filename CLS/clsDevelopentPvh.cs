@@ -53,5 +53,38 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }
+
+        public static DataTable GetProcessTypeInfo(string strType)
+        {
+            string strSql = string.Format(@"SELECT contents FROM development_pvh_type WHERE type='{0}' ORDER BY sort", strType);
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+
+        public static void SetCountry(DevExpress.XtraEditors.LookUpEdit objMat, DevExpress.XtraEditors.LookUpEdit objCountry)
+        {
+            string strMatValue = "";
+            string strCountry = "";
+            strMatValue = objMat.EditValue.ToString();
+            if (!string.IsNullOrEmpty(strMatValue))
+            {
+                switch (strMatValue)
+                {
+                    case "BRASS":
+                        strCountry = "KOREA REPUBLIC OF";
+                        break;
+                    case "ZINC ALLOY":
+                        strCountry = "AUSTRALIA";
+                        break;
+                    case "POLYESTER":
+                        strCountry = "CHINA";
+                        break;
+                    default:
+                        strCountry = "";
+                        break;
+                }
+                objCountry.EditValue = strCountry;
+            }
+        }
     }
 }

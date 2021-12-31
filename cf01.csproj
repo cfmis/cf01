@@ -2096,6 +2096,12 @@
     <Compile Include="Reports\xrDevelopCalvinSheet2.designer.cs">
       <DependentUpon>xrDevelopCalvinSheet2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrDevelopmentPvh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrDevelopmentPvh.designer.cs">
+      <DependentUpon>xrDevelopmentPvh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrhg_plate.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3560,6 +3566,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrDevelopCalvinSheet2.resx">
       <DependentUpon>xrDevelopCalvinSheet2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrDevelopmentPvh.resx">
+      <DependentUpon>xrDevelopmentPvh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrhg_plate.resx">
       <DependentUpon>xrhg_plate.cs</DependentUpon>

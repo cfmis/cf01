@@ -17,6 +17,7 @@ using System.Drawing;
 using System.IO;
 using DevExpress.XtraReports.UI;
 
+
 namespace cf01.Forms
 {
     public partial class frmDevelopmentPvh : Form
@@ -253,6 +254,12 @@ namespace cf01.Forms
             lueSize_already_approved.Properties.ValueMember = "id";
             lueSize_already_approved.Properties.DisplayMember = "id";
 
+            strSql = string.Format(@"SELECT contents AS id,remark AS name FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "z_combox_check");
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            lueCheck.Properties.DataSource = dt;
+            lueCheck.Properties.ValueMember = "id";
+            lueCheck.Properties.DisplayMember = "name";
+
 
             dtDat1.EditValue = DateTime.Now.AddDays(-7).ToString("yyyy/MM/dd").Substring(0, 10);
             dtDat2.EditValue = DateTime.Now.ToString("yyyy/MM/dd").Substring(0, 10);
@@ -383,12 +390,7 @@ namespace cf01.Forms
             //chksubmit2.DataBindings.Add("Checked", bds1, "submit2");
             //chksubmit3.DataBindings.Add("Checked", bds1, "submit3");
             //chkurgent_bulk_order.DataBindings.Add("Checked", bds1, "urgent_bulk_order");
-
-            //myCommand.Parameters.AddWithValue("@submit1", chksubmit1.Checked ? true : false);
-            //myCommand.Parameters.AddWithValue("@submit2", chksubmit2.Checked ? true : false);
-            //myCommand.Parameters.AddWithValue("@submit3", chksubmit3.Checked ? true : false);
-            //myCommand.Parameters.AddWithValue("@urgent_bulk_order", chkurgent_bulk_order.Checked ? true : false);
-
+            
         }
 
         private void SetButtonSatus(bool _flag)
@@ -884,7 +886,6 @@ namespace cf01.Forms
                 objTextEdit.Select(1, 0);
             }
         }
-
         
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -1082,7 +1083,7 @@ namespace cf01.Forms
                 @"Select *,Isnull(raw_mat1_percent,0)+Isnull(raw_mat2_percent,0)+Isnull(raw_mat3_percent,0)+Isnull(raw_mat4_percent,0)
                 +Isnull(raw_mat5_percent,0) AS percent_total FROM dbo.development_pvh WHERE serial_no='{0}'", txtSerial_no.Text);
             DataTable dtReport = clsPublicOfCF01.GetDataTable(strsql);
-            using (xrPvh rpt = new xrPvh() { DataSource = dtReport })
+            using (xrDevelopmentPvh rpt = new xrDevelopmentPvh() { DataSource = dtReport })
             {
                 rpt.CreateDocument();
                 rpt.PrintingSystem.ShowMarginsWarning = false;
@@ -1197,6 +1198,34 @@ namespace cf01.Forms
                     txtSize.Text = "";
                 }
             }
+        }
+
+        private void lueCheck_EditValueChanged(object sender, EventArgs e)
+        {
+            string strVul = lueCheck.EditValue.ToString();
+            if (!string.IsNullOrEmpty(strVul))
+            {
+                DataTable dt = clsDevelopentPvh.GetProcessTypeInfo(strVul);
+                if (dt.Rows.Count > 0)
+                {
+                    txtQuality_callouts.Text = dt.Rows[0]["contents"].ToString();
+                }
+            }
+        }
+
+        private void lueRaw_mat1_compostion_EditValueChanged(object sender, EventArgs e)
+        {
+            clsDevelopentPvh.SetCountry(lueRaw_mat1_compostion, lueRaw_mat1_l3);
+        }
+
+        private void lueRaw_mat2_compostion_EditValueChanged(object sender, EventArgs e)
+        {
+            clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3);
+        }
+
+        private void lueRaw_mat3_compostion_EditValueChanged(object sender, EventArgs e)
+        {
+            clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
         }
     }
 }
