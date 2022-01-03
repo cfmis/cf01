@@ -74,10 +74,16 @@ namespace cf01.CLS
                         strCountry = "KOREA REPUBLIC OF";
                         break;
                     case "ZINC ALLOY":
-                        strCountry = "AUSTRALIA";
+                        strCountry = "JAPAN";
                         break;
                     case "POLYESTER":
                         strCountry = "CHINA";
+                        break;
+                    case "POLYAMIDE / NYLON":
+                        strCountry = "CHINA";
+                        break;
+                    case "RECYCLED ZINC ALLOY":
+                        strCountry = "BELGIUM";
                         break;
                     default:
                         strCountry = "";
