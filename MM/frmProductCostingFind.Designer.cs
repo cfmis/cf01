@@ -486,7 +486,7 @@
             // 
             // txtClrFrom
             // 
-            this.txtClrFrom.Location = new System.Drawing.Point(76, 62);
+            this.txtClrFrom.Location = new System.Drawing.Point(414, 62);
             this.txtClrFrom.Name = "txtClrFrom";
             this.txtClrFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClrFrom.Properties.MaxLength = 4;
@@ -496,7 +496,7 @@
             // 
             // txtSizeFrom
             // 
-            this.txtSizeFrom.Location = new System.Drawing.Point(414, 62);
+            this.txtSizeFrom.Location = new System.Drawing.Point(76, 62);
             this.txtSizeFrom.Name = "txtSizeFrom";
             this.txtSizeFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizeFrom.Properties.MaxLength = 3;
@@ -506,7 +506,7 @@
             // 
             // lblClr
             // 
-            this.lblClr.Location = new System.Drawing.Point(18, 63);
+            this.lblClr.Location = new System.Drawing.Point(356, 63);
             this.lblClr.Name = "lblClr";
             this.lblClr.Size = new System.Drawing.Size(52, 14);
             this.lblClr.TabIndex = 13;
@@ -524,7 +524,7 @@
             // 
             // lblSize
             // 
-            this.lblSize.Location = new System.Drawing.Point(356, 63);
+            this.lblSize.Location = new System.Drawing.Point(18, 63);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(52, 14);
             this.lblSize.TabIndex = 12;
