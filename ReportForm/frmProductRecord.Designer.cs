@@ -1219,9 +1219,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.dgvDetails);
             this.panel3.Controls.Add(this.dgvPrdWorker);
             this.panel3.Controls.Add(this.dgvSummary);
-            this.panel3.Controls.Add(this.dgvDetails);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 164);
             this.panel3.Name = "panel3";

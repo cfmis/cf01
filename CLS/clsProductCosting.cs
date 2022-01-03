@@ -318,7 +318,7 @@ namespace cf01.CLS
             return dtMmCosting;
         }
         //從Wip中獲取配件，當作BOM
-        public static DataTable findProductCosting(int isSetCosting,int sourceItem,bool showF0, string productMo,string productId
+        public static DataTable findProductCosting(string RecNumber,int isSetCosting,int sourceItem,bool showF0, string productMo,string productId
             ,string matFrom,string matTo,string prdTypeFrom,string prdTypeTo,string artFrom,string artTo
             ,string sizeFrom,string sizeTo,string clrFrom,string clrTo
             ,string dateFrom,string dateTo,string moGroup,string Sales)
@@ -332,33 +332,31 @@ namespace cf01.CLS
                 productId1 = productId;
             else
                 productId1 = matFrom + prdTypeFrom + artFrom + sizeFrom + clrFrom;
+            if (isSetCosting == 0)
+                strWhere += " And a.ProductId";
+            else
+                if (sourceItem == 0)
+                strWhere += " And b.goods_id";
+            else
+                strWhere += " And mm.id";
             if (productId1.Length == 18 || (productId1.Length>2 && productId1.Substring(0,2)=="F0"))
             {
-                if (isSetCosting == 0)
-                    strWhere += " And a.ProductId='" + productId1 + "'";
-                else
-                    if (sourceItem == 0)
-                        strWhere += " And b.goods_id='" + productId1 + "'";
-                    else
-                        strWhere += " And mm.id='" + productId1 + "'";
+                strWhere += " = '";
             }
             else
             {
-                if (matFrom != "" && matTo != "")
-                    strWhere += " And mm.datum >='" + matFrom + "' And mm.datum<='" + matTo + "'";
-                if (prdTypeFrom != "" && prdTypeTo != "")
-                    strWhere += " And mm.base_class >='" + prdTypeFrom + "' And mm.base_class<='" + prdTypeTo + "'";
-                if (artFrom != "" && artTo != "")
-                    strWhere += " And mm.blueprint_id >='" + artFrom + "' And mm.blueprint_id<='" + artTo + "'";
-                if (sizeFrom != "" && sizeTo != "")
-                    strWhere += " And mm.size_id >='" + sizeFrom + "' And mm.size_id<='" + sizeTo + "'";
-                if (clrFrom != "" && clrTo != "")
-                    strWhere += " And mm.color >='" + clrFrom + "' And mm.color<='" + clrTo + "'";
+                strWhere += " Like '";
+                productId1 = (matFrom == "" ? "__" : matFrom)
+                    + (prdTypeFrom == "" ? "__" : prdTypeFrom)
+                    + (artFrom == "" ? "_______" : artFrom)
+                    + (sizeFrom == "" ? "___" : sizeFrom)
+                    + (clrFrom == "" ? "____" : clrFrom);
             }
-            
+            strWhere += productId1 + "'";
+
             if (isSetCosting == 0)//已設定成本
             {
-                strSql = "Select a.ProductId AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,mm.name As goods_cname" +
+                strSql = "Select Top "+RecNumber+" a.ProductId AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,mm.name As goods_cname" +
                 ",mm.do_color AS DoColor,a.ProductCost,CASE b.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/b.kg_qty_rate)*1000,4) END AS ProductWeight" +
                 ",c.ProductPrice,c.PriceUnit " +
                 " From mm_ProductCosting a" +
@@ -383,20 +381,24 @@ namespace cf01.CLS
                         ",Convert(INT,aa.prod_qty) AS prod_qty,Convert(INT,aa.c_qty_ok) AS c_qty_ok,Convert(Decimal(18,2),aa.c_sec_qty_ok) AS c_sec_qty_ok" +
                         ",CASE aa.c_qty_ok WHEN 0 THEN 0 ELSE Convert(Decimal(18,4),(aa.c_sec_qty_ok/aa.c_qty_ok)*1000) END AS pcs_weg" +
                         ",aa.wp_id,aa.wp_cdesc AS DepCdesc,aa.next_wp_id,aa.next_wp_cdesc AS NextDepCdesc" +
-                        ",aa.seller_id,Substring(aa.mo_id,3,1) AS mo_group,CASE cc.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/cc.kg_qty_rate)*1000,4) END AS ProductWeight"+
+                        ",aa.seller_id,Substring(aa.mo_id,3,1) AS mo_group,CASE cc.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/cc.kg_qty_rate)*1000,4) END AS ProductWeight" +
                         ",dd.ProductPrice,dd.PriceUnit";
                     strSql += " FROM (";
-                    strSql += " SELECT TOP 100000 a.mo_id,a.bill_date,b.goods_id,mm.name AS goods_cname,mm.do_color AS DoColor,b.prod_qty"+
-                        ",b.c_qty_ok,b.c_sec_qty_ok,b.wp_id,d.name AS wp_cdesc"+
-                        ",b.next_wp_id,e.name AS next_wp_cdesc,f.seller_id" +
-                        " FROM " + remote_db + "jo_bill_mostly a" +
+                    strSql += " SELECT Top " + RecNumber + " a.mo_id,a.bill_date,b.goods_id,mm.name AS goods_cname,mm.do_color AS DoColor,b.prod_qty" +
+                        ",b.c_qty_ok,b.c_sec_qty_ok,b.wp_id,d.name AS wp_cdesc" +
+                        ",b.next_wp_id,e.name AS next_wp_cdesc";
+                    if (Sales != "")
+                        strSql += ",f.seller_id";
+                    else
+                        strSql += ",a.merchandiser As seller_id";
+                    strSql += " FROM " + remote_db + "jo_bill_mostly a" +
                         " INNER JOIN " + remote_db + "jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
                         " INNER JOIN " + remote_db + "it_goods mm ON b.within_code=mm.within_code  AND b.goods_id=mm.id" +
                         " INNER JOIN " + remote_db + "cd_department d ON b.within_code=d.within_code AND b.wp_id=d.id" +
-                        " INNER JOIN " + remote_db + "cd_department e ON b.within_code=e.within_code AND b.next_wp_id=e.id" +
-                        " INNER JOIN " + remote_db + "so_order_manage f ON a.within_code=f.within_code AND a.order_no=f.id" +
-                        " INNER JOIN " + remote_db + "so_order_manage od ON a.within_code=od.within_code AND a.order_no=od.id" +
-                        " WHERE a.within_code='" + within_code + "'";// AND a.so_ver=f.ver
+                        " INNER JOIN " + remote_db + "cd_department e ON b.within_code=e.within_code AND b.next_wp_id=e.id";
+                    if (Sales != "")
+                        strSql += " INNER JOIN " + remote_db + "so_order_manage f ON a.within_code=f.within_code AND a.order_no=f.id";
+                    strSql += " WHERE a.within_code='" + within_code + "'";// AND a.so_ver=f.ver
                     if (productMo != "")
                         strSql += " AND a.mo_id='" + productMo + "'";
                     //else
@@ -405,17 +407,18 @@ namespace cf01.CLS
                     {
                         string dateTo1 = Convert.ToDateTime(dateTo).AddDays(1).ToString("yyyy/MM/dd");
                         strSql += " And a.bill_date>='" + dateFrom + "' And a.bill_date<'" + dateTo1 + "'";
-                        strSql += " And od.order_date>='" + dateFrom + "' And od.order_date<'" + dateTo1 + "'";
+                        //strSql += " And f.order_date>='" + dateFrom + "' And f.order_date<'" + dateTo1 + "'";
                     }
-                        if (moGroup != "")
-                            strSql += " And Substring(a.mo_id,3,1)='" + moGroup + "'";
-                        //strSql += " And f.seller_id='" + moGroup + "'";
-                        if (Sales != "")
-                            strSql += " And f.seller_id='" + Sales + "'";
+                    if (moGroup != "")
+                        strSql += " And Substring(a.mo_id,3,1)='" + moGroup + "'";
+                    //strSql += " And f.seller_id='" + moGroup + "'";
+                    if (Sales != "")
+                        strSql += " And f.seller_id='" + Sales + "'";
                     //}
                     if (showF0 == true)
                         strSql += " And b.goods_id>='F0' And b.goods_id<='F0-ZZZZZZZ-ZZZ'";
                     strSql += strWhere;
+
                     strSql += " ORDER BY b.goods_id,b.c_qty_ok Desc";
                     strSql += ") aa";
                     strSql += " LEFT JOIN mm_ProductCosting bb ON aa.goods_id COLLATE chinese_taiwan_stroke_CI_AS=bb.ProductId AND aa.wp_id COLLATE chinese_taiwan_stroke_CI_AS=bb.DepId ";
@@ -428,8 +431,8 @@ namespace cf01.CLS
                 else
                 {
                     strSql += "SELECT aa.* FROM (";
-                    strSql += "Select Top 100000 mm.id AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,a.ProductCost"+
-                        ",mm.name As goods_cname,mm.do_color AS DoColor,CASE b.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/b.kg_qty_rate)*1000,4) END AS ProductWeight"+
+                    strSql += "Select Top " + RecNumber + "  mm.id AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,a.ProductCost" +
+                        ",mm.name As goods_cname,mm.do_color AS DoColor,CASE b.kg_qty_rate WHEN 0 THEN 0 ELSE ROUND((1/b.kg_qty_rate)*1000,4) END AS ProductWeight" +
                         ",c.ProductPrice,c.PriceUnit" +
                         " From geo_it_goods mm" +
                         " Left join mm_ProductCosting a On mm.id=a.ProductId" +
@@ -441,7 +444,7 @@ namespace cf01.CLS
                     strSql += strWhere;
                     strSql += " Order By mm.id ";
                     strSql += " ) aa";
-                    if(isSetCosting == 1)
+                    if (isSetCosting == 1)
                         strSql += " WHERE aa.ProductCost Is Null";
                 }
             }
@@ -1079,6 +1082,15 @@ namespace cf01.CLS
                     " INNER JOIN it_goods d ON c.within_code=d.within_code AND c.materiel_id=d.id" +
                     " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + productMo + "' AND b.sequence_id='" + Seq + "'";
             DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
+            return dt;
+        }
+        public static DataTable getRecNumber()
+        {
+            string strSql = " SELECT flag_id,flag_desc" +
+                    " FROM bs_flag_desc" +
+                    " WHERE doc_type='RE'" +
+                    " Order By flag_id";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }
     }

@@ -33,6 +33,9 @@ namespace cf01.MM
             //txtDateFrom.Text = System.DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             //txtDateTo.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
             txtProductMo.Text = searchProductMo;
+            cmbBefRec.DataSource = clsProductCosting.getRecNumber();
+            cmbBefRec.DisplayMember = "flag_desc";
+            cmbBefRec.ValueMember = "flag_id";
             txtProductMo.Focus();
         }
         private void btnExit_Click(object sender, EventArgs e)
@@ -115,13 +118,15 @@ namespace cf01.MM
 
             //**********************
             //findProcess(); //数据处理
-
-            dtProductCosting = clsProductCosting.findProductCosting(isSetFlag, sourceType, showF0, moId,productId
+            string RecNumber = "";
+            RecNumber = cmbBefRec.SelectedValue == "99" ? "100000" : cmbBefRec.Text.Trim();
+            dtProductCosting = clsProductCosting.findProductCosting(RecNumber,isSetFlag, sourceType, showF0, moId,productId
                 , matFrom, matTo, prdTypeFrom, prdTypeTo
                 , artFrom, artTo, sizeFrom,sizeTo
                 , clrFrom,clrTo, dateFrom,dateTo, moGroup,salesId
                 );
             dgvCosting.DataSource = dtProductCosting;
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             if (dgvCosting.Rows.Count == 0)
                 MessageBox.Show("沒有找到符合條件的記錄");
             else
@@ -133,9 +138,9 @@ namespace cf01.MM
             }
 
 
-            //genBomTree(pid);
-            //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            ////genBomTree(pid);
+            ////**********************
+            //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
         }
         //private void findProcess()
         //{
@@ -196,6 +201,10 @@ namespace cf01.MM
             txtShowProductId.Text = dr.Cells["colProductId"].Value.ToString();
             txtShowProductName.Text = dr.Cells["colProductName"].Value.ToString();
 
+            //loadProductWip();
+        }
+        private void btnWipData_Click(object sender, EventArgs e)
+        {
             loadProductWip();
         }
         private void loadProductWip()
