@@ -373,7 +373,7 @@ namespace cf01.CLS
             }
             else
             {
-                if (sourceItem == 0)
+                if (sourceItem == 0)//從生產計劃單中提取
                 {
                     strSql += " SELECT bbb.* FROM (";
                     strSql += " SELECT aa.mo_id,Convert(Varchar(20),aa.bill_date,111) AS bill_date" +

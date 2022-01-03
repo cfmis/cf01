@@ -71,7 +71,7 @@ namespace cf01.MM
             int isSetFlag = rdgIsSetCosting.SelectedIndex;
             int sourceType = rdgSource.SelectedIndex;
             bool showF0 = chkShowF0.Checked;
-            string productId = "";
+            string productId = ""; 
             findProcess(isSetFlag, sourceType, showF0, txtProductMo.Text.Trim(),productId, txtMatFrom.Text.Trim(), txtMatTo.Text.Trim()
                , txtPrdTypeFrom.Text.Trim(), txtPrdTypeTo.Text.Trim(), txtArtFrom.Text.Trim(), txtArtTo.Text.Trim()
                , txtSizeFrom.Text.Trim(), txtSizeTo.Text.Trim(), txtClrFrom.Text.Trim(), txtClrTo.Text.Trim()
@@ -119,7 +119,7 @@ namespace cf01.MM
             //**********************
             //findProcess(); //数据处理
             string RecNumber = "";
-            RecNumber = cmbBefRec.SelectedValue == "99" ? "100000" : cmbBefRec.Text.Trim();
+            RecNumber = cmbBefRec.SelectedValue.ToString() == "99" ? "100000" : cmbBefRec.Text.Trim();
             dtProductCosting = clsProductCosting.findProductCosting(RecNumber,isSetFlag, sourceType, showF0, moId,productId
                 , matFrom, matTo, prdTypeFrom, prdTypeTo
                 , artFrom, artTo, sizeFrom,sizeTo
