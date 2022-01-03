@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestExcel_Search));
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtInvoice_id = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.lueDept_dept = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -72,6 +74,7 @@
             this.lueColor_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.lueProductType_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMat_sq = new DevExpress.XtraEditors.LookUpEdit();
+            this.chkExpiry = new DevExpress.XtraEditors.CheckEdit();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueDept_dept.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).BeginInit();
@@ -84,10 +87,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType_sq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat_sq.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchPanel
             // 
+            this.SearchPanel.Controls.Add(this.chkExpiry);
+            this.SearchPanel.Controls.Add(this.labelControl5);
+            this.SearchPanel.Controls.Add(this.txtInvoice_id);
             this.SearchPanel.Controls.Add(this.labelControl6);
             this.SearchPanel.Controls.Add(this.lueDept_dept);
             this.SearchPanel.Controls.Add(this.labelControl4);
@@ -136,10 +143,26 @@
             this.SearchPanel.Size = new System.Drawing.Size(842, 328);
             this.SearchPanel.TabIndex = 12;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(18, 190);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(48, 14);
+            this.labelControl5.TabIndex = 207;
+            this.labelControl5.Text = "發票編號";
+            // 
+            // txtInvoice_id
+            // 
+            this.txtInvoice_id.Location = new System.Drawing.Point(69, 189);
+            this.txtInvoice_id.MaxLength = 30;
+            this.txtInvoice_id.Name = "txtInvoice_id";
+            this.txtInvoice_id.Size = new System.Drawing.Size(130, 22);
+            this.txtInvoice_id.TabIndex = 206;
+            // 
             // labelControl6
             // 
             this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl6.Location = new System.Drawing.Point(16, 163);
+            this.labelControl6.Location = new System.Drawing.Point(16, 154);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(48, 28);
             this.labelControl6.TabIndex = 205;
@@ -148,7 +171,7 @@
             // lueDept_dept
             // 
             this.lueDept_dept.EnterMoveNextControl = true;
-            this.lueDept_dept.Location = new System.Drawing.Point(69, 168);
+            this.lueDept_dept.Location = new System.Drawing.Point(69, 159);
             this.lueDept_dept.Name = "lueDept_dept";
             this.lueDept_dept.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueDept_dept.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -163,7 +186,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(246, 170);
+            this.labelControl4.Location = new System.Drawing.Point(246, 161);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(36, 14);
             this.labelControl4.TabIndex = 202;
@@ -171,7 +194,7 @@
             // 
             // txtcrusr
             // 
-            this.txtcrusr.Location = new System.Drawing.Point(288, 167);
+            this.txtcrusr.Location = new System.Drawing.Point(288, 158);
             this.txtcrusr.MaxLength = 20;
             this.txtcrusr.Name = "txtcrusr";
             this.txtcrusr.Size = new System.Drawing.Size(154, 22);
@@ -181,7 +204,7 @@
             // 
             this.dtCreate_date1.EditValue = "";
             this.dtCreate_date1.EnterMoveNextControl = true;
-            this.dtCreate_date1.Location = new System.Drawing.Point(552, 167);
+            this.dtCreate_date1.Location = new System.Drawing.Point(552, 158);
             this.dtCreate_date1.Name = "dtCreate_date1";
             this.dtCreate_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtCreate_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -202,7 +225,7 @@
             // 
             this.dtCreate_date2.EditValue = "";
             this.dtCreate_date2.EnterMoveNextControl = true;
-            this.dtCreate_date2.Location = new System.Drawing.Point(702, 167);
+            this.dtCreate_date2.Location = new System.Drawing.Point(702, 158);
             this.dtCreate_date2.Name = "dtCreate_date2";
             this.dtCreate_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtCreate_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -221,7 +244,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(470, 170);
+            this.label3.Location = new System.Drawing.Point(470, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 14);
             this.label3.TabIndex = 199;
@@ -231,7 +254,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(685, 172);
+            this.label4.Location = new System.Drawing.Point(685, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 12);
             this.label4.TabIndex = 200;
@@ -254,7 +277,7 @@
             // txtDoc_type
             // 
             this.txtDoc_type.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDoc_type.Location = new System.Drawing.Point(552, 136);
+            this.txtDoc_type.Location = new System.Drawing.Point(552, 130);
             this.txtDoc_type.MaxLength = 10;
             this.txtDoc_type.Name = "txtDoc_type";
             this.txtDoc_type.Size = new System.Drawing.Size(278, 22);
@@ -262,7 +285,7 @@
             // 
             // lblDoc_type
             // 
-            this.lblDoc_type.Location = new System.Drawing.Point(497, 139);
+            this.lblDoc_type.Location = new System.Drawing.Point(497, 133);
             this.lblDoc_type.Name = "lblDoc_type";
             this.lblDoc_type.Size = new System.Drawing.Size(48, 14);
             this.lblDoc_type.TabIndex = 45;
@@ -271,7 +294,7 @@
             // txtCf_color
             // 
             this.txtCf_color.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCf_color.Location = new System.Drawing.Point(289, 136);
+            this.txtCf_color.Location = new System.Drawing.Point(289, 130);
             this.txtCf_color.MaxLength = 30;
             this.txtCf_color.Name = "txtCf_color";
             this.txtCf_color.Size = new System.Drawing.Size(154, 22);
@@ -279,7 +302,7 @@
             // 
             // lblCf_color
             // 
-            this.lblCf_color.Location = new System.Drawing.Point(209, 128);
+            this.lblCf_color.Location = new System.Drawing.Point(209, 122);
             this.lblCf_color.Name = "lblCf_color";
             this.lblCf_color.Size = new System.Drawing.Size(75, 28);
             this.lblCf_color.TabIndex = 43;
@@ -288,7 +311,7 @@
             // txtSales_group
             // 
             this.txtSales_group.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSales_group.Location = new System.Drawing.Point(69, 136);
+            this.txtSales_group.Location = new System.Drawing.Point(69, 130);
             this.txtSales_group.MaxLength = 1;
             this.txtSales_group.Name = "txtSales_group";
             this.txtSales_group.Size = new System.Drawing.Size(130, 22);
@@ -297,7 +320,7 @@
             // lblSales_group
             // 
             this.lblSales_group.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblSales_group.Location = new System.Drawing.Point(2, 129);
+            this.lblSales_group.Location = new System.Drawing.Point(2, 123);
             this.lblSales_group.Name = "lblSales_group";
             this.lblSales_group.Size = new System.Drawing.Size(64, 28);
             this.lblSales_group.TabIndex = 41;
@@ -305,7 +328,7 @@
             // 
             // txtSize
             // 
-            this.txtSize.Location = new System.Drawing.Point(552, 104);
+            this.txtSize.Location = new System.Drawing.Point(552, 101);
             this.txtSize.MaxLength = 30;
             this.txtSize.Name = "txtSize";
             this.txtSize.Size = new System.Drawing.Size(278, 22);
@@ -313,7 +336,7 @@
             // 
             // lblSize
             // 
-            this.lblSize.Location = new System.Drawing.Point(490, 107);
+            this.lblSize.Location = new System.Drawing.Point(490, 104);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(55, 14);
             this.lblSize.TabIndex = 39;
@@ -338,7 +361,7 @@
             // 
             this.deExpriy.EditValue = "";
             this.deExpriy.EnterMoveNextControl = true;
-            this.deExpriy.Location = new System.Drawing.Point(288, 13);
+            this.deExpriy.Location = new System.Drawing.Point(288, 11);
             this.deExpriy.Name = "deExpriy";
             this.deExpriy.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.deExpriy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -356,35 +379,35 @@
             // 
             // txtTrim_code
             // 
-            this.txtTrim_code.Location = new System.Drawing.Point(552, 45);
+            this.txtTrim_code.Location = new System.Drawing.Point(552, 42);
             this.txtTrim_code.Name = "txtTrim_code";
             this.txtTrim_code.Size = new System.Drawing.Size(278, 22);
             this.txtTrim_code.TabIndex = 7;
             // 
             // txtTest_report_no
             // 
-            this.txtTest_report_no.Location = new System.Drawing.Point(552, 75);
+            this.txtTest_report_no.Location = new System.Drawing.Point(552, 71);
             this.txtTest_report_no.Name = "txtTest_report_no";
             this.txtTest_report_no.Size = new System.Drawing.Size(278, 22);
             this.txtTest_report_no.TabIndex = 9;
             // 
             // txtTrim_color_code
             // 
-            this.txtTrim_color_code.Location = new System.Drawing.Point(288, 45);
+            this.txtTrim_color_code.Location = new System.Drawing.Point(288, 42);
             this.txtTrim_color_code.Name = "txtTrim_color_code";
             this.txtTrim_color_code.Size = new System.Drawing.Size(155, 22);
             this.txtTrim_color_code.TabIndex = 6;
             // 
             // txtFinish_name
             // 
-            this.txtFinish_name.Location = new System.Drawing.Point(552, 13);
+            this.txtFinish_name.Location = new System.Drawing.Point(552, 11);
             this.txtFinish_name.Name = "txtFinish_name";
             this.txtFinish_name.Size = new System.Drawing.Size(278, 22);
             this.txtFinish_name.TabIndex = 5;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(464, 38);
+            this.labelControl1.Location = new System.Drawing.Point(464, 35);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(82, 28);
             this.labelControl1.TabIndex = 28;
@@ -392,7 +415,7 @@
             // 
             // lblExpirydate
             // 
-            this.lblExpirydate.Location = new System.Drawing.Point(223, 7);
+            this.lblExpirydate.Location = new System.Drawing.Point(223, 5);
             this.lblExpirydate.Name = "lblExpirydate";
             this.lblExpirydate.Size = new System.Drawing.Size(61, 28);
             this.lblExpirydate.TabIndex = 27;
@@ -401,7 +424,7 @@
             // lblTestReport_no
             // 
             this.lblTestReport_no.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lblTestReport_no.Location = new System.Drawing.Point(473, 78);
+            this.lblTestReport_no.Location = new System.Drawing.Point(473, 74);
             this.lblTestReport_no.Name = "lblTestReport_no";
             this.lblTestReport_no.Size = new System.Drawing.Size(72, 14);
             this.lblTestReport_no.TabIndex = 29;
@@ -409,7 +432,7 @@
             // 
             // lblTrim_color_code
             // 
-            this.lblTrim_color_code.Location = new System.Drawing.Point(204, 39);
+            this.lblTrim_color_code.Location = new System.Drawing.Point(204, 36);
             this.lblTrim_color_code.Name = "lblTrim_color_code";
             this.lblTrim_color_code.Size = new System.Drawing.Size(80, 28);
             this.lblTrim_color_code.TabIndex = 31;
@@ -417,7 +440,7 @@
             // 
             // lblFinish_name
             // 
-            this.lblFinish_name.Location = new System.Drawing.Point(464, 7);
+            this.lblFinish_name.Location = new System.Drawing.Point(464, 5);
             this.lblFinish_name.Name = "lblFinish_name";
             this.lblFinish_name.Size = new System.Drawing.Size(83, 28);
             this.lblFinish_name.TabIndex = 30;
@@ -457,7 +480,7 @@
             // txtRef_mo
             // 
             this.txtRef_mo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRef_mo.Location = new System.Drawing.Point(288, 104);
+            this.txtRef_mo.Location = new System.Drawing.Point(288, 101);
             this.txtRef_mo.MaxLength = 9;
             this.txtRef_mo.Name = "txtRef_mo";
             this.txtRef_mo.Size = new System.Drawing.Size(155, 22);
@@ -465,7 +488,7 @@
             // 
             // lblRef_mo
             // 
-            this.lblRef_mo.Location = new System.Drawing.Point(236, 107);
+            this.lblRef_mo.Location = new System.Drawing.Point(236, 104);
             this.lblRef_mo.Name = "lblRef_mo";
             this.lblRef_mo.Size = new System.Drawing.Size(48, 14);
             this.lblRef_mo.TabIndex = 20;
@@ -474,7 +497,7 @@
             // txtPattern_id_sq
             // 
             this.txtPattern_id_sq.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPattern_id_sq.Location = new System.Drawing.Point(288, 75);
+            this.txtPattern_id_sq.Location = new System.Drawing.Point(288, 71);
             this.txtPattern_id_sq.MaxLength = 7;
             this.txtPattern_id_sq.Name = "txtPattern_id_sq";
             this.txtPattern_id_sq.Size = new System.Drawing.Size(155, 22);
@@ -482,7 +505,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(236, 78);
+            this.labelControl2.Location = new System.Drawing.Point(236, 74);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(48, 14);
             this.labelControl2.TabIndex = 20;
@@ -490,7 +513,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(18, 78);
+            this.labelControl3.Location = new System.Drawing.Point(18, 74);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(48, 14);
             this.labelControl3.TabIndex = 21;
@@ -498,7 +521,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(18, 107);
+            this.labelControl9.Location = new System.Drawing.Point(18, 104);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(48, 14);
             this.labelControl9.TabIndex = 15;
@@ -506,7 +529,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(18, 46);
+            this.labelControl10.Location = new System.Drawing.Point(18, 43);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(48, 14);
             this.labelControl10.TabIndex = 18;
@@ -514,7 +537,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(30, 13);
+            this.labelControl11.Location = new System.Drawing.Point(30, 11);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(36, 14);
             this.labelControl11.TabIndex = 17;
@@ -523,7 +546,7 @@
             // lueTestItem_sq
             // 
             this.lueTestItem_sq.EnterMoveNextControl = true;
-            this.lueTestItem_sq.Location = new System.Drawing.Point(69, 104);
+            this.lueTestItem_sq.Location = new System.Drawing.Point(69, 101);
             this.lueTestItem_sq.Name = "lueTestItem_sq";
             this.lueTestItem_sq.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueTestItem_sq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -543,7 +566,7 @@
             // lueColor_sq
             // 
             this.lueColor_sq.EnterMoveNextControl = true;
-            this.lueColor_sq.Location = new System.Drawing.Point(69, 75);
+            this.lueColor_sq.Location = new System.Drawing.Point(69, 71);
             this.lueColor_sq.Name = "lueColor_sq";
             this.lueColor_sq.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueColor_sq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -559,7 +582,7 @@
             // lueProductType_sq
             // 
             this.lueProductType_sq.EnterMoveNextControl = true;
-            this.lueProductType_sq.Location = new System.Drawing.Point(69, 45);
+            this.lueProductType_sq.Location = new System.Drawing.Point(69, 42);
             this.lueProductType_sq.Name = "lueProductType_sq";
             this.lueProductType_sq.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueProductType_sq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -579,7 +602,7 @@
             // lueMat_sq
             // 
             this.lueMat_sq.EnterMoveNextControl = true;
-            this.lueMat_sq.Location = new System.Drawing.Point(69, 13);
+            this.lueMat_sq.Location = new System.Drawing.Point(69, 11);
             this.lueMat_sq.Name = "lueMat_sq";
             this.lueMat_sq.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.lueMat_sq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -591,6 +614,15 @@
             this.lueMat_sq.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lueMat_sq.Size = new System.Drawing.Size(130, 22);
             this.lueMat_sq.TabIndex = 0;
+            // 
+            // chkExpiry
+            // 
+            this.chkExpiry.EditValue = true;
+            this.chkExpiry.Location = new System.Drawing.Point(552, 190);
+            this.chkExpiry.Name = "chkExpiry";
+            this.chkExpiry.Properties.Caption = "不顯示測試報告有效期過期的資料";
+            this.chkExpiry.Size = new System.Drawing.Size(215, 19);
+            this.chkExpiry.TabIndex = 208;
             // 
             // frmTestExcel_Search
             // 
@@ -618,6 +650,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType_sq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat_sq.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -667,5 +700,8 @@
         private System.Windows.Forms.TextBox txtcrusr;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LookUpEdit lueDept_dept;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private System.Windows.Forms.TextBox txtInvoice_id;
+        private DevExpress.XtraEditors.CheckEdit chkExpiry;
     }
 }

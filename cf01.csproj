@@ -245,6 +245,7 @@
     <Compile Include="CLS\clsCustomDelivery.cs" />
     <Compile Include="CLS\clsDeliveryBill.cs" />
     <Compile Include="CLS\clsDepWasteRate.cs" />
+    <Compile Include="CLS\clsDevelopentPvh.cs" />
     <Compile Include="CLS\clsDgdDeliverGoods.cs" />
     <Compile Include="CLS\clsGeneralDataConvert.cs" />
     <Compile Include="CLS\clsGeoDepartment.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="CLS\clsMoRepair.cs" />
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
+    <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsPackingList.cs" />
     <Compile Include="CLS\clsPlateFee.cs" />
     <Compile Include="CLS\clsPrdTransfer.cs" />
@@ -514,6 +516,12 @@
     <Compile Include="Forms\frmDevelopmentCalvin.designer.cs">
       <DependentUpon>frmDevelopmentCalvin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDevelopmentPvh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDevelopmentPvh.designer.cs">
+      <DependentUpon>frmDevelopmentPvh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDgdDeliverGoods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -627,6 +635,12 @@
     </Compile>
     <Compile Include="Forms\frmOrderCosting.Designer.cs">
       <DependentUpon>frmOrderCosting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOut_Process_S2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOut_Process_S2.designer.cs">
+      <DependentUpon>frmOut_Process_S2.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmProductionRepair.cs">
       <SubType>Form</SubType>
@@ -1720,6 +1734,18 @@
     <Compile Include="ReportForm\frmOc_ckj.designer.cs">
       <DependentUpon>frmOc_ckj.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmOrderColorCleaner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmOrderColorCleaner.designer.cs">
+      <DependentUpon>frmOrderColorCleaner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\frmOrderFareCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmOrderFareCharge.designer.cs">
+      <DependentUpon>frmOrderFareCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmOrderPacking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2070,6 +2096,12 @@
     <Compile Include="Reports\xrDevelopCalvinSheet2.designer.cs">
       <DependentUpon>xrDevelopCalvinSheet2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrDevelopmentPvh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrDevelopmentPvh.designer.cs">
+      <DependentUpon>xrDevelopmentPvh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrhg_plate.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2171,6 +2203,18 @@
     </Compile>
     <Compile Include="Reports\xrOut_process_out_s3.designer.cs">
       <DependentUpon>xrOut_process_out_s3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor.designer.cs">
+      <DependentUpon>xrOut_process_out_vendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_vendor2.designer.cs">
+      <DependentUpon>xrOut_process_out_vendor2.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrOut_return.cs">
       <SubType>Component</SubType>
@@ -2322,6 +2366,12 @@
     <Compile Include="Reports\xrPurReceipt.designer.cs">
       <DependentUpon>xrPurReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrPvh_bak.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrPvh_bak.designer.cs">
+      <DependentUpon>xrPvh_bak.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrQcTestReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2412,11 +2462,17 @@
     <Compile Include="Reports\xrQuotation21.designer.cs">
       <DependentUpon>xrQuotation21.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrQuotation22.cs">
+    <Compile Include="Reports\xrQuotation2a.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\xrQuotation22.designer.cs">
-      <DependentUpon>xrQuotation22.cs</DependentUpon>
+    <Compile Include="Reports\xrQuotation2a.designer.cs">
+      <DependentUpon>xrQuotation2a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrQuotation2b.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrQuotation2b.designer.cs">
+      <DependentUpon>xrQuotation2b.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrQuotation31.cs">
       <SubType>Component</SubType>
@@ -2706,6 +2762,9 @@
     <EmbeddedResource Include="Forms\frmDevelopmentCalvin.resx">
       <DependentUpon>frmDevelopmentCalvin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDevelopmentPvh.resx">
+      <DependentUpon>frmDevelopmentPvh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDgdDeliverGoods.resx">
       <DependentUpon>frmDgdDeliverGoods.cs</DependentUpon>
     </EmbeddedResource>
@@ -2762,6 +2821,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOrderCosting.resx">
       <DependentUpon>frmOrderCosting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOut_Process_S2.resx">
+      <DependentUpon>frmOut_Process_S2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmProductionRepair.resx">
       <DependentUpon>frmProductionRepair.cs</DependentUpon>
@@ -3295,6 +3357,12 @@
     <EmbeddedResource Include="ReportForm\frmOc_ckj.resx">
       <DependentUpon>frmOc_ckj.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmOrderColorCleaner.resx">
+      <DependentUpon>frmOrderColorCleaner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmOrderFareCharge.resx">
+      <DependentUpon>frmOrderFareCharge.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmOrderPacking.resx">
       <DependentUpon>frmOrderPacking.cs</DependentUpon>
     </EmbeddedResource>
@@ -3499,6 +3567,9 @@
     <EmbeddedResource Include="Reports\xrDevelopCalvinSheet2.resx">
       <DependentUpon>xrDevelopCalvinSheet2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrDevelopmentPvh.resx">
+      <DependentUpon>xrDevelopmentPvh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrhg_plate.resx">
       <DependentUpon>xrhg_plate.cs</DependentUpon>
     </EmbeddedResource>
@@ -3560,6 +3631,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrOut_process_out_s3.resx">
       <DependentUpon>xrOut_process_out_s3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrOut_process_out_vendor.resx">
+      <DependentUpon>xrOut_process_out_vendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrOut_process_out_vendor2.resx">
+      <DependentUpon>xrOut_process_out_vendor2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrOut_return.resx">
       <DependentUpon>xrOut_return.cs</DependentUpon>
@@ -3636,6 +3713,9 @@
     <EmbeddedResource Include="Reports\xrPurReceipt.resx">
       <DependentUpon>xrPurReceipt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrPvh_bak.resx">
+      <DependentUpon>xrPvh_bak.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQcTestReport.resx">
       <DependentUpon>xrQcTestReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -3681,8 +3761,11 @@
     <EmbeddedResource Include="Reports\xrQuotation21.resx">
       <DependentUpon>xrQuotation21.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\xrQuotation22.resx">
-      <DependentUpon>xrQuotation22.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\xrQuotation2a.resx">
+      <DependentUpon>xrQuotation2a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrQuotation2b.resx">
+      <DependentUpon>xrQuotation2b.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQuotation31.resx">
       <DependentUpon>xrQuotation31.cs</DependentUpon>

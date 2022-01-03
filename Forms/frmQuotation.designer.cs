@@ -29,70 +29,70 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuotation));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle291 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle292 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle293 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle294 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle295 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle296 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle297 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle298 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle299 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle300 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle301 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle302 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle303 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle304 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle305 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle306 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle307 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle308 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle309 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle310 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle311 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle312 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle313 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle314 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle315 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle316 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle317 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle318 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle319 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle320 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle321 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle322 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle323 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle324 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle325 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle326 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle327 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle328 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle329 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle330 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle331 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle332 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle333 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle334 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle335 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle336 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle337 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle338 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle339 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle340 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle341 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle342 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle343 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle344 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle345 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle346 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle347 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle348 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle117 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle118 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle119 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle120 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle126 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle127 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle128 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle129 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle130 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle131 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle132 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle133 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle134 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle135 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle136 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle137 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle138 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle139 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle140 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle141 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle142 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle143 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle144 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle145 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle146 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle147 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle148 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle149 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle150 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle151 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle152 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle153 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle154 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle155 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle156 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle157 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle158 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle159 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle160 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle161 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle162 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle163 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle164 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle165 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle166 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle167 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle168 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle169 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle170 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle171 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle172 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle173 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle174 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -132,109 +132,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.flagSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sales_group = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salesman = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brand_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formula_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cust_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cf_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cust_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cf_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq_below_over = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mwq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mwq_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.account_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lead_time_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lead_time_max = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lead_time_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.md_charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.md_charge_cny = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.md_charge_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.die_mould_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.die_mould_cny = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valid_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_req = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sample_request = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.needle_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark_pdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark_pdd_dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flag_del = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tempver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.polo_care = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq_for_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trim_color_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.test_sample_hk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sample_card = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.meeting_recap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd_dap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd_lab_test_prx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ex_fty_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ex_fty_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disc_price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disc_price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disc_price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disc_hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub_7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reason_edit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rmb_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_salesperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_kind = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark_salesperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.special_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cust_artwork = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labtest_prod_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termremark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_usd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_hkd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_rmb_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hkd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pending = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BTNFORMULA = new System.Windows.Forms.Button();
@@ -530,6 +428,110 @@
             this.pic_artwork = new System.Windows.Forms.PictureBox();
             this.pnlHeard = new System.Windows.Forms.Panel();
             this.lblOf = new System.Windows.Forms.Label();
+            this.txtRef_temp_code = new DevExpress.XtraEditors.TextEdit();
+            this.flagSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sales_group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salesman = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formula_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plm_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cust_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cf_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cust_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cf_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number_enter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_below_over = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mwq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mwq_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.account_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lead_time_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lead_time_max = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lead_time_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.md_charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.md_charge_cny = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.md_charge_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.die_mould_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.die_mould_cny = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valid_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_req = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aw = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_request = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.needle_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_pdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_pdd_dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_del = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tempver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.polo_care = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_for_test = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trim_color_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.test_sample_hk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sms = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_card = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.meeting_recap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_dap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_lab_test_prx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ex_fty_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ex_fty_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disc_price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disc_price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disc_price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disc_hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub_7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reason_edit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rmb_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_salesperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_kind = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark_salesperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.special_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cust_artwork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labtest_prod_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.termremark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_usd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_hkd_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_rmb_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pending = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ref_temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt.Properties)).BeginInit();
@@ -537,7 +539,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -643,6 +644,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.memDgRmkPdd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).BeginInit();
             this.pnlHeard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRef_temp_code.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -1021,16 +1024,6 @@
             this.tabPage1.Text = "資料錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // chkSelectAll
-            // 
-            this.chkSelectAll.Location = new System.Drawing.Point(8, 10);
-            this.chkSelectAll.Name = "chkSelectAll";
-            this.chkSelectAll.Properties.Caption = "";
-            this.chkSelectAll.Size = new System.Drawing.Size(28, 19);
-            this.chkSelectAll.TabIndex = 146;
-            this.chkSelectAll.ToolTip = "Select All";
-            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
-            // 
             // dgvDetails
             // 
             this.dgvDetails.AllowUserToAddRows = false;
@@ -1142,7 +1135,8 @@
             this.price_rmb_ver,
             this.usd_ex_fty_ver,
             this.hkd_ex_fty_ver,
-            this.pending});
+            this.pending,
+            this.ref_temp_code});
             this.dgvDetails.Location = new System.Drawing.Point(-2, -3);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
@@ -1151,817 +1145,6 @@
             this.dgvDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellDoubleClick);
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
-            // 
-            // flagSelect
-            // 
-            this.flagSelect.DataPropertyName = "flag_select";
-            dataGridViewCellStyle291.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle291.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle291.NullValue = false;
-            this.flagSelect.DefaultCellStyle = dataGridViewCellStyle291;
-            this.flagSelect.Frozen = true;
-            this.flagSelect.HeaderText = "Select";
-            this.flagSelect.Name = "flagSelect";
-            this.flagSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.flagSelect.Width = 40;
-            // 
-            // ver
-            // 
-            this.ver.DataPropertyName = "ver";
-            dataGridViewCellStyle292.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ver.DefaultCellStyle = dataGridViewCellStyle292;
-            this.ver.HeaderText = "Ver";
-            this.ver.Name = "ver";
-            this.ver.Width = 35;
-            // 
-            // sales_group
-            // 
-            this.sales_group.DataPropertyName = "sales_group";
-            dataGridViewCellStyle293.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle293.ForeColor = System.Drawing.Color.Black;
-            this.sales_group.DefaultCellStyle = dataGridViewCellStyle293;
-            this.sales_group.HeaderText = "Sales Group";
-            this.sales_group.MaxInputLength = 1;
-            this.sales_group.Name = "sales_group";
-            this.sales_group.Width = 40;
-            // 
-            // salesman
-            // 
-            this.salesman.DataPropertyName = "salesman";
-            this.salesman.HeaderText = "Salesman";
-            this.salesman.MaxInputLength = 20;
-            this.salesman.Name = "salesman";
-            this.salesman.Width = 50;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            dataGridViewCellStyle294.Format = "yyyy-MM-dd";
-            this.date.DefaultCellStyle = dataGridViewCellStyle294;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.date.Width = 70;
-            // 
-            // brand
-            // 
-            this.brand.DataPropertyName = "brand";
-            this.brand.HeaderText = "Brand";
-            this.brand.MaxInputLength = 50;
-            this.brand.Name = "brand";
-            this.brand.Width = 55;
-            // 
-            // brand_desc
-            // 
-            this.brand_desc.DataPropertyName = "brand_desc";
-            this.brand_desc.HeaderText = "Brand Desc.";
-            this.brand_desc.Name = "brand_desc";
-            this.brand_desc.Width = 65;
-            // 
-            // formula_id
-            // 
-            this.formula_id.DataPropertyName = "formula_id";
-            this.formula_id.HeaderText = "formula_id";
-            this.formula_id.Name = "formula_id";
-            this.formula_id.Visible = false;
-            this.formula_id.Width = 60;
-            // 
-            // Season
-            // 
-            this.Season.DataPropertyName = "season";
-            this.Season.HeaderText = "Season";
-            this.Season.MaxInputLength = 20;
-            this.Season.Name = "Season";
-            this.Season.Width = 50;
-            // 
-            // season_desc
-            // 
-            this.season_desc.DataPropertyName = "season_desc";
-            this.season_desc.HeaderText = "Season Desc.";
-            this.season_desc.Name = "season_desc";
-            this.season_desc.Width = 55;
-            // 
-            // material
-            // 
-            this.material.DataPropertyName = "material";
-            this.material.HeaderText = "Material";
-            this.material.MaxInputLength = 60;
-            this.material.Name = "material";
-            this.material.Width = 80;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "Size";
-            this.size.MaxInputLength = 20;
-            this.size.Name = "size";
-            this.size.Width = 65;
-            // 
-            // product_desc
-            // 
-            this.product_desc.DataPropertyName = "product_desc";
-            this.product_desc.HeaderText = "Product Desc";
-            this.product_desc.MaxInputLength = 100;
-            this.product_desc.Name = "product_desc";
-            // 
-            // plm_code
-            // 
-            this.plm_code.DataPropertyName = "plm_code";
-            this.plm_code.HeaderText = "PLM Code";
-            this.plm_code.Name = "plm_code";
-            this.plm_code.ReadOnly = true;
-            this.plm_code.Visible = false;
-            // 
-            // cust_code
-            // 
-            this.cust_code.DataPropertyName = "cust_code";
-            this.cust_code.HeaderText = "Customer Code";
-            this.cust_code.MaxInputLength = 50;
-            this.cust_code.Name = "cust_code";
-            this.cust_code.Width = 85;
-            // 
-            // cf_code
-            // 
-            this.cf_code.DataPropertyName = "cf_code";
-            this.cf_code.HeaderText = "CF Code";
-            this.cf_code.MaxInputLength = 50;
-            this.cf_code.Name = "cf_code";
-            this.cf_code.Width = 75;
-            // 
-            // cust_color
-            // 
-            this.cust_color.DataPropertyName = "cust_color";
-            this.cust_color.HeaderText = "Customer Color";
-            this.cust_color.MaxInputLength = 100;
-            this.cust_color.Name = "cust_color";
-            this.cust_color.Width = 90;
-            // 
-            // cf_color
-            // 
-            this.cf_color.DataPropertyName = "cf_color";
-            this.cf_color.HeaderText = "CF Color";
-            this.cf_color.MaxInputLength = 100;
-            this.cf_color.Name = "cf_color";
-            this.cf_color.Width = 90;
-            // 
-            // number_enter
-            // 
-            this.number_enter.DataPropertyName = "number_enter";
-            dataGridViewCellStyle295.NullValue = null;
-            this.number_enter.DefaultCellStyle = dataGridViewCellStyle295;
-            this.number_enter.HeaderText = "BP";
-            this.number_enter.Name = "number_enter";
-            this.number_enter.Width = 55;
-            // 
-            // price_usd
-            // 
-            this.price_usd.DataPropertyName = "price_usd";
-            dataGridViewCellStyle296.NullValue = null;
-            this.price_usd.DefaultCellStyle = dataGridViewCellStyle296;
-            this.price_usd.HeaderText = "USD";
-            this.price_usd.Name = "price_usd";
-            this.price_usd.Width = 50;
-            // 
-            // price_hkd
-            // 
-            this.price_hkd.DataPropertyName = "price_hkd";
-            dataGridViewCellStyle297.NullValue = null;
-            this.price_hkd.DefaultCellStyle = dataGridViewCellStyle297;
-            this.price_hkd.HeaderText = "HKD";
-            this.price_hkd.Name = "price_hkd";
-            this.price_hkd.Width = 50;
-            // 
-            // price_rmb
-            // 
-            this.price_rmb.DataPropertyName = "price_rmb";
-            this.price_rmb.HeaderText = "RMB";
-            this.price_rmb.Name = "price_rmb";
-            this.price_rmb.Width = 50;
-            // 
-            // hkd_ex_fty
-            // 
-            this.hkd_ex_fty.DataPropertyName = "hkd_ex_fty";
-            this.hkd_ex_fty.HeaderText = "HKD EX-FTY";
-            this.hkd_ex_fty.Name = "hkd_ex_fty";
-            this.hkd_ex_fty.Width = 60;
-            // 
-            // usd_ex_fty
-            // 
-            this.usd_ex_fty.DataPropertyName = "usd_ex_fty";
-            this.usd_ex_fty.HeaderText = "USD EX-FTY";
-            this.usd_ex_fty.Name = "usd_ex_fty";
-            this.usd_ex_fty.ReadOnly = true;
-            this.usd_ex_fty.Width = 60;
-            // 
-            // price_unit
-            // 
-            this.price_unit.DataPropertyName = "price_unit";
-            this.price_unit.HeaderText = "Price Unit";
-            this.price_unit.MaxInputLength = 5;
-            this.price_unit.Name = "price_unit";
-            this.price_unit.Width = 40;
-            // 
-            // moq_below_over
-            // 
-            this.moq_below_over.DataPropertyName = "moq_below_over";
-            this.moq_below_over.HeaderText = "MOQ Type";
-            this.moq_below_over.Name = "moq_below_over";
-            this.moq_below_over.Width = 50;
-            // 
-            // moq
-            // 
-            this.moq.DataPropertyName = "moq";
-            dataGridViewCellStyle298.NullValue = null;
-            this.moq.DefaultCellStyle = dataGridViewCellStyle298;
-            this.moq.HeaderText = "MOQ";
-            this.moq.Name = "moq";
-            this.moq.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.moq.Width = 40;
-            // 
-            // moq_desc
-            // 
-            this.moq_desc.DataPropertyName = "moq_desc";
-            this.moq_desc.HeaderText = "MOQ Desc";
-            this.moq_desc.Name = "moq_desc";
-            this.moq_desc.Width = 70;
-            // 
-            // moq_unit
-            // 
-            this.moq_unit.DataPropertyName = "moq_unit";
-            this.moq_unit.HeaderText = "MOQ Unit";
-            this.moq_unit.MaxInputLength = 5;
-            this.moq_unit.Name = "moq_unit";
-            this.moq_unit.Width = 40;
-            // 
-            // mwq
-            // 
-            this.mwq.DataPropertyName = "mwq";
-            dataGridViewCellStyle299.NullValue = null;
-            this.mwq.DefaultCellStyle = dataGridViewCellStyle299;
-            this.mwq.HeaderText = "MWQ";
-            this.mwq.Name = "mwq";
-            this.mwq.Width = 40;
-            // 
-            // mwq_unit
-            // 
-            this.mwq_unit.DataPropertyName = "mwq_unit";
-            this.mwq_unit.HeaderText = "MWQ Unit";
-            this.mwq_unit.Name = "mwq_unit";
-            this.mwq_unit.Width = 40;
-            // 
-            // account_code
-            // 
-            this.account_code.DataPropertyName = "account_code";
-            this.account_code.HeaderText = "Account Code";
-            this.account_code.MaxInputLength = 20;
-            this.account_code.Name = "account_code";
-            this.account_code.Width = 90;
-            // 
-            // lead_time_min
-            // 
-            this.lead_time_min.DataPropertyName = "lead_time_min";
-            dataGridViewCellStyle300.NullValue = null;
-            this.lead_time_min.DefaultCellStyle = dataGridViewCellStyle300;
-            this.lead_time_min.HeaderText = "Lead Time_Min";
-            this.lead_time_min.Name = "lead_time_min";
-            this.lead_time_min.Width = 60;
-            // 
-            // lead_time_max
-            // 
-            this.lead_time_max.DataPropertyName = "lead_time_max";
-            dataGridViewCellStyle301.NullValue = null;
-            this.lead_time_max.DefaultCellStyle = dataGridViewCellStyle301;
-            this.lead_time_max.HeaderText = "Lead Time_Max";
-            this.lead_time_max.Name = "lead_time_max";
-            this.lead_time_max.Width = 60;
-            // 
-            // lead_time_unit
-            // 
-            this.lead_time_unit.DataPropertyName = "lead_time_unit";
-            this.lead_time_unit.HeaderText = "Lead Time Unit";
-            this.lead_time_unit.MaxInputLength = 5;
-            this.lead_time_unit.Name = "lead_time_unit";
-            this.lead_time_unit.Width = 60;
-            // 
-            // md_charge
-            // 
-            this.md_charge.DataPropertyName = "md_charge";
-            dataGridViewCellStyle302.NullValue = null;
-            this.md_charge.DefaultCellStyle = dataGridViewCellStyle302;
-            this.md_charge.HeaderText = "Mould Charge in";
-            this.md_charge.Name = "md_charge";
-            this.md_charge.Width = 60;
-            // 
-            // md_charge_cny
-            // 
-            this.md_charge_cny.DataPropertyName = "md_charge_cny";
-            this.md_charge_cny.HeaderText = "Mould Charge CNY";
-            this.md_charge_cny.Name = "md_charge_cny";
-            this.md_charge_cny.Width = 45;
-            // 
-            // md_charge_unit
-            // 
-            this.md_charge_unit.DataPropertyName = "md_charge_unit";
-            this.md_charge_unit.HeaderText = "Mould Charge Unit";
-            this.md_charge_unit.Name = "md_charge_unit";
-            this.md_charge_unit.Width = 45;
-            // 
-            // die_mould_usd
-            // 
-            this.die_mould_usd.DataPropertyName = "die_mould_usd";
-            dataGridViewCellStyle303.NullValue = null;
-            this.die_mould_usd.DefaultCellStyle = dataGridViewCellStyle303;
-            this.die_mould_usd.HeaderText = "Die Mould USD";
-            this.die_mould_usd.Name = "die_mould_usd";
-            this.die_mould_usd.Width = 60;
-            // 
-            // die_mould_cny
-            // 
-            this.die_mould_cny.DataPropertyName = "die_mould_cny";
-            this.die_mould_cny.HeaderText = "Die Mould CNY";
-            this.die_mould_cny.Name = "die_mould_cny";
-            this.die_mould_cny.ReadOnly = true;
-            this.die_mould_cny.Width = 50;
-            // 
-            // valid_date
-            // 
-            this.valid_date.DataPropertyName = "valid_date";
-            dataGridViewCellStyle304.NullValue = null;
-            this.valid_date.DefaultCellStyle = dataGridViewCellStyle304;
-            this.valid_date.HeaderText = "Valid Date";
-            this.valid_date.Name = "valid_date";
-            this.valid_date.Width = 80;
-            // 
-            // date_req
-            // 
-            this.date_req.DataPropertyName = "date_req";
-            dataGridViewCellStyle305.NullValue = null;
-            this.date_req.DefaultCellStyle = dataGridViewCellStyle305;
-            this.date_req.HeaderText = "Date Req Rcvd";
-            this.date_req.Name = "date_req";
-            this.date_req.Width = 90;
-            // 
-            // aw
-            // 
-            this.aw.DataPropertyName = "aw";
-            this.aw.HeaderText = "AW";
-            this.aw.MaxInputLength = 20;
-            this.aw.Name = "aw";
-            this.aw.Width = 80;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.FillWeight = 60F;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.Width = 50;
-            // 
-            // sample_request
-            // 
-            this.sample_request.DataPropertyName = "sample_request";
-            this.sample_request.HeaderText = "Sample Request";
-            this.sample_request.MaxInputLength = 50;
-            this.sample_request.Name = "sample_request";
-            // 
-            // needle_test
-            // 
-            this.needle_test.DataPropertyName = "needle_test";
-            this.needle_test.HeaderText = "Needle Test";
-            this.needle_test.MaxInputLength = 50;
-            this.needle_test.Name = "needle_test";
-            this.needle_test.Width = 80;
-            // 
-            // comment
-            // 
-            this.comment.DataPropertyName = "comment";
-            this.comment.HeaderText = "Comment";
-            this.comment.Name = "comment";
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            this.remark.HeaderText = "Remark";
-            this.remark.MaxInputLength = 150;
-            this.remark.Name = "remark";
-            // 
-            // remark_other
-            // 
-            this.remark_other.DataPropertyName = "remark_other";
-            this.remark_other.HeaderText = "Other Remark";
-            this.remark_other.Name = "remark_other";
-            // 
-            // remark_pdd
-            // 
-            this.remark_pdd.DataPropertyName = "remark_pdd";
-            this.remark_pdd.HeaderText = "Remark PDD(HK)";
-            this.remark_pdd.Name = "remark_pdd";
-            this.remark_pdd.Visible = false;
-            // 
-            // remark_pdd_dg
-            // 
-            this.remark_pdd_dg.DataPropertyName = "remark_pdd_dg";
-            this.remark_pdd_dg.HeaderText = "Remrk PDD";
-            this.remark_pdd_dg.Name = "remark_pdd_dg";
-            this.remark_pdd_dg.Visible = false;
-            // 
-            // division
-            // 
-            this.division.DataPropertyName = "division";
-            this.division.HeaderText = "Division ";
-            this.division.MaxInputLength = 20;
-            this.division.Name = "division";
-            this.division.Width = 65;
-            // 
-            // contact
-            // 
-            this.contact.DataPropertyName = "contact";
-            this.contact.HeaderText = "Contact";
-            this.contact.MaxInputLength = 20;
-            this.contact.Name = "contact";
-            this.contact.Width = 80;
-            // 
-            // crusr
-            // 
-            this.crusr.DataPropertyName = "crusr";
-            this.crusr.HeaderText = "Create by";
-            this.crusr.MaxInputLength = 20;
-            this.crusr.Name = "crusr";
-            this.crusr.Visible = false;
-            // 
-            // crtim
-            // 
-            this.crtim.DataPropertyName = "crtim";
-            dataGridViewCellStyle306.NullValue = null;
-            this.crtim.DefaultCellStyle = dataGridViewCellStyle306;
-            this.crtim.HeaderText = "Create Date";
-            this.crtim.Name = "crtim";
-            this.crtim.Visible = false;
-            // 
-            // amusr
-            // 
-            this.amusr.DataPropertyName = "amusr";
-            this.amusr.HeaderText = "Update by";
-            this.amusr.MaxInputLength = 20;
-            this.amusr.Name = "amusr";
-            this.amusr.Visible = false;
-            // 
-            // amtim
-            // 
-            this.amtim.DataPropertyName = "amtim";
-            dataGridViewCellStyle307.NullValue = null;
-            this.amtim.DefaultCellStyle = dataGridViewCellStyle307;
-            this.amtim.HeaderText = "Update Date";
-            this.amtim.Name = "amtim";
-            this.amtim.Visible = false;
-            // 
-            // flag_del
-            // 
-            this.flag_del.DataPropertyName = "flag_del";
-            this.flag_del.HeaderText = "Flag_Del";
-            this.flag_del.Name = "flag_del";
-            this.flag_del.Visible = false;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "MO";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.Visible = false;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // temp_code
-            // 
-            this.temp_code.DataPropertyName = "temp_code";
-            this.temp_code.HeaderText = "Seq No.";
-            this.temp_code.MaxInputLength = 30;
-            this.temp_code.Name = "temp_code";
-            this.temp_code.Visible = false;
-            this.temp_code.Width = 70;
-            // 
-            // tempver
-            // 
-            this.tempver.DataPropertyName = "temp_ver";
-            this.tempver.HeaderText = "Temp Ver";
-            this.tempver.Name = "tempver";
-            this.tempver.Visible = false;
-            // 
-            // polo_care
-            // 
-            this.polo_care.DataPropertyName = "polo_care";
-            this.polo_care.HeaderText = "Polo Care";
-            this.polo_care.Name = "polo_care";
-            this.polo_care.ReadOnly = true;
-            this.polo_care.Visible = false;
-            // 
-            // moq_for_test
-            // 
-            this.moq_for_test.DataPropertyName = "moq_for_test";
-            this.moq_for_test.HeaderText = "Moq For Test";
-            this.moq_for_test.Name = "moq_for_test";
-            this.moq_for_test.ReadOnly = true;
-            // 
-            // trim_color_code
-            // 
-            this.trim_color_code.DataPropertyName = "trim_color_code";
-            this.trim_color_code.HeaderText = "Trim Color Code";
-            this.trim_color_code.Name = "trim_color_code";
-            this.trim_color_code.ReadOnly = true;
-            this.trim_color_code.Visible = false;
-            // 
-            // test_sample_hk
-            // 
-            this.test_sample_hk.DataPropertyName = "test_sample_hk";
-            this.test_sample_hk.HeaderText = "Test Sample HK";
-            this.test_sample_hk.Name = "test_sample_hk";
-            this.test_sample_hk.ReadOnly = true;
-            // 
-            // sms
-            // 
-            this.sms.DataPropertyName = "sms";
-            this.sms.HeaderText = "SMS";
-            this.sms.Name = "sms";
-            this.sms.ReadOnly = true;
-            // 
-            // sample_card
-            // 
-            this.sample_card.DataPropertyName = "sample_card";
-            this.sample_card.HeaderText = "Sample Card";
-            this.sample_card.Name = "sample_card";
-            this.sample_card.ReadOnly = true;
-            // 
-            // meeting_recap
-            // 
-            this.meeting_recap.DataPropertyName = "meeting_recap";
-            this.meeting_recap.HeaderText = "Meeting Recap";
-            this.meeting_recap.Name = "meeting_recap";
-            this.meeting_recap.ReadOnly = true;
-            // 
-            // usd_dap
-            // 
-            this.usd_dap.DataPropertyName = "usd_dap";
-            this.usd_dap.HeaderText = "USD(Dap)";
-            this.usd_dap.Name = "usd_dap";
-            this.usd_dap.ReadOnly = true;
-            this.usd_dap.Width = 60;
-            // 
-            // usd_lab_test_prx
-            // 
-            this.usd_lab_test_prx.DataPropertyName = "usd_lab_test_prx";
-            this.usd_lab_test_prx.HeaderText = "USD(Lap Test Prx)";
-            this.usd_lab_test_prx.Name = "usd_lab_test_prx";
-            this.usd_lab_test_prx.ReadOnly = true;
-            this.usd_lab_test_prx.Width = 80;
-            // 
-            // ex_fty_hkd
-            // 
-            this.ex_fty_hkd.DataPropertyName = "ex_fty_hkd";
-            this.ex_fty_hkd.HeaderText = "Ex Fty HKD";
-            this.ex_fty_hkd.Name = "ex_fty_hkd";
-            this.ex_fty_hkd.ReadOnly = true;
-            this.ex_fty_hkd.Width = 60;
-            // 
-            // ex_fty_usd
-            // 
-            this.ex_fty_usd.DataPropertyName = "ex_fty_usd";
-            this.ex_fty_usd.HeaderText = "Ex Fty USD";
-            this.ex_fty_usd.Name = "ex_fty_usd";
-            this.ex_fty_usd.ReadOnly = true;
-            this.ex_fty_usd.Width = 60;
-            // 
-            // discount
-            // 
-            this.discount.DataPropertyName = "discount";
-            this.discount.HeaderText = "Disc(%)";
-            this.discount.Name = "discount";
-            this.discount.ReadOnly = true;
-            this.discount.Width = 50;
-            // 
-            // disc_price_usd
-            // 
-            this.disc_price_usd.DataPropertyName = "disc_price_usd";
-            this.disc_price_usd.HeaderText = "Disc USD";
-            this.disc_price_usd.Name = "disc_price_usd";
-            this.disc_price_usd.ReadOnly = true;
-            this.disc_price_usd.Width = 50;
-            // 
-            // disc_price_hkd
-            // 
-            this.disc_price_hkd.DataPropertyName = "disc_price_hkd";
-            this.disc_price_hkd.HeaderText = "Disc HKD";
-            this.disc_price_hkd.Name = "disc_price_hkd";
-            this.disc_price_hkd.ReadOnly = true;
-            this.disc_price_hkd.Width = 50;
-            // 
-            // disc_price_rmb
-            // 
-            this.disc_price_rmb.DataPropertyName = "disc_price_rmb";
-            this.disc_price_rmb.HeaderText = "Disc RMB";
-            this.disc_price_rmb.Name = "disc_price_rmb";
-            this.disc_price_rmb.ReadOnly = true;
-            this.disc_price_rmb.Width = 50;
-            // 
-            // disc_hkd_ex_fty
-            // 
-            this.disc_hkd_ex_fty.DataPropertyName = "disc_hkd_ex_fty";
-            this.disc_hkd_ex_fty.HeaderText = "Disc HKD Ex-Fty";
-            this.disc_hkd_ex_fty.Name = "disc_hkd_ex_fty";
-            this.disc_hkd_ex_fty.ReadOnly = true;
-            this.disc_hkd_ex_fty.Width = 50;
-            // 
-            // sub_1
-            // 
-            this.sub_1.DataPropertyName = "sub_1";
-            this.sub_1.HeaderText = "Sub 1";
-            this.sub_1.Name = "sub_1";
-            this.sub_1.ReadOnly = true;
-            this.sub_1.Visible = false;
-            this.sub_1.Width = 70;
-            // 
-            // sub_2
-            // 
-            this.sub_2.DataPropertyName = "sub_2";
-            this.sub_2.HeaderText = "Sub 2";
-            this.sub_2.Name = "sub_2";
-            this.sub_2.ReadOnly = true;
-            this.sub_2.Visible = false;
-            this.sub_2.Width = 70;
-            // 
-            // sub_3
-            // 
-            this.sub_3.DataPropertyName = "sub_3";
-            this.sub_3.HeaderText = "Sub 3";
-            this.sub_3.Name = "sub_3";
-            this.sub_3.ReadOnly = true;
-            this.sub_3.Visible = false;
-            this.sub_3.Width = 70;
-            // 
-            // sub_4
-            // 
-            this.sub_4.DataPropertyName = "sub_4";
-            this.sub_4.HeaderText = "Sub 4";
-            this.sub_4.Name = "sub_4";
-            this.sub_4.ReadOnly = true;
-            this.sub_4.Visible = false;
-            this.sub_4.Width = 70;
-            // 
-            // sub_5
-            // 
-            this.sub_5.DataPropertyName = "sub_5";
-            this.sub_5.HeaderText = "Sub 5";
-            this.sub_5.Name = "sub_5";
-            this.sub_5.ReadOnly = true;
-            this.sub_5.Visible = false;
-            this.sub_5.Width = 70;
-            // 
-            // sub_6
-            // 
-            this.sub_6.DataPropertyName = "sub_6";
-            this.sub_6.HeaderText = "Sub 6";
-            this.sub_6.Name = "sub_6";
-            this.sub_6.ReadOnly = true;
-            this.sub_6.Visible = false;
-            this.sub_6.Width = 70;
-            // 
-            // sub_7
-            // 
-            this.sub_7.DataPropertyName = "sub_7";
-            this.sub_7.HeaderText = "Sub 7";
-            this.sub_7.Name = "sub_7";
-            this.sub_7.ReadOnly = true;
-            this.sub_7.Visible = false;
-            this.sub_7.Width = 70;
-            // 
-            // reason_edit
-            // 
-            this.reason_edit.DataPropertyName = "reason_edit";
-            this.reason_edit.HeaderText = "Price Level";
-            this.reason_edit.Name = "reason_edit";
-            this.reason_edit.ReadOnly = true;
-            // 
-            // rmb_remark
-            // 
-            this.rmb_remark.DataPropertyName = "rmb_remark";
-            this.rmb_remark.HeaderText = "Rmb Remark";
-            this.rmb_remark.Name = "rmb_remark";
-            this.rmb_remark.ReadOnly = true;
-            // 
-            // price_salesperson
-            // 
-            this.price_salesperson.DataPropertyName = "price_salesperson";
-            dataGridViewCellStyle308.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.price_salesperson.DefaultCellStyle = dataGridViewCellStyle308;
-            this.price_salesperson.HeaderText = "Price Salesperson";
-            this.price_salesperson.Name = "price_salesperson";
-            this.price_salesperson.ReadOnly = true;
-            // 
-            // price_kind
-            // 
-            this.price_kind.DataPropertyName = "price_kind";
-            dataGridViewCellStyle309.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.price_kind.DefaultCellStyle = dataGridViewCellStyle309;
-            this.price_kind.HeaderText = "Price Kind";
-            this.price_kind.Name = "price_kind";
-            this.price_kind.ReadOnly = true;
-            this.price_kind.Width = 70;
-            // 
-            // remark_salesperson
-            // 
-            this.remark_salesperson.DataPropertyName = "remark_salesperson";
-            dataGridViewCellStyle310.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.remark_salesperson.DefaultCellStyle = dataGridViewCellStyle310;
-            this.remark_salesperson.HeaderText = "Remark For Salesperson";
-            this.remark_salesperson.Name = "remark_salesperson";
-            this.remark_salesperson.ReadOnly = true;
-            this.remark_salesperson.Width = 120;
-            // 
-            // special_price
-            // 
-            this.special_price.DataPropertyName = "special_price";
-            this.special_price.HeaderText = "Special Price";
-            this.special_price.Name = "special_price";
-            this.special_price.ReadOnly = true;
-            this.special_price.Visible = false;
-            // 
-            // cust_artwork
-            // 
-            this.cust_artwork.DataPropertyName = "cust_artwork";
-            this.cust_artwork.HeaderText = "Customer Artwork";
-            this.cust_artwork.Name = "cust_artwork";
-            this.cust_artwork.ReadOnly = true;
-            // 
-            // cost_price
-            // 
-            this.cost_price.DataPropertyName = "cost_price";
-            this.cost_price.HeaderText = "Cost Price";
-            this.cost_price.Name = "cost_price";
-            this.cost_price.ReadOnly = true;
-            this.cost_price.Visible = false;
-            // 
-            // labtest_prod_type
-            // 
-            this.labtest_prod_type.DataPropertyName = "labtest_prod_type";
-            this.labtest_prod_type.HeaderText = "Lab Test Big Class";
-            this.labtest_prod_type.Name = "labtest_prod_type";
-            // 
-            // termremark
-            // 
-            this.termremark.DataPropertyName = "termremark";
-            this.termremark.HeaderText = "Term Remark";
-            this.termremark.Name = "termremark";
-            this.termremark.ReadOnly = true;
-            // 
-            // price_usd_ver
-            // 
-            this.price_usd_ver.DataPropertyName = "price_usd_ver";
-            this.price_usd_ver.HeaderText = "Price USD(old version)";
-            this.price_usd_ver.Name = "price_usd_ver";
-            this.price_usd_ver.ReadOnly = true;
-            this.price_usd_ver.Visible = false;
-            // 
-            // price_hkd_ver
-            // 
-            this.price_hkd_ver.DataPropertyName = "price_hkd_ver";
-            this.price_hkd_ver.HeaderText = "Price HKD(old version)";
-            this.price_hkd_ver.Name = "price_hkd_ver";
-            this.price_hkd_ver.ReadOnly = true;
-            this.price_hkd_ver.Visible = false;
-            // 
-            // price_rmb_ver
-            // 
-            this.price_rmb_ver.DataPropertyName = "price_rmb_ver";
-            this.price_rmb_ver.HeaderText = "Price RMB(old version)";
-            this.price_rmb_ver.Name = "price_rmb_ver";
-            this.price_rmb_ver.ReadOnly = true;
-            this.price_rmb_ver.Visible = false;
-            // 
-            // usd_ex_fty_ver
-            // 
-            this.usd_ex_fty_ver.DataPropertyName = "usd_ex_fty_ver";
-            this.usd_ex_fty_ver.HeaderText = "Price USD-Ex_Fty(old version";
-            this.usd_ex_fty_ver.Name = "usd_ex_fty_ver";
-            this.usd_ex_fty_ver.ReadOnly = true;
-            this.usd_ex_fty_ver.Visible = false;
-            // 
-            // hkd_ex_fty_ver
-            // 
-            this.hkd_ex_fty_ver.DataPropertyName = "hkd_ex_fty_ver";
-            this.hkd_ex_fty_ver.HeaderText = "Price USD-Ex_Fty(old version";
-            this.hkd_ex_fty_ver.Name = "hkd_ex_fty_ver";
-            this.hkd_ex_fty_ver.ReadOnly = true;
-            this.hkd_ex_fty_ver.Visible = false;
-            // 
-            // pending
-            // 
-            this.pending.DataPropertyName = "pending";
-            this.pending.HeaderText = "Pending";
-            this.pending.Name = "pending";
             // 
             // tabPage2
             // 
@@ -2629,8 +1812,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "sales_group";
-            dataGridViewCellStyle311.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle311;
+            dataGridViewCellStyle117.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle117;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Sales Group";
             this.dataGridViewTextBoxColumn1.MaxInputLength = 1;
@@ -2641,9 +1824,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "temp_code";
-            dataGridViewCellStyle312.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle312.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle312;
+            dataGridViewCellStyle118.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle118.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle118;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "Temp ID";
             this.dataGridViewTextBoxColumn2.MaxInputLength = 30;
@@ -2654,8 +1837,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle313.Format = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle313;
+            dataGridViewCellStyle119.Format = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle119;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.MaxInputLength = 30;
@@ -2667,8 +1850,8 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "brand";
-            dataGridViewCellStyle314.Format = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle314;
+            dataGridViewCellStyle120.Format = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle120;
             this.dataGridViewTextBoxColumn4.Frozen = true;
             this.dataGridViewTextBoxColumn4.HeaderText = "Brand";
             this.dataGridViewTextBoxColumn4.MaxInputLength = 50;
@@ -2763,8 +1946,8 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "cf_color";
-            dataGridViewCellStyle315.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle315;
+            dataGridViewCellStyle121.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle121;
             this.dataGridViewTextBoxColumn14.HeaderText = "CF Color";
             this.dataGridViewTextBoxColumn14.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
@@ -2774,8 +1957,8 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "price_usd";
-            dataGridViewCellStyle316.NullValue = null;
-            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle316;
+            dataGridViewCellStyle122.NullValue = null;
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle122;
             this.dataGridViewTextBoxColumn15.HeaderText = "USD$";
             this.dataGridViewTextBoxColumn15.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
@@ -2785,8 +1968,8 @@
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "price_hkd";
-            dataGridViewCellStyle317.NullValue = null;
-            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle317;
+            dataGridViewCellStyle123.NullValue = null;
+            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle123;
             this.dataGridViewTextBoxColumn16.HeaderText = "HKD$";
             this.dataGridViewTextBoxColumn16.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
@@ -2796,8 +1979,8 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "price_rmb";
-            dataGridViewCellStyle318.NullValue = null;
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle318;
+            dataGridViewCellStyle124.NullValue = null;
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle124;
             this.dataGridViewTextBoxColumn17.HeaderText = "RMB";
             this.dataGridViewTextBoxColumn17.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
@@ -2807,8 +1990,8 @@
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "price_unit";
-            dataGridViewCellStyle319.NullValue = null;
-            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle319;
+            dataGridViewCellStyle125.NullValue = null;
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle125;
             this.dataGridViewTextBoxColumn18.HeaderText = "Price Unit";
             this.dataGridViewTextBoxColumn18.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
@@ -2818,8 +2001,8 @@
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "salesman";
-            dataGridViewCellStyle320.NullValue = null;
-            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle320;
+            dataGridViewCellStyle126.NullValue = null;
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle126;
             this.dataGridViewTextBoxColumn19.HeaderText = "Salesman";
             this.dataGridViewTextBoxColumn19.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
@@ -2830,8 +2013,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "moq";
-            dataGridViewCellStyle321.NullValue = null;
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle321;
+            dataGridViewCellStyle127.NullValue = null;
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle127;
             this.dataGridViewTextBoxColumn20.HeaderText = "MOQ";
             this.dataGridViewTextBoxColumn20.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
@@ -2842,8 +2025,8 @@
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "moq_unit";
-            dataGridViewCellStyle322.NullValue = null;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle322;
+            dataGridViewCellStyle128.NullValue = null;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle128;
             this.dataGridViewTextBoxColumn21.HeaderText = "MOQ Unit";
             this.dataGridViewTextBoxColumn21.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
@@ -2853,8 +2036,8 @@
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.DataPropertyName = "mwq";
-            dataGridViewCellStyle323.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle323;
+            dataGridViewCellStyle129.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle129;
             this.dataGridViewTextBoxColumn22.HeaderText = "MWQ";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
@@ -2864,8 +2047,8 @@
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "lead_time_min";
-            dataGridViewCellStyle324.NullValue = null;
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle324;
+            dataGridViewCellStyle130.NullValue = null;
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle130;
             this.dataGridViewTextBoxColumn23.HeaderText = "Lead Time(Min)";
             this.dataGridViewTextBoxColumn23.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
@@ -2875,8 +2058,8 @@
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "lead_time_max";
-            dataGridViewCellStyle325.NullValue = null;
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle325;
+            dataGridViewCellStyle131.NullValue = null;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle131;
             this.dataGridViewTextBoxColumn24.HeaderText = "Lead Time(Max)";
             this.dataGridViewTextBoxColumn24.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
@@ -2886,8 +2069,8 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "lead_time_unit";
-            dataGridViewCellStyle326.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle326;
+            dataGridViewCellStyle132.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle132;
             this.dataGridViewTextBoxColumn25.HeaderText = "Lead Time Unit";
             this.dataGridViewTextBoxColumn25.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
@@ -2897,8 +2080,8 @@
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.DataPropertyName = "md_charge";
-            dataGridViewCellStyle327.NullValue = null;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle327;
+            dataGridViewCellStyle133.NullValue = null;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle133;
             this.dataGridViewTextBoxColumn26.HeaderText = "Mould Charge in";
             this.dataGridViewTextBoxColumn26.MaxInputLength = 150;
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
@@ -2908,8 +2091,8 @@
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "remark";
-            dataGridViewCellStyle328.NullValue = null;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle328;
+            dataGridViewCellStyle134.NullValue = null;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle134;
             this.dataGridViewTextBoxColumn27.HeaderText = "Remark";
             this.dataGridViewTextBoxColumn27.MaxInputLength = 150;
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
@@ -2919,8 +2102,8 @@
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.DataPropertyName = "comment";
-            dataGridViewCellStyle329.NullValue = null;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle329;
+            dataGridViewCellStyle135.NullValue = null;
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle135;
             this.dataGridViewTextBoxColumn28.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn28.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
@@ -2930,8 +2113,8 @@
             // dataGridViewTextBoxColumn29
             // 
             this.dataGridViewTextBoxColumn29.DataPropertyName = "die_mould_usd";
-            dataGridViewCellStyle330.NullValue = null;
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle330;
+            dataGridViewCellStyle136.NullValue = null;
+            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle136;
             this.dataGridViewTextBoxColumn29.HeaderText = "Die Mould USD";
             this.dataGridViewTextBoxColumn29.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
@@ -2941,8 +2124,8 @@
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "account_code";
-            dataGridViewCellStyle331.NullValue = null;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle331;
+            dataGridViewCellStyle137.NullValue = null;
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle137;
             this.dataGridViewTextBoxColumn30.HeaderText = "Account  Code";
             this.dataGridViewTextBoxColumn30.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
@@ -2952,8 +2135,8 @@
             // dataGridViewTextBoxColumn31
             // 
             this.dataGridViewTextBoxColumn31.DataPropertyName = "valid_date";
-            dataGridViewCellStyle332.NullValue = null;
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle332;
+            dataGridViewCellStyle138.NullValue = null;
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle138;
             this.dataGridViewTextBoxColumn31.HeaderText = "Valid Date";
             this.dataGridViewTextBoxColumn31.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
@@ -2963,8 +2146,8 @@
             // dataGridViewTextBoxColumn32
             // 
             this.dataGridViewTextBoxColumn32.DataPropertyName = "number_enter";
-            dataGridViewCellStyle333.NullValue = null;
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle333;
+            dataGridViewCellStyle139.NullValue = null;
+            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle139;
             this.dataGridViewTextBoxColumn32.HeaderText = "Number Eenter";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
@@ -2973,8 +2156,8 @@
             // dataGridViewTextBoxColumn33
             // 
             this.dataGridViewTextBoxColumn33.DataPropertyName = "date_req";
-            dataGridViewCellStyle334.NullValue = null;
-            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle334;
+            dataGridViewCellStyle140.NullValue = null;
+            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle140;
             this.dataGridViewTextBoxColumn33.HeaderText = "Date Req Rcvd";
             this.dataGridViewTextBoxColumn33.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
@@ -2984,8 +2167,8 @@
             // dataGridViewTextBoxColumn34
             // 
             this.dataGridViewTextBoxColumn34.DataPropertyName = "aw";
-            dataGridViewCellStyle335.NullValue = null;
-            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle335;
+            dataGridViewCellStyle141.NullValue = null;
+            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle141;
             this.dataGridViewTextBoxColumn34.HeaderText = "AW";
             this.dataGridViewTextBoxColumn34.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
@@ -2995,8 +2178,8 @@
             // dataGridViewTextBoxColumn35
             // 
             this.dataGridViewTextBoxColumn35.DataPropertyName = "sub_1";
-            dataGridViewCellStyle336.NullValue = null;
-            this.dataGridViewTextBoxColumn35.DefaultCellStyle = dataGridViewCellStyle336;
+            dataGridViewCellStyle142.NullValue = null;
+            this.dataGridViewTextBoxColumn35.DefaultCellStyle = dataGridViewCellStyle142;
             this.dataGridViewTextBoxColumn35.HeaderText = "1 Sub";
             this.dataGridViewTextBoxColumn35.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
@@ -3006,8 +2189,8 @@
             // dataGridViewTextBoxColumn36
             // 
             this.dataGridViewTextBoxColumn36.DataPropertyName = "sub_2";
-            dataGridViewCellStyle337.NullValue = null;
-            this.dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle337;
+            dataGridViewCellStyle143.NullValue = null;
+            this.dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle143;
             this.dataGridViewTextBoxColumn36.HeaderText = "2 Sub";
             this.dataGridViewTextBoxColumn36.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
@@ -3017,8 +2200,8 @@
             // dataGridViewTextBoxColumn37
             // 
             this.dataGridViewTextBoxColumn37.DataPropertyName = "sub_3";
-            dataGridViewCellStyle338.NullValue = null;
-            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle338;
+            dataGridViewCellStyle144.NullValue = null;
+            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle144;
             this.dataGridViewTextBoxColumn37.HeaderText = "3 Sub";
             this.dataGridViewTextBoxColumn37.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
@@ -3037,8 +2220,8 @@
             // dataGridViewTextBoxColumn39
             // 
             this.dataGridViewTextBoxColumn39.DataPropertyName = "sub_5";
-            dataGridViewCellStyle339.NullValue = null;
-            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle339;
+            dataGridViewCellStyle145.NullValue = null;
+            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle145;
             this.dataGridViewTextBoxColumn39.HeaderText = "5 Sub";
             this.dataGridViewTextBoxColumn39.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn39.MinimumWidth = 80;
@@ -3100,8 +2283,8 @@
             // dataGridViewTextBoxColumn45
             // 
             this.dataGridViewTextBoxColumn45.DataPropertyName = "needle_test";
-            dataGridViewCellStyle340.NullValue = null;
-            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle340;
+            dataGridViewCellStyle146.NullValue = null;
+            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle146;
             this.dataGridViewTextBoxColumn45.HeaderText = "Needle Test";
             this.dataGridViewTextBoxColumn45.MaxInputLength = 50;
             this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
@@ -3112,8 +2295,8 @@
             // dataGridViewTextBoxColumn46
             // 
             this.dataGridViewTextBoxColumn46.DataPropertyName = "crusr";
-            dataGridViewCellStyle341.NullValue = null;
-            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle341;
+            dataGridViewCellStyle147.NullValue = null;
+            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle147;
             this.dataGridViewTextBoxColumn46.HeaderText = "Create by";
             this.dataGridViewTextBoxColumn46.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn46.MinimumWidth = 80;
@@ -3125,8 +2308,8 @@
             // dataGridViewTextBoxColumn47
             // 
             this.dataGridViewTextBoxColumn47.DataPropertyName = "crtim";
-            dataGridViewCellStyle342.NullValue = null;
-            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle342;
+            dataGridViewCellStyle148.NullValue = null;
+            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle148;
             this.dataGridViewTextBoxColumn47.HeaderText = "Create Date";
             this.dataGridViewTextBoxColumn47.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
@@ -3137,8 +2320,8 @@
             // dataGridViewTextBoxColumn48
             // 
             this.dataGridViewTextBoxColumn48.DataPropertyName = "amusr";
-            dataGridViewCellStyle343.NullValue = null;
-            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle343;
+            dataGridViewCellStyle149.NullValue = null;
+            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle149;
             this.dataGridViewTextBoxColumn48.FillWeight = 60F;
             this.dataGridViewTextBoxColumn48.HeaderText = "Update by";
             this.dataGridViewTextBoxColumn48.MaxInputLength = 20;
@@ -3150,8 +2333,8 @@
             // dataGridViewTextBoxColumn49
             // 
             this.dataGridViewTextBoxColumn49.DataPropertyName = "amtim";
-            dataGridViewCellStyle344.NullValue = null;
-            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle344;
+            dataGridViewCellStyle150.NullValue = null;
+            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle150;
             this.dataGridViewTextBoxColumn49.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn49.MaxInputLength = 50;
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
@@ -3171,8 +2354,8 @@
             // dataGridViewTextBoxColumn51
             // 
             this.dataGridViewTextBoxColumn51.DataPropertyName = "flag_del";
-            dataGridViewCellStyle345.NullValue = null;
-            this.dataGridViewTextBoxColumn51.DefaultCellStyle = dataGridViewCellStyle345;
+            dataGridViewCellStyle151.NullValue = null;
+            this.dataGridViewTextBoxColumn51.DefaultCellStyle = dataGridViewCellStyle151;
             this.dataGridViewTextBoxColumn51.HeaderText = "Flag_Del";
             this.dataGridViewTextBoxColumn51.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
@@ -3192,8 +2375,8 @@
             // dataGridViewTextBoxColumn53
             // 
             this.dataGridViewTextBoxColumn53.DataPropertyName = "brand_desc";
-            dataGridViewCellStyle346.NullValue = null;
-            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle346;
+            dataGridViewCellStyle152.NullValue = null;
+            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle152;
             this.dataGridViewTextBoxColumn53.HeaderText = "Brand Desc.";
             this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
             this.dataGridViewTextBoxColumn53.ReadOnly = true;
@@ -3211,8 +2394,8 @@
             // dataGridViewTextBoxColumn55
             // 
             this.dataGridViewTextBoxColumn55.DataPropertyName = "comment";
-            dataGridViewCellStyle347.NullValue = null;
-            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle347;
+            dataGridViewCellStyle153.NullValue = null;
+            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle153;
             this.dataGridViewTextBoxColumn55.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.ReadOnly = true;
@@ -3230,8 +2413,8 @@
             // dataGridViewTextBoxColumn57
             // 
             this.dataGridViewTextBoxColumn57.DataPropertyName = "amtim";
-            dataGridViewCellStyle348.NullValue = null;
-            this.dataGridViewTextBoxColumn57.DefaultCellStyle = dataGridViewCellStyle348;
+            dataGridViewCellStyle154.NullValue = null;
+            this.dataGridViewTextBoxColumn57.DefaultCellStyle = dataGridViewCellStyle154;
             this.dataGridViewTextBoxColumn57.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
             this.dataGridViewTextBoxColumn57.ReadOnly = true;
@@ -3288,7 +2471,7 @@
             this.txtPrice_rmb.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.txtPrice_rmb.Properties.Appearance.Options.UseForeColor = true;
             this.txtPrice_rmb.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 16, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "Price Version List", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 16, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "Price Version List", null, null, true)});
             this.txtPrice_rmb.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPrice_rmb.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtPrice_rmb.Properties.Mask.EditMask = "n3";
@@ -3420,7 +2603,7 @@
             this.txtCustartwork.Location = new System.Drawing.Point(506, 27);
             this.txtCustartwork.Name = "txtCustartwork";
             this.txtCustartwork.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
             this.txtCustartwork.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtCustartwork.Properties.MaxLength = 200;
             this.txtCustartwork.Properties.ReadOnly = true;
@@ -3665,7 +2848,7 @@
             this.txtSeasonDesc.Location = new System.Drawing.Point(164, 139);
             this.txtSeasonDesc.Name = "txtSeasonDesc";
             this.txtSeasonDesc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.txtSeasonDesc.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtSeasonDesc.Properties.MaxLength = 20;
             this.txtSeasonDesc.Properties.ReadOnly = true;
@@ -3708,7 +2891,7 @@
             this.txtBrandDesc.Location = new System.Drawing.Point(164, 117);
             this.txtBrandDesc.Name = "txtBrandDesc";
             this.txtBrandDesc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.txtBrandDesc.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtBrandDesc.Properties.ReadOnly = true;
             this.txtBrandDesc.Size = new System.Drawing.Size(127, 20);
@@ -3723,7 +2906,7 @@
             this.txtMo_id.Location = new System.Drawing.Point(76, 249);
             this.txtMo_id.Name = "txtMo_id";
             this.txtMo_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.txtMo_id.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtMo_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id.Properties.MaxLength = 20;
@@ -4819,7 +4002,7 @@
             this.txtFormula.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.txtFormula.Properties.Appearance.Options.UseForeColor = true;
             this.txtFormula.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.txtFormula.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtFormula.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFormula.Properties.MaxLength = 30;
@@ -5830,6 +5013,7 @@
             this.pnlHeard.Controls.Add(this.label2);
             this.pnlHeard.Controls.Add(this.lblAw);
             this.pnlHeard.Controls.Add(this.lblVersion);
+            this.pnlHeard.Controls.Add(this.txtRef_temp_code);
             this.pnlHeard.Location = new System.Drawing.Point(2, 41);
             this.pnlHeard.Name = "pnlHeard";
             this.pnlHeard.Size = new System.Drawing.Size(1358, 456);
@@ -5844,6 +5028,846 @@
             this.lblOf.Size = new System.Drawing.Size(114, 26);
             this.lblOf.TabIndex = 205;
             this.lblOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtRef_temp_code
+            // 
+            this.txtRef_temp_code.EditValue = "";
+            this.txtRef_temp_code.Enabled = false;
+            this.txtRef_temp_code.Location = new System.Drawing.Point(843, 356);
+            this.txtRef_temp_code.Name = "txtRef_temp_code";
+            this.txtRef_temp_code.Properties.ReadOnly = true;
+            this.txtRef_temp_code.Size = new System.Drawing.Size(89, 20);
+            this.txtRef_temp_code.TabIndex = 206;
+            this.txtRef_temp_code.Tag = "1";
+            // 
+            // flagSelect
+            // 
+            this.flagSelect.DataPropertyName = "flag_select";
+            dataGridViewCellStyle155.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle155.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle155.NullValue = false;
+            this.flagSelect.DefaultCellStyle = dataGridViewCellStyle155;
+            this.flagSelect.Frozen = true;
+            this.flagSelect.HeaderText = "Select";
+            this.flagSelect.Name = "flagSelect";
+            this.flagSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.flagSelect.Width = 40;
+            // 
+            // ver
+            // 
+            this.ver.DataPropertyName = "ver";
+            dataGridViewCellStyle156.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ver.DefaultCellStyle = dataGridViewCellStyle156;
+            this.ver.HeaderText = "Ver";
+            this.ver.Name = "ver";
+            this.ver.Width = 35;
+            // 
+            // sales_group
+            // 
+            this.sales_group.DataPropertyName = "sales_group";
+            dataGridViewCellStyle157.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle157.ForeColor = System.Drawing.Color.Black;
+            this.sales_group.DefaultCellStyle = dataGridViewCellStyle157;
+            this.sales_group.HeaderText = "Sales Group";
+            this.sales_group.MaxInputLength = 1;
+            this.sales_group.Name = "sales_group";
+            this.sales_group.Width = 40;
+            // 
+            // salesman
+            // 
+            this.salesman.DataPropertyName = "salesman";
+            this.salesman.HeaderText = "Salesman";
+            this.salesman.MaxInputLength = 20;
+            this.salesman.Name = "salesman";
+            this.salesman.Width = 50;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            dataGridViewCellStyle158.Format = "yyyy-MM-dd";
+            this.date.DefaultCellStyle = dataGridViewCellStyle158;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.date.Width = 70;
+            // 
+            // brand
+            // 
+            this.brand.DataPropertyName = "brand";
+            this.brand.HeaderText = "Brand";
+            this.brand.MaxInputLength = 50;
+            this.brand.Name = "brand";
+            this.brand.Width = 55;
+            // 
+            // brand_desc
+            // 
+            this.brand_desc.DataPropertyName = "brand_desc";
+            this.brand_desc.HeaderText = "Brand Desc.";
+            this.brand_desc.Name = "brand_desc";
+            this.brand_desc.Width = 65;
+            // 
+            // formula_id
+            // 
+            this.formula_id.DataPropertyName = "formula_id";
+            this.formula_id.HeaderText = "formula_id";
+            this.formula_id.Name = "formula_id";
+            this.formula_id.Visible = false;
+            this.formula_id.Width = 60;
+            // 
+            // Season
+            // 
+            this.Season.DataPropertyName = "season";
+            this.Season.HeaderText = "Season";
+            this.Season.MaxInputLength = 20;
+            this.Season.Name = "Season";
+            this.Season.Width = 50;
+            // 
+            // season_desc
+            // 
+            this.season_desc.DataPropertyName = "season_desc";
+            this.season_desc.HeaderText = "Season Desc.";
+            this.season_desc.Name = "season_desc";
+            this.season_desc.Width = 55;
+            // 
+            // material
+            // 
+            this.material.DataPropertyName = "material";
+            this.material.HeaderText = "Material";
+            this.material.MaxInputLength = 60;
+            this.material.Name = "material";
+            this.material.Width = 80;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.MaxInputLength = 20;
+            this.size.Name = "size";
+            this.size.Width = 65;
+            // 
+            // product_desc
+            // 
+            this.product_desc.DataPropertyName = "product_desc";
+            this.product_desc.HeaderText = "Product Desc";
+            this.product_desc.MaxInputLength = 100;
+            this.product_desc.Name = "product_desc";
+            // 
+            // plm_code
+            // 
+            this.plm_code.DataPropertyName = "plm_code";
+            this.plm_code.HeaderText = "PLM Code";
+            this.plm_code.Name = "plm_code";
+            this.plm_code.ReadOnly = true;
+            this.plm_code.Visible = false;
+            // 
+            // cust_code
+            // 
+            this.cust_code.DataPropertyName = "cust_code";
+            this.cust_code.HeaderText = "Customer Code";
+            this.cust_code.MaxInputLength = 50;
+            this.cust_code.Name = "cust_code";
+            this.cust_code.Width = 85;
+            // 
+            // cf_code
+            // 
+            this.cf_code.DataPropertyName = "cf_code";
+            this.cf_code.HeaderText = "CF Code";
+            this.cf_code.MaxInputLength = 50;
+            this.cf_code.Name = "cf_code";
+            this.cf_code.Width = 75;
+            // 
+            // cust_color
+            // 
+            this.cust_color.DataPropertyName = "cust_color";
+            this.cust_color.HeaderText = "Customer Color";
+            this.cust_color.MaxInputLength = 100;
+            this.cust_color.Name = "cust_color";
+            this.cust_color.Width = 90;
+            // 
+            // cf_color
+            // 
+            this.cf_color.DataPropertyName = "cf_color";
+            this.cf_color.HeaderText = "CF Color";
+            this.cf_color.MaxInputLength = 100;
+            this.cf_color.Name = "cf_color";
+            this.cf_color.Width = 90;
+            // 
+            // number_enter
+            // 
+            this.number_enter.DataPropertyName = "number_enter";
+            dataGridViewCellStyle159.NullValue = null;
+            this.number_enter.DefaultCellStyle = dataGridViewCellStyle159;
+            this.number_enter.HeaderText = "BP";
+            this.number_enter.Name = "number_enter";
+            this.number_enter.Width = 55;
+            // 
+            // price_usd
+            // 
+            this.price_usd.DataPropertyName = "price_usd";
+            dataGridViewCellStyle160.NullValue = null;
+            this.price_usd.DefaultCellStyle = dataGridViewCellStyle160;
+            this.price_usd.HeaderText = "USD";
+            this.price_usd.Name = "price_usd";
+            this.price_usd.Width = 50;
+            // 
+            // price_hkd
+            // 
+            this.price_hkd.DataPropertyName = "price_hkd";
+            dataGridViewCellStyle161.NullValue = null;
+            this.price_hkd.DefaultCellStyle = dataGridViewCellStyle161;
+            this.price_hkd.HeaderText = "HKD";
+            this.price_hkd.Name = "price_hkd";
+            this.price_hkd.Width = 50;
+            // 
+            // price_rmb
+            // 
+            this.price_rmb.DataPropertyName = "price_rmb";
+            this.price_rmb.HeaderText = "RMB";
+            this.price_rmb.Name = "price_rmb";
+            this.price_rmb.Width = 50;
+            // 
+            // hkd_ex_fty
+            // 
+            this.hkd_ex_fty.DataPropertyName = "hkd_ex_fty";
+            this.hkd_ex_fty.HeaderText = "HKD EX-FTY";
+            this.hkd_ex_fty.Name = "hkd_ex_fty";
+            this.hkd_ex_fty.Width = 60;
+            // 
+            // usd_ex_fty
+            // 
+            this.usd_ex_fty.DataPropertyName = "usd_ex_fty";
+            this.usd_ex_fty.HeaderText = "USD EX-FTY";
+            this.usd_ex_fty.Name = "usd_ex_fty";
+            this.usd_ex_fty.ReadOnly = true;
+            this.usd_ex_fty.Width = 60;
+            // 
+            // price_unit
+            // 
+            this.price_unit.DataPropertyName = "price_unit";
+            this.price_unit.HeaderText = "Price Unit";
+            this.price_unit.MaxInputLength = 5;
+            this.price_unit.Name = "price_unit";
+            this.price_unit.Width = 40;
+            // 
+            // moq_below_over
+            // 
+            this.moq_below_over.DataPropertyName = "moq_below_over";
+            this.moq_below_over.HeaderText = "MOQ Type";
+            this.moq_below_over.Name = "moq_below_over";
+            this.moq_below_over.Width = 50;
+            // 
+            // moq
+            // 
+            this.moq.DataPropertyName = "moq";
+            dataGridViewCellStyle162.NullValue = null;
+            this.moq.DefaultCellStyle = dataGridViewCellStyle162;
+            this.moq.HeaderText = "MOQ";
+            this.moq.Name = "moq";
+            this.moq.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.moq.Width = 40;
+            // 
+            // moq_desc
+            // 
+            this.moq_desc.DataPropertyName = "moq_desc";
+            this.moq_desc.HeaderText = "MOQ Desc";
+            this.moq_desc.Name = "moq_desc";
+            this.moq_desc.Width = 70;
+            // 
+            // moq_unit
+            // 
+            this.moq_unit.DataPropertyName = "moq_unit";
+            this.moq_unit.HeaderText = "MOQ Unit";
+            this.moq_unit.MaxInputLength = 5;
+            this.moq_unit.Name = "moq_unit";
+            this.moq_unit.Width = 40;
+            // 
+            // mwq
+            // 
+            this.mwq.DataPropertyName = "mwq";
+            dataGridViewCellStyle163.NullValue = null;
+            this.mwq.DefaultCellStyle = dataGridViewCellStyle163;
+            this.mwq.HeaderText = "MWQ";
+            this.mwq.Name = "mwq";
+            this.mwq.Width = 40;
+            // 
+            // mwq_unit
+            // 
+            this.mwq_unit.DataPropertyName = "mwq_unit";
+            this.mwq_unit.HeaderText = "MWQ Unit";
+            this.mwq_unit.Name = "mwq_unit";
+            this.mwq_unit.Width = 40;
+            // 
+            // account_code
+            // 
+            this.account_code.DataPropertyName = "account_code";
+            this.account_code.HeaderText = "Account Code";
+            this.account_code.MaxInputLength = 20;
+            this.account_code.Name = "account_code";
+            this.account_code.Width = 90;
+            // 
+            // lead_time_min
+            // 
+            this.lead_time_min.DataPropertyName = "lead_time_min";
+            dataGridViewCellStyle164.NullValue = null;
+            this.lead_time_min.DefaultCellStyle = dataGridViewCellStyle164;
+            this.lead_time_min.HeaderText = "Lead Time_Min";
+            this.lead_time_min.Name = "lead_time_min";
+            this.lead_time_min.Width = 60;
+            // 
+            // lead_time_max
+            // 
+            this.lead_time_max.DataPropertyName = "lead_time_max";
+            dataGridViewCellStyle165.NullValue = null;
+            this.lead_time_max.DefaultCellStyle = dataGridViewCellStyle165;
+            this.lead_time_max.HeaderText = "Lead Time_Max";
+            this.lead_time_max.Name = "lead_time_max";
+            this.lead_time_max.Width = 60;
+            // 
+            // lead_time_unit
+            // 
+            this.lead_time_unit.DataPropertyName = "lead_time_unit";
+            this.lead_time_unit.HeaderText = "Lead Time Unit";
+            this.lead_time_unit.MaxInputLength = 5;
+            this.lead_time_unit.Name = "lead_time_unit";
+            this.lead_time_unit.Width = 60;
+            // 
+            // md_charge
+            // 
+            this.md_charge.DataPropertyName = "md_charge";
+            dataGridViewCellStyle166.NullValue = null;
+            this.md_charge.DefaultCellStyle = dataGridViewCellStyle166;
+            this.md_charge.HeaderText = "Mould Charge in";
+            this.md_charge.Name = "md_charge";
+            this.md_charge.Width = 60;
+            // 
+            // md_charge_cny
+            // 
+            this.md_charge_cny.DataPropertyName = "md_charge_cny";
+            this.md_charge_cny.HeaderText = "Mould Charge CNY";
+            this.md_charge_cny.Name = "md_charge_cny";
+            this.md_charge_cny.Width = 45;
+            // 
+            // md_charge_unit
+            // 
+            this.md_charge_unit.DataPropertyName = "md_charge_unit";
+            this.md_charge_unit.HeaderText = "Mould Charge Unit";
+            this.md_charge_unit.Name = "md_charge_unit";
+            this.md_charge_unit.Width = 45;
+            // 
+            // die_mould_usd
+            // 
+            this.die_mould_usd.DataPropertyName = "die_mould_usd";
+            dataGridViewCellStyle167.NullValue = null;
+            this.die_mould_usd.DefaultCellStyle = dataGridViewCellStyle167;
+            this.die_mould_usd.HeaderText = "Die Mould USD";
+            this.die_mould_usd.Name = "die_mould_usd";
+            this.die_mould_usd.Width = 60;
+            // 
+            // die_mould_cny
+            // 
+            this.die_mould_cny.DataPropertyName = "die_mould_cny";
+            this.die_mould_cny.HeaderText = "Die Mould CNY";
+            this.die_mould_cny.Name = "die_mould_cny";
+            this.die_mould_cny.ReadOnly = true;
+            this.die_mould_cny.Width = 50;
+            // 
+            // valid_date
+            // 
+            this.valid_date.DataPropertyName = "valid_date";
+            dataGridViewCellStyle168.NullValue = null;
+            this.valid_date.DefaultCellStyle = dataGridViewCellStyle168;
+            this.valid_date.HeaderText = "Valid Date";
+            this.valid_date.Name = "valid_date";
+            this.valid_date.Width = 80;
+            // 
+            // date_req
+            // 
+            this.date_req.DataPropertyName = "date_req";
+            dataGridViewCellStyle169.NullValue = null;
+            this.date_req.DefaultCellStyle = dataGridViewCellStyle169;
+            this.date_req.HeaderText = "Date Req Rcvd";
+            this.date_req.Name = "date_req";
+            this.date_req.Width = 90;
+            // 
+            // aw
+            // 
+            this.aw.DataPropertyName = "aw";
+            this.aw.HeaderText = "AW";
+            this.aw.MaxInputLength = 20;
+            this.aw.Name = "aw";
+            this.aw.Width = 80;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.FillWeight = 60F;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.Width = 50;
+            // 
+            // sample_request
+            // 
+            this.sample_request.DataPropertyName = "sample_request";
+            this.sample_request.HeaderText = "Sample Request";
+            this.sample_request.MaxInputLength = 50;
+            this.sample_request.Name = "sample_request";
+            // 
+            // needle_test
+            // 
+            this.needle_test.DataPropertyName = "needle_test";
+            this.needle_test.HeaderText = "Needle Test";
+            this.needle_test.MaxInputLength = 50;
+            this.needle_test.Name = "needle_test";
+            this.needle_test.Width = 80;
+            // 
+            // comment
+            // 
+            this.comment.DataPropertyName = "comment";
+            this.comment.HeaderText = "Comment";
+            this.comment.Name = "comment";
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "Remark";
+            this.remark.MaxInputLength = 150;
+            this.remark.Name = "remark";
+            // 
+            // remark_other
+            // 
+            this.remark_other.DataPropertyName = "remark_other";
+            this.remark_other.HeaderText = "Other Remark";
+            this.remark_other.Name = "remark_other";
+            // 
+            // remark_pdd
+            // 
+            this.remark_pdd.DataPropertyName = "remark_pdd";
+            this.remark_pdd.HeaderText = "Remark PDD(HK)";
+            this.remark_pdd.Name = "remark_pdd";
+            this.remark_pdd.Visible = false;
+            // 
+            // remark_pdd_dg
+            // 
+            this.remark_pdd_dg.DataPropertyName = "remark_pdd_dg";
+            this.remark_pdd_dg.HeaderText = "Remrk PDD";
+            this.remark_pdd_dg.Name = "remark_pdd_dg";
+            this.remark_pdd_dg.Visible = false;
+            // 
+            // division
+            // 
+            this.division.DataPropertyName = "division";
+            this.division.HeaderText = "Division ";
+            this.division.MaxInputLength = 20;
+            this.division.Name = "division";
+            this.division.Width = 65;
+            // 
+            // contact
+            // 
+            this.contact.DataPropertyName = "contact";
+            this.contact.HeaderText = "Contact";
+            this.contact.MaxInputLength = 20;
+            this.contact.Name = "contact";
+            this.contact.Width = 80;
+            // 
+            // crusr
+            // 
+            this.crusr.DataPropertyName = "crusr";
+            this.crusr.HeaderText = "Create by";
+            this.crusr.MaxInputLength = 20;
+            this.crusr.Name = "crusr";
+            this.crusr.Visible = false;
+            // 
+            // crtim
+            // 
+            this.crtim.DataPropertyName = "crtim";
+            dataGridViewCellStyle170.NullValue = null;
+            this.crtim.DefaultCellStyle = dataGridViewCellStyle170;
+            this.crtim.HeaderText = "Create Date";
+            this.crtim.Name = "crtim";
+            this.crtim.Visible = false;
+            // 
+            // amusr
+            // 
+            this.amusr.DataPropertyName = "amusr";
+            this.amusr.HeaderText = "Update by";
+            this.amusr.MaxInputLength = 20;
+            this.amusr.Name = "amusr";
+            this.amusr.Visible = false;
+            // 
+            // amtim
+            // 
+            this.amtim.DataPropertyName = "amtim";
+            dataGridViewCellStyle171.NullValue = null;
+            this.amtim.DefaultCellStyle = dataGridViewCellStyle171;
+            this.amtim.HeaderText = "Update Date";
+            this.amtim.Name = "amtim";
+            this.amtim.Visible = false;
+            // 
+            // flag_del
+            // 
+            this.flag_del.DataPropertyName = "flag_del";
+            this.flag_del.HeaderText = "Flag_Del";
+            this.flag_del.Name = "flag_del";
+            this.flag_del.Visible = false;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "MO";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // temp_code
+            // 
+            this.temp_code.DataPropertyName = "temp_code";
+            this.temp_code.HeaderText = "Seq No.";
+            this.temp_code.MaxInputLength = 30;
+            this.temp_code.Name = "temp_code";
+            this.temp_code.Visible = false;
+            this.temp_code.Width = 70;
+            // 
+            // tempver
+            // 
+            this.tempver.DataPropertyName = "temp_ver";
+            this.tempver.HeaderText = "Temp Ver";
+            this.tempver.Name = "tempver";
+            this.tempver.Visible = false;
+            // 
+            // polo_care
+            // 
+            this.polo_care.DataPropertyName = "polo_care";
+            this.polo_care.HeaderText = "Polo Care";
+            this.polo_care.Name = "polo_care";
+            this.polo_care.ReadOnly = true;
+            this.polo_care.Visible = false;
+            // 
+            // moq_for_test
+            // 
+            this.moq_for_test.DataPropertyName = "moq_for_test";
+            this.moq_for_test.HeaderText = "Moq For Test";
+            this.moq_for_test.Name = "moq_for_test";
+            this.moq_for_test.ReadOnly = true;
+            // 
+            // trim_color_code
+            // 
+            this.trim_color_code.DataPropertyName = "trim_color_code";
+            this.trim_color_code.HeaderText = "Trim Color Code";
+            this.trim_color_code.Name = "trim_color_code";
+            this.trim_color_code.ReadOnly = true;
+            this.trim_color_code.Visible = false;
+            // 
+            // test_sample_hk
+            // 
+            this.test_sample_hk.DataPropertyName = "test_sample_hk";
+            this.test_sample_hk.HeaderText = "Test Sample HK";
+            this.test_sample_hk.Name = "test_sample_hk";
+            this.test_sample_hk.ReadOnly = true;
+            // 
+            // sms
+            // 
+            this.sms.DataPropertyName = "sms";
+            this.sms.HeaderText = "SMS";
+            this.sms.Name = "sms";
+            this.sms.ReadOnly = true;
+            // 
+            // sample_card
+            // 
+            this.sample_card.DataPropertyName = "sample_card";
+            this.sample_card.HeaderText = "Sample Card";
+            this.sample_card.Name = "sample_card";
+            this.sample_card.ReadOnly = true;
+            // 
+            // meeting_recap
+            // 
+            this.meeting_recap.DataPropertyName = "meeting_recap";
+            this.meeting_recap.HeaderText = "Meeting Recap";
+            this.meeting_recap.Name = "meeting_recap";
+            this.meeting_recap.ReadOnly = true;
+            // 
+            // usd_dap
+            // 
+            this.usd_dap.DataPropertyName = "usd_dap";
+            this.usd_dap.HeaderText = "USD(Dap)";
+            this.usd_dap.Name = "usd_dap";
+            this.usd_dap.ReadOnly = true;
+            this.usd_dap.Width = 60;
+            // 
+            // usd_lab_test_prx
+            // 
+            this.usd_lab_test_prx.DataPropertyName = "usd_lab_test_prx";
+            this.usd_lab_test_prx.HeaderText = "USD(Lap Test Prx)";
+            this.usd_lab_test_prx.Name = "usd_lab_test_prx";
+            this.usd_lab_test_prx.ReadOnly = true;
+            this.usd_lab_test_prx.Width = 80;
+            // 
+            // ex_fty_hkd
+            // 
+            this.ex_fty_hkd.DataPropertyName = "ex_fty_hkd";
+            this.ex_fty_hkd.HeaderText = "Ex Fty HKD";
+            this.ex_fty_hkd.Name = "ex_fty_hkd";
+            this.ex_fty_hkd.ReadOnly = true;
+            this.ex_fty_hkd.Width = 60;
+            // 
+            // ex_fty_usd
+            // 
+            this.ex_fty_usd.DataPropertyName = "ex_fty_usd";
+            this.ex_fty_usd.HeaderText = "Ex Fty USD";
+            this.ex_fty_usd.Name = "ex_fty_usd";
+            this.ex_fty_usd.ReadOnly = true;
+            this.ex_fty_usd.Width = 60;
+            // 
+            // discount
+            // 
+            this.discount.DataPropertyName = "discount";
+            this.discount.HeaderText = "Disc(%)";
+            this.discount.Name = "discount";
+            this.discount.ReadOnly = true;
+            this.discount.Width = 50;
+            // 
+            // disc_price_usd
+            // 
+            this.disc_price_usd.DataPropertyName = "disc_price_usd";
+            this.disc_price_usd.HeaderText = "Disc USD";
+            this.disc_price_usd.Name = "disc_price_usd";
+            this.disc_price_usd.ReadOnly = true;
+            this.disc_price_usd.Width = 50;
+            // 
+            // disc_price_hkd
+            // 
+            this.disc_price_hkd.DataPropertyName = "disc_price_hkd";
+            this.disc_price_hkd.HeaderText = "Disc HKD";
+            this.disc_price_hkd.Name = "disc_price_hkd";
+            this.disc_price_hkd.ReadOnly = true;
+            this.disc_price_hkd.Width = 50;
+            // 
+            // disc_price_rmb
+            // 
+            this.disc_price_rmb.DataPropertyName = "disc_price_rmb";
+            this.disc_price_rmb.HeaderText = "Disc RMB";
+            this.disc_price_rmb.Name = "disc_price_rmb";
+            this.disc_price_rmb.ReadOnly = true;
+            this.disc_price_rmb.Width = 50;
+            // 
+            // disc_hkd_ex_fty
+            // 
+            this.disc_hkd_ex_fty.DataPropertyName = "disc_hkd_ex_fty";
+            this.disc_hkd_ex_fty.HeaderText = "Disc HKD Ex-Fty";
+            this.disc_hkd_ex_fty.Name = "disc_hkd_ex_fty";
+            this.disc_hkd_ex_fty.ReadOnly = true;
+            this.disc_hkd_ex_fty.Width = 50;
+            // 
+            // sub_1
+            // 
+            this.sub_1.DataPropertyName = "sub_1";
+            this.sub_1.HeaderText = "Sub 1";
+            this.sub_1.Name = "sub_1";
+            this.sub_1.ReadOnly = true;
+            this.sub_1.Visible = false;
+            this.sub_1.Width = 70;
+            // 
+            // sub_2
+            // 
+            this.sub_2.DataPropertyName = "sub_2";
+            this.sub_2.HeaderText = "Sub 2";
+            this.sub_2.Name = "sub_2";
+            this.sub_2.ReadOnly = true;
+            this.sub_2.Visible = false;
+            this.sub_2.Width = 70;
+            // 
+            // sub_3
+            // 
+            this.sub_3.DataPropertyName = "sub_3";
+            this.sub_3.HeaderText = "Sub 3";
+            this.sub_3.Name = "sub_3";
+            this.sub_3.ReadOnly = true;
+            this.sub_3.Visible = false;
+            this.sub_3.Width = 70;
+            // 
+            // sub_4
+            // 
+            this.sub_4.DataPropertyName = "sub_4";
+            this.sub_4.HeaderText = "Sub 4";
+            this.sub_4.Name = "sub_4";
+            this.sub_4.ReadOnly = true;
+            this.sub_4.Visible = false;
+            this.sub_4.Width = 70;
+            // 
+            // sub_5
+            // 
+            this.sub_5.DataPropertyName = "sub_5";
+            this.sub_5.HeaderText = "Sub 5";
+            this.sub_5.Name = "sub_5";
+            this.sub_5.ReadOnly = true;
+            this.sub_5.Visible = false;
+            this.sub_5.Width = 70;
+            // 
+            // sub_6
+            // 
+            this.sub_6.DataPropertyName = "sub_6";
+            this.sub_6.HeaderText = "Sub 6";
+            this.sub_6.Name = "sub_6";
+            this.sub_6.ReadOnly = true;
+            this.sub_6.Visible = false;
+            this.sub_6.Width = 70;
+            // 
+            // sub_7
+            // 
+            this.sub_7.DataPropertyName = "sub_7";
+            this.sub_7.HeaderText = "Sub 7";
+            this.sub_7.Name = "sub_7";
+            this.sub_7.ReadOnly = true;
+            this.sub_7.Visible = false;
+            this.sub_7.Width = 70;
+            // 
+            // reason_edit
+            // 
+            this.reason_edit.DataPropertyName = "reason_edit";
+            this.reason_edit.HeaderText = "Price Level";
+            this.reason_edit.Name = "reason_edit";
+            this.reason_edit.ReadOnly = true;
+            // 
+            // rmb_remark
+            // 
+            this.rmb_remark.DataPropertyName = "rmb_remark";
+            this.rmb_remark.HeaderText = "Rmb Remark";
+            this.rmb_remark.Name = "rmb_remark";
+            this.rmb_remark.ReadOnly = true;
+            // 
+            // price_salesperson
+            // 
+            this.price_salesperson.DataPropertyName = "price_salesperson";
+            dataGridViewCellStyle172.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.price_salesperson.DefaultCellStyle = dataGridViewCellStyle172;
+            this.price_salesperson.HeaderText = "Price Salesperson";
+            this.price_salesperson.Name = "price_salesperson";
+            this.price_salesperson.ReadOnly = true;
+            // 
+            // price_kind
+            // 
+            this.price_kind.DataPropertyName = "price_kind";
+            dataGridViewCellStyle173.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.price_kind.DefaultCellStyle = dataGridViewCellStyle173;
+            this.price_kind.HeaderText = "Price Kind";
+            this.price_kind.Name = "price_kind";
+            this.price_kind.ReadOnly = true;
+            this.price_kind.Width = 70;
+            // 
+            // remark_salesperson
+            // 
+            this.remark_salesperson.DataPropertyName = "remark_salesperson";
+            dataGridViewCellStyle174.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.remark_salesperson.DefaultCellStyle = dataGridViewCellStyle174;
+            this.remark_salesperson.HeaderText = "Remark For Salesperson";
+            this.remark_salesperson.Name = "remark_salesperson";
+            this.remark_salesperson.ReadOnly = true;
+            this.remark_salesperson.Width = 120;
+            // 
+            // special_price
+            // 
+            this.special_price.DataPropertyName = "special_price";
+            this.special_price.HeaderText = "Special Price";
+            this.special_price.Name = "special_price";
+            this.special_price.ReadOnly = true;
+            this.special_price.Visible = false;
+            // 
+            // cust_artwork
+            // 
+            this.cust_artwork.DataPropertyName = "cust_artwork";
+            this.cust_artwork.HeaderText = "Customer Artwork";
+            this.cust_artwork.Name = "cust_artwork";
+            this.cust_artwork.ReadOnly = true;
+            // 
+            // cost_price
+            // 
+            this.cost_price.DataPropertyName = "cost_price";
+            this.cost_price.HeaderText = "Cost Price";
+            this.cost_price.Name = "cost_price";
+            this.cost_price.ReadOnly = true;
+            this.cost_price.Visible = false;
+            // 
+            // labtest_prod_type
+            // 
+            this.labtest_prod_type.DataPropertyName = "labtest_prod_type";
+            this.labtest_prod_type.HeaderText = "Lab Test Big Class";
+            this.labtest_prod_type.Name = "labtest_prod_type";
+            // 
+            // termremark
+            // 
+            this.termremark.DataPropertyName = "termremark";
+            this.termremark.HeaderText = "Term Remark";
+            this.termremark.Name = "termremark";
+            this.termremark.ReadOnly = true;
+            // 
+            // price_usd_ver
+            // 
+            this.price_usd_ver.DataPropertyName = "price_usd_ver";
+            this.price_usd_ver.HeaderText = "Price USD(old version)";
+            this.price_usd_ver.Name = "price_usd_ver";
+            this.price_usd_ver.ReadOnly = true;
+            this.price_usd_ver.Visible = false;
+            // 
+            // price_hkd_ver
+            // 
+            this.price_hkd_ver.DataPropertyName = "price_hkd_ver";
+            this.price_hkd_ver.HeaderText = "Price HKD(old version)";
+            this.price_hkd_ver.Name = "price_hkd_ver";
+            this.price_hkd_ver.ReadOnly = true;
+            this.price_hkd_ver.Visible = false;
+            // 
+            // price_rmb_ver
+            // 
+            this.price_rmb_ver.DataPropertyName = "price_rmb_ver";
+            this.price_rmb_ver.HeaderText = "Price RMB(old version)";
+            this.price_rmb_ver.Name = "price_rmb_ver";
+            this.price_rmb_ver.ReadOnly = true;
+            this.price_rmb_ver.Visible = false;
+            // 
+            // usd_ex_fty_ver
+            // 
+            this.usd_ex_fty_ver.DataPropertyName = "usd_ex_fty_ver";
+            this.usd_ex_fty_ver.HeaderText = "Price USD-Ex_Fty(old version";
+            this.usd_ex_fty_ver.Name = "usd_ex_fty_ver";
+            this.usd_ex_fty_ver.ReadOnly = true;
+            this.usd_ex_fty_ver.Visible = false;
+            // 
+            // hkd_ex_fty_ver
+            // 
+            this.hkd_ex_fty_ver.DataPropertyName = "hkd_ex_fty_ver";
+            this.hkd_ex_fty_ver.HeaderText = "Price USD-Ex_Fty(old version";
+            this.hkd_ex_fty_ver.Name = "hkd_ex_fty_ver";
+            this.hkd_ex_fty_ver.ReadOnly = true;
+            this.hkd_ex_fty_ver.Visible = false;
+            // 
+            // pending
+            // 
+            this.pending.DataPropertyName = "pending";
+            this.pending.HeaderText = "Pending";
+            this.pending.Name = "pending";
+            // 
+            // ref_temp_code
+            // 
+            this.ref_temp_code.DataPropertyName = "ref_temp_code";
+            this.ref_temp_code.HeaderText = "ref_temp_code";
+            this.ref_temp_code.Name = "ref_temp_code";
+            this.ref_temp_code.ReadOnly = true;
+            this.ref_temp_code.Visible = false;
+            // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.Location = new System.Drawing.Point(6, 10);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Properties.Caption = " ";
+            this.chkSelectAll.Size = new System.Drawing.Size(29, 19);
+            this.chkSelectAll.TabIndex = 146;
+            this.chkSelectAll.ToolTip = "Select All";
+            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
             // 
             // frmQuotation
             // 
@@ -5867,7 +5891,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -5977,6 +6000,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).EndInit();
             this.pnlHeard.ResumeLayout(false);
             this.pnlHeard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRef_temp_code.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6113,7 +6138,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
-        private DevExpress.XtraEditors.CheckEdit chkSelectAll;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripButton BTNDEL_BATCH;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
@@ -6131,107 +6155,6 @@
         private System.Windows.Forms.ToolStripButton BTNEXCEL_ART;
         private System.Windows.Forms.ToolStripButton BTNCALCULATEPRICE;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salesman;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brand_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formula_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Season;
-        private System.Windows.Forms.DataGridViewTextBoxColumn season_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn material;
-        private System.Windows.Forms.DataGridViewTextBoxColumn size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn product_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cust_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cf_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cust_color;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cf_color;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number_enter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moq_below_over;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moq_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moq_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mwq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mwq_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn account_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lead_time_min;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lead_time_max;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lead_time_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge;
-        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_cny;
-        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_usd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_cny;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valid_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_req;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aw;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sample_request;
-        private System.Windows.Forms.DataGridViewTextBoxColumn needle_test;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark_other;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd_dg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn division;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn crusr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn crtim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amusr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn flag_del;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn temp_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tempver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn polo_care;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moq_for_test;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trim_color_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn test_sample_hk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sms;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sample_card;
-        private System.Windows.Forms.DataGridViewTextBoxColumn meeting_recap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usd_dap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usd_lab_test_prx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ex_fty_hkd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ex_fty_usd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_usd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_hkd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_rmb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub_7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reason_edit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rmb_remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_salesperson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_kind;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remark_salesperson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn special_price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cust_artwork;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn labtest_prod_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn termremark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd_ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd_ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb_ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty_ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty_ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pending;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label lblAw;
         private System.Windows.Forms.Label label2;
@@ -6421,5 +6344,109 @@
         private System.Windows.Forms.PictureBox pic_artwork;
         private System.Windows.Forms.Panel pnlHeard;
         private System.Windows.Forms.Label lblOf;
+        private DevExpress.XtraEditors.TextEdit txtRef_temp_code;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salesman;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brand_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formula_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Season;
+        private System.Windows.Forms.DataGridViewTextBoxColumn season_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn material;
+        private System.Windows.Forms.DataGridViewTextBoxColumn size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plm_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cust_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cf_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cust_color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cf_color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number_enter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq_below_over;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mwq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mwq_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn account_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lead_time_min;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lead_time_max;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lead_time_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_cny;
+        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_cny;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valid_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_req;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aw;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sample_request;
+        private System.Windows.Forms.DataGridViewTextBoxColumn needle_test;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark_other;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd_dg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn division;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn crusr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn crtim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amusr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag_del;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn temp_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tempver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn polo_care;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moq_for_test;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trim_color_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn test_sample_hk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sms;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sample_card;
+        private System.Windows.Forms.DataGridViewTextBoxColumn meeting_recap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_dap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_lab_test_prx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ex_fty_hkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ex_fty_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_hkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_rmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub_3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub_4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub_5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub_6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sub_7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reason_edit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rmb_remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_salesperson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_kind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remark_salesperson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn special_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cust_artwork;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn labtest_prod_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn termremark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_usd_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty_ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pending;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ref_temp_code;
+        private DevExpress.XtraEditors.CheckEdit chkSelectAll;
     }
 }

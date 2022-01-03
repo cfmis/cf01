@@ -383,7 +383,10 @@
             this.usd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hkd_ex_fty_ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pending = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ref_temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtAccount_Code = new System.Windows.Forms.TextBox();
             this.chkHidenCancel = new System.Windows.Forms.CheckBox();
             this.lblTestReportPath = new System.Windows.Forms.Label();
             this.BTNADD_BATCH1 = new System.Windows.Forms.Button();
@@ -431,8 +434,6 @@
             this.txtReportFormat = new DevExpress.XtraEditors.LookUpEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtAccount_Code = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTerm_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtim.Properties)).BeginInit();
@@ -3208,6 +3209,7 @@
             // 
             this.chkSelectAll.Location = new System.Drawing.Point(14, 182);
             this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Properties.Caption = "  ";
             this.chkSelectAll.Size = new System.Drawing.Size(28, 19);
             this.chkSelectAll.TabIndex = 147;
             this.chkSelectAll.ToolTip = "Select All";
@@ -3329,7 +3331,8 @@
             this.price_rmb_ver,
             this.usd_ex_fty_ver,
             this.hkd_ex_fty_ver,
-            this.pending});
+            this.pending,
+            this.ref_temp_code});
             dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle29.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -4198,6 +4201,14 @@
             this.pending.Name = "pending";
             this.pending.ReadOnly = true;
             // 
+            // ref_temp_code
+            // 
+            this.ref_temp_code.DataPropertyName = "ref_temp_code";
+            this.ref_temp_code.HeaderText = "ref_temp_code";
+            this.ref_temp_code.Name = "ref_temp_code";
+            this.ref_temp_code.ReadOnly = true;
+            this.ref_temp_code.Visible = false;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -4253,6 +4264,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1288, 171);
             this.panel1.TabIndex = 20;
+            // 
+            // label26
+            // 
+            this.label26.AllowDrop = true;
+            this.label26.Location = new System.Drawing.Point(235, 144);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(83, 15);
+            this.label26.TabIndex = 217;
+            this.label26.Text = "Account Code";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtAccount_Code
+            // 
+            this.txtAccount_Code.Location = new System.Drawing.Point(320, 142);
+            this.txtAccount_Code.MaxLength = 100;
+            this.txtAccount_Code.Name = "txtAccount_Code";
+            this.txtAccount_Code.Size = new System.Drawing.Size(143, 22);
+            this.txtAccount_Code.TabIndex = 216;
             // 
             // chkHidenCancel
             // 
@@ -4732,24 +4761,6 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "報表格式";
             // 
-            // label26
-            // 
-            this.label26.AllowDrop = true;
-            this.label26.Location = new System.Drawing.Point(235, 144);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 15);
-            this.label26.TabIndex = 217;
-            this.label26.Text = "Account Code";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtAccount_Code
-            // 
-            this.txtAccount_Code.Location = new System.Drawing.Point(320, 142);
-            this.txtAccount_Code.MaxLength = 100;
-            this.txtAccount_Code.Name = "txtAccount_Code";
-            this.txtAccount_Code.Size = new System.Drawing.Size(143, 22);
-            this.txtAccount_Code.TabIndex = 216;
-            // 
             // frmQuotation_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -5108,6 +5119,8 @@
         private System.Windows.Forms.Button btnTestReport;
         private System.Windows.Forms.Label lblTestReportPath;
         private System.Windows.Forms.CheckBox chkHidenCancel;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtAccount_Code;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flag_select;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -5206,7 +5219,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty_ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty_ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn pending;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txtAccount_Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ref_temp_code;
     }
 }

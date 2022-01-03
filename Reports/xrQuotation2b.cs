@@ -4,9 +4,9 @@ using cf01.CLS;
 
 namespace cf01.Reports
 {
-    public partial class xrQuotation22 : DevExpress.XtraReports.UI.XtraReport
+    public partial class xrQuotation2b : DevExpress.XtraReports.UI.XtraReport
     {
-        public xrQuotation22()
+        public xrQuotation2b()
         {
             InitializeComponent();
         }

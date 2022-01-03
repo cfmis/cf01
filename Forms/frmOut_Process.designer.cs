@@ -87,9 +87,10 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).BeginInit();
+            this.chkPlateRemark = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
@@ -97,7 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIssue_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIssue_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssue_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor_id1.Properties)).BeginInit();
@@ -114,11 +115,11 @@
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Size = new System.Drawing.Size(171, 20);
             this.txtDat2.TabIndex = 17;
             this.txtDat2.Tag = "2";
@@ -132,11 +133,11 @@
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Size = new System.Drawing.Size(171, 20);
             this.txtDat1.TabIndex = 16;
             this.txtDat1.Tag = "2";
@@ -304,9 +305,9 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -438,9 +439,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtMo_id);
             this.groupBox1.Controls.Add(this.lblIssue_date);
             this.groupBox1.Controls.Add(this.txtIssue_date);
@@ -489,11 +490,11 @@
             this.txtIssue_date.Properties.Appearance.Options.UseForeColor = true;
             this.txtIssue_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtIssue_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtIssue_date.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtIssue_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtIssue_date.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtIssue_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtIssue_date.Size = new System.Drawing.Size(108, 20);
             this.txtIssue_date.TabIndex = 127;
             this.txtIssue_date.Tag = "2";
@@ -595,6 +596,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkPlateRemark);
             this.panel1.Controls.Add(this.chkDisplayPrice);
             this.panel1.Controls.Add(this.txtDat1);
             this.panel1.Controls.Add(this.txtDat2);
@@ -730,6 +732,18 @@
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             this.dataGridViewTextBoxColumn13.Visible = false;
             // 
+            // chkPlateRemark
+            // 
+            this.chkPlateRemark.AutoSize = true;
+            this.chkPlateRemark.Checked = true;
+            this.chkPlateRemark.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkPlateRemark.Location = new System.Drawing.Point(286, 127);
+            this.chkPlateRemark.Name = "chkPlateRemark";
+            this.chkPlateRemark.Size = new System.Drawing.Size(132, 16);
+            this.chkPlateRemark.TabIndex = 133;
+            this.chkPlateRemark.Text = "報表中顯示電鍍備註";
+            this.chkPlateRemark.UseVisualStyleBackColor = true;
+            // 
             // frmOut_Process
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -747,9 +761,9 @@
             this.Text = "frmOut_Process";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmOut_Process_FormClosed);
             this.Load += new System.EventHandler(this.frmOut_Process_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).EndInit();
@@ -759,7 +773,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIssue_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIssue_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssue_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendor_id1.Properties)).EndInit();
@@ -832,5 +846,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox chkDisplayPrice;
+        private System.Windows.Forms.CheckBox chkPlateRemark;
     }
 }

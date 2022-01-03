@@ -86,7 +86,6 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkOther = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -495,7 +494,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.chkOther);
             this.panel1.Controls.Add(this.rgrp1);
             this.panel1.Controls.Add(this.cboVendor_id2);
             this.panel1.Controls.Add(this.cboVendor_id1);
@@ -519,7 +517,7 @@
             this.rgrp1.Location = new System.Drawing.Point(93, 112);
             this.rgrp1.Name = "rgrp1";
             this.rgrp1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "發貨"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "送貨"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "收貨")});
             this.rgrp1.Size = new System.Drawing.Size(171, 23);
             this.rgrp1.TabIndex = 128;
@@ -528,6 +526,9 @@
             // 
             this.cboVendor_id2.Font = new System.Drawing.Font("Tahoma", 9F);
             this.cboVendor_id2.FormattingEnabled = true;
+            this.cboVendor_id2.Items.AddRange(new object[] {
+            "CL-T0011",
+            "CR-Y0018"});
             this.cboVendor_id2.Location = new System.Drawing.Point(289, 84);
             this.cboVendor_id2.Name = "cboVendor_id2";
             this.cboVendor_id2.Size = new System.Drawing.Size(171, 22);
@@ -537,6 +538,9 @@
             // 
             this.cboVendor_id1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.cboVendor_id1.FormattingEnabled = true;
+            this.cboVendor_id1.Items.AddRange(new object[] {
+            "CL-T0011",
+            "CR-Y0018"});
             this.cboVendor_id1.Location = new System.Drawing.Point(93, 84);
             this.cboVendor_id1.Name = "cboVendor_id1";
             this.cboVendor_id1.Size = new System.Drawing.Size(171, 22);
@@ -670,16 +674,6 @@
             this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn14.Visible = false;
             // 
-            // chkOther
-            // 
-            this.chkOther.AutoSize = true;
-            this.chkOther.Location = new System.Drawing.Point(289, 119);
-            this.chkOther.Name = "chkOther";
-            this.chkOther.Size = new System.Drawing.Size(72, 16);
-            this.chkOther.TabIndex = 129;
-            this.chkOther.Text = "其他格式";
-            this.chkOther.UseVisualStyleBackColor = true;
-            // 
             // frmOut_Process_S
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -771,6 +765,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn picture_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit;
-        private System.Windows.Forms.CheckBox chkOther;
     }
 }

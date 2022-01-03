@@ -18,8 +18,7 @@ namespace cf01.Forms
         private string strSeq_id = "";
         private string test_public_path = "";
         
-        private clsUtility.enumOperationType OperationType;
-        
+        private clsUtility.enumOperationType OperationType;       
         public DataTable dtTe = new DataTable();
         private DataTable dtReport_Path_List = new DataTable();
         private string flag_new_copy = "";        
@@ -128,6 +127,8 @@ namespace cf01.Forms
             ControlState();
             SetObjValue.SetEditBackColor(panel1.Controls, true);
             //dgvDetails.OptionsBehavior.Editable = false;
+            txtInvoice_id.Properties.ReadOnly = true;
+            txtInvoice_id.BackColor = Color.White;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -137,7 +138,9 @@ namespace cf01.Forms
                 OperationType = clsUtility.enumOperationType.Update;
                 ControlState();
                 SetObjValue.SetEditBackColor(panel1.Controls, true);
-                lueMat.Enabled = false;                
+                lueMat.Enabled = false;
+                txtInvoice_id.Properties.ReadOnly = true;
+                txtInvoice_id.BackColor = Color.White;
             }
         }
 
@@ -892,7 +895,7 @@ namespace cf01.Forms
 
             if (OperationType == clsUtility.enumOperationType.Add || OperationType == clsUtility.enumOperationType.Update)
             {
-                string strSql = String.Format(@"SELECT '1' FROM dbo.so_order_manage A with(nolock),dbo.so_order_details B with(nolock)                
+                string strSql = string.Format(@"SELECT '1' FROM dbo.so_order_manage A with(nolock),dbo.so_order_details B with(nolock)                
                                 WHERE A.within_code=B.within_code AND A.id=B.id AND A.within_code='0000' AND B.mo_id='{0}' AND  A.state not in ('2') ", strRef_mo);
                 try
                 {
@@ -933,7 +936,7 @@ namespace cf01.Forms
         {
             int months = Convert.ToInt16(numUpDown1.Value);
             if (months > 0)
-            {
+            {               
                 dtTe = clsTestProductPlan.Get_test_expriy(months, txtGroup.Text);
                 bds1.DataSource = dtTe;
                 gridControl1.DataSource = bds1;
@@ -1054,6 +1057,7 @@ namespace cf01.Forms
             txtCrtim.Text = dtTe.Rows[pRow]["crtim"].ToString();
             txtAmusr.Text = dtTe.Rows[pRow]["amusr"].ToString();
             txtAmtim.Text = dtTe.Rows[pRow]["amtim"].ToString();
+            txtInvoice_id.Text = dtTe.Rows[pRow]["invoice_id"].ToString();
         }
 
         private void SetButtonSatus(bool _flag)
@@ -1156,7 +1160,8 @@ namespace cf01.Forms
             txtCrusr.DataBindings.Add("Text", bds1, "crusr");
             txtCrtim.DataBindings.Add("Text", bds1, "crtim");
             txtAmusr.DataBindings.Add("Text", bds1, "amusr");
-            txtAmtim.DataBindings.Add("Text", bds1, "amtim");            
+            txtAmtim.DataBindings.Add("Text", bds1, "amtim");
+            txtInvoice_id.DataBindings.Add("Text", bds1, "invoice_id");
         }   
 
         private void frmTestExcel_FormClosed(object sender, FormClosedEventArgs e)
@@ -1534,11 +1539,6 @@ namespace cf01.Forms
                 }
             }
         }
-
-    
-
-            
-           
 
     }
 }

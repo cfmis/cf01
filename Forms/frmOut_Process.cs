@@ -135,7 +135,7 @@ namespace cf01.Forms
                         dt.ImportRow(dr);
                     }
                     //加載報表
-                    xrOut_process_out mMyRepot = new xrOut_process_out(chkDisplayPrice.Checked) 
+                    xrOut_process_out mMyRepot = new xrOut_process_out(chkDisplayPrice.Checked, chkPlateRemark.Checked) 
                     { 
                         DataSource = dt 
                     };

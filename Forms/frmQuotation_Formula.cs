@@ -265,7 +265,9 @@ namespace cf01.Forms
 
         private void Save()  //保存新增或修改的資料
         {
-            txtUsd1.Focus();
+            txtRemark.Focus();
+            txtDiscount.Focus();
+            txtRemark.Focus();
             if (!Save_Before_Valid())
             {
                 return;

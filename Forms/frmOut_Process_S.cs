@@ -28,14 +28,16 @@ namespace cf01.Forms
 
         private void frmOut_Process_S_Load(object sender, EventArgs e)
         {
-            DataTable dtVendor = clsBaseData.Get_Plate_Vendor();
-            //DataRow dr0 = dtVendor.NewRow(); //插一空行        
-            //dtVendor.Rows.InsertAt(dr0, 0);
-            for (int i = 0; i < dtVendor.Rows.Count; i++)
-            {
-                cboVendor_id1.Items.Add(dtVendor.Rows[i]["id"].ToString());
-                cboVendor_id2.Items.Add(dtVendor.Rows[i]["id"].ToString());
-            }
+            //DataTable dtVendor = clsBaseData.Get_Plate_Vendor();
+            ////DataRow dr0 = dtVendor.NewRow(); //插一空行        
+            ////dtVendor.Rows.InsertAt(dr0, 0);
+            //for (int i = 0; i < dtVendor.Rows.Count; i++)
+            //{
+            //    cboVendor_id1.Items.Add(dtVendor.Rows[i]["id"].ToString());
+            //    cboVendor_id2.Items.Add(dtVendor.Rows[i]["id"].ToString());
+            //}
+
+
             //txtVendor_id1.Properties.DataSource = dtVendor;
             //txtVendor_id1.Properties.ValueMember = "id";
             //txtVendor_id1.Properties.DisplayMember = "cdesc";
@@ -81,10 +83,7 @@ namespace cf01.Forms
             if(rgrp1.SelectedIndex == 0)            
                 find_flag = "OUT";
             else
-                find_flag = "IN";
-            string flag_other = "";
-            if (chkOther.Checked)
-                flag_other = "SPC";
+                find_flag = "IN";            
             SqlParameter[] paras = new SqlParameter[]
             {       
                     new SqlParameter("@within_code", "0000"),
@@ -94,8 +93,7 @@ namespace cf01.Forms
                     new SqlParameter("@id_end", txtID2.Text),
                     new SqlParameter("@vendor_id", cboVendor_id1.Text),
                     new SqlParameter("@vendor_id_end", cboVendor_id2.Text),
-                    new SqlParameter("@in_out_type", find_flag),
-                    new SqlParameter("@flag_other", flag_other)
+                    new SqlParameter("@in_out_type", find_flag)                    
             };
             dtPlate = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_out_process_out", paras);
             //--

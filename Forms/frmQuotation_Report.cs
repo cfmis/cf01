@@ -1280,13 +1280,11 @@ namespace cf01.Forms
             {
                 return;
             }
-
             if (mState == "")
             {
                 MessageBox.Show("非新增或編輯狀態不可以使用此功能!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
             bool select_flag = false;
             for (int i = 0; i < dgvDetails.RowCount; i++)
             {
@@ -1301,65 +1299,67 @@ namespace cf01.Forms
                 MessageBox.Show("請選擇要添加的記錄!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            //插入數據后順序錯亂的問題:1.將datagridview排序后轉成Datatble;2.直接引用將排序好的datagridview
+            DataTable dtTempAdd = clsQuotation.GetSortDataTable(dgvDetails);//按用戶的排序先后順序插入表格,
             int cur_row = 0;
-            for (int i = 0; i < dgvDetails.RowCount; i++)
+            for (int i = 0; i < dtTempAdd.Rows.Count; i++)
             {
-                if (dtFind.Rows[i]["flag_select"].ToString() == "True")
+                if (dtTempAdd.Rows[i]["flag_select"].ToString() == "True")
                 {
                     gridView1.AddNewRow();//新增
                     cur_row = gridView1.FocusedRowHandle;
-                    gridView1.SetRowCellValue(cur_row, "brand", dtFind.Rows[i]["brand"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "division", dtFind.Rows[i]["division"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "contact", dtFind.Rows[i]["contact"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "material", dtFind.Rows[i]["material"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "size", dtFind.Rows[i]["size"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "product_desc", dtFind.Rows[i]["product_desc"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "cust_code", dtFind.Rows[i]["cust_code"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "cf_code", dtFind.Rows[i]["cf_code"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "cust_color", dtFind.Rows[i]["cust_color"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "cf_color", dtFind.Rows[i]["cf_color"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "price_usd", dtFind.Rows[i]["price_usd"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "price_hkd", dtFind.Rows[i]["price_hkd"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "price_rmb", dtFind.Rows[i]["price_rmb"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "moq", dtFind.Rows[i]["moq"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "price_unit", dtFind.Rows[i]["price_unit"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "remark", dtFind.Rows[i]["remark"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "temp_code", dtFind.Rows[i]["temp_code"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "ver", dtFind.Rows[i]["ver"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "brand", dtTempAdd.Rows[i]["brand"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "division", dtTempAdd.Rows[i]["division"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "contact", dtTempAdd.Rows[i]["contact"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "material", dtTempAdd.Rows[i]["material"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "size", dtTempAdd.Rows[i]["size"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "product_desc", dtTempAdd.Rows[i]["product_desc"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "cust_code", dtTempAdd.Rows[i]["cust_code"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "cf_code", dtTempAdd.Rows[i]["cf_code"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "cust_color", dtTempAdd.Rows[i]["cust_color"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "cf_color", dtTempAdd.Rows[i]["cf_color"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "price_usd", dtTempAdd.Rows[i]["price_usd"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "price_hkd", dtTempAdd.Rows[i]["price_hkd"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "price_rmb", dtTempAdd.Rows[i]["price_rmb"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "moq", dtTempAdd.Rows[i]["moq"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "price_unit", dtTempAdd.Rows[i]["price_unit"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "remark", dtTempAdd.Rows[i]["remark"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "temp_code", dtTempAdd.Rows[i]["temp_code"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "ver", dtTempAdd.Rows[i]["ver"].ToString());
 
-                    gridView1.SetRowCellValue(cur_row, "moq_desc", dtFind.Rows[i]["moq_desc"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "moq_unit", dtFind.Rows[i]["moq_unit"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "season", dtFind.Rows[i]["season"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "salesman", dtFind.Rows[i]["salesman"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "mwq", dtFind.Rows[i]["mwq"]);
-                    gridView1.SetRowCellValue(cur_row, "lead_time_min", dtFind.Rows[i]["lead_time_min"]);
-                    gridView1.SetRowCellValue(cur_row, "lead_time_max", dtFind.Rows[i]["lead_time_max"]);
-                    gridView1.SetRowCellValue(cur_row, "lead_time_unit", dtFind.Rows[i]["lead_time_unit"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "md_charge", dtFind.Rows[i]["md_charge"]);
-                    gridView1.SetRowCellValue(cur_row, "md_charge_cny", dtFind.Rows[i]["md_charge_cny"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "number_enter", dtFind.Rows[i]["number_enter"]);
-                    gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", dtFind.Rows[i]["hkd_ex_fty"]);
-                    gridView1.SetRowCellValue(cur_row, "usd_ex_fty", dtFind.Rows[i]["usd_ex_fty"]);
-                    gridView1.SetRowCellValue(cur_row, "sales_group", dtFind.Rows[i]["sales_group"]);
-                    gridView1.SetRowCellValue(cur_row, "moq_for_test", dtFind.Rows[i]["moq_for_test"]);
-                    gridView1.SetRowCellValue(cur_row, "usd_dap", dtFind.Rows[i]["usd_dap"]);
-                    gridView1.SetRowCellValue(cur_row, "usd_lab_test_prx", dtFind.Rows[i]["usd_lab_test_prx"]);
-                    gridView1.SetRowCellValue(cur_row, "ex_fty_hkd", dtFind.Rows[i]["ex_fty_hkd"]);
-                    gridView1.SetRowCellValue(cur_row, "ex_fty_usd", dtFind.Rows[i]["ex_fty_usd"]);
+                    gridView1.SetRowCellValue(cur_row, "moq_desc", dtTempAdd.Rows[i]["moq_desc"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "moq_unit", dtTempAdd.Rows[i]["moq_unit"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "season", dtTempAdd.Rows[i]["season"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "salesman", dtTempAdd.Rows[i]["salesman"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "mwq", dtTempAdd.Rows[i]["mwq"]);
+                    gridView1.SetRowCellValue(cur_row, "lead_time_min", dtTempAdd.Rows[i]["lead_time_min"]);
+                    gridView1.SetRowCellValue(cur_row, "lead_time_max", dtTempAdd.Rows[i]["lead_time_max"]);
+                    gridView1.SetRowCellValue(cur_row, "lead_time_unit", dtTempAdd.Rows[i]["lead_time_unit"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "md_charge", dtTempAdd.Rows[i]["md_charge"]);
+                    gridView1.SetRowCellValue(cur_row, "md_charge_cny", dtTempAdd.Rows[i]["md_charge_cny"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "number_enter", dtTempAdd.Rows[i]["number_enter"]);
+                    gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", dtTempAdd.Rows[i]["hkd_ex_fty"]);
+                    gridView1.SetRowCellValue(cur_row, "usd_ex_fty", dtTempAdd.Rows[i]["usd_ex_fty"]);
+                    gridView1.SetRowCellValue(cur_row, "sales_group", dtTempAdd.Rows[i]["sales_group"]);
+                    gridView1.SetRowCellValue(cur_row, "moq_for_test", dtTempAdd.Rows[i]["moq_for_test"]);
+                    gridView1.SetRowCellValue(cur_row, "usd_dap", dtTempAdd.Rows[i]["usd_dap"]);
+                    gridView1.SetRowCellValue(cur_row, "usd_lab_test_prx", dtTempAdd.Rows[i]["usd_lab_test_prx"]);
+                    gridView1.SetRowCellValue(cur_row, "ex_fty_hkd", dtTempAdd.Rows[i]["ex_fty_hkd"]);
+                    gridView1.SetRowCellValue(cur_row, "ex_fty_usd", dtTempAdd.Rows[i]["ex_fty_usd"]);
 
-                    gridView1.SetRowCellValue(cur_row, "discount", dtFind.Rows[i]["discount"]);
-                    gridView1.SetRowCellValue(cur_row, "disc_price_usd", dtFind.Rows[i]["disc_price_usd"]);
-                    gridView1.SetRowCellValue(cur_row, "disc_price_hkd", dtFind.Rows[i]["disc_price_hkd"]);
-                    gridView1.SetRowCellValue(cur_row, "disc_price_rmb", dtFind.Rows[i]["disc_price_rmb"]);
-                    gridView1.SetRowCellValue(cur_row, "disc_hkd_ex_fty", dtFind.Rows[i]["disc_hkd_ex_fty"]);
-                    gridView1.SetRowCellValue(cur_row, "die_mould_usd", dtFind.Rows[i]["die_mould_usd"]);
-                    gridView1.SetRowCellValue(cur_row, "die_mould_cny", dtFind.Rows[i]["die_mould_cny"].ToString());                   
-                    gridView1.SetRowCellValue(cur_row, "actual_price", dtFind.Rows[i]["price_salesperson"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "rmb_remark", dtFind.Rows[i]["rmb_remark"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "cust_artwork", dtFind.Rows[i]["cust_artwork"].ToString()); 
+                    gridView1.SetRowCellValue(cur_row, "discount", dtTempAdd.Rows[i]["discount"]);
+                    gridView1.SetRowCellValue(cur_row, "disc_price_usd", dtTempAdd.Rows[i]["disc_price_usd"]);
+                    gridView1.SetRowCellValue(cur_row, "disc_price_hkd", dtTempAdd.Rows[i]["disc_price_hkd"]);
+                    gridView1.SetRowCellValue(cur_row, "disc_price_rmb", dtTempAdd.Rows[i]["disc_price_rmb"]);
+                    gridView1.SetRowCellValue(cur_row, "disc_hkd_ex_fty", dtTempAdd.Rows[i]["disc_hkd_ex_fty"]);
+                    gridView1.SetRowCellValue(cur_row, "die_mould_usd", dtTempAdd.Rows[i]["die_mould_usd"]);
+                    gridView1.SetRowCellValue(cur_row, "die_mould_cny", dtTempAdd.Rows[i]["die_mould_cny"].ToString());                   
+                    gridView1.SetRowCellValue(cur_row, "actual_price", dtTempAdd.Rows[i]["price_salesperson"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "rmb_remark", dtTempAdd.Rows[i]["rmb_remark"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "cust_artwork", dtTempAdd.Rows[i]["cust_artwork"].ToString()); 
                 }
             }
-            //取消選中的
+            //將查詢表格中選中的記錄取消避免重復插入
             for (int i = 0; i < dtFind.Rows.Count; i++)
             {
                 if (dtFind.Rows[i]["flag_select"].ToString() == "True")
@@ -1817,7 +1817,7 @@ namespace cf01.Forms
                     }
                     break;
                 case "02": //格式二(1)，一般格式USD,HKD,RMB
-                     using (xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt })
+                     using (xrQuotation2a myReport21 = new xrQuotation2a() { DataSource = dt })
                     {
                         myReport21.CreateDocument();
                         myReport21.PrintingSystem.ShowMarginsWarning = false;
@@ -1825,7 +1825,7 @@ namespace cf01.Forms
                     }
                     break;
                 case "03": //格式二(2)，一般格式USD
-                    using (xrQuotation22 myReport22 = new xrQuotation22() { DataSource = dt })
+                    using (xrQuotation2b myReport22 = new xrQuotation2b() { DataSource = dt })
                     {
                         myReport22.CreateDocument();
                         myReport22.PrintingSystem.ShowMarginsWarning = false;
@@ -1998,6 +1998,14 @@ namespace cf01.Forms
                         myReport20.CreateDocument();
                         myReport20.PrintingSystem.ShowMarginsWarning = false;
                         myReport20.ShowPreviewDialog();
+                    }
+                    break;
+                case "25"://格式二十一(VM ex_fty)
+                    using (xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt })
+                    {
+                        myReport21.CreateDocument();
+                        myReport21.PrintingSystem.ShowMarginsWarning = false;
+                        myReport21.ShowPreviewDialog();
                     }
                     break;
             }

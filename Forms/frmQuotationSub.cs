@@ -163,18 +163,19 @@ namespace cf01.Forms
 						break;
 					}
 
-                    strSql = String.Format("Select '1' From {0}so_order_details Where within_code='0000' and mo_id='{1}'", DBUtility.remote_db, strSubmo);
-                    using (DataTable dt = clsPublicOfCF01.GetDataTable(strSql))
-                    {
-                        if (dt.Rows.Count == 0)
-                        {
-                            _flag = true;
-                            MessageBox.Show(string.Format("辦單頁數【{0}】不存在!",strSubmo), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ColumnView view1 = (ColumnView)gridView1;
-                            view1.FocusedColumn = view1.Columns["sub"]; //設置單元格焦點                        
-                            break;
-                        }
-                    }
+                    //以下檢查頁數的代碼 E組Chris 要求取消 2021-12-01
+                    //strSql = String.Format("Select '1' From {0}so_order_details Where within_code='0000' and mo_id='{1}'", DBUtility.remote_db, strSubmo);
+                    //using (DataTable dt = clsPublicOfCF01.GetDataTable(strSql))
+                    //{
+                    //    if (dt.Rows.Count == 0)
+                    //    {
+                    //        _flag = true;
+                    //        MessageBox.Show(string.Format("辦單頁數【{0}】不存在!",strSubmo), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //        ColumnView view1 = (ColumnView)gridView1;
+                    //        view1.FocusedColumn = view1.Columns["sub"]; //設置單元格焦點                        
+                    //        break;
+                    //    }
+                    //}
 				}
 			}
 			return _flag;
