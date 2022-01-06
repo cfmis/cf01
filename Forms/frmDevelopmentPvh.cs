@@ -53,7 +53,7 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueHandling_office, "hand_office");
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type");           
-            clsDevelopentPvh.SetDropBox(lueFinish, "finish");
+            //clsDevelopentPvh.SetDropBox(lueFinish, "finish");
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");
             clsDevelopentPvh.SetDropBox(lueProcess, "processes");
             clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
@@ -288,7 +288,7 @@ namespace cf01.Forms
             lueMaterial_subtype.DataBindings.Add("EditValue",bds1, "material_subtype");
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
-            lueFinish.DataBindings.Add("EditValue", bds1, "finish");
+            txtFinish.DataBindings.Add("EditValue", bds1, "finish");
             lueProcess.DataBindings.Add("EditValue", bds1, "process");
             txtPrevious_submit_ref.DataBindings.Add("Text", bds1, "previous_submit_ref");
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
@@ -553,7 +553,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@material_subtype", lueMaterial_subtype.EditValue);
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
-                    myCommand.Parameters.AddWithValue("@finish", lueFinish.EditValue);
+                    myCommand.Parameters.AddWithValue("@finish", txtFinish.EditValue);
                     myCommand.Parameters.AddWithValue("@process", lueProcess.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_ref", txtPrevious_submit_ref.Text);
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
@@ -928,7 +928,7 @@ namespace cf01.Forms
             lueMaterial_subtype.EditValue = pdr.Cells["material_subtype"].Value.ToString();
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();
-            lueFinish.EditValue = pdr.Cells["finish"].Value.ToString();
+            txtFinish.EditValue = pdr.Cells["finish"].Value.ToString();
             lueProcess.EditValue = pdr.Cells["process"].Value.ToString();
             txtPrevious_submit_ref.Text = pdr.Cells["previous_submit_ref"].Value.ToString();
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
@@ -1228,6 +1228,29 @@ namespace cf01.Forms
         private void lueRaw_mat3_compostion_EditValueChanged(object sender, EventArgs e)
         {
             clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
+        }
+
+        private void txtFinish_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (mState == "NEW" || mState == "EDIT")
+            {
+                /*Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标
+                Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
+                同理：Point button1Point= button1Point.PointToClient(Control.MousePosition);//鼠标相对于button1左上角的坐标
+                还有Control.PointToScreen方法，返回的是相对于屏幕的坐标。
+                */
+                Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
+                using (frmPvhFinish ofrm = new frmPvhFinish())
+                {
+                    ofrm.StartPosition = FormStartPosition.Manual;
+                    ofrm.Location= new Point(formPoint.X, formPoint.Y);
+                    ofrm.ShowDialog();
+                    if (ofrm.strFinish != "")
+                    {
+                        txtFinish.EditValue = ofrm.strFinish;
+                    }
+                }
+            }
         }
     }
 }

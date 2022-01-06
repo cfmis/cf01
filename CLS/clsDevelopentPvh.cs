@@ -61,6 +61,13 @@ namespace cf01.CLS
             return dt;
         }
 
+        public static DataTable GetFinish()
+        {           
+            string strSql = string.Format(@"SELECT Convert(bit, 0) AS flagSelect,contents FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "finish");
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+
         public static void SetCountry(DevExpress.XtraEditors.LookUpEdit objMat, DevExpress.XtraEditors.LookUpEdit objCountry)
         {
             string strMatValue = "";
