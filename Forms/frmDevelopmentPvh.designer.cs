@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -54,10 +54,122 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material_subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.process = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previous_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previous_submit_vr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obj_fbx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price3_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price4_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price5_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price6_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bulk_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leadtime_sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leadtime_bulk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rsl_certificate_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rsl_certificate_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machine_washable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dry_cleanable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dry_clean_only = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.do_not_dry_clean = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suitable_for_tumble_dry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suitable_for_swimwear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passes_metal_detection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.complies_with_pvh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.complies_with_cfr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quality_callouts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.submit1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.submit2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.submit3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.urgent_bulk_order = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.for_bulk_feference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.for_quality_approval = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.chksubmit3 = new DevExpress.XtraEditors.CheckEdit();
@@ -121,14 +233,12 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.lueObj_fbx = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtWeight_uom = new DevExpress.XtraEditors.TextEdit();
             this.label64 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.lueSample_type = new DevExpress.XtraEditors.LookUpEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPrevious_submit_ref = new DevExpress.XtraEditors.TextEdit();
             this.lueMaterial_subtype = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtPrevious_submit_vr = new DevExpress.XtraEditors.TextEdit();
             this.label59 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
@@ -191,6 +301,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtmoq_color = new DevExpress.XtraEditors.TextEdit();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtQuality_callouts = new DevExpress.XtraEditors.MemoEdit();
             this.dtRsl_certificate_expiry_date = new DevExpress.XtraEditors.DateEdit();
             this.label45 = new System.Windows.Forms.Label();
             this.lueComplies_with_cfr = new DevExpress.XtraEditors.LookUpEdit();
@@ -219,6 +330,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.lueCheck = new DevExpress.XtraEditors.LookUpEdit();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lueCert4_type = new DevExpress.XtraEditors.LookUpEdit();
             this.lueCert3_type = new DevExpress.XtraEditors.LookUpEdit();
@@ -269,6 +381,7 @@
             this.txtPvh_submit_ref1 = new DevExpress.XtraEditors.TextEdit();
             this.label81 = new System.Windows.Forms.Label();
             this.dgvFind = new System.Windows.Forms.DataGridView();
+            this.serialno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -279,8 +392,6 @@
             this.dtDat1 = new DevExpress.XtraEditors.DateEdit();
             this.dtDat2 = new DevExpress.XtraEditors.DateEdit();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.txtQuality_callouts = new DevExpress.XtraEditors.MemoEdit();
-            this.lueCheck = new DevExpress.XtraEditors.LookUpEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -394,119 +505,8 @@
             this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.material_subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.process = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previous_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sample_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previous_submit_vr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obj_fbx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currency = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price3_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price4_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price5_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price6_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bulk_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leadtime_sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leadtime_bulk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rsl_certificate_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rsl_certificate_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machine_washable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dry_cleanable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dry_clean_only = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.do_not_dry_clean = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suitable_for_tumble_dry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suitable_for_swimwear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passes_metal_detection = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.complies_with_pvh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.complies_with_cfr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quality_callouts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.for_bulk_feference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.for_quality_approval = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serialno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.luePrevious_submit_vr = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtWeight_uom = new DevExpress.XtraEditors.ComboBoxEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -552,11 +552,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueRaw_mat1_compostion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueU3ma.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueObj_fbx.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueSample_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_vr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).BeginInit();
@@ -594,6 +592,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_eur.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_color.Properties)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_cfr.Properties)).BeginInit();
@@ -606,6 +605,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSuitable_for_tumble_dry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMachine_washable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCheck.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert4_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert3_type.Properties)).BeginInit();
@@ -646,8 +646,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueCheck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePrevious_submit_vr.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -945,6 +945,711 @@
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
             // 
+            // serial_no
+            // 
+            this.serial_no.DataPropertyName = "serial_no";
+            this.serial_no.HeaderText = "Serial No.";
+            this.serial_no.Name = "serial_no";
+            this.serial_no.Width = 90;
+            // 
+            // division
+            // 
+            this.division.DataPropertyName = "division";
+            this.division.HeaderText = "Division";
+            this.division.Name = "division";
+            // 
+            // handing_office
+            // 
+            this.handing_office.DataPropertyName = "handing_office";
+            this.handing_office.HeaderText = "Handing Office";
+            this.handing_office.Name = "handing_office";
+            this.handing_office.Width = 110;
+            // 
+            // season
+            // 
+            this.season.DataPropertyName = "season";
+            this.season.HeaderText = "Season";
+            this.season.Name = "season";
+            this.season.Width = 60;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle1;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            // 
+            // requests_by
+            // 
+            this.requests_by.DataPropertyName = "requests_by";
+            this.requests_by.HeaderText = "Requests by";
+            this.requests_by.Name = "requests_by";
+            this.requests_by.Width = 90;
+            // 
+            // plm_material_code
+            // 
+            this.plm_material_code.DataPropertyName = "plm_material_code";
+            this.plm_material_code.HeaderText = "Plm Material Code";
+            this.plm_material_code.Name = "plm_material_code";
+            // 
+            // supplier_ref_no
+            // 
+            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
+            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
+            this.supplier_ref_no.Name = "supplier_ref_no";
+            // 
+            // pvh_submit_ref
+            // 
+            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
+            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
+            this.pvh_submit_ref.Name = "pvh_submit_ref";
+            // 
+            // supplier_name
+            // 
+            this.supplier_name.DataPropertyName = "supplier_name";
+            this.supplier_name.HeaderText = "Supplier Name";
+            this.supplier_name.Name = "supplier_name";
+            this.supplier_name.ReadOnly = true;
+            // 
+            // factory_name
+            // 
+            this.factory_name.DataPropertyName = "factory_name";
+            this.factory_name.HeaderText = "FactoryNname";
+            this.factory_name.Name = "factory_name";
+            this.factory_name.ReadOnly = true;
+            // 
+            // material_subtype
+            // 
+            this.material_subtype.DataPropertyName = "material_subtype";
+            this.material_subtype.HeaderText = "Material Subtype";
+            this.material_subtype.Name = "material_subtype";
+            this.material_subtype.ReadOnly = true;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            // 
+            // colour
+            // 
+            this.colour.DataPropertyName = "colour";
+            this.colour.HeaderText = "Colour";
+            this.colour.Name = "colour";
+            this.colour.Visible = false;
+            this.colour.Width = 120;
+            // 
+            // finish
+            // 
+            this.finish.DataPropertyName = "finish";
+            this.finish.HeaderText = "Finish";
+            this.finish.Name = "finish";
+            this.finish.ReadOnly = true;
+            // 
+            // process
+            // 
+            this.process.DataPropertyName = "process";
+            this.process.HeaderText = "Process";
+            this.process.Name = "process";
+            this.process.ReadOnly = true;
+            // 
+            // previous_submit_ref
+            // 
+            this.previous_submit_ref.DataPropertyName = "previous_submit_ref";
+            this.previous_submit_ref.HeaderText = "Previous Submit Ref";
+            this.previous_submit_ref.Name = "previous_submit_ref";
+            this.previous_submit_ref.ReadOnly = true;
+            // 
+            // sample_type
+            // 
+            this.sample_type.DataPropertyName = "sample_type";
+            this.sample_type.HeaderText = "Sample Type";
+            this.sample_type.Name = "sample_type";
+            this.sample_type.ReadOnly = true;
+            // 
+            // previous_submit_vr
+            // 
+            this.previous_submit_vr.DataPropertyName = "previous_submit_vr";
+            this.previous_submit_vr.HeaderText = "Previous Submit VR";
+            this.previous_submit_vr.Name = "previous_submit_vr";
+            this.previous_submit_vr.ReadOnly = true;
+            // 
+            // weight
+            // 
+            this.weight.DataPropertyName = "weight";
+            this.weight.HeaderText = "Weight";
+            this.weight.Name = "weight";
+            this.weight.ReadOnly = true;
+            // 
+            // weight_uom
+            // 
+            this.weight_uom.DataPropertyName = "weight_uom";
+            this.weight_uom.HeaderText = "Weight Uom";
+            this.weight_uom.Name = "weight_uom";
+            this.weight_uom.ReadOnly = true;
+            // 
+            // obj_fbx
+            // 
+            this.obj_fbx.DataPropertyName = "obj_fbx";
+            this.obj_fbx.HeaderText = "obj_fbx";
+            this.obj_fbx.Name = "obj_fbx";
+            this.obj_fbx.ReadOnly = true;
+            // 
+            // raw_mat1_compostion
+            // 
+            this.raw_mat1_compostion.DataPropertyName = "raw_mat1_compostion";
+            this.raw_mat1_compostion.HeaderText = "raw_mat1_compostion";
+            this.raw_mat1_compostion.Name = "raw_mat1_compostion";
+            this.raw_mat1_compostion.ReadOnly = true;
+            // 
+            // raw_mat1_percent
+            // 
+            this.raw_mat1_percent.DataPropertyName = "raw_mat1_percent";
+            this.raw_mat1_percent.HeaderText = "raw_mat1_percent";
+            this.raw_mat1_percent.Name = "raw_mat1_percent";
+            this.raw_mat1_percent.ReadOnly = true;
+            // 
+            // raw_mat1_l3
+            // 
+            this.raw_mat1_l3.DataPropertyName = "raw_mat1_l3";
+            this.raw_mat1_l3.HeaderText = "raw_mat1_l3";
+            this.raw_mat1_l3.Name = "raw_mat1_l3";
+            this.raw_mat1_l3.ReadOnly = true;
+            // 
+            // raw_mat1_l4
+            // 
+            this.raw_mat1_l4.DataPropertyName = "raw_mat1_l4";
+            this.raw_mat1_l4.HeaderText = "raw_mat1_l4";
+            this.raw_mat1_l4.Name = "raw_mat1_l4";
+            this.raw_mat1_l4.ReadOnly = true;
+            // 
+            // raw_mat1_l5
+            // 
+            this.raw_mat1_l5.DataPropertyName = "raw_mat1_l5";
+            this.raw_mat1_l5.HeaderText = "raw_mat1_l5";
+            this.raw_mat1_l5.Name = "raw_mat1_l5";
+            this.raw_mat1_l5.ReadOnly = true;
+            // 
+            // raw_mat2_compostion
+            // 
+            this.raw_mat2_compostion.DataPropertyName = "raw_mat2_compostion";
+            this.raw_mat2_compostion.HeaderText = "raw_mat2_compostion";
+            this.raw_mat2_compostion.Name = "raw_mat2_compostion";
+            this.raw_mat2_compostion.ReadOnly = true;
+            // 
+            // raw_mat2_percent
+            // 
+            this.raw_mat2_percent.DataPropertyName = "raw_mat2_percent";
+            this.raw_mat2_percent.HeaderText = "raw_mat2_percent";
+            this.raw_mat2_percent.Name = "raw_mat2_percent";
+            this.raw_mat2_percent.ReadOnly = true;
+            // 
+            // raw_mat2_l3
+            // 
+            this.raw_mat2_l3.DataPropertyName = "raw_mat2_l3";
+            this.raw_mat2_l3.HeaderText = "raw_mat2_l3";
+            this.raw_mat2_l3.Name = "raw_mat2_l3";
+            this.raw_mat2_l3.ReadOnly = true;
+            // 
+            // raw_mat2_l4
+            // 
+            this.raw_mat2_l4.DataPropertyName = "raw_mat2_l4";
+            this.raw_mat2_l4.HeaderText = "raw_mat2_l4";
+            this.raw_mat2_l4.Name = "raw_mat2_l4";
+            this.raw_mat2_l4.ReadOnly = true;
+            // 
+            // raw_mat2_l5
+            // 
+            this.raw_mat2_l5.DataPropertyName = "raw_mat2_l5";
+            this.raw_mat2_l5.HeaderText = "raw_mat2_l5";
+            this.raw_mat2_l5.Name = "raw_mat2_l5";
+            this.raw_mat2_l5.ReadOnly = true;
+            // 
+            // raw_mat3_compostion
+            // 
+            this.raw_mat3_compostion.DataPropertyName = "raw_mat3_compostion";
+            this.raw_mat3_compostion.HeaderText = "raw_mat3_compostion";
+            this.raw_mat3_compostion.Name = "raw_mat3_compostion";
+            this.raw_mat3_compostion.ReadOnly = true;
+            // 
+            // raw_mat3_percent
+            // 
+            this.raw_mat3_percent.DataPropertyName = "raw_mat3_percent";
+            this.raw_mat3_percent.HeaderText = "raw_mat3_percent";
+            this.raw_mat3_percent.Name = "raw_mat3_percent";
+            this.raw_mat3_percent.ReadOnly = true;
+            // 
+            // raw_mat3_l3
+            // 
+            this.raw_mat3_l3.DataPropertyName = "raw_mat3_l3";
+            this.raw_mat3_l3.HeaderText = "raw_mat3_l3";
+            this.raw_mat3_l3.Name = "raw_mat3_l3";
+            this.raw_mat3_l3.ReadOnly = true;
+            // 
+            // raw_mat3_l4
+            // 
+            this.raw_mat3_l4.DataPropertyName = "raw_mat3_l4";
+            this.raw_mat3_l4.HeaderText = "raw_mat3_l4";
+            this.raw_mat3_l4.Name = "raw_mat3_l4";
+            this.raw_mat3_l4.ReadOnly = true;
+            // 
+            // raw_mat3_l5
+            // 
+            this.raw_mat3_l5.DataPropertyName = "raw_mat3_l5";
+            this.raw_mat3_l5.HeaderText = "raw_mat3_l5";
+            this.raw_mat3_l5.Name = "raw_mat3_l5";
+            this.raw_mat3_l5.ReadOnly = true;
+            // 
+            // raw_mat4_compostion
+            // 
+            this.raw_mat4_compostion.DataPropertyName = "raw_mat4_compostion";
+            this.raw_mat4_compostion.HeaderText = "raw_mat4_compostion";
+            this.raw_mat4_compostion.Name = "raw_mat4_compostion";
+            this.raw_mat4_compostion.ReadOnly = true;
+            // 
+            // raw_mat4_percent
+            // 
+            this.raw_mat4_percent.DataPropertyName = "raw_mat4_percent";
+            this.raw_mat4_percent.HeaderText = "raw_mat4_percent";
+            this.raw_mat4_percent.Name = "raw_mat4_percent";
+            this.raw_mat4_percent.ReadOnly = true;
+            // 
+            // raw_mat4_l3
+            // 
+            this.raw_mat4_l3.DataPropertyName = "raw_mat4_l3";
+            this.raw_mat4_l3.HeaderText = "raw_mat4_l3";
+            this.raw_mat4_l3.Name = "raw_mat4_l3";
+            this.raw_mat4_l3.ReadOnly = true;
+            // 
+            // raw_mat4_l4
+            // 
+            this.raw_mat4_l4.DataPropertyName = "raw_mat4_l4";
+            this.raw_mat4_l4.HeaderText = "raw_mat4_l4";
+            this.raw_mat4_l4.Name = "raw_mat4_l4";
+            this.raw_mat4_l4.ReadOnly = true;
+            // 
+            // raw_mat4_l5
+            // 
+            this.raw_mat4_l5.DataPropertyName = "raw_mat4_l5";
+            this.raw_mat4_l5.HeaderText = "raw_mat4_l5";
+            this.raw_mat4_l5.Name = "raw_mat4_l5";
+            this.raw_mat4_l5.ReadOnly = true;
+            // 
+            // raw_mat5_compostion
+            // 
+            this.raw_mat5_compostion.DataPropertyName = "raw_mat5_compostion";
+            this.raw_mat5_compostion.HeaderText = "raw_mat5_compostion";
+            this.raw_mat5_compostion.Name = "raw_mat5_compostion";
+            this.raw_mat5_compostion.ReadOnly = true;
+            // 
+            // raw_mat5_percent
+            // 
+            this.raw_mat5_percent.DataPropertyName = "raw_mat5_percent";
+            this.raw_mat5_percent.HeaderText = "raw_mat5_percent";
+            this.raw_mat5_percent.Name = "raw_mat5_percent";
+            this.raw_mat5_percent.ReadOnly = true;
+            // 
+            // raw_mat5_l3
+            // 
+            this.raw_mat5_l3.DataPropertyName = "raw_mat5_l3";
+            this.raw_mat5_l3.HeaderText = "raw_mat5_l3";
+            this.raw_mat5_l3.Name = "raw_mat5_l3";
+            this.raw_mat5_l3.ReadOnly = true;
+            // 
+            // raw_mat5_l4
+            // 
+            this.raw_mat5_l4.DataPropertyName = "raw_mat5_l4";
+            this.raw_mat5_l4.HeaderText = "raw_mat5_l4";
+            this.raw_mat5_l4.Name = "raw_mat5_l4";
+            this.raw_mat5_l4.ReadOnly = true;
+            // 
+            // raw_mat5_l5
+            // 
+            this.raw_mat5_l5.DataPropertyName = "raw_mat5_l5";
+            this.raw_mat5_l5.HeaderText = "raw_mat5_l5";
+            this.raw_mat5_l5.Name = "raw_mat5_l5";
+            this.raw_mat5_l5.ReadOnly = true;
+            // 
+            // currency
+            // 
+            this.currency.DataPropertyName = "currency";
+            this.currency.HeaderText = "currency";
+            this.currency.Name = "currency";
+            this.currency.ReadOnly = true;
+            // 
+            // price1
+            // 
+            this.price1.DataPropertyName = "price1";
+            this.price1.HeaderText = "price1";
+            this.price1.Name = "price1";
+            this.price1.ReadOnly = true;
+            // 
+            // price1_unit
+            // 
+            this.price1_unit.DataPropertyName = "price1_unit";
+            this.price1_unit.HeaderText = "price1_unit";
+            this.price1_unit.Name = "price1_unit";
+            this.price1_unit.ReadOnly = true;
+            // 
+            // price2
+            // 
+            this.price2.DataPropertyName = "price2";
+            this.price2.HeaderText = "price2";
+            this.price2.Name = "price2";
+            this.price2.ReadOnly = true;
+            // 
+            // price2_unit
+            // 
+            this.price2_unit.DataPropertyName = "price2_unit";
+            this.price2_unit.HeaderText = "price2_unit";
+            this.price2_unit.Name = "price2_unit";
+            this.price2_unit.ReadOnly = true;
+            // 
+            // price3
+            // 
+            this.price3.DataPropertyName = "price3";
+            this.price3.HeaderText = "price3";
+            this.price3.Name = "price3";
+            this.price3.ReadOnly = true;
+            // 
+            // price3_unit
+            // 
+            this.price3_unit.DataPropertyName = "price3_unit";
+            this.price3_unit.HeaderText = "price3_unit";
+            this.price3_unit.Name = "price3_unit";
+            this.price3_unit.ReadOnly = true;
+            // 
+            // price4
+            // 
+            this.price4.DataPropertyName = "price4";
+            this.price4.HeaderText = "price4";
+            this.price4.Name = "price4";
+            this.price4.ReadOnly = true;
+            // 
+            // price4_unit
+            // 
+            this.price4_unit.DataPropertyName = "price4_unit";
+            this.price4_unit.HeaderText = "price4_unit";
+            this.price4_unit.Name = "price4_unit";
+            this.price4_unit.ReadOnly = true;
+            // 
+            // price5
+            // 
+            this.price5.DataPropertyName = "price5";
+            this.price5.HeaderText = "price5";
+            this.price5.Name = "price5";
+            this.price5.ReadOnly = true;
+            // 
+            // price5_unit
+            // 
+            this.price5_unit.DataPropertyName = "price5_unit";
+            this.price5_unit.HeaderText = "price5_unit";
+            this.price5_unit.Name = "price5_unit";
+            this.price5_unit.ReadOnly = true;
+            // 
+            // price6
+            // 
+            this.price6.DataPropertyName = "price6";
+            this.price6.HeaderText = "price6";
+            this.price6.Name = "price6";
+            this.price6.ReadOnly = true;
+            // 
+            // price6_unit
+            // 
+            this.price6_unit.DataPropertyName = "price6_unit";
+            this.price6_unit.HeaderText = "price6_unit";
+            this.price6_unit.Name = "price6_unit";
+            this.price6_unit.ReadOnly = true;
+            // 
+            // surcharge
+            // 
+            this.surcharge.DataPropertyName = "surcharge";
+            this.surcharge.HeaderText = "surcharge";
+            this.surcharge.Name = "surcharge";
+            this.surcharge.ReadOnly = true;
+            // 
+            // bulk_moq
+            // 
+            this.bulk_moq.DataPropertyName = "bulk_moq";
+            this.bulk_moq.HeaderText = "bulk_moq";
+            this.bulk_moq.Name = "bulk_moq";
+            this.bulk_moq.ReadOnly = true;
+            // 
+            // moq_color
+            // 
+            this.moq_color.DataPropertyName = "moq_color";
+            this.moq_color.HeaderText = "moq_color";
+            this.moq_color.Name = "moq_color";
+            this.moq_color.ReadOnly = true;
+            // 
+            // leadtime_sample
+            // 
+            this.leadtime_sample.DataPropertyName = "leadtime_sample";
+            this.leadtime_sample.HeaderText = "leadtime_sample";
+            this.leadtime_sample.Name = "leadtime_sample";
+            this.leadtime_sample.ReadOnly = true;
+            // 
+            // leadtime_bulk
+            // 
+            this.leadtime_bulk.DataPropertyName = "leadtime_bulk";
+            this.leadtime_bulk.HeaderText = "leadtime_bulk";
+            this.leadtime_bulk.Name = "leadtime_bulk";
+            this.leadtime_bulk.ReadOnly = true;
+            // 
+            // cert1_mat_finish
+            // 
+            this.cert1_mat_finish.DataPropertyName = "cert1_mat_finish";
+            this.cert1_mat_finish.HeaderText = "cert1_mat_finish";
+            this.cert1_mat_finish.Name = "cert1_mat_finish";
+            this.cert1_mat_finish.ReadOnly = true;
+            // 
+            // cert1_type
+            // 
+            this.cert1_type.DataPropertyName = "cert1_type";
+            this.cert1_type.HeaderText = "cert1_type";
+            this.cert1_type.Name = "cert1_type";
+            this.cert1_type.ReadOnly = true;
+            // 
+            // cert1_type_other
+            // 
+            this.cert1_type_other.DataPropertyName = "cert1_type_other";
+            this.cert1_type_other.HeaderText = "cert1_type_other";
+            this.cert1_type_other.Name = "cert1_type_other";
+            this.cert1_type_other.ReadOnly = true;
+            // 
+            // cert1_scope_no
+            // 
+            this.cert1_scope_no.DataPropertyName = "cert1_scope_no";
+            this.cert1_scope_no.HeaderText = "cert1_scope_no";
+            this.cert1_scope_no.Name = "cert1_scope_no";
+            this.cert1_scope_no.ReadOnly = true;
+            // 
+            // cert1_expiry_date
+            // 
+            this.cert1_expiry_date.DataPropertyName = "cert1_expiry_date";
+            this.cert1_expiry_date.HeaderText = "cert1_expiry_date";
+            this.cert1_expiry_date.Name = "cert1_expiry_date";
+            this.cert1_expiry_date.ReadOnly = true;
+            // 
+            // cert1_scope_holder
+            // 
+            this.cert1_scope_holder.DataPropertyName = "cert1_scope_holder";
+            this.cert1_scope_holder.HeaderText = "cert1_scope_holder";
+            this.cert1_scope_holder.Name = "cert1_scope_holder";
+            this.cert1_scope_holder.ReadOnly = true;
+            // 
+            // cert2_mat_finish
+            // 
+            this.cert2_mat_finish.DataPropertyName = "cert2_mat_finish";
+            this.cert2_mat_finish.HeaderText = "cert2_mat_finish";
+            this.cert2_mat_finish.Name = "cert2_mat_finish";
+            this.cert2_mat_finish.ReadOnly = true;
+            // 
+            // cert2_type
+            // 
+            this.cert2_type.DataPropertyName = "cert2_type";
+            this.cert2_type.HeaderText = "cert2_type";
+            this.cert2_type.Name = "cert2_type";
+            this.cert2_type.ReadOnly = true;
+            // 
+            // cert2_type_other
+            // 
+            this.cert2_type_other.DataPropertyName = "cert2_type_other";
+            this.cert2_type_other.HeaderText = "cert2_type_other";
+            this.cert2_type_other.Name = "cert2_type_other";
+            this.cert2_type_other.ReadOnly = true;
+            // 
+            // cert2_scope_no
+            // 
+            this.cert2_scope_no.DataPropertyName = "cert2_scope_no";
+            this.cert2_scope_no.HeaderText = "cert2_scope_no";
+            this.cert2_scope_no.Name = "cert2_scope_no";
+            this.cert2_scope_no.ReadOnly = true;
+            // 
+            // cert2_expiry_date
+            // 
+            this.cert2_expiry_date.DataPropertyName = "cert2_expiry_date";
+            this.cert2_expiry_date.HeaderText = "cert2_expiry_date";
+            this.cert2_expiry_date.Name = "cert2_expiry_date";
+            this.cert2_expiry_date.ReadOnly = true;
+            // 
+            // cert2_scope_holder
+            // 
+            this.cert2_scope_holder.DataPropertyName = "cert2_scope_holder";
+            this.cert2_scope_holder.HeaderText = "cert2_scope_holder";
+            this.cert2_scope_holder.Name = "cert2_scope_holder";
+            this.cert2_scope_holder.ReadOnly = true;
+            // 
+            // cert3_mat_finish
+            // 
+            this.cert3_mat_finish.DataPropertyName = "cert3_mat_finish";
+            this.cert3_mat_finish.HeaderText = "cert3_mat_finish";
+            this.cert3_mat_finish.Name = "cert3_mat_finish";
+            this.cert3_mat_finish.ReadOnly = true;
+            // 
+            // cert3_type
+            // 
+            this.cert3_type.DataPropertyName = "cert3_type";
+            this.cert3_type.HeaderText = "cert3_type";
+            this.cert3_type.Name = "cert3_type";
+            this.cert3_type.ReadOnly = true;
+            // 
+            // cert3_type_other
+            // 
+            this.cert3_type_other.DataPropertyName = "cert3_type_other";
+            this.cert3_type_other.HeaderText = "cert3_type_other";
+            this.cert3_type_other.Name = "cert3_type_other";
+            this.cert3_type_other.ReadOnly = true;
+            // 
+            // cert3_scope_no
+            // 
+            this.cert3_scope_no.DataPropertyName = "cert3_scope_no";
+            this.cert3_scope_no.HeaderText = "cert3_scope_no";
+            this.cert3_scope_no.Name = "cert3_scope_no";
+            this.cert3_scope_no.ReadOnly = true;
+            // 
+            // cert3_expiry_date
+            // 
+            this.cert3_expiry_date.DataPropertyName = "cert3_expiry_date";
+            this.cert3_expiry_date.HeaderText = "cert3_expiry_date";
+            this.cert3_expiry_date.Name = "cert3_expiry_date";
+            this.cert3_expiry_date.ReadOnly = true;
+            // 
+            // cert3_scope_holder
+            // 
+            this.cert3_scope_holder.DataPropertyName = "cert3_scope_holder";
+            this.cert3_scope_holder.HeaderText = "cert3_scope_holder";
+            this.cert3_scope_holder.Name = "cert3_scope_holder";
+            this.cert3_scope_holder.ReadOnly = true;
+            // 
+            // cert4_mat_finish
+            // 
+            this.cert4_mat_finish.DataPropertyName = "cert4_mat_finish";
+            this.cert4_mat_finish.HeaderText = "cert4_mat_finish";
+            this.cert4_mat_finish.Name = "cert4_mat_finish";
+            this.cert4_mat_finish.ReadOnly = true;
+            // 
+            // cert4_type
+            // 
+            this.cert4_type.DataPropertyName = "cert4_type";
+            this.cert4_type.HeaderText = "cert4_type";
+            this.cert4_type.Name = "cert4_type";
+            this.cert4_type.ReadOnly = true;
+            // 
+            // cert4_type_other
+            // 
+            this.cert4_type_other.DataPropertyName = "cert4_type_other";
+            this.cert4_type_other.HeaderText = "cert4_type_other";
+            this.cert4_type_other.Name = "cert4_type_other";
+            this.cert4_type_other.ReadOnly = true;
+            // 
+            // cert4_scope_no
+            // 
+            this.cert4_scope_no.DataPropertyName = "cert4_scope_no";
+            this.cert4_scope_no.HeaderText = "cert4_scope_no";
+            this.cert4_scope_no.Name = "cert4_scope_no";
+            this.cert4_scope_no.ReadOnly = true;
+            // 
+            // cert4_expiry_date
+            // 
+            this.cert4_expiry_date.DataPropertyName = "cert4_expiry_date";
+            this.cert4_expiry_date.HeaderText = "cert4_expiry_date";
+            this.cert4_expiry_date.Name = "cert4_expiry_date";
+            this.cert4_expiry_date.ReadOnly = true;
+            // 
+            // cert4_scope_holder
+            // 
+            this.cert4_scope_holder.DataPropertyName = "cert4_scope_holder";
+            this.cert4_scope_holder.HeaderText = "cert4_scope_holder";
+            this.cert4_scope_holder.Name = "cert4_scope_holder";
+            this.cert4_scope_holder.ReadOnly = true;
+            // 
+            // rsl_certificate_type
+            // 
+            this.rsl_certificate_type.DataPropertyName = "rsl_certificate_type";
+            this.rsl_certificate_type.HeaderText = "rsl_certificate_type";
+            this.rsl_certificate_type.Name = "rsl_certificate_type";
+            this.rsl_certificate_type.ReadOnly = true;
+            // 
+            // rsl_certificate_expiry_date
+            // 
+            this.rsl_certificate_expiry_date.DataPropertyName = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.HeaderText = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.Name = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.ReadOnly = true;
+            // 
+            // machine_washable
+            // 
+            this.machine_washable.DataPropertyName = "machine_washable";
+            this.machine_washable.HeaderText = "machine_washable";
+            this.machine_washable.Name = "machine_washable";
+            this.machine_washable.ReadOnly = true;
+            // 
+            // dry_cleanable
+            // 
+            this.dry_cleanable.DataPropertyName = "dry_cleanable";
+            this.dry_cleanable.HeaderText = "dry_cleanable";
+            this.dry_cleanable.Name = "dry_cleanable";
+            this.dry_cleanable.ReadOnly = true;
+            // 
+            // dry_clean_only
+            // 
+            this.dry_clean_only.DataPropertyName = "dry_clean_only";
+            this.dry_clean_only.HeaderText = "dry_clean_only";
+            this.dry_clean_only.Name = "dry_clean_only";
+            this.dry_clean_only.ReadOnly = true;
+            // 
+            // do_not_dry_clean
+            // 
+            this.do_not_dry_clean.DataPropertyName = "do_not_dry_clean";
+            this.do_not_dry_clean.HeaderText = "do_not_dry_clean";
+            this.do_not_dry_clean.Name = "do_not_dry_clean";
+            this.do_not_dry_clean.ReadOnly = true;
+            // 
+            // suitable_for_tumble_dry
+            // 
+            this.suitable_for_tumble_dry.DataPropertyName = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.HeaderText = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.Name = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.ReadOnly = true;
+            // 
+            // suitable_for_swimwear
+            // 
+            this.suitable_for_swimwear.DataPropertyName = "suitable_for_swimwear";
+            this.suitable_for_swimwear.HeaderText = "suitable_for_swimwear";
+            this.suitable_for_swimwear.Name = "suitable_for_swimwear";
+            this.suitable_for_swimwear.ReadOnly = true;
+            // 
+            // passes_metal_detection
+            // 
+            this.passes_metal_detection.DataPropertyName = "passes_metal_detection";
+            this.passes_metal_detection.HeaderText = "passes_metal_detection";
+            this.passes_metal_detection.Name = "passes_metal_detection";
+            this.passes_metal_detection.ReadOnly = true;
+            // 
+            // complies_with_pvh
+            // 
+            this.complies_with_pvh.DataPropertyName = "complies_with_pvh";
+            this.complies_with_pvh.HeaderText = "complies_with_pvh";
+            this.complies_with_pvh.Name = "complies_with_pvh";
+            this.complies_with_pvh.ReadOnly = true;
+            // 
+            // complies_with_cfr
+            // 
+            this.complies_with_cfr.DataPropertyName = "complies_with_cfr";
+            this.complies_with_cfr.HeaderText = "complies_with_cfr";
+            this.complies_with_cfr.Name = "complies_with_cfr";
+            this.complies_with_cfr.ReadOnly = true;
+            // 
+            // quality_callouts
+            // 
+            this.quality_callouts.DataPropertyName = "quality_callouts";
+            this.quality_callouts.HeaderText = "quality_callouts";
+            this.quality_callouts.Name = "quality_callouts";
+            this.quality_callouts.ReadOnly = true;
+            // 
             // submit1
             // 
             this.submit1.DataPropertyName = "submit1";
@@ -980,6 +1685,87 @@
             this.urgent_bulk_order.Name = "urgent_bulk_order";
             this.urgent_bulk_order.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.urgent_bulk_order.TrueValue = "True";
+            // 
+            // for_bulk_feference
+            // 
+            this.for_bulk_feference.DataPropertyName = "for_bulk_feference";
+            this.for_bulk_feference.HeaderText = "for_bulk_feference";
+            this.for_bulk_feference.Name = "for_bulk_feference";
+            this.for_bulk_feference.ReadOnly = true;
+            // 
+            // for_quality_approval
+            // 
+            this.for_quality_approval.DataPropertyName = "for_quality_approval";
+            this.for_quality_approval.HeaderText = "for_quality_approval";
+            this.for_quality_approval.Name = "for_quality_approval";
+            this.for_quality_approval.ReadOnly = true;
+            // 
+            // color_already_approved
+            // 
+            this.color_already_approved.DataPropertyName = "color_already_approved";
+            this.color_already_approved.HeaderText = "color_already_approved";
+            this.color_already_approved.Name = "color_already_approved";
+            this.color_already_approved.ReadOnly = true;
+            // 
+            // size_already_approved
+            // 
+            this.size_already_approved.DataPropertyName = "size_already_approved";
+            this.size_already_approved.HeaderText = "size_already_approved";
+            this.size_already_approved.Name = "size_already_approved";
+            this.size_already_approved.ReadOnly = true;
+            // 
+            // create_by
+            // 
+            this.create_by.DataPropertyName = "create_by";
+            this.create_by.HeaderText = "create_by";
+            this.create_by.Name = "create_by";
+            this.create_by.ReadOnly = true;
+            this.create_by.Visible = false;
+            // 
+            // create_date
+            // 
+            this.create_date.DataPropertyName = "create_date";
+            this.create_date.HeaderText = "create_date";
+            this.create_date.Name = "create_date";
+            this.create_date.ReadOnly = true;
+            this.create_date.Visible = false;
+            // 
+            // update_by
+            // 
+            this.update_by.DataPropertyName = "update_by";
+            this.update_by.HeaderText = "update_by";
+            this.update_by.Name = "update_by";
+            this.update_by.ReadOnly = true;
+            this.update_by.Visible = false;
+            // 
+            // update_date
+            // 
+            this.update_date.DataPropertyName = "update_date";
+            this.update_date.HeaderText = "update_date";
+            this.update_date.Name = "update_date";
+            this.update_date.ReadOnly = true;
+            this.update_date.Visible = false;
+            // 
+            // mo_id1
+            // 
+            this.mo_id1.DataPropertyName = "mo_id1";
+            this.mo_id1.HeaderText = "MO1";
+            this.mo_id1.Name = "mo_id1";
+            this.mo_id1.ReadOnly = true;
+            // 
+            // mo_id2
+            // 
+            this.mo_id2.DataPropertyName = "mo_id2";
+            this.mo_id2.HeaderText = "MO2";
+            this.mo_id2.Name = "mo_id2";
+            this.mo_id2.ReadOnly = true;
+            // 
+            // mo_id3
+            // 
+            this.mo_id3.DataPropertyName = "mo_id3";
+            this.mo_id3.HeaderText = "MO3";
+            this.mo_id3.Name = "mo_id3";
+            this.mo_id3.ReadOnly = true;
             // 
             // panel1
             // 
@@ -1301,6 +2087,8 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.txtWeight_uom);
+            this.panel8.Controls.Add(this.luePrevious_submit_vr);
             this.panel8.Controls.Add(this.lueProcess);
             this.panel8.Controls.Add(this.lueFinish);
             this.panel8.Controls.Add(this.lueRaw_mat5_l5);
@@ -1343,14 +2131,11 @@
             this.panel8.Controls.Add(this.label32);
             this.panel8.Controls.Add(this.label65);
             this.panel8.Controls.Add(this.lueObj_fbx);
-            this.panel8.Controls.Add(this.txtWeight_uom);
-            this.panel8.Controls.Add(this.label64);
             this.panel8.Controls.Add(this.label63);
             this.panel8.Controls.Add(this.lueSample_type);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Controls.Add(this.txtPrevious_submit_ref);
             this.panel8.Controls.Add(this.lueMaterial_subtype);
-            this.panel8.Controls.Add(this.txtPrevious_submit_vr);
             this.panel8.Controls.Add(this.label59);
             this.panel8.Controls.Add(this.label56);
             this.panel8.Controls.Add(this.label51);
@@ -1365,6 +2150,7 @@
             this.panel8.Controls.Add(this.label6);
             this.panel8.Controls.Add(this.txtSize);
             this.panel8.Controls.Add(this.txtColour);
+            this.panel8.Controls.Add(this.label64);
             this.panel8.Location = new System.Drawing.Point(2, 49);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(995, 193);
@@ -2038,7 +2824,7 @@
             // label66
             // 
             this.label66.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label66.Location = new System.Drawing.Point(701, 67);
+            this.label66.Location = new System.Drawing.Point(707, 67);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(122, 19);
             this.label66.TabIndex = 137;
@@ -2049,7 +2835,7 @@
             // 
             this.lueU3ma.Enabled = false;
             this.lueU3ma.EnterMoveNextControl = true;
-            this.lueU3ma.Location = new System.Drawing.Point(829, 66);
+            this.lueU3ma.Location = new System.Drawing.Point(835, 66);
             this.lueU3ma.Name = "lueU3ma";
             this.lueU3ma.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueU3ma.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2061,7 +2847,7 @@
             this.lueU3ma.Properties.ShowHeader = false;
             this.lueU3ma.Properties.Tag = "2";
             this.lueU3ma.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueU3ma.Size = new System.Drawing.Size(156, 20);
+            this.lueU3ma.Size = new System.Drawing.Size(150, 20);
             this.lueU3ma.TabIndex = 13;
             this.lueU3ma.Tag = "2";
             // 
@@ -2105,23 +2891,10 @@
             this.lueObj_fbx.TabIndex = 12;
             this.lueObj_fbx.Tag = "2";
             // 
-            // txtWeight_uom
-            // 
-            this.txtWeight_uom.EnterMoveNextControl = true;
-            this.txtWeight_uom.Location = new System.Drawing.Point(829, 45);
-            this.txtWeight_uom.Name = "txtWeight_uom";
-            this.txtWeight_uom.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtWeight_uom.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtWeight_uom.Properties.MaxLength = 100;
-            this.txtWeight_uom.Properties.ReadOnly = true;
-            this.txtWeight_uom.Size = new System.Drawing.Size(157, 20);
-            this.txtWeight_uom.TabIndex = 11;
-            this.txtWeight_uom.Tag = "2";
-            // 
             // label64
             // 
             this.label64.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label64.Location = new System.Drawing.Point(699, 46);
+            this.label64.Location = new System.Drawing.Point(697, 46);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(143, 16);
             this.label64.TabIndex = 132;
@@ -2203,23 +2976,10 @@
             this.lueMaterial_subtype.TabIndex = 2;
             this.lueMaterial_subtype.Tag = "2";
             // 
-            // txtPrevious_submit_vr
-            // 
-            this.txtPrevious_submit_vr.EnterMoveNextControl = true;
-            this.txtPrevious_submit_vr.Location = new System.Drawing.Point(829, 24);
-            this.txtPrevious_submit_vr.Name = "txtPrevious_submit_vr";
-            this.txtPrevious_submit_vr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtPrevious_submit_vr.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtPrevious_submit_vr.Properties.MaxLength = 50;
-            this.txtPrevious_submit_vr.Properties.ReadOnly = true;
-            this.txtPrevious_submit_vr.Size = new System.Drawing.Size(157, 20);
-            this.txtPrevious_submit_vr.TabIndex = 9;
-            this.txtPrevious_submit_vr.Tag = "2";
-            // 
             // label59
             // 
             this.label59.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label59.Location = new System.Drawing.Point(701, 25);
+            this.label59.Location = new System.Drawing.Point(702, 25);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(127, 15);
             this.label59.TabIndex = 126;
@@ -3143,6 +3903,20 @@
             this.panel5.Size = new System.Drawing.Size(995, 151);
             this.panel5.TabIndex = 77;
             // 
+            // txtQuality_callouts
+            // 
+            this.txtQuality_callouts.EditValue = "";
+            this.txtQuality_callouts.EnterMoveNextControl = true;
+            this.txtQuality_callouts.Location = new System.Drawing.Point(103, 109);
+            this.txtQuality_callouts.Name = "txtQuality_callouts";
+            this.txtQuality_callouts.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuality_callouts.Properties.Appearance.Options.UseFont = true;
+            this.txtQuality_callouts.Properties.MaxLength = 600;
+            this.txtQuality_callouts.Properties.ReadOnly = true;
+            this.txtQuality_callouts.Size = new System.Drawing.Size(792, 38);
+            this.txtQuality_callouts.TabIndex = 209;
+            this.txtQuality_callouts.Tag = "2";
+            // 
             // dtRsl_certificate_expiry_date
             // 
             this.dtRsl_certificate_expiry_date.EditValue = "";
@@ -3609,6 +4383,30 @@
             this.label31.TabIndex = 66;
             this.label31.Text = "RSL Compliance Certification ";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lueCheck
+            // 
+            this.lueCheck.EditValue = "";
+            this.lueCheck.Enabled = false;
+            this.lueCheck.EnterMoveNextControl = true;
+            this.lueCheck.Location = new System.Drawing.Point(898, 111);
+            this.lueCheck.Name = "lueCheck";
+            this.lueCheck.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lueCheck.Properties.Appearance.Options.UseForeColor = true;
+            this.lueCheck.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueCheck.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lueCheck.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", 40, "Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 50, "id")});
+            this.lueCheck.Properties.NullText = "";
+            this.lueCheck.Properties.PopupSizeable = false;
+            this.lueCheck.Properties.PopupWidth = 90;
+            this.lueCheck.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueCheck.Size = new System.Drawing.Size(90, 20);
+            this.lueCheck.TabIndex = 210;
+            this.lueCheck.Tag = "2";
+            this.lueCheck.EditValueChanged += new System.EventHandler(this.lueCheck_EditValueChanged);
             // 
             // panel3
             // 
@@ -4380,6 +5178,13 @@
             this.dgvFind.TabIndex = 166;
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
             // 
+            // serialno
+            // 
+            this.serialno.DataPropertyName = "serial_no";
+            this.serialno.HeaderText = "Serial No.";
+            this.serialno.Name = "serialno";
+            this.serialno.ReadOnly = true;
+            // 
             // label36
             // 
             this.label36.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -4503,44 +5308,6 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "tb_query.png");
             // 
-            // txtQuality_callouts
-            // 
-            this.txtQuality_callouts.EditValue = "";
-            this.txtQuality_callouts.EnterMoveNextControl = true;
-            this.txtQuality_callouts.Location = new System.Drawing.Point(103, 109);
-            this.txtQuality_callouts.Name = "txtQuality_callouts";
-            this.txtQuality_callouts.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuality_callouts.Properties.Appearance.Options.UseFont = true;
-            this.txtQuality_callouts.Properties.MaxLength = 600;
-            this.txtQuality_callouts.Properties.ReadOnly = true;
-            this.txtQuality_callouts.Size = new System.Drawing.Size(792, 38);
-            this.txtQuality_callouts.TabIndex = 209;
-            this.txtQuality_callouts.Tag = "2";
-            // 
-            // lueCheck
-            // 
-            this.lueCheck.EditValue = "";
-            this.lueCheck.Enabled = false;
-            this.lueCheck.EnterMoveNextControl = true;
-            this.lueCheck.Location = new System.Drawing.Point(898, 111);
-            this.lueCheck.Name = "lueCheck";
-            this.lueCheck.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lueCheck.Properties.Appearance.Options.UseForeColor = true;
-            this.lueCheck.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueCheck.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.lueCheck.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", 40, "Name"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 50, "id")});
-            this.lueCheck.Properties.NullText = "";
-            this.lueCheck.Properties.PopupSizeable = false;
-            this.lueCheck.Properties.PopupWidth = 90;
-            this.lueCheck.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueCheck.Size = new System.Drawing.Size(90, 20);
-            this.lueCheck.TabIndex = 210;
-            this.lueCheck.Tag = "2";
-            this.lueCheck.EditValueChanged += new System.EventHandler(this.lueCheck_EditValueChanged);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -4560,9 +5327,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle17.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -4579,9 +5346,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle18.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -4708,8 +5475,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle19.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -5370,798 +6137,42 @@
             this.dataGridViewTextBoxColumn113.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             // 
-            // serial_no
-            // 
-            this.serial_no.DataPropertyName = "serial_no";
-            this.serial_no.HeaderText = "Serial No.";
-            this.serial_no.Name = "serial_no";
-            this.serial_no.Width = 90;
-            // 
-            // division
-            // 
-            this.division.DataPropertyName = "division";
-            this.division.HeaderText = "Division";
-            this.division.Name = "division";
-            // 
-            // handing_office
-            // 
-            this.handing_office.DataPropertyName = "handing_office";
-            this.handing_office.HeaderText = "Handing Office";
-            this.handing_office.Name = "handing_office";
-            this.handing_office.Width = 110;
-            // 
-            // season
-            // 
-            this.season.DataPropertyName = "season";
-            this.season.HeaderText = "Season";
-            this.season.Name = "season";
-            this.season.Width = 60;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            dataGridViewCellStyle20.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle20.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle20;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            // 
-            // requests_by
-            // 
-            this.requests_by.DataPropertyName = "requests_by";
-            this.requests_by.HeaderText = "Requests by";
-            this.requests_by.Name = "requests_by";
-            this.requests_by.Width = 90;
-            // 
-            // plm_material_code
-            // 
-            this.plm_material_code.DataPropertyName = "plm_material_code";
-            this.plm_material_code.HeaderText = "Plm Material Code";
-            this.plm_material_code.Name = "plm_material_code";
-            // 
-            // supplier_ref_no
-            // 
-            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
-            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
-            this.supplier_ref_no.Name = "supplier_ref_no";
-            // 
-            // pvh_submit_ref
-            // 
-            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
-            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
-            this.pvh_submit_ref.Name = "pvh_submit_ref";
-            // 
-            // supplier_name
-            // 
-            this.supplier_name.DataPropertyName = "supplier_name";
-            this.supplier_name.HeaderText = "Supplier Name";
-            this.supplier_name.Name = "supplier_name";
-            this.supplier_name.ReadOnly = true;
-            // 
-            // factory_name
-            // 
-            this.factory_name.DataPropertyName = "factory_name";
-            this.factory_name.HeaderText = "FactoryNname";
-            this.factory_name.Name = "factory_name";
-            this.factory_name.ReadOnly = true;
-            // 
-            // material_subtype
-            // 
-            this.material_subtype.DataPropertyName = "material_subtype";
-            this.material_subtype.HeaderText = "Material Subtype";
-            this.material_subtype.Name = "material_subtype";
-            this.material_subtype.ReadOnly = true;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "Size";
-            this.size.Name = "size";
-            // 
-            // colour
-            // 
-            this.colour.DataPropertyName = "colour";
-            this.colour.HeaderText = "Colour";
-            this.colour.Name = "colour";
-            this.colour.Visible = false;
-            this.colour.Width = 120;
-            // 
-            // finish
-            // 
-            this.finish.DataPropertyName = "finish";
-            this.finish.HeaderText = "Finish";
-            this.finish.Name = "finish";
-            this.finish.ReadOnly = true;
-            // 
-            // process
-            // 
-            this.process.DataPropertyName = "process";
-            this.process.HeaderText = "Process";
-            this.process.Name = "process";
-            this.process.ReadOnly = true;
-            // 
-            // previous_submit_ref
-            // 
-            this.previous_submit_ref.DataPropertyName = "previous_submit_ref";
-            this.previous_submit_ref.HeaderText = "Previous Submit Ref";
-            this.previous_submit_ref.Name = "previous_submit_ref";
-            this.previous_submit_ref.ReadOnly = true;
-            // 
-            // sample_type
-            // 
-            this.sample_type.DataPropertyName = "sample_type";
-            this.sample_type.HeaderText = "Sample Type";
-            this.sample_type.Name = "sample_type";
-            this.sample_type.ReadOnly = true;
-            // 
-            // previous_submit_vr
-            // 
-            this.previous_submit_vr.DataPropertyName = "previous_submit_vr";
-            this.previous_submit_vr.HeaderText = "Previous Submit VR";
-            this.previous_submit_vr.Name = "previous_submit_vr";
-            this.previous_submit_vr.ReadOnly = true;
-            // 
-            // weight
-            // 
-            this.weight.DataPropertyName = "weight";
-            this.weight.HeaderText = "Weight";
-            this.weight.Name = "weight";
-            this.weight.ReadOnly = true;
-            // 
-            // weight_uom
-            // 
-            this.weight_uom.DataPropertyName = "weight_uom";
-            this.weight_uom.HeaderText = "Weight Uom";
-            this.weight_uom.Name = "weight_uom";
-            this.weight_uom.ReadOnly = true;
-            // 
-            // obj_fbx
-            // 
-            this.obj_fbx.DataPropertyName = "obj_fbx";
-            this.obj_fbx.HeaderText = "obj_fbx";
-            this.obj_fbx.Name = "obj_fbx";
-            this.obj_fbx.ReadOnly = true;
-            // 
-            // raw_mat1_compostion
-            // 
-            this.raw_mat1_compostion.DataPropertyName = "raw_mat1_compostion";
-            this.raw_mat1_compostion.HeaderText = "raw_mat1_compostion";
-            this.raw_mat1_compostion.Name = "raw_mat1_compostion";
-            this.raw_mat1_compostion.ReadOnly = true;
-            // 
-            // raw_mat1_percent
-            // 
-            this.raw_mat1_percent.DataPropertyName = "raw_mat1_percent";
-            this.raw_mat1_percent.HeaderText = "raw_mat1_percent";
-            this.raw_mat1_percent.Name = "raw_mat1_percent";
-            this.raw_mat1_percent.ReadOnly = true;
-            // 
-            // raw_mat1_l3
-            // 
-            this.raw_mat1_l3.DataPropertyName = "raw_mat1_l3";
-            this.raw_mat1_l3.HeaderText = "raw_mat1_l3";
-            this.raw_mat1_l3.Name = "raw_mat1_l3";
-            this.raw_mat1_l3.ReadOnly = true;
-            // 
-            // raw_mat1_l4
-            // 
-            this.raw_mat1_l4.DataPropertyName = "raw_mat1_l4";
-            this.raw_mat1_l4.HeaderText = "raw_mat1_l4";
-            this.raw_mat1_l4.Name = "raw_mat1_l4";
-            this.raw_mat1_l4.ReadOnly = true;
-            // 
-            // raw_mat1_l5
-            // 
-            this.raw_mat1_l5.DataPropertyName = "raw_mat1_l5";
-            this.raw_mat1_l5.HeaderText = "raw_mat1_l5";
-            this.raw_mat1_l5.Name = "raw_mat1_l5";
-            this.raw_mat1_l5.ReadOnly = true;
-            // 
-            // raw_mat2_compostion
-            // 
-            this.raw_mat2_compostion.DataPropertyName = "raw_mat2_compostion";
-            this.raw_mat2_compostion.HeaderText = "raw_mat2_compostion";
-            this.raw_mat2_compostion.Name = "raw_mat2_compostion";
-            this.raw_mat2_compostion.ReadOnly = true;
-            // 
-            // raw_mat2_percent
-            // 
-            this.raw_mat2_percent.DataPropertyName = "raw_mat2_percent";
-            this.raw_mat2_percent.HeaderText = "raw_mat2_percent";
-            this.raw_mat2_percent.Name = "raw_mat2_percent";
-            this.raw_mat2_percent.ReadOnly = true;
-            // 
-            // raw_mat2_l3
-            // 
-            this.raw_mat2_l3.DataPropertyName = "raw_mat2_l3";
-            this.raw_mat2_l3.HeaderText = "raw_mat2_l3";
-            this.raw_mat2_l3.Name = "raw_mat2_l3";
-            this.raw_mat2_l3.ReadOnly = true;
-            // 
-            // raw_mat2_l4
-            // 
-            this.raw_mat2_l4.DataPropertyName = "raw_mat2_l4";
-            this.raw_mat2_l4.HeaderText = "raw_mat2_l4";
-            this.raw_mat2_l4.Name = "raw_mat2_l4";
-            this.raw_mat2_l4.ReadOnly = true;
-            // 
-            // raw_mat2_l5
-            // 
-            this.raw_mat2_l5.DataPropertyName = "raw_mat2_l5";
-            this.raw_mat2_l5.HeaderText = "raw_mat2_l5";
-            this.raw_mat2_l5.Name = "raw_mat2_l5";
-            this.raw_mat2_l5.ReadOnly = true;
-            // 
-            // raw_mat3_compostion
-            // 
-            this.raw_mat3_compostion.DataPropertyName = "raw_mat3_compostion";
-            this.raw_mat3_compostion.HeaderText = "raw_mat3_compostion";
-            this.raw_mat3_compostion.Name = "raw_mat3_compostion";
-            this.raw_mat3_compostion.ReadOnly = true;
-            // 
-            // raw_mat3_percent
-            // 
-            this.raw_mat3_percent.DataPropertyName = "raw_mat3_percent";
-            this.raw_mat3_percent.HeaderText = "raw_mat3_percent";
-            this.raw_mat3_percent.Name = "raw_mat3_percent";
-            this.raw_mat3_percent.ReadOnly = true;
-            // 
-            // raw_mat3_l3
-            // 
-            this.raw_mat3_l3.DataPropertyName = "raw_mat3_l3";
-            this.raw_mat3_l3.HeaderText = "raw_mat3_l3";
-            this.raw_mat3_l3.Name = "raw_mat3_l3";
-            this.raw_mat3_l3.ReadOnly = true;
-            // 
-            // raw_mat3_l4
-            // 
-            this.raw_mat3_l4.DataPropertyName = "raw_mat3_l4";
-            this.raw_mat3_l4.HeaderText = "raw_mat3_l4";
-            this.raw_mat3_l4.Name = "raw_mat3_l4";
-            this.raw_mat3_l4.ReadOnly = true;
-            // 
-            // raw_mat3_l5
-            // 
-            this.raw_mat3_l5.DataPropertyName = "raw_mat3_l5";
-            this.raw_mat3_l5.HeaderText = "raw_mat3_l5";
-            this.raw_mat3_l5.Name = "raw_mat3_l5";
-            this.raw_mat3_l5.ReadOnly = true;
-            // 
-            // raw_mat4_compostion
-            // 
-            this.raw_mat4_compostion.DataPropertyName = "raw_mat4_compostion";
-            this.raw_mat4_compostion.HeaderText = "raw_mat4_compostion";
-            this.raw_mat4_compostion.Name = "raw_mat4_compostion";
-            this.raw_mat4_compostion.ReadOnly = true;
-            // 
-            // raw_mat4_percent
-            // 
-            this.raw_mat4_percent.DataPropertyName = "raw_mat4_percent";
-            this.raw_mat4_percent.HeaderText = "raw_mat4_percent";
-            this.raw_mat4_percent.Name = "raw_mat4_percent";
-            this.raw_mat4_percent.ReadOnly = true;
-            // 
-            // raw_mat4_l3
-            // 
-            this.raw_mat4_l3.DataPropertyName = "raw_mat4_l3";
-            this.raw_mat4_l3.HeaderText = "raw_mat4_l3";
-            this.raw_mat4_l3.Name = "raw_mat4_l3";
-            this.raw_mat4_l3.ReadOnly = true;
-            // 
-            // raw_mat4_l4
-            // 
-            this.raw_mat4_l4.DataPropertyName = "raw_mat4_l4";
-            this.raw_mat4_l4.HeaderText = "raw_mat4_l4";
-            this.raw_mat4_l4.Name = "raw_mat4_l4";
-            this.raw_mat4_l4.ReadOnly = true;
-            // 
-            // raw_mat4_l5
-            // 
-            this.raw_mat4_l5.DataPropertyName = "raw_mat4_l5";
-            this.raw_mat4_l5.HeaderText = "raw_mat4_l5";
-            this.raw_mat4_l5.Name = "raw_mat4_l5";
-            this.raw_mat4_l5.ReadOnly = true;
-            // 
-            // raw_mat5_compostion
-            // 
-            this.raw_mat5_compostion.DataPropertyName = "raw_mat5_compostion";
-            this.raw_mat5_compostion.HeaderText = "raw_mat5_compostion";
-            this.raw_mat5_compostion.Name = "raw_mat5_compostion";
-            this.raw_mat5_compostion.ReadOnly = true;
-            // 
-            // raw_mat5_percent
-            // 
-            this.raw_mat5_percent.DataPropertyName = "raw_mat5_percent";
-            this.raw_mat5_percent.HeaderText = "raw_mat5_percent";
-            this.raw_mat5_percent.Name = "raw_mat5_percent";
-            this.raw_mat5_percent.ReadOnly = true;
-            // 
-            // raw_mat5_l3
-            // 
-            this.raw_mat5_l3.DataPropertyName = "raw_mat5_l3";
-            this.raw_mat5_l3.HeaderText = "raw_mat5_l3";
-            this.raw_mat5_l3.Name = "raw_mat5_l3";
-            this.raw_mat5_l3.ReadOnly = true;
-            // 
-            // raw_mat5_l4
-            // 
-            this.raw_mat5_l4.DataPropertyName = "raw_mat5_l4";
-            this.raw_mat5_l4.HeaderText = "raw_mat5_l4";
-            this.raw_mat5_l4.Name = "raw_mat5_l4";
-            this.raw_mat5_l4.ReadOnly = true;
-            // 
-            // raw_mat5_l5
-            // 
-            this.raw_mat5_l5.DataPropertyName = "raw_mat5_l5";
-            this.raw_mat5_l5.HeaderText = "raw_mat5_l5";
-            this.raw_mat5_l5.Name = "raw_mat5_l5";
-            this.raw_mat5_l5.ReadOnly = true;
-            // 
-            // currency
-            // 
-            this.currency.DataPropertyName = "currency";
-            this.currency.HeaderText = "currency";
-            this.currency.Name = "currency";
-            this.currency.ReadOnly = true;
-            // 
-            // price1
-            // 
-            this.price1.DataPropertyName = "price1";
-            this.price1.HeaderText = "price1";
-            this.price1.Name = "price1";
-            this.price1.ReadOnly = true;
-            // 
-            // price1_unit
-            // 
-            this.price1_unit.DataPropertyName = "price1_unit";
-            this.price1_unit.HeaderText = "price1_unit";
-            this.price1_unit.Name = "price1_unit";
-            this.price1_unit.ReadOnly = true;
-            // 
-            // price2
-            // 
-            this.price2.DataPropertyName = "price2";
-            this.price2.HeaderText = "price2";
-            this.price2.Name = "price2";
-            this.price2.ReadOnly = true;
-            // 
-            // price2_unit
-            // 
-            this.price2_unit.DataPropertyName = "price2_unit";
-            this.price2_unit.HeaderText = "price2_unit";
-            this.price2_unit.Name = "price2_unit";
-            this.price2_unit.ReadOnly = true;
-            // 
-            // price3
-            // 
-            this.price3.DataPropertyName = "price3";
-            this.price3.HeaderText = "price3";
-            this.price3.Name = "price3";
-            this.price3.ReadOnly = true;
-            // 
-            // price3_unit
-            // 
-            this.price3_unit.DataPropertyName = "price3_unit";
-            this.price3_unit.HeaderText = "price3_unit";
-            this.price3_unit.Name = "price3_unit";
-            this.price3_unit.ReadOnly = true;
-            // 
-            // price4
-            // 
-            this.price4.DataPropertyName = "price4";
-            this.price4.HeaderText = "price4";
-            this.price4.Name = "price4";
-            this.price4.ReadOnly = true;
-            // 
-            // price4_unit
-            // 
-            this.price4_unit.DataPropertyName = "price4_unit";
-            this.price4_unit.HeaderText = "price4_unit";
-            this.price4_unit.Name = "price4_unit";
-            this.price4_unit.ReadOnly = true;
-            // 
-            // price5
-            // 
-            this.price5.DataPropertyName = "price5";
-            this.price5.HeaderText = "price5";
-            this.price5.Name = "price5";
-            this.price5.ReadOnly = true;
-            // 
-            // price5_unit
-            // 
-            this.price5_unit.DataPropertyName = "price5_unit";
-            this.price5_unit.HeaderText = "price5_unit";
-            this.price5_unit.Name = "price5_unit";
-            this.price5_unit.ReadOnly = true;
-            // 
-            // price6
-            // 
-            this.price6.DataPropertyName = "price6";
-            this.price6.HeaderText = "price6";
-            this.price6.Name = "price6";
-            this.price6.ReadOnly = true;
-            // 
-            // price6_unit
-            // 
-            this.price6_unit.DataPropertyName = "price6_unit";
-            this.price6_unit.HeaderText = "price6_unit";
-            this.price6_unit.Name = "price6_unit";
-            this.price6_unit.ReadOnly = true;
-            // 
-            // surcharge
-            // 
-            this.surcharge.DataPropertyName = "surcharge";
-            this.surcharge.HeaderText = "surcharge";
-            this.surcharge.Name = "surcharge";
-            this.surcharge.ReadOnly = true;
-            // 
-            // bulk_moq
-            // 
-            this.bulk_moq.DataPropertyName = "bulk_moq";
-            this.bulk_moq.HeaderText = "bulk_moq";
-            this.bulk_moq.Name = "bulk_moq";
-            this.bulk_moq.ReadOnly = true;
-            // 
-            // moq_color
-            // 
-            this.moq_color.DataPropertyName = "moq_color";
-            this.moq_color.HeaderText = "moq_color";
-            this.moq_color.Name = "moq_color";
-            this.moq_color.ReadOnly = true;
-            // 
-            // leadtime_sample
-            // 
-            this.leadtime_sample.DataPropertyName = "leadtime_sample";
-            this.leadtime_sample.HeaderText = "leadtime_sample";
-            this.leadtime_sample.Name = "leadtime_sample";
-            this.leadtime_sample.ReadOnly = true;
-            // 
-            // leadtime_bulk
-            // 
-            this.leadtime_bulk.DataPropertyName = "leadtime_bulk";
-            this.leadtime_bulk.HeaderText = "leadtime_bulk";
-            this.leadtime_bulk.Name = "leadtime_bulk";
-            this.leadtime_bulk.ReadOnly = true;
-            // 
-            // cert1_mat_finish
-            // 
-            this.cert1_mat_finish.DataPropertyName = "cert1_mat_finish";
-            this.cert1_mat_finish.HeaderText = "cert1_mat_finish";
-            this.cert1_mat_finish.Name = "cert1_mat_finish";
-            this.cert1_mat_finish.ReadOnly = true;
-            // 
-            // cert1_type
-            // 
-            this.cert1_type.DataPropertyName = "cert1_type";
-            this.cert1_type.HeaderText = "cert1_type";
-            this.cert1_type.Name = "cert1_type";
-            this.cert1_type.ReadOnly = true;
-            // 
-            // cert1_type_other
-            // 
-            this.cert1_type_other.DataPropertyName = "cert1_type_other";
-            this.cert1_type_other.HeaderText = "cert1_type_other";
-            this.cert1_type_other.Name = "cert1_type_other";
-            this.cert1_type_other.ReadOnly = true;
-            // 
-            // cert1_scope_no
-            // 
-            this.cert1_scope_no.DataPropertyName = "cert1_scope_no";
-            this.cert1_scope_no.HeaderText = "cert1_scope_no";
-            this.cert1_scope_no.Name = "cert1_scope_no";
-            this.cert1_scope_no.ReadOnly = true;
-            // 
-            // cert1_expiry_date
-            // 
-            this.cert1_expiry_date.DataPropertyName = "cert1_expiry_date";
-            this.cert1_expiry_date.HeaderText = "cert1_expiry_date";
-            this.cert1_expiry_date.Name = "cert1_expiry_date";
-            this.cert1_expiry_date.ReadOnly = true;
-            // 
-            // cert1_scope_holder
-            // 
-            this.cert1_scope_holder.DataPropertyName = "cert1_scope_holder";
-            this.cert1_scope_holder.HeaderText = "cert1_scope_holder";
-            this.cert1_scope_holder.Name = "cert1_scope_holder";
-            this.cert1_scope_holder.ReadOnly = true;
-            // 
-            // cert2_mat_finish
-            // 
-            this.cert2_mat_finish.DataPropertyName = "cert2_mat_finish";
-            this.cert2_mat_finish.HeaderText = "cert2_mat_finish";
-            this.cert2_mat_finish.Name = "cert2_mat_finish";
-            this.cert2_mat_finish.ReadOnly = true;
-            // 
-            // cert2_type
-            // 
-            this.cert2_type.DataPropertyName = "cert2_type";
-            this.cert2_type.HeaderText = "cert2_type";
-            this.cert2_type.Name = "cert2_type";
-            this.cert2_type.ReadOnly = true;
-            // 
-            // cert2_type_other
-            // 
-            this.cert2_type_other.DataPropertyName = "cert2_type_other";
-            this.cert2_type_other.HeaderText = "cert2_type_other";
-            this.cert2_type_other.Name = "cert2_type_other";
-            this.cert2_type_other.ReadOnly = true;
-            // 
-            // cert2_scope_no
-            // 
-            this.cert2_scope_no.DataPropertyName = "cert2_scope_no";
-            this.cert2_scope_no.HeaderText = "cert2_scope_no";
-            this.cert2_scope_no.Name = "cert2_scope_no";
-            this.cert2_scope_no.ReadOnly = true;
-            // 
-            // cert2_expiry_date
-            // 
-            this.cert2_expiry_date.DataPropertyName = "cert2_expiry_date";
-            this.cert2_expiry_date.HeaderText = "cert2_expiry_date";
-            this.cert2_expiry_date.Name = "cert2_expiry_date";
-            this.cert2_expiry_date.ReadOnly = true;
-            // 
-            // cert2_scope_holder
-            // 
-            this.cert2_scope_holder.DataPropertyName = "cert2_scope_holder";
-            this.cert2_scope_holder.HeaderText = "cert2_scope_holder";
-            this.cert2_scope_holder.Name = "cert2_scope_holder";
-            this.cert2_scope_holder.ReadOnly = true;
-            // 
-            // cert3_mat_finish
-            // 
-            this.cert3_mat_finish.DataPropertyName = "cert3_mat_finish";
-            this.cert3_mat_finish.HeaderText = "cert3_mat_finish";
-            this.cert3_mat_finish.Name = "cert3_mat_finish";
-            this.cert3_mat_finish.ReadOnly = true;
-            // 
-            // cert3_type
-            // 
-            this.cert3_type.DataPropertyName = "cert3_type";
-            this.cert3_type.HeaderText = "cert3_type";
-            this.cert3_type.Name = "cert3_type";
-            this.cert3_type.ReadOnly = true;
-            // 
-            // cert3_type_other
-            // 
-            this.cert3_type_other.DataPropertyName = "cert3_type_other";
-            this.cert3_type_other.HeaderText = "cert3_type_other";
-            this.cert3_type_other.Name = "cert3_type_other";
-            this.cert3_type_other.ReadOnly = true;
-            // 
-            // cert3_scope_no
-            // 
-            this.cert3_scope_no.DataPropertyName = "cert3_scope_no";
-            this.cert3_scope_no.HeaderText = "cert3_scope_no";
-            this.cert3_scope_no.Name = "cert3_scope_no";
-            this.cert3_scope_no.ReadOnly = true;
-            // 
-            // cert3_expiry_date
-            // 
-            this.cert3_expiry_date.DataPropertyName = "cert3_expiry_date";
-            this.cert3_expiry_date.HeaderText = "cert3_expiry_date";
-            this.cert3_expiry_date.Name = "cert3_expiry_date";
-            this.cert3_expiry_date.ReadOnly = true;
-            // 
-            // cert3_scope_holder
-            // 
-            this.cert3_scope_holder.DataPropertyName = "cert3_scope_holder";
-            this.cert3_scope_holder.HeaderText = "cert3_scope_holder";
-            this.cert3_scope_holder.Name = "cert3_scope_holder";
-            this.cert3_scope_holder.ReadOnly = true;
-            // 
-            // cert4_mat_finish
-            // 
-            this.cert4_mat_finish.DataPropertyName = "cert4_mat_finish";
-            this.cert4_mat_finish.HeaderText = "cert4_mat_finish";
-            this.cert4_mat_finish.Name = "cert4_mat_finish";
-            this.cert4_mat_finish.ReadOnly = true;
-            // 
-            // cert4_type
-            // 
-            this.cert4_type.DataPropertyName = "cert4_type";
-            this.cert4_type.HeaderText = "cert4_type";
-            this.cert4_type.Name = "cert4_type";
-            this.cert4_type.ReadOnly = true;
-            // 
-            // cert4_type_other
-            // 
-            this.cert4_type_other.DataPropertyName = "cert4_type_other";
-            this.cert4_type_other.HeaderText = "cert4_type_other";
-            this.cert4_type_other.Name = "cert4_type_other";
-            this.cert4_type_other.ReadOnly = true;
-            // 
-            // cert4_scope_no
-            // 
-            this.cert4_scope_no.DataPropertyName = "cert4_scope_no";
-            this.cert4_scope_no.HeaderText = "cert4_scope_no";
-            this.cert4_scope_no.Name = "cert4_scope_no";
-            this.cert4_scope_no.ReadOnly = true;
-            // 
-            // cert4_expiry_date
-            // 
-            this.cert4_expiry_date.DataPropertyName = "cert4_expiry_date";
-            this.cert4_expiry_date.HeaderText = "cert4_expiry_date";
-            this.cert4_expiry_date.Name = "cert4_expiry_date";
-            this.cert4_expiry_date.ReadOnly = true;
-            // 
-            // cert4_scope_holder
-            // 
-            this.cert4_scope_holder.DataPropertyName = "cert4_scope_holder";
-            this.cert4_scope_holder.HeaderText = "cert4_scope_holder";
-            this.cert4_scope_holder.Name = "cert4_scope_holder";
-            this.cert4_scope_holder.ReadOnly = true;
-            // 
-            // rsl_certificate_type
-            // 
-            this.rsl_certificate_type.DataPropertyName = "rsl_certificate_type";
-            this.rsl_certificate_type.HeaderText = "rsl_certificate_type";
-            this.rsl_certificate_type.Name = "rsl_certificate_type";
-            this.rsl_certificate_type.ReadOnly = true;
-            // 
-            // rsl_certificate_expiry_date
-            // 
-            this.rsl_certificate_expiry_date.DataPropertyName = "rsl_certificate_expiry_date";
-            this.rsl_certificate_expiry_date.HeaderText = "rsl_certificate_expiry_date";
-            this.rsl_certificate_expiry_date.Name = "rsl_certificate_expiry_date";
-            this.rsl_certificate_expiry_date.ReadOnly = true;
-            // 
-            // machine_washable
-            // 
-            this.machine_washable.DataPropertyName = "machine_washable";
-            this.machine_washable.HeaderText = "machine_washable";
-            this.machine_washable.Name = "machine_washable";
-            this.machine_washable.ReadOnly = true;
-            // 
-            // dry_cleanable
-            // 
-            this.dry_cleanable.DataPropertyName = "dry_cleanable";
-            this.dry_cleanable.HeaderText = "dry_cleanable";
-            this.dry_cleanable.Name = "dry_cleanable";
-            this.dry_cleanable.ReadOnly = true;
-            // 
-            // dry_clean_only
-            // 
-            this.dry_clean_only.DataPropertyName = "dry_clean_only";
-            this.dry_clean_only.HeaderText = "dry_clean_only";
-            this.dry_clean_only.Name = "dry_clean_only";
-            this.dry_clean_only.ReadOnly = true;
-            // 
-            // do_not_dry_clean
-            // 
-            this.do_not_dry_clean.DataPropertyName = "do_not_dry_clean";
-            this.do_not_dry_clean.HeaderText = "do_not_dry_clean";
-            this.do_not_dry_clean.Name = "do_not_dry_clean";
-            this.do_not_dry_clean.ReadOnly = true;
-            // 
-            // suitable_for_tumble_dry
-            // 
-            this.suitable_for_tumble_dry.DataPropertyName = "suitable_for_tumble_dry";
-            this.suitable_for_tumble_dry.HeaderText = "suitable_for_tumble_dry";
-            this.suitable_for_tumble_dry.Name = "suitable_for_tumble_dry";
-            this.suitable_for_tumble_dry.ReadOnly = true;
-            // 
-            // suitable_for_swimwear
-            // 
-            this.suitable_for_swimwear.DataPropertyName = "suitable_for_swimwear";
-            this.suitable_for_swimwear.HeaderText = "suitable_for_swimwear";
-            this.suitable_for_swimwear.Name = "suitable_for_swimwear";
-            this.suitable_for_swimwear.ReadOnly = true;
-            // 
-            // passes_metal_detection
-            // 
-            this.passes_metal_detection.DataPropertyName = "passes_metal_detection";
-            this.passes_metal_detection.HeaderText = "passes_metal_detection";
-            this.passes_metal_detection.Name = "passes_metal_detection";
-            this.passes_metal_detection.ReadOnly = true;
-            // 
-            // complies_with_pvh
-            // 
-            this.complies_with_pvh.DataPropertyName = "complies_with_pvh";
-            this.complies_with_pvh.HeaderText = "complies_with_pvh";
-            this.complies_with_pvh.Name = "complies_with_pvh";
-            this.complies_with_pvh.ReadOnly = true;
-            // 
-            // complies_with_cfr
-            // 
-            this.complies_with_cfr.DataPropertyName = "complies_with_cfr";
-            this.complies_with_cfr.HeaderText = "complies_with_cfr";
-            this.complies_with_cfr.Name = "complies_with_cfr";
-            this.complies_with_cfr.ReadOnly = true;
-            // 
-            // quality_callouts
-            // 
-            this.quality_callouts.DataPropertyName = "quality_callouts";
-            this.quality_callouts.HeaderText = "quality_callouts";
-            this.quality_callouts.Name = "quality_callouts";
-            this.quality_callouts.ReadOnly = true;
-            // 
-            // for_bulk_feference
-            // 
-            this.for_bulk_feference.DataPropertyName = "for_bulk_feference";
-            this.for_bulk_feference.HeaderText = "for_bulk_feference";
-            this.for_bulk_feference.Name = "for_bulk_feference";
-            this.for_bulk_feference.ReadOnly = true;
-            // 
-            // for_quality_approval
-            // 
-            this.for_quality_approval.DataPropertyName = "for_quality_approval";
-            this.for_quality_approval.HeaderText = "for_quality_approval";
-            this.for_quality_approval.Name = "for_quality_approval";
-            this.for_quality_approval.ReadOnly = true;
-            // 
-            // color_already_approved
-            // 
-            this.color_already_approved.DataPropertyName = "color_already_approved";
-            this.color_already_approved.HeaderText = "color_already_approved";
-            this.color_already_approved.Name = "color_already_approved";
-            this.color_already_approved.ReadOnly = true;
-            // 
-            // size_already_approved
-            // 
-            this.size_already_approved.DataPropertyName = "size_already_approved";
-            this.size_already_approved.HeaderText = "size_already_approved";
-            this.size_already_approved.Name = "size_already_approved";
-            this.size_already_approved.ReadOnly = true;
-            // 
-            // create_by
-            // 
-            this.create_by.DataPropertyName = "create_by";
-            this.create_by.HeaderText = "create_by";
-            this.create_by.Name = "create_by";
-            this.create_by.ReadOnly = true;
-            this.create_by.Visible = false;
-            // 
-            // create_date
-            // 
-            this.create_date.DataPropertyName = "create_date";
-            this.create_date.HeaderText = "create_date";
-            this.create_date.Name = "create_date";
-            this.create_date.ReadOnly = true;
-            this.create_date.Visible = false;
-            // 
-            // update_by
-            // 
-            this.update_by.DataPropertyName = "update_by";
-            this.update_by.HeaderText = "update_by";
-            this.update_by.Name = "update_by";
-            this.update_by.ReadOnly = true;
-            this.update_by.Visible = false;
-            // 
-            // update_date
-            // 
-            this.update_date.DataPropertyName = "update_date";
-            this.update_date.HeaderText = "update_date";
-            this.update_date.Name = "update_date";
-            this.update_date.ReadOnly = true;
-            this.update_date.Visible = false;
-            // 
-            // mo_id1
-            // 
-            this.mo_id1.DataPropertyName = "mo_id1";
-            this.mo_id1.HeaderText = "MO1";
-            this.mo_id1.Name = "mo_id1";
-            this.mo_id1.ReadOnly = true;
-            // 
-            // mo_id2
-            // 
-            this.mo_id2.DataPropertyName = "mo_id2";
-            this.mo_id2.HeaderText = "MO2";
-            this.mo_id2.Name = "mo_id2";
-            this.mo_id2.ReadOnly = true;
-            // 
-            // mo_id3
-            // 
-            this.mo_id3.DataPropertyName = "mo_id3";
-            this.mo_id3.HeaderText = "MO3";
-            this.mo_id3.Name = "mo_id3";
-            this.mo_id3.ReadOnly = true;
-            // 
-            // serialno
-            // 
-            this.serialno.DataPropertyName = "serial_no";
-            this.serialno.HeaderText = "Serial No.";
-            this.serialno.Name = "serialno";
-            this.serialno.ReadOnly = true;
+            // luePrevious_submit_vr
+            // 
+            this.luePrevious_submit_vr.Enabled = false;
+            this.luePrevious_submit_vr.EnterMoveNextControl = true;
+            this.luePrevious_submit_vr.Location = new System.Drawing.Point(835, 23);
+            this.luePrevious_submit_vr.Name = "luePrevious_submit_vr";
+            this.luePrevious_submit_vr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.luePrevious_submit_vr.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.luePrevious_submit_vr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luePrevious_submit_vr.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 100, "id")});
+            this.luePrevious_submit_vr.Properties.NullText = "";
+            this.luePrevious_submit_vr.Properties.ShowHeader = false;
+            this.luePrevious_submit_vr.Properties.Tag = "2";
+            this.luePrevious_submit_vr.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.luePrevious_submit_vr.Size = new System.Drawing.Size(150, 20);
+            this.luePrevious_submit_vr.TabIndex = 162;
+            this.luePrevious_submit_vr.Tag = "2";
+            // 
+            // txtWeight_uom
+            // 
+            this.txtWeight_uom.EditValue = "";
+            this.txtWeight_uom.Enabled = false;
+            this.txtWeight_uom.EnterMoveNextControl = true;
+            this.txtWeight_uom.Location = new System.Drawing.Point(835, 45);
+            this.txtWeight_uom.Name = "txtWeight_uom";
+            this.txtWeight_uom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtWeight_uom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtWeight_uom.Properties.Items.AddRange(new object[] {
+            "",
+            "PCS",
+            "SET"});
+            this.txtWeight_uom.Size = new System.Drawing.Size(150, 20);
+            this.txtWeight_uom.TabIndex = 163;
             // 
             // frmDevelopmentPvh
             // 
@@ -6222,11 +6233,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueRaw_mat1_compostion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueU3ma.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueObj_fbx.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueSample_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_vr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).EndInit();
@@ -6264,6 +6273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_eur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_color.Properties)).EndInit();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_cfr.Properties)).EndInit();
@@ -6276,6 +6286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSuitable_for_tumble_dry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMachine_washable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCheck.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueCert4_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert3_type.Properties)).EndInit();
@@ -6316,8 +6327,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueCheck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePrevious_submit_vr.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6441,7 +6452,6 @@
         private DevExpress.XtraEditors.TextEdit txtPlm_material_code;
         internal System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label57;
-        private DevExpress.XtraEditors.TextEdit txtPrevious_submit_vr;
         internal System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label60;
@@ -6456,7 +6466,6 @@
         private DevExpress.XtraEditors.LookUpEdit lueU3ma;
         private System.Windows.Forms.Label label65;
         private DevExpress.XtraEditors.LookUpEdit lueObj_fbx;
-        private DevExpress.XtraEditors.TextEdit txtWeight_uom;
         private System.Windows.Forms.Label label64;
         private DevExpress.XtraEditors.LookUpEdit lueRaw_mat1_compostion;
         private System.Windows.Forms.Label label67;
@@ -6798,5 +6807,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn111;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn112;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn113;
+        private DevExpress.XtraEditors.LookUpEdit luePrevious_submit_vr;
+        private DevExpress.XtraEditors.ComboBoxEdit txtWeight_uom;
     }
 }

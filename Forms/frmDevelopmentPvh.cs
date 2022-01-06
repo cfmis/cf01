@@ -56,6 +56,8 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueFinish, "finish");
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");
             clsDevelopentPvh.SetDropBox(lueProcess, "processes");
+            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
+            
             string strSql = "";
             string strGroup = "V,E";
             if (user_group == "W")
@@ -290,9 +292,9 @@ namespace cf01.Forms
             lueProcess.DataBindings.Add("EditValue", bds1, "process");
             txtPrevious_submit_ref.DataBindings.Add("Text", bds1, "previous_submit_ref");
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
-            txtPrevious_submit_vr.DataBindings.Add("Text", bds1, "previous_submit_vr");
+            luePrevious_submit_vr.DataBindings.Add("EditValue", bds1, "previous_submit_vr");
             txtWeight.DataBindings.Add("Text", bds1, "weight");
-            txtWeight_uom.DataBindings.Add("Text", bds1, "weight_uom");
+            txtWeight_uom.DataBindings.Add("EditValue", bds1, "weight_uom");
             lueObj_fbx.DataBindings.Add("EditValue", bds1, "obj_fbx");
             lueU3ma.DataBindings.Add("EditValue", bds1, "u3ma");
             //-------------------------------------------------------
@@ -555,7 +557,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@process", lueProcess.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_ref", txtPrevious_submit_ref.Text);
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
-                    myCommand.Parameters.AddWithValue("@previous_submit_vr", txtPrevious_submit_vr.Text);
+                    myCommand.Parameters.AddWithValue("@previous_submit_vr", luePrevious_submit_vr.EditValue.ToString());
                     myCommand.Parameters.AddWithValue("@weight", txtWeight.Text);
                     myCommand.Parameters.AddWithValue("@weight_uom", txtWeight_uom.Text);
                     myCommand.Parameters.AddWithValue("@obj_fbx", lueObj_fbx.EditValue);
@@ -903,13 +905,13 @@ namespace cf01.Forms
         }
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDetails.RowCount > 0)
+        {           
+            dgvrow = dgvDetails.CurrentRow;
+            if(dgvrow!=null)
             {
                 row_reset = dgvDetails.CurrentCell.RowIndex;
-                dgvrow = dgvDetails.CurrentRow;
                 SetCheckBoxStatus(dgvrow);
-            }
+            }            
         }
 
         private void SetNewCopyData(DataGridViewRow pdr)
@@ -930,9 +932,9 @@ namespace cf01.Forms
             lueProcess.EditValue = pdr.Cells["process"].Value.ToString();
             txtPrevious_submit_ref.Text = pdr.Cells["previous_submit_ref"].Value.ToString();
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
-            txtPrevious_submit_vr.Text = pdr.Cells["previous_submit_vr"].Value.ToString();
+            luePrevious_submit_vr.EditValue = pdr.Cells["previous_submit_vr"].Value.ToString();
             txtWeight.Text = pdr.Cells["weight"].Value.ToString();
-            txtWeight_uom.Text = pdr.Cells["weight_uom"].Value.ToString();
+            txtWeight_uom.EditValue = pdr.Cells["weight_uom"].Value.ToString();
             lueObj_fbx.EditValue = pdr.Cells["obj_fbx"].Value.ToString();
             lueU3ma.EditValue = pdr.Cells["u3ma"].Value.ToString();
             //--------------------------------------------------------------------------------------------
