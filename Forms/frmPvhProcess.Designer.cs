@@ -1,6 +1,6 @@
 ﻿namespace cf01.Forms
 {
-    partial class frmPvhFinish
+    partial class frmPvhProcess
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPvhFinish));
-            this.dgvFinish = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPvhProcess));
+            this.dgvProcess = new System.Windows.Forms.DataGridView();
             this.flagSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contents = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkAll = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFinish)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcess)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvFinish
+            // dgvProcess
             // 
-            this.dgvFinish.AllowUserToAddRows = false;
-            this.dgvFinish.AllowUserToDeleteRows = false;
-            this.dgvFinish.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvFinish.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFinish.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProcess.AllowUserToAddRows = false;
+            this.dgvProcess.AllowUserToDeleteRows = false;
+            this.dgvProcess.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvProcess.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProcess.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.flagSelect,
             this.contents});
-            this.dgvFinish.Location = new System.Drawing.Point(13, 27);
-            this.dgvFinish.Name = "dgvFinish";
-            this.dgvFinish.RowTemplate.Height = 24;
-            this.dgvFinish.Size = new System.Drawing.Size(382, 229);
-            this.dgvFinish.TabIndex = 0;
+            this.dgvProcess.Location = new System.Drawing.Point(13, 27);
+            this.dgvProcess.Name = "dgvProcess";
+            this.dgvProcess.RowTemplate.Height = 24;
+            this.dgvProcess.Size = new System.Drawing.Size(382, 229);
+            this.dgvProcess.TabIndex = 0;
             // 
             // flagSelect
             // 
             this.flagSelect.DataPropertyName = "flagSelect";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.NullValue = false;
-            this.flagSelect.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.NullValue = false;
+            this.flagSelect.DefaultCellStyle = dataGridViewCellStyle1;
             this.flagSelect.HeaderText = "Select";
             this.flagSelect.Name = "flagSelect";
             this.flagSelect.Width = 80;
@@ -80,7 +80,7 @@
             // 
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(326, 263);
+            this.btnOk.Location = new System.Drawing.Point(318, 263);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(76, 27);
             this.btnOk.TabIndex = 1;
@@ -93,7 +93,7 @@
             // 
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(230, 263);
+            this.btnExit.Location = new System.Drawing.Point(222, 263);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(76, 27);
             this.btnExit.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.chkAll.UseVisualStyleBackColor = true;
             this.chkAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkAll_MouseUp);
             // 
-            // frmPvhFinish
+            // frmPvhProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,14 +131,14 @@
             this.Controls.Add(this.chkAll);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.dgvFinish);
+            this.Controls.Add(this.dgvProcess);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmPvhFinish";
-            this.Text = "Finish";
-            this.Load += new System.EventHandler(this.frmPvhFinish_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFinish)).EndInit();
+            this.Name = "frmPvhProcess";
+            this.Text = "Processes";
+            this.Load += new System.EventHandler(this.frmPvhProcess_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcess)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,7 +146,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvFinish;
+        private System.Windows.Forms.DataGridView dgvProcess;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;

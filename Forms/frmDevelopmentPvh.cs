@@ -53,9 +53,9 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueHandling_office, "hand_office");
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type");           
-            //clsDevelopentPvh.SetDropBox(lueFinish, "finish");
+            clsDevelopentPvh.SetDropBox(lueFinish, "finish");
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");
-            clsDevelopentPvh.SetDropBox(lueProcess, "processes");
+            //clsDevelopentPvh.SetDropBox(lueProcess, "processes");
             clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
             
             string strSql = "";
@@ -288,8 +288,8 @@ namespace cf01.Forms
             lueMaterial_subtype.DataBindings.Add("EditValue",bds1, "material_subtype");
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
-            txtFinish.DataBindings.Add("EditValue", bds1, "finish");
-            lueProcess.DataBindings.Add("EditValue", bds1, "process");
+            txtProcess.DataBindings.Add("EditValue", bds1, "finish");
+            lueFinish.DataBindings.Add("EditValue", bds1, "process");
             txtPrevious_submit_ref.DataBindings.Add("Text", bds1, "previous_submit_ref");
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
             luePrevious_submit_vr.DataBindings.Add("EditValue", bds1, "previous_submit_vr");
@@ -553,8 +553,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@material_subtype", lueMaterial_subtype.EditValue);
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
-                    myCommand.Parameters.AddWithValue("@finish", txtFinish.EditValue);
-                    myCommand.Parameters.AddWithValue("@process", lueProcess.EditValue);
+                    myCommand.Parameters.AddWithValue("@finish", txtProcess.EditValue);
+                    myCommand.Parameters.AddWithValue("@process", lueFinish.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_ref", txtPrevious_submit_ref.Text);
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_vr", luePrevious_submit_vr.EditValue.ToString());
@@ -634,8 +634,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@cert4_scope_holder", txtCert4_scope_holder.Text);
                     //-----------------------------------------------------------------------------------                
                     myCommand.Parameters.AddWithValue("@rsl_certificate_type", lueRsl_certificate_type.EditValue);
-                   // string ss = dtRsl_certificate_expiry_date.EditValue.ToString();
-                    myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", dtRsl_certificate_expiry_date.EditValue.ToString());//clsApp.Return_String_Date(txtDate.Text)
+                    string strDate = dtRsl_certificate_expiry_date.EditValue.ToString();
+                    myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", clsApp.Return_String_Date(strDate));
                     myCommand.Parameters.AddWithValue("@machine_washable", lueMachine_washable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_cleanable", lueDry_cleanable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_clean_only", lueDry_clean_only.EditValue);
@@ -928,8 +928,8 @@ namespace cf01.Forms
             lueMaterial_subtype.EditValue = pdr.Cells["material_subtype"].Value.ToString();
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();
-            txtFinish.EditValue = pdr.Cells["finish"].Value.ToString();
-            lueProcess.EditValue = pdr.Cells["process"].Value.ToString();
+            txtProcess.EditValue = pdr.Cells["finish"].Value.ToString();
+            lueFinish.EditValue = pdr.Cells["process"].Value.ToString();
             txtPrevious_submit_ref.Text = pdr.Cells["previous_submit_ref"].Value.ToString();
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
             luePrevious_submit_vr.EditValue = pdr.Cells["previous_submit_vr"].Value.ToString();
@@ -1230,7 +1230,7 @@ namespace cf01.Forms
             clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
         }
 
-        private void txtFinish_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void txtProcess_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (mState == "NEW" || mState == "EDIT")
             {
@@ -1240,14 +1240,14 @@ namespace cf01.Forms
                 还有Control.PointToScreen方法，返回的是相对于屏幕的坐标。
                 */
                 Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
-                using (frmPvhFinish ofrm = new frmPvhFinish())
+                using (frmPvhProcess ofrm = new frmPvhProcess())
                 {
                     ofrm.StartPosition = FormStartPosition.Manual;
                     ofrm.Location= new Point(formPoint.X, formPoint.Y);
                     ofrm.ShowDialog();
-                    if (ofrm.strFinish != "")
+                    if (ofrm.strProcess != "")
                     {
-                        txtFinish.EditValue = ofrm.strFinish;
+                        txtProcess.EditValue = ofrm.strProcess;
                     }
                 }
             }

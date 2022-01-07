@@ -402,11 +402,11 @@
     <Compile Include="Forms\frmButtonWork.designer.cs">
       <DependentUpon>frmButtonWork.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPvhFinish.cs">
+    <Compile Include="Forms\frmPvhProcess.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPvhFinish.Designer.cs">
-      <DependentUpon>frmPvhFinish.cs</DependentUpon>
+    <Compile Include="Forms\frmPvhProcess.Designer.cs">
+      <DependentUpon>frmPvhProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmCircularProgress.cs">
       <SubType>Form</SubType>
@@ -2711,8 +2711,8 @@
     <EmbeddedResource Include="Forms\frmButtonWork.resx">
       <DependentUpon>frmButtonWork.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPvhFinish.resx">
-      <DependentUpon>frmPvhFinish.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmPvhProcess.resx">
+      <DependentUpon>frmPvhProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCircularProgress.resx">
       <DependentUpon>frmCircularProgress.cs</DependentUpon>

@@ -10,43 +10,43 @@ using System.Windows.Forms;
 
 namespace cf01.Forms
 {
-    public partial class frmPvhFinish : Form
+    public partial class frmPvhProcess : Form
     {
-        public string strFinish="";
-        public DataTable dtFinish = new DataTable();
-        public frmPvhFinish()
+        public string strProcess = "";
+        public DataTable dtProcess = new DataTable();
+        public frmPvhProcess()
         {
             InitializeComponent();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            strFinish = "";
+            strProcess = "";
             this.Close();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            strFinish = "";
-            for (int i = 0; i < dtFinish.Rows.Count;i++){
-                if(dtFinish.Rows[i]["flagSelect"].ToString()=="True")
+            strProcess = "";
+            for (int i = 0; i < dtProcess.Rows.Count;i++){
+                if(dtProcess.Rows[i]["flagSelect"].ToString()=="True")
                 {
-                    if (strFinish != "")
+                    if (strProcess != "")
                     {
-                        strFinish += ";" + dtFinish.Rows[i]["contents"].ToString();
+                        strProcess += ";" + dtProcess.Rows[i]["contents"].ToString();
                     }else
                     {
-                        strFinish = dtFinish.Rows[i]["contents"].ToString();
+                        strProcess = dtProcess.Rows[i]["contents"].ToString();
                     }
                 }
             }
             this.Close();
         }
 
-        private void frmPvhFinish_Load(object sender, EventArgs e)
+        private void frmPvhProcess_Load(object sender, EventArgs e)
         {
-            dtFinish = clsDevelopentPvh.GetFinish();            
-            dgvFinish.DataSource = dtFinish;
+            dtProcess = clsDevelopentPvh.GetProcess();
+            dgvProcess.DataSource = dtProcess;
         }
 
         private void chkAll_MouseUp(object sender, MouseEventArgs e)
@@ -60,9 +60,9 @@ namespace cf01.Forms
             {
                 status = false;
             }
-            for (int i = 0; i < dtFinish.Rows.Count; i++)
+            for (int i = 0; i < dtProcess.Rows.Count; i++)
             {
-                dtFinish.Rows[i]["flagSelect"] = status;               
+                dtProcess.Rows[i]["flagSelect"] = status;               
             }
         }
     }
