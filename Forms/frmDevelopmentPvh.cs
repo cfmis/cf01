@@ -288,8 +288,8 @@ namespace cf01.Forms
             lueMaterial_subtype.DataBindings.Add("EditValue",bds1, "material_subtype");
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
-            txtProcess.DataBindings.Add("EditValue", bds1, "finish");
-            lueFinish.DataBindings.Add("EditValue", bds1, "process");
+            txtProcess.DataBindings.Add("EditValue", bds1, "process");
+            lueFinish.DataBindings.Add("EditValue", bds1, "finish");
             txtPrevious_submit_ref.DataBindings.Add("Text", bds1, "previous_submit_ref");
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
             luePrevious_submit_vr.DataBindings.Add("EditValue", bds1, "previous_submit_vr");
@@ -553,8 +553,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@material_subtype", lueMaterial_subtype.EditValue);
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
-                    myCommand.Parameters.AddWithValue("@finish", txtProcess.EditValue);
-                    myCommand.Parameters.AddWithValue("@process", lueFinish.EditValue);
+                    myCommand.Parameters.AddWithValue("@finish", lueFinish.EditValue);
+                    myCommand.Parameters.AddWithValue("@process", txtProcess.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_ref", txtPrevious_submit_ref.Text);
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_vr", luePrevious_submit_vr.EditValue.ToString());
@@ -928,8 +928,8 @@ namespace cf01.Forms
             lueMaterial_subtype.EditValue = pdr.Cells["material_subtype"].Value.ToString();
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();
-            txtProcess.EditValue = pdr.Cells["finish"].Value.ToString();
-            lueFinish.EditValue = pdr.Cells["process"].Value.ToString();
+            txtProcess.EditValue = pdr.Cells["process"].Value.ToString();
+            lueFinish.EditValue = pdr.Cells["finish"].Value.ToString();
             txtPrevious_submit_ref.Text = pdr.Cells["previous_submit_ref"].Value.ToString();
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
             luePrevious_submit_vr.EditValue = pdr.Cells["previous_submit_vr"].Value.ToString();
@@ -1113,18 +1113,18 @@ namespace cf01.Forms
         
         private void dgvFind_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (dgvFind.Rows.Count == 0)
-            //{
-            //    return;
-            //}
-            //tabControl1.SelectedIndex = 0;
-            //int index = dgvFind.CurrentRow.Index;
-            //if (index >= 0)
-            //{
-            //    dgvDetails.ClearSelection();
-            //    dgvDetails.Rows[index].Selected = true;
-            //    dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
-            //}            
+            if (dgvFind.Rows.Count == 0)
+            {
+                return;
+            }
+            tabControl1.SelectedIndex = 0;
+            int index = dgvFind.CurrentRow.Index;
+            if (index >= 0)
+            {
+                dgvDetails.ClearSelection();
+                dgvDetails.Rows[index].Selected = true;
+                dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
+            }
         }
 
         private void chksubmit1_MouseUp(object sender, MouseEventArgs e)

@@ -106,7 +106,12 @@ namespace cf01.Reports
 
         private void lblRsl_certificate_expiry_date_TextChanged(object sender, EventArgs e)
         {
-            lblRsl_certificate_expiry_date.Text = DateTime.Parse(GetCurrentColumnValue("date").ToString()).Date.ToString("dd-MM-yy");
+            string val = GetCurrentColumnValue("rsl_certificate_expiry_date").ToString();
+            if (!string.IsNullOrEmpty(val))
+            {
+                lblRsl_certificate_expiry_date.Text = DateTime.Parse(val).Date.ToString("dd-MM-yy");
+            }
+            
         }
     }
 }
