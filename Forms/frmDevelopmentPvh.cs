@@ -446,7 +446,7 @@ namespace cf01.Forms
             txtSerial_no.Text = clsTommyTest.GetSeqNo("development_pvh","serial_no");
             txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
             txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
-            txtFactory_name.Text = "Ching Fung Metal Manufactory(longnan) Co.,Ltd";
+            txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
             lueCurrency.EditValue = "US$";
             txtSurcharge.Text = "NIL";
             txtleadtime_sample.Text = "14-16 Wordking days";
