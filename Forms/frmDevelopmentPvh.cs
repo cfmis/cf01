@@ -445,8 +445,8 @@ namespace cf01.Forms
             txtDate.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
             txtSerial_no.Text = clsTommyTest.GetSeqNo("development_pvh","serial_no");
             txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
-            txtsupplier_name.Text = "CHING FUNG APPAREL ACCESSORIES CO.LTD.";
-            txtFactory_name.Text = "CHING FUNG APPAREL ACCESSORIES CO.LTD.";
+            txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
+            txtFactory_name.Text = "Ching Fung Metal Manufactory(longnan) Co.,Ltd";
             lueCurrency.EditValue = "US$";
             txtSurcharge.Text = "NIL";
             txtleadtime_sample.Text = "14-16 Wordking days";
