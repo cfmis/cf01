@@ -98,27 +98,27 @@ namespace cf01.Forms
                 }
             } 
             
-            string strDat1, strDat2,ls_crtim1, ls_crtim2;
-            strDat1 = txtDate1.Text;
-            strDat2 = txtDate2.Text;
-            ls_crtim1 = txtCrtim1.Text;
-            ls_crtim2 = txtCrtim2.Text;
-            if (strDat1 == "    /  /")
-            {
+            string strDat1, strDat2, strCrtim1, strCrtim2;
+            strDat1 = txtDate2.EditValue.ToString();
+            strDat2 = txtDate2.EditValue.ToString();
+            strCrtim1 = txtCrtim1.EditValue.ToString();
+            strCrtim2 = txtCrtim2.EditValue.ToString();
+            if (!string.IsNullOrEmpty(strDat1))    
+                strDat1 = DateTime.Parse(strDat1).Date.ToString("yyyy/MM/dd");
+            else
                 strDat1 = "";
-            }
-            if (strDat2 == "    /  /")
-            {
+            if (!string.IsNullOrEmpty(strDat2)) 
+                strDat2 = DateTime.Parse(strDat2).Date.ToString("yyyy/MM/dd");            
+            else
                 strDat2 = "";
-            }
-            if (ls_crtim1 == "    /  /")
-            {
-                ls_crtim1 = "";
-            }
-            if (ls_crtim2 == "    /  /")
-            {
-                ls_crtim2 = "";
-            }
+            if (!string.IsNullOrEmpty(strCrtim1))
+                strCrtim1 = DateTime.Parse(strCrtim1).Date.ToString("yyyy/MM/dd");            
+            else
+                strCrtim1 = "";
+            if (!string.IsNullOrEmpty(strCrtim2)) 
+                strCrtim2 = DateTime.Parse(strCrtim2).Date.ToString("yyyy/MM/dd");
+            else
+                strCrtim2 = "";
             SqlParameter[] paras = new SqlParameter[] { 
                        new SqlParameter("@user_id",DBUtility._user_id),
                        new SqlParameter("@sales_group",txtSales_group.Text),
@@ -141,8 +141,8 @@ namespace cf01.Forms
                        new SqlParameter("@remark",txtRmk.Text),
                        new SqlParameter("@other_remark",txtRmk_other.Text),
                        new SqlParameter("@remark_for_pdd",txtRmk_pdd.Text),  
-                       new SqlParameter("@crtim_s",ls_crtim1),
-                       new SqlParameter("@crtim_e",ls_crtim2),
+                       new SqlParameter("@crtim_s",strCrtim1),
+                       new SqlParameter("@crtim_e",strCrtim2),
                        new SqlParameter("@include_mat","1"),
                        new SqlParameter("@include_brand","1"),
                        new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
@@ -373,61 +373,7 @@ namespace cf01.Forms
                     dt.Rows[i]["flag_select"] = _flag;
                 }
             }
-        }
-
-        private void txtDate1_Leave(object sender, EventArgs e)
-        {
-            if (txtDate1.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtDate1.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息"); 
-                    txtDate1.Focus();
-                    return;
-                }
-            }
-            txtDate2.Text = txtDate1.Text;
-        }
-
-        private void txtDate2_Leave(object sender, EventArgs e)
-        {
-            if (txtDate2.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtDate2.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息");
-                    txtDate2.Focus();
-                    return;
-                }
-            }            
-        }
-
-        private void txtCrtim1_Leave(object sender, EventArgs e)
-        {
-            if (txtCrtim1.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtCrtim1.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息");
-                    txtCrtim1.Focus();
-                    return;
-                }
-            }
-            txtCrtim2.Text = txtCrtim1.Text;
-        }
-
-        private void txtCrtim2_Leave(object sender, EventArgs e)
-        {
-            if (txtCrtim2.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtCrtim2.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息");
-                    txtCrtim2.Focus();
-                    return;
-                }
-            }            
-        }
+        }       
 
         private void btnExcel_d_Click(object sender, EventArgs e)
         {
@@ -811,7 +757,21 @@ namespace cf01.Forms
         {
             e.KeyChar = char.ToUpper(e.KeyChar);//小寫轉大寫
         }
-             
-   
+
+        private void txtDate1_Leave(object sender, EventArgs e)
+        {
+            if (txtDate1.Text != "")
+            {
+                txtDate2.EditValue = txtDate1.EditValue;
+            }
+        }
+
+        private void txtCrtim1_Leave(object sender, EventArgs e)
+        {
+            if (txtCrtim1.Text != "")
+            {
+                txtCrtim2.EditValue = txtCrtim1.EditValue;
+            }
+        }
     }
 }
