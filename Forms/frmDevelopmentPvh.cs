@@ -72,7 +72,7 @@ namespace cf01.Forms
             lueDivision.Properties.DataSource = dtDivision;
             lueDivision.Properties.ValueMember = "id";
             lueDivision.Properties.DisplayMember = "id";
-            strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "compositions");
+            strSql = string.Format(@"SELECT contents AS id,remark AS name1,remark2 AS name2 FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "compositions");
             DataTable dtComposition = clsPublicOfCF01.GetDataTable(strSql);
             lueRaw_mat1_compostion.Properties.DataSource = dtComposition;
             lueRaw_mat1_compostion.Properties.ValueMember = "id";
@@ -564,27 +564,27 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@u3ma", lueU3ma.EditValue);
                     //--------------------------------------------------------------------------------------------
                     myCommand.Parameters.AddWithValue("@raw_mat1_compostion", lueRaw_mat1_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat1_percent", clsApp.Return_Float_Value(txtRaw_mat1_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat1_percent", ConvertToInt(txtRaw_mat1_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat1_l3", lueRaw_mat1_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat1_l4", lueRaw_mat1_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat1_l5", lueRaw_mat1_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat2_compostion", lueRaw_mat2_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat2_percent", clsApp.Return_Float_Value(txtRaw_mat2_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat2_percent", ConvertToInt(txtRaw_mat2_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat2_l3", lueRaw_mat2_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat2_l4", lueRaw_mat2_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat2_l5", lueRaw_mat2_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat3_compostion", lueRaw_mat3_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat3_percent", clsApp.Return_Float_Value(txtRaw_mat3_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat3_percent", ConvertToInt(txtRaw_mat3_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat3_l3", lueRaw_mat3_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat3_l4", lueRaw_mat3_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat3_l5", lueRaw_mat3_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat4_compostion", lueRaw_mat4_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat4_percent", clsApp.Return_Float_Value(txtRaw_mat4_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat4_percent", ConvertToInt(txtRaw_mat4_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat4_l3", lueRaw_mat4_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat4_l4", lueRaw_mat4_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat4_l5", lueRaw_mat4_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat5_compostion", lueRaw_mat5_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat5_percent", clsApp.Return_Float_Value(txtRaw_mat5_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat5_percent", ConvertToInt(txtRaw_mat5_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat5_l3", lueRaw_mat5_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat5_l4", lueRaw_mat5_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat5_l5", lueRaw_mat5_l5.EditValue);
@@ -802,11 +802,7 @@ namespace cf01.Forms
         {
             dtDetail.Clear();
             string sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            if (txtId1.Text == "" && txtId2.Text == "" && dtDat1.Text == "" && dtDat2.Text == "" && txtPvh_submit_ref1.Text=="" && txtPvh_submit_ref2.Text=="")
-            {
-                sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            }
-            else
+            if (txtId1.Text != "" || txtId2.Text != "" || dtDat1.Text != "" || dtDat2.Text != "" || txtPvh_submit_ref1.Text != "" || txtPvh_submit_ref2.Text != "")            
             {
                 if (txtId1.Text != "")
                 {
@@ -844,7 +840,6 @@ namespace cf01.Forms
                 {
                     sql = sql + string.Format(" and mo_id3='{0}'", txtMo3.Text);
                 }
-
             }           
             dtDetail = clsPublicOfCF01.GetDataTable(sql);
             bds1.DataSource = dtDetail;
@@ -1217,17 +1212,19 @@ namespace cf01.Forms
 
         private void lueRaw_mat1_compostion_EditValueChanged(object sender, EventArgs e)
         {
-            clsDevelopentPvh.SetCountry(lueRaw_mat1_compostion, lueRaw_mat1_l3);
+            clsDevelopentPvh.SetCountry(lueRaw_mat1_compostion, lueRaw_mat1_l3, lueRaw_mat1_l4);           
         }
 
         private void lueRaw_mat2_compostion_EditValueChanged(object sender, EventArgs e)
         {
-            clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3);
+            //clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3);
+            clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3, lueRaw_mat2_l4);
         }
 
         private void lueRaw_mat3_compostion_EditValueChanged(object sender, EventArgs e)
         {
-            clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
+            //clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
+            clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3, lueRaw_mat3_l4);
         }
 
         private void txtProcess_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -1251,6 +1248,15 @@ namespace cf01.Forms
                     }
                 }
             }
+        }
+        public int ConvertToInt(string _val)
+        {
+            int result = 0;
+            if (!string.IsNullOrEmpty(_val))
+            {
+                result = int.Parse(_val);
+            }
+            return result;
         }
     }
 }

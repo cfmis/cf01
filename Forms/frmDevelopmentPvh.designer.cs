@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -976,9 +976,9 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle13.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle13.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle1;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             // 
@@ -2163,7 +2163,7 @@
             this.txtProcess.Location = new System.Drawing.Point(400, 85);
             this.txtProcess.Name = "txtProcess";
             this.txtProcess.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.txtProcess.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtProcess.Properties.ReadOnly = true;
             this.txtProcess.Size = new System.Drawing.Size(586, 20);
@@ -2625,7 +2625,7 @@
             this.txtRaw_mat3_percent.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtRaw_mat3_percent.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtRaw_mat3_percent.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRaw_mat3_percent.Properties.Mask.EditMask = "n2";
+            this.txtRaw_mat3_percent.Properties.Mask.EditMask = "n0";
             this.txtRaw_mat3_percent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtRaw_mat3_percent.Properties.ReadOnly = true;
             this.txtRaw_mat3_percent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2642,7 +2642,7 @@
             this.txtRaw_mat2_percent.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtRaw_mat2_percent.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtRaw_mat2_percent.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRaw_mat2_percent.Properties.Mask.EditMask = "n2";
+            this.txtRaw_mat2_percent.Properties.Mask.EditMask = "n0";
             this.txtRaw_mat2_percent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtRaw_mat2_percent.Properties.ReadOnly = true;
             this.txtRaw_mat2_percent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2659,7 +2659,7 @@
             this.txtRaw_mat1_percent.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtRaw_mat1_percent.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtRaw_mat1_percent.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRaw_mat1_percent.Properties.Mask.EditMask = "n2";
+            this.txtRaw_mat1_percent.Properties.Mask.EditMask = "n0";
             this.txtRaw_mat1_percent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtRaw_mat1_percent.Properties.ReadOnly = true;
             this.txtRaw_mat1_percent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2751,10 +2751,14 @@
             this.lueRaw_mat3_compostion.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueRaw_mat3_compostion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueRaw_mat3_compostion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueRaw_mat3_compostion.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 100, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 130, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name1", 50, "Name1"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name2", 50, "Name2")});
             this.lueRaw_mat3_compostion.Properties.DropDownRows = 15;
             this.lueRaw_mat3_compostion.Properties.NullText = "";
+            this.lueRaw_mat3_compostion.Properties.PopupWidth = 230;
             this.lueRaw_mat3_compostion.Properties.ShowHeader = false;
             this.lueRaw_mat3_compostion.Properties.Tag = "2";
             this.lueRaw_mat3_compostion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -2783,10 +2787,14 @@
             this.lueRaw_mat2_compostion.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueRaw_mat2_compostion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueRaw_mat2_compostion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueRaw_mat2_compostion.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 100, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 130, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name1", 50, "Name1"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name2", 50, "Name2")});
             this.lueRaw_mat2_compostion.Properties.DropDownRows = 15;
             this.lueRaw_mat2_compostion.Properties.NullText = "";
+            this.lueRaw_mat2_compostion.Properties.PopupWidth = 230;
             this.lueRaw_mat2_compostion.Properties.ShowHeader = false;
             this.lueRaw_mat2_compostion.Properties.Tag = "2";
             this.lueRaw_mat2_compostion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -2827,10 +2835,14 @@
             this.lueRaw_mat1_compostion.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueRaw_mat1_compostion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueRaw_mat1_compostion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueRaw_mat1_compostion.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 100, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 130, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name1", 50, "Name1"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name2", 50, "Name2")});
             this.lueRaw_mat1_compostion.Properties.DropDownRows = 15;
             this.lueRaw_mat1_compostion.Properties.NullText = "";
+            this.lueRaw_mat1_compostion.Properties.PopupWidth = 230;
             this.lueRaw_mat1_compostion.Properties.ShowHeader = false;
             this.lueRaw_mat1_compostion.Properties.Tag = "2";
             this.lueRaw_mat1_compostion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -3965,7 +3977,6 @@
             this.dtRsl_certificate_expiry_date.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtRsl_certificate_expiry_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtRsl_certificate_expiry_date.Properties.MaxLength = 10;
-            this.dtRsl_certificate_expiry_date.Properties.NullDate = "";
             this.dtRsl_certificate_expiry_date.Size = new System.Drawing.Size(143, 20);
             this.dtRsl_certificate_expiry_date.TabIndex = 208;
             this.dtRsl_certificate_expiry_date.Tag = "2";
@@ -5357,9 +5368,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle14.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle14.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5376,9 +5387,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle15.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle15.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5505,8 +5516,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle16.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
