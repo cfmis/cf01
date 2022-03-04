@@ -59,7 +59,19 @@ namespace cf01.Reports
             xrPictureBox1.ImageUrl = pFile;
         }
 
-     
-       
+        private void txtmd_charge_cny_TextChanged(object sender, EventArgs e)
+        {
+            string md_chargee = GetCurrentColumnValue("md_charge").ToString();
+            if (md_chargee == "0.00")
+            {
+                txtmd_charge.Visible = false;
+                txtmd_charge_cny.Visible = false;
+            }
+            else
+            {
+                txtmd_charge.Visible = true;
+                txtmd_charge_cny.Visible = true;
+            }
+        }
     }
 }
