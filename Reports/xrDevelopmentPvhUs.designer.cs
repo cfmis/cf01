@@ -1550,7 +1550,7 @@
             this.chkoekotex_class2.BorderColor = System.Drawing.Color.Transparent;
             this.chkoekotex_class2.Dpi = 254F;
             this.chkoekotex_class2.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkoekotex_class2.LocationFloat = new DevExpress.Utils.PointFloat(607.6915F, 1003.981F);
+            this.chkoekotex_class2.LocationFloat = new DevExpress.Utils.PointFloat(804.4918F, 1003.981F);
             this.chkoekotex_class2.Name = "chkoekotex_class2";
             this.chkoekotex_class2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.chkoekotex_class2.SizeF = new System.Drawing.SizeF(137.4429F, 41.88013F);
@@ -1566,7 +1566,7 @@
             this.chkoekotex_class1.BorderColor = System.Drawing.Color.Transparent;
             this.chkoekotex_class1.Dpi = 254F;
             this.chkoekotex_class1.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkoekotex_class1.LocationFloat = new DevExpress.Utils.PointFloat(468.5293F, 1003.981F);
+            this.chkoekotex_class1.LocationFloat = new DevExpress.Utils.PointFloat(558.5981F, 1003.981F);
             this.chkoekotex_class1.Name = "chkoekotex_class1";
             this.chkoekotex_class1.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.chkoekotex_class1.SizeF = new System.Drawing.SizeF(128.4357F, 41.88F);
@@ -3325,10 +3325,10 @@
             this.xrLabel45.Dpi = 254F;
             this.xrLabel45.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel45.ForeColor = System.Drawing.Color.White;
-            this.xrLabel45.LocationFloat = new DevExpress.Utils.PointFloat(0F, 359.5742F);
+            this.xrLabel45.LocationFloat = new DevExpress.Utils.PointFloat(0F, 357.2708F);
             this.xrLabel45.Name = "xrLabel45";
             this.xrLabel45.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel45.SizeF = new System.Drawing.SizeF(376.8384F, 80.88013F);
+            this.xrLabel45.SizeF = new System.Drawing.SizeF(376.8384F, 83.88013F);
             this.xrLabel45.StylePriority.UseBackColor = false;
             this.xrLabel45.StylePriority.UseBorders = false;
             this.xrLabel45.StylePriority.UseFont = false;
