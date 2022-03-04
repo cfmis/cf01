@@ -700,7 +700,7 @@ namespace cf01.Forms
         }
         
         private void SetCheckBoxStatus(DataGridViewRow pdr)
-        { 
+        {
             SetCheckBoxs(chkdivision_mens, pdr.Cells["division_mens"].Value.ToString());
             SetCheckBoxs(chkdivision_womens, pdr.Cells["division_womens"].Value.ToString());
             SetCheckBoxs(chkdivision_boys, pdr.Cells["division_boys"].Value.ToString());

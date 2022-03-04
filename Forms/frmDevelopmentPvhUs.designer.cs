@@ -29,25 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvhUs));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNNEWCOPY = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -319,7 +327,6 @@
             this.chktrim_review_yes = new DevExpress.XtraEditors.CheckEdit();
             this.label47 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txtFactory_name = new DevExpress.XtraEditors.MemoEdit();
             this.lueRaw_material_country = new DevExpress.XtraEditors.LookUpEdit();
             this.txtreference_number = new DevExpress.XtraEditors.TextEdit();
             this.txtdoc_date = new DevExpress.XtraEditors.DateEdit();
@@ -354,6 +361,7 @@
             this.lblDept = new System.Windows.Forms.Label();
             this.dtDoc_date1 = new DevExpress.XtraEditors.DateEdit();
             this.dtDoc_date2 = new DevExpress.XtraEditors.DateEdit();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -468,15 +476,7 @@
             this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
-            this.btnNew = new System.Windows.Forms.ToolStripButton();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
-            this.BTNNEWCOPY = new System.Windows.Forms.ToolStripButton();
-            this.btnPrint = new System.Windows.Forms.ToolStripButton();
+            this.txtFactory_name = new System.Windows.Forms.RichTextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -589,7 +589,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chktrim_review_no.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chktrim_review_yes.Properties)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRaw_material_country.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtreference_number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdoc_date.Properties.CalendarTimeProperties)).BeginInit();
@@ -639,40 +638,115 @@
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnExit
+            // 
+            this.btnExit.AutoSize = false;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(71, 23);
+            this.btnExit.Text = "退 出 (&X)";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(71, 23);
+            this.btnNew.Text = " 新 增(&N)";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 26);
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(70, 23);
+            this.btnEdit.Text = " 修 改(&E)";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(65, 23);
+            this.btnDelete.Text = "刪除(&D)";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
             // 
+            // btnSave
+            // 
+            this.btnSave.Enabled = false;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(72, 23);
+            this.btnSave.Text = " 保  存(&S)";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 26);
+            // 
+            // BTNCANCEL
+            // 
+            this.BTNCANCEL.Enabled = false;
+            this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
+            this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNCANCEL.Name = "BTNCANCEL";
+            this.BTNCANCEL.Size = new System.Drawing.Size(68, 23);
+            this.BTNCANCEL.Text = "取 消(&U)";
+            this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 26);
             // 
+            // BTNNEWCOPY
+            // 
+            this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
+            this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNNEWCOPY.Name = "BTNNEWCOPY";
+            this.BTNNEWCOPY.Size = new System.Drawing.Size(89, 23);
+            this.BTNNEWCOPY.Text = "覆制新增(&C)";
+            this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 26);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(63, 23);
+            this.btnPrint.Text = "列印(&P)";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // toolStripSeparator8
             // 
@@ -857,9 +931,9 @@
             // doc_date
             // 
             this.doc_date.DataPropertyName = "doc_date";
-            dataGridViewCellStyle41.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle41.NullValue = null;
-            this.doc_date.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle21.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle21.NullValue = null;
+            this.doc_date.DefaultCellStyle = dataGridViewCellStyle21;
             this.doc_date.HeaderText = "Date";
             this.doc_date.Name = "doc_date";
             this.doc_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1026,8 +1100,8 @@
             // trim_flat_price
             // 
             this.trim_flat_price.DataPropertyName = "trim_flat_price";
-            dataGridViewCellStyle42.Format = "N2";
-            this.trim_flat_price.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle22.Format = "N2";
+            this.trim_flat_price.DefaultCellStyle = dataGridViewCellStyle22;
             this.trim_flat_price.HeaderText = "Flat Price";
             this.trim_flat_price.Name = "trim_flat_price";
             this.trim_flat_price.ReadOnly = true;
@@ -1036,9 +1110,9 @@
             // trim_1k
             // 
             this.trim_1k.DataPropertyName = "trim_1k";
-            dataGridViewCellStyle43.Format = "N2";
-            dataGridViewCellStyle43.NullValue = null;
-            this.trim_1k.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle23.Format = "N2";
+            dataGridViewCellStyle23.NullValue = null;
+            this.trim_1k.DefaultCellStyle = dataGridViewCellStyle23;
             this.trim_1k.HeaderText = "小于1000";
             this.trim_1k.Name = "trim_1k";
             this.trim_1k.ReadOnly = true;
@@ -1047,8 +1121,8 @@
             // trim_1k_3k
             // 
             this.trim_1k_3k.DataPropertyName = "trim_1k_3k";
-            dataGridViewCellStyle44.Format = "N2";
-            this.trim_1k_3k.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle24.Format = "N2";
+            this.trim_1k_3k.DefaultCellStyle = dataGridViewCellStyle24;
             this.trim_1k_3k.HeaderText = "大于1000~3000";
             this.trim_1k_3k.Name = "trim_1k_3k";
             this.trim_1k_3k.ReadOnly = true;
@@ -1752,7 +1826,7 @@
             this.panel5.Controls.Add(this.label31);
             this.panel5.Controls.Add(this.label42);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(2, 466);
+            this.panel5.Location = new System.Drawing.Point(2, 469);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(995, 91);
             this.panel5.TabIndex = 77;
@@ -2185,7 +2259,7 @@
             this.panel9.Controls.Add(this.chktrim_comply_yes);
             this.panel9.Controls.Add(this.label26);
             this.panel9.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel9.Location = new System.Drawing.Point(3, 288);
+            this.panel9.Location = new System.Drawing.Point(3, 295);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(995, 53);
             this.panel9.TabIndex = 205;
@@ -2375,7 +2449,7 @@
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.txtmaterial_per1);
             this.panel3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel3.Location = new System.Drawing.Point(2, 168);
+            this.panel3.Location = new System.Drawing.Point(2, 178);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(995, 67);
             this.panel3.TabIndex = 75;
@@ -2717,15 +2791,15 @@
             this.panel8.Controls.Add(this.label61);
             this.panel8.Controls.Add(this.label53);
             this.panel8.Controls.Add(this.label5);
-            this.panel8.Location = new System.Drawing.Point(2, 49);
+            this.panel8.Location = new System.Drawing.Point(2, 63);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(995, 51);
+            this.panel8.Size = new System.Drawing.Size(995, 49);
             this.panel8.TabIndex = 80;
             // 
             // chkdivision_mercedez_benz
             // 
             this.chkdivision_mercedez_benz.Enabled = false;
-            this.chkdivision_mercedez_benz.Location = new System.Drawing.Point(874, 24);
+            this.chkdivision_mercedez_benz.Location = new System.Drawing.Point(874, 22);
             this.chkdivision_mercedez_benz.Name = "chkdivision_mercedez_benz";
             this.chkdivision_mercedez_benz.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_mercedez_benz.Properties.Appearance.Options.UseFont = true;
@@ -2733,14 +2807,14 @@
             this.chkdivision_mercedez_benz.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.chkdivision_mercedez_benz.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkdivision_mercedez_benz.Properties.Caption = "MERCEDEZ BENZ";
-            this.chkdivision_mercedez_benz.Size = new System.Drawing.Size(110, 23);
+            this.chkdivision_mercedez_benz.Size = new System.Drawing.Size(112, 23);
             this.chkdivision_mercedez_benz.TabIndex = 223;
             this.chkdivision_mercedez_benz.Tag = "2";
             // 
             // chkdivision_adaptive
             // 
             this.chkdivision_adaptive.Enabled = false;
-            this.chkdivision_adaptive.Location = new System.Drawing.Point(797, 24);
+            this.chkdivision_adaptive.Location = new System.Drawing.Point(797, 22);
             this.chkdivision_adaptive.Name = "chkdivision_adaptive";
             this.chkdivision_adaptive.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_adaptive.Properties.Appearance.Options.UseFont = true;
@@ -2755,7 +2829,7 @@
             // chkdivision_specialty
             // 
             this.chkdivision_specialty.Enabled = false;
-            this.chkdivision_specialty.Location = new System.Drawing.Point(714, 24);
+            this.chkdivision_specialty.Location = new System.Drawing.Point(714, 22);
             this.chkdivision_specialty.Name = "chkdivision_specialty";
             this.chkdivision_specialty.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_specialty.Properties.Appearance.Options.UseFont = true;
@@ -2770,7 +2844,7 @@
             // chkdivision_tommy_jeans
             // 
             this.chkdivision_tommy_jeans.Enabled = false;
-            this.chkdivision_tommy_jeans.Location = new System.Drawing.Point(613, 24);
+            this.chkdivision_tommy_jeans.Location = new System.Drawing.Point(613, 22);
             this.chkdivision_tommy_jeans.Name = "chkdivision_tommy_jeans";
             this.chkdivision_tommy_jeans.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_tommy_jeans.Properties.Appearance.Options.UseFont = true;
@@ -2785,7 +2859,7 @@
             // chkdivision_th_accy
             // 
             this.chkdivision_th_accy.Enabled = false;
-            this.chkdivision_th_accy.Location = new System.Drawing.Point(542, 24);
+            this.chkdivision_th_accy.Location = new System.Drawing.Point(542, 22);
             this.chkdivision_th_accy.Name = "chkdivision_th_accy";
             this.chkdivision_th_accy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_th_accy.Properties.Appearance.Options.UseFont = true;
@@ -2800,7 +2874,7 @@
             // chkdivision_denim
             // 
             this.chkdivision_denim.Enabled = false;
-            this.chkdivision_denim.Location = new System.Drawing.Point(471, 24);
+            this.chkdivision_denim.Location = new System.Drawing.Point(471, 22);
             this.chkdivision_denim.Name = "chkdivision_denim";
             this.chkdivision_denim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_denim.Properties.Appearance.Options.UseFont = true;
@@ -2815,7 +2889,7 @@
             // chkdivision_swim
             // 
             this.chkdivision_swim.Enabled = false;
-            this.chkdivision_swim.Location = new System.Drawing.Point(400, 24);
+            this.chkdivision_swim.Location = new System.Drawing.Point(400, 22);
             this.chkdivision_swim.Name = "chkdivision_swim";
             this.chkdivision_swim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_swim.Properties.Appearance.Options.UseFont = true;
@@ -2830,7 +2904,7 @@
             // chkdivision_branding
             // 
             this.chkdivision_branding.Enabled = false;
-            this.chkdivision_branding.Location = new System.Drawing.Point(318, 24);
+            this.chkdivision_branding.Location = new System.Drawing.Point(318, 22);
             this.chkdivision_branding.Name = "chkdivision_branding";
             this.chkdivision_branding.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_branding.Properties.Appearance.Options.UseFont = true;
@@ -2845,7 +2919,7 @@
             // chkdivision_girls
             // 
             this.chkdivision_girls.Enabled = false;
-            this.chkdivision_girls.Location = new System.Drawing.Point(262, 24);
+            this.chkdivision_girls.Location = new System.Drawing.Point(262, 22);
             this.chkdivision_girls.Name = "chkdivision_girls";
             this.chkdivision_girls.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_girls.Properties.Appearance.Options.UseFont = true;
@@ -2860,7 +2934,7 @@
             // chkdivision_boys
             // 
             this.chkdivision_boys.Enabled = false;
-            this.chkdivision_boys.Location = new System.Drawing.Point(210, 24);
+            this.chkdivision_boys.Location = new System.Drawing.Point(210, 22);
             this.chkdivision_boys.Name = "chkdivision_boys";
             this.chkdivision_boys.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_boys.Properties.Appearance.Options.UseFont = true;
@@ -2875,7 +2949,7 @@
             // chkdivision_womens
             // 
             this.chkdivision_womens.Enabled = false;
-            this.chkdivision_womens.Location = new System.Drawing.Point(139, 24);
+            this.chkdivision_womens.Location = new System.Drawing.Point(139, 22);
             this.chkdivision_womens.Name = "chkdivision_womens";
             this.chkdivision_womens.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_womens.Properties.Appearance.Options.UseFont = true;
@@ -2890,7 +2964,7 @@
             // chkdivision_mens
             // 
             this.chkdivision_mens.Enabled = false;
-            this.chkdivision_mens.Location = new System.Drawing.Point(83, 24);
+            this.chkdivision_mens.Location = new System.Drawing.Point(83, 22);
             this.chkdivision_mens.Name = "chkdivision_mens";
             this.chkdivision_mens.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdivision_mens.Properties.Appearance.Options.UseFont = true;
@@ -2920,7 +2994,7 @@
             this.dtDelivery_date.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtDelivery_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDelivery_date.Properties.MaxLength = 10;
-            this.dtDelivery_date.Size = new System.Drawing.Size(97, 20);
+            this.dtDelivery_date.Size = new System.Drawing.Size(99, 20);
             this.dtDelivery_date.TabIndex = 4;
             this.dtDelivery_date.Tag = "2";
             // 
@@ -2974,7 +3048,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(16, 28);
+            this.label1.Location = new System.Drawing.Point(16, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
             this.label1.TabIndex = 50;
@@ -3069,9 +3143,9 @@
             this.panel6.Controls.Add(this.label20);
             this.panel6.Controls.Add(this.txtMoq);
             this.panel6.Controls.Add(this.label19);
-            this.panel6.Location = new System.Drawing.Point(2, 101);
+            this.panel6.Location = new System.Drawing.Point(2, 113);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(995, 66);
+            this.panel6.Size = new System.Drawing.Size(995, 64);
             this.panel6.TabIndex = 78;
             // 
             // label12
@@ -3084,7 +3158,7 @@
             this.label12.Size = new System.Drawing.Size(84, 13);
             this.label12.TabIndex = 170;
             this.label12.Text = "3,000~5,000";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label32
             // 
@@ -3096,7 +3170,7 @@
             this.label32.Size = new System.Drawing.Size(81, 13);
             this.label32.TabIndex = 169;
             this.label32.Text = "1,000~3,000";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label32.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label51
             // 
@@ -3105,10 +3179,10 @@
             this.label51.ForeColor = System.Drawing.Color.White;
             this.label51.Location = new System.Drawing.Point(208, 0);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(66, 16);
+            this.label51.Size = new System.Drawing.Size(66, 14);
             this.label51.TabIndex = 168;
             this.label51.Text = "<1,000";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label51.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label55
             // 
@@ -3117,10 +3191,10 @@
             this.label55.ForeColor = System.Drawing.Color.White;
             this.label55.Location = new System.Drawing.Point(131, 0);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(67, 16);
+            this.label55.Size = new System.Drawing.Size(67, 14);
             this.label55.TabIndex = 167;
             this.label55.Text = "Flat Price";
-            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label55.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label56
             // 
@@ -3130,7 +3204,7 @@
             this.label56.ForeColor = System.Drawing.Color.White;
             this.label56.Location = new System.Drawing.Point(0, 0);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(991, 16);
+            this.label56.Size = new System.Drawing.Size(991, 14);
             this.label56.TabIndex = 166;
             this.label56.Text = "PRICING";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3138,7 +3212,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 20);
+            this.label6.Location = new System.Drawing.Point(2, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 15);
             this.label6.TabIndex = 122;
@@ -3148,7 +3222,7 @@
             // txtTrim_flat_price
             // 
             this.txtTrim_flat_price.EnterMoveNextControl = true;
-            this.txtTrim_flat_price.Location = new System.Drawing.Point(128, 17);
+            this.txtTrim_flat_price.Location = new System.Drawing.Point(128, 16);
             this.txtTrim_flat_price.Name = "txtTrim_flat_price";
             this.txtTrim_flat_price.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtTrim_flat_price.Properties.Appearance.Options.UseBackColor = true;
@@ -3168,7 +3242,7 @@
             // txttrim_3k_5k
             // 
             this.txttrim_3k_5k.EnterMoveNextControl = true;
-            this.txttrim_3k_5k.Location = new System.Drawing.Point(370, 17);
+            this.txttrim_3k_5k.Location = new System.Drawing.Point(370, 16);
             this.txttrim_3k_5k.Name = "txttrim_3k_5k";
             this.txttrim_3k_5k.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txttrim_3k_5k.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3186,7 +3260,7 @@
             // txttrim_1k_3k
             // 
             this.txttrim_1k_3k.EnterMoveNextControl = true;
-            this.txttrim_1k_3k.Location = new System.Drawing.Point(288, 17);
+            this.txttrim_1k_3k.Location = new System.Drawing.Point(288, 16);
             this.txttrim_1k_3k.Name = "txttrim_1k_3k";
             this.txttrim_1k_3k.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txttrim_1k_3k.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3204,7 +3278,7 @@
             // txttrim_1k
             // 
             this.txttrim_1k.EnterMoveNextControl = true;
-            this.txttrim_1k.Location = new System.Drawing.Point(207, 17);
+            this.txttrim_1k.Location = new System.Drawing.Point(207, 16);
             this.txttrim_1k.Name = "txttrim_1k";
             this.txttrim_1k.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txttrim_1k.Properties.Appearance.Options.UseBackColor = true;
@@ -3224,7 +3298,7 @@
             // txtsrs_leadtime
             // 
             this.txtsrs_leadtime.EnterMoveNextControl = true;
-            this.txtsrs_leadtime.Location = new System.Drawing.Point(128, 40);
+            this.txtsrs_leadtime.Location = new System.Drawing.Point(128, 39);
             this.txtsrs_leadtime.Name = "txtsrs_leadtime";
             this.txtsrs_leadtime.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtsrs_leadtime.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3238,7 +3312,7 @@
             // label27
             // 
             this.label27.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label27.Location = new System.Drawing.Point(451, 40);
+            this.label27.Location = new System.Drawing.Point(451, 39);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(173, 17);
             this.label27.TabIndex = 102;
@@ -3248,7 +3322,7 @@
             // txtbulk_leadtime
             // 
             this.txtbulk_leadtime.EnterMoveNextControl = true;
-            this.txtbulk_leadtime.Location = new System.Drawing.Point(627, 40);
+            this.txtbulk_leadtime.Location = new System.Drawing.Point(627, 39);
             this.txtbulk_leadtime.Name = "txtbulk_leadtime";
             this.txtbulk_leadtime.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtbulk_leadtime.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3262,21 +3336,21 @@
             // txtSurcharge
             // 
             this.txtSurcharge.EnterMoveNextControl = true;
-            this.txtSurcharge.Location = new System.Drawing.Point(857, 17);
+            this.txtSurcharge.Location = new System.Drawing.Point(857, 16);
             this.txtSurcharge.Name = "txtSurcharge";
             this.txtSurcharge.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtSurcharge.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtSurcharge.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtSurcharge.Properties.MaxLength = 30;
             this.txtSurcharge.Properties.ReadOnly = true;
-            this.txtSurcharge.Size = new System.Drawing.Size(128, 22);
+            this.txtSurcharge.Size = new System.Drawing.Size(129, 22);
             this.txtSurcharge.TabIndex = 5;
             this.txtSurcharge.Tag = "2";
             // 
             // label28
             // 
             this.label28.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label28.Location = new System.Drawing.Point(9, 40);
+            this.label28.Location = new System.Drawing.Point(9, 39);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(117, 17);
             this.label28.TabIndex = 100;
@@ -3286,7 +3360,7 @@
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label20.Location = new System.Drawing.Point(777, 19);
+            this.label20.Location = new System.Drawing.Point(777, 18);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(78, 15);
             this.label20.TabIndex = 70;
@@ -3296,7 +3370,7 @@
             // txtMoq
             // 
             this.txtMoq.EnterMoveNextControl = true;
-            this.txtMoq.Location = new System.Drawing.Point(627, 17);
+            this.txtMoq.Location = new System.Drawing.Point(627, 16);
             this.txtMoq.Name = "txtMoq";
             this.txtMoq.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMoq.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3310,7 +3384,7 @@
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label19.Location = new System.Drawing.Point(582, 19);
+            this.label19.Location = new System.Drawing.Point(582, 18);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(41, 15);
             this.label19.TabIndex = 72;
@@ -3341,7 +3415,7 @@
             this.panel11.Controls.Add(this.lueCheck);
             this.panel11.Controls.Add(this.label40);
             this.panel11.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel11.Location = new System.Drawing.Point(3, 378);
+            this.panel11.Location = new System.Drawing.Point(3, 381);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(995, 87);
             this.panel11.TabIndex = 207;
@@ -3607,9 +3681,9 @@
             this.panel10.Controls.Add(this.chksus_grs);
             this.panel10.Controls.Add(this.label38);
             this.panel10.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel10.Location = new System.Drawing.Point(3, 343);
+            this.panel10.Location = new System.Drawing.Point(3, 349);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(995, 34);
+            this.panel10.Size = new System.Drawing.Size(995, 31);
             this.panel10.TabIndex = 206;
             // 
             // label4
@@ -3746,15 +3820,15 @@
             this.panel4.Controls.Add(this.chktrim_conform_yes);
             this.panel4.Controls.Add(this.label66);
             this.panel4.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.panel4.Location = new System.Drawing.Point(2, 236);
+            this.panel4.Location = new System.Drawing.Point(2, 246);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(995, 50);
+            this.panel4.Size = new System.Drawing.Size(995, 48);
             this.panel4.TabIndex = 204;
             // 
             // txtconformity_of_test
             // 
             this.txtconformity_of_test.EnterMoveNextControl = true;
-            this.txtconformity_of_test.Location = new System.Drawing.Point(292, 26);
+            this.txtconformity_of_test.Location = new System.Drawing.Point(292, 24);
             this.txtconformity_of_test.Name = "txtconformity_of_test";
             this.txtconformity_of_test.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtconformity_of_test.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3768,7 +3842,7 @@
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(3, 23);
+            this.label25.Location = new System.Drawing.Point(3, 20);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(281, 23);
             this.label25.TabIndex = 215;
@@ -3778,7 +3852,7 @@
             // chktrim_conform_no
             // 
             this.chktrim_conform_no.Enabled = false;
-            this.chktrim_conform_no.Location = new System.Drawing.Point(629, 2);
+            this.chktrim_conform_no.Location = new System.Drawing.Point(629, 1);
             this.chktrim_conform_no.Name = "chktrim_conform_no";
             this.chktrim_conform_no.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chktrim_conform_no.Properties.Appearance.Options.UseFont = true;
@@ -3793,7 +3867,7 @@
             // chktrim_conform_yes
             // 
             this.chktrim_conform_yes.Enabled = false;
-            this.chktrim_conform_yes.Location = new System.Drawing.Point(529, 2);
+            this.chktrim_conform_yes.Location = new System.Drawing.Point(529, 1);
             this.chktrim_conform_yes.Name = "chktrim_conform_yes";
             this.chktrim_conform_yes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chktrim_conform_yes.Properties.Appearance.Options.UseFont = true;
@@ -3808,7 +3882,7 @@
             // label66
             // 
             this.label66.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.Location = new System.Drawing.Point(2, 5);
+            this.label66.Location = new System.Drawing.Point(2, 4);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(521, 15);
             this.label66.TabIndex = 110;
@@ -3834,9 +3908,9 @@
             this.panel2.Controls.Add(this.chktrim_review_no);
             this.panel2.Controls.Add(this.chktrim_review_yes);
             this.panel2.Controls.Add(this.label47);
-            this.panel2.Location = new System.Drawing.Point(1, 558);
+            this.panel2.Location = new System.Drawing.Point(1, 561);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(996, 55);
+            this.panel2.Size = new System.Drawing.Size(996, 53);
             this.panel2.TabIndex = 203;
             // 
             // chkdepth_deeper
@@ -3880,7 +3954,7 @@
             this.chkhue_greener.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.chkhue_greener.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkhue_greener.Properties.Caption = "Greener";
-            this.chkhue_greener.Size = new System.Drawing.Size(73, 23);
+            this.chkhue_greener.Size = new System.Drawing.Size(74, 23);
             this.chkhue_greener.TabIndex = 201;
             this.chkhue_greener.Tag = "2";
             // 
@@ -4050,24 +4124,8 @@
             this.panel7.Controls.Add(this.label52);
             this.panel7.Location = new System.Drawing.Point(3, 1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(994, 47);
+            this.panel7.Size = new System.Drawing.Size(994, 61);
             this.panel7.TabIndex = 79;
-            // 
-            // txtFactory_name
-            // 
-            this.txtFactory_name.EditValue = "";
-            this.txtFactory_name.EnterMoveNextControl = true;
-            this.txtFactory_name.Location = new System.Drawing.Point(554, 22);
-            this.txtFactory_name.Name = "txtFactory_name";
-            this.txtFactory_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFactory_name.Properties.Appearance.Options.UseFont = true;
-            this.txtFactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtFactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtFactory_name.Properties.MaxLength = 200;
-            this.txtFactory_name.Properties.ReadOnly = true;
-            this.txtFactory_name.Size = new System.Drawing.Size(430, 21);
-            this.txtFactory_name.TabIndex = 4;
-            this.txtFactory_name.Tag = "2";
             // 
             // lueRaw_material_country
             // 
@@ -4128,7 +4186,7 @@
             this.txtdoc_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtdoc_date.Properties.MaxLength = 10;
             this.txtdoc_date.Properties.NullDate = "";
-            this.txtdoc_date.Size = new System.Drawing.Size(97, 20);
+            this.txtdoc_date.Size = new System.Drawing.Size(99, 20);
             this.txtdoc_date.TabIndex = 2;
             this.txtdoc_date.Tag = "2";
             // 
@@ -4193,7 +4251,7 @@
             // txtsupplier_name
             // 
             this.txtsupplier_name.EnterMoveNextControl = true;
-            this.txtsupplier_name.Location = new System.Drawing.Point(59, 22);
+            this.txtsupplier_name.Location = new System.Drawing.Point(59, 26);
             this.txtsupplier_name.Name = "txtsupplier_name";
             this.txtsupplier_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtsupplier_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4206,7 +4264,7 @@
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label17.Location = new System.Drawing.Point(2, 24);
+            this.label17.Location = new System.Drawing.Point(2, 25);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(55, 15);
             this.label17.TabIndex = 50;
@@ -4519,6 +4577,19 @@
             this.dtDoc_date2.Size = new System.Drawing.Size(137, 22);
             this.dtDoc_date2.TabIndex = 5;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(470, 29);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(78, 37);
+            this.btnSearch.TabIndex = 157;
+            this.btnSearch.Text = "查詢(&L)";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -4546,9 +4617,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle45.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle45.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle25.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle25.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -4567,9 +4638,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle46.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle46.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle26.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle26.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -4645,8 +4716,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "artwork_limit";
-            dataGridViewCellStyle47.Format = "N2";
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle27.Format = "N2";
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewTextBoxColumn13.HeaderText = "Artwork limittations";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -4657,9 +4728,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "tiered_qty1";
-            dataGridViewCellStyle48.Format = "N2";
-            dataGridViewCellStyle48.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle28.Format = "N2";
+            dataGridViewCellStyle28.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn14.HeaderText = "Tiered Quantity1";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -4670,8 +4741,8 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "m_id1";
-            dataGridViewCellStyle49.Format = "N2";
-            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle29.Format = "N2";
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn15.HeaderText = "Currency1";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
@@ -4717,8 +4788,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle50.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle30.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -5410,93 +5481,16 @@
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             this.dataGridViewTextBoxColumn113.ReadOnly = true;
             // 
-            // btnSearch
+            // txtFactory_name
             // 
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(470, 29);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(78, 37);
-            this.btnSearch.TabIndex = 157;
-            this.btnSearch.Text = "查詢(&L)";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.AutoSize = false;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(71, 23);
-            this.btnExit.Text = "退 出 (&X)";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
-            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(71, 23);
-            this.btnNew.Text = " 新 增(&N)";
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(70, 23);
-            this.btnEdit.Text = " 修 改(&E)";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 23);
-            this.btnDelete.Text = "刪除(&D)";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Enabled = false;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(72, 23);
-            this.btnSave.Text = " 保  存(&S)";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // BTNCANCEL
-            // 
-            this.BTNCANCEL.Enabled = false;
-            this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
-            this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(68, 23);
-            this.BTNCANCEL.Text = "取 消(&U)";
-            this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
-            // 
-            // BTNNEWCOPY
-            // 
-            this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
-            this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNNEWCOPY.Name = "BTNNEWCOPY";
-            this.BTNNEWCOPY.Size = new System.Drawing.Size(89, 23);
-            this.BTNNEWCOPY.Text = "覆制新增(&C)";
-            this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(63, 23);
-            this.btnPrint.Text = "列印(&P)";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.txtFactory_name.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.txtFactory_name.Location = new System.Drawing.Point(554, 22);
+            this.txtFactory_name.MaxLength = 200;
+            this.txtFactory_name.Name = "txtFactory_name";
+            this.txtFactory_name.Size = new System.Drawing.Size(432, 35);
+            this.txtFactory_name.TabIndex = 129;
+            this.txtFactory_name.Tag = "2";
+            this.txtFactory_name.Text = "";
             // 
             // frmDevelopmentPvhUs
             // 
@@ -5624,7 +5618,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chktrim_review_no.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chktrim_review_yes.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRaw_material_country.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtreference_number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdoc_date.Properties.CalendarTimeProperties)).EndInit();
@@ -5875,7 +5868,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn111;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn112;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn113;
-        private DevExpress.XtraEditors.MemoEdit txtFactory_name;
         private DevExpress.XtraEditors.CheckEdit chkdivision_mercedez_benz;
         private DevExpress.XtraEditors.CheckEdit chkdivision_adaptive;
         private DevExpress.XtraEditors.CheckEdit chkdivision_specialty;
@@ -6092,5 +6084,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn create_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn update_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn update_date;
+        private System.Windows.Forms.RichTextBox txtFactory_name;
     }
 }
