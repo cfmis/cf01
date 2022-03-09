@@ -205,8 +205,8 @@ namespace cf01.Forms
             chkoekotex_class1.Checked = true;
             chksus_grs.Checked = true;
             chktrim_review_yes.Checked = true;
-            txtsrs_leadtime.Text = "14-16 Wordking days";
-            txtbulk_leadtime.Text = "21-28 Wordking days";
+            txtsrs_leadtime.Text = "16 days";
+            txtbulk_leadtime.Text = "28 days";
             txtSerial_no.Properties.ReadOnly = true;
             txtSerial_no.BackColor = Color.White;
             txtreference_number.Properties.ReadOnly = true;
