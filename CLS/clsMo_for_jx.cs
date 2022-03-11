@@ -39,7 +39,8 @@ namespace cf01.CLS
                  LEFT JOIN {0}cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id
                  INNER JOIN {0}cd_color h ON c.within_code=h.within_code AND c.color=h.id
                  WHERE a.within_code='0000' and b.wp_id ='{1}' and  a.mo_id ='{2}' ", remote_db,wp_id, mo_id);
-            //"," + remote_db + "Fn_z_get_wh_location(b.goods_id,b.next_wp_id) as wh_location
+
+                //"," + remote_db + "Fn_z_get_wh_location(b.goods_id,b.next_wp_id) as wh_location
             if (goods_id != "")
             {
                 strSql += String.Format(" AND b.goods_id='{0}' ", goods_id);
