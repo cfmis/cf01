@@ -180,7 +180,20 @@ namespace cf01.ReportForm
             if (dgvDetails.RowCount > 0)
             {
                 txtDep.Focus();
-
+                bool flagSelect = false;
+                for (int j = 0; j < dgvDetails.RowCount; j++)
+                {
+                    if ((bool)dgvDetails.Rows[j].Cells["CheckBox"].EditedFormattedValue)
+                    {
+                        flagSelect = true;
+                        break;
+                    }
+                }
+                if (!flagSelect)
+                {
+                    MessageBox.Show("請首先選中需要列印的數據!","提示信息");
+                    return;
+                }
                 //**********************
                 show_workcard(); //数据处理
                 //**********************
@@ -671,7 +684,7 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
 
-            String dep, mo, item, Request_date, Remark;
+            string dep="", mo="", item="", Request_date="", Remark="";
 
             DataTable dtNewWork = new DataTable();
             dtNewWork.Columns.Add("wp_id", typeof(string));
@@ -939,7 +952,7 @@ namespace cf01.ReportForm
                     xtaWork_jx xr = new xtaWork_jx() { DataSource = dtNewWork };
                     xr.CreateDocument();
                     xr.PrintingSystem.ShowMarginsWarning = false;
-                    xr.ShowPreview();
+                    xr.ShowPreviewDialog();
                 }
                 else
                 {
@@ -947,7 +960,7 @@ namespace cf01.ReportForm
                     xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtNewWork };
                     xr.CreateDocument();
                     xr.PrintingSystem.ShowMarginsWarning = false;
-                    xr.ShowPreview();
+                    xr.ShowPreviewDialog();
                 }
             }
 
