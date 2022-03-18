@@ -449,8 +449,8 @@ namespace cf01.Forms
             txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
             lueCurrency.EditValue = "US$";
             txtSurcharge.Text = "NIL";
-            txtleadtime_sample.Text = "14-16 Wordking days";
-            txtleadtime_bulk.Text = "21-28 Wordking days";
+            txtleadtime_sample.Text = "16";
+            txtleadtime_bulk.Text = "28";
             txtSerial_no.Properties.ReadOnly = true;
             txtSerial_no.BackColor = Color.White;
             txtPvh_submit_ref.Properties.ReadOnly = true;
@@ -795,53 +795,11 @@ namespace cf01.Forms
                 MessageBox.Show("請首先保存數據,然后方可以進行此查詢操作!");
                 return;
             }
-            Find_Data();
-        }
-
-        private void Find_Data()
-        {
             dtDetail.Clear();
-            string sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            if (txtId1.Text != "" || txtId2.Text != "" || dtDat1.Text != "" || dtDat2.Text != "" || txtPvh_submit_ref1.Text != "" || txtPvh_submit_ref2.Text != "")            
-            {
-                if (txtId1.Text != "")
-                {
-                    sql = sql + string.Format(" and serial_no>='{0}'", txtId1.Text);
-                }
-                if (txtId2.Text != "")
-                {
-                    sql = sql + string.Format(" and serial_no<='{0}'", txtId2.Text);
-                }
-                if (txtPvh_submit_ref1.Text != "")
-                {
-                    sql = sql + string.Format(" and pvh_submit_ref>='{0}'", txtPvh_submit_ref1.Text);
-                }
-                if (txtPvh_submit_ref2.Text != "")
-                {
-                    sql = sql + string.Format(" and pvh_submit_ref<='{0}'", txtPvh_submit_ref2.Text);
-                }
-                if (dtDat1.Text != "")
-                {
-                    sql = sql + string.Format(" and date>='{0}'", clsApp.Return_String_Date(dtDat1.Text));
-                }
-                if (dtDat2.Text != "")
-                {
-                    sql = sql + string.Format(" and date<='{0}'", clsApp.Return_String_Date(dtDat2.Text));
-                }
-                if (txtMo1.Text != "")
-                {
-                    sql = sql + string.Format(" and mo_id1='{0}'", txtMo1.Text);
-                }
-                if (txtMo2.Text != "")
-                {
-                    sql = sql + string.Format(" and mo_id2='{0}'", txtMo2.Text);
-                }
-                if (txtMo3.Text != "")
-                {
-                    sql = sql + string.Format(" and mo_id3='{0}'", txtMo3.Text);
-                }
-            }           
-            dtDetail = clsPublicOfCF01.GetDataTable(sql);
+            string date1 = dtDat1.Text != "" ? clsApp.Return_String_Date(dtDat1.Text) : "";
+            string date2 = dtDat2.Text != "" ? clsApp.Return_String_Date(dtDat2.Text) : "";
+            dtDetail = clsDevelopentPvh.Find_Data(txtId1.Text, txtId2.Text, txtPvh_submit_ref1.Text, txtPvh_submit_ref2.Text, date1, date2
+                , txtPlm_material_code1.Text, txtPlm_material_code2.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
             dgvFind.DataSource = dtDetail;
@@ -1257,6 +1215,11 @@ namespace cf01.Forms
                 result = int.Parse(_val);
             }
             return result;
+        }
+
+        private void txtPlm_material_code1_Leave(object sender, EventArgs e)
+        {
+            this.txtPlm_material_code2.Text = this.txtPlm_material_code1.Text;
         }
     }
 }

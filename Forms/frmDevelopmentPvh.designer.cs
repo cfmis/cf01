@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -508,6 +508,10 @@
             this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPlm_material_code1 = new DevExpress.XtraEditors.TextEdit();
+            this.label62 = new System.Windows.Forms.Label();
+            this.txtPlm_material_code2 = new DevExpress.XtraEditors.TextEdit();
+            this.label88 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -649,6 +653,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -976,9 +982,9 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle1.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle9.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle9;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             // 
@@ -5065,6 +5071,10 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.label88);
+            this.tabPage2.Controls.Add(this.txtPlm_material_code2);
+            this.tabPage2.Controls.Add(this.txtPlm_material_code1);
+            this.tabPage2.Controls.Add(this.label62);
             this.tabPage2.Controls.Add(this.txtMo3);
             this.tabPage2.Controls.Add(this.label87);
             this.tabPage2.Controls.Add(this.txtMo2);
@@ -5099,7 +5109,7 @@
             // txtMo3
             // 
             this.txtMo3.EnterMoveNextControl = true;
-            this.txtMo3.Location = new System.Drawing.Point(135, 135);
+            this.txtMo3.Location = new System.Drawing.Point(135, 159);
             this.txtMo3.Name = "txtMo3";
             this.txtMo3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo3.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -5110,7 +5120,7 @@
             // label87
             // 
             this.label87.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label87.Location = new System.Drawing.Point(14, 139);
+            this.label87.Location = new System.Drawing.Point(14, 163);
             this.label87.Name = "label87";
             this.label87.Size = new System.Drawing.Size(113, 15);
             this.label87.TabIndex = 176;
@@ -5120,7 +5130,7 @@
             // txtMo2
             // 
             this.txtMo2.EnterMoveNextControl = true;
-            this.txtMo2.Location = new System.Drawing.Point(135, 112);
+            this.txtMo2.Location = new System.Drawing.Point(135, 136);
             this.txtMo2.Name = "txtMo2";
             this.txtMo2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -5131,9 +5141,9 @@
             // label86
             // 
             this.label86.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label86.Location = new System.Drawing.Point(14, 116);
+            this.label86.Location = new System.Drawing.Point(79, 140);
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(113, 15);
+            this.label86.Size = new System.Drawing.Size(48, 15);
             this.label86.TabIndex = 174;
             this.label86.Text = "MO2：";
             this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -5141,7 +5151,7 @@
             // txtMo1
             // 
             this.txtMo1.EnterMoveNextControl = true;
-            this.txtMo1.Location = new System.Drawing.Point(135, 89);
+            this.txtMo1.Location = new System.Drawing.Point(135, 113);
             this.txtMo1.Name = "txtMo1";
             this.txtMo1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -5152,7 +5162,7 @@
             // label85
             // 
             this.label85.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label85.Location = new System.Drawing.Point(14, 93);
+            this.label85.Location = new System.Drawing.Point(14, 117);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(113, 15);
             this.label85.TabIndex = 172;
@@ -5210,11 +5220,11 @@
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.serialno});
-            this.dgvFind.Location = new System.Drawing.Point(6, 175);
+            this.dgvFind.Location = new System.Drawing.Point(6, 195);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
             this.dgvFind.RowTemplate.Height = 24;
-            this.dgvFind.Size = new System.Drawing.Size(995, 637);
+            this.dgvFind.Size = new System.Drawing.Size(995, 617);
             this.dgvFind.TabIndex = 166;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
@@ -5368,9 +5378,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5387,9 +5397,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle11.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5516,8 +5526,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -6179,6 +6189,49 @@
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             this.dataGridViewTextBoxColumn113.ReadOnly = true;
             // 
+            // txtPlm_material_code1
+            // 
+            this.txtPlm_material_code1.EnterMoveNextControl = true;
+            this.txtPlm_material_code1.Location = new System.Drawing.Point(135, 89);
+            this.txtPlm_material_code1.Name = "txtPlm_material_code1";
+            this.txtPlm_material_code1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtPlm_material_code1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPlm_material_code1.Properties.MaxLength = 10;
+            this.txtPlm_material_code1.Size = new System.Drawing.Size(137, 22);
+            this.txtPlm_material_code1.TabIndex = 177;
+            this.txtPlm_material_code1.Leave += new System.EventHandler(this.txtPlm_material_code1_Leave);
+            // 
+            // label62
+            // 
+            this.label62.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label62.Location = new System.Drawing.Point(14, 93);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(113, 15);
+            this.label62.TabIndex = 178;
+            this.label62.Text = "PLM No.：";
+            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPlm_material_code2
+            // 
+            this.txtPlm_material_code2.EnterMoveNextControl = true;
+            this.txtPlm_material_code2.Location = new System.Drawing.Point(300, 89);
+            this.txtPlm_material_code2.Name = "txtPlm_material_code2";
+            this.txtPlm_material_code2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtPlm_material_code2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPlm_material_code2.Properties.MaxLength = 10;
+            this.txtPlm_material_code2.Size = new System.Drawing.Size(137, 22);
+            this.txtPlm_material_code2.TabIndex = 179;
+            // 
+            // label88
+            // 
+            this.label88.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label88.Location = new System.Drawing.Point(274, 90);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(25, 17);
+            this.label88.TabIndex = 180;
+            this.label88.Text = "~";
+            this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmDevelopmentPvh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6334,6 +6387,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6814,5 +6869,9 @@
         private DevExpress.XtraEditors.LookUpEdit luePrevious_submit_vr;
         private DevExpress.XtraEditors.ComboBoxEdit txtWeight_uom;
         private DevExpress.XtraEditors.ButtonEdit txtProcess;
+        private DevExpress.XtraEditors.TextEdit txtPlm_material_code1;
+        private System.Windows.Forms.Label label62;
+        private DevExpress.XtraEditors.TextEdit txtPlm_material_code2;
+        private System.Windows.Forms.Label label88;
     }
 }
