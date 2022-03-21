@@ -127,54 +127,56 @@ namespace cf01.CLS
             string date1,string date2,string plm_material_code1,string plm_material_code2,string mo_id1,string mo_id2,string mo_id3)
         {
             string sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            if (id1 != "" || id2 != "" || date1 != "" || date2 != "" || pvh_submit_ref1 != "" || pvh_submit_ref2 != "")
+            if (id1 != "" || id2 != "" || pvh_submit_ref1 !=""|| pvh_submit_ref2!="" 
+                || date1 !="" || date2 != "" || plm_material_code1 != "" || plm_material_code2 != ""
+                || mo_id1!="" || mo_id2 !="" || mo_id3 !="" )
             {
                 if (id1 != "")
                 {
-                    sql = sql + string.Format(" and serial_no>='{0}'", id1);
+                    sql += string.Format(" and serial_no>='{0}'", id1);
                 }
                 if (id2 != "")
                 {
-                    sql = sql + string.Format(" and serial_no<='{0}'", id2);
+                    sql += string.Format(" and serial_no<='{0}'", id2);
                 }
                 if (pvh_submit_ref1 != "")
                 {
-                    sql = sql + string.Format(" and pvh_submit_ref>='{0}'", pvh_submit_ref1);
+                    sql += string.Format(" and pvh_submit_ref>='{0}'", pvh_submit_ref1);
                 }
                 if (pvh_submit_ref2 != "")
                 {
-                    sql = sql + string.Format(" and pvh_submit_ref<='{0}'", pvh_submit_ref2);
+                    sql += string.Format(" and pvh_submit_ref<='{0}'", pvh_submit_ref2);
                 }
                 if (date1 != "")
                 {
-                    sql = sql + string.Format(" and date>='{0}'", date1);
+                    sql += string.Format(" and date>='{0}'", date1);
                 }
                 if (date2 != "")
                 {
-                    sql = sql + string.Format(" and date<='{0}'", date2);
+                    sql += string.Format(" and date<='{0}'", date2);
                 }
                 if (plm_material_code1 != "")
                 {
-                    sql = sql + string.Format(" and plm_material_code>='{0}'", plm_material_code1);
+                    sql += string.Format(" and plm_material_code>='{0}'", plm_material_code1);
                 }
                 if (plm_material_code2 != "")
                 {
-                    sql = sql + string.Format(" and plm_material_code<='{0}'", plm_material_code2);
+                    sql += string.Format(" and plm_material_code<='{0}'", plm_material_code2);
                 }
-
                 if (mo_id1 != "")
                 {
-                    sql = sql + string.Format(" and mo_id1='{0}'", mo_id1);
+                    sql += string.Format(" and mo_id1='{0}'", mo_id1);
                 }
                 if (mo_id2 != "")
                 {
-                    sql = sql + string.Format(" and mo_id2='{0}'", mo_id2);
+                    sql += string.Format(" and mo_id2='{0}'", mo_id2);
                 }
                 if (mo_id3 != "")
                 {
-                    sql = sql + string.Format(" and mo_id3='{0}'", mo_id3);
+                    sql += string.Format(" and mo_id3='{0}'", mo_id3);
                 }
             }
+
             DataTable dt = clsPublicOfCF01.GetDataTable(sql);
             return dt;
         }
