@@ -373,6 +373,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtPlm_material_code1 = new DevExpress.XtraEditors.TextEdit();
+            this.label62 = new System.Windows.Forms.Label();
             this.txtMo3 = new DevExpress.XtraEditors.TextEdit();
             this.label87 = new System.Windows.Forms.Label();
             this.txtMo2 = new DevExpress.XtraEditors.TextEdit();
@@ -508,10 +510,6 @@
             this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPlm_material_code1 = new DevExpress.XtraEditors.TextEdit();
-            this.label62 = new System.Windows.Forms.Label();
-            this.txtPlm_material_code2 = new DevExpress.XtraEditors.TextEdit();
-            this.label88 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -641,6 +639,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo1.Properties)).BeginInit();
@@ -653,8 +652,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -5071,8 +5068,6 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage2.Controls.Add(this.label88);
-            this.tabPage2.Controls.Add(this.txtPlm_material_code2);
             this.tabPage2.Controls.Add(this.txtPlm_material_code1);
             this.tabPage2.Controls.Add(this.label62);
             this.tabPage2.Controls.Add(this.txtMo3);
@@ -5105,6 +5100,28 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "數據查找";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtPlm_material_code1
+            // 
+            this.txtPlm_material_code1.EnterMoveNextControl = true;
+            this.txtPlm_material_code1.Location = new System.Drawing.Point(135, 89);
+            this.txtPlm_material_code1.Name = "txtPlm_material_code1";
+            this.txtPlm_material_code1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtPlm_material_code1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPlm_material_code1.Properties.MaxLength = 100;
+            this.txtPlm_material_code1.Size = new System.Drawing.Size(302, 22);
+            this.txtPlm_material_code1.TabIndex = 177;
+           
+            // 
+            // label62
+            // 
+            this.label62.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label62.Location = new System.Drawing.Point(14, 93);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(113, 15);
+            this.label62.TabIndex = 178;
+            this.label62.Text = "PLM No.：";
+            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMo3
             // 
@@ -5312,12 +5329,10 @@
             this.dtDat1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDat1.Properties.EditFormat.FormatString = "yyyy/MM/dd";
             this.dtDat1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat1.Properties.MaxLength = 10;
             this.dtDat1.Size = new System.Drawing.Size(137, 22);
             this.dtDat1.TabIndex = 4;
-            this.dtDat1.Leave += new System.EventHandler(this.dtDat1_Leave);
             // 
             // dtDat2
             // 
@@ -6189,49 +6204,6 @@
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             this.dataGridViewTextBoxColumn113.ReadOnly = true;
             // 
-            // txtPlm_material_code1
-            // 
-            this.txtPlm_material_code1.EnterMoveNextControl = true;
-            this.txtPlm_material_code1.Location = new System.Drawing.Point(135, 89);
-            this.txtPlm_material_code1.Name = "txtPlm_material_code1";
-            this.txtPlm_material_code1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtPlm_material_code1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPlm_material_code1.Properties.MaxLength = 10;
-            this.txtPlm_material_code1.Size = new System.Drawing.Size(137, 22);
-            this.txtPlm_material_code1.TabIndex = 177;
-            this.txtPlm_material_code1.Leave += new System.EventHandler(this.txtPlm_material_code1_Leave);
-            // 
-            // label62
-            // 
-            this.label62.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label62.Location = new System.Drawing.Point(14, 93);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(113, 15);
-            this.label62.TabIndex = 178;
-            this.label62.Text = "PLM No.：";
-            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtPlm_material_code2
-            // 
-            this.txtPlm_material_code2.EnterMoveNextControl = true;
-            this.txtPlm_material_code2.Location = new System.Drawing.Point(300, 89);
-            this.txtPlm_material_code2.Name = "txtPlm_material_code2";
-            this.txtPlm_material_code2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtPlm_material_code2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPlm_material_code2.Properties.MaxLength = 10;
-            this.txtPlm_material_code2.Size = new System.Drawing.Size(137, 22);
-            this.txtPlm_material_code2.TabIndex = 179;
-            // 
-            // label88
-            // 
-            this.label88.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label88.Location = new System.Drawing.Point(274, 90);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(25, 17);
-            this.label88.TabIndex = 180;
-            this.label88.Text = "~";
-            this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frmDevelopmentPvh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6375,6 +6347,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo1.Properties)).EndInit();
@@ -6387,8 +6360,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6871,7 +6842,5 @@
         private DevExpress.XtraEditors.ButtonEdit txtProcess;
         private DevExpress.XtraEditors.TextEdit txtPlm_material_code1;
         private System.Windows.Forms.Label label62;
-        private DevExpress.XtraEditors.TextEdit txtPlm_material_code2;
-        private System.Windows.Forms.Label label88;
     }
 }

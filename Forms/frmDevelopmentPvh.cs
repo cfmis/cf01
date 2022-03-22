@@ -798,8 +798,8 @@ namespace cf01.Forms
             dtDetail.Clear();
             string date1 = dtDat1.Text != "" ? clsApp.Return_String_Date(dtDat1.Text) : "";
             string date2 = dtDat2.Text != "" ? clsApp.Return_String_Date(dtDat2.Text) : "";
-            dtDetail = clsDevelopentPvh.Find_Data(txtId1.Text, txtId2.Text, txtPvh_submit_ref1.Text, txtPvh_submit_ref2.Text, date1, date2
-                , txtPlm_material_code1.Text, txtPlm_material_code2.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text);
+            dtDetail = clsDevelopentPvh.Find_Data(txtId1.Text, txtId2.Text, txtPvh_submit_ref1.Text, txtPvh_submit_ref2.Text
+                , date1, date2 , txtPlm_material_code1.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
             dgvFind.DataSource = dtDetail;
@@ -1216,10 +1216,6 @@ namespace cf01.Forms
             }
             return result;
         }
-
-        private void txtPlm_material_code1_Leave(object sender, EventArgs e)
-        {
-            this.txtPlm_material_code2.Text = this.txtPlm_material_code1.Text;
-        }
+                
     }
 }
