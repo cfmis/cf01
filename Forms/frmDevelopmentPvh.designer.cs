@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -258,7 +259,6 @@
             this.label56 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lueHandling_office = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtPvh_submit_ref = new DevExpress.XtraEditors.TextEdit();
             this.txtPlm_material_code = new DevExpress.XtraEditors.TextEdit();
             this.txtDate = new DevExpress.XtraEditors.DateEdit();
             this.txtSerial_no = new DevExpress.XtraEditors.TextEdit();
@@ -510,6 +510,7 @@
             this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPvh_submit_ref = new DevExpress.XtraEditors.ButtonEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -567,7 +568,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
@@ -652,6 +652,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -979,9 +980,9 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle9.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle9.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle1;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             // 
@@ -3180,7 +3181,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel7.Controls.Add(this.lueHandling_office);
-            this.panel7.Controls.Add(this.txtPvh_submit_ref);
             this.panel7.Controls.Add(this.txtPlm_material_code);
             this.panel7.Controls.Add(this.txtDate);
             this.panel7.Controls.Add(this.txtSerial_no);
@@ -3197,6 +3197,7 @@
             this.panel7.Controls.Add(this.label61);
             this.panel7.Controls.Add(this.label15);
             this.panel7.Controls.Add(this.label53);
+            this.panel7.Controls.Add(this.txtPvh_submit_ref);
             this.panel7.Location = new System.Drawing.Point(3, 1);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(994, 47);
@@ -3222,18 +3223,6 @@
             this.lueHandling_office.Size = new System.Drawing.Size(142, 20);
             this.lueHandling_office.TabIndex = 2;
             this.lueHandling_office.Tag = "2";
-            // 
-            // txtPvh_submit_ref
-            // 
-            this.txtPvh_submit_ref.EnterMoveNextControl = true;
-            this.txtPvh_submit_ref.Location = new System.Drawing.Point(795, 22);
-            this.txtPvh_submit_ref.Name = "txtPvh_submit_ref";
-            this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtPvh_submit_ref.Properties.ReadOnly = true;
-            this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
-            this.txtPvh_submit_ref.TabIndex = 9;
-            this.txtPvh_submit_ref.Tag = "1";
             // 
             // txtPlm_material_code
             // 
@@ -5111,7 +5100,6 @@
             this.txtPlm_material_code1.Properties.MaxLength = 100;
             this.txtPlm_material_code1.Size = new System.Drawing.Size(302, 22);
             this.txtPlm_material_code1.TabIndex = 177;
-           
             // 
             // label62
             // 
@@ -5393,9 +5381,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle10.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle10.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5412,9 +5400,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle11.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle11.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5541,8 +5529,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle12.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -6204,6 +6192,21 @@
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             this.dataGridViewTextBoxColumn113.ReadOnly = true;
             // 
+            // txtPvh_submit_ref
+            // 
+            this.txtPvh_submit_ref.Location = new System.Drawing.Point(795, 22);
+            this.txtPvh_submit_ref.Name = "txtPvh_submit_ref";
+            this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtPvh_submit_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.txtPvh_submit_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtPvh_submit_ref.Properties.ReadOnly = true;
+            this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
+            this.txtPvh_submit_ref.TabIndex = 9;
+            this.txtPvh_submit_ref.Tag = "1";
+            this.txtPvh_submit_ref.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtPvh_submit_ref_ButtonClick);
+            // 
             // frmDevelopmentPvh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6275,7 +6278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
@@ -6360,6 +6362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6478,7 +6481,6 @@
         private System.Windows.Forms.Label label55;
         private DevExpress.XtraEditors.TextEdit txtFactory_name;
         private System.Windows.Forms.Label label52;
-        private DevExpress.XtraEditors.TextEdit txtPvh_submit_ref;
         internal System.Windows.Forms.Label label58;
         private DevExpress.XtraEditors.TextEdit txtPlm_material_code;
         internal System.Windows.Forms.Label label53;
@@ -6842,5 +6844,6 @@
         private DevExpress.XtraEditors.ButtonEdit txtProcess;
         private DevExpress.XtraEditors.TextEdit txtPlm_material_code1;
         private System.Windows.Forms.Label label62;
+        private DevExpress.XtraEditors.ButtonEdit txtPvh_submit_ref;
     }
 }

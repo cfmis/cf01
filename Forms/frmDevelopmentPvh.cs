@@ -41,7 +41,7 @@ namespace cf01.Forms
             objToolbar.SetToolBar();
 
             const string sql = @"SELECT * From development_pvh with(nolock) where 1=0 ";
-            dtDetail = clsPublicOfCF01.GetDataTable(sql);
+            dtDetail = clsPublicOfCF01.GetDataTable(sql); 
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;// dtDetail;
         }
@@ -444,7 +444,7 @@ namespace cf01.Forms
             //新增時設置初始值            
             txtDate.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
             txtSerial_no.Text = clsTommyTest.GetSeqNo("development_pvh","serial_no");
-            txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
+            //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);2022/04/20 Cancel
             txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
             txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
             lueCurrency.EditValue = "US$";
@@ -529,7 +529,16 @@ namespace cf01.Forms
                     {
                         myCommand.CommandText = sql_new;
                         strSerial_no = clsTommyTest.GetSeqNo("development_pvh", "serial_no");
-                        txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no);
+                        //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no);
+                        if (txtPvh_submit_ref.Text != "")
+                        {
+                            string sql_f = string.Format("Select pvh_submit_ref From development_pvh where pvh_submit_ref='{0}'", txtPvh_submit_ref.Text);
+                            if(clsPublicOfCF01.ExecuteSqlReturnObject(sql_f) != "")
+                            {
+                                //重新取編號
+                                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no);
+                            }
+                        }
                         myCommand.Parameters.AddWithValue("@serial_no", strSerial_no);
                     }
                     else
@@ -1216,6 +1225,18 @@ namespace cf01.Forms
             }
             return result;
         }
-                
+
+        private void txtPvh_submit_ref_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (mState == "NEW" || mState == "EDIT")
+            {
+                if (mState == "EDIT" && !string.IsNullOrEmpty(txtPvh_submit_ref.Text))
+                {
+                    MessageBox.Show("註意: 編輯狀態下已存在的編號不可以再繼續生成新的編號!");
+                    return;
+                }
+                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
+            }
+        }
     }
 }
