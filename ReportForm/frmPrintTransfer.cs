@@ -337,7 +337,7 @@ namespace cf01.ReportForm
                 mat_id = dtPrint.Rows[i]["goods_id"].ToString();
                 per_qty = int.Parse(dtPrint.Rows[i]["per_qty"].ToString());
                 if(chkNoQc.Checked)
-                    isPrintQc="1";//不顯示QC
+                    isPrintQc="1";//不顯示QC/P10部門的生產單
                 else
                     isPrintQc="0";
                 SqlParameter[] paras = new SqlParameter[]{

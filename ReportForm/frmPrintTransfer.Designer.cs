@@ -488,9 +488,9 @@
             this.chkNoQc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkNoQc.Location = new System.Drawing.Point(19, 19);
             this.chkNoQc.Name = "chkNoQc";
-            this.chkNoQc.Size = new System.Drawing.Size(223, 16);
+            this.chkNoQc.Size = new System.Drawing.Size(274, 16);
             this.chkNoQc.TabIndex = 11;
-            this.chkNoQc.Text = "列印生產單時,忽略到QC部門的記錄。";
+            this.chkNoQc.Text = "列印生產單時,忽略到QC / P10生產部門的記錄。";
             this.chkNoQc.UseVisualStyleBackColor = true;
             // 
             // lblMo
