@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -273,6 +273,7 @@
             this.label61 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
+            this.txtPvh_submit_ref = new DevExpress.XtraEditors.ButtonEdit();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label79 = new System.Windows.Forms.Label();
             this.txtprice6 = new DevExpress.XtraEditors.TextEdit();
@@ -510,7 +511,6 @@
             this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPvh_submit_ref = new DevExpress.XtraEditors.ButtonEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -576,6 +576,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueDivision.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRequested_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtprice6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrice6_unit.Properties)).BeginInit();
@@ -652,7 +653,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -3286,6 +3286,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(177, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 16);
@@ -3399,6 +3400,21 @@
             this.label53.TabIndex = 6;
             this.label53.Text = "PLM Material Code";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPvh_submit_ref
+            // 
+            this.txtPvh_submit_ref.Location = new System.Drawing.Point(795, 22);
+            this.txtPvh_submit_ref.Name = "txtPvh_submit_ref";
+            this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtPvh_submit_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.txtPvh_submit_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtPvh_submit_ref.Properties.ReadOnly = true;
+            this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
+            this.txtPvh_submit_ref.TabIndex = 9;
+            this.txtPvh_submit_ref.Tag = "1";
+            this.txtPvh_submit_ref.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtPvh_submit_ref_ButtonClick);
             // 
             // panel6
             // 
@@ -6192,21 +6208,6 @@
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             this.dataGridViewTextBoxColumn113.ReadOnly = true;
             // 
-            // txtPvh_submit_ref
-            // 
-            this.txtPvh_submit_ref.Location = new System.Drawing.Point(795, 22);
-            this.txtPvh_submit_ref.Name = "txtPvh_submit_ref";
-            this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtPvh_submit_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-            this.txtPvh_submit_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtPvh_submit_ref.Properties.ReadOnly = true;
-            this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
-            this.txtPvh_submit_ref.TabIndex = 9;
-            this.txtPvh_submit_ref.Tag = "1";
-            this.txtPvh_submit_ref.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtPvh_submit_ref_ButtonClick);
-            // 
             // frmDevelopmentPvh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6286,6 +6287,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueDivision.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRequested_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtprice6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrice6_unit.Properties)).EndInit();
@@ -6362,7 +6364,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

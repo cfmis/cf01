@@ -25,21 +25,24 @@ namespace cf01.CLS
             obj.Properties.DisplayMember = "id";
         }
 
-        public static string GetPvhNo(string strSerial_no)
+        public static string GetPvhNo(string strSerial_no,string strContents)
         {
-            string result = "";
+            string strSql = string.Format(
+            @"SELECT TOP 1 ISNULL(abbrev_id,'') AS abbrev_id FROM development_pvh_type WHERE type ='divisions' and contents='{0}'", strContents);
+            string prefix= clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             string mm = strSerial_no.Substring(4, 2);//月份
             string yy = strSerial_no.Substring(2, 2);//取年份
-            string sql = "SELECT MAX(pvh_submit_ref) AS pvh_submit_ref FROM development_pvh WHERE pvh_submit_ref LIKE 'CF-" + mm + "%/" + yy + "'";
-            result = clsPublicOfCF01.ExecuteSqlReturnObject(sql);
+            strSql = "SELECT MAX(pvh_submit_ref) AS pvh_submit_ref FROM development_pvh WHERE pvh_submit_ref LIKE "+ "'"+ prefix +"CF-" + mm + "%/" + yy + "'";
+            string result = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             if (string.IsNullOrEmpty(result))
             {
-                result = "CF-" + mm + "001" + "/" + yy;
+                result = prefix + "CF-" + mm + "001" + "/" + yy;
             }
             else
             {
-                result = "CF-" + mm + (Int32.Parse(result.Substring(5, 3)) + 1).ToString().PadLeft(3, '0') + "/" + yy; ; //CF-12001/21
-            }
+                int index_start = result.IndexOf("-") + 2;
+                result = prefix + "CF-" + mm + (Int32.Parse(result.Substring(index_start, 3)) + 1).ToString().PadLeft(3, '0') + "/" + yy; ; //THSCF-12001/21
+            }            
             return result;
         }
         public static string GetPvhNoForUs(string strSerial_no)

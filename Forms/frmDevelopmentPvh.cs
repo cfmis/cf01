@@ -463,10 +463,22 @@ namespace cf01.Forms
         private void Save()
         {
             txtSerial_no.Focus();
-            if (txtSerial_no.Text == "" && txtDate.Text == "")
+            if (txtSerial_no.Text == "")
             {
-                MessageBox.Show("Serial No.、日期不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Serial No不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSerial_no.Focus();
+                return;
+            }
+            if (txtDate.Text == "")
+            {
+                MessageBox.Show("日期不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDate.Focus();
+                return;
+            }
+            if (lueDivision.Text == "")
+            {
+                MessageBox.Show("Division不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lueDivision.Focus();
                 return;
             }
             bds1.EndEdit();                    
@@ -536,7 +548,7 @@ namespace cf01.Forms
                             if(clsPublicOfCF01.ExecuteSqlReturnObject(sql_f) != "")
                             {
                                 //重新取編號
-                                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no);
+                                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no,lueDivision.Text);
                             }
                         }
                         myCommand.Parameters.AddWithValue("@serial_no", strSerial_no);
@@ -1065,7 +1077,8 @@ namespace cf01.Forms
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
                 string max_serial_no = clsTommyTest.GetSeqNo("development_pvh", "serial_no");
                 txtSerial_no.Text = max_serial_no;
-                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
+                //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
+                txtPvh_submit_ref.Text = "";
             }
             else
             {
@@ -1235,7 +1248,13 @@ namespace cf01.Forms
                     MessageBox.Show("註意: 編輯狀態下已存在的編號不可以再繼續生成新的編號!");
                     return;
                 }
-                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
+                if (lueDivision.Text == "")
+                {
+                    MessageBox.Show("註意: Division不可以為空 !");
+                    lueDivision.Focus();
+                    return;
+                }
+                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text,lueDivision.EditValue.ToString());
             }
         }
     }
