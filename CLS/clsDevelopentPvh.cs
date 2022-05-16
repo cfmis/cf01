@@ -40,7 +40,7 @@ namespace cf01.CLS
             }
             else
             {
-                int index_start = result.IndexOf("-") + 2;
+                int index_start = result.IndexOf("-") + 3;
                 result = prefix + "CF-" + mm + (Int32.Parse(result.Substring(index_start, 3)) + 1).ToString().PadLeft(3, '0') + "/" + yy; ; //THSCF-12001/21
             }            
             return result;
