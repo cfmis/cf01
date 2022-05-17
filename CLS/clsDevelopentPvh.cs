@@ -36,12 +36,12 @@ namespace cf01.CLS
             string result = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             if (string.IsNullOrEmpty(result))
             {
-                result = prefix + "CF-" + mm + "001" + "/" + yy;
+                result = prefix + "CF-" + mm + "0001" + "/" + yy;
             }
             else
             {
                 int index_start = result.IndexOf("-") + 3;
-                result = prefix + "CF-" + mm + (Int32.Parse(result.Substring(index_start, 3)) + 1).ToString().PadLeft(3, '0') + "/" + yy; ; //THSCF-12001/21
+                result = prefix + "CF-" + mm + (Int32.Parse(result.Substring(index_start, 4)) + 1).ToString().PadLeft(4, '0') + "/" + yy; ; //THSCF-120001/21
             }            
             return result;
         }
