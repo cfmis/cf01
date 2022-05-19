@@ -27,7 +27,7 @@ namespace cf01.MM
         public static decimal searchPricePcs = 0;
         public static mdlDepPrice sentDepPrice = new mdlDepPrice();
         private bool firstLevel;
-        private bool firstCount;
+        private bool firstCount; 
         private DataTable dtBomDetails = new DataTable();
         private DataTable dtWipData = new DataTable();
         private double hkd_rmb_rate = 1.176;

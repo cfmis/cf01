@@ -257,6 +257,7 @@
     <Compile Include="CLS\clsMatMaster.cs" />
     <Compile Include="CLS\clsMmCalculatePrice.cs" />
     <Compile Include="CLS\clsMmCosting.cs" />
+    <Compile Include="CLS\clsMmProductTypeStdPrice.cs" />
     <Compile Include="CLS\clsMoRepair.cs" />
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
@@ -1332,6 +1333,7 @@
     <Compile Include="MDL\mdlMaterialType.cs" />
     <Compile Include="MDL\mdlMmCalculatePrice.cs" />
     <Compile Include="MDL\mdlMmCosting.cs" />
+    <Compile Include="MDL\mdlMmProductTypeStdPrice.cs" />
     <Compile Include="MDL\mdlOcRemark.cs" />
     <Compile Include="MDL\mdlProductCosting.cs" />
     <Compile Include="MDL\mdlPublic.cs" />
@@ -1397,6 +1399,18 @@
     </Compile>
     <Compile Include="MM\frmProductProcessCost.Designer.cs">
       <DependentUpon>frmProductProcessCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\frmProductTypeStdPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmProductTypeStdPrice.Designer.cs">
+      <DependentUpon>frmProductTypeStdPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\frmProductTypeStdPriceFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmProductTypeStdPriceFind.Designer.cs">
+      <DependentUpon>frmProductTypeStdPriceFind.cs</DependentUpon>
     </Compile>
     <Compile Include="MM\frmSetProductPrice.cs">
       <SubType>Form</SubType>
@@ -3193,6 +3207,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmProductProcessCost.resx">
       <DependentUpon>frmProductProcessCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmProductTypeStdPrice.resx">
+      <DependentUpon>frmProductTypeStdPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmProductTypeStdPriceFind.resx">
+      <DependentUpon>frmProductTypeStdPriceFind.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmSetProductPrice.resx">
       <DependentUpon>frmSetProductPrice.cs</DependentUpon>
