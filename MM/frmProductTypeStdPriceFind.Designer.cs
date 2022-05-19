@@ -62,7 +62,16 @@
             this.lblColor = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.lblPrice = new DevExpress.XtraEditors.LabelControl();
+            this.txtCurr = new DevExpress.XtraEditors.TextEdit();
+            this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.dgvColorDetails = new System.Windows.Forms.DataGridView();
+            this.colColorSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,15 +91,6 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPrice = new DevExpress.XtraEditors.TextEdit();
-            this.lblPrice = new DevExpress.XtraEditors.LabelControl();
-            this.txtCurr = new DevExpress.XtraEditors.TextEdit();
-            this.colColorSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -106,9 +106,9 @@
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvColorDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCurr.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColorDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -409,6 +409,34 @@
             this.panelControl5.Size = new System.Drawing.Size(1062, 87);
             this.panelControl5.TabIndex = 4;
             // 
+            // lblPrice
+            // 
+            this.lblPrice.Location = new System.Drawing.Point(12, 26);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(28, 14);
+            this.lblPrice.TabIndex = 1;
+            this.lblPrice.Text = "單價:";
+            // 
+            // txtCurr
+            // 
+            this.txtCurr.Enabled = false;
+            this.txtCurr.Location = new System.Drawing.Point(165, 23);
+            this.txtCurr.Name = "txtCurr";
+            this.txtCurr.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCurr.Properties.Appearance.Options.UseBackColor = true;
+            this.txtCurr.Size = new System.Drawing.Size(100, 20);
+            this.txtCurr.TabIndex = 0;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Enabled = false;
+            this.txtPrice.Location = new System.Drawing.Point(46, 23);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrice.Properties.Appearance.Options.UseBackColor = true;
+            this.txtPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtPrice.TabIndex = 0;
+            // 
             // dgvColorDetails
             // 
             this.dgvColorDetails.AllowUserToAddRows = false;
@@ -431,6 +459,54 @@
             this.dgvColorDetails.Size = new System.Drawing.Size(1062, 295);
             this.dgvColorDetails.TabIndex = 0;
             this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
+            // 
+            // colColorSeq
+            // 
+            this.colColorSeq.DataPropertyName = "Seq";
+            this.colColorSeq.HeaderText = "序號";
+            this.colColorSeq.Name = "colColorSeq";
+            this.colColorSeq.ReadOnly = true;
+            this.colColorSeq.Width = 60;
+            // 
+            // colColorID
+            // 
+            this.colColorID.DataPropertyName = "ColorID";
+            this.colColorID.HeaderText = "顏色代號";
+            this.colColorID.Name = "colColorID";
+            this.colColorID.ReadOnly = true;
+            // 
+            // colColorName
+            // 
+            this.colColorName.DataPropertyName = "ColorName";
+            this.colColorName.HeaderText = "顏色描述";
+            this.colColorName.Name = "colColorName";
+            this.colColorName.ReadOnly = true;
+            this.colColorName.Width = 160;
+            // 
+            // colValueDesc
+            // 
+            this.colValueDesc.DataPropertyName = "ValueDesc";
+            this.colValueDesc.HeaderText = "數值描述";
+            this.colValueDesc.Name = "colValueDesc";
+            this.colValueDesc.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price";
+            this.colPrice.HeaderText = "單價";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Visible = false;
+            this.colPrice.Width = 80;
+            // 
+            // colCurr
+            // 
+            this.colCurr.DataPropertyName = "Curr";
+            this.colCurr.HeaderText = "貨幣代號";
+            this.colCurr.Name = "colCurr";
+            this.colCurr.ReadOnly = true;
+            this.colCurr.Visible = false;
+            this.colCurr.Width = 80;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -557,82 +633,6 @@
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.Width = 80;
             // 
-            // txtPrice
-            // 
-            this.txtPrice.Enabled = false;
-            this.txtPrice.Location = new System.Drawing.Point(46, 24);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPrice.Properties.Appearance.Options.UseBackColor = true;
-            this.txtPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtPrice.TabIndex = 0;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.Location = new System.Drawing.Point(12, 27);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(28, 14);
-            this.lblPrice.TabIndex = 1;
-            this.lblPrice.Text = "單價:";
-            // 
-            // txtCurr
-            // 
-            this.txtCurr.Enabled = false;
-            this.txtCurr.Location = new System.Drawing.Point(165, 24);
-            this.txtCurr.Name = "txtCurr";
-            this.txtCurr.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCurr.Properties.Appearance.Options.UseBackColor = true;
-            this.txtCurr.Size = new System.Drawing.Size(100, 20);
-            this.txtCurr.TabIndex = 0;
-            // 
-            // colColorSeq
-            // 
-            this.colColorSeq.DataPropertyName = "Seq";
-            this.colColorSeq.HeaderText = "序號";
-            this.colColorSeq.Name = "colColorSeq";
-            this.colColorSeq.ReadOnly = true;
-            this.colColorSeq.Width = 60;
-            // 
-            // colColorID
-            // 
-            this.colColorID.DataPropertyName = "ColorID";
-            this.colColorID.HeaderText = "顏色代號";
-            this.colColorID.Name = "colColorID";
-            this.colColorID.ReadOnly = true;
-            // 
-            // colColorName
-            // 
-            this.colColorName.DataPropertyName = "ColorName";
-            this.colColorName.HeaderText = "顏色描述";
-            this.colColorName.Name = "colColorName";
-            this.colColorName.ReadOnly = true;
-            this.colColorName.Width = 160;
-            // 
-            // colValueDesc
-            // 
-            this.colValueDesc.DataPropertyName = "ValueDesc";
-            this.colValueDesc.HeaderText = "數值描述";
-            this.colValueDesc.Name = "colValueDesc";
-            this.colValueDesc.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.DataPropertyName = "Price";
-            this.colPrice.HeaderText = "單價";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Visible = false;
-            this.colPrice.Width = 80;
-            // 
-            // colCurr
-            // 
-            this.colCurr.DataPropertyName = "Curr";
-            this.colCurr.HeaderText = "貨幣代號";
-            this.colCurr.Name = "colCurr";
-            this.colCurr.ReadOnly = true;
-            this.colCurr.Visible = false;
-            this.colCurr.Width = 80;
-            // 
             // frmProductTypeStdPriceFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -664,9 +664,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvColorDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCurr.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColorDetails)).EndInit();
             this.ResumeLayout(false);
 
         }
