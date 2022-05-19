@@ -65,5 +65,16 @@ namespace cf01.Reports
             }
         }
 
+        private void xrLabel7_TextChanged(object sender, EventArgs e)
+        {
+            if (xrLabel7.Text.Substring(1, 3) != "510")
+            {
+                lbl501.Text = "電鍍備註";
+            }
+            else
+            {
+                lbl501.Text = "噴油備註";
+            }
+        }
     }
 }

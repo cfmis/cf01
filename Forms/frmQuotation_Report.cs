@@ -743,7 +743,7 @@ namespace cf01.Forms
                 {
                     myCommand.Parameters.Clear();
                     myCommand.Parameters.AddWithValue("@version", txtVersion.Text.Trim());
-                    myCommand.Parameters.AddWithValue("@quota_date", txtDate.EditValue);
+                    myCommand.Parameters.AddWithValue("@quota_date", DateTime.Parse(txtDate.EditValue.ToString()).Date.ToString("yyyy/MM/dd"));
                     myCommand.Parameters.AddWithValue("@customer_id", txtCustomer_id.EditValue);
                     myCommand.Parameters.AddWithValue("@term_id", txtTerm_id.EditValue);
                     myCommand.Parameters.AddWithValue("@address_id", txtAddress_id.EditValue);
@@ -751,7 +751,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@remark_other", txtRemark_other.Text);
                     myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                     myCommand.Parameters.AddWithValue("@id_referred", txtId_referred.Text);
-                    myCommand.Parameters.AddWithValue("@valid_date", txtValid_date.EditValue);
+                    myCommand.Parameters.AddWithValue("@valid_date", string.IsNullOrEmpty(txtValid_date.EditValue.ToString())?"":DateTime.Parse(txtValid_date.EditValue.ToString()).Date.ToString("yyyy/MM/dd"));
                     myCommand.Parameters.AddWithValue("@money_id", txtMoney_id.EditValue);
                     myCommand.Parameters.AddWithValue("@tel", txtTel.Text);
                     myCommand.Parameters.AddWithValue("@fax", txtFax.Text);
@@ -1173,29 +1173,27 @@ namespace cf01.Forms
                     drs = dtFind.Select("flag_select=true");
                 }
             }
-
-            string strDat1, strDat2, ls_crtim1, ls_crtim2;
-            strDat1 = txtDate1.Text;
-            strDat2 = txtDate2.Text;
-            ls_crtim1 = txtCrtim1.Text;
-            ls_crtim2 = txtCrtim2.Text;
-            if (strDat1 == "    /  /")
-            {
+            string strDat1, strDat2, strCrtim1, strCrtim2;
+            strDat1 = txtDate2.EditValue.ToString();
+            strDat2 = txtDate2.EditValue.ToString();
+            strCrtim1 = txtCrtim1.EditValue.ToString();
+            strCrtim2 = txtCrtim2.EditValue.ToString();
+            if (!string.IsNullOrEmpty(strDat1))
+                strDat1 = DateTime.Parse(strDat1).Date.ToString("yyyy/MM/dd");
+            else
                 strDat1 = "";
-            }
-            if (strDat2 == "    /  /")
-            {
+            if (!string.IsNullOrEmpty(strDat2))
+                strDat2 = DateTime.Parse(strDat2).Date.ToString("yyyy/MM/dd");
+            else
                 strDat2 = "";
-            }
-            if (ls_crtim1 == "    /  /")
-            {
-                ls_crtim1 = "";
-            }
-            if (ls_crtim2 == "    /  /")
-            {
-                ls_crtim2 = "";
-            }
-
+            if (!string.IsNullOrEmpty(strCrtim1))
+                strCrtim1 = DateTime.Parse(strCrtim1).Date.ToString("yyyy/MM/dd");
+            else
+                strCrtim1 = "";
+            if (!string.IsNullOrEmpty(strCrtim2))
+                strCrtim2 = DateTime.Parse(strCrtim2).Date.ToString("yyyy/MM/dd");
+            else
+                strCrtim2 = "";
             SqlParameter[] paras = new SqlParameter[] { 
                        new SqlParameter("@user_id",DBUtility._user_id),
                        new SqlParameter("@sales_group",txtSales_group.Text),
@@ -1218,8 +1216,8 @@ namespace cf01.Forms
                        new SqlParameter("@other_remark",""),
                        new SqlParameter("@remark_for_pdd",""),
                        new SqlParameter("@reason_edit",""),
-                       new SqlParameter("@crtim_s",ls_crtim1),
-                       new SqlParameter("@crtim_e",ls_crtim2),
+                       new SqlParameter("@crtim_s",strCrtim1),
+                       new SqlParameter("@crtim_e",strCrtim2),
                        new SqlParameter("@include_mat","1"),
                        new SqlParameter("@include_brand","1"),
                        new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
@@ -2489,62 +2487,7 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(row, "disc_hkd_ex_fty", objDisc.disc_hkd_ex_fty.ToString());
             }
         }
-
-        private void txtDate1_Leave(object sender, EventArgs e)
-        {
-            if (txtDate1.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtDate1.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息");
-                    txtDate1.Focus();
-                    return;
-                }
-            }            
-            txtDate2.Text = txtDate1.Text;
-        }
-
-        private void txtDate2_Leave(object sender, EventArgs e)
-        {
-            if (txtDate2.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtDate2.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息");
-                    txtDate2.Focus();
-                    return;
-                }
-            }
-        }
-
-        private void txtCrtim1_Leave(object sender, EventArgs e)
-        {
-            if (txtCrtim1.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtCrtim1.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息");
-                    txtCrtim1.Focus();
-                    return;
-                }
-            }
-            txtCrtim2.Text = txtCrtim1.Text;
-        }
-
-        private void txtCrtim2_Leave(object sender, EventArgs e)
-        {
-            if (txtCrtim2.Text != "    /  /")
-            {
-                if (!clsValidRule.CheckDateFormat(txtCrtim2.Text))
-                {
-                    MessageBox.Show("日期格式不正確！", "提示信息");
-                    txtCrtim2.Focus();
-                    return;
-                }
-            }
-        }
-
-
+        
         private void txtSales_group_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -2718,7 +2661,7 @@ namespace cf01.Forms
             B.number_enter,B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,B.sales_group,
             B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_cny,
             CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,ISNULL(D.moq_desc,'') AS moqdesc,
-            dbo.fn_get_picture_name_of_artwork('0000',Substring(Isnull(B.cf_code,''),1,7),'OUT') AS picture_name,Isnull(B.cust_artwork,'') AS cust_artwork,D.termremark        
+            dbo.fn_get_picture_name_of_artwork('0000',Substring(Isnull(B.cf_code,''),1,7),'OUT') AS picture_name,Isnull(B.cust_artwork,'') AS cust_artwork,D.termremark
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
                 LEFT JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
@@ -3012,7 +2955,8 @@ namespace cf01.Forms
                     dtHead = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_info_convert", paras);
                     //第一行为报表名称
                     worksheet.Cells[1, 1] = dtHead.Rows[0]["address_id"].ToString(); //標題地址
-                    worksheet.Cells[2, 1] = dtHead.Rows[0]["terms"].ToString();      //條款
+                    //條款
+                    worksheet.Cells[2, 1] = dtHead.Rows[0]["terms"].ToString()+ "\r\n" + "***Ching Fung is exempt from liability of the uncontrollable circumstance, e.g. suspension of manpower or logistic due to the Covid control***";      
                     worksheet.Cells[2, 11] = dtHead.Rows[0]["cust_info"].ToString();
 
                     worksheet.Range["A1:M1"].Merge(0);//合并单元格
@@ -3245,7 +3189,8 @@ namespace cf01.Forms
                     dtHead = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_info_convert", paras);
                     //第一行为报表名称
                     worksheet.Cells[1, 1] = dtHead.Rows[0]["address_id"].ToString(); //標題地址
-                    worksheet.Cells[2, 1] = dtHead.Rows[0]["terms"].ToString();      //條款
+                    //條款
+                    worksheet.Cells[2, 1] = dtHead.Rows[0]["terms"].ToString() + "\r\n" + "***Ching Fung is exempt from liability of the uncontrollable circumstance, e.g. suspension of manpower or logistic due to the Covid control***";
                     worksheet.Cells[2, 11] = dtHead.Rows[0]["cust_info"].ToString();
 
                     worksheet.Range["A1:M1"].Merge(0);//合并单元格
@@ -3534,5 +3479,14 @@ namespace cf01.Forms
             }
         }
 
+        private void txtDate1_Leave(object sender, EventArgs e)
+        {         
+            txtDate2.EditValue = txtDate1.EditValue;            
+        }
+
+        private void txtCrtim1_Leave(object sender, EventArgs e)
+        {
+            txtCrtim2.EditValue = txtCrtim1.EditValue;
+        }
     }
 }

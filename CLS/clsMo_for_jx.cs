@@ -23,8 +23,27 @@ namespace cf01.CLS
         public static DataTable GetGoods_DetailsById(string wp_id, string mo_id, string goods_id)
         {
             string strSql = "";
-            strSql=String.Format(
-                @"SELECT a.id, a.ver,a.bill_date, a.mo_id, a.check_date, a.customer_id, a.remark, b.within_code,b.wp_id, b.goods_id, b.prod_qty, b.obligate_qty, b.sequence_id, b.flevel,
+            //***************此代碼取消于2022/03/12
+            //部分非R單INNER JOIN so_order_special_info 異常出錯.
+            //strSql=String.Format(
+            //    @"SELECT a.id, a.ver,a.bill_date, a.mo_id, a.check_date, a.customer_id, a.remark, b.within_code,b.wp_id, b.goods_id, b.prod_qty, b.obligate_qty, b.sequence_id, b.flevel,
+            //      Convert(varchar(10), b.t_complete_date,120) AS t_complete_date, b.next_wp_id, b.goods_unit, b.vendor_id, CONVERT(Decimal(10),b.c_sec_qty_ok) AS c_sec_qty_ok,
+            //      CONVERT(Decimal(10), b.predept_rechange_qty) AS predept_rechange_qty, c.name,c.color AS color_id, c.blueprint_id, c.color, d.name AS next_wp_name,
+            //      e.brand_id, e.get_color_sample, e.goods_unit AS order_unit, convert(varchar(10), e.arrive_date,120) AS arrive_date, f.production_remark,f.nickle_free,f.plumbum_free,
+            //      Convert(int,g.base_qty) AS base_qty, g.unit_code, Convert(int,g.rate) AS base_rate, g.basic_unit, dp.name AS get_color_sample_name, h.do_color,h.name as color_name 
+            //     FROM {0}jo_bill_mostly a with(nolock) 
+            //     INNER JOIN {0}jo_bill_goods_details b with(nolock) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver 
+            //     INNER JOIN {0}it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id
+            //     INNER JOIN {0}cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id
+            //     LEFT JOIN {0}so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id
+            //     LEFT JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence 
+            //     LEFT JOIN {0}it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id
+            //     LEFT JOIN {0}cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id
+            //     INNER JOIN {0}cd_color h ON c.within_code=h.within_code AND c.color=h.id
+            //     WHERE a.within_code='0000' and b.wp_id ='{1}' and  a.mo_id ='{2}' ", remote_db,wp_id, mo_id);
+            //*********************
+            strSql = string.Format(
+               @"SELECT a.id, a.ver,a.bill_date, a.mo_id, a.check_date, a.customer_id, a.remark, b.within_code,b.wp_id, b.goods_id, b.prod_qty, b.obligate_qty, b.sequence_id, b.flevel,
                   Convert(varchar(10), b.t_complete_date,120) AS t_complete_date, b.next_wp_id, b.goods_unit, b.vendor_id, CONVERT(Decimal(10),b.c_sec_qty_ok) AS c_sec_qty_ok,
                   CONVERT(Decimal(10), b.predept_rechange_qty) AS predept_rechange_qty, c.name,c.color AS color_id, c.blueprint_id, c.color, d.name AS next_wp_name,
                   e.brand_id, e.get_color_sample, e.goods_unit AS order_unit, convert(varchar(10), e.arrive_date,120) AS arrive_date, f.production_remark,f.nickle_free,f.plumbum_free,
@@ -33,16 +52,29 @@ namespace cf01.CLS
                  INNER JOIN {0}jo_bill_goods_details b with(nolock) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver 
                  INNER JOIN {0}it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id
                  INNER JOIN {0}cd_department d ON b.within_code=d.within_code And b.next_wp_id=d.id
-                 LEFT JOIN {0}so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id
-                 LEFT JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence 
-                 LEFT JOIN {0}it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id
+                 LEFT JOIN {0}so_order_details e with(nolock) ON a.within_code=e.within_code AND a.mo_id=e.mo_id AND a.so_sequence_id=e.sequence_id ", remote_db);
+            if (mo_id.Substring(0, 1) != "R")
+            {
+                //非R單
+                strSql += string.Format(
+                    @"INNER JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence ", remote_db);
+            }
+            else
+            {
+                //R單
+                strSql += string.Format(
+                    @"LEFT JOIN {0}so_order_special_info f with(nolock) ON e.within_code=f.within_code AND e.id=f.id AND e.ver=f.ver AND e.sequence_id=f.upper_sequence ",remote_db);
+            }
+            strSql += string.Format(
+                @"LEFT JOIN {0}it_coding g with(nolock) On b.within_code=g.within_code AND b.goods_id=g.id
                  LEFT JOIN {0}cd_department dp ON e.within_code=dp.within_code and e.get_color_sample=dp.id
                  INNER JOIN {0}cd_color h ON c.within_code=h.within_code AND c.color=h.id
-                 WHERE a.within_code='0000' and b.wp_id ='{1}' and  a.mo_id ='{2}' ", remote_db,wp_id, mo_id);
+                 WHERE a.within_code='0000' and b.wp_id ='{1}' and  a.mo_id ='{2}' ", remote_db, wp_id, mo_id);
+
             //"," + remote_db + "Fn_z_get_wh_location(b.goods_id,b.next_wp_id) as wh_location
             if (goods_id != "")
             {
-                strSql += String.Format(" AND b.goods_id='{0}' ", goods_id);
+                strSql += string.Format(" AND b.goods_id='{0}' ", goods_id);
             }
             DataTable dtGoods = clsPublicOfCF01.GetDataTable(strSql);
             if(dtGoods.Rows.Count>0)

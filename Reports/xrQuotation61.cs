@@ -35,16 +35,7 @@ namespace cf01.Reports
 
         private void txtMd_charge_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("md_charge").ToString() == "0.00")
-            {
-                //txtMd_charge.Text = GetCurrentColumnValue("remark").ToString();
-                txtMd_charge.Text = "";
-            }
-            else
-            {
-                //txtMd_charge.Text = String.Format("{0} / {1}\r--------------------------\r{2}", GetCurrentColumnValue("md_charge"), GetCurrentColumnValue("md_charge_cny"), GetCurrentColumnValue("remark"));
-                txtMd_charge.Text = String.Format("{0} / {1}", GetCurrentColumnValue("md_charge"), GetCurrentColumnValue("md_charge_cny"));
-            }
+
         }
 
         private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -71,9 +62,20 @@ namespace cf01.Reports
         {
             xrPictureBox1.ImageUrl = pFile;
         }
-       
 
-     
-       
+        private void txtmd_charge_cny_TextChanged(object sender, EventArgs e)
+        {
+            string md_chargee = GetCurrentColumnValue("md_charge").ToString();
+            if (md_chargee == "0.00")
+            {
+                txtmd_charge.Visible = false;
+                txtmd_charge_cny.Visible = false;
+            }
+            else
+            {
+                txtmd_charge.Visible = true;
+                txtmd_charge_cny.Visible = true;
+            }
+        }
     }
 }

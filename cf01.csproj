@@ -403,6 +403,18 @@
     <Compile Include="Forms\frmButtonWork.designer.cs">
       <DependentUpon>frmButtonWork.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDevelopmentPvhUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDevelopmentPvhUs.designer.cs">
+      <DependentUpon>frmDevelopmentPvhUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPvhProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPvhProcess.Designer.cs">
+      <DependentUpon>frmPvhProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmCircularProgress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2116,6 +2128,12 @@
     <Compile Include="Reports\xrDevelopmentPvh.designer.cs">
       <DependentUpon>xrDevelopmentPvh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrDevelopmentPvhUs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrDevelopmentPvhUs.designer.cs">
+      <DependentUpon>xrDevelopmentPvhUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrhg_plate.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2718,6 +2736,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmButtonWork.resx">
       <DependentUpon>frmButtonWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDevelopmentPvhUs.resx">
+      <DependentUpon>frmDevelopmentPvhUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPvhProcess.resx">
+      <DependentUpon>frmPvhProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCircularProgress.resx">
       <DependentUpon>frmCircularProgress.cs</DependentUpon>
@@ -3589,6 +3613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrDevelopmentPvh.resx">
       <DependentUpon>xrDevelopmentPvh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrDevelopmentPvhUs.resx">
+      <DependentUpon>xrDevelopmentPvhUs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrhg_plate.resx">
       <DependentUpon>xrhg_plate.cs</DependentUpon>

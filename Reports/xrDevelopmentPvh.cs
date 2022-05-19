@@ -70,14 +70,14 @@ namespace cf01.Reports
 
         private void lblPercent1_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("raw_mat1_percent").ToString() == "0.00")
+            if (GetCurrentColumnValue("raw_mat1_percent").ToString() == "0")
                 lblPercent1.Visible = false;
             else
                 lblPercent1.Visible = true;
         }
         private void lblPercent2_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("raw_mat2_percent").ToString() == "0.00")
+            if (GetCurrentColumnValue("raw_mat2_percent").ToString() == "0")
                 lblPercent2.Visible = false;
             else
                 lblPercent2.Visible = true;
@@ -85,7 +85,7 @@ namespace cf01.Reports
 
         private void lblPercent3_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("raw_mat3_percent").ToString() == "0.00")
+            if (GetCurrentColumnValue("raw_mat3_percent").ToString() == "0")
                 lblPercent3.Visible = false;
             else
                 lblPercent3.Visible = true;
@@ -93,7 +93,7 @@ namespace cf01.Reports
         
         private void lblPercentTotal_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("percent_total").ToString() == "0.00")
+            if (GetCurrentColumnValue("percent_total").ToString() == "0")
                 lblPercentTotal.Visible = false;
             else
                 lblPercentTotal.Visible = true;
@@ -106,7 +106,12 @@ namespace cf01.Reports
 
         private void lblRsl_certificate_expiry_date_TextChanged(object sender, EventArgs e)
         {
-            lblRsl_certificate_expiry_date.Text = DateTime.Parse(GetCurrentColumnValue("date").ToString()).Date.ToString("dd-MM-yy");
+            string val = GetCurrentColumnValue("rsl_certificate_expiry_date").ToString();
+            if (!string.IsNullOrEmpty(val))
+            {
+                lblRsl_certificate_expiry_date.Text = DateTime.Parse(val).Date.ToString("dd-MM-yy");
+            }
+            
         }
     }
 }

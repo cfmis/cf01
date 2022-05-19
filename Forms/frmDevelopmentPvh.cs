@@ -41,7 +41,7 @@ namespace cf01.Forms
             objToolbar.SetToolBar();
 
             const string sql = @"SELECT * From development_pvh with(nolock) where 1=0 ";
-            dtDetail = clsPublicOfCF01.GetDataTable(sql);
+            dtDetail = clsPublicOfCF01.GetDataTable(sql); 
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;// dtDetail;
         }
@@ -55,7 +55,9 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type");           
             clsDevelopentPvh.SetDropBox(lueFinish, "finish");
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");
-            clsDevelopentPvh.SetDropBox(lueProcess, "processes");
+            //clsDevelopentPvh.SetDropBox(lueProcess, "processes");
+            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
+            
             string strSql = "";
             string strGroup = "V,E";
             if (user_group == "W")
@@ -70,7 +72,7 @@ namespace cf01.Forms
             lueDivision.Properties.DataSource = dtDivision;
             lueDivision.Properties.ValueMember = "id";
             lueDivision.Properties.DisplayMember = "id";
-            strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "compositions");
+            strSql = string.Format(@"SELECT contents AS id,remark AS name1,remark2 AS name2 FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "compositions");
             DataTable dtComposition = clsPublicOfCF01.GetDataTable(strSql);
             lueRaw_mat1_compostion.Properties.DataSource = dtComposition;
             lueRaw_mat1_compostion.Properties.ValueMember = "id";
@@ -286,13 +288,13 @@ namespace cf01.Forms
             lueMaterial_subtype.DataBindings.Add("EditValue",bds1, "material_subtype");
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
+            txtProcess.DataBindings.Add("EditValue", bds1, "process");
             lueFinish.DataBindings.Add("EditValue", bds1, "finish");
-            lueProcess.DataBindings.Add("EditValue", bds1, "process");
             txtPrevious_submit_ref.DataBindings.Add("Text", bds1, "previous_submit_ref");
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
-            txtPrevious_submit_vr.DataBindings.Add("Text", bds1, "previous_submit_vr");
+            luePrevious_submit_vr.DataBindings.Add("EditValue", bds1, "previous_submit_vr");
             txtWeight.DataBindings.Add("Text", bds1, "weight");
-            txtWeight_uom.DataBindings.Add("Text", bds1, "weight_uom");
+            txtWeight_uom.DataBindings.Add("EditValue", bds1, "weight_uom");
             lueObj_fbx.DataBindings.Add("EditValue", bds1, "obj_fbx");
             lueU3ma.DataBindings.Add("EditValue", bds1, "u3ma");
             //-------------------------------------------------------
@@ -442,13 +444,13 @@ namespace cf01.Forms
             //新增時設置初始值            
             txtDate.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
             txtSerial_no.Text = clsTommyTest.GetSeqNo("development_pvh","serial_no");
-            txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
-            txtsupplier_name.Text = "CHING FUNG APPAREL ACCESSORIES CO.LTD.";
-            txtFactory_name.Text = "CHING FUNG APPAREL ACCESSORIES CO.LTD.";
+            //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);2022/04/20 Cancel
+            txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
+            txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
             lueCurrency.EditValue = "US$";
             txtSurcharge.Text = "NIL";
-            txtleadtime_sample.Text = "14-16 Wordking days";
-            txtleadtime_bulk.Text = "21-28 Wordking days";
+            txtleadtime_sample.Text = "16";
+            txtleadtime_bulk.Text = "28";
             txtSerial_no.Properties.ReadOnly = true;
             txtSerial_no.BackColor = Color.White;
             txtPvh_submit_ref.Properties.ReadOnly = true;
@@ -461,10 +463,22 @@ namespace cf01.Forms
         private void Save()
         {
             txtSerial_no.Focus();
-            if (txtSerial_no.Text == "" && txtDate.Text == "")
+            if (txtSerial_no.Text == "")
             {
-                MessageBox.Show("Serial No.、日期不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Serial No不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSerial_no.Focus();
+                return;
+            }
+            if (txtDate.Text == "")
+            {
+                MessageBox.Show("日期不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDate.Focus();
+                return;
+            }
+            if (lueDivision.Text == "")
+            {
+                MessageBox.Show("Division不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lueDivision.Focus();
                 return;
             }
             bds1.EndEdit();                    
@@ -527,7 +541,16 @@ namespace cf01.Forms
                     {
                         myCommand.CommandText = sql_new;
                         strSerial_no = clsTommyTest.GetSeqNo("development_pvh", "serial_no");
-                        txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no);
+                        //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no);
+                        if (txtPvh_submit_ref.Text != "")
+                        {
+                            string sql_f = string.Format("Select pvh_submit_ref From development_pvh where pvh_submit_ref='{0}'", txtPvh_submit_ref.Text);
+                            if(clsPublicOfCF01.ExecuteSqlReturnObject(sql_f) != "")
+                            {
+                                //重新取編號
+                                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(strSerial_no,lueDivision.Text);
+                            }
+                        }
                         myCommand.Parameters.AddWithValue("@serial_no", strSerial_no);
                     }
                     else
@@ -552,37 +575,37 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
                     myCommand.Parameters.AddWithValue("@finish", lueFinish.EditValue);
-                    myCommand.Parameters.AddWithValue("@process", lueProcess.EditValue);
+                    myCommand.Parameters.AddWithValue("@process", txtProcess.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_ref", txtPrevious_submit_ref.Text);
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
-                    myCommand.Parameters.AddWithValue("@previous_submit_vr", txtPrevious_submit_vr.Text);
+                    myCommand.Parameters.AddWithValue("@previous_submit_vr", luePrevious_submit_vr.EditValue.ToString());
                     myCommand.Parameters.AddWithValue("@weight", txtWeight.Text);
                     myCommand.Parameters.AddWithValue("@weight_uom", txtWeight_uom.Text);
                     myCommand.Parameters.AddWithValue("@obj_fbx", lueObj_fbx.EditValue);
                     myCommand.Parameters.AddWithValue("@u3ma", lueU3ma.EditValue);
                     //--------------------------------------------------------------------------------------------
                     myCommand.Parameters.AddWithValue("@raw_mat1_compostion", lueRaw_mat1_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat1_percent", clsApp.Return_Float_Value(txtRaw_mat1_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat1_percent", ConvertToInt(txtRaw_mat1_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat1_l3", lueRaw_mat1_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat1_l4", lueRaw_mat1_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat1_l5", lueRaw_mat1_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat2_compostion", lueRaw_mat2_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat2_percent", clsApp.Return_Float_Value(txtRaw_mat2_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat2_percent", ConvertToInt(txtRaw_mat2_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat2_l3", lueRaw_mat2_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat2_l4", lueRaw_mat2_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat2_l5", lueRaw_mat2_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat3_compostion", lueRaw_mat3_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat3_percent", clsApp.Return_Float_Value(txtRaw_mat3_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat3_percent", ConvertToInt(txtRaw_mat3_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat3_l3", lueRaw_mat3_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat3_l4", lueRaw_mat3_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat3_l5", lueRaw_mat3_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat4_compostion", lueRaw_mat4_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat4_percent", clsApp.Return_Float_Value(txtRaw_mat4_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat4_percent", ConvertToInt(txtRaw_mat4_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat4_l3", lueRaw_mat4_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat4_l4", lueRaw_mat4_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat4_l5", lueRaw_mat4_l5.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat5_compostion", lueRaw_mat5_compostion.EditValue);
-                    myCommand.Parameters.AddWithValue("@raw_mat5_percent", clsApp.Return_Float_Value(txtRaw_mat5_percent.Text));
+                    myCommand.Parameters.AddWithValue("@raw_mat5_percent", ConvertToInt(txtRaw_mat5_percent.Text));
                     myCommand.Parameters.AddWithValue("@raw_mat5_l3", lueRaw_mat5_l3.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat5_l4", lueRaw_mat5_l4.EditValue);
                     myCommand.Parameters.AddWithValue("@raw_mat5_l5", lueRaw_mat5_l5.EditValue);
@@ -632,8 +655,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@cert4_scope_holder", txtCert4_scope_holder.Text);
                     //-----------------------------------------------------------------------------------                
                     myCommand.Parameters.AddWithValue("@rsl_certificate_type", lueRsl_certificate_type.EditValue);
-                   // string ss = dtRsl_certificate_expiry_date.EditValue.ToString();
-                    myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", dtRsl_certificate_expiry_date.EditValue.ToString());//clsApp.Return_String_Date(txtDate.Text)
+                    string strDate = dtRsl_certificate_expiry_date.EditValue.ToString();
+                    myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", clsApp.Return_String_Date(strDate));
                     myCommand.Parameters.AddWithValue("@machine_washable", lueMachine_washable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_cleanable", lueDry_cleanable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_clean_only", lueDry_clean_only.EditValue);
@@ -793,58 +816,11 @@ namespace cf01.Forms
                 MessageBox.Show("請首先保存數據,然后方可以進行此查詢操作!");
                 return;
             }
-            Find_Data();
-        }
-
-        private void Find_Data()
-        {
             dtDetail.Clear();
-            string sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            if (txtId1.Text == "" && txtId2.Text == "" && dtDat1.Text == "" && dtDat2.Text == "" && txtPvh_submit_ref1.Text=="" && txtPvh_submit_ref2.Text=="")
-            {
-                sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            }
-            else
-            {
-                if (txtId1.Text != "")
-                {
-                    sql = sql + string.Format(" and serial_no>='{0}'", txtId1.Text);
-                }
-                if (txtId2.Text != "")
-                {
-                    sql = sql + string.Format(" and serial_no<='{0}'", txtId2.Text);
-                }
-                if (txtPvh_submit_ref1.Text != "")
-                {
-                    sql = sql + string.Format(" and pvh_submit_ref>='{0}'", txtPvh_submit_ref1.Text);
-                }
-                if (txtPvh_submit_ref2.Text != "")
-                {
-                    sql = sql + string.Format(" and pvh_submit_ref<='{0}'", txtPvh_submit_ref2.Text);
-                }
-                if (dtDat1.Text != "")
-                {
-                    sql = sql + string.Format(" and date>='{0}'", clsApp.Return_String_Date(dtDat1.Text));
-                }
-                if (dtDat2.Text != "")
-                {
-                    sql = sql + string.Format(" and date<='{0}'", clsApp.Return_String_Date(dtDat2.Text));
-                }
-                if (txtMo1.Text != "")
-                {
-                    sql = sql + string.Format(" and mo_id1='{0}'", txtMo1.Text);
-                }
-                if (txtMo2.Text != "")
-                {
-                    sql = sql + string.Format(" and mo_id2='{0}'", txtMo2.Text);
-                }
-                if (txtMo3.Text != "")
-                {
-                    sql = sql + string.Format(" and mo_id3='{0}'", txtMo3.Text);
-                }
-
-            }           
-            dtDetail = clsPublicOfCF01.GetDataTable(sql);
+            string date1 = dtDat1.Text != "" ? clsApp.Return_String_Date(dtDat1.Text) : "";
+            string date2 = dtDat2.Text != "" ? clsApp.Return_String_Date(dtDat2.Text) : "";
+            dtDetail = clsDevelopentPvh.Find_Data(txtId1.Text, txtId2.Text, txtPvh_submit_ref1.Text, txtPvh_submit_ref2.Text
+                , date1, date2 , txtPlm_material_code1.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
             dgvFind.DataSource = dtDetail;
@@ -903,13 +879,13 @@ namespace cf01.Forms
         }
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDetails.RowCount > 0)
+        {           
+            dgvrow = dgvDetails.CurrentRow;
+            if(dgvrow!=null)
             {
                 row_reset = dgvDetails.CurrentCell.RowIndex;
-                dgvrow = dgvDetails.CurrentRow;
                 SetCheckBoxStatus(dgvrow);
-            }
+            }            
         }
 
         private void SetNewCopyData(DataGridViewRow pdr)
@@ -926,13 +902,13 @@ namespace cf01.Forms
             lueMaterial_subtype.EditValue = pdr.Cells["material_subtype"].Value.ToString();
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();
+            txtProcess.EditValue = pdr.Cells["process"].Value.ToString();
             lueFinish.EditValue = pdr.Cells["finish"].Value.ToString();
-            lueProcess.EditValue = pdr.Cells["process"].Value.ToString();
             txtPrevious_submit_ref.Text = pdr.Cells["previous_submit_ref"].Value.ToString();
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
-            txtPrevious_submit_vr.Text = pdr.Cells["previous_submit_vr"].Value.ToString();
+            luePrevious_submit_vr.EditValue = pdr.Cells["previous_submit_vr"].Value.ToString();
             txtWeight.Text = pdr.Cells["weight"].Value.ToString();
-            txtWeight_uom.Text = pdr.Cells["weight_uom"].Value.ToString();
+            txtWeight_uom.EditValue = pdr.Cells["weight_uom"].Value.ToString();
             lueObj_fbx.EditValue = pdr.Cells["obj_fbx"].Value.ToString();
             lueU3ma.EditValue = pdr.Cells["u3ma"].Value.ToString();
             //--------------------------------------------------------------------------------------------
@@ -1101,7 +1077,8 @@ namespace cf01.Forms
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
                 string max_serial_no = clsTommyTest.GetSeqNo("development_pvh", "serial_no");
                 txtSerial_no.Text = max_serial_no;
-                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
+                //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
+                txtPvh_submit_ref.Text = "";
             }
             else
             {
@@ -1111,18 +1088,18 @@ namespace cf01.Forms
         
         private void dgvFind_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (dgvFind.Rows.Count == 0)
-            //{
-            //    return;
-            //}
-            //tabControl1.SelectedIndex = 0;
-            //int index = dgvFind.CurrentRow.Index;
-            //if (index >= 0)
-            //{
-            //    dgvDetails.ClearSelection();
-            //    dgvDetails.Rows[index].Selected = true;
-            //    dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
-            //}            
+            if (dgvFind.Rows.Count == 0)
+            {
+                return;
+            }
+            tabControl1.SelectedIndex = 0;
+            int index = dgvFind.CurrentRow.Index;
+            if (index >= 0)
+            {
+                dgvDetails.ClearSelection();
+                dgvDetails.Rows[index].Selected = true;
+                dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
+            }
         }
 
         private void chksubmit1_MouseUp(object sender, MouseEventArgs e)
@@ -1215,17 +1192,70 @@ namespace cf01.Forms
 
         private void lueRaw_mat1_compostion_EditValueChanged(object sender, EventArgs e)
         {
-            clsDevelopentPvh.SetCountry(lueRaw_mat1_compostion, lueRaw_mat1_l3);
+            clsDevelopentPvh.SetCountry(lueRaw_mat1_compostion, lueRaw_mat1_l3, lueRaw_mat1_l4);           
         }
 
         private void lueRaw_mat2_compostion_EditValueChanged(object sender, EventArgs e)
         {
-            clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3);
+            //clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3);
+            clsDevelopentPvh.SetCountry(lueRaw_mat2_compostion, lueRaw_mat2_l3, lueRaw_mat2_l4);
         }
 
         private void lueRaw_mat3_compostion_EditValueChanged(object sender, EventArgs e)
         {
-            clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
+            //clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3);
+            clsDevelopentPvh.SetCountry(lueRaw_mat3_compostion, lueRaw_mat3_l3, lueRaw_mat3_l4);
+        }
+
+        private void txtProcess_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (mState == "NEW" || mState == "EDIT")
+            {
+                /*Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标
+                Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
+                同理：Point button1Point= button1Point.PointToClient(Control.MousePosition);//鼠标相对于button1左上角的坐标
+                还有Control.PointToScreen方法，返回的是相对于屏幕的坐标。
+                */
+                Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
+                using (frmPvhProcess ofrm = new frmPvhProcess())
+                {
+                    ofrm.StartPosition = FormStartPosition.Manual;
+                    ofrm.Location= new Point(formPoint.X, formPoint.Y);
+                    ofrm.ShowDialog();
+                    if (ofrm.strProcess != "")
+                    {
+                        txtProcess.EditValue = ofrm.strProcess;
+                    }
+                }
+            }
+        }
+        public int ConvertToInt(string _val)
+        {
+            int result = 0;
+            if (!string.IsNullOrEmpty(_val))
+            {
+                result = int.Parse(_val);
+            }
+            return result;
+        }
+
+        private void txtPvh_submit_ref_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (mState == "NEW" || mState == "EDIT")
+            {
+                if (mState == "EDIT" && !string.IsNullOrEmpty(txtPvh_submit_ref.Text))
+                {
+                    MessageBox.Show("註意: 編輯狀態下已存在的編號不可以再繼續生成新的編號!");
+                    return;
+                }
+                if (lueDivision.Text == "")
+                {
+                    MessageBox.Show("註意: Division不可以為空 !");
+                    lueDivision.Focus();
+                    return;
+                }
+                txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text,lueDivision.EditValue.ToString());
+            }
         }
     }
 }
