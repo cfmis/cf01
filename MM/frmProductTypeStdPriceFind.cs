@@ -31,19 +31,28 @@ namespace cf01.MM
         {
             DataTable dtArtWork=clsMmProductTypeStdPrice.FindData(txtArtWork.Text, txtProductType.Text,txtSizeName.Text);
             dgvArtWork.DataSource = dtArtWork;
+            LoadColorDetails();
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            if(frmProductTypeStdPrice.searchState=="Y")
+            CloseWindow();
+        }
+        private void CloseWindow()
+        {
+            if (frmProductTypeStdPrice.searchState == "Y")
             {
                 if (dgvArtWork.Rows.Count > 0)
                     frmProductTypeStdPrice.searchID = dgvArtWork.Rows[dgvArtWork.CurrentRow.Index].Cells["colID"].Value.ToString();
             }
             this.Close();
         }
-
         private void dgvArtWork_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            LoadColorDetails();
+        }
+        private void LoadColorDetails()
         {
             int SizeSN = 0;
             if (dgvArtWork.Rows.Count > 0)
@@ -56,12 +65,16 @@ namespace cf01.MM
             txtPrice.Text = "";
             txtCurr.Text = "";
         }
-
         private void dgvColorDetails_SelectionChanged(object sender, EventArgs e)
         {
 
             txtPrice.Text = dgvColorDetails.Rows[dgvColorDetails.CurrentRow.Index].Cells["colPrice"].Value.ToString();
             txtCurr.Text = dgvColorDetails.Rows[dgvColorDetails.CurrentRow.Index].Cells["colCurr"].Value.ToString();
+        }
+
+        private void dgvArtWork_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CloseWindow();
         }
     }
 }

@@ -45,19 +45,6 @@
             this.lblArtWork = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dgvArtWork = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colArtWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmendUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmendTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.lblColor = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -66,12 +53,6 @@
             this.txtCurr = new DevExpress.XtraEditors.TextEdit();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.dgvColorDetails = new System.Windows.Forms.DataGridView();
-            this.colColorSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +72,27 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colArtWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmendUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmendTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -239,7 +241,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 80);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1066, 221);
+            this.panelControl2.Size = new System.Drawing.Size(1066, 370);
             this.panelControl2.TabIndex = 2;
             // 
             // dgvArtWork
@@ -260,7 +262,8 @@
             this.colAmendUser,
             this.colAmendTime,
             this.colSN,
-            this.colSizeSN});
+            this.colSizeSN,
+            this.colSizeGroup});
             this.dgvArtWork.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvArtWork.Location = new System.Drawing.Point(2, 2);
             this.dgvArtWork.Name = "dgvArtWork";
@@ -268,9 +271,302 @@
             this.dgvArtWork.RowHeadersWidth = 20;
             this.dgvArtWork.RowTemplate.Height = 24;
             this.dgvArtWork.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArtWork.Size = new System.Drawing.Size(1062, 217);
+            this.dgvArtWork.Size = new System.Drawing.Size(1062, 366);
             this.dgvArtWork.TabIndex = 0;
+            this.dgvArtWork.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtWork_CellDoubleClick);
             this.dgvArtWork.SelectionChanged += new System.EventHandler(this.dgvArtWork_SelectionChanged);
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.lblColor);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(2, 2);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1062, 37);
+            this.panelControl3.TabIndex = 3;
+            // 
+            // lblColor
+            // 
+            this.lblColor.Location = new System.Drawing.Point(12, 6);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(64, 14);
+            this.lblColor.TabIndex = 0;
+            this.lblColor.Text = "搭配的顏色:";
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Controls.Add(this.panelControl5);
+            this.panelControl4.Controls.Add(this.dgvColorDetails);
+            this.panelControl4.Controls.Add(this.panelControl3);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl4.Location = new System.Drawing.Point(0, 450);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(1066, 185);
+            this.panelControl4.TabIndex = 4;
+            // 
+            // panelControl5
+            // 
+            this.panelControl5.Controls.Add(this.lblPrice);
+            this.panelControl5.Controls.Add(this.txtCurr);
+            this.panelControl5.Controls.Add(this.txtPrice);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl5.Location = new System.Drawing.Point(2, 96);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(1062, 87);
+            this.panelControl5.TabIndex = 4;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.Location = new System.Drawing.Point(12, 26);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(28, 14);
+            this.lblPrice.TabIndex = 1;
+            this.lblPrice.Text = "單價:";
+            // 
+            // txtCurr
+            // 
+            this.txtCurr.Enabled = false;
+            this.txtCurr.Location = new System.Drawing.Point(165, 23);
+            this.txtCurr.Name = "txtCurr";
+            this.txtCurr.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCurr.Properties.Appearance.Options.UseBackColor = true;
+            this.txtCurr.Size = new System.Drawing.Size(100, 20);
+            this.txtCurr.TabIndex = 0;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Enabled = false;
+            this.txtPrice.Location = new System.Drawing.Point(46, 23);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrice.Properties.Appearance.Options.UseBackColor = true;
+            this.txtPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtPrice.TabIndex = 0;
+            // 
+            // dgvColorDetails
+            // 
+            this.dgvColorDetails.AllowUserToAddRows = false;
+            this.dgvColorDetails.ColumnHeadersHeight = 25;
+            this.dgvColorDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvColorDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colColorGroup,
+            this.colColorID,
+            this.colColorName,
+            this.colValueDesc,
+            this.colPrice,
+            this.colCurr});
+            this.dgvColorDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvColorDetails.Location = new System.Drawing.Point(2, 39);
+            this.dgvColorDetails.Name = "dgvColorDetails";
+            this.dgvColorDetails.ReadOnly = true;
+            this.dgvColorDetails.RowHeadersWidth = 20;
+            this.dgvColorDetails.RowTemplate.Height = 24;
+            this.dgvColorDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvColorDetails.Size = new System.Drawing.Size(1062, 144);
+            this.dgvColorDetails.TabIndex = 0;
+            this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "文件號";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ArtWork";
+            this.dataGridViewTextBoxColumn2.HeaderText = "圖樣代號";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProductType";
+            this.dataGridViewTextBoxColumn3.HeaderText = "產品類型";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "SizeSeq";
+            this.dataGridViewTextBoxColumn4.HeaderText = "序號";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "SizeID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "尺寸代號";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "SizeName";
+            this.dataGridViewTextBoxColumn6.HeaderText = "尺寸描述";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ver";
+            this.dataGridViewTextBoxColumn7.HeaderText = "版本號";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "CreateUser";
+            this.dataGridViewTextBoxColumn8.HeaderText = "建立人";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "CreateTime";
+            this.dataGridViewTextBoxColumn9.HeaderText = "建立日期";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "AmendUser";
+            this.dataGridViewTextBoxColumn10.HeaderText = "修改人";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "AmendTime";
+            this.dataGridViewTextBoxColumn11.HeaderText = "修改日期";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "SN";
+            this.dataGridViewTextBoxColumn12.HeaderText = "流水號";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "SizeSN";
+            this.dataGridViewTextBoxColumn13.HeaderText = "尺寸流水號";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Seq";
+            this.dataGridViewTextBoxColumn14.HeaderText = "序號";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "ColorID";
+            this.dataGridViewTextBoxColumn15.HeaderText = "顏色代號";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "ColorName";
+            this.dataGridViewTextBoxColumn16.HeaderText = "顏色描述";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "ValueDesc";
+            this.dataGridViewTextBoxColumn17.HeaderText = "數值描述";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn18.HeaderText = "單價";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            this.dataGridViewTextBoxColumn18.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Curr";
+            this.dataGridViewTextBoxColumn19.HeaderText = "貨幣代號";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            this.dataGridViewTextBoxColumn19.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Curr";
+            this.dataGridViewTextBoxColumn20.HeaderText = "貨幣代號";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Visible = false;
+            this.dataGridViewTextBoxColumn20.Width = 80;
+            // 
+            // colColorGroup
+            // 
+            this.colColorGroup.DataPropertyName = "ColorGroup";
+            this.colColorGroup.HeaderText = "顏色組別";
+            this.colColorGroup.Name = "colColorGroup";
+            this.colColorGroup.ReadOnly = true;
+            // 
+            // colColorID
+            // 
+            this.colColorID.DataPropertyName = "ColorID";
+            this.colColorID.HeaderText = "顏色代號";
+            this.colColorID.Name = "colColorID";
+            this.colColorID.ReadOnly = true;
+            // 
+            // colColorName
+            // 
+            this.colColorName.DataPropertyName = "ColorName";
+            this.colColorName.HeaderText = "顏色描述";
+            this.colColorName.Name = "colColorName";
+            this.colColorName.ReadOnly = true;
+            this.colColorName.Width = 160;
+            // 
+            // colValueDesc
+            // 
+            this.colValueDesc.DataPropertyName = "ValueDesc";
+            this.colValueDesc.HeaderText = "數值描述";
+            this.colValueDesc.Name = "colValueDesc";
+            this.colValueDesc.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price";
+            this.colPrice.HeaderText = "單價";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Visible = false;
+            this.colPrice.Width = 80;
+            // 
+            // colCurr
+            // 
+            this.colCurr.DataPropertyName = "Curr";
+            this.colCurr.HeaderText = "貨幣代號";
+            this.colCurr.Name = "colCurr";
+            this.colCurr.ReadOnly = true;
+            this.colCurr.Visible = false;
+            this.colCurr.Width = 80;
             // 
             // colID
             // 
@@ -361,6 +657,7 @@
             this.colSN.HeaderText = "流水號";
             this.colSN.Name = "colSN";
             this.colSN.ReadOnly = true;
+            this.colSN.Visible = false;
             this.colSN.Width = 60;
             // 
             // colSizeSN
@@ -369,269 +666,14 @@
             this.colSizeSN.HeaderText = "尺寸流水號";
             this.colSizeSN.Name = "colSizeSN";
             this.colSizeSN.ReadOnly = true;
+            this.colSizeSN.Visible = false;
             // 
-            // panelControl3
+            // colSizeGroup
             // 
-            this.panelControl3.Controls.Add(this.lblColor);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(2, 2);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1062, 35);
-            this.panelControl3.TabIndex = 3;
-            // 
-            // lblColor
-            // 
-            this.lblColor.Location = new System.Drawing.Point(12, 6);
-            this.lblColor.Name = "lblColor";
-            this.lblColor.Size = new System.Drawing.Size(64, 14);
-            this.lblColor.TabIndex = 0;
-            this.lblColor.Text = "搭配的顏色:";
-            // 
-            // panelControl4
-            // 
-            this.panelControl4.Controls.Add(this.panelControl5);
-            this.panelControl4.Controls.Add(this.dgvColorDetails);
-            this.panelControl4.Controls.Add(this.panelControl3);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(0, 301);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1066, 334);
-            this.panelControl4.TabIndex = 4;
-            // 
-            // panelControl5
-            // 
-            this.panelControl5.Controls.Add(this.lblPrice);
-            this.panelControl5.Controls.Add(this.txtCurr);
-            this.panelControl5.Controls.Add(this.txtPrice);
-            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl5.Location = new System.Drawing.Point(2, 245);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1062, 87);
-            this.panelControl5.TabIndex = 4;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.Location = new System.Drawing.Point(12, 26);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(28, 14);
-            this.lblPrice.TabIndex = 1;
-            this.lblPrice.Text = "單價:";
-            // 
-            // txtCurr
-            // 
-            this.txtCurr.Enabled = false;
-            this.txtCurr.Location = new System.Drawing.Point(165, 23);
-            this.txtCurr.Name = "txtCurr";
-            this.txtCurr.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCurr.Properties.Appearance.Options.UseBackColor = true;
-            this.txtCurr.Size = new System.Drawing.Size(100, 20);
-            this.txtCurr.TabIndex = 0;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Enabled = false;
-            this.txtPrice.Location = new System.Drawing.Point(46, 23);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPrice.Properties.Appearance.Options.UseBackColor = true;
-            this.txtPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtPrice.TabIndex = 0;
-            // 
-            // dgvColorDetails
-            // 
-            this.dgvColorDetails.AllowUserToAddRows = false;
-            this.dgvColorDetails.ColumnHeadersHeight = 25;
-            this.dgvColorDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvColorDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colColorSeq,
-            this.colColorID,
-            this.colColorName,
-            this.colValueDesc,
-            this.colPrice,
-            this.colCurr});
-            this.dgvColorDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvColorDetails.Location = new System.Drawing.Point(2, 37);
-            this.dgvColorDetails.Name = "dgvColorDetails";
-            this.dgvColorDetails.ReadOnly = true;
-            this.dgvColorDetails.RowHeadersWidth = 20;
-            this.dgvColorDetails.RowTemplate.Height = 24;
-            this.dgvColorDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorDetails.Size = new System.Drawing.Size(1062, 295);
-            this.dgvColorDetails.TabIndex = 0;
-            this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
-            // 
-            // colColorSeq
-            // 
-            this.colColorSeq.DataPropertyName = "Seq";
-            this.colColorSeq.HeaderText = "序號";
-            this.colColorSeq.Name = "colColorSeq";
-            this.colColorSeq.ReadOnly = true;
-            this.colColorSeq.Width = 60;
-            // 
-            // colColorID
-            // 
-            this.colColorID.DataPropertyName = "ColorID";
-            this.colColorID.HeaderText = "顏色代號";
-            this.colColorID.Name = "colColorID";
-            this.colColorID.ReadOnly = true;
-            // 
-            // colColorName
-            // 
-            this.colColorName.DataPropertyName = "ColorName";
-            this.colColorName.HeaderText = "顏色描述";
-            this.colColorName.Name = "colColorName";
-            this.colColorName.ReadOnly = true;
-            this.colColorName.Width = 160;
-            // 
-            // colValueDesc
-            // 
-            this.colValueDesc.DataPropertyName = "ValueDesc";
-            this.colValueDesc.HeaderText = "數值描述";
-            this.colValueDesc.Name = "colValueDesc";
-            this.colValueDesc.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.DataPropertyName = "Price";
-            this.colPrice.HeaderText = "單價";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Visible = false;
-            this.colPrice.Width = 80;
-            // 
-            // colCurr
-            // 
-            this.colCurr.DataPropertyName = "Curr";
-            this.colCurr.HeaderText = "貨幣代號";
-            this.colCurr.Name = "colCurr";
-            this.colCurr.ReadOnly = true;
-            this.colCurr.Visible = false;
-            this.colCurr.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "文件號";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ArtWork";
-            this.dataGridViewTextBoxColumn2.HeaderText = "圖樣代號";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProductType";
-            this.dataGridViewTextBoxColumn3.HeaderText = "產品類型";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "SizeSeq";
-            this.dataGridViewTextBoxColumn4.HeaderText = "序號";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "SizeID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "尺寸代號";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "SizeName";
-            this.dataGridViewTextBoxColumn6.HeaderText = "尺寸描述";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ver";
-            this.dataGridViewTextBoxColumn7.HeaderText = "版本號";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "CreateUser";
-            this.dataGridViewTextBoxColumn8.HeaderText = "建立人";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "CreateTime";
-            this.dataGridViewTextBoxColumn9.HeaderText = "建立日期";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "AmendUser";
-            this.dataGridViewTextBoxColumn10.HeaderText = "修改人";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "AmendTime";
-            this.dataGridViewTextBoxColumn11.HeaderText = "修改日期";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "SN";
-            this.dataGridViewTextBoxColumn12.HeaderText = "流水號";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "SizeSN";
-            this.dataGridViewTextBoxColumn13.HeaderText = "尺寸流水號";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Seq";
-            this.dataGridViewTextBoxColumn14.HeaderText = "序號";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "ColorID";
-            this.dataGridViewTextBoxColumn15.HeaderText = "顏色代號";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "ColorName";
-            this.dataGridViewTextBoxColumn16.HeaderText = "顏色描述";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "ValueDesc";
-            this.dataGridViewTextBoxColumn17.HeaderText = "數值描述";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn18.HeaderText = "單價";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Curr";
-            this.dataGridViewTextBoxColumn19.HeaderText = "貨幣代號";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.Width = 80;
+            this.colSizeGroup.DataPropertyName = "SizeGroup";
+            this.colSizeGroup.HeaderText = "尺寸組別";
+            this.colSizeGroup.Name = "colSizeGroup";
+            this.colSizeGroup.ReadOnly = true;
             // 
             // frmProductTypeStdPriceFind
             // 
@@ -643,6 +685,7 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmProductTypeStdPriceFind";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmProductTypeStdPriceFind";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.toolStrip1.ResumeLayout(false);
@@ -698,19 +741,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.TextEdit txtSizeName;
         private DevExpress.XtraEditors.LabelControl lblSizeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colArtWork;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAmendUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAmendTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -729,11 +759,26 @@
         private DevExpress.XtraEditors.LabelControl lblPrice;
         private DevExpress.XtraEditors.TextEdit txtCurr;
         private DevExpress.XtraEditors.TextEdit txtPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColorID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValueDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCurr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colArtWork;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAmendUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAmendTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
     }
 }

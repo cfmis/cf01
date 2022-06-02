@@ -17,6 +17,8 @@ namespace cf01.MDL
     {
         public string ArtWork { get; set; }
         public string ProductType { get; set; }
+        public decimal BasePrice { get; set; }
+        public string Remark { get; set; }
         public string CreateUser { get; set; }
         public string CreateTime { get; set; }
         public string AmendUser { get; set; }
@@ -26,6 +28,7 @@ namespace cf01.MDL
     {
         public int UpperSN { get; set; }
         public string Seq { get; set; }
+        public string SizeGroup { get; set; }
         public string SizeID { get; set; }
         public string SizeName { get; set; }
     }
@@ -35,6 +38,7 @@ namespace cf01.MDL
         public string Seq { get; set; }
         public string ColorGroup { get; set; }
         public string ValueDesc { get; set; }
+        public decimal Rate { get; set; }
         public decimal Price { get; set; }
         public string Curr { get; set; }
     }
@@ -45,4 +49,15 @@ namespace cf01.MDL
         public string ColorID { get; set; }
         public string ColorName { get; set; }
     }
+    public class mdlSizeGroup
+    {
+        public string GroupID { get; set; }
+        public string SizeID { get; set; }
+    }
+    public class mdlColorGroup
+    {
+        public string GroupID { get; set; }
+        public string ColorID { get; set; }
+    }
 }
+

@@ -1418,11 +1418,23 @@
     <Compile Include="MM\frmProductTypeStdPrice.Designer.cs">
       <DependentUpon>frmProductTypeStdPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="MM\frmProductTypeStdPriceColorGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmProductTypeStdPriceColorGroup.Designer.cs">
+	  <DependentUpon>frmProductTypeStdPriceColorGroup.cs</DependentUpon>
+	</Compile>
     <Compile Include="MM\frmProductTypeStdPriceFind.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MM\frmProductTypeStdPriceFind.Designer.cs">
       <DependentUpon>frmProductTypeStdPriceFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\frmProductTypeStdPriceSizeGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmProductTypeStdPriceSizeGroup.Designer.cs">
+      <DependentUpon>frmProductTypeStdPriceSizeGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="MM\frmSetProductPrice.cs">
       <SubType>Form</SubType>
@@ -3235,8 +3247,14 @@
     <EmbeddedResource Include="MM\frmProductTypeStdPrice.resx">
       <DependentUpon>frmProductTypeStdPrice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmProductTypeStdPriceColorGroup.resx">
+	  <DependentUpon>frmProductTypeStdPriceColorGroup.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="MM\frmProductTypeStdPriceFind.resx">
       <DependentUpon>frmProductTypeStdPriceFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmProductTypeStdPriceSizeGroup.resx">
+      <DependentUpon>frmProductTypeStdPriceSizeGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmSetProductPrice.resx">
       <DependentUpon>frmSetProductPrice.cs</DependentUpon>

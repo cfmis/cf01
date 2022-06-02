@@ -15,7 +15,7 @@ namespace cf01.MM
 {
     public partial class frmProductTypeStdPrice : Form
     {
-        private DataTable dtSizeDetails = new DataTable();
+        private DataTable dtSizeGroup = new DataTable();
         private DataTable dtColorGroup = new DataTable();
         private DataTable dtColorDetails = new DataTable();
         frmProductTypeStdPriceFind frmProductTypeStdPriceFind;
@@ -24,6 +24,7 @@ namespace cf01.MM
         public frmProductTypeStdPrice()
         {
             InitializeComponent();
+            dgvSizeGroup.AutoGenerateColumns = false;
             dgvSizeDetails.AutoGenerateColumns = false;
             dgvColorGroup.AutoGenerateColumns = false;
             dgvColorDetails.AutoGenerateColumns = false;
@@ -38,6 +39,8 @@ namespace cf01.MM
                 DataRow dr = dtProductType.Rows[0];
                 txtArtWork.Text = dr["ArtWork"].ToString();
                 txtProductType.Text = dr["ProductType"].ToString();
+                txtBasePrice.Text = dr["BasePrice"].ToString();
+                txtRemark.Text = dr["Remark"].ToString();
                 txtCreateUser.Text = dr["CreateUser"].ToString();
                 txtCreateTime.Text = dr["CreateTime"].ToString();
                 txtAmendUser.Text = dr["AmendUser"].ToString();
@@ -56,7 +59,7 @@ namespace cf01.MM
                 txtSN.Text = "";
                 txtVer.Text = "";
             }
-            LoadSizeDetails();
+            LoadSizeGroup();
             LoadColorGroup(0);
             LoadColorDetails(0);
         }
@@ -73,6 +76,8 @@ namespace cf01.MM
             mdlPtp.Ver = txtVer.Text == "" ? 0 : Convert.ToInt32(txtVer.Text);
             mdlPtp.ArtWork = txtArtWork.Text;
             mdlPtp.ProductType = txtProductType.Text;
+            mdlPtp.BasePrice = txtBasePrice.Text.Trim() == "" ? 0 : Convert.ToDecimal(txtBasePrice.Text);
+            mdlPtp.Remark = txtRemark.Text;
             string result=clsMmProductTypeStdPrice.Save(mdlPtp);
             txtID.Text = result;
         }
@@ -86,12 +91,13 @@ namespace cf01.MM
         {
             for (int i = 0; i < dgvSizeDetails.Rows.Count; i++)
             {
-                if (txtSizeID.Text.Trim() == dgvSizeDetails.Rows[i].Cells["colSizeID"].Value.ToString().Trim())
+                if (txtSizeGroup.Text.Trim() == dgvSizeDetails.Rows[i].Cells["colSizeID"].Value.ToString().Trim())
                 {
                     MessageBox.Show("此尺寸已存在!");
                 }
             }
-            SaveSize();
+            txtSizeGroupSeq.Text = "";
+            SaveSizeGroup();
             //if (result == "")
             //{
             //    DataRow dr = dtSizeDetails.NewRow();
@@ -101,42 +107,42 @@ namespace cf01.MM
             //    dtSizeDetails.Rows.Add(dr);
             //}
         }
-        private string SaveSize()
+        private string SaveSizeGroup()
         {
             string result = "";
-            if (txtSizeID.Text.Trim() == "")
+            if (txtSizeGroup.Text.Trim() == "")
             {
-                MessageBox.Show("尺寸代號不能為空!");
+                MessageBox.Show("尺寸組別不能為空!");
                 return result;
             }
             
-            if (txtSizeSeq.Text == "")
-                txtSizeSeq.Text = GenSeqNo(dgvSizeDetails, "colSizeSeq");
+            if (txtSizeGroupSeq.Text == "")
+                txtSizeGroupSeq.Text = GenSeqNo(dgvSizeGroup, "colSizeGroupSeq");
             mdlProductTypePriceSize mdlMtps = new mdlProductTypePriceSize();
             mdlMtps.UpperSN = txtSN.Text == "" ? 0 : Convert.ToInt32(txtSN.Text);
-            mdlMtps.Seq = txtSizeSeq.Text.Trim();
-            mdlMtps.SizeID = txtSizeID.Text.Trim();
-            result = clsMmProductTypeStdPrice.SaveSize(mdlMtps);
+            mdlMtps.Seq = txtSizeGroupSeq.Text.Trim();
+            mdlMtps.SizeGroup = txtSizeGroup.Text.Trim();
+            result = clsMmProductTypeStdPrice.SavePrdSizeGroup(mdlMtps);
             if (result != "")
                 MessageBox.Show(result);
             else
-                LoadSizeDetails();
+                LoadSizeGroup();
             return result;
         }
-        private void LoadSizeDetails()
+        private void LoadSizeGroup()
         {
             int SN = txtSN.Text == "" ? 0 : Convert.ToInt32(txtSN.Text);
-            dtSizeDetails = clsMmProductTypeStdPrice.LoadSizeDetails(Convert.ToInt32(SN));
-            dgvSizeDetails.DataSource = dtSizeDetails;
-            if(dtSizeDetails.Rows.Count==0)
+            dtSizeGroup = clsMmProductTypeStdPrice.LoadPrdSizeGroup(Convert.ToInt32(SN));
+            dgvSizeGroup.DataSource = dtSizeGroup;
+            if(dtSizeGroup.Rows.Count==0)
             {
-                txtSizeID.Text = "";
-                txtSizeName.Text = "";
-                txtSizeSeq.Text = "";
+                txtSizeGroup.Text = "";
+                txtSizeGroupSeq.Text = "";
             }
         }
         private void btnAddColorGroup_Click(object sender, EventArgs e)
         {
+            txtColorGroupSeq.Text = "";
             SaveColorGroup();
             
             //DataRow dr = dtColorGroup.NewRow();
@@ -165,20 +171,27 @@ namespace cf01.MM
             //LoadColorGroup(dgvColorGroup.CurrentRow.Index);
             int row = dgvColorGroup.CurrentRow.Index;
             DataGridViewRow dr = dgvColorGroup.Rows[row];
+            txtColorGroup.Text= dr.Cells["colColorGroup"].Value.ToString();
             txtColorGroupSeq.Text = dr.Cells["colColorGroupSeq"].Value.ToString();
+            txtRate.Text = dr.Cells["colRate"].Value.ToString();
             txtPrice.Text = dr.Cells["colPrice"].Value.ToString();
             txtValueDesc.Text = dr.Cells["colValueDesc"].Value.ToString();
-            lueCurr.Text= dr.Cells["colCurr"].Value.ToString();
+            lueCurr.Text = dr.Cells["colCurr"].Value.ToString();
             LoadColorDetails(row);
+
+            
+
+
         }
         private void LoadColorGroup(int row)
         {
-            int UpperSN = dgvSizeDetails.Rows.Count == 0 ? 0 : Convert.ToInt32(dgvSizeDetails.Rows[row].Cells["colSizeSN"].Value);
+            int UpperSN = dgvSizeGroup.Rows.Count == 0 ? 0 : Convert.ToInt32(dgvSizeGroup.Rows[row].Cells["colSizeGroupSN"].Value);
             dtColorGroup = clsMmProductTypeStdPrice.LoadColorGroup(UpperSN);
             dgvColorGroup.DataSource = dtColorGroup;
             if(dtColorGroup.Rows.Count==0)
             {
                 txtValueDesc.Text = "";
+                txtRate.Text = "";
                 txtPrice.Text = "";
                 lueCurr.Text = "";
                 txtColorGroupSeq.Text = "";
@@ -186,43 +199,22 @@ namespace cf01.MM
         }
         private void LoadColorDetails(int row)
         {
-            int UpperSN = dgvColorGroup.Rows.Count == 0 ? 0 : Convert.ToInt32(dgvColorGroup.Rows[row].Cells["colColorGroupSN"].Value);
-            dtColorDetails = clsMmProductTypeStdPrice.LoadColorDetails(UpperSN);
+            //int UpperSN = dgvColorGroup.Rows.Count == 0 ? 0 : Convert.ToInt32(dgvColorGroup.Rows[row].Cells["colColorGroupSN"].Value);
+            //dtColorDetails = clsMmProductTypeStdPrice.LoadColorDetails(UpperSN);
+            //dgvColorDetails.DataSource = dtColorDetails;
+            //if(dtColorDetails.Rows.Count==0)
+            //{
+            //    txtColorID.Text = "";
+            //    txtColorName.Text = "";
+            //    txtColorSeq.Text = "";
+            //}
+
+            DataTable dtColorDetails = clsMmProductTypeStdPrice.LoadColorGroup(txtColorGroup.Text);
             dgvColorDetails.DataSource = dtColorDetails;
-            if(dtColorDetails.Rows.Count==0)
-            {
-                txtColorID.Text = "";
-                txtColorName.Text = "";
-                txtColorSeq.Text = "";
-            }
-        }
-        private void dgvSizeDetails_SelectionChanged(object sender, EventArgs e)
-        {
-            int row = dgvSizeDetails.CurrentRow.Index;
-            DataGridViewRow dr = dgvSizeDetails.Rows[row];
-            txtSizeSeq.Text = dr.Cells["colSizeSeq"].Value.ToString();
-            txtSizeID.Text = dr.Cells["colSizeID"].Value.ToString();
-            txtSizeName.Text = dr.Cells["colSizeName"].Value.ToString();
-            LoadColorGroup(row);
-            LoadColorDetails(0);
+
+
         }
 
-        private void btnSaveSize_Click(object sender, EventArgs e)
-        {
-            //List<mdlProductTypePriceSize> lsMtps = new List<mdlProductTypePriceSize>();
-            //for (int i = 0; i < dgvSizeDetails.Rows.Count; i++)
-            //{
-            //    mdlProductTypePriceSize mdlMtps = new mdlProductTypePriceSize();
-            //    DataGridViewRow drSize = dgvSizeDetails.Rows[i];
-            //    mdlMtps.ID = txtID.Text.Trim();
-            //    mdlMtps.Seq = drSize.Cells["colSizeSeq"].Value.ToString();
-            //    mdlMtps.SizeID = drSize.Cells["colSizeID"].Value.ToString();
-            //    lsMtps.Add(mdlMtps);
-            //}
-            //string result = clsMmProductTypeStdPrice.SaveSize(lsMtps);
-            //txtID.Text = result;
-            SaveSize();
-        }
 
         private void btnSaveColorGroup_Click(object sender, EventArgs e)
         {
@@ -236,6 +228,12 @@ namespace cf01.MM
                 MessageBox.Show("沒有選擇尺寸!");
                 return result;
             }
+            if (txtColorGroup.Text == "")
+            {
+                MessageBox.Show("顏色組別不能為空!");
+                txtColorGroup.Focus();
+                return result;
+            }
             if (txtPrice.Text == "" || Convert.ToDecimal(txtPrice.Text) == 0)
             {
                 MessageBox.Show("價錢不能為空!");
@@ -245,10 +243,11 @@ namespace cf01.MM
             if (txtColorGroupSeq.Text == "")
                 txtColorGroupSeq.Text = GenSeqNo(dgvColorGroup, "colColorGroupSeq");
             mdlProductTypePriceColorGroup mdlPtpc = new mdlProductTypePriceColorGroup();
-            mdlPtpc.UpperSN = Convert.ToInt32(dgvSizeDetails.Rows[dgvSizeDetails.CurrentRow.Index].Cells["colSizeSN"].Value);
+            mdlPtpc.UpperSN = Convert.ToInt32(dgvSizeGroup.Rows[dgvSizeGroup.CurrentRow.Index].Cells["colSizeGroupSN"].Value);
             mdlPtpc.Seq = txtColorGroupSeq.Text.Trim();
-            mdlPtpc.ColorGroup = "";
+            mdlPtpc.ColorGroup = txtColorGroup.Text;
             mdlPtpc.ValueDesc = txtValueDesc.Text.Trim();
+            mdlPtpc.Rate = txtRate.Text == "" ? 0 : Convert.ToDecimal(txtRate.Text);
             mdlPtpc.Price = txtPrice.Text == "" ? 0 : Convert.ToDecimal(txtPrice.Text);
             mdlPtpc.Curr = lueCurr.Text;
             result = clsMmProductTypeStdPrice.SaveColorGroup(mdlPtpc);
@@ -271,6 +270,7 @@ namespace cf01.MM
                     return;
                 }
             }
+            txtColorSeq.Text = "";
             SaveColorDetails();
         }
         private string SaveColorDetails()
@@ -300,11 +300,11 @@ namespace cf01.MM
         }
         private void dgvColorDetails_SelectionChanged(object sender, EventArgs e)
         {
-            int row = dgvColorDetails.CurrentRow.Index;
-            DataGridViewRow dr = dgvColorDetails.Rows[row];
-            txtColorSeq.Text = dr.Cells["colColorSeq"].Value.ToString();
-            txtColorID.Text = dr.Cells["colColorID"].Value.ToString();
-            txtColorName.Text = dr.Cells["colColorName"].Value.ToString();
+            //int row = dgvColorDetails.CurrentRow.Index;
+            //DataGridViewRow dr = dgvColorDetails.Rows[row];
+            //txtColorSeq.Text = dr.Cells["colColorSeq"].Value.ToString();
+            //txtColorID.Text = dr.Cells["colColorID"].Value.ToString();
+            //txtColorName.Text = dr.Cells["colColorName"].Value.ToString();
         }
 
         private void btnSaveColorDetails_Click(object sender, EventArgs e)
@@ -316,15 +316,6 @@ namespace cf01.MM
         {
             txtID.Text = "";
             LoadData("ZZZZZZ");
-        }
-
-        private void txtSizeID_Leave(object sender, EventArgs e)
-        {
-            DataTable dtSize = clsMmProductTypeStdPrice.GetSize(txtSizeID.Text);
-            if (dtSize.Rows.Count > 0)
-                txtSizeName.Text = dtSize.Rows[0]["SizeName"].ToString().Trim();
-            else
-                txtSizeName.Text = "";
         }
 
         private void txtColorID_Leave(object sender, EventArgs e)
@@ -349,6 +340,71 @@ namespace cf01.MM
                 txtID.Text = searchID;
                 LoadData(txtID.Text);
             }
+        }
+
+        private void txtRate_Leave(object sender, EventArgs e)
+        {
+            if (txtBasePrice.Text.Trim() != "" && txtRate.Text.Trim() != "")
+                txtPrice.Text = Math.Round(Convert.ToDecimal(txtBasePrice.Text) * Convert.ToDecimal(txtRate.Text), 2).ToString();
+            else
+                txtPrice.Text = "0";
+        }
+
+        private void btnSizeGroup_Click(object sender, EventArgs e)
+        {
+            frmProductTypeStdPriceSizeGroup frmProductTypeStdPriceSizeGroup = new frmProductTypeStdPriceSizeGroup();
+            frmProductTypeStdPriceSizeGroup.ShowDialog();
+        }
+
+        private void btnColorGroup_Click(object sender, EventArgs e)
+        {
+            frmProductTypeStdPriceColorGroup frmProductTypeStdPriceColorGroup = new frmProductTypeStdPriceColorGroup();
+            frmProductTypeStdPriceColorGroup.ShowDialog();
+        }
+
+        private void txtColorGroup_Leave(object sender, EventArgs e)
+        {
+            DataTable dtColorGroup = clsMmProductTypeStdPrice.LoadColorGroup(txtColorGroup.Text);
+            if (dtColorGroup.Rows.Count == 0)
+                MessageBox.Show("此顏色組別不存在!");
+        }
+
+        private void dgvSizeGroup_SelectionChanged(object sender, EventArgs e)
+        {
+            int row = dgvSizeGroup.CurrentRow.Index;
+            DataGridViewRow dr = dgvSizeGroup.Rows[row];
+            txtSizeGroupSeq.Text = dr.Cells["colSizeGroupSeq"].Value.ToString();
+            txtSizeGroup.Text = dr.Cells["colSizeGroup"].Value.ToString();
+
+            DataTable dtSizeDetails = clsMmProductTypeStdPrice.LoadSizeGroup(txtSizeGroup.Text);
+            dgvSizeDetails.DataSource = dtSizeDetails;
+
+            LoadColorGroup(row);
+            LoadColorDetails(0);
+        }
+
+        private void txtSizeGroup_Leave(object sender, EventArgs e)
+        {
+            DataTable dtSizeGroup = clsMmProductTypeStdPrice.LoadSizeGroup(txtSizeGroup.Text);
+            if (dtSizeGroup.Rows.Count == 0)
+                MessageBox.Show("此尺寸組別不存在!");
+        }
+
+        private void btnSaveSizeGroup_Click(object sender, EventArgs e)
+        {
+            //List<mdlProductTypePriceSize> lsMtps = new List<mdlProductTypePriceSize>();
+            //for (int i = 0; i < dgvSizeDetails.Rows.Count; i++)
+            //{
+            //    mdlProductTypePriceSize mdlMtps = new mdlProductTypePriceSize();
+            //    DataGridViewRow drSize = dgvSizeDetails.Rows[i];
+            //    mdlMtps.ID = txtID.Text.Trim();
+            //    mdlMtps.Seq = drSize.Cells["colSizeSeq"].Value.ToString();
+            //    mdlMtps.SizeID = drSize.Cells["colSizeID"].Value.ToString();
+            //    lsMtps.Add(mdlMtps);
+            //}
+            //string result = clsMmProductTypeStdPrice.SaveSizeGroup(lsMtps);
+            //txtID.Text = result;
+            SaveSizeGroup();
         }
     }
 }
