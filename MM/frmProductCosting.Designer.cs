@@ -101,6 +101,22 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgvWipData = new System.Windows.Forms.DataGridView();
+            this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipStdWeightFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipCplQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipCplWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipVendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -224,22 +240,6 @@
             this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipGoodsCname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipWpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDepCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipPcsWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipStdWeightFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipProdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipCplQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipCplWeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipProductMo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipVendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipNextDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWipNextDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -975,6 +975,131 @@
             this.dgvWipData.Size = new System.Drawing.Size(840, 46);
             this.dgvWipData.TabIndex = 4;
             this.dgvWipData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvWipData_RowPostPaint);
+            // 
+            // colWipSeq
+            // 
+            this.colWipSeq.DataPropertyName = "flag";
+            this.colWipSeq.HeaderText = "序號";
+            this.colWipSeq.Name = "colWipSeq";
+            this.colWipSeq.ReadOnly = true;
+            this.colWipSeq.Width = 40;
+            // 
+            // colWipGoodsId
+            // 
+            this.colWipGoodsId.DataPropertyName = "goods_id";
+            this.colWipGoodsId.HeaderText = "物料編號";
+            this.colWipGoodsId.Name = "colWipGoodsId";
+            this.colWipGoodsId.ReadOnly = true;
+            this.colWipGoodsId.Width = 160;
+            // 
+            // colWipGoodsCname
+            // 
+            this.colWipGoodsCname.DataPropertyName = "ProductName";
+            this.colWipGoodsCname.HeaderText = "物料描述";
+            this.colWipGoodsCname.Name = "colWipGoodsCname";
+            this.colWipGoodsCname.ReadOnly = true;
+            this.colWipGoodsCname.Width = 260;
+            // 
+            // colWipWpId
+            // 
+            this.colWipWpId.DataPropertyName = "wp_id";
+            this.colWipWpId.FillWeight = 80F;
+            this.colWipWpId.HeaderText = "負責部門";
+            this.colWipWpId.Name = "colWipWpId";
+            this.colWipWpId.ReadOnly = true;
+            this.colWipWpId.Width = 80;
+            // 
+            // colWipDepCdesc
+            // 
+            this.colWipDepCdesc.DataPropertyName = "wp_id_cdesc";
+            this.colWipDepCdesc.HeaderText = "部門描述";
+            this.colWipDepCdesc.Name = "colWipDepCdesc";
+            this.colWipDepCdesc.ReadOnly = true;
+            // 
+            // colWipPcsWeg
+            // 
+            this.colWipPcsWeg.DataPropertyName = "pcs_weg";
+            this.colWipPcsWeg.HeaderText = "每PCS重量";
+            this.colWipPcsWeg.Name = "colWipPcsWeg";
+            this.colWipPcsWeg.ReadOnly = true;
+            this.colWipPcsWeg.Width = 80;
+            // 
+            // colWipStdWeightFlag
+            // 
+            this.colWipStdWeightFlag.DataPropertyName = "ProductWeight";
+            this.colWipStdWeightFlag.HeaderText = "每PCS重量(自定)";
+            this.colWipStdWeightFlag.Name = "colWipStdWeightFlag";
+            this.colWipStdWeightFlag.ReadOnly = true;
+            this.colWipStdWeightFlag.Width = 120;
+            // 
+            // colWipProdQty
+            // 
+            this.colWipProdQty.DataPropertyName = "prod_qty";
+            this.colWipProdQty.HeaderText = "生產數量";
+            this.colWipProdQty.Name = "colWipProdQty";
+            this.colWipProdQty.ReadOnly = true;
+            this.colWipProdQty.Width = 80;
+            // 
+            // colWipCplQty
+            // 
+            this.colWipCplQty.DataPropertyName = "c_qty_ok";
+            this.colWipCplQty.HeaderText = "完成數量";
+            this.colWipCplQty.Name = "colWipCplQty";
+            this.colWipCplQty.ReadOnly = true;
+            this.colWipCplQty.Width = 80;
+            // 
+            // colWipCplWeg
+            // 
+            this.colWipCplWeg.DataPropertyName = "c_sec_qty_ok";
+            this.colWipCplWeg.HeaderText = "完成重量";
+            this.colWipCplWeg.Name = "colWipCplWeg";
+            this.colWipCplWeg.ReadOnly = true;
+            this.colWipCplWeg.Width = 80;
+            // 
+            // colWipProductMo
+            // 
+            this.colWipProductMo.DataPropertyName = "mo_id";
+            this.colWipProductMo.HeaderText = "制單編號";
+            this.colWipProductMo.Name = "colWipProductMo";
+            this.colWipProductMo.ReadOnly = true;
+            this.colWipProductMo.Width = 80;
+            // 
+            // colWipDoColor
+            // 
+            this.colWipDoColor.DataPropertyName = "DoColor";
+            this.colWipDoColor.HeaderText = "顏色做法";
+            this.colWipDoColor.Name = "colWipDoColor";
+            this.colWipDoColor.ReadOnly = true;
+            // 
+            // colWipVendor_id
+            // 
+            this.colWipVendor_id.DataPropertyName = "vendor_id";
+            this.colWipVendor_id.HeaderText = "外發加工";
+            this.colWipVendor_id.Name = "colWipVendor_id";
+            this.colWipVendor_id.ReadOnly = true;
+            // 
+            // colWipModality
+            // 
+            this.colWipModality.DataPropertyName = "modality";
+            this.colWipModality.HeaderText = "管制類型";
+            this.colWipModality.Name = "colWipModality";
+            this.colWipModality.ReadOnly = true;
+            this.colWipModality.Width = 80;
+            // 
+            // colWipNextDep
+            // 
+            this.colWipNextDep.DataPropertyName = "next_wp_id";
+            this.colWipNextDep.HeaderText = "收貨部門";
+            this.colWipNextDep.Name = "colWipNextDep";
+            this.colWipNextDep.ReadOnly = true;
+            this.colWipNextDep.Width = 80;
+            // 
+            // colWipNextDepId
+            // 
+            this.colWipNextDepId.DataPropertyName = "NextDepCdesc";
+            this.colWipNextDepId.HeaderText = "部門描述";
+            this.colWipNextDepId.Name = "colWipNextDepId";
+            this.colWipNextDepId.ReadOnly = true;
             // 
             // panelControl3
             // 
@@ -2137,131 +2262,6 @@
             this.dataGridViewTextBoxColumn52.DataPropertyName = "NextDepCdesc";
             this.dataGridViewTextBoxColumn52.HeaderText = "部門描述";
             this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
-            // 
-            // colWipSeq
-            // 
-            this.colWipSeq.DataPropertyName = "flag";
-            this.colWipSeq.HeaderText = "序號";
-            this.colWipSeq.Name = "colWipSeq";
-            this.colWipSeq.ReadOnly = true;
-            this.colWipSeq.Width = 40;
-            // 
-            // colWipGoodsId
-            // 
-            this.colWipGoodsId.DataPropertyName = "goods_id";
-            this.colWipGoodsId.HeaderText = "物料編號";
-            this.colWipGoodsId.Name = "colWipGoodsId";
-            this.colWipGoodsId.ReadOnly = true;
-            this.colWipGoodsId.Width = 160;
-            // 
-            // colWipGoodsCname
-            // 
-            this.colWipGoodsCname.DataPropertyName = "ProductName";
-            this.colWipGoodsCname.HeaderText = "物料描述";
-            this.colWipGoodsCname.Name = "colWipGoodsCname";
-            this.colWipGoodsCname.ReadOnly = true;
-            this.colWipGoodsCname.Width = 260;
-            // 
-            // colWipWpId
-            // 
-            this.colWipWpId.DataPropertyName = "wp_id";
-            this.colWipWpId.FillWeight = 80F;
-            this.colWipWpId.HeaderText = "負責部門";
-            this.colWipWpId.Name = "colWipWpId";
-            this.colWipWpId.ReadOnly = true;
-            this.colWipWpId.Width = 80;
-            // 
-            // colWipDepCdesc
-            // 
-            this.colWipDepCdesc.DataPropertyName = "wp_id_cdesc";
-            this.colWipDepCdesc.HeaderText = "部門描述";
-            this.colWipDepCdesc.Name = "colWipDepCdesc";
-            this.colWipDepCdesc.ReadOnly = true;
-            // 
-            // colWipPcsWeg
-            // 
-            this.colWipPcsWeg.DataPropertyName = "pcs_weg";
-            this.colWipPcsWeg.HeaderText = "每PCS重量";
-            this.colWipPcsWeg.Name = "colWipPcsWeg";
-            this.colWipPcsWeg.ReadOnly = true;
-            this.colWipPcsWeg.Width = 80;
-            // 
-            // colWipStdWeightFlag
-            // 
-            this.colWipStdWeightFlag.DataPropertyName = "ProductWeight";
-            this.colWipStdWeightFlag.HeaderText = "每PCS重量(自定)";
-            this.colWipStdWeightFlag.Name = "colWipStdWeightFlag";
-            this.colWipStdWeightFlag.ReadOnly = true;
-            this.colWipStdWeightFlag.Width = 120;
-            // 
-            // colWipProdQty
-            // 
-            this.colWipProdQty.DataPropertyName = "prod_qty";
-            this.colWipProdQty.HeaderText = "生產數量";
-            this.colWipProdQty.Name = "colWipProdQty";
-            this.colWipProdQty.ReadOnly = true;
-            this.colWipProdQty.Width = 80;
-            // 
-            // colWipCplQty
-            // 
-            this.colWipCplQty.DataPropertyName = "c_qty_ok";
-            this.colWipCplQty.HeaderText = "完成數量";
-            this.colWipCplQty.Name = "colWipCplQty";
-            this.colWipCplQty.ReadOnly = true;
-            this.colWipCplQty.Width = 80;
-            // 
-            // colWipCplWeg
-            // 
-            this.colWipCplWeg.DataPropertyName = "c_sec_qty_ok";
-            this.colWipCplWeg.HeaderText = "完成重量";
-            this.colWipCplWeg.Name = "colWipCplWeg";
-            this.colWipCplWeg.ReadOnly = true;
-            this.colWipCplWeg.Width = 80;
-            // 
-            // colWipProductMo
-            // 
-            this.colWipProductMo.DataPropertyName = "mo_id";
-            this.colWipProductMo.HeaderText = "制單編號";
-            this.colWipProductMo.Name = "colWipProductMo";
-            this.colWipProductMo.ReadOnly = true;
-            this.colWipProductMo.Width = 80;
-            // 
-            // colWipDoColor
-            // 
-            this.colWipDoColor.DataPropertyName = "DoColor";
-            this.colWipDoColor.HeaderText = "顏色做法";
-            this.colWipDoColor.Name = "colWipDoColor";
-            this.colWipDoColor.ReadOnly = true;
-            // 
-            // colWipVendor_id
-            // 
-            this.colWipVendor_id.DataPropertyName = "vendor_id";
-            this.colWipVendor_id.HeaderText = "外發加工";
-            this.colWipVendor_id.Name = "colWipVendor_id";
-            this.colWipVendor_id.ReadOnly = true;
-            // 
-            // colWipModality
-            // 
-            this.colWipModality.DataPropertyName = "modality";
-            this.colWipModality.HeaderText = "管制類型";
-            this.colWipModality.Name = "colWipModality";
-            this.colWipModality.ReadOnly = true;
-            this.colWipModality.Width = 80;
-            // 
-            // colWipNextDep
-            // 
-            this.colWipNextDep.DataPropertyName = "next_wp_id";
-            this.colWipNextDep.HeaderText = "收貨部門";
-            this.colWipNextDep.Name = "colWipNextDep";
-            this.colWipNextDep.ReadOnly = true;
-            this.colWipNextDep.Width = 80;
-            // 
-            // colWipNextDepId
-            // 
-            this.colWipNextDepId.DataPropertyName = "NextDepCdesc";
-            this.colWipNextDepId.HeaderText = "部門描述";
-            this.colWipNextDepId.Name = "colWipNextDepId";
-            this.colWipNextDepId.ReadOnly = true;
             // 
             // frmProductCosting
             // 
