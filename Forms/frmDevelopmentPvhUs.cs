@@ -53,11 +53,13 @@ namespace cf01.Forms
             strSql = string.Format(@"SELECT contents AS id,remark AS country FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "raw_mat_country");
             DataTable dtMaterialCountry = clsPublicOfCF01.GetDataTable(strSql);
             lueRaw_material_country.Properties.DataSource = dtMaterialCountry;
-            lueRaw_material_country.Properties.ValueMember = "id";
-            lueRaw_material_country.Properties.DisplayMember = "id";
+            lueRaw_material_country.Properties.ValueMember = "country";
+            lueRaw_material_country.Properties.DisplayMember = "country";
 
             //********
-            strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "material_content");
+            strSql = string.Format(
+                @"SELECT S.id FROM (SELECT '' as id,'' as sort Union select contents AS id,sort FROM development_pvh_type WHERE type='{0}') S 
+                ORDER BY S.sort", "material_content");
             DataTable dtContent = clsPublicOfCF01.GetDataTable(strSql);
             luematerial_content1.Properties.DataSource = dtContent;
             luematerial_content1.Properties.ValueMember = "id";
@@ -139,9 +141,20 @@ namespace cf01.Forms
             txtcolor_name.DataBindings.Add("Text", bds1, "color_name");
             txtcolor_code.DataBindings.Add("Text", bds1, "color_code");
             //--------------------------------------------------------
-                       
+            txtInch_desc.DataBindings.Add("Text", bds1, "inch_desc");
+            txtMm_desc.DataBindings.Add("Text", bds1, "mm_desc");
+            txtRaw_mat_supplier.DataBindings.Add("Text", bds1, "raw_mat_supplier");
+            txtRaw_mat_supplier_address.DataBindings.Add("Text", bds1, "raw_mat_supplier_address");
+            txtRaw_mat_forwarder.DataBindings.Add("Text", bds1, "raw_mat_forwarder");
+            txtRaw_mat_forwarder_address.DataBindings.Add("Text", bds1, "raw_mat_forwarder_address");
+            txtChemical_supplier.DataBindings.Add("Text", bds1, "chemical_supplier");
+            txtChemical_supplier_address.DataBindings.Add("Text", bds1, "chemical_supplier_address");
+            txtChemical_forwarder.DataBindings.Add("Text", bds1, "chemical_forwarder");
+            txtChemical_forwarder_address.DataBindings.Add("Text", bds1, "chemical_forwarder_address");
+            //
+
             //chkurgent_bulk_order.DataBindings.Add("Checked", bds1, "urgent_bulk_order");
-            
+
         }
 
         private void SetButtonSatus(bool _flag)
@@ -197,14 +210,25 @@ namespace cf01.Forms
             txtreference_number.Text = clsDevelopentPvh.GetPvhNoForUs(txtSerial_no.Text);
             txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
             txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
-            
+
+            txtProduction_country.Text = "China";
+            txtcertificate_number.Text = "21-330324";
             txtMoq.Text = "NIL";
             txtSurcharge.Text = "NIL";
+            txtRaw_mat_supplier.Text = "NIL";
+            txtRaw_mat_supplier_address.Text = "NIL";
+            txtRaw_mat_forwarder.Text = "NIL";
+            txtRaw_mat_forwarder_address.Text = "NIL";
+            txtChemical_supplier.Text = "NIL";
+            txtChemical_supplier_address.Text = "NIL";
+            txtChemical_forwarder.Text = "NIL";
+            txtChemical_forwarder_address.Text = "NIL";
+
             chktrim_conform_yes.Checked = true;
             chktrim_comply_yes.Checked = true;
             chkoekotex_class1.Checked = true;
             chksus_grs.Checked = true;
-            chktrim_review_yes.Checked = true;
+            chktrim_review_no.Checked = true;
             txtsrs_leadtime.Text = "16 days";
             txtbulk_leadtime.Text = "28 days";
             txtSerial_no.Properties.ReadOnly = true;
@@ -239,7 +263,8 @@ namespace cf01.Forms
                     quality_callouts,color_name,color_code,color_archroma,color_pantone,color_csi,color_th_stand,color_supplier,dimen_size_inch,dimen_size_mm,
                     best_can_do,for_approval_yes,for_color_yes,for_bulk_ref_yes,sub_submit1,sub_submit2,sub_urgent,status_approved,status_correct,status_resubmit,
                     status_cancelled,trim_review_yes,trim_review_no,depth_lighter,depth_deeper,chroma_brighter,chroma_duller,hue_yellower,hue_redder,hue_bluer,
-                    hue_greener,mo_id1,mo_id2,mo_id3,create_by,create_date) 
+                    hue_greener,mo_id1,mo_id2,mo_id3,create_by,create_date,inch_desc,mm_desc,raw_mat_supplier,raw_mat_supplier_address,raw_mat_forwarder,
+                    raw_mat_forwarder_address,chemical_supplier,chemical_supplier_address,chemical_forwarder,chemical_forwarder_address) 
             VALUES(@serial_no,@doc_date,@raw_material_country,@production_country,@supplier_name,@factory_name,@plm_material_code,
                     @reference_number,@season,@sample_submis_date,@requested_by,@delivery_date,@division_mens,@division_womens,@division_boys,@division_girls,
                     @division_branding,@division_swim,@division_denim,@division_th_accy,@division_tommy_jeans,@division_specialty,@division_adaptive,
@@ -251,7 +276,8 @@ namespace cf01.Forms
                     @quality_callouts,@color_name,@color_code,@color_archroma,@color_pantone,@color_csi,@color_th_stand,@color_supplier,@dimen_size_inch,@dimen_size_mm,
                     @best_can_do,@for_approval_yes,@for_color_yes,@for_bulk_ref_yes,@sub_submit1,@sub_submit2,@sub_urgent,@status_approved,@status_correct,@status_resubmit,
                     @status_cancelled,@trim_review_yes,@trim_review_no,@depth_lighter,@depth_deeper,@chroma_brighter,@chroma_duller,@hue_yellower,@hue_redder,@hue_bluer,
-                    @hue_greener,@mo_id1,@mo_id2,@mo_id3,@user_id,getdate())";
+                    @hue_greener,@mo_id1,@mo_id2,@mo_id3,@user_id,getdate(),@inch_desc,  @mm_desc,@raw_mat_supplier,@raw_mat_supplier_address,@raw_mat_forwarder,
+                    @raw_mat_forwarder_address,@chemical_supplier,@chemical_supplier_address,@chemical_forwarder,@chemical_forwarder_address)";
             const string sql_update =
             @"Update development_us_pvh 
             SET doc_date=@doc_date,raw_material_country=@raw_material_country,production_country=@production_country,supplier_name=@supplier_name,factory_name=@factory_name,
@@ -275,7 +301,10 @@ namespace cf01.Forms
                 status_correct=@status_correct,status_resubmit=@status_resubmit,status_cancelled=@status_cancelled,trim_review_yes=@trim_review_yes,
                 trim_review_no=@trim_review_no,depth_lighter=@depth_lighter,depth_deeper=@depth_deeper,chroma_brighter=@chroma_brighter,chroma_duller=@chroma_duller,
                 hue_yellower=@hue_yellower,hue_redder=@hue_redder,hue_bluer=@hue_bluer,hue_greener=@hue_greener,mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3,
-                update_by=@user_id,update_date=getdate()
+                update_by=@user_id,update_date=getdate(),inch_desc=@inch_desc,mm_desc=@mm_desc, raw_mat_supplier=@raw_mat_supplier,
+                raw_mat_supplier_address=@raw_mat_supplier_address,raw_mat_forwarder=@raw_mat_forwarder,raw_mat_forwarder_address=@raw_mat_forwarder_address,
+                chemical_supplier=@chemical_supplier,chemical_supplier_address=@chemical_supplier_address,chemical_forwarder=@chemical_forwarder,
+                chemical_forwarder_address=@chemical_forwarder_address
             WHERE serial_no=@serial_no";
 
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -413,7 +442,18 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@hue_bluer", chkhue_bluer.Checked ? true : false);
                     myCommand.Parameters.AddWithValue("@hue_greener", chkhue_greener.Checked ? true : false);                                        
                     myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
-                    
+
+                    myCommand.Parameters.AddWithValue("@inch_desc", txtInch_desc.Text);
+                    myCommand.Parameters.AddWithValue("@mm_desc", txtMm_desc.Text);
+                    myCommand.Parameters.AddWithValue("@raw_mat_supplier", txtRaw_mat_supplier.Text);
+                    myCommand.Parameters.AddWithValue("@raw_mat_supplier_address", txtRaw_mat_supplier_address.Text);
+                    myCommand.Parameters.AddWithValue("@raw_mat_forwarder", txtRaw_mat_forwarder.Text);
+                    myCommand.Parameters.AddWithValue("@raw_mat_forwarder_address", txtRaw_mat_forwarder_address.Text);
+                    myCommand.Parameters.AddWithValue("@chemical_supplier", txtChemical_supplier.Text);
+                    myCommand.Parameters.AddWithValue("@chemical_supplier_address", txtChemical_supplier_address.Text);
+                    myCommand.Parameters.AddWithValue("@chemical_forwarder", txtChemical_forwarder.Text);
+                    myCommand.Parameters.AddWithValue("@chemical_forwarder_address", txtChemical_forwarder_address.Text);                    
+
                     myCommand.ExecuteNonQuery();
                     myTrans.Commit(); //數據提交                    
                     save_flag = true;
@@ -696,6 +736,18 @@ namespace cf01.Forms
             txtQuality_callouts.Text = pdr.Cells["quality_callouts"].Value.ToString();
             txtcolor_name.Text = pdr.Cells["color_name"].Value.ToString();
             txtcolor_code.Text = pdr.Cells["color_code"].Value.ToString();
+
+            txtInch_desc.Text = pdr.Cells["inch_desc"].Value.ToString();
+            txtMm_desc.Text = pdr.Cells["inch_desc"].Value.ToString();
+            txtRaw_mat_supplier.Text = pdr.Cells["raw_mat_supplier"].Value.ToString();
+            txtRaw_mat_supplier_address.Text = pdr.Cells["raw_mat_supplier_address"].Value.ToString();
+            txtRaw_mat_forwarder.Text = pdr.Cells["raw_mat_forwarder"].Value.ToString();
+            txtRaw_mat_forwarder_address.Text = pdr.Cells["raw_mat_forwarder_address"].Value.ToString();
+            txtChemical_supplier.Text = pdr.Cells["chemical_supplier"].Value.ToString();
+            txtChemical_supplier_address.Text = pdr.Cells["chemical_supplier_address"].Value.ToString();
+            txtChemical_forwarder.Text = pdr.Cells["chemical_forwarder"].Value.ToString();
+            txtChemical_forwarder_address.Text = pdr.Cells["chemical_forwarder_address"].Value.ToString();
+            
             SetCheckBoxStatus(pdr);//設置 CheckBox狀態
         }
         
@@ -904,13 +956,13 @@ namespace cf01.Forms
             }
         }
 
-        private void lueRaw_material_country_EditValueChanged(object sender, EventArgs e)
-        {
-            if (lueRaw_material_country.Text != "")
-            {
-                txtProduction_country.Text = lueRaw_material_country.GetColumnValue("country").ToString();
-            }
-        }
+        //private void lueRaw_material_country_EditValueChanged(object sender, EventArgs e)
+        //{
+        //    if (lueRaw_material_country.Text != "")
+        //    {
+        //        txtProduction_country.Text = lueRaw_material_country.GetColumnValue("country").ToString();
+        //    }
+        //}
 
         private void txtTrim_flat_price_Click(object sender, EventArgs e)
         {

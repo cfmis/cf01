@@ -192,13 +192,13 @@
             this.chkcolor_csi = new DevExpress.XtraEditors.CheckEdit();
             this.chkcolor_pantone = new DevExpress.XtraEditors.CheckEdit();
             this.chkcolor_archroma = new DevExpress.XtraEditors.CheckEdit();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtcolor_code = new DevExpress.XtraEditors.TextEdit();
             this.txtcolor_name = new DevExpress.XtraEditors.TextEdit();
             this.label29 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label33 = new System.Windows.Forms.Label();
             this.chkoekotex_class2 = new DevExpress.XtraEditors.CheckEdit();
@@ -327,6 +327,7 @@
             this.chktrim_review_yes = new DevExpress.XtraEditors.CheckEdit();
             this.label47 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtFactory_name = new System.Windows.Forms.RichTextBox();
             this.lueRaw_material_country = new DevExpress.XtraEditors.LookUpEdit();
             this.txtreference_number = new DevExpress.XtraEditors.TextEdit();
             this.txtdoc_date = new DevExpress.XtraEditors.DateEdit();
@@ -476,7 +477,24 @@
             this.dataGridViewTextBoxColumn111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn112 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtFactory_name = new System.Windows.Forms.RichTextBox();
+            this.txtInch_desc = new DevExpress.XtraEditors.TextEdit();
+            this.txtMm_desc = new DevExpress.XtraEditors.TextEdit();
+            this.txtRaw_mat_supplier = new DevExpress.XtraEditors.TextEdit();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.txtRaw_mat_supplier_address = new DevExpress.XtraEditors.TextEdit();
+            this.label57 = new System.Windows.Forms.Label();
+            this.txtRaw_mat_forwarder = new DevExpress.XtraEditors.TextEdit();
+            this.label59 = new System.Windows.Forms.Label();
+            this.txtRaw_mat_forwarder_address = new DevExpress.XtraEditors.TextEdit();
+            this.label63 = new System.Windows.Forms.Label();
+            this.txtChemical_supplier = new DevExpress.XtraEditors.TextEdit();
+            this.label64 = new System.Windows.Forms.Label();
+            this.txtChemical_supplier_address = new DevExpress.XtraEditors.TextEdit();
+            this.txtChemical_forwarder = new DevExpress.XtraEditors.TextEdit();
+            this.label65 = new System.Windows.Forms.Label();
+            this.txtChemical_forwarder_address = new DevExpress.XtraEditors.TextEdit();
+            this.label67 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -611,6 +629,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDoc_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDoc_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDoc_date2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInch_desc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMm_desc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_supplier.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_supplier_address.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_forwarder.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_forwarder_address.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_supplier.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_supplier_address.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_forwarder.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_forwarder_address.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -634,7 +662,7 @@
             this.toolStripSeparator8});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1016, 26);
+            this.toolStrip1.Size = new System.Drawing.Size(1358, 26);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -894,7 +922,7 @@
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 21;
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(997, 198);
+            this.dgvDetails.Size = new System.Drawing.Size(1339, 198);
             this.dgvDetails.TabIndex = 50;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
@@ -1774,6 +1802,14 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.txtChemical_forwarder_address);
+            this.panel1.Controls.Add(this.txtChemical_forwarder);
+            this.panel1.Controls.Add(this.txtChemical_supplier_address);
+            this.panel1.Controls.Add(this.txtChemical_supplier);
+            this.panel1.Controls.Add(this.txtRaw_mat_forwarder_address);
+            this.panel1.Controls.Add(this.txtRaw_mat_forwarder);
+            this.panel1.Controls.Add(this.txtRaw_mat_supplier_address);
+            this.panel1.Controls.Add(this.txtRaw_mat_supplier);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel3);
@@ -1785,9 +1821,17 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.dgvDetails);
+            this.panel1.Controls.Add(this.label64);
+            this.panel1.Controls.Add(this.label63);
+            this.panel1.Controls.Add(this.label59);
+            this.panel1.Controls.Add(this.label57);
+            this.panel1.Controls.Add(this.label65);
+            this.panel1.Controls.Add(this.label67);
+            this.panel1.Controls.Add(this.label54);
+            this.panel1.Controls.Add(this.label44);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 815);
+            this.panel1.Size = new System.Drawing.Size(1343, 815);
             this.panel1.TabIndex = 53;
             // 
             // panel5
@@ -1795,6 +1839,8 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.txtMm_desc);
+            this.panel5.Controls.Add(this.txtInch_desc);
             this.panel5.Controls.Add(this.chkstatus_cancelled);
             this.panel5.Controls.Add(this.chkstatus_resubmit);
             this.panel5.Controls.Add(this.chkstatus_correct);
@@ -1806,7 +1852,6 @@
             this.panel5.Controls.Add(this.chkfor_bulk_ref_yes);
             this.panel5.Controls.Add(this.label34);
             this.panel5.Controls.Add(this.chkfor_color_yes);
-            this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.chkfor_approval_yes);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.chkbest_can_do);
@@ -1819,16 +1864,17 @@
             this.panel5.Controls.Add(this.chkcolor_csi);
             this.panel5.Controls.Add(this.chkcolor_pantone);
             this.panel5.Controls.Add(this.chkcolor_archroma);
-            this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtcolor_code);
             this.panel5.Controls.Add(this.txtcolor_name);
             this.panel5.Controls.Add(this.label29);
             this.panel5.Controls.Add(this.label31);
             this.panel5.Controls.Add(this.label42);
             this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.label21);
             this.panel5.Location = new System.Drawing.Point(2, 469);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(995, 91);
+            this.panel5.Size = new System.Drawing.Size(1337, 91);
             this.panel5.TabIndex = 77;
             // 
             // chkstatus_cancelled
@@ -1988,7 +2034,7 @@
             // 
             // label21
             // 
-            this.label21.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(593, 40);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(121, 21);
@@ -1999,7 +2045,7 @@
             // chkfor_approval_yes
             // 
             this.chkfor_approval_yes.Enabled = false;
-            this.chkfor_approval_yes.Location = new System.Drawing.Point(522, 39);
+            this.chkfor_approval_yes.Location = new System.Drawing.Point(557, 39);
             this.chkfor_approval_yes.Name = "chkfor_approval_yes";
             this.chkfor_approval_yes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkfor_approval_yes.Properties.Appearance.Options.UseFont = true;
@@ -2013,8 +2059,8 @@
             // 
             // label16
             // 
-            this.label16.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(396, 40);
+            this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(435, 40);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(121, 21);
             this.label16.TabIndex = 232;
@@ -2024,7 +2070,7 @@
             // chkbest_can_do
             // 
             this.chkbest_can_do.Enabled = false;
-            this.chkbest_can_do.Location = new System.Drawing.Point(346, 39);
+            this.chkbest_can_do.Location = new System.Drawing.Point(375, 39);
             this.chkbest_can_do.Name = "chkbest_can_do";
             this.chkbest_can_do.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkbest_can_do.Properties.Appearance.Options.UseFont = true;
@@ -2038,18 +2084,18 @@
             // 
             // label14
             // 
-            this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(221, 40);
+            this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(306, 37);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(121, 21);
+            this.label14.Size = new System.Drawing.Size(70, 27);
             this.label14.TabIndex = 230;
             this.label14.Text = "Best Supplier Can Do";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkdimen_size_mm
             // 
             this.chkdimen_size_mm.Enabled = false;
-            this.chkdimen_size_mm.Location = new System.Drawing.Point(154, 39);
+            this.chkdimen_size_mm.Location = new System.Drawing.Point(187, 39);
             this.chkdimen_size_mm.Name = "chkdimen_size_mm";
             this.chkdimen_size_mm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdimen_size_mm.Properties.Appearance.Options.UseFont = true;
@@ -2057,14 +2103,14 @@
             this.chkdimen_size_mm.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.chkdimen_size_mm.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkdimen_size_mm.Properties.Caption = "mm";
-            this.chkdimen_size_mm.Size = new System.Drawing.Size(45, 23);
+            this.chkdimen_size_mm.Size = new System.Drawing.Size(39, 23);
             this.chkdimen_size_mm.TabIndex = 229;
             this.chkdimen_size_mm.Tag = "2";
             // 
             // chkdimen_size_inch
             // 
             this.chkdimen_size_inch.Enabled = false;
-            this.chkdimen_size_inch.Location = new System.Drawing.Point(103, 39);
+            this.chkdimen_size_inch.Location = new System.Drawing.Point(58, 39);
             this.chkdimen_size_inch.Name = "chkdimen_size_inch";
             this.chkdimen_size_inch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkdimen_size_inch.Properties.Appearance.Options.UseFont = true;
@@ -2072,24 +2118,24 @@
             this.chkdimen_size_inch.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.chkdimen_size_inch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkdimen_size_inch.Properties.Caption = "Inch";
-            this.chkdimen_size_inch.Size = new System.Drawing.Size(49, 23);
+            this.chkdimen_size_inch.Size = new System.Drawing.Size(45, 23);
             this.chkdimen_size_inch.TabIndex = 228;
             this.chkdimen_size_inch.Tag = "2";
             // 
             // label11
             // 
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(4, 40);
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 32);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 21);
+            this.label11.Size = new System.Drawing.Size(55, 30);
             this.label11.TabIndex = 227;
             this.label11.Text = "Dimension / Size";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkcolor_supplier
             // 
             this.chkcolor_supplier.Enabled = false;
-            this.chkcolor_supplier.Location = new System.Drawing.Point(814, 14);
+            this.chkcolor_supplier.Location = new System.Drawing.Point(866, 14);
             this.chkcolor_supplier.Name = "chkcolor_supplier";
             this.chkcolor_supplier.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkcolor_supplier.Properties.Appearance.Options.UseFont = true;
@@ -2097,14 +2143,14 @@
             this.chkcolor_supplier.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.chkcolor_supplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkcolor_supplier.Properties.Caption = "Supplier Color Card";
-            this.chkcolor_supplier.Size = new System.Drawing.Size(171, 23);
+            this.chkcolor_supplier.Size = new System.Drawing.Size(119, 23);
             this.chkcolor_supplier.TabIndex = 226;
             this.chkcolor_supplier.Tag = "2";
             // 
             // chkcolor_th_stand
             // 
             this.chkcolor_th_stand.Enabled = false;
-            this.chkcolor_th_stand.Location = new System.Drawing.Point(725, 14);
+            this.chkcolor_th_stand.Location = new System.Drawing.Point(797, 14);
             this.chkcolor_th_stand.Name = "chkcolor_th_stand";
             this.chkcolor_th_stand.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkcolor_th_stand.Properties.Appearance.Options.UseFont = true;
@@ -2112,14 +2158,14 @@
             this.chkcolor_th_stand.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.chkcolor_th_stand.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkcolor_th_stand.Properties.Caption = "TH Stand";
-            this.chkcolor_th_stand.Size = new System.Drawing.Size(84, 23);
+            this.chkcolor_th_stand.Size = new System.Drawing.Size(67, 23);
             this.chkcolor_th_stand.TabIndex = 225;
             this.chkcolor_th_stand.Tag = "2";
             // 
             // chkcolor_csi
             // 
             this.chkcolor_csi.Enabled = false;
-            this.chkcolor_csi.Location = new System.Drawing.Point(672, 14);
+            this.chkcolor_csi.Location = new System.Drawing.Point(748, 14);
             this.chkcolor_csi.Name = "chkcolor_csi";
             this.chkcolor_csi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkcolor_csi.Properties.Appearance.Options.UseFont = true;
@@ -2134,7 +2180,7 @@
             // chkcolor_pantone
             // 
             this.chkcolor_pantone.Enabled = false;
-            this.chkcolor_pantone.Location = new System.Drawing.Point(598, 14);
+            this.chkcolor_pantone.Location = new System.Drawing.Point(682, 14);
             this.chkcolor_pantone.Name = "chkcolor_pantone";
             this.chkcolor_pantone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkcolor_pantone.Properties.Appearance.Options.UseFont = true;
@@ -2142,14 +2188,14 @@
             this.chkcolor_pantone.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.chkcolor_pantone.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.chkcolor_pantone.Properties.Caption = "Pantone";
-            this.chkcolor_pantone.Size = new System.Drawing.Size(68, 23);
+            this.chkcolor_pantone.Size = new System.Drawing.Size(64, 23);
             this.chkcolor_pantone.TabIndex = 223;
             this.chkcolor_pantone.Tag = "2";
             // 
             // chkcolor_archroma
             // 
             this.chkcolor_archroma.Enabled = false;
-            this.chkcolor_archroma.Location = new System.Drawing.Point(522, 14);
+            this.chkcolor_archroma.Location = new System.Drawing.Point(610, 14);
             this.chkcolor_archroma.Name = "chkcolor_archroma";
             this.chkcolor_archroma.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkcolor_archroma.Properties.Appearance.Options.UseFont = true;
@@ -2161,41 +2207,31 @@
             this.chkcolor_archroma.TabIndex = 222;
             this.chkcolor_archroma.Tag = "2";
             // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(433, 14);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 21);
-            this.label8.TabIndex = 220;
-            this.label8.Text = "Color Provider";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // txtcolor_code
             // 
             this.txtcolor_code.EnterMoveNextControl = true;
-            this.txtcolor_code.Location = new System.Drawing.Point(293, 14);
+            this.txtcolor_code.Location = new System.Drawing.Point(422, 14);
             this.txtcolor_code.Name = "txtcolor_code";
             this.txtcolor_code.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtcolor_code.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtcolor_code.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtcolor_code.Properties.MaxLength = 100;
             this.txtcolor_code.Properties.ReadOnly = true;
-            this.txtcolor_code.Size = new System.Drawing.Size(141, 22);
+            this.txtcolor_code.Size = new System.Drawing.Size(102, 22);
             this.txtcolor_code.TabIndex = 1;
             this.txtcolor_code.Tag = "2";
             // 
             // txtcolor_name
             // 
             this.txtcolor_name.EnterMoveNextControl = true;
-            this.txtcolor_name.Location = new System.Drawing.Point(74, 14);
+            this.txtcolor_name.Location = new System.Drawing.Point(59, 14);
             this.txtcolor_name.Name = "txtcolor_name";
             this.txtcolor_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtcolor_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtcolor_name.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtcolor_name.Properties.MaxLength = 100;
             this.txtcolor_name.Properties.ReadOnly = true;
-            this.txtcolor_name.Size = new System.Drawing.Size(150, 22);
+            this.txtcolor_name.Size = new System.Drawing.Size(294, 22);
             this.txtcolor_name.TabIndex = 0;
             this.txtcolor_name.Tag = "2";
             // 
@@ -2207,19 +2243,19 @@
             this.label29.ForeColor = System.Drawing.Color.White;
             this.label29.Location = new System.Drawing.Point(1, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(991, 13);
+            this.label29.Size = new System.Drawing.Size(1333, 13);
             this.label29.TabIndex = 164;
             this.label29.Text = "SAMPLE  SUBMISSION  DETAILS";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label31
             // 
-            this.label31.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(-2, 14);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(77, 21);
+            this.label31.Size = new System.Drawing.Size(64, 21);
             this.label31.TabIndex = 66;
-            this.label31.Text = "Color  Name";
+            this.label31.Text = "Color Name";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label42
@@ -2235,15 +2271,27 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(217, 14);
+            this.label2.Location = new System.Drawing.Point(343, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 21);
             this.label2.TabIndex = 218;
             this.label2.Text = "Color Code";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(520, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 21);
+            this.label8.TabIndex = 220;
+            this.label8.Text = "Color Provider";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // panel9
             // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.MistyRose;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.label33);
@@ -2261,7 +2309,7 @@
             this.panel9.Font = new System.Drawing.Font("Tahoma", 9F);
             this.panel9.Location = new System.Drawing.Point(3, 295);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(995, 53);
+            this.panel9.Size = new System.Drawing.Size(1337, 53);
             this.panel9.TabIndex = 205;
             // 
             // label33
@@ -2451,7 +2499,7 @@
             this.panel3.Font = new System.Drawing.Font("Tahoma", 9F);
             this.panel3.Location = new System.Drawing.Point(2, 178);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(995, 67);
+            this.panel3.Size = new System.Drawing.Size(1339, 67);
             this.panel3.TabIndex = 75;
             // 
             // label10
@@ -2679,7 +2727,7 @@
             this.label50.ForeColor = System.Drawing.Color.White;
             this.label50.Location = new System.Drawing.Point(0, 0);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(991, 16);
+            this.label50.Size = new System.Drawing.Size(1335, 16);
             this.label50.TabIndex = 161;
             this.label50.Text = "TESTING/RSL COMPLIANCE";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2765,8 +2813,6 @@
             // 
             // panel8
             // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel8.Controls.Add(this.chkdivision_mercedez_benz);
             this.panel8.Controls.Add(this.chkdivision_adaptive);
@@ -2793,7 +2839,7 @@
             this.panel8.Controls.Add(this.label5);
             this.panel8.Location = new System.Drawing.Point(2, 63);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(995, 49);
+            this.panel8.Size = new System.Drawing.Size(991, 49);
             this.panel8.TabIndex = 80;
             // 
             // chkdivision_mercedez_benz
@@ -3122,8 +3168,6 @@
             // 
             // panel6
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label32);
@@ -3145,7 +3189,7 @@
             this.panel6.Controls.Add(this.label19);
             this.panel6.Location = new System.Drawing.Point(2, 113);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(995, 64);
+            this.panel6.Size = new System.Drawing.Size(991, 64);
             this.panel6.TabIndex = 78;
             // 
             // label12
@@ -3198,13 +3242,11 @@
             // 
             // label56
             // 
-            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label56.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label56.ForeColor = System.Drawing.Color.White;
             this.label56.Location = new System.Drawing.Point(0, 0);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(991, 14);
+            this.label56.Size = new System.Drawing.Size(985, 14);
             this.label56.TabIndex = 166;
             this.label56.Text = "PRICING";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3417,7 +3459,7 @@
             this.panel11.Font = new System.Drawing.Font("Tahoma", 9F);
             this.panel11.Location = new System.Drawing.Point(3, 381);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(995, 87);
+            this.panel11.Size = new System.Drawing.Size(1337, 87);
             this.panel11.TabIndex = 207;
             // 
             // txtMo_id3
@@ -3443,7 +3485,7 @@
             this.txtQuality_callouts.Properties.Appearance.Options.UseFont = true;
             this.txtQuality_callouts.Properties.MaxLength = 600;
             this.txtQuality_callouts.Properties.ReadOnly = true;
-            this.txtQuality_callouts.Size = new System.Drawing.Size(887, 35);
+            this.txtQuality_callouts.Size = new System.Drawing.Size(888, 35);
             this.txtQuality_callouts.TabIndex = 4;
             this.txtQuality_callouts.Tag = "2";
             // 
@@ -3460,7 +3502,7 @@
             // chksug_pass_needle
             // 
             this.chksug_pass_needle.Enabled = false;
-            this.chksug_pass_needle.Location = new System.Drawing.Point(828, 1);
+            this.chksug_pass_needle.Location = new System.Drawing.Point(823, 1);
             this.chksug_pass_needle.Name = "chksug_pass_needle";
             this.chksug_pass_needle.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksug_pass_needle.Properties.Appearance.Options.UseFont = true;
@@ -3508,7 +3550,7 @@
             // chksug_childrenwear
             // 
             this.chksug_childrenwear.Enabled = false;
-            this.chksug_childrenwear.Location = new System.Drawing.Point(664, 1);
+            this.chksug_childrenwear.Location = new System.Drawing.Point(660, 1);
             this.chksug_childrenwear.Name = "chksug_childrenwear";
             this.chksug_childrenwear.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksug_childrenwear.Properties.Appearance.Options.UseFont = true;
@@ -3533,7 +3575,7 @@
             // chksug_swimwear
             // 
             this.chksug_swimwear.Enabled = false;
-            this.chksug_swimwear.Location = new System.Drawing.Point(517, 1);
+            this.chksug_swimwear.Location = new System.Drawing.Point(514, 1);
             this.chksug_swimwear.Name = "chksug_swimwear";
             this.chksug_swimwear.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksug_swimwear.Properties.Appearance.Options.UseFont = true;
@@ -3561,7 +3603,7 @@
             // chksug_dryclean_only
             // 
             this.chksug_dryclean_only.Enabled = false;
-            this.chksug_dryclean_only.Location = new System.Drawing.Point(425, 1);
+            this.chksug_dryclean_only.Location = new System.Drawing.Point(423, 1);
             this.chksug_dryclean_only.Name = "chksug_dryclean_only";
             this.chksug_dryclean_only.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksug_dryclean_only.Properties.Appearance.Options.UseFont = true;
@@ -3591,7 +3633,7 @@
             // chksug_do_not_dryclean
             // 
             this.chksug_do_not_dryclean.Enabled = false;
-            this.chksug_do_not_dryclean.Location = new System.Drawing.Point(321, 1);
+            this.chksug_do_not_dryclean.Location = new System.Drawing.Point(320, 1);
             this.chksug_do_not_dryclean.Name = "chksug_do_not_dryclean";
             this.chksug_do_not_dryclean.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksug_do_not_dryclean.Properties.Appearance.Options.UseFont = true;
@@ -3669,6 +3711,8 @@
             // 
             // panel10
             // 
+            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.label4);
@@ -3683,7 +3727,7 @@
             this.panel10.Font = new System.Drawing.Font("Tahoma", 9F);
             this.panel10.Location = new System.Drawing.Point(3, 349);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(995, 31);
+            this.panel10.Size = new System.Drawing.Size(1337, 31);
             this.panel10.TabIndex = 206;
             // 
             // label4
@@ -3766,7 +3810,7 @@
             this.txtcertificate_number.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.txtcertificate_number.Properties.MaxLength = 50;
             this.txtcertificate_number.Properties.ReadOnly = true;
-            this.txtcertificate_number.Size = new System.Drawing.Size(308, 20);
+            this.txtcertificate_number.Size = new System.Drawing.Size(307, 20);
             this.txtcertificate_number.TabIndex = 0;
             this.txtcertificate_number.Tag = "2";
             // 
@@ -3812,6 +3856,8 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.AliceBlue;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.txtconformity_of_test);
@@ -3822,7 +3868,7 @@
             this.panel4.Font = new System.Drawing.Font("Tahoma", 9F);
             this.panel4.Location = new System.Drawing.Point(2, 246);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(995, 48);
+            this.panel4.Size = new System.Drawing.Size(1338, 48);
             this.panel4.TabIndex = 204;
             // 
             // txtconformity_of_test
@@ -3910,7 +3956,7 @@
             this.panel2.Controls.Add(this.label47);
             this.panel2.Location = new System.Drawing.Point(1, 561);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(996, 53);
+            this.panel2.Size = new System.Drawing.Size(989, 53);
             this.panel2.TabIndex = 203;
             // 
             // chkdepth_deeper
@@ -3946,7 +3992,7 @@
             // chkhue_greener
             // 
             this.chkhue_greener.Enabled = false;
-            this.chkhue_greener.Location = new System.Drawing.Point(912, 26);
+            this.chkhue_greener.Location = new System.Drawing.Point(909, 26);
             this.chkhue_greener.Name = "chkhue_greener";
             this.chkhue_greener.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkhue_greener.Properties.Appearance.Options.UseFont = true;
@@ -3961,7 +4007,7 @@
             // chkhue_bluer
             // 
             this.chkhue_bluer.Enabled = false;
-            this.chkhue_bluer.Location = new System.Drawing.Point(857, 26);
+            this.chkhue_bluer.Location = new System.Drawing.Point(854, 26);
             this.chkhue_bluer.Name = "chkhue_bluer";
             this.chkhue_bluer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkhue_bluer.Properties.Appearance.Options.UseFont = true;
@@ -3976,7 +4022,7 @@
             // chkhue_yellower
             // 
             this.chkhue_yellower.Enabled = false;
-            this.chkhue_yellower.Location = new System.Drawing.Point(717, 26);
+            this.chkhue_yellower.Location = new System.Drawing.Point(714, 26);
             this.chkhue_yellower.Name = "chkhue_yellower";
             this.chkhue_yellower.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkhue_yellower.Properties.Appearance.Options.UseFont = true;
@@ -3991,7 +4037,7 @@
             // label43
             // 
             this.label43.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(670, 31);
+            this.label43.Location = new System.Drawing.Point(667, 31);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(43, 14);
             this.label43.TabIndex = 199;
@@ -4001,7 +4047,7 @@
             // chkhue_redder
             // 
             this.chkhue_redder.Enabled = false;
-            this.chkhue_redder.Location = new System.Drawing.Point(791, 26);
+            this.chkhue_redder.Location = new System.Drawing.Point(788, 26);
             this.chkhue_redder.Name = "chkhue_redder";
             this.chkhue_redder.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkhue_redder.Properties.Appearance.Options.UseFont = true;
@@ -4105,8 +4151,6 @@
             // 
             // panel7
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel7.Controls.Add(this.txtFactory_name);
             this.panel7.Controls.Add(this.lueRaw_material_country);
@@ -4124,8 +4168,19 @@
             this.panel7.Controls.Add(this.label52);
             this.panel7.Location = new System.Drawing.Point(3, 1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(994, 61);
+            this.panel7.Size = new System.Drawing.Size(990, 61);
             this.panel7.TabIndex = 79;
+            // 
+            // txtFactory_name
+            // 
+            this.txtFactory_name.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.txtFactory_name.Location = new System.Drawing.Point(554, 22);
+            this.txtFactory_name.MaxLength = 200;
+            this.txtFactory_name.Name = "txtFactory_name";
+            this.txtFactory_name.Size = new System.Drawing.Size(432, 35);
+            this.txtFactory_name.TabIndex = 129;
+            this.txtFactory_name.Tag = "2";
+            this.txtFactory_name.Text = "";
             // 
             // lueRaw_material_country
             // 
@@ -4151,7 +4206,6 @@
             this.lueRaw_material_country.Size = new System.Drawing.Size(182, 20);
             this.lueRaw_material_country.TabIndex = 0;
             this.lueRaw_material_country.Tag = "2";
-            this.lueRaw_material_country.EditValueChanged += new System.EventHandler(this.lueRaw_material_country_EditValueChanged);
             // 
             // txtreference_number
             // 
@@ -4293,7 +4347,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1014, 847);
+            this.tabControl1.Size = new System.Drawing.Size(1356, 847);
             this.tabControl1.TabIndex = 54;
             // 
             // tabPage1
@@ -4304,7 +4358,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1006, 818);
+            this.tabPage1.Size = new System.Drawing.Size(1348, 818);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "數據編輯";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -5481,22 +5535,223 @@
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             this.dataGridViewTextBoxColumn113.ReadOnly = true;
             // 
-            // txtFactory_name
+            // txtInch_desc
             // 
-            this.txtFactory_name.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.txtFactory_name.Location = new System.Drawing.Point(554, 22);
-            this.txtFactory_name.MaxLength = 200;
-            this.txtFactory_name.Name = "txtFactory_name";
-            this.txtFactory_name.Size = new System.Drawing.Size(432, 35);
-            this.txtFactory_name.TabIndex = 129;
-            this.txtFactory_name.Tag = "2";
-            this.txtFactory_name.Text = "";
+            this.txtInch_desc.EnterMoveNextControl = true;
+            this.txtInch_desc.Location = new System.Drawing.Point(105, 39);
+            this.txtInch_desc.Name = "txtInch_desc";
+            this.txtInch_desc.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtInch_desc.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtInch_desc.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtInch_desc.Properties.MaxLength = 30;
+            this.txtInch_desc.Properties.ReadOnly = true;
+            this.txtInch_desc.Size = new System.Drawing.Size(79, 22);
+            this.txtInch_desc.TabIndex = 247;
+            this.txtInch_desc.Tag = "2";
+            // 
+            // txtMm_desc
+            // 
+            this.txtMm_desc.EnterMoveNextControl = true;
+            this.txtMm_desc.Location = new System.Drawing.Point(228, 39);
+            this.txtMm_desc.Name = "txtMm_desc";
+            this.txtMm_desc.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtMm_desc.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtMm_desc.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtMm_desc.Properties.MaxLength = 30;
+            this.txtMm_desc.Properties.ReadOnly = true;
+            this.txtMm_desc.Size = new System.Drawing.Size(76, 22);
+            this.txtMm_desc.TabIndex = 248;
+            this.txtMm_desc.Tag = "2";
+            // 
+            // txtRaw_mat_supplier
+            // 
+            this.txtRaw_mat_supplier.EnterMoveNextControl = true;
+            this.txtRaw_mat_supplier.Location = new System.Drawing.Point(1115, 2);
+            this.txtRaw_mat_supplier.Name = "txtRaw_mat_supplier";
+            this.txtRaw_mat_supplier.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtRaw_mat_supplier.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtRaw_mat_supplier.Properties.MaxLength = 100;
+            this.txtRaw_mat_supplier.Properties.ReadOnly = true;
+            this.txtRaw_mat_supplier.Size = new System.Drawing.Size(225, 20);
+            this.txtRaw_mat_supplier.TabIndex = 208;
+            this.txtRaw_mat_supplier.Tag = "2";
+            // 
+            // label44
+            // 
+            this.label44.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.label44.Location = new System.Drawing.Point(993, 4);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(122, 16);
+            this.label44.TabIndex = 209;
+            this.label44.Text = "Raw Material Supplier";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label54
+            // 
+            this.label54.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.label54.Location = new System.Drawing.Point(993, 21);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(122, 16);
+            this.label54.TabIndex = 211;
+            this.label54.Text = "Raw Material Address";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtRaw_mat_supplier_address
+            // 
+            this.txtRaw_mat_supplier_address.EnterMoveNextControl = true;
+            this.txtRaw_mat_supplier_address.Location = new System.Drawing.Point(1115, 22);
+            this.txtRaw_mat_supplier_address.Name = "txtRaw_mat_supplier_address";
+            this.txtRaw_mat_supplier_address.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtRaw_mat_supplier_address.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtRaw_mat_supplier_address.Properties.MaxLength = 100;
+            this.txtRaw_mat_supplier_address.Properties.ReadOnly = true;
+            this.txtRaw_mat_supplier_address.Size = new System.Drawing.Size(225, 20);
+            this.txtRaw_mat_supplier_address.TabIndex = 210;
+            this.txtRaw_mat_supplier_address.Tag = "2";
+            // 
+            // label57
+            // 
+            this.label57.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.label57.Location = new System.Drawing.Point(993, 42);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(122, 23);
+            this.label57.TabIndex = 213;
+            this.label57.Text = "Forwarder of Raw Material";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtRaw_mat_forwarder
+            // 
+            this.txtRaw_mat_forwarder.EnterMoveNextControl = true;
+            this.txtRaw_mat_forwarder.Location = new System.Drawing.Point(1115, 46);
+            this.txtRaw_mat_forwarder.Name = "txtRaw_mat_forwarder";
+            this.txtRaw_mat_forwarder.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtRaw_mat_forwarder.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtRaw_mat_forwarder.Properties.MaxLength = 100;
+            this.txtRaw_mat_forwarder.Properties.ReadOnly = true;
+            this.txtRaw_mat_forwarder.Size = new System.Drawing.Size(225, 20);
+            this.txtRaw_mat_forwarder.TabIndex = 212;
+            this.txtRaw_mat_forwarder.Tag = "2";
+            // 
+            // label59
+            // 
+            this.label59.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.label59.Location = new System.Drawing.Point(993, 65);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(122, 22);
+            this.label59.TabIndex = 215;
+            this.label59.Text = "Forwarder of Raw Address";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtRaw_mat_forwarder_address
+            // 
+            this.txtRaw_mat_forwarder_address.EnterMoveNextControl = true;
+            this.txtRaw_mat_forwarder_address.Location = new System.Drawing.Point(1115, 66);
+            this.txtRaw_mat_forwarder_address.Name = "txtRaw_mat_forwarder_address";
+            this.txtRaw_mat_forwarder_address.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtRaw_mat_forwarder_address.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtRaw_mat_forwarder_address.Properties.MaxLength = 100;
+            this.txtRaw_mat_forwarder_address.Properties.ReadOnly = true;
+            this.txtRaw_mat_forwarder_address.Size = new System.Drawing.Size(225, 20);
+            this.txtRaw_mat_forwarder_address.TabIndex = 214;
+            this.txtRaw_mat_forwarder_address.Tag = "2";
+            // 
+            // label63
+            // 
+            this.label63.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.label63.Location = new System.Drawing.Point(993, 90);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(122, 16);
+            this.label63.TabIndex = 217;
+            this.label63.Text = "Chemical Supplier";
+            this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtChemical_supplier
+            // 
+            this.txtChemical_supplier.EnterMoveNextControl = true;
+            this.txtChemical_supplier.Location = new System.Drawing.Point(1115, 90);
+            this.txtChemical_supplier.Name = "txtChemical_supplier";
+            this.txtChemical_supplier.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtChemical_supplier.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtChemical_supplier.Properties.MaxLength = 100;
+            this.txtChemical_supplier.Properties.ReadOnly = true;
+            this.txtChemical_supplier.Size = new System.Drawing.Size(225, 20);
+            this.txtChemical_supplier.TabIndex = 216;
+            this.txtChemical_supplier.Tag = "2";
+            // 
+            // label64
+            // 
+            this.label64.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.label64.Location = new System.Drawing.Point(993, 108);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(122, 22);
+            this.label64.TabIndex = 219;
+            this.label64.Text = "Chemical Supplier Address";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtChemical_supplier_address
+            // 
+            this.txtChemical_supplier_address.EnterMoveNextControl = true;
+            this.txtChemical_supplier_address.Location = new System.Drawing.Point(1115, 110);
+            this.txtChemical_supplier_address.Name = "txtChemical_supplier_address";
+            this.txtChemical_supplier_address.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtChemical_supplier_address.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtChemical_supplier_address.Properties.MaxLength = 100;
+            this.txtChemical_supplier_address.Properties.ReadOnly = true;
+            this.txtChemical_supplier_address.Size = new System.Drawing.Size(225, 20);
+            this.txtChemical_supplier_address.TabIndex = 218;
+            this.txtChemical_supplier_address.Tag = "2";
+            // 
+            // txtChemical_forwarder
+            // 
+            this.txtChemical_forwarder.EnterMoveNextControl = true;
+            this.txtChemical_forwarder.Location = new System.Drawing.Point(1115, 135);
+            this.txtChemical_forwarder.Name = "txtChemical_forwarder";
+            this.txtChemical_forwarder.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtChemical_forwarder.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtChemical_forwarder.Properties.MaxLength = 100;
+            this.txtChemical_forwarder.Properties.ReadOnly = true;
+            this.txtChemical_forwarder.Size = new System.Drawing.Size(225, 20);
+            this.txtChemical_forwarder.TabIndex = 220;
+            this.txtChemical_forwarder.Tag = "2";
+            // 
+            // label65
+            // 
+            this.label65.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Location = new System.Drawing.Point(993, 134);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(122, 16);
+            this.label65.TabIndex = 221;
+            this.label65.Text = "Forwarder of Chemical";
+            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtChemical_forwarder_address
+            // 
+            this.txtChemical_forwarder_address.EnterMoveNextControl = true;
+            this.txtChemical_forwarder_address.Location = new System.Drawing.Point(1115, 155);
+            this.txtChemical_forwarder_address.Name = "txtChemical_forwarder_address";
+            this.txtChemical_forwarder_address.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtChemical_forwarder_address.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtChemical_forwarder_address.Properties.MaxLength = 100;
+            this.txtChemical_forwarder_address.Properties.ReadOnly = true;
+            this.txtChemical_forwarder_address.Size = new System.Drawing.Size(225, 20);
+            this.txtChemical_forwarder_address.TabIndex = 222;
+            this.txtChemical_forwarder_address.Tag = "2";
+            // 
+            // label67
+            // 
+            this.label67.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(1004, 154);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(122, 22);
+            this.label67.TabIndex = 223;
+            this.label67.Text = "Forwarder of Chemical Address";
+            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmDevelopmentPvhUs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 873);
+            this.ClientSize = new System.Drawing.Size(1358, 873);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -5640,6 +5895,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDoc_date1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDoc_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDoc_date2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInch_desc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMm_desc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_supplier.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_supplier_address.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_forwarder.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRaw_mat_forwarder_address.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_supplier.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_supplier_address.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_forwarder.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChemical_forwarder_address.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6085,5 +6350,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn update_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn update_date;
         private System.Windows.Forms.RichTextBox txtFactory_name;
+        private DevExpress.XtraEditors.TextEdit txtMm_desc;
+        private DevExpress.XtraEditors.TextEdit txtInch_desc;
+        private DevExpress.XtraEditors.TextEdit txtChemical_supplier_address;
+        private DevExpress.XtraEditors.TextEdit txtChemical_supplier;
+        private DevExpress.XtraEditors.TextEdit txtRaw_mat_forwarder_address;
+        private DevExpress.XtraEditors.TextEdit txtRaw_mat_forwarder;
+        private System.Windows.Forms.Label label54;
+        private DevExpress.XtraEditors.TextEdit txtRaw_mat_supplier_address;
+        private System.Windows.Forms.Label label44;
+        private DevExpress.XtraEditors.TextEdit txtRaw_mat_supplier;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label57;
+        private DevExpress.XtraEditors.TextEdit txtChemical_forwarder_address;
+        private DevExpress.XtraEditors.TextEdit txtChemical_forwarder;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label67;
     }
 }
