@@ -57,9 +57,7 @@ namespace cf01.Forms
             lueRaw_material_country.Properties.DisplayMember = "country";
 
             //********
-            strSql = string.Format(
-                @"SELECT S.id FROM (SELECT '' as id,'' as sort Union select contents AS id,sort FROM development_pvh_type WHERE type='{0}') S 
-                ORDER BY S.sort", "material_content");
+            strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "material_content");
             DataTable dtContent = clsPublicOfCF01.GetDataTable(strSql);
             luematerial_content1.Properties.DataSource = dtContent;
             luematerial_content1.Properties.ValueMember = "id";
