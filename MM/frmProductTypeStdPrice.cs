@@ -541,7 +541,7 @@ namespace cf01.MM
             LoadSizeDetails();
         }
         private void LoadSizeDetails()
-        {
+        { 
             DataTable dtSizeDetails = clsMmProductTypeStdPrice.LoadSizeDetails(txtSizeGroup1.Text, "");
             if (dtSizeDetails.Rows.Count == 0)
                 MessageBox.Show("此尺寸組別不存在!");
