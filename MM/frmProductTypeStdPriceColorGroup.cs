@@ -52,6 +52,7 @@ namespace cf01.MM
             {
                 txtGroupID.Text = result;
                 LoadColorGroup();
+                SelectRecord(dgvColorGroup.Rows.Count - 1);
             }
             else
                 MessageBox.Show("儲存顏色組別失敗!");
@@ -59,13 +60,8 @@ namespace cf01.MM
         }
         private void LoadColorGroup()
         {
-            DataTable dtColorGroup = clsMmProductTypeStdPrice.LoadColorGroup(txtGroupID.Text);
+            DataTable dtColorGroup = clsMmProductTypeStdPrice.LoadColorGroup("", txtColorIDFind.Text);
             dgvColorGroup.DataSource = dtColorGroup;
-        }
-
-        private void txtGroupID_Leave(object sender, EventArgs e)
-        {
-            LoadColorGroup();
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -99,9 +95,13 @@ namespace cf01.MM
 
         private void dgvColorGroup_SelectionChanged(object sender, EventArgs e)
         {
+            SelectRecord(dgvColorGroup.CurrentRow.Index);
+        }
+        private void SelectRecord(int row)
+        {
             if (dgvColorGroup.Rows.Count > 0)
             {
-                DataGridViewRow dr = dgvColorGroup.Rows[dgvColorGroup.CurrentRow.Index];
+                DataGridViewRow dr = dgvColorGroup.Rows[row];
                 txtGroupID.Text = dr.Cells["colGroupID"].Value.ToString();
                 txtColorID.Text = dr.Cells["colColorID"].Value.ToString();
                 txtColorName.Text = dr.Cells["colColorName"].Value.ToString();
@@ -111,6 +111,19 @@ namespace cf01.MM
                 txtGroupID.Text = "";
                 txtColorID.Text = "";
                 txtColorName.Text = "";
+            }
+        }
+        private void txtGroupIDFind_Leave(object sender, EventArgs e)
+        {
+            LoadColorGroup();
+        }
+
+        private void dgvColorGroup_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvColorGroup.Rows.Count > 0)
+            {
+                frmProductTypeStdPrice.searchColorGroup = dgvColorGroup.Rows[dgvColorGroup.CurrentRow.Index].Cells["colGroupID"].Value.ToString();
+                this.Close();
             }
         }
     }

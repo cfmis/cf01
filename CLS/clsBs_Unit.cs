@@ -124,7 +124,17 @@ namespace cf01.CLS
             }
             return dtUnit;
         }
+        public static DataTable LoadUnit(string unit_flag)
+        {
+            string strSql = @" SELECT unit_id,unit_desc,unit_cdesc FROM bs_unit ";
+            if (unit_flag != "")
+            {
+                strSql += " WHERE unit_flag='" + unit_flag + "' ";
+            }
 
+            DataTable dtUnit = clsPublicOfCF01.GetDataTable(strSql);
+            return dtUnit;
+        }
 
     }
 }
