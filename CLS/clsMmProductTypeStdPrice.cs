@@ -13,7 +13,7 @@ namespace cf01.CLS
         public static DataTable LoadProductType(string ID)
         {
             string strSql = "";
-            strSql = "Select ID,Ver,ArtWork,ProductType,BasePrice,Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime"+
+            strSql = "Select ID,Ver,ArtWork,ProductType,BasePrice,Unit,Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime"+
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
                 " From mm_ProductTypePrice " +
                 " Where ID='" + ID + "'";
@@ -24,8 +24,10 @@ namespace cf01.CLS
         public static DataTable LoadPrdSizeGroup(int UpperSN)
         {
             string strSql = "";
-            strSql = "Select a.UpperSN,a.Seq,a.SizeGroup,a.SN " +
+            strSql = "Select a.UpperSN,a.Seq,a.SizeGroup,a.SN,a.SizeID,a.SizeName"+
+                ",b.add_charge1,b.add_charge2,b.add_charge3 " +
                 " From mm_ProductTypePriceSize a" +
+                " Left Join bs_size b On a.SizeID=b.size_id " +
                 " Where a.UpperSN='" + UpperSN + "'";
             DataTable dtSizeGroup = clsPublicOfCF01.GetDataTable(strSql);
             return dtSizeGroup;
@@ -43,7 +45,7 @@ namespace cf01.CLS
         public static DataTable LoadColorGroup(int UpperSN)
         {
             string strSql = "";
-            strSql = "Select UpperSN,Seq,ColorGroup,ValueDesc,Rate,Price,Curr,SN" +
+            strSql = "Select UpperSN,Seq,ColorGroup,ValueDesc,Rate,Price,Curr,add_charge1,add_charge2,add_charge3,SN" +
                 " From mm_ProductTypePriceColorGroup" +
                 " Where UpperSN='" + UpperSN + "'";
             DataTable dtColorGroup = clsPublicOfCF01.GetDataTable(strSql);
@@ -73,15 +75,15 @@ namespace cf01.CLS
             if (!CheckID(ID))
             {
                 Ver = 0;
-                strSql += string.Format(@" Insert Into mm_ProductTypePrice(ID,Ver,ArtWork,ProductType,BasePrice,Remark,CreateUser,CreateTime)" +
-                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',GETDATE() )"
-                        , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.BasePrice, mdlPtp.Remark, userid);
+                strSql += string.Format(@" Insert Into mm_ProductTypePrice(ID,Ver,ArtWork,ProductType,BasePrice,Unit,Remark,CreateUser,CreateTime)" +
+                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',GETDATE() )"
+                        , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.BasePrice, mdlPtp.Unit, mdlPtp.Remark, userid);
             }
             else
-                strSql += string.Format(@" Update mm_ProductTypePrice Set ArtWork='{2}',ProductType='{3}',BasePrice='{4}',Remark='{5}'" +
-                    ",AmendUser='{6}',AmendTime=GETDATE()" +
+                strSql += string.Format(@" Update mm_ProductTypePrice Set ArtWork='{2}',ProductType='{3}',BasePrice='{4}',Unit='{5}',Remark='{6}'" +
+                    ",AmendUser='{7}',AmendTime=GETDATE()" +
                     " Where ID='{0}' And Ver='{1}'"
-                    , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.BasePrice, mdlPtp.Remark, userid);
+                    , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.BasePrice, mdlPtp.Unit, mdlPtp.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             if (result == "")
@@ -132,14 +134,39 @@ namespace cf01.CLS
             string strSql = "";
             strSql += string.Format(@" SET XACT_ABORT  ON ");
             strSql += string.Format(@" BEGIN TRANSACTION ");
-            if (!CheckExistRecord("mm_ProductTypePriceSize",mdlPtps.UpperSN, mdlPtps.Seq))
-                strSql += string.Format(@" Insert Into mm_ProductTypePriceSize(UpperSN,Seq,SizeGroup)" +
-                        " Values ('{0}','{1}','{2}' )"
-                        , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup);
+            if (!CheckExistRecord("mm_ProductTypePriceSize", mdlPtps.UpperSN, mdlPtps.Seq))
+                strSql += string.Format(@" Insert Into mm_ProductTypePriceSize(UpperSN,Seq,SizeGroup,SizeID,SizeName ) " +
+                        " Values ('{0}','{1}','{2}','{3}','{4}' )"
+                        , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup, mdlPtps.SizeID, mdlPtps.SizeName);
             else
-                strSql += string.Format(@" Update mm_ProductTypePriceSize Set SizeGroup='{2}'" +
+                strSql += string.Format(@" Update mm_ProductTypePriceSize Set SizeGroup='{2}',SizeID='{3}',SizeName='{4}'" +
                     " Where UpperSN='{0}' And Seq='{1}'"
-                    , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup);
+                    , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup, mdlPtps.SizeID, mdlPtps.SizeName);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+
+        public static string DeletePrdSizeGroup(int SN)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strSql += string.Format(@" Delete From mm_ProductTypePriceSize Where SN='{0}'", SN);
+            strSql += string.Format(@" Delete From mm_ProductTypePriceColorGroup Where UpperSN='{0}'", SN);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+
+        public static string DeletePrdColorGroup(int SN)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strSql += string.Format(@" Delete From mm_ProductTypePriceColorGroup Where SN='{0}'", SN);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
@@ -152,16 +179,18 @@ namespace cf01.CLS
             strSql += string.Format(@" BEGIN TRANSACTION ");
             if (!CheckExistRecord("mm_ProductTypePriceColorGroup", mdlMtpcg.UpperSN, mdlMtpcg.Seq))
                 strSql += string.Format(@" Insert Into mm_ProductTypePriceColorGroup" +
-                        " (UpperSN,Seq,ColorGroup,ValueDesc,Rate,Price,Curr)" +
-                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}' )"
+                        " (UpperSN,Seq,ColorGroup,ValueDesc,Rate,Price,Curr,add_charge1,add_charge2,add_charge3)" +
+                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}' )"
                         , mdlMtpcg.UpperSN, mdlMtpcg.Seq, mdlMtpcg.ColorGroup
-                        , mdlMtpcg.ValueDesc, mdlMtpcg.Rate, mdlMtpcg.Price, mdlMtpcg.Curr);
+                        , mdlMtpcg.ValueDesc, mdlMtpcg.Rate, mdlMtpcg.Price, mdlMtpcg.Curr
+                        , mdlMtpcg.AddCharge1, mdlMtpcg.AddCharge2, mdlMtpcg.AddCharge3);
             else
                 strSql += string.Format(@" Update mm_ProductTypePriceColorGroup " +
-                    " Set ColorGroup='{2}',ValueDesc='{3}',Rate='{4}',Price='{5}',Curr='{6}'" +
+                    " Set ColorGroup='{2}',ValueDesc='{3}',Rate='{4}',Price='{5}',Curr='{6}',add_charge1='{7}',add_charge2='{8}',add_charge3='{9}'" +
                     " Where UpperSN='{0}'  And Seq='{1}'"
                     , mdlMtpcg.UpperSN, mdlMtpcg.Seq, mdlMtpcg.ColorGroup
-                    , mdlMtpcg.ValueDesc, mdlMtpcg.Rate, mdlMtpcg.Price, mdlMtpcg.Curr);
+                    , mdlMtpcg.ValueDesc, mdlMtpcg.Rate, mdlMtpcg.Price, mdlMtpcg.Curr
+                    , mdlMtpcg.AddCharge1, mdlMtpcg.AddCharge2, mdlMtpcg.AddCharge3);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
@@ -220,7 +249,7 @@ namespace cf01.CLS
         public static DataTable GetSize(string SizeID)
         {
             string strSql = "";
-            strSql += " Select size_id,size_cdesc AS SizeName" +
+            strSql += " Select size_id,size_cdesc AS SizeName,add_charge1,add_charge2,add_charge3" +
                 " From bs_size Where size_id='" + SizeID + "'";
             DataTable dtSize = clsPublicOfCF01.GetDataTable(strSql);
             return dtSize;
@@ -238,18 +267,16 @@ namespace cf01.CLS
             string strSql = "";
             strSql = "Select a.ID,a.Ver,a.ArtWork,a.ProductType,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
-                ",b.Seq AS SizeSeq,b.SizeID,d.size_cdesc AS SizeName,b.SN AS SizeSN,b.SizeGroup " +
+                ",b.Seq AS SizeSeq,b.SizeID,b.SizeName,b.SN AS SizeSN,b.SizeGroup " +
                 " From mm_ProductTypePrice a " +
                 " Left Join mm_ProductTypePriceSize b On a.SN=b.UpperSN " +
-                " Left Join mm_ProductTypePriceSizeGroup c On b.SizeGroup=c.GroupID " +
-                " Left Join bs_size d On c.SizeID=d.size_id " +
                 " Where a.ID>=''";
             if(ArtWork!="")
                 strSql+= " And a.ArtWork Like '%" + ArtWork + "%'";
             if (ProductType != "")
                 strSql += " And a.ProductType Like '%" + ProductType + "%'";
             if (SizeName != "")
-                strSql += " And d.size_cdesc Like '%" + SizeName + "%'";
+                strSql += " And b.SizeName Like '%" + SizeName + "%'";
             DataTable dtProductType = clsPublicOfCF01.GetDataTable(strSql);
             return dtProductType;
         }
@@ -317,17 +344,24 @@ namespace cf01.CLS
             return result;
         }
 
-        public static DataTable LoadSizeGroup(string GroupID)
+        public static DataTable LoadSizeDetails(string GroupID,string SizeID)
         {
-            string strSql = "Select a.GroupID,a.SizeID,b.size_cdesc AS SizeName " +
+            string strSql = "Select a.GroupID,a.SizeID,b.size_cdesc AS SizeName,b.add_charge1,b.add_charge2,b.add_charge3 " +
                 " From mm_ProductTypePriceSizeGroup a" +
                 " Left Join bs_size b On a.SizeID=b.size_id " +
                 " Where a.GroupID>=''";
             if (GroupID != "")
-                strSql += " And a.GroupID='" + GroupID + "'";
+                strSql += " And a.GroupID = '" + GroupID + "'";
+            if (SizeID != "")
+                strSql += " And a.SizeID Like '%" + SizeID + "%'";
             strSql += " Order By a.GroupID,a.SizeID";
-            DataTable dtGroupID = clsPublicOfCF01.GetDataTable(strSql);
-            return dtGroupID;
+            DataTable dtSize = clsPublicOfCF01.GetDataTable(strSql);
+            dtSize.Columns.Add("SelectSizeFlag", typeof(bool));
+            for(int i=0;i< dtSize.Rows.Count;i++)
+            {
+                dtSize.Rows[i]["SelectSizeFlag"] = true;
+            }
+            return dtSize;
         }
 
         public static string DeleteSizeGroup(mdlSizeGroup mdlSG)
@@ -396,14 +430,16 @@ namespace cf01.CLS
             return result;
         }
 
-        public static DataTable LoadColorGroup(string GroupID)
+        public static DataTable LoadColorGroup(string ColorGroup,string ColorID)
         {
             string strSql = "Select a.GroupID,a.ColorID,b.clr_cdesc AS ColorName " +
                 " From mm_ProductTypeColorGroup a" +
                 " Left Join bs_color b On a.ColorID=b.clr_code " +
                 " Where a.GroupID>=''";
-            if (GroupID != "")
-                strSql += " And a.GroupID='" + GroupID + "'";
+            if(ColorGroup!="")
+                strSql += " And a.GroupID = '" + ColorGroup + "'";
+            if (ColorID != "")
+                strSql += " And a.ColorID Like '%" + ColorID + "%'";
             strSql += " Order By a.GroupID,a.ColorID";
             DataTable dtGroupID = clsPublicOfCF01.GetDataTable(strSql);
             return dtGroupID;

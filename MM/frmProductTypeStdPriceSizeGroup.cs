@@ -52,6 +52,7 @@ namespace cf01.MM
             {
                 txtGroupID.Text = result;
                 LoadSizeGroup();
+                SelectRecord(dgvSizeGroup.Rows.Count - 1);
             }
             else
                 MessageBox.Show("儲存尺寸組別失敗");
@@ -63,7 +64,7 @@ namespace cf01.MM
         }
         private void LoadSizeGroup()
         {
-            DataTable dtSizeGroup = clsMmProductTypeStdPrice.LoadSizeGroup(txtGroupID.Text);
+            DataTable dtSizeGroup = clsMmProductTypeStdPrice.LoadSizeDetails("", txtSizeIDFind.Text);
             dgvSizeGroup.DataSource = dtSizeGroup;
         }
         private void txtSizeID_Leave(object sender, EventArgs e)
@@ -75,12 +76,11 @@ namespace cf01.MM
                 txtSizeName.Text = "";
         }
 
-        private void txtGroupID_Leave(object sender, EventArgs e)
-        {
-            LoadSizeGroup();
-        }
-
         private void dgvSizeGroup_SelectionChanged(object sender, EventArgs e)
+        {
+            SelectRecord(dgvSizeGroup.CurrentRow.Index);
+        }
+        private void SelectRecord(int row)
         {
             if (dgvSizeGroup.Rows.Count > 0)
             {
@@ -96,7 +96,6 @@ namespace cf01.MM
                 txtSizeName.Text = "";
             }
         }
-
         private void btnFind_Click(object sender, EventArgs e)
         {
             LoadSizeGroup();
@@ -115,6 +114,20 @@ namespace cf01.MM
             }
             else
                 MessageBox.Show("儲存尺寸組別失敗");
+        }
+
+        private void txtGroupIDFind_Leave(object sender, EventArgs e)
+        {
+            LoadSizeGroup();
+        }
+
+        private void dgvSizeGroup_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSizeGroup.Rows.Count > 0)
+            {
+                frmProductTypeStdPrice.searchSizeGroup = dgvSizeGroup.Rows[dgvSizeGroup.CurrentRow.Index].Cells["colGroupID"].Value.ToString();
+                this.Close();
+            }
         }
     }
 }
