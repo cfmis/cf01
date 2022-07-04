@@ -584,7 +584,7 @@ namespace cf01.CLS
         public static DataTable loadDgdDetails(string ocno,string id,string mo_id,int ntype)
         {
             DataTable dtSo = new DataTable();
-            string strID;           
+            string strID; 
             if (ntype == 0)
             {
                 strID = " NOT Like 'L-%'";//C組東莞D
@@ -609,7 +609,7 @@ namespace cf01.CLS
                 strSql += String.Format(" And a.id='{0}'", id);
             if (mo_id != "")
                 strSql += String.Format(" And a.mo_id='{0}'", mo_id);
-            strSql += " ORDER BY a.id,a.sequence_id";
+            strSql += " ORDER BY a.order_id,a.so_sequence_id";
             dtSo = clsPublicOfCF01.GetDataTable(strSql);
             dtSo.Columns.Add("is_select", System.Type.GetType("System.Boolean"));
             return dtSo;
