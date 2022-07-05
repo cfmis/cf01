@@ -282,6 +282,7 @@ namespace cf01.ReportForm
                         nickle_free = dtGoodsInfo.Rows[i]["nickle_free"].ToString(), 
                         plumbum_free = dtGoodsInfo.Rows[i]["plumbum_free"].ToString(), 
                         remark = dtGoodsInfo.Rows[i]["remark"].ToString(), 
+                        plate_remark = dtGoodsInfo.Rows[i]["plate_remark"].ToString(),
                         base_qty = dtGoodsInfo.Rows[i]["base_qty"].ToString(), 
                         unit_code = dtGoodsInfo.Rows[i]["unit_code"].ToString(), 
                         base_rate = dtGoodsInfo.Rows[i]["base_rate"].ToString(), 
@@ -297,7 +298,7 @@ namespace cf01.ReportForm
                         get_color_sample_name = dtGoodsInfo.Rows[i]["get_color_sample_name"].ToString(), 
                         Vendor_id = dtGoodsInfo.Rows[i]["vendor_id"].ToString(), 
                         c_sec_qty_ok = clsUtility.FormatNullableInt32(dtGoodsInfo.Rows[i]["c_sec_qty_ok"]),
-                        wh_location=dtGoodsInfo.Rows[i]["wh_location"].ToString(),
+                        wh_location = dtGoodsInfo.Rows[i]["wh_location"].ToString(),
                         flevel = !string.IsNullOrEmpty(dtGoodsInfo.Rows[i]["flevel"].ToString())?int.Parse(dtGoodsInfo.Rows[i]["flevel"].ToString()):0                       
                     };
                     lsModel.Add(objModel);
@@ -311,6 +312,7 @@ namespace cf01.ReportForm
                 txtBrandId.Text = dtGoodsInfo.Rows[0]["brand_id"].ToString();
                 txtArrive_date.Text = dtGoodsInfo.Rows[0]["arrive_date"].ToString();
                 txtRemark.Text = dtGoodsInfo.Rows[0]["remark"].ToString();
+                txtPlate_remark.Text = dtGoodsInfo.Rows[0]["plate_remark"].ToString();
                 txtCust.Text = dtGoodsInfo.Rows[0]["customer_id"].ToString();
                 txtVer.Text = dtGoodsInfo.Rows[0]["ver"].ToString();
                 txtReqSample.Text = dtGoodsInfo.Rows[0]["get_color_sample"].ToString();
@@ -472,6 +474,7 @@ namespace cf01.ReportForm
                             dr["blueprint_id"] = txtBlueprintId.Text.Trim();
                             dr["production_remark"] = txtPrdRemark.Text.Trim();
                             dr["remark"] = txtRemark.Text.Trim();
+                            dr["plate_remark"] = txtPlate_remark.Text.Trim();
                             dr["next_wp_id"] = txtNextDep.Text.Trim();
                             if (txtPreDepQty.Text != "")
                                 dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(txtPreDepQty.Text);
@@ -528,8 +531,7 @@ namespace cf01.ReportForm
                                 dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
                             }
                             //條碼
-                            dr["BarCode"] = clsMo_for_jx.ReturnBarCode(String.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2,'0'), txtSequenceId.Text.Substring(2, 2)));
-
+                            dr["BarCode"] = clsMo_for_jx.ReturnBarCode(string.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2,'0'), txtSequenceId.Text.Substring(2, 2)));
                             //下部物料相關信息
                             dr["next_goods_id"]=next_goods_id.Text;
                             dr["next_do_color"] = next_do_color.Text;
@@ -537,7 +539,6 @@ namespace cf01.ReportForm
                             dr["next_vendor_id"] = txtVender_id.Text.Trim(); //next_vendor_id.Text;
                             dr["next_goods_name"] = next_goods_name.Text;
                             dr["next_next_dep_name"] = next_next_dep_name.Text;
-
                             dtNewWork.Rows.Add(dr);
                         }
                     }

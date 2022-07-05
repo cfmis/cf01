@@ -573,6 +573,8 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("vendor_id", typeof(string));
             dtNewWork.Columns.Add("production_remark", typeof(string));
             dtNewWork.Columns.Add("remark", typeof(string));
+            dtNewWork.Columns.Add("plate_remark", typeof(string));
+            dtNewWork.Columns.Add("plate_remark", typeof(string));
             dtNewWork.Columns.Add("picture_name", typeof(string)); 
             dtNewWork.Columns.Add("arrive_date", typeof(string));
             dtNewWork.Columns.Add("next_wp_id", typeof(string));
@@ -694,6 +696,7 @@ namespace cf01.ReportForm
                                 dr["vendor_id"] = dtCard.Rows[j]["vendor_id"].ToString();
                                 dr["production_remark"] = dtCard.Rows[j]["production_remark"].ToString();
                                 dr["remark"] = dtCard.Rows[j]["remark"].ToString();
+                                dr["plate_remark"] = dtCard.Rows[j]["plate_remark"].ToString();
                                 dr["picture_name"] = dtCard.Rows[j]["picture_name"].ToString();
                                 dr["arrive_date"] = dtCard.Rows[j]["arrive_date"].ToString();
                                 dr["next_wp_id"] = dtCard.Rows[j]["next_wp_id"].ToString();

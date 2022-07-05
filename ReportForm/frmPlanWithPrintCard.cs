@@ -699,7 +699,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("sequence_id", typeof(string));
             dtNewWork.Columns.Add("blueprint_id", typeof(string));
             dtNewWork.Columns.Add("production_remark", typeof(string));
-            dtNewWork.Columns.Add("remark", typeof(string));
+            dtNewWork.Columns.Add("remark", typeof(string));            
             dtNewWork.Columns.Add("next_wp_id", typeof(string));
             dtNewWork.Columns.Add("predept_rechange_qty", typeof(decimal));
             dtNewWork.Columns.Add("order_qty", typeof(string));

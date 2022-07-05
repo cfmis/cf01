@@ -33,6 +33,7 @@ namespace cf01.MDL
         public string nickle_free;
         public string plumbum_free;
         public string remark;
+        public string plate_remark;
         public string base_qty;
         public string unit_code;
         public string base_rate;
