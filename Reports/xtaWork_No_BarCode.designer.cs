@@ -798,7 +798,9 @@
             this.xrLabel44.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel44.SizeF = new System.Drawing.SizeF(58.73718F, 40.64008F);
             this.xrLabel44.StylePriority.UseFont = false;
+            this.xrLabel44.StylePriority.UseTextAlignment = false;
             this.xrLabel44.Text = "PCS";
+            this.xrLabel44.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel44.WordWrap = false;
             // 
             // xrLabel43
@@ -958,7 +960,9 @@
             this.lblper_qty.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.lblper_qty.SizeF = new System.Drawing.SizeF(221.1918F, 47.93188F);
             this.lblper_qty.StylePriority.UseFont = false;
+            this.lblper_qty.StylePriority.UseTextAlignment = false;
             this.lblper_qty.Text = "[per_qty]";
+            this.lblper_qty.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.lblper_qty.WordWrap = false;
             // 
             // xrLabel27
