@@ -573,8 +573,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("vendor_id", typeof(string));
             dtNewWork.Columns.Add("production_remark", typeof(string));
             dtNewWork.Columns.Add("remark", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));
+            dtNewWork.Columns.Add("plate_remark", typeof(string));           
             dtNewWork.Columns.Add("picture_name", typeof(string)); 
             dtNewWork.Columns.Add("arrive_date", typeof(string));
             dtNewWork.Columns.Add("next_wp_id", typeof(string));
