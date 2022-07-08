@@ -265,9 +265,9 @@ namespace cf01.ReportForm
                     newRow["prints"] = dtWordCard.Rows[i]["prints"];
                     newRow["picture_name"] = dtWordCard.Rows[i]["picture_name"].ToString();
                     newRow["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
-                    newRow["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
-                    
-                               
+                    newRow["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();                    
+
+
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString()!="1")
                     {
@@ -302,7 +302,7 @@ namespace cf01.ReportForm
                             dr["prints"] = j+1; //處理本卡為第幾張
                             dr["picture_name"] = dtWordCard.Rows[i]["picture_name"].ToString();
                             dr["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
-                            dr["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
+                            dr["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();                            
                             dtReport.Rows.Add(dr);
                         }                        
                        

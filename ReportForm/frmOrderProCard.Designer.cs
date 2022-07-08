@@ -114,6 +114,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.chkPA5 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPlate_remark = new System.Windows.Forms.TextBox();
             this.txtArrive_date = new System.Windows.Forms.TextBox();
             this.txtFact_qty = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -157,8 +159,6 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPlate_remark = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1069,6 +1069,25 @@
             this.panel1.Size = new System.Drawing.Size(1026, 660);
             this.panel1.TabIndex = 80;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(23, 582);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 12);
+            this.label12.TabIndex = 101;
+            this.label12.Text = "電鍍備註:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPlate_remark
+            // 
+            this.txtPlate_remark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtPlate_remark.Location = new System.Drawing.Point(85, 580);
+            this.txtPlate_remark.Name = "txtPlate_remark";
+            this.txtPlate_remark.ReadOnly = true;
+            this.txtPlate_remark.Size = new System.Drawing.Size(511, 23);
+            this.txtPlate_remark.TabIndex = 100;
+            // 
             // txtArrive_date
             // 
             this.txtArrive_date.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -1460,25 +1479,6 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "備註";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // txtPlate_remark
-            // 
-            this.txtPlate_remark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPlate_remark.Location = new System.Drawing.Point(85, 580);
-            this.txtPlate_remark.Name = "txtPlate_remark";
-            this.txtPlate_remark.ReadOnly = true;
-            this.txtPlate_remark.Size = new System.Drawing.Size(511, 23);
-            this.txtPlate_remark.TabIndex = 100;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(23, 582);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 12);
-            this.label12.TabIndex = 101;
-            this.label12.Text = "電鍍備註:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmOrderProCard
             // 

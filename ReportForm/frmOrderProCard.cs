@@ -282,7 +282,7 @@ namespace cf01.ReportForm
                         nickle_free = dtGoodsInfo.Rows[i]["nickle_free"].ToString(), 
                         plumbum_free = dtGoodsInfo.Rows[i]["plumbum_free"].ToString(), 
                         remark = dtGoodsInfo.Rows[i]["remark"].ToString(), 
-                        plate_remark = dtGoodsInfo.Rows[i]["plate_remark"].ToString(),
+                        plate_remark = dtGoodsInfo.Rows[i]["plate_remark"].ToString(),                       
                         base_qty = dtGoodsInfo.Rows[i]["base_qty"].ToString(), 
                         unit_code = dtGoodsInfo.Rows[i]["unit_code"].ToString(), 
                         base_rate = dtGoodsInfo.Rows[i]["base_rate"].ToString(), 
@@ -312,7 +312,7 @@ namespace cf01.ReportForm
                 txtBrandId.Text = dtGoodsInfo.Rows[0]["brand_id"].ToString();
                 txtArrive_date.Text = dtGoodsInfo.Rows[0]["arrive_date"].ToString();
                 txtRemark.Text = dtGoodsInfo.Rows[0]["remark"].ToString();
-                txtPlate_remark.Text = dtGoodsInfo.Rows[0]["plate_remark"].ToString();
+                txtPlate_remark.Text = dtGoodsInfo.Rows[0]["plate_remark"].ToString();               
                 txtCust.Text = dtGoodsInfo.Rows[0]["customer_id"].ToString();
                 txtVer.Text = dtGoodsInfo.Rows[0]["ver"].ToString();
                 txtReqSample.Text = dtGoodsInfo.Rows[0]["get_color_sample"].ToString();
@@ -394,8 +394,8 @@ namespace cf01.ReportForm
                     int NumPage = 0;     //報表頁數
 
                     DataTable dtNewWork = new DataTable();
-                    dtNewWork = dtRemark;
-                    dtNewWork.Rows.Clear();
+                    dtNewWork = dtRemark;//復制的內容
+                    dtNewWork.Rows.Clear();//清除內容
                     dtNewWork.Columns.Add("report_name", typeof(string));
                     dtNewWork.Columns.Remove("t_complete_date");
                     dtNewWork.Columns.Remove("base_rate");
@@ -431,14 +431,10 @@ namespace cf01.ReportForm
                     
                     if (Total_qty > 0)
                     {
-                        if (Total_qty % Per_qty > 0)
-                        {
-                            NumPage = (Total_qty / Per_qty) + 1;
-                        }
-                        else
-                        {
+                        if (Total_qty % Per_qty > 0)                        
+                            NumPage = (Total_qty / Per_qty) + 1;                        
+                        else                        
                             NumPage = (Total_qty / Per_qty);
-                        }                    
                     }
                     else
                     {

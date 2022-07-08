@@ -311,8 +311,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("pe_qty", typeof(string));
             dtNewWork.Columns.Add("step", typeof(string));
             dtNewWork.Columns.Add("do_color_next_dep", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));
-
+            dtNewWork.Columns.Add("plate_remark", typeof(string));           
             dtNewWork.Columns.Add("net_weight", typeof(string));
             dtNewWork.Columns.Add("wh_location", typeof(string));
 
@@ -392,7 +391,7 @@ namespace cf01.ReportForm
                                 dr["ver"] = clsUtility.FormatNullableInt32(drDtWk["ver"]);
                                 dr["sequence_id"] = drDtWk["sequence_id"].ToString();
                                 dr["blueprint_id"] = drDtWk["blueprint_id"].ToString();
-                                dr["production_remark"] = drDtWk["production_remark"].ToString();
+                                dr["production_remark"] = drDtWk["production_remark"].ToString();                               
                                 dr["remark"] = drDtWk["remark"].ToString();
                                 dr["next_wp_id"] = drDtWk["next_wp_id"].ToString();
                                 dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(drDtWk["predept_rechange_qty"]);
@@ -404,7 +403,7 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["basic_unit"] = drDtWk["basic_unit"].ToString();
                                 dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
-                                dr["plate_remark"] = plate_remark;
+                                dr["plate_remark"] = plate_remark;                                
                                 //string next_dep_id = "aaa";// dgr.Cells["next_wp_id"].Value.ToString().Trim();
                                 //DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
                                 dr["customer_id"] = drDtWk["customer_id"].ToString();
@@ -442,7 +441,6 @@ namespace cf01.ReportForm
                                     dr["position_id"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["id"]);
                                     dr["mould_no"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["mould_no"]);
                                 }
-
                                 if (dep == "302" || dep == "322")
                                     dr["report_name"] = "生產單" + "(" + dep + ")";
                                 else
@@ -455,24 +453,17 @@ namespace cf01.ReportForm
                                 if (!string.IsNullOrEmpty(drDtWk["arrive_date"].ToString()))
                                 {
                                     dr["arrive_date"] = Convert.ToDateTime(drDtWk["arrive_date"]).ToString("yyyy/MM/dd");
-                                }
+                                }                          
 
                                 if (i == NumPage && Per_qty != 0)
                                 {
-                                    if (Total_qty % Per_qty > 0)
-                                    {
-                                        dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);
-                                    }
-                                    else
-                                    {
-                                        dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
-                                    }
+                                    if (Total_qty % Per_qty > 0)                                    
+                                        dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);                                    
+                                    else                                    
+                                        dr["per_qty"] = clsUtility.NumberConvert(Per_qty);                                    
                                 }
-                                else
-                                {
+                                else                                
                                     dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
-                                }
-
                                 if (dtPs.Rows.Count > 0)
                                 {
                                     dr["pe_qty"] = dtPs.Rows[0]["pe_qty"].ToString();
