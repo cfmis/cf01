@@ -173,5 +173,17 @@ namespace cf01.Reports
                 lbl501.Text = "噴油備註";
             }
         }
+
+        private void txtColor_qty_TextChanged(object sender, EventArgs e)
+        {
+            if (GetCurrentColumnValue("color_qty").ToString() != "0")
+            {
+                txtColor_qty.Visible = true;
+            }
+            else
+            {
+                txtColor_qty.Visible = false;
+            }
+        }
     }
 }
