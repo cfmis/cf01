@@ -88,7 +88,6 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkColorQty = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -597,7 +596,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.chkColorQty);
             this.panel1.Controls.Add(this.chkPlateRemark);
             this.panel1.Controls.Add(this.chkDisplayPrice);
             this.panel1.Controls.Add(this.txtDat1);
@@ -746,18 +744,6 @@
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             this.dataGridViewTextBoxColumn13.Visible = false;
             // 
-            // chkColorQty
-            // 
-            this.chkColorQty.AutoSize = true;
-            this.chkColorQty.Checked = true;
-            this.chkColorQty.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkColorQty.Location = new System.Drawing.Point(477, 127);
-            this.chkColorQty.Name = "chkColorQty";
-            this.chkColorQty.Size = new System.Drawing.Size(132, 16);
-            this.chkColorQty.TabIndex = 134;
-            this.chkColorQty.Text = "報表中顯示批色數量";
-            this.chkColorQty.UseVisualStyleBackColor = true;
-            // 
             // frmOut_Process
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -861,6 +847,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox chkDisplayPrice;
         private System.Windows.Forms.CheckBox chkPlateRemark;
-        private System.Windows.Forms.CheckBox chkColorQty;
     }
 }

@@ -8,13 +8,11 @@ namespace cf01.Reports
 {
     public partial class xrOut_process_out_510 : DevExpress.XtraReports.UI.XtraReport
     {
-        private bool isShowPrice;
-        private bool isShowColorQty;
-        public xrOut_process_out_510(bool is_show_price,bool is_show_color_qty)
+        private bool isShowPrice;        
+        public xrOut_process_out_510(bool is_show_price)
         {
             InitializeComponent();
-            isShowPrice = is_show_price;
-            isShowColorQty = is_show_color_qty;
+            isShowPrice = is_show_price;            
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
             lblSec_qty.DataBindings.Add("Text", DataSource, "sec_qty");
@@ -178,7 +176,7 @@ namespace cf01.Reports
 
         private void txtColor_qty_TextChanged(object sender, EventArgs e)
         {
-            if (isShowColorQty)
+            if (GetCurrentColumnValue("id").ToString().Substring(1,3)=="510")
             {
                 if (GetCurrentColumnValue("color_qty").ToString() != "0")
                 {

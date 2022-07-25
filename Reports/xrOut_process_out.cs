@@ -9,14 +9,12 @@ namespace cf01.Reports
     public partial class xrOut_process_out : DevExpress.XtraReports.UI.XtraReport
     {
         public bool isShowPrice;
-        public bool isShowPlateRemark;
-        public bool isShowColorQty;
-        public xrOut_process_out(bool is_show_price,bool is_show_plate_remark,bool is_show_color_qty)
+        public bool isShowPlateRemark;       
+        public xrOut_process_out(bool is_show_price,bool is_show_plate_remark)
         {
             InitializeComponent();
             isShowPrice = is_show_price;
-            isShowPlateRemark = is_show_plate_remark;
-            isShowColorQty = is_show_color_qty;
+            isShowPlateRemark = is_show_plate_remark;           
 
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
@@ -224,7 +222,7 @@ namespace cf01.Reports
 
         private void txtColor_qty_TextChanged(object sender, EventArgs e)
         {
-            if (isShowColorQty)
+            if (GetCurrentColumnValue("id").ToString().Substring(1, 3) == "510")
             {
                 if (GetCurrentColumnValue("color_qty").ToString() != "0")
                 {
@@ -233,12 +231,12 @@ namespace cf01.Reports
                 else
                 {
                     txtColor_qty.Visible = false;
-                }
+                }           
             }
             else
             {
                 txtColor_qty.Visible = false;
-            }          
+            }
         }
     }
 }
