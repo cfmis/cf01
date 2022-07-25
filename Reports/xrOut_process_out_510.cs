@@ -8,11 +8,13 @@ namespace cf01.Reports
 {
     public partial class xrOut_process_out_510 : DevExpress.XtraReports.UI.XtraReport
     {
-        private bool isDisplayPrice;
-        public xrOut_process_out_510(bool is_display_price)
+        private bool isShowPrice;
+        private bool isShowColorQty;
+        public xrOut_process_out_510(bool is_show_price,bool is_show_color_qty)
         {
             InitializeComponent();
-            isDisplayPrice = is_display_price;
+            isShowPrice = is_show_price;
+            isShowColorQty = is_show_color_qty;
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
             lblSec_qty.DataBindings.Add("Text", DataSource, "sec_qty");
@@ -72,7 +74,7 @@ namespace cf01.Reports
 
         private void lblPrice_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 //lblPrice.Visible = true;
                 if (lblPrice.Text == "0")
@@ -92,7 +94,7 @@ namespace cf01.Reports
 
         private void lblSec_price_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 if (lblSec_price.Text == "0")
                 {
@@ -109,7 +111,7 @@ namespace cf01.Reports
 
         private void lblMould_fee_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 if (lblMould_fee.Text == "0")
                 {
@@ -126,7 +128,7 @@ namespace cf01.Reports
 
         private void lblTotal_prices_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 if (lblTotal_prices.Text == "0")
                 {
@@ -176,14 +178,22 @@ namespace cf01.Reports
 
         private void txtColor_qty_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("color_qty").ToString() != "0")
+            if (isShowColorQty)
             {
-                txtColor_qty.Visible = true;
+                if (GetCurrentColumnValue("color_qty").ToString() != "0")
+                {
+                    txtColor_qty.Visible = true;
+                }
+                else
+                {
+                    txtColor_qty.Visible = false;
+                }
             }
             else
             {
                 txtColor_qty.Visible = false;
             }
+            
         }
     }
 }

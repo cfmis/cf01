@@ -135,7 +135,7 @@ namespace cf01.Forms
                         dt.ImportRow(dr);
                     }
                     //加載報表
-                    xrOut_process_out mMyRepot = new xrOut_process_out(chkDisplayPrice.Checked, chkPlateRemark.Checked) 
+                    xrOut_process_out mMyRepot = new xrOut_process_out(chkDisplayPrice.Checked, chkPlateRemark.Checked,chkColorQty.Checked) 
                     { 
                         DataSource = dt 
                     };
@@ -153,7 +153,7 @@ namespace cf01.Forms
                     {
                         dtPlate_510.ImportRow(dr);
                     }
-                    xrOut_process_out_510 mMyRepot = new xrOut_process_out_510(chkDisplayPrice.Checked) 
+                    xrOut_process_out_510 mMyRepot = new xrOut_process_out_510(chkDisplayPrice.Checked,chkColorQty.Checked) 
                     { 
                         DataSource = dtPlate_510 
                     };
@@ -220,6 +220,14 @@ namespace cf01.Forms
         private void txtID1_Leave(object sender, EventArgs e)
         {
             txtID2.Text = txtID1.Text;
+            if (txtID1.Text.Substring(1, 3) != "510")
+            {
+                chkColorQty.Checked = false;
+            }
+            else
+            {
+                chkColorQty.Checked = true;
+            }
         }
 
         private void txtVendor_id1_Leave(object sender, EventArgs e)
@@ -298,7 +306,15 @@ namespace cf01.Forms
             dtPlate.Clear();
 
             txtID1.Text = dgvDetails.CurrentRow.Cells["id"].Value.ToString();
-            txtID2.Text = txtID1.Text;   
+            txtID2.Text = txtID1.Text;
+            if (txtID1.Text.Substring(1, 3) != "510")
+            {
+                chkColorQty.Checked = false;
+            }
+            else
+            {
+                chkColorQty.Checked = true;
+            }
         }
 
         private void txtVendor_Click(object sender, EventArgs e)
