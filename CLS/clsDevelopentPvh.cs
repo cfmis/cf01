@@ -32,7 +32,15 @@ namespace cf01.CLS
             string prefix= clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             string mm = strSerial_no.Substring(4, 2);//月份
             string yy = strSerial_no.Substring(2, 2);//取年份
-            strSql = "SELECT MAX(pvh_submit_ref) AS pvh_submit_ref FROM development_pvh WHERE pvh_submit_ref LIKE "+ "'"+ prefix +"CF-" + mm + "%/" + yy + "'";
+            //舊代碼取消于2022/08/01
+            //strSql = "SELECT MAX(pvh_submit_ref) AS pvh_submit_ref FROM development_pvh WHERE pvh_submit_ref LIKE "+ "'"+ prefix +"CF-" + mm + "%/" + yy + "'";
+            //2022/08/01更改新的取編號規則,不同的DEVISON共用相同的遞增序號
+            strSql = string.Format(
+                @"SELECT MAX(S.pvh_submit_ref) AS pvh_submit_ref 
+                  FROM (SELECT Right(pvh_submit_ref,12) AS pvh_submit_ref
+	                    FROM development_pvh 
+	                    WHERE [date]>='2022-05-10' AND pvh_submit_ref<>'' AND RIGHT(pvh_submit_ref,12) LIKE '%CF-{0}%/{1}'
+	                   ) S",mm,yy);            
             string result = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             if (string.IsNullOrEmpty(result))
             {
@@ -41,7 +49,7 @@ namespace cf01.CLS
             else
             {
                 int index_start = result.IndexOf("-") + 3;
-                result = prefix + "CF-" + mm + (Int32.Parse(result.Substring(index_start, 4)) + 1).ToString().PadLeft(4, '0') + "/" + yy; ; //THSCF-120001/21
+                result = prefix + "CF-" + mm + (int.Parse(result.Substring(index_start, 4)) + 1).ToString().PadLeft(4, '0') + "/" + yy; ; //THSCF-120001/21
             }            
             return result;
         }
