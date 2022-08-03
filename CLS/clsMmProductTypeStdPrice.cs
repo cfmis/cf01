@@ -13,7 +13,7 @@ namespace cf01.CLS
         public static DataTable LoadProductType(string ID)
         {
             string strSql = "";
-            strSql = "Select ID,Ver,ArtWork,ProductType,BasePrice,Unit,Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime"+
+            strSql = "Select ID,Ver,ArtWork,ProductType,Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime"+
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
                 " From mm_ProductTypePrice " +
                 " Where ID='" + ID + "'";
@@ -24,7 +24,7 @@ namespace cf01.CLS
         public static DataTable LoadPrdSizeGroup(int UpperSN)
         {
             string strSql = "";
-            strSql = "Select a.UpperSN,a.Seq,a.SizeGroup,a.SN,a.SizeID,a.SizeName"+
+            strSql = "Select a.UpperSN,a.Seq,a.SizeGroup,a.SN,a.SizeID,a.SizeName,a.BasePrice,a.Unit" +
                 ",b.add_charge1,b.add_charge2,b.add_charge3 " +
                 " From mm_ProductTypePriceSize a" +
                 " Left Join bs_size b On a.SizeID=b.size_id " +
@@ -75,15 +75,15 @@ namespace cf01.CLS
             if (!CheckID(ID))
             {
                 Ver = 0;
-                strSql += string.Format(@" Insert Into mm_ProductTypePrice(ID,Ver,ArtWork,ProductType,BasePrice,Unit,Remark,CreateUser,CreateTime)" +
-                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',GETDATE() )"
-                        , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.BasePrice, mdlPtp.Unit, mdlPtp.Remark, userid);
+                strSql += string.Format(@" Insert Into mm_ProductTypePrice(ID,Ver,ArtWork,ProductType,Remark,CreateUser,CreateTime)" +
+                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}',GETDATE() )"
+                        , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.Remark, userid);
             }
             else
-                strSql += string.Format(@" Update mm_ProductTypePrice Set ArtWork='{2}',ProductType='{3}',BasePrice='{4}',Unit='{5}',Remark='{6}'" +
-                    ",AmendUser='{7}',AmendTime=GETDATE()" +
+                strSql += string.Format(@" Update mm_ProductTypePrice Set ArtWork='{2}',ProductType='{3}',Remark='{4}'" +
+                    ",AmendUser='{5}',AmendTime=GETDATE()" +
                     " Where ID='{0}' And Ver='{1}'"
-                    , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.BasePrice, mdlPtp.Unit, mdlPtp.Remark, userid);
+                    , ID, Ver, mdlPtp.ArtWork, mdlPtp.ProductType, mdlPtp.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             if (result == "")
@@ -135,13 +135,14 @@ namespace cf01.CLS
             strSql += string.Format(@" SET XACT_ABORT  ON ");
             strSql += string.Format(@" BEGIN TRANSACTION ");
             if (!CheckExistRecord("mm_ProductTypePriceSize", mdlPtps.UpperSN, mdlPtps.Seq))
-                strSql += string.Format(@" Insert Into mm_ProductTypePriceSize(UpperSN,Seq,SizeGroup,SizeID,SizeName ) " +
-                        " Values ('{0}','{1}','{2}','{3}','{4}' )"
-                        , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup, mdlPtps.SizeID, mdlPtps.SizeName);
+                strSql += string.Format(@" Insert Into mm_ProductTypePriceSize(UpperSN,Seq,SizeGroup,SizeID,SizeName,BasePrice,Unit ) " +
+                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}' )"
+                        , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup, mdlPtps.SizeID, mdlPtps.SizeName, mdlPtps.BasePrice, mdlPtps.Unit);
             else
-                strSql += string.Format(@" Update mm_ProductTypePriceSize Set SizeGroup='{2}',SizeID='{3}',SizeName='{4}'" +
+                strSql += string.Format(@" Update mm_ProductTypePriceSize Set SizeGroup='{2}',SizeID='{3}',SizeName='{4}',BasePrice='{5}',Unit='{6}'" +
                     " Where UpperSN='{0}' And Seq='{1}'"
-                    , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup, mdlPtps.SizeID, mdlPtps.SizeName);
+                    , mdlPtps.UpperSN, mdlPtps.Seq, mdlPtps.SizeGroup, mdlPtps.SizeID, mdlPtps.SizeName
+                    , mdlPtps.BasePrice, mdlPtps.Unit);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;

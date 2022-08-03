@@ -43,12 +43,8 @@
             this.btnColorGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.cmbUnit = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblUnit = new DevExpress.XtraEditors.LabelControl();
             this.lblRemark = new DevExpress.XtraEditors.LabelControl();
-            this.lblBasePrice = new DevExpress.XtraEditors.LabelControl();
             this.txtRemark = new DevExpress.XtraEditors.TextEdit();
-            this.txtBasePrice = new DevExpress.XtraEditors.TextEdit();
             this.txtSN = new DevExpress.XtraEditors.TextEdit();
             this.txtAmendTime = new DevExpress.XtraEditors.TextEdit();
             this.txtCreateTime = new DevExpress.XtraEditors.TextEdit();
@@ -66,26 +62,47 @@
             this.lblArtWork = new DevExpress.XtraEditors.LabelControl();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.lblDocNo = new DevExpress.XtraEditors.LabelControl();
+            this.cmbUnit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblUnit = new DevExpress.XtraEditors.LabelControl();
+            this.lblBasePrice = new DevExpress.XtraEditors.LabelControl();
+            this.txtBasePrice = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.chkSelectSizeFlag = new DevExpress.XtraEditors.CheckEdit();
             this.dgvSizeDetails = new System.Windows.Forms.DataGridView();
+            this.colSelectSizeFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colSizeGroupDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeIDDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeNameDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.btnFindSizeGroup = new DevExpress.XtraEditors.SimpleButton();
             this.lblMsgSizeGroup = new DevExpress.XtraEditors.LabelControl();
             this.txtSizeGroup1 = new DevExpress.XtraEditors.TextEdit();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.btnAddSizeGroup = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.dgvSizeGroup = new System.Windows.Forms.DataGridView();
+            this.colSizeGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.lblAddCharge3 = new DevExpress.XtraEditors.LabelControl();
+            this.lblAddCharge2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblAddCharge1 = new DevExpress.XtraEditors.LabelControl();
             this.txtAddCharge3 = new DevExpress.XtraEditors.TextEdit();
-            this.chkAddCharge3 = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtSizeGroupSeq = new DevExpress.XtraEditors.TextEdit();
-            this.chkAddCharge2 = new DevExpress.XtraEditors.CheckEdit();
             this.txtSizeName = new DevExpress.XtraEditors.TextEdit();
-            this.chkAddCharge1 = new DevExpress.XtraEditors.CheckEdit();
             this.txtAddCharge2 = new DevExpress.XtraEditors.TextEdit();
             this.btnAddSize = new DevExpress.XtraEditors.SimpleButton();
             this.txtAddCharge1 = new DevExpress.XtraEditors.TextEdit();
@@ -95,10 +112,27 @@
             this.lblSizeGroup = new DevExpress.XtraEditors.LabelControl();
             this.txtSizeGroup = new DevExpress.XtraEditors.TextEdit();
             this.btnSaveSize = new DevExpress.XtraEditors.SimpleButton();
+            this.chkAddCharge3 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkAddCharge2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkAddCharge1 = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.dgvColorDetails = new System.Windows.Forms.DataGridView();
+            this.colColorGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.dgvColorGroup = new System.Windows.Forms.DataGridView();
+            this.colColorGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupUpperSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.lblColorGroupCdesc = new DevExpress.XtraEditors.LabelControl();
             this.lblColorGroup = new DevExpress.XtraEditors.LabelControl();
@@ -115,11 +149,6 @@
             this.btnDelColorGroup = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddColorGroup = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.colSelectSizeFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.chkSelectSizeFlag = new DevExpress.XtraEditors.CheckEdit();
-            this.lblAddCharge1 = new DevExpress.XtraEditors.LabelControl();
-            this.lblAddCharge2 = new DevExpress.XtraEditors.LabelControl();
-            this.lblAddCharge3 = new DevExpress.XtraEditors.LabelControl();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,40 +177,12 @@
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeIDDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeNameDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupUpperSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBasePrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmendTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateTime.Properties)).BeginInit();
@@ -191,33 +192,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWork.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBasePrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
-            this.panelControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
             this.panelControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectSizeFlag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
             this.panelControl9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroupSeq.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroup.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColorDetails)).BeginInit();
@@ -231,7 +233,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValueDesc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSelectSizeFlag.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -353,12 +354,8 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.cmbUnit);
-            this.panelControl1.Controls.Add(this.lblUnit);
             this.panelControl1.Controls.Add(this.lblRemark);
-            this.panelControl1.Controls.Add(this.lblBasePrice);
             this.panelControl1.Controls.Add(this.txtRemark);
-            this.panelControl1.Controls.Add(this.txtBasePrice);
             this.panelControl1.Controls.Add(this.txtSN);
             this.panelControl1.Controls.Add(this.txtAmendTime);
             this.panelControl1.Controls.Add(this.txtCreateTime);
@@ -382,25 +379,6 @@
             this.panelControl1.Size = new System.Drawing.Size(1332, 90);
             this.panelControl1.TabIndex = 1;
             // 
-            // cmbUnit
-            // 
-            this.cmbUnit.Location = new System.Drawing.Point(267, 37);
-            this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbUnit.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.cmbUnit.Size = new System.Drawing.Size(161, 20);
-            this.cmbUnit.TabIndex = 6;
-            this.cmbUnit.Leave += new System.EventHandler(this.cmbUnit_Leave);
-            // 
-            // lblUnit
-            // 
-            this.lblUnit.Location = new System.Drawing.Point(236, 40);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(28, 14);
-            this.lblUnit.TabIndex = 5;
-            this.lblUnit.Text = "單位:";
-            // 
             // lblRemark
             // 
             this.lblRemark.Location = new System.Drawing.Point(464, 40);
@@ -409,30 +387,12 @@
             this.lblRemark.TabIndex = 4;
             this.lblRemark.Text = "備註:";
             // 
-            // lblBasePrice
-            // 
-            this.lblBasePrice.Location = new System.Drawing.Point(24, 40);
-            this.lblBasePrice.Name = "lblBasePrice";
-            this.lblBasePrice.Size = new System.Drawing.Size(52, 14);
-            this.lblBasePrice.TabIndex = 4;
-            this.lblBasePrice.Text = "基本單價:";
-            // 
             // txtRemark
             // 
             this.txtRemark.Location = new System.Drawing.Point(499, 37);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(460, 20);
+            this.txtRemark.Size = new System.Drawing.Size(462, 20);
             this.txtRemark.TabIndex = 4;
-            // 
-            // txtBasePrice
-            // 
-            this.txtBasePrice.Location = new System.Drawing.Point(84, 37);
-            this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.Properties.Mask.EditMask = "n2";
-            this.txtBasePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtBasePrice.Size = new System.Drawing.Size(122, 20);
-            this.txtBasePrice.TabIndex = 3;
-            this.txtBasePrice.Leave += new System.EventHandler(this.txtBasePrice_Leave);
             // 
             // txtSN
             // 
@@ -468,7 +428,7 @@
             // 
             // lblAmendTime
             // 
-            this.lblAmendTime.Location = new System.Drawing.Point(733, 64);
+            this.lblAmendTime.Location = new System.Drawing.Point(741, 64);
             this.lblAmendTime.Name = "lblAmendTime";
             this.lblAmendTime.Size = new System.Drawing.Size(52, 14);
             this.lblAmendTime.TabIndex = 0;
@@ -534,7 +494,7 @@
             // 
             // lblVer
             // 
-            this.lblVer.Location = new System.Drawing.Point(745, 17);
+            this.lblVer.Location = new System.Drawing.Point(753, 17);
             this.lblVer.Name = "lblVer";
             this.lblVer.Size = new System.Drawing.Size(40, 14);
             this.lblVer.TabIndex = 0;
@@ -591,9 +551,45 @@
             this.lblDocNo.TabIndex = 0;
             this.lblDocNo.Text = "文件號:";
             // 
+            // cmbUnit
+            // 
+            this.cmbUnit.Location = new System.Drawing.Point(640, 37);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbUnit.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.cmbUnit.Size = new System.Drawing.Size(100, 20);
+            this.cmbUnit.TabIndex = 6;
+            this.cmbUnit.Leave += new System.EventHandler(this.cmbUnit_Leave);
+            // 
+            // lblUnit
+            // 
+            this.lblUnit.Location = new System.Drawing.Point(607, 40);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(28, 14);
+            this.lblUnit.TabIndex = 5;
+            this.lblUnit.Text = "單位:";
+            // 
+            // lblBasePrice
+            // 
+            this.lblBasePrice.Location = new System.Drawing.Point(418, 40);
+            this.lblBasePrice.Name = "lblBasePrice";
+            this.lblBasePrice.Size = new System.Drawing.Size(52, 14);
+            this.lblBasePrice.TabIndex = 4;
+            this.lblBasePrice.Text = "基本單價:";
+            // 
+            // txtBasePrice
+            // 
+            this.txtBasePrice.Location = new System.Drawing.Point(475, 37);
+            this.txtBasePrice.Name = "txtBasePrice";
+            this.txtBasePrice.Properties.Mask.EditMask = "n2";
+            this.txtBasePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtBasePrice.Size = new System.Drawing.Size(100, 20);
+            this.txtBasePrice.TabIndex = 3;
+            this.txtBasePrice.Leave += new System.EventHandler(this.txtBasePrice_Leave);
+            // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.panelControl10);
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 128);
@@ -601,15 +597,17 @@
             this.panelControl2.Size = new System.Drawing.Size(1332, 390);
             this.panelControl2.TabIndex = 2;
             // 
-            // panelControl10
+            // panelControl3
             // 
-            this.panelControl10.Controls.Add(this.panelControl11);
-            this.panelControl10.Controls.Add(this.panelControl7);
-            this.panelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl10.Location = new System.Drawing.Point(782, 2);
-            this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(548, 386);
-            this.panelControl10.TabIndex = 10;
+            this.panelControl3.Controls.Add(this.panelControl11);
+            this.panelControl3.Controls.Add(this.panelControl7);
+            this.panelControl3.Controls.Add(this.dgvSizeGroup);
+            this.panelControl3.Controls.Add(this.panelControl6);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(2, 2);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1328, 386);
+            this.panelControl3.TabIndex = 0;
             // 
             // panelControl11
             // 
@@ -617,10 +615,19 @@
             this.panelControl11.Controls.Add(this.dgvSizeDetails);
             this.panelControl11.Controls.Add(this.panelControl9);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(87, 2);
+            this.panelControl11.Location = new System.Drawing.Point(861, 75);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(459, 382);
+            this.panelControl11.Size = new System.Drawing.Size(465, 309);
             this.panelControl11.TabIndex = 10;
+            // 
+            // chkSelectSizeFlag
+            // 
+            this.chkSelectSizeFlag.Location = new System.Drawing.Point(36, 56);
+            this.chkSelectSizeFlag.Name = "chkSelectSizeFlag";
+            this.chkSelectSizeFlag.Properties.Caption = "";
+            this.chkSelectSizeFlag.Size = new System.Drawing.Size(14, 19);
+            this.chkSelectSizeFlag.TabIndex = 10;
+            this.chkSelectSizeFlag.CheckedChanged += new System.EventHandler(this.chkSelectSizeFlag_CheckedChanged);
             // 
             // dgvSizeDetails
             // 
@@ -636,13 +643,64 @@
             this.colAddCharge2,
             this.colAddCharge3});
             this.dgvSizeDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSizeDetails.Location = new System.Drawing.Point(2, 75);
+            this.dgvSizeDetails.Location = new System.Drawing.Point(2, 52);
             this.dgvSizeDetails.Name = "dgvSizeDetails";
             this.dgvSizeDetails.RowHeadersWidth = 20;
             this.dgvSizeDetails.RowTemplate.Height = 24;
             this.dgvSizeDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSizeDetails.Size = new System.Drawing.Size(455, 305);
+            this.dgvSizeDetails.Size = new System.Drawing.Size(461, 255);
             this.dgvSizeDetails.TabIndex = 9;
+            // 
+            // colSelectSizeFlag
+            // 
+            this.colSelectSizeFlag.DataPropertyName = "SelectSizeFlag";
+            this.colSelectSizeFlag.HeaderText = "";
+            this.colSelectSizeFlag.Name = "colSelectSizeFlag";
+            this.colSelectSizeFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelectSizeFlag.Width = 40;
+            // 
+            // colSizeGroupDetails
+            // 
+            this.colSizeGroupDetails.DataPropertyName = "GroupID";
+            this.colSizeGroupDetails.HeaderText = "尺寸組別";
+            this.colSizeGroupDetails.Name = "colSizeGroupDetails";
+            this.colSizeGroupDetails.ReadOnly = true;
+            this.colSizeGroupDetails.Width = 80;
+            // 
+            // colSizeIDDetails
+            // 
+            this.colSizeIDDetails.DataPropertyName = "SizeID";
+            this.colSizeIDDetails.HeaderText = "尺寸代號";
+            this.colSizeIDDetails.Name = "colSizeIDDetails";
+            this.colSizeIDDetails.ReadOnly = true;
+            // 
+            // colSizeNameDetails
+            // 
+            this.colSizeNameDetails.DataPropertyName = "SizeName";
+            this.colSizeNameDetails.HeaderText = "尺寸描述";
+            this.colSizeNameDetails.Name = "colSizeNameDetails";
+            this.colSizeNameDetails.ReadOnly = true;
+            // 
+            // colAddCharge1
+            // 
+            this.colAddCharge1.DataPropertyName = "add_charge1";
+            this.colAddCharge1.HeaderText = "噴沙";
+            this.colAddCharge1.Name = "colAddCharge1";
+            this.colAddCharge1.ReadOnly = true;
+            // 
+            // colAddCharge2
+            // 
+            this.colAddCharge2.DataPropertyName = "add_charge2";
+            this.colAddCharge2.HeaderText = "噴LAC.";
+            this.colAddCharge2.Name = "colAddCharge2";
+            this.colAddCharge2.ReadOnly = true;
+            // 
+            // colAddCharge3
+            // 
+            this.colAddCharge3.DataPropertyName = "add_charge3";
+            this.colAddCharge3.HeaderText = "不锈鋼";
+            this.colAddCharge3.Name = "colAddCharge3";
+            this.colAddCharge3.ReadOnly = true;
             // 
             // panelControl9
             // 
@@ -652,12 +710,12 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl9.Location = new System.Drawing.Point(2, 2);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(455, 73);
+            this.panelControl9.Size = new System.Drawing.Size(461, 50);
             this.panelControl9.TabIndex = 8;
             // 
             // btnFindSizeGroup
             // 
-            this.btnFindSizeGroup.Location = new System.Drawing.Point(288, 36);
+            this.btnFindSizeGroup.Location = new System.Drawing.Point(287, 12);
             this.btnFindSizeGroup.Name = "btnFindSizeGroup";
             this.btnFindSizeGroup.Size = new System.Drawing.Size(75, 23);
             this.btnFindSizeGroup.TabIndex = 6;
@@ -666,7 +724,7 @@
             // 
             // lblMsgSizeGroup
             // 
-            this.lblMsgSizeGroup.Location = new System.Drawing.Point(6, 38);
+            this.lblMsgSizeGroup.Location = new System.Drawing.Point(5, 16);
             this.lblMsgSizeGroup.Name = "lblMsgSizeGroup";
             this.lblMsgSizeGroup.Size = new System.Drawing.Size(148, 14);
             this.lblMsgSizeGroup.TabIndex = 4;
@@ -674,7 +732,7 @@
             // 
             // txtSizeGroup1
             // 
-            this.txtSizeGroup1.Location = new System.Drawing.Point(166, 37);
+            this.txtSizeGroup1.Location = new System.Drawing.Point(165, 15);
             this.txtSizeGroup1.Name = "txtSizeGroup1";
             this.txtSizeGroup1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizeGroup1.Properties.MaxLength = 4;
@@ -686,29 +744,19 @@
             // 
             this.panelControl7.Controls.Add(this.btnAddSizeGroup);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl7.Location = new System.Drawing.Point(2, 2);
+            this.panelControl7.Location = new System.Drawing.Point(776, 75);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(85, 382);
+            this.panelControl7.Size = new System.Drawing.Size(85, 309);
             this.panelControl7.TabIndex = 7;
             // 
             // btnAddSizeGroup
             // 
-            this.btnAddSizeGroup.Location = new System.Drawing.Point(5, 168);
+            this.btnAddSizeGroup.Location = new System.Drawing.Point(5, 128);
             this.btnAddSizeGroup.Name = "btnAddSizeGroup";
             this.btnAddSizeGroup.Size = new System.Drawing.Size(75, 23);
             this.btnAddSizeGroup.TabIndex = 6;
             this.btnAddSizeGroup.Text = "<<添加";
             this.btnAddSizeGroup.Click += new System.EventHandler(this.btnAddSizeGroup_Click);
-            // 
-            // panelControl3
-            // 
-            this.panelControl3.Controls.Add(this.dgvSizeGroup);
-            this.panelControl3.Controls.Add(this.panelControl6);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl3.Location = new System.Drawing.Point(2, 2);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(780, 386);
-            this.panelControl3.TabIndex = 0;
             // 
             // dgvSizeGroup
             // 
@@ -719,29 +767,116 @@
             this.colSizeGroup,
             this.colSizeID,
             this.colSizeName,
+            this.colBasePrice,
+            this.colUnit,
             this.colSizeAddCharge1,
             this.colSizeAddCharge2,
             this.colSizeAddCharge3,
             this.colSizeGroupSN});
-            this.dgvSizeGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSizeGroup.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvSizeGroup.Location = new System.Drawing.Point(2, 75);
             this.dgvSizeGroup.Name = "dgvSizeGroup";
             this.dgvSizeGroup.ReadOnly = true;
             this.dgvSizeGroup.RowHeadersWidth = 20;
             this.dgvSizeGroup.RowTemplate.Height = 24;
             this.dgvSizeGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSizeGroup.Size = new System.Drawing.Size(776, 309);
+            this.dgvSizeGroup.Size = new System.Drawing.Size(774, 309);
             this.dgvSizeGroup.TabIndex = 3;
+            this.dgvSizeGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSizeGroup_CellClick);
             this.dgvSizeGroup.SelectionChanged += new System.EventHandler(this.dgvSizeGroup_SelectionChanged);
+            // 
+            // colSizeGroupSeq
+            // 
+            this.colSizeGroupSeq.DataPropertyName = "Seq";
+            this.colSizeGroupSeq.HeaderText = "序號";
+            this.colSizeGroupSeq.Name = "colSizeGroupSeq";
+            this.colSizeGroupSeq.ReadOnly = true;
+            this.colSizeGroupSeq.Width = 60;
+            // 
+            // colSizeGroup
+            // 
+            this.colSizeGroup.DataPropertyName = "SizeGroup";
+            this.colSizeGroup.HeaderText = "尺寸組別";
+            this.colSizeGroup.Name = "colSizeGroup";
+            this.colSizeGroup.ReadOnly = true;
+            this.colSizeGroup.Width = 80;
+            // 
+            // colSizeID
+            // 
+            this.colSizeID.DataPropertyName = "SizeID";
+            this.colSizeID.HeaderText = "尺寸代號";
+            this.colSizeID.Name = "colSizeID";
+            this.colSizeID.ReadOnly = true;
+            this.colSizeID.Width = 80;
+            // 
+            // colSizeName
+            // 
+            this.colSizeName.DataPropertyName = "SizeName";
+            this.colSizeName.HeaderText = "尺寸描述";
+            this.colSizeName.Name = "colSizeName";
+            this.colSizeName.ReadOnly = true;
+            this.colSizeName.Width = 160;
+            // 
+            // colBasePrice
+            // 
+            this.colBasePrice.DataPropertyName = "BasePrice";
+            this.colBasePrice.HeaderText = "基本單價";
+            this.colBasePrice.Name = "colBasePrice";
+            this.colBasePrice.ReadOnly = true;
+            this.colBasePrice.Width = 80;
+            // 
+            // colUnit
+            // 
+            this.colUnit.DataPropertyName = "Unit";
+            this.colUnit.HeaderText = "單價單位";
+            this.colUnit.Name = "colUnit";
+            this.colUnit.ReadOnly = true;
+            this.colUnit.Width = 80;
+            // 
+            // colSizeAddCharge1
+            // 
+            this.colSizeAddCharge1.DataPropertyName = "add_charge1";
+            this.colSizeAddCharge1.HeaderText = "噴沙";
+            this.colSizeAddCharge1.Name = "colSizeAddCharge1";
+            this.colSizeAddCharge1.ReadOnly = true;
+            this.colSizeAddCharge1.Width = 60;
+            // 
+            // colSizeAddCharge2
+            // 
+            this.colSizeAddCharge2.DataPropertyName = "add_charge2";
+            this.colSizeAddCharge2.HeaderText = "噴LAC.";
+            this.colSizeAddCharge2.Name = "colSizeAddCharge2";
+            this.colSizeAddCharge2.ReadOnly = true;
+            this.colSizeAddCharge2.Width = 60;
+            // 
+            // colSizeAddCharge3
+            // 
+            this.colSizeAddCharge3.DataPropertyName = "add_charge3";
+            this.colSizeAddCharge3.HeaderText = "不锈鋼";
+            this.colSizeAddCharge3.Name = "colSizeAddCharge3";
+            this.colSizeAddCharge3.ReadOnly = true;
+            this.colSizeAddCharge3.Width = 60;
+            // 
+            // colSizeGroupSN
+            // 
+            this.colSizeGroupSN.DataPropertyName = "SN";
+            this.colSizeGroupSN.HeaderText = "流水號";
+            this.colSizeGroupSN.Name = "colSizeGroupSN";
+            this.colSizeGroupSN.ReadOnly = true;
+            this.colSizeGroupSN.Visible = false;
             // 
             // panelControl6
             // 
+            this.panelControl6.Controls.Add(this.cmbUnit);
             this.panelControl6.Controls.Add(this.lblAddCharge3);
             this.panelControl6.Controls.Add(this.lblAddCharge2);
+            this.panelControl6.Controls.Add(this.lblUnit);
             this.panelControl6.Controls.Add(this.lblAddCharge1);
             this.panelControl6.Controls.Add(this.txtAddCharge3);
             this.panelControl6.Controls.Add(this.labelControl5);
+            this.panelControl6.Controls.Add(this.txtBasePrice);
             this.panelControl6.Controls.Add(this.txtSizeGroupSeq);
+            this.panelControl6.Controls.Add(this.lblBasePrice);
             this.panelControl6.Controls.Add(this.txtSizeName);
             this.panelControl6.Controls.Add(this.txtAddCharge2);
             this.panelControl6.Controls.Add(this.btnAddSize);
@@ -755,8 +890,32 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(2, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(776, 73);
+            this.panelControl6.Size = new System.Drawing.Size(1324, 73);
             this.panelControl6.TabIndex = 11;
+            // 
+            // lblAddCharge3
+            // 
+            this.lblAddCharge3.Location = new System.Drawing.Point(595, 14);
+            this.lblAddCharge3.Name = "lblAddCharge3";
+            this.lblAddCharge3.Size = new System.Drawing.Size(40, 14);
+            this.lblAddCharge3.TabIndex = 11;
+            this.lblAddCharge3.Text = "不锈鋼:";
+            // 
+            // lblAddCharge2
+            // 
+            this.lblAddCharge2.Location = new System.Drawing.Point(429, 14);
+            this.lblAddCharge2.Name = "lblAddCharge2";
+            this.lblAddCharge2.Size = new System.Drawing.Size(41, 14);
+            this.lblAddCharge2.TabIndex = 11;
+            this.lblAddCharge2.Text = "噴LAC.:";
+            // 
+            // lblAddCharge1
+            // 
+            this.lblAddCharge1.Location = new System.Drawing.Point(270, 14);
+            this.lblAddCharge1.Name = "lblAddCharge1";
+            this.lblAddCharge1.Size = new System.Drawing.Size(28, 14);
+            this.lblAddCharge1.TabIndex = 11;
+            this.lblAddCharge1.Text = "噴沙:";
             // 
             // txtAddCharge3
             // 
@@ -768,15 +927,6 @@
             this.txtAddCharge3.TabIndex = 10;
             this.txtAddCharge3.Leave += new System.EventHandler(this.txtAddCharge3_Leave);
             // 
-            // chkAddCharge3
-            // 
-            this.chkAddCharge3.Location = new System.Drawing.Point(684, 37);
-            this.chkAddCharge3.Name = "chkAddCharge3";
-            this.chkAddCharge3.Properties.Caption = "不锈鋼";
-            this.chkAddCharge3.Size = new System.Drawing.Size(60, 19);
-            this.chkAddCharge3.TabIndex = 11;
-            this.chkAddCharge3.CheckedChanged += new System.EventHandler(this.chkAddCharge3_CheckedChanged);
-            // 
             // labelControl5
             // 
             this.labelControl5.Location = new System.Drawing.Point(3, 5);
@@ -787,20 +937,11 @@
             // 
             // txtSizeGroupSeq
             // 
-            this.txtSizeGroupSeq.Location = new System.Drawing.Point(410, 37);
+            this.txtSizeGroupSeq.Location = new System.Drawing.Point(1089, 34);
             this.txtSizeGroupSeq.Name = "txtSizeGroupSeq";
             this.txtSizeGroupSeq.Size = new System.Drawing.Size(85, 20);
             this.txtSizeGroupSeq.TabIndex = 1;
             this.txtSizeGroupSeq.Visible = false;
-            // 
-            // chkAddCharge2
-            // 
-            this.chkAddCharge2.Location = new System.Drawing.Point(619, 36);
-            this.chkAddCharge2.Name = "chkAddCharge2";
-            this.chkAddCharge2.Properties.Caption = "噴LAC.";
-            this.chkAddCharge2.Size = new System.Drawing.Size(59, 19);
-            this.chkAddCharge2.TabIndex = 11;
-            this.chkAddCharge2.CheckedChanged += new System.EventHandler(this.chkAddCharge2_CheckedChanged);
             // 
             // txtSizeName
             // 
@@ -809,15 +950,6 @@
             this.txtSizeName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizeName.Size = new System.Drawing.Size(151, 20);
             this.txtSizeName.TabIndex = 10;
-            // 
-            // chkAddCharge1
-            // 
-            this.chkAddCharge1.Location = new System.Drawing.Point(568, 36);
-            this.chkAddCharge1.Name = "chkAddCharge1";
-            this.chkAddCharge1.Properties.Caption = "噴沙";
-            this.chkAddCharge1.Size = new System.Drawing.Size(45, 19);
-            this.chkAddCharge1.TabIndex = 11;
-            this.chkAddCharge1.CheckedChanged += new System.EventHandler(this.chkAddCharge1_CheckedChanged);
             // 
             // txtAddCharge2
             // 
@@ -831,7 +963,7 @@
             // 
             // btnAddSize
             // 
-            this.btnAddSize.Location = new System.Drawing.Point(501, 36);
+            this.btnAddSize.Location = new System.Drawing.Point(755, 10);
             this.btnAddSize.Name = "btnAddSize";
             this.btnAddSize.Size = new System.Drawing.Size(75, 23);
             this.btnAddSize.TabIndex = 1;
@@ -860,7 +992,7 @@
             // 
             // btnDelSize
             // 
-            this.btnDelSize.Location = new System.Drawing.Point(665, 36);
+            this.btnDelSize.Location = new System.Drawing.Point(919, 10);
             this.btnDelSize.Name = "btnDelSize";
             this.btnDelSize.Size = new System.Drawing.Size(75, 23);
             this.btnDelSize.TabIndex = 2;
@@ -895,12 +1027,39 @@
             // 
             // btnSaveSize
             // 
-            this.btnSaveSize.Location = new System.Drawing.Point(582, 36);
+            this.btnSaveSize.Location = new System.Drawing.Point(836, 10);
             this.btnSaveSize.Name = "btnSaveSize";
             this.btnSaveSize.Size = new System.Drawing.Size(75, 23);
             this.btnSaveSize.TabIndex = 6;
             this.btnSaveSize.Text = "儲存";
             this.btnSaveSize.Click += new System.EventHandler(this.btnSaveSize_Click);
+            // 
+            // chkAddCharge3
+            // 
+            this.chkAddCharge3.Location = new System.Drawing.Point(684, 12);
+            this.chkAddCharge3.Name = "chkAddCharge3";
+            this.chkAddCharge3.Properties.Caption = "不锈鋼";
+            this.chkAddCharge3.Size = new System.Drawing.Size(60, 19);
+            this.chkAddCharge3.TabIndex = 11;
+            this.chkAddCharge3.CheckedChanged += new System.EventHandler(this.chkAddCharge3_CheckedChanged);
+            // 
+            // chkAddCharge2
+            // 
+            this.chkAddCharge2.Location = new System.Drawing.Point(619, 12);
+            this.chkAddCharge2.Name = "chkAddCharge2";
+            this.chkAddCharge2.Properties.Caption = "噴LAC.";
+            this.chkAddCharge2.Size = new System.Drawing.Size(59, 19);
+            this.chkAddCharge2.TabIndex = 11;
+            this.chkAddCharge2.CheckedChanged += new System.EventHandler(this.chkAddCharge2_CheckedChanged);
+            // 
+            // chkAddCharge1
+            // 
+            this.chkAddCharge1.Location = new System.Drawing.Point(568, 12);
+            this.chkAddCharge1.Name = "chkAddCharge1";
+            this.chkAddCharge1.Properties.Caption = "噴沙";
+            this.chkAddCharge1.Size = new System.Drawing.Size(45, 19);
+            this.chkAddCharge1.TabIndex = 11;
+            this.chkAddCharge1.CheckedChanged += new System.EventHandler(this.chkAddCharge1_CheckedChanged);
             // 
             // panelControl4
             // 
@@ -911,7 +1070,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 518);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1332, 506);
+            this.panelControl4.Size = new System.Drawing.Size(1332, 232);
             this.panelControl4.TabIndex = 3;
             // 
             // dgvColorDetails
@@ -930,16 +1089,38 @@
             this.dgvColorDetails.RowHeadersWidth = 20;
             this.dgvColorDetails.RowTemplate.Height = 24;
             this.dgvColorDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorDetails.Size = new System.Drawing.Size(461, 440);
+            this.dgvColorDetails.Size = new System.Drawing.Size(461, 166);
             this.dgvColorDetails.TabIndex = 3;
             this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
+            // 
+            // colColorGroupID
+            // 
+            this.colColorGroupID.DataPropertyName = "GroupID";
+            this.colColorGroupID.HeaderText = "顏色組別";
+            this.colColorGroupID.Name = "colColorGroupID";
+            this.colColorGroupID.ReadOnly = true;
+            // 
+            // colColorID
+            // 
+            this.colColorID.DataPropertyName = "ColorID";
+            this.colColorID.HeaderText = "顏色代號";
+            this.colColorID.Name = "colColorID";
+            this.colColorID.ReadOnly = true;
+            // 
+            // colColorName
+            // 
+            this.colColorName.DataPropertyName = "ColorName";
+            this.colColorName.HeaderText = "顏色描述";
+            this.colColorName.Name = "colColorName";
+            this.colColorName.ReadOnly = true;
+            this.colColorName.Width = 200;
             // 
             // panelControl8
             // 
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl8.Location = new System.Drawing.Point(780, 64);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(89, 440);
+            this.panelControl8.Size = new System.Drawing.Size(89, 166);
             this.panelControl8.TabIndex = 4;
             // 
             // dgvColorGroup
@@ -965,9 +1146,94 @@
             this.dgvColorGroup.RowHeadersWidth = 20;
             this.dgvColorGroup.RowTemplate.Height = 24;
             this.dgvColorGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorGroup.Size = new System.Drawing.Size(778, 440);
+            this.dgvColorGroup.Size = new System.Drawing.Size(778, 166);
             this.dgvColorGroup.TabIndex = 1;
+            this.dgvColorGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColorGroup_CellClick);
             this.dgvColorGroup.SelectionChanged += new System.EventHandler(this.dgvColorGroup_SelectionChanged);
+            // 
+            // colColorGroupSeq
+            // 
+            this.colColorGroupSeq.DataPropertyName = "Seq";
+            this.colColorGroupSeq.HeaderText = "序號";
+            this.colColorGroupSeq.Name = "colColorGroupSeq";
+            this.colColorGroupSeq.ReadOnly = true;
+            this.colColorGroupSeq.Width = 60;
+            // 
+            // colColorGroup
+            // 
+            this.colColorGroup.DataPropertyName = "ColorGroup";
+            this.colColorGroup.HeaderText = "顏色組別";
+            this.colColorGroup.Name = "colColorGroup";
+            this.colColorGroup.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price";
+            this.colPrice.HeaderText = "價錢";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            // 
+            // colRate
+            // 
+            this.colRate.DataPropertyName = "Rate";
+            this.colRate.HeaderText = "倍數";
+            this.colRate.Name = "colRate";
+            this.colRate.ReadOnly = true;
+            this.colRate.Width = 80;
+            // 
+            // colColorAddCharge1
+            // 
+            this.colColorAddCharge1.DataPropertyName = "add_charge1";
+            this.colColorAddCharge1.HeaderText = "噴沙";
+            this.colColorAddCharge1.Name = "colColorAddCharge1";
+            this.colColorAddCharge1.ReadOnly = true;
+            this.colColorAddCharge1.Width = 60;
+            // 
+            // colColorAddCharge2
+            // 
+            this.colColorAddCharge2.DataPropertyName = "add_charge2";
+            this.colColorAddCharge2.HeaderText = "噴LAC.";
+            this.colColorAddCharge2.Name = "colColorAddCharge2";
+            this.colColorAddCharge2.ReadOnly = true;
+            this.colColorAddCharge2.Width = 60;
+            // 
+            // colColorAddCharge3
+            // 
+            this.colColorAddCharge3.DataPropertyName = "add_charge3";
+            this.colColorAddCharge3.HeaderText = "不锈鋼";
+            this.colColorAddCharge3.Name = "colColorAddCharge3";
+            this.colColorAddCharge3.ReadOnly = true;
+            this.colColorAddCharge3.Width = 60;
+            // 
+            // colCurr
+            // 
+            this.colCurr.DataPropertyName = "Curr";
+            this.colCurr.HeaderText = "貨幣";
+            this.colCurr.Name = "colCurr";
+            this.colCurr.ReadOnly = true;
+            // 
+            // colValueDesc
+            // 
+            this.colValueDesc.DataPropertyName = "ValueDesc";
+            this.colValueDesc.HeaderText = "數值描述";
+            this.colValueDesc.Name = "colValueDesc";
+            this.colValueDesc.ReadOnly = true;
+            // 
+            // colColorGroupUpperSN
+            // 
+            this.colColorGroupUpperSN.DataPropertyName = "UpperSN";
+            this.colColorGroupUpperSN.HeaderText = "上級號碼";
+            this.colColorGroupUpperSN.Name = "colColorGroupUpperSN";
+            this.colColorGroupUpperSN.ReadOnly = true;
+            this.colColorGroupUpperSN.Visible = false;
+            // 
+            // colColorGroupSN
+            // 
+            this.colColorGroupSN.DataPropertyName = "SN";
+            this.colColorGroupSN.HeaderText = "流水號";
+            this.colColorGroupSN.Name = "colColorGroupSN";
+            this.colColorGroupSN.ReadOnly = true;
+            this.colColorGroupSN.Visible = false;
             // 
             // panelControl5
             // 
@@ -1023,7 +1289,7 @@
             // 
             // txtColorGroupSeq
             // 
-            this.txtColorGroupSeq.Location = new System.Drawing.Point(813, 11);
+            this.txtColorGroupSeq.Location = new System.Drawing.Point(1112, 10);
             this.txtColorGroupSeq.Name = "txtColorGroupSeq";
             this.txtColorGroupSeq.Size = new System.Drawing.Size(100, 20);
             this.txtColorGroupSeq.TabIndex = 5;
@@ -1031,7 +1297,7 @@
             // 
             // btnSaveColorGroup
             // 
-            this.btnSaveColorGroup.Location = new System.Drawing.Point(649, 8);
+            this.btnSaveColorGroup.Location = new System.Drawing.Point(838, 7);
             this.btnSaveColorGroup.Name = "btnSaveColorGroup";
             this.btnSaveColorGroup.Size = new System.Drawing.Size(75, 23);
             this.btnSaveColorGroup.TabIndex = 3;
@@ -1100,7 +1366,7 @@
             // 
             // btnDelColorGroup
             // 
-            this.btnDelColorGroup.Location = new System.Drawing.Point(732, 8);
+            this.btnDelColorGroup.Location = new System.Drawing.Point(921, 7);
             this.btnDelColorGroup.Name = "btnDelColorGroup";
             this.btnDelColorGroup.Size = new System.Drawing.Size(75, 23);
             this.btnDelColorGroup.TabIndex = 4;
@@ -1109,7 +1375,7 @@
             // 
             // btnAddColorGroup
             // 
-            this.btnAddColorGroup.Location = new System.Drawing.Point(568, 8);
+            this.btnAddColorGroup.Location = new System.Drawing.Point(757, 7);
             this.btnAddColorGroup.Name = "btnAddColorGroup";
             this.btnAddColorGroup.Size = new System.Drawing.Size(75, 23);
             this.btnAddColorGroup.TabIndex = 2;
@@ -1123,47 +1389,6 @@
             this.labelControl1.Size = new System.Drawing.Size(76, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "適用的顏色組:";
-            // 
-            // colSelectSizeFlag
-            // 
-            this.colSelectSizeFlag.DataPropertyName = "SelectSizeFlag";
-            this.colSelectSizeFlag.HeaderText = "";
-            this.colSelectSizeFlag.Name = "colSelectSizeFlag";
-            this.colSelectSizeFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelectSizeFlag.Width = 60;
-            // 
-            // chkSelectSizeFlag
-            // 
-            this.chkSelectSizeFlag.Location = new System.Drawing.Point(48, 79);
-            this.chkSelectSizeFlag.Name = "chkSelectSizeFlag";
-            this.chkSelectSizeFlag.Properties.Caption = "";
-            this.chkSelectSizeFlag.Size = new System.Drawing.Size(14, 19);
-            this.chkSelectSizeFlag.TabIndex = 10;
-            this.chkSelectSizeFlag.CheckedChanged += new System.EventHandler(this.chkSelectSizeFlag_CheckedChanged);
-            // 
-            // lblAddCharge1
-            // 
-            this.lblAddCharge1.Location = new System.Drawing.Point(270, 14);
-            this.lblAddCharge1.Name = "lblAddCharge1";
-            this.lblAddCharge1.Size = new System.Drawing.Size(28, 14);
-            this.lblAddCharge1.TabIndex = 11;
-            this.lblAddCharge1.Text = "噴沙:";
-            // 
-            // lblAddCharge2
-            // 
-            this.lblAddCharge2.Location = new System.Drawing.Point(429, 14);
-            this.lblAddCharge2.Name = "lblAddCharge2";
-            this.lblAddCharge2.Size = new System.Drawing.Size(41, 14);
-            this.lblAddCharge2.TabIndex = 11;
-            this.lblAddCharge2.Text = "噴LAC.:";
-            // 
-            // lblAddCharge3
-            // 
-            this.lblAddCharge3.Location = new System.Drawing.Point(595, 14);
-            this.lblAddCharge3.Name = "lblAddCharge3";
-            this.lblAddCharge3.Size = new System.Drawing.Size(40, 14);
-            this.lblAddCharge3.TabIndex = 11;
-            this.lblAddCharge3.Text = "不锈鋼:";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1294,6 +1519,7 @@
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.Visible = false;
+            this.dataGridViewTextBoxColumn15.Width = 60;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -1389,6 +1615,7 @@
             this.dataGridViewTextBoxColumn26.HeaderText = "貨幣";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Width = 60;
             // 
             // dataGridViewTextBoxColumn27
             // 
@@ -1406,224 +1633,25 @@
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
             this.dataGridViewTextBoxColumn28.Visible = false;
             // 
-            // colColorGroupID
+            // dataGridViewTextBoxColumn29
             // 
-            this.colColorGroupID.DataPropertyName = "GroupID";
-            this.colColorGroupID.HeaderText = "顏色組別";
-            this.colColorGroupID.Name = "colColorGroupID";
-            this.colColorGroupID.ReadOnly = true;
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "UpperSN";
+            this.dataGridViewTextBoxColumn29.HeaderText = "上級號碼";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.Visible = false;
             // 
-            // colColorID
+            // dataGridViewTextBoxColumn30
             // 
-            this.colColorID.DataPropertyName = "ColorID";
-            this.colColorID.HeaderText = "顏色代號";
-            this.colColorID.Name = "colColorID";
-            this.colColorID.ReadOnly = true;
-            // 
-            // colColorName
-            // 
-            this.colColorName.DataPropertyName = "ColorName";
-            this.colColorName.HeaderText = "顏色描述";
-            this.colColorName.Name = "colColorName";
-            this.colColorName.ReadOnly = true;
-            this.colColorName.Width = 200;
-            // 
-            // colSizeGroupDetails
-            // 
-            this.colSizeGroupDetails.DataPropertyName = "GroupID";
-            this.colSizeGroupDetails.HeaderText = "尺寸組別";
-            this.colSizeGroupDetails.Name = "colSizeGroupDetails";
-            this.colSizeGroupDetails.ReadOnly = true;
-            this.colSizeGroupDetails.Width = 80;
-            // 
-            // colSizeIDDetails
-            // 
-            this.colSizeIDDetails.DataPropertyName = "SizeID";
-            this.colSizeIDDetails.HeaderText = "尺寸代號";
-            this.colSizeIDDetails.Name = "colSizeIDDetails";
-            this.colSizeIDDetails.ReadOnly = true;
-            // 
-            // colSizeNameDetails
-            // 
-            this.colSizeNameDetails.DataPropertyName = "SizeName";
-            this.colSizeNameDetails.HeaderText = "尺寸描述";
-            this.colSizeNameDetails.Name = "colSizeNameDetails";
-            this.colSizeNameDetails.ReadOnly = true;
-            // 
-            // colAddCharge1
-            // 
-            this.colAddCharge1.DataPropertyName = "add_charge1";
-            this.colAddCharge1.HeaderText = "噴沙";
-            this.colAddCharge1.Name = "colAddCharge1";
-            this.colAddCharge1.ReadOnly = true;
-            // 
-            // colAddCharge2
-            // 
-            this.colAddCharge2.DataPropertyName = "add_charge2";
-            this.colAddCharge2.HeaderText = "噴LAC.";
-            this.colAddCharge2.Name = "colAddCharge2";
-            this.colAddCharge2.ReadOnly = true;
-            // 
-            // colAddCharge3
-            // 
-            this.colAddCharge3.DataPropertyName = "add_charge3";
-            this.colAddCharge3.HeaderText = "不锈鋼";
-            this.colAddCharge3.Name = "colAddCharge3";
-            this.colAddCharge3.ReadOnly = true;
-            // 
-            // colSizeGroupSeq
-            // 
-            this.colSizeGroupSeq.DataPropertyName = "Seq";
-            this.colSizeGroupSeq.HeaderText = "序號";
-            this.colSizeGroupSeq.Name = "colSizeGroupSeq";
-            this.colSizeGroupSeq.ReadOnly = true;
-            this.colSizeGroupSeq.Width = 60;
-            // 
-            // colSizeGroup
-            // 
-            this.colSizeGroup.DataPropertyName = "SizeGroup";
-            this.colSizeGroup.HeaderText = "尺寸組別";
-            this.colSizeGroup.Name = "colSizeGroup";
-            this.colSizeGroup.ReadOnly = true;
-            this.colSizeGroup.Width = 80;
-            // 
-            // colSizeID
-            // 
-            this.colSizeID.DataPropertyName = "SizeID";
-            this.colSizeID.HeaderText = "尺寸代號";
-            this.colSizeID.Name = "colSizeID";
-            this.colSizeID.ReadOnly = true;
-            this.colSizeID.Width = 80;
-            // 
-            // colSizeName
-            // 
-            this.colSizeName.DataPropertyName = "SizeName";
-            this.colSizeName.HeaderText = "尺寸描述";
-            this.colSizeName.Name = "colSizeName";
-            this.colSizeName.ReadOnly = true;
-            this.colSizeName.Width = 160;
-            // 
-            // colSizeAddCharge1
-            // 
-            this.colSizeAddCharge1.DataPropertyName = "add_charge1";
-            this.colSizeAddCharge1.HeaderText = "噴沙";
-            this.colSizeAddCharge1.Name = "colSizeAddCharge1";
-            this.colSizeAddCharge1.ReadOnly = true;
-            this.colSizeAddCharge1.Width = 60;
-            // 
-            // colSizeAddCharge2
-            // 
-            this.colSizeAddCharge2.DataPropertyName = "add_charge2";
-            this.colSizeAddCharge2.HeaderText = "噴LAC.";
-            this.colSizeAddCharge2.Name = "colSizeAddCharge2";
-            this.colSizeAddCharge2.ReadOnly = true;
-            this.colSizeAddCharge2.Width = 60;
-            // 
-            // colSizeAddCharge3
-            // 
-            this.colSizeAddCharge3.DataPropertyName = "add_charge3";
-            this.colSizeAddCharge3.HeaderText = "不锈鋼";
-            this.colSizeAddCharge3.Name = "colSizeAddCharge3";
-            this.colSizeAddCharge3.ReadOnly = true;
-            this.colSizeAddCharge3.Width = 60;
-            // 
-            // colSizeGroupSN
-            // 
-            this.colSizeGroupSN.DataPropertyName = "SN";
-            this.colSizeGroupSN.HeaderText = "流水號";
-            this.colSizeGroupSN.Name = "colSizeGroupSN";
-            this.colSizeGroupSN.ReadOnly = true;
-            this.colSizeGroupSN.Visible = false;
-            // 
-            // colColorGroupSeq
-            // 
-            this.colColorGroupSeq.DataPropertyName = "Seq";
-            this.colColorGroupSeq.HeaderText = "序號";
-            this.colColorGroupSeq.Name = "colColorGroupSeq";
-            this.colColorGroupSeq.ReadOnly = true;
-            this.colColorGroupSeq.Width = 60;
-            // 
-            // colColorGroup
-            // 
-            this.colColorGroup.DataPropertyName = "ColorGroup";
-            this.colColorGroup.HeaderText = "顏色組別";
-            this.colColorGroup.Name = "colColorGroup";
-            this.colColorGroup.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.DataPropertyName = "Price";
-            this.colPrice.HeaderText = "價錢";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            // 
-            // colRate
-            // 
-            this.colRate.DataPropertyName = "Rate";
-            this.colRate.HeaderText = "倍數";
-            this.colRate.Name = "colRate";
-            this.colRate.ReadOnly = true;
-            this.colRate.Width = 80;
-            // 
-            // colColorAddCharge1
-            // 
-            this.colColorAddCharge1.DataPropertyName = "add_charge1";
-            this.colColorAddCharge1.HeaderText = "噴沙";
-            this.colColorAddCharge1.Name = "colColorAddCharge1";
-            this.colColorAddCharge1.ReadOnly = true;
-            this.colColorAddCharge1.Width = 60;
-            // 
-            // colColorAddCharge2
-            // 
-            this.colColorAddCharge2.DataPropertyName = "add_charge2";
-            this.colColorAddCharge2.HeaderText = "噴LAC.";
-            this.colColorAddCharge2.Name = "colColorAddCharge2";
-            this.colColorAddCharge2.ReadOnly = true;
-            this.colColorAddCharge2.Width = 60;
-            // 
-            // colColorAddCharge3
-            // 
-            this.colColorAddCharge3.DataPropertyName = "add_charge3";
-            this.colColorAddCharge3.HeaderText = "不锈鋼";
-            this.colColorAddCharge3.Name = "colColorAddCharge3";
-            this.colColorAddCharge3.ReadOnly = true;
-            this.colColorAddCharge3.Width = 60;
-            // 
-            // colCurr
-            // 
-            this.colCurr.DataPropertyName = "Curr";
-            this.colCurr.HeaderText = "貨幣";
-            this.colCurr.Name = "colCurr";
-            this.colCurr.ReadOnly = true;
-            // 
-            // colValueDesc
-            // 
-            this.colValueDesc.DataPropertyName = "ValueDesc";
-            this.colValueDesc.HeaderText = "數值描述";
-            this.colValueDesc.Name = "colValueDesc";
-            this.colValueDesc.ReadOnly = true;
-            // 
-            // colColorGroupUpperSN
-            // 
-            this.colColorGroupUpperSN.DataPropertyName = "UpperSN";
-            this.colColorGroupUpperSN.HeaderText = "上級號碼";
-            this.colColorGroupUpperSN.Name = "colColorGroupUpperSN";
-            this.colColorGroupUpperSN.ReadOnly = true;
-            this.colColorGroupUpperSN.Visible = false;
-            // 
-            // colColorGroupSN
-            // 
-            this.colColorGroupSN.DataPropertyName = "SN";
-            this.colColorGroupSN.HeaderText = "流水號";
-            this.colColorGroupSN.Name = "colColorGroupSN";
-            this.colColorGroupSN.ReadOnly = true;
-            this.colColorGroupSN.Visible = false;
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "SN";
+            this.dataGridViewTextBoxColumn30.HeaderText = "流水號";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.Visible = false;
             // 
             // frmProductTypeStdPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 1024);
+            this.ClientSize = new System.Drawing.Size(1332, 750);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -1637,9 +1665,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBasePrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmendTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateTime.Properties)).EndInit();
@@ -1649,12 +1675,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWork.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBasePrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
-            this.panelControl10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
             this.panelControl11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectSizeFlag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
             this.panelControl9.ResumeLayout(false);
@@ -1662,22 +1691,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroupSeq.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroup.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAddCharge1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvColorDetails)).EndInit();
@@ -1692,7 +1719,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValueDesc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSelectSizeFlag.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1799,7 +1825,6 @@
         private DevExpress.XtraEditors.SimpleButton btnFindSizeGroup;
         private DevExpress.XtraEditors.ComboBoxEdit cmbUnit;
         private DevExpress.XtraEditors.LabelControl lblUnit;
-        private DevExpress.XtraEditors.PanelControl panelControl10;
         private DevExpress.XtraEditors.PanelControl panelControl6;
         private DevExpress.XtraEditors.TextEdit txtAddCharge1;
         private DevExpress.XtraEditors.TextEdit txtAddCharge3;
@@ -1817,21 +1842,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private DevExpress.XtraEditors.CheckEdit chkSelectSizeFlag;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectSizeFlag;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeIDDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeNameDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSN;
         private DevExpress.XtraEditors.LabelControl lblAddCharge3;
         private DevExpress.XtraEditors.LabelControl lblAddCharge2;
         private DevExpress.XtraEditors.LabelControl lblAddCharge1;
@@ -1846,5 +1856,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colValueDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupUpperSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBasePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectSizeFlag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeIDDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeNameDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge3;
     }
 }

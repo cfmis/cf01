@@ -42,8 +42,6 @@ namespace cf01.MM
                 DataRow dr = dtProductType.Rows[0];
                 txtArtWork.Text = dr["ArtWork"].ToString();
                 txtProductType.Text = dr["ProductType"].ToString();
-                txtBasePrice.Text = dr["BasePrice"].ToString();
-                cmbUnit.Text = dr["Unit"].ToString();
                 txtRemark.Text = dr["Remark"].ToString();
                 txtCreateUser.Text = dr["CreateUser"].ToString();
                 txtCreateTime.Text = dr["CreateTime"].ToString();
@@ -88,8 +86,6 @@ namespace cf01.MM
             mdlPtp.Ver = txtVer.Text == "" ? 0 : Convert.ToInt32(txtVer.Text);
             mdlPtp.ArtWork = txtArtWork.Text;
             mdlPtp.ProductType = txtProductType.Text;
-            mdlPtp.BasePrice = txtBasePrice.Text.Trim() == "" ? 0 : Convert.ToDecimal(txtBasePrice.Text);
-            mdlPtp.Unit = cmbUnit.Text;
             mdlPtp.Remark = txtRemark.Text;
             string result=clsMmProductTypeStdPrice.Save(mdlPtp);
             txtID.Text = result;
@@ -109,6 +105,8 @@ namespace cf01.MM
             txtSizeGroupSeq.Text = "";
             txtSizeID.Text = "";
             txtSizeName.Text = "";
+            txtBasePrice.Text = "";
+            cmbUnit.Text = "";
             chkAddCharge1.Checked = false;
             txtAddCharge1.Text = "";
             chkAddCharge2.Checked = false;
@@ -144,6 +142,8 @@ namespace cf01.MM
             mdlMtps.SizeGroup = txtSizeGroup.Text.Trim();
             mdlMtps.SizeID = txtSizeID.Text.Trim();
             mdlMtps.SizeName = txtSizeName.Text.Trim();
+            mdlMtps.BasePrice = txtBasePrice.Text.Trim() != "" ? Convert.ToDecimal(txtBasePrice.Text) : 0;
+            mdlMtps.Unit = cmbUnit.Text.Trim();
             result = clsMmProductTypeStdPrice.SavePrdSizeGroup(mdlMtps);
             if (result != "")
                 MessageBox.Show(result);
@@ -169,6 +169,8 @@ namespace cf01.MM
                 txtSizeGroupSeq.Text = "";
                 txtSizeID.Text = "";
                 txtSizeName.Text = "";
+                txtBasePrice.Text = "";
+                cmbUnit.Text = "";
                 txtAddCharge1.Text = "";
                 txtAddCharge2.Text = "";
                 txtAddCharge3.Text = "";
@@ -204,12 +206,6 @@ namespace cf01.MM
             Seq = (MaxSeqInt + 1).ToString().PadLeft(3, '0');
             return Seq;
         }
-        private void dgvColorGroup_SelectionChanged(object sender, EventArgs e)
-        {
-
-            dgvColorGroupRowSelect(dgvColorGroup.CurrentRow.Index);
-            //LoadColorGroup(dgvColorGroup.CurrentRow.Index);
-        }
         private void dgvColorGroupRowSelect(int row)
         {
             DataGridViewRow dr = dgvColorGroup.Rows[row];
@@ -240,13 +236,20 @@ namespace cf01.MM
             dgvColorGroup.DataSource = dtColorGroup;
             if(dtColorGroup.Rows.Count==0)
             {
-                txtColorGroup.Text = "";
-                txtValueDesc.Text = "";
-                txtRate.Text = "";
-                txtPrice.Text = "";
-                lueCurr.Text = "";
-                txtColorGroupSeq.Text = "";
+                SetColorGroupTextBlank();
             }
+        }
+        private void SetColorGroupTextBlank()
+        {
+            txtColorGroup.Text = "";
+            txtValueDesc.Text = "";
+            txtRate.Text = "";
+            txtPrice.Text = "";
+            lueCurr.Text = "";
+            txtColorGroupSeq.Text = "";
+            chkAddCharge1.Checked = false;
+            chkAddCharge2.Checked = false;
+            chkAddCharge3.Checked = false;
         }
         private void LoadColorDetails()
         {
@@ -478,6 +481,9 @@ namespace cf01.MM
             txtAddCharge1.Text = dr.Cells["colSizeAddCharge1"].Value.ToString();
             txtAddCharge2.Text = dr.Cells["colSizeAddCharge2"].Value.ToString();
             txtAddCharge3.Text = dr.Cells["colSizeAddCharge3"].Value.ToString();
+            txtBasePrice.Text = dr.Cells["colBasePrice"].Value.ToString();
+            cmbUnit.Text = dr.Cells["colUnit"].Value.ToString();
+            SetColorGroupTextBlank();
             LoadColorGroup(row);
             LoadColorDetails();
         }
@@ -693,6 +699,21 @@ namespace cf01.MM
             {
                 dgvSizeDetails.Rows[i].Cells["colSelectSizeFlag"].Value = chkSelectSizeFlag.Checked;
             }
+        }
+
+        private void dgvColorGroup_SelectionChanged(object sender, EventArgs e)
+        {
+            dgvColorGroupRowSelect(dgvColorGroup.CurrentRow.Index);
+        }
+
+        private void dgvColorGroup_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvColorGroupRowSelect(dgvColorGroup.CurrentRow.Index);
+        }
+
+        private void dgvSizeGroup_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvSizeGroupSelectRow(dgvSizeGroup.CurrentRow.Index);
         }
     }
 }
