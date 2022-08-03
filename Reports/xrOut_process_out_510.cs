@@ -8,11 +8,11 @@ namespace cf01.Reports
 {
     public partial class xrOut_process_out_510 : DevExpress.XtraReports.UI.XtraReport
     {
-        private bool isDisplayPrice;
-        public xrOut_process_out_510(bool is_display_price)
+        private bool isShowPrice;        
+        public xrOut_process_out_510(bool is_show_price)
         {
             InitializeComponent();
-            isDisplayPrice = is_display_price;
+            isShowPrice = is_show_price;            
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
             lblSec_qty.DataBindings.Add("Text", DataSource, "sec_qty");
@@ -72,7 +72,7 @@ namespace cf01.Reports
 
         private void lblPrice_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 //lblPrice.Visible = true;
                 if (lblPrice.Text == "0")
@@ -92,7 +92,7 @@ namespace cf01.Reports
 
         private void lblSec_price_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 if (lblSec_price.Text == "0")
                 {
@@ -109,7 +109,7 @@ namespace cf01.Reports
 
         private void lblMould_fee_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 if (lblMould_fee.Text == "0")
                 {
@@ -126,7 +126,7 @@ namespace cf01.Reports
 
         private void lblTotal_prices_TextChanged(object sender, EventArgs e)
         {
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 if (lblTotal_prices.Text == "0")
                 {
@@ -172,6 +172,26 @@ namespace cf01.Reports
             {
                 lbl501.Text = "噴油備註";
             }
+        }
+
+        private void txtColor_qty_TextChanged(object sender, EventArgs e)
+        {
+            if (GetCurrentColumnValue("id").ToString().Substring(1,3)=="510")
+            {
+                if (GetCurrentColumnValue("color_qty").ToString() != "0")
+                {
+                    txtColor_qty.Visible = true;
+                }
+                else
+                {
+                    txtColor_qty.Visible = false;
+                }
+            }
+            else
+            {
+                txtColor_qty.Visible = false;
+            }
+            
         }
     }
 }

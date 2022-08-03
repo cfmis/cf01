@@ -241,7 +241,6 @@ namespace cf01.ReportForm
                 //**********************
                 show_workcard(); //数据处理
                 //**********************
-
             }
         }
 
@@ -258,7 +257,7 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
 
-            string dep, mo, item, Request_date, Remark;
+            string dep, mo_id, item, Request_date, Remark;
 
             DataTable dtNewWork = new DataTable();
             dtNewWork.Columns.Add("wp_id", typeof(string));
@@ -273,7 +272,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("sequence_id", typeof(string));
             dtNewWork.Columns.Add("blueprint_id", typeof(string));
             dtNewWork.Columns.Add("production_remark", typeof(string));
-            dtNewWork.Columns.Add("remark", typeof(string));
+            dtNewWork.Columns.Add("remark", typeof(string));            
             dtNewWork.Columns.Add("next_wp_id", typeof(string));
             dtNewWork.Columns.Add("predept_rechange_qty", typeof(decimal));
             dtNewWork.Columns.Add("order_qty", typeof(string));
@@ -312,8 +311,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("pe_qty", typeof(string));
             dtNewWork.Columns.Add("step", typeof(string));
             dtNewWork.Columns.Add("do_color_next_dep", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));
-
+            dtNewWork.Columns.Add("plate_remark", typeof(string));           
             dtNewWork.Columns.Add("net_weight", typeof(string));
             dtNewWork.Columns.Add("wh_location", typeof(string));
 
@@ -337,20 +335,20 @@ namespace cf01.ReportForm
                     Remark = "";
                     Request_date = dgr.Cells["colRequestReturnDate"].Value.ToString().Trim();
                     dep = dgr.Cells["colDepId"].Value.ToString().Trim();
-                    mo = dgr.Cells["colMoId"].Value.ToString().Trim();
+                    mo_id = dgr.Cells["colMoId"].Value.ToString().Trim();
                     item = dgr.Cells["colGoodsId"].Value.ToString().Trim();
-                    if (dep != "" && mo != "" && item != "")
+                    if (dep != "" && mo_id != "" && item != "")
                     {
-                        DataTable dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item);
+                        DataTable dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);
                         DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
                         DataTable dtPosition = clsMo_for_jx.GetPosition(item);
-                        DataTable dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
+                        DataTable dtQty = clsMo_for_jx.GetOrderQty(mo_id);//獲取訂單數量
                         DataTable dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
-                        //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
-                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);
-                        DataTable dtNextDep = clsMo_for_jx.getNextDepItem(mo, dep, item);
+                        //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo_id, item);
+                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo_id);
+                        DataTable dtNextDep = clsMo_for_jx.getNextDepItem(mo_id, dep, item);
                         //當前貨品的下部門顏色做法
-                        string do_color_next_dep = dgr.Cells["colDoColor"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
+                        string do_color_next_dep = dgr.Cells["colDoColor"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo_id, item, dep);
 
                         order_unit = "";
                         order_qty = 0;
@@ -370,19 +368,13 @@ namespace cf01.ReportForm
                             int NumPage = 0;     //報表頁數
                             if (Total_qty > 0 && Per_qty > 0)
                             {
-                                if (Total_qty % Per_qty > 0)
-                                {
-                                    NumPage = (Total_qty / Per_qty) + 1;
-                                }
-                                else
-                                {
-                                    NumPage = (Total_qty / Per_qty);
-                                }
+                                if (Total_qty % Per_qty > 0)                                
+                                    NumPage = (Total_qty / Per_qty) + 1;                                
+                                else                                
+                                    NumPage = (Total_qty / Per_qty);                                
                             }
-                            else
-                            {
-                                NumPage = 1;
-                            }
+                            else                            
+                                NumPage = 1;                            
 
                             for (int i = 1; i <= NumPage; i++)
                             {
@@ -399,7 +391,7 @@ namespace cf01.ReportForm
                                 dr["ver"] = clsUtility.FormatNullableInt32(drDtWk["ver"]);
                                 dr["sequence_id"] = drDtWk["sequence_id"].ToString();
                                 dr["blueprint_id"] = drDtWk["blueprint_id"].ToString();
-                                dr["production_remark"] = drDtWk["production_remark"].ToString();
+                                dr["production_remark"] = drDtWk["production_remark"].ToString();                               
                                 dr["remark"] = drDtWk["remark"].ToString();
                                 dr["next_wp_id"] = drDtWk["next_wp_id"].ToString();
                                 dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(drDtWk["predept_rechange_qty"]);
@@ -411,7 +403,7 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["basic_unit"] = drDtWk["basic_unit"].ToString();
                                 dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
-                                dr["plate_remark"] = plate_remark;
+                                dr["plate_remark"] = plate_remark;                                
                                 //string next_dep_id = "aaa";// dgr.Cells["next_wp_id"].Value.ToString().Trim();
                                 //DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
                                 dr["customer_id"] = drDtWk["customer_id"].ToString();
@@ -449,7 +441,6 @@ namespace cf01.ReportForm
                                     dr["position_id"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["id"]);
                                     dr["mould_no"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["mould_no"]);
                                 }
-
                                 if (dep == "302" || dep == "322")
                                     dr["report_name"] = "生產單" + "(" + dep + ")";
                                 else
@@ -462,24 +453,17 @@ namespace cf01.ReportForm
                                 if (!string.IsNullOrEmpty(drDtWk["arrive_date"].ToString()))
                                 {
                                     dr["arrive_date"] = Convert.ToDateTime(drDtWk["arrive_date"]).ToString("yyyy/MM/dd");
-                                }
+                                }                          
 
                                 if (i == NumPage && Per_qty != 0)
                                 {
-                                    if (Total_qty % Per_qty > 0)
-                                    {
-                                        dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);
-                                    }
-                                    else
-                                    {
-                                        dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
-                                    }
+                                    if (Total_qty % Per_qty > 0)                                    
+                                        dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);                                    
+                                    else                                    
+                                        dr["per_qty"] = clsUtility.NumberConvert(Per_qty);                                    
                                 }
-                                else
-                                {
+                                else                                
                                     dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
-                                }
-
                                 if (dtPs.Rows.Count > 0)
                                 {
                                     dr["pe_qty"] = dtPs.Rows[0]["pe_qty"].ToString();
@@ -517,13 +501,11 @@ namespace cf01.ReportForm
             //    xr.DataSource = dtNewWork;
             //    xr.ShowPreviewDialog();
             //}
-
             if (dtNewWork.Rows.Count > 0)
             {
                 //xtaWork_jx xr = new xtaWork_jx();舊報表注釋于2016-03-04
                 //xr.DataSource = dtNewWork;
                 //xr.ShowPreviewDialog();
-
                 //xtaWorkjx xr = new xtaWorkjx() { DataSource = dtNewWork };
                 xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtNewWork };
                 xr.CreateDocument();

@@ -8,13 +8,13 @@ namespace cf01.Reports
 {
     public partial class xrOut_process_out : DevExpress.XtraReports.UI.XtraReport
     {
-        public bool isDisplayPrice;
-        public bool isDisplayPlateRemark;
-        public xrOut_process_out(bool is_display_price,bool is_display_plate_remark)
+        public bool isShowPrice;
+        public bool isShowPlateRemark;       
+        public xrOut_process_out(bool is_show_price,bool is_show_plate_remark)
         {
             InitializeComponent();
-            isDisplayPrice = is_display_price;
-            isDisplayPlateRemark = is_display_plate_remark;
+            isShowPrice = is_show_price;
+            isShowPlateRemark = is_show_plate_remark;           
 
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
@@ -77,7 +77,7 @@ namespace cf01.Reports
         private void lblPrice_TextChanged(object sender, EventArgs e)
         {            
             // 是否顯示單價
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 //lblPrice.Visible = true;        
                 if (lblPrice.Text == "0")
@@ -98,7 +98,7 @@ namespace cf01.Reports
         private void lblSec_price_TextChanged(object sender, EventArgs e)
         {            
             // 是否顯示單價
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 //lblSec_price.Visible = true;
                 if (lblSec_price.Text == "0")
@@ -119,7 +119,7 @@ namespace cf01.Reports
         private void lblMould_fee_TextChanged(object sender, EventArgs e)
         {            
             // 是否顯示單價
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 //lblMould_fee.Visible = true;
                 if (lblMould_fee.Text == "0")
@@ -140,7 +140,7 @@ namespace cf01.Reports
         private void lblTotal_prices_TextChanged(object sender, EventArgs e)
         {            
             // 是否顯示單價
-            if (isDisplayPrice)
+            if (isShowPrice)
             {
                 //lblTotal_prices.Visible = true;
                 if (lblTotal_prices.Text == "0")
@@ -161,7 +161,7 @@ namespace cf01.Reports
         private void lblPlateRemark_TextChanged(object sender, EventArgs e)
         {
             // 是否顯示電鍍備註
-            if (isDisplayPlateRemark)
+            if (isShowPlateRemark)
             {
                 lblPlateRemark.Visible = true;                
             }
@@ -217,6 +217,25 @@ namespace cf01.Reports
             }else
             {
                 lbl501.Text = "噴油備註";                
+            }
+        }
+
+        private void txtColor_qty_TextChanged(object sender, EventArgs e)
+        {
+            if (GetCurrentColumnValue("id").ToString().Substring(1, 3) == "510")
+            {
+                if (GetCurrentColumnValue("color_qty").ToString() != "0")
+                {
+                    txtColor_qty.Visible = true;
+                }
+                else
+                {
+                    txtColor_qty.Visible = false;
+                }           
+            }
+            else
+            {
+                txtColor_qty.Visible = false;
             }
         }
     }

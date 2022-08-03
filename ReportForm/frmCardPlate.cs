@@ -250,7 +250,10 @@ namespace cf01.ReportForm
                     newRow["sec_qty"] = dtWordCard.Rows[i]["sec_qty"];
                     newRow["name_color_sample"] = dtWordCard.Rows[i]["name_color_sample"].ToString();
                     newRow["brand_id"] = dtWordCard.Rows[i]["brand_id"].ToString();
-                    newRow["rmk"] = dtWordCard.Rows[i]["rmk"].ToString();
+                    //newRow["rmk"] = dtWordCard.Rows[i]["rmk"].ToString();
+                    newRow["plate_remark"] = dtWordCard.Rows[i]["plate_remark"].ToString();
+                    newRow["production_remark"] = dtWordCard.Rows[i]["production_remark"].ToString();
+                    newRow["remark"] = dtWordCard.Rows[i]["remark"].ToString();
                     newRow["name_color"] = dtWordCard.Rows[i]["name_color"].ToString();
                     newRow["do_color"] = dtWordCard.Rows[i]["do_color"].ToString();
                     newRow["rate"] = dtWordCard.Rows[i]["rate"];
@@ -266,8 +269,9 @@ namespace cf01.ReportForm
                     newRow["picture_name"] = dtWordCard.Rows[i]["picture_name"].ToString();
                     newRow["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
                     newRow["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
-                    
-                               
+                    newRow["is_sample"] = dtWordCard.Rows[i]["is_sample"].ToString();
+
+
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString()!="1")
                     {
@@ -287,7 +291,10 @@ namespace cf01.ReportForm
                             dr["sec_qty"] = dtWordCard.Rows[i]["sec_qty"];
                             dr["name_color_sample"] = dtWordCard.Rows[i]["name_color_sample"].ToString();
                             dr["brand_id"] = dtWordCard.Rows[i]["brand_id"].ToString();
-                            dr["rmk"] = dtWordCard.Rows[i]["rmk"].ToString();
+                            //dr["rmk"] = dtWordCard.Rows[i]["rmk"].ToString();
+                            dr["plate_remark"] = dtWordCard.Rows[i]["plate_remark"].ToString();
+                            dr["production_remark"] = dtWordCard.Rows[i]["production_remark"].ToString();
+                            dr["remark"] = dtWordCard.Rows[i]["remark"].ToString();
                             dr["name_color"] = dtWordCard.Rows[i]["name_color"].ToString();
                             dr["do_color"] = dtWordCard.Rows[i]["do_color"].ToString();
                             dr["rate"] = dtWordCard.Rows[i]["rate"];
@@ -303,6 +310,7 @@ namespace cf01.ReportForm
                             dr["picture_name"] = dtWordCard.Rows[i]["picture_name"].ToString();
                             dr["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
                             dr["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
+                            dr["is_sample"] = dtWordCard.Rows[i]["is_sample"].ToString();
                             dtReport.Rows.Add(dr);
                         }                        
                        

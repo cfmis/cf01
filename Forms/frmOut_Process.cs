@@ -219,7 +219,7 @@ namespace cf01.Forms
 
         private void txtID1_Leave(object sender, EventArgs e)
         {
-            txtID2.Text = txtID1.Text;
+            txtID2.Text = txtID1.Text;           
         }
 
         private void txtVendor_id1_Leave(object sender, EventArgs e)
@@ -298,7 +298,7 @@ namespace cf01.Forms
             dtPlate.Clear();
 
             txtID1.Text = dgvDetails.CurrentRow.Cells["id"].Value.ToString();
-            txtID2.Text = txtID1.Text;   
+            txtID2.Text = txtID1.Text;            
         }
 
         private void txtVendor_Click(object sender, EventArgs e)

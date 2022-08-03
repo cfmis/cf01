@@ -699,7 +699,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("sequence_id", typeof(string));
             dtNewWork.Columns.Add("blueprint_id", typeof(string));
             dtNewWork.Columns.Add("production_remark", typeof(string));
-            dtNewWork.Columns.Add("remark", typeof(string));
+            dtNewWork.Columns.Add("remark", typeof(string));            
             dtNewWork.Columns.Add("next_wp_id", typeof(string));
             dtNewWork.Columns.Add("predept_rechange_qty", typeof(decimal));
             dtNewWork.Columns.Add("order_qty", typeof(string));
@@ -738,8 +738,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("pe_qty", typeof(string));
             dtNewWork.Columns.Add("step", typeof(string));
             dtNewWork.Columns.Add("do_color_next_dep", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));
-
+            dtNewWork.Columns.Add("plate_remark", typeof(string));            
             dtNewWork.Columns.Add("net_weight", typeof(string));
             dtNewWork.Columns.Add("wh_location", typeof(string));
 
@@ -837,7 +836,7 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["basic_unit"] = drDtWk["basic_unit"].ToString();
                                 dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
-                                dr["plate_remark"] = plate_remark;
+                                dr["plate_remark"] = plate_remark;                                
                                 string next_dep_id = dgr.Cells["next_wp_id"].Value.ToString().Trim();
                                 DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
                                 dr["next_dep_name"] = drDept[0]["next_wp_name"].ToString();

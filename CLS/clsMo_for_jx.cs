@@ -44,10 +44,11 @@ namespace cf01.CLS
             //*********************
             strSql = string.Format(
                @"SELECT a.id, a.ver,a.bill_date, a.mo_id, a.check_date, a.customer_id, a.remark, b.within_code,b.wp_id, b.goods_id, b.prod_qty, b.obligate_qty, b.sequence_id, b.flevel,
-                  Convert(varchar(10), b.t_complete_date,120) AS t_complete_date, b.next_wp_id, b.goods_unit, b.vendor_id, CONVERT(Decimal(10),b.c_sec_qty_ok) AS c_sec_qty_ok,
-                  CONVERT(Decimal(10), b.predept_rechange_qty) AS predept_rechange_qty, c.name,c.color AS color_id, c.blueprint_id, c.color, d.name AS next_wp_name,
-                  e.brand_id, e.get_color_sample, e.goods_unit AS order_unit, convert(varchar(10), e.arrive_date,120) AS arrive_date, f.production_remark,f.nickle_free,f.plumbum_free,
-                  Convert(int,g.base_qty) AS base_qty, g.unit_code, Convert(int,g.rate) AS base_rate, g.basic_unit, dp.name AS get_color_sample_name, h.do_color,h.name as color_name 
+                 CONVERT(varchar(10), b.t_complete_date,120) AS t_complete_date, b.next_wp_id, b.goods_unit, b.vendor_id, CONVERT(Decimal(10),b.c_sec_qty_ok) AS c_sec_qty_ok,
+                 CONVERT(Decimal(10), b.predept_rechange_qty) AS predept_rechange_qty, c.name,c.color AS color_id, c.blueprint_id, c.color, d.name AS next_wp_name,e.brand_id,
+                 e.get_color_sample, e.goods_unit AS order_unit, convert(varchar(10), e.arrive_date,120) AS arrive_date,e.plate_remark,f.production_remark,                 
+                 f.nickle_free,f.plumbum_free,
+                 Convert(int,g.base_qty) AS base_qty, g.unit_code, Convert(int,g.rate) AS base_rate, g.basic_unit, dp.name AS get_color_sample_name, h.do_color,h.name as color_name 
                  FROM {0}jo_bill_mostly a with(nolock) 
                  INNER JOIN {0}jo_bill_goods_details b with(nolock) ON a.within_code = b.within_code AND a.id = b.id AND a.ver = b.ver 
                  INNER JOIN {0}it_goods c with(nolock) ON b.within_code = c.within_code AND  b.goods_id = c.id
@@ -150,12 +151,11 @@ namespace cf01.CLS
         public static DataTable GetOrderQty(string mo_id)
         {
             DataTable dtQty = new DataTable();
-
-                string strSQL = String.Format(@"SELECT a.order_qty,convert(int,a.order_qty*b.rate) as order_qty_pcs,a.goods_unit,a.plate_remark" +
-                                                " FROM so_order_details a with(nolock) "+
-                                                " LEFT OUTER JOIN it_coding b with(nolock) On a.within_code=b.within_code AND a.goods_unit=b.unit_code"+
-                                                " WHERE  a.within_code = '0000' AND  a.mo_id ='{0}' and b.id='*'", mo_id);
-
+                string strSQL = string.Format(
+                    @"SELECT a.order_qty,Convert(int,a.order_qty*b.rate) AS order_qty_pcs,a.goods_unit,a.plate_remark
+                    FROM so_order_details a with(nolock) 
+                    LEFT OUTER JOIN it_coding b with(nolock) ON b.within_code=a.within_code AND b.unit_code=a.goods_unit
+                    WHERE a.within_code = '0000' AND a.mo_id ='{0}' AND b.id='*'", mo_id);
                 dtQty = clsConErp.GetDataTable(strSQL);
             return dtQty;
         }
@@ -170,8 +170,8 @@ namespace cf01.CLS
             DataTable dtPlate_Remark = new DataTable();
             try
             {
-                string strSQL = String.Format(@"SELECT plate_remark"+
-                    " FROM so_order_details with(nolock) WHERE within_code = '0000' AND mo_id ='{0}'", mo_id);
+                string strSQL = string.Format(
+                    @"SELECT plate_remark FROM so_order_details with(nolock) WHERE within_code = '0000' AND mo_id ='{0}'", mo_id);
                 dtPlate_Remark = clsConErp.GetDataTable(strSQL);
             }
             catch (Exception ex)
@@ -191,12 +191,12 @@ namespace cf01.CLS
             DataTable dtQty = new DataTable();
             try
             {
-                string strSQL = String.Format(
-                  @" SELECT a.order_qty*b.dosage as order_qty,convert(int,a.order_qty*c.rate*b.dosage) as order_qty_pcs,a.goods_unit
+                string strSQL = string.Format(
+                  @"SELECT a.order_qty*b.dosage AS order_qty,Convert(int,a.order_qty*c.rate*b.dosage) AS order_qty_pcs,a.goods_unit
                     FROM dbo.so_order_details a with(nolock)
-                    LEFT JOIN so_order_bom b with(nolock) on a.within_code=b.within_code AND a.id =b.id AND a.sequence_id =b.upper_sequence
-                    LEFT JOIN dbo.it_coding c with(nolock) On a.within_code=c.within_code AND a.goods_unit=c.unit_code
-                    WHERE a.within_code = '0000' AND  a.mo_id = '{0}' and c.id='*' AND b.goods_id ='{1}'", mo_id, goods_id);
+                    LEFT JOIN so_order_bom b with(nolock) ON b.within_code=a.within_code AND b.id=a.id AND b.upper_sequence=a.sequence_id
+                    LEFT JOIN dbo.it_coding c with(nolock) ON c.within_code=a.within_code AND c.unit_code=a.goods_unit
+                    WHERE a.within_code = '0000' AND a.mo_id = '{0}' AND c.id='*' AND b.goods_id ='{1}'", mo_id, goods_id);
                 dtQty = clsConErp.GetDataTable(strSQL);
             }
             catch (Exception ex)
@@ -216,11 +216,11 @@ namespace cf01.CLS
             DataTable dtArt = new DataTable();
             try
             {
-                string strSQL = String.Format(
-                     @"SELECT TOP 1 b.sequence_id AS art_id,b.picture_name"+
-                      " FROM it_goods a with(nolock)"+
-                      " LEFT JOIN cd_pattern_details b ON a.within_code=b.within_code AND a.blueprint_id=b.id"+
-                      " WHERE a.within_code='0000' and a.id = '{0}'", goods_item);
+                string strSQL = string.Format(
+                     @"SELECT TOP 1 b.sequence_id AS art_id,b.picture_name
+                      FROM it_goods a with(nolock)
+                      LEFT JOIN cd_pattern_details b ON a.within_code=b.within_code AND a.blueprint_id=b.id
+                      WHERE a.within_code='0000' AND a.id = '{0}'", goods_item);
                 //string strSQL = String.Format(@"Select dbo.Fn_get_picture_name('0000','{0}','OUT') AS picture_name", goods_item);
                 dtArt = clsConErp.GetDataTable(strSQL);
             }
@@ -244,12 +244,9 @@ namespace cf01.CLS
                     string products_type = prd_item.Substring(2, 2);
                     string pattern_id = prd_item.Substring(4, 7);
                     string measurement = prd_item.Substring(11, 3);
-
-                    string strSQL = String.Format(
-                      @"SELECT id,mould_no FROM cd_mould_position "+
-                       " WHERE products_type='{0}' AND pattern_id='{1}' AND measurement='{2}'", 
-                       products_type, pattern_id, measurement);
-
+                    string strSQL = string.Format(
+                      @"SELECT id,mould_no FROM cd_mould_position WHERE products_type='{0}' AND pattern_id='{1}' AND measurement='{2}'", 
+                      products_type, pattern_id, measurement);
                     dtPosition = clsConErp.GetDataTable(strSQL);
                 }
             return dtPosition;

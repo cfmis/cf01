@@ -443,7 +443,7 @@ namespace cf01.ReportForm
                     newRow["name_clr"] = dtDelivery.Rows[i]["name_clr"].ToString();
                     newRow["production_remark"] = dtDelivery.Rows[i]["production_remark"].ToString();
                     newRow["plan_remark"] = dtDelivery.Rows[i]["plan_remark"].ToString();
-                    newRow["plate_remark"] = dtDelivery.Rows[i]["plate_remark"].ToString();
+                    newRow["plate_remark"] = dtDelivery.Rows[i]["plate_remark"].ToString();                   
                     newRow["plan_complete"] = dtDelivery.Rows[i]["plan_complete"].ToString();
                     newRow["location_list"] = dtDelivery.Rows[i]["location_list"].ToString();
                     newRow["remark"] = dtDelivery.Rows[i]["remark"].ToString();
@@ -485,7 +485,7 @@ namespace cf01.ReportForm
                                 dr["name_clr"] = dtDelivery.Rows[i]["name_clr"].ToString();
                                 dr["production_remark"] = dtDelivery.Rows[i]["production_remark"].ToString();
                                 dr["plan_remark"] = dtDelivery.Rows[i]["plan_remark"].ToString();
-                                dr["plate_remark"] = dtDelivery.Rows[i]["plate_remark"].ToString();
+                                dr["plate_remark"] = dtDelivery.Rows[i]["plate_remark"].ToString();                               
                                 dr["plan_complete"] = dtDelivery.Rows[i]["plan_complete"].ToString();
                                 dr["location_list"] = dtDelivery.Rows[i]["location_list"].ToString();
                                 dr["remark"] = dtDelivery.Rows[i]["remark"].ToString();
@@ -573,6 +573,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("vendor_id", typeof(string));
             dtNewWork.Columns.Add("production_remark", typeof(string));
             dtNewWork.Columns.Add("remark", typeof(string));
+            dtNewWork.Columns.Add("plate_remark", typeof(string));            
             dtNewWork.Columns.Add("picture_name", typeof(string)); 
             dtNewWork.Columns.Add("arrive_date", typeof(string));
             dtNewWork.Columns.Add("next_wp_id", typeof(string));
@@ -694,6 +695,7 @@ namespace cf01.ReportForm
                                 dr["vendor_id"] = dtCard.Rows[j]["vendor_id"].ToString();
                                 dr["production_remark"] = dtCard.Rows[j]["production_remark"].ToString();
                                 dr["remark"] = dtCard.Rows[j]["remark"].ToString();
+                                dr["plate_remark"] = dtCard.Rows[j]["plate_remark"].ToString();                                
                                 dr["picture_name"] = dtCard.Rows[j]["picture_name"].ToString();
                                 dr["arrive_date"] = dtCard.Rows[j]["arrive_date"].ToString();
                                 dr["next_wp_id"] = dtCard.Rows[j]["next_wp_id"].ToString();

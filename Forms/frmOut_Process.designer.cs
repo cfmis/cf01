@@ -73,6 +73,7 @@
             this.txtVendor_id2 = new DevExpress.XtraEditors.LookUpEdit();
             this.picArt = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkPlateRemark = new System.Windows.Forms.CheckBox();
             this.chkDisplayPrice = new System.Windows.Forms.CheckBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,7 +88,6 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkPlateRemark = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -587,7 +587,7 @@
             // picArt
             // 
             this.picArt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picArt.Location = new System.Drawing.Point(554, 32);
+            this.picArt.Location = new System.Drawing.Point(735, 32);
             this.picArt.Name = "picArt";
             this.picArt.Size = new System.Drawing.Size(166, 166);
             this.picArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -612,8 +612,20 @@
             this.panel1.Controls.Add(this.txtID2);
             this.panel1.Location = new System.Drawing.Point(8, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 158);
+            this.panel1.Size = new System.Drawing.Size(713, 158);
             this.panel1.TabIndex = 133;
+            // 
+            // chkPlateRemark
+            // 
+            this.chkPlateRemark.AutoSize = true;
+            this.chkPlateRemark.Checked = true;
+            this.chkPlateRemark.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkPlateRemark.Location = new System.Drawing.Point(286, 127);
+            this.chkPlateRemark.Name = "chkPlateRemark";
+            this.chkPlateRemark.Size = new System.Drawing.Size(132, 16);
+            this.chkPlateRemark.TabIndex = 133;
+            this.chkPlateRemark.Text = "報表中顯示電鍍備註";
+            this.chkPlateRemark.UseVisualStyleBackColor = true;
             // 
             // chkDisplayPrice
             // 
@@ -731,18 +743,6 @@
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             this.dataGridViewTextBoxColumn13.Visible = false;
-            // 
-            // chkPlateRemark
-            // 
-            this.chkPlateRemark.AutoSize = true;
-            this.chkPlateRemark.Checked = true;
-            this.chkPlateRemark.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkPlateRemark.Location = new System.Drawing.Point(286, 127);
-            this.chkPlateRemark.Name = "chkPlateRemark";
-            this.chkPlateRemark.Size = new System.Drawing.Size(132, 16);
-            this.chkPlateRemark.TabIndex = 133;
-            this.chkPlateRemark.Text = "報表中顯示電鍍備註";
-            this.chkPlateRemark.UseVisualStyleBackColor = true;
             // 
             // frmOut_Process
             // 

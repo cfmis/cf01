@@ -355,7 +355,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clButFindReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clBtnTest_report_path)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clEffect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clEffect.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clEffect.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clRef_mo)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -379,7 +379,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkeFinally_buyer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeAp_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeLoading_port.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtShip_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtShip_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtShip_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssues_state.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeAccounts.Properties)).BeginInit();
@@ -409,7 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShop_no.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShipping_methods.Properties)).BeginInit();
@@ -462,9 +462,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDgid1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcOcDgdDetails)).BeginInit();
@@ -528,10 +528,10 @@
             this.clEffect.AutoHeight = false;
             this.clEffect.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.clEffect.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.clEffect.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.clEffect.Name = "clEffect";
-            this.clEffect.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // clRef_mo
             // 
@@ -1139,8 +1139,8 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAddress.EditValue = "";
             this.txtAddress.EnterMoveNextControl = true;
             this.txtAddress.Location = new System.Drawing.Point(927, 281);
@@ -1161,8 +1161,8 @@
             // 
             // txtBill_address
             // 
-            this.txtBill_address.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBill_address.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBill_address.EditValue = "";
             this.txtBill_address.EnterMoveNextControl = true;
             this.txtBill_address.Location = new System.Drawing.Point(927, 71);
@@ -1375,6 +1375,8 @@
             this.dtShip_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtShip_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtShip_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtShip_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtShip_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtShip_date.Properties.Mask.BeepOnError = true;
@@ -1382,8 +1384,6 @@
             this.dtShip_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtShip_date.Properties.MaxLength = 10;
             this.dtShip_date.Properties.NullDate = "";
-            this.dtShip_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtShip_date.Size = new System.Drawing.Size(141, 22);
             this.dtShip_date.TabIndex = 26;
             this.dtShip_date.Tag = "2";
@@ -2196,6 +2196,8 @@
             this.dtOi_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtOi_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtOi_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtOi_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.dtOi_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtOi_date.Properties.Mask.BeepOnError = true;
@@ -2203,8 +2205,6 @@
             this.dtOi_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtOi_date.Properties.MaxLength = 10;
             this.dtOi_date.Properties.NullDate = "";
-            this.dtOi_date.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtOi_date.Size = new System.Drawing.Size(152, 22);
             this.dtOi_date.TabIndex = 1;
             this.dtOi_date.Tag = "2";
@@ -2652,9 +2652,9 @@
             // 
             // gridControl2
             // 
-            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl2.Location = new System.Drawing.Point(3, 650);
             this.gridControl2.MainView = this.dgvFare;
             this.gridControl2.Name = "gridControl2";
@@ -2942,8 +2942,8 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(3, 407);
             this.gridControl1.MainView = this.dgvDetails;
             this.gridControl1.Name = "gridControl1";
@@ -3684,9 +3684,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -3792,9 +3792,9 @@
             // 
             this.dgvFind.AllowUserToAddRows = false;
             this.dgvFind.AllowUserToDeleteRows = false;
-            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -4107,12 +4107,12 @@
             this.txtDat2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Properties.Mask.BeepOnError = true;
             this.txtDat2.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.txtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Size = new System.Drawing.Size(127, 22);
             this.txtDat2.TabIndex = 1;
             this.txtDat2.Tag = "2";
@@ -4126,12 +4126,12 @@
             this.txtDat1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Properties.Mask.BeepOnError = true;
             this.txtDat1.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.txtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Size = new System.Drawing.Size(127, 22);
             this.txtDat1.TabIndex = 0;
             this.txtDat1.Tag = "2";
@@ -4162,9 +4162,9 @@
             // 
             // gcOcDgdDetails
             // 
-            this.gcOcDgdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcOcDgdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcOcDgdDetails.Location = new System.Drawing.Point(2, 497);
             this.gcOcDgdDetails.MainView = this.dgvOcDgdDetails;
             this.gcOcDgdDetails.Name = "gcOcDgdDetails";
@@ -4341,8 +4341,8 @@
             // 
             // gcIdDetails
             // 
-            this.gcIdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcIdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcIdDetails.Location = new System.Drawing.Point(2, 57);
             this.gcIdDetails.MainView = this.dgvIdDetails;
             this.gcIdDetails.Name = "gcIdDetails";
@@ -4389,6 +4389,7 @@
             this.colId_chkSelect.FieldName = "is_select";
             this.colId_chkSelect.Name = "colId_chkSelect";
             this.colId_chkSelect.OptionsColumn.AllowMove = false;
+            this.colId_chkSelect.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_chkSelect.OptionsFilter.AllowAutoFilter = false;
             this.colId_chkSelect.OptionsFilter.AllowFilter = false;
             this.colId_chkSelect.Visible = true;
@@ -4408,6 +4409,7 @@
             this.colId_Id.FieldName = "id";
             this.colId_Id.Name = "colId_Id";
             this.colId_Id.OptionsColumn.AllowMove = false;
+            this.colId_Id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Id.OptionsColumn.ReadOnly = true;
             this.colId_Id.OptionsFilter.AllowAutoFilter = false;
             this.colId_Id.OptionsFilter.AllowFilter = false;
@@ -4422,6 +4424,7 @@
             this.colId_Ship_date.Name = "colId_Ship_date";
             this.colId_Ship_date.OptionsColumn.AllowEdit = false;
             this.colId_Ship_date.OptionsColumn.AllowMove = false;
+            this.colId_Ship_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Ship_date.OptionsFilter.AllowAutoFilter = false;
             this.colId_Ship_date.OptionsFilter.AllowFilter = false;
             this.colId_Ship_date.Visible = true;
@@ -4435,6 +4438,7 @@
             this.colId_Sequence_id.Name = "colId_Sequence_id";
             this.colId_Sequence_id.OptionsColumn.AllowEdit = false;
             this.colId_Sequence_id.OptionsColumn.AllowMove = false;
+            this.colId_Sequence_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Sequence_id.OptionsFilter.AllowAutoFilter = false;
             this.colId_Sequence_id.OptionsFilter.AllowFilter = false;
             this.colId_Sequence_id.Visible = true;
@@ -4447,6 +4451,7 @@
             this.colId_Mo_id.FieldName = "mo_id";
             this.colId_Mo_id.Name = "colId_Mo_id";
             this.colId_Mo_id.OptionsColumn.AllowMove = false;
+            this.colId_Mo_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Mo_id.OptionsColumn.ReadOnly = true;
             this.colId_Mo_id.OptionsFilter.AllowAutoFilter = false;
             this.colId_Mo_id.OptionsFilter.AllowFilter = false;
@@ -4460,6 +4465,7 @@
             this.colId_Goods_id.FieldName = "goods_id";
             this.colId_Goods_id.Name = "colId_Goods_id";
             this.colId_Goods_id.OptionsColumn.AllowMove = false;
+            this.colId_Goods_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Goods_id.OptionsColumn.ReadOnly = true;
             this.colId_Goods_id.OptionsFilter.AllowAutoFilter = false;
             this.colId_Goods_id.OptionsFilter.AllowFilter = false;
@@ -4474,6 +4480,7 @@
             this.colId_Goods_name.Name = "colId_Goods_name";
             this.colId_Goods_name.OptionsColumn.AllowEdit = false;
             this.colId_Goods_name.OptionsColumn.AllowMove = false;
+            this.colId_Goods_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Goods_name.OptionsFilter.AllowAutoFilter = false;
             this.colId_Goods_name.OptionsFilter.AllowFilter = false;
             this.colId_Goods_name.Visible = true;
@@ -4487,6 +4494,7 @@
             this.colId_U_invoice_qty.Name = "colId_U_invoice_qty";
             this.colId_U_invoice_qty.OptionsColumn.AllowEdit = false;
             this.colId_U_invoice_qty.OptionsColumn.AllowMove = false;
+            this.colId_U_invoice_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_U_invoice_qty.OptionsFilter.AllowAutoFilter = false;
             this.colId_U_invoice_qty.OptionsFilter.AllowFilter = false;
             this.colId_U_invoice_qty.Visible = true;
@@ -4502,6 +4510,7 @@
             this.colId_Goods_unit.Name = "colId_Goods_unit";
             this.colId_Goods_unit.OptionsColumn.AllowEdit = false;
             this.colId_Goods_unit.OptionsColumn.AllowMove = false;
+            this.colId_Goods_unit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Goods_unit.OptionsFilter.AllowAutoFilter = false;
             this.colId_Goods_unit.OptionsFilter.AllowFilter = false;
             this.colId_Goods_unit.Visible = true;
@@ -4515,6 +4524,7 @@
             this.colId_Sec_qty.Name = "colId_Sec_qty";
             this.colId_Sec_qty.OptionsColumn.AllowEdit = false;
             this.colId_Sec_qty.OptionsColumn.AllowMove = false;
+            this.colId_Sec_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Sec_qty.OptionsFilter.AllowAutoFilter = false;
             this.colId_Sec_qty.OptionsFilter.AllowFilter = false;
             this.colId_Sec_qty.Visible = true;
@@ -4530,6 +4540,7 @@
             this.colId_Sec_unit.Name = "colId_Sec_unit";
             this.colId_Sec_unit.OptionsColumn.AllowEdit = false;
             this.colId_Sec_unit.OptionsColumn.AllowMove = false;
+            this.colId_Sec_unit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Sec_unit.OptionsFilter.AllowAutoFilter = false;
             this.colId_Sec_unit.OptionsFilter.AllowFilter = false;
             this.colId_Sec_unit.Visible = true;
@@ -4542,6 +4553,7 @@
             this.colId_Order_id.FieldName = "order_id";
             this.colId_Order_id.Name = "colId_Order_id";
             this.colId_Order_id.OptionsColumn.AllowMove = false;
+            this.colId_Order_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colId_Order_id.OptionsColumn.ReadOnly = true;
             this.colId_Order_id.OptionsFilter.AllowAutoFilter = false;
             this.colId_Order_id.OptionsFilter.AllowFilter = false;
@@ -4551,8 +4563,8 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Controls.Add(this.btnImput);
             this.panel2.Controls.Add(this.lblFindId);
@@ -4660,7 +4672,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clType_conditon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clButFindReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clBtnTest_report_path)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clEffect.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clEffect.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clEffect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clRef_mo)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -4686,7 +4698,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkeFinally_buyer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeAp_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeLoading_port.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtShip_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtShip_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtShip_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIssues_state.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeAccounts.Properties)).EndInit();
@@ -4716,7 +4728,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShop_no.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShipping_methods.Properties)).EndInit();
@@ -4770,9 +4782,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDgid1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcOcDgdDetails)).EndInit();
