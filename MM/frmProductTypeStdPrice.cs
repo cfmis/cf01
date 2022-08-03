@@ -100,7 +100,7 @@ namespace cf01.MM
 
         private void btnAddSize_Click(object sender, EventArgs e)
         {
-            
+             
             txtSizeGroup.Text = "";
             txtSizeGroupSeq.Text = "";
             txtSizeID.Text = "";
