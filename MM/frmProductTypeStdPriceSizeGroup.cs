@@ -16,6 +16,7 @@ namespace cf01.MM
         public frmProductTypeStdPriceSizeGroup()
         {
             InitializeComponent();
+            dgvSizeGroup.AutoGenerateColumns = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -25,9 +26,7 @@ namespace cf01.MM
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            txtGroupID.Text = "";
-            txtSizeID.Text = "";
-            txtSizeName.Text = "";
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -47,6 +46,9 @@ namespace cf01.MM
             mdlSizeGroup mdlSG = new mdlSizeGroup();
             mdlSG.GroupID = txtGroupID.Text;
             mdlSG.SizeID = txtSizeID.Text;
+            mdlSG.AddCharge1 = txtAddCharge1.Text.Trim() != "" ? Convert.ToDecimal(txtAddCharge1.Text) : 0;
+            mdlSG.AddCharge2 = txtAddCharge2.Text.Trim() != "" ? Convert.ToDecimal(txtAddCharge2.Text) : 0;
+            mdlSG.AddCharge3 = txtAddCharge3.Text.Trim() != "" ? Convert.ToDecimal(txtAddCharge3.Text) : 0;
             result = clsMmProductTypeStdPrice.SaveSizeGroup(mdlSG);
             if (result != "")
             {
@@ -71,9 +73,19 @@ namespace cf01.MM
         {
             DataTable dtSize = clsMmProductTypeStdPrice.GetSize(txtSizeID.Text);
             if (dtSize.Rows.Count > 0)
+            {
                 txtSizeName.Text = dtSize.Rows[0]["SizeName"].ToString().Trim();
+                txtAddCharge1.Text = dtSize.Rows[0]["add_charge1"].ToString().Trim();
+                txtAddCharge2.Text = dtSize.Rows[0]["add_charge2"].ToString().Trim();
+                txtAddCharge3.Text = dtSize.Rows[0]["add_charge3"].ToString().Trim();
+            }
             else
+            {
                 txtSizeName.Text = "";
+                txtAddCharge1.Text = "";
+                txtAddCharge2.Text = "";
+                txtAddCharge3.Text = "";
+            }
         }
 
         private void dgvSizeGroup_SelectionChanged(object sender, EventArgs e)
@@ -86,14 +98,20 @@ namespace cf01.MM
             {
                 DataGridViewRow dr = dgvSizeGroup.Rows[dgvSizeGroup.CurrentRow.Index];
                 txtGroupID.Text = dr.Cells["colGroupID"].Value.ToString();
-                txtSizeID.Text = dr.Cells["colSizeID"].Value.ToString();
+                txtSizeID.Text = dr.Cells["colSizeID"].Value.ToString();//
                 txtSizeName.Text = dr.Cells["colSizeName"].Value.ToString();
+                txtAddCharge1.Text = dr.Cells["colAddCharge1"].Value.ToString();
+                txtAddCharge2.Text = dr.Cells["colAddCharge2"].Value.ToString();
+                txtAddCharge3.Text = dr.Cells["colAddCharge3"].Value.ToString();
             }
             else
             {
                 txtGroupID.Text = "";
                 txtSizeID.Text = "";
                 txtSizeName.Text = "";
+                txtAddCharge1.Text = "";
+                txtAddCharge2.Text = "";
+                txtAddCharge3.Text = "";
             }
         }
         private void btnFind_Click(object sender, EventArgs e)
@@ -128,6 +146,22 @@ namespace cf01.MM
                 frmProductTypeStdPrice.searchSizeGroup = dgvSizeGroup.Rows[dgvSizeGroup.CurrentRow.Index].Cells["colGroupID"].Value.ToString();
                 this.Close();
             }
+        }
+
+        private void btnAddGroup_Click(object sender, EventArgs e)
+        {
+            txtGroupID.Text = "";
+            btnAddSize_Click(sender, e);
+        }
+
+        private void btnAddSize_Click(object sender, EventArgs e)
+        {
+            txtSizeID.Text = "";
+            txtSizeName.Text = "";
+            txtAddCharge1.Text = "";
+            txtAddCharge2.Text = "";
+            txtAddCharge3.Text = "";
+            txtSizeID.Focus();
         }
     }
 }

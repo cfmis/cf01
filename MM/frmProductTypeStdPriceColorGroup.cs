@@ -23,13 +23,6 @@ namespace cf01.MM
             this.Close();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            txtGroupID.Text = "";
-            txtColorID.Text = "";
-            txtColorName.Text = "";
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Save();
@@ -125,6 +118,19 @@ namespace cf01.MM
                 frmProductTypeStdPrice.searchColorGroup = dgvColorGroup.Rows[dgvColorGroup.CurrentRow.Index].Cells["colGroupID"].Value.ToString();
                 this.Close();
             }
+        }
+
+        private void btnAddGroup_Click(object sender, EventArgs e)
+        {
+            txtGroupID.Text = "";
+            btnAddColor_Click(sender, e);
+        }
+
+        private void btnAddColor_Click(object sender, EventArgs e)
+        {
+            txtColorID.Text = "";
+            txtColorName.Text = "";
+            txtColorID.Focus();
         }
     }
 }

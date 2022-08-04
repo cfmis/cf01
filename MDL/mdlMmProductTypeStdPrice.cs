@@ -59,6 +59,9 @@ namespace cf01.MDL
     {
         public string GroupID { get; set; }
         public string SizeID { get; set; }
+        public decimal AddCharge1 { get; set; }
+        public decimal AddCharge2 { get; set; }
+        public decimal AddCharge3 { get; set; }
     }
     public class mdlColorGroup
     {

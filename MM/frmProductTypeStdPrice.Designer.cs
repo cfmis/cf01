@@ -72,12 +72,6 @@
             this.chkSelectSizeFlag = new DevExpress.XtraEditors.CheckEdit();
             this.dgvSizeDetails = new System.Windows.Forms.DataGridView();
             this.colSelectSizeFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colSizeGroupDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeIDDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeNameDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.btnFindSizeGroup = new DevExpress.XtraEditors.SimpleButton();
             this.lblMsgSizeGroup = new DevExpress.XtraEditors.LabelControl();
@@ -85,16 +79,6 @@
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.btnAddSizeGroup = new DevExpress.XtraEditors.SimpleButton();
             this.dgvSizeGroup = new System.Windows.Forms.DataGridView();
-            this.colSizeGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.lblAddCharge3 = new DevExpress.XtraEditors.LabelControl();
             this.lblAddCharge2 = new DevExpress.XtraEditors.LabelControl();
@@ -117,22 +101,8 @@
             this.chkAddCharge1 = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.dgvColorDetails = new System.Windows.Forms.DataGridView();
-            this.colColorGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.dgvColorGroup = new System.Windows.Forms.DataGridView();
-            this.colColorGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupUpperSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.lblColorGroupCdesc = new DevExpress.XtraEditors.LabelControl();
             this.lblColorGroup = new DevExpress.XtraEditors.LabelControl();
@@ -179,6 +149,36 @@
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupUpperSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeIDDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeNameDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -381,7 +381,7 @@
             // 
             // lblRemark
             // 
-            this.lblRemark.Location = new System.Drawing.Point(464, 40);
+            this.lblRemark.Location = new System.Drawing.Point(48, 40);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(28, 14);
             this.lblRemark.TabIndex = 4;
@@ -389,9 +389,9 @@
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(499, 37);
+            this.txtRemark.Location = new System.Drawing.Point(84, 37);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(462, 20);
+            this.txtRemark.Size = new System.Drawing.Size(647, 20);
             this.txtRemark.TabIndex = 4;
             // 
             // txtSN
@@ -659,49 +659,6 @@
             this.colSelectSizeFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colSelectSizeFlag.Width = 40;
             // 
-            // colSizeGroupDetails
-            // 
-            this.colSizeGroupDetails.DataPropertyName = "GroupID";
-            this.colSizeGroupDetails.HeaderText = "尺寸組別";
-            this.colSizeGroupDetails.Name = "colSizeGroupDetails";
-            this.colSizeGroupDetails.ReadOnly = true;
-            this.colSizeGroupDetails.Width = 80;
-            // 
-            // colSizeIDDetails
-            // 
-            this.colSizeIDDetails.DataPropertyName = "SizeID";
-            this.colSizeIDDetails.HeaderText = "尺寸代號";
-            this.colSizeIDDetails.Name = "colSizeIDDetails";
-            this.colSizeIDDetails.ReadOnly = true;
-            // 
-            // colSizeNameDetails
-            // 
-            this.colSizeNameDetails.DataPropertyName = "SizeName";
-            this.colSizeNameDetails.HeaderText = "尺寸描述";
-            this.colSizeNameDetails.Name = "colSizeNameDetails";
-            this.colSizeNameDetails.ReadOnly = true;
-            // 
-            // colAddCharge1
-            // 
-            this.colAddCharge1.DataPropertyName = "add_charge1";
-            this.colAddCharge1.HeaderText = "噴沙";
-            this.colAddCharge1.Name = "colAddCharge1";
-            this.colAddCharge1.ReadOnly = true;
-            // 
-            // colAddCharge2
-            // 
-            this.colAddCharge2.DataPropertyName = "add_charge2";
-            this.colAddCharge2.HeaderText = "噴LAC.";
-            this.colAddCharge2.Name = "colAddCharge2";
-            this.colAddCharge2.ReadOnly = true;
-            // 
-            // colAddCharge3
-            // 
-            this.colAddCharge3.DataPropertyName = "add_charge3";
-            this.colAddCharge3.HeaderText = "不锈鋼";
-            this.colAddCharge3.Name = "colAddCharge3";
-            this.colAddCharge3.ReadOnly = true;
-            // 
             // panelControl9
             // 
             this.panelControl9.Controls.Add(this.btnFindSizeGroup);
@@ -784,86 +741,6 @@
             this.dgvSizeGroup.TabIndex = 3;
             this.dgvSizeGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSizeGroup_CellClick);
             this.dgvSizeGroup.SelectionChanged += new System.EventHandler(this.dgvSizeGroup_SelectionChanged);
-            // 
-            // colSizeGroupSeq
-            // 
-            this.colSizeGroupSeq.DataPropertyName = "Seq";
-            this.colSizeGroupSeq.HeaderText = "序號";
-            this.colSizeGroupSeq.Name = "colSizeGroupSeq";
-            this.colSizeGroupSeq.ReadOnly = true;
-            this.colSizeGroupSeq.Width = 60;
-            // 
-            // colSizeGroup
-            // 
-            this.colSizeGroup.DataPropertyName = "SizeGroup";
-            this.colSizeGroup.HeaderText = "尺寸組別";
-            this.colSizeGroup.Name = "colSizeGroup";
-            this.colSizeGroup.ReadOnly = true;
-            this.colSizeGroup.Width = 80;
-            // 
-            // colSizeID
-            // 
-            this.colSizeID.DataPropertyName = "SizeID";
-            this.colSizeID.HeaderText = "尺寸代號";
-            this.colSizeID.Name = "colSizeID";
-            this.colSizeID.ReadOnly = true;
-            this.colSizeID.Width = 80;
-            // 
-            // colSizeName
-            // 
-            this.colSizeName.DataPropertyName = "SizeName";
-            this.colSizeName.HeaderText = "尺寸描述";
-            this.colSizeName.Name = "colSizeName";
-            this.colSizeName.ReadOnly = true;
-            this.colSizeName.Width = 160;
-            // 
-            // colBasePrice
-            // 
-            this.colBasePrice.DataPropertyName = "BasePrice";
-            this.colBasePrice.HeaderText = "基本單價";
-            this.colBasePrice.Name = "colBasePrice";
-            this.colBasePrice.ReadOnly = true;
-            this.colBasePrice.Width = 80;
-            // 
-            // colUnit
-            // 
-            this.colUnit.DataPropertyName = "Unit";
-            this.colUnit.HeaderText = "單價單位";
-            this.colUnit.Name = "colUnit";
-            this.colUnit.ReadOnly = true;
-            this.colUnit.Width = 80;
-            // 
-            // colSizeAddCharge1
-            // 
-            this.colSizeAddCharge1.DataPropertyName = "add_charge1";
-            this.colSizeAddCharge1.HeaderText = "噴沙";
-            this.colSizeAddCharge1.Name = "colSizeAddCharge1";
-            this.colSizeAddCharge1.ReadOnly = true;
-            this.colSizeAddCharge1.Width = 60;
-            // 
-            // colSizeAddCharge2
-            // 
-            this.colSizeAddCharge2.DataPropertyName = "add_charge2";
-            this.colSizeAddCharge2.HeaderText = "噴LAC.";
-            this.colSizeAddCharge2.Name = "colSizeAddCharge2";
-            this.colSizeAddCharge2.ReadOnly = true;
-            this.colSizeAddCharge2.Width = 60;
-            // 
-            // colSizeAddCharge3
-            // 
-            this.colSizeAddCharge3.DataPropertyName = "add_charge3";
-            this.colSizeAddCharge3.HeaderText = "不锈鋼";
-            this.colSizeAddCharge3.Name = "colSizeAddCharge3";
-            this.colSizeAddCharge3.ReadOnly = true;
-            this.colSizeAddCharge3.Width = 60;
-            // 
-            // colSizeGroupSN
-            // 
-            this.colSizeGroupSN.DataPropertyName = "SN";
-            this.colSizeGroupSN.HeaderText = "流水號";
-            this.colSizeGroupSN.Name = "colSizeGroupSN";
-            this.colSizeGroupSN.ReadOnly = true;
-            this.colSizeGroupSN.Visible = false;
             // 
             // panelControl6
             // 
@@ -1093,28 +970,6 @@
             this.dgvColorDetails.TabIndex = 3;
             this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
             // 
-            // colColorGroupID
-            // 
-            this.colColorGroupID.DataPropertyName = "GroupID";
-            this.colColorGroupID.HeaderText = "顏色組別";
-            this.colColorGroupID.Name = "colColorGroupID";
-            this.colColorGroupID.ReadOnly = true;
-            // 
-            // colColorID
-            // 
-            this.colColorID.DataPropertyName = "ColorID";
-            this.colColorID.HeaderText = "顏色代號";
-            this.colColorID.Name = "colColorID";
-            this.colColorID.ReadOnly = true;
-            // 
-            // colColorName
-            // 
-            this.colColorName.DataPropertyName = "ColorName";
-            this.colColorName.HeaderText = "顏色描述";
-            this.colColorName.Name = "colColorName";
-            this.colColorName.ReadOnly = true;
-            this.colColorName.Width = 200;
-            // 
             // panelControl8
             // 
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Left;
@@ -1150,90 +1005,6 @@
             this.dgvColorGroup.TabIndex = 1;
             this.dgvColorGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColorGroup_CellClick);
             this.dgvColorGroup.SelectionChanged += new System.EventHandler(this.dgvColorGroup_SelectionChanged);
-            // 
-            // colColorGroupSeq
-            // 
-            this.colColorGroupSeq.DataPropertyName = "Seq";
-            this.colColorGroupSeq.HeaderText = "序號";
-            this.colColorGroupSeq.Name = "colColorGroupSeq";
-            this.colColorGroupSeq.ReadOnly = true;
-            this.colColorGroupSeq.Width = 60;
-            // 
-            // colColorGroup
-            // 
-            this.colColorGroup.DataPropertyName = "ColorGroup";
-            this.colColorGroup.HeaderText = "顏色組別";
-            this.colColorGroup.Name = "colColorGroup";
-            this.colColorGroup.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.DataPropertyName = "Price";
-            this.colPrice.HeaderText = "價錢";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            // 
-            // colRate
-            // 
-            this.colRate.DataPropertyName = "Rate";
-            this.colRate.HeaderText = "倍數";
-            this.colRate.Name = "colRate";
-            this.colRate.ReadOnly = true;
-            this.colRate.Width = 80;
-            // 
-            // colColorAddCharge1
-            // 
-            this.colColorAddCharge1.DataPropertyName = "add_charge1";
-            this.colColorAddCharge1.HeaderText = "噴沙";
-            this.colColorAddCharge1.Name = "colColorAddCharge1";
-            this.colColorAddCharge1.ReadOnly = true;
-            this.colColorAddCharge1.Width = 60;
-            // 
-            // colColorAddCharge2
-            // 
-            this.colColorAddCharge2.DataPropertyName = "add_charge2";
-            this.colColorAddCharge2.HeaderText = "噴LAC.";
-            this.colColorAddCharge2.Name = "colColorAddCharge2";
-            this.colColorAddCharge2.ReadOnly = true;
-            this.colColorAddCharge2.Width = 60;
-            // 
-            // colColorAddCharge3
-            // 
-            this.colColorAddCharge3.DataPropertyName = "add_charge3";
-            this.colColorAddCharge3.HeaderText = "不锈鋼";
-            this.colColorAddCharge3.Name = "colColorAddCharge3";
-            this.colColorAddCharge3.ReadOnly = true;
-            this.colColorAddCharge3.Width = 60;
-            // 
-            // colCurr
-            // 
-            this.colCurr.DataPropertyName = "Curr";
-            this.colCurr.HeaderText = "貨幣";
-            this.colCurr.Name = "colCurr";
-            this.colCurr.ReadOnly = true;
-            // 
-            // colValueDesc
-            // 
-            this.colValueDesc.DataPropertyName = "ValueDesc";
-            this.colValueDesc.HeaderText = "數值描述";
-            this.colValueDesc.Name = "colValueDesc";
-            this.colValueDesc.ReadOnly = true;
-            // 
-            // colColorGroupUpperSN
-            // 
-            this.colColorGroupUpperSN.DataPropertyName = "UpperSN";
-            this.colColorGroupUpperSN.HeaderText = "上級號碼";
-            this.colColorGroupUpperSN.Name = "colColorGroupUpperSN";
-            this.colColorGroupUpperSN.ReadOnly = true;
-            this.colColorGroupUpperSN.Visible = false;
-            // 
-            // colColorGroupSN
-            // 
-            this.colColorGroupSN.DataPropertyName = "SN";
-            this.colColorGroupSN.HeaderText = "流水號";
-            this.colColorGroupSN.Name = "colColorGroupSN";
-            this.colColorGroupSN.ReadOnly = true;
-            this.colColorGroupSN.Visible = false;
             // 
             // panelControl5
             // 
@@ -1638,6 +1409,7 @@
             this.dataGridViewTextBoxColumn29.DataPropertyName = "UpperSN";
             this.dataGridViewTextBoxColumn29.HeaderText = "上級號碼";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
             this.dataGridViewTextBoxColumn29.Visible = false;
             // 
             // dataGridViewTextBoxColumn30
@@ -1645,7 +1417,237 @@
             this.dataGridViewTextBoxColumn30.DataPropertyName = "SN";
             this.dataGridViewTextBoxColumn30.HeaderText = "流水號";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
             this.dataGridViewTextBoxColumn30.Visible = false;
+            // 
+            // colColorGroupID
+            // 
+            this.colColorGroupID.DataPropertyName = "GroupID";
+            this.colColorGroupID.HeaderText = "顏色組別";
+            this.colColorGroupID.Name = "colColorGroupID";
+            this.colColorGroupID.ReadOnly = true;
+            // 
+            // colColorID
+            // 
+            this.colColorID.DataPropertyName = "ColorID";
+            this.colColorID.HeaderText = "顏色代號";
+            this.colColorID.Name = "colColorID";
+            this.colColorID.ReadOnly = true;
+            // 
+            // colColorName
+            // 
+            this.colColorName.DataPropertyName = "ColorName";
+            this.colColorName.HeaderText = "顏色描述";
+            this.colColorName.Name = "colColorName";
+            this.colColorName.ReadOnly = true;
+            this.colColorName.Width = 200;
+            // 
+            // colColorGroupSeq
+            // 
+            this.colColorGroupSeq.DataPropertyName = "Seq";
+            this.colColorGroupSeq.HeaderText = "序號";
+            this.colColorGroupSeq.Name = "colColorGroupSeq";
+            this.colColorGroupSeq.ReadOnly = true;
+            this.colColorGroupSeq.Width = 60;
+            // 
+            // colColorGroup
+            // 
+            this.colColorGroup.DataPropertyName = "ColorGroup";
+            this.colColorGroup.HeaderText = "顏色組別";
+            this.colColorGroup.Name = "colColorGroup";
+            this.colColorGroup.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price";
+            this.colPrice.HeaderText = "價錢";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            // 
+            // colRate
+            // 
+            this.colRate.DataPropertyName = "Rate";
+            this.colRate.HeaderText = "倍數";
+            this.colRate.Name = "colRate";
+            this.colRate.ReadOnly = true;
+            this.colRate.Width = 80;
+            // 
+            // colColorAddCharge1
+            // 
+            this.colColorAddCharge1.DataPropertyName = "add_charge1";
+            this.colColorAddCharge1.HeaderText = "噴沙";
+            this.colColorAddCharge1.Name = "colColorAddCharge1";
+            this.colColorAddCharge1.ReadOnly = true;
+            this.colColorAddCharge1.Width = 60;
+            // 
+            // colColorAddCharge2
+            // 
+            this.colColorAddCharge2.DataPropertyName = "add_charge2";
+            this.colColorAddCharge2.HeaderText = "噴LAC.";
+            this.colColorAddCharge2.Name = "colColorAddCharge2";
+            this.colColorAddCharge2.ReadOnly = true;
+            this.colColorAddCharge2.Width = 60;
+            // 
+            // colColorAddCharge3
+            // 
+            this.colColorAddCharge3.DataPropertyName = "add_charge3";
+            this.colColorAddCharge3.HeaderText = "不锈鋼";
+            this.colColorAddCharge3.Name = "colColorAddCharge3";
+            this.colColorAddCharge3.ReadOnly = true;
+            this.colColorAddCharge3.Width = 60;
+            // 
+            // colCurr
+            // 
+            this.colCurr.DataPropertyName = "Curr";
+            this.colCurr.HeaderText = "貨幣";
+            this.colCurr.Name = "colCurr";
+            this.colCurr.ReadOnly = true;
+            // 
+            // colValueDesc
+            // 
+            this.colValueDesc.DataPropertyName = "ValueDesc";
+            this.colValueDesc.HeaderText = "數值描述";
+            this.colValueDesc.Name = "colValueDesc";
+            this.colValueDesc.ReadOnly = true;
+            // 
+            // colColorGroupUpperSN
+            // 
+            this.colColorGroupUpperSN.DataPropertyName = "UpperSN";
+            this.colColorGroupUpperSN.HeaderText = "上級號碼";
+            this.colColorGroupUpperSN.Name = "colColorGroupUpperSN";
+            this.colColorGroupUpperSN.ReadOnly = true;
+            this.colColorGroupUpperSN.Visible = false;
+            // 
+            // colColorGroupSN
+            // 
+            this.colColorGroupSN.DataPropertyName = "SN";
+            this.colColorGroupSN.HeaderText = "流水號";
+            this.colColorGroupSN.Name = "colColorGroupSN";
+            this.colColorGroupSN.ReadOnly = true;
+            this.colColorGroupSN.Visible = false;
+            // 
+            // colSizeGroupDetails
+            // 
+            this.colSizeGroupDetails.DataPropertyName = "GroupID";
+            this.colSizeGroupDetails.HeaderText = "尺寸組別";
+            this.colSizeGroupDetails.Name = "colSizeGroupDetails";
+            this.colSizeGroupDetails.ReadOnly = true;
+            this.colSizeGroupDetails.Width = 80;
+            // 
+            // colSizeIDDetails
+            // 
+            this.colSizeIDDetails.DataPropertyName = "SizeID";
+            this.colSizeIDDetails.HeaderText = "尺寸代號";
+            this.colSizeIDDetails.Name = "colSizeIDDetails";
+            this.colSizeIDDetails.ReadOnly = true;
+            // 
+            // colSizeNameDetails
+            // 
+            this.colSizeNameDetails.DataPropertyName = "SizeName";
+            this.colSizeNameDetails.HeaderText = "尺寸描述";
+            this.colSizeNameDetails.Name = "colSizeNameDetails";
+            this.colSizeNameDetails.ReadOnly = true;
+            // 
+            // colAddCharge1
+            // 
+            this.colAddCharge1.DataPropertyName = "add_charge1";
+            this.colAddCharge1.HeaderText = "噴沙";
+            this.colAddCharge1.Name = "colAddCharge1";
+            this.colAddCharge1.ReadOnly = true;
+            // 
+            // colAddCharge2
+            // 
+            this.colAddCharge2.DataPropertyName = "add_charge2";
+            this.colAddCharge2.HeaderText = "噴LAC.";
+            this.colAddCharge2.Name = "colAddCharge2";
+            this.colAddCharge2.ReadOnly = true;
+            // 
+            // colAddCharge3
+            // 
+            this.colAddCharge3.DataPropertyName = "add_charge3";
+            this.colAddCharge3.HeaderText = "不锈鋼";
+            this.colAddCharge3.Name = "colAddCharge3";
+            this.colAddCharge3.ReadOnly = true;
+            // 
+            // colSizeGroupSeq
+            // 
+            this.colSizeGroupSeq.DataPropertyName = "Seq";
+            this.colSizeGroupSeq.HeaderText = "序號";
+            this.colSizeGroupSeq.Name = "colSizeGroupSeq";
+            this.colSizeGroupSeq.ReadOnly = true;
+            this.colSizeGroupSeq.Width = 60;
+            // 
+            // colSizeGroup
+            // 
+            this.colSizeGroup.DataPropertyName = "SizeGroup";
+            this.colSizeGroup.HeaderText = "尺寸組別";
+            this.colSizeGroup.Name = "colSizeGroup";
+            this.colSizeGroup.ReadOnly = true;
+            this.colSizeGroup.Width = 80;
+            // 
+            // colSizeID
+            // 
+            this.colSizeID.DataPropertyName = "SizeID";
+            this.colSizeID.HeaderText = "尺寸代號";
+            this.colSizeID.Name = "colSizeID";
+            this.colSizeID.ReadOnly = true;
+            this.colSizeID.Width = 80;
+            // 
+            // colSizeName
+            // 
+            this.colSizeName.DataPropertyName = "SizeName";
+            this.colSizeName.HeaderText = "尺寸描述";
+            this.colSizeName.Name = "colSizeName";
+            this.colSizeName.ReadOnly = true;
+            this.colSizeName.Width = 160;
+            // 
+            // colBasePrice
+            // 
+            this.colBasePrice.DataPropertyName = "BasePrice";
+            this.colBasePrice.HeaderText = "基本單價";
+            this.colBasePrice.Name = "colBasePrice";
+            this.colBasePrice.ReadOnly = true;
+            this.colBasePrice.Width = 80;
+            // 
+            // colUnit
+            // 
+            this.colUnit.DataPropertyName = "Unit";
+            this.colUnit.HeaderText = "單價單位";
+            this.colUnit.Name = "colUnit";
+            this.colUnit.ReadOnly = true;
+            this.colUnit.Width = 80;
+            // 
+            // colSizeAddCharge1
+            // 
+            this.colSizeAddCharge1.DataPropertyName = "add_charge1";
+            this.colSizeAddCharge1.HeaderText = "噴沙";
+            this.colSizeAddCharge1.Name = "colSizeAddCharge1";
+            this.colSizeAddCharge1.ReadOnly = true;
+            this.colSizeAddCharge1.Width = 60;
+            // 
+            // colSizeAddCharge2
+            // 
+            this.colSizeAddCharge2.DataPropertyName = "add_charge2";
+            this.colSizeAddCharge2.HeaderText = "噴LAC.";
+            this.colSizeAddCharge2.Name = "colSizeAddCharge2";
+            this.colSizeAddCharge2.ReadOnly = true;
+            this.colSizeAddCharge2.Width = 60;
+            // 
+            // colSizeAddCharge3
+            // 
+            this.colSizeAddCharge3.DataPropertyName = "add_charge3";
+            this.colSizeAddCharge3.HeaderText = "不锈鋼";
+            this.colSizeAddCharge3.Name = "colSizeAddCharge3";
+            this.colSizeAddCharge3.ReadOnly = true;
+            this.colSizeAddCharge3.Width = 60;
+            // 
+            // colSizeGroupSN
+            // 
+            this.colSizeGroupSN.DataPropertyName = "SN";
+            this.colSizeGroupSN.HeaderText = "流水號";
+            this.colSizeGroupSN.Name = "colSizeGroupSN";
+            this.colSizeGroupSN.ReadOnly = true;
+            this.colSizeGroupSN.Visible = false;
             // 
             // frmProductTypeStdPrice
             // 

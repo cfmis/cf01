@@ -315,6 +315,9 @@ namespace cf01.CLS
                 strSql += string.Format(@" Update mm_ProductTypePriceSizeGroup Set SizeID='{1}'" +
                     " Where GroupID='{0}' And SizeID='{1}'"
                     , GroupID, mdlSG.SizeID);
+            strSql += string.Format(@" Update bs_size Set add_charge1='{0}',add_charge2='{1}',add_charge3='{2}' " +
+                " Where size_id='{3}'"
+                , mdlSG.AddCharge1, mdlSG.AddCharge2, mdlSG.AddCharge3, mdlSG.SizeID);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             if (result == "")
