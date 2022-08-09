@@ -33,6 +33,9 @@
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAddGroup = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAddSize = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
@@ -40,6 +43,15 @@
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblSizeName = new DevExpress.XtraEditors.LabelControl();
+            this.lblSizeStyle = new DevExpress.XtraEditors.LabelControl();
+            this.txtSizeStyle = new DevExpress.XtraEditors.TextEdit();
+            this.lblAddCharge3 = new DevExpress.XtraEditors.LabelControl();
+            this.lblAddCharge2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblAddCharge1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtAddCharge3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtAddCharge2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtAddCharge1 = new DevExpress.XtraEditors.TextEdit();
             this.txtSizeName = new DevExpress.XtraEditors.TextEdit();
             this.txtSizeID = new DevExpress.XtraEditors.TextEdit();
             this.lblSizeID = new DevExpress.XtraEditors.LabelControl();
@@ -49,33 +61,30 @@
             this.colGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSizeIDFind = new DevExpress.XtraEditors.TextEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSizeIDFind = new DevExpress.XtraEditors.TextEdit();
-            this.lblAddCharge3 = new DevExpress.XtraEditors.LabelControl();
-            this.lblAddCharge2 = new DevExpress.XtraEditors.LabelControl();
-            this.lblAddCharge1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtAddCharge3 = new DevExpress.XtraEditors.TextEdit();
-            this.txtAddCharge2 = new DevExpress.XtraEditors.TextEdit();
-            this.txtAddCharge1 = new DevExpress.XtraEditors.TextEdit();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnAddSize = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSizeStyle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeIDFind.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -127,6 +136,27 @@
             this.btnAddGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddGroup.Click += new System.EventHandler(this.btnAddGroup_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnAddSize
+            // 
+            this.btnAddSize.AutoSize = false;
+            this.btnAddSize.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSize.Image")));
+            this.btnAddSize.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddSize.Name = "btnAddSize";
+            this.btnAddSize.Size = new System.Drawing.Size(85, 35);
+            this.btnAddSize.Text = "新增尺寸";
+            this.btnAddSize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAddSize.Click += new System.EventHandler(this.btnAddSize_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
+            // 
             // btnSave
             // 
             this.btnSave.AutoSize = false;
@@ -177,6 +207,9 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lblSizeName);
+            this.panelControl1.Controls.Add(this.lblSizeStyle);
+            this.panelControl1.Controls.Add(this.txtSizeStyle);
             this.panelControl1.Controls.Add(this.lblAddCharge3);
             this.panelControl1.Controls.Add(this.lblAddCharge2);
             this.panelControl1.Controls.Add(this.lblAddCharge1);
@@ -191,19 +224,93 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(864, 81);
+            this.panelControl1.Size = new System.Drawing.Size(864, 93);
             this.panelControl1.TabIndex = 1;
+            // 
+            // lblSizeName
+            // 
+            this.lblSizeName.Location = new System.Drawing.Point(411, 13);
+            this.lblSizeName.Name = "lblSizeName";
+            this.lblSizeName.Size = new System.Drawing.Size(52, 14);
+            this.lblSizeName.TabIndex = 20;
+            this.lblSizeName.Text = "尺寸描述:";
+            // 
+            // lblSizeStyle
+            // 
+            this.lblSizeStyle.Location = new System.Drawing.Point(55, 39);
+            this.lblSizeStyle.Name = "lblSizeStyle";
+            this.lblSizeStyle.Size = new System.Drawing.Size(52, 14);
+            this.lblSizeStyle.TabIndex = 19;
+            this.lblSizeStyle.Text = "尺寸規格:";
+            // 
+            // txtSizeStyle
+            // 
+            this.txtSizeStyle.Location = new System.Drawing.Point(113, 35);
+            this.txtSizeStyle.Name = "txtSizeStyle";
+            this.txtSizeStyle.Size = new System.Drawing.Size(285, 20);
+            this.txtSizeStyle.TabIndex = 18;
+            // 
+            // lblAddCharge3
+            // 
+            this.lblAddCharge3.Location = new System.Drawing.Point(423, 64);
+            this.lblAddCharge3.Name = "lblAddCharge3";
+            this.lblAddCharge3.Size = new System.Drawing.Size(40, 14);
+            this.lblAddCharge3.TabIndex = 15;
+            this.lblAddCharge3.Text = "不锈鋼:";
+            // 
+            // lblAddCharge2
+            // 
+            this.lblAddCharge2.Location = new System.Drawing.Point(251, 64);
+            this.lblAddCharge2.Name = "lblAddCharge2";
+            this.lblAddCharge2.Size = new System.Drawing.Size(41, 14);
+            this.lblAddCharge2.TabIndex = 16;
+            this.lblAddCharge2.Text = "噴LAC.:";
+            // 
+            // lblAddCharge1
+            // 
+            this.lblAddCharge1.Location = new System.Drawing.Point(79, 64);
+            this.lblAddCharge1.Name = "lblAddCharge1";
+            this.lblAddCharge1.Size = new System.Drawing.Size(28, 14);
+            this.lblAddCharge1.TabIndex = 17;
+            this.lblAddCharge1.Text = "噴沙:";
+            // 
+            // txtAddCharge3
+            // 
+            this.txtAddCharge3.Location = new System.Drawing.Point(468, 61);
+            this.txtAddCharge3.Name = "txtAddCharge3";
+            this.txtAddCharge3.Properties.Mask.EditMask = "n";
+            this.txtAddCharge3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtAddCharge3.Size = new System.Drawing.Size(100, 20);
+            this.txtAddCharge3.TabIndex = 12;
+            // 
+            // txtAddCharge2
+            // 
+            this.txtAddCharge2.Location = new System.Drawing.Point(298, 61);
+            this.txtAddCharge2.Name = "txtAddCharge2";
+            this.txtAddCharge2.Properties.Mask.EditMask = "n";
+            this.txtAddCharge2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtAddCharge2.Size = new System.Drawing.Size(100, 20);
+            this.txtAddCharge2.TabIndex = 13;
+            // 
+            // txtAddCharge1
+            // 
+            this.txtAddCharge1.Location = new System.Drawing.Point(113, 61);
+            this.txtAddCharge1.Name = "txtAddCharge1";
+            this.txtAddCharge1.Properties.Mask.EditMask = "n";
+            this.txtAddCharge1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtAddCharge1.Size = new System.Drawing.Size(100, 20);
+            this.txtAddCharge1.TabIndex = 14;
             // 
             // txtSizeName
             // 
-            this.txtSizeName.Location = new System.Drawing.Point(407, 21);
+            this.txtSizeName.Location = new System.Drawing.Point(468, 10);
             this.txtSizeName.Name = "txtSizeName";
-            this.txtSizeName.Size = new System.Drawing.Size(161, 20);
+            this.txtSizeName.Size = new System.Drawing.Size(100, 20);
             this.txtSizeName.TabIndex = 2;
             // 
             // txtSizeID
             // 
-            this.txtSizeID.Location = new System.Drawing.Point(298, 21);
+            this.txtSizeID.Location = new System.Drawing.Point(298, 10);
             this.txtSizeID.Name = "txtSizeID";
             this.txtSizeID.Properties.MaxLength = 3;
             this.txtSizeID.Size = new System.Drawing.Size(100, 20);
@@ -212,7 +319,7 @@
             // 
             // lblSizeID
             // 
-            this.lblSizeID.Location = new System.Drawing.Point(240, 24);
+            this.lblSizeID.Location = new System.Drawing.Point(240, 13);
             this.lblSizeID.Name = "lblSizeID";
             this.lblSizeID.Size = new System.Drawing.Size(52, 14);
             this.lblSizeID.TabIndex = 0;
@@ -220,7 +327,7 @@
             // 
             // txtGroupID
             // 
-            this.txtGroupID.Location = new System.Drawing.Point(113, 21);
+            this.txtGroupID.Location = new System.Drawing.Point(113, 10);
             this.txtGroupID.Name = "txtGroupID";
             this.txtGroupID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGroupID.Properties.MaxLength = 4;
@@ -229,7 +336,7 @@
             // 
             // lblGroupID
             // 
-            this.lblGroupID.Location = new System.Drawing.Point(55, 24);
+            this.lblGroupID.Location = new System.Drawing.Point(55, 13);
             this.lblGroupID.Name = "lblGroupID";
             this.lblGroupID.Size = new System.Drawing.Size(52, 14);
             this.lblGroupID.TabIndex = 0;
@@ -244,17 +351,18 @@
             this.colGroupID,
             this.colSizeID,
             this.colSizeName,
+            this.colSizeStyle,
             this.colAddCharge1,
             this.colAddCharge2,
             this.colAddCharge3});
             this.dgvSizeGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSizeGroup.Location = new System.Drawing.Point(0, 119);
+            this.dgvSizeGroup.Location = new System.Drawing.Point(0, 131);
             this.dgvSizeGroup.Name = "dgvSizeGroup";
             this.dgvSizeGroup.ReadOnly = true;
             this.dgvSizeGroup.RowHeadersWidth = 20;
             this.dgvSizeGroup.RowTemplate.Height = 24;
             this.dgvSizeGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSizeGroup.Size = new System.Drawing.Size(864, 469);
+            this.dgvSizeGroup.Size = new System.Drawing.Size(864, 457);
             this.dgvSizeGroup.TabIndex = 1;
             this.dgvSizeGroup.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSizeGroup_CellDoubleClick);
             this.dgvSizeGroup.SelectionChanged += new System.EventHandler(this.dgvSizeGroup_SelectionChanged);
@@ -279,7 +387,15 @@
             this.colSizeName.HeaderText = "尺寸描述";
             this.colSizeName.Name = "colSizeName";
             this.colSizeName.ReadOnly = true;
-            this.colSizeName.Width = 180;
+            this.colSizeName.Width = 120;
+            // 
+            // colSizeStyle
+            // 
+            this.colSizeStyle.DataPropertyName = "SizeStyle";
+            this.colSizeStyle.HeaderText = "尺寸規格";
+            this.colSizeStyle.Name = "colSizeStyle";
+            this.colSizeStyle.ReadOnly = true;
+            this.colSizeStyle.Width = 180;
             // 
             // colAddCharge1
             // 
@@ -305,6 +421,16 @@
             this.colAddCharge3.ReadOnly = true;
             this.colAddCharge3.Width = 80;
             // 
+            // txtSizeIDFind
+            // 
+            this.txtSizeIDFind.Location = new System.Drawing.Point(491, 8);
+            this.txtSizeIDFind.Name = "txtSizeIDFind";
+            this.txtSizeIDFind.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSizeIDFind.Properties.MaxLength = 4;
+            this.txtSizeIDFind.Size = new System.Drawing.Size(100, 20);
+            this.txtSizeIDFind.TabIndex = 3;
+            this.txtSizeIDFind.Leave += new System.EventHandler(this.txtGroupIDFind_Leave);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "GroupID";
@@ -327,87 +453,33 @@
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 180;
             // 
-            // txtSizeIDFind
+            // dataGridViewTextBoxColumn4
             // 
-            this.txtSizeIDFind.Location = new System.Drawing.Point(491, 8);
-            this.txtSizeIDFind.Name = "txtSizeIDFind";
-            this.txtSizeIDFind.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSizeIDFind.Properties.MaxLength = 4;
-            this.txtSizeIDFind.Size = new System.Drawing.Size(100, 20);
-            this.txtSizeIDFind.TabIndex = 3;
-            this.txtSizeIDFind.Leave += new System.EventHandler(this.txtGroupIDFind_Leave);
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "SizeStyle";
+            this.dataGridViewTextBoxColumn4.HeaderText = "尺寸規格";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 120;
             // 
-            // lblAddCharge3
+            // dataGridViewTextBoxColumn5
             // 
-            this.lblAddCharge3.Location = new System.Drawing.Point(423, 50);
-            this.lblAddCharge3.Name = "lblAddCharge3";
-            this.lblAddCharge3.Size = new System.Drawing.Size(40, 14);
-            this.lblAddCharge3.TabIndex = 15;
-            this.lblAddCharge3.Text = "不锈鋼:";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "add_charge1";
+            this.dataGridViewTextBoxColumn5.HeaderText = "噴沙";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 80;
             // 
-            // lblAddCharge2
+            // dataGridViewTextBoxColumn6
             // 
-            this.lblAddCharge2.Location = new System.Drawing.Point(251, 50);
-            this.lblAddCharge2.Name = "lblAddCharge2";
-            this.lblAddCharge2.Size = new System.Drawing.Size(41, 14);
-            this.lblAddCharge2.TabIndex = 16;
-            this.lblAddCharge2.Text = "噴LAC.:";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "add_charge2";
+            this.dataGridViewTextBoxColumn6.HeaderText = "噴LAC.";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 80;
             // 
-            // lblAddCharge1
+            // dataGridViewTextBoxColumn7
             // 
-            this.lblAddCharge1.Location = new System.Drawing.Point(79, 50);
-            this.lblAddCharge1.Name = "lblAddCharge1";
-            this.lblAddCharge1.Size = new System.Drawing.Size(28, 14);
-            this.lblAddCharge1.TabIndex = 17;
-            this.lblAddCharge1.Text = "噴沙:";
-            // 
-            // txtAddCharge3
-            // 
-            this.txtAddCharge3.Location = new System.Drawing.Point(468, 47);
-            this.txtAddCharge3.Name = "txtAddCharge3";
-            this.txtAddCharge3.Properties.Mask.EditMask = "n";
-            this.txtAddCharge3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtAddCharge3.Size = new System.Drawing.Size(100, 20);
-            this.txtAddCharge3.TabIndex = 12;
-            // 
-            // txtAddCharge2
-            // 
-            this.txtAddCharge2.Location = new System.Drawing.Point(298, 47);
-            this.txtAddCharge2.Name = "txtAddCharge2";
-            this.txtAddCharge2.Properties.Mask.EditMask = "n";
-            this.txtAddCharge2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtAddCharge2.Size = new System.Drawing.Size(100, 20);
-            this.txtAddCharge2.TabIndex = 13;
-            // 
-            // txtAddCharge1
-            // 
-            this.txtAddCharge1.Location = new System.Drawing.Point(113, 47);
-            this.txtAddCharge1.Name = "txtAddCharge1";
-            this.txtAddCharge1.Properties.Mask.EditMask = "n";
-            this.txtAddCharge1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtAddCharge1.Size = new System.Drawing.Size(100, 20);
-            this.txtAddCharge1.TabIndex = 14;
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnAddSize
-            // 
-            this.btnAddSize.AutoSize = false;
-            this.btnAddSize.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSize.Image")));
-            this.btnAddSize.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddSize.Name = "btnAddSize";
-            this.btnAddSize.Size = new System.Drawing.Size(85, 35);
-            this.btnAddSize.Text = "新增尺寸";
-            this.btnAddSize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAddSize.Click += new System.EventHandler(this.btnAddSize_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "add_charge3";
+            this.dataGridViewTextBoxColumn7.HeaderText = "不锈鋼";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 80;
             // 
             // frmProductTypeStdPriceSizeGroup
             // 
@@ -426,14 +498,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSizeStyle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeIDFind.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddCharge1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -461,12 +534,6 @@
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private DevExpress.XtraEditors.TextEdit txtSizeIDFind;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge3;
         private DevExpress.XtraEditors.LabelControl lblAddCharge3;
         private DevExpress.XtraEditors.LabelControl lblAddCharge2;
         private DevExpress.XtraEditors.LabelControl lblAddCharge1;
@@ -476,5 +543,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton btnAddSize;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private DevExpress.XtraEditors.LabelControl lblSizeName;
+        private DevExpress.XtraEditors.LabelControl lblSizeStyle;
+        private DevExpress.XtraEditors.TextEdit txtSizeStyle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeStyle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

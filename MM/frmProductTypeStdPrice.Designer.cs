@@ -30,17 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductTypeStdPrice));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnSizeGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnColorGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblRemark = new DevExpress.XtraEditors.LabelControl();
@@ -119,6 +113,16 @@
             this.btnDelColorGroup = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddColorGroup = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.btnNew = new System.Windows.Forms.ToolStripButton();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.btnFind = new System.Windows.Forms.ToolStripButton();
+            this.btnSizeGroup = new System.Windows.Forms.ToolStripButton();
+            this.btnColorGroup = new System.Windows.Forms.ToolStripButton();
+            this.btnCopy = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,6 +153,7 @@
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -173,6 +178,7 @@
             this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSizeAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -247,105 +253,44 @@
             this.toolStripSeparator3,
             this.btnFind,
             this.toolStripSeparator4,
+            this.btnDelete,
+            this.toolStripSeparator8,
             this.btnSizeGroup,
             this.toolStripSeparator5,
             this.btnColorGroup,
-            this.toolStripSeparator6});
+            this.toolStripSeparator6,
+            this.btnCopy,
+            this.toolStripSeparator7});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1332, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnExit
-            // 
-            this.btnExit.AutoSize = false;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(65, 35);
-            this.btnExit.Text = "退出(&X)";
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnNew
-            // 
-            this.btnNew.AutoSize = false;
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
-            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(65, 35);
-            this.btnNew.Text = "新增(&A)";
-            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
             // 
-            // btnSave
-            // 
-            this.btnSave.AutoSize = false;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(65, 35);
-            this.btnSave.Text = "儲存(&S)";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnFind
-            // 
-            this.btnFind.AutoSize = false;
-            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
-            this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(65, 35);
-            this.btnFind.Text = "查詢(&F)";
-            this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
             // 
-            // btnSizeGroup
-            // 
-            this.btnSizeGroup.AutoSize = false;
-            this.btnSizeGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnSizeGroup.Image")));
-            this.btnSizeGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSizeGroup.Name = "btnSizeGroup";
-            this.btnSizeGroup.Size = new System.Drawing.Size(60, 35);
-            this.btnSizeGroup.Text = "尺寸組別";
-            this.btnSizeGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSizeGroup.Click += new System.EventHandler(this.btnSizeGroup_Click);
-            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnColorGroup
-            // 
-            this.btnColorGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnColorGroup.Image")));
-            this.btnColorGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnColorGroup.Name = "btnColorGroup";
-            this.btnColorGroup.Size = new System.Drawing.Size(60, 35);
-            this.btnColorGroup.Text = "顏色組別";
-            this.btnColorGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnColorGroup.Click += new System.EventHandler(this.btnColorGroup_Click);
             // 
             // toolStripSeparator6
             // 
@@ -553,7 +498,7 @@
             // 
             // cmbUnit
             // 
-            this.cmbUnit.Location = new System.Drawing.Point(640, 37);
+            this.cmbUnit.Location = new System.Drawing.Point(640, 33);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -564,7 +509,7 @@
             // 
             // lblUnit
             // 
-            this.lblUnit.Location = new System.Drawing.Point(607, 40);
+            this.lblUnit.Location = new System.Drawing.Point(607, 36);
             this.lblUnit.Name = "lblUnit";
             this.lblUnit.Size = new System.Drawing.Size(28, 14);
             this.lblUnit.TabIndex = 5;
@@ -572,7 +517,7 @@
             // 
             // lblBasePrice
             // 
-            this.lblBasePrice.Location = new System.Drawing.Point(418, 40);
+            this.lblBasePrice.Location = new System.Drawing.Point(418, 36);
             this.lblBasePrice.Name = "lblBasePrice";
             this.lblBasePrice.Size = new System.Drawing.Size(52, 14);
             this.lblBasePrice.TabIndex = 4;
@@ -580,7 +525,7 @@
             // 
             // txtBasePrice
             // 
-            this.txtBasePrice.Location = new System.Drawing.Point(475, 37);
+            this.txtBasePrice.Location = new System.Drawing.Point(475, 33);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.Properties.Mask.EditMask = "n2";
             this.txtBasePrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -615,9 +560,9 @@
             this.panelControl11.Controls.Add(this.dgvSizeDetails);
             this.panelControl11.Controls.Add(this.panelControl9);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(861, 75);
+            this.panelControl11.Location = new System.Drawing.Point(998, 62);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(465, 309);
+            this.panelControl11.Size = new System.Drawing.Size(328, 322);
             this.panelControl11.TabIndex = 10;
             // 
             // chkSelectSizeFlag
@@ -648,7 +593,7 @@
             this.dgvSizeDetails.RowHeadersWidth = 20;
             this.dgvSizeDetails.RowTemplate.Height = 24;
             this.dgvSizeDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSizeDetails.Size = new System.Drawing.Size(461, 255);
+            this.dgvSizeDetails.Size = new System.Drawing.Size(324, 268);
             this.dgvSizeDetails.TabIndex = 9;
             // 
             // colSelectSizeFlag
@@ -667,7 +612,7 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl9.Location = new System.Drawing.Point(2, 2);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(461, 50);
+            this.panelControl9.Size = new System.Drawing.Size(324, 50);
             this.panelControl9.TabIndex = 8;
             // 
             // btnFindSizeGroup
@@ -701,9 +646,9 @@
             // 
             this.panelControl7.Controls.Add(this.btnAddSizeGroup);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl7.Location = new System.Drawing.Point(776, 75);
+            this.panelControl7.Location = new System.Drawing.Point(913, 62);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(85, 309);
+            this.panelControl7.Size = new System.Drawing.Size(85, 322);
             this.panelControl7.TabIndex = 7;
             // 
             // btnAddSizeGroup
@@ -724,6 +669,7 @@
             this.colSizeGroup,
             this.colSizeID,
             this.colSizeName,
+            this.colSizeStyle,
             this.colBasePrice,
             this.colUnit,
             this.colSizeAddCharge1,
@@ -731,13 +677,13 @@
             this.colSizeAddCharge3,
             this.colSizeGroupSN});
             this.dgvSizeGroup.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgvSizeGroup.Location = new System.Drawing.Point(2, 75);
+            this.dgvSizeGroup.Location = new System.Drawing.Point(2, 62);
             this.dgvSizeGroup.Name = "dgvSizeGroup";
             this.dgvSizeGroup.ReadOnly = true;
             this.dgvSizeGroup.RowHeadersWidth = 20;
             this.dgvSizeGroup.RowTemplate.Height = 24;
             this.dgvSizeGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSizeGroup.Size = new System.Drawing.Size(774, 309);
+            this.dgvSizeGroup.Size = new System.Drawing.Size(911, 322);
             this.dgvSizeGroup.TabIndex = 3;
             this.dgvSizeGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSizeGroup_CellClick);
             this.dgvSizeGroup.SelectionChanged += new System.EventHandler(this.dgvSizeGroup_SelectionChanged);
@@ -767,12 +713,12 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(2, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1324, 73);
+            this.panelControl6.Size = new System.Drawing.Size(1324, 60);
             this.panelControl6.TabIndex = 11;
             // 
             // lblAddCharge3
             // 
-            this.lblAddCharge3.Location = new System.Drawing.Point(595, 14);
+            this.lblAddCharge3.Location = new System.Drawing.Point(595, 10);
             this.lblAddCharge3.Name = "lblAddCharge3";
             this.lblAddCharge3.Size = new System.Drawing.Size(40, 14);
             this.lblAddCharge3.TabIndex = 11;
@@ -780,7 +726,7 @@
             // 
             // lblAddCharge2
             // 
-            this.lblAddCharge2.Location = new System.Drawing.Point(429, 14);
+            this.lblAddCharge2.Location = new System.Drawing.Point(429, 10);
             this.lblAddCharge2.Name = "lblAddCharge2";
             this.lblAddCharge2.Size = new System.Drawing.Size(41, 14);
             this.lblAddCharge2.TabIndex = 11;
@@ -788,7 +734,7 @@
             // 
             // lblAddCharge1
             // 
-            this.lblAddCharge1.Location = new System.Drawing.Point(270, 14);
+            this.lblAddCharge1.Location = new System.Drawing.Point(270, 10);
             this.lblAddCharge1.Name = "lblAddCharge1";
             this.lblAddCharge1.Size = new System.Drawing.Size(28, 14);
             this.lblAddCharge1.TabIndex = 11;
@@ -796,7 +742,7 @@
             // 
             // txtAddCharge3
             // 
-            this.txtAddCharge3.Location = new System.Drawing.Point(640, 11);
+            this.txtAddCharge3.Location = new System.Drawing.Point(640, 7);
             this.txtAddCharge3.Name = "txtAddCharge3";
             this.txtAddCharge3.Properties.Mask.EditMask = "n";
             this.txtAddCharge3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -822,7 +768,7 @@
             // 
             // txtSizeName
             // 
-            this.txtSizeName.Location = new System.Drawing.Point(253, 37);
+            this.txtSizeName.Location = new System.Drawing.Point(253, 33);
             this.txtSizeName.Name = "txtSizeName";
             this.txtSizeName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizeName.Size = new System.Drawing.Size(151, 20);
@@ -830,7 +776,7 @@
             // 
             // txtAddCharge2
             // 
-            this.txtAddCharge2.Location = new System.Drawing.Point(475, 11);
+            this.txtAddCharge2.Location = new System.Drawing.Point(475, 7);
             this.txtAddCharge2.Name = "txtAddCharge2";
             this.txtAddCharge2.Properties.Mask.EditMask = "n";
             this.txtAddCharge2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -840,7 +786,7 @@
             // 
             // btnAddSize
             // 
-            this.btnAddSize.Location = new System.Drawing.Point(755, 10);
+            this.btnAddSize.Location = new System.Drawing.Point(755, 5);
             this.btnAddSize.Name = "btnAddSize";
             this.btnAddSize.Size = new System.Drawing.Size(75, 23);
             this.btnAddSize.TabIndex = 1;
@@ -849,7 +795,7 @@
             // 
             // txtAddCharge1
             // 
-            this.txtAddCharge1.Location = new System.Drawing.Point(304, 11);
+            this.txtAddCharge1.Location = new System.Drawing.Point(304, 7);
             this.txtAddCharge1.Name = "txtAddCharge1";
             this.txtAddCharge1.Properties.Mask.EditMask = "n";
             this.txtAddCharge1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -859,7 +805,7 @@
             // 
             // txtSizeID
             // 
-            this.txtSizeID.Location = new System.Drawing.Point(139, 37);
+            this.txtSizeID.Location = new System.Drawing.Point(139, 33);
             this.txtSizeID.Name = "txtSizeID";
             this.txtSizeID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizeID.Properties.MaxLength = 3;
@@ -869,7 +815,7 @@
             // 
             // btnDelSize
             // 
-            this.btnDelSize.Location = new System.Drawing.Point(919, 10);
+            this.btnDelSize.Location = new System.Drawing.Point(919, 5);
             this.btnDelSize.Name = "btnDelSize";
             this.btnDelSize.Size = new System.Drawing.Size(75, 23);
             this.btnDelSize.TabIndex = 2;
@@ -878,7 +824,7 @@
             // 
             // lblSizeID
             // 
-            this.lblSizeID.Location = new System.Drawing.Point(78, 40);
+            this.lblSizeID.Location = new System.Drawing.Point(78, 36);
             this.lblSizeID.Name = "lblSizeID";
             this.lblSizeID.Size = new System.Drawing.Size(52, 14);
             this.lblSizeID.TabIndex = 9;
@@ -886,7 +832,7 @@
             // 
             // lblSizeGroup
             // 
-            this.lblSizeGroup.Location = new System.Drawing.Point(76, 14);
+            this.lblSizeGroup.Location = new System.Drawing.Point(76, 10);
             this.lblSizeGroup.Name = "lblSizeGroup";
             this.lblSizeGroup.Size = new System.Drawing.Size(52, 14);
             this.lblSizeGroup.TabIndex = 3;
@@ -894,7 +840,7 @@
             // 
             // txtSizeGroup
             // 
-            this.txtSizeGroup.Location = new System.Drawing.Point(137, 11);
+            this.txtSizeGroup.Location = new System.Drawing.Point(137, 7);
             this.txtSizeGroup.Name = "txtSizeGroup";
             this.txtSizeGroup.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizeGroup.Properties.MaxLength = 4;
@@ -904,7 +850,7 @@
             // 
             // btnSaveSize
             // 
-            this.btnSaveSize.Location = new System.Drawing.Point(836, 10);
+            this.btnSaveSize.Location = new System.Drawing.Point(836, 5);
             this.btnSaveSize.Name = "btnSaveSize";
             this.btnSaveSize.Size = new System.Drawing.Size(75, 23);
             this.btnSaveSize.TabIndex = 6;
@@ -960,20 +906,20 @@
             this.colColorID,
             this.colColorName});
             this.dgvColorDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvColorDetails.Location = new System.Drawing.Point(869, 64);
+            this.dgvColorDetails.Location = new System.Drawing.Point(1004, 64);
             this.dgvColorDetails.Name = "dgvColorDetails";
             this.dgvColorDetails.ReadOnly = true;
             this.dgvColorDetails.RowHeadersWidth = 20;
             this.dgvColorDetails.RowTemplate.Height = 24;
             this.dgvColorDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorDetails.Size = new System.Drawing.Size(461, 166);
+            this.dgvColorDetails.Size = new System.Drawing.Size(326, 166);
             this.dgvColorDetails.TabIndex = 3;
             this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
             // 
             // panelControl8
             // 
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl8.Location = new System.Drawing.Point(780, 64);
+            this.panelControl8.Location = new System.Drawing.Point(915, 64);
             this.panelControl8.Name = "panelControl8";
             this.panelControl8.Size = new System.Drawing.Size(89, 166);
             this.panelControl8.TabIndex = 4;
@@ -1001,7 +947,7 @@
             this.dgvColorGroup.RowHeadersWidth = 20;
             this.dgvColorGroup.RowTemplate.Height = 24;
             this.dgvColorGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorGroup.Size = new System.Drawing.Size(778, 166);
+            this.dgvColorGroup.Size = new System.Drawing.Size(913, 166);
             this.dgvColorGroup.TabIndex = 1;
             this.dgvColorGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColorGroup_CellClick);
             this.dgvColorGroup.SelectionChanged += new System.EventHandler(this.dgvColorGroup_SelectionChanged);
@@ -1034,7 +980,7 @@
             // 
             // lblColorGroupCdesc
             // 
-            this.lblColorGroupCdesc.Location = new System.Drawing.Point(875, 37);
+            this.lblColorGroupCdesc.Location = new System.Drawing.Point(1004, 37);
             this.lblColorGroupCdesc.Name = "lblColorGroupCdesc";
             this.lblColorGroupCdesc.Size = new System.Drawing.Size(88, 14);
             this.lblColorGroupCdesc.TabIndex = 10;
@@ -1160,6 +1106,103 @@
             this.labelControl1.Size = new System.Drawing.Size(76, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "適用的顏色組:";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnExit
+            // 
+            this.btnExit.AutoSize = false;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(65, 35);
+            this.btnExit.Text = "退出(&X)";
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.AutoSize = false;
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(65, 35);
+            this.btnNew.Text = "新增(&A)";
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.AutoSize = false;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(65, 35);
+            this.btnSave.Text = "儲存(&S)";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.AutoSize = false;
+            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
+            this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(65, 35);
+            this.btnFind.Text = "查詢(&F)";
+            this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // btnSizeGroup
+            // 
+            this.btnSizeGroup.AutoSize = false;
+            this.btnSizeGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnSizeGroup.Image")));
+            this.btnSizeGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSizeGroup.Name = "btnSizeGroup";
+            this.btnSizeGroup.Size = new System.Drawing.Size(60, 35);
+            this.btnSizeGroup.Text = "尺寸組別";
+            this.btnSizeGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSizeGroup.Click += new System.EventHandler(this.btnSizeGroup_Click);
+            // 
+            // btnColorGroup
+            // 
+            this.btnColorGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnColorGroup.Image")));
+            this.btnColorGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnColorGroup.Name = "btnColorGroup";
+            this.btnColorGroup.Size = new System.Drawing.Size(60, 35);
+            this.btnColorGroup.Text = "顏色組別";
+            this.btnColorGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnColorGroup.Click += new System.EventHandler(this.btnColorGroup_Click);
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.AutoSize = false;
+            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
+            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(65, 35);
+            this.btnCopy.Text = "複製(&C)";
+            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoSize = false;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(65, 35);
+            this.btnDelete.Text = "刪除(&D)";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1395,6 +1438,7 @@
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
             this.dataGridViewTextBoxColumn27.Visible = false;
+            this.dataGridViewTextBoxColumn27.Width = 60;
             // 
             // dataGridViewTextBoxColumn28
             // 
@@ -1419,6 +1463,14 @@
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
             this.dataGridViewTextBoxColumn30.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "SN";
+            this.dataGridViewTextBoxColumn31.HeaderText = "流水號";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            this.dataGridViewTextBoxColumn31.Visible = false;
             // 
             // colColorGroupID
             // 
@@ -1599,7 +1651,15 @@
             this.colSizeName.HeaderText = "尺寸描述";
             this.colSizeName.Name = "colSizeName";
             this.colSizeName.ReadOnly = true;
-            this.colSizeName.Width = 160;
+            this.colSizeName.Width = 120;
+            // 
+            // colSizeStyle
+            // 
+            this.colSizeStyle.DataPropertyName = "SizeStyle";
+            this.colSizeStyle.HeaderText = "尺寸規格";
+            this.colSizeStyle.Name = "colSizeStyle";
+            this.colSizeStyle.ReadOnly = true;
+            this.colSizeStyle.Width = 180;
             // 
             // colBasePrice
             // 
@@ -1858,16 +1918,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colValueDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupUpperSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupSN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBasePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectSizeFlag;
@@ -1877,5 +1927,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddCharge3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeStyle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBasePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.ToolStripButton btnCopy;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton btnDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }

@@ -25,9 +25,10 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql = "Select a.UpperSN,a.Seq,a.SizeGroup,a.SN,a.SizeID,a.SizeName,a.BasePrice,a.Unit" +
-                ",b.add_charge1,b.add_charge2,b.add_charge3 " +
+                ",b.add_charge1,b.add_charge2,b.add_charge3,c.SizeStyle " +
                 " From mm_ProductTypePriceSize a" +
                 " Left Join bs_size b On a.SizeID=b.size_id " +
+                " Left Join mm_ProductTypePriceSizeGroup c On a.SizeGroup=c.GroupID And a.SizeID=c.SizeID" +
                 " Where a.UpperSN='" + UpperSN + "'";
             DataTable dtSizeGroup = clsPublicOfCF01.GetDataTable(strSql);
             return dtSizeGroup;
@@ -269,8 +270,10 @@ namespace cf01.CLS
             strSql = "Select a.ID,a.Ver,a.ArtWork,a.ProductType,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 ",b.Seq AS SizeSeq,b.SizeID,b.SizeName,b.SN AS SizeSN,b.SizeGroup " +
+                ",c.SizeStyle" +
                 " From mm_ProductTypePrice a " +
                 " Left Join mm_ProductTypePriceSize b On a.SN=b.UpperSN " +
+                " Left Join mm_ProductTypePriceSizeGroup c On b.SizeGroup=c.GroupID And b.SizeID=c.SizeID " +
                 " Where a.ID>=''";
             if(ArtWork!="")
                 strSql+= " And a.ArtWork Like '%" + ArtWork + "%'";
@@ -304,17 +307,15 @@ namespace cf01.CLS
             string GroupID = mdlSG.GroupID;
             string SizeID = mdlSG.SizeID;
             if(GroupID=="")
-            {
                 GroupID= GenSizeGroupID();
-            }
             if (!CheckExistSizeGroupID(GroupID, SizeID))
-                strSql += string.Format(@" Insert Into mm_ProductTypePriceSizeGroup(GroupID,SizeID)" +
-                        " Values ('{0}','{1}' )"
-                        , GroupID, mdlSG.SizeID);
+                strSql += string.Format(@" Insert Into mm_ProductTypePriceSizeGroup(GroupID,SizeID,SizeStyle)" +
+                        " Values ('{0}','{1}','{2}' )"
+                        , GroupID, mdlSG.SizeID, mdlSG.SizeStyle);
             else
-                strSql += string.Format(@" Update mm_ProductTypePriceSizeGroup Set SizeID='{1}'" +
+                strSql += string.Format(@" Update mm_ProductTypePriceSizeGroup Set SizeStyle='{2}'" +
                     " Where GroupID='{0}' And SizeID='{1}'"
-                    , GroupID, mdlSG.SizeID);
+                    , GroupID, mdlSG.SizeID, mdlSG.SizeStyle);
             strSql += string.Format(@" Update bs_size Set add_charge1='{0}',add_charge2='{1}',add_charge3='{2}' " +
                 " Where size_id='{3}'"
                 , mdlSG.AddCharge1, mdlSG.AddCharge2, mdlSG.AddCharge3, mdlSG.SizeID);
@@ -350,7 +351,7 @@ namespace cf01.CLS
 
         public static DataTable LoadSizeDetails(string GroupID,string SizeID)
         {
-            string strSql = "Select a.GroupID,a.SizeID,b.size_cdesc AS SizeName,b.add_charge1,b.add_charge2,b.add_charge3 " +
+            string strSql = "Select a.GroupID,a.SizeID,b.size_cdesc AS SizeName,a.SizeStyle,b.add_charge1,b.add_charge2,b.add_charge3 " +
                 " From mm_ProductTypePriceSizeGroup a" +
                 " Left Join bs_size b On a.SizeID=b.size_id " +
                 " Where a.GroupID>=''";
@@ -462,6 +463,113 @@ namespace cf01.CLS
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
         }
+        public static string CopyID(string copyID,int CopySN)
+        {
+            string result = "";
+            DataTable dtID = LoadProductType(copyID);
+            if (dtID.Rows.Count == 0)
+            {
+                result = "";
+                return result;
+            }
+            bool upd_flag = true;
+            DataRow dr = dtID.Rows[0];
+            mdlProductTypePrice mdlPtp = new mdlProductTypePrice();
+            mdlPtp.ID = "";
+            mdlPtp.Ver = 0;
+            mdlPtp.ArtWork = dr["ArtWork"].ToString().Trim();
+            mdlPtp.ProductType = dr["ProductType"].ToString().Trim();
+            mdlPtp.Remark = dr["Remark"].ToString().Trim();
+            string ID=Save(mdlPtp);
+            //獲取新的NewSN，作為下一級的UpperSN
+            DataTable dtProductType = LoadProductType(ID);
+            int NewSN = 0;
+            if (dtProductType.Rows.Count > 0)
+                NewSN = Convert.ToInt32(dtProductType.Rows[0]["SN"]);
+            //用舊的SN(CopySN)獲取下一級的舊記錄，以生成新ID中的記錄
+            DataTable dtSizeGroup = LoadPrdSizeGroup(CopySN);
+            for (int i=0;i<dtSizeGroup.Rows.Count;i++)
+            {
+                DataRow drSizeGroup = dtSizeGroup.Rows[i];
+                mdlProductTypePriceSize mdlMtps = new mdlProductTypePriceSize();
+                mdlMtps.UpperSN = NewSN;
+                string Seq = (i + 1).ToString().PadLeft(3, '0');
+                mdlMtps.Seq = Seq;
+                mdlMtps.SizeGroup = drSizeGroup["SizeGroup"].ToString().Trim();
+                mdlMtps.SizeID = drSizeGroup["SizeID"].ToString().Trim();
+                mdlMtps.SizeName = drSizeGroup["SizeName"].ToString().Trim();
+                mdlMtps.BasePrice = drSizeGroup["BasePrice"].ToString().Trim() != "" ? Convert.ToDecimal(drSizeGroup["BasePrice"].ToString()) : 0;
+                mdlMtps.Unit = drSizeGroup["Unit"].ToString().Trim();
+                result = SavePrdSizeGroup(mdlMtps);
+                if(result!="")
+                {
+                    upd_flag = false;
+                    break;
+                }
+                int CopySizeGroupSN = Convert.ToInt32(drSizeGroup["SN"]);//用舊的SN作為獲取下一級的記錄，以生成新的記錄
+                int NewPrdSizeGroupSN = GetPrdSizeGroupSN(NewSN, Seq);//獲取本級新生成的SN，作為下一級的UpperSN
+                DataTable dtColorGroup = LoadColorGroup(CopySizeGroupSN);
+                for (int j = 0; j < dtColorGroup.Rows.Count; j++)
+                {
+                    DataRow drColorGroup = dtColorGroup.Rows[j];
+                    mdlProductTypePriceColorGroup mdlPtpc = new mdlProductTypePriceColorGroup();
+                    mdlPtpc.UpperSN = NewPrdSizeGroupSN;
+                    mdlPtpc.Seq = (j + 1).ToString().PadLeft(3, '0');
+                    mdlPtpc.ColorGroup = drColorGroup["ColorGroup"].ToString().Trim();
+                    mdlPtpc.ValueDesc = drColorGroup["ValueDesc"].ToString().Trim();
+                    mdlPtpc.Rate = drColorGroup["ValueDesc"].ToString().Trim() == "" ? 0 : Convert.ToDecimal(drColorGroup["ValueDesc"].ToString());
+                    mdlPtpc.Price = drColorGroup["Price"].ToString().Trim() == "" ? 0 : Convert.ToDecimal(drColorGroup["Price"].ToString());
+                    mdlPtpc.Curr = drColorGroup["Curr"].ToString().Trim();
+                    mdlPtpc.AddCharge1 = drColorGroup["add_charge1"].ToString().Trim() != "" ? Convert.ToDecimal(drColorGroup["add_charge1"].ToString()) : 0;
+                    mdlPtpc.AddCharge2 = drColorGroup["add_charge2"].ToString().Trim() != "" ? Convert.ToDecimal(drColorGroup["add_charge2"].ToString()) : 0;
+                    mdlPtpc.AddCharge3 = drColorGroup["add_charge3"].ToString().Trim() != "" ? Convert.ToDecimal(drColorGroup["add_charge3"].ToString()) : 0;
+                    result = SaveColorGroup(mdlPtpc);
+                    if (result != "")
+                    {
+                        upd_flag = false;
+                        break;
+                    }
+                }
+                if (!upd_flag)
+                    break;
+            }
+            if (upd_flag == true)
+                result = ID;
+            return result;
+        }
+        private static int GetPrdSizeGroupSN(int UpperSN,string Seq)
+        {
+            int SN = 0;
+            string strSql = "";
+            strSql = "Select a.SN " +
+                " From mm_ProductTypePriceSize a" +
+                " Where a.UpperSN='" + UpperSN + "' And a.Seq='" + Seq + "'";
+            DataTable dtSizeGroup = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtSizeGroup.Rows.Count > 0)
+                SN = Convert.ToInt32(dtSizeGroup.Rows[0]["SN"]);
+            return SN;
+        }
 
+        public static string DeleteID(string ID, int SN)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            DataTable dtSizeGroup = LoadPrdSizeGroup(SN);
+            for (int i = 0; i < dtSizeGroup.Rows.Count; i++)
+            {
+                int SN1 = Convert.ToInt32(dtSizeGroup.Rows[i]["SN"]);
+                strSql += string.Format(@" Delete From mm_ProductTypePriceColorGroup " +
+                " Where UpperSN='{0}'", SN1);
+            }
+            strSql += string.Format(@" Delete From mm_ProductTypePriceSize " +
+                " Where UpperSN='{0}'", SN);
+            strSql += string.Format(@" Delete From mm_ProductTypePrice" +
+                " Where ID='{0}'", ID);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
     }
 }
