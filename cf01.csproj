@@ -1422,8 +1422,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MM\frmProductTypeStdPriceColorGroup.Designer.cs">
-	  <DependentUpon>frmProductTypeStdPriceColorGroup.cs</DependentUpon>
-	</Compile>
+      <DependentUpon>frmProductTypeStdPriceColorGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="MM\frmProductTypeStdPriceFind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1837,6 +1837,12 @@
     </Compile>
     <Compile Include="ReportForm\frmOutProcessPrint.designer.cs">
       <DependentUpon>frmOutProcessPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\frmOverdueDays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmOverdueDays.designer.cs">
+      <DependentUpon>frmOverdueDays.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\frmPackChanged.cs">
       <SubType>Form</SubType>
@@ -3248,8 +3254,8 @@
       <DependentUpon>frmProductTypeStdPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmProductTypeStdPriceColorGroup.resx">
-	  <DependentUpon>frmProductTypeStdPriceColorGroup.cs</DependentUpon>
-	</EmbeddedResource>
+      <DependentUpon>frmProductTypeStdPriceColorGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MM\frmProductTypeStdPriceFind.resx">
       <DependentUpon>frmProductTypeStdPriceFind.cs</DependentUpon>
     </EmbeddedResource>
@@ -3451,6 +3457,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmOutProcessPrint.resx">
       <DependentUpon>frmOutProcessPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmOverdueDays.resx">
+      <DependentUpon>frmOverdueDays.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmPackChanged.resx">
       <DependentUpon>frmPackChanged.cs</DependentUpon>
