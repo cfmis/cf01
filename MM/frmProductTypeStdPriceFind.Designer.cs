@@ -45,20 +45,6 @@
             this.lblArtWork = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.dgvArtWork = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colArtWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmendUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmendTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.lblColor = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -93,6 +79,21 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colArtWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmendUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmendTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -257,6 +258,7 @@
             this.colSeq,
             this.colSizeID,
             this.colSizeName,
+            this.colSizeStyle,
             this.colVer,
             this.colCreateUser,
             this.colCreateTime,
@@ -276,113 +278,6 @@
             this.dgvArtWork.TabIndex = 0;
             this.dgvArtWork.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtWork_CellDoubleClick);
             this.dgvArtWork.SelectionChanged += new System.EventHandler(this.dgvArtWork_SelectionChanged);
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "文件號";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 80;
-            // 
-            // colArtWork
-            // 
-            this.colArtWork.DataPropertyName = "ArtWork";
-            this.colArtWork.HeaderText = "圖樣代號";
-            this.colArtWork.Name = "colArtWork";
-            this.colArtWork.ReadOnly = true;
-            this.colArtWork.Width = 120;
-            // 
-            // colProductType
-            // 
-            this.colProductType.DataPropertyName = "ProductType";
-            this.colProductType.HeaderText = "產品類型";
-            this.colProductType.Name = "colProductType";
-            this.colProductType.ReadOnly = true;
-            this.colProductType.Width = 160;
-            // 
-            // colSeq
-            // 
-            this.colSeq.DataPropertyName = "SizeSeq";
-            this.colSeq.HeaderText = "序號";
-            this.colSeq.Name = "colSeq";
-            this.colSeq.ReadOnly = true;
-            // 
-            // colSizeID
-            // 
-            this.colSizeID.DataPropertyName = "SizeID";
-            this.colSizeID.HeaderText = "尺寸代號";
-            this.colSizeID.Name = "colSizeID";
-            this.colSizeID.ReadOnly = true;
-            this.colSizeID.Width = 80;
-            // 
-            // colSizeName
-            // 
-            this.colSizeName.DataPropertyName = "SizeName";
-            this.colSizeName.HeaderText = "尺寸描述";
-            this.colSizeName.Name = "colSizeName";
-            this.colSizeName.ReadOnly = true;
-            // 
-            // colVer
-            // 
-            this.colVer.DataPropertyName = "Ver";
-            this.colVer.HeaderText = "版本號";
-            this.colVer.Name = "colVer";
-            this.colVer.ReadOnly = true;
-            // 
-            // colCreateUser
-            // 
-            this.colCreateUser.DataPropertyName = "CreateUser";
-            this.colCreateUser.HeaderText = "建立人";
-            this.colCreateUser.Name = "colCreateUser";
-            this.colCreateUser.ReadOnly = true;
-            // 
-            // colCreateTime
-            // 
-            this.colCreateTime.DataPropertyName = "CreateTime";
-            this.colCreateTime.HeaderText = "建立日期";
-            this.colCreateTime.Name = "colCreateTime";
-            this.colCreateTime.ReadOnly = true;
-            this.colCreateTime.Width = 160;
-            // 
-            // colAmendUser
-            // 
-            this.colAmendUser.DataPropertyName = "AmendUser";
-            this.colAmendUser.HeaderText = "修改人";
-            this.colAmendUser.Name = "colAmendUser";
-            this.colAmendUser.ReadOnly = true;
-            // 
-            // colAmendTime
-            // 
-            this.colAmendTime.DataPropertyName = "AmendTime";
-            this.colAmendTime.HeaderText = "修改日期";
-            this.colAmendTime.Name = "colAmendTime";
-            this.colAmendTime.ReadOnly = true;
-            this.colAmendTime.Width = 160;
-            // 
-            // colSN
-            // 
-            this.colSN.DataPropertyName = "SN";
-            this.colSN.HeaderText = "流水號";
-            this.colSN.Name = "colSN";
-            this.colSN.ReadOnly = true;
-            this.colSN.Visible = false;
-            this.colSN.Width = 60;
-            // 
-            // colSizeSN
-            // 
-            this.colSizeSN.DataPropertyName = "SizeSN";
-            this.colSizeSN.HeaderText = "尺寸流水號";
-            this.colSizeSN.Name = "colSizeSN";
-            this.colSizeSN.ReadOnly = true;
-            this.colSizeSN.Visible = false;
-            // 
-            // colSizeGroup
-            // 
-            this.colSizeGroup.DataPropertyName = "SizeGroup";
-            this.colSizeGroup.HeaderText = "尺寸組別";
-            this.colSizeGroup.Name = "colSizeGroup";
-            this.colSizeGroup.ReadOnly = true;
             // 
             // panelControl3
             // 
@@ -676,6 +571,121 @@
             this.dataGridViewTextBoxColumn20.Visible = false;
             this.dataGridViewTextBoxColumn20.Width = 80;
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "文件號";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 80;
+            // 
+            // colArtWork
+            // 
+            this.colArtWork.DataPropertyName = "ArtWork";
+            this.colArtWork.HeaderText = "圖樣代號";
+            this.colArtWork.Name = "colArtWork";
+            this.colArtWork.ReadOnly = true;
+            this.colArtWork.Width = 120;
+            // 
+            // colProductType
+            // 
+            this.colProductType.DataPropertyName = "ProductType";
+            this.colProductType.HeaderText = "產品類型";
+            this.colProductType.Name = "colProductType";
+            this.colProductType.ReadOnly = true;
+            this.colProductType.Width = 160;
+            // 
+            // colSeq
+            // 
+            this.colSeq.DataPropertyName = "SizeSeq";
+            this.colSeq.HeaderText = "序號";
+            this.colSeq.Name = "colSeq";
+            this.colSeq.ReadOnly = true;
+            // 
+            // colSizeID
+            // 
+            this.colSizeID.DataPropertyName = "SizeID";
+            this.colSizeID.HeaderText = "尺寸代號";
+            this.colSizeID.Name = "colSizeID";
+            this.colSizeID.ReadOnly = true;
+            this.colSizeID.Width = 80;
+            // 
+            // colSizeName
+            // 
+            this.colSizeName.DataPropertyName = "SizeName";
+            this.colSizeName.HeaderText = "尺寸描述";
+            this.colSizeName.Name = "colSizeName";
+            this.colSizeName.ReadOnly = true;
+            // 
+            // colSizeStyle
+            // 
+            this.colSizeStyle.DataPropertyName = "SizeStyle";
+            this.colSizeStyle.HeaderText = "尺寸規格";
+            this.colSizeStyle.Name = "colSizeStyle";
+            this.colSizeStyle.ReadOnly = true;
+            this.colSizeStyle.Width = 160;
+            // 
+            // colVer
+            // 
+            this.colVer.DataPropertyName = "Ver";
+            this.colVer.HeaderText = "版本號";
+            this.colVer.Name = "colVer";
+            this.colVer.ReadOnly = true;
+            // 
+            // colCreateUser
+            // 
+            this.colCreateUser.DataPropertyName = "CreateUser";
+            this.colCreateUser.HeaderText = "建立人";
+            this.colCreateUser.Name = "colCreateUser";
+            this.colCreateUser.ReadOnly = true;
+            // 
+            // colCreateTime
+            // 
+            this.colCreateTime.DataPropertyName = "CreateTime";
+            this.colCreateTime.HeaderText = "建立日期";
+            this.colCreateTime.Name = "colCreateTime";
+            this.colCreateTime.ReadOnly = true;
+            this.colCreateTime.Width = 160;
+            // 
+            // colAmendUser
+            // 
+            this.colAmendUser.DataPropertyName = "AmendUser";
+            this.colAmendUser.HeaderText = "修改人";
+            this.colAmendUser.Name = "colAmendUser";
+            this.colAmendUser.ReadOnly = true;
+            // 
+            // colAmendTime
+            // 
+            this.colAmendTime.DataPropertyName = "AmendTime";
+            this.colAmendTime.HeaderText = "修改日期";
+            this.colAmendTime.Name = "colAmendTime";
+            this.colAmendTime.ReadOnly = true;
+            this.colAmendTime.Width = 160;
+            // 
+            // colSN
+            // 
+            this.colSN.DataPropertyName = "SN";
+            this.colSN.HeaderText = "流水號";
+            this.colSN.Name = "colSN";
+            this.colSN.ReadOnly = true;
+            this.colSN.Visible = false;
+            this.colSN.Width = 60;
+            // 
+            // colSizeSN
+            // 
+            this.colSizeSN.DataPropertyName = "SizeSN";
+            this.colSizeSN.HeaderText = "尺寸流水號";
+            this.colSizeSN.Name = "colSizeSN";
+            this.colSizeSN.ReadOnly = true;
+            this.colSizeSN.Visible = false;
+            // 
+            // colSizeGroup
+            // 
+            this.colSizeGroup.DataPropertyName = "SizeGroup";
+            this.colSizeGroup.HeaderText = "尺寸組別";
+            this.colSizeGroup.Name = "colSizeGroup";
+            this.colSizeGroup.ReadOnly = true;
+            // 
             // frmProductTypeStdPriceFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -766,12 +776,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colValueDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCurr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colArtWork;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSeq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeStyle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVer;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreateUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreateTime;
@@ -780,6 +792,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
     }
 }

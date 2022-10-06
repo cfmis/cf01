@@ -33,6 +33,9 @@
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAddGroup = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAddColor = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
@@ -46,16 +49,13 @@
             this.txtGroupID = new DevExpress.XtraEditors.TextEdit();
             this.lblGroupID = new DevExpress.XtraEditors.LabelControl();
             this.dgvColorGroup = new System.Windows.Forms.DataGridView();
-            this.txtColorIDFind = new DevExpress.XtraEditors.TextEdit();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnAddColor = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtColorIDFind = new DevExpress.XtraEditors.TextEdit();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -115,6 +115,27 @@
             this.btnAddGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddGroup.ToolTipText = "新增組別";
             this.btnAddGroup.Click += new System.EventHandler(this.btnAddGroup_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnAddColor
+            // 
+            this.btnAddColor.AutoSize = false;
+            this.btnAddColor.Image = ((System.Drawing.Image)(resources.GetObject("btnAddColor.Image")));
+            this.btnAddColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddColor.Name = "btnAddColor";
+            this.btnAddColor.Size = new System.Drawing.Size(65, 35);
+            this.btnAddColor.Text = "新增顏色";
+            this.btnAddColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAddColor.Click += new System.EventHandler(this.btnAddColor_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
             // 
             // btnSave
             // 
@@ -241,6 +262,28 @@
             this.dgvColorGroup.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColorGroup_CellDoubleClick);
             this.dgvColorGroup.SelectionChanged += new System.EventHandler(this.dgvColorGroup_SelectionChanged);
             // 
+            // colGroupID
+            // 
+            this.colGroupID.DataPropertyName = "GroupID";
+            this.colGroupID.HeaderText = "組別代號";
+            this.colGroupID.Name = "colGroupID";
+            this.colGroupID.ReadOnly = true;
+            // 
+            // colColorID
+            // 
+            this.colColorID.DataPropertyName = "ColorID";
+            this.colColorID.HeaderText = "顏色代號";
+            this.colColorID.Name = "colColorID";
+            this.colColorID.ReadOnly = true;
+            // 
+            // colColorName
+            // 
+            this.colColorName.DataPropertyName = "ColorName";
+            this.colColorName.HeaderText = "顏色描述";
+            this.colColorName.Name = "colColorName";
+            this.colColorName.ReadOnly = true;
+            this.colColorName.Width = 180;
+            // 
             // txtColorIDFind
             // 
             this.txtColorIDFind.Location = new System.Drawing.Point(469, 10);
@@ -250,27 +293,6 @@
             this.txtColorIDFind.Size = new System.Drawing.Size(100, 20);
             this.txtColorIDFind.TabIndex = 3;
             this.txtColorIDFind.Leave += new System.EventHandler(this.txtGroupIDFind_Leave);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnAddColor
-            // 
-            this.btnAddColor.AutoSize = false;
-            this.btnAddColor.Image = ((System.Drawing.Image)(resources.GetObject("btnAddColor.Image")));
-            this.btnAddColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddColor.Name = "btnAddColor";
-            this.btnAddColor.Size = new System.Drawing.Size(65, 35);
-            this.btnAddColor.Text = "新增顏色";
-            this.btnAddColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAddColor.Click += new System.EventHandler(this.btnAddColor_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -293,28 +315,6 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 180;
-            // 
-            // colGroupID
-            // 
-            this.colGroupID.DataPropertyName = "GroupID";
-            this.colGroupID.HeaderText = "組別代號";
-            this.colGroupID.Name = "colGroupID";
-            this.colGroupID.ReadOnly = true;
-            // 
-            // colColorID
-            // 
-            this.colColorID.DataPropertyName = "ColorID";
-            this.colColorID.HeaderText = "顏色代號";
-            this.colColorID.Name = "colColorID";
-            this.colColorID.ReadOnly = true;
-            // 
-            // colColorName
-            // 
-            this.colColorName.DataPropertyName = "ColorName";
-            this.colColorName.HeaderText = "顏色描述";
-            this.colColorName.Name = "colColorName";
-            this.colColorName.ReadOnly = true;
-            this.colColorName.Width = 180;
             // 
             // frmProductTypeStdPriceColorGroup
             // 

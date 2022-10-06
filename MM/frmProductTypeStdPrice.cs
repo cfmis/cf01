@@ -715,5 +715,33 @@ namespace cf01.MM
         {
             dgvSizeGroupSelectRow(dgvSizeGroup.CurrentRow.Index);
         }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("確認將此單複製成新的單號嗎？", "Confirm Message", MessageBoxButtons.OKCancel,MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Cancel)
+                return;
+            if(txtID.Text.Trim()=="")
+            {
+                MessageBox.Show("單號不存在!");
+                return;
+            }
+            string result = clsMmProductTypeStdPrice.CopyID(txtID.Text.Trim(), Convert.ToInt32(txtSN.Text));
+            txtID.Text = result;
+            LoadData(txtID.Text.Trim());
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("確認刪除此單的記錄嗎？", "Confirm Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Cancel)
+                return;
+            if (txtID.Text.Trim() == "")
+            {
+                MessageBox.Show("單號不存在!");
+                return;
+            }
+            string result = clsMmProductTypeStdPrice.DeleteID(txtID.Text.Trim(), Convert.ToInt32(txtSN.Text));
+            LoadData(txtID.Text.Trim());
+            txtID.Text = "";
+        }
     }
 }

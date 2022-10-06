@@ -35,8 +35,6 @@ namespace cf01.MM
         }
         private string Save()
         {
-            
-
             string result = "";
             if (txtSizeID.Text.Trim() == "")
             {
@@ -44,8 +42,9 @@ namespace cf01.MM
                 return result;
             }
             mdlSizeGroup mdlSG = new mdlSizeGroup();
-            mdlSG.GroupID = txtGroupID.Text;
-            mdlSG.SizeID = txtSizeID.Text;
+            mdlSG.GroupID = txtGroupID.Text.Trim();
+            mdlSG.SizeID = txtSizeID.Text.Trim();
+            mdlSG.SizeStyle = txtSizeStyle.Text;
             mdlSG.AddCharge1 = txtAddCharge1.Text.Trim() != "" ? Convert.ToDecimal(txtAddCharge1.Text) : 0;
             mdlSG.AddCharge2 = txtAddCharge2.Text.Trim() != "" ? Convert.ToDecimal(txtAddCharge2.Text) : 0;
             mdlSG.AddCharge3 = txtAddCharge3.Text.Trim() != "" ? Convert.ToDecimal(txtAddCharge3.Text) : 0;
@@ -100,6 +99,7 @@ namespace cf01.MM
                 txtGroupID.Text = dr.Cells["colGroupID"].Value.ToString();
                 txtSizeID.Text = dr.Cells["colSizeID"].Value.ToString();//
                 txtSizeName.Text = dr.Cells["colSizeName"].Value.ToString();
+                txtSizeStyle.Text = dr.Cells["colSizeStyle"].Value.ToString();
                 txtAddCharge1.Text = dr.Cells["colAddCharge1"].Value.ToString();
                 txtAddCharge2.Text = dr.Cells["colAddCharge2"].Value.ToString();
                 txtAddCharge3.Text = dr.Cells["colAddCharge3"].Value.ToString();
@@ -109,6 +109,7 @@ namespace cf01.MM
                 txtGroupID.Text = "";
                 txtSizeID.Text = "";
                 txtSizeName.Text = "";
+                txtSizeStyle.Text = "";
                 txtAddCharge1.Text = "";
                 txtAddCharge2.Text = "";
                 txtAddCharge3.Text = "";
