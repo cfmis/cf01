@@ -90,8 +90,7 @@ namespace cf01.ReportForm
         private void BTNEXIT_Click(object sender, EventArgs e)
         {
             Close();
-        }    
-               
+        }   
 
         private void BTNEXCEL_Click(object sender, EventArgs e)
         {
