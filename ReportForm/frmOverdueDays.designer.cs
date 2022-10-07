@@ -105,12 +105,12 @@
             this.issue_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delivery_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overdue_days = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty_diff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_qty_diff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.out_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.out_sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.in_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.in_sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty_diff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sec_qty_diff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ir_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -251,12 +251,12 @@
             this.issue_date,
             this.delivery_date,
             this.overdue_days,
+            this.qty_diff,
+            this.sec_qty_diff,
             this.out_qty,
             this.out_sec_qty,
             this.in_qty,
             this.in_sec_qty,
-            this.qty_diff,
-            this.sec_qty_diff,
             this.id,
             this.ir_date,
             this.prod_qty,
@@ -659,13 +659,39 @@
             this.overdue_days.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.overdue_days.Width = 120;
             // 
-            // out_qty
+            // qty_diff
             // 
-            this.out_qty.DataPropertyName = "out_qty";
+            this.qty_diff.DataPropertyName = "qty_diff";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle3.Format = "N0";
             dataGridViewCellStyle3.NullValue = "0";
-            this.out_qty.DefaultCellStyle = dataGridViewCellStyle3;
+            this.qty_diff.DefaultCellStyle = dataGridViewCellStyle3;
+            this.qty_diff.HeaderText = "欠收數量";
+            this.qty_diff.Name = "qty_diff";
+            this.qty_diff.ReadOnly = true;
+            this.qty_diff.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.qty_diff.Width = 80;
+            // 
+            // sec_qty_diff
+            // 
+            this.sec_qty_diff.DataPropertyName = "sec_qty_diff";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0.00";
+            this.sec_qty_diff.DefaultCellStyle = dataGridViewCellStyle4;
+            this.sec_qty_diff.HeaderText = "欠收重量";
+            this.sec_qty_diff.Name = "sec_qty_diff";
+            this.sec_qty_diff.ReadOnly = true;
+            this.sec_qty_diff.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sec_qty_diff.Width = 80;
+            // 
+            // out_qty
+            // 
+            this.out_qty.DataPropertyName = "out_qty";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.out_qty.DefaultCellStyle = dataGridViewCellStyle5;
             this.out_qty.HeaderText = "發貨數量";
             this.out_qty.Name = "out_qty";
             this.out_qty.ReadOnly = true;
@@ -675,10 +701,10 @@
             // out_sec_qty
             // 
             this.out_sec_qty.DataPropertyName = "out_sec_qty";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.out_sec_qty.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.out_sec_qty.DefaultCellStyle = dataGridViewCellStyle6;
             this.out_sec_qty.HeaderText = "發貨重量";
             this.out_sec_qty.Name = "out_sec_qty";
             this.out_sec_qty.ReadOnly = true;
@@ -688,10 +714,10 @@
             // in_qty
             // 
             this.in_qty.DataPropertyName = "in_qty";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.in_qty.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = "0";
+            this.in_qty.DefaultCellStyle = dataGridViewCellStyle7;
             this.in_qty.HeaderText = "收貨數量";
             this.in_qty.Name = "in_qty";
             this.in_qty.ReadOnly = true;
@@ -701,41 +727,15 @@
             // in_sec_qty
             // 
             this.in_sec_qty.DataPropertyName = "in_sec_qty";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0.00";
-            this.in_sec_qty.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = "0.00";
+            this.in_sec_qty.DefaultCellStyle = dataGridViewCellStyle8;
             this.in_sec_qty.HeaderText = "收貨重量";
             this.in_sec_qty.Name = "in_sec_qty";
             this.in_sec_qty.ReadOnly = true;
             this.in_sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.in_sec_qty.Width = 70;
-            // 
-            // qty_diff
-            // 
-            this.qty_diff.DataPropertyName = "qty_diff";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N0";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.qty_diff.DefaultCellStyle = dataGridViewCellStyle7;
-            this.qty_diff.HeaderText = "數量差額";
-            this.qty_diff.Name = "qty_diff";
-            this.qty_diff.ReadOnly = true;
-            this.qty_diff.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.qty_diff.Width = 80;
-            // 
-            // sec_qty_diff
-            // 
-            this.sec_qty_diff.DataPropertyName = "sec_qty_diff";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = "0.00";
-            this.sec_qty_diff.DefaultCellStyle = dataGridViewCellStyle8;
-            this.sec_qty_diff.HeaderText = "重量差額";
-            this.sec_qty_diff.Name = "sec_qty_diff";
-            this.sec_qty_diff.ReadOnly = true;
-            this.sec_qty_diff.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sec_qty_diff.Width = 80;
             // 
             // id
             // 
@@ -858,12 +858,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn issue_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn delivery_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn overdue_days;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty_diff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty_diff;
         private System.Windows.Forms.DataGridViewTextBoxColumn out_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn out_sec_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn in_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn in_sec_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty_diff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty_diff;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ir_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_qty;
