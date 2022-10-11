@@ -229,7 +229,6 @@ namespace cf01.ReportForm
                     }
                     //DataRow[] ary_dr = dtReport.Select(string.Format("mo_group='{0}'", strSalesGroup));                   
                     //sheet.Cells[1, 1] = string.Format("匯出日期：{0}", DateTime.Now.ToString("yyyy-MM-dd"));
-                    //sheet.Range["A1:I1"].Merge(0);//合并单元格
                     sheet.Rows.Font.Size = 10;
                     sheet.Cells[2 + i, 1] = dtReport.Rows[i]["vendor_id"].ToString();
                     sheet.Cells[2 + i, 2] = dtReport.Rows[i]["vendor_name"].ToString();
