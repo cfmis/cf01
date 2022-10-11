@@ -397,13 +397,13 @@ namespace cf01.CLS
                 GroupID = GenColorGroupID();
             }
             if (!CheckExistColorGroupID(GroupID, ColorID))
-                strSql += string.Format(@" Insert Into mm_ProductTypeColorGroup(GroupID,ColorID)" +
-                        " Values ('{0}','{1}' )"
-                        , GroupID, mdlCG.ColorID);
+                strSql += string.Format(@" Insert Into mm_ProductTypeColorGroup(GroupID,ColorID,Rate)" +
+                        " Values ('{0}','{1}','{2}' )"
+                        , GroupID, mdlCG.ColorID, mdlCG.Rate);
             else
-                strSql += string.Format(@" Update mm_ProductTypeColorGroup Set ColorID='{1}'" +
-                    " Where GroupID='{0}' And ColorID='{1}'"
-                    , GroupID, mdlCG.ColorID);
+                strSql += string.Format(@" Update mm_ProductTypeColorGroup Set Rate='{2}'" +
+                    " Where GroupID='{0}'"
+                    , GroupID, mdlCG.ColorID, mdlCG.Rate);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             if (result == "")
@@ -437,7 +437,7 @@ namespace cf01.CLS
 
         public static DataTable LoadColorGroup(string ColorGroup,string ColorID)
         {
-            string strSql = "Select a.GroupID,a.ColorID,b.clr_cdesc AS ColorName " +
+            string strSql = "Select a.GroupID,a.ColorID,b.clr_cdesc AS ColorName,a.Rate " +
                 " From mm_ProductTypeColorGroup a" +
                 " Left Join bs_color b On a.ColorID=b.clr_code " +
                 " Where a.GroupID>=''";

@@ -40,6 +40,7 @@ namespace cf01.MM
             mdlColorGroup mdlCG = new mdlColorGroup();
             mdlCG.GroupID = txtGroupID.Text;
             mdlCG.ColorID = txtColorID.Text;
+            mdlCG.Rate = txtRate.Text != "" ? Convert.ToDecimal(txtRate.Text) : 0;
             result = clsMmProductTypeStdPrice.SaveColorGroup(mdlCG);
             if (result != "")
             {
@@ -98,12 +99,14 @@ namespace cf01.MM
                 txtGroupID.Text = dr.Cells["colGroupID"].Value.ToString();
                 txtColorID.Text = dr.Cells["colColorID"].Value.ToString();
                 txtColorName.Text = dr.Cells["colColorName"].Value.ToString();
+                txtRate.Text = dr.Cells["colRate"].Value.ToString();
             }
             else
             {
                 txtGroupID.Text = "";
                 txtColorID.Text = "";
                 txtColorName.Text = "";
+                txtRate.Text = "";
             }
         }
         private void txtGroupIDFind_Leave(object sender, EventArgs e)
@@ -123,6 +126,7 @@ namespace cf01.MM
         private void btnAddGroup_Click(object sender, EventArgs e)
         {
             txtGroupID.Text = "";
+            txtRate.Text = "";
             btnAddColor_Click(sender, e);
         }
 
