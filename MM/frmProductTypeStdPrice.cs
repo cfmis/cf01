@@ -464,7 +464,13 @@ namespace cf01.MM
             DataTable dtColorDetails = clsMmProductTypeStdPrice.LoadColorGroup(txtColorGroup.Text, "");
             dgvColorDetails.DataSource = dtColorDetails;
             if (dtColorDetails.Rows.Count == 0)
+            {
+                txtRate.Text = "";
                 MessageBox.Show("此顏色組別不存在!");
+            }
+            else
+                txtRate.Text = dtColorDetails.Rows[0]["Rate"].ToString();
+            CountPrice();
         }
 
         private void dgvSizeGroup_SelectionChanged(object sender, EventArgs e)

@@ -68,6 +68,7 @@ namespace cf01.MDL
     {
         public string GroupID { get; set; }
         public string ColorID { get; set; }
+        public decimal Rate { get; set; }
     }
 }
 

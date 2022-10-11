@@ -49,13 +49,17 @@
             this.txtGroupID = new DevExpress.XtraEditors.TextEdit();
             this.lblGroupID = new DevExpress.XtraEditors.LabelControl();
             this.dgvColorGroup = new System.Windows.Forms.DataGridView();
-            this.colGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtColorIDFind = new DevExpress.XtraEditors.TextEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblRate = new DevExpress.XtraEditors.LabelControl();
+            this.txtRate = new DevExpress.XtraEditors.TextEdit();
+            this.lblColorName = new DevExpress.XtraEditors.LabelControl();
+            this.colGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -64,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColorGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorIDFind.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -187,6 +192,9 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lblColorName);
+            this.panelControl1.Controls.Add(this.txtRate);
+            this.panelControl1.Controls.Add(this.lblRate);
             this.panelControl1.Controls.Add(this.txtColorName);
             this.panelControl1.Controls.Add(this.txtColorID);
             this.panelControl1.Controls.Add(this.lblColorID);
@@ -195,29 +203,29 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(864, 59);
+            this.panelControl1.Size = new System.Drawing.Size(864, 79);
             this.panelControl1.TabIndex = 1;
             // 
             // txtColorName
             // 
-            this.txtColorName.Location = new System.Drawing.Point(407, 21);
+            this.txtColorName.Location = new System.Drawing.Point(265, 47);
             this.txtColorName.Name = "txtColorName";
             this.txtColorName.Size = new System.Drawing.Size(161, 20);
             this.txtColorName.TabIndex = 2;
             // 
             // txtColorID
             // 
-            this.txtColorID.Location = new System.Drawing.Point(298, 21);
+            this.txtColorID.Location = new System.Drawing.Point(95, 47);
             this.txtColorID.Name = "txtColorID";
             this.txtColorID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColorID.Properties.MaxLength = 4;
-            this.txtColorID.Size = new System.Drawing.Size(92, 20);
-            this.txtColorID.TabIndex = 1;
+            this.txtColorID.Size = new System.Drawing.Size(100, 20);
+            this.txtColorID.TabIndex = 2;
             this.txtColorID.Leave += new System.EventHandler(this.txtColorID_Leave);
             // 
             // lblColorID
             // 
-            this.lblColorID.Location = new System.Drawing.Point(240, 24);
+            this.lblColorID.Location = new System.Drawing.Point(37, 50);
             this.lblColorID.Name = "lblColorID";
             this.lblColorID.Size = new System.Drawing.Size(52, 14);
             this.lblColorID.TabIndex = 0;
@@ -225,7 +233,7 @@
             // 
             // txtGroupID
             // 
-            this.txtGroupID.Location = new System.Drawing.Point(113, 21);
+            this.txtGroupID.Location = new System.Drawing.Point(95, 21);
             this.txtGroupID.Name = "txtGroupID";
             this.txtGroupID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGroupID.Properties.MaxLength = 4;
@@ -249,40 +257,19 @@
             this.dgvColorGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colGroupID,
             this.colColorID,
-            this.colColorName});
+            this.colColorName,
+            this.colRate});
             this.dgvColorGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvColorGroup.Location = new System.Drawing.Point(0, 97);
+            this.dgvColorGroup.Location = new System.Drawing.Point(0, 117);
             this.dgvColorGroup.Name = "dgvColorGroup";
             this.dgvColorGroup.ReadOnly = true;
             this.dgvColorGroup.RowHeadersWidth = 20;
             this.dgvColorGroup.RowTemplate.Height = 24;
             this.dgvColorGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorGroup.Size = new System.Drawing.Size(864, 491);
+            this.dgvColorGroup.Size = new System.Drawing.Size(864, 471);
             this.dgvColorGroup.TabIndex = 1;
             this.dgvColorGroup.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColorGroup_CellDoubleClick);
             this.dgvColorGroup.SelectionChanged += new System.EventHandler(this.dgvColorGroup_SelectionChanged);
-            // 
-            // colGroupID
-            // 
-            this.colGroupID.DataPropertyName = "GroupID";
-            this.colGroupID.HeaderText = "組別代號";
-            this.colGroupID.Name = "colGroupID";
-            this.colGroupID.ReadOnly = true;
-            // 
-            // colColorID
-            // 
-            this.colColorID.DataPropertyName = "ColorID";
-            this.colColorID.HeaderText = "顏色代號";
-            this.colColorID.Name = "colColorID";
-            this.colColorID.ReadOnly = true;
-            // 
-            // colColorName
-            // 
-            this.colColorName.DataPropertyName = "ColorName";
-            this.colColorName.HeaderText = "顏色描述";
-            this.colColorName.Name = "colColorName";
-            this.colColorName.ReadOnly = true;
-            this.colColorName.Width = 180;
             // 
             // txtColorIDFind
             // 
@@ -291,7 +278,7 @@
             this.txtColorIDFind.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColorIDFind.Properties.MaxLength = 4;
             this.txtColorIDFind.Size = new System.Drawing.Size(100, 20);
-            this.txtColorIDFind.TabIndex = 3;
+            this.txtColorIDFind.TabIndex = 0;
             this.txtColorIDFind.Leave += new System.EventHandler(this.txtGroupIDFind_Leave);
             // 
             // dataGridViewTextBoxColumn1
@@ -316,6 +303,61 @@
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 180;
             // 
+            // lblRate
+            // 
+            this.lblRate.Location = new System.Drawing.Point(228, 24);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.Size = new System.Drawing.Size(28, 14);
+            this.lblRate.TabIndex = 3;
+            this.lblRate.Text = "倍數:";
+            // 
+            // txtRate
+            // 
+            this.txtRate.Location = new System.Drawing.Point(265, 21);
+            this.txtRate.Name = "txtRate";
+            this.txtRate.Properties.Mask.EditMask = "n2";
+            this.txtRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtRate.Size = new System.Drawing.Size(100, 20);
+            this.txtRate.TabIndex = 1;
+            // 
+            // lblColorName
+            // 
+            this.lblColorName.Location = new System.Drawing.Point(204, 50);
+            this.lblColorName.Name = "lblColorName";
+            this.lblColorName.Size = new System.Drawing.Size(52, 14);
+            this.lblColorName.TabIndex = 5;
+            this.lblColorName.Text = "顏色描述:";
+            // 
+            // colGroupID
+            // 
+            this.colGroupID.DataPropertyName = "GroupID";
+            this.colGroupID.HeaderText = "組別代號";
+            this.colGroupID.Name = "colGroupID";
+            this.colGroupID.ReadOnly = true;
+            // 
+            // colColorID
+            // 
+            this.colColorID.DataPropertyName = "ColorID";
+            this.colColorID.HeaderText = "顏色代號";
+            this.colColorID.Name = "colColorID";
+            this.colColorID.ReadOnly = true;
+            // 
+            // colColorName
+            // 
+            this.colColorName.DataPropertyName = "ColorName";
+            this.colColorName.HeaderText = "顏色描述";
+            this.colColorName.Name = "colColorName";
+            this.colColorName.ReadOnly = true;
+            this.colColorName.Width = 180;
+            // 
+            // colRate
+            // 
+            this.colRate.DataPropertyName = "Rate";
+            this.colRate.HeaderText = "倍數";
+            this.colRate.Name = "colRate";
+            this.colRate.ReadOnly = true;
+            this.colRate.Width = 80;
+            // 
             // frmProductTypeStdPriceColorGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -338,6 +380,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColorGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorIDFind.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,12 +407,16 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorName;
         private DevExpress.XtraEditors.TextEdit txtColorIDFind;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton btnAddColor;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private DevExpress.XtraEditors.TextEdit txtRate;
+        private DevExpress.XtraEditors.LabelControl lblRate;
+        private DevExpress.XtraEditors.LabelControl lblColorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRate;
     }
 }
