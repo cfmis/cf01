@@ -43,6 +43,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -69,6 +72,7 @@
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.lblInv = new System.Windows.Forms.Label();
             this.txtDays = new DevExpress.XtraEditors.TextEdit();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,6 +119,7 @@
             this.ir_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_qty_ok = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_old_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDays.Properties)).BeginInit();
@@ -260,7 +265,8 @@
             this.id,
             this.ir_date,
             this.prod_qty,
-            this.c_qty_ok});
+            this.c_qty_ok,
+            this.flag_old_data});
             this.dgvDetails.Location = new System.Drawing.Point(4, 94);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -288,6 +294,16 @@
             this.txtDays.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtDays.Size = new System.Drawing.Size(86, 20);
             this.txtDays.TabIndex = 154;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Enabled = false;
+            this.progressBar1.Location = new System.Drawing.Point(479, 54);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(299, 17);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 155;
+            this.progressBar1.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -453,6 +469,10 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "dep_group";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            dataGridViewCellStyle20.NullValue = "0.00";
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewTextBoxColumn15.HeaderText = "dep_group";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
@@ -481,36 +501,47 @@
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "prd_group_d";
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "N0";
+            dataGridViewCellStyle21.NullValue = "0";
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewTextBoxColumn18.HeaderText = "臺號";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             this.dataGridViewTextBoxColumn18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn18.Width = 90;
             // 
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "work_code_d";
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N0";
+            dataGridViewCellStyle22.NullValue = "0";
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn19.HeaderText = "工種類別";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             this.dataGridViewTextBoxColumn19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn19.Width = 90;
             // 
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "members_d";
-            dataGridViewCellStyle20.Format = "N0";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle23.Format = "N0";
+            dataGridViewCellStyle23.NullValue = null;
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn20.HeaderText = "臺號人數";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
             this.dataGridViewTextBoxColumn20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn20.Visible = false;
             // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "prd_nomal_time_d";
-            dataGridViewCellStyle21.Format = "N2";
-            dataGridViewCellStyle21.NullValue = "0";
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle24.Format = "N2";
+            dataGridViewCellStyle24.NullValue = "0";
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn21.HeaderText = "正常上班";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -520,9 +551,9 @@
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.DataPropertyName = "prd_qty_d";
-            dataGridViewCellStyle22.Format = "N0";
-            dataGridViewCellStyle22.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle25.Format = "N0";
+            dataGridViewCellStyle25.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn22.HeaderText = "生產數量";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
@@ -532,9 +563,9 @@
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "prd_weg_d";
-            dataGridViewCellStyle23.Format = "N2";
-            dataGridViewCellStyle23.NullValue = "0";
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle26.Format = "N2";
+            dataGridViewCellStyle26.NullValue = "0";
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn23.HeaderText = "生產重量";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
@@ -544,9 +575,9 @@
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "prd_ot_weg";
-            dataGridViewCellStyle24.Format = "N2";
-            dataGridViewCellStyle24.NullValue = "0";
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle27.Format = "N2";
+            dataGridViewCellStyle27.NullValue = "0";
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewTextBoxColumn24.HeaderText = "加班重量";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
@@ -596,7 +627,7 @@
             // vendor_type
             // 
             this.vendor_type.DataPropertyName = "vendor_type";
-            this.vendor_type.HeaderText = "外發類別(電鍍/噴油)";
+            this.vendor_type.HeaderText = "外發類別";
             this.vendor_type.Name = "vendor_type";
             this.vendor_type.ReadOnly = true;
             this.vendor_type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -653,7 +684,7 @@
             this.overdue_days.DataPropertyName = "overdue_days";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.overdue_days.DefaultCellStyle = dataGridViewCellStyle2;
-            this.overdue_days.HeaderText = "過期天數,截止到當前日期未完成-要求交貨日期";
+            this.overdue_days.HeaderText = "過期天數";
             this.overdue_days.Name = "overdue_days";
             this.overdue_days.ReadOnly = true;
             this.overdue_days.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -666,7 +697,7 @@
             dataGridViewCellStyle3.Format = "N0";
             dataGridViewCellStyle3.NullValue = "0";
             this.qty_diff.DefaultCellStyle = dataGridViewCellStyle3;
-            this.qty_diff.HeaderText = "欠收數量";
+            this.qty_diff.HeaderText = "未返數量";
             this.qty_diff.Name = "qty_diff";
             this.qty_diff.ReadOnly = true;
             this.qty_diff.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -679,7 +710,7 @@
             dataGridViewCellStyle4.Format = "N2";
             dataGridViewCellStyle4.NullValue = "0.00";
             this.sec_qty_diff.DefaultCellStyle = dataGridViewCellStyle4;
-            this.sec_qty_diff.HeaderText = "欠收重量";
+            this.sec_qty_diff.HeaderText = "未返重量";
             this.sec_qty_diff.Name = "sec_qty_diff";
             this.sec_qty_diff.ReadOnly = true;
             this.sec_qty_diff.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -781,11 +812,20 @@
             this.c_qty_ok.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.c_qty_ok.Width = 90;
             // 
+            // flag_old_data
+            // 
+            this.flag_old_data.DataPropertyName = "flag_old_data";
+            this.flag_old_data.HeaderText = "flag_old_data";
+            this.flag_old_data.Name = "flag_old_data";
+            this.flag_old_data.ReadOnly = true;
+            this.flag_old_data.Visible = false;
+            // 
             // frmOverdueDays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 632);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtDays);
             this.Controls.Add(this.lblInv);
             this.Controls.Add(this.dgvDetails);
@@ -849,6 +889,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.Label lblInv;
         private DevExpress.XtraEditors.TextEdit txtDays;
+        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendor_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendor_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendor_type;
@@ -868,5 +909,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ir_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_qty_ok;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag_old_data;
     }
 }

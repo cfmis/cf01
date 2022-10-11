@@ -559,6 +559,7 @@ namespace cf01.ReportForm
             sheet.Rows[2].Font.Bold = true;//粗體
             range = (Range)sheet.get_Range("A1", "H2");//获取Excel多个单元格区域：本例做为Excel表头
             range.Cells.Interior.Color = System.Drawing.Color.FromArgb(191, 191, 191).ToArgb();
+           
             //sheet.get_Range("A2", "A3").Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
             sheet.Rows[2].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
             int lastRow = 0;
