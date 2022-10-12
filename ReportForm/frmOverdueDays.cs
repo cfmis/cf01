@@ -160,6 +160,12 @@ namespace cf01.ReportForm
                 rectangle,
                 dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+
+            DataGridView grd = sender as DataGridView;
+            if (grd.Rows[e.RowIndex].Cells["flag_old_data"].Value.ToString() == "1")
+            {
+                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Pink;                
+            }
         }
 
         private void frmOverdueDays_Load(object sender, EventArgs e)
