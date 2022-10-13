@@ -1257,5 +1257,20 @@ namespace cf01.Forms
                 txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text,lueDivision.EditValue.ToString());
             }
         }
+
+        private void lueCert1_type_EditValueChanged(object sender, EventArgs e)
+        {
+            clsDevelopentPvh.SetCertificate(lueCert1_type, txtCert1_scope_no, txtCert1_expiry_date, txtCert1_scope_holder);
+        }
+        private void lueCert2_type_EditValueChanged(object sender, EventArgs e)
+        {
+            clsDevelopentPvh.SetCertificate(lueCert2_type, txtCert2_scope_no, txtCert2_expiry_date, txtCert2_scope_holder);
+        }
+        private void lueCert3_type_EditValueChanged(object sender, EventArgs e)
+        {
+            clsDevelopentPvh.SetCertificate(lueCert3_type, txtCert3_scope_no, txtCert3_expiry_date, txtCert3_scope_holder);
+        }
+
+        
     }
 }

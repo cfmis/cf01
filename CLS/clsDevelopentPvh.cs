@@ -186,5 +186,21 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfCF01.GetDataTable(sql);
             return dt;
         }
+
+        public static void SetCertificate(DevExpress.XtraEditors.LookUpEdit objCertType, DevExpress.XtraEditors.TextEdit obyNo,
+            DevExpress.XtraEditors.TextEdit obyDate, DevExpress.XtraEditors.TextEdit obyHolder)
+        {            
+            string strVal = objCertType.EditValue.ToString();
+            string strSql = string.Format(
+            @"SELECT ISNULL(remark,'') AS remark,ISNULL(remark2,'') AS remark2,ISNULL(remark3,'') AS remark3
+            FROM development_pvh_type WHERE type='{0}' and contents='{1}' ORDER BY sort", "certificate_type", strVal);
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
+            {
+                obyNo.Text = dt.Rows[0]["remark"].ToString();
+                obyDate.Text = dt.Rows[0]["remark2"].ToString();
+                obyHolder.Text = dt.Rows[0]["remark3"].ToString();
+            }           
+        }
     }
 }

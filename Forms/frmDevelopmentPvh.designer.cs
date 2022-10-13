@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -980,9 +980,9 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle1.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle9.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle9;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             // 
@@ -2167,7 +2167,7 @@
             this.txtProcess.Location = new System.Drawing.Point(400, 85);
             this.txtProcess.Name = "txtProcess";
             this.txtProcess.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.txtProcess.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtProcess.Properties.ReadOnly = true;
             this.txtProcess.Size = new System.Drawing.Size(586, 20);
@@ -3408,7 +3408,7 @@
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtPvh_submit_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.txtPvh_submit_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPvh_submit_ref.Properties.ReadOnly = true;
             this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
@@ -4549,6 +4549,7 @@
             this.lueCert3_type.Size = new System.Drawing.Size(227, 22);
             this.lueCert3_type.TabIndex = 13;
             this.lueCert3_type.Tag = "2";
+            this.lueCert3_type.EditValueChanged += new System.EventHandler(this.lueCert3_type_EditValueChanged);
             // 
             // lueCert2_type
             // 
@@ -4573,6 +4574,7 @@
             this.lueCert2_type.Size = new System.Drawing.Size(227, 22);
             this.lueCert2_type.TabIndex = 7;
             this.lueCert2_type.Tag = "2";
+            this.lueCert2_type.EditValueChanged += new System.EventHandler(this.lueCert2_type_EditValueChanged);
             // 
             // txtCert4_expiry_date
             // 
@@ -4640,21 +4642,21 @@
             this.txtCert3_expiry_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtCert3_expiry_date.Properties.MaxLength = 20;
             this.txtCert3_expiry_date.Properties.ReadOnly = true;
-            this.txtCert3_expiry_date.Size = new System.Drawing.Size(156, 22);
+            this.txtCert3_expiry_date.Size = new System.Drawing.Size(127, 22);
             this.txtCert3_expiry_date.TabIndex = 16;
             this.txtCert3_expiry_date.Tag = "2";
             // 
             // txtCert3_scope_holder
             // 
             this.txtCert3_scope_holder.EnterMoveNextControl = true;
-            this.txtCert3_scope_holder.Location = new System.Drawing.Point(842, 61);
+            this.txtCert3_scope_holder.Location = new System.Drawing.Point(812, 61);
             this.txtCert3_scope_holder.Name = "txtCert3_scope_holder";
             this.txtCert3_scope_holder.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCert3_scope_holder.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCert3_scope_holder.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtCert3_scope_holder.Properties.MaxLength = 50;
+            this.txtCert3_scope_holder.Properties.MaxLength = 150;
             this.txtCert3_scope_holder.Properties.ReadOnly = true;
-            this.txtCert3_scope_holder.Size = new System.Drawing.Size(144, 22);
+            this.txtCert3_scope_holder.Size = new System.Drawing.Size(174, 22);
             this.txtCert3_scope_holder.TabIndex = 17;
             this.txtCert3_scope_holder.Tag = "2";
             // 
@@ -4696,21 +4698,21 @@
             this.txtCert2_expiry_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtCert2_expiry_date.Properties.MaxLength = 20;
             this.txtCert2_expiry_date.Properties.ReadOnly = true;
-            this.txtCert2_expiry_date.Size = new System.Drawing.Size(156, 22);
+            this.txtCert2_expiry_date.Size = new System.Drawing.Size(127, 22);
             this.txtCert2_expiry_date.TabIndex = 10;
             this.txtCert2_expiry_date.Tag = "2";
             // 
             // txtCert2_scope_holder
             // 
             this.txtCert2_scope_holder.EnterMoveNextControl = true;
-            this.txtCert2_scope_holder.Location = new System.Drawing.Point(842, 38);
+            this.txtCert2_scope_holder.Location = new System.Drawing.Point(812, 38);
             this.txtCert2_scope_holder.Name = "txtCert2_scope_holder";
             this.txtCert2_scope_holder.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCert2_scope_holder.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCert2_scope_holder.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtCert2_scope_holder.Properties.MaxLength = 50;
+            this.txtCert2_scope_holder.Properties.MaxLength = 150;
             this.txtCert2_scope_holder.Properties.ReadOnly = true;
-            this.txtCert2_scope_holder.Size = new System.Drawing.Size(144, 22);
+            this.txtCert2_scope_holder.Size = new System.Drawing.Size(174, 22);
             this.txtCert2_scope_holder.TabIndex = 11;
             this.txtCert2_scope_holder.Tag = "2";
             // 
@@ -4719,7 +4721,7 @@
             this.label78.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label78.Font = new System.Drawing.Font("Tahoma", 9F);
             this.label78.ForeColor = System.Drawing.Color.White;
-            this.label78.Location = new System.Drawing.Point(692, -2);
+            this.label78.Location = new System.Drawing.Point(681, -2);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(130, 13);
             this.label78.TabIndex = 172;
@@ -4821,6 +4823,7 @@
             this.lueCert1_type.Size = new System.Drawing.Size(227, 22);
             this.lueCert1_type.TabIndex = 1;
             this.lueCert1_type.Tag = "2";
+            this.lueCert1_type.EditValueChanged += new System.EventHandler(this.lueCert1_type_EditValueChanged);
             // 
             // lueCert1_mat_finish
             // 
@@ -4938,7 +4941,7 @@
             this.txtCert1_expiry_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtCert1_expiry_date.Properties.MaxLength = 20;
             this.txtCert1_expiry_date.Properties.ReadOnly = true;
-            this.txtCert1_expiry_date.Size = new System.Drawing.Size(156, 22);
+            this.txtCert1_expiry_date.Size = new System.Drawing.Size(127, 22);
             this.txtCert1_expiry_date.TabIndex = 4;
             this.txtCert1_expiry_date.Tag = "2";
             // 
@@ -5007,14 +5010,14 @@
             // txtCert1_scope_holder
             // 
             this.txtCert1_scope_holder.EnterMoveNextControl = true;
-            this.txtCert1_scope_holder.Location = new System.Drawing.Point(842, 15);
+            this.txtCert1_scope_holder.Location = new System.Drawing.Point(812, 15);
             this.txtCert1_scope_holder.Name = "txtCert1_scope_holder";
             this.txtCert1_scope_holder.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCert1_scope_holder.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCert1_scope_holder.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtCert1_scope_holder.Properties.MaxLength = 50;
+            this.txtCert1_scope_holder.Properties.MaxLength = 150;
             this.txtCert1_scope_holder.Properties.ReadOnly = true;
-            this.txtCert1_scope_holder.Size = new System.Drawing.Size(144, 22);
+            this.txtCert1_scope_holder.Size = new System.Drawing.Size(174, 22);
             this.txtCert1_scope_holder.TabIndex = 5;
             this.txtCert1_scope_holder.Tag = "2";
             // 
@@ -5397,9 +5400,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5416,9 +5419,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle11.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5545,8 +5548,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
