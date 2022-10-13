@@ -182,7 +182,7 @@ namespace cf01.ReportForm
             {
                 Workbook wBook = xlApp.Workbooks.Add(true);
                 //添加工作表创建的sheet的个数   
-                wBook.Worksheets.Add(Missing.Value, Missing.Value, 1, Microsoft.Office.Interop.Excel.XlSheetType.xlWorksheet);
+                //wBook.Worksheets.Add(Missing.Value, Missing.Value, 1, Microsoft.Office.Interop.Excel.XlSheetType.xlWorksheet);
                 Worksheet sheet;     
                 sheet = wBook.Worksheets[1] as Worksheet;//获取一个工作表
                 sheet.Name = "sheet1"; //設置Sheet的名稱
