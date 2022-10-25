@@ -29,7 +29,7 @@ namespace cf01.MM
         }
         private void FindData()
         {
-            DataTable dtArtWork=clsMmProductTypeStdPrice.FindData(txtArtWork.Text, txtProductType.Text,txtSizeName.Text);
+            DataTable dtArtWork = clsMmProductTypeStdPrice.FindData(txtArtWork.Text, txtProductType.Text, txtSizeName.Text, txtRemark.Text);
             dgvArtWork.DataSource = dtArtWork;
             LoadColorDetails();
         }

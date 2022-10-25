@@ -264,13 +264,13 @@ namespace cf01.CLS
             DataTable dtSize = clsPublicOfCF01.GetDataTable(strSql);
             return dtSize;
         }
-        public static DataTable FindData(string ArtWork,string ProductType,string SizeName)
+        public static DataTable FindData(string ArtWork,string ProductType,string SizeName,string Remark)
         {
             string strSql = "";
-            strSql = "Select a.ID,a.Ver,a.ArtWork,a.ProductType,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
+            string strFields = "Select a.ID,a.Ver,a.ProductType,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
-                ",b.Seq AS SizeSeq,b.SizeID,b.SizeName,b.SN AS SizeSN,b.SizeGroup " +
-                ",c.SizeStyle" +
+                ",b.Seq AS SizeSeq,b.SizeID,b.SizeName,b.SN AS SizeSN,b.SizeGroup,c.SizeStyle,a.Remark ";
+            strSql += strFields+",a.ArtWork " +
                 " From mm_ProductTypePrice a " +
                 " Left Join mm_ProductTypePriceSize b On a.SN=b.UpperSN " +
                 " Left Join mm_ProductTypePriceSizeGroup c On b.SizeGroup=c.GroupID And b.SizeID=c.SizeID " +
@@ -281,6 +281,23 @@ namespace cf01.CLS
                 strSql += " And a.ProductType Like '%" + ProductType + "%'";
             if (SizeName != "")
                 strSql += " And b.SizeName Like '%" + SizeName + "%'";
+            if (Remark != "")
+                strSql += " And a.Remark Like '%" + Remark + "%'";
+            strSql += " UNION ";
+            strSql += strFields + ",d.ArtWork " +
+                " From mm_ProductTypePrice a " +
+                " Left Join mm_ProductTypePriceSize b On a.SN=b.UpperSN " +
+                " Left Join mm_ProductTypePriceSizeGroup c On b.SizeGroup=c.GroupID And b.SizeID=c.SizeID " +
+                " Inner Join mm_ProductTypePriceArtwork d On a.SN=d.UpperSN " +
+                " Where a.ID>=''";
+            if (ArtWork != "")
+                strSql += " And d.ArtWork Like '%" + ArtWork + "%'";
+            if (ProductType != "")
+                strSql += " And a.ProductType Like '%" + ProductType + "%'";
+            if (SizeName != "")
+                strSql += " And b.SizeName Like '%" + SizeName + "%'";
+            if (Remark != "")
+                strSql += " And a.Remark Like '%" + Remark + "%'";
             DataTable dtProductType = clsPublicOfCF01.GetDataTable(strSql);
             return dtProductType;
         }
@@ -306,8 +323,8 @@ namespace cf01.CLS
             strSql += string.Format(@" BEGIN TRANSACTION ");
             string GroupID = mdlSG.GroupID;
             string SizeID = mdlSG.SizeID;
-            if(GroupID=="")
-                GroupID= GenSizeGroupID();
+            if (GroupID == "")
+                GroupID = GenSizeGroupID();
             if (!CheckExistSizeGroupID(GroupID, SizeID))
                 strSql += string.Format(@" Insert Into mm_ProductTypePriceSizeGroup(GroupID,SizeID,SizeStyle)" +
                         " Values ('{0}','{1}','{2}' )"
@@ -340,12 +357,14 @@ namespace cf01.CLS
         {
             string result = "";
             string strSql = "";
-            strSql += " Select Max(GroupID) AS GroupID From mm_ProductTypePriceSizeGroup ";
-            DataTable dtID = clsPublicOfCF01.GetDataTable(strSql);
-            if (dtID.Rows[0]["GroupID"].ToString() == "")
+
+            strSql += " Select Max(GroupID) AS GroupID From mm_ProductTypePriceSizeGroup";
+            DataTable dtSeq = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtSeq.Rows[0]["GroupID"].ToString() == "")
                 result = "S" + "001";
             else
-                result = "S" + (Convert.ToInt32(dtID.Rows[0]["GroupID"].ToString().Substring(1, 3)) + 1).ToString().PadLeft(3, '0');
+                result = "S" + (Convert.ToInt32(dtSeq.Rows[0]["GroupID"].ToString().Substring(1, 3)) + 1).ToString().PadLeft(3, '0');
+
             return result;
         }
 
@@ -517,7 +536,7 @@ namespace cf01.CLS
                     mdlPtpc.Seq = (j + 1).ToString().PadLeft(3, '0');
                     mdlPtpc.ColorGroup = drColorGroup["ColorGroup"].ToString().Trim();
                     mdlPtpc.ValueDesc = drColorGroup["ValueDesc"].ToString().Trim();
-                    mdlPtpc.Rate = drColorGroup["ValueDesc"].ToString().Trim() == "" ? 0 : Convert.ToDecimal(drColorGroup["ValueDesc"].ToString());
+                    mdlPtpc.Rate = drColorGroup["Rate"].ToString().Trim() == "" ? 0 : Convert.ToDecimal(drColorGroup["Rate"].ToString());
                     mdlPtpc.Price = drColorGroup["Price"].ToString().Trim() == "" ? 0 : Convert.ToDecimal(drColorGroup["Price"].ToString());
                     mdlPtpc.Curr = drColorGroup["Curr"].ToString().Trim();
                     mdlPtpc.AddCharge1 = drColorGroup["add_charge1"].ToString().Trim() != "" ? Convert.ToDecimal(drColorGroup["add_charge1"].ToString()) : 0;
@@ -567,6 +586,51 @@ namespace cf01.CLS
                 " Where UpperSN='{0}'", SN);
             strSql += string.Format(@" Delete From mm_ProductTypePrice" +
                 " Where ID='{0}'", ID);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+        public static string SaveArtwork(string UpperSN,string Artwork)
+        {
+            string result = "";
+            string strSql = "";
+            if (CheckArtwork(UpperSN, Artwork) == true)
+                return result;
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strSql += string.Format(@" Insert Into mm_ProductTypePriceArtwork (UpperSN,Artwork) Values ('{0}','{1}') "
+            , UpperSN, Artwork);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+        private static bool CheckArtwork(string UpperSN,string Artwork)
+        {
+            bool result = false;
+            string strSql = "";
+            strSql += string.Format(@" Select Artwork From mm_ProductTypePriceArtwork Where UpperSN='{0}' And Artwork='{1}' "
+            , UpperSN, Artwork);
+            DataTable dtArtwork = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtArtwork.Rows.Count > 0)
+                result = true;
+            return result;
+        }
+        public static DataTable LoadArtwork(string UpperSN)
+        {
+            string strSql = "";
+            strSql += string.Format(@" Select * From mm_ProductTypePriceArtwork Where UpperSN='{0}' "
+            , UpperSN);
+            DataTable dtArtwork = clsPublicOfCF01.GetDataTable(strSql);
+            return dtArtwork;
+        }
+        public static string DeleteArtwork(string UpperSN,string Artwork )
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strSql += string.Format(@" Delete From mm_ProductTypePriceArtwork " +
+            " Where UpperSN='{0}' And Artwork='{1}'", UpperSN, Artwork);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
