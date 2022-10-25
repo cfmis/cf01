@@ -31,13 +31,13 @@
             this.lblArtwork = new DevExpress.XtraEditors.LabelControl();
             this.txtArtwork = new DevExpress.XtraEditors.TextEdit();
             this.dgvArtwork = new System.Windows.Forms.DataGridView();
+            this.colArtwork = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.txtUpperSN = new DevExpress.XtraEditors.TextEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.colArtwork = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtwork.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtwork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpperSN.Properties)).BeginInit();
@@ -72,8 +72,16 @@
             this.dgvArtwork.ReadOnly = true;
             this.dgvArtwork.RowHeadersWidth = 20;
             this.dgvArtwork.RowTemplate.Height = 24;
-            this.dgvArtwork.Size = new System.Drawing.Size(353, 205);
+            this.dgvArtwork.Size = new System.Drawing.Size(353, 265);
             this.dgvArtwork.TabIndex = 2;
+            // 
+            // colArtwork
+            // 
+            this.colArtwork.DataPropertyName = "Artwork";
+            this.colArtwork.HeaderText = "圖樣代號";
+            this.colArtwork.Name = "colArtwork";
+            this.colArtwork.ReadOnly = true;
+            this.colArtwork.Width = 160;
             // 
             // btnAdd
             // 
@@ -123,19 +131,12 @@
             this.simpleButton1.Text = "退出(&X)";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // colArtwork
-            // 
-            this.colArtwork.DataPropertyName = "Artwork";
-            this.colArtwork.HeaderText = "圖樣代號";
-            this.colArtwork.Name = "colArtwork";
-            this.colArtwork.ReadOnly = true;
-            this.colArtwork.Width = 160;
-            // 
             // frmProductTypeStdPriceArtwork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 424);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(618, 373);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.txtUpperSN);
             this.Controls.Add(this.btnDelete);
@@ -143,6 +144,7 @@
             this.Controls.Add(this.dgvArtwork);
             this.Controls.Add(this.txtArtwork);
             this.Controls.Add(this.lblArtwork);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmProductTypeStdPriceArtwork";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmProductTypeStdPriceArtwork";

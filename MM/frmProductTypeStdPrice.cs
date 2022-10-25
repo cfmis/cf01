@@ -826,7 +826,7 @@ namespace cf01.MM
             DataRow drSizeGroup = dtSizeGroupCopy.NewRow();
             drSizeGroup["SelectFlag"] = false;
             drSizeGroup["Seq"] = dr.Cells["colSizeGroupSeq"].Value;
-            drSizeGroup["SizeGroup"] = dr.Cells["colSizeGroup"].Value;
+            drSizeGroup["SizeGroup"] = dr.Cells["colSizeGroup"].Value; 
             drSizeGroup["SizeID"] = dr.Cells["colSizeID"].Value;
             drSizeGroup["SizeName"] = dr.Cells["colSizeName"].Value;
             drSizeGroup["BasePrice"] = dr.Cells["colBasePrice"].Value;
