@@ -22,7 +22,7 @@ namespace cf01.MM
         public static string searchColorGroup;
         public static string searchSizeGroup;
         public static string searchState;
-        public static string searchID = "";
+        public static string searchID = ""; 
         public DataTable dtSizeGroupCopy = new DataTable();
         public frmProductTypeStdPrice()
         {

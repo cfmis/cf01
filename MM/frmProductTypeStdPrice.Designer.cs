@@ -93,6 +93,18 @@
             this.xTP2 = new DevExpress.XtraTab.XtraTabPage();
             this.chkSelectFlagCopy = new DevExpress.XtraEditors.CheckEdit();
             this.dgvSizeGroupCopy = new System.Windows.Forms.DataGridView();
+            this.colSelectFlagCopy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colSizeGroupSeqCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeIDCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeNameCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeStyleCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBasePriceCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge1Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge2Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge3Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupSNCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pcSizeGroupCopy = new DevExpress.XtraEditors.PanelControl();
             this.btnCleanCopy = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
@@ -195,18 +207,6 @@
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSelectFlagCopy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colSizeGroupSeqCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeIDCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeNameCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeStyleCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBasePriceCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge1Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge2Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge3Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupSNCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -893,6 +893,103 @@
             this.dgvSizeGroupCopy.Size = new System.Drawing.Size(399, 247);
             this.dgvSizeGroupCopy.TabIndex = 4;
             // 
+            // colSelectFlagCopy
+            // 
+            this.colSelectFlagCopy.DataPropertyName = "SelectFlag";
+            this.colSelectFlagCopy.HeaderText = "";
+            this.colSelectFlagCopy.Name = "colSelectFlagCopy";
+            this.colSelectFlagCopy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelectFlagCopy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelectFlagCopy.Width = 40;
+            // 
+            // colSizeGroupSeqCopy
+            // 
+            this.colSizeGroupSeqCopy.DataPropertyName = "Seq";
+            this.colSizeGroupSeqCopy.HeaderText = "序號";
+            this.colSizeGroupSeqCopy.Name = "colSizeGroupSeqCopy";
+            this.colSizeGroupSeqCopy.ReadOnly = true;
+            this.colSizeGroupSeqCopy.Width = 60;
+            // 
+            // colSizeGroupCopy
+            // 
+            this.colSizeGroupCopy.DataPropertyName = "SizeGroup";
+            this.colSizeGroupCopy.HeaderText = "尺寸組別";
+            this.colSizeGroupCopy.Name = "colSizeGroupCopy";
+            this.colSizeGroupCopy.ReadOnly = true;
+            this.colSizeGroupCopy.Width = 80;
+            // 
+            // colSizeIDCopy
+            // 
+            this.colSizeIDCopy.DataPropertyName = "SizeID";
+            this.colSizeIDCopy.HeaderText = "尺寸代號";
+            this.colSizeIDCopy.Name = "colSizeIDCopy";
+            this.colSizeIDCopy.ReadOnly = true;
+            this.colSizeIDCopy.Width = 80;
+            // 
+            // colSizeNameCopy
+            // 
+            this.colSizeNameCopy.DataPropertyName = "SizeName";
+            this.colSizeNameCopy.HeaderText = "尺寸描述";
+            this.colSizeNameCopy.Name = "colSizeNameCopy";
+            this.colSizeNameCopy.ReadOnly = true;
+            this.colSizeNameCopy.Width = 120;
+            // 
+            // colSizeStyleCopy
+            // 
+            this.colSizeStyleCopy.DataPropertyName = "SizeStyle";
+            this.colSizeStyleCopy.HeaderText = "尺寸規格";
+            this.colSizeStyleCopy.Name = "colSizeStyleCopy";
+            this.colSizeStyleCopy.ReadOnly = true;
+            this.colSizeStyleCopy.Width = 180;
+            // 
+            // colBasePriceCopy
+            // 
+            this.colBasePriceCopy.DataPropertyName = "BasePrice";
+            this.colBasePriceCopy.HeaderText = "基本單價";
+            this.colBasePriceCopy.Name = "colBasePriceCopy";
+            this.colBasePriceCopy.ReadOnly = true;
+            this.colBasePriceCopy.Width = 80;
+            // 
+            // colUnitCopy
+            // 
+            this.colUnitCopy.DataPropertyName = "Unit";
+            this.colUnitCopy.HeaderText = "單價單位";
+            this.colUnitCopy.Name = "colUnitCopy";
+            this.colUnitCopy.ReadOnly = true;
+            this.colUnitCopy.Width = 80;
+            // 
+            // colSizeAddCharge1Copy
+            // 
+            this.colSizeAddCharge1Copy.DataPropertyName = "add_charge1";
+            this.colSizeAddCharge1Copy.HeaderText = "噴沙";
+            this.colSizeAddCharge1Copy.Name = "colSizeAddCharge1Copy";
+            this.colSizeAddCharge1Copy.ReadOnly = true;
+            this.colSizeAddCharge1Copy.Width = 60;
+            // 
+            // colSizeAddCharge2Copy
+            // 
+            this.colSizeAddCharge2Copy.DataPropertyName = "add_charge2";
+            this.colSizeAddCharge2Copy.HeaderText = "噴LAC.";
+            this.colSizeAddCharge2Copy.Name = "colSizeAddCharge2Copy";
+            this.colSizeAddCharge2Copy.ReadOnly = true;
+            this.colSizeAddCharge2Copy.Width = 60;
+            // 
+            // colSizeAddCharge3Copy
+            // 
+            this.colSizeAddCharge3Copy.DataPropertyName = "add_charge3";
+            this.colSizeAddCharge3Copy.HeaderText = "不锈鋼";
+            this.colSizeAddCharge3Copy.Name = "colSizeAddCharge3Copy";
+            this.colSizeAddCharge3Copy.ReadOnly = true;
+            this.colSizeAddCharge3Copy.Width = 60;
+            // 
+            // colSizeGroupSNCopy
+            // 
+            this.colSizeGroupSNCopy.DataPropertyName = "SN";
+            this.colSizeGroupSNCopy.HeaderText = "流水號";
+            this.colSizeGroupSNCopy.Name = "colSizeGroupSNCopy";
+            this.colSizeGroupSNCopy.ReadOnly = true;
+            this.colSizeGroupSNCopy.Visible = false;
+            // 
             // pcSizeGroupCopy
             // 
             this.pcSizeGroupCopy.Controls.Add(this.btnCleanCopy);
@@ -908,7 +1005,7 @@
             this.btnCleanCopy.Name = "btnCleanCopy";
             this.btnCleanCopy.Size = new System.Drawing.Size(75, 23);
             this.btnCleanCopy.TabIndex = 0;
-            this.btnCleanCopy.Text = "清空";
+            this.btnCleanCopy.Text = "移除";
             this.btnCleanCopy.Click += new System.EventHandler(this.btnCleanCopy_Click);
             // 
             // panelControl7
@@ -1847,103 +1944,6 @@
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
             this.dataGridViewTextBoxColumn31.Visible = false;
-            // 
-            // colSelectFlagCopy
-            // 
-            this.colSelectFlagCopy.DataPropertyName = "SelectFlag";
-            this.colSelectFlagCopy.HeaderText = "";
-            this.colSelectFlagCopy.Name = "colSelectFlagCopy";
-            this.colSelectFlagCopy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelectFlagCopy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelectFlagCopy.Width = 40;
-            // 
-            // colSizeGroupSeqCopy
-            // 
-            this.colSizeGroupSeqCopy.DataPropertyName = "Seq";
-            this.colSizeGroupSeqCopy.HeaderText = "序號";
-            this.colSizeGroupSeqCopy.Name = "colSizeGroupSeqCopy";
-            this.colSizeGroupSeqCopy.ReadOnly = true;
-            this.colSizeGroupSeqCopy.Width = 60;
-            // 
-            // colSizeGroupCopy
-            // 
-            this.colSizeGroupCopy.DataPropertyName = "SizeGroup";
-            this.colSizeGroupCopy.HeaderText = "尺寸組別";
-            this.colSizeGroupCopy.Name = "colSizeGroupCopy";
-            this.colSizeGroupCopy.ReadOnly = true;
-            this.colSizeGroupCopy.Width = 80;
-            // 
-            // colSizeIDCopy
-            // 
-            this.colSizeIDCopy.DataPropertyName = "SizeID";
-            this.colSizeIDCopy.HeaderText = "尺寸代號";
-            this.colSizeIDCopy.Name = "colSizeIDCopy";
-            this.colSizeIDCopy.ReadOnly = true;
-            this.colSizeIDCopy.Width = 80;
-            // 
-            // colSizeNameCopy
-            // 
-            this.colSizeNameCopy.DataPropertyName = "SizeName";
-            this.colSizeNameCopy.HeaderText = "尺寸描述";
-            this.colSizeNameCopy.Name = "colSizeNameCopy";
-            this.colSizeNameCopy.ReadOnly = true;
-            this.colSizeNameCopy.Width = 120;
-            // 
-            // colSizeStyleCopy
-            // 
-            this.colSizeStyleCopy.DataPropertyName = "SizeStyle";
-            this.colSizeStyleCopy.HeaderText = "尺寸規格";
-            this.colSizeStyleCopy.Name = "colSizeStyleCopy";
-            this.colSizeStyleCopy.ReadOnly = true;
-            this.colSizeStyleCopy.Width = 180;
-            // 
-            // colBasePriceCopy
-            // 
-            this.colBasePriceCopy.DataPropertyName = "BasePrice";
-            this.colBasePriceCopy.HeaderText = "基本單價";
-            this.colBasePriceCopy.Name = "colBasePriceCopy";
-            this.colBasePriceCopy.ReadOnly = true;
-            this.colBasePriceCopy.Width = 80;
-            // 
-            // colUnitCopy
-            // 
-            this.colUnitCopy.DataPropertyName = "Unit";
-            this.colUnitCopy.HeaderText = "單價單位";
-            this.colUnitCopy.Name = "colUnitCopy";
-            this.colUnitCopy.ReadOnly = true;
-            this.colUnitCopy.Width = 80;
-            // 
-            // colSizeAddCharge1Copy
-            // 
-            this.colSizeAddCharge1Copy.DataPropertyName = "add_charge1";
-            this.colSizeAddCharge1Copy.HeaderText = "噴沙";
-            this.colSizeAddCharge1Copy.Name = "colSizeAddCharge1Copy";
-            this.colSizeAddCharge1Copy.ReadOnly = true;
-            this.colSizeAddCharge1Copy.Width = 60;
-            // 
-            // colSizeAddCharge2Copy
-            // 
-            this.colSizeAddCharge2Copy.DataPropertyName = "add_charge2";
-            this.colSizeAddCharge2Copy.HeaderText = "噴LAC.";
-            this.colSizeAddCharge2Copy.Name = "colSizeAddCharge2Copy";
-            this.colSizeAddCharge2Copy.ReadOnly = true;
-            this.colSizeAddCharge2Copy.Width = 60;
-            // 
-            // colSizeAddCharge3Copy
-            // 
-            this.colSizeAddCharge3Copy.DataPropertyName = "add_charge3";
-            this.colSizeAddCharge3Copy.HeaderText = "不锈鋼";
-            this.colSizeAddCharge3Copy.Name = "colSizeAddCharge3Copy";
-            this.colSizeAddCharge3Copy.ReadOnly = true;
-            this.colSizeAddCharge3Copy.Width = 60;
-            // 
-            // colSizeGroupSNCopy
-            // 
-            this.colSizeGroupSNCopy.DataPropertyName = "SN";
-            this.colSizeGroupSNCopy.HeaderText = "流水號";
-            this.colSizeGroupSNCopy.Name = "colSizeGroupSNCopy";
-            this.colSizeGroupSNCopy.ReadOnly = true;
-            this.colSizeGroupSNCopy.Visible = false;
             // 
             // frmProductTypeStdPrice
             // 
