@@ -966,5 +966,20 @@ namespace cf01.Forms
         {
             Set_Number_Focus(txttrim_1k);
         }
+
+        private int test1()
+        {
+            int rtn = 0;
+            rtn = -1;
+            if (rtn == -1)
+            {
+                return -1;
+            }
+            MessageBox.Show("dfdfdfdFDFD");
+            rtn = 1;
+            return rtn;
+            
+        }
+       
     }
 }

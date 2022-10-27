@@ -3914,7 +3914,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right)));
             this.xrLabel27.CanGrow = false;
             this.xrLabel27.Dpi = 254F;
-            this.xrLabel27.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel27.Font = new System.Drawing.Font("Arial", 6.75F);
             this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(553.9604F, 340.2739F);
             this.xrLabel27.Name = "xrLabel27";
             this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
