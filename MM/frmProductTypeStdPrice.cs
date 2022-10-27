@@ -22,7 +22,8 @@ namespace cf01.MM
         public static string searchColorGroup;
         public static string searchSizeGroup;
         public static string searchState;
-        public static string searchID = "";
+        public static string searchID = ""; 
+        public DataTable dtSizeGroupCopy = new DataTable();
         public frmProductTypeStdPrice()
         {
             InitializeComponent();
@@ -30,6 +31,10 @@ namespace cf01.MM
             dgvColorGroup.AutoGenerateColumns = false;
             dgvColorDetails.AutoGenerateColumns = false;
             dgvSizeDetails.AutoGenerateColumns = false;
+            dgvSizeGroupCopy.AutoGenerateColumns = false;
+            dtSizeGroupCopy = clsMmProductTypeStdPrice.LoadPrdSizeGroup(-100);
+            dtSizeGroupCopy.Columns.Add("SelectFlag", typeof(bool));
+            dgvSizeGroupCopy.DataSource = dtSizeGroupCopy;
         }
         private void LoadData(string ID)
         {
@@ -67,6 +72,7 @@ namespace cf01.MM
             LoadPrdSizeGroup();
             LoadColorGroup(0);
             LoadColorDetails();
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -576,43 +582,93 @@ namespace cf01.MM
                 MessageBox.Show("沒有可編輯的記錄!");
                 return;
             }
-            if(dgvSizeDetails.Rows.Count==0)
+            
+            if (xTC1.SelectedTabPageIndex == 0)
             {
-                MessageBox.Show("沒有要添加的記錄!");
-                return;
-            }
-            for (int i = 0; i < dgvSizeDetails.Rows.Count; i++)
-            {
-                if ((bool)dgvSizeDetails.Rows[i].Cells["colSelectSizeFlag"].Value == true)
+                if (dgvSizeDetails.Rows.Count == 0)
                 {
-                    string SizeID = "";
-                    bool ExistFlag = false;
-                    DataGridViewRow drSD = dgvSizeDetails.Rows[i];
-                    SizeID = drSD.Cells["colSizeIDDetails"].Value.ToString().Trim();
-                    for (int j = 0; j < dgvSizeGroup.Rows.Count; j++)
+                    MessageBox.Show("沒有要添加的記錄!");
+                    return;
+                }
+                for (int i = 0; i < dgvSizeDetails.Rows.Count; i++)
+                {
+                    if ((bool)dgvSizeDetails.Rows[i].Cells["colSelectSizeFlag"].Value == true)
                     {
-                        if (SizeID == dgvSizeGroup.Rows[j].Cells["colSizeID"].Value.ToString().Trim())
+                        string SizeID = "";
+                        bool ExistFlag = false;
+                        DataGridViewRow drSD = dgvSizeDetails.Rows[i];
+                        SizeID = drSD.Cells["colSizeIDDetails"].Value.ToString().Trim();
+                        for (int j = 0; j < dgvSizeGroup.Rows.Count; j++)
                         {
-                            ExistFlag = true;
-                            break;
+                            if (SizeID == dgvSizeGroup.Rows[j].Cells["colSizeID"].Value.ToString().Trim())
+                            {
+                                ExistFlag = true;
+                                break;
+                            }
+                        }
+                        if (ExistFlag == false)
+                        {
+                            string result = "";
+                            string Seq = "";
+                            Seq = GenSeqNo(dgvSizeGroup, "colSizeGroupSeq");
+                            mdlProductTypePriceSize mdlMtps = new mdlProductTypePriceSize();
+                            mdlMtps.UpperSN = txtSN.Text == "" ? 0 : Convert.ToInt32(txtSN.Text);
+                            mdlMtps.Seq = Seq;
+                            mdlMtps.SizeGroup = drSD.Cells["colSizeGroupDetails"].Value.ToString().Trim();
+                            mdlMtps.SizeID = SizeID;
+                            mdlMtps.SizeName = drSD.Cells["colSizeNameDetails"].Value.ToString().Trim();
+                            mdlMtps.BasePrice = 0;
+                            mdlMtps.Unit = "";
+                            result = clsMmProductTypeStdPrice.SavePrdSizeGroup(mdlMtps);
+                            if (result != "")
+                                MessageBox.Show(result);
+                            else
+                                LoadPrdSizeGroup();
                         }
                     }
-                    if (ExistFlag == false)
+                }
+            }else
+            {
+                if (dgvSizeGroupCopy.Rows.Count == 0)
+                {
+                    MessageBox.Show("沒有要添加的記錄!");
+                    return;
+                }
+                for (int i = 0; i < dgvSizeGroupCopy.Rows.Count; i++)
+                {
+                    if ((bool)dgvSizeGroupCopy.Rows[i].Cells["colSelectFlagCopy"].Value == true)
                     {
-                        string result = "";
-                        string Seq = "";
-                        Seq = GenSeqNo(dgvSizeGroup, "colSizeGroupSeq");
-                        mdlProductTypePriceSize mdlMtps = new mdlProductTypePriceSize();
-                        mdlMtps.UpperSN = txtSN.Text == "" ? 0 : Convert.ToInt32(txtSN.Text);
-                        mdlMtps.Seq = Seq;
-                        mdlMtps.SizeGroup = drSD.Cells["colSizeGroupDetails"].Value.ToString().Trim();
-                        mdlMtps.SizeID = SizeID;
-                        mdlMtps.SizeName = drSD.Cells["colSizeNameDetails"].Value.ToString().Trim();
-                        result = clsMmProductTypeStdPrice.SavePrdSizeGroup(mdlMtps);
-                        if (result != "")
-                            MessageBox.Show(result);
-                        else
-                            LoadPrdSizeGroup();
+                        string SizeID = "";
+                        bool ExistFlag = false;
+                        DataGridViewRow drSD = dgvSizeGroupCopy.Rows[i];
+                        SizeID = drSD.Cells["colSizeIDCopy"].Value.ToString().Trim();
+                        for (int j = 0; j < dgvSizeGroup.Rows.Count; j++)
+                        {
+                            if (SizeID == dgvSizeGroup.Rows[j].Cells["colSizeID"].Value.ToString().Trim())
+                            {
+                                ExistFlag = true;
+                                break;
+                            }
+                        }
+                        if (ExistFlag == false)
+                        {
+                            string result = "";
+                            string Seq = "";
+                            Seq = GenSeqNo(dgvSizeGroup, "colSizeGroupSeq");
+                            mdlProductTypePriceSize mdlMtps = new mdlProductTypePriceSize();
+                            mdlMtps.UpperSN = txtSN.Text == "" ? 0 : Convert.ToInt32(txtSN.Text);
+                            mdlMtps.Seq = Seq;
+                            mdlMtps.SizeGroup = drSD.Cells["colSizeGroupCopy"].Value.ToString().Trim();
+                            mdlMtps.SizeID = SizeID;
+                            mdlMtps.SizeName = drSD.Cells["colSizeNameCopy"].Value.ToString().Trim();
+                            mdlMtps.BasePrice = drSD.Cells["colBasePriceCopy"].Value.ToString().Trim() != "" ? Convert.ToDecimal(drSD.Cells["colBasePriceCopy"].Value) : 0;
+                            mdlMtps.Unit= drSD.Cells["colUnitCopy"].Value.ToString().Trim();
+                            result = clsMmProductTypeStdPrice.SavePrdSizeGroup(mdlMtps);
+                            if (result != "")
+                                MessageBox.Show(result);
+                            else
+                                LoadPrdSizeGroup();
+                        }
                     }
                 }
             }
@@ -748,6 +804,56 @@ namespace cf01.MM
             string result = clsMmProductTypeStdPrice.DeleteID(txtID.Text.Trim(), Convert.ToInt32(txtSN.Text));
             LoadData(txtID.Text.Trim());
             txtID.Text = "";
+        }
+
+        private void btnAddArtWork_Click(object sender, EventArgs e)
+        {
+            if(txtSN.Text=="")
+            {
+                MessageBox.Show("沒有主表記錄!");
+                return;
+            }
+            frmProductTypeStdPriceArtwork frmProductTypeStdPriceArtwork = new frmProductTypeStdPriceArtwork();
+            frmProductTypeStdPriceArtwork.UpperSN = Convert.ToInt32(txtSN.Text);
+            frmProductTypeStdPriceArtwork.ShowDialog();
+        }
+
+        private void btnCopyLine_Click(object sender, EventArgs e)
+        {
+            if (dgvSizeGroup.Rows.Count == 0)
+                return;
+            DataGridViewRow dr = dgvSizeGroup.Rows[dgvSizeGroup.CurrentRow.Index];
+            DataRow drSizeGroup = dtSizeGroupCopy.NewRow();
+            drSizeGroup["SelectFlag"] = false;
+            drSizeGroup["Seq"] = dr.Cells["colSizeGroupSeq"].Value;
+            drSizeGroup["SizeGroup"] = dr.Cells["colSizeGroup"].Value; 
+            drSizeGroup["SizeID"] = dr.Cells["colSizeID"].Value;
+            drSizeGroup["SizeName"] = dr.Cells["colSizeName"].Value;
+            drSizeGroup["BasePrice"] = dr.Cells["colBasePrice"].Value;
+            drSizeGroup["Unit"] = dr.Cells["colUnit"].Value;
+            drSizeGroup["add_charge1"] = dr.Cells["colSizeAddCharge1"].Value;
+            drSizeGroup["add_charge2"] = dr.Cells["colSizeAddCharge2"].Value;
+            drSizeGroup["add_charge3"] = dr.Cells["colSizeAddCharge3"].Value;
+            drSizeGroup["SizeStyle"] = dr.Cells["colSizeStyle"].Value;
+            dtSizeGroupCopy.Rows.Add(drSizeGroup);
+            dgvSizeGroupCopy.DataSource = dtSizeGroupCopy;
+        }
+
+        private void btnCleanCopy_Click(object sender, EventArgs e)
+        {
+            if (dgvSizeGroupCopy.Rows.Count == 0)
+                return;
+            DataRow dr = dtSizeGroupCopy.Rows[dgvSizeGroupCopy.CurrentRow.Index];
+            dtSizeGroupCopy.Rows.Remove(dr);
+            dgvSizeGroupCopy.DataSource = dtSizeGroupCopy;
+        }
+
+        private void chkSelectFlagCopy_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvSizeGroupCopy.Rows.Count; i++)
+            {
+                dgvSizeGroupCopy.Rows[i].Cells["colSelectFlagCopy"].Value = chkSelectFlagCopy.Checked;
+            }
         }
     }
 }

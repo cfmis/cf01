@@ -30,12 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductTypeStdPrice));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSizeGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnColorGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCopy = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAddArtWork = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblRemark = new DevExpress.XtraEditors.LabelControl();
             this.txtRemark = new DevExpress.XtraEditors.TextEdit();
@@ -63,17 +75,54 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.xTC1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xTP1 = new DevExpress.XtraTab.XtraTabPage();
             this.chkSelectSizeFlag = new DevExpress.XtraEditors.CheckEdit();
             this.dgvSizeDetails = new System.Windows.Forms.DataGridView();
             this.colSelectSizeFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colSizeGroupDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeIDDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeNameDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.btnFindSizeGroup = new DevExpress.XtraEditors.SimpleButton();
             this.lblMsgSizeGroup = new DevExpress.XtraEditors.LabelControl();
             this.txtSizeGroup1 = new DevExpress.XtraEditors.TextEdit();
+            this.xTP2 = new DevExpress.XtraTab.XtraTabPage();
+            this.chkSelectFlagCopy = new DevExpress.XtraEditors.CheckEdit();
+            this.dgvSizeGroupCopy = new System.Windows.Forms.DataGridView();
+            this.colSelectFlagCopy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colSizeGroupSeqCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeIDCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeNameCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeStyleCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBasePriceCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge1Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge2Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge3Copy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupSNCopy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pcSizeGroupCopy = new DevExpress.XtraEditors.PanelControl();
+            this.btnCleanCopy = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.btnAddSizeGroup = new DevExpress.XtraEditors.SimpleButton();
             this.dgvSizeGroup = new System.Windows.Forms.DataGridView();
+            this.colSizeGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSizeGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.btnCopyLine = new DevExpress.XtraEditors.SimpleButton();
             this.lblAddCharge3 = new DevExpress.XtraEditors.LabelControl();
             this.lblAddCharge2 = new DevExpress.XtraEditors.LabelControl();
             this.lblAddCharge1 = new DevExpress.XtraEditors.LabelControl();
@@ -95,8 +144,22 @@
             this.chkAddCharge1 = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.dgvColorDetails = new System.Windows.Forms.DataGridView();
+            this.colColorGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.dgvColorGroup = new System.Windows.Forms.DataGridView();
+            this.colColorGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupUpperSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.lblColorGroupCdesc = new DevExpress.XtraEditors.LabelControl();
             this.lblColorGroup = new DevExpress.XtraEditors.LabelControl();
@@ -113,16 +176,6 @@
             this.btnDelColorGroup = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddColorGroup = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
-            this.btnNew = new System.Windows.Forms.ToolStripButton();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.btnFind = new System.Windows.Forms.ToolStripButton();
-            this.btnSizeGroup = new System.Windows.Forms.ToolStripButton();
-            this.btnColorGroup = new System.Windows.Forms.ToolStripButton();
-            this.btnCopy = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,37 +207,6 @@
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupUpperSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColorGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeIDDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeNameDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeAddCharge3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSizeGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -206,11 +228,19 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
             this.panelControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xTC1)).BeginInit();
+            this.xTC1.SuspendLayout();
+            this.xTP1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectSizeFlag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
             this.panelControl9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroup1.Properties)).BeginInit();
+            this.xTP2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectFlagCopy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroupCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcSizeGroupCopy)).BeginInit();
+            this.pcSizeGroupCopy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroup)).BeginInit();
@@ -260,42 +290,157 @@
             this.btnColorGroup,
             this.toolStripSeparator6,
             this.btnCopy,
-            this.toolStripSeparator7});
+            this.toolStripSeparator7,
+            this.btnAddArtWork,
+            this.toolStripSeparator9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1332, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1413, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnExit
+            // 
+            this.btnExit.AutoSize = false;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(65, 35);
+            this.btnExit.Text = "退出(&X)";
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
+            // btnNew
+            // 
+            this.btnNew.AutoSize = false;
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(65, 35);
+            this.btnNew.Text = "新增(&A)";
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnSave
+            // 
+            this.btnSave.AutoSize = false;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(65, 35);
+            this.btnSave.Text = "儲存(&S)";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
+            // btnFind
+            // 
+            this.btnFind.AutoSize = false;
+            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
+            this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(65, 35);
+            this.btnFind.Text = "查詢(&F)";
+            this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoSize = false;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(65, 35);
+            this.btnDelete.Text = "刪除(&D)";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnSizeGroup
+            // 
+            this.btnSizeGroup.AutoSize = false;
+            this.btnSizeGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnSizeGroup.Image")));
+            this.btnSizeGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSizeGroup.Name = "btnSizeGroup";
+            this.btnSizeGroup.Size = new System.Drawing.Size(60, 35);
+            this.btnSizeGroup.Text = "尺寸組別";
+            this.btnSizeGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSizeGroup.Click += new System.EventHandler(this.btnSizeGroup_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
             // 
+            // btnColorGroup
+            // 
+            this.btnColorGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnColorGroup.Image")));
+            this.btnColorGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnColorGroup.Name = "btnColorGroup";
+            this.btnColorGroup.Size = new System.Drawing.Size(60, 35);
+            this.btnColorGroup.Text = "顏色組別";
+            this.btnColorGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnColorGroup.Click += new System.EventHandler(this.btnColorGroup_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.AutoSize = false;
+            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
+            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(65, 35);
+            this.btnCopy.Text = "複製(&C)";
+            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnAddArtWork
+            // 
+            this.btnAddArtWork.AutoSize = false;
+            this.btnAddArtWork.Image = ((System.Drawing.Image)(resources.GetObject("btnAddArtWork.Image")));
+            this.btnAddArtWork.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddArtWork.Name = "btnAddArtWork";
+            this.btnAddArtWork.Size = new System.Drawing.Size(80, 35);
+            this.btnAddArtWork.Text = "多ArtWork";
+            this.btnAddArtWork.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAddArtWork.Click += new System.EventHandler(this.btnAddArtWork_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 38);
             // 
             // panelControl1
             // 
@@ -321,7 +466,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1332, 90);
+            this.panelControl1.Size = new System.Drawing.Size(1413, 90);
             this.panelControl1.TabIndex = 1;
             // 
             // lblRemark
@@ -396,7 +541,7 @@
             this.txtAmendUser.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtAmendUser.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAmendUser.Properties.ReadOnly = true;
-            this.txtAmendUser.Size = new System.Drawing.Size(232, 20);
+            this.txtAmendUser.Size = new System.Drawing.Size(161, 20);
             this.txtAmendUser.TabIndex = 1;
             // 
             // lblAmendUser
@@ -539,7 +684,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 128);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1332, 390);
+            this.panelControl2.Size = new System.Drawing.Size(1413, 390);
             this.panelControl2.TabIndex = 2;
             // 
             // panelControl3
@@ -551,23 +696,42 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1328, 386);
+            this.panelControl3.Size = new System.Drawing.Size(1409, 386);
             this.panelControl3.TabIndex = 0;
             // 
             // panelControl11
             // 
-            this.panelControl11.Controls.Add(this.chkSelectSizeFlag);
-            this.panelControl11.Controls.Add(this.dgvSizeDetails);
-            this.panelControl11.Controls.Add(this.panelControl9);
+            this.panelControl11.Controls.Add(this.xTC1);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl11.Location = new System.Drawing.Point(998, 62);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(328, 322);
+            this.panelControl11.Size = new System.Drawing.Size(409, 322);
             this.panelControl11.TabIndex = 10;
+            // 
+            // xTC1
+            // 
+            this.xTC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xTC1.Location = new System.Drawing.Point(2, 2);
+            this.xTC1.Name = "xTC1";
+            this.xTC1.SelectedTabPage = this.xTP1;
+            this.xTC1.Size = new System.Drawing.Size(405, 318);
+            this.xTC1.TabIndex = 10;
+            this.xTC1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xTP1,
+            this.xTP2});
+            // 
+            // xTP1
+            // 
+            this.xTP1.Controls.Add(this.chkSelectSizeFlag);
+            this.xTP1.Controls.Add(this.dgvSizeDetails);
+            this.xTP1.Controls.Add(this.panelControl9);
+            this.xTP1.Name = "xTP1";
+            this.xTP1.Size = new System.Drawing.Size(399, 289);
+            this.xTP1.Text = "尺寸組別";
             // 
             // chkSelectSizeFlag
             // 
-            this.chkSelectSizeFlag.Location = new System.Drawing.Point(36, 56);
+            this.chkSelectSizeFlag.Location = new System.Drawing.Point(37, 54);
             this.chkSelectSizeFlag.Name = "chkSelectSizeFlag";
             this.chkSelectSizeFlag.Properties.Caption = "";
             this.chkSelectSizeFlag.Size = new System.Drawing.Size(14, 19);
@@ -588,12 +752,12 @@
             this.colAddCharge2,
             this.colAddCharge3});
             this.dgvSizeDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSizeDetails.Location = new System.Drawing.Point(2, 52);
+            this.dgvSizeDetails.Location = new System.Drawing.Point(0, 50);
             this.dgvSizeDetails.Name = "dgvSizeDetails";
             this.dgvSizeDetails.RowHeadersWidth = 20;
             this.dgvSizeDetails.RowTemplate.Height = 24;
             this.dgvSizeDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSizeDetails.Size = new System.Drawing.Size(324, 268);
+            this.dgvSizeDetails.Size = new System.Drawing.Size(399, 239);
             this.dgvSizeDetails.TabIndex = 9;
             // 
             // colSelectSizeFlag
@@ -604,15 +768,58 @@
             this.colSelectSizeFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colSelectSizeFlag.Width = 40;
             // 
+            // colSizeGroupDetails
+            // 
+            this.colSizeGroupDetails.DataPropertyName = "GroupID";
+            this.colSizeGroupDetails.HeaderText = "尺寸組別";
+            this.colSizeGroupDetails.Name = "colSizeGroupDetails";
+            this.colSizeGroupDetails.ReadOnly = true;
+            this.colSizeGroupDetails.Width = 80;
+            // 
+            // colSizeIDDetails
+            // 
+            this.colSizeIDDetails.DataPropertyName = "SizeID";
+            this.colSizeIDDetails.HeaderText = "尺寸代號";
+            this.colSizeIDDetails.Name = "colSizeIDDetails";
+            this.colSizeIDDetails.ReadOnly = true;
+            // 
+            // colSizeNameDetails
+            // 
+            this.colSizeNameDetails.DataPropertyName = "SizeName";
+            this.colSizeNameDetails.HeaderText = "尺寸描述";
+            this.colSizeNameDetails.Name = "colSizeNameDetails";
+            this.colSizeNameDetails.ReadOnly = true;
+            // 
+            // colAddCharge1
+            // 
+            this.colAddCharge1.DataPropertyName = "add_charge1";
+            this.colAddCharge1.HeaderText = "噴沙";
+            this.colAddCharge1.Name = "colAddCharge1";
+            this.colAddCharge1.ReadOnly = true;
+            // 
+            // colAddCharge2
+            // 
+            this.colAddCharge2.DataPropertyName = "add_charge2";
+            this.colAddCharge2.HeaderText = "噴LAC.";
+            this.colAddCharge2.Name = "colAddCharge2";
+            this.colAddCharge2.ReadOnly = true;
+            // 
+            // colAddCharge3
+            // 
+            this.colAddCharge3.DataPropertyName = "add_charge3";
+            this.colAddCharge3.HeaderText = "不锈鋼";
+            this.colAddCharge3.Name = "colAddCharge3";
+            this.colAddCharge3.ReadOnly = true;
+            // 
             // panelControl9
             // 
             this.panelControl9.Controls.Add(this.btnFindSizeGroup);
             this.panelControl9.Controls.Add(this.lblMsgSizeGroup);
             this.panelControl9.Controls.Add(this.txtSizeGroup1);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl9.Location = new System.Drawing.Point(2, 2);
+            this.panelControl9.Location = new System.Drawing.Point(0, 0);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(324, 50);
+            this.panelControl9.Size = new System.Drawing.Size(399, 50);
             this.panelControl9.TabIndex = 8;
             // 
             // btnFindSizeGroup
@@ -641,6 +848,165 @@
             this.txtSizeGroup1.Size = new System.Drawing.Size(100, 20);
             this.txtSizeGroup1.TabIndex = 5;
             this.txtSizeGroup1.Leave += new System.EventHandler(this.txtSizeGroup1_Leave);
+            // 
+            // xTP2
+            // 
+            this.xTP2.Controls.Add(this.chkSelectFlagCopy);
+            this.xTP2.Controls.Add(this.dgvSizeGroupCopy);
+            this.xTP2.Controls.Add(this.pcSizeGroupCopy);
+            this.xTP2.Name = "xTP2";
+            this.xTP2.Size = new System.Drawing.Size(399, 289);
+            this.xTP2.Text = "複製的項目";
+            // 
+            // chkSelectFlagCopy
+            // 
+            this.chkSelectFlagCopy.Location = new System.Drawing.Point(34, 4);
+            this.chkSelectFlagCopy.Name = "chkSelectFlagCopy";
+            this.chkSelectFlagCopy.Properties.Caption = "";
+            this.chkSelectFlagCopy.Size = new System.Drawing.Size(16, 19);
+            this.chkSelectFlagCopy.TabIndex = 6;
+            this.chkSelectFlagCopy.CheckedChanged += new System.EventHandler(this.chkSelectFlagCopy_CheckedChanged);
+            // 
+            // dgvSizeGroupCopy
+            // 
+            this.dgvSizeGroupCopy.AllowUserToAddRows = false;
+            this.dgvSizeGroupCopy.ColumnHeadersHeight = 25;
+            this.dgvSizeGroupCopy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSelectFlagCopy,
+            this.colSizeGroupSeqCopy,
+            this.colSizeGroupCopy,
+            this.colSizeIDCopy,
+            this.colSizeNameCopy,
+            this.colSizeStyleCopy,
+            this.colBasePriceCopy,
+            this.colUnitCopy,
+            this.colSizeAddCharge1Copy,
+            this.colSizeAddCharge2Copy,
+            this.colSizeAddCharge3Copy,
+            this.colSizeGroupSNCopy});
+            this.dgvSizeGroupCopy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSizeGroupCopy.Location = new System.Drawing.Point(0, 0);
+            this.dgvSizeGroupCopy.Name = "dgvSizeGroupCopy";
+            this.dgvSizeGroupCopy.RowHeadersWidth = 20;
+            this.dgvSizeGroupCopy.RowTemplate.Height = 24;
+            this.dgvSizeGroupCopy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSizeGroupCopy.Size = new System.Drawing.Size(399, 247);
+            this.dgvSizeGroupCopy.TabIndex = 4;
+            // 
+            // colSelectFlagCopy
+            // 
+            this.colSelectFlagCopy.DataPropertyName = "SelectFlag";
+            this.colSelectFlagCopy.HeaderText = "";
+            this.colSelectFlagCopy.Name = "colSelectFlagCopy";
+            this.colSelectFlagCopy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelectFlagCopy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelectFlagCopy.Width = 40;
+            // 
+            // colSizeGroupSeqCopy
+            // 
+            this.colSizeGroupSeqCopy.DataPropertyName = "Seq";
+            this.colSizeGroupSeqCopy.HeaderText = "序號";
+            this.colSizeGroupSeqCopy.Name = "colSizeGroupSeqCopy";
+            this.colSizeGroupSeqCopy.ReadOnly = true;
+            this.colSizeGroupSeqCopy.Width = 60;
+            // 
+            // colSizeGroupCopy
+            // 
+            this.colSizeGroupCopy.DataPropertyName = "SizeGroup";
+            this.colSizeGroupCopy.HeaderText = "尺寸組別";
+            this.colSizeGroupCopy.Name = "colSizeGroupCopy";
+            this.colSizeGroupCopy.ReadOnly = true;
+            this.colSizeGroupCopy.Width = 80;
+            // 
+            // colSizeIDCopy
+            // 
+            this.colSizeIDCopy.DataPropertyName = "SizeID";
+            this.colSizeIDCopy.HeaderText = "尺寸代號";
+            this.colSizeIDCopy.Name = "colSizeIDCopy";
+            this.colSizeIDCopy.ReadOnly = true;
+            this.colSizeIDCopy.Width = 80;
+            // 
+            // colSizeNameCopy
+            // 
+            this.colSizeNameCopy.DataPropertyName = "SizeName";
+            this.colSizeNameCopy.HeaderText = "尺寸描述";
+            this.colSizeNameCopy.Name = "colSizeNameCopy";
+            this.colSizeNameCopy.ReadOnly = true;
+            this.colSizeNameCopy.Width = 120;
+            // 
+            // colSizeStyleCopy
+            // 
+            this.colSizeStyleCopy.DataPropertyName = "SizeStyle";
+            this.colSizeStyleCopy.HeaderText = "尺寸規格";
+            this.colSizeStyleCopy.Name = "colSizeStyleCopy";
+            this.colSizeStyleCopy.ReadOnly = true;
+            this.colSizeStyleCopy.Width = 180;
+            // 
+            // colBasePriceCopy
+            // 
+            this.colBasePriceCopy.DataPropertyName = "BasePrice";
+            this.colBasePriceCopy.HeaderText = "基本單價";
+            this.colBasePriceCopy.Name = "colBasePriceCopy";
+            this.colBasePriceCopy.ReadOnly = true;
+            this.colBasePriceCopy.Width = 80;
+            // 
+            // colUnitCopy
+            // 
+            this.colUnitCopy.DataPropertyName = "Unit";
+            this.colUnitCopy.HeaderText = "單價單位";
+            this.colUnitCopy.Name = "colUnitCopy";
+            this.colUnitCopy.ReadOnly = true;
+            this.colUnitCopy.Width = 80;
+            // 
+            // colSizeAddCharge1Copy
+            // 
+            this.colSizeAddCharge1Copy.DataPropertyName = "add_charge1";
+            this.colSizeAddCharge1Copy.HeaderText = "噴沙";
+            this.colSizeAddCharge1Copy.Name = "colSizeAddCharge1Copy";
+            this.colSizeAddCharge1Copy.ReadOnly = true;
+            this.colSizeAddCharge1Copy.Width = 60;
+            // 
+            // colSizeAddCharge2Copy
+            // 
+            this.colSizeAddCharge2Copy.DataPropertyName = "add_charge2";
+            this.colSizeAddCharge2Copy.HeaderText = "噴LAC.";
+            this.colSizeAddCharge2Copy.Name = "colSizeAddCharge2Copy";
+            this.colSizeAddCharge2Copy.ReadOnly = true;
+            this.colSizeAddCharge2Copy.Width = 60;
+            // 
+            // colSizeAddCharge3Copy
+            // 
+            this.colSizeAddCharge3Copy.DataPropertyName = "add_charge3";
+            this.colSizeAddCharge3Copy.HeaderText = "不锈鋼";
+            this.colSizeAddCharge3Copy.Name = "colSizeAddCharge3Copy";
+            this.colSizeAddCharge3Copy.ReadOnly = true;
+            this.colSizeAddCharge3Copy.Width = 60;
+            // 
+            // colSizeGroupSNCopy
+            // 
+            this.colSizeGroupSNCopy.DataPropertyName = "SN";
+            this.colSizeGroupSNCopy.HeaderText = "流水號";
+            this.colSizeGroupSNCopy.Name = "colSizeGroupSNCopy";
+            this.colSizeGroupSNCopy.ReadOnly = true;
+            this.colSizeGroupSNCopy.Visible = false;
+            // 
+            // pcSizeGroupCopy
+            // 
+            this.pcSizeGroupCopy.Controls.Add(this.btnCleanCopy);
+            this.pcSizeGroupCopy.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pcSizeGroupCopy.Location = new System.Drawing.Point(0, 247);
+            this.pcSizeGroupCopy.Name = "pcSizeGroupCopy";
+            this.pcSizeGroupCopy.Size = new System.Drawing.Size(399, 42);
+            this.pcSizeGroupCopy.TabIndex = 5;
+            // 
+            // btnCleanCopy
+            // 
+            this.btnCleanCopy.Location = new System.Drawing.Point(9, 11);
+            this.btnCleanCopy.Name = "btnCleanCopy";
+            this.btnCleanCopy.Size = new System.Drawing.Size(75, 23);
+            this.btnCleanCopy.TabIndex = 0;
+            this.btnCleanCopy.Text = "移除";
+            this.btnCleanCopy.Click += new System.EventHandler(this.btnCleanCopy_Click);
             // 
             // panelControl7
             // 
@@ -688,8 +1054,97 @@
             this.dgvSizeGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSizeGroup_CellClick);
             this.dgvSizeGroup.SelectionChanged += new System.EventHandler(this.dgvSizeGroup_SelectionChanged);
             // 
+            // colSizeGroupSeq
+            // 
+            this.colSizeGroupSeq.DataPropertyName = "Seq";
+            this.colSizeGroupSeq.HeaderText = "序號";
+            this.colSizeGroupSeq.Name = "colSizeGroupSeq";
+            this.colSizeGroupSeq.ReadOnly = true;
+            this.colSizeGroupSeq.Width = 60;
+            // 
+            // colSizeGroup
+            // 
+            this.colSizeGroup.DataPropertyName = "SizeGroup";
+            this.colSizeGroup.HeaderText = "尺寸組別";
+            this.colSizeGroup.Name = "colSizeGroup";
+            this.colSizeGroup.ReadOnly = true;
+            this.colSizeGroup.Width = 80;
+            // 
+            // colSizeID
+            // 
+            this.colSizeID.DataPropertyName = "SizeID";
+            this.colSizeID.HeaderText = "尺寸代號";
+            this.colSizeID.Name = "colSizeID";
+            this.colSizeID.ReadOnly = true;
+            this.colSizeID.Width = 80;
+            // 
+            // colSizeName
+            // 
+            this.colSizeName.DataPropertyName = "SizeName";
+            this.colSizeName.HeaderText = "尺寸描述";
+            this.colSizeName.Name = "colSizeName";
+            this.colSizeName.ReadOnly = true;
+            this.colSizeName.Width = 120;
+            // 
+            // colSizeStyle
+            // 
+            this.colSizeStyle.DataPropertyName = "SizeStyle";
+            this.colSizeStyle.HeaderText = "尺寸規格";
+            this.colSizeStyle.Name = "colSizeStyle";
+            this.colSizeStyle.ReadOnly = true;
+            this.colSizeStyle.Width = 180;
+            // 
+            // colBasePrice
+            // 
+            this.colBasePrice.DataPropertyName = "BasePrice";
+            this.colBasePrice.HeaderText = "基本單價";
+            this.colBasePrice.Name = "colBasePrice";
+            this.colBasePrice.ReadOnly = true;
+            this.colBasePrice.Width = 80;
+            // 
+            // colUnit
+            // 
+            this.colUnit.DataPropertyName = "Unit";
+            this.colUnit.HeaderText = "單價單位";
+            this.colUnit.Name = "colUnit";
+            this.colUnit.ReadOnly = true;
+            this.colUnit.Width = 80;
+            // 
+            // colSizeAddCharge1
+            // 
+            this.colSizeAddCharge1.DataPropertyName = "add_charge1";
+            this.colSizeAddCharge1.HeaderText = "噴沙";
+            this.colSizeAddCharge1.Name = "colSizeAddCharge1";
+            this.colSizeAddCharge1.ReadOnly = true;
+            this.colSizeAddCharge1.Width = 60;
+            // 
+            // colSizeAddCharge2
+            // 
+            this.colSizeAddCharge2.DataPropertyName = "add_charge2";
+            this.colSizeAddCharge2.HeaderText = "噴LAC.";
+            this.colSizeAddCharge2.Name = "colSizeAddCharge2";
+            this.colSizeAddCharge2.ReadOnly = true;
+            this.colSizeAddCharge2.Width = 60;
+            // 
+            // colSizeAddCharge3
+            // 
+            this.colSizeAddCharge3.DataPropertyName = "add_charge3";
+            this.colSizeAddCharge3.HeaderText = "不锈鋼";
+            this.colSizeAddCharge3.Name = "colSizeAddCharge3";
+            this.colSizeAddCharge3.ReadOnly = true;
+            this.colSizeAddCharge3.Width = 60;
+            // 
+            // colSizeGroupSN
+            // 
+            this.colSizeGroupSN.DataPropertyName = "SN";
+            this.colSizeGroupSN.HeaderText = "流水號";
+            this.colSizeGroupSN.Name = "colSizeGroupSN";
+            this.colSizeGroupSN.ReadOnly = true;
+            this.colSizeGroupSN.Visible = false;
+            // 
             // panelControl6
             // 
+            this.panelControl6.Controls.Add(this.btnCopyLine);
             this.panelControl6.Controls.Add(this.cmbUnit);
             this.panelControl6.Controls.Add(this.lblAddCharge3);
             this.panelControl6.Controls.Add(this.lblAddCharge2);
@@ -713,8 +1168,17 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(2, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1324, 60);
+            this.panelControl6.Size = new System.Drawing.Size(1405, 60);
             this.panelControl6.TabIndex = 11;
+            // 
+            // btnCopyLine
+            // 
+            this.btnCopyLine.Location = new System.Drawing.Point(755, 32);
+            this.btnCopyLine.Name = "btnCopyLine";
+            this.btnCopyLine.Size = new System.Drawing.Size(75, 23);
+            this.btnCopyLine.TabIndex = 12;
+            this.btnCopyLine.Text = "複製";
+            this.btnCopyLine.Click += new System.EventHandler(this.btnCopyLine_Click);
             // 
             // lblAddCharge3
             // 
@@ -893,7 +1357,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 518);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1332, 232);
+            this.panelControl4.Size = new System.Drawing.Size(1413, 232);
             this.panelControl4.TabIndex = 3;
             // 
             // dgvColorDetails
@@ -912,9 +1376,31 @@
             this.dgvColorDetails.RowHeadersWidth = 20;
             this.dgvColorDetails.RowTemplate.Height = 24;
             this.dgvColorDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorDetails.Size = new System.Drawing.Size(326, 166);
+            this.dgvColorDetails.Size = new System.Drawing.Size(407, 166);
             this.dgvColorDetails.TabIndex = 3;
             this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
+            // 
+            // colColorGroupID
+            // 
+            this.colColorGroupID.DataPropertyName = "GroupID";
+            this.colColorGroupID.HeaderText = "顏色組別";
+            this.colColorGroupID.Name = "colColorGroupID";
+            this.colColorGroupID.ReadOnly = true;
+            // 
+            // colColorID
+            // 
+            this.colColorID.DataPropertyName = "ColorID";
+            this.colColorID.HeaderText = "顏色代號";
+            this.colColorID.Name = "colColorID";
+            this.colColorID.ReadOnly = true;
+            // 
+            // colColorName
+            // 
+            this.colColorName.DataPropertyName = "ColorName";
+            this.colColorName.HeaderText = "顏色描述";
+            this.colColorName.Name = "colColorName";
+            this.colColorName.ReadOnly = true;
+            this.colColorName.Width = 200;
             // 
             // panelControl8
             // 
@@ -952,6 +1438,90 @@
             this.dgvColorGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColorGroup_CellClick);
             this.dgvColorGroup.SelectionChanged += new System.EventHandler(this.dgvColorGroup_SelectionChanged);
             // 
+            // colColorGroupSeq
+            // 
+            this.colColorGroupSeq.DataPropertyName = "Seq";
+            this.colColorGroupSeq.HeaderText = "序號";
+            this.colColorGroupSeq.Name = "colColorGroupSeq";
+            this.colColorGroupSeq.ReadOnly = true;
+            this.colColorGroupSeq.Width = 60;
+            // 
+            // colColorGroup
+            // 
+            this.colColorGroup.DataPropertyName = "ColorGroup";
+            this.colColorGroup.HeaderText = "顏色組別";
+            this.colColorGroup.Name = "colColorGroup";
+            this.colColorGroup.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price";
+            this.colPrice.HeaderText = "價錢";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            // 
+            // colRate
+            // 
+            this.colRate.DataPropertyName = "Rate";
+            this.colRate.HeaderText = "倍數";
+            this.colRate.Name = "colRate";
+            this.colRate.ReadOnly = true;
+            this.colRate.Width = 80;
+            // 
+            // colColorAddCharge1
+            // 
+            this.colColorAddCharge1.DataPropertyName = "add_charge1";
+            this.colColorAddCharge1.HeaderText = "噴沙";
+            this.colColorAddCharge1.Name = "colColorAddCharge1";
+            this.colColorAddCharge1.ReadOnly = true;
+            this.colColorAddCharge1.Width = 60;
+            // 
+            // colColorAddCharge2
+            // 
+            this.colColorAddCharge2.DataPropertyName = "add_charge2";
+            this.colColorAddCharge2.HeaderText = "噴LAC.";
+            this.colColorAddCharge2.Name = "colColorAddCharge2";
+            this.colColorAddCharge2.ReadOnly = true;
+            this.colColorAddCharge2.Width = 60;
+            // 
+            // colColorAddCharge3
+            // 
+            this.colColorAddCharge3.DataPropertyName = "add_charge3";
+            this.colColorAddCharge3.HeaderText = "不锈鋼";
+            this.colColorAddCharge3.Name = "colColorAddCharge3";
+            this.colColorAddCharge3.ReadOnly = true;
+            this.colColorAddCharge3.Width = 60;
+            // 
+            // colCurr
+            // 
+            this.colCurr.DataPropertyName = "Curr";
+            this.colCurr.HeaderText = "貨幣";
+            this.colCurr.Name = "colCurr";
+            this.colCurr.ReadOnly = true;
+            // 
+            // colValueDesc
+            // 
+            this.colValueDesc.DataPropertyName = "ValueDesc";
+            this.colValueDesc.HeaderText = "數值描述";
+            this.colValueDesc.Name = "colValueDesc";
+            this.colValueDesc.ReadOnly = true;
+            // 
+            // colColorGroupUpperSN
+            // 
+            this.colColorGroupUpperSN.DataPropertyName = "UpperSN";
+            this.colColorGroupUpperSN.HeaderText = "上級號碼";
+            this.colColorGroupUpperSN.Name = "colColorGroupUpperSN";
+            this.colColorGroupUpperSN.ReadOnly = true;
+            this.colColorGroupUpperSN.Visible = false;
+            // 
+            // colColorGroupSN
+            // 
+            this.colColorGroupSN.DataPropertyName = "SN";
+            this.colColorGroupSN.HeaderText = "流水號";
+            this.colColorGroupSN.Name = "colColorGroupSN";
+            this.colColorGroupSN.ReadOnly = true;
+            this.colColorGroupSN.Visible = false;
+            // 
             // panelControl5
             // 
             this.panelControl5.Controls.Add(this.lblColorGroupCdesc);
@@ -975,7 +1545,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(2, 2);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1328, 62);
+            this.panelControl5.Size = new System.Drawing.Size(1409, 62);
             this.panelControl5.TabIndex = 0;
             // 
             // lblColorGroupCdesc
@@ -1106,103 +1676,6 @@
             this.labelControl1.Size = new System.Drawing.Size(76, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "適用的顏色組:";
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnExit
-            // 
-            this.btnExit.AutoSize = false;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(65, 35);
-            this.btnExit.Text = "退出(&X)";
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.AutoSize = false;
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
-            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(65, 35);
-            this.btnNew.Text = "新增(&A)";
-            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.AutoSize = false;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(65, 35);
-            this.btnSave.Text = "儲存(&S)";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnFind
-            // 
-            this.btnFind.AutoSize = false;
-            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
-            this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(65, 35);
-            this.btnFind.Text = "查詢(&F)";
-            this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // btnSizeGroup
-            // 
-            this.btnSizeGroup.AutoSize = false;
-            this.btnSizeGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnSizeGroup.Image")));
-            this.btnSizeGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSizeGroup.Name = "btnSizeGroup";
-            this.btnSizeGroup.Size = new System.Drawing.Size(60, 35);
-            this.btnSizeGroup.Text = "尺寸組別";
-            this.btnSizeGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSizeGroup.Click += new System.EventHandler(this.btnSizeGroup_Click);
-            // 
-            // btnColorGroup
-            // 
-            this.btnColorGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnColorGroup.Image")));
-            this.btnColorGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnColorGroup.Name = "btnColorGroup";
-            this.btnColorGroup.Size = new System.Drawing.Size(60, 35);
-            this.btnColorGroup.Text = "顏色組別";
-            this.btnColorGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnColorGroup.Click += new System.EventHandler(this.btnColorGroup_Click);
-            // 
-            // btnCopy
-            // 
-            this.btnCopy.AutoSize = false;
-            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
-            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(65, 35);
-            this.btnCopy.Text = "複製(&C)";
-            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.AutoSize = false;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 35);
-            this.btnDelete.Text = "刪除(&D)";
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1472,248 +1945,11 @@
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
             this.dataGridViewTextBoxColumn31.Visible = false;
             // 
-            // colColorGroupID
-            // 
-            this.colColorGroupID.DataPropertyName = "GroupID";
-            this.colColorGroupID.HeaderText = "顏色組別";
-            this.colColorGroupID.Name = "colColorGroupID";
-            this.colColorGroupID.ReadOnly = true;
-            // 
-            // colColorID
-            // 
-            this.colColorID.DataPropertyName = "ColorID";
-            this.colColorID.HeaderText = "顏色代號";
-            this.colColorID.Name = "colColorID";
-            this.colColorID.ReadOnly = true;
-            // 
-            // colColorName
-            // 
-            this.colColorName.DataPropertyName = "ColorName";
-            this.colColorName.HeaderText = "顏色描述";
-            this.colColorName.Name = "colColorName";
-            this.colColorName.ReadOnly = true;
-            this.colColorName.Width = 200;
-            // 
-            // colColorGroupSeq
-            // 
-            this.colColorGroupSeq.DataPropertyName = "Seq";
-            this.colColorGroupSeq.HeaderText = "序號";
-            this.colColorGroupSeq.Name = "colColorGroupSeq";
-            this.colColorGroupSeq.ReadOnly = true;
-            this.colColorGroupSeq.Width = 60;
-            // 
-            // colColorGroup
-            // 
-            this.colColorGroup.DataPropertyName = "ColorGroup";
-            this.colColorGroup.HeaderText = "顏色組別";
-            this.colColorGroup.Name = "colColorGroup";
-            this.colColorGroup.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.DataPropertyName = "Price";
-            this.colPrice.HeaderText = "價錢";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            // 
-            // colRate
-            // 
-            this.colRate.DataPropertyName = "Rate";
-            this.colRate.HeaderText = "倍數";
-            this.colRate.Name = "colRate";
-            this.colRate.ReadOnly = true;
-            this.colRate.Width = 80;
-            // 
-            // colColorAddCharge1
-            // 
-            this.colColorAddCharge1.DataPropertyName = "add_charge1";
-            this.colColorAddCharge1.HeaderText = "噴沙";
-            this.colColorAddCharge1.Name = "colColorAddCharge1";
-            this.colColorAddCharge1.ReadOnly = true;
-            this.colColorAddCharge1.Width = 60;
-            // 
-            // colColorAddCharge2
-            // 
-            this.colColorAddCharge2.DataPropertyName = "add_charge2";
-            this.colColorAddCharge2.HeaderText = "噴LAC.";
-            this.colColorAddCharge2.Name = "colColorAddCharge2";
-            this.colColorAddCharge2.ReadOnly = true;
-            this.colColorAddCharge2.Width = 60;
-            // 
-            // colColorAddCharge3
-            // 
-            this.colColorAddCharge3.DataPropertyName = "add_charge3";
-            this.colColorAddCharge3.HeaderText = "不锈鋼";
-            this.colColorAddCharge3.Name = "colColorAddCharge3";
-            this.colColorAddCharge3.ReadOnly = true;
-            this.colColorAddCharge3.Width = 60;
-            // 
-            // colCurr
-            // 
-            this.colCurr.DataPropertyName = "Curr";
-            this.colCurr.HeaderText = "貨幣";
-            this.colCurr.Name = "colCurr";
-            this.colCurr.ReadOnly = true;
-            // 
-            // colValueDesc
-            // 
-            this.colValueDesc.DataPropertyName = "ValueDesc";
-            this.colValueDesc.HeaderText = "數值描述";
-            this.colValueDesc.Name = "colValueDesc";
-            this.colValueDesc.ReadOnly = true;
-            // 
-            // colColorGroupUpperSN
-            // 
-            this.colColorGroupUpperSN.DataPropertyName = "UpperSN";
-            this.colColorGroupUpperSN.HeaderText = "上級號碼";
-            this.colColorGroupUpperSN.Name = "colColorGroupUpperSN";
-            this.colColorGroupUpperSN.ReadOnly = true;
-            this.colColorGroupUpperSN.Visible = false;
-            // 
-            // colColorGroupSN
-            // 
-            this.colColorGroupSN.DataPropertyName = "SN";
-            this.colColorGroupSN.HeaderText = "流水號";
-            this.colColorGroupSN.Name = "colColorGroupSN";
-            this.colColorGroupSN.ReadOnly = true;
-            this.colColorGroupSN.Visible = false;
-            // 
-            // colSizeGroupDetails
-            // 
-            this.colSizeGroupDetails.DataPropertyName = "GroupID";
-            this.colSizeGroupDetails.HeaderText = "尺寸組別";
-            this.colSizeGroupDetails.Name = "colSizeGroupDetails";
-            this.colSizeGroupDetails.ReadOnly = true;
-            this.colSizeGroupDetails.Width = 80;
-            // 
-            // colSizeIDDetails
-            // 
-            this.colSizeIDDetails.DataPropertyName = "SizeID";
-            this.colSizeIDDetails.HeaderText = "尺寸代號";
-            this.colSizeIDDetails.Name = "colSizeIDDetails";
-            this.colSizeIDDetails.ReadOnly = true;
-            // 
-            // colSizeNameDetails
-            // 
-            this.colSizeNameDetails.DataPropertyName = "SizeName";
-            this.colSizeNameDetails.HeaderText = "尺寸描述";
-            this.colSizeNameDetails.Name = "colSizeNameDetails";
-            this.colSizeNameDetails.ReadOnly = true;
-            // 
-            // colAddCharge1
-            // 
-            this.colAddCharge1.DataPropertyName = "add_charge1";
-            this.colAddCharge1.HeaderText = "噴沙";
-            this.colAddCharge1.Name = "colAddCharge1";
-            this.colAddCharge1.ReadOnly = true;
-            // 
-            // colAddCharge2
-            // 
-            this.colAddCharge2.DataPropertyName = "add_charge2";
-            this.colAddCharge2.HeaderText = "噴LAC.";
-            this.colAddCharge2.Name = "colAddCharge2";
-            this.colAddCharge2.ReadOnly = true;
-            // 
-            // colAddCharge3
-            // 
-            this.colAddCharge3.DataPropertyName = "add_charge3";
-            this.colAddCharge3.HeaderText = "不锈鋼";
-            this.colAddCharge3.Name = "colAddCharge3";
-            this.colAddCharge3.ReadOnly = true;
-            // 
-            // colSizeGroupSeq
-            // 
-            this.colSizeGroupSeq.DataPropertyName = "Seq";
-            this.colSizeGroupSeq.HeaderText = "序號";
-            this.colSizeGroupSeq.Name = "colSizeGroupSeq";
-            this.colSizeGroupSeq.ReadOnly = true;
-            this.colSizeGroupSeq.Width = 60;
-            // 
-            // colSizeGroup
-            // 
-            this.colSizeGroup.DataPropertyName = "SizeGroup";
-            this.colSizeGroup.HeaderText = "尺寸組別";
-            this.colSizeGroup.Name = "colSizeGroup";
-            this.colSizeGroup.ReadOnly = true;
-            this.colSizeGroup.Width = 80;
-            // 
-            // colSizeID
-            // 
-            this.colSizeID.DataPropertyName = "SizeID";
-            this.colSizeID.HeaderText = "尺寸代號";
-            this.colSizeID.Name = "colSizeID";
-            this.colSizeID.ReadOnly = true;
-            this.colSizeID.Width = 80;
-            // 
-            // colSizeName
-            // 
-            this.colSizeName.DataPropertyName = "SizeName";
-            this.colSizeName.HeaderText = "尺寸描述";
-            this.colSizeName.Name = "colSizeName";
-            this.colSizeName.ReadOnly = true;
-            this.colSizeName.Width = 120;
-            // 
-            // colSizeStyle
-            // 
-            this.colSizeStyle.DataPropertyName = "SizeStyle";
-            this.colSizeStyle.HeaderText = "尺寸規格";
-            this.colSizeStyle.Name = "colSizeStyle";
-            this.colSizeStyle.ReadOnly = true;
-            this.colSizeStyle.Width = 180;
-            // 
-            // colBasePrice
-            // 
-            this.colBasePrice.DataPropertyName = "BasePrice";
-            this.colBasePrice.HeaderText = "基本單價";
-            this.colBasePrice.Name = "colBasePrice";
-            this.colBasePrice.ReadOnly = true;
-            this.colBasePrice.Width = 80;
-            // 
-            // colUnit
-            // 
-            this.colUnit.DataPropertyName = "Unit";
-            this.colUnit.HeaderText = "單價單位";
-            this.colUnit.Name = "colUnit";
-            this.colUnit.ReadOnly = true;
-            this.colUnit.Width = 80;
-            // 
-            // colSizeAddCharge1
-            // 
-            this.colSizeAddCharge1.DataPropertyName = "add_charge1";
-            this.colSizeAddCharge1.HeaderText = "噴沙";
-            this.colSizeAddCharge1.Name = "colSizeAddCharge1";
-            this.colSizeAddCharge1.ReadOnly = true;
-            this.colSizeAddCharge1.Width = 60;
-            // 
-            // colSizeAddCharge2
-            // 
-            this.colSizeAddCharge2.DataPropertyName = "add_charge2";
-            this.colSizeAddCharge2.HeaderText = "噴LAC.";
-            this.colSizeAddCharge2.Name = "colSizeAddCharge2";
-            this.colSizeAddCharge2.ReadOnly = true;
-            this.colSizeAddCharge2.Width = 60;
-            // 
-            // colSizeAddCharge3
-            // 
-            this.colSizeAddCharge3.DataPropertyName = "add_charge3";
-            this.colSizeAddCharge3.HeaderText = "不锈鋼";
-            this.colSizeAddCharge3.Name = "colSizeAddCharge3";
-            this.colSizeAddCharge3.ReadOnly = true;
-            this.colSizeAddCharge3.Width = 60;
-            // 
-            // colSizeGroupSN
-            // 
-            this.colSizeGroupSN.DataPropertyName = "SN";
-            this.colSizeGroupSN.HeaderText = "流水號";
-            this.colSizeGroupSN.Name = "colSizeGroupSN";
-            this.colSizeGroupSN.ReadOnly = true;
-            this.colSizeGroupSN.Visible = false;
-            // 
             // frmProductTypeStdPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 750);
+            this.ClientSize = new System.Drawing.Size(1413, 750);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -1745,12 +1981,20 @@
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
             this.panelControl11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xTC1)).EndInit();
+            this.xTC1.ResumeLayout(false);
+            this.xTP1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectSizeFlag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
             this.panelControl9.ResumeLayout(false);
             this.panelControl9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeGroup1.Properties)).EndInit();
+            this.xTP2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectFlagCopy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroupCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcSizeGroupCopy)).EndInit();
+            this.pcSizeGroupCopy.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizeGroup)).EndInit();
@@ -1943,5 +2187,27 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripButton btnAddArtWork;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private DevExpress.XtraEditors.SimpleButton btnCopyLine;
+        private DevExpress.XtraTab.XtraTabControl xTC1;
+        private DevExpress.XtraTab.XtraTabPage xTP1;
+        private DevExpress.XtraTab.XtraTabPage xTP2;
+        private System.Windows.Forms.DataGridView dgvSizeGroupCopy;
+        private DevExpress.XtraEditors.PanelControl pcSizeGroupCopy;
+        private DevExpress.XtraEditors.SimpleButton btnCleanCopy;
+        private DevExpress.XtraEditors.CheckEdit chkSelectFlagCopy;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectFlagCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSeqCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeIDCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeNameCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeStyleCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBasePriceCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitCopy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge1Copy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge2Copy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge3Copy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSNCopy;
     }
 }
