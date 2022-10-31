@@ -41,6 +41,7 @@ namespace cf01.MDL
         public string Seq { get; set; }
         public string ColorGroup { get; set; }
         public string ValueDesc { get; set; }
+        public string ValueRemark { get; set; }
         public decimal Rate { get; set; }
         public decimal Price { get; set; }
         public string Curr { get; set; }

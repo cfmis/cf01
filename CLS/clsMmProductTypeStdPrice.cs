@@ -46,7 +46,7 @@ namespace cf01.CLS
         public static DataTable LoadColorGroup(int UpperSN)
         {
             string strSql = "";
-            strSql = "Select UpperSN,Seq,ColorGroup,ValueDesc,Rate,Price,Curr,add_charge1,add_charge2,add_charge3,SN" +
+            strSql = "Select UpperSN,Seq,ColorGroup,ValueDesc,ValueRemark,Rate,Price,Curr,add_charge1,add_charge2,add_charge3,SN" +
                 " From mm_ProductTypePriceColorGroup" +
                 " Where UpperSN='" + UpperSN + "'";
             DataTable dtColorGroup = clsPublicOfCF01.GetDataTable(strSql);
@@ -181,18 +181,19 @@ namespace cf01.CLS
             strSql += string.Format(@" BEGIN TRANSACTION ");
             if (!CheckExistRecord("mm_ProductTypePriceColorGroup", mdlMtpcg.UpperSN, mdlMtpcg.Seq))
                 strSql += string.Format(@" Insert Into mm_ProductTypePriceColorGroup" +
-                        " (UpperSN,Seq,ColorGroup,ValueDesc,Rate,Price,Curr,add_charge1,add_charge2,add_charge3)" +
-                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}' )"
+                        " (UpperSN,Seq,ColorGroup,ValueDesc,Rate,Price,Curr,add_charge1,add_charge2,add_charge3,ValueRemark)" +
+                        " Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}' )"
                         , mdlMtpcg.UpperSN, mdlMtpcg.Seq, mdlMtpcg.ColorGroup
                         , mdlMtpcg.ValueDesc, mdlMtpcg.Rate, mdlMtpcg.Price, mdlMtpcg.Curr
-                        , mdlMtpcg.AddCharge1, mdlMtpcg.AddCharge2, mdlMtpcg.AddCharge3);
+                        , mdlMtpcg.AddCharge1, mdlMtpcg.AddCharge2, mdlMtpcg.AddCharge3, mdlMtpcg.ValueRemark);
             else
                 strSql += string.Format(@" Update mm_ProductTypePriceColorGroup " +
                     " Set ColorGroup='{2}',ValueDesc='{3}',Rate='{4}',Price='{5}',Curr='{6}',add_charge1='{7}',add_charge2='{8}',add_charge3='{9}'" +
+                    ",ValueRemark='{10}' " +
                     " Where UpperSN='{0}'  And Seq='{1}'"
                     , mdlMtpcg.UpperSN, mdlMtpcg.Seq, mdlMtpcg.ColorGroup
                     , mdlMtpcg.ValueDesc, mdlMtpcg.Rate, mdlMtpcg.Price, mdlMtpcg.Curr
-                    , mdlMtpcg.AddCharge1, mdlMtpcg.AddCharge2, mdlMtpcg.AddCharge3);
+                    , mdlMtpcg.AddCharge1, mdlMtpcg.AddCharge2, mdlMtpcg.AddCharge3, mdlMtpcg.ValueRemark);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;

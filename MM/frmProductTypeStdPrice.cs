@@ -104,25 +104,7 @@ namespace cf01.MM
             LoadData(txtID.Text.Trim());
         }
 
-        private void btnAddSize_Click(object sender, EventArgs e)
-        {
-             
-            txtSizeGroup.Text = "";
-            txtSizeGroupSeq.Text = "";
-            txtSizeID.Text = "";
-            txtSizeName.Text = "";
-            txtBasePrice.Text = "";
-            cmbUnit.Text = "";
-            chkAddCharge1.Checked = false;
-            txtAddCharge1.Text = "";
-            chkAddCharge2.Checked = false;
-            txtAddCharge2.Text = "";
-            chkAddCharge3.Checked = false;
-            txtAddCharge3.Text = "";
-            txtSizeID.Focus();
-            //SaveSizeGroup();
 
-        }
         private string SaveSizeGroup()
         {
             string result = "";
@@ -193,6 +175,7 @@ namespace cf01.MM
             txtRate.Text = "";
             txtPrice.Text = "";
             lueCurr.Text = "";
+            txtValueRemark.Text = "";
             chkAddCharge1.Checked = false;
             chkAddCharge2.Checked = false;
             chkAddCharge3.Checked = false;
@@ -220,6 +203,7 @@ namespace cf01.MM
             txtRate.Text = dr.Cells["colRate"].Value.ToString();
             txtPrice.Text = dr.Cells["colPrice"].Value.ToString();
             txtValueDesc.Text = dr.Cells["colValueDesc"].Value.ToString();
+            txtValueRemark.Text = dr.Cells["colValueRemark"].Value.ToString();
             lueCurr.Text = dr.Cells["colCurr"].Value.ToString();
             if (dr.Cells["colColorAddCharge1"].Value.ToString() != "0")
                 chkAddCharge1.Checked = true;
@@ -324,6 +308,7 @@ namespace cf01.MM
             mdlPtpc.Seq = txtColorGroupSeq.Text.Trim();
             mdlPtpc.ColorGroup = txtColorGroup.Text;
             mdlPtpc.ValueDesc = txtValueDesc.Text.Trim();
+            mdlPtpc.ValueRemark = txtValueRemark.Text.Trim();
             mdlPtpc.Rate = txtRate.Text == "" ? 0 : Convert.ToDecimal(txtRate.Text);
             mdlPtpc.Price = txtPrice.Text == "" ? 0 : Convert.ToDecimal(txtPrice.Text);
             mdlPtpc.Curr = lueCurr.Text;
@@ -854,6 +839,26 @@ namespace cf01.MM
             {
                 dgvSizeGroupCopy.Rows[i].Cells["colSelectFlagCopy"].Value = chkSelectFlagCopy.Checked;
             }
+        }
+
+        private void btnAddSize_Click(object sender, EventArgs e)
+        {
+
+            //txtSizeGroup.Text = "";
+            txtSizeGroupSeq.Text = "";
+            txtSizeID.Text = "";
+            txtSizeName.Text = "";
+            //txtBasePrice.Text = "";
+            //cmbUnit.Text = "";
+            //chkAddCharge1.Checked = false;
+            //txtAddCharge1.Text = "";
+            //chkAddCharge2.Checked = false;
+            //txtAddCharge2.Text = "";
+            //chkAddCharge3.Checked = false;
+            //txtAddCharge3.Text = "";
+            txtSizeID.Focus();
+            //SaveSizeGroup();
+
         }
     }
 }

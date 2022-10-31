@@ -160,7 +160,10 @@
             this.colValueDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorGroupUpperSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colColorGroupSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValueRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.lblValueRemark = new DevExpress.XtraEditors.LabelControl();
+            this.txtValueRemark = new DevExpress.XtraEditors.TextEdit();
             this.lblColorGroupCdesc = new DevExpress.XtraEditors.LabelControl();
             this.lblColorGroup = new DevExpress.XtraEditors.LabelControl();
             this.txtColorGroup = new DevExpress.XtraEditors.TextEdit();
@@ -263,6 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvColorGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValueRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorGroupSeq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCurr.Properties)).BeginInit();
@@ -295,7 +299,7 @@
             this.toolStripSeparator9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1413, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1362, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -466,7 +470,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1413, 90);
+            this.panelControl1.Size = new System.Drawing.Size(1362, 90);
             this.panelControl1.TabIndex = 1;
             // 
             // lblRemark
@@ -684,7 +688,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 128);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1413, 390);
+            this.panelControl2.Size = new System.Drawing.Size(1362, 390);
             this.panelControl2.TabIndex = 2;
             // 
             // panelControl3
@@ -696,7 +700,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1409, 386);
+            this.panelControl3.Size = new System.Drawing.Size(1358, 386);
             this.panelControl3.TabIndex = 0;
             // 
             // panelControl11
@@ -705,7 +709,7 @@
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl11.Location = new System.Drawing.Point(998, 62);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(409, 322);
+            this.panelControl11.Size = new System.Drawing.Size(358, 322);
             this.panelControl11.TabIndex = 10;
             // 
             // xTC1
@@ -714,7 +718,7 @@
             this.xTC1.Location = new System.Drawing.Point(2, 2);
             this.xTC1.Name = "xTC1";
             this.xTC1.SelectedTabPage = this.xTP1;
-            this.xTC1.Size = new System.Drawing.Size(405, 318);
+            this.xTC1.Size = new System.Drawing.Size(354, 318);
             this.xTC1.TabIndex = 10;
             this.xTC1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xTP1,
@@ -726,7 +730,7 @@
             this.xTP1.Controls.Add(this.dgvSizeDetails);
             this.xTP1.Controls.Add(this.panelControl9);
             this.xTP1.Name = "xTP1";
-            this.xTP1.Size = new System.Drawing.Size(399, 289);
+            this.xTP1.Size = new System.Drawing.Size(348, 289);
             this.xTP1.Text = "尺寸組別";
             // 
             // chkSelectSizeFlag
@@ -757,7 +761,7 @@
             this.dgvSizeDetails.RowHeadersWidth = 20;
             this.dgvSizeDetails.RowTemplate.Height = 24;
             this.dgvSizeDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSizeDetails.Size = new System.Drawing.Size(399, 239);
+            this.dgvSizeDetails.Size = new System.Drawing.Size(348, 239);
             this.dgvSizeDetails.TabIndex = 9;
             // 
             // colSelectSizeFlag
@@ -819,7 +823,7 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl9.Location = new System.Drawing.Point(0, 0);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(399, 50);
+            this.panelControl9.Size = new System.Drawing.Size(348, 50);
             this.panelControl9.TabIndex = 8;
             // 
             // btnFindSizeGroup
@@ -1168,7 +1172,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(2, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1405, 60);
+            this.panelControl6.Size = new System.Drawing.Size(1354, 60);
             this.panelControl6.TabIndex = 11;
             // 
             // btnCopyLine
@@ -1357,7 +1361,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 518);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1413, 232);
+            this.panelControl4.Size = new System.Drawing.Size(1362, 224);
             this.panelControl4.TabIndex = 3;
             // 
             // dgvColorDetails
@@ -1370,13 +1374,13 @@
             this.colColorID,
             this.colColorName});
             this.dgvColorDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvColorDetails.Location = new System.Drawing.Point(1004, 64);
+            this.dgvColorDetails.Location = new System.Drawing.Point(1004, 86);
             this.dgvColorDetails.Name = "dgvColorDetails";
             this.dgvColorDetails.ReadOnly = true;
             this.dgvColorDetails.RowHeadersWidth = 20;
             this.dgvColorDetails.RowTemplate.Height = 24;
             this.dgvColorDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorDetails.Size = new System.Drawing.Size(407, 166);
+            this.dgvColorDetails.Size = new System.Drawing.Size(356, 136);
             this.dgvColorDetails.TabIndex = 3;
             this.dgvColorDetails.SelectionChanged += new System.EventHandler(this.dgvColorDetails_SelectionChanged);
             // 
@@ -1405,9 +1409,9 @@
             // panelControl8
             // 
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl8.Location = new System.Drawing.Point(915, 64);
+            this.panelControl8.Location = new System.Drawing.Point(915, 86);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(89, 166);
+            this.panelControl8.Size = new System.Drawing.Size(89, 136);
             this.panelControl8.TabIndex = 4;
             // 
             // dgvColorGroup
@@ -1425,15 +1429,16 @@
             this.colCurr,
             this.colValueDesc,
             this.colColorGroupUpperSN,
-            this.colColorGroupSN});
+            this.colColorGroupSN,
+            this.colValueRemark});
             this.dgvColorGroup.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgvColorGroup.Location = new System.Drawing.Point(2, 64);
+            this.dgvColorGroup.Location = new System.Drawing.Point(2, 86);
             this.dgvColorGroup.Name = "dgvColorGroup";
             this.dgvColorGroup.ReadOnly = true;
             this.dgvColorGroup.RowHeadersWidth = 20;
             this.dgvColorGroup.RowTemplate.Height = 24;
             this.dgvColorGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColorGroup.Size = new System.Drawing.Size(913, 166);
+            this.dgvColorGroup.Size = new System.Drawing.Size(913, 136);
             this.dgvColorGroup.TabIndex = 1;
             this.dgvColorGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColorGroup_CellClick);
             this.dgvColorGroup.SelectionChanged += new System.EventHandler(this.dgvColorGroup_SelectionChanged);
@@ -1522,8 +1527,18 @@
             this.colColorGroupSN.ReadOnly = true;
             this.colColorGroupSN.Visible = false;
             // 
+            // colValueRemark
+            // 
+            this.colValueRemark.DataPropertyName = "ValueRemark";
+            this.colValueRemark.HeaderText = "備註";
+            this.colValueRemark.Name = "colValueRemark";
+            this.colValueRemark.ReadOnly = true;
+            this.colValueRemark.Width = 160;
+            // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.lblValueRemark);
+            this.panelControl5.Controls.Add(this.txtValueRemark);
             this.panelControl5.Controls.Add(this.lblColorGroupCdesc);
             this.panelControl5.Controls.Add(this.chkAddCharge3);
             this.panelControl5.Controls.Add(this.lblColorGroup);
@@ -1545,8 +1560,23 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(2, 2);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1409, 62);
+            this.panelControl5.Size = new System.Drawing.Size(1358, 84);
             this.panelControl5.TabIndex = 0;
+            // 
+            // lblValueRemark
+            // 
+            this.lblValueRemark.Location = new System.Drawing.Point(126, 62);
+            this.lblValueRemark.Name = "lblValueRemark";
+            this.lblValueRemark.Size = new System.Drawing.Size(28, 14);
+            this.lblValueRemark.TabIndex = 13;
+            this.lblValueRemark.Text = "備註:";
+            // 
+            // txtValueRemark
+            // 
+            this.txtValueRemark.Location = new System.Drawing.Point(163, 59);
+            this.txtValueRemark.Name = "txtValueRemark";
+            this.txtValueRemark.Size = new System.Drawing.Size(382, 20);
+            this.txtValueRemark.TabIndex = 12;
             // 
             // lblColorGroupCdesc
             // 
@@ -1949,7 +1979,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1413, 750);
+            this.ClientSize = new System.Drawing.Size(1362, 742);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -2019,6 +2049,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValueRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorGroupSeq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCurr.Properties)).EndInit();
@@ -2151,17 +2182,6 @@
         private DevExpress.XtraEditors.LabelControl lblAddCharge3;
         private DevExpress.XtraEditors.LabelControl lblAddCharge2;
         private DevExpress.XtraEditors.LabelControl lblAddCharge1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorAddCharge1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorAddCharge2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorAddCharge3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCurr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValueDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupUpperSN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectSizeFlag;
@@ -2209,5 +2229,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge2Copy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeAddCharge3Copy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSizeGroupSNCopy;
+        private DevExpress.XtraEditors.LabelControl lblValueRemark;
+        private DevExpress.XtraEditors.TextEdit txtValueRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorAddCharge1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorAddCharge2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorAddCharge3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCurr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValueDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupUpperSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorGroupSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValueRemark;
     }
 }
