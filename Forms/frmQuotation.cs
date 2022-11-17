@@ -26,6 +26,7 @@ using System.Reflection;
 using cf01.MDL;
 using System.Threading;
 using cf01.MM;
+using System.ComponentModel;
 
 namespace cf01.Forms
 {
@@ -42,6 +43,7 @@ namespace cf01.Forms
         public int cur_row;//row_delete;
         public int row_reset=0;
         public string strTemp_Code = "";
+        public string cur_temp_code = "";
         string mLanguage = DBUtility._language;//保存當前登彔的語言        
         public System.Data.DataTable dtDetail = new System.Data.DataTable();
         public System.Data.DataTable dtReSet = new System.Data.DataTable();
@@ -56,13 +58,13 @@ namespace cf01.Forms
         public bool is_group_pdd { set; get; }
         //bool flag_import;
         string strFile_Excel = "";
+        private frmQuotationFind frmQuotationFind;
+        private ListSortDirection SortDirection;//排序方式
+        private string SortColumnName = "";
 
-         
         public frmQuotation()
         {
-            InitializeComponent();
-            
-            
+            InitializeComponent(); 
 
             //舊的菜單按鈕的權限及翻譯
             //clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
@@ -79,7 +81,7 @@ namespace cf01.Forms
             dgvDetails.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect; //因類clsControlInfoHelper的問題，此處重新恢覆整行選中的屬性
 
             const string strsql =
-            @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,A.date,A.brand,A.brand_desc,A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,
+            @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,convert(varchar(10),A.date,121) as date ,A.brand,A.brand_desc,A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,
             A.number_enter,A.price_usd,A.price_hkd,A.price_rmb,A.hkd_ex_fty,A.price_unit,A.moq_below_over,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
             A.lead_time_unit,A.md_charge,A.md_charge_cny,A.md_charge_unit,A.die_mould_usd,A.die_mould_cny,A.valid_date,A.date_req,A.aw,A.status,A.pending,
             A.sample_request,A.needle_test,A.comment,A.remark,A.remark_other,A.remark_pdd,A.division,A.contact,A.crusr,A.crtim,A.amusr,A.amtim,A.flag_del,A.mo_id,A.id,A.temp_code,A.polo_care,A.moq_for_test,
@@ -95,18 +97,18 @@ namespace cf01.Forms
             dgvDetails.DataSource = bds1;// dtDetail;
         }
 
-        private void frmQuotationTest_Load(object sender, EventArgs e)
-        {           
+        private void frmQuotation_Load(object sender, EventArgs e)
+        {
             //System.Data.DataTable dtUnit = new System.Data.DataTable();
             //dtUnit = clsPublicOfCF01.GetDataTable(@"SELECT '' AS id Union SELECT unit_id as id FROM dbo.bs_unit Where unit_id<>'000'");
             //txtPrice_unit.Properties.DataSource = dtUnit;
             //txtPrice_unit.Properties.ValueMember = "id";
             //txtPrice_unit.Properties.DisplayMember = "id";
             clsQuotation.Set_Unit(txtPrice_unit);//數量單位            
-            clsQuotation.Set_Unit(txtMoq_unit);           
-            clsQuotation.Set_Unit(txtMwq_unit);            
-            clsQuotation.Set_Unit(txtMd_charge_unit);            
-            
+            clsQuotation.Set_Unit(txtMoq_unit);
+            clsQuotation.Set_Unit(txtMwq_unit);
+            clsQuotation.Set_Unit(txtMd_charge_unit);
+
             System.Data.DataTable dtMoney = clsConErp.GetDataTable(@"SELECT '' as id,'' as cdesc Union SELECT id,name as cdesc FROM dbo.cd_money WHERE state='0'");
             txtMd_charge_cny.Properties.DataSource = dtMoney;
             txtMd_charge_cny.Properties.ValueMember = "id";
@@ -133,17 +135,17 @@ namespace cf01.Forms
             txtSales_group.Properties.DataSource = dtSales_Group;
             txtSales_group.Properties.ValueMember = "id";
             txtSales_group.Properties.DisplayMember = "cdesc";
-           
+
             clsQuotation.Set_Brand_id(txtBrand);
 
             //strSql = @"Select '' as id,'' as cdesc union Select id,name as cdesc From cd_season Order by id";
-            strSql = @"Select '' as id,'' as cdesc Union Select id,name as cdesc From cd_season where state='0' Order by id";            
+            strSql = @"Select '' as id,'' as cdesc Union Select id,name as cdesc From cd_season where state='0' Order by id";
             System.Data.DataTable dtSeason = new System.Data.DataTable();
             dtSeason = clsConErp.GetDataTable(strSql);
             txtSeason.Properties.DataSource = dtSeason;
             txtSeason.Properties.ValueMember = "id";
             txtSeason.Properties.DisplayMember = "cdesc";
-            
+
             //POLO CARE
             strSql = @"Select '' as id,'' as cdesc Union SELECT typ_code as id,typ_cdesc as cdesc FROM bs_type WHERE typ_group='AB'";
             System.Data.DataTable dtPoloCare = new System.Data.DataTable();
@@ -167,10 +169,10 @@ namespace cf01.Forms
             lueLabtest.Properties.DataSource = dtLabtest;
             lueLabtest.Properties.ValueMember = "id";
             lueLabtest.Properties.DisplayMember = "name";
-            
+
             gridView1.IndicatorWidth = 50;
             tabPage2.Parent = null;
-            
+
             //顯示PDD備註
             strSql = string.Format(@"Select group_id From sys_user WHERE user_id='{0}' AND (group_id='DG_PDD' OR group_id='HK_PDD')", DBUtility._user_id);
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -185,7 +187,7 @@ namespace cf01.Forms
                     remark_pdd_dg.Visible = false;
                     gridColumn18.Visible = false;
                     gridColumn19.Visible = false;
-                    is_group_pdd = false; 
+                    is_group_pdd = false;
                 }
                 else
                 {
@@ -214,11 +216,11 @@ namespace cf01.Forms
                 {
                     pnlRemarkPDD_dg.Visible = true;
                     remark_pdd_dg.Visible = true;
-                    gridColumn19.Visible = true;                    
+                    gridColumn19.Visible = true;
                 }
                 is_group_pdd = true;//是否可查看歷史單價
             }
-           
+
             dgvDetails.AutoGenerateColumns = false;
             Init_Column_isEnable();
 
@@ -230,7 +232,7 @@ namespace cf01.Forms
             }
             if (ls_ip_address.Contains("192.168.168."))
             {
-                mImagePath=@"\\192.168.168.15\cf_artwork";
+                mImagePath = @"\\192.168.168.15\cf_artwork";
             }
             if (ls_ip_address.Contains("192.168.18."))
             {
@@ -241,22 +243,22 @@ namespace cf01.Forms
             //當PDD備註隱藏時重新調整表格位置以顯示更多內容
             if (!is_group_pdd)
             {
-                pnlHeard.Height = 400;                
-                this.tabControl1.Location = new System.Drawing.Point(-3, 440);                
+                pnlHeard.Height = 400;
+                this.tabControl1.Location = new System.Drawing.Point(-3, 440);
                 Screen screen = Screen.PrimaryScreen;
                 int screen_width = screen.Bounds.Width;
                 int screen_height = screen.Bounds.Height;
-                this.pnlHeard.Width = screen_width-10;
-                this.tabControl1.Width = screen_width-2;
+                this.pnlHeard.Width = screen_width - 10;
+                this.tabControl1.Width = screen_width - 2;
                 this.tabControl1.Height = screen_height - (pnlHeard.Height + toolStrip1.Height + 115);
-            }            
+            }
         }
 
         private void SetDataBindings()
         {            
             txtID.DataBindings.Add("Text", bds1, "id");
             txtSales_group.DataBindings.Add("EditValue", bds1, "sales_group");          
-            txtDate.DataBindings.Add("EditValue", bds1, "date");
+            txtDate.DataBindings.Add("EditValue", bds1, "date");            
             txtTemp_code.DataBindings.Add("Text", bds1, "temp_code"); 
             txtBrand.DataBindings.Add("EditValue", bds1, "brand"); 
             txtBrandDesc.DataBindings.Add("Text", bds1, "brand_desc"); 
@@ -344,7 +346,7 @@ namespace cf01.Forms
             txtTermremark.DataBindings.Add("Text", bds1, "termremark");
             memDgRmkPdd.DataBindings.Add("Text", bds1, "remark_pdd_dg");
             txtPending.DataBindings.Add("Text", bds1, "pending");
-            txtRef_temp_code.DataBindings.Add("Text", bds1, "ref_temp_code");
+            txtRef_temp_code.DataBindings.Add("Text", bds1, "ref_temp_code");//txtRef_temp_code目的是想知道由哪一條記錄復制過來.
 
         }
 
@@ -415,7 +417,7 @@ namespace cf01.Forms
 
         private void BTNEXIT_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void BTNNEW_Click(object sender, EventArgs e)
@@ -446,18 +448,30 @@ namespace cf01.Forms
         private void BTNFIND_Click(object sender, EventArgs e)
         {
             int curent_row = 0; //從查詢窗體返回當前焦點所在行
-            //using (frmQuotationFind ofrmFind = new frmQuotationFind() { flag_call = "Quotation" })
-            //{
-            //    ofrmFind.ShowDialog();
-            //    curent_row = ofrmFind.Current_row;//返回行號 
-            //    if (ofrmFind.dt.Rows.Count > 0)
-            //    {
-            //        //dtDetail.Clear();
-            //        dtDetail = ofrmFind.dt;//.Copy();
-            //        dgvDetails.DataSource = dtDetail;//設置tabpage1數據源
-            //    }
-            //}
+            //***********2022/11/16新加代碼,查詢窗體不用關閉
+            if (frmQuotationFind == null)
+            {
+                frmQuotationFind = new frmQuotationFind() { flag_call = "Quotation" };
+            }            
+            frmQuotationFind.ShowDialog();
+            curent_row = frmQuotationFind.Current_row;//返回行號
+            if (frmQuotationFind.dt.Rows.Count > 0)
+            {
+                //必須用dt.Copy()方法,不可以直接賦值,直接賦值只是引用指針,修改任可一處,兩邊會出理同時修改.
+                dtDetail = frmQuotationFind.dt.Copy();
+                bds1.DataSource = dtDetail;
+                dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源 
+            }
+            if (dtDetail.Rows.Count > 0 && curent_row > 0)
+            {
+                //定行到當前行 注意指定的當前列不可以隱藏的
+                //dgvDetails.Rows[curent_row].Cells[1].Selected = true;
+                dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
+                dgvDetails.Rows[curent_row].Selected = true; //選中整行
+            }
+            //*************
 
+            /*舊代碼
             frmQuotationFind ofrmFind = new frmQuotationFind() { flag_call = "Quotation" };
             ofrmFind.ShowDialog();
             curent_row = ofrmFind.Current_row;//返回行號 
@@ -479,6 +493,7 @@ namespace cf01.Forms
                 //this.dgvDetails.CurrentCell = dgvDetails[1, curent_row]; //设置当前单元格
                 //dgvDetails.BeginEdit(true);
             }
+            */
 
             if (dgvDetails.RowCount > 0 )            
                 lblOf.Text = dgvDetails.RowCount.ToString();            
@@ -573,8 +588,8 @@ namespace cf01.Forms
 
         private void AddNew()  //新增
         {
-            mState = "NEW";
-
+            SetResetID();
+            mState = "NEW"; 
             bds1.AddNew();
 
             txtSales_group.Focus();
@@ -594,6 +609,8 @@ namespace cf01.Forms
             dgvDetails.Enabled = false;
             txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
             txtValid_date.EditValue = DateTime.Now.Date.AddDays(30).ToString("yyyy-MM-dd").Substring(0, 10);
+            txtCrusr.Text = DBUtility._user_id;
+            txtCrtim.Text= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
             txtPrice_unit.EditValue = "GRS";
             txtMoq_unit.EditValue = "GRS";
             txtLead_time_unit.EditValue = "Weeks";            
@@ -612,6 +629,7 @@ namespace cf01.Forms
             {
                 return;
             }
+            SetResetID();
 
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(pnlHeard.Controls, true);
@@ -627,7 +645,6 @@ namespace cf01.Forms
             chkSelectAll.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             //txtSales_group.Properties.ReadOnly = true;
             //txtSales_group.BackColor = System.Drawing.Color.White;
-
             //txtID.Properties.ReadOnly = true;
             //txtID.BackColor = System.Drawing.Color.White;
         }
@@ -635,7 +652,6 @@ namespace cf01.Forms
         private void Cancel() //取消
         {
             bds1.CancelEdit();
-
             SetButtonSatus(true);            
             SetObjValue.SetEditBackColor(pnlHeard.Controls, false);
             chkSelectAll.Enabled = true;
@@ -648,12 +664,54 @@ namespace cf01.Forms
             mState = "";
             mState_NewCopy = "";
             tabPage2.Parent = null;
-            
-            if (!string.IsNullOrEmpty(mID) && dgvDetails.RowCount>0)
+            //如原來有排序則恢復
+            if (SortColumnName != "")
             {
-                dgvDetails.Focus();
-                dgvDetails.CurrentCell = dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
-                dgvDetails.Rows[row_reset].Selected = true; //選中整行
+                this.dgvDetails.Sort(dgvDetails.Columns[SortColumnName], SortDirection);
+            }         
+            if(!string.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
+            {
+                int index = 0;
+                foreach (DataGridViewRow row in dgvDetails.Rows)
+                {
+                    //获取第i行，列名是列名A的单元格的值
+                    if (mID == row.Cells["id"].Value.ToString())
+                    {
+                        index = row.Index;
+                        break;
+                    }
+                }
+                dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[2];//定位当前单元格
+                dgvDetails.Rows[index].Selected = true; //選中整行               
+            }
+                   
+        }
+        private void SaveSortInfo()
+        {
+            //保存排序信息
+            if(dgvDetails.Rows.Count==0)
+            {
+                SortColumnName = "";
+                return;
+            }
+            SortColumnName = "";
+            if (dgvDetails.SortOrder.ToString() != "None")
+            {
+                //表格某列有排序 //return value is : Ascending,Descending or None
+                SortColumnName = dgvDetails.SortedColumn.Name;//獲取有排序的列的名稱
+                string strSort = dgvDetails.SortOrder.ToString();//獲取有排序列的排序方式 Descending
+                // DataGridViewColumn SortColumn = dgvDetails.CurrentCell.OwningColumn;//當前列對象
+                //ListSortDirection SortDirection;
+                if (strSort == "Ascending")
+                {
+                    SortDirection = ListSortDirection.Ascending;
+                }
+                else
+                {
+                    SortDirection = ListSortDirection.Descending;
+                }
+                //this.dgvDetails.Sort(dgvDetails.Columns[sortColumnName], sortDirection);
+                //this.dgvDetails.Sort(dgvDetails.Columns[SortColumn.Index], ListSortDirection.Ascending);
             }
         }
 
@@ -663,9 +721,9 @@ namespace cf01.Forms
             if (!Save_Before_Valid())
             {
                 return;
-            }
-            bds1.EndEdit();
-            bool save_flag = false;                         
+            }               
+            bds1.EndEdit();//結束修改,立即與綁定數據源一致                    
+            bool save_flag = false;
             const string sql_new =
             @"INSERT INTO quotation(sales_group,temp_code,date,brand,brand_desc,formula_id,season,season_desc,division,contact,material,size,product_desc,
                     cust_code,cf_code,cust_color,cf_color,price_usd,price_hkd,price_rmb,price_unit,salesman,moq_below_over,moq,moq_desc,moq_unit,mwq,mwq_unit,
@@ -713,10 +771,11 @@ namespace cf01.Forms
                         myCommand.CommandText = sql_new;
                         strTemp_Code = clsQuotation.Get_Quote_SeqNo();//Get_Quote_SeqNo(txtSales_group.EditValue.ToString());
                         myCommand.Parameters.AddWithValue("@temp_code", strTemp_Code);
-                        if (mState_NewCopy == "NEWCOPY")
-                        {
-                            txtTemp_code.Text = strTemp_Code;
-                        }
+                        txtTemp_code.Text = strTemp_Code;
+                        //if (mState_NewCopy == "NEWCOPY")
+                        //{
+                        //    txtTemp_code.Text = strTemp_Code;
+                        //}
                     }
                     else
                     {
@@ -725,9 +784,10 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@id", txtID.EditValue);
                         myCommand.Parameters.AddWithValue("@temp_code", txtTemp_code.Text);
                         strTemp_Code = txtTemp_code.Text;
-                    }                    
+                    }
+                    this.cur_temp_code = txtTemp_code.Text;                   
                     myCommand.Parameters.AddWithValue("@sales_group", txtSales_group.EditValue);                   
-                    myCommand.Parameters.AddWithValue("@date",clsApp.Return_String_Date(txtDate.Text));
+                    myCommand.Parameters.AddWithValue("@date",clsApp.Return_String_Date(txtDate.EditValue.ToString()));
                     myCommand.Parameters.AddWithValue("@brand", txtBrand.EditValue);
                     myCommand.Parameters.AddWithValue("@brand_desc", txtBrandDesc.Text);
                     myCommand.Parameters.AddWithValue("@formula_id", txtFormula.Text);              
@@ -826,6 +886,8 @@ namespace cf01.Forms
                             myCommand.Parameters.AddWithValue("@group_id", txtSales_group.EditValue);
                             myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                             myCommand.ExecuteNonQuery();
+                            txtCrusr.Text = DBUtility._user_id;
+                            txtCrtim.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
                         }
                     }
                     else
@@ -841,6 +903,8 @@ namespace cf01.Forms
                             myCommand.Parameters.AddWithValue("@group_id", txtSales_group.EditValue);                           
                             myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                             myCommand.ExecuteNonQuery();
+                            txtAmusr.Text = DBUtility._user_id;
+                            txtAmtim.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);                            
                         }
                     }
                     myTrans.Commit(); //數據提交
@@ -897,22 +961,28 @@ namespace cf01.Forms
             if (save_flag)
             {                
                 //定位到當前行
-                int curent_row;
-                if (mState == "NEW")
+                int curent_row=0;              
+                //重新按原來的排序方式重新排序
+                if(SortColumnName !="")
                 {
-                    dgvDetails.CurrentCell = dgvDetails.Rows[dgvDetails.Rows.Count - 1].Cells[1];
-                    dgvDetails.BeginEdit(true);
-                    curent_row = dgvDetails.CurrentRow.Index;                    
+                    this.dgvDetails.Sort(dgvDetails.Columns[SortColumnName], SortDirection);
                 }
-                else
+                //使用foreach重新定位到當前編輯的行.
+                foreach (DataGridViewRow row in dgvDetails.Rows)
                 {
-                    curent_row = row_reset;
+                    //获取第i行，列名是列名A的单元格的值
+                    string strTempCode = row.Cells["temp_code"].Value.ToString();
+                    if(strTempCode == this.cur_temp_code)
+                    {
+                        curent_row = row.Index;
+                        break;
+                    }
                 }
                 dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[0];
-                dgvDetails.Rows[row_reset].Selected = true; //選中整行                
-                    
+                dgvDetails.Rows[curent_row].Selected = true; //選中整行     
+
                 mState = "";
-                mState_NewCopy = "";
+                mState_NewCopy = "";               
                 if (pType == "1")
                 {
                     //MessageBox.Show(myMsg.msgSave_ok, myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);                    
@@ -937,7 +1007,7 @@ namespace cf01.Forms
             DialogResult result = MessageBox.Show(myMsg.msgIsDelete, myMsg.msgTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                const string sql_del = "Update dbo.quotation Set flag_del='1',amusr=@user_id,amtim=getdate() WHERE id=@id";
+                const string sql_del = "Update dbo.quotation Set flag_del='1',amusr=@user_id,amtim=getdate() WHERE temp_code=@temp_code";
                 //const string sql_del = "Delete FROM dbo.quotation WHERE id=@id";
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
                 myCon.Open();
@@ -948,7 +1018,7 @@ namespace cf01.Forms
                     {
                         myCommand.CommandText = sql_del;
                         myCommand.Parameters.Clear();
-                        myCommand.Parameters.AddWithValue("@id", txtID.EditValue);
+                        myCommand.Parameters.AddWithValue("@temp_code", txtTemp_code.Text);
                         myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                         myCommand.ExecuteNonQuery();
                         myTrans.Commit(); //數據提交
@@ -986,12 +1056,12 @@ namespace cf01.Forms
         {
             if (dgvDetails.RowCount > 0)
             {
-                row_reset = dgvDetails.CurrentCell.RowIndex;
-                lblOf.Text = (row_reset + 1).ToString() + " of " + dgvDetails.RowCount.ToString();
+                //row_reset = dgvDetails.CurrentCell.RowIndex;                
+                lblOf.Text = (dgvDetails.CurrentCell.RowIndex + 1).ToString() + " of " + dgvDetails.RowCount.ToString();
                 //dgvrow = dgvDetails.CurrentRow;
                 //Set_head(dgvrow);
-                //if(dgvrow.Cells["special_price"].Value.ToString() == "True")   
-                if (dgvDetails.Rows[row_reset].Cells["special_price"].Value.ToString() =="True")                             
+                
+                if (dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["special_price"].Value.ToString() =="True")                             
                     chkSpecialPrice.Checked = true;                
                 else
                     chkSpecialPrice.Checked = false;
@@ -1006,20 +1076,15 @@ namespace cf01.Forms
                     if (txtCf_code.Text.Length >= 7)
                     {
                         string strArtwork = txtCf_code.Text.Substring(0, 7);
-                        string strSql = string.Format(@"SELECT id, max(picture_name) as picture_name FROM cd_pattern_details WHERE within_code='0000' AND id='{0}' AND picture_name > '' group by id", strArtwork);
-
+                        string strSql = string.Format(
+                            @"SELECT id, max(picture_name) as picture_name FROM cd_pattern_details WHERE within_code='0000' AND id='{0}' AND picture_name >'' group by id", strArtwork);
                         System.Data.DataTable dt = new System.Data.DataTable();
                         dt = clsConErp.GetDataTable(strSql);
                         if (dt.Rows.Count > 0)
                         {
                             strArtwork = DBUtility.imagePath + dt.Rows[0]["picture_name"].ToString();
-                            if (!string.IsNullOrEmpty(strArtwork))
-                            {
-                                if (File.Exists(strArtwork))
-                                    pic_artwork.Image = Image.FromFile(strArtwork);
-                                else
-                                    pic_artwork.Image = null;
-                            }
+                            if (!string.IsNullOrEmpty(strArtwork))                            
+                                pic_artwork.Image = File.Exists(strArtwork) ? Image.FromFile(strArtwork) : null;
                             else
                                 pic_artwork.Image = null;
                         }
@@ -1063,7 +1128,7 @@ namespace cf01.Forms
         #region  Set_head 設置主檔
         private void Set_head(DataGridViewRow pdr)
         {
-            mID = pdr.Cells["id"].Value.ToString();
+            //mID = pdr.Cells["id"].Value.ToString();
             txtID.EditValue = pdr.Cells["id"].Value.ToString();
             txtSales_group.EditValue = pdr.Cells["sales_group"].Value.ToString();
             string strDat = pdr.Cells["date"].Value.ToString();
@@ -1225,8 +1290,7 @@ namespace cf01.Forms
             Display_Sub_List(txtTemp_code.Text);
             if (mState_NewCopy == "NEWCOPY")
             {
-                dtSubmo.Clear();
-                //dgvSub.DataSource = null;
+                dtSubmo.Clear();               
                 memRemark_pdd.Text = "";
             }
             //顯示grop 列表
@@ -1553,10 +1617,23 @@ namespace cf01.Forms
             txtSales_group.SelectAll();
         }
 
+        //取消還原到原始記錄位置,要用到mID進行定位
+        private void SetResetID()
+        {
+            if (dgvDetails.Rows.Count > 0)
+            {
+                mID = dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["id"].Value.ToString();                
+            }
+        }
+
         private void BTNNEWCOPY_Click(object sender, EventArgs e)
         {
+            SetResetID();//保存取消還原的ID
             if (dgvDetails.RowCount > 0)
-            {
+            {               
+                bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
+                dgvDetails.DataSource = bds1;
+
                 //string oldTemp_code = txtTemp_code.Text;                
                 mOld_Temp_Code = txtTemp_code.Text;
                 dgvrow = dgvDetails.CurrentRow;
@@ -1564,13 +1641,17 @@ namespace cf01.Forms
                 mState_NewCopy = "NEWCOPY";
                 Set_head(dgvrow);
                 memDgRmkPdd.Text = "";
-                txtRef_temp_code.Text = txtTemp_code.Text;
+                txtRef_temp_code.Text = txtTemp_code.Text;//記錄來源記錄主鍵
+                txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
+                txtCrusr.Text = DBUtility._user_id;
+                txtCrtim.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
+
                 txtVersion.Text = "0";
                 txtID.EditValue = "";
                 tabPage2.Parent = null;
                
-
+                
                 /*2018-11-30 CANCEL
                 //Save("2"); //參數2不顯示保存成功或錯誤的信息
                 //if (dgvSub.RowCount > 0)
@@ -2402,7 +2483,7 @@ namespace cf01.Forms
         }
 
 
-        private void frmQuotationTest_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmQuotation_FormClosed(object sender, FormClosedEventArgs e)
         {
             dtDetail = null;
             dtReSet = null;
@@ -2411,10 +2492,10 @@ namespace cf01.Forms
             clsApp = null;
             dgvrow = null;
             clsConErp = null;
-            //dtDetail.Dispose();           
-            //dtVersion.Dispose();
-            //dtReSet.Dispose();
-            //GC.Collect();
+            if (frmQuotationFind != null)
+            {
+                frmQuotationFind.Dispose();
+            }
         }
 
         private void BTNQUOTATION_Click(object sender, EventArgs e)
@@ -2575,7 +2656,7 @@ namespace cf01.Forms
             DialogResult result = MessageBox.Show(myMsg.msgIsDelete, myMsg.msgTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                const string sql_del = "Update dbo.quotation Set flag_del='1',amusr=@user_id,amtim=getdate() WHERE id=@id";                
+                const string sql_del = "Update dbo.quotation Set flag_del='1',amusr=@user_id,amtim=getdate() WHERE temp_code=@temp_code";                
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
                 myCon.Open();
                 SqlTransaction myTrans = myCon.BeginTransaction();
@@ -2588,26 +2669,12 @@ namespace cf01.Forms
                         {
                             myCommand.CommandText = sql_del;
                             myCommand.Parameters.Clear();
-                            myCommand.Parameters.AddWithValue("@id", Int32.Parse(dr["id"].ToString()));
+                            myCommand.Parameters.AddWithValue("@temp_code", dr["temp_code"].ToString());
                             myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                             myCommand.ExecuteNonQuery();
                             dtDetail.Rows.Remove(dr); //移走當前行                           
                             isSelect = true; 
-                        }                        
-                        ////for (int i = 0; i < dtDetail.Rows.Count; i++)
-                        //for (int i = dtDetail.Rows.Count - 1; i >= 0; i--)                        
-                        //{
-                        //    if (dtDetail.Rows[i]["flag_select"].ToString() == "True")
-                        //    {
-                        //        myCommand.CommandText = sql_del;
-                        //        myCommand.Parameters.Clear();
-                        //        myCommand.Parameters.AddWithValue("@id", dtDetail.Rows[i]["id"].ToString());
-                        //        myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
-                        //        myCommand.ExecuteNonQuery();                               
-                        //        dgvDetails.Rows.Remove(dgvDetails.CurrentRow);//移走當前行
-                        //        isSelect = true;                                
-                        //    }
-                        //}
+                        }
                         myTrans.Commit(); //數據提交
                     }
                 }
@@ -3318,9 +3385,31 @@ namespace cf01.Forms
             {
                 txtValid_date.EditValue = DateTime.Parse(txtDate.Text).Date.AddDays(30).ToString("yyyy-MM-dd").Substring(0, 10); 
             }
-        }       
+        }
 
-        
+        private static bool checkChildFrmExist(string childFrmName)
+        {
+            bool isExist_flag = false;
+            foreach (Form childFrm in frm_Main.pMainWin.MdiChildren)
+            {
+                if (childFrm.Name == childFrmName)
+                {
+                    if (childFrm.WindowState == FormWindowState.Minimized)
+                    {
+                        childFrm.WindowState = FormWindowState.Maximized;
+                    }
+                    childFrm.Activate();
+                    isExist_flag = true;
+                    break;
+                }
+            }
+            return isExist_flag;
+        }
+
+        private void dgvDetails_Sorted(object sender, EventArgs e)
+        {
+            SaveSortInfo();
+        }
     }
     
 }

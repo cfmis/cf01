@@ -36,7 +36,6 @@ namespace cf01.Forms
                 chkReturn.Checked = false;
                 chkReturn.Visible = false;
             }
-
             using (DataTable dtSales_Group = clsPublicOfCF01.GetDataTable(@"Select typ_code AS id From bs_type Where typ_group='3'"))
             {
                 for (int i = 0; i < dtSales_Group.Rows.Count; i++)
@@ -44,7 +43,7 @@ namespace cf01.Forms
                     txtSales_group.Items.Add(dtSales_Group.Rows[i][0].ToString());
                 }
             }
-            
+            //MessageBox.Show("test");
             //初始化列
             Init_Column();
 
@@ -53,7 +52,6 @@ namespace cf01.Forms
             {
                 clsQuotation.IsDisplayRemark_PDD(dgvDetails, remark_pdd);
             }
-
             //成本價是否可見。
             if (dgvDetails.Columns["cost_price"].Visible)
             {
@@ -69,12 +67,20 @@ namespace cf01.Forms
                 txtStatus.Items.Add(dtStatus.Rows[i]["id"].ToString());
             }
             dtStatus.Dispose();
+            Select_All(false);//初始化時如表格有記錄,則取消全部打勾
         }
 
         private void btnExit_Click(object sender, EventArgs e)
-        {
-            txtMaterial.Focus();
-            Close();
+        {                        
+            if(flag_call == "Quotation")
+            {
+                SetReturnToParentData();
+            }
+            else
+            {
+                this.Close();
+            }
+           
         }      
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -275,9 +281,18 @@ namespace cf01.Forms
 
         private void frmQuotationFind_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (flag_call == "Quotation")
+            {
+                SetReturnToParentData();
+            }
+        }
+        private void SetReturnToParentData()
+        {
+            //處理當窗口關閉時返回給父窗本的數據
             txtMaterial.Focus();
             if (dgvDetails.RowCount > 0)
             {
+                dt = dt.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;                
                 Current_row = dgvDetails.CurrentRow.Index;
                 //處理是否只返回有打勾的
                 if (chkReturn.Checked)
@@ -292,10 +307,10 @@ namespace cf01.Forms
                         {
                             dtTemp.ImportRow(dr);
                         }
-
                         dt.Clear();
                         dt = dtTemp.Copy();
-                        dtTemp.Dispose();
+                        dtTemp.Dispose();                        
+                        dgvDetails.DataSource = dt;
                         Current_row = 0; //定位到第一行
                     }
                 }
@@ -303,9 +318,9 @@ namespace cf01.Forms
             else
             {
                 Current_row = 0;
-            }           
+            }
+            this.Hide();
         }
-
         private void BTNCOLUMN_Click(object sender, EventArgs e)
         {
             //自定義顯示列
@@ -326,15 +341,15 @@ namespace cf01.Forms
             string strSql = string.Format(
             @"Select user_id,window_id,obj_id,col_id,col_caption,obj_type,col_width,sort_id,isvisible
             FROM dbo.sy_custome_grid WHERE user_id='{0}' and window_id='{1}' Order by sort_id", DBUtility._user_id, this.Name);
-            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
-            if (dt.Rows.Count > 0)
+            DataTable dt1 = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt1.Rows.Count > 0)
             {
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (int i = 0; i < dt1.Rows.Count; i++)
                 {
-                    strCol_id=dt.Rows[i]["col_id"].ToString();
-                    column_width = Int32.Parse(dt.Rows[i]["col_width"].ToString());
-                    column_sort = Int32.Parse(dt.Rows[i]["sort_id"].ToString());
-                    strVisible = dt.Rows[i]["isvisible"].ToString();
+                    strCol_id=dt1.Rows[i]["col_id"].ToString();
+                    column_width = int.Parse(dt1.Rows[i]["col_width"].ToString());
+                    column_sort = int.Parse(dt1.Rows[i]["sort_id"].ToString());
+                    strVisible = dt1.Rows[i]["isvisible"].ToString();
                     for (int j = 0; j < dgvDetails.ColumnCount; j++)
                     {
                         if (dgvDetails.Columns[j].Name == strCol_id)
@@ -372,6 +387,7 @@ namespace cf01.Forms
                 {
                     dt.Rows[i]["flag_select"] = _flag;
                 }
+                dgvDetails.DataSource = dt;
             }
         }       
 
