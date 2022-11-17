@@ -459,8 +459,12 @@ namespace cf01.Forms
             {
                 //必須用dt.Copy()方法,不可以直接賦值,直接賦值只是引用指針,修改任可一處,兩邊會出理同時修改.
                 dtDetail = frmQuotationFind.dt.Copy();
+                for (int i = 0; i < dtDetail.Rows.Count; i++)
+                {
+                    dtDetail.Rows[i]["flag_select"] = false;
+                }
                 bds1.DataSource = dtDetail;
-                dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源 
+                dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源                
             }
             if (dtDetail.Rows.Count > 0 && curent_row > 0)
             {
@@ -664,6 +668,7 @@ namespace cf01.Forms
             mState = "";
             mState_NewCopy = "";
             tabPage2.Parent = null;
+            dgvDetails.FirstDisplayedScrollingRowIndex = 0;
             //如原來有排序則恢復
             if (SortColumnName != "")
             {
@@ -965,14 +970,14 @@ namespace cf01.Forms
                 //重新按原來的排序方式重新排序
                 if(SortColumnName !="")
                 {
-                    this.dgvDetails.Sort(dgvDetails.Columns[SortColumnName], SortDirection);
+                    dgvDetails.Sort(dgvDetails.Columns[SortColumnName], SortDirection);
                 }
                 //使用foreach重新定位到當前編輯的行.
                 foreach (DataGridViewRow row in dgvDetails.Rows)
                 {
                     //获取第i行，列名是列名A的单元格的值
                     string strTempCode = row.Cells["temp_code"].Value.ToString();
-                    if(strTempCode == this.cur_temp_code)
+                    if(strTempCode == cur_temp_code)
                     {
                         curent_row = row.Index;
                         break;
@@ -982,7 +987,9 @@ namespace cf01.Forms
                 dgvDetails.Rows[curent_row].Selected = true; //選中整行     
 
                 mState = "";
-                mState_NewCopy = "";               
+                mState_NewCopy = "";
+                //滾動條滾到表格的最頂端
+                dgvDetails.FirstDisplayedScrollingRowIndex = 0;
                 if (pType == "1")
                 {
                     //MessageBox.Show(myMsg.msgSave_ok, myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);                    
@@ -1230,6 +1237,7 @@ namespace cf01.Forms
             txtPrice_salesperson.EditValue = pdr.Cells["price_salesperson"].Value;
             txtPrice_kind.Text = pdr.Cells["price_kind"].Value.ToString();
             txtRemark_salesperson.Text = pdr.Cells["remark_salesperson"].Value.ToString();
+            
             //顯示是否存在已計价
             if (clsMmCalculatePrice.getIdByQuotationId(txtTemp_code.Text) != "")
                 lblIsCalPrice.Visible = true;
@@ -1633,14 +1641,13 @@ namespace cf01.Forms
             {               
                 bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
                 dgvDetails.DataSource = bds1;
-
-                //string oldTemp_code = txtTemp_code.Text;                
+                          
                 mOld_Temp_Code = txtTemp_code.Text;
                 dgvrow = dgvDetails.CurrentRow;
                 AddNew();
                 mState_NewCopy = "NEWCOPY";
                 Set_head(dgvrow);
-                memDgRmkPdd.Text = "";
+                //memDgRmkPdd.Text = "";
                 //txtRef_temp_code.Text = txtTemp_code.Text;//記錄來源記錄主鍵
                 txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
@@ -3409,6 +3416,7 @@ namespace cf01.Forms
         private void dgvDetails_Sorted(object sender, EventArgs e)
         {
             SaveSortInfo();
+            this.dgvDetails.FirstDisplayedScrollingRowIndex = 0;// this.dgvDetails.Rows.Count - 1;
         }
     }
     
