@@ -217,16 +217,16 @@ namespace cf01.Forms
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             ////產生行號
-            //System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
-            //    e.RowBounds.Location.Y,
-            //    dgvDetails.RowHeadersWidth - 4,
-            //    e.RowBounds.Height);
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+                e.RowBounds.Location.Y,
+                dgvDetails.RowHeadersWidth - 4,
+                e.RowBounds.Height);
 
-            //TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
-            //    dgvDetails.RowHeadersDefaultCellStyle.Font,
-            //    rectangle,
-            //    dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
-            //    TextFormatFlags.VerticalCenter | TextFormatFlags.Right);            
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+                dgvDetails.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
 
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
