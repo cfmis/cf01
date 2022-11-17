@@ -1166,11 +1166,20 @@ namespace cf01.Forms
             txtCf_code.Text = pdr.Cells["cf_code"].Value.ToString();
             txtCust_color.Text = pdr.Cells["cust_color"].Value.ToString();
             txtCf_color.Text = pdr.Cells["cf_color"].Value.ToString();
-            txtNumber_enter.EditValue = pdr.Cells["number_enter"].Value;
-            txtPrice_usd.EditValue = pdr.Cells["price_usd"].Value;
-            txtPrice_hkd.EditValue = pdr.Cells["price_hkd"].Value;
-            txtPrice_rmb.EditValue = pdr.Cells["price_rmb"].Value;
-            txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
+            /* --start 2022/11/17復制新增時清空單價
+            //txtNumber_enter.EditValue = pdr.Cells["number_enter"].Value;
+            //txtPrice_usd.EditValue = pdr.Cells["price_usd"].Value;
+            //txtPrice_hkd.EditValue = pdr.Cells["price_hkd"].Value;
+            //txtPrice_rmb.EditValue = pdr.Cells["price_rmb"].Value;
+            //txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
+            //txtHkd_ex_fty.EditValue = pdr.Cells["hkd_ex_fty"].Value;
+            //txtDisc.EditValue = pdr.Cells["discount"].Value;
+            //txtDisc_usd.EditValue = pdr.Cells["disc_price_usd"].Value;
+            //txtDisc_hkd.EditValue = pdr.Cells["disc_price_hkd"].Value;
+            //txtDisc_rmb.EditValue = pdr.Cells["disc_price_rmb"].Value;
+            //txtDisc_hkd_ex_fty.EditValue = pdr.Cells["disc_hkd_ex_fty"].Value;
+            *///-end 
+
             txtSalesman.Text = pdr.Cells["salesman"].Value.ToString(); 
             cmbmoq_below_over.EditValue= pdr.Cells["moq_below_over"].Value.ToString();
             txtMoq.EditValue = pdr.Cells["moq"].Value;
@@ -1196,8 +1205,7 @@ namespace cf01.Forms
             {
                 strDat = "";
             }
-            txtValid_date.EditValue = strDat;
-            txtHkd_ex_fty.EditValue = pdr.Cells["hkd_ex_fty"].Value;
+            txtValid_date.EditValue = strDat;            
             txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
             txtDate_req.Text = pdr.Cells["date_req"].Value.ToString();
             txtAw.Text = pdr.Cells["aw"].Value.ToString();           
@@ -1206,7 +1214,7 @@ namespace cf01.Forms
             txtNeedle_test.Text = pdr.Cells["needle_test"].Value.ToString();
             txtVersion.Text = pdr.Cells["ver"].Value.ToString();
             txtMo_id.Text = pdr.Cells["mo_id"].Value.ToString();
-            memRemark_pdd.Text = pdr.Cells["remark_pdd"].Value.ToString();
+            memRemark_pdd.Text = "";// pdr.Cells["remark_pdd"].Value.ToString();//清空
             
             txtCrusr.Text = pdr.Cells["crusr"].Value.ToString();
             txtCrtim.Text = pdr.Cells["crtim"].Value.ToString();
@@ -1227,11 +1235,6 @@ namespace cf01.Forms
             txtEx_fty_hkd.EditValue = pdr.Cells["ex_fty_hkd"].Value;
             txtEx_fty_usd.EditValue = pdr.Cells["ex_fty_usd"].Value;
 
-            txtDisc.EditValue = pdr.Cells["discount"].Value;
-            txtDisc_usd.EditValue = pdr.Cells["disc_price_usd"].Value;
-            txtDisc_hkd.EditValue = pdr.Cells["disc_price_hkd"].Value;
-            txtDisc_rmb.EditValue = pdr.Cells["disc_price_rmb"].Value;
-            txtDisc_hkd_ex_fty.EditValue = pdr.Cells["disc_hkd_ex_fty"].Value;
             txtReason_edit.EditValue = pdr.Cells["reason_edit"].Value.ToString();            
             txtRmb_remark.Text = pdr.Cells["rmb_remark"].Value.ToString();
             txtPrice_salesperson.EditValue = pdr.Cells["price_salesperson"].Value;
@@ -1256,7 +1259,7 @@ namespace cf01.Forms
             lueLabtest.EditValue = pdr.Cells["labtest_prod_type"].Value;
             txtTermremark.Text = pdr.Cells["termremark"].Value.ToString();
             txtPending.EditValue = pdr.Cells["pending"].Value.ToString();
-            memDgRmkPdd.Text = pdr.Cells["remark_pdd_dg"].Value.ToString();
+            memDgRmkPdd.Text = "";//pdr.Cells["remark_pdd_dg"].Value.ToString();//清空
             txtRef_temp_code.Text = pdr.Cells["temp_code"].Value.ToString();
 
             if (txtCf_code.Text != "")
@@ -1324,16 +1327,16 @@ namespace cf01.Forms
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             ////產生行號
-            //System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
-            //    e.RowBounds.Location.Y,
-            //    dgvDetails.RowHeadersWidth - 4,
-            //    e.RowBounds.Height);
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+                e.RowBounds.Location.Y,
+                dgvDetails.RowHeadersWidth - 4,
+                e.RowBounds.Height);
 
-            //TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
-            //    dgvDetails.RowHeadersDefaultCellStyle.Font,
-            //    rectangle,
-            //    dgvDetails.RowHeadersDefaultCellStyle.ForeColor = Color.Brown,
-            //    TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+                dgvDetails.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dgvDetails.RowHeadersDefaultCellStyle.ForeColor = Color.Brown,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
 
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
@@ -1638,16 +1641,17 @@ namespace cf01.Forms
         {
             SetResetID();//保存取消還原的ID
             if (dgvDetails.RowCount > 0)
-            {               
-                bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
+            {
+                dtDetail= dtDetail.DefaultView.ToTable();
+                //bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
+                bds1.DataSource = dtDetail;
                 dgvDetails.DataSource = bds1;
                           
                 mOld_Temp_Code = txtTemp_code.Text;
                 dgvrow = dgvDetails.CurrentRow;
                 AddNew();
                 mState_NewCopy = "NEWCOPY";
-                Set_head(dgvrow);
-                //memDgRmkPdd.Text = "";
+                Set_head(dgvrow);                
                 //txtRef_temp_code.Text = txtTemp_code.Text;//記錄來源記錄主鍵
                 txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
