@@ -1249,7 +1249,7 @@ namespace cf01.Forms
             txtTermremark.Text = pdr.Cells["termremark"].Value.ToString();
             txtPending.EditValue = pdr.Cells["pending"].Value.ToString();
             memDgRmkPdd.Text = pdr.Cells["remark_pdd_dg"].Value.ToString();
-            txtRef_temp_code.Text = pdr.Cells["ref_temp_code"].Value.ToString();
+            txtRef_temp_code.Text = pdr.Cells["temp_code"].Value.ToString();
 
             if (txtCf_code.Text != "")
             {
@@ -1641,7 +1641,7 @@ namespace cf01.Forms
                 mState_NewCopy = "NEWCOPY";
                 Set_head(dgvrow);
                 memDgRmkPdd.Text = "";
-                txtRef_temp_code.Text = txtTemp_code.Text;//記錄來源記錄主鍵
+                //txtRef_temp_code.Text = txtTemp_code.Text;//記錄來源記錄主鍵
                 txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
                 txtCrusr.Text = DBUtility._user_id;
