@@ -17,25 +17,20 @@ namespace cf01.Forms
     public partial class frmQuotationFind : Form
     {
         private clsAppPublic clsApp = new clsAppPublic();
-        public DataTable dt = new DataTable();        
-        public int Current_row=0;
+        public DataTable dtFind = new DataTable();
+        public DataTable dtReturn = new DataTable();        
+        public int Current_row = 0;
         public string flag_call = "";
-        
+        public bool flag_return = false;
+
         public frmQuotationFind()
         {
             InitializeComponent();
             clsApp.Initialize_find_value(this.Name, this.Controls);            
             NextControl oFocus = new NextControl(this,"1");
-            oFocus.EnterToTab();            
-        }
+            oFocus.EnterToTab();
 
-        private void frmQutationFind_Load(object sender, EventArgs e)
-        {
-            if (flag_call == "")
-            {
-                chkReturn.Checked = false;
-                chkReturn.Visible = false;
-            }
+            //以下代碼2022/11/21號從frmQutationFind_Load方法搬至此            
             using (DataTable dtSales_Group = clsPublicOfCF01.GetDataTable(@"Select typ_code AS id From bs_type Where typ_group='3'"))
             {
                 for (int i = 0; i < dtSales_Group.Rows.Count; i++)
@@ -67,40 +62,51 @@ namespace cf01.Forms
                 txtStatus.Items.Add(dtStatus.Rows[i]["id"].ToString());
             }
             dtStatus.Dispose();
-            Select_All(false);//初始化時如表格有記錄,則取消全部打勾
+        }
+
+        private void frmQutationFind_Load(object sender, EventArgs e)
+        {            
+            if (flag_call == "")
+            {
+                chkReturn.Checked = false;
+                chkReturn.Visible = false;
+            }           
+            flag_return = false;
+            //Select_All(false);//初始化時如表格有記錄,則取消全部打勾2022/11/18 canel
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {                        
             if(flag_call == "Quotation")
             {
-                SetReturnToParentData();
+                //ReturnToParent();
+                flag_return = false;
+                this.Hide();
             }
             else
             {
                 this.Close();
-            }
-           
+            }           
         }      
 
         private void btnFind_Click(object sender, EventArgs e)
         {
             txtMaterial.Focus();
-            bool select_flag = false;
-            DataRow[] drs = null ;
+            bool blFlag = false;
+            DataRow[] drs = null;
             if (dgvDetails.RowCount > 0)
-            {                
+            {             
                 for (int i = 0; i < dgvDetails.RowCount; i++)
                 {
-                    if (dt.Rows[i]["flag_select"].ToString() == "True")
+                    if (dtFind.Rows[i]["flag_select"].ToString() == "True")
                     {
-                        select_flag = true;
+                        blFlag = true;
                         break;
                     }
                 }
-                if (select_flag)
+                if (blFlag)
                 {
-                    drs = dt.Select("flag_select=true");
+                    drs = dtFind.Select("flag_select=true");
                 }
             } 
             
@@ -139,7 +145,6 @@ namespace cf01.Forms
                        new SqlParameter("@include_brand","1"),
                        new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
                        new SqlParameter("@account_code",txtAccount_Code.Text)
-
             };
 
             //是示查詢進度
@@ -149,9 +154,9 @@ namespace cf01.Forms
                 wForm.TopMost = true;
                 wForm.ShowDialog();
             }).Start();
-            
-            //************************
-            dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find", paras); //数据处理
+
+            //************************           
+            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             
@@ -167,29 +172,31 @@ namespace cf01.Forms
                     DataRow[] drs_del;
                     foreach (DataRow row in drs)
                     {                        
-                        drs_del = dt.Select(string.Format("id={0}", row["id"]));
+                        drs_del = dtFind.Select(string.Format("id={0}", row["id"]));
                         foreach (DataRow row_del in drs_del)
                         {
-                            dt.Rows.Remove(row_del);//先移走已存在的行
+                            dtFind.Rows.Remove(row_del);//先移走已存在的行
                         }
-                    }                    
+                    }
+                    drs_del = null;
+                    dtFind.Select();
                     //將打勾的添加進新查詢的結果中                   
                     foreach (DataRow dr in drs)
                     {
-                        dt.ImportRow(dr);
+                        dtFind.ImportRow(dr);
                     }
+                    drs = null;
                 }
             }
             //------------
 
             //處理排序
             //this.dgvDetails.Sort(this.dgvDetails.Columns["flag_select"], ListSortDirection.Descending);  
-            DataView dv = dt.DefaultView;
-            dv.Sort = "flag_select DESC";  //按Flag_select列 排序            
-            dt = dv.ToTable();
-
-            dgvDetails.DataSource = dt;            
-            if (dt.Rows.Count == 0)
+            DataView dvw = dtFind.DefaultView;
+            dvw.Sort = "flag_select DESC";  //按Flag_select列 排序
+            dtFind = dvw.ToTable();
+            dgvDetails.DataSource = dtFind;
+            if (dtFind.Rows.Count == 0)
             {
                 lblOf.Text = "";
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -216,7 +223,7 @@ namespace cf01.Forms
 
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            ////產生行號
+            //產生行號
             System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
                 e.RowBounds.Location.Y,
                 dgvDetails.RowHeadersWidth - 4,
@@ -241,7 +248,7 @@ namespace cf01.Forms
                     grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
                     grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
                 }
-                ////備註字段不顯示刪除線
+                //備註字段不顯示刪除線
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
             }
@@ -253,8 +260,8 @@ namespace cf01.Forms
 
         private void dgvDetails_DoubleClick(object sender, EventArgs e)
         {
-            Current_row = dgvDetails.CurrentRow.Index;
-            Close();
+            //Current_row = dgvDetails.CurrentRow.Index;
+            //Close();
         }
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
@@ -269,42 +276,58 @@ namespace cf01.Forms
         {
             if (flag_call == "Quotation")
             {
-                SetReturnToParentData();
+                //ReturnToParent();
+                this.Hide();
             }
         }
-        private void SetReturnToParentData()
+        private void ReturnToParent()
         {
+            flag_return = true;
+            dtReturn.Clear();
+            if (dgvDetails.RowCount==0)
+            {
+                Current_row = 0;
+                return;
+            }            
             //處理當窗口關閉時返回給父窗本的數據
             txtMaterial.Focus();
-            if (dgvDetails.RowCount > 0)
+            if (dgvDetails.SortOrder.ToString() != "None")
             {
-                dt = dt.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;                
-                Current_row = dgvDetails.CurrentRow.Index;
+                //如某欄位有排序,則需重新賦值,否會引起數據次序錯亂;
+                dtFind = dtFind.DefaultView.ToTable();
+            }
+            dgvDetails.DataSource = dtFind;
+            Current_row = dgvDetails.CurrentRow.Index; //記錄當前行
+            if (chkReturn.Checked)
+            {
                 //處理是否只返回有打勾的
-                if (chkReturn.Checked)
+                DataRow[] ary_drs = dtFind.Select("flag_select=true");
+                //恢復原過濾前的數據
+                dtFind.Select();
+                //dt.Clear();此處不可以加此行，否則ary_drs的值此起異常
+                if (ary_drs.Length > 0)
                 {
-                    DataRow[] ary_drs = dt.Select("flag_select=true");
-                    //dt.Clear();此處不可以加此行，否則ary_drs的值此起異常
-                    if (ary_drs.Length > 0)
-                    {
-                        DataTable dtTemp = dt.Clone();
-                        //將打勾的添加進新查詢的結果中                 
-                        foreach (DataRow dr in ary_drs)
-                        {
-                            dtTemp.ImportRow(dr);
-                        }
-                        dt.Clear();
-                        dt = dtTemp.Copy();
-                        dtTemp.Dispose();                        
-                        dgvDetails.DataSource = dt;
-                        Current_row = 0; //定位到第一行
-                    }
+                    //有選中則只返回選中的記錄
+                    dtReturn = dtFind.Clone();                    
+                    //將打勾的添加進新查詢的結果中                 
+                    foreach (DataRow dr in ary_drs)
+                    {                       
+                        dtReturn.ImportRow(dr);
+                    }                  
+                    Current_row = 0; //定位到第一行
+                    ary_drs = null;
                 }
+                else
+                {                  
+                    //無選擇記錄則返回全部                    
+                    dtReturn = dtFind.Copy();
+                }                    
             }
             else
             {
-                Current_row = 0;
-            }
+                //返回全部記錄
+                dtReturn = dtFind.Copy();
+            }            
             this.Hide();
         }
         private void BTNCOLUMN_Click(object sender, EventArgs e)
@@ -327,15 +350,15 @@ namespace cf01.Forms
             string strSql = string.Format(
             @"Select user_id,window_id,obj_id,col_id,col_caption,obj_type,col_width,sort_id,isvisible
             FROM dbo.sy_custome_grid WHERE user_id='{0}' and window_id='{1}' Order by sort_id", DBUtility._user_id, this.Name);
-            DataTable dt1 = clsPublicOfCF01.GetDataTable(strSql);
-            if (dt1.Rows.Count > 0)
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            if (dt.Rows.Count > 0)
             {
-                for (int i = 0; i < dt1.Rows.Count; i++)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    strCol_id=dt1.Rows[i]["col_id"].ToString();
-                    column_width = int.Parse(dt1.Rows[i]["col_width"].ToString());
-                    column_sort = int.Parse(dt1.Rows[i]["sort_id"].ToString());
-                    strVisible = dt1.Rows[i]["isvisible"].ToString();
+                    strCol_id=dt.Rows[i]["col_id"].ToString();
+                    column_width = int.Parse(dt.Rows[i]["col_width"].ToString());
+                    column_sort = int.Parse(dt.Rows[i]["sort_id"].ToString());
+                    strVisible = dt.Rows[i]["isvisible"].ToString();
                     for (int j = 0; j < dgvDetails.ColumnCount; j++)
                     {
                         if (dgvDetails.Columns[j].Name == strCol_id)
@@ -369,11 +392,11 @@ namespace cf01.Forms
         {
             if (dgvDetails.Rows.Count > 0)
             {
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (int i = 0; i < dtFind.Rows.Count; i++)
                 {
-                    dt.Rows[i]["flag_select"] = _flag;
+                    dtFind.Rows[i]["flag_select"] = _flag;
                 }
-                dgvDetails.DataSource = dt;
+                dgvDetails.DataSource = dtFind;
             }
         }       
 
@@ -410,7 +433,7 @@ namespace cf01.Forms
             {
                 for (int i = 0; i < dgvDetails.RowCount; i++)
                 {
-                    if (dt.Rows[i]["flag_select"].ToString() == "True")
+                    if (dtFind.Rows[i]["flag_select"].ToString() == "True")
                     {
                         select_flag = true;
                         break;
@@ -418,7 +441,7 @@ namespace cf01.Forms
                 }
                 if (select_flag)
                 {
-                    drs = dt.Select("flag_select=true");
+                    drs = dtFind.Select("flag_select=true");
                 }
             }
            
@@ -478,7 +501,7 @@ namespace cf01.Forms
             }).Start();
 
             //************************
-            dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find_mo_approve", paras); //数据处理
+            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find_mo_approve", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
@@ -494,16 +517,16 @@ namespace cf01.Forms
                     DataRow[] drs_del;
                     foreach (DataRow row in drs)
                     {
-                        drs_del = dt.Select(string.Format("id={0}", row["id"]));
+                        drs_del = dtFind.Select(string.Format("id={0}", row["id"]));
                         foreach (DataRow row_del in drs_del)
                         {
-                            dt.Rows.Remove(row_del);//先移走已存在的行
+                            dtFind.Rows.Remove(row_del);//先移走已存在的行
                         }
                     }
                     //將打勾的添加進新查詢的結果中                   
                     foreach (DataRow dr in drs)
                     {
-                        dt.ImportRow(dr);
+                        dtFind.ImportRow(dr);
                     }
                 }
             }
@@ -512,20 +535,20 @@ namespace cf01.Forms
 
             //處理排序
             //this.dgvDetails.Sort(this.dgvDetails.Columns["flag_select"], ListSortDirection.Descending);  
-            DataView dv = dt.DefaultView;
+            DataView dv = dtFind.DefaultView;
             dv.Sort = "flag_select DESC";  //按Flag_select列 排序            
-            dt = dv.ToTable();
+            dtFind = dv.ToTable();
             
             //只保留有做Approve Status标识的
-            for (int i = dt.Rows.Count-1; i >=0; i--)
+            for (int i = dtFind.Rows.Count-1; i >=0; i--)
             {
-                if (dt.Rows[i]["SUB_2"].ToString() != txtStatus.Text || dt.Rows[i]["status"].ToString()=="CANCELLED")
+                if (dtFind.Rows[i]["SUB_2"].ToString() != txtStatus.Text || dtFind.Rows[i]["status"].ToString()=="CANCELLED")
                 {
-                    dt.Rows.RemoveAt(i);
+                    dtFind.Rows.RemoveAt(i);
                 }
             }
-            dgvDetails.DataSource = dt;
-            if (dt.Rows.Count == 0)
+            dgvDetails.DataSource = dtFind;
+            if (dtFind.Rows.Count == 0)
             {
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -638,7 +661,6 @@ namespace cf01.Forms
                         }
                         else
                         {
-
                             if (string.IsNullOrEmpty(dgvDetails.Rows[r].Cells["cust_artwork"].Value.ToString()))
                             {
                                 pictrue_path = "";
@@ -726,8 +748,8 @@ namespace cf01.Forms
             {
                 return;
             }
-            string ls_cust_code = dt.Rows[li_currentRow]["cust_code"].ToString();// dgvDetails.Rows[li_currentRow].Cells["cust_code"].Value.ToString();
-            string ls_cust_color = dt.Rows[li_currentRow]["cust_color"].ToString();// dgvDetails.Rows[li_currentRow].Cells["cust_color"].Value.ToString();
+            string ls_cust_code = dtFind.Rows[li_currentRow]["cust_code"].ToString();// dgvDetails.Rows[li_currentRow].Cells["cust_code"].Value.ToString();
+            string ls_cust_color = dtFind.Rows[li_currentRow]["cust_color"].ToString();// dgvDetails.Rows[li_currentRow].Cells["cust_color"].Value.ToString();
 
             if (!string.IsNullOrEmpty(ls_cust_code))
             {
@@ -737,7 +759,7 @@ namespace cf01.Forms
 
         private void dgvDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dt.Rows.Count == 0)
+            if (dtFind.Rows.Count == 0)
             {
                 return;
             }
@@ -745,8 +767,8 @@ namespace cf01.Forms
             int li_currentRow = dgvDetails.CurrentRow.Index;
             if (li_currentRow >= 0)
             {
-                string ls_cust_code = dt.Rows[li_currentRow]["cust_code"].ToString();
-                string ls_cust_color = dt.Rows[li_currentRow]["cust_color"].ToString();
+                string ls_cust_code = dtFind.Rows[li_currentRow]["cust_code"].ToString();
+                string ls_cust_color = dtFind.Rows[li_currentRow]["cust_color"].ToString();
                 string ls_sql = string.Format(
                     @"Select Top 1 Isnull(test_report_path,'') as test_report_path 
                 From dbo.bs_test_excel with(nolock) 
@@ -773,6 +795,14 @@ namespace cf01.Forms
             if (txtCrtim1.Text != "")
             {
                 txtCrtim2.EditValue = txtCrtim1.EditValue;
+            }
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            if (flag_call == "Quotation")
+            {
+                ReturnToParent();
             }
         }
     }

@@ -33,29 +33,29 @@ namespace cf01.Forms
     public partial class frmQuotation : Form
     {
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-        public string mID = "";    //臨時的主鍵值
-        public string mState = ""; //新增或編號的狀態
-        public string mState_NewCopy = "";
-        public string mOld_Temp_Code = "";
-        public string mImagePath = "";
-        public static string str_language = "0";
-        public string msgCustom;
-        public int cur_row;//row_delete;
-        public int row_reset=0;
-        public string strTemp_Code = "";
-        public string cur_temp_code = "";
-        string mLanguage = DBUtility._language;//保存當前登彔的語言        
-        public System.Data.DataTable dtDetail = new System.Data.DataTable();
+        private string mID = "";    //臨時的主鍵值
+        private string mState = ""; //新增或編號的狀態
+        private string mState_NewCopy = "";
+        private string mOld_Temp_Code = "";
+        private string mImagePath = "";
+        private static string str_language = "0";
+        private string msgCustom;
+        private int cur_row;//row_delete;
+        private int row_reset=0;
+        private string strTemp_Code = "";
+        private string cur_temp_code = "";
+        private string mLanguage = DBUtility._language;//保存當前登彔的語言        
+        private System.Data.DataTable dtDetail = new System.Data.DataTable();
         public System.Data.DataTable dtReSet = new System.Data.DataTable();
-        public System.Data.DataTable dtVersion = new System.Data.DataTable();
-        public System.Data.DataTable dtSubmo = new System.Data.DataTable();
+        private System.Data.DataTable dtVersion = new System.Data.DataTable();
+        private System.Data.DataTable dtSubmo = new System.Data.DataTable();
         private clsAppPublic clsApp = new clsAppPublic();
-        readonly MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
+        private readonly MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public static string sent_quotation = "";
-        public BindingSource bds1 = new BindingSource();
+        private BindingSource bds1 = new BindingSource();
 
-        public bool is_group_pdd { set; get; }
+        private bool is_group_pdd { set; get; }
         //bool flag_import;
         string strFile_Excel = "";
         private frmQuotationFind frmQuotationFind;
@@ -88,7 +88,7 @@ namespace cf01.Forms
             A.plm_code,trim_color_code,A.test_sample_hk,A.sms,A.sample_card,A.meeting_recap,A.usd_dap,A.usd_lab_test_prx,A.ex_fty_hkd,A.ex_fty_usd,
             A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.usd_ex_fty,
             A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
-            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code
+            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
             WHERE 1=0";
@@ -98,12 +98,7 @@ namespace cf01.Forms
         }
 
         private void frmQuotation_Load(object sender, EventArgs e)
-        {
-            //System.Data.DataTable dtUnit = new System.Data.DataTable();
-            //dtUnit = clsPublicOfCF01.GetDataTable(@"SELECT '' AS id Union SELECT unit_id as id FROM dbo.bs_unit Where unit_id<>'000'");
-            //txtPrice_unit.Properties.DataSource = dtUnit;
-            //txtPrice_unit.Properties.ValueMember = "id";
-            //txtPrice_unit.Properties.DisplayMember = "id";
+        {            
             clsQuotation.Set_Unit(txtPrice_unit);//數量單位            
             clsQuotation.Set_Unit(txtMoq_unit);
             clsQuotation.Set_Unit(txtMwq_unit);
@@ -347,7 +342,7 @@ namespace cf01.Forms
             memDgRmkPdd.DataBindings.Add("Text", bds1, "remark_pdd_dg");
             txtPending.DataBindings.Add("Text", bds1, "pending");
             txtRef_temp_code.DataBindings.Add("Text", bds1, "ref_temp_code");//txtRef_temp_code目的是想知道由哪一條記錄復制過來.
-
+            txtFlag_new.DataBindings.Add("Text", bds1, "flag_new");
         }
 
         private void Init_Column_isEnable()
@@ -445,8 +440,12 @@ namespace cf01.Forms
             Delete();
         }
 
+        //因查詢初始dgvDetails時 dgvDetails_SelectionChanged()事件中的代碼重復執行多次,有時嚴重景响畫面响應速度
+        //增加flag_row_change字段變量,用來控制待畫面正常加載結束,dgvDetails中的SelectionChanged事件方可以正常响应.
+        bool flag_row_change = true;
         private void BTNFIND_Click(object sender, EventArgs e)
         {
+            flag_row_change = false;
             int curent_row = 0; //從查詢窗體返回當前焦點所在行
             //***********2022/11/16新加代碼,查詢窗體不用關閉
             if (frmQuotationFind == null)
@@ -454,57 +453,34 @@ namespace cf01.Forms
                 frmQuotationFind = new frmQuotationFind() { flag_call = "Quotation" };
             }            
             frmQuotationFind.ShowDialog();
-            curent_row = frmQuotationFind.Current_row;//返回行號
-            if (frmQuotationFind.dt.Rows.Count > 0)
+            //--start 2022/11/18
+            //確定以查詢數據復蓋主窗體數據
+            if (frmQuotationFind.flag_return)
             {
-                //必須用dt.Copy()方法,不可以直接賦值,直接賦值只是引用指針,修改任可一處,兩邊會出理同時修改.
-                dtDetail = frmQuotationFind.dt.Copy();
-                for (int i = 0; i < dtDetail.Rows.Count; i++)
+                //有返回數據
+                if (frmQuotationFind.dtReturn.Rows.Count > 0)
                 {
-                    dtDetail.Rows[i]["flag_select"] = false;
+                    dtDetail = frmQuotationFind.dtReturn.Copy();
+                    //重新綁定數據源
+                    bds1.DataSource = dtDetail;
+                    dgvDetails.DataSource = bds1;
+                    curent_row = frmQuotationFind.Current_row;//返回行號 
+                    if (curent_row > 0)
+                    {
+                        //定行到當前行(注意指定的當前列不可以隱藏的)
+                        dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
+                        dgvDetails.Rows[curent_row].Selected = true; //選中整行
+                    }
                 }
-                bds1.DataSource = dtDetail;
-                dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源                
             }
-            if (dtDetail.Rows.Count > 0 && curent_row > 0)
-            {
-                //定行到當前行 注意指定的當前列不可以隱藏的
-                //dgvDetails.Rows[curent_row].Cells[1].Selected = true;
-                dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
-                dgvDetails.Rows[curent_row].Selected = true; //選中整行
-            }
+            flag_row_change = true;
+            //--end
             //*************
-
-            /*舊代碼
-            frmQuotationFind ofrmFind = new frmQuotationFind() { flag_call = "Quotation" };
-            ofrmFind.ShowDialog();
-            curent_row = ofrmFind.Current_row;//返回行號 
-            if (ofrmFind.dt.Rows.Count > 0)
-            {
-                dtDetail = null;
-                dtDetail = ofrmFind.dt;//.Copy();
-                bds1.DataSource = dtDetail;
-                dgvDetails.DataSource = bds1;// dtDetail;//設置tabpage1數據源
-            }
-            ofrmFind.Dispose();
-
-            if (dtDetail.Rows.Count > 0 && curent_row > 0)
-            {
-                //定行到當前行 注意指定的當前列不可以隱藏的
-                //dgvDetails.Rows[curent_row].Cells[1].Selected = true;
-                dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
-                dgvDetails.Rows[curent_row].Selected = true; //選中整行                
-                //this.dgvDetails.CurrentCell = dgvDetails[1, curent_row]; //设置当前单元格
-                //dgvDetails.BeginEdit(true);
-            }
-            */
-
-            if (dgvDetails.RowCount > 0 )            
-                lblOf.Text = dgvDetails.RowCount.ToString();            
+            if (dgvDetails.RowCount > 0 )
+                lblOf.Text = dgvDetails.RowCount.ToString();
             else            
-                lblOf.Text = "";               
+                lblOf.Text = "";
             
-
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)
@@ -595,7 +571,7 @@ namespace cf01.Forms
             SetResetID();
             mState = "NEW"; 
             bds1.AddNew();
-
+            
             txtSales_group.Focus();
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(pnlHeard.Controls, true);
@@ -624,6 +600,7 @@ namespace cf01.Forms
             txtTemp_code.Focus();
             dgvGroup.DataSource = null;
             dgvSub.DataSource = null;
+            txtFlag_new.Text = "1";
             //txtSales_group.Focus();           
         }
         
@@ -668,7 +645,7 @@ namespace cf01.Forms
             mState = "";
             mState_NewCopy = "";
             tabPage2.Parent = null;
-            dgvDetails.FirstDisplayedScrollingRowIndex = 0;
+            //dgvDetails.FirstDisplayedScrollingRowIndex = 0;
             //如原來有排序則恢復
             if (SortColumnName != "")
             {
@@ -705,7 +682,7 @@ namespace cf01.Forms
                 //表格某列有排序 //return value is : Ascending,Descending or None
                 SortColumnName = dgvDetails.SortedColumn.Name;//獲取有排序的列的名稱
                 string strSort = dgvDetails.SortOrder.ToString();//獲取有排序列的排序方式 Descending
-                // DataGridViewColumn SortColumn = dgvDetails.CurrentCell.OwningColumn;//當前列對象
+                //DataGridViewColumn SortColumn = dgvDetails.CurrentCell.OwningColumn;//當前列對象
                 //ListSortDirection SortDirection;
                 if (strSort == "Ascending")
                 {
@@ -989,7 +966,7 @@ namespace cf01.Forms
                 mState = "";
                 mState_NewCopy = "";
                 //滾動條滾到表格的最頂端
-                dgvDetails.FirstDisplayedScrollingRowIndex = 0;
+                //dgvDetails.FirstDisplayedScrollingRowIndex = 0;
                 if (pType == "1")
                 {
                     //MessageBox.Show(myMsg.msgSave_ok, myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);                    
@@ -1057,17 +1034,15 @@ namespace cf01.Forms
             }
         }
 
-        //===========以下爲控件中的方法================
-
+        //===========以下爲控件中的方法================       
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvDetails.RowCount > 0)
+            //字段变量:flag_row_change控制表格數據加載結束才响应SelectionChanged事件.
+            if (dgvDetails.RowCount > 0 && flag_row_change)
             {
-                //row_reset = dgvDetails.CurrentCell.RowIndex;                
                 lblOf.Text = (dgvDetails.CurrentCell.RowIndex + 1).ToString() + " of " + dgvDetails.RowCount.ToString();
                 //dgvrow = dgvDetails.CurrentRow;
-                //Set_head(dgvrow);
-                
+                //Set_head(dgvrow);                
                 if (dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["special_price"].Value.ToString() =="True")                             
                     chkSpecialPrice.Checked = true;                
                 else
@@ -1078,29 +1053,7 @@ namespace cf01.Forms
                 else
                     lblIsCalPrice.Visible = false;
 
-                if (txtCf_code.Text != "")
-                {
-                    if (txtCf_code.Text.Length >= 7)
-                    {
-                        string strArtwork = txtCf_code.Text.Substring(0, 7);
-                        string strSql = string.Format(
-                            @"SELECT id, max(picture_name) as picture_name FROM cd_pattern_details WHERE within_code='0000' AND id='{0}' AND picture_name >'' group by id", strArtwork);
-                        System.Data.DataTable dt = new System.Data.DataTable();
-                        dt = clsConErp.GetDataTable(strSql);
-                        if (dt.Rows.Count > 0)
-                        {
-                            strArtwork = DBUtility.imagePath + dt.Rows[0]["picture_name"].ToString();
-                            if (!string.IsNullOrEmpty(strArtwork))                            
-                                pic_artwork.Image = File.Exists(strArtwork) ? Image.FromFile(strArtwork) : null;
-                            else
-                                pic_artwork.Image = null;
-                        }
-                        else
-                            pic_artwork.Image = null;
-                    }
-                    else
-                        pic_artwork.Image = null;
-                }
+                SetArtwork(txtCf_code.Text.Trim());//設置圖欄
 
                 //顯示Sub 列表            
                 Display_Sub_List(txtTemp_code.Text);
@@ -1111,7 +1064,36 @@ namespace cf01.Forms
                     memRemark_pdd.Text = "";
                 }
                 //顯示grop 列表
-                Display_Group_List(txtTemp_code.Text);
+                Display_Group_List(txtTemp_code.Text);               
+            }
+        }
+
+        private void SetArtwork(string artwork_code)
+        {
+            if (!string.IsNullOrEmpty(artwork_code))
+            {
+                pic_artwork.Image = null;
+                if (artwork_code.Length >= 7)
+                {
+                    pic_artwork.Image = null;
+                    string strArtwork = artwork_code.Substring(0, 7);
+                    string strSql = string.Format(
+                        @"SELECT S.id,Max(S.picture_name) AS picture_name
+                              FROM (SELECT a.id, b.picture_name FROM cd_pattern a,cd_pattern_details b 
+	                                WHERE a.within_code=b.within_code and a.id=b.id and a.within_code='0000' AND a.id='{0}' 
+                                   ) S
+                              WHERE S.picture_name>'' GROUP BY S.id", strArtwork);
+                    System.Data.DataTable dt = new System.Data.DataTable();
+                    dt = clsConErp.GetDataTable(strSql);
+                    if (dt.Rows.Count > 0)
+                    {
+                        strArtwork = DBUtility.imagePath + dt.Rows[0]["picture_name"].ToString();
+                        if (!string.IsNullOrEmpty(strArtwork))
+                            pic_artwork.Image = File.Exists(strArtwork) ? Image.FromFile(strArtwork) : null;
+                        else
+                            pic_artwork.Image = null;
+                    }
+                }
             }
         }
 
@@ -1262,41 +1244,8 @@ namespace cf01.Forms
             memDgRmkPdd.Text = "";//pdr.Cells["remark_pdd_dg"].Value.ToString();//清空
             txtRef_temp_code.Text = pdr.Cells["temp_code"].Value.ToString();
 
-            if (txtCf_code.Text != "")
-            {
-                if (txtCf_code.Text.Length >= 7)
-                {
-                    string strArtwork = txtCf_code.Text.Substring(0, 7);
-                    //   string strSql = string.Format(
-                    //   @"SELECT ISNULL(B.picture_name,'') AS picture_name
-                    //   FROM cd_pattern A with(nolock) 
-                    //INNER JOIN (select within_code,id,max(picture_name) as picture_name 
-                    //               from dbo.cd_pattern_details with(nolock) 
-                    //               where  within_code='0000' AND id='{0}'
-                    //               group by within_code,id) B ON A.within_code=B.within_code AND A.id=B.id                   
-                    //   WHERE A.within_code='0000' AND A.id='{0}' AND A.state='1'", strArtwork);
-                    string strSql = string.Format(@"SELECT id, max(picture_name) as picture_name FROM cd_pattern_details WHERE within_code='0000' AND id='{0}' and  Isnull(picture_name, '') <> '' group by id", strArtwork);
-                    System.Data.DataTable dt = new System.Data.DataTable();
-                    dt = clsConErp.GetDataTable(strSql);
-                    if (dt.Rows.Count > 0)
-                    {
-                        strArtwork = DBUtility.imagePath + dt.Rows[0]["picture_name"].ToString();
-                        if (!string.IsNullOrEmpty(strArtwork))
-                        {
-                            if (File.Exists(strArtwork))
-                                pic_artwork.Image = Image.FromFile(strArtwork);
-                            else
-                                pic_artwork.Image = null;
-                        }
-                        else
-                            pic_artwork.Image = null;
-                    }
-                    else
-                        pic_artwork.Image = null;
-                }
-                else
-                    pic_artwork.Image = null; 
-            }
+            SetArtwork(txtCf_code.Text.Trim());//設置圖欄                       
+
             //顯示Sub 列表            
             Display_Sub_List(txtTemp_code.Text);
             if (mState_NewCopy == "NEWCOPY")
@@ -1326,7 +1275,7 @@ namespace cf01.Forms
 
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            ////產生行號
+            //產生行號
             System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
                 e.RowBounds.Location.Y,
                 dgvDetails.RowHeadersWidth - 4,
@@ -1352,9 +1301,7 @@ namespace cf01.Forms
                     grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
                     //刪除線
                     grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
-                }
-                
-
+                }  
                 ////備註字段不顯示刪除線
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
@@ -1365,7 +1312,13 @@ namespace cf01.Forms
                 //特別單價亮藍色背景
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;                
             }
-            
+            if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
+            {
+                //新增加的記錄背景色
+                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+            }
+
+
         }
 
 
@@ -1651,8 +1604,7 @@ namespace cf01.Forms
                 dgvrow = dgvDetails.CurrentRow;
                 AddNew();
                 mState_NewCopy = "NEWCOPY";
-                Set_head(dgvrow);                
-                //txtRef_temp_code.Text = txtTemp_code.Text;//記錄來源記錄主鍵
+                Set_head(dgvrow);
                 txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
                 txtCrusr.Text = DBUtility._user_id;
@@ -3420,7 +3372,25 @@ namespace cf01.Forms
         private void dgvDetails_Sorted(object sender, EventArgs e)
         {
             SaveSortInfo();
-            this.dgvDetails.FirstDisplayedScrollingRowIndex = 0;// this.dgvDetails.Rows.Count - 1;
+            //this.dgvDetails.FirstDisplayedScrollingRowIndex = 0;// this.dgvDetails.Rows.Count - 1;
+        }
+        int xx=0;
+        private void dgvDetails_CurrentCellChanged(object sender, EventArgs e)
+        {
+            //if (dgvDetails.CurrentCellAddress.Y >= 0)
+            //{
+            //    if (dgvDetails.Rows[dgvDetails.CurrentCellAddress.Y].DataBoundItem != null)
+            //    {
+            //        //DataBoundItem 相當DataRowView
+            //        xx += 1;
+            //        textEdit1.Text = xx.ToString();
+            //        //this.dtGVAction.DataBindings.Clear();
+            //        //this.tBoxExpression.DataBindings.Clear();
+            //        //SetdtGVAction((BM.Class.Phase.State.Step)dtGVStep.Rows[dtGVStep.CurrentCellAddress.Y].DataBoundItem);
+            //        //dtGVAction.ReadOnly = false;
+            //    }
+
+            //}
         }
     }
     

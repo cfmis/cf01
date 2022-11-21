@@ -1174,26 +1174,11 @@ namespace cf01.Forms
                 }
             }
             string strDat1, strDat2, strCrtim1, strCrtim2;
-            strDat1 = txtDate2.EditValue.ToString();
-            strDat2 = txtDate2.EditValue.ToString();
-            strCrtim1 = txtCrtim1.EditValue.ToString();
-            strCrtim2 = txtCrtim2.EditValue.ToString();
-            if (!string.IsNullOrEmpty(strDat1))
-                strDat1 = DateTime.Parse(strDat1).Date.ToString("yyyy/MM/dd");
-            else
-                strDat1 = "";
-            if (!string.IsNullOrEmpty(strDat2))
-                strDat2 = DateTime.Parse(strDat2).Date.ToString("yyyy/MM/dd");
-            else
-                strDat2 = "";
-            if (!string.IsNullOrEmpty(strCrtim1))
-                strCrtim1 = DateTime.Parse(strCrtim1).Date.ToString("yyyy/MM/dd");
-            else
-                strCrtim1 = "";
-            if (!string.IsNullOrEmpty(strCrtim2))
-                strCrtim2 = DateTime.Parse(strCrtim2).Date.ToString("yyyy/MM/dd");
-            else
-                strCrtim2 = "";
+            strDat1 = !string.IsNullOrEmpty(txtDate1.Text) ? DateTime.Parse(txtDate1.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
+            strDat2 = !string.IsNullOrEmpty(txtDate2.Text) ? DateTime.Parse(txtDate2.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
+            strDat2 = !string.IsNullOrEmpty(strDat2) ? DateTime.Parse(strDat2).Date.ToString("yyyy/MM/dd") : "";
+            strCrtim1 = !string.IsNullOrEmpty(txtCrtim1.Text) ? DateTime.Parse(txtCrtim1.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
+            strCrtim2 = !string.IsNullOrEmpty(txtCrtim2.Text) ? DateTime.Parse(txtCrtim2.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
             SqlParameter[] paras = new SqlParameter[] { 
                        new SqlParameter("@user_id",DBUtility._user_id),
                        new SqlParameter("@sales_group",txtSales_group.Text),

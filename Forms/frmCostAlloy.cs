@@ -64,7 +64,7 @@ namespace cf01.Forms
 
             txtCost.DataBindings.Add("Text", bds1, "cost");         
             txtCost_qty.DataBindings.Add("Text", bds1, "cost_qty");
-            if (txtDept_id1.EditValue == "" && txtDept_id2.EditValue == "")
+            if (txtDept_id1.EditValue.ToString() == "" && txtDept_id2.EditValue.ToString() == "")
             {
                 txtDept_id1.EditValue = "302";
                 txtDept_id2.EditValue = "302";

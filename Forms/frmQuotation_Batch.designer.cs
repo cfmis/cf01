@@ -321,6 +321,7 @@
             this.remark_salesperson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ref_temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_new = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBP.Properties)).BeginInit();
@@ -652,7 +653,8 @@
             this.price_kind,
             this.remark_salesperson,
             this.cost_price,
-            this.ref_temp_code});
+            this.ref_temp_code,
+            this.flag_new});
             this.dgvDetails.Location = new System.Drawing.Point(4, 317);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 40;
@@ -2776,6 +2778,14 @@
             this.ref_temp_code.ReadOnly = true;
             this.ref_temp_code.Visible = false;
             // 
+            // flag_new
+            // 
+            this.flag_new.DataPropertyName = "flag_new";
+            this.flag_new.HeaderText = "flag_new";
+            this.flag_new.Name = "flag_new";
+            this.flag_new.ReadOnly = true;
+            this.flag_new.Visible = false;
+            // 
             // frmQuotation_Batch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3050,5 +3060,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_salesperson;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn ref_temp_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag_new;
     }
 }

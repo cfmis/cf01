@@ -853,21 +853,12 @@ namespace cf01.CLS
 
         public static bool Check_Artwork(string strArtwork)
         {
-            bool isExists=false ;
+            bool isExists = false;
             string artwork = string.IsNullOrEmpty(strArtwork) ? "" : strArtwork;
-            string strSql = string.Format(
-                   @"SELECT '1' FROM {0}cd_pattern with(nolock) WHERE within_code='0000' AND id='{1}'", DBUtility.remote_db, artwork);
+            string strSql = string.Format(@"SELECT '1' FROM {0}cd_pattern with(nolock) WHERE within_code='0000' AND id='{1}'", DBUtility.remote_db, artwork);            
             System.Data.DataTable dt = new System.Data.DataTable();
             dt = clsPublicOfCF01.GetDataTable(strSql);
-            if (dt.Rows.Count > 0)
-            {
-                isExists = true;
-            }
-            else
-            {
-                isExists = false;
-            }
-            dt.Dispose();
+            isExists = (dt.Rows.Count > 0) ? true : false;
             return isExists;
         }
 
