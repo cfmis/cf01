@@ -3374,24 +3374,21 @@ namespace cf01.Forms
             SaveSortInfo();
             //this.dgvDetails.FirstDisplayedScrollingRowIndex = 0;// this.dgvDetails.Rows.Count - 1;
         }
-        int xx=0;
-        private void dgvDetails_CurrentCellChanged(object sender, EventArgs e)
-        {
-            //if (dgvDetails.CurrentCellAddress.Y >= 0)
-            //{
-            //    if (dgvDetails.Rows[dgvDetails.CurrentCellAddress.Y].DataBoundItem != null)
-            //    {
-            //        //DataBoundItem 相當DataRowView
-            //        xx += 1;
-            //        textEdit1.Text = xx.ToString();
-            //        //this.dtGVAction.DataBindings.Clear();
-            //        //this.tBoxExpression.DataBindings.Clear();
-            //        //SetdtGVAction((BM.Class.Phase.State.Step)dtGVStep.Rows[dtGVStep.CurrentCellAddress.Y].DataBoundItem);
-            //        //dtGVAction.ReadOnly = false;
-            //    }
-
-            //}
-        }
+      
+        //private void dgvDetails_CurrentCellChanged(object sender, EventArgs e)
+        //{
+        //    //if (dgvDetails.CurrentCellAddress.Y >= 0)
+        //    //{
+        //    //    if (dgvDetails.Rows[dgvDetails.CurrentCellAddress.Y].DataBoundItem != null)
+        //    //    {
+        //    //        //DataBoundItem 相當DataRowView   
+        //    //        //this.dtGVAction.DataBindings.Clear();
+        //    //        //this.tBoxExpression.DataBindings.Clear();
+        //    //        //SetdtGVAction((BM.Class.Phase.State.Step)dtGVStep.Rows[dtGVStep.CurrentCellAddress.Y].DataBoundItem);
+        //    //        //dtGVAction.ReadOnly = false;
+        //    //    }
+        //    //}
+        //}
     }
     
 }
