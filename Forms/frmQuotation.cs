@@ -592,7 +592,7 @@ namespace cf01.Forms
             txtCrusr.Text = DBUtility._user_id;
             txtCrtim.Text= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
             txtPrice_unit.EditValue = "GRS";
-            txtMoq_unit.EditValue = "GRS";
+            //txtMoq_unit.EditValue = "GRS";
             txtLead_time_unit.EditValue = "Weeks";            
             txtMd_charge_unit.EditValue = "SET";
             txtVersion.Text = "0";
@@ -601,7 +601,7 @@ namespace cf01.Forms
             dgvGroup.DataSource = null;
             dgvSub.DataSource = null;
             txtFlag_new.Text = "1";
-            //txtSales_group.Focus();           
+            //txtSales_group.Focus();
         }
         
         private void Edit()  //編號
@@ -1116,8 +1116,7 @@ namespace cf01.Forms
 
         #region  Set_head 設置主檔
         private void Set_head(DataGridViewRow pdr)
-        {
-            //mID = pdr.Cells["id"].Value.ToString();
+        {            
             txtID.EditValue = pdr.Cells["id"].Value.ToString();
             txtSales_group.EditValue = pdr.Cells["sales_group"].Value.ToString();
             string strDat = pdr.Cells["date"].Value.ToString();
@@ -1148,6 +1147,8 @@ namespace cf01.Forms
             txtCf_code.Text = pdr.Cells["cf_code"].Value.ToString();
             txtCust_color.Text = pdr.Cells["cust_color"].Value.ToString();
             txtCf_color.Text = pdr.Cells["cf_color"].Value.ToString();
+            txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
+
             /* --start 2022/11/17復制新增時清空單價
             //txtNumber_enter.EditValue = pdr.Cells["number_enter"].Value;
             //txtPrice_usd.EditValue = pdr.Cells["price_usd"].Value;
@@ -1166,7 +1167,7 @@ namespace cf01.Forms
             cmbmoq_below_over.EditValue= pdr.Cells["moq_below_over"].Value.ToString();
             txtMoq.EditValue = pdr.Cells["moq"].Value;
             txtMoq_Desc.Text = pdr.Cells["moq_desc"].Value.ToString();
-            txtMoq_unit.EditValue = pdr.Cells["moq_unit"].Value;
+            //txtMoq_unit.EditValue = pdr.Cells["moq_unit"].Value;
             txtMwq.EditValue = pdr.Cells["mwq"].Value;
             txtMwq_unit.EditValue = pdr.Cells["mwq_unit"].Value;
             txtLead_time_min.EditValue = pdr.Cells["lead_time_min"].Value;
@@ -1930,8 +1931,7 @@ namespace cf01.Forms
             if (!is_group_pdd)
             {
                 return;
-            }
-            
+            }            
             if (dgvDetails.Columns[e.ColumnIndex].Name == "ver")
             {
                 using (frmQuotation_Price_List ofrm = new frmQuotation_Price_List(dgvDetails.Rows[e.RowIndex].Cells["temp_code"].Value.ToString(),is_group_pdd))

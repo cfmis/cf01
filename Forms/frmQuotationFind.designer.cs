@@ -169,6 +169,8 @@
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnReturn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -183,8 +185,6 @@
             this.btnApprove = new System.Windows.Forms.Button();
             this.btnExcelArt = new System.Windows.Forms.Button();
             this.lblOf = new System.Windows.Forms.Label();
-            this.btnReturn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1147,6 +1147,21 @@
             this.btnExit.Text = "退出(X)";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Margin = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 33);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
+            this.btnReturn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(121, 30);
+            this.btnReturn.Text = "返回當前查詢結果";
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -1201,9 +1216,9 @@
             // 
             this.chkSelect.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkSelect.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkSelect.Location = new System.Drawing.Point(56, 222);
+            this.chkSelect.Location = new System.Drawing.Point(57, 222);
             this.chkSelect.Name = "chkSelect";
-            this.chkSelect.Size = new System.Drawing.Size(30, 34);
+            this.chkSelect.Size = new System.Drawing.Size(49, 34);
             this.chkSelect.TabIndex = 20;
             this.chkSelect.UseVisualStyleBackColor = true;
             this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
@@ -1280,21 +1295,6 @@
             this.lblOf.Size = new System.Drawing.Size(133, 21);
             this.lblOf.TabIndex = 202;
             this.lblOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
-            this.btnReturn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(121, 30);
-            this.btnReturn.Text = "返回當前查詢結果";
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Margin = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 33);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2408,7 +2408,7 @@
             this.flag_select.Name = "flag_select";
             this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.flag_select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.flag_select.Width = 40;
+            this.flag_select.Width = 60;
             // 
             // ver
             // 
