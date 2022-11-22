@@ -62,6 +62,8 @@ namespace cf01.Forms
                 txtStatus.Items.Add(dtStatus.Rows[i]["id"].ToString());
             }
             dtStatus.Dispose();
+
+           
         }
 
         private void frmQutationFind_Load(object sender, EventArgs e)
@@ -70,7 +72,14 @@ namespace cf01.Forms
             {
                 chkReturn.Checked = false;
                 chkReturn.Visible = false;
-            }           
+                btnReturn.Visible = false;
+            }
+            else
+            {
+                chkReturn.Visible = true;
+                btnReturn.Visible = true;
+            }
+           
             flag_return = false;
             //Select_All(false);//初始化時如表格有記錄,則取消全部打勾2022/11/18 canel
         }
