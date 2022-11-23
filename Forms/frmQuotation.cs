@@ -2994,7 +2994,7 @@ namespace cf01.Forms
         {
             if (mState != "")
             {
-                Set_Moq(txtBrand.EditValue.ToString(), txtPrice_unit.EditValue.ToString());
+               Set_Moq(txtBrand.EditValue.ToString(), txtPrice_unit.EditValue.ToString());
             }
         }
 
@@ -3374,7 +3374,22 @@ namespace cf01.Forms
             SaveSortInfo();
             //this.dgvDetails.FirstDisplayedScrollingRowIndex = 0;// this.dgvDetails.Rows.Count - 1;
         }
-      
+
+        private void txtPrice_unit_EditValueChanged(object sender, EventArgs e)
+        {
+            //計算出單價后又重新更改了單價單位,需重新計算單價一遍才行. 2022/11/23,
+            if(mState != "")
+            {
+                if (string.IsNullOrEmpty(txtPrice_unit.Text))
+                {
+                    return;
+                }
+                Price_Calcu();
+                Price_Calcu_Disc(txtDisc.Text);
+                txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
+            }            
+        }
+
         //private void dgvDetails_CurrentCellChanged(object sender, EventArgs e)
         //{
         //    //if (dgvDetails.CurrentCellAddress.Y >= 0)
