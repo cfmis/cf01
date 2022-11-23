@@ -1079,7 +1079,7 @@ namespace cf01.Forms
                     string strArtwork = artwork_code.Substring(0, 7);
                     string strSql = string.Format(
                         @"SELECT S.id,Max(S.picture_name) AS picture_name
-                              FROM (SELECT a.id, b.picture_name FROM cd_pattern a,cd_pattern_details b 
+                              FROM (SELECT a.id, b.picture_name FROM cd_pattern a with(nolock),cd_pattern_details b with(nolock)
 	                                WHERE a.within_code=b.within_code and a.id=b.id and a.within_code='0000' AND a.id='{0}' 
                                    ) S
                               WHERE S.picture_name>'' GROUP BY S.id", strArtwork);
