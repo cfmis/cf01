@@ -82,6 +82,9 @@ namespace cf01.Forms
            
             flag_return = false;
             //Select_All(false);//初始化時如表格有記錄,則取消全部打勾2022/11/18 canel
+            //2022/11/23
+            dtFind.Clear();
+            dtReturn.Clear();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
