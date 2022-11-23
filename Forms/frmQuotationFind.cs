@@ -303,13 +303,16 @@ namespace cf01.Forms
             }            
             //處理當窗口關閉時返回給父窗本的數據
             txtMaterial.Focus();
+            //Current_row = dgvDetails.CurrentRow.Index; //記錄當前行2022/11/23
+            int old_row_no = dgvDetails.CurrentRow.Index; //記錄當前行
             if (dgvDetails.SortOrder.ToString() != "None")
             {
                 //如某欄位有排序,則需重新賦值,否會引起數據次序錯亂;
                 dtFind = dtFind.DefaultView.ToTable();
-            }
-            dgvDetails.DataSource = dtFind;
-            Current_row = dgvDetails.CurrentRow.Index; //記錄當前行
+                dgvDetails.DataSource = dtFind;
+                //dgvDetails數據源改變,焦點行已自動改變,需將更改前的當前行號重新賦值
+                Current_row = old_row_no;
+            }            
             if (chkReturn.Checked)
             {
                 //處理是否只返回有打勾的
