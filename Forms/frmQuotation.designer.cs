@@ -5874,7 +5874,7 @@
             this.txtFlag_new.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtFlag_new.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtFlag_new.Properties.ReadOnly = true;
-            this.txtFlag_new.Size = new System.Drawing.Size(66, 20);
+            this.txtFlag_new.Size = new System.Drawing.Size(36, 20);
             this.txtFlag_new.TabIndex = 207;
             this.txtFlag_new.Tag = "2";
             // 
@@ -5892,12 +5892,12 @@
             // 
             this.txtRef_temp_code.EditValue = "";
             this.txtRef_temp_code.Enabled = false;
-            this.txtRef_temp_code.Location = new System.Drawing.Point(841, 365);
+            this.txtRef_temp_code.Location = new System.Drawing.Point(721, 365);
             this.txtRef_temp_code.Name = "txtRef_temp_code";
             this.txtRef_temp_code.Properties.ReadOnly = true;
-            this.txtRef_temp_code.Size = new System.Drawing.Size(89, 20);
+            this.txtRef_temp_code.Size = new System.Drawing.Size(113, 20);
             this.txtRef_temp_code.TabIndex = 206;
-            this.txtRef_temp_code.Tag = "1";
+            this.txtRef_temp_code.Tag = "2";
             // 
             // frmQuotation
             // 
