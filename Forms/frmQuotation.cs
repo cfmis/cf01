@@ -1153,14 +1153,14 @@ namespace cf01.Forms
             //txtNumber_enter.EditValue = pdr.Cells["number_enter"].Value;
             //txtPrice_usd.EditValue = pdr.Cells["price_usd"].Value;
             //txtPrice_hkd.EditValue = pdr.Cells["price_hkd"].Value;
-            //txtPrice_rmb.EditValue = pdr.Cells["price_rmb"].Value;
-            //txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
+            //txtPrice_rmb.EditValue = pdr.Cells["price_rmb"].Value;            
             //txtHkd_ex_fty.EditValue = pdr.Cells["hkd_ex_fty"].Value;
             //txtDisc.EditValue = pdr.Cells["discount"].Value;
             //txtDisc_usd.EditValue = pdr.Cells["disc_price_usd"].Value;
             //txtDisc_hkd.EditValue = pdr.Cells["disc_price_hkd"].Value;
             //txtDisc_rmb.EditValue = pdr.Cells["disc_price_rmb"].Value;
             //txtDisc_hkd_ex_fty.EditValue = pdr.Cells["disc_hkd_ex_fty"].Value;
+            //txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
             *///-end 
 
             txtSalesman.Text = pdr.Cells["salesman"].Value.ToString(); 
@@ -1189,7 +1189,7 @@ namespace cf01.Forms
                 strDat = "";
             }
             txtValid_date.EditValue = strDat;            
-            txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
+            
             txtDate_req.Text = pdr.Cells["date_req"].Value.ToString();
             txtAw.Text = pdr.Cells["aw"].Value.ToString();           
             txtStatus.Text = pdr.Cells["status"].Value.ToString();
