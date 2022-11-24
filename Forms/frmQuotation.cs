@@ -37,6 +37,7 @@ namespace cf01.Forms
         private string mState = ""; //新增或編號的狀態
         private string mState_NewCopy = "";
         private string mOld_Temp_Code = "";
+        private string old_group = "";
         private string mImagePath = "";
         private static string str_language = "0";
         private string msgCustom;
@@ -298,7 +299,7 @@ namespace cf01.Forms
             txtUsd_ex_fty.DataBindings.Add("EditValue", bds1, "usd_ex_fty");
             txtDate_req.DataBindings.Add("Text", bds1, "date_req");
             txtAw.DataBindings.Add("Text", bds1, "aw");
-            txtStatus.DataBindings.Add("Text", bds1, "status"); //??
+            txtStatus.DataBindings.Add("EditValue", bds1, "status"); //??
             txtSample_request.DataBindings.Add("Text", bds1, "sample_request");
             txtNeedle_test.DataBindings.Add("Text", bds1, "needle_test");
             txtVersion.DataBindings.Add("Text", bds1, "ver");
@@ -534,14 +535,7 @@ namespace cf01.Forms
             //int i = dgvGroup.Rows.Count;
             if (txtSales_group.Text == "" || txtTemp_code.Text == "" || txtCf_code.Text == "" || string.IsNullOrEmpty(txtDate.Text) || txtPrice_unit.Text=="")
             {
-                if (str_language == "2")
-                {
-                    msgCustom = "Sales group&CF Code&Date & Price Unit cannot be empty.";
-                }
-                else
-                {
-                    msgCustom = "組別,CF Code,日期,或單價單位不可爲空!";
-                }
+                msgCustom= (str_language == "2")? "Sales group&CF Code&Date & Price Unit cannot be empty.": "組別,CF Code,日期,或單價單位不可爲空!";                
                 MessageBox.Show(msgCustom, myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
@@ -592,7 +586,7 @@ namespace cf01.Forms
             txtCrusr.Text = DBUtility._user_id;
             txtCrtim.Text= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
             txtPrice_unit.EditValue = "GRS";
-            //txtMoq_unit.EditValue = "GRS";
+            txtMoq_unit.EditValue = "GRS";
             txtLead_time_unit.EditValue = "Weeks";            
             txtMd_charge_unit.EditValue = "SET";
             txtVersion.Text = "0";
@@ -645,6 +639,16 @@ namespace cf01.Forms
             mState = "";
             mState_NewCopy = "";
             tabPage2.Parent = null;
+
+            /*
+            if (!String.IsNullOrEmpty(mID) && dgvDetails.RowCount>0)
+            {
+                dgvDetails.Focus();
+                dgvDetails.CurrentCell = dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
+                dgvDetails.Rows[row_reset].Selected = true; //選中整行
+            }
+             */
+
             //dgvDetails.FirstDisplayedScrollingRowIndex = 0;
             //如原來有排序則恢復
             if (SortColumnName != "")
@@ -697,7 +701,7 @@ namespace cf01.Forms
             }
         }
 
-        private void Save(string pType)  //保存新增或修改的資料
+        private void Save(string pType) //保存新增或修改的資料
         {
             txtTemp_code.Focus();
             if (!Save_Before_Valid())
@@ -724,7 +728,7 @@ namespace cf01.Forms
                     @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark,@pending,@remark_pdd_dg,@ref_temp_code)";
             const string sql_update =
             @"UPDATE quotation 
-            SET sales_group=@sales_group,temp_code=@temp_code,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,season=@season,season_desc=@season_desc,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
+            SET sales_group=@sales_group,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,season=@season,season_desc=@season_desc,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
                 cust_code=@cust_code,cf_code=@cf_code,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,price_unit=@price_unit,salesman=@salesman,moq_below_over=@moq_below_over,moq=@moq,moq_desc=@moq_desc,moq_unit=@moq_unit,mwq=@mwq,mwq_unit=@mwq_unit,
                 lead_time_min=@lead_time_min,lead_time_max=@lead_time_max,lead_time_unit=@lead_time_unit,md_charge=@md_charge,md_charge_cny=@md_charge_cny,md_charge_unit=@md_charge_unit,remark=@remark,remark_other=@remark_other,die_mould_usd=@die_mould_usd,die_mould_cny=@die_mould_cny,account_code=@account_code,
                 valid_date = CASE LEN(@valid_date) WHEN 0 THEN null ELSE @valid_date END,
@@ -753,11 +757,7 @@ namespace cf01.Forms
                         myCommand.CommandText = sql_new;
                         strTemp_Code = clsQuotation.Get_Quote_SeqNo();//Get_Quote_SeqNo(txtSales_group.EditValue.ToString());
                         myCommand.Parameters.AddWithValue("@temp_code", strTemp_Code);
-                        txtTemp_code.Text = strTemp_Code;
-                        //if (mState_NewCopy == "NEWCOPY")
-                        //{
-                        //    txtTemp_code.Text = strTemp_Code;
-                        //}
+                        txtTemp_code.Text = strTemp_Code;                       
                     }
                     else
                     {
@@ -860,7 +860,7 @@ namespace cf01.Forms
                         //mState_NewCopy非空即為復制新增
                         if (mState_NewCopy == "")
                         {
-                            //首次新增
+                            //非復制新增
                             myCommand.Parameters.Clear();
                             myCommand.CommandText = sql_group_i;
                             myCommand.Parameters.AddWithValue("@temp_code", strTemp_Code);
@@ -875,7 +875,7 @@ namespace cf01.Forms
                     else
                     {
                         //修改狀態
-                        string old_group = dgvDetails.Rows[row_reset].Cells["sales_group"].Value.ToString();
+                        //string old_group = dgvDetails.Rows[row_reset].Cells["sales_group"].Value.ToString();
                         if (txtSales_group.EditValue.ToString() != old_group)//更改了主表的組別
                         {
                             myCommand.Parameters.Clear();
@@ -899,7 +899,7 @@ namespace cf01.Forms
                             new SqlParameter("@oldTemp_code",mOld_Temp_Code),
                             new SqlParameter("@newTemp_code", strTemp_Code),
                             new SqlParameter("@user_id", DBUtility._user_id),
-                            new SqlParameter("@sales_group",txtSales_group.EditValue)
+                            new SqlParameter("@sales_group",txtSales_group.EditValue.ToString())
                         };
                         clsPublicOfCF01.ExecuteNonQuery("usp_newcopy_sales_group", pars, true);
                     }
@@ -941,27 +941,28 @@ namespace cf01.Forms
             //Set_Row_Position(txtID.Text.Trim());           
             tabPage2.Parent = null;
             if (save_flag)
-            {                
-                //定位到當前行
-                int curent_row=0;              
+            {       
                 //重新按原來的排序方式重新排序
                 if(SortColumnName !="")
                 {
                     dgvDetails.Sort(dgvDetails.Columns[SortColumnName], SortDirection);
                 }
+                //定位到當前行
+                int row_index = 0;
                 //使用foreach重新定位到當前編輯的行.
+                string temp_code_no = "";
                 foreach (DataGridViewRow row in dgvDetails.Rows)
                 {
                     //获取第i行，列名是列名A的单元格的值
-                    string strTempCode = row.Cells["temp_code"].Value.ToString();
-                    if(strTempCode == cur_temp_code)
+                    temp_code_no = row.Cells["temp_code"].Value.ToString();
+                    if(temp_code_no == cur_temp_code)
                     {
-                        curent_row = row.Index;
+                        row_index = row.Index;
                         break;
                     }
                 }
-                dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[0];
-                dgvDetails.Rows[curent_row].Selected = true; //選中整行     
+                dgvDetails.CurrentCell = dgvDetails.Rows[row_index].Cells[0];
+                dgvDetails.Rows[row_index].Selected = true; //選中整行     
 
                 mState = "";
                 mState_NewCopy = "";
@@ -1040,6 +1041,7 @@ namespace cf01.Forms
             //字段变量:flag_row_change控制表格數據加載結束才响应SelectionChanged事件.
             if (dgvDetails.RowCount > 0 && flag_row_change)
             {
+                row_reset = dgvDetails.CurrentCell.RowIndex;//當前焦點所在行
                 lblOf.Text = (dgvDetails.CurrentCell.RowIndex + 1).ToString() + " of " + dgvDetails.RowCount.ToString();
                 //dgvrow = dgvDetails.CurrentRow;
                 //Set_head(dgvrow);                
@@ -1061,7 +1063,7 @@ namespace cf01.Forms
                 {
                     dtSubmo.Clear();
                     //dgvSub.DataSource = null;
-                    memRemark_pdd.Text = "";
+                    //memRemark_pdd.Text = "";
                 }
                 //顯示grop 列表
                 Display_Group_List(txtTemp_code.Text);               
@@ -1167,7 +1169,7 @@ namespace cf01.Forms
             cmbmoq_below_over.EditValue= pdr.Cells["moq_below_over"].Value.ToString();
             txtMoq.EditValue = pdr.Cells["moq"].Value;
             txtMoq_Desc.Text = pdr.Cells["moq_desc"].Value.ToString();
-            //txtMoq_unit.EditValue = pdr.Cells["moq_unit"].Value;
+            txtMoq_unit.EditValue = pdr.Cells["moq_unit"].Value;
             txtMwq.EditValue = pdr.Cells["mwq"].Value;
             txtMwq_unit.EditValue = pdr.Cells["mwq_unit"].Value;
             txtLead_time_min.EditValue = pdr.Cells["lead_time_min"].Value;
@@ -1303,21 +1305,20 @@ namespace cf01.Forms
                     //刪除線
                     grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
                 }  
-                ////備註字段不顯示刪除線
+                //備註字段不顯示刪除線
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
             }
-            
             if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
             {
                 //特別單價亮藍色背景
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;                
             }
-            if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
-            {
-                //新增加的記錄背景色
-                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
-            }
+            //if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
+            //{
+            //    //新增加的記錄背景色
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+            //}
 
 
         }
@@ -1587,7 +1588,8 @@ namespace cf01.Forms
         {
             if (dgvDetails.Rows.Count > 0)
             {
-                mID = dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["id"].Value.ToString();                
+                mID = dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["id"].Value.ToString();  
+                old_group = dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["sales_group"].Value.ToString();
             }
         }
 
@@ -1595,14 +1597,17 @@ namespace cf01.Forms
         {
             SetResetID();//保存取消還原的ID
             if (dgvDetails.RowCount > 0)
-            {
-                dtDetail= dtDetail.DefaultView.ToTable();
+            {                
+                dtDetail = dtDetail.DefaultView.ToTable();
                 //bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
                 bds1.DataSource = dtDetail;
                 dgvDetails.DataSource = bds1;
-                          
+                
+                 //移到前面2022/11/24         
                 mOld_Temp_Code = txtTemp_code.Text;
                 dgvrow = dgvDetails.CurrentRow;
+                
+
                 AddNew();
                 mState_NewCopy = "NEWCOPY";
                 Set_head(dgvrow);
