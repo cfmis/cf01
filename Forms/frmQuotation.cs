@@ -55,6 +55,7 @@ namespace cf01.Forms
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public static string sent_quotation = "";
         private BindingSource bds1 = new BindingSource();
+        
 
         private bool is_group_pdd { set; get; }
         //bool flag_import;
@@ -233,6 +234,7 @@ namespace cf01.Forms
             if (ls_ip_address.Contains("192.168.18."))
             {
                 mImagePath = @"\\192.168.18.24\cf_artwork";
+                             //@"\\192.168.3.12\cf_artwork\Artwork\";
             }
             //數據綁定
             SetDataBindings();
@@ -1084,12 +1086,12 @@ namespace cf01.Forms
                               FROM (SELECT a.id, b.picture_name FROM cd_pattern a with(nolock),cd_pattern_details b with(nolock)
 	                                WHERE a.within_code=b.within_code and a.id=b.id and a.within_code='0000' AND a.id='{0}' 
                                    ) S
-                              WHERE S.picture_name>'' GROUP BY S.id", strArtwork);
+                          WHERE S.picture_name>'' GROUP BY S.id", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);
                     if (dt.Rows.Count > 0)
                     {
-                        strArtwork = DBUtility.imagePath + dt.Rows[0]["picture_name"].ToString();
+                        strArtwork = mImagePath+ @"\Artwork\" + dt.Rows[0]["picture_name"].ToString();
                         if (!string.IsNullOrEmpty(strArtwork))
                             pic_artwork.Image = File.Exists(strArtwork) ? Image.FromFile(strArtwork) : null;
                         else
