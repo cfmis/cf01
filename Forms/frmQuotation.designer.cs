@@ -1224,7 +1224,7 @@
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.date.Width = 70;
+            this.date.Width = 80;
             // 
             // brand
             // 

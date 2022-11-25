@@ -1295,30 +1295,37 @@ namespace cf01.Forms
             {
                 if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
                 {
-                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
-                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;                    
                 }
                 else
                 {
                     //紫色字體
                     grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
-                    //刪除線
-                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
-                }  
+                }
+                //刪除線
+                grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
                 //備註字段不顯示刪除線
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
                 //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
             }
+            else
+            {
+                //恢復正常顯示
+                grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular);
+            }
+
             if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
             {
                 //特別單價亮藍色背景
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;                
             }
-            //if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
-            //{
-            //    //新增加的記錄背景色
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
-            //}
+
+            if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
+            {
+                //新添加記錄背景色
+                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+            }
 
 
         }
