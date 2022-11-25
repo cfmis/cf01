@@ -745,7 +745,7 @@ namespace cf01.Forms
             //組別設置
             string sql_group_i =
                 @"INSERT INTO quotation_group(temp_code,seq_id,group_id,crusr,crtim) VALUES(@temp_code,@seq_id,@group_id,@user_id,getdate())";
-            string sql_group_u = @"UPDATE quotation_group SET group_id=@group_id,amusr=@user_id,amtim=getdate() WHERE temp_code=@temp_code And group_id=@oldGroup_id";
+            string sql_group_u = @"UPDATE quotation_group SET group_id=@group_id,amusr=@user_id,amtim=getdate() WHERE temp_code=@temp_code And group_id=@old_group_id";
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             myCon.Open();
             SqlTransaction myTrans = myCon.BeginTransaction();
