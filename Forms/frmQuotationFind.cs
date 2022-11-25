@@ -16,12 +16,12 @@ namespace cf01.Forms
 {
     public partial class frmQuotationFind : Form
     {
-        private clsAppPublic clsApp = new clsAppPublic();
-        public DataTable dtFind = new DataTable();
+        clsAppPublic clsApp = new clsAppPublic();
+        DataTable dtFind = new DataTable();
         public DataTable dtReturn = new DataTable();        
-        public int Current_row = 0;
-        public string flag_call = "";
-        public bool flag_return = false;
+        public int returnRowIndex = 0; 
+        public string flagCall = "";
+        public bool flagReturn = false;
 
         public frmQuotationFind()
         {
@@ -40,7 +40,7 @@ namespace cf01.Forms
             }
             //MessageBox.Show("test");
             //初始化列
-            Init_Column();
+            InitColumn();
 
             //PDD Remark是否可見。
             if (dgvDetails.Columns["remark_pdd"].Visible)
@@ -68,7 +68,7 @@ namespace cf01.Forms
 
         private void frmQutationFind_Load(object sender, EventArgs e)
         {            
-            if (flag_call == "")
+            if (flagCall == "")
             {
                 chkReturn.Checked = false;
                 chkReturn.Visible = false;
@@ -80,7 +80,7 @@ namespace cf01.Forms
                 btnReturn.Visible = true;
             }
            
-            flag_return = false;
+            flagReturn = false;
             //Select_All(false);//初始化時如表格有記錄,則取消全部打勾2022/11/18 canel
             //2022/11/23
             dtFind.Clear();
@@ -89,10 +89,10 @@ namespace cf01.Forms
 
         private void btnExit_Click(object sender, EventArgs e)
         {                        
-            if(flag_call == "Quotation")
+            if(flagCall == "Quotation")
             {
                 //ReturnToParent();
-                flag_return = false;
+                flagReturn = false;
                 this.Hide();
             }
             else
@@ -223,12 +223,12 @@ namespace cf01.Forms
         {
             if (dgvDetails.RowCount > 0)
             {
-                Current_row = dgvDetails.CurrentRow.Index;
-                lblOf.Text = (Current_row + 1).ToString() + " of " + dgvDetails.RowCount.ToString();               
+                returnRowIndex = dgvDetails.CurrentRow.Index;
+                lblOf.Text = (returnRowIndex + 1).ToString() + " of " + dgvDetails.RowCount.ToString();               
             }
             else
             {
-                Current_row = 0;               
+                returnRowIndex = 0;               
             }
                
         }
@@ -272,7 +272,7 @@ namespace cf01.Forms
 
         private void dgvDetails_DoubleClick(object sender, EventArgs e)
         {
-            //Current_row = dgvDetails.CurrentRow.Index;
+            //returnRowIndex = dgvDetails.CurrentRow.Index;
             //Close();
         }
 
@@ -286,7 +286,7 @@ namespace cf01.Forms
 
         private void frmQuotationFind_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (flag_call == "Quotation")
+            if (flagCall == "Quotation")
             {
                 //ReturnToParent();
                 this.Hide();
@@ -294,16 +294,16 @@ namespace cf01.Forms
         }
         private void ReturnToParent()
         {
-            flag_return = true;
+            flagReturn = true;
             dtReturn.Clear();
             if (dgvDetails.RowCount==0)
             {
-                Current_row = 0;
+                returnRowIndex = 0;
                 return;
             }            
             //處理當窗口關閉時返回給父窗本的數據
             txtMaterial.Focus();
-            //Current_row = dgvDetails.CurrentRow.Index; //記錄當前行2022/11/23
+            //returnRowIndex = dgvDetails.CurrentRow.Index; //記錄當前行2022/11/23
             int old_row_no = dgvDetails.CurrentRow.Index; //記錄當前行
             if (dgvDetails.SortOrder.ToString() != "None")
             {
@@ -311,7 +311,7 @@ namespace cf01.Forms
                 dtFind = dtFind.DefaultView.ToTable();
                 dgvDetails.DataSource = dtFind;
                 //dgvDetails數據源改變,焦點行已自動改變,需將更改前的當前行號重新賦值
-                Current_row = old_row_no;
+                returnRowIndex = old_row_no;
             }            
             if (chkReturn.Checked)
             {
@@ -329,7 +329,7 @@ namespace cf01.Forms
                     {                       
                         dtReturn.ImportRow(dr);
                     }                  
-                    Current_row = 0; //定位到第一行
+                    returnRowIndex = 0; //定位到第一行
                     ary_drs = null;
                 }
                 else
@@ -358,7 +358,7 @@ namespace cf01.Forms
         /// <summary>
         /// 初始化列
         /// </summary>
-        private void Init_Column()
+        private void InitColumn()
         {
             string strCol_id, strVisible;
             int column_width, column_sort;
@@ -815,7 +815,7 @@ namespace cf01.Forms
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            if (flag_call == "Quotation")
+            if (flagCall == "Quotation")
             {
                 ReturnToParent();
             }

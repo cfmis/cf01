@@ -18,12 +18,10 @@ using DevExpress.XtraEditors.Repository;
 namespace cf01.Forms
 {
 	public partial class frmQuotation_Group : Form
-	{
-
-		public string mID = "";    //臨時的主鍵值
-		public string mState = ""; //新增或編輯的狀態	
-		public bool save_flag;
-        public string group = "";
+	{		
+		string editState = ""; //新增或編輯的狀態	
+		bool saveFlag;
+        string group = "";
         	
 		DataTable dtGroup = new DataTable();
 		DataTable dtTempDel = new DataTable();
@@ -53,7 +51,7 @@ namespace cf01.Forms
             clLkpGroup.ValueMember = "id";
             clLkpGroup.DisplayMember = "id";
 
-            mState = "EDIT";			
+            editState = "EDIT";			
 		}
 
         private void Load_Data()
@@ -106,7 +104,7 @@ namespace cf01.Forms
 
 		private void AddNew_Item()
 		{
-			if (!String.IsNullOrEmpty(txtTemp_code.Text)) // 有內容
+			if (!string.IsNullOrEmpty(txtTemp_code.Text)) // 有內容
 			{
 				if (Check_Details_Valid())
 				{
@@ -142,7 +140,7 @@ namespace cf01.Forms
 				for (int i = 0; i < gridView1.RowCount; i++)
 				{
 					curRow = gridView1.GetRowHandle(i);
-					if (String.IsNullOrEmpty(gridView1.GetRowCellDisplayText(curRow, "group_id")))
+					if (string.IsNullOrEmpty(gridView1.GetRowCellDisplayText(curRow, "group_id")))
 					{
 						_flag = true;
 						MessageBox.Show("組別資料不可為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -165,9 +163,9 @@ namespace cf01.Forms
 			{
 				return;
 			}
-			save_flag = false;
+			saveFlag = false;
 			#region 保存編輯
-			if (mState == "EDIT")
+			if (editState == "EDIT")
 			{
 				string rowStatus = "";
 				string strSeq_id = "";
@@ -232,12 +230,12 @@ namespace cf01.Forms
 							}
 						}
 						myTrans.Commit(); //數據提交
-						save_flag = true;
+						saveFlag = true;
 					}
 					catch (Exception E)
 					{
 						myTrans.Rollback(); //數據回滾
-						save_flag = false;
+						saveFlag = false;
 						throw new Exception(E.Message);
 					}
 					finally
@@ -248,7 +246,7 @@ namespace cf01.Forms
 				}
 			}
 			#endregion
-			if (save_flag)
+			if (saveFlag)
 			{
                 dtGroup.AcceptChanges();//需加此語句，刷新dtGroup的新增個修改的狀態
                 MessageBox.Show("數據保存成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -311,11 +309,11 @@ namespace cf01.Forms
 		private bool Valid_Doc(string temp_doc,string seq_id) //主建是否已存在
 		{
 			bool flag;			
-            string strSql = String.Format("Select '1' FROM dbo.quotation_group WHERE temp_code='{0}' and seq_id='{1}'", temp_doc,seq_id);
+            string strSql = string.Format("Select '1' FROM dbo.quotation_group WHERE temp_code='{0}' and seq_id='{1}'", temp_doc,seq_id);
 			DataTable dt = clsPublicOfCF01.GetDataTable(strSql);            
 			if (dt.Rows.Count > 0)
 			{
-                MessageBox.Show("編號已存在：" + String.Format("【{0}】", txtTemp_code.Text), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("編號已存在：" + string.Format("【{0}】", txtTemp_code.Text), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				flag = true;
 			}
 			else
@@ -330,9 +328,9 @@ namespace cf01.Forms
 		{
 			DataTable dtMaxseq = new DataTable();
 
-            dtMaxseq = clsPublicOfCF01.GetDataTable(String.Format("SELECT MAX(seq_id) as seq_id FROM dbo.quotation_group with(nolock) WHERE temp_code ='{0}'", _id));
+            dtMaxseq = clsPublicOfCF01.GetDataTable(string.Format("SELECT MAX(seq_id) as seq_id FROM dbo.quotation_group with(nolock) WHERE temp_code ='{0}'", _id));
 			string strSeq;
-			if (String.IsNullOrEmpty(dtMaxseq.Rows[0]["seq_id"].ToString()))
+			if (string.IsNullOrEmpty(dtMaxseq.Rows[0]["seq_id"].ToString()))
 			{
 				strSeq = "001";
 			}
@@ -340,7 +338,7 @@ namespace cf01.Forms
 			{
 				strSeq = dtMaxseq.Rows[0]["seq_id"].ToString();
                 strSeq = strSeq.Substring(0, 3);				
-                strSeq = (Int32.Parse(strSeq) + 1).ToString("000");
+                strSeq = (int.Parse(strSeq) + 1).ToString("000");
 			}
 			dtMaxseq.Dispose();
 			return strSeq;
