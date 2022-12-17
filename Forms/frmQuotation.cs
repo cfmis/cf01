@@ -83,14 +83,15 @@ namespace cf01.Forms
             dgvDetails.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect; //因類clsControlInfoHelper的問題，此處重新恢覆整行選中的屬性
 
             const string strsql =
-            @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,convert(varchar(10),A.date,121) as date ,A.brand,A.brand_desc,A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,
-            A.number_enter,A.price_usd,A.price_hkd,A.price_rmb,A.hkd_ex_fty,A.price_unit,A.moq_below_over,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
+            @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,convert(varchar(10),A.date,121) as date ,A.brand,A.brand_desc,
+            A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,A.number_enter,
+            A.price_usd,A.price_hkd,A.price_rmb,A.price_vnd,A.hkd_ex_fty,A.price_unit,A.moq_below_over,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
             A.lead_time_unit,A.md_charge,A.md_charge_cny,A.md_charge_unit,A.die_mould_usd,A.die_mould_cny,A.valid_date,A.date_req,A.aw,A.status,A.pending,
             A.sample_request,A.needle_test,A.comment,A.remark,A.remark_other,A.remark_pdd,A.division,A.contact,A.crusr,A.crtim,A.amusr,A.amtim,A.flag_del,A.mo_id,A.id,A.temp_code,A.polo_care,A.moq_for_test,
             A.plm_code,trim_color_code,A.test_sample_hk,A.sms,A.sample_card,A.meeting_recap,A.usd_dap,A.usd_lab_test_prx,A.ex_fty_hkd,A.ex_fty_usd,
-            A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.usd_ex_fty,
+            A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.disc_price_vnd,A.usd_ex_fty,
             A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
-            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,A.price_vnd,A.disc_price_vnd,'' as flag_new
+            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
             WHERE 1=0";
@@ -524,6 +525,7 @@ namespace cf01.Forms
             BTNFIND.Enabled = _flag;
             BTNEXCEL.Enabled = _flag;
             BTNNEWCOPY.Enabled = _flag;
+            BTNCOPYVND.Enabled = _flag;
             BTNIMPORT.Enabled = _flag;
             BTNSAVE.Enabled = !_flag;
             BTNCANCEL.Enabled = !_flag;
@@ -1100,9 +1102,9 @@ namespace cf01.Forms
                     string strArtwork = artwork_code.Substring(0, 7);
                     string strSql = string.Format(
                         @"SELECT S.id,Max(S.picture_name) AS picture_name
-                              FROM (SELECT a.id, b.picture_name FROM cd_pattern a with(nolock),cd_pattern_details b with(nolock)
+                          FROM (SELECT a.id, b.picture_name FROM cd_pattern a with(nolock),cd_pattern_details b with(nolock)
 	                                WHERE a.within_code=b.within_code and a.id=b.id and a.within_code='0000' AND a.id='{0}' 
-                                   ) S
+                               ) S
                           WHERE S.picture_name>'' GROUP BY S.id", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);
@@ -1184,10 +1186,15 @@ namespace cf01.Forms
             //txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
             *///-end 
 
+            //復制新增(越南)的處理
             if (optionType == "1")
             {
-                //bp*(1+20%)
-                txtNumber_enter.EditValue = (clsApp.Return_Float_Value(pdr.Cells["number_enter"].Value.ToString()) * 1.20).ToString();
+                //bp*(1+20%) 
+                txtNumber_enter.EditValue = (Math.Round(clsApp.Return_Float_Value(pdr.Cells["number_enter"].Value.ToString()) * 1.20,2)).ToString();
+                //復制新增時暫時將原來值顯示出來
+                txtPrice_vnd.EditValue = pdr.Cells["price_vnd"].Value;
+                txtDisc_vnd.EditValue = pdr.Cells["disc_price_vnd"].Value;
+
                 CalcuPrice();
                 CalcuPriceDisc(txtDisc.Text);
                 txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
