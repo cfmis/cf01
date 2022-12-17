@@ -90,7 +90,7 @@ namespace cf01.Forms
             A.plm_code,trim_color_code,A.test_sample_hk,A.sms,A.sample_card,A.meeting_recap,A.usd_dap,A.usd_lab_test_prx,A.ex_fty_hkd,A.ex_fty_usd,
             A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.usd_ex_fty,
             A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
-            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new
+            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,A.price_vnd,A.disc_price_vnd,'' as flag_new
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
             WHERE 1=0";
@@ -278,6 +278,7 @@ namespace cf01.Forms
             txtPrice_usd.DataBindings.Add("Text", bds1, "price_usd");
             txtPrice_hkd.DataBindings.Add("Text", bds1, "price_hkd");
             txtPrice_rmb.DataBindings.Add("Text", bds1, "price_rmb");
+            txtPrice_vnd.DataBindings.Add("Text", bds1, "price_vnd");
             txtPrice_unit.DataBindings.Add("EditValue", bds1, "price_unit");
             txtSalesman.DataBindings.Add("Text", bds1, "salesman");
             cmbmoq_below_over.DataBindings.Add("EditValue", bds1, "moq_below_over");
@@ -331,6 +332,7 @@ namespace cf01.Forms
             txtDisc_usd.DataBindings.Add("EditValue", bds1, "disc_price_usd");
             txtDisc_hkd.DataBindings.Add("EditValue", bds1, "disc_price_hkd"); 
             txtDisc_rmb.DataBindings.Add("EditValue", bds1, "disc_price_rmb");
+            txtDisc_vnd.DataBindings.Add("EditValue", bds1, "disc_price_vnd");
             txtDisc_hkd_ex_fty.DataBindings.Add("EditValue", bds1, "disc_hkd_ex_fty");
             txtReason_edit.DataBindings.Add("EditValue", bds1, "reason_edit"); 
 
@@ -383,9 +385,12 @@ namespace cf01.Forms
                 txtPrice_hkd.EditValue = objResult.price_hkd;
                 txtHkd_ex_fty.EditValue = objResult.hkd_ex_fty;
                 txtUsd_ex_fty.EditValue = objResult.usd_ex_fty;
+                txtPrice_vnd.EditValue = objResult.price_vnd;
                 //如果用戶改了折扣率則以用戶的為主，否則用公式中的折扣率
-                if (clsApp.Return_Float_Value(txtDisc.Text)==0)
+                if (clsApp.Return_Float_Value(txtDisc.Text) == 0)
+                {
                     txtDisc.EditValue = objResult.discount;
+                }
 
                 //2016.10.28取消
                 //txtPrice_usd.EditValue = objResult.price_usd;
@@ -720,7 +725,8 @@ namespace cf01.Forms
                     number_enter,hkd_ex_fty,date_req,aw,status,sample_request,
                     needle_test,ver,crusr,crtim,comment,remark_pdd,mo_id,polo_care,moq_for_test,plm_code,trim_color_code,
                     test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,
-                    discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,labtest_prod_type,termremark,pending,remark_pdd_dg,ref_temp_code)
+                    discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,labtest_prod_type,termremark,
+                    pending,remark_pdd_dg,ref_temp_code,price_vnd,disc_price_vnd)
             VALUES(@sales_group,@temp_code,CASE LEN(@date) WHEN 0 THEN null ELSE @date END,@brand,@brand_desc,@formula_id,@season,@season_desc,@division,@contact,@material,@size,@product_desc,
                     @cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq_below_over,@moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,
                     @lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@md_charge_unit,@remark,@remark_other,@die_mould_usd,@die_mould_cny,@account_code,
@@ -728,7 +734,8 @@ namespace cf01.Forms
                     @number_enter,@hkd_ex_fty,@date_req,@aw,@status,@sample_request,
                     @needle_test,@ver,@user_id,getdate(),@comment,@remark_pdd,@mo_id,@polo_care,@moq_for_test,@plm_code,@trim_color_code,
                     @test_sample_hk,@sms,@sample_card,@meeting_recap,@usd_dap,@usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,
-                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark,@pending,@remark_pdd_dg,@ref_temp_code)";
+                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark,
+                    @pending,@remark_pdd_dg,@ref_temp_code,@price_vnd,@disc_price_vnd)";
             const string sql_update =
             @"UPDATE quotation 
             SET sales_group=@sales_group,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,season=@season,season_desc=@season_desc,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
@@ -739,7 +746,7 @@ namespace cf01.Forms
                 needle_test=@needle_test,ver=@ver,amusr=@user_id,amtim=Getdate(),comment=@comment,remark_pdd=@remark_pdd,mo_id=@mo_id,polo_care=@polo_care,moq_for_test=@moq_for_test,
                 plm_code=@plm_code,trim_color_code=@trim_color_code,test_sample_hk=@test_sample_hk,sms=@sms,sample_card=@sample_card,meeting_recap=@meeting_recap,usd_dap=@usd_dap,usd_lab_test_prx=@usd_lab_test_prx,ex_fty_hkd=@ex_fty_hkd,ex_fty_usd=@ex_fty_usd,
                 discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty,usd_ex_fty=@usd_ex_fty,reason_edit=@reason_edit,rmb_remark=@rmb_remark,special_price=@special_price,cust_artwork=@cust_artwork,cost_price=@cost_price,
-                labtest_prod_type=@labtest_prod_type,termremark=@termremark,pending=@pending,remark_pdd_dg=@remark_pdd_dg,ref_temp_code=@ref_temp_code
+                labtest_prod_type=@labtest_prod_type,termremark=@termremark,pending=@pending,remark_pdd_dg=@remark_pdd_dg,ref_temp_code=@ref_temp_code,price_vnd=@price_vnd,disc_price_vnd=@disc_price_vnd
             WHERE temp_code=@temp_code";
 
             //組別設置
@@ -842,6 +849,9 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@disc_price_rmb", clsApp.Return_Float_Value(txtDisc_rmb.Text));
                     myCommand.Parameters.AddWithValue("@disc_hkd_ex_fty", clsApp.Return_Float_Value(txtDisc_hkd_ex_fty.Text));
                     myCommand.Parameters.AddWithValue("@usd_ex_fty", clsApp.Return_Float_Value(txtUsd_ex_fty.Text));
+                    myCommand.Parameters.AddWithValue("@price_vnd", clsApp.Return_Float_Value(txtPrice_vnd.Text));
+                    myCommand.Parameters.AddWithValue("@disc_price_vnd", clsApp.Return_Float_Value(txtDisc_vnd.Text));
+                    //price_vnd,disc_price_vnd
                     myCommand.Parameters.AddWithValue("@reason_edit", txtReason_edit.EditValue);
                     //txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
                     myCommand.Parameters.AddWithValue("@rmb_remark", txtRmb_remark.Text);
@@ -1126,7 +1136,7 @@ namespace cf01.Forms
         }
 
         #region  Sethead 設置主檔
-        private void Sethead(DataGridViewRow pdr)
+        private void Sethead(DataGridViewRow pdr,string optionType)
         {            
             txtID.EditValue = pdr.Cells["id"].Value.ToString();
             txtSales_group.EditValue = pdr.Cells["sales_group"].Value.ToString();
@@ -1173,6 +1183,15 @@ namespace cf01.Forms
             //txtDisc_hkd_ex_fty.EditValue = pdr.Cells["disc_hkd_ex_fty"].Value;
             //txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
             *///-end 
+
+            if (optionType == "1")
+            {
+                //bp*(1+20%)
+                txtNumber_enter.EditValue = (clsApp.Return_Float_Value(pdr.Cells["number_enter"].Value.ToString()) * 1.20).ToString();
+                CalcuPrice();
+                CalcuPriceDisc(txtDisc.Text);
+                txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
+            }
 
             txtSalesman.Text = pdr.Cells["salesman"].Value.ToString(); 
             cmbmoq_below_over.EditValue= pdr.Cells["moq_below_over"].Value.ToString();
@@ -1624,7 +1643,7 @@ namespace cf01.Forms
 
                 AddNew();
                 editStateCopy = "NEWCOPY";
-                Sethead(dgvrow);
+                Sethead(dgvrow,"0");
                 txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
                 txtCrusr.Text = DBUtility._user_id;
@@ -1661,26 +1680,57 @@ namespace cf01.Forms
             }
         }
 
+        private void BTNCOPYVND_Click(object sender, EventArgs e)
+        {
+            SetResetID();//保存取消還原的ID
+            if (dgvDetails.RowCount > 0)
+            {
+                dtDetail = dtDetail.DefaultView.ToTable();
+                //bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
+                bds1.DataSource = dtDetail;
+                dgvDetails.DataSource = bds1;
+
+                oldTempCode = txtTemp_code.Text;
+                dgvrow = dgvDetails.CurrentRow;
+
+                AddNew();
+                editStateCopy = "NEWCOPY";
+                Sethead(dgvrow,"1");
+                txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
+                txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
+                txtCrusr.Text = DBUtility._user_id;
+                txtCrtim.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
+
+                txtVersion.Text = "0";
+                txtID.EditValue = "";
+                tabPage2.Parent = null;
+            }
+            else
+            {
+                MessageBox.Show("註意:當前數據爲空格,或者請首先將當前光標定位到要覆制的行!", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
         //private void txtTemp_code_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         //{
-            //if (editState== "NEW" || editState== "EDIT")
-            //{
-            //    string strsql = @"SELECT pkey,ISNULL(bill_code,'') AS bill_code,bill_text1 FROM sys_bill_max WHERE bill_id='QUA'";
-            //    System.Data.DataTable dt = clsPublicOfCF01.GetDataTable(strsql);
-            //    string strMax = "";
-            //    string strBill = dt.Rows[0]["bill_text1"].ToString().Trim();
-            //    strMax = dt.Rows[0]["bill_code"].ToString();
-            //    strMax = strMax.Substring(2, 7);
-            //    strMax = strBill + (Convert.ToInt32(strMax) + 1).ToString("0000000");
-            //    strsql = @"Update sys_bill_max SET bill_code=@bill_code WHERE pkey=@pkey";
-            //    SqlParameter[] para = new SqlParameter[]{
-            //        new SqlParameter("@bill_code",strMax),
-            //        new SqlParameter("@pkey",dt.Rows[0]["pkey"])
-            //    };
-            //    clsPublicOfCF01.ExecuteNonQuery(strsql, para, false);
-            //    txtTemp_code.Text = strMax;
-            //}
-       // }
+        //if (editState== "NEW" || editState== "EDIT")
+        //{
+        //    string strsql = @"SELECT pkey,ISNULL(bill_code,'') AS bill_code,bill_text1 FROM sys_bill_max WHERE bill_id='QUA'";
+        //    System.Data.DataTable dt = clsPublicOfCF01.GetDataTable(strsql);
+        //    string strMax = "";
+        //    string strBill = dt.Rows[0]["bill_text1"].ToString().Trim();
+        //    strMax = dt.Rows[0]["bill_code"].ToString();
+        //    strMax = strMax.Substring(2, 7);
+        //    strMax = strBill + (Convert.ToInt32(strMax) + 1).ToString("0000000");
+        //    strsql = @"Update sys_bill_max SET bill_code=@bill_code WHERE pkey=@pkey";
+        //    SqlParameter[] para = new SqlParameter[]{
+        //        new SqlParameter("@bill_code",strMax),
+        //        new SqlParameter("@pkey",dt.Rows[0]["pkey"])
+        //    };
+        //    clsPublicOfCF01.ExecuteNonQuery(strsql, para, false);
+        //    txtTemp_code.Text = strMax;
+        //}
+        // }
 
         private void chkConvert_CheckedChanged(object sender, EventArgs e)
         {
@@ -2420,12 +2470,14 @@ namespace cf01.Forms
                 objResult.price_usd = 0;
                 objResult.price_hkd = 0;
                 objResult.price_rmb = 0;
+                objResult.price_vnd = 0;
                 objResult.hkd_ex_fty = 0;
                 objResult.usd_ex_fty = 0;
             }
             gridView1.SetRowCellValue(i, "price_usd", objResult.price_usd);
             gridView1.SetRowCellValue(i, "price_rmb", objResult.price_rmb);
             gridView1.SetRowCellValue(i, "price_hkd", objResult.price_hkd);
+            gridView1.SetRowCellValue(i, "price_vnd", objResult.price_vnd);
             gridView1.SetRowCellValue(i, "hkd_ex_fty", objResult.hkd_ex_fty);
             gridView1.SetRowCellValue(i, "usd_ex_fty", objResult.usd_ex_fty);
 
@@ -2441,6 +2493,7 @@ namespace cf01.Forms
             gridView1.SetRowCellValue(i, "disc_price_usd", objResult.disc_price_usd);
             gridView1.SetRowCellValue(i, "disc_price_rmb", objResult.disc_price_rmb);
             gridView1.SetRowCellValue(i, "disc_price_hkd", objResult.disc_price_hkd);
+            gridView1.SetRowCellValue(i, "disc_price_vnd", objResult.disc_price_vnd);
             gridView1.SetRowCellValue(i, "disc_hkd_ex_fty", objResult.disc_hkd_ex_fty);
         }
                
@@ -2454,12 +2507,14 @@ namespace cf01.Forms
             objDisc.price_usd = float.Parse(gridView1.GetRowCellValue(i, "price_usd").ToString()); ; //clsApp.Return_Float_Value(txtPrice_usd.Text);
             objDisc.price_hkd = float.Parse(gridView1.GetRowCellValue(i, "price_hkd").ToString());
             objDisc.price_rmb = float.Parse(gridView1.GetRowCellValue(i, "price_rmb").ToString());
+            objDisc.price_vnd = float.Parse(gridView1.GetRowCellValue(i, "price_vnd").ToString());
             objDisc.hkd_ex_fty = float.Parse(gridView1.GetRowCellValue(i, "hkd_ex_fty").ToString());
             objDisc = clsQuotation.Get_Cust_Formula_Disc(brand_id, strDisc, objDisc, txtPrice_unit.EditValue.ToString());
 
             gridView1.SetRowCellValue(i, "disc_price_usd", objDisc.disc_price_usd);
             gridView1.SetRowCellValue(i, "disc_price_rmb", objDisc.disc_price_rmb);
             gridView1.SetRowCellValue(i, "disc_price_hkd", objDisc.disc_price_hkd);
+            gridView1.SetRowCellValue(i, "disc_price_vnd", objDisc.disc_price_vnd);
             gridView1.SetRowCellValue(i, "disc_hkd_ex_fty", objDisc.disc_hkd_ex_fty);
         }
 
@@ -2510,6 +2565,7 @@ namespace cf01.Forms
                         price_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_usd"].Value.ToString()),
                         price_hkd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_hkd"].Value.ToString()),
                         price_rmb = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_rmb"].Value.ToString()),
+                        price_vnd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["price_vnd"].Value.ToString()),
                         moq = Int32.Parse(dgvDetails.Rows[i].Cells["moq"].Value.ToString()),
                         price_unit = dgvDetails.Rows[i].Cells["price_unit"].Value.ToString(),
                         temp_code = dgvDetails.Rows[i].Cells["temp_code"].Value.ToString(),
@@ -2539,7 +2595,8 @@ namespace cf01.Forms
                         disc_price_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_price_usd"].Value.ToString()),
                         disc_price_hkd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_price_hkd"].Value.ToString()),
                         disc_price_rmb = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_price_rmb"].Value.ToString()),
-                        disc_hkd_ex_fty = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_hkd_ex_fty"].Value.ToString()),
+                        disc_price_vnd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_price_vnd"].Value.ToString()),
+                        disc_hkd_ex_fty = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["disc_hkd_ex_fty"].Value.ToString()),                        
                         die_mould_usd = clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["die_mould_usd"].Value.ToString()),
                         die_mould_cny = dgvDetails.Rows[i].Cells["die_mould_cny"].Value.ToString(),
                         rmb_remark = dgvDetails.Rows[i].Cells["rmb_remark"].Value.ToString(),
@@ -2693,12 +2750,14 @@ namespace cf01.Forms
             objDisc.price_hkd = clsApp.Return_Float_Value(txtPrice_hkd.Text);
             objDisc.price_rmb = clsApp.Return_Float_Value(txtPrice_rmb.Text);
             objDisc.hkd_ex_fty = clsApp.Return_Float_Value(txtHkd_ex_fty.Text);
+            objDisc.price_vnd = clsApp.Return_Float_Value(txtPrice_vnd.Text);
             objDisc = clsQuotation.Get_Cust_Formula_Disc(txtBrand.EditValue.ToString(), pDisc, objDisc, txtPrice_unit.EditValue.ToString());
 
             txtDisc_usd.Text = objDisc.disc_price_usd.ToString();
             txtDisc_hkd.Text = objDisc.disc_price_hkd.ToString();
             txtDisc_rmb.Text = objDisc.disc_price_rmb.ToString();
             txtDisc_hkd_ex_fty.Text = objDisc.disc_hkd_ex_fty.ToString();
+            txtDisc_vnd.Text = objDisc.disc_price_vnd.ToString();
         }
 
 
@@ -2854,7 +2913,14 @@ namespace cf01.Forms
                     txtHkd_ex_fty.EditValue = objTextEdit.EditValue;
                 else
                     txtHkd_ex_fty.EditValue = fvalue;
-            } 
+            }
+            if (str == "txtPrice_vnd")
+            {
+                if (fDisc == 0)
+                    txtDisc_vnd.EditValue = objTextEdit.EditValue;
+                else
+                    txtDisc_vnd.EditValue = fvalue;
+            }
         }
 
         private void txtPrice_usd_Leave(object sender, EventArgs e)
@@ -2889,6 +2955,13 @@ namespace cf01.Forms
             }
         }
 
+        private void txtPrice_vnd_Leave(object sender, EventArgs e)
+        {
+            if (editState != "")
+            {
+                RetSet_Discount_Price(txtPrice_vnd);
+            }
+        }
         private void BTNFORMULA_Click(object sender, EventArgs e)
         {
             if (chkRmb.Checked == false && chkAllPrice.Checked == false)

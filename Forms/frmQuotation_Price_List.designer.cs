@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPriceList = new System.Windows.Forms.DataGridView();
             this.dgvSub = new System.Windows.Forms.DataGridView();
             this.seq_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +87,7 @@
             this.price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +95,7 @@
             this.disc_price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disc_price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rmb_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark_pdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,6 +124,7 @@
             this.price_usd,
             this.price_hkd,
             this.price_rmb,
+            this.price_vnd,
             this.hkd_ex_fty,
             this.usd_ex_fty,
             this.price_unit,
@@ -128,6 +132,7 @@
             this.disc_price_usd,
             this.disc_price_hkd,
             this.disc_price_rmb,
+            this.disc_price_vnd,
             this.disc_hkd_ex_fty,
             this.rmb_remark,
             this.remark_pdd,
@@ -330,9 +335,9 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "discount";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn10.HeaderText = "Discount (%)";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -342,8 +347,8 @@
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "disc_price_usd";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn11.HeaderText = "Discounted USD";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -353,8 +358,8 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "disc_price_hkd";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn12.HeaderText = "Discounted HKD";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -364,8 +369,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "disc_price_rmb";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn13.HeaderText = "Discounted RMB";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -375,8 +380,8 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "disc_hkd_ex_fty";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn14.HeaderText = "Discounted HKD Ex-Fty";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -564,6 +569,14 @@
             this.price_rmb.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.price_rmb.Width = 55;
             // 
+            // price_vnd
+            // 
+            this.price_vnd.DataPropertyName = "price_vnd";
+            this.price_vnd.HeaderText = "VND";
+            this.price_vnd.Name = "price_vnd";
+            this.price_vnd.ReadOnly = true;
+            this.price_vnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // hkd_ex_fty
             // 
             this.hkd_ex_fty.DataPropertyName = "hkd_ex_fty";
@@ -636,11 +649,21 @@
             this.disc_price_rmb.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.disc_price_rmb.Width = 65;
             // 
+            // disc_price_vnd
+            // 
+            this.disc_price_vnd.DataPropertyName = "disc_price_vnd";
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.disc_price_vnd.DefaultCellStyle = dataGridViewCellStyle5;
+            this.disc_price_vnd.HeaderText = "Discounted VND";
+            this.disc_price_vnd.Name = "disc_price_vnd";
+            this.disc_price_vnd.ReadOnly = true;
+            this.disc_price_vnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // disc_hkd_ex_fty
             // 
             this.disc_hkd_ex_fty.DataPropertyName = "disc_hkd_ex_fty";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.disc_hkd_ex_fty.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            this.disc_hkd_ex_fty.DefaultCellStyle = dataGridViewCellStyle6;
             this.disc_hkd_ex_fty.HeaderText = "Discounted HKD Ex-Fty";
             this.disc_hkd_ex_fty.Name = "disc_hkd_ex_fty";
             this.disc_hkd_ex_fty.ReadOnly = true;
@@ -678,10 +701,10 @@
             // ref_temp_code
             // 
             this.ref_temp_code.DataPropertyName = "ref_temp_code";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.ref_temp_code.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.ref_temp_code.DefaultCellStyle = dataGridViewCellStyle7;
             this.ref_temp_code.HeaderText = "Ref Temp Code";
             this.ref_temp_code.Name = "ref_temp_code";
             this.ref_temp_code.ReadOnly = true;
@@ -791,6 +814,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_usd;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
@@ -798,6 +822,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_usd;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_rmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_vnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn rmb_remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_pdd;

@@ -102,6 +102,7 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,6 +144,7 @@
             this.disc_price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disc_price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disc_hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actual_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,9 +157,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtQuotation1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -175,7 +177,7 @@
             // 
             // label13
             // 
-            this.label13.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label13.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label13.Location = new System.Drawing.Point(20, 82);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(80, 15);
@@ -245,7 +247,7 @@
             // 
             // lblMO
             // 
-            this.lblMO.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMO.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblMO.Location = new System.Drawing.Point(20, 58);
             this.lblMO.Name = "lblMO";
             this.lblMO.Size = new System.Drawing.Size(80, 15);
@@ -284,7 +286,7 @@
             // 
             // lblData1
             // 
-            this.lblData1.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblData1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblData1.Location = new System.Drawing.Point(20, 35);
             this.lblData1.Name = "lblData1";
             this.lblData1.Size = new System.Drawing.Size(80, 15);
@@ -300,11 +302,11 @@
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat2.Size = new System.Drawing.Size(127, 20);
             this.txtDat2.TabIndex = 180;
             this.txtDat2.Tag = "2";
@@ -317,11 +319,11 @@
             this.txtDat1.Name = "txtDat1";
             this.txtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtDat1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDat1.Size = new System.Drawing.Size(127, 20);
             this.txtDat1.TabIndex = 179;
             this.txtDat1.Tag = "2";
@@ -351,8 +353,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnOk);
@@ -408,15 +410,14 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -442,6 +443,7 @@
             this.Column18,
             this.Column19,
             this.Column20,
+            this.price_vnd,
             this.Column21,
             this.Column22,
             this.Column23,
@@ -483,6 +485,7 @@
             this.disc_price_usd,
             this.disc_price_hkd,
             this.disc_price_rmb,
+            this.disc_price_vnd,
             this.disc_hkd_ex_fty,
             this.remark_other,
             this.actual_price,
@@ -491,7 +494,7 @@
             this.die_mould_cny});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -501,7 +504,7 @@
             this.dgvDetails.Name = "dgvDetails";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -914,6 +917,14 @@
             this.Column20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column20.Width = 60;
             // 
+            // price_vnd
+            // 
+            this.price_vnd.DataPropertyName = "price_vnd";
+            this.price_vnd.HeaderText = "Price VND";
+            this.price_vnd.Name = "price_vnd";
+            this.price_vnd.ReadOnly = true;
+            this.price_vnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // Column21
             // 
             this.Column21.DataPropertyName = "moq";
@@ -1218,6 +1229,7 @@
             this.disc_price_usd.HeaderText = "Disc USD";
             this.disc_price_usd.Name = "disc_price_usd";
             this.disc_price_usd.ReadOnly = true;
+            this.disc_price_usd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // disc_price_hkd
             // 
@@ -1225,6 +1237,7 @@
             this.disc_price_hkd.HeaderText = "Disc HKD";
             this.disc_price_hkd.Name = "disc_price_hkd";
             this.disc_price_hkd.ReadOnly = true;
+            this.disc_price_hkd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // disc_price_rmb
             // 
@@ -1232,6 +1245,15 @@
             this.disc_price_rmb.HeaderText = "Disc RMB";
             this.disc_price_rmb.Name = "disc_price_rmb";
             this.disc_price_rmb.ReadOnly = true;
+            this.disc_price_rmb.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // disc_price_vnd
+            // 
+            this.disc_price_vnd.DataPropertyName = "disc_price_vnd";
+            this.disc_price_vnd.HeaderText = "Disc VND";
+            this.disc_price_vnd.Name = "disc_price_vnd";
+            this.disc_price_vnd.ReadOnly = true;
+            this.disc_price_vnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // disc_hkd_ex_fty
             // 
@@ -1239,6 +1261,7 @@
             this.disc_hkd_ex_fty.HeaderText = "Disc HKD Ex-Fty";
             this.disc_hkd_ex_fty.Name = "disc_hkd_ex_fty";
             this.disc_hkd_ex_fty.ReadOnly = true;
+            this.disc_hkd_ex_fty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // remark_other
             // 
@@ -1294,9 +1317,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtQuotation1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCust_id1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1376,6 +1399,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
@@ -1417,6 +1441,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_usd;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_rmb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disc_price_vnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn disc_hkd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark_other;
         private System.Windows.Forms.DataGridViewTextBoxColumn actual_price;

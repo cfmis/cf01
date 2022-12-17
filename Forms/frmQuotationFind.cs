@@ -37,8 +37,7 @@ namespace cf01.Forms
                 {
                     txtSales_group.Items.Add(dtSales_Group.Rows[i][0].ToString());
                 }
-            }
-            //MessageBox.Show("test");
+            }           
             //初始化列
             InitColumn();
 
@@ -156,7 +155,8 @@ namespace cf01.Forms
                        new SqlParameter("@include_mat","1"),
                        new SqlParameter("@include_brand","1"),
                        new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
-                       new SqlParameter("@account_code",txtAccount_Code.Text)
+                       new SqlParameter("@account_code",txtAccount_Code.Text),
+                       new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0")
             };
 
             //是示查詢進度

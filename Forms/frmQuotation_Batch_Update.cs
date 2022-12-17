@@ -124,7 +124,8 @@ namespace cf01.Forms
                 new SqlParameter("@remark",txtRmk.Text),
                 new SqlParameter("@other_remark",txtRmk_other.Text),
                 new SqlParameter("@remark_for_pdd",txtRmk_pdd.Text),
-                new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0")
+                new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
+                new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0")
 
             };
             dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find_batch_update", paras);

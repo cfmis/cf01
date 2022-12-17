@@ -411,9 +411,9 @@ namespace cf01.CLS
             if (dt.Rows.Count == 0)
             {
                 if (DBUtility._user_id.ToUpper() != "ADMIN")
-                    clsName.Visible = false;
+                    clsName.Visible = false;//不可見
                 else
-                    clsName.Visible = true;
+                    clsName.Visible = true;//可見
             }
             else
                 clsName.Visible = true;
@@ -519,7 +519,9 @@ namespace cf01.CLS
             }
             else
             {
-                string strSql = string.Format(@"SELECT brand_id,usd1,usd2,isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount FROM dbo.quotation_formula WHERE brand_id='{0}'", strFormula_id);
+                string strSql = string.Format(
+                    @"SELECT brand_id,usd1,usd2,isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount FROM dbo.quotation_formula WHERE brand_id='{0}'",
+                    strFormula_id);
                 dt = clsPublicOfCF01.GetDataTable(strSql);
                 //牌子非空，且找不到對應參數時重取默認的公共參數
                 if (dt.Rows.Count == 0)
@@ -533,8 +535,9 @@ namespace cf01.CLS
                 objResult.price_usd = 0;
                 objResult.price_hkd = 0;
                 objResult.price_rmb = 0;
+                objResult.price_vnd = 0;
                 objResult.hkd_ex_fty = 0;
-                objResult.usd_ex_fty = 0;
+                objResult.usd_ex_fty = 0;                               
                 objResult.discount = 0;
             }
             float bp, usd1, usd2, rmb1, rmb2, hkd1, hkd2, usd3, discount;
@@ -602,7 +605,7 @@ namespace cf01.CLS
             else
                 objResult.price_hkd = 0;
 
-            //HKD EX-FTY 公式：HKD$ *0.9           
+            //HKD EX-FTY 公式：HKD$ *0.9
             if (objResult.price_hkd > 0)
                 number_input = objResult.price_hkd;
             else

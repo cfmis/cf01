@@ -336,12 +336,7 @@ namespace cf01.Forms
         {
             if (mState == "" && !string.IsNullOrEmpty(txtID.Text))
             {
-                get_print_data();
-                //Load_Data();//只列印當前報價單
-                //if (dgvFind.RowCount > 0)
-                //{
-                //    Print();
-                //}
+                get_print_data();               
             }
             else
             {
@@ -412,6 +407,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_usd", stu.price_usd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_hkd", stu.price_hkd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_rmb", stu.price_rmb);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_vnd", stu.price_vnd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "moq", stu.moq);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_unit", stu.price_unit);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "remark", stu.remark);
@@ -443,6 +439,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "disc_price_usd", stu.disc_price_usd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "disc_price_hkd", stu.disc_price_hkd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "disc_price_rmb", stu.disc_price_rmb);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "disc_price_vnd", stu.disc_price_vnd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "disc_hkd_ex_fty", stu.disc_hkd_ex_fty);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "die_mould_usd", stu.die_mould_usd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "die_mould_cny", stu.die_mould_cny);
@@ -707,13 +704,13 @@ namespace cf01.Forms
             //新增明細表
             const string sql_detail_insert =
                 @"INSERT INTO dbo.quotation_details(id,version,seq_id,brand,division,contact,material,size,product_desc,cust_code,cf_code,
-                    cust_color,cf_color,price_usd,price_hkd,price_rmb,moq,price_unit,remark,temp_code,ver,moq_desc,moq_unit,season,salesman,mwq,lead_time_min,lead_time_max,lead_time_unit,md_charge,md_charge_cny,moq_for_test,
-                    number_enter,hkd_ex_fty,usd_ex_fty,sales_group,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty,actual_price,actual_price_type,
+                    cust_color,cf_color,price_usd,price_hkd,price_rmb,price_vnd,moq,price_unit,remark,temp_code,ver,moq_desc,moq_unit,season,salesman,mwq,lead_time_min,lead_time_max,lead_time_unit,md_charge,md_charge_cny,moq_for_test,
+                    number_enter,hkd_ex_fty,usd_ex_fty,sales_group,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_price_vnd,disc_hkd_ex_fty,actual_price,actual_price_type,
                     die_mould_usd,die_mould_cny,rmb_remark,cust_artwork) 
 					VALUES (@id,@version,@seq_id,@brand,@division,@contact,@material,@size,@product_desc,@cust_code,@cf_code,@cust_color,@cf_color,
-                    @price_usd,@price_hkd,@price_rmb,@moq,@price_unit,@remark,@temp_code,@ver,@moq_desc,@moq_unit,
+                    @price_usd,@price_hkd,@price_rmb,@price_vnd,@moq,@price_unit,@remark,@temp_code,@ver,@moq_desc,@moq_unit,
                     @season,@salesman,@mwq,@lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@moq_for_test,@number_enter,@hkd_ex_fty,@usd_ex_fty,@sales_group,@usd_dap,@usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,
-                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_hkd_ex_fty,@actual_price,@actual_price_type,@die_mould_usd,@die_mould_cny,@rmb_remark,@cust_artwork)";
+                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_price_vnd,@disc_hkd_ex_fty,@actual_price,@actual_price_type,@die_mould_usd,@die_mould_cny,@rmb_remark,@cust_artwork)";
             //更新主表
             const string sql_update =
                 @"UPDATE dbo.quotation_mostly
@@ -730,7 +727,8 @@ namespace cf01.Forms
                         number_enter=@number_enter,hkd_ex_fty=@hkd_ex_fty,usd_ex_fty=@usd_ex_fty,sales_group=@sales_group,
                         usd_dap=@usd_dap,usd_lab_test_prx=@usd_lab_test_prx,ex_fty_hkd=@ex_fty_hkd,ex_fty_usd=@ex_fty_usd,
                         discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty,
-                        actual_price=@actual_price,actual_price_type=@actual_price_type,die_mould_usd=@die_mould_usd,die_mould_cny=@die_mould_cny,rmb_remark=@rmb_remark,cust_artwork=@cust_artwork
+                        actual_price=@actual_price,actual_price_type=@actual_price_type,die_mould_usd=@die_mould_usd,die_mould_cny=@die_mould_cny,
+                        rmb_remark=@rmb_remark,cust_artwork=@cust_artwork,price_vnd=@price_vnd,disc_price_vnd=@disc_price_vnd
 					WHERE id=@id AND version=@version AND seq_id=@seq_id";
             const string sql_item_d = @"DELETE FROM dbo.quotation_details WHERE id=@id AND version=@version AND seq_id=@seq_id";
 
@@ -844,6 +842,7 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@price_usd", Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString()));
                                 myCommand.Parameters.AddWithValue("@price_hkd", Return_Float_Value(dtQuotation_details.Rows[i]["price_hkd"].ToString()));
                                 myCommand.Parameters.AddWithValue("@price_rmb", Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString()));
 
                                 myCommand.Parameters.AddWithValue("@moq", dtQuotation_details.Rows[i]["moq"]);
                                 myCommand.Parameters.AddWithValue("@price_unit", dtQuotation_details.Rows[i]["price_unit"].ToString());
@@ -876,6 +875,7 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@disc_price_usd", dtQuotation_details.Rows[i]["disc_price_usd"]);
                                 myCommand.Parameters.AddWithValue("@disc_price_hkd", dtQuotation_details.Rows[i]["disc_price_hkd"]);
                                 myCommand.Parameters.AddWithValue("@disc_price_rmb", dtQuotation_details.Rows[i]["disc_price_rmb"]);
+                                myCommand.Parameters.AddWithValue("@disc_price_vnd", dtQuotation_details.Rows[i]["disc_price_vnd"]);
                                 myCommand.Parameters.AddWithValue("@disc_hkd_ex_fty", dtQuotation_details.Rows[i]["disc_hkd_ex_fty"]);
                                 //實際報價
                                 myCommand.Parameters.AddWithValue("@actual_price", dtQuotation_details.Rows[i]["actual_price"]);
@@ -1206,7 +1206,8 @@ namespace cf01.Forms
                        new SqlParameter("@include_mat","1"),
                        new SqlParameter("@include_brand","1"),
                        new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
-                       new SqlParameter("@account_code",txtAccount_Code.Text)
+                       new SqlParameter("@account_code",txtAccount_Code.Text),
+                       new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0"),
             };
 
             frmProgress wForm = new frmProgress();
@@ -1474,7 +1475,7 @@ namespace cf01.Forms
             B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, B.number_enter,            
             B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,B.sales_group,
             B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_cny,
-            '' AS polo_care,isnull(D.moq_desc,'') AS moqdesc,B.rmb_remark,B.cust_artwork
+            '' AS polo_care,isnull(D.moq_desc,'') AS moqdesc,B.rmb_remark,B.cust_artwork,B.price_vnd,B.disc_price_vnd 
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
                 LEFT JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
@@ -1575,10 +1576,7 @@ namespace cf01.Forms
                     for (int i = 0; i < ofrmCopy.dr_copy.Length; i++)
                     {
                         if (i == 0)
-                        {
-                            //strDate = ofrmCopy.dr_copy[0]["quota_date"].ToString();
-                            //strDate = DateTime.Parse(strDate).ToString("yyyy-MM-dd");                           
-                            //txtDate.EditValue = strDate;
+                        {                            
                             txtDate.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
                             txtCustomer_id.EditValue = ofrmCopy.dr_copy[0]["customer_id"].ToString();
                             txtCust_desc.Text = ofrmCopy.dr_copy[0]["name_customer"].ToString();
@@ -1628,6 +1626,7 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "price_usd", ofrmCopy.dr_copy[i]["price_usd"]);
                         gridView1.SetRowCellValue(cur_row, "price_hkd", ofrmCopy.dr_copy[i]["price_hkd"]);
                         gridView1.SetRowCellValue(cur_row, "price_rmb", ofrmCopy.dr_copy[i]["price_rmb"]);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd", ofrmCopy.dr_copy[i]["price_vnd"]);
                         gridView1.SetRowCellValue(cur_row, "moq", ofrmCopy.dr_copy[i]["moq"]);
                         gridView1.SetRowCellValue(cur_row, "price_unit", ofrmCopy.dr_copy[i]["price_unit"].ToString());
                         gridView1.SetRowCellValue(cur_row, "remark", ofrmCopy.dr_copy[i]["remark"].ToString());
@@ -1657,6 +1656,7 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "disc_price_usd", ofrmCopy.dr_copy[i]["disc_price_usd"]);
                         gridView1.SetRowCellValue(cur_row, "disc_price_hkd", ofrmCopy.dr_copy[i]["disc_price_hkd"]);
                         gridView1.SetRowCellValue(cur_row, "disc_price_rmb", ofrmCopy.dr_copy[i]["disc_price_rmb"]);
+                        gridView1.SetRowCellValue(cur_row, "disc_price_vnd", ofrmCopy.dr_copy[i]["disc_price_vnd"]);
                         gridView1.SetRowCellValue(cur_row, "disc_hkd_ex_fty", ofrmCopy.dr_copy[i]["disc_hkd_ex_fty"]);
                         gridView1.SetRowCellValue(cur_row, "actual_price", ofrmCopy.dr_copy[i]["actual_price"]);
                         gridView1.SetRowCellValue(cur_row, "actual_price_type", ofrmCopy.dr_copy[i]["actual_price_type"].ToString());
@@ -1770,7 +1770,6 @@ namespace cf01.Forms
                     return;
                 }
             }
-
             if (string.IsNullOrEmpty(strReport))
             {
                 MessageBox.Show("請首先選擇要列印的報表格式!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1779,222 +1778,134 @@ namespace cf01.Forms
             switch (strReport)
             {
                 case "01": //格式一通用
-                    using (xrQuotation myReport1 = new xrQuotation() { DataSource = dt })
-                    {
-                        myReport1.CreateDocument();
-                        myReport1.PrintingSystem.ShowMarginsWarning = false;
-                        myReport1.ShowPreviewDialog();
+                    /*
+                    //報表轉成圖片
+                    using (xrQuotation myReport = new xrQuotation() { DataSource = dt })
+                    {                        
+                        FolderBrowserDialog fbd = new FolderBrowserDialog();
+                        //选择导出文件位置
+                        if (fbd.ShowDialog() == DialogResult.OK)
+                        {
+                            //导出路径
+                            string outPath = fbd.SelectedPath.ToString();
+                            string fileName = @"\\dgfs2\cf_artwork\Artwork\ProductCard\" + "頁數" + ".jpg";
+                            //输出图片到指定位置
+                            myReport.ExportToImage(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
+                    }*/
 
-                        //報表轉成圖片
-                        //FolderBrowserDialog fbd = new FolderBrowserDialog();
-                        ////选择导出文件位置
-                        //if (fbd.ShowDialog() == DialogResult.OK)
-                        //{
-                        //    //导出路径
-                        //    string outPath = fbd.SelectedPath.ToString();
-                        //    string fileName = @"\\dgfs2\cf_artwork\Artwork\ProductCard\" + "頁數" + ".jpg";
-                        //    //输出图片到指定位置
-                        //    myReport1.ExportToImage(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        //}
-                        
-                    }
+                    xrQuotation myReport1 = new xrQuotation() { DataSource = dt };
+                    ReportPrint(myReport1);
                     break;
                 case "02": //格式二(1)，一般格式USD,HKD,RMB
-                     using (xrQuotation2a myReport21 = new xrQuotation2a() { DataSource = dt })
-                    {
-                        myReport21.CreateDocument();
-                        myReport21.PrintingSystem.ShowMarginsWarning = false;
-                        myReport21.ShowPreviewDialog();
-                    }
+                    xrQuotation2a myReport2a = new xrQuotation2a() { DataSource = dt };
+                    ReportPrint(myReport2a);
                     break;
                 case "03": //格式二(2)，一般格式USD
-                    using (xrQuotation2b myReport22 = new xrQuotation2b() { DataSource = dt })
-                    {
-                        myReport22.CreateDocument();
-                        myReport22.PrintingSystem.ShowMarginsWarning = false;
-                        myReport22.ShowPreviewDialog();
-                    }
+                    xrQuotation2b myReport2b = new xrQuotation2b() { DataSource = dt };
+                    ReportPrint(myReport2b);
                     break;
                 case "04": //格式三（1）USD only GAP/BANA
-                    using (xrQuotation31 myReport31 = new xrQuotation31() { DataSource = dt })
-                    {
-                        myReport31.CreateDocument();
-                        myReport31.PrintingSystem.ShowMarginsWarning = false;
-                        myReport31.ShowPreviewDialog();
-                    }
+                    xrQuotation31 myReport31 = new xrQuotation31() { DataSource = dt };
+                    ReportPrint(myReport31);
                     break;
                 case "05": //格式三（2）USD & HKD GAP/BANA
-                    using (xrQuotation32 myReport32 = new xrQuotation32() { DataSource = dt })
-                    {
-                        myReport32.CreateDocument();
-                        myReport32.PrintingSystem.ShowMarginsWarning = false;
-                        myReport32.ShowPreviewDialog();
-                    }
+                    xrQuotation32 myReport32 = new xrQuotation32() { DataSource = dt };
+                    ReportPrint(myReport32);
                     break;
                 case "06":  //格式四ex_fty_usd,ex_fty_hkd
-                    using (xrQuotation4 myReport4 = new xrQuotation4() { DataSource = dt })
-                    {
-                        myReport4.CreateDocument();
-                        myReport4.PrintingSystem.ShowMarginsWarning = false;
-                        myReport4.ShowPreviewDialog();
-                    }
+                    xrQuotation4 myReport4 = new xrQuotation4() { DataSource = dt };
+                    ReportPrint(myReport4);
                     break;
                 case "07"://格式五
-                    using (xrQuotation5 myReport5 = new xrQuotation5() { DataSource = dt })
-                    {
-                        myReport5.CreateDocument();
-                        myReport5.PrintingSystem.ShowMarginsWarning = false;
-                        myReport5.ShowPreviewDialog();
-                    }
+                    xrQuotation5 myReport5 = new xrQuotation5() { DataSource = dt };
+                    ReportPrint(myReport5);
                     break;
                 case "08"://格式六1
-                    using (xrQuotation61 myReport61 = new xrQuotation61() { DataSource = dt })
-                    {
-                        myReport61.CreateDocument();
-                        myReport61.PrintingSystem.ShowMarginsWarning = false;
-                        myReport61.ShowPreviewDialog();
-                    }
+                    xrQuotation61 myReport61 = new xrQuotation61() { DataSource = dt };
+                    ReportPrint(myReport61);
                     break;
                 case "09"://格式六2
-                    using (xrQuotation62 myReport62 = new xrQuotation62() { DataSource = dt })
-                    {
-                        myReport62.CreateDocument();
-                        myReport62.PrintingSystem.ShowMarginsWarning = false;
-                        myReport62.ShowPreviewDialog();
-                    }
+                    xrQuotation62 myReport62 = new xrQuotation62() { DataSource = dt };
+                    ReportPrint(myReport62);
                     break;
                 case "10"://格式七1
-                    using (xrQuotation71 myReport71 = new xrQuotation71() { DataSource = dt })
-                    {
-                        myReport71.CreateDocument();
-                        myReport71.PrintingSystem.ShowMarginsWarning = false;
-                        myReport71.ShowPreviewDialog();
-                    }
+                    xrQuotation71 myReport71 = new xrQuotation71() { DataSource = dt };
+                    ReportPrint(myReport71);
                     break;
                 case "11"://格式七2
-                    using (xrQuotation72 myReport72 = new xrQuotation72() { DataSource = dt })
-                    {
-                        myReport72.CreateDocument();
-                        myReport72.PrintingSystem.ShowMarginsWarning = false;
-                        myReport72.ShowPreviewDialog();
-                    }
+                    xrQuotation72 myReport72 = new xrQuotation72() { DataSource = dt };
+                    ReportPrint(myReport72);
                     break;
                 case "12"://格式八HKD_EX_FTY
-                    using (xrQuotation8 myReport8= new xrQuotation8() { DataSource = dt })
-                    {
-                        myReport8.CreateDocument();
-                        myReport8.PrintingSystem.ShowMarginsWarning = false;
-                        myReport8.ShowPreviewDialog();
-                    }
+                    xrQuotation8 myReport8 = new xrQuotation8() { DataSource = dt };
+                    ReportPrint(myReport8);
                     break;
                 case "13"://格式九HKD_EX_FTY
-                    using (xrQuotation9 myReport9 = new xrQuotation9() { DataSource = dt })
-                    {
-                        myReport9.CreateDocument();
-                        myReport9.PrintingSystem.ShowMarginsWarning = false;
-                        myReport9.ShowPreviewDialog();
-                    }
+                    xrQuotation9 myReport9 = new xrQuotation9() { DataSource = dt };
+                    ReportPrint(myReport9);
                     break;
                 case "14"://格式十RMB
-                    using (xrQuotation10 myReport10 = new xrQuotation10() { DataSource = dt })
-                    {
-                        myReport10.CreateDocument();
-                        myReport10.PrintingSystem.ShowMarginsWarning = false;
-                        myReport10.ShowPreviewDialog();
-                    }
+                    xrQuotation10 myReport10 = new xrQuotation10() { DataSource = dt };
+                    ReportPrint(myReport10);
                     break;
                 case "15"://格式十一 HKD EX-FTY，USD EX-FTY,USD FOB-HK,RMB(including 17% VAT TAX)
-                    using (xrQuotation11 myReport11 = new xrQuotation11() { DataSource = dt })
-                    {
-                        myReport11.CreateDocument();
-                        myReport11.PrintingSystem.ShowMarginsWarning = false;
-                        myReport11.ShowPreviewDialog();
-                    }
+                    xrQuotation11 myReport11 = new xrQuotation11() { DataSource = dt };
+                    ReportPrint(myReport11);
                     break;
                 case "16"://格式十二 USD EX-FTY,USD FOB-USD,
-                    using (xrQuotation12 myReport12 = new xrQuotation12() { DataSource = dt })
-                    {
-                        myReport12.CreateDocument();
-                        myReport12.PrintingSystem.ShowMarginsWarning = false;
-                        myReport12.ShowPreviewDialog();
-                    }
+                    xrQuotation12 myReport12 = new xrQuotation12() { DataSource = dt };
+                    ReportPrint(myReport12);
                     break;
-                case "17"://格式十三 FOB-USD有圖樣
-                    using (xrQuotation13 myReport13 = new xrQuotation13() { DataSource = dt })
-                    {
-                        myReport13.CreateDocument();
-                        myReport13.PrintingSystem.ShowMarginsWarning = false;
-                        myReport13.ShowPreviewDialog();
-                    }
+                case "17"://格式十三 FOB-USD有圖樣                
+                    xrQuotation13 myReport13 = new xrQuotation13() { DataSource = dt };
+                    ReportPrint(myReport13);
                     break;
-                case "18"://格式十四(無條款 USD EX-FTY)
-                    using (xrQuotation14 myReport14 = new xrQuotation14() { DataSource = dt })
-                    {
-                        myReport14.CreateDocument();
-                        myReport14.PrintingSystem.ShowMarginsWarning = false;
-                        myReport14.ShowPreviewDialog();
-                    }
+                case "18"://格式十四(無條款 USD EX-FTY)                
+                    xrQuotation14 myReport14 = new xrQuotation14() { DataSource = dt };
+                    ReportPrint(myReport14);
                     break;
-                case "19"://格式十五(TORY HK)
-                    using (xrQuotation15 myReport15 = new xrQuotation15() { DataSource = dt })
-                    {
-                        myReport15.CreateDocument();
-                        myReport15.PrintingSystem.ShowMarginsWarning = false;
-                        myReport15.ShowPreviewDialog();
-                    }
+                case "19"://格式十五(TORY HK)              
+                    xrQuotation15 myReport15 = new xrQuotation15() { DataSource = dt };
+                    ReportPrint(myReport15);
                     break;
                 case "20"://格式十六(TORY US)
-                    using (xrQuotation16 myReport16 = new xrQuotation16() { DataSource = dt })
-                    {
-                        myReport16.CreateDocument();
-                        myReport16.PrintingSystem.ShowMarginsWarning = false;
-                        myReport16.ShowPreviewDialog();
-                    }
+                    xrQuotation16 myReport16 = new xrQuotation16() { DataSource = dt };
+                    ReportPrint(myReport16);
                     break;
-                case "21"://格式十七(Ex-fty HKD & Ex-fty USD)
-                    using (xrQuotation17 myReport17 = new xrQuotation17() { DataSource = dt })
-                    {
-                        myReport17.CreateDocument();
-                        myReport17.PrintingSystem.ShowMarginsWarning = false;
-                        myReport17.ShowPreviewDialog();
-                    }
+                case "21"://格式十七(Ex-fty HKD & Ex-fty USD)                 
+                    xrQuotation17 myReport17 = new xrQuotation17() { DataSource = dt };
+                    ReportPrint(myReport17);
                     break;
-                case "22"://格式十八(無條款 RMB)
-                    using (xrQuotation18 myReport18 = new xrQuotation18() { DataSource = dt })
-                    {
-                        myReport18.CreateDocument();
-                        myReport18.PrintingSystem.ShowMarginsWarning = false;
-                        myReport18.ShowPreviewDialog();
-                    }
+                case "22"://格式十八(無條款 RMB)                  
+                    xrQuotation18 myReport18 = new xrQuotation18() { DataSource = dt };
+                    ReportPrint(myReport18);
                     break;
-                case "23"://格式十九(price remark)
-                    using (xrQuotation19 myReport19 = new xrQuotation19() { DataSource = dt })
-                    {
-                        myReport19.CreateDocument();
-                        myReport19.PrintingSystem.ShowMarginsWarning = false;
-                        myReport19.ShowPreviewDialog();
-                    }
+                case "23"://格式十九(price remark)                   
+                    xrQuotation19 myReport19 = new xrQuotation19() { DataSource = dt };
+                    ReportPrint(myReport19);
                     break;
                 case "24"://格式二十(Usd ex_fty & price remark)
-                    using (xrQuotation20 myReport20 = new xrQuotation20() { DataSource = dt })
-                    {
-                        myReport20.CreateDocument();
-                        myReport20.PrintingSystem.ShowMarginsWarning = false;
-                        myReport20.ShowPreviewDialog();
-                    }
+                    xrQuotation20 myReport20 = new xrQuotation20() { DataSource = dt };
+                    ReportPrint(myReport20);
                     break;
-                case "25"://格式二十一(VM ex_fty)
-                    using (xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt })
-                    {
-                        myReport21.CreateDocument();
-                        myReport21.PrintingSystem.ShowMarginsWarning = false;
-                        myReport21.ShowPreviewDialog();
-                    }
+                case "25"://格式二十一(VM ex_fty)   
+                    xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt };
+                    ReportPrint(myReport21);
                     break;
             }
         }
 
-     
+        private void ReportPrint(XtraReport rpt)
+        {           
+            using (rpt)
+            {
+                rpt.CreateDocument();
+                rpt.PrintingSystem.ShowMarginsWarning = false;
+                rpt.ShowPreviewDialog();
+            }
+        }
+
         private void txtMoney_id_EditValueChanged(object sender, EventArgs e)
         {
             if (mState != "")
@@ -2079,6 +1990,7 @@ namespace cf01.Forms
                         dtReport.Rows[ii]["price_usd"] = dtQuotation_details.Rows[i]["price_usd"];
                         dtReport.Rows[ii]["price_hkd"] = dtQuotation_details.Rows[i]["price_hkd"];
                         dtReport.Rows[ii]["price_rmb"] = dtQuotation_details.Rows[i]["price_rmb"];
+                        dtReport.Rows[ii]["price_vnd"] = dtQuotation_details.Rows[i]["price_vnd"];
                         dtReport.Rows[ii]["moq"] = dtQuotation_details.Rows[i]["moq"];
                         dtReport.Rows[ii]["price_unit"] = dtQuotation_details.Rows[i]["price_unit"].ToString();
                         dtReport.Rows[ii]["remark_h"] = txtRemark.Text;                            
@@ -2108,6 +2020,7 @@ namespace cf01.Forms
                         dtReport.Rows[ii]["disc_price_usd"] = dtQuotation_details.Rows[i]["disc_price_usd"];
                         dtReport.Rows[ii]["disc_price_hkd"] = dtQuotation_details.Rows[i]["disc_price_hkd"];
                         dtReport.Rows[ii]["disc_price_rmb"] = dtQuotation_details.Rows[i]["disc_price_rmb"];
+                        dtReport.Rows[ii]["disc_price_vnd"] = dtQuotation_details.Rows[i]["disc_price_vnd"];
                         dtReport.Rows[ii]["disc_hkd_ex_fty"] = dtQuotation_details.Rows[i]["disc_hkd_ex_fty"];
                         dtReport.Rows[ii]["actual_price"] = dtQuotation_details.Rows[i]["actual_price"];
                         dtReport.Rows[ii]["actual_price_type"] = dtQuotation_details.Rows[i]["actual_price_type"].ToString();
@@ -2163,6 +2076,7 @@ namespace cf01.Forms
                     dr["price_usd"] = dtQuotation_details.Rows[i]["price_usd"];
                     dr["price_hkd"] = dtQuotation_details.Rows[i]["price_hkd"];
                     dr["price_rmb"] = dtQuotation_details.Rows[i]["price_rmb"];
+                    dr["price_vnd"] = dtQuotation_details.Rows[i]["price_vnd"];
                     dr["moq"] = dtQuotation_details.Rows[i]["moq"];
                     dr["price_unit"] = dtQuotation_details.Rows[i]["price_unit"].ToString();
                     dr["remark_h"] = txtRemark.Text;                       
@@ -2192,6 +2106,7 @@ namespace cf01.Forms
                     dr["disc_price_usd"] = dtQuotation_details.Rows[i]["disc_price_usd"];
                     dr["disc_price_hkd"] = dtQuotation_details.Rows[i]["disc_price_hkd"];
                     dr["disc_price_rmb"] = dtQuotation_details.Rows[i]["disc_price_rmb"];
+                    dr["disc_price_vnd"] = dtQuotation_details.Rows[i]["disc_price_vnd"];
                     dr["disc_hkd_ex_fty"] = dtQuotation_details.Rows[i]["disc_hkd_ex_fty"];
                     dr["actual_price"] = dtQuotation_details.Rows[i]["actual_price"];
                     dr["actual_price_type"] = dtQuotation_details.Rows[i]["actual_price_type"].ToString();
@@ -2641,11 +2556,11 @@ namespace cf01.Forms
             dbo.fn_getTermRemark(A.term_id,A.quota_date,'0') as terms,dbo.fn_getTermRemark(A.term_id,A.quota_date,'1') as terms_other,
             dbo.fn_getAddress(A.address_id) as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,
             A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
-            B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,Isnull(B.remark,'') as remark,
+            B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.price_vnd,B.moq,B.price_unit,Isnull(B.remark,'') as remark,
             ISNULL(C.name,'') AS name_customer,B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, 
             B.number_enter,B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,B.sales_group,
-            B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_cny,
-            CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,ISNULL(D.moq_desc,'') AS moqdesc,
+            B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_price_vnd,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,
+            B.die_mould_cny, CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,ISNULL(D.moq_desc,'') AS moqdesc,
             dbo.fn_get_picture_name_of_artwork('0000',Substring(Isnull(B.cf_code,''),1,7),'OUT') AS picture_name,Isnull(B.cust_artwork,'') AS cust_artwork,D.termremark
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version

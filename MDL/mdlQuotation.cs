@@ -38,12 +38,14 @@ namespace cf01.MDL
         public float price_rmb;
         public float hkd_ex_fty;
         public float usd_ex_fty;
+        public float price_vnd;
 
         public float discount;
         public float disc_price_usd;
         public float disc_price_hkd;
         public float disc_price_rmb;
         public float disc_hkd_ex_fty;
+        public float disc_price_vnd;
     }
 
     /// <summary>
@@ -64,6 +66,7 @@ namespace cf01.MDL
         public float price_usd;
         public float price_hkd;
         public float price_rmb;
+        public float price_vnd;
         public int moq;
         public string price_unit;
         public string temp_code;
@@ -95,6 +98,7 @@ namespace cf01.MDL
         public float disc_price_hkd;
         public float disc_price_rmb;
         public float disc_hkd_ex_fty;
+        public float disc_price_vnd;
         public float die_mould_usd;
         public string die_mould_cny;
         public string rmb_remark;

@@ -38,9 +38,9 @@ namespace cf01.Forms
             @"SELECT A.id,A.quota_date,A.customer_id,ISNULL(C.name,'') AS name_customer,A.term_id,A.address_id,A.remark,A.remark_other,
             A.money_id,A.valid_date,A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,
             B.seq_id,B.brand,B.division,B.contact,B.material,B.size,B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,
-            B.price_rmb,B.moq,B.price_unit,B.remark as remark_d,B.temp_code,B.ver,B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,
+            B.price_rmb,B.price_vnd,B.moq,B.price_unit,B.remark as remark_d,B.temp_code,B.ver,B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,
             B.lead_time_unit,B.md_charge,B.md_charge_cny,B.moq_for_test,B.number_enter,B.hkd_ex_fty,B.sales_group,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,
-            B.usd_ex_fty,B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_cny
+            B.usd_ex_fty,B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_price_vnd,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_cny
             FROM dbo.quotation_mostly A with(nolock)
 	            INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id 
 	            LEFT JOIN {0}it_customer C ON C.within_code='0000' and A.customer_id=C.id COLLATE Chinese_Taiwan_Stroke_CI_AS

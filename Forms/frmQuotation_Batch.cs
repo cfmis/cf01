@@ -113,6 +113,7 @@ namespace cf01.Forms
                 new SqlParameter("@include_brand",chkBrand.Checked?"1":""),
                 new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
                 new SqlParameter("@account_code",txtAccount_Code.Text),
+                new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0")
             };
             dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find",paras);           
             //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
@@ -268,9 +269,9 @@ namespace cf01.Forms
             int result_u;
             float bp,disc_rate,temp_disc_rate;
             const string sql_update =
-            @"UPDATE quotation SET date=@valid_date, number_enter=@number_enter,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,hkd_ex_fty=@hkd_ex_fty,
-                    usd_ex_fty=@usd_ex_fty,discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty
-                    ,valid_date=CONVERT(varchar(10),DATEADD(DAY,30,@valid_date),120),
+            @"UPDATE quotation SET date=@valid_date, number_enter=@number_enter,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,price_vnd=@price_vnd,hkd_ex_fty=@hkd_ex_fty,
+                    usd_ex_fty=@usd_ex_fty,discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_price_vnd=@disc_price_vnd,
+                    disc_hkd_ex_fty=@disc_hkd_ex_fty,valid_date=CONVERT(varchar(10),DATEADD(DAY,30,@valid_date),120),
                     remark=CASE LEN(@remark) WHEN 0 THEN remark ELSE @remark END,
                     remark_pdd=CASE LEN(@remark_pdd) WHEN 0 THEN remark_pdd ELSE @remark_pdd END,amusr=@user_id,amtim=Getdate()
             WHERE id=@id";
@@ -333,6 +334,7 @@ namespace cf01.Forms
                             new SqlParameter("@price_usd",objResult.price_usd),
                             new SqlParameter("@price_hkd", objResult.price_hkd),
                             new SqlParameter("@price_rmb", objResult.price_rmb),
+                            new SqlParameter("@price_vnd", objResult.price_vnd),
                             new SqlParameter("@hkd_ex_fty", objResult.hkd_ex_fty),
                             new SqlParameter("@usd_ex_fty", objResult.usd_ex_fty),
 
@@ -340,6 +342,7 @@ namespace cf01.Forms
                             new SqlParameter("@disc_price_usd", objDiscount.disc_price_usd),
                             new SqlParameter("@disc_price_hkd", objDiscount.disc_price_hkd),
                             new SqlParameter("@disc_price_rmb", objDiscount.disc_price_rmb),
+                            new SqlParameter("@disc_price_vnd", objDiscount.disc_price_vnd),
                             new SqlParameter("@disc_hkd_ex_fty", objDiscount.disc_hkd_ex_fty),
 
                             new SqlParameter("@remark", remark),
@@ -357,6 +360,7 @@ namespace cf01.Forms
                             dt.Rows[i]["price_usd"] = objResult.price_usd;
                             dt.Rows[i]["price_hkd"] = objResult.price_hkd;
                             dt.Rows[i]["price_rmb"] = objResult.price_rmb;
+                            dt.Rows[i]["price_vnd"] = objResult.price_vnd;
                             dt.Rows[i]["hkd_ex_fty"] = objResult.hkd_ex_fty;
                             dt.Rows[i]["usd_ex_fty"] = objResult.usd_ex_fty;
 
@@ -364,6 +368,7 @@ namespace cf01.Forms
                             dt.Rows[i]["disc_price_usd"] = objDiscount.disc_price_usd;
                             dt.Rows[i]["disc_price_hkd"] = objDiscount.disc_price_hkd;
                             dt.Rows[i]["disc_price_rmb"] = objDiscount.disc_price_rmb;
+                            dt.Rows[i]["disc_price_vnd"] = objDiscount.disc_price_vnd;
                             dt.Rows[i]["disc_hkd_ex_fty"] = objDiscount.disc_hkd_ex_fty;
 
                             dt.Rows[i]["remark"] = remark;
@@ -387,6 +392,7 @@ namespace cf01.Forms
                             new SqlParameter("@price_usd", objResult.price_usd),
                             new SqlParameter("@price_hkd", objResult.price_hkd),
                             new SqlParameter("@price_rmb", objResult.price_rmb),
+                            new SqlParameter("@price_vnd", objResult.price_vnd),
                             new SqlParameter("@hkd_ex_fty", objResult.hkd_ex_fty),
                             new SqlParameter("@usd_ex_fty", objResult.usd_ex_fty),
 
@@ -394,6 +400,7 @@ namespace cf01.Forms
                             new SqlParameter("@disc_price_usd", objResult.disc_price_usd),
                             new SqlParameter("@disc_price_hkd", objResult.disc_price_hkd),
                             new SqlParameter("@disc_price_rmb", objResult.disc_price_rmb),
+                            new SqlParameter("@disc_price_vnd", objResult.disc_price_vnd),
                             new SqlParameter("@disc_hkd_ex_fty", objResult.disc_hkd_ex_fty),
 
                             new SqlParameter("@remark", remark),
@@ -410,6 +417,7 @@ namespace cf01.Forms
                             dt.Rows[i]["price_usd"] = objResult.price_usd;
                             dt.Rows[i]["price_hkd"] = objResult.price_hkd;
                             dt.Rows[i]["price_rmb"] = objResult.price_rmb;
+                            dt.Rows[i]["price_vnd"] = objResult.price_vnd;
                             dt.Rows[i]["hkd_ex_fty"] = objResult.hkd_ex_fty;
                             dt.Rows[i]["usd_ex_fty"] = objResult.usd_ex_fty;
 
@@ -417,6 +425,7 @@ namespace cf01.Forms
                             dt.Rows[i]["disc_price_usd"] = objResult.disc_price_usd;
                             dt.Rows[i]["disc_price_hkd"] = objResult.disc_price_hkd;
                             dt.Rows[i]["disc_price_rmb"] = objResult.disc_price_rmb;
+                            dt.Rows[i]["disc_price_vnd"] = objResult.disc_price_vnd;
                             dt.Rows[i]["disc_hkd_ex_fty"] = objResult.disc_hkd_ex_fty;
 
                             dt.Rows[i]["remark"] = remark;
