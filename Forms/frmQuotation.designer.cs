@@ -127,6 +127,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNNEWCOPY = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNCOPYVND = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNIMPORT = new System.Windows.Forms.ToolStripButton();
@@ -139,7 +140,7 @@
             this.BTNEXCEL_ART = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNCALCULATEPRICE = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
             this.txt = new DevExpress.XtraEditors.TextEdit();
             this.label14 = new System.Windows.Forms.Label();
@@ -562,7 +563,6 @@
             this.txtRef_temp_code = new DevExpress.XtraEditors.TextEdit();
             this.lblPrice_vnd = new System.Windows.Forms.Label();
             this.lblDisc_price_vnd = new System.Windows.Forms.Label();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt.Properties)).BeginInit();
@@ -856,6 +856,12 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
             // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 38);
+            // 
             // BTNCOPYVND
             // 
             this.BTNCOPYVND.Image = ((System.Drawing.Image)(resources.GetObject("BTNCOPYVND.Image")));
@@ -951,11 +957,11 @@
             this.BTNCALCULATEPRICE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNCALCULATEPRICE.Click += new System.EventHandler(this.BTNCALCULATEPRICE_Click);
             // 
-            // toolStripSeparator15
+            // toolStripSeparator11
             // 
-            this.toolStripSeparator15.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator11.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 38);
             // 
             // textEdit6
             // 
@@ -1078,10 +1084,10 @@
             // 
             // chkSelectAll
             // 
-            this.chkSelectAll.Location = new System.Drawing.Point(6, 10);
+            this.chkSelectAll.Location = new System.Drawing.Point(14, 10);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Properties.Caption = " ";
-            this.chkSelectAll.Size = new System.Drawing.Size(29, 19);
+            this.chkSelectAll.Size = new System.Drawing.Size(23, 19);
             this.chkSelectAll.TabIndex = 146;
             this.chkSelectAll.ToolTip = "Select All";
             this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
@@ -6132,12 +6138,6 @@
             this.lblDisc_price_vnd.TabIndex = 211;
             this.lblDisc_price_vnd.Text = "Discounted VND";
             this.lblDisc_price_vnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 38);
             // 
             // frmQuotation
             // 

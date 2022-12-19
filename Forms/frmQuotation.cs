@@ -1190,14 +1190,15 @@ namespace cf01.Forms
             if (optionType == "1")
             {
                 //bp*(1+20%) 
-                txtNumber_enter.EditValue = (Math.Round(clsApp.Return_Float_Value(pdr.Cells["number_enter"].Value.ToString()) * 1.20,2)).ToString();
-                //復制新增時暫時將原來值顯示出來
-                txtPrice_vnd.EditValue = pdr.Cells["price_vnd"].Value;
-                txtDisc_vnd.EditValue = pdr.Cells["disc_price_vnd"].Value;
-
+                txtNumber_enter.EditValue = (Math.Round(clsApp.Return_Float_Value(pdr.Cells["number_enter"].Value.ToString()) * 1.20,2)).ToString();               
                 CalcuPrice();
                 CalcuPriceDisc(txtDisc.Text);
                 txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
+
+                ////復制新增時暫時將原來值顯示出來
+                //txtPrice_vnd.EditValue = pdr.Cells["price_vnd"].Value;
+                //txtDisc_vnd.EditValue = pdr.Cells["disc_price_vnd"].Value;
+
             }
 
             txtSalesman.Text = pdr.Cells["salesman"].Value.ToString(); 

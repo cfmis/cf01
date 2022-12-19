@@ -1244,9 +1244,9 @@
             // 
             this.chkSelect.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkSelect.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkSelect.Location = new System.Drawing.Point(57, 242);
+            this.chkSelect.Location = new System.Drawing.Point(64, 242);
             this.chkSelect.Name = "chkSelect";
-            this.chkSelect.Size = new System.Drawing.Size(49, 34);
+            this.chkSelect.Size = new System.Drawing.Size(36, 34);
             this.chkSelect.TabIndex = 20;
             this.chkSelect.UseVisualStyleBackColor = true;
             this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
@@ -2432,7 +2432,8 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle1.NullValue = false;
             this.flag_select.DefaultCellStyle = dataGridViewCellStyle1;
-            this.flag_select.HeaderText = "..";
+            this.flag_select.Frozen = true;
+            this.flag_select.HeaderText = "";
             this.flag_select.Name = "flag_select";
             this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.flag_select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
