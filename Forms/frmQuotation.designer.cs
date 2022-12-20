@@ -1084,7 +1084,7 @@
             // 
             // chkSelectAll
             // 
-            this.chkSelectAll.Location = new System.Drawing.Point(14, 10);
+            this.chkSelectAll.Location = new System.Drawing.Point(53, 10);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Properties.Caption = " ";
             this.chkSelectAll.Size = new System.Drawing.Size(23, 19);
@@ -1227,7 +1227,7 @@
             dataGridViewCellStyle1.NullValue = false;
             this.flagSelect.DefaultCellStyle = dataGridViewCellStyle1;
             this.flagSelect.Frozen = true;
-            this.flagSelect.HeaderText = "Select";
+            this.flagSelect.HeaderText = "";
             this.flagSelect.Name = "flagSelect";
             this.flagSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.flagSelect.Width = 40;
@@ -6625,6 +6625,10 @@
         private System.Windows.Forms.Label lblDisc_price_vnd;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private System.Windows.Forms.ToolStripButton BTNCOPYVND;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -6731,9 +6735,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pending;
         private System.Windows.Forms.DataGridViewTextBoxColumn ref_temp_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn flag_new;
-        private System.Windows.Forms.ToolStripButton BTNCOPYVND;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
     }
 }
