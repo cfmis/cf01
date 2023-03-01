@@ -603,6 +603,7 @@
             this.txtDisc_vnd = new DevExpress.XtraEditors.TextEdit();
             this.lblDisc_price_vnd = new System.Windows.Forms.Label();
             this.lblCf_color_id = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt.Properties)).BeginInit();
@@ -6358,6 +6359,7 @@
             this.pnlHeard.Controls.Add(this.pnlRemarkPDD_dg);
             this.pnlHeard.Controls.Add(this.lblCf_color_id);
             this.pnlHeard.Controls.Add(this.lblCf_color);
+            this.pnlHeard.Controls.Add(this.label11);
             this.pnlHeard.Location = new System.Drawing.Point(2, 41);
             this.pnlHeard.Name = "pnlHeard";
             this.pnlHeard.Size = new System.Drawing.Size(1358, 456);
@@ -6497,7 +6499,7 @@
             this.lblOf.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblOf.Location = new System.Drawing.Point(572, 373);
             this.lblOf.Name = "lblOf";
-            this.lblOf.Size = new System.Drawing.Size(132, 21);
+            this.lblOf.Size = new System.Drawing.Size(109, 21);
             this.lblOf.TabIndex = 205;
             this.lblOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -6505,10 +6507,10 @@
             // 
             this.txtRef_temp_code.EditValue = "";
             this.txtRef_temp_code.Enabled = false;
-            this.txtRef_temp_code.Location = new System.Drawing.Point(720, 374);
+            this.txtRef_temp_code.Location = new System.Drawing.Point(743, 374);
             this.txtRef_temp_code.Name = "txtRef_temp_code";
             this.txtRef_temp_code.Properties.ReadOnly = true;
-            this.txtRef_temp_code.Size = new System.Drawing.Size(113, 20);
+            this.txtRef_temp_code.Size = new System.Drawing.Size(90, 20);
             this.txtRef_temp_code.TabIndex = 206;
             this.txtRef_temp_code.Tag = "2";
             // 
@@ -6762,6 +6764,15 @@
             this.lblCf_color_id.TabIndex = 228;
             this.lblCf_color_id.Text = "CF顏色編號";
             this.lblCf_color_id.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(681, 378);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 229;
+            this.label11.Text = "Copy From";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmQuotation
             // 
@@ -7407,5 +7418,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_color_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn material_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_type;
+        private System.Windows.Forms.Label label11;
     }
 }
