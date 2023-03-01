@@ -72,5 +72,11 @@ namespace cf01.Reports
                 txtmd_charge_cny.Visible = true;
             }
         }
+
+        private void txtPrice_vnd_pcs_TextChanged(object sender, EventArgs e)
+        {
+            string strPrice_vnd_pcs = GetCurrentColumnValue("price_vnd_pcs").ToString();
+            txtPrice_vnd_pcs.Text = strPrice_vnd_pcs.Replace(".000", "");
+        }
     }
 }
