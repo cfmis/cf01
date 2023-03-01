@@ -168,7 +168,7 @@ namespace cf01.Forms
             }).Start();
 
             //************************           
-            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find", paras); //数据处理
+            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             
@@ -516,7 +516,7 @@ namespace cf01.Forms
             }).Start();
 
             //************************
-            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find_mo_approve", paras); //数据处理
+            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find_mo_approve", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 

@@ -33,19 +33,17 @@ namespace cf01.Forms
 {
     public partial class frmQuotation_Report : Form
     {
-        public string mID = "";    //臨時的主鍵值id
-        public string mVersion = "";//臨時的主鍵值version
-        private string mDel_ID = "";
-        public string temp_state = "";
-        public string mState = ""; //新增或編輯的狀態
-        public static string str_language = "0";
-        public string msgCustom;
-        public string mImagePath = "";
-        public bool save_flag;
-        public string strArea = "";
-        readonly MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
-        private clsAppPublic clsApp = new clsAppPublic();
-        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        string tempID = "";    //臨時的主鍵值id
+        string temp_version = "";//臨時的主鍵值version
+        string del_id = "";
+        string temp_state = "";
+        string edit_state = ""; //新增或編輯的狀態      
+        string image_path = "";
+        bool save_flag;
+        string strArea = "";
+        MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
+        clsAppPublic clsApp = new clsAppPublic();
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtQuotation_mostly = new DataTable();
         DataTable dtQuotation_details = new DataTable();
         DataTable dtTempDel = new DataTable();
@@ -53,7 +51,7 @@ namespace cf01.Forms
         DataTable dtAddress1 = new DataTable();
         DataTable dtFind = new DataTable();
         DataTable dtReport = new DataTable();        
-        public static DataSet dsCopy = new DataSet();
+        //public static DataSet dsCopy = new DataSet();
         public List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
 
         [DllImport("user32.dll")]
@@ -73,7 +71,7 @@ namespace cf01.Forms
             clsApp.Initialize_find_value(this.Name, panel1.Controls);//定價查找頁面條件初始化
             clsApp.Initialize_find_value("frmQuotation_Report_browse", tabControl1.TabPages[1].Controls);//報價資料查找頁面條件初始化
             gridView1.IndicatorWidth = 40;
-            //str_language = DBUtility._language;
+            
             //NextControl oNext = new NextControl(this, "1");
             //oNext.EnterToTab();
         }
@@ -81,38 +79,34 @@ namespace cf01.Forms
         private void frmQuotation_Report_Load(object sender, EventArgs e)
         {
             //圖樣起止路徑
-            //mImagePath = mImagePath.Replace("\\Artwork\\","");
+            //image_path = image_path.Replace("\\Artwork\\","");
             string ls_ip_address = clsApp.GetLocalIP();
             if (ls_ip_address.Contains("192.168.3."))
             {
-                mImagePath = @"\\192.168.3.12\cf_artwork";
+                image_path = @"\\192.168.3.12\cf_artwork";
             }
             if (ls_ip_address.Contains("192.168.168."))
             {
-                mImagePath = @"\\192.168.168.15\cf_artwork";
+                image_path = @"\\192.168.168.15\cf_artwork";
             }
             if (ls_ip_address.Contains("192.168.18."))
             {
-                mImagePath = @"\\192.168.18.24\cf_artwork";
-            }            
+                image_path = @"\\192.168.18.24\cf_artwork";
+            }
 
             //單據前綴
-            strArea = clsPublicOfCF01.ExecuteSqlReturnObject("SELECT @@SERVERNAME");
-            strArea = strArea.Substring(0, 2);
-            if (strArea == "DG")
-            {
-                strArea = "QD";//DG輸入
-            }
-            else
-            {
-                strArea = "QH"; //HK輸入
-            }
+            //strArea = clsPublicOfCF01.ExecuteSqlReturnObject("SELECT @@SERVERNAME");
+            //strArea = strArea.Substring(0, 2);
+            //strArea = (strArea == "DG") ? "QD" : "QH";//QD--DG輸入;QH--HK輸入
+            strArea = (chkIsvn.Checked == false) ? "QD" : "QV";
+            
+            
             //客戶資料           
             string strSql = string.Format(
-            @"SELECT '' AS id,'' AS cdesc,'' AS desc_e,'' as money_id,'' AS contact,'' AS tel,'' AS fax,'' AS email
+            @"SELECT '' AS id,'' AS cdesc,'' AS desc_e,'' as money_id,'' AS contact,'' AS tel,'' AS fax,'' AS email,'' AS address
             UNION
             SELECT A.id,A.name as cdesc ,A.english_name as desc_e,ISNULL(A.money_id,'') as money_id,ISNULL(B.linkman,'') AS contact,
-	            ISNULL(B.phone,'') AS tel,ISNULL(B.fax,'') AS fax,ISNULL(B.email,'') AS email
+	            ISNULL(B.phone,'') AS tel,ISNULL(B.fax,'') AS fax,ISNULL(B.email,'') AS email,B.s_address AS address
             FROM {0}it_customer A with(nolock),{0}it_shipment_address B with(nolock)
             WHERE A.within_code=B.within_code and A.id=B.id AND A.within_code='0000' AND A.state<>'2' 
             ORDER BY A.id", DBUtility.remote_db);
@@ -163,7 +157,7 @@ namespace cf01.Forms
                 dgvDetails.Columns[26].ReadOnly = true;
             }
             
-                //BTNSAVE_PRICE.Enabled;// false;//設置Price_salesperson為可編輯
+            //BTNSAVE_PRICE.Enabled;// false;//設置Price_salesperson為可編輯
 
             using (DataTable dtSales_Group = clsPublicOfCF01.GetDataTable(@"Select typ_code AS id From bs_type Where typ_group='3'"))
             {
@@ -214,20 +208,20 @@ namespace cf01.Forms
             //初始化數據瀏覽頁數據源dtReport
             strSql = string.Format(
            @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
-            dbo.fn_getTermRemark(A.term_id,A.valid_date,'0') as terms,dbo.fn_getAddress(A.address_id) as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,A.contact as contact_h,A.tel,A.fax,A.email,
-            A.isusd,A.ishkd,A.isrmb,B.seq_id,B.brand,B.division,B.contact,B.material,B.size,B.product_desc,B.cust_code,
-            B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,B.remark,ISNULL(C.name,'') AS name_customer,SS.name AS name_brand,
+            dbo.fn_getTermRemark(A.term_id,A.valid_date,'0') as terms,dbo.fn_getAddress(A.address_id) as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,
+            A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb, A.isvn,A.position,A.address,B.seq_id,B.brand,B.division,B.contact,B.material,B.size,B.product_desc,
+            B.cust_code, B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,B.remark,ISNULL(C.name,'') AS name_customer,SS.name AS name_brand,
             B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, B.number_enter,B.sales_group,
             B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,
-            B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_usd,B.die_mould_cny,  
-            CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,isnull(D.moq_desc,'') AS moqdesc,B.rmb_remark           
+            B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty,B.disc_price_vnd,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_usd,B.die_mould_cny,  
+            CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,isnull(D.moq_desc,'') AS moqdesc,B.rmb_remark , 
+            B.price_vnd_usd,B.price_vnd,B.price_vnd_grs,B.price_vnd_pcs
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
                 INNER JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
                 LEFT JOIN {0}it_customer C with(nolock) ON C.within_code='0000' and A.customer_id=C.id COLLATE Chinese_Taiwan_Stroke_CI_AS
                 LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-            WHERE 1=0 ", DBUtility.remote_db);
-            //B.number_enter AS ex_fty_hkd,Round(Convert(float,Isnull(B.number_enter,0)/7.8),2) AS ex_fty_usd,
+            WHERE 1=0 ", DBUtility.remote_db);           
             dtReport = clsPublicOfCF01.GetDataTable(strSql);
 
             //DataGridViewComboBoxColumn cmbox = dgvDetails.Columns["price_kind"] as DataGridViewComboBoxColumn ;  
@@ -237,7 +231,7 @@ namespace cf01.Forms
             //list_price.Add("USD");
             //list_price.Add("HKD");
             //list_price.Add("RMB");
-            //cmbox.DataSource =list_price; //下框的数据源
+            //cmbox.DataSource =list_price; //下拉框的数据源
             //cmbox.DataPropertyName= "price_kind";//datagrid的数据源的要绑定的列；  
             //cmbox.DisplayMember="price_kind";//下拉框显示的TEXT";  
             //cmbox.ValueMember="price_kind";//"隐藏的值"； 
@@ -334,7 +328,7 @@ namespace cf01.Forms
 
         private void BTNPRINT_Click(object sender, EventArgs e)
         {
-            if (mState == "" && !string.IsNullOrEmpty(txtID.Text))
+            if (edit_state == "" && !string.IsNullOrEmpty(txtID.Text))
             {
                 get_print_data();               
             }
@@ -352,7 +346,7 @@ namespace cf01.Forms
         public void AddNew()  //新增
         {
             tabControl1.SelectTab(0);
-            mState = "NEW";
+            edit_state = "NEW";
             txtID.Focus();
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, true);
@@ -385,6 +379,16 @@ namespace cf01.Forms
         {
             if (mList.Count > 0)
             {
+                chkIsvn.Checked = false;
+                foreach (mdlQuotation_Reprot lst in mList)
+                {
+                   if (lst.price_vnd > 0)
+                   {
+                        chkIsvn.Checked = true;
+                        strArea = "QV";
+                        break;
+                   } 
+                }
                 GetDocNo();
                 txtAddress_id.EditValue = 1;
                 txtTerm_id.EditValue = 0;
@@ -406,8 +410,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cf_color", stu.cf_color);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_usd", stu.price_usd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_hkd", stu.price_hkd);
-                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_rmb", stu.price_rmb);
-                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_vnd", stu.price_vnd);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_rmb", stu.price_rmb);                   
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "moq", stu.moq);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_unit", stu.price_unit);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "remark", stu.remark);
@@ -445,6 +448,16 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "die_mould_cny", stu.die_mould_cny);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "rmb_remark", stu.rmb_remark);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cust_artwork", stu.cust_artwork);
+                    //add price vnd in 2023/02/13                    
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_vnd_usd", stu.price_vnd_usd);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_vnd", stu.price_vnd);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_vnd_grs", stu.price_vnd_grs);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_vnd_pcs", stu.price_vnd_pcs);
+                    //2023/03/01
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cf_color_id", stu.cf_color_id);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "material_type", stu.material_type);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "product_type", stu.product_type);
+
                 }
                 gridView1.AddNewRow();//因保存時不知何原因總少一行，故新增一行再移走，估計都是焦點問題
                 gridView1.DeleteRow(gridView1.FocusedRowHandle);
@@ -480,8 +493,10 @@ namespace cf01.Forms
 
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, true);
             Set_Grid_Status(true);
-            mState = "EDIT";
+            edit_state = "EDIT";
 
+            chkIsvn.Enabled = false;
+            chkIsvn.BackColor = Color.Transparent;
             txtID.Properties.ReadOnly = true;
             txtID.BackColor = System.Drawing.Color.White;
             memRemark.Properties.ReadOnly = true;
@@ -533,7 +548,7 @@ namespace cf01.Forms
 
             if (MessageBox.Show("注意：此操作將刪除主表及明細資料,請謹慎進行此操作!", myMsg.msgTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
             {
-                mDel_ID = txtID.Text.Trim();
+                del_id = txtID.Text.Trim();
                 const string sql_del = @"DELETE FROM dbo.quotation_mostly WHERE id=@id";
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString);//舊的                
                 myCon.Open();
@@ -544,7 +559,7 @@ namespace cf01.Forms
                     {
                         myCommand.CommandText = sql_del;//刪除主檔
                         myCommand.Parameters.Clear();
-                        myCommand.Parameters.AddWithValue("@id", mDel_ID);
+                        myCommand.Parameters.AddWithValue("@id", del_id);
                         myCommand.ExecuteNonQuery();
 
                         myTrans.Commit(); //數據提交           
@@ -568,12 +583,12 @@ namespace cf01.Forms
                 //应该采用倒序循环刪除,因为正序删除时索引会发生变化
                 for (int i = dgvFind.Rows.Count - 1; i >= 0; i--)
                 {
-                    if (dgvFind.Rows[i].Cells["quotaion_id"].Value.ToString() == mDel_ID)
+                    if (dgvFind.Rows[i].Cells["quotaion_id"].Value.ToString() == del_id)
                     {
                         dtReport.Rows.RemoveAt(i);
                     }
                 }
-                mDel_ID = "";
+                del_id = "";
             }
         }
 
@@ -629,11 +644,11 @@ namespace cf01.Forms
             dtQuotation_details.Clear();
             gridControl1.DataSource = dtQuotation_details;
 
-            mState = "";
-            if (!String.IsNullOrEmpty(mID))
+            edit_state = "";
+            if (!String.IsNullOrEmpty(tempID))
             {
                // Find_Data();
-                Find_doc(mID,mVersion);
+                Find_doc(tempID,temp_version);
             }
             memRemark.Properties.ReadOnly = true;
             memRemark.BackColor = Color.LightGray;
@@ -646,29 +661,26 @@ namespace cf01.Forms
 
         private void Find_doc(string temp_id,string pVer) //主檔非新增的情況下，保存或取消時重新查出資料
         {
-            if (!String.IsNullOrEmpty(temp_id))
+            if (!string.IsNullOrEmpty(temp_id))
             {
                 //主表
-                string sql_h = String.Format(
-                @"SELECT A.*,B.name as name_customer FROM dbo.quotation_mostly A with(nolock) 
+                string sql_h = string.Format(
+                @"SELECT A.*,B.name as name_customer 
+                  FROM dbo.quotation_mostly A with(nolock) 
                   LEFT JOIN {0}it_customer B with(nolock) ON B.within_code='0000' and A.customer_id=B.id COLLATE Chinese_Taiwan_Stroke_CI_AS
                   WHERE A.id ='{1}' AND A.version='{2}'", DBUtility.remote_db, temp_id,pVer);
                 //明細表
-                string sql_d = String.Format(
-                @"SELECT A.*,A.usd_ex_fty,B.name as name_brand 
+                string sql_d = string.Format(
+                @"SELECT A.*,B.name as name_brand 
                 FROM dbo.quotation_details A with(nolock) 
                 LEFT JOIN v_brand_customer B ON A.brand=B.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-                WHERE A.id='{0}' And A.version='{1}'", temp_id, pVer);
-                /*
-                string sql_d = String.Format(
-                @"SELECT A.*,Round(Convert(float,Isnull(A.number_enter,0)/7.8),2) AS usd_ex_fty,B.name as name_brand 
-                FROM dbo.quotation_details A with(nolock) 
-                LEFT JOIN v_brand_customer B ON A.brand=B.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-                WHERE A.id='{0}' And A.version='{1}'", temp_id, pVer);*/
+                WHERE A.id='{0}' And A.version='{1}'", temp_id, pVer);              
 
                 dtQuotation_mostly = clsPublicOfCF01.GetDataTable(sql_h);
                 if (dtQuotation_mostly.Rows.Count > 0)
+                {
                     Set_Master_Data(dtQuotation_mostly);
+                }
                 else
                 {
                     SetObjValue.ClearObjValue(this.Controls, "2");
@@ -679,8 +691,8 @@ namespace cf01.Forms
                 dtQuotation_details = clsPublicOfCF01.GetDataTable(sql_d);
                 gridControl1.DataSource = dtQuotation_details;
 
-                mID = txtID.Text; //保存臨時的ID
-                mVersion = txtVersion.Text; //保存臨時的version
+                tempID = txtID.Text; //保存臨時的ID
+                temp_version = txtVersion.Text; //保存臨時的version
             }
         }
 
@@ -699,36 +711,43 @@ namespace cf01.Forms
             save_flag = false;
             //新增主表
             const string sql_insert =
-                @"INSERT INTO dbo.quotation_mostly(id,version,quota_date,customer_id,term_id,address_id,remark,remark_other,crusr,crtim,id_referred,valid_date,money_id,tel,fax,email,contact,isusd,ishkd,isrmb)
-					VALUES (@id,@version,@quota_date,@customer_id,@term_id,@address_id,@remark,@remark_other,@user_id,getdate(),@id_referred,@valid_date,@money_id,@tel,@fax,@email,@contact,@isusd,@ishkd,@isrmb)";
+                @"INSERT INTO dbo.quotation_mostly(id,version,quota_date,customer_id,term_id,address_id,remark,remark_other,crusr,crtim,id_referred,
+                    valid_date,money_id,tel,fax,email,contact,isusd,ishkd,isrmb,isvn,position,address)
+					VALUES (@id,@version,@quota_date,@customer_id,@term_id,@address_id,@remark,@remark_other,@user_id,getdate(),@id_referred,
+                    @valid_date,@money_id,@tel,@fax,@email,@contact,@isusd,@ishkd,@isrmb,@isvn,@position,@address)";
             //新增明細表
             const string sql_detail_insert =
-                @"INSERT INTO dbo.quotation_details(id,version,seq_id,brand,division,contact,material,size,product_desc,cust_code,cf_code,
-                    cust_color,cf_color,price_usd,price_hkd,price_rmb,price_vnd,moq,price_unit,remark,temp_code,ver,moq_desc,moq_unit,season,salesman,mwq,lead_time_min,lead_time_max,lead_time_unit,md_charge,md_charge_cny,moq_for_test,
-                    number_enter,hkd_ex_fty,usd_ex_fty,sales_group,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_price_vnd,disc_hkd_ex_fty,actual_price,actual_price_type,
-                    die_mould_usd,die_mould_cny,rmb_remark,cust_artwork) 
+                @"INSERT INTO dbo.quotation_details(id,version,seq_id,brand,division,contact,material,size,product_desc,cust_code,cf_code,cust_color,cf_color,
+                    price_usd,price_hkd,price_rmb,moq,price_unit,remark,temp_code,ver,moq_desc,moq_unit,season,salesman,mwq,lead_time_min,lead_time_max,
+                    lead_time_unit,md_charge,md_charge_cny,moq_for_test,number_enter,hkd_ex_fty,usd_ex_fty,sales_group,usd_dap,usd_lab_test_prx,ex_fty_hkd,
+                    ex_fty_usd,discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_price_vnd,disc_hkd_ex_fty,actual_price,actual_price_type,die_mould_usd,
+                    die_mould_cny,rmb_remark,cust_artwork, price_vnd_usd,price_vnd,price_vnd_grs,price_vnd_pcs ,cf_color_id,material_type,product_type) 
 					VALUES (@id,@version,@seq_id,@brand,@division,@contact,@material,@size,@product_desc,@cust_code,@cf_code,@cust_color,@cf_color,
-                    @price_usd,@price_hkd,@price_rmb,@price_vnd,@moq,@price_unit,@remark,@temp_code,@ver,@moq_desc,@moq_unit,
-                    @season,@salesman,@mwq,@lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@moq_for_test,@number_enter,@hkd_ex_fty,@usd_ex_fty,@sales_group,@usd_dap,@usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,
-                    @discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_price_vnd,@disc_hkd_ex_fty,@actual_price,@actual_price_type,@die_mould_usd,@die_mould_cny,@rmb_remark,@cust_artwork)";
+                    @price_usd,@price_hkd,@price_rmb,@moq,@price_unit,@remark,@temp_code,@ver,@moq_desc,@moq_unit,@season,@salesman,@mwq,@lead_time_min,
+                    @lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@moq_for_test,@number_enter,@hkd_ex_fty,@usd_ex_fty,@sales_group,@usd_dap,
+                    @usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,@discount,@disc_price_usd,@disc_price_hkd,@disc_price_rmb,@disc_price_vnd,@disc_hkd_ex_fty,
+                    @actual_price,@actual_price_type,@die_mould_usd,@die_mould_cny,@rmb_remark,@cust_artwork,@price_vnd_usd,@price_vnd,@price_vnd_grs,
+                    @price_vnd_pcs,@cf_color_id,@material_type,@product_type )";
             //更新主表
             const string sql_update =
                 @"UPDATE dbo.quotation_mostly
-					SET quota_date=@quota_date,customer_id=@customer_id,term_id=@term_id,address_id=@address_id,remark=@remark,remark_other=@remark_other,amusr=@user_id,amtim=getdate(),
-                        id_referred=@id_referred,valid_date=@valid_date,money_id=@money_id,tel=@tel,fax=@fax,email=@email,contact=@contact,isusd=@isusd,ishkd=@ishkd,isrmb=@isrmb 
+					SET quota_date=@quota_date,customer_id=@customer_id,term_id=@term_id,address_id=@address_id,remark=@remark,remark_other=@remark_other,
+                        amusr=@user_id,amtim=getdate(),id_referred=@id_referred,valid_date=@valid_date,money_id=@money_id,tel=@tel,fax=@fax,email=@email,
+                        contact=@contact,isusd=@isusd,ishkd=@ishkd,isrmb=@isrmb,isvn=@isvn,position=@position,address=@address
 					WHERE id=@id AND version=@version";
             //更新明細表
             const string sql_detail_update =
                 @"UPDATE dbo.quotation_details 
-					SET brand=@brand,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,
-                        cust_code=@cust_code,cf_code=@cf_code,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,
-                        price_hkd=@price_hkd,price_rmb=@price_rmb,moq=@moq,price_unit=@price_unit,remark=@remark,temp_code=@temp_code,ver=@ver,moq_desc=@moq_desc,moq_unit=@moq_unit,season=@season,salesman=@salesman,mwq=@mwq,
-                        lead_time_min=@lead_time_min,lead_time_max=@lead_time_max,lead_time_unit=@lead_time_unit,md_charge=@md_charge,md_charge_cny=@md_charge_cny,moq_for_test=@moq_for_test,
-                        number_enter=@number_enter,hkd_ex_fty=@hkd_ex_fty,usd_ex_fty=@usd_ex_fty,sales_group=@sales_group,
-                        usd_dap=@usd_dap,usd_lab_test_prx=@usd_lab_test_prx,ex_fty_hkd=@ex_fty_hkd,ex_fty_usd=@ex_fty_usd,
-                        discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty,
-                        actual_price=@actual_price,actual_price_type=@actual_price_type,die_mould_usd=@die_mould_usd,die_mould_cny=@die_mould_cny,
-                        rmb_remark=@rmb_remark,cust_artwork=@cust_artwork,price_vnd=@price_vnd,disc_price_vnd=@disc_price_vnd
+					SET brand=@brand,division=@division,contact=@contact,material=@material,size=@size,product_desc=@product_desc,cust_code=@cust_code,
+                        cf_code=@cf_code,cust_color=@cust_color,cf_color=@cf_color,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,moq=@moq,
+                        price_unit=@price_unit,remark=@remark,temp_code=@temp_code,ver=@ver,moq_desc=@moq_desc,moq_unit=@moq_unit,season=@season,salesman=@salesman,
+                        mwq=@mwq,lead_time_min=@lead_time_min,lead_time_max=@lead_time_max,lead_time_unit=@lead_time_unit,md_charge=@md_charge,md_charge_cny=@md_charge_cny,
+                        moq_for_test=@moq_for_test,number_enter=@number_enter,hkd_ex_fty=@hkd_ex_fty,usd_ex_fty=@usd_ex_fty,sales_group=@sales_group,usd_dap=@usd_dap,
+                        usd_lab_test_prx=@usd_lab_test_prx,ex_fty_hkd=@ex_fty_hkd,ex_fty_usd=@ex_fty_usd,discount=@discount,disc_price_usd=@disc_price_usd,
+                        disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_hkd_ex_fty=@disc_hkd_ex_fty,actual_price=@actual_price,
+                        actual_price_type=@actual_price_type,die_mould_usd=@die_mould_usd,die_mould_cny=@die_mould_cny,rmb_remark=@rmb_remark,cust_artwork=@cust_artwork,
+                        disc_price_vnd=@disc_price_vnd,price_vnd_usd=@price_vnd_usd,price_vnd=@price_vnd,price_vnd_grs=@price_vnd_grs,price_vnd_pcs=@price_vnd_pcs,
+                        cf_color_id=@cf_color_id, material_type=@material_type, product_type=@product_type
 					WHERE id=@id AND version=@version AND seq_id=@seq_id";
             const string sql_item_d = @"DELETE FROM dbo.quotation_details WHERE id=@id AND version=@version AND seq_id=@seq_id";
 
@@ -755,24 +774,19 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@fax", txtFax.Text);
                     myCommand.Parameters.AddWithValue("@email", txtEmail.Text);
                     myCommand.Parameters.AddWithValue("@contact", txtContact.Text);
+                    myCommand.Parameters.AddWithValue("@position", txtPosition.Text);
+                    myCommand.Parameters.AddWithValue("@address", txtAddress.Text);                    
                     bool blChecked;
-                    if (chkUsd.Checked)
-                        blChecked = true;
-                    else
-                        blChecked = false;
-                    myCommand.Parameters.AddWithValue("@isusd", blChecked);
-                    if (chkHkd.Checked)
-                        blChecked = true;
-                    else
-                        blChecked = false;
+                    blChecked = chkUsd.Checked ? true : false;
+                    myCommand.Parameters.AddWithValue("@isusd", blChecked);                    
+                    blChecked = chkHkd.Checked ? true : false;                    
                     myCommand.Parameters.AddWithValue("@ishkd", blChecked);
-                    if (chkRmb.Checked)
-                        blChecked = true;
-                    else
-                        blChecked = false;
+                    blChecked = chkRmb.Checked ? true : false;                    
                     myCommand.Parameters.AddWithValue("@isrmb", blChecked);
+                    blChecked = chkIsvn.Checked ? true : false;
+                    myCommand.Parameters.AddWithValue("@isvn", blChecked);
 
-                    if (mState == "NEW")
+                    if (edit_state == "NEW")
                     {
                         if (Valid_Doc())
                         {
@@ -790,9 +804,8 @@ namespace cf01.Forms
 
                     //處理明細表
                     //刪除明細資料
-                    if (mState == "EDIT")
-                    {
-                        
+                    if (edit_state == "EDIT")
+                    {                        
                         for (int i = 0; i < dtTempDel.Rows.Count; i++)
                         {
                             myCommand.CommandText = sql_item_d;
@@ -841,8 +854,7 @@ namespace cf01.Forms
 
                                 myCommand.Parameters.AddWithValue("@price_usd", Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString()));
                                 myCommand.Parameters.AddWithValue("@price_hkd", Return_Float_Value(dtQuotation_details.Rows[i]["price_hkd"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_rmb", Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_vnd", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_rmb", Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString()));                              
 
                                 myCommand.Parameters.AddWithValue("@moq", dtQuotation_details.Rows[i]["moq"]);
                                 myCommand.Parameters.AddWithValue("@price_unit", dtQuotation_details.Rows[i]["price_unit"].ToString());
@@ -885,6 +897,16 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@die_mould_cny", dtQuotation_details.Rows[i]["die_mould_cny"].ToString());
                                 myCommand.Parameters.AddWithValue("@rmb_remark", dtQuotation_details.Rows[i]["rmb_remark"].ToString());
                                 myCommand.Parameters.AddWithValue("@cust_artwork", dtQuotation_details.Rows[i]["cust_artwork"].ToString());
+                                //越南單價2023/02/13
+                                myCommand.Parameters.AddWithValue("@price_vnd_usd", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_usd"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd_grs", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_grs"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd_pcs", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_pcs"].ToString()));
+
+                                myCommand.Parameters.AddWithValue("@cf_color_id", dtQuotation_details.Rows[i]["cf_color_id"].ToString());
+                                myCommand.Parameters.AddWithValue("@material_type", dtQuotation_details.Rows[i]["material_type"].ToString());
+                                myCommand.Parameters.AddWithValue("@product_type", dtQuotation_details.Rows[i]["product_type"].ToString());
+
                                 myCommand.ExecuteNonQuery();
                             }
                         }
@@ -909,11 +931,11 @@ namespace cf01.Forms
             SetButtonSatus(true);
             Edit_Columns(true);
 
-            temp_state = mState; //將更改的值寫入dgvFind     
+            temp_state = edit_state; //將更改的值寫入dgvFind     
 
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, false);
             Set_Grid_Status(false);
-            mState = "";
+            edit_state = "";
             btnCopy.Enabled = false;
             memRemark.Properties.ReadOnly = true;
             memRemark.BackColor = Color.LightGray;
@@ -950,19 +972,121 @@ namespace cf01.Forms
 
         private bool Save_Before_Valid() //保存前檢查主檔資料有效性
         {
-            if (mState == "NEW")
+            if (edit_state == "NEW")
             {
                 GetDocNo();
             }
+            bool rtn = true;
             if (txtID.Text == "" || txtDate.Text == "" || txtTerm_id.Text == "" || txtAddress_id.Text == "" || txtValid_date.Text == "" || txtMoney_id.Text == "")
             {
                 MessageBox.Show("注意:藍色字欄位資料不可為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
+                rtn = false;
+            }
+            DataTable dt = new DataTable();
+            string tempCode = "";
+            string sql = "";
+            if (chkIsvn.Checked)
+            {
+                //檢查明細中越南單價是否大于0
+                float price_vnd, price_vnd_usd, price_vnd_grs, price_vnd_pcs;
+                float price_vnd_usd_pdd, price_vnd_pdd, price_vnd_grs_pdd, price_vnd_pcs_pdd;
+                for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
+                {
+                    price_vnd_usd = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_usd"].ToString());
+                    price_vnd = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString());
+                    price_vnd_grs = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_grs"].ToString());
+                    price_vnd_pcs = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_pcs"].ToString());
+                    if (Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString()) <= 0)
+                    {
+                        MessageBox.Show("注意:此單為越南報價單,明細中的越南單價必須大于零!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }
+                    tempCode = dtQuotation_details.Rows[i]["temp_code"].ToString();
+                    sql = string.Format(@"Select price_vnd_usd,price_vnd,price_vnd_grs,price_vnd_pcs From quotation Where temp_code='{0}'", tempCode);
+                    dt = clsPublicOfCF01.GetDataTable(sql);
+                    price_vnd_usd_pdd = Return_Float_Value(dt.Rows[0]["price_vnd_usd"].ToString());
+                    price_vnd_pdd = Return_Float_Value(dt.Rows[0]["price_vnd"].ToString());
+                    price_vnd_grs_pdd = Return_Float_Value(dt.Rows[0]["price_vnd_grs"].ToString());
+                    price_vnd_pcs_pdd = Return_Float_Value(dt.Rows[0]["price_vnd_pcs"].ToString());
+                    if (price_vnd_usd_pdd > price_vnd_usd)
+                    {
+                        MessageBox.Show(string.Format("注意:單價VND(USD)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_usd, price_vnd_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }
+                    if (price_vnd_pdd>price_vnd)
+                    {
+                        MessageBox.Show(string.Format("注意:單價VND'{0}'不可小于HK PDD'{1}'報價!", price_vnd, price_vnd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                       
+                        rtn = false;
+                        break;
+                    }
+                    if (price_vnd_grs_pdd > price_vnd_grs)
+                    {
+                        MessageBox.Show(string.Format("注意:單價VND(GRS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_grs, price_vnd_grs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                        
+                        rtn = false;
+                        break;
+                    }
+                    if (price_vnd_pcs_pdd > price_vnd_pcs)
+                    {
+                        MessageBox.Show(string.Format("注意:單價VND(PCS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_pcs, price_vnd_pcs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }
+                }
             }
             else
             {
-                return true;
+                float price_usd, price_hkd, price_rmb, hkd_ex_fty, usd_ex_fty;
+                float price_usd_pdd, price_hkd_pdd, price_rmb_pdd,hkd_ex_fty_pdd, usd_ex_fty_pdd;
+                for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
+                {
+                    price_usd = Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString());
+                    price_hkd = Return_Float_Value(dtQuotation_details.Rows[i]["price_hkd"].ToString());
+                    price_rmb = Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString());
+                    hkd_ex_fty = Return_Float_Value(dtQuotation_details.Rows[i]["hkd_ex_fty"].ToString());
+                    usd_ex_fty = Return_Float_Value(dtQuotation_details.Rows[i]["usd_ex_fty"].ToString());
+                    tempCode = dtQuotation_details.Rows[i]["temp_code"].ToString();
+                    sql = string.Format(@"Select price_usd, price_hkd, price_rmb, hkd_ex_fty, usd_ex_fty From quotation Where temp_code='{0}'", tempCode);
+                    dt = clsPublicOfCF01.GetDataTable(sql);
+                    price_usd_pdd = Return_Float_Value(dt.Rows[0]["price_usd"].ToString());
+                    price_hkd_pdd = Return_Float_Value(dt.Rows[0]["price_hkd"].ToString());
+                    price_rmb_pdd = Return_Float_Value(dt.Rows[0]["price_rmb"].ToString());
+                    hkd_ex_fty_pdd = Return_Float_Value(dt.Rows[0]["hkd_ex_fty"].ToString());
+                    usd_ex_fty_pdd = Return_Float_Value(dt.Rows[0]["usd_ex_fty"].ToString());
+                    if (price_usd_pdd > 0 && (price_usd < price_usd_pdd))
+                    {
+                        MessageBox.Show(string.Format("注意:單價USD'{0}'不可小于HK PDD'{1}'報價!", price_usd, price_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }
+                    if (price_hkd_pdd > 0 && ( price_hkd_pdd > price_hkd))
+                    {                       
+                        MessageBox.Show(string.Format("注意:單價HKD'{0}'不可小于HK PDD'{1}'報價!", price_hkd, price_hkd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }
+                    if (price_rmb_pdd > 0 && ( price_rmb_pdd > price_rmb))
+                    {
+                        MessageBox.Show(string.Format("注意:單價RMB'{0}'不可小于HK PDD'{1}'報價!", price_rmb, price_rmb_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }
+                    if (hkd_ex_fty_pdd > 0 && ( hkd_ex_fty_pdd > hkd_ex_fty))
+                    {
+                        MessageBox.Show(string.Format("注意:單價HKD-EX-FTY'{0}'不可小于HK PDD'{1}'報價!", hkd_ex_fty, hkd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }                    
+                    if (usd_ex_fty_pdd > 0 && ( usd_ex_fty_pdd > usd_ex_fty))
+                    {
+                        MessageBox.Show(string.Format("注意:單價USD-EX-FTY'{0}'不可小于HK PDD'{1}'報價!", usd_ex_fty, usd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = false;
+                        break;
+                    }
+                }
             }
+            return rtn;
         }
 
         private bool Valid_Doc() //主建是否已存在
@@ -1007,12 +1131,12 @@ namespace cf01.Forms
         private void GetDocNo() //取最大單據編號
         {
             string strYear = clsPublicOfCF01.ExecuteSqlReturnObject("Select substring(convert(varchar(10),GETDATE(),120),1,4)");
-            string strDoc = String.Format("{0}{1}", strArea, strYear);
+            string strDoc = string.Format("{0}{1}", strArea, strYear);
             string strSeq;
             string strMaxSeq;
             DataTable dtMaxSeq = new DataTable();
-            dtMaxSeq = clsPublicOfCF01.GetDataTable(String.Format("SELECT MAX(id) as id FROM dbo.quotation_mostly WHERE id LIKE '{0}%'", strDoc));
-            if (String.IsNullOrEmpty(dtMaxSeq.Rows[0]["id"].ToString()))
+            dtMaxSeq = clsPublicOfCF01.GetDataTable(string.Format("SELECT MAX(id) as id FROM dbo.quotation_mostly WHERE id LIKE '{0}%'", strDoc));
+            if (string.IsNullOrEmpty(dtMaxSeq.Rows[0]["id"].ToString()))
             {
                 strSeq = "000001";
             }
@@ -1067,40 +1191,25 @@ namespace cf01.Forms
             txtTel.Text = dt.Rows[0]["tel"].ToString();
             txtFax.Text = dt.Rows[0]["fax"].ToString();
             txtEmail.Text = dt.Rows[0]["email"].ToString();
+            txtPosition.Text = dt.Rows[0]["position"].ToString();
+            txtAddress.Text = dt.Rows[0]["address"].ToString();
 
-            if (dt.Rows[0]["isusd"].ToString() == "True")
-                chkUsd.Checked = true;
-            else
-                chkUsd.Checked = false;
-            if (dt.Rows[0]["ishkd"].ToString() == "True")
-                chkHkd.Checked = true;
-            else
-                chkHkd.Checked = false;
-            if (dt.Rows[0]["isrmb"].ToString() == "True")
-                chkRmb.Checked = true;
-            else
-                chkRmb.Checked = false;
+            chkUsd.Checked = (dt.Rows[0]["isusd"].ToString() == "True") ? true : false;
+            chkHkd.Checked = (dt.Rows[0]["ishkd"].ToString() == "True") ? true : false;
+            chkRmb.Checked = (dt.Rows[0]["isrmb"].ToString() == "True") ? true : false;
+            chkIsvn.Checked = (dt.Rows[0]["isvn"].ToString() == "True") ? true : false;
         }
 
         private void txtID_Leave(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtID.Text))
             {
-                if (mState == "") //流覽模式
+                if (edit_state == "") //流覽模式
                 {
                     Find_doc(txtID.Text,txtVersion.Text);
                 }
             }
-        }
-
-        //private string GetConString(string _all_path, string _public_path)
-        //{
-        //    string str_result = "";
-        //    int lenth_all = _all_path.Length;
-        //    int lenth_public = _public_path.Length;
-        //    str_result = _all_path.Substring(lenth_public, lenth_all - lenth_public);
-        //    return str_result;
-        //}
+        }      
 
         private void txtCustomer_id_Click(object sender, EventArgs e)
         {
@@ -1218,7 +1327,7 @@ namespace cf01.Forms
             }).Start();
 
             //************************
-            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find", paras); //数据处理
+            dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
@@ -1264,7 +1373,7 @@ namespace cf01.Forms
             {
                 return;
             }
-            if (mState == "")
+            if (edit_state == "")
             {
                 MessageBox.Show("非新增或編輯狀態不可以使用此功能!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -1283,6 +1392,48 @@ namespace cf01.Forms
                 MessageBox.Show("請選擇要添加的記錄!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            bool flag_vn = true;
+            //越南報價單只可以添加越南報價單大于零的記錄
+            if (chkIsvn.Checked)
+            {               
+                for (int i = 0; i < dgvDetails.RowCount; i++)
+                {
+                    if (dtFind.Rows[i]["flag_select"].ToString() == "True")
+                    {
+                        if (Return_Float_Value(dtFind.Rows[i]["price_vnd"].ToString()) <= 0)
+                        {
+                            MessageBox.Show("注意:所選的記錄不是越南的報價單!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            flag_vn = false;
+                            break;
+                        }
+                    }
+                }
+                if (flag_vn == false)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                flag_vn = true;
+                for (int i = 0; i < dgvDetails.RowCount; i++)
+                {
+                    if (dtFind.Rows[i]["flag_select"].ToString() == "True")
+                    {
+                        if (Return_Float_Value(dtFind.Rows[i]["price_vnd"].ToString()) > 0)
+                        {
+                            MessageBox.Show("注意:所勾選的記錄中包含有越南的報價單數據,請返回主表中選中[越南報價單]!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            flag_vn = false;
+                            break;
+                        }
+                    }
+                }
+                if (flag_vn == false)
+                {
+                    return;
+                }
+            }
+
             //插入數據后順序錯亂的問題:1.將datagridview排序后轉成Datatble;2.直接引用將排序好的datagridview
             DataTable dtTempAdd = clsQuotation.GetSortDataTable(dgvDetails);//按用戶的排序先后順序插入表格,
             int cur_row = 0;
@@ -1340,10 +1491,19 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(cur_row, "die_mould_cny", dtTempAdd.Rows[i]["die_mould_cny"].ToString());                   
                     gridView1.SetRowCellValue(cur_row, "actual_price", dtTempAdd.Rows[i]["price_salesperson"].ToString());
                     gridView1.SetRowCellValue(cur_row, "rmb_remark", dtTempAdd.Rows[i]["rmb_remark"].ToString());
-                    gridView1.SetRowCellValue(cur_row, "cust_artwork", dtTempAdd.Rows[i]["cust_artwork"].ToString()); 
+                    gridView1.SetRowCellValue(cur_row, "cust_artwork", dtTempAdd.Rows[i]["cust_artwork"].ToString());
+                    //vnd 2023/02/13
+                    gridView1.SetRowCellValue(cur_row, "price_vnd_usd", dtTempAdd.Rows[i]["price_vnd_usd"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "price_vnd", dtTempAdd.Rows[i]["price_vnd"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "price_vnd_grs", dtTempAdd.Rows[i]["price_vnd_grs"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", dtTempAdd.Rows[i]["price_vnd_pcs"].ToString());
+                    //2023/03/01
+                    gridView1.SetRowCellValue(cur_row, "cf_color_id", dtTempAdd.Rows[i]["cf_color_id"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "material_type", dtTempAdd.Rows[i]["material_type"].ToString());
+                    gridView1.SetRowCellValue(cur_row, "product_type", dtTempAdd.Rows[i]["product_type"].ToString());
                 }
             }
-            //將查詢表格中選中的記錄取消避免重復插入
+            //將查詢表格中選中的記錄取消,避免重復插入
             for (int i = 0; i < dtFind.Rows.Count; i++)
             {
                 if (dtFind.Rows[i]["flag_select"].ToString() == "True")
@@ -1470,12 +1630,12 @@ namespace cf01.Forms
             string strsql = string.Format(
            @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
             '' as terms,'' as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,A.contact as contact_h,A.tel,A.fax,A.email,
-            A.isusd,A.ishkd,A.isrmb,B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,B.product_desc,B.cust_code,
+            A.isusd,A.ishkd,A.isrmb,A.isvn,A.position,A.address,B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,B.product_desc,B.cust_code,
             B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,B.remark,ISNULL(C.name,'') AS name_customer,
             B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, B.number_enter,            
             B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,B.sales_group,
             B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,B.die_mould_cny,
-            '' AS polo_care,isnull(D.moq_desc,'') AS moqdesc,B.rmb_remark,B.cust_artwork,B.price_vnd,B.disc_price_vnd 
+            '' AS polo_care,isnull(D.moq_desc,'') AS moqdesc,B.rmb_remark,B.cust_artwork, B.disc_price_vnd,B.price_vnd_usd, B.price_vnd,B.price_vnd_grs,B.price_vnd_pcs
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
                 LEFT JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
@@ -1483,24 +1643,6 @@ namespace cf01.Forms
                 LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS
             WHERE 1>0 ", DBUtility.remote_db);
 
-//            string strsql = string.Format(
-//            @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
-//            dbo.fn_getTermRemark(A.term_id,A.valid_date) as terms,dbo.fn_getAddress(A.address_id) as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,A.contact as contact_h,A.tel,A.fax,A.email,
-//            A.isusd,A.ishkd,A.isrmb,B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,B.product_desc,B.cust_code,
-//            B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,B.remark,ISNULL(C.name,'') AS name_customer,
-//            B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, B.number_enter,
-//            Round(Convert(float,B.price_usd*(1-0.025)),2) AS usd_discount,Round(Convert(float,B.price_hkd*(1-0.025)),2) AS hkd_discount,
-//            B.hkd_ex_fty,Round(Convert(float,Isnull(B.number_enter,0)/7.8),2) AS usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,
-//            CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,B.moq_for_test,isnull(D.moq_desc,'') AS moqdesc,B.sales_group,
-//            B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_hkd_ex_fty
-//            FROM dbo.quotation_mostly A with(nolock)
-//                INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
-//                LEFT JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
-//                LEFT JOIN {0}it_customer C with(nolock) ON C.within_code='0000' and A.customer_id=C.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-//                LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-//            WHERE 1>0 ", DBUtility.remote_db);
-            //LEFT JOIN (select id,name from {0}cd_brand with(nolock) Union all select id,name from {0}it_customer with(nolock)) SS
-            //B.number_enter AS ex_fty_hkd
             return strsql;
         }
 
@@ -1596,19 +1738,13 @@ namespace cf01.Forms
                             txtTel.Text = ofrmCopy.dr_copy[0]["tel"].ToString();
                             txtFax.Text = ofrmCopy.dr_copy[0]["fax"].ToString();
                             txtEmail.Text = ofrmCopy.dr_copy[0]["email"].ToString();
-                            if (ofrmCopy.dr_copy[0]["isusd"].ToString() == "True")
-                                chkUsd.Checked = true;
-                            else
-                                chkUsd.Checked = false;
-                            if (ofrmCopy.dr_copy[0]["ishkd"].ToString() == "True")
-                                chkHkd.Checked = true;
-                            else
-                                chkHkd.Checked = false;
-
-                            if (ofrmCopy.dr_copy[0]["isrmb"].ToString() == "True")
-                                chkRmb.Checked = true;
-                            else
-                                chkRmb.Checked = false;
+                            txtPosition.Text= ofrmCopy.dr_copy[0]["position"].ToString();
+                            txtAddress.Text = ofrmCopy.dr_copy[0]["address"].ToString();
+                            chkUsd.Checked = (ofrmCopy.dr_copy[0]["isusd"].ToString() == "True") ? true : false;
+                            chkHkd.Checked = (ofrmCopy.dr_copy[0]["ishkd"].ToString() == "True") ? true : false;
+                            chkRmb.Checked = (ofrmCopy.dr_copy[0]["isrmb"].ToString() == "True") ? true : false;
+                            chkIsvn.Checked = (ofrmCopy.dr_copy[0]["isvn"].ToString() == "True") ? true : false;
+                          
                         }
 
                         gridView1.AddNewRow();//新增
@@ -1625,8 +1761,7 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "cf_color", ofrmCopy.dr_copy[i]["cf_color"].ToString());
                         gridView1.SetRowCellValue(cur_row, "price_usd", ofrmCopy.dr_copy[i]["price_usd"]);
                         gridView1.SetRowCellValue(cur_row, "price_hkd", ofrmCopy.dr_copy[i]["price_hkd"]);
-                        gridView1.SetRowCellValue(cur_row, "price_rmb", ofrmCopy.dr_copy[i]["price_rmb"]);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd", ofrmCopy.dr_copy[i]["price_vnd"]);
+                        gridView1.SetRowCellValue(cur_row, "price_rmb", ofrmCopy.dr_copy[i]["price_rmb"]);                        
                         gridView1.SetRowCellValue(cur_row, "moq", ofrmCopy.dr_copy[i]["moq"]);
                         gridView1.SetRowCellValue(cur_row, "price_unit", ofrmCopy.dr_copy[i]["price_unit"].ToString());
                         gridView1.SetRowCellValue(cur_row, "remark", ofrmCopy.dr_copy[i]["remark"].ToString());
@@ -1663,6 +1798,10 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "die_mould_usd", ofrmCopy.dr_copy[i]["die_mould_usd"]);
                         gridView1.SetRowCellValue(cur_row, "die_mould_cny", ofrmCopy.dr_copy[i]["die_mould_cny"].ToString());
 
+                        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", ofrmCopy.dr_copy[i]["price_vnd_usd"]);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd", ofrmCopy.dr_copy[i]["price_vnd"]);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", ofrmCopy.dr_copy[i]["price_vnd_grs"]);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", ofrmCopy.dr_copy[i]["price_vnd_pcs"]);
                     }
                     //dsCopy.Tables.Clear();
                     ofrmCopy.dr_copy = null;
@@ -1704,7 +1843,7 @@ namespace cf01.Forms
 
         private void txtCustomer_id_EditValueChanged(object sender, EventArgs e)
         {
-            if (mState == "EDIT")
+            if (edit_state == "EDIT")
             {
                 Set_cust_info();
             }
@@ -1712,7 +1851,7 @@ namespace cf01.Forms
 
         private void txtCustomer_id_Leave(object sender, EventArgs e)
         {
-            if (mState == "NEW")
+            if (edit_state == "NEW")
             {
                 Set_cust_info();
             }
@@ -1726,6 +1865,7 @@ namespace cf01.Forms
             txtFax.Text = txtCustomer_id.GetColumnValue("fax").ToString();
             txtEmail.Text = txtCustomer_id.GetColumnValue("email").ToString();
             txtContact.Text = txtCustomer_id.GetColumnValue("contact").ToString();
+            txtAddress.Text = txtCustomer_id.GetColumnValue("address").ToString();
         }
 
         private void txtDate_Leave(object sender, EventArgs e)
@@ -1893,6 +2033,10 @@ namespace cf01.Forms
                     xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt };
                     ReportPrint(myReport21);
                     break;
+                case "26"://格式二十二(VND & VN USD)   
+                    xrQuotation22 myReport22 = new xrQuotation22() { DataSource = dt };
+                    ReportPrint(myReport22);                    
+                    break;
             }
         }
 
@@ -1908,7 +2052,7 @@ namespace cf01.Forms
 
         private void txtMoney_id_EditValueChanged(object sender, EventArgs e)
         {
-            if (mState != "")
+            if (edit_state != "")
             {
                 if (txtMoney_id.Text == "HKD")
                     chkHkd.Checked = true;
@@ -2209,7 +2353,7 @@ namespace cf01.Forms
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
             //編號狀態禁止點擊數據瀏覽頁
-            if (mState != "")
+            if (edit_state != "")
             {
                 if (e.TabPageIndex == 1)
                 {
@@ -2367,7 +2511,7 @@ namespace cf01.Forms
 
         private void cl_discount_Leave(object sender, EventArgs e)
         {
-            if (mState != "")
+            if (edit_state != "")
             {
                 //折扣前單價
                 int row= gridView1.FocusedRowHandle;                
@@ -2555,18 +2699,19 @@ namespace cf01.Forms
           @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
             dbo.fn_getTermRemark(A.term_id,A.quota_date,'0') as terms,dbo.fn_getTermRemark(A.term_id,A.quota_date,'1') as terms_other,
             dbo.fn_getAddress(A.address_id) as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,
-            A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
-            B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.price_vnd,B.moq,B.price_unit,Isnull(B.remark,'') as remark,
+            A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,A.position,A.address, B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
+            B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,Isnull(B.remark,'') as remark,
             ISNULL(C.name,'') AS name_customer,B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, 
             B.number_enter,B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,B.sales_group,
             B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_price_vnd,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,
             B.die_mould_cny, CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,ISNULL(D.moq_desc,'') AS moqdesc,
-            dbo.fn_get_picture_name_of_artwork('0000',Substring(Isnull(B.cf_code,''),1,7),'OUT') AS picture_name,Isnull(B.cust_artwork,'') AS cust_artwork,D.termremark
+            dbo.fn_get_picture_name_of_artwork('0000',Substring(Isnull(B.cf_code,''),1,7),'OUT') AS picture_name,Isnull(B.cust_artwork,'') AS cust_artwork,D.termremark,
+            B.price_vnd_usd,B.price_vnd,B.price_vnd_grs,B.price_vnd_pcs
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
                 LEFT JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
                 LEFT JOIN {0}it_customer C with(nolock) ON C.within_code='0000' and A.customer_id=C.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-                LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS
+                LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS               
             WHERE A.id='{1}' ORDER BY A.id,B.seq_id ", DBUtility.remote_db, txtID.Text);
           DataTable dtPrint = clsPublicOfCF01.GetDataTable(strsql);
           if (dtPrint.Rows.Count > 0)
@@ -2575,7 +2720,7 @@ namespace cf01.Forms
               {
                   if(string.IsNullOrEmpty(dtPrint.Rows[i]["picture_name"].ToString()) && !string.IsNullOrEmpty(dtPrint.Rows[i]["cust_artwork"].ToString()))
                   {
-                      dtPrint.Rows[i]["picture_name"] =mImagePath + dtPrint.Rows[i]["cust_artwork"];
+                      dtPrint.Rows[i]["picture_name"] =image_path + dtPrint.Rows[i]["cust_artwork"];
                   }
               }
               Print(dtPrint);
@@ -2625,8 +2770,8 @@ namespace cf01.Forms
              dtTerm1 = null;
              dtAddress1 = null;
              dtFind = null;
-             dtReport = null;        
-             dsCopy = null ;
+             dtReport = null;
+             //dsCopy = null ;
              mList = null;
         }
 
@@ -2694,7 +2839,7 @@ namespace cf01.Forms
             {
                 return;
             }
-            if (mState != "")
+            if (edit_state != "")
             {
                 MessageBox.Show("新增或編輯狀態下不可以使用此功能!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -2764,7 +2909,7 @@ namespace cf01.Forms
         //    int curRow = gridView1.FocusedRowHandle;
         //    string strCf_Code=gridView1.GetRowCellDisplayText(curRow, "cf_code");
 
-        //    if (mState != "" && !string.IsNullOrEmpty(strCf_Code))
+        //    if (edit_state != "" && !string.IsNullOrEmpty(strCf_Code))
         //    {                
         //        if (!clsQuotation.Check_Artwork(gridView1.GetRowCellDisplayText(curRow, "cf_code")))
         //        {
@@ -2777,7 +2922,7 @@ namespace cf01.Forms
         private void clCust_artwork_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             string cust_artwork_path = clsQuotation.cust_artwork_path; 
-            if (mState == "NEW" || mState == "EDIT")
+            if (edit_state == "NEW" || edit_state == "EDIT")
             {
                 OpenFileDialog openFile = new OpenFileDialog()
                 {
@@ -3387,6 +3532,12 @@ namespace cf01.Forms
         private void txtCrtim1_Leave(object sender, EventArgs e)
         {
             txtCrtim2.EditValue = txtCrtim1.EditValue;
+        }
+
+        private void chkIsvn_MouseUp(object sender, MouseEventArgs e)
+        {
+            strArea = chkIsvn.Checked ? "QV" : "QD";
+            GetDocNo();
         }
     }
 }

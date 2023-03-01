@@ -78,7 +78,8 @@ namespace cf01.Forms
             else
             {
                 string sql =
-                @"SELECT A.brand_id,space(255) as brand_name,A.usd1,A.usd2,A.rmb1,A.rmb2,A.hkd1,A.hkd2,A.remark,A.bp_hkd_ex,A.discount,A.crusr,A.crtim,A.amusr,A.amtim,A.usd3,A.id
+                @"SELECT A.brand_id,space(255) as brand_name,A.usd1,A.usd2,A.rmb1,A.rmb2,A.hkd1,A.hkd2,A.remark,A.bp_hkd_ex,A.discount,A.crusr,A.crtim,A.amusr,A.amtim,A.usd3,A.id,
+                A.vndbp1,A.vndusd1,A.vnd1
                 FROM dbo.quotation_formula A with(nolock)                                      
                 WHERE 1=0 ";
                 dtDetail = clsPublicOfCF01.GetDataTable(sql);
@@ -103,6 +104,10 @@ namespace cf01.Forms
             txtAmusr.DataBindings.Add("Text", bds1, "amusr");
             txtAmtim.DataBindings.Add("Text", bds1, "amtim");
             txtID.DataBindings.Add("Text", bds1, "id");
+
+            txtvndbp1.DataBindings.Add("Text", bds1, "vndbp1");
+            txtvndusd1.DataBindings.Add("Text", bds1, "vndusd1");
+            txtvnd1.DataBindings.Add("Text", bds1, "vnd1");
 
             //tabPage2.Parent = null;
             cmbRmb.SelectedIndex = 0;
@@ -274,12 +279,12 @@ namespace cf01.Forms
             }
             bool save_flag = false;
             const string sql_new =
-            @"INSERT INTO quotation_formula(brand_id,usd1,usd2,rmb1,rmb2,hkd1,hkd2,remark,bp_hkd_ex,crusr,crtim,usd3,discount)
-            VALUES(@brand_id,@usd1,@usd2,@rmb1,@rmb2,@hkd1,@hkd2,@remark,@bp_hkd_ex,@user_id,getdate(),@usd3,@discount)";
+            @"INSERT INTO quotation_formula(brand_id,usd1,usd2,rmb1,rmb2,hkd1,hkd2,remark,bp_hkd_ex,crusr,crtim,usd3,discount,vndbp1,vndusd1,vnd1)
+            VALUES(@brand_id,@usd1,@usd2,@rmb1,@rmb2,@hkd1,@hkd2,@remark,@bp_hkd_ex,@user_id,getdate(),@usd3,@discount,@vndbp1,@vndusd1,@vnd1)";
             const string sql_update =
             @"UPDATE quotation_formula 
             SET usd1=@usd1,usd2=@usd2,rmb1=@rmb1,rmb2=@rmb2,hkd1=@hkd1,hkd2=@hkd2,remark=@remark,bp_hkd_ex=@bp_hkd_ex,amusr=@user_id,amtim=Getdate(),
-            usd3=@usd3,discount=@discount
+            usd3=@usd3,discount=@discount,vndbp1=@vndbp1,vndusd1=@vndusd1,vnd1=@vnd1
             WHERE id=@id";
             bool isCheck;
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -302,7 +307,10 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@hkd2", clsApp.Return_Float_Value(txtHkd2.EditValue.ToString()));
                         myCommand.Parameters.AddWithValue("@usd3", clsApp.Return_Float_Value(txtUsd3.EditValue.ToString()));
                         myCommand.Parameters.AddWithValue("@discount", clsApp.Return_Float_Value(txtDiscount.EditValue.ToString()));
-                        myCommand.Parameters.AddWithValue("@remark", txtRemark.Text);                       
+                        myCommand.Parameters.AddWithValue("@remark", txtRemark.Text);
+                        myCommand.Parameters.AddWithValue("@vndbp1", clsApp.Return_Float_Value(txtvndbp1.EditValue.ToString()));
+                        myCommand.Parameters.AddWithValue("@vndusd1", clsApp.Return_Float_Value(txtvndusd1.EditValue.ToString()));
+                        myCommand.Parameters.AddWithValue("@vnd1", clsApp.Return_Float_Value(txtvnd1.EditValue.ToString()));
                         if (chkBp_hkd_ex.Checked)
                             isCheck = true;
                         else
@@ -339,7 +347,11 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@hkd2", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["hkd2"].Value.ToString()));
                                 myCommand.Parameters.AddWithValue("@usd3", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["usd3"].Value.ToString()));
                                 myCommand.Parameters.AddWithValue("@discount", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["discount"].Value.ToString()));
-                                myCommand.Parameters.AddWithValue("@remark", txtRemark.Text);                                
+                                myCommand.Parameters.AddWithValue("@remark", txtRemark.Text);
+                                myCommand.Parameters.AddWithValue("@vndbp1", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["vndbp1"].Value.ToString()));
+                                myCommand.Parameters.AddWithValue("@vndusd1", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["vndusd1"].Value.ToString()));
+                                myCommand.Parameters.AddWithValue("@vnd1", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["vnd1"].Value.ToString()));
+
                                 if (dgvDetails.Rows[i].Cells["bp_hkd_ex"].Value.ToString() == "True")
                                     isCheck = true;
                                 else
@@ -473,7 +485,11 @@ namespace cf01.Forms
             txtAmusr.Text = pdr.Cells["amusr"].Value.ToString();
             txtAmtim.Text = pdr.Cells["amtim"].Value.ToString();
             txtUsd3.Text = pdr.Cells["usd3"].Value.ToString();
-            txtDiscount.Text = pdr.Cells["discount"].Value.ToString();
+            txtDiscount.Text = pdr.Cells["discount"].Value.ToString();            
+            txtvndbp1.Text = pdr.Cells["vndbp1"].Value.ToString();
+            txtvndusd1.Text = pdr.Cells["vndusd1"].Value.ToString();
+            txtvnd1.Text = pdr.Cells["vnd1"].Value.ToString();
+
             string strCheck = pdr.Cells["bp_hkd_ex"].Value.ToString();
             if (string.IsNullOrEmpty(strCheck) || strCheck == "False")
             {
@@ -674,6 +690,21 @@ namespace cf01.Forms
         private void txtDiscount_Click(object sender, EventArgs e)
         {           
             Set_Focus(txtDiscount);
+        }
+
+        private void txtvndbp1_Click(object sender, EventArgs e)
+        {
+            Set_Focus(txtvndbp1);
+        }
+
+        private void txtvndusd1_Click(object sender, EventArgs e)
+        {
+            Set_Focus(txtvndusd1);
+        }
+
+        private void txtvnd1_Click(object sender, EventArgs e)
+        {
+            Set_Focus(txtvnd1);
         }
 
         private void dgvDetails_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
@@ -891,11 +922,6 @@ namespace cf01.Forms
             }
         }
 
-       
-      
-
-          
-     
         
     }
 }

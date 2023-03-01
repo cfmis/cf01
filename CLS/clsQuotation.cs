@@ -497,33 +497,36 @@ namespace cf01.CLS
         /// <summary>
         /// 依據牌子找到對應的公式，如參數為空，則取默認的值
         /// </summary>
-        /// <param name="Brand_id","strFormula_id","strBP","princ_unit"></param>        
-        public static mdlFormula_Result Get_Cust_Formula(string pBrand_id, string strFormula_id, string strBP, string pUnit)
+        /// <param name="Brand_id","strFormula_id","hkBP","princ_unit","copyType","vnBP"></param>        
+        public static mdlFormula_Result Get_Cust_Formula(string pBrand_id, string strFormula_id, string hkBP, string pUnit,string edit_state, string vnBP,bool flag_vn)
         {
             int iDecimal = Get_Decimal(pBrand_id);
             //*--------------------------------------------------------
             //PCS,SET,所有牌子取小數點后三位 2021.09.28 Sze 
-            const string strDecimal3 = "PCS,SET,PC,Pcs,pcs,Set,set";
-            if (strDecimal3.Contains(pUnit))
+            const string strDecimal3 = "PCS,SET,PC";
+            if (strDecimal3.Contains(pUnit.ToUpper()))
             {
                 iDecimal = 3;
             }
             //*---------------------------------------------------------
 
             mdlFormula_Result objResult = new mdlFormula_Result();
-            const string strSql_all = @"SELECT brand_id,usd1,usd2,isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount FROM dbo.quotation_formula WHERE brand_id='*'";
+            const string strSql_all =
+                @"SELECT brand_id,usd1,usd2,Isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount,vndbp1,vndusd1,vnd1  
+                FROM dbo.quotation_formula WHERE brand_id='*'";
             System.Data.DataTable dt = new System.Data.DataTable();
             if (string.IsNullOrEmpty(strFormula_id))
             {
+                //如果不輸入計價公式,則以公共計價公式"*"
                 dt = clsPublicOfCF01.GetDataTable(strSql_all);
             }
             else
             {
                 string strSql = string.Format(
-                    @"SELECT brand_id,usd1,usd2,isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount FROM dbo.quotation_formula WHERE brand_id='{0}'",
-                    strFormula_id);
+                    @"SELECT brand_id,usd1,usd2,Isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount,vndbp1,vndusd1,vnd1 
+                    FROM dbo.quotation_formula WHERE brand_id='{0}'", strFormula_id);
                 dt = clsPublicOfCF01.GetDataTable(strSql);
-                //牌子非空，且找不到對應參數時重取默認的公共參數
+                //輸入的牌子非空，但找不到對應公式參數時重取默認的公共計價公式參數
                 if (dt.Rows.Count == 0)
                 {
                     dt = clsPublicOfCF01.GetDataTable(strSql_all);
@@ -539,47 +542,35 @@ namespace cf01.CLS
                 objResult.hkd_ex_fty = 0;
                 objResult.usd_ex_fty = 0;                               
                 objResult.discount = 0;
+
+                objResult.vnd_bp = 0;
+                objResult.price_vnd_usd = 0;
+                objResult.price_vnd = 0;
+                objResult.price_vnd_grs = 0;
+                objResult.price_vnd_pcs = 0;
+                return objResult;//如果找不到對應計價公式則直接返回
             }
-            float bp, usd1, usd2, rmb1, rmb2, hkd1, hkd2, usd3, discount;
+            float bp, usd1, usd2, rmb1, rmb2, hkd1, hkd2, usd3, discount,vn_bp, vndbp1,vndusd1,vnd1;
+            bp = string.IsNullOrEmpty(hkBP) ? 0.00f : float.Parse(hkBP);
+            vn_bp = string.IsNullOrEmpty(vnBP) ? 0.00f : float.Parse(vnBP);
+
             usd1 = float.Parse(dt.Rows[0]["usd1"].ToString());
             usd2 = float.Parse(dt.Rows[0]["usd2"].ToString());
             rmb1 = float.Parse(dt.Rows[0]["rmb1"].ToString());
             rmb2 = float.Parse(dt.Rows[0]["rmb2"].ToString());
             hkd1 = float.Parse(dt.Rows[0]["hkd1"].ToString());
             hkd2 = float.Parse(dt.Rows[0]["hkd2"].ToString());
-            usd3 = float.Parse(dt.Rows[0]["usd3"].ToString());
-
-            if (string.IsNullOrEmpty(strBP))
-                bp = 0.00f;
-            else
-            {
-                bp = float.Parse(strBP);
-            }
-
-            //折扣率
-            if (string.IsNullOrEmpty(dt.Rows[0]["discount"].ToString()))
-                discount = 0.00f;
-            else
-            {
-                discount = float.Parse(dt.Rows[0]["discount"].ToString());
-            }
+            usd3 = string.IsNullOrEmpty(dt.Rows[0]["usd3"].ToString()) ? 0.00f : float.Parse(dt.Rows[0]["usd3"].ToString());           
+            discount = string.IsNullOrEmpty(dt.Rows[0]["discount"].ToString()) ? 0.00f : float.Parse(dt.Rows[0]["discount"].ToString()); //折扣率
             objResult.discount = discount;
-
-            if (string.IsNullOrEmpty(dt.Rows[0]["usd3"].ToString()))
-                usd3 = 0.00f;
-            else
-            {
-                usd3 = float.Parse(dt.Rows[0]["usd3"].ToString());
-            }
-
+            //越南計算公式參數
+            vndbp1 = float.Parse(dt.Rows[0]["vndbp1"].ToString());
+            vndusd1 = float.Parse(dt.Rows[0]["vndusd1"].ToString());
+            vnd1 = float.Parse(dt.Rows[0]["vnd1"].ToString());                       
+                       
             //USD公式：(入機數 X 1.15)/7.72 保留兩們小數點
             //RMB 17%VAT 公式：入機數*1.17*0.82
-            float number_input;
-            if (bp > 0)
-                number_input = bp;
-            else
-                number_input = 0.00f;
-
+            float number_input = bp > 0 ? bp : 0.00f;
             if (number_input > 0)
             {
                 objResult.price_usd = float.Parse(Math.Round((number_input * usd1) / usd2, iDecimal).ToString());//USD公式：(入機數 X 1.15)/7.72 保留3位小數點
@@ -594,12 +585,81 @@ namespace cf01.CLS
                 objResult.price_usd = 0;
                 objResult.price_rmb = 0;
             }
+
+            //計算越南單價 start,原來的其它單價計算不變 2023/02/07
+            //if (copyType == "1")
+            //{               
+            int rate_price_unit = 1;                
+            switch (pUnit.ToUpper())
+            {
+                case "SET":
+                case "PCS":
+                case "PC":
+                    rate_price_unit = 1;
+                    break;
+                case "DZS":
+                case "DZ":
+                    rate_price_unit = 12;
+                    break;
+                case "GRS":
+                case "GR":
+                    rate_price_unit = 144;
+                    break;
+                case "K":
+                case "THD":
+                    rate_price_unit = 1000;
+                    break;
+                case "H":
+                    rate_price_unit = 100;
+                    break;
+                default:
+                    rate_price_unit = 1;
+                    break;
+            }
+            if (number_input > 0 && flag_vn)
+            {
+                //vn_bp是傳進來的參數
+                objResult.vnd_bp = float.Parse(Math.Round(number_input * (1 + vndbp1 / 100), 2).ToString());//計算之后的越南BP
+                if (edit_state == "EDIT")
+                {
+                    if (vn_bp > 0 && vn_bp != objResult.vnd_bp)
+                    {
+                        //if (edit_state == "EDIT")
+                        //{
+                        //    objResult.vnd_bp = vn_bp;//如果手動更改了VN_BP,則以手勸更改的為準
+                        //}
+                        objResult.vnd_bp = vn_bp;
+                    }
+                }
+                objResult.price_vnd_usd = float.Parse(Math.Round(objResult.vnd_bp / vndusd1, 2).ToString());
+                objResult.price_vnd = float.Parse(Math.Round(objResult.price_vnd_usd * vnd1,0).ToString());//原單位單價
+                //PCS單價
+                if ("PCS,PC,SET".Contains(pUnit.ToUpper()))                    
+                    objResult.price_vnd_pcs = objResult.price_vnd;//轉為PCS單價                   
+                else                    
+                    objResult.price_vnd_pcs = float.Parse(Math.Round(objResult.price_vnd / rate_price_unit, 0).ToString());                    
+                //GRS單價
+                if ("GRS,GR".Contains(pUnit.ToUpper()))                    
+                    objResult.price_vnd_grs = objResult.price_vnd;//直接等于GRS單價                    
+                else                    
+                    objResult.price_vnd_grs = objResult.price_vnd_pcs * 144;//轉為GRS單價
+            }
+            else
+            {
+                objResult.vnd_bp = 0;
+                objResult.price_vnd_usd = 0;
+                objResult.price_vnd = 0;
+                objResult.price_vnd_pcs = 0;
+                objResult.price_vnd_grs = 0;
+            }
+            //} //計算越南單價 end 
+
+
             //HKD公式：USD$欄*7.8
             if (objResult.price_usd > 0)
                 number_input = objResult.price_usd;
             else
-                number_input = 0.00f;           
-
+                number_input = 0.00f;
             if (number_input > 0)
                 objResult.price_hkd = float.Parse(Math.Round(number_input * hkd1, iDecimal).ToString());
             else
@@ -617,12 +677,9 @@ namespace cf01.CLS
                 objResult.hkd_ex_fty = 0;
 
             //2016-10-28 增加以下代碼
-            //對不同的單位進行四舍五入         
-            const string str1 = "PCS,SET,DZ,DZS,PC,Pcs,pcs,Set,set";//小單位        
-            const string str2 = "GRS,H,K,THD,GR,Grs";      //大單位
-            
-            /*----------------------------------------------------
-             * 
+            //對不同的單位進行四舍五入 
+            /*----------------------------------------------------   
+             * //const string str1 = "PCS,SET,DZ,DZS,PC,Pcs,pcs,Set,set";//小單位            
             if (str1.Contains(pUnit)) //小單位
             {
                 //objResult.price_hkd=clsAppPublic.Return_Float_Value(String.Format("{0:N1}", objResult.price_hkd));//1位;
@@ -632,11 +689,9 @@ namespace cf01.CLS
                 //objResult.price_usd =(float)Math.Round(objResult.price_usd,iDecimal);
                 //objResult.price_rmb =(float)Math.Round(objResult.price_rmb,iDecimal);
             }
-            */
-            //----------------------------------------------------
-
-
-            if (str2.Contains(pUnit)) //大單位
+            */ //----------------------------------------------------
+            const string str2 = "GRS,H,K,THD,GR";  //大單位
+            if (str2.Contains(pUnit.ToUpper()))
             {
                 if (objResult.price_hkd > 1)
                     objResult.price_hkd = (float)Math.Round(objResult.price_hkd);//四舍五入保留整
@@ -658,22 +713,15 @@ namespace cf01.CLS
                     objResult.hkd_ex_fty = bp;
                 }
             }
-
-            if (usd3 > 0)
-            {
-                //hkd_ex_fty/usd3
-                objResult.usd_ex_fty = float.Parse(Math.Round(objResult.hkd_ex_fty / usd3, iDecimal).ToString());
-            }
-            else
-            {
-                objResult.usd_ex_fty = 0;
-            }
+            //hkd_ex_fty/usd3
+            objResult.usd_ex_fty = usd3 > 0 ? float.Parse(Math.Round(objResult.hkd_ex_fty / usd3, iDecimal).ToString()) : 0;
 
             //2017-03-21 katie要求處理RMB,保留一位小數CARV-01
-            if(pBrand_id.Contains("CARV-01"))
+            if (pBrand_id.Contains("CARV-01"))
             {
                 objResult.price_rmb = float.Parse(Math.Round(objResult.price_rmb, 1).ToString());
-            }
+            }            
+
             return objResult;
         }
 
@@ -689,8 +737,8 @@ namespace cf01.CLS
             int iDecimal = Get_Decimal(pBrand_id);
             //*--------------------------------------------------------
             //PCS,SET,所有牌子取小數點后三位 2021.09.28 Sze 
-            const string strDecimal3 = "PCS,SET,PC,Pcs,pcs,Set,set";
-            if (strDecimal3.Contains(pUnit))
+            const string strDecimal3 = "PCS,SET,PC";
+            if (strDecimal3.Contains(pUnit.ToUpper()))
             {
                 iDecimal = 3;
             }
@@ -738,7 +786,7 @@ namespace cf01.CLS
             }
 
             //判斷是否有選取的行
-            bool isSelect=false ;
+            bool isSelect = false;
             for (int rowNo = 0; rowNo < dgv.RowCount; rowNo++) //開始行循環
             {
                 if (dgv.Rows[rowNo].Cells[field_select_name].Value.ToString() == "True")
@@ -804,7 +852,7 @@ namespace cf01.CLS
                                 col_value = dgv.Rows[rowNo].Cells[cl].Value.ToString().Trim();
                                 //string l_strResult =  你的字符串.Replace("\n", "").Replace(" ","").Replace("\t","").Replace("\r","");
                                 col_value = col_value.Replace("\n", "").Replace("\t", "").Replace("\r", "");
-                                if (field_name == "date" || field_name == "valid_date") //定價日期或有效日期
+                                if (field_name == "date" || field_name == "valid_date" || field_name== "flag_vnd_date") //定價日期或有效日期
                                 {
                                     if (!string.IsNullOrEmpty(col_value))
                                     {
@@ -927,6 +975,17 @@ namespace cf01.CLS
                 dv.Sort = dgv.SortedColumn.DataPropertyName + (dgv.SortOrder == System.Windows.Forms.SortOrder.Ascending ? " asc" : " desc");//排序
             }
             return dv.ToTable();//返回DataTable
+        }
+
+        public static bool CheckPriceUnit(string unit)
+        {
+            bool flag = true;
+            if (string.IsNullOrEmpty(unit))
+            {
+                MessageBox.Show("單價單位不可為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                flag = false;
+            }
+            return flag;
         }
 
     }

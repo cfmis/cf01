@@ -115,7 +115,7 @@ namespace cf01.Forms
                 new SqlParameter("@account_code",txtAccount_Code.Text),
                 new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0")
             };
-            dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find",paras);           
+            dt=clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find",paras);           
             //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
 
             //------------ 
@@ -263,14 +263,15 @@ namespace cf01.Forms
             if (result == DialogResult.No)
             {
                 return;
-            } 
-            bool save_flag = false;
-            string id,temp_code,ver, new_ver, strSelect, remark,remark_pdd,valid_date,brand_id,price_unit;            
+            }
+            bool save_flag = false, flag_vnd;
+            string id,temp_code,ver, new_ver, strSelect, remark,remark_pdd,valid_date,brand_id,price_unit,vnd_bp;            
             int result_u;
             float bp,disc_rate,temp_disc_rate;
             const string sql_update =
-            @"UPDATE quotation SET date=@valid_date, number_enter=@number_enter,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,price_vnd=@price_vnd,hkd_ex_fty=@hkd_ex_fty,
-                    usd_ex_fty=@usd_ex_fty,discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_price_vnd=@disc_price_vnd,
+            @"UPDATE quotation SET date=@valid_date, number_enter=@number_enter,price_usd=@price_usd,price_hkd=@price_hkd,price_rmb=@price_rmb,hkd_ex_fty=@hkd_ex_fty,
+                    usd_ex_fty=@usd_ex_fty,vnd_bp=@vnd_bp,price_vnd_usd=@price_vnd_usd,price_vnd=@price_vnd,price_vnd_grs=@price_vnd_grs,price_vnd_pcs=@price_vnd_pcs,
+                    discount=@discount,disc_price_usd=@disc_price_usd,disc_price_hkd=@disc_price_hkd,disc_price_rmb=@disc_price_rmb,disc_price_vnd=@disc_price_vnd,
                     disc_hkd_ex_fty=@disc_hkd_ex_fty,valid_date=CONVERT(varchar(10),DATEADD(DAY,30,@valid_date),120),
                     remark=CASE LEN(@remark) WHEN 0 THEN remark ELSE @remark END,
                     remark_pdd=CASE LEN(@remark_pdd) WHEN 0 THEN remark_pdd ELSE @remark_pdd END,amusr=@user_id,amtim=Getdate()
@@ -286,11 +287,14 @@ namespace cf01.Forms
                     ver = dt.Rows[i]["ver"].ToString();                    
                     new_ver =clsQuotation.Return_New_Version(ver);
                     brand_id = dt.Rows[i]["brand"].ToString();
-                    price_unit= dt.Rows[i]["price_unit"].ToString();
+                    price_unit = dt.Rows[i]["price_unit"].ToString();
                     bp = clsApp.Return_Float_Value(dt.Rows[i]["number_enter"].ToString());            
                     valid_date = clsApp.Return_String_Date(txtValid_date.Text);
                     remark = txtRemark.Text.Trim();
                     remark_pdd = txtPddRemark.Text.Trim();
+
+                    flag_vnd = dt.Rows[i]["flag_vnd"].ToString() == "False" ? false : true;
+                    vnd_bp = dt.Rows[i]["vnd_bp"].ToString();
 
                     if (cmbSelect.SelectedIndex == 0) //下拉框選擇的是按百分比增減
                     {
@@ -305,7 +309,7 @@ namespace cf01.Forms
                    
                     //計算折前單價
                    mdlFormula_Result objResult = new mdlFormula_Result();
-                   objResult = clsQuotation.Get_Cust_Formula(brand_id, dt.Rows[i]["formula_id"].ToString(), bp.ToString(), dt.Rows[i]["price_unit"].ToString());//設置單價
+                   objResult = clsQuotation.Get_Cust_Formula(brand_id, dt.Rows[i]["formula_id"].ToString(), bp.ToString(), dt.Rows[i]["price_unit"].ToString(),"EDIT", vnd_bp, flag_vnd);//設置單價
                    
                    //計算折扣后單價                   
                    mdlFormula_Result objDiscount = new mdlFormula_Result();
@@ -333,10 +337,15 @@ namespace cf01.Forms
                             new SqlParameter("@number_enter",bp),  
                             new SqlParameter("@price_usd",objResult.price_usd),
                             new SqlParameter("@price_hkd", objResult.price_hkd),
-                            new SqlParameter("@price_rmb", objResult.price_rmb),
-                            new SqlParameter("@price_vnd", objResult.price_vnd),
+                            new SqlParameter("@price_rmb", objResult.price_rmb),                           
                             new SqlParameter("@hkd_ex_fty", objResult.hkd_ex_fty),
                             new SqlParameter("@usd_ex_fty", objResult.usd_ex_fty),
+
+                            new SqlParameter("@vnd_bp", objResult.vnd_bp),
+                            new SqlParameter("@price_vnd_usd", objResult.price_vnd_usd),
+                            new SqlParameter("@price_vnd", objResult.price_vnd),
+                            new SqlParameter("@price_vnd_grs", objResult.price_vnd_grs),
+                            new SqlParameter("@price_vnd_pcs", objResult.price_vnd_pcs),
 
                             new SqlParameter("@discount", temp_disc_rate),
                             new SqlParameter("@disc_price_usd", objDiscount.disc_price_usd),
@@ -348,8 +357,7 @@ namespace cf01.Forms
                             new SqlParameter("@remark", remark),
                             new SqlParameter("@remark_pdd", remark_pdd),
                             new SqlParameter("@valid_date",valid_date)
-                        };
-                        
+                        };                        
                         result_u = clsPublicOfCF01.ExecuteNonQuery("usp_quotation_new_ver_batch", paras, true);
                         if (result_u > 0)
                         {
@@ -363,6 +371,12 @@ namespace cf01.Forms
                             dt.Rows[i]["price_vnd"] = objResult.price_vnd;
                             dt.Rows[i]["hkd_ex_fty"] = objResult.hkd_ex_fty;
                             dt.Rows[i]["usd_ex_fty"] = objResult.usd_ex_fty;
+
+                            dt.Rows[i]["vnd_bp"] = objResult.vnd_bp;
+                            dt.Rows[i]["price_vnd_usd"] = objResult.price_vnd_usd;
+                            dt.Rows[i]["price_vnd"] = objResult.price_vnd;
+                            dt.Rows[i]["price_vnd_grs"] = objResult.price_vnd_grs;
+                            dt.Rows[i]["price_vnd_pcs"] = objResult.price_vnd_pcs;
 
                             dt.Rows[i]["discount"] = temp_disc_rate;
                             dt.Rows[i]["disc_price_usd"] = objDiscount.disc_price_usd;
@@ -391,10 +405,15 @@ namespace cf01.Forms
                             new SqlParameter("@number_enter",bp),  
                             new SqlParameter("@price_usd", objResult.price_usd),
                             new SqlParameter("@price_hkd", objResult.price_hkd),
-                            new SqlParameter("@price_rmb", objResult.price_rmb),
-                            new SqlParameter("@price_vnd", objResult.price_vnd),
+                            new SqlParameter("@price_rmb", objResult.price_rmb),                           
                             new SqlParameter("@hkd_ex_fty", objResult.hkd_ex_fty),
                             new SqlParameter("@usd_ex_fty", objResult.usd_ex_fty),
+
+                            new SqlParameter("@vnd_bp", objResult.vnd_bp),
+                            new SqlParameter("@price_vnd_usd", objResult.price_vnd),
+                            new SqlParameter("@price_vnd", objResult.price_vnd),
+                            new SqlParameter("@price_vnd_grs", objResult.price_vnd_grs),
+                            new SqlParameter("@price_vnd_pcs", objResult.price_vnd_pcs),
 
                             new SqlParameter("@discount", temp_disc_rate),
                             new SqlParameter("@disc_price_usd", objResult.disc_price_usd),
@@ -416,10 +435,15 @@ namespace cf01.Forms
                             dt.Rows[i]["number_enter"] = bp;
                             dt.Rows[i]["price_usd"] = objResult.price_usd;
                             dt.Rows[i]["price_hkd"] = objResult.price_hkd;
-                            dt.Rows[i]["price_rmb"] = objResult.price_rmb;
-                            dt.Rows[i]["price_vnd"] = objResult.price_vnd;
+                            dt.Rows[i]["price_rmb"] = objResult.price_rmb;                            
                             dt.Rows[i]["hkd_ex_fty"] = objResult.hkd_ex_fty;
                             dt.Rows[i]["usd_ex_fty"] = objResult.usd_ex_fty;
+
+                            dt.Rows[i]["vnd_bp"] = objResult.vnd_bp;
+                            dt.Rows[i]["price_vnd_usd"] = objResult.price_vnd_usd;
+                            dt.Rows[i]["price_vnd"] = objResult.price_vnd;
+                            dt.Rows[i]["price_vnd_grs"] = objResult.price_vnd_grs;
+                            dt.Rows[i]["price_vnd_pcs"] = objResult.price_vnd_pcs;
 
                             dt.Rows[i]["discount"] = temp_disc_rate;
                             dt.Rows[i]["disc_price_usd"] = objResult.disc_price_usd;

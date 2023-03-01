@@ -104,6 +104,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -176,10 +181,14 @@
             this.price_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_rmb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hkd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usd_ex_fty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vnd_bp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_grs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_below_over = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moq_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -260,6 +269,11 @@
             this.pending = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ref_temp_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flag_new = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_vnd_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cf_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BTNFORMULA = new System.Windows.Forms.Button();
@@ -289,10 +303,18 @@
             this.cl_amt = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clFlag_vnd = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clVnd = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -556,13 +578,31 @@
             this.lbldgRmkPdd = new System.Windows.Forms.Label();
             this.pic_artwork = new System.Windows.Forms.PictureBox();
             this.pnlHeard = new System.Windows.Forms.Panel();
-            this.txtDisc_vnd = new DevExpress.XtraEditors.TextEdit();
-            this.txtPrice_vnd = new DevExpress.XtraEditors.TextEdit();
+            this.lueCf_color_id = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblMaterial_type = new System.Windows.Forms.Label();
+            this.lblProduct_type = new System.Windows.Forms.Label();
+            this.lueProduct_type = new DevExpress.XtraEditors.LookUpEdit();
+            this.lueMaterial_type = new DevExpress.XtraEditors.LookUpEdit();
+            this.chkFlag_vnd = new DevExpress.XtraEditors.CheckEdit();
             this.txtFlag_new = new DevExpress.XtraEditors.TextEdit();
             this.lblOf = new System.Windows.Forms.Label();
             this.txtRef_temp_code = new DevExpress.XtraEditors.TextEdit();
+            this.pnlFlagVnd = new System.Windows.Forms.Panel();
+            this.txtFlag_vnd_date = new DevExpress.XtraEditors.DateEdit();
+            this.txtVnd_bp = new DevExpress.XtraEditors.TextEdit();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPrice_vnd_pcs = new DevExpress.XtraEditors.TextEdit();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPrice_vnd_grs = new DevExpress.XtraEditors.TextEdit();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtPrice_vnd_usd = new DevExpress.XtraEditors.TextEdit();
             this.lblPrice_vnd = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPrice_vnd = new DevExpress.XtraEditors.TextEdit();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDisc_vnd = new DevExpress.XtraEditors.TextEdit();
             this.lblDisc_price_vnd = new System.Windows.Forms.Label();
+            this.lblCf_color_id = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt.Properties)).BeginInit();
@@ -581,6 +621,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cl_ver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_number_enter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_amt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clFlag_vnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clVnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_discount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice_rmb.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEx_fty_hkd.Properties)).BeginInit();
@@ -676,10 +718,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.memDgRmkPdd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).BeginInit();
             this.pnlHeard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDisc_vnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCf_color_id.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueProduct_type.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_type.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_vnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFlag_new.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef_temp_code.Properties)).BeginInit();
+            this.pnlFlagVnd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFlag_vnd_date.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFlag_vnd_date.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVnd_bp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd_pcs.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd_grs.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd_usd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDisc_vnd.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -861,15 +914,18 @@
             this.toolStripSeparator15.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.toolStripSeparator15.Name = "toolStripSeparator15";
             this.toolStripSeparator15.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator15.Visible = false;
             // 
             // BTNCOPYVND
             // 
+            this.BTNCOPYVND.Enabled = false;
             this.BTNCOPYVND.Image = ((System.Drawing.Image)(resources.GetObject("BTNCOPYVND.Image")));
             this.BTNCOPYVND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCOPYVND.Name = "BTNCOPYVND";
             this.BTNCOPYVND.Size = new System.Drawing.Size(89, 35);
             this.BTNCOPYVND.Text = "覆制新增(VND)";
             this.BTNCOPYVND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNCOPYVND.Visible = false;
             this.BTNCOPYVND.Click += new System.EventHandler(this.BTNCOPYVND_Click);
             // 
             // toolStripSeparator14
@@ -1125,10 +1181,14 @@
             this.price_usd,
             this.price_hkd,
             this.price_rmb,
-            this.price_vnd,
             this.hkd_ex_fty,
             this.usd_ex_fty,
             this.price_unit,
+            this.vnd_bp,
+            this.price_vnd_usd,
+            this.price_vnd,
+            this.price_vnd_grs,
+            this.price_vnd_pcs,
             this.moq_below_over,
             this.moq,
             this.moq_desc,
@@ -1208,7 +1268,12 @@
             this.hkd_ex_fty_ver,
             this.pending,
             this.ref_temp_code,
-            this.flag_new});
+            this.flag_new,
+            this.flag_vnd,
+            this.flag_vnd_date,
+            this.cf_color_id,
+            this.material_type,
+            this.product_type});
             this.dgvDetails.Location = new System.Drawing.Point(-2, -3);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
@@ -1399,7 +1464,7 @@
             this.price_hkd.DefaultCellStyle = dataGridViewCellStyle7;
             this.price_hkd.HeaderText = "HKD";
             this.price_hkd.Name = "price_hkd";
-            this.price_hkd.Width = 50;
+            this.price_hkd.Width = 60;
             // 
             // price_rmb
             // 
@@ -1409,23 +1474,14 @@
             this.price_rmb.DefaultCellStyle = dataGridViewCellStyle8;
             this.price_rmb.HeaderText = "RMB";
             this.price_rmb.Name = "price_rmb";
-            this.price_rmb.Width = 50;
-            // 
-            // price_vnd
-            // 
-            this.price_vnd.DataPropertyName = "price_vnd";
-            dataGridViewCellStyle9.Format = "N3";
-            dataGridViewCellStyle9.NullValue = "0";
-            this.price_vnd.DefaultCellStyle = dataGridViewCellStyle9;
-            this.price_vnd.HeaderText = "VND";
-            this.price_vnd.Name = "price_vnd";
+            this.price_rmb.Width = 60;
             // 
             // hkd_ex_fty
             // 
             this.hkd_ex_fty.DataPropertyName = "hkd_ex_fty";
-            dataGridViewCellStyle10.Format = "N3";
-            dataGridViewCellStyle10.NullValue = "0";
-            this.hkd_ex_fty.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Format = "N3";
+            dataGridViewCellStyle9.NullValue = "0";
+            this.hkd_ex_fty.DefaultCellStyle = dataGridViewCellStyle9;
             this.hkd_ex_fty.HeaderText = "HKD EX-FTY";
             this.hkd_ex_fty.Name = "hkd_ex_fty";
             this.hkd_ex_fty.Width = 60;
@@ -1433,9 +1489,9 @@
             // usd_ex_fty
             // 
             this.usd_ex_fty.DataPropertyName = "usd_ex_fty";
-            dataGridViewCellStyle11.Format = "N3";
-            dataGridViewCellStyle11.NullValue = "0";
-            this.usd_ex_fty.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle10.Format = "N3";
+            dataGridViewCellStyle10.NullValue = "0";
+            this.usd_ex_fty.DefaultCellStyle = dataGridViewCellStyle10;
             this.usd_ex_fty.HeaderText = "USD EX-FTY";
             this.usd_ex_fty.Name = "usd_ex_fty";
             this.usd_ex_fty.ReadOnly = true;
@@ -1449,6 +1505,61 @@
             this.price_unit.Name = "price_unit";
             this.price_unit.Width = 40;
             // 
+            // vnd_bp
+            // 
+            this.vnd_bp.DataPropertyName = "vnd_bp";
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.Format = "N3";
+            dataGridViewCellStyle11.NullValue = "0";
+            this.vnd_bp.DefaultCellStyle = dataGridViewCellStyle11;
+            this.vnd_bp.HeaderText = "VN BP";
+            this.vnd_bp.Name = "vnd_bp";
+            this.vnd_bp.Width = 70;
+            // 
+            // price_vnd_usd
+            // 
+            this.price_vnd_usd.DataPropertyName = "price_vnd_usd";
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle12.Format = "N3";
+            dataGridViewCellStyle12.NullValue = "0";
+            this.price_vnd_usd.DefaultCellStyle = dataGridViewCellStyle12;
+            this.price_vnd_usd.HeaderText = "VND USD";
+            this.price_vnd_usd.Name = "price_vnd_usd";
+            this.price_vnd_usd.Width = 85;
+            // 
+            // price_vnd
+            // 
+            this.price_vnd.DataPropertyName = "price_vnd";
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle13.Format = "N0";
+            dataGridViewCellStyle13.NullValue = "0";
+            this.price_vnd.DefaultCellStyle = dataGridViewCellStyle13;
+            this.price_vnd.HeaderText = "VND";
+            this.price_vnd.Name = "price_vnd";
+            this.price_vnd.Width = 70;
+            // 
+            // price_vnd_grs
+            // 
+            this.price_vnd_grs.DataPropertyName = "price_vnd_grs";
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle14.Format = "N0";
+            dataGridViewCellStyle14.NullValue = "0";
+            this.price_vnd_grs.DefaultCellStyle = dataGridViewCellStyle14;
+            this.price_vnd_grs.HeaderText = "VND(Grs)";
+            this.price_vnd_grs.Name = "price_vnd_grs";
+            this.price_vnd_grs.Width = 70;
+            // 
+            // price_vnd_pcs
+            // 
+            this.price_vnd_pcs.DataPropertyName = "price_vnd_pcs";
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle15.Format = "N0";
+            dataGridViewCellStyle15.NullValue = "0";
+            this.price_vnd_pcs.DefaultCellStyle = dataGridViewCellStyle15;
+            this.price_vnd_pcs.HeaderText = "VND(Pcs)";
+            this.price_vnd_pcs.Name = "price_vnd_pcs";
+            this.price_vnd_pcs.Width = 70;
+            // 
             // moq_below_over
             // 
             this.moq_below_over.DataPropertyName = "moq_below_over";
@@ -1459,8 +1570,8 @@
             // moq
             // 
             this.moq.DataPropertyName = "moq";
-            dataGridViewCellStyle12.NullValue = null;
-            this.moq.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.NullValue = null;
+            this.moq.DefaultCellStyle = dataGridViewCellStyle16;
             this.moq.HeaderText = "MOQ";
             this.moq.Name = "moq";
             this.moq.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -1484,8 +1595,8 @@
             // mwq
             // 
             this.mwq.DataPropertyName = "mwq";
-            dataGridViewCellStyle13.NullValue = null;
-            this.mwq.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle17.NullValue = null;
+            this.mwq.DefaultCellStyle = dataGridViewCellStyle17;
             this.mwq.HeaderText = "MWQ";
             this.mwq.Name = "mwq";
             this.mwq.Width = 40;
@@ -1508,8 +1619,8 @@
             // lead_time_min
             // 
             this.lead_time_min.DataPropertyName = "lead_time_min";
-            dataGridViewCellStyle14.NullValue = null;
-            this.lead_time_min.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle18.NullValue = null;
+            this.lead_time_min.DefaultCellStyle = dataGridViewCellStyle18;
             this.lead_time_min.HeaderText = "Lead Time_Min";
             this.lead_time_min.Name = "lead_time_min";
             this.lead_time_min.Width = 60;
@@ -1517,8 +1628,8 @@
             // lead_time_max
             // 
             this.lead_time_max.DataPropertyName = "lead_time_max";
-            dataGridViewCellStyle15.NullValue = null;
-            this.lead_time_max.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle19.NullValue = null;
+            this.lead_time_max.DefaultCellStyle = dataGridViewCellStyle19;
             this.lead_time_max.HeaderText = "Lead Time_Max";
             this.lead_time_max.Name = "lead_time_max";
             this.lead_time_max.Width = 60;
@@ -1534,8 +1645,8 @@
             // md_charge
             // 
             this.md_charge.DataPropertyName = "md_charge";
-            dataGridViewCellStyle16.NullValue = null;
-            this.md_charge.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle20.NullValue = null;
+            this.md_charge.DefaultCellStyle = dataGridViewCellStyle20;
             this.md_charge.HeaderText = "Mould Charge in";
             this.md_charge.Name = "md_charge";
             this.md_charge.Width = 60;
@@ -1557,8 +1668,8 @@
             // die_mould_usd
             // 
             this.die_mould_usd.DataPropertyName = "die_mould_usd";
-            dataGridViewCellStyle17.NullValue = null;
-            this.die_mould_usd.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle21.NullValue = null;
+            this.die_mould_usd.DefaultCellStyle = dataGridViewCellStyle21;
             this.die_mould_usd.HeaderText = "Die Mould USD";
             this.die_mould_usd.Name = "die_mould_usd";
             this.die_mould_usd.Width = 60;
@@ -1574,8 +1685,8 @@
             // valid_date
             // 
             this.valid_date.DataPropertyName = "valid_date";
-            dataGridViewCellStyle18.NullValue = null;
-            this.valid_date.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle22.NullValue = null;
+            this.valid_date.DefaultCellStyle = dataGridViewCellStyle22;
             this.valid_date.HeaderText = "Valid Date";
             this.valid_date.Name = "valid_date";
             this.valid_date.Width = 80;
@@ -1583,8 +1694,8 @@
             // date_req
             // 
             this.date_req.DataPropertyName = "date_req";
-            dataGridViewCellStyle19.NullValue = null;
-            this.date_req.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle23.NullValue = null;
+            this.date_req.DefaultCellStyle = dataGridViewCellStyle23;
             this.date_req.HeaderText = "Date Req Rcvd";
             this.date_req.Name = "date_req";
             this.date_req.Width = 90;
@@ -1680,8 +1791,8 @@
             // crtim
             // 
             this.crtim.DataPropertyName = "crtim";
-            dataGridViewCellStyle20.NullValue = null;
-            this.crtim.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle24.NullValue = null;
+            this.crtim.DefaultCellStyle = dataGridViewCellStyle24;
             this.crtim.HeaderText = "Create Date";
             this.crtim.Name = "crtim";
             this.crtim.Visible = false;
@@ -1697,8 +1808,8 @@
             // amtim
             // 
             this.amtim.DataPropertyName = "amtim";
-            dataGridViewCellStyle21.NullValue = null;
-            this.amtim.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle25.NullValue = null;
+            this.amtim.DefaultCellStyle = dataGridViewCellStyle25;
             this.amtim.HeaderText = "Update Date";
             this.amtim.Name = "amtim";
             this.amtim.Visible = false;
@@ -1812,9 +1923,9 @@
             // ex_fty_hkd
             // 
             this.ex_fty_hkd.DataPropertyName = "ex_fty_hkd";
-            dataGridViewCellStyle22.Format = "N3";
-            dataGridViewCellStyle22.NullValue = "0";
-            this.ex_fty_hkd.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle26.Format = "N3";
+            dataGridViewCellStyle26.NullValue = "0";
+            this.ex_fty_hkd.DefaultCellStyle = dataGridViewCellStyle26;
             this.ex_fty_hkd.HeaderText = "Ex Fty HKD";
             this.ex_fty_hkd.Name = "ex_fty_hkd";
             this.ex_fty_hkd.ReadOnly = true;
@@ -1823,9 +1934,9 @@
             // ex_fty_usd
             // 
             this.ex_fty_usd.DataPropertyName = "ex_fty_usd";
-            dataGridViewCellStyle23.Format = "N3";
-            dataGridViewCellStyle23.NullValue = "0";
-            this.ex_fty_usd.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle27.Format = "N3";
+            dataGridViewCellStyle27.NullValue = "0";
+            this.ex_fty_usd.DefaultCellStyle = dataGridViewCellStyle27;
             this.ex_fty_usd.HeaderText = "Ex Fty USD";
             this.ex_fty_usd.Name = "ex_fty_usd";
             this.ex_fty_usd.ReadOnly = true;
@@ -1842,9 +1953,9 @@
             // disc_price_usd
             // 
             this.disc_price_usd.DataPropertyName = "disc_price_usd";
-            dataGridViewCellStyle24.Format = "N3";
-            dataGridViewCellStyle24.NullValue = "0";
-            this.disc_price_usd.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle28.Format = "N3";
+            dataGridViewCellStyle28.NullValue = "0";
+            this.disc_price_usd.DefaultCellStyle = dataGridViewCellStyle28;
             this.disc_price_usd.HeaderText = "Disc USD";
             this.disc_price_usd.Name = "disc_price_usd";
             this.disc_price_usd.ReadOnly = true;
@@ -1853,9 +1964,9 @@
             // disc_price_hkd
             // 
             this.disc_price_hkd.DataPropertyName = "disc_price_hkd";
-            dataGridViewCellStyle25.Format = "N3";
-            dataGridViewCellStyle25.NullValue = "0";
-            this.disc_price_hkd.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle29.Format = "N3";
+            dataGridViewCellStyle29.NullValue = "0";
+            this.disc_price_hkd.DefaultCellStyle = dataGridViewCellStyle29;
             this.disc_price_hkd.HeaderText = "Disc HKD";
             this.disc_price_hkd.Name = "disc_price_hkd";
             this.disc_price_hkd.ReadOnly = true;
@@ -1864,9 +1975,9 @@
             // disc_price_rmb
             // 
             this.disc_price_rmb.DataPropertyName = "disc_price_rmb";
-            dataGridViewCellStyle26.Format = "N3";
-            dataGridViewCellStyle26.NullValue = "0";
-            this.disc_price_rmb.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle30.Format = "N3";
+            dataGridViewCellStyle30.NullValue = "0";
+            this.disc_price_rmb.DefaultCellStyle = dataGridViewCellStyle30;
             this.disc_price_rmb.HeaderText = "Disc RMB";
             this.disc_price_rmb.Name = "disc_price_rmb";
             this.disc_price_rmb.ReadOnly = true;
@@ -1875,9 +1986,9 @@
             // disc_price_vnd
             // 
             this.disc_price_vnd.DataPropertyName = "disc_price_vnd";
-            dataGridViewCellStyle27.Format = "N3";
-            dataGridViewCellStyle27.NullValue = "0";
-            this.disc_price_vnd.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle31.Format = "N3";
+            dataGridViewCellStyle31.NullValue = "0";
+            this.disc_price_vnd.DefaultCellStyle = dataGridViewCellStyle31;
             this.disc_price_vnd.HeaderText = "Disc VND";
             this.disc_price_vnd.Name = "disc_price_vnd";
             this.disc_price_vnd.ReadOnly = true;
@@ -1885,9 +1996,9 @@
             // disc_hkd_ex_fty
             // 
             this.disc_hkd_ex_fty.DataPropertyName = "disc_hkd_ex_fty";
-            dataGridViewCellStyle28.Format = "N3";
-            dataGridViewCellStyle28.NullValue = "0";
-            this.disc_hkd_ex_fty.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle32.Format = "N3";
+            dataGridViewCellStyle32.NullValue = "0";
+            this.disc_hkd_ex_fty.DefaultCellStyle = dataGridViewCellStyle32;
             this.disc_hkd_ex_fty.HeaderText = "Disc HKD Ex-Fty";
             this.disc_hkd_ex_fty.Name = "disc_hkd_ex_fty";
             this.disc_hkd_ex_fty.ReadOnly = true;
@@ -1973,8 +2084,8 @@
             // price_salesperson
             // 
             this.price_salesperson.DataPropertyName = "price_salesperson";
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.price_salesperson.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.price_salesperson.DefaultCellStyle = dataGridViewCellStyle33;
             this.price_salesperson.HeaderText = "Price Salesperson";
             this.price_salesperson.Name = "price_salesperson";
             this.price_salesperson.ReadOnly = true;
@@ -1982,8 +2093,8 @@
             // price_kind
             // 
             this.price_kind.DataPropertyName = "price_kind";
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.price_kind.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.price_kind.DefaultCellStyle = dataGridViewCellStyle34;
             this.price_kind.HeaderText = "Price Kind";
             this.price_kind.Name = "price_kind";
             this.price_kind.ReadOnly = true;
@@ -1992,8 +2103,8 @@
             // remark_salesperson
             // 
             this.remark_salesperson.DataPropertyName = "remark_salesperson";
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.remark_salesperson.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.remark_salesperson.DefaultCellStyle = dataGridViewCellStyle35;
             this.remark_salesperson.HeaderText = "Remark For Salesperson";
             this.remark_salesperson.Name = "remark_salesperson";
             this.remark_salesperson.ReadOnly = true;
@@ -2038,9 +2149,9 @@
             // price_usd_ver
             // 
             this.price_usd_ver.DataPropertyName = "price_usd_ver";
-            dataGridViewCellStyle32.Format = "N3";
-            dataGridViewCellStyle32.NullValue = "0";
-            this.price_usd_ver.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle36.Format = "N3";
+            dataGridViewCellStyle36.NullValue = "0";
+            this.price_usd_ver.DefaultCellStyle = dataGridViewCellStyle36;
             this.price_usd_ver.HeaderText = "Price USD (old version)";
             this.price_usd_ver.Name = "price_usd_ver";
             this.price_usd_ver.ReadOnly = true;
@@ -2050,9 +2161,9 @@
             // price_hkd_ver
             // 
             this.price_hkd_ver.DataPropertyName = "price_hkd_ver";
-            dataGridViewCellStyle33.Format = "N3";
-            dataGridViewCellStyle33.NullValue = "0";
-            this.price_hkd_ver.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle37.Format = "N3";
+            dataGridViewCellStyle37.NullValue = "0";
+            this.price_hkd_ver.DefaultCellStyle = dataGridViewCellStyle37;
             this.price_hkd_ver.HeaderText = "Price HKD (old version)";
             this.price_hkd_ver.Name = "price_hkd_ver";
             this.price_hkd_ver.ReadOnly = true;
@@ -2062,9 +2173,9 @@
             // price_rmb_ver
             // 
             this.price_rmb_ver.DataPropertyName = "price_rmb_ver";
-            dataGridViewCellStyle34.Format = "N3";
-            dataGridViewCellStyle34.NullValue = "0";
-            this.price_rmb_ver.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle38.Format = "N3";
+            dataGridViewCellStyle38.NullValue = "0";
+            this.price_rmb_ver.DefaultCellStyle = dataGridViewCellStyle38;
             this.price_rmb_ver.HeaderText = "Price RMB (old version)";
             this.price_rmb_ver.Name = "price_rmb_ver";
             this.price_rmb_ver.ReadOnly = true;
@@ -2074,9 +2185,9 @@
             // price_usd_vnd
             // 
             this.price_usd_vnd.DataPropertyName = "price_usd_vnd";
-            dataGridViewCellStyle35.Format = "N3";
-            dataGridViewCellStyle35.NullValue = "0";
-            this.price_usd_vnd.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle39.Format = "N3";
+            dataGridViewCellStyle39.NullValue = "0";
+            this.price_usd_vnd.DefaultCellStyle = dataGridViewCellStyle39;
             this.price_usd_vnd.HeaderText = "Price VND (old version)";
             this.price_usd_vnd.Name = "price_usd_vnd";
             this.price_usd_vnd.ReadOnly = true;
@@ -2086,9 +2197,9 @@
             // usd_ex_fty_ver
             // 
             this.usd_ex_fty_ver.DataPropertyName = "usd_ex_fty_ver";
-            dataGridViewCellStyle36.Format = "N3";
-            dataGridViewCellStyle36.NullValue = "0";
-            this.usd_ex_fty_ver.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle40.Format = "N3";
+            dataGridViewCellStyle40.NullValue = "0";
+            this.usd_ex_fty_ver.DefaultCellStyle = dataGridViewCellStyle40;
             this.usd_ex_fty_ver.HeaderText = "Price USD-Ex_Fty(old version";
             this.usd_ex_fty_ver.Name = "usd_ex_fty_ver";
             this.usd_ex_fty_ver.ReadOnly = true;
@@ -2098,9 +2209,9 @@
             // hkd_ex_fty_ver
             // 
             this.hkd_ex_fty_ver.DataPropertyName = "hkd_ex_fty_ver";
-            dataGridViewCellStyle37.Format = "N3";
-            dataGridViewCellStyle37.NullValue = "0";
-            this.hkd_ex_fty_ver.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle41.Format = "N3";
+            dataGridViewCellStyle41.NullValue = "0";
+            this.hkd_ex_fty_ver.DefaultCellStyle = dataGridViewCellStyle41;
             this.hkd_ex_fty_ver.HeaderText = "Price USD-Ex_Fty(old version";
             this.hkd_ex_fty_ver.Name = "hkd_ex_fty_ver";
             this.hkd_ex_fty_ver.ReadOnly = true;
@@ -2128,6 +2239,46 @@
             this.flag_new.Name = "flag_new";
             this.flag_new.ReadOnly = true;
             this.flag_new.Visible = false;
+            // 
+            // flag_vnd
+            // 
+            this.flag_vnd.DataPropertyName = "flag_vnd";
+            this.flag_vnd.HeaderText = "Flag Vnd";
+            this.flag_vnd.Name = "flag_vnd";
+            this.flag_vnd.ReadOnly = true;
+            this.flag_vnd.Visible = false;
+            // 
+            // flag_vnd_date
+            // 
+            this.flag_vnd_date.DataPropertyName = "flag_vnd_date";
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle42.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle42.NullValue = null;
+            this.flag_vnd_date.DefaultCellStyle = dataGridViewCellStyle42;
+            this.flag_vnd_date.HeaderText = "VND Date";
+            this.flag_vnd_date.Name = "flag_vnd_date";
+            this.flag_vnd_date.ReadOnly = true;
+            // 
+            // cf_color_id
+            // 
+            this.cf_color_id.DataPropertyName = "cf_color_id";
+            this.cf_color_id.HeaderText = "CF Color ID";
+            this.cf_color_id.Name = "cf_color_id";
+            this.cf_color_id.ReadOnly = true;
+            // 
+            // material_type
+            // 
+            this.material_type.DataPropertyName = "material_type";
+            this.material_type.HeaderText = "Material Type";
+            this.material_type.Name = "material_type";
+            this.material_type.ReadOnly = true;
+            // 
+            // product_type
+            // 
+            this.product_type.DataPropertyName = "product_type";
+            this.product_type.HeaderText = "Product Type";
+            this.product_type.Name = "product_type";
+            this.product_type.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -2255,8 +2406,10 @@
             this.cl_number_enter,
             this.cl_amt,
             this.cl_ver,
-            this.cl_discount});
-            this.gridControl1.Size = new System.Drawing.Size(1349, 165);
+            this.cl_discount,
+            this.clFlag_vnd,
+            this.clVnd});
+            this.gridControl1.Size = new System.Drawing.Size(1349, 231);
             this.gridControl1.TabIndex = 139;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2277,10 +2430,16 @@
             this.gridColumn11,
             this.gridColumn12,
             this.gridColumn13,
-            this.gridColumn28,
             this.gridColumn14,
             this.gridColumn15,
             this.gridColumn27,
+            this.gridColumn34,
+            this.gridColumn35,
+            this.gridColumn30,
+            this.gridColumn31,
+            this.gridColumn28,
+            this.gridColumn32,
+            this.gridColumn33,
             this.gridColumn18,
             this.gridColumn21,
             this.gridColumn22,
@@ -2314,7 +2473,6 @@
             // 
             this.flag_select.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.flag_select.AppearanceCell.Options.UseBackColor = true;
-            this.flag_select.Caption = "  ";
             this.flag_select.ColumnEdit = this.clFlag_select;
             this.flag_select.FieldName = "flag_select";
             this.flag_select.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -2342,6 +2500,7 @@
             this.gridColumn1.ColumnEdit = this.cl_ver;
             this.gridColumn1.FieldName = "ver";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.OptionsColumn.AllowMove = false;
             this.gridColumn1.OptionsColumn.AllowSize = false;
             this.gridColumn1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
@@ -2365,6 +2524,7 @@
             this.gridColumn2.Caption = "Group";
             this.gridColumn2.FieldName = "sales_group";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.OptionsColumn.AllowMove = false;
             this.gridColumn2.OptionsColumn.AllowSize = false;
             this.gridColumn2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
@@ -2398,6 +2558,7 @@
             this.gridColumn4.Caption = "Brand id";
             this.gridColumn4.FieldName = "brand";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.OptionsColumn.AllowMove = false;
             this.gridColumn4.OptionsColumn.AllowSize = false;
             this.gridColumn4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
@@ -2414,6 +2575,7 @@
             this.gridColumn7.Caption = "CF Code";
             this.gridColumn7.FieldName = "cf_code";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.OptionsColumn.AllowMove = false;
             this.gridColumn7.OptionsColumn.AllowSize = false;
             this.gridColumn7.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
@@ -2430,6 +2592,7 @@
             this.gridColumn9.Caption = "CF Color";
             this.gridColumn9.FieldName = "cf_color";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.OptionsColumn.AllowMove = false;
             this.gridColumn9.OptionsColumn.AllowSize = false;
             this.gridColumn9.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
@@ -2445,6 +2608,7 @@
             this.gridColumn17.Caption = "Size";
             this.gridColumn17.FieldName = "size";
             this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowEdit = false;
             this.gridColumn17.OptionsColumn.AllowMove = false;
             this.gridColumn17.OptionsColumn.AllowSize = false;
             this.gridColumn17.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
@@ -2553,29 +2717,12 @@
             this.gridColumn13.VisibleIndex = 11;
             this.gridColumn13.Width = 60;
             // 
-            // gridColumn28
-            // 
-            this.gridColumn28.AppearanceCell.ForeColor = System.Drawing.Color.Maroon;
-            this.gridColumn28.AppearanceCell.Options.UseForeColor = true;
-            this.gridColumn28.Caption = "VND";
-            this.gridColumn28.ColumnEdit = this.cl_amt;
-            this.gridColumn28.FieldName = "price_vnd";
-            this.gridColumn28.Name = "gridColumn28";
-            this.gridColumn28.OptionsColumn.AllowMove = false;
-            this.gridColumn28.OptionsColumn.AllowSize = false;
-            this.gridColumn28.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn28.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn28.OptionsFilter.AllowFilter = false;
-            this.gridColumn28.Tag = "2";
-            this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 12;
-            this.gridColumn28.Width = 100;
-            // 
             // gridColumn14
             // 
             this.gridColumn14.Caption = "Unit Price";
             this.gridColumn14.FieldName = "price_unit";
             this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.OptionsColumn.AllowMove = false;
             this.gridColumn14.OptionsColumn.AllowSize = false;
             this.gridColumn14.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
@@ -2584,7 +2731,7 @@
             this.gridColumn14.OptionsFilter.AllowFilter = false;
             this.gridColumn14.Tag = "2";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 13;
+            this.gridColumn14.VisibleIndex = 12;
             this.gridColumn14.Width = 62;
             // 
             // gridColumn15
@@ -2601,7 +2748,7 @@
             this.gridColumn15.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn15.OptionsFilter.AllowFilter = false;
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 14;
+            this.gridColumn15.VisibleIndex = 13;
             this.gridColumn15.Width = 90;
             // 
             // gridColumn27
@@ -2618,8 +2765,160 @@
             this.gridColumn27.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn27.OptionsFilter.AllowFilter = false;
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 15;
+            this.gridColumn27.VisibleIndex = 14;
             this.gridColumn27.Width = 90;
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.AppearanceCell.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn34.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn34.AppearanceHeader.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn34.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn34.Caption = "顯示VN";
+            this.gridColumn34.ColumnEdit = this.clFlag_vnd;
+            this.gridColumn34.FieldName = "flag_vnd";
+            this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.OptionsColumn.AllowMove = false;
+            this.gridColumn34.OptionsColumn.AllowSize = false;
+            this.gridColumn34.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn34.OptionsColumn.ReadOnly = true;
+            this.gridColumn34.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn34.OptionsFilter.AllowFilter = false;
+            this.gridColumn34.Visible = true;
+            this.gridColumn34.VisibleIndex = 15;
+            this.gridColumn34.Width = 61;
+            // 
+            // clFlag_vnd
+            // 
+            this.clFlag_vnd.AutoHeight = false;
+            this.clFlag_vnd.Name = "clFlag_vnd";
+            this.clFlag_vnd.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.AppearanceCell.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn35.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn35.AppearanceHeader.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn35.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn35.Caption = "VN日期";
+            this.gridColumn35.DisplayFormat.FormatString = "yyyy-MM-DD";
+            this.gridColumn35.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn35.FieldName = "flag_vnd_date";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.OptionsColumn.AllowMove = false;
+            this.gridColumn35.OptionsColumn.AllowSize = false;
+            this.gridColumn35.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn35.OptionsColumn.ReadOnly = true;
+            this.gridColumn35.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn35.OptionsFilter.AllowFilter = false;
+            this.gridColumn35.Width = 84;
+            // 
+            // gridColumn30
+            // 
+            this.gridColumn30.AppearanceCell.BackColor = System.Drawing.Color.LemonChiffon;
+            this.gridColumn30.AppearanceCell.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn30.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn30.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn30.AppearanceHeader.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn30.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn30.Caption = "VN BP";
+            this.gridColumn30.ColumnEdit = this.cl_number_enter;
+            this.gridColumn30.FieldName = "vnd_bp";
+            this.gridColumn30.Name = "gridColumn30";
+            this.gridColumn30.OptionsColumn.AllowMove = false;
+            this.gridColumn30.OptionsColumn.AllowSize = false;
+            this.gridColumn30.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn30.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn30.OptionsFilter.AllowFilter = false;
+            this.gridColumn30.Visible = true;
+            this.gridColumn30.VisibleIndex = 16;
+            this.gridColumn30.Width = 66;
+            // 
+            // gridColumn31
+            // 
+            this.gridColumn31.AppearanceCell.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn31.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn31.AppearanceHeader.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn31.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn31.Caption = "Vnd USD";
+            this.gridColumn31.ColumnEdit = this.cl_amt;
+            this.gridColumn31.FieldName = "price_vnd_usd";
+            this.gridColumn31.Name = "gridColumn31";
+            this.gridColumn31.OptionsColumn.AllowMove = false;
+            this.gridColumn31.OptionsColumn.AllowSize = false;
+            this.gridColumn31.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn31.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn31.OptionsFilter.AllowFilter = false;
+            this.gridColumn31.Visible = true;
+            this.gridColumn31.VisibleIndex = 17;
+            // 
+            // gridColumn28
+            // 
+            this.gridColumn28.AppearanceCell.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn28.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn28.AppearanceHeader.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn28.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn28.Caption = "VND";
+            this.gridColumn28.ColumnEdit = this.clVnd;
+            this.gridColumn28.FieldName = "price_vnd";
+            this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.OptionsColumn.AllowMove = false;
+            this.gridColumn28.OptionsColumn.AllowSize = false;
+            this.gridColumn28.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn28.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn28.OptionsFilter.AllowFilter = false;
+            this.gridColumn28.Tag = "2";
+            this.gridColumn28.Visible = true;
+            this.gridColumn28.VisibleIndex = 18;
+            this.gridColumn28.Width = 100;
+            // 
+            // clVnd
+            // 
+            this.clVnd.AutoHeight = false;
+            this.clVnd.DisplayFormat.FormatString = "N0";
+            this.clVnd.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clVnd.EditFormat.FormatString = "N0";
+            this.clVnd.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clVnd.Mask.EditMask = "n0";
+            this.clVnd.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clVnd.Name = "clVnd";
+            this.clVnd.NullText = "0";
+            // 
+            // gridColumn32
+            // 
+            this.gridColumn32.AppearanceCell.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn32.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn32.AppearanceHeader.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn32.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn32.Caption = "VND(Grs)";
+            this.gridColumn32.ColumnEdit = this.clVnd;
+            this.gridColumn32.FieldName = "price_vnd_grs";
+            this.gridColumn32.Name = "gridColumn32";
+            this.gridColumn32.OptionsColumn.AllowMove = false;
+            this.gridColumn32.OptionsColumn.AllowSize = false;
+            this.gridColumn32.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn32.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn32.OptionsFilter.AllowFilter = false;
+            this.gridColumn32.Visible = true;
+            this.gridColumn32.VisibleIndex = 19;
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.AppearanceCell.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn33.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn33.AppearanceHeader.ForeColor = System.Drawing.Color.Green;
+            this.gridColumn33.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn33.Caption = "VND(Pcs)";
+            this.gridColumn33.ColumnEdit = this.clVnd;
+            this.gridColumn33.FieldName = "price_vnd_pcs";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.OptionsColumn.AllowMove = false;
+            this.gridColumn33.OptionsColumn.AllowSize = false;
+            this.gridColumn33.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn33.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn33.OptionsFilter.AllowFilter = false;
+            this.gridColumn33.Visible = true;
+            this.gridColumn33.VisibleIndex = 20;
             // 
             // gridColumn18
             // 
@@ -2635,7 +2934,7 @@
             this.gridColumn18.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn18.OptionsFilter.AllowFilter = false;
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 16;
+            this.gridColumn18.VisibleIndex = 21;
             this.gridColumn18.Width = 200;
             // 
             // gridColumn21
@@ -2652,7 +2951,7 @@
             this.gridColumn21.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn21.OptionsFilter.AllowFilter = false;
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 17;
+            this.gridColumn21.VisibleIndex = 22;
             this.gridColumn21.Width = 180;
             // 
             // gridColumn22
@@ -2669,7 +2968,7 @@
             this.gridColumn22.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn22.OptionsFilter.AllowFilter = false;
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 18;
+            this.gridColumn22.VisibleIndex = 23;
             this.gridColumn22.Width = 60;
             // 
             // cl_discount
@@ -2699,7 +2998,7 @@
             this.gridColumn23.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn23.OptionsFilter.AllowFilter = false;
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 19;
+            this.gridColumn23.VisibleIndex = 24;
             this.gridColumn23.Width = 70;
             // 
             // gridColumn24
@@ -2716,7 +3015,7 @@
             this.gridColumn24.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn24.OptionsFilter.AllowFilter = false;
             this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 20;
+            this.gridColumn24.VisibleIndex = 25;
             this.gridColumn24.Width = 70;
             // 
             // gridColumn25
@@ -2733,7 +3032,7 @@
             this.gridColumn25.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn25.OptionsFilter.AllowFilter = false;
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 21;
+            this.gridColumn25.VisibleIndex = 26;
             this.gridColumn25.Width = 70;
             // 
             // gridColumn26
@@ -2750,7 +3049,7 @@
             this.gridColumn26.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn26.OptionsFilter.AllowFilter = false;
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 22;
+            this.gridColumn26.VisibleIndex = 27;
             this.gridColumn26.Width = 90;
             // 
             // gridColumn29
@@ -2767,12 +3066,12 @@
             this.gridColumn29.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn29.OptionsFilter.AllowFilter = false;
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 23;
+            this.gridColumn29.VisibleIndex = 28;
             this.gridColumn29.Width = 70;
             // 
             // gridColumn20
             // 
-            this.gridColumn20.Caption = "gridColumn20";
+            this.gridColumn20.Caption = "Temp Code";
             this.gridColumn20.FieldName = "temp_code";
             this.gridColumn20.Name = "gridColumn20";
             // 
@@ -2832,12 +3131,16 @@
             this.gridColumn19.Caption = "formula_id";
             this.gridColumn19.FieldName = "formula_id";
             this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.OptionsColumn.AllowEdit = false;
+            this.gridColumn19.OptionsColumn.ReadOnly = true;
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 29;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "sales_group";
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle43;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Sales Group";
             this.dataGridViewTextBoxColumn1.MaxInputLength = 1;
@@ -2848,9 +3151,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "temp_code";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "Temp ID";
             this.dataGridViewTextBoxColumn2.MaxInputLength = 30;
@@ -2861,8 +3164,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle40.Format = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle45.Format = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle45;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.MaxInputLength = 30;
@@ -2874,8 +3177,8 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "brand";
-            dataGridViewCellStyle41.Format = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle46.Format = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridViewTextBoxColumn4.Frozen = true;
             this.dataGridViewTextBoxColumn4.HeaderText = "Brand";
             this.dataGridViewTextBoxColumn4.MaxInputLength = 50;
@@ -2970,8 +3273,8 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "cf_color";
-            dataGridViewCellStyle42.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle47.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridViewTextBoxColumn14.HeaderText = "CF Color";
             this.dataGridViewTextBoxColumn14.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
@@ -2981,8 +3284,8 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "price_usd";
-            dataGridViewCellStyle43.NullValue = null;
-            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle48.NullValue = null;
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridViewTextBoxColumn15.HeaderText = "USD$";
             this.dataGridViewTextBoxColumn15.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
@@ -2992,8 +3295,8 @@
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "price_hkd";
-            dataGridViewCellStyle44.NullValue = null;
-            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle49.NullValue = null;
+            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle49;
             this.dataGridViewTextBoxColumn16.HeaderText = "HKD$";
             this.dataGridViewTextBoxColumn16.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
@@ -3003,8 +3306,8 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "price_rmb";
-            dataGridViewCellStyle45.NullValue = null;
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle50.NullValue = null;
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle50;
             this.dataGridViewTextBoxColumn17.HeaderText = "RMB";
             this.dataGridViewTextBoxColumn17.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
@@ -3014,8 +3317,8 @@
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "price_unit";
-            dataGridViewCellStyle46.NullValue = null;
-            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle51.NullValue = null;
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle51;
             this.dataGridViewTextBoxColumn18.HeaderText = "Price Unit";
             this.dataGridViewTextBoxColumn18.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
@@ -3025,8 +3328,8 @@
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "salesman";
-            dataGridViewCellStyle47.NullValue = null;
-            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle52.NullValue = null;
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle52;
             this.dataGridViewTextBoxColumn19.HeaderText = "Salesman";
             this.dataGridViewTextBoxColumn19.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
@@ -3037,8 +3340,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "moq";
-            dataGridViewCellStyle48.NullValue = null;
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle53.NullValue = null;
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle53;
             this.dataGridViewTextBoxColumn20.HeaderText = "MOQ";
             this.dataGridViewTextBoxColumn20.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
@@ -3049,8 +3352,8 @@
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "moq_unit";
-            dataGridViewCellStyle49.NullValue = null;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle54.NullValue = null;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle54;
             this.dataGridViewTextBoxColumn21.HeaderText = "MOQ Unit";
             this.dataGridViewTextBoxColumn21.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
@@ -3060,8 +3363,8 @@
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.DataPropertyName = "mwq";
-            dataGridViewCellStyle50.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle55.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle55;
             this.dataGridViewTextBoxColumn22.HeaderText = "MWQ";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
@@ -3071,8 +3374,8 @@
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "lead_time_min";
-            dataGridViewCellStyle51.NullValue = null;
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle56.NullValue = null;
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle56;
             this.dataGridViewTextBoxColumn23.HeaderText = "Lead Time(Min)";
             this.dataGridViewTextBoxColumn23.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
@@ -3082,8 +3385,8 @@
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "lead_time_max";
-            dataGridViewCellStyle52.NullValue = null;
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle57.NullValue = null;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle57;
             this.dataGridViewTextBoxColumn24.HeaderText = "Lead Time(Max)";
             this.dataGridViewTextBoxColumn24.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
@@ -3093,8 +3396,8 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "lead_time_unit";
-            dataGridViewCellStyle53.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle58.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle58;
             this.dataGridViewTextBoxColumn25.HeaderText = "Lead Time Unit";
             this.dataGridViewTextBoxColumn25.MaxInputLength = 5;
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
@@ -3104,8 +3407,8 @@
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.DataPropertyName = "md_charge";
-            dataGridViewCellStyle54.NullValue = null;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle59.NullValue = null;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle59;
             this.dataGridViewTextBoxColumn26.HeaderText = "Mould Charge in";
             this.dataGridViewTextBoxColumn26.MaxInputLength = 150;
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
@@ -3115,8 +3418,8 @@
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "remark";
-            dataGridViewCellStyle55.NullValue = null;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle60.NullValue = null;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle60;
             this.dataGridViewTextBoxColumn27.HeaderText = "Remark";
             this.dataGridViewTextBoxColumn27.MaxInputLength = 150;
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
@@ -3126,8 +3429,8 @@
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.DataPropertyName = "comment";
-            dataGridViewCellStyle56.NullValue = null;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle61.NullValue = null;
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle61;
             this.dataGridViewTextBoxColumn28.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn28.MaxInputLength = 100;
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
@@ -3137,8 +3440,8 @@
             // dataGridViewTextBoxColumn29
             // 
             this.dataGridViewTextBoxColumn29.DataPropertyName = "die_mould_usd";
-            dataGridViewCellStyle57.NullValue = null;
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle62.NullValue = null;
+            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle62;
             this.dataGridViewTextBoxColumn29.HeaderText = "Die Mould USD";
             this.dataGridViewTextBoxColumn29.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
@@ -3148,8 +3451,8 @@
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "account_code";
-            dataGridViewCellStyle58.NullValue = null;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle63.NullValue = null;
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle63;
             this.dataGridViewTextBoxColumn30.HeaderText = "Account  Code";
             this.dataGridViewTextBoxColumn30.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
@@ -3159,8 +3462,8 @@
             // dataGridViewTextBoxColumn31
             // 
             this.dataGridViewTextBoxColumn31.DataPropertyName = "valid_date";
-            dataGridViewCellStyle59.NullValue = null;
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle64.NullValue = null;
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle64;
             this.dataGridViewTextBoxColumn31.HeaderText = "Valid Date";
             this.dataGridViewTextBoxColumn31.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
@@ -3170,8 +3473,8 @@
             // dataGridViewTextBoxColumn32
             // 
             this.dataGridViewTextBoxColumn32.DataPropertyName = "number_enter";
-            dataGridViewCellStyle60.NullValue = null;
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle65.NullValue = null;
+            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle65;
             this.dataGridViewTextBoxColumn32.HeaderText = "Number Eenter";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
@@ -3180,8 +3483,8 @@
             // dataGridViewTextBoxColumn33
             // 
             this.dataGridViewTextBoxColumn33.DataPropertyName = "date_req";
-            dataGridViewCellStyle61.NullValue = null;
-            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle66.NullValue = null;
+            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle66;
             this.dataGridViewTextBoxColumn33.HeaderText = "Date Req Rcvd";
             this.dataGridViewTextBoxColumn33.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
@@ -3191,8 +3494,8 @@
             // dataGridViewTextBoxColumn34
             // 
             this.dataGridViewTextBoxColumn34.DataPropertyName = "aw";
-            dataGridViewCellStyle62.NullValue = null;
-            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle67.NullValue = null;
+            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle67;
             this.dataGridViewTextBoxColumn34.HeaderText = "AW";
             this.dataGridViewTextBoxColumn34.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
@@ -3202,8 +3505,8 @@
             // dataGridViewTextBoxColumn35
             // 
             this.dataGridViewTextBoxColumn35.DataPropertyName = "sub_1";
-            dataGridViewCellStyle63.NullValue = null;
-            this.dataGridViewTextBoxColumn35.DefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle68.NullValue = null;
+            this.dataGridViewTextBoxColumn35.DefaultCellStyle = dataGridViewCellStyle68;
             this.dataGridViewTextBoxColumn35.HeaderText = "1 Sub";
             this.dataGridViewTextBoxColumn35.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
@@ -3213,8 +3516,8 @@
             // dataGridViewTextBoxColumn36
             // 
             this.dataGridViewTextBoxColumn36.DataPropertyName = "sub_2";
-            dataGridViewCellStyle64.NullValue = null;
-            this.dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle69.NullValue = null;
+            this.dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle69;
             this.dataGridViewTextBoxColumn36.HeaderText = "2 Sub";
             this.dataGridViewTextBoxColumn36.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
@@ -3224,8 +3527,8 @@
             // dataGridViewTextBoxColumn37
             // 
             this.dataGridViewTextBoxColumn37.DataPropertyName = "sub_3";
-            dataGridViewCellStyle65.NullValue = null;
-            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle70.NullValue = null;
+            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle70;
             this.dataGridViewTextBoxColumn37.HeaderText = "3 Sub";
             this.dataGridViewTextBoxColumn37.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
@@ -3244,8 +3547,8 @@
             // dataGridViewTextBoxColumn39
             // 
             this.dataGridViewTextBoxColumn39.DataPropertyName = "sub_5";
-            dataGridViewCellStyle66.NullValue = null;
-            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle71.NullValue = null;
+            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle71;
             this.dataGridViewTextBoxColumn39.HeaderText = "5 Sub";
             this.dataGridViewTextBoxColumn39.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn39.MinimumWidth = 80;
@@ -3307,8 +3610,8 @@
             // dataGridViewTextBoxColumn45
             // 
             this.dataGridViewTextBoxColumn45.DataPropertyName = "needle_test";
-            dataGridViewCellStyle67.NullValue = null;
-            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle72.NullValue = null;
+            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle72;
             this.dataGridViewTextBoxColumn45.HeaderText = "Needle Test";
             this.dataGridViewTextBoxColumn45.MaxInputLength = 50;
             this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
@@ -3319,8 +3622,8 @@
             // dataGridViewTextBoxColumn46
             // 
             this.dataGridViewTextBoxColumn46.DataPropertyName = "crusr";
-            dataGridViewCellStyle68.NullValue = null;
-            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle73.NullValue = null;
+            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle73;
             this.dataGridViewTextBoxColumn46.HeaderText = "Create by";
             this.dataGridViewTextBoxColumn46.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn46.MinimumWidth = 80;
@@ -3332,8 +3635,8 @@
             // dataGridViewTextBoxColumn47
             // 
             this.dataGridViewTextBoxColumn47.DataPropertyName = "crtim";
-            dataGridViewCellStyle69.NullValue = null;
-            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle74.NullValue = null;
+            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle74;
             this.dataGridViewTextBoxColumn47.HeaderText = "Create Date";
             this.dataGridViewTextBoxColumn47.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
@@ -3344,8 +3647,8 @@
             // dataGridViewTextBoxColumn48
             // 
             this.dataGridViewTextBoxColumn48.DataPropertyName = "amusr";
-            dataGridViewCellStyle70.NullValue = null;
-            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle75.NullValue = null;
+            this.dataGridViewTextBoxColumn48.DefaultCellStyle = dataGridViewCellStyle75;
             this.dataGridViewTextBoxColumn48.FillWeight = 60F;
             this.dataGridViewTextBoxColumn48.HeaderText = "Update by";
             this.dataGridViewTextBoxColumn48.MaxInputLength = 20;
@@ -3357,8 +3660,8 @@
             // dataGridViewTextBoxColumn49
             // 
             this.dataGridViewTextBoxColumn49.DataPropertyName = "amtim";
-            dataGridViewCellStyle71.NullValue = null;
-            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle76.NullValue = null;
+            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle76;
             this.dataGridViewTextBoxColumn49.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn49.MaxInputLength = 50;
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
@@ -3378,8 +3681,8 @@
             // dataGridViewTextBoxColumn51
             // 
             this.dataGridViewTextBoxColumn51.DataPropertyName = "flag_del";
-            dataGridViewCellStyle72.NullValue = null;
-            this.dataGridViewTextBoxColumn51.DefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle77.NullValue = null;
+            this.dataGridViewTextBoxColumn51.DefaultCellStyle = dataGridViewCellStyle77;
             this.dataGridViewTextBoxColumn51.HeaderText = "Flag_Del";
             this.dataGridViewTextBoxColumn51.MaxInputLength = 20;
             this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
@@ -3399,8 +3702,8 @@
             // dataGridViewTextBoxColumn53
             // 
             this.dataGridViewTextBoxColumn53.DataPropertyName = "brand_desc";
-            dataGridViewCellStyle73.NullValue = null;
-            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle78.NullValue = null;
+            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle78;
             this.dataGridViewTextBoxColumn53.HeaderText = "Brand Desc.";
             this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
             this.dataGridViewTextBoxColumn53.ReadOnly = true;
@@ -3418,8 +3721,8 @@
             // dataGridViewTextBoxColumn55
             // 
             this.dataGridViewTextBoxColumn55.DataPropertyName = "comment";
-            dataGridViewCellStyle74.NullValue = null;
-            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle79.NullValue = null;
+            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle79;
             this.dataGridViewTextBoxColumn55.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.ReadOnly = true;
@@ -3437,8 +3740,8 @@
             // dataGridViewTextBoxColumn57
             // 
             this.dataGridViewTextBoxColumn57.DataPropertyName = "amtim";
-            dataGridViewCellStyle75.NullValue = null;
-            this.dataGridViewTextBoxColumn57.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle80.NullValue = null;
+            this.dataGridViewTextBoxColumn57.DefaultCellStyle = dataGridViewCellStyle80;
             this.dataGridViewTextBoxColumn57.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
             this.dataGridViewTextBoxColumn57.ReadOnly = true;
@@ -3480,17 +3783,18 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(565, 230);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(185, 224);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(90, 23);
             this.label2.TabIndex = 201;
             this.label2.Text = "Term Price Remark";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtPrice_rmb
             // 
             this.txtPrice_rmb.EditValue = "";
-            this.txtPrice_rmb.Location = new System.Drawing.Point(362, 162);
+            this.txtPrice_rmb.Location = new System.Drawing.Point(362, 161);
             this.txtPrice_rmb.Name = "txtPrice_rmb";
             this.txtPrice_rmb.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.txtPrice_rmb.Properties.Appearance.Options.UseForeColor = true;
@@ -3511,8 +3815,8 @@
             // 
             // lblRmb_remark
             // 
-            this.lblRmb_remark.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblRmb_remark.Location = new System.Drawing.Point(266, 313);
+            this.lblRmb_remark.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRmb_remark.Location = new System.Drawing.Point(266, 330);
             this.lblRmb_remark.Name = "lblRmb_remark";
             this.lblRmb_remark.Size = new System.Drawing.Size(99, 18);
             this.lblRmb_remark.TabIndex = 184;
@@ -3625,7 +3929,7 @@
             // txtCustartwork
             // 
             this.txtCustartwork.EditValue = "";
-            this.txtCustartwork.Location = new System.Drawing.Point(510, 27);
+            this.txtCustartwork.Location = new System.Drawing.Point(511, 27);
             this.txtCustartwork.Name = "txtCustartwork";
             this.txtCustartwork.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
@@ -3650,25 +3954,25 @@
             // 
             // lblCrtim
             // 
-            this.lblCrtim.Location = new System.Drawing.Point(185, 361);
+            this.lblCrtim.Location = new System.Drawing.Point(130, 379);
             this.lblCrtim.Name = "lblCrtim";
-            this.lblCrtim.Size = new System.Drawing.Size(69, 13);
+            this.lblCrtim.Size = new System.Drawing.Size(61, 13);
             this.lblCrtim.TabIndex = 13;
             this.lblCrtim.Text = "Create Date";
             this.lblCrtim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblAmtim
             // 
-            this.lblAmtim.Location = new System.Drawing.Point(187, 380);
+            this.lblAmtim.Location = new System.Drawing.Point(410, 379);
             this.lblAmtim.Name = "lblAmtim";
-            this.lblAmtim.Size = new System.Drawing.Size(67, 13);
+            this.lblAmtim.Size = new System.Drawing.Size(62, 13);
             this.lblAmtim.TabIndex = 15;
             this.lblAmtim.Text = "Update Date";
             this.lblAmtim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(157, 333);
+            this.label4.Location = new System.Drawing.Point(157, 350);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 25);
             this.label4.TabIndex = 188;
@@ -3677,17 +3981,17 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(265, 330);
+            this.label5.Font = new System.Drawing.Font("PMingLiU", 9F);
+            this.label5.Location = new System.Drawing.Point(265, 348);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 27);
+            this.label5.Size = new System.Drawing.Size(68, 26);
             this.label5.TabIndex = 190;
             this.label5.Text = "Remark for Salesperson";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(7, 333);
+            this.label3.Location = new System.Drawing.Point(7, 350);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 186;
@@ -3706,7 +4010,7 @@
             // lblDisc_hkd_ex_fty
             // 
             this.lblDisc_hkd_ex_fty.Font = new System.Drawing.Font("Tahoma", 6.75F);
-            this.lblDisc_hkd_ex_fty.Location = new System.Drawing.Point(440, 206);
+            this.lblDisc_hkd_ex_fty.Location = new System.Drawing.Point(931, 329);
             this.lblDisc_hkd_ex_fty.Name = "lblDisc_hkd_ex_fty";
             this.lblDisc_hkd_ex_fty.Size = new System.Drawing.Size(62, 23);
             this.lblDisc_hkd_ex_fty.TabIndex = 174;
@@ -3716,7 +4020,7 @@
             // lblDisc_rmb
             // 
             this.lblDisc_rmb.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisc_rmb.Location = new System.Drawing.Point(440, 161);
+            this.lblDisc_rmb.Location = new System.Drawing.Point(931, 284);
             this.lblDisc_rmb.Name = "lblDisc_rmb";
             this.lblDisc_rmb.Size = new System.Drawing.Size(62, 22);
             this.lblDisc_rmb.TabIndex = 175;
@@ -3726,7 +4030,7 @@
             // lblDisc_usd
             // 
             this.lblDisc_usd.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisc_usd.Location = new System.Drawing.Point(440, 115);
+            this.lblDisc_usd.Location = new System.Drawing.Point(931, 238);
             this.lblDisc_usd.Name = "lblDisc_usd";
             this.lblDisc_usd.Size = new System.Drawing.Size(62, 22);
             this.lblDisc_usd.TabIndex = 172;
@@ -3736,7 +4040,7 @@
             // lblDisc_hkd
             // 
             this.lblDisc_hkd.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisc_hkd.Location = new System.Drawing.Point(440, 139);
+            this.lblDisc_hkd.Location = new System.Drawing.Point(931, 262);
             this.lblDisc_hkd.Name = "lblDisc_hkd";
             this.lblDisc_hkd.Size = new System.Drawing.Size(62, 22);
             this.lblDisc_hkd.TabIndex = 173;
@@ -3746,7 +4050,7 @@
             // lblDisc
             // 
             this.lblDisc.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lblDisc.Location = new System.Drawing.Point(503, 98);
+            this.lblDisc.Location = new System.Drawing.Point(942, 218);
             this.lblDisc.Name = "lblDisc";
             this.lblDisc.Size = new System.Drawing.Size(49, 13);
             this.lblDisc.TabIndex = 167;
@@ -3756,7 +4060,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(596, 97);
+            this.label1.Location = new System.Drawing.Point(1046, 216);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 15);
             this.label1.TabIndex = 178;
@@ -3765,7 +4069,8 @@
             // 
             // lblUsd_ex_fty
             // 
-            this.lblUsd_ex_fty.Location = new System.Drawing.Point(281, 233);
+            this.lblUsd_ex_fty.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblUsd_ex_fty.Location = new System.Drawing.Point(281, 210);
             this.lblUsd_ex_fty.Name = "lblUsd_ex_fty";
             this.lblUsd_ex_fty.Size = new System.Drawing.Size(83, 13);
             this.lblUsd_ex_fty.TabIndex = 177;
@@ -3774,16 +4079,18 @@
             // 
             // lblUsd_lab_test
             // 
-            this.lblUsd_lab_test.Location = new System.Drawing.Point(572, 211);
+            this.lblUsd_lab_test.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblUsd_lab_test.Location = new System.Drawing.Point(576, 211);
             this.lblUsd_lab_test.Name = "lblUsd_lab_test";
-            this.lblUsd_lab_test.Size = new System.Drawing.Size(95, 13);
+            this.lblUsd_lab_test.Size = new System.Drawing.Size(91, 13);
             this.lblUsd_lab_test.TabIndex = 153;
             this.lblUsd_lab_test.Text = "USD(Lab Test Prx)";
             this.lblUsd_lab_test.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblKkd_ex_fty
             // 
-            this.lblKkd_ex_fty.Location = new System.Drawing.Point(281, 211);
+            this.lblKkd_ex_fty.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblKkd_ex_fty.Location = new System.Drawing.Point(281, 188);
             this.lblKkd_ex_fty.Name = "lblKkd_ex_fty";
             this.lblKkd_ex_fty.Size = new System.Drawing.Size(83, 13);
             this.lblKkd_ex_fty.TabIndex = 73;
@@ -3849,7 +4156,7 @@
             // 
             this.lblPrice_rmb.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblPrice_rmb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblPrice_rmb.Location = new System.Drawing.Point(297, 163);
+            this.lblPrice_rmb.Location = new System.Drawing.Point(297, 164);
             this.lblPrice_rmb.Name = "lblPrice_rmb";
             this.lblPrice_rmb.Size = new System.Drawing.Size(63, 14);
             this.lblPrice_rmb.TabIndex = 105;
@@ -3877,7 +4184,7 @@
             this.txtSeasonDesc.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtSeasonDesc.Properties.MaxLength = 20;
             this.txtSeasonDesc.Properties.ReadOnly = true;
-            this.txtSeasonDesc.Size = new System.Drawing.Size(127, 20);
+            this.txtSeasonDesc.Size = new System.Drawing.Size(126, 20);
             this.txtSeasonDesc.TabIndex = 6;
             this.txtSeasonDesc.Tag = "2";
             this.txtSeasonDesc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSeasonDesc_ButtonClick);
@@ -3885,7 +4192,7 @@
             // 
             // lblLead_time_max
             // 
-            this.lblLead_time_max.Location = new System.Drawing.Point(567, 74);
+            this.lblLead_time_max.Location = new System.Drawing.Point(635, 74);
             this.lblLead_time_max.Name = "lblLead_time_max";
             this.lblLead_time_max.Size = new System.Drawing.Size(98, 13);
             this.lblLead_time_max.TabIndex = 61;
@@ -3894,9 +4201,10 @@
             // 
             // lblCf_color
             // 
-            this.lblCf_color.Location = new System.Drawing.Point(212, 74);
+            this.lblCf_color.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCf_color.Location = new System.Drawing.Point(290, 75);
             this.lblCf_color.Name = "lblCf_color";
-            this.lblCf_color.Size = new System.Drawing.Size(55, 13);
+            this.lblCf_color.Size = new System.Drawing.Size(77, 13);
             this.lblCf_color.TabIndex = 43;
             this.lblCf_color.Text = "CF Color";
             this.lblCf_color.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3919,7 +4227,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.txtBrandDesc.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtBrandDesc.Properties.ReadOnly = true;
-            this.txtBrandDesc.Size = new System.Drawing.Size(127, 20);
+            this.txtBrandDesc.Size = new System.Drawing.Size(126, 20);
             this.txtBrandDesc.TabIndex = 4;
             this.txtBrandDesc.Tag = "2";
             this.txtBrandDesc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtBrandDesc_ButtonClick);
@@ -3928,7 +4236,7 @@
             // txtMo_id
             // 
             this.txtMo_id.EditValue = "";
-            this.txtMo_id.Location = new System.Drawing.Point(76, 249);
+            this.txtMo_id.Location = new System.Drawing.Point(76, 226);
             this.txtMo_id.Name = "txtMo_id";
             this.txtMo_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
@@ -3936,7 +4244,7 @@
             this.txtMo_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id.Properties.MaxLength = 20;
             this.txtMo_id.Properties.ReadOnly = true;
-            this.txtMo_id.Size = new System.Drawing.Size(115, 20);
+            this.txtMo_id.Size = new System.Drawing.Size(108, 20);
             this.txtMo_id.TabIndex = 11;
             this.txtMo_id.Tag = "2";
             this.txtMo_id.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtMo_id_ButtonClick);
@@ -4027,7 +4335,7 @@
             this.txtLead_time_unit.EditValue = "";
             this.txtLead_time_unit.Enabled = false;
             this.txtLead_time_unit.EnterMoveNextControl = true;
-            this.txtLead_time_unit.Location = new System.Drawing.Point(721, 94);
+            this.txtLead_time_unit.Location = new System.Drawing.Point(733, 94);
             this.txtLead_time_unit.Name = "txtLead_time_unit";
             this.txtLead_time_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtLead_time_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4038,7 +4346,7 @@
             this.txtLead_time_unit.Properties.NullText = "";
             this.txtLead_time_unit.Properties.ShowHeader = false;
             this.txtLead_time_unit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtLead_time_unit.Size = new System.Drawing.Size(112, 20);
+            this.txtLead_time_unit.Size = new System.Drawing.Size(100, 20);
             this.txtLead_time_unit.TabIndex = 39;
             this.txtLead_time_unit.Tag = "2";
             // 
@@ -4070,11 +4378,11 @@
             // txtProduct_desc
             // 
             this.txtProduct_desc.EnterMoveNextControl = true;
-            this.txtProduct_desc.Location = new System.Drawing.Point(270, 249);
+            this.txtProduct_desc.Location = new System.Drawing.Point(235, 268);
             this.txtProduct_desc.Name = "txtProduct_desc";
             this.txtProduct_desc.Properties.MaxLength = 150;
             this.txtProduct_desc.Properties.ReadOnly = true;
-            this.txtProduct_desc.Size = new System.Drawing.Size(301, 20);
+            this.txtProduct_desc.Size = new System.Drawing.Size(336, 20);
             this.txtProduct_desc.TabIndex = 12;
             this.txtProduct_desc.Tag = "2";
             // 
@@ -4150,22 +4458,22 @@
             // lblMaterial
             // 
             this.lblMaterial.ForeColor = System.Drawing.Color.Blue;
-            this.lblMaterial.Location = new System.Drawing.Point(3, 210);
+            this.lblMaterial.Location = new System.Drawing.Point(163, 251);
             this.lblMaterial.Name = "lblMaterial";
             this.lblMaterial.Size = new System.Drawing.Size(73, 13);
             this.lblMaterial.TabIndex = 20;
-            this.lblMaterial.Text = "Material";
+            this.lblMaterial.Text = "Material Desc.";
             this.lblMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMaterial
             // 
             this.txtMaterial.EditValue = "";
             this.txtMaterial.EnterMoveNextControl = true;
-            this.txtMaterial.Location = new System.Drawing.Point(76, 206);
+            this.txtMaterial.Location = new System.Drawing.Point(235, 247);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Properties.MaxLength = 100;
             this.txtMaterial.Properties.ReadOnly = true;
-            this.txtMaterial.Size = new System.Drawing.Size(215, 20);
+            this.txtMaterial.Size = new System.Drawing.Size(336, 20);
             this.txtMaterial.TabIndex = 9;
             this.txtMaterial.Tag = "2";
             // 
@@ -4190,7 +4498,7 @@
             // 
             // lblDivision
             // 
-            this.lblDivision.Location = new System.Drawing.Point(3, 167);
+            this.lblDivision.Location = new System.Drawing.Point(3, 164);
             this.lblDivision.Name = "lblDivision";
             this.lblDivision.Size = new System.Drawing.Size(73, 13);
             this.lblDivision.TabIndex = 27;
@@ -4201,17 +4509,17 @@
             // 
             this.txtDivision.EditValue = "";
             this.txtDivision.EnterMoveNextControl = true;
-            this.txtDivision.Location = new System.Drawing.Point(76, 162);
+            this.txtDivision.Location = new System.Drawing.Point(76, 161);
             this.txtDivision.Name = "txtDivision";
             this.txtDivision.Properties.MaxLength = 100;
             this.txtDivision.Properties.ReadOnly = true;
-            this.txtDivision.Size = new System.Drawing.Size(215, 20);
+            this.txtDivision.Size = new System.Drawing.Size(214, 20);
             this.txtDivision.TabIndex = 7;
             this.txtDivision.Tag = "2";
             // 
             // lblContact
             // 
-            this.lblContact.Location = new System.Drawing.Point(3, 187);
+            this.lblContact.Location = new System.Drawing.Point(3, 186);
             this.lblContact.Name = "lblContact";
             this.lblContact.Size = new System.Drawing.Size(73, 13);
             this.lblContact.TabIndex = 29;
@@ -4222,17 +4530,17 @@
             // 
             this.txtContact.EditValue = "";
             this.txtContact.EnterMoveNextControl = true;
-            this.txtContact.Location = new System.Drawing.Point(76, 184);
+            this.txtContact.Location = new System.Drawing.Point(76, 183);
             this.txtContact.Name = "txtContact";
             this.txtContact.Properties.MaxLength = 100;
             this.txtContact.Properties.ReadOnly = true;
-            this.txtContact.Size = new System.Drawing.Size(215, 20);
+            this.txtContact.Size = new System.Drawing.Size(214, 20);
             this.txtContact.TabIndex = 8;
             this.txtContact.Tag = "2";
             // 
             // lblSize
             // 
-            this.lblSize.Location = new System.Drawing.Point(3, 232);
+            this.lblSize.Location = new System.Drawing.Point(3, 209);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(73, 13);
             this.lblSize.TabIndex = 30;
@@ -4243,7 +4551,7 @@
             // 
             this.txtSize.EditValue = "";
             this.txtSize.EnterMoveNextControl = true;
-            this.txtSize.Location = new System.Drawing.Point(76, 228);
+            this.txtSize.Location = new System.Drawing.Point(76, 205);
             this.txtSize.Name = "txtSize";
             this.txtSize.Properties.MaxLength = 250;
             this.txtSize.Properties.ReadOnly = true;
@@ -4253,7 +4561,7 @@
             // 
             // lblProduct_desc
             // 
-            this.lblProduct_desc.Location = new System.Drawing.Point(201, 253);
+            this.lblProduct_desc.Location = new System.Drawing.Point(166, 271);
             this.lblProduct_desc.Name = "lblProduct_desc";
             this.lblProduct_desc.Size = new System.Drawing.Size(69, 13);
             this.lblProduct_desc.TabIndex = 34;
@@ -4295,7 +4603,7 @@
             this.txtCust_color.Name = "txtCust_color";
             this.txtCust_color.Properties.MaxLength = 100;
             this.txtCust_color.Properties.ReadOnly = true;
-            this.txtCust_color.Size = new System.Drawing.Size(235, 20);
+            this.txtCust_color.Size = new System.Drawing.Size(283, 20);
             this.txtCust_color.TabIndex = 18;
             this.txtCust_color.Tag = "2";
             // 
@@ -4303,11 +4611,11 @@
             // 
             this.txtCf_color.EditValue = "";
             this.txtCf_color.EnterMoveNextControl = true;
-            this.txtCf_color.Location = new System.Drawing.Point(270, 72);
+            this.txtCf_color.Location = new System.Drawing.Point(366, 71);
             this.txtCf_color.Name = "txtCf_color";
             this.txtCf_color.Properties.MaxLength = 200;
             this.txtCf_color.Properties.ReadOnly = true;
-            this.txtCf_color.Size = new System.Drawing.Size(301, 20);
+            this.txtCf_color.Size = new System.Drawing.Size(283, 20);
             this.txtCf_color.TabIndex = 19;
             this.txtCf_color.Tag = "2";
             // 
@@ -4341,7 +4649,7 @@
             // 
             // lblPrice_hkd
             // 
-            this.lblPrice_hkd.Location = new System.Drawing.Point(300, 144);
+            this.lblPrice_hkd.Location = new System.Drawing.Point(300, 143);
             this.lblPrice_hkd.Name = "lblPrice_hkd";
             this.lblPrice_hkd.Size = new System.Drawing.Size(63, 13);
             this.lblPrice_hkd.TabIndex = 47;
@@ -4352,7 +4660,7 @@
             // 
             this.txtPrice_hkd.EditValue = "";
             this.txtPrice_hkd.EnterMoveNextControl = true;
-            this.txtPrice_hkd.Location = new System.Drawing.Point(362, 140);
+            this.txtPrice_hkd.Location = new System.Drawing.Point(362, 139);
             this.txtPrice_hkd.Name = "txtPrice_hkd";
             this.txtPrice_hkd.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.txtPrice_hkd.Properties.Appearance.Options.UseForeColor = true;
@@ -4385,7 +4693,7 @@
             this.txtSalesman.Name = "txtSalesman";
             this.txtSalesman.Properties.MaxLength = 100;
             this.txtSalesman.Properties.ReadOnly = true;
-            this.txtSalesman.Size = new System.Drawing.Size(134, 20);
+            this.txtSalesman.Size = new System.Drawing.Size(88, 20);
             this.txtSalesman.TabIndex = 1;
             this.txtSalesman.Tag = "2";
             // 
@@ -4450,7 +4758,7 @@
             // 
             // lblLead_time_min
             // 
-            this.lblLead_time_min.Location = new System.Drawing.Point(574, 51);
+            this.lblLead_time_min.Location = new System.Drawing.Point(642, 51);
             this.lblLead_time_min.Name = "lblLead_time_min";
             this.lblLead_time_min.Size = new System.Drawing.Size(91, 13);
             this.lblLead_time_min.TabIndex = 59;
@@ -4461,13 +4769,13 @@
             // 
             this.txtLead_time_min.EditValue = "";
             this.txtLead_time_min.EnterMoveNextControl = true;
-            this.txtLead_time_min.Location = new System.Drawing.Point(665, 49);
+            this.txtLead_time_min.Location = new System.Drawing.Point(733, 49);
             this.txtLead_time_min.Name = "txtLead_time_min";
             this.txtLead_time_min.Properties.Mask.EditMask = "d";
             this.txtLead_time_min.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtLead_time_min.Properties.ReadOnly = true;
             this.txtLead_time_min.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtLead_time_min.Size = new System.Drawing.Size(168, 20);
+            this.txtLead_time_min.Size = new System.Drawing.Size(100, 20);
             this.txtLead_time_min.TabIndex = 37;
             this.txtLead_time_min.Tag = "2";
             // 
@@ -4475,19 +4783,19 @@
             // 
             this.txtLead_time_max.EditValue = "";
             this.txtLead_time_max.EnterMoveNextControl = true;
-            this.txtLead_time_max.Location = new System.Drawing.Point(665, 72);
+            this.txtLead_time_max.Location = new System.Drawing.Point(733, 72);
             this.txtLead_time_max.Name = "txtLead_time_max";
             this.txtLead_time_max.Properties.Mask.EditMask = "d";
             this.txtLead_time_max.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtLead_time_max.Properties.ReadOnly = true;
             this.txtLead_time_max.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtLead_time_max.Size = new System.Drawing.Size(168, 20);
+            this.txtLead_time_max.Size = new System.Drawing.Size(100, 20);
             this.txtLead_time_max.TabIndex = 38;
             this.txtLead_time_max.Tag = "2";
             // 
             // lblLead_time_unit
             // 
-            this.lblLead_time_unit.Location = new System.Drawing.Point(626, 97);
+            this.lblLead_time_unit.Location = new System.Drawing.Point(640, 97);
             this.lblLead_time_unit.Name = "lblLead_time_unit";
             this.lblLead_time_unit.Size = new System.Drawing.Size(91, 13);
             this.lblLead_time_unit.TabIndex = 62;
@@ -4496,6 +4804,7 @@
             // 
             // lblMd_charge
             // 
+            this.lblMd_charge.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblMd_charge.Location = new System.Drawing.Point(576, 122);
             this.lblMd_charge.Name = "lblMd_charge";
             this.lblMd_charge.Size = new System.Drawing.Size(87, 13);
@@ -4586,7 +4895,7 @@
             this.txtNumber_enter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtNumber_enter.Properties.ReadOnly = true;
             this.txtNumber_enter.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtNumber_enter.Size = new System.Drawing.Size(64, 20);
+            this.txtNumber_enter.Size = new System.Drawing.Size(63, 20);
             this.txtNumber_enter.TabIndex = 21;
             this.txtNumber_enter.Tag = "2";
             this.txtNumber_enter.Click += new System.EventHandler(this.txtNumber_enter_Click);
@@ -4658,7 +4967,7 @@
             // 
             // lblCrusr
             // 
-            this.lblCrusr.Location = new System.Drawing.Point(3, 361);
+            this.lblCrusr.Location = new System.Drawing.Point(3, 379);
             this.lblCrusr.Name = "lblCrusr";
             this.lblCrusr.Size = new System.Drawing.Size(73, 13);
             this.lblCrusr.TabIndex = 12;
@@ -4679,7 +4988,7 @@
             // 
             // lblRemark
             // 
-            this.lblRemark.Location = new System.Drawing.Point(3, 274);
+            this.lblRemark.Location = new System.Drawing.Point(3, 293);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(73, 13);
             this.lblRemark.TabIndex = 93;
@@ -4690,7 +4999,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(76, 270);
+            this.txtRemark.Location = new System.Drawing.Point(76, 289);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.MaxLength = 150;
             this.txtRemark.Properties.ReadOnly = true;
@@ -4702,20 +5011,20 @@
             // 
             this.txtCrusr.EditValue = "";
             this.txtCrusr.Enabled = false;
-            this.txtCrusr.Location = new System.Drawing.Point(76, 356);
+            this.txtCrusr.Location = new System.Drawing.Point(76, 373);
             this.txtCrusr.Name = "txtCrusr";
             this.txtCrusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtCrusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCrusr.Properties.ReadOnly = true;
-            this.txtCrusr.Size = new System.Drawing.Size(115, 20);
+            this.txtCrusr.Size = new System.Drawing.Size(54, 20);
             this.txtCrusr.TabIndex = 48;
             this.txtCrusr.Tag = "2";
             // 
             // lblAmusr
             // 
-            this.lblAmusr.Location = new System.Drawing.Point(6, 380);
+            this.lblAmusr.Location = new System.Drawing.Point(291, 379);
             this.lblAmusr.Name = "lblAmusr";
-            this.lblAmusr.Size = new System.Drawing.Size(68, 13);
+            this.lblAmusr.Size = new System.Drawing.Size(60, 13);
             this.lblAmusr.TabIndex = 14;
             this.lblAmusr.Text = "Update by";
             this.lblAmusr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -4724,7 +5033,7 @@
             // 
             this.txtHkd_ex_fty.EditValue = "";
             this.txtHkd_ex_fty.EnterMoveNextControl = true;
-            this.txtHkd_ex_fty.Location = new System.Drawing.Point(362, 206);
+            this.txtHkd_ex_fty.Location = new System.Drawing.Point(362, 183);
             this.txtHkd_ex_fty.Name = "txtHkd_ex_fty";
             this.txtHkd_ex_fty.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtHkd_ex_fty.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -4745,14 +5054,14 @@
             // 
             this.txtCrtim.EditValue = "";
             this.txtCrtim.Enabled = false;
-            this.txtCrtim.Location = new System.Drawing.Point(254, 356);
+            this.txtCrtim.Location = new System.Drawing.Point(189, 373);
             this.txtCrtim.Name = "txtCrtim";
             this.txtCrtim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCrtim.Properties.Appearance.Options.UseFont = true;
             this.txtCrtim.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtCrtim.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCrtim.Properties.ReadOnly = true;
-            this.txtCrtim.Size = new System.Drawing.Size(184, 20);
+            this.txtCrtim.Size = new System.Drawing.Size(101, 20);
             this.txtCrtim.TabIndex = 49;
             this.txtCrtim.Tag = "2";
             // 
@@ -4760,12 +5069,12 @@
             // 
             this.txtAmusr.EditValue = "";
             this.txtAmusr.Enabled = false;
-            this.txtAmusr.Location = new System.Drawing.Point(76, 376);
+            this.txtAmusr.Location = new System.Drawing.Point(351, 373);
             this.txtAmusr.Name = "txtAmusr";
             this.txtAmusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtAmusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtAmusr.Properties.ReadOnly = true;
-            this.txtAmusr.Size = new System.Drawing.Size(115, 20);
+            this.txtAmusr.Size = new System.Drawing.Size(57, 20);
             this.txtAmusr.TabIndex = 50;
             this.txtAmusr.Tag = "2";
             // 
@@ -4773,14 +5082,14 @@
             // 
             this.txtAmtim.EditValue = "";
             this.txtAmtim.Enabled = false;
-            this.txtAmtim.Location = new System.Drawing.Point(254, 376);
+            this.txtAmtim.Location = new System.Drawing.Point(471, 373);
             this.txtAmtim.Name = "txtAmtim";
             this.txtAmtim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmtim.Properties.Appearance.Options.UseFont = true;
             this.txtAmtim.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtAmtim.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtAmtim.Properties.ReadOnly = true;
-            this.txtAmtim.Size = new System.Drawing.Size(184, 20);
+            this.txtAmtim.Size = new System.Drawing.Size(100, 20);
             this.txtAmtim.TabIndex = 51;
             this.txtAmtim.Tag = "2";
             // 
@@ -4821,7 +5130,7 @@
             // 
             // lblRemark_other
             // 
-            this.lblRemark_other.Location = new System.Drawing.Point(3, 294);
+            this.lblRemark_other.Location = new System.Drawing.Point(3, 312);
             this.lblRemark_other.Name = "lblRemark_other";
             this.lblRemark_other.Size = new System.Drawing.Size(73, 13);
             this.lblRemark_other.TabIndex = 115;
@@ -4832,7 +5141,7 @@
             // 
             this.txtRemark_other.EditValue = "";
             this.txtRemark_other.EnterMoveNextControl = true;
-            this.txtRemark_other.Location = new System.Drawing.Point(76, 291);
+            this.txtRemark_other.Location = new System.Drawing.Point(76, 309);
             this.txtRemark_other.Name = "txtRemark_other";
             this.txtRemark_other.Properties.MaxLength = 150;
             this.txtRemark_other.Properties.ReadOnly = true;
@@ -4842,7 +5151,7 @@
             // 
             // lblComment
             // 
-            this.lblComment.Location = new System.Drawing.Point(1, 315);
+            this.lblComment.Location = new System.Drawing.Point(1, 332);
             this.lblComment.Name = "lblComment";
             this.lblComment.Size = new System.Drawing.Size(72, 13);
             this.lblComment.TabIndex = 117;
@@ -4853,7 +5162,7 @@
             // 
             this.txtComment.EditValue = "";
             this.txtComment.EnterMoveNextControl = true;
-            this.txtComment.Location = new System.Drawing.Point(76, 312);
+            this.txtComment.Location = new System.Drawing.Point(76, 329);
             this.txtComment.Name = "txtComment";
             this.txtComment.Properties.MaxLength = 600;
             this.txtComment.Properties.ReadOnly = true;
@@ -5002,7 +5311,7 @@
             // lblMo_id
             // 
             this.lblMo_id.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMo_id.Location = new System.Drawing.Point(3, 253);
+            this.lblMo_id.Location = new System.Drawing.Point(3, 230);
             this.lblMo_id.Name = "lblMo_id";
             this.lblMo_id.Size = new System.Drawing.Size(73, 13);
             this.lblMo_id.TabIndex = 133;
@@ -5032,7 +5341,7 @@
             this.txtFormula.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFormula.Properties.MaxLength = 30;
             this.txtFormula.Properties.ReadOnly = true;
-            this.txtFormula.Size = new System.Drawing.Size(84, 20);
+            this.txtFormula.Size = new System.Drawing.Size(82, 20);
             this.txtFormula.TabIndex = 137;
             this.txtFormula.Tag = "2";
             this.txtFormula.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtFormula_ButtonClick);
@@ -5064,13 +5373,13 @@
             this.approval_date,
             this.remark_sub,
             this.approval_status});
-            this.dgvSub.Location = new System.Drawing.Point(842, 205);
+            this.dgvSub.Location = new System.Drawing.Point(839, 205);
             this.dgvSub.Name = "dgvSub";
             this.dgvSub.ReadOnly = true;
             this.dgvSub.RowHeadersVisible = false;
             this.dgvSub.RowHeadersWidth = 10;
             this.dgvSub.RowTemplate.Height = 18;
-            this.dgvSub.Size = new System.Drawing.Size(509, 189);
+            this.dgvSub.Size = new System.Drawing.Size(512, 189);
             this.dgvSub.TabIndex = 139;
             this.dgvSub.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSub_CellDoubleClick);
             // 
@@ -5229,7 +5538,7 @@
             // 
             this.txtMoq_for_test.EditValue = "";
             this.txtMoq_for_test.EnterMoveNextControl = true;
-            this.txtMoq_for_test.Location = new System.Drawing.Point(722, 333);
+            this.txtMoq_for_test.Location = new System.Drawing.Point(722, 332);
             this.txtMoq_for_test.Name = "txtMoq_for_test";
             this.txtMoq_for_test.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMoq_for_test.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -5286,9 +5595,10 @@
             // 
             // lblUsd_dap
             // 
-            this.lblUsd_dap.Location = new System.Drawing.Point(442, 233);
+            this.lblUsd_dap.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblUsd_dap.Location = new System.Drawing.Point(616, 232);
             this.lblUsd_dap.Name = "lblUsd_dap";
-            this.lblUsd_dap.Size = new System.Drawing.Size(58, 13);
+            this.lblUsd_dap.Size = new System.Drawing.Size(51, 13);
             this.lblUsd_dap.TabIndex = 151;
             this.lblUsd_dap.Text = "USD(DAP)";
             this.lblUsd_dap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -5297,7 +5607,7 @@
             // 
             this.txtUsd_dap.EditValue = "";
             this.txtUsd_dap.EnterMoveNextControl = true;
-            this.txtUsd_dap.Location = new System.Drawing.Point(500, 228);
+            this.txtUsd_dap.Location = new System.Drawing.Point(665, 227);
             this.txtUsd_dap.Name = "txtUsd_dap";
             this.txtUsd_dap.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtUsd_dap.Properties.Appearance.Options.UseForeColor = true;
@@ -5306,7 +5616,7 @@
             this.txtUsd_dap.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtUsd_dap.Properties.ReadOnly = true;
             this.txtUsd_dap.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtUsd_dap.Size = new System.Drawing.Size(71, 20);
+            this.txtUsd_dap.Size = new System.Drawing.Size(168, 20);
             this.txtUsd_dap.TabIndex = 32;
             this.txtUsd_dap.Tag = "2";
             this.txtUsd_dap.Click += new System.EventHandler(this.txtUsd_dap_Click);
@@ -5417,7 +5727,7 @@
             // 
             this.txtDisc.EditValue = "";
             this.txtDisc.EnterMoveNextControl = true;
-            this.txtDisc.Location = new System.Drawing.Point(552, 94);
+            this.txtDisc.Location = new System.Drawing.Point(991, 214);
             this.txtDisc.Name = "txtDisc";
             this.txtDisc.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc.Properties.Appearance.Options.UseForeColor = true;
@@ -5435,7 +5745,7 @@
             // 
             this.txtDisc_usd.EditValue = "";
             this.txtDisc_usd.EnterMoveNextControl = true;
-            this.txtDisc_usd.Location = new System.Drawing.Point(500, 117);
+            this.txtDisc_usd.Location = new System.Drawing.Point(991, 240);
             this.txtDisc_usd.Name = "txtDisc_usd";
             this.txtDisc_usd.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc_usd.Properties.Appearance.Options.UseForeColor = true;
@@ -5453,7 +5763,7 @@
             // 
             this.txtDisc_hkd.EditValue = "";
             this.txtDisc_hkd.EnterMoveNextControl = true;
-            this.txtDisc_hkd.Location = new System.Drawing.Point(500, 140);
+            this.txtDisc_hkd.Location = new System.Drawing.Point(991, 263);
             this.txtDisc_hkd.Name = "txtDisc_hkd";
             this.txtDisc_hkd.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc_hkd.Properties.Appearance.Options.UseForeColor = true;
@@ -5471,7 +5781,7 @@
             // 
             this.txtDisc_hkd_ex_fty.EditValue = "";
             this.txtDisc_hkd_ex_fty.EnterMoveNextControl = true;
-            this.txtDisc_hkd_ex_fty.Location = new System.Drawing.Point(500, 206);
+            this.txtDisc_hkd_ex_fty.Location = new System.Drawing.Point(991, 329);
             this.txtDisc_hkd_ex_fty.Name = "txtDisc_hkd_ex_fty";
             this.txtDisc_hkd_ex_fty.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtDisc_hkd_ex_fty.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -5491,7 +5801,7 @@
             // 
             this.txtDisc_rmb.EditValue = "";
             this.txtDisc_rmb.EnterMoveNextControl = true;
-            this.txtDisc_rmb.Location = new System.Drawing.Point(500, 162);
+            this.txtDisc_rmb.Location = new System.Drawing.Point(991, 285);
             this.txtDisc_rmb.Name = "txtDisc_rmb";
             this.txtDisc_rmb.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc_rmb.Properties.Appearance.Options.UseForeColor = true;
@@ -5509,7 +5819,7 @@
             // 
             this.txtUsd_ex_fty.EditValue = "";
             this.txtUsd_ex_fty.EnterMoveNextControl = true;
-            this.txtUsd_ex_fty.Location = new System.Drawing.Point(362, 228);
+            this.txtUsd_ex_fty.Location = new System.Drawing.Point(362, 205);
             this.txtUsd_ex_fty.Name = "txtUsd_ex_fty";
             this.txtUsd_ex_fty.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtUsd_ex_fty.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5575,7 +5885,7 @@
             this.txtRmb_remark.EditValue = "";
             this.txtRmb_remark.Enabled = false;
             this.txtRmb_remark.EnterMoveNextControl = true;
-            this.txtRmb_remark.Location = new System.Drawing.Point(362, 312);
+            this.txtRmb_remark.Location = new System.Drawing.Point(361, 329);
             this.txtRmb_remark.Name = "txtRmb_remark";
             this.txtRmb_remark.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtRmb_remark.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5590,7 +5900,7 @@
             this.txtPrice_salesperson.EditValue = "";
             this.txtPrice_salesperson.Enabled = false;
             this.txtPrice_salesperson.EnterMoveNextControl = true;
-            this.txtPrice_salesperson.Location = new System.Drawing.Point(76, 334);
+            this.txtPrice_salesperson.Location = new System.Drawing.Point(76, 350);
             this.txtPrice_salesperson.Name = "txtPrice_salesperson";
             this.txtPrice_salesperson.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtPrice_salesperson.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5611,7 +5921,7 @@
             this.txtPrice_kind.EditValue = "";
             this.txtPrice_kind.Enabled = false;
             this.txtPrice_kind.EnterMoveNextControl = true;
-            this.txtPrice_kind.Location = new System.Drawing.Point(189, 334);
+            this.txtPrice_kind.Location = new System.Drawing.Point(189, 350);
             this.txtPrice_kind.Name = "txtPrice_kind";
             this.txtPrice_kind.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtPrice_kind.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5632,7 +5942,7 @@
             this.txtRemark_salesperson.EditValue = "";
             this.txtRemark_salesperson.Enabled = false;
             this.txtRemark_salesperson.EnterMoveNextControl = true;
-            this.txtRemark_salesperson.Location = new System.Drawing.Point(332, 334);
+            this.txtRemark_salesperson.Location = new System.Drawing.Point(331, 350);
             this.txtRemark_salesperson.Name = "txtRemark_salesperson";
             this.txtRemark_salesperson.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtRemark_salesperson.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5750,7 +6060,7 @@
             // 
             this.txtTermremark.EditValue = "";
             this.txtTermremark.EnterMoveNextControl = true;
-            this.txtTermremark.Location = new System.Drawing.Point(665, 227);
+            this.txtTermremark.Location = new System.Drawing.Point(270, 226);
             this.txtTermremark.Name = "txtTermremark";
             this.txtTermremark.Properties.MaxLength = 100;
             this.txtTermremark.Properties.ReadOnly = true;
@@ -5763,7 +6073,7 @@
             this.cmbmoq_below_over.EditValue = "";
             this.cmbmoq_below_over.Enabled = false;
             this.cmbmoq_below_over.EnterMoveNextControl = true;
-            this.cmbmoq_below_over.Location = new System.Drawing.Point(580, 333);
+            this.cmbmoq_below_over.Location = new System.Drawing.Point(580, 332);
             this.cmbmoq_below_over.Name = "cmbmoq_below_over";
             this.cmbmoq_below_over.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.cmbmoq_below_over.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5863,13 +6173,16 @@
             this.pnlHeard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlHeard.Controls.Add(this.txtDisc_vnd);
-            this.pnlHeard.Controls.Add(this.txtPrice_vnd);
+            this.pnlHeard.Controls.Add(this.lueCf_color_id);
+            this.pnlHeard.Controls.Add(this.lblMaterial_type);
+            this.pnlHeard.Controls.Add(this.lblProduct_type);
+            this.pnlHeard.Controls.Add(this.lueProduct_type);
+            this.pnlHeard.Controls.Add(this.lueMaterial_type);
+            this.pnlHeard.Controls.Add(this.chkFlag_vnd);
             this.pnlHeard.Controls.Add(this.txtFlag_new);
             this.pnlHeard.Controls.Add(this.txtCustartwork);
             this.pnlHeard.Controls.Add(this.lblOf);
             this.pnlHeard.Controls.Add(this.pic_artwork);
-            this.pnlHeard.Controls.Add(this.pnlRemarkPDD_dg);
             this.pnlHeard.Controls.Add(this.txtPending);
             this.pnlHeard.Controls.Add(this.txtMoq_unit);
             this.pnlHeard.Controls.Add(this.cmbmoq_below_over);
@@ -5887,11 +6200,6 @@
             this.pnlHeard.Controls.Add(this.txtDie_mould_cny);
             this.pnlHeard.Controls.Add(this.txtReason_edit);
             this.pnlHeard.Controls.Add(this.txtUsd_ex_fty);
-            this.pnlHeard.Controls.Add(this.txtDisc_rmb);
-            this.pnlHeard.Controls.Add(this.txtDisc_hkd_ex_fty);
-            this.pnlHeard.Controls.Add(this.txtDisc_hkd);
-            this.pnlHeard.Controls.Add(this.txtDisc_usd);
-            this.pnlHeard.Controls.Add(this.txtDisc);
             this.pnlHeard.Controls.Add(this.txtSample_card);
             this.pnlHeard.Controls.Add(this.lblSample_Card);
             this.pnlHeard.Controls.Add(this.txtSms);
@@ -5999,7 +6307,6 @@
             this.pnlHeard.Controls.Add(this.txtMo_id);
             this.pnlHeard.Controls.Add(this.txtBrandDesc);
             this.pnlHeard.Controls.Add(this.lblCust_color);
-            this.pnlHeard.Controls.Add(this.lblCf_color);
             this.pnlHeard.Controls.Add(this.lblLead_time_max);
             this.pnlHeard.Controls.Add(this.txtSeasonDesc);
             this.pnlHeard.Controls.Add(this.lblBrand);
@@ -6012,12 +6319,6 @@
             this.pnlHeard.Controls.Add(this.lblKkd_ex_fty);
             this.pnlHeard.Controls.Add(this.lblUsd_lab_test);
             this.pnlHeard.Controls.Add(this.lblUsd_ex_fty);
-            this.pnlHeard.Controls.Add(this.label1);
-            this.pnlHeard.Controls.Add(this.lblDisc);
-            this.pnlHeard.Controls.Add(this.lblDisc_hkd);
-            this.pnlHeard.Controls.Add(this.lblDisc_usd);
-            this.pnlHeard.Controls.Add(this.lblDisc_rmb);
-            this.pnlHeard.Controls.Add(this.lblDisc_hkd_ex_fty);
             this.pnlHeard.Controls.Add(this.lblReason_edit);
             this.pnlHeard.Controls.Add(this.label3);
             this.pnlHeard.Controls.Add(this.label5);
@@ -6040,51 +6341,142 @@
             this.pnlHeard.Controls.Add(this.txtRef_temp_code);
             this.pnlHeard.Controls.Add(this.label6);
             this.pnlHeard.Controls.Add(this.label2);
-            this.pnlHeard.Controls.Add(this.lblPrice_vnd);
+            this.pnlHeard.Controls.Add(this.pnlFlagVnd);
+            this.pnlHeard.Controls.Add(this.txtDisc_vnd);
+            this.pnlHeard.Controls.Add(this.txtDisc_rmb);
+            this.pnlHeard.Controls.Add(this.txtDisc_hkd_ex_fty);
+            this.pnlHeard.Controls.Add(this.txtDisc_hkd);
+            this.pnlHeard.Controls.Add(this.txtDisc_usd);
+            this.pnlHeard.Controls.Add(this.txtDisc);
+            this.pnlHeard.Controls.Add(this.label1);
+            this.pnlHeard.Controls.Add(this.lblDisc);
+            this.pnlHeard.Controls.Add(this.lblDisc_hkd);
+            this.pnlHeard.Controls.Add(this.lblDisc_usd);
+            this.pnlHeard.Controls.Add(this.lblDisc_rmb);
+            this.pnlHeard.Controls.Add(this.lblDisc_hkd_ex_fty);
             this.pnlHeard.Controls.Add(this.lblDisc_price_vnd);
+            this.pnlHeard.Controls.Add(this.pnlRemarkPDD_dg);
+            this.pnlHeard.Controls.Add(this.lblCf_color_id);
+            this.pnlHeard.Controls.Add(this.lblCf_color);
             this.pnlHeard.Location = new System.Drawing.Point(2, 41);
             this.pnlHeard.Name = "pnlHeard";
             this.pnlHeard.Size = new System.Drawing.Size(1358, 456);
             this.pnlHeard.TabIndex = 11;
             // 
-            // txtDisc_vnd
+            // lueCf_color_id
             // 
-            this.txtDisc_vnd.EditValue = "";
-            this.txtDisc_vnd.EnterMoveNextControl = true;
-            this.txtDisc_vnd.Location = new System.Drawing.Point(500, 184);
-            this.txtDisc_vnd.Name = "txtDisc_vnd";
-            this.txtDisc_vnd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtDisc_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.txtDisc_vnd.Properties.Appearance.Options.UseBackColor = true;
-            this.txtDisc_vnd.Properties.Appearance.Options.UseForeColor = true;
-            this.txtDisc_vnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtDisc_vnd.Properties.Mask.EditMask = "n3";
-            this.txtDisc_vnd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDisc_vnd.Properties.ReadOnly = true;
-            this.txtDisc_vnd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDisc_vnd.Size = new System.Drawing.Size(97, 20);
-            this.txtDisc_vnd.TabIndex = 209;
-            this.txtDisc_vnd.Tag = "2";
+            this.lueCf_color_id.EditValue = "";
+            this.lueCf_color_id.Enabled = false;
+            this.lueCf_color_id.EnterMoveNextControl = true;
+            this.lueCf_color_id.Location = new System.Drawing.Point(227, 73);
+            this.lueCf_color_id.Name = "lueCf_color_id";
+            this.lueCf_color_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lueCf_color_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lueCf_color_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueCf_color_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueCf_color_id.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 40, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("do_color", 160, "do_color")});
+            this.lueCf_color_id.Properties.DropDownRows = 18;
+            this.lueCf_color_id.Properties.MaxLength = 2;
+            this.lueCf_color_id.Properties.NullText = "";
+            this.lueCf_color_id.Properties.PopupWidth = 320;
+            this.lueCf_color_id.Properties.ShowHeader = false;
+            this.lueCf_color_id.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueCf_color_id.Size = new System.Drawing.Size(63, 20);
+            this.lueCf_color_id.TabIndex = 200;
+            this.lueCf_color_id.Tag = "2";
             // 
-            // txtPrice_vnd
+            // lblMaterial_type
             // 
-            this.txtPrice_vnd.EditValue = "";
-            this.txtPrice_vnd.EnterMoveNextControl = true;
-            this.txtPrice_vnd.Location = new System.Drawing.Point(323, 184);
-            this.txtPrice_vnd.Name = "txtPrice_vnd";
-            this.txtPrice_vnd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtPrice_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.txtPrice_vnd.Properties.Appearance.Options.UseBackColor = true;
-            this.txtPrice_vnd.Properties.Appearance.Options.UseForeColor = true;
-            this.txtPrice_vnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtPrice_vnd.Properties.Mask.EditMask = "n3";
-            this.txtPrice_vnd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtPrice_vnd.Properties.ReadOnly = true;
-            this.txtPrice_vnd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPrice_vnd.Size = new System.Drawing.Size(115, 20);
-            this.txtPrice_vnd.TabIndex = 208;
-            this.txtPrice_vnd.Tag = "2";
-            this.txtPrice_vnd.Leave += new System.EventHandler(this.txtPrice_vnd_Leave);
+            this.lblMaterial_type.Location = new System.Drawing.Point(4, 251);
+            this.lblMaterial_type.Name = "lblMaterial_type";
+            this.lblMaterial_type.Size = new System.Drawing.Size(71, 13);
+            this.lblMaterial_type.TabIndex = 227;
+            this.lblMaterial_type.Text = "Material Type";
+            this.lblMaterial_type.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblProduct_type
+            // 
+            this.lblProduct_type.Location = new System.Drawing.Point(5, 271);
+            this.lblProduct_type.Name = "lblProduct_type";
+            this.lblProduct_type.Size = new System.Drawing.Size(71, 13);
+            this.lblProduct_type.TabIndex = 226;
+            this.lblProduct_type.Text = "Product Type";
+            this.lblProduct_type.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lueProduct_type
+            // 
+            this.lueProduct_type.EditValue = "";
+            this.lueProduct_type.Enabled = false;
+            this.lueProduct_type.EnterMoveNextControl = true;
+            this.lueProduct_type.Location = new System.Drawing.Point(76, 268);
+            this.lueProduct_type.Name = "lueProduct_type";
+            this.lueProduct_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lueProduct_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lueProduct_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueProduct_type.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueProduct_type.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 40, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", 120, "cdesc"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("english_name", 170, "english_name")});
+            this.lueProduct_type.Properties.DropDownRows = 18;
+            this.lueProduct_type.Properties.MaxLength = 2;
+            this.lueProduct_type.Properties.NullText = "";
+            this.lueProduct_type.Properties.PopupWidth = 330;
+            this.lueProduct_type.Properties.ShowHeader = false;
+            this.lueProduct_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueProduct_type.Size = new System.Drawing.Size(88, 20);
+            this.lueProduct_type.TabIndex = 225;
+            this.lueProduct_type.Tag = "2";
+            this.lueProduct_type.Leave += new System.EventHandler(this.lueProduct_type_Leave);
+            // 
+            // lueMaterial_type
+            // 
+            this.lueMaterial_type.EditValue = "";
+            this.lueMaterial_type.Enabled = false;
+            this.lueMaterial_type.EnterMoveNextControl = true;
+            this.lueMaterial_type.Location = new System.Drawing.Point(76, 247);
+            this.lueMaterial_type.Name = "lueMaterial_type";
+            this.lueMaterial_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lueMaterial_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lueMaterial_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueMaterial_type.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueMaterial_type.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 40, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", 110, "name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("english_name", 170, "english_name")});
+            this.lueMaterial_type.Properties.DropDownRows = 18;
+            this.lueMaterial_type.Properties.MaxLength = 2;
+            this.lueMaterial_type.Properties.NullText = "";
+            this.lueMaterial_type.Properties.PopupWidth = 320;
+            this.lueMaterial_type.Properties.ShowHeader = false;
+            this.lueMaterial_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueMaterial_type.Size = new System.Drawing.Size(88, 20);
+            this.lueMaterial_type.TabIndex = 224;
+            this.lueMaterial_type.Tag = "2";
+            this.lueMaterial_type.Leave += new System.EventHandler(this.lueMaterial_type_Leave);
+            // 
+            // chkFlag_vnd
+            // 
+            this.chkFlag_vnd.Enabled = false;
+            this.chkFlag_vnd.Location = new System.Drawing.Point(508, 93);
+            this.chkFlag_vnd.Name = "chkFlag_vnd";
+            this.chkFlag_vnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFlag_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.chkFlag_vnd.Properties.Appearance.Options.UseFont = true;
+            this.chkFlag_vnd.Properties.Appearance.Options.UseForeColor = true;
+            this.chkFlag_vnd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.chkFlag_vnd.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.chkFlag_vnd.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.chkFlag_vnd.Properties.Caption = "是否VN";
+            this.chkFlag_vnd.Size = new System.Drawing.Size(63, 21);
+            this.chkFlag_vnd.TabIndex = 214;
+            this.chkFlag_vnd.Tag = "2";
+            this.chkFlag_vnd.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkFlag_vnd_MouseUp);
             // 
             // txtFlag_new
             // 
@@ -6103,9 +6495,9 @@
             // 
             this.lblOf.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblOf.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblOf.Location = new System.Drawing.Point(457, 362);
+            this.lblOf.Location = new System.Drawing.Point(572, 373);
             this.lblOf.Name = "lblOf";
-            this.lblOf.Size = new System.Drawing.Size(114, 26);
+            this.lblOf.Size = new System.Drawing.Size(132, 21);
             this.lblOf.TabIndex = 205;
             this.lblOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -6120,24 +6512,256 @@
             this.txtRef_temp_code.TabIndex = 206;
             this.txtRef_temp_code.Tag = "2";
             // 
+            // pnlFlagVnd
+            // 
+            this.pnlFlagVnd.Controls.Add(this.txtFlag_vnd_date);
+            this.pnlFlagVnd.Controls.Add(this.txtVnd_bp);
+            this.pnlFlagVnd.Controls.Add(this.label12);
+            this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd_pcs);
+            this.pnlFlagVnd.Controls.Add(this.label9);
+            this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd_grs);
+            this.pnlFlagVnd.Controls.Add(this.label7);
+            this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd_usd);
+            this.pnlFlagVnd.Controls.Add(this.lblPrice_vnd);
+            this.pnlFlagVnd.Controls.Add(this.label8);
+            this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd);
+            this.pnlFlagVnd.Controls.Add(this.label10);
+            this.pnlFlagVnd.Location = new System.Drawing.Point(432, 115);
+            this.pnlFlagVnd.Name = "pnlFlagVnd";
+            this.pnlFlagVnd.Size = new System.Drawing.Size(143, 132);
+            this.pnlFlagVnd.TabIndex = 223;
+            // 
+            // txtFlag_vnd_date
+            // 
+            this.txtFlag_vnd_date.EditValue = "";
+            this.txtFlag_vnd_date.Enabled = false;
+            this.txtFlag_vnd_date.EnterMoveNextControl = true;
+            this.txtFlag_vnd_date.Location = new System.Drawing.Point(57, 2);
+            this.txtFlag_vnd_date.Name = "txtFlag_vnd_date";
+            this.txtFlag_vnd_date.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFlag_vnd_date.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.txtFlag_vnd_date.Properties.Appearance.Options.UseFont = true;
+            this.txtFlag_vnd_date.Properties.Appearance.Options.UseForeColor = true;
+            this.txtFlag_vnd_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.txtFlag_vnd_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtFlag_vnd_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtFlag_vnd_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtFlag_vnd_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.txtFlag_vnd_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtFlag_vnd_date.Properties.Mask.BeepOnError = true;
+            this.txtFlag_vnd_date.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.txtFlag_vnd_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.txtFlag_vnd_date.Properties.MaxLength = 10;
+            this.txtFlag_vnd_date.Size = new System.Drawing.Size(82, 20);
+            this.txtFlag_vnd_date.TabIndex = 222;
+            this.txtFlag_vnd_date.Tag = "2";
+            // 
+            // txtVnd_bp
+            // 
+            this.txtVnd_bp.EditValue = "";
+            this.txtVnd_bp.EnterMoveNextControl = true;
+            this.txtVnd_bp.Location = new System.Drawing.Point(57, 24);
+            this.txtVnd_bp.Name = "txtVnd_bp";
+            this.txtVnd_bp.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.txtVnd_bp.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.txtVnd_bp.Properties.Appearance.Options.UseBackColor = true;
+            this.txtVnd_bp.Properties.Appearance.Options.UseForeColor = true;
+            this.txtVnd_bp.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.txtVnd_bp.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtVnd_bp.Properties.Mask.EditMask = "n3";
+            this.txtVnd_bp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtVnd_bp.Properties.ReadOnly = true;
+            this.txtVnd_bp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtVnd_bp.Size = new System.Drawing.Size(82, 20);
+            this.txtVnd_bp.TabIndex = 212;
+            this.txtVnd_bp.Tag = "2";
+            this.txtVnd_bp.Leave += new System.EventHandler(this.txtVnd_bp_Leave);
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Green;
+            this.label12.Location = new System.Drawing.Point(3, 113);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 13);
+            this.label12.TabIndex = 221;
+            this.label12.Text = "VND(PCS)";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrice_vnd_pcs
+            // 
+            this.txtPrice_vnd_pcs.EditValue = "";
+            this.txtPrice_vnd_pcs.EnterMoveNextControl = true;
+            this.txtPrice_vnd_pcs.Location = new System.Drawing.Point(57, 109);
+            this.txtPrice_vnd_pcs.Name = "txtPrice_vnd_pcs";
+            this.txtPrice_vnd_pcs.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd_pcs.Properties.Appearance.Options.UseForeColor = true;
+            this.txtPrice_vnd_pcs.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd_pcs.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtPrice_vnd_pcs.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPrice_vnd_pcs.Properties.Mask.EditMask = "n0";
+            this.txtPrice_vnd_pcs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPrice_vnd_pcs.Properties.ReadOnly = true;
+            this.txtPrice_vnd_pcs.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPrice_vnd_pcs.Size = new System.Drawing.Size(82, 20);
+            this.txtPrice_vnd_pcs.TabIndex = 220;
+            this.txtPrice_vnd_pcs.Tag = "2";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Green;
+            this.label9.Location = new System.Drawing.Point(3, 92);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.TabIndex = 218;
+            this.label9.Text = "VND(GRS)";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrice_vnd_grs
+            // 
+            this.txtPrice_vnd_grs.EditValue = "";
+            this.txtPrice_vnd_grs.EnterMoveNextControl = true;
+            this.txtPrice_vnd_grs.Location = new System.Drawing.Point(57, 88);
+            this.txtPrice_vnd_grs.Name = "txtPrice_vnd_grs";
+            this.txtPrice_vnd_grs.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd_grs.Properties.Appearance.Options.UseForeColor = true;
+            this.txtPrice_vnd_grs.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd_grs.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtPrice_vnd_grs.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPrice_vnd_grs.Properties.Mask.EditMask = "n0";
+            this.txtPrice_vnd_grs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPrice_vnd_grs.Properties.ReadOnly = true;
+            this.txtPrice_vnd_grs.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPrice_vnd_grs.Size = new System.Drawing.Size(82, 20);
+            this.txtPrice_vnd_grs.TabIndex = 217;
+            this.txtPrice_vnd_grs.Tag = "2";
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Green;
+            this.label7.Location = new System.Drawing.Point(14, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.TabIndex = 213;
+            this.label7.Text = "VN BP";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrice_vnd_usd
+            // 
+            this.txtPrice_vnd_usd.EditValue = "";
+            this.txtPrice_vnd_usd.EnterMoveNextControl = true;
+            this.txtPrice_vnd_usd.Location = new System.Drawing.Point(57, 46);
+            this.txtPrice_vnd_usd.Name = "txtPrice_vnd_usd";
+            this.txtPrice_vnd_usd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd_usd.Properties.Appearance.Options.UseForeColor = true;
+            this.txtPrice_vnd_usd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd_usd.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtPrice_vnd_usd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPrice_vnd_usd.Properties.Mask.EditMask = "n3";
+            this.txtPrice_vnd_usd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPrice_vnd_usd.Properties.ReadOnly = true;
+            this.txtPrice_vnd_usd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPrice_vnd_usd.Size = new System.Drawing.Size(82, 20);
+            this.txtPrice_vnd_usd.TabIndex = 215;
+            this.txtPrice_vnd_usd.Tag = "2";
+            // 
             // lblPrice_vnd
             // 
-            this.lblPrice_vnd.Location = new System.Drawing.Point(281, 188);
+            this.lblPrice_vnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice_vnd.ForeColor = System.Drawing.Color.Green;
+            this.lblPrice_vnd.Location = new System.Drawing.Point(16, 71);
             this.lblPrice_vnd.Name = "lblPrice_vnd";
             this.lblPrice_vnd.Size = new System.Drawing.Size(41, 13);
             this.lblPrice_vnd.TabIndex = 210;
             this.lblPrice_vnd.Text = "VND";
             this.lblPrice_vnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Green;
+            this.label8.Location = new System.Drawing.Point(7, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 216;
+            this.label8.Text = "VN USD$";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrice_vnd
+            // 
+            this.txtPrice_vnd.EditValue = "";
+            this.txtPrice_vnd.EnterMoveNextControl = true;
+            this.txtPrice_vnd.Location = new System.Drawing.Point(57, 67);
+            this.txtPrice_vnd.Name = "txtPrice_vnd";
+            this.txtPrice_vnd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.txtPrice_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd.Properties.Appearance.Options.UseBackColor = true;
+            this.txtPrice_vnd.Properties.Appearance.Options.UseForeColor = true;
+            this.txtPrice_vnd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Green;
+            this.txtPrice_vnd.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtPrice_vnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPrice_vnd.Properties.Mask.EditMask = "n0";
+            this.txtPrice_vnd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPrice_vnd.Properties.ReadOnly = true;
+            this.txtPrice_vnd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPrice_vnd.Size = new System.Drawing.Size(82, 20);
+            this.txtPrice_vnd.TabIndex = 208;
+            this.txtPrice_vnd.Tag = "2";
+            this.txtPrice_vnd.Leave += new System.EventHandler(this.txtPrice_vnd_Leave);
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Green;
+            this.label10.Location = new System.Drawing.Point(3, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 13);
+            this.label10.TabIndex = 223;
+            this.label10.Text = "VN 日期";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtDisc_vnd
+            // 
+            this.txtDisc_vnd.EditValue = "";
+            this.txtDisc_vnd.EnterMoveNextControl = true;
+            this.txtDisc_vnd.Location = new System.Drawing.Point(991, 307);
+            this.txtDisc_vnd.Name = "txtDisc_vnd";
+            this.txtDisc_vnd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.txtDisc_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.txtDisc_vnd.Properties.Appearance.Options.UseBackColor = true;
+            this.txtDisc_vnd.Properties.Appearance.Options.UseForeColor = true;
+            this.txtDisc_vnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDisc_vnd.Properties.Mask.EditMask = "n3";
+            this.txtDisc_vnd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDisc_vnd.Properties.ReadOnly = true;
+            this.txtDisc_vnd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDisc_vnd.Size = new System.Drawing.Size(97, 20);
+            this.txtDisc_vnd.TabIndex = 209;
+            this.txtDisc_vnd.Tag = "2";
+            // 
             // lblDisc_price_vnd
             // 
             this.lblDisc_price_vnd.Font = new System.Drawing.Font("Tahoma", 6.75F);
-            this.lblDisc_price_vnd.Location = new System.Drawing.Point(440, 183);
+            this.lblDisc_price_vnd.Location = new System.Drawing.Point(931, 306);
             this.lblDisc_price_vnd.Name = "lblDisc_price_vnd";
             this.lblDisc_price_vnd.Size = new System.Drawing.Size(62, 23);
             this.lblDisc_price_vnd.TabIndex = 211;
             this.lblDisc_price_vnd.Text = "Discounted VND";
             this.lblDisc_price_vnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCf_color_id
+            // 
+            this.lblCf_color_id.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCf_color_id.Location = new System.Drawing.Point(157, 77);
+            this.lblCf_color_id.Name = "lblCf_color_id";
+            this.lblCf_color_id.Size = new System.Drawing.Size(69, 13);
+            this.lblCf_color_id.TabIndex = 228;
+            this.lblCf_color_id.Text = "CF顏色編號";
+            this.lblCf_color_id.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmQuotation
             // 
@@ -6175,6 +6799,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cl_ver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_number_enter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_amt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clFlag_vnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clVnd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cl_discount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice_rmb.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEx_fty_hkd.Properties)).EndInit();
@@ -6271,10 +6897,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).EndInit();
             this.pnlHeard.ResumeLayout(false);
             this.pnlHeard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDisc_vnd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCf_color_id.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueProduct_type.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_type.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_vnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFlag_new.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef_temp_code.Properties)).EndInit();
+            this.pnlFlagVnd.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtFlag_vnd_date.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFlag_vnd_date.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVnd_bp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd_pcs.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd_grs.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd_usd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice_vnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDisc_vnd.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6629,6 +7266,32 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private DevExpress.XtraEditors.TextEdit txtPrice_vnd_pcs;
+        private DevExpress.XtraEditors.TextEdit txtPrice_vnd_grs;
+        private DevExpress.XtraEditors.TextEdit txtPrice_vnd_usd;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.CheckEdit chkFlag_vnd;
+        private DevExpress.XtraEditors.TextEdit txtVnd_bp;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
+        private DevExpress.XtraEditors.DateEdit txtFlag_vnd_date;
+        private System.Windows.Forms.Panel pnlFlagVnd;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn30;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clFlag_vnd;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private System.Windows.Forms.Label label10;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clVnd;
+        private System.Windows.Forms.Label lblMaterial_type;
+        private System.Windows.Forms.Label lblProduct_type;
+        private DevExpress.XtraEditors.LookUpEdit lueProduct_type;
+        private DevExpress.XtraEditors.LookUpEdit lueMaterial_type;
+        private DevExpress.XtraEditors.LookUpEdit lueCf_color_id;
+        private System.Windows.Forms.Label lblCf_color_id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -6651,10 +7314,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_usd;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_hkd;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_rmb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn hkd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn usd_ex_fty;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vnd_bp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd_grs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd_pcs;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_below_over;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq;
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_desc;
@@ -6735,5 +7402,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pending;
         private System.Windows.Forms.DataGridViewTextBoxColumn ref_temp_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn flag_new;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag_vnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag_vnd_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cf_color_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn material_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_type;
     }
 }

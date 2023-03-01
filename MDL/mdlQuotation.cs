@@ -38,8 +38,13 @@ namespace cf01.MDL
         public float price_rmb;
         public float hkd_ex_fty;
         public float usd_ex_fty;
-        public float price_vnd;
 
+        public float vnd_bp;
+        public float price_vnd_usd;
+        public float price_vnd;
+        public float price_vnd_grs;
+        public float price_vnd_pcs;
+        
         public float discount;
         public float disc_price_usd;
         public float disc_price_hkd;
@@ -65,8 +70,7 @@ namespace cf01.MDL
         public string cf_color;
         public float price_usd;
         public float price_hkd;
-        public float price_rmb;
-        public float price_vnd;
+        public float price_rmb;        
         public int moq;
         public string price_unit;
         public string temp_code;
@@ -103,7 +107,15 @@ namespace cf01.MDL
         public string die_mould_cny;
         public string rmb_remark;
         public string cust_artwork;
+        
+        public float price_vnd_usd;
+        public float price_vnd;
+        public float price_vnd_grs;
+        public float price_vnd_pcs;
 
+        public string cf_color_id;
+        public string material_type;
+        public string product_type;
     }
 
     public class mdlGroup_Grant

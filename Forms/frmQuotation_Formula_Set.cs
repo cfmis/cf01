@@ -79,6 +79,10 @@ namespace cf01.Forms
             txtUsd3.Text = pdr.Cells["usd3"].Value.ToString();
             txtDiscount.Text = pdr.Cells["discount"].Value.ToString();
             txtRemark.Text = pdr.Cells["remark"].Value.ToString();
+            txtvndbp1.Text = pdr.Cells["vndbp1"].Value.ToString();
+            txtvndusd1.Text = pdr.Cells["vndusd1"].Value.ToString();
+            txtvnd1.Text = pdr.Cells["vnd1"].Value.ToString();
+
             string strCheck = pdr.Cells["bp_hkd_ex"].Value.ToString();
             if (string.IsNullOrEmpty(strCheck) || strCheck == "False")
             {

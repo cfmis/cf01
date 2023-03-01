@@ -2518,6 +2518,12 @@
     <Compile Include="Reports\xrQuotation21.designer.cs">
       <DependentUpon>xrQuotation21.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrQuotation22.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrQuotation22.designer.cs">
+      <DependentUpon>xrQuotation22.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrQuotation2a.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3843,6 +3849,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQuotation21.resx">
       <DependentUpon>xrQuotation21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrQuotation22.resx">
+      <DependentUpon>xrQuotation22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrQuotation2a.resx">
       <DependentUpon>xrQuotation2a.cs</DependentUpon>

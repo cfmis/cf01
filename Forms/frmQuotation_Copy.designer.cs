@@ -102,9 +102,12 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_grs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_pcs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.term_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,6 +154,9 @@
             this.actual_price_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.die_mould_usd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.die_mould_cny = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isvn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuotation2.Properties)).BeginInit();
@@ -443,9 +449,12 @@
             this.Column18,
             this.Column19,
             this.Column20,
-            this.price_vnd,
-            this.Column21,
             this.Column22,
+            this.price_vnd_usd,
+            this.price_vnd,
+            this.price_vnd_grs,
+            this.price_vnd_pcs,
+            this.Column21,
             this.Column23,
             this.term_id,
             this.address_id,
@@ -491,7 +500,10 @@
             this.actual_price,
             this.actual_price_type,
             this.die_mould_usd,
-            this.die_mould_cny});
+            this.die_mould_cny,
+            this.isvn,
+            this.position,
+            this.address});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -917,13 +929,46 @@
             this.Column20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column20.Width = 60;
             // 
+            // Column22
+            // 
+            this.Column22.DataPropertyName = "price_unit";
+            this.Column22.HeaderText = "Price Unit";
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            this.Column22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column22.Width = 50;
+            // 
+            // price_vnd_usd
+            // 
+            this.price_vnd_usd.DataPropertyName = "price_vnd_usd";
+            this.price_vnd_usd.HeaderText = "VND(USD)";
+            this.price_vnd_usd.Name = "price_vnd_usd";
+            this.price_vnd_usd.ReadOnly = true;
+            this.price_vnd_usd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // price_vnd
             // 
             this.price_vnd.DataPropertyName = "price_vnd";
-            this.price_vnd.HeaderText = "Price VND";
+            this.price_vnd.HeaderText = "VND";
             this.price_vnd.Name = "price_vnd";
             this.price_vnd.ReadOnly = true;
             this.price_vnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // price_vnd_grs
+            // 
+            this.price_vnd_grs.DataPropertyName = "price_vnd_grs";
+            this.price_vnd_grs.HeaderText = "VND(Grs)";
+            this.price_vnd_grs.Name = "price_vnd_grs";
+            this.price_vnd_grs.ReadOnly = true;
+            this.price_vnd_grs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // price_vnd_pcs
+            // 
+            this.price_vnd_pcs.DataPropertyName = "price_vnd_pcs";
+            this.price_vnd_pcs.HeaderText = "VND(Pcs)";
+            this.price_vnd_pcs.Name = "price_vnd_pcs";
+            this.price_vnd_pcs.ReadOnly = true;
+            this.price_vnd_pcs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Column21
             // 
@@ -933,15 +978,6 @@
             this.Column21.ReadOnly = true;
             this.Column21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column21.Width = 40;
-            // 
-            // Column22
-            // 
-            this.Column22.DataPropertyName = "price_unit";
-            this.Column22.HeaderText = "Price Unit";
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
-            this.Column22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column22.Width = 50;
             // 
             // Column23
             // 
@@ -1300,6 +1336,28 @@
             this.die_mould_cny.Name = "die_mould_cny";
             this.die_mould_cny.ReadOnly = true;
             // 
+            // isvn
+            // 
+            this.isvn.HeaderText = "IS VN";
+            this.isvn.Name = "isvn";
+            this.isvn.ReadOnly = true;
+            this.isvn.TrueValue = "isvn";
+            this.isvn.Visible = false;
+            // 
+            // position
+            // 
+            this.position.DataPropertyName = "position";
+            this.position.HeaderText = "Position";
+            this.position.Name = "position";
+            this.position.ReadOnly = true;
+            // 
+            // address
+            // 
+            this.address.DataPropertyName = "address";
+            this.address.HeaderText = "Address";
+            this.address.Name = "address";
+            this.address.ReadOnly = true;
+            // 
             // frmQuotation_Copy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1399,9 +1457,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd_usd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd_grs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_vnd_pcs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
         private System.Windows.Forms.DataGridViewTextBoxColumn term_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn address_id;
@@ -1448,5 +1509,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn actual_price_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_usd;
         private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_cny;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isvn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
     }
 }

@@ -128,7 +128,7 @@ namespace cf01.Forms
                 new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0")
 
             };
-            dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_qoutation_find_batch_update", paras);
+            dt = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find_batch_update", paras);
             //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
             dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
             this.dgvDetails.DataSource = dt;            

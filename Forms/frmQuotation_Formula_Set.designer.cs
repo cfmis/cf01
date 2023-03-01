@@ -28,15 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuotation_Formula_Set));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.brand_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rmb1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rmb2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vndbp1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vndusd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bp_hkd_ex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtBrand_id2 = new DevExpress.XtraEditors.LookUpEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDept = new System.Windows.Forms.Label();
             this.txtBrand_id1 = new DevExpress.XtraEditors.LookUpEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtvnd1 = new DevExpress.XtraEditors.TextEdit();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtvndusd1 = new DevExpress.XtraEditors.TextEdit();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtvndbp1 = new DevExpress.XtraEditors.TextEdit();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
             this.txtUsd3 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -87,30 +125,15 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblDiscount = new System.Windows.Forms.Label();
-            this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
-            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.brand_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brand_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rmb1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rmb2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hkd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hkd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bp_hkd_ex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvnd1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvndusd1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvndbp1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsd3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBp_hkd_ex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHkd2.Properties)).BeginInit();
@@ -121,16 +144,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHkd1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDetails
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -146,6 +168,9 @@
             this.usd3,
             this.discount,
             this.remark,
+            this.vndbp1,
+            this.vndusd1,
+            this.vnd1,
             this.crusr,
             this.crtim,
             this.amusr,
@@ -159,11 +184,189 @@
             this.dgvDetails.TabIndex = 244;
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
             // 
+            // flag_select
+            // 
+            this.flag_select.DataPropertyName = "flag_select";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.NullValue = false;
+            this.flag_select.DefaultCellStyle = dataGridViewCellStyle1;
+            this.flag_select.HeaderText = "  ";
+            this.flag_select.Name = "flag_select";
+            this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.flag_select.Width = 60;
+            // 
+            // brand_id
+            // 
+            this.brand_id.DataPropertyName = "brand_id";
+            this.brand_id.HeaderText = "牌子編號(客戶)";
+            this.brand_id.Name = "brand_id";
+            this.brand_id.ReadOnly = true;
+            this.brand_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // brand_name
+            // 
+            this.brand_name.DataPropertyName = "brand_name";
+            this.brand_name.HeaderText = "牌子(客戶)描述";
+            this.brand_name.Name = "brand_name";
+            this.brand_name.ReadOnly = true;
+            this.brand_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.brand_name.Width = 200;
+            // 
+            // usd1
+            // 
+            this.usd1.DataPropertyName = "usd1";
+            this.usd1.HeaderText = "USD參數1";
+            this.usd1.Name = "usd1";
+            this.usd1.ReadOnly = true;
+            this.usd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.usd1.Width = 80;
+            // 
+            // usd2
+            // 
+            this.usd2.DataPropertyName = "usd2";
+            this.usd2.HeaderText = "USD參數2";
+            this.usd2.Name = "usd2";
+            this.usd2.ReadOnly = true;
+            this.usd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.usd2.Width = 80;
+            // 
+            // rmb1
+            // 
+            this.rmb1.DataPropertyName = "rmb1";
+            this.rmb1.HeaderText = "RMB參數1";
+            this.rmb1.Name = "rmb1";
+            this.rmb1.ReadOnly = true;
+            this.rmb1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.rmb1.Width = 80;
+            // 
+            // rmb2
+            // 
+            this.rmb2.DataPropertyName = "rmb2";
+            this.rmb2.HeaderText = "RMB參數2";
+            this.rmb2.Name = "rmb2";
+            this.rmb2.ReadOnly = true;
+            this.rmb2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.rmb2.Width = 80;
+            // 
+            // hkd1
+            // 
+            this.hkd1.DataPropertyName = "hkd1";
+            this.hkd1.HeaderText = "HKD參數1";
+            this.hkd1.Name = "hkd1";
+            this.hkd1.ReadOnly = true;
+            this.hkd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.hkd1.Width = 80;
+            // 
+            // hkd2
+            // 
+            this.hkd2.DataPropertyName = "hkd2";
+            this.hkd2.HeaderText = "HKD參數2 (EX-FTY)";
+            this.hkd2.Name = "hkd2";
+            this.hkd2.ReadOnly = true;
+            this.hkd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.hkd2.Width = 120;
+            // 
+            // usd3
+            // 
+            this.usd3.DataPropertyName = "usd3";
+            this.usd3.HeaderText = "USD EX-FTY";
+            this.usd3.Name = "usd3";
+            this.usd3.ReadOnly = true;
+            this.usd3.Width = 120;
+            // 
+            // discount
+            // 
+            this.discount.DataPropertyName = "discount";
+            this.discount.HeaderText = "Discount";
+            this.discount.Name = "discount";
+            this.discount.ReadOnly = true;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "備註";
+            this.remark.Name = "remark";
+            this.remark.ReadOnly = true;
+            this.remark.Width = 220;
+            // 
+            // vndbp1
+            // 
+            this.vndbp1.DataPropertyName = "vndbp1";
+            this.vndbp1.HeaderText = "VN BP";
+            this.vndbp1.Name = "vndbp1";
+            this.vndbp1.ReadOnly = true;
+            this.vndbp1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // vndusd1
+            // 
+            this.vndusd1.DataPropertyName = "vndusd1";
+            this.vndusd1.HeaderText = "VN USD";
+            this.vndusd1.Name = "vndusd1";
+            this.vndusd1.ReadOnly = true;
+            this.vndusd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // vnd1
+            // 
+            this.vnd1.DataPropertyName = "vnd1";
+            this.vnd1.HeaderText = "VND";
+            this.vnd1.Name = "vnd1";
+            this.vnd1.ReadOnly = true;
+            this.vnd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // crusr
+            // 
+            this.crusr.DataPropertyName = "crusr";
+            this.crusr.HeaderText = "crusr";
+            this.crusr.Name = "crusr";
+            this.crusr.ReadOnly = true;
+            this.crusr.Visible = false;
+            // 
+            // crtim
+            // 
+            this.crtim.DataPropertyName = "crtim";
+            this.crtim.HeaderText = "crtim";
+            this.crtim.Name = "crtim";
+            this.crtim.ReadOnly = true;
+            this.crtim.Visible = false;
+            // 
+            // amusr
+            // 
+            this.amusr.DataPropertyName = "amusr";
+            this.amusr.HeaderText = "amusr";
+            this.amusr.Name = "amusr";
+            this.amusr.ReadOnly = true;
+            this.amusr.Visible = false;
+            // 
+            // amtim
+            // 
+            this.amtim.DataPropertyName = "amtim";
+            this.amtim.HeaderText = "amtim";
+            this.amtim.Name = "amtim";
+            this.amtim.ReadOnly = true;
+            this.amtim.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // bp_hkd_ex
+            // 
+            this.bp_hkd_ex.DataPropertyName = "bp_hkd_ex";
+            this.bp_hkd_ex.HeaderText = "bp_hkd_ex";
+            this.bp_hkd_ex.Name = "bp_hkd_ex";
+            this.bp_hkd_ex.ReadOnly = true;
+            this.bp_hkd_ex.Visible = false;
+            // 
             // txtBrand_id2
             // 
             this.txtBrand_id2.EditValue = "";
             this.txtBrand_id2.EnterMoveNextControl = true;
-            this.txtBrand_id2.Location = new System.Drawing.Point(285, 19);
+            this.txtBrand_id2.Location = new System.Drawing.Point(257, 19);
             this.txtBrand_id2.Name = "txtBrand_id2";
             this.txtBrand_id2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtBrand_id2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -177,13 +380,13 @@
             this.txtBrand_id2.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
             this.txtBrand_id2.Properties.PopupWidth = 350;
             this.txtBrand_id2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtBrand_id2.Size = new System.Drawing.Size(159, 20);
+            this.txtBrand_id2.Size = new System.Drawing.Size(135, 20);
             this.txtBrand_id2.TabIndex = 240;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 23);
+            this.label1.Location = new System.Drawing.Point(242, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 12);
             this.label1.TabIndex = 243;
@@ -191,7 +394,7 @@
             // 
             // lblDept
             // 
-            this.lblDept.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblDept.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblDept.Location = new System.Drawing.Point(3, 22);
             this.lblDept.Name = "lblDept";
             this.lblDept.Size = new System.Drawing.Size(95, 15);
@@ -217,12 +420,13 @@
             this.txtBrand_id1.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
             this.txtBrand_id1.Properties.PopupWidth = 350;
             this.txtBrand_id1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtBrand_id1.Size = new System.Drawing.Size(159, 20);
+            this.txtBrand_id1.Size = new System.Drawing.Size(135, 20);
             this.txtBrand_id1.TabIndex = 239;
             this.txtBrand_id1.Leave += new System.EventHandler(this.txtBrand_id1_Leave);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.lblDiscount);
             this.groupBox1.Controls.Add(this.txtDiscount);
             this.groupBox1.Controls.Add(this.txtUsd3);
@@ -257,11 +461,217 @@
             this.groupBox1.Controls.Add(this.lblRmb);
             this.groupBox1.Controls.Add(this.txtBrand_id);
             this.groupBox1.Controls.Add(this.lblBrand_id);
-            this.groupBox1.Location = new System.Drawing.Point(499, -3);
+            this.groupBox1.Location = new System.Drawing.Point(411, -3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(496, 213);
+            this.groupBox1.Size = new System.Drawing.Size(616, 213);
             this.groupBox1.TabIndex = 279;
             this.groupBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label35);
+            this.panel2.Controls.Add(this.label32);
+            this.panel2.Controls.Add(this.label33);
+            this.panel2.Controls.Add(this.label34);
+            this.panel2.Controls.Add(this.txtvnd1);
+            this.panel2.Controls.Add(this.label31);
+            this.panel2.Controls.Add(this.label30);
+            this.panel2.Controls.Add(this.label29);
+            this.panel2.Controls.Add(this.txtvndusd1);
+            this.panel2.Controls.Add(this.label28);
+            this.panel2.Controls.Add(this.txtvndbp1);
+            this.panel2.Controls.Add(this.label27);
+            this.panel2.Controls.Add(this.label26);
+            this.panel2.Controls.Add(this.label25);
+            this.panel2.Location = new System.Drawing.Point(376, 13);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(229, 97);
+            this.panel2.TabIndex = 289;
+            // 
+            // label35
+            // 
+            this.label35.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label35.ForeColor = System.Drawing.Color.Green;
+            this.label35.Location = new System.Drawing.Point(3, 4);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(66, 13);
+            this.label35.TabIndex = 274;
+            this.label35.Text = "越南:";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label32
+            // 
+            this.label32.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold);
+            this.label32.ForeColor = System.Drawing.Color.DarkRed;
+            this.label32.Location = new System.Drawing.Point(75, 72);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(63, 15);
+            this.label32.TabIndex = 273;
+            this.label32.Text = "VN USD ×";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label33
+            // 
+            this.label33.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label33.Location = new System.Drawing.Point(58, 68);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(16, 16);
+            this.label33.TabIndex = 272;
+            this.label33.Text = "= ";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label34
+            // 
+            this.label34.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label34.ForeColor = System.Drawing.Color.Olive;
+            this.label34.Location = new System.Drawing.Point(5, 72);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(53, 15);
+            this.label34.TabIndex = 271;
+            this.label34.Text = "VND";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtvnd1
+            // 
+            this.txtvnd1.EnterMoveNextControl = true;
+            this.txtvnd1.Location = new System.Drawing.Point(141, 71);
+            this.txtvnd1.Name = "txtvnd1";
+            this.txtvnd1.Properties.Mask.EditMask = "n3";
+            this.txtvnd1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtvnd1.Properties.ReadOnly = true;
+            this.txtvnd1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtvnd1.Size = new System.Drawing.Size(60, 20);
+            this.txtvnd1.TabIndex = 270;
+            this.txtvnd1.Tag = "2";
+            this.txtvnd1.ToolTipTitle = "USD 參數2";
+            // 
+            // label31
+            // 
+            this.label31.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold);
+            this.label31.ForeColor = System.Drawing.Color.Green;
+            this.label31.Location = new System.Drawing.Point(77, 50);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(63, 15);
+            this.label31.TabIndex = 269;
+            this.label31.Text = "VN BP ÷";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label30
+            // 
+            this.label30.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label30.Location = new System.Drawing.Point(58, 46);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(16, 16);
+            this.label30.TabIndex = 268;
+            this.label30.Text = "= ";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            this.label29.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label29.ForeColor = System.Drawing.Color.DarkRed;
+            this.label29.Location = new System.Drawing.Point(5, 50);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(53, 15);
+            this.label29.TabIndex = 267;
+            this.label29.Text = "VN USD";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtvndusd1
+            // 
+            this.txtvndusd1.EnterMoveNextControl = true;
+            this.txtvndusd1.Location = new System.Drawing.Point(141, 48);
+            this.txtvndusd1.Name = "txtvndusd1";
+            this.txtvndusd1.Properties.Mask.EditMask = "n3";
+            this.txtvndusd1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtvndusd1.Properties.ReadOnly = true;
+            this.txtvndusd1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtvndusd1.Size = new System.Drawing.Size(60, 20);
+            this.txtvndusd1.TabIndex = 266;
+            this.txtvndusd1.Tag = "2";
+            this.txtvndusd1.ToolTipTitle = "USD 參數2";
+            // 
+            // label28
+            // 
+            this.label28.Font = new System.Drawing.Font("PMingLiU", 11.25F);
+            this.label28.Location = new System.Drawing.Point(202, 25);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(25, 15);
+            this.label28.TabIndex = 265;
+            this.label28.Text = "%)";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtvndbp1
+            // 
+            this.txtvndbp1.EnterMoveNextControl = true;
+            this.txtvndbp1.Location = new System.Drawing.Point(141, 24);
+            this.txtvndbp1.Name = "txtvndbp1";
+            this.txtvndbp1.Properties.Mask.EditMask = "n3";
+            this.txtvndbp1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtvndbp1.Properties.ReadOnly = true;
+            this.txtvndbp1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtvndbp1.Size = new System.Drawing.Size(60, 20);
+            this.txtvndbp1.TabIndex = 257;
+            this.txtvndbp1.Tag = "2";
+            this.txtvndbp1.ToolTipTitle = "USD 參數1";
+            // 
+            // label27
+            // 
+            this.label27.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label27.Location = new System.Drawing.Point(84, 25);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(55, 15);
+            this.label27.TabIndex = 256;
+            this.label27.Text = " ( BP ×";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label26
+            // 
+            this.label26.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label26.Location = new System.Drawing.Point(58, 23);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(16, 16);
+            this.label26.TabIndex = 255;
+            this.label26.Text = "= ";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label25.ForeColor = System.Drawing.Color.Green;
+            this.label25.Location = new System.Drawing.Point(5, 27);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(49, 13);
+            this.label25.TabIndex = 195;
+            this.label25.Text = "VN BP";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.Location = new System.Drawing.Point(326, 148);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(64, 13);
+            this.lblDiscount.TabIndex = 288;
+            this.lblDiscount.Text = "Discount(%)";
+            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtDiscount
+            // 
+            this.txtDiscount.EnterMoveNextControl = true;
+            this.txtDiscount.Location = new System.Drawing.Point(391, 144);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.txtDiscount.Properties.Appearance.Options.UseForeColor = true;
+            this.txtDiscount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDiscount.Properties.Mask.EditMask = "n3";
+            this.txtDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDiscount.Properties.ReadOnly = true;
+            this.txtDiscount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDiscount.Size = new System.Drawing.Size(79, 20);
+            this.txtDiscount.TabIndex = 287;
+            this.txtDiscount.Tag = "2";
             // 
             // txtUsd3
             // 
@@ -281,7 +691,7 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Font = new System.Drawing.Font("PMingLiU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label6.Location = new System.Drawing.Point(187, 146);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 15);
@@ -300,7 +710,7 @@
             // 
             // label16
             // 
-            this.label16.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label16.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label16.Location = new System.Drawing.Point(89, 144);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(16, 16);
@@ -332,7 +742,7 @@
             // 
             // label15
             // 
-            this.label15.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label15.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label15.Location = new System.Drawing.Point(88, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(16, 16);
@@ -342,7 +752,7 @@
             // 
             // label14
             // 
-            this.label14.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label14.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label14.Location = new System.Drawing.Point(88, 62);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(16, 16);
@@ -368,7 +778,7 @@
             // 
             // label13
             // 
-            this.label13.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label13.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label13.Location = new System.Drawing.Point(141, 119);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(19, 15);
@@ -388,7 +798,7 @@
             // 
             // label11
             // 
-            this.label11.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label11.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label11.Location = new System.Drawing.Point(88, 117);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(16, 16);
@@ -407,7 +817,7 @@
             // 
             // label9
             // 
-            this.label9.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label9.Location = new System.Drawing.Point(88, 90);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 16);
@@ -432,7 +842,7 @@
             // 
             // label8
             // 
-            this.label8.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label8.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label8.Location = new System.Drawing.Point(265, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(17, 17);
@@ -457,10 +867,10 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(101, 65);
+            this.label7.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Location = new System.Drawing.Point(112, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 17);
+            this.label7.Size = new System.Drawing.Size(62, 17);
             this.label7.TabIndex = 272;
             this.label7.Text = "   BP ×";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -482,7 +892,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label5.Location = new System.Drawing.Point(260, 38);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 18);
@@ -492,10 +902,10 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(101, 38);
+            this.label3.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(112, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 18);
+            this.label3.Size = new System.Drawing.Size(62, 18);
             this.label3.TabIndex = 270;
             this.label3.Text = " ( BP ×";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -547,7 +957,7 @@
             // 
             // lblOne_time
             // 
-            this.lblOne_time.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblOne_time.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblOne_time.Location = new System.Drawing.Point(141, 91);
             this.lblOne_time.Name = "lblOne_time";
             this.lblOne_time.Size = new System.Drawing.Size(19, 15);
@@ -598,8 +1008,8 @@
             this.lblRmb.Name = "lblRmb";
             this.lblRmb.Size = new System.Drawing.Size(79, 17);
             this.lblRmb.TabIndex = 264;
-            this.lblRmb.Text = "RMB 17%VAT ";
-            this.lblRmb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRmb.Text = "RMB";
+            this.lblRmb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtBrand_id
             // 
@@ -638,7 +1048,7 @@
             // 
             this.BTNOK.Image = ((System.Drawing.Image)(resources.GetObject("BTNOK.Image")));
             this.BTNOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNOK.Location = new System.Drawing.Point(233, 70);
+            this.BTNOK.Location = new System.Drawing.Point(209, 70);
             this.BTNOK.Name = "BTNOK";
             this.BTNOK.Size = new System.Drawing.Size(81, 31);
             this.BTNOK.TabIndex = 281;
@@ -651,7 +1061,7 @@
             // 
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNFIND.Location = new System.Drawing.Point(132, 70);
+            this.BTNFIND.Location = new System.Drawing.Point(104, 70);
             this.BTNFIND.Name = "BTNFIND";
             this.BTNFIND.Size = new System.Drawing.Size(81, 31);
             this.BTNFIND.TabIndex = 280;
@@ -664,7 +1074,7 @@
             // 
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNEXIT.Location = new System.Drawing.Point(331, 70);
+            this.BTNEXIT.Location = new System.Drawing.Point(312, 70);
             this.BTNEXIT.Name = "BTNEXIT";
             this.BTNEXIT.Size = new System.Drawing.Size(81, 31);
             this.BTNEXIT.TabIndex = 282;
@@ -805,185 +1215,6 @@
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.Visible = false;
             // 
-            // lblDiscount
-            // 
-            this.lblDiscount.Location = new System.Drawing.Point(326, 148);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(64, 13);
-            this.lblDiscount.TabIndex = 288;
-            this.lblDiscount.Text = "Discount(%)";
-            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.EnterMoveNextControl = true;
-            this.txtDiscount.Location = new System.Drawing.Point(391, 144);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.txtDiscount.Properties.Appearance.Options.UseForeColor = true;
-            this.txtDiscount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtDiscount.Properties.Mask.EditMask = "n3";
-            this.txtDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiscount.Properties.ReadOnly = true;
-            this.txtDiscount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDiscount.Size = new System.Drawing.Size(79, 20);
-            this.txtDiscount.TabIndex = 287;
-            this.txtDiscount.Tag = "2";
-            // 
-            // flag_select
-            // 
-            this.flag_select.DataPropertyName = "flag_select";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.NullValue = false;
-            this.flag_select.DefaultCellStyle = dataGridViewCellStyle1;
-            this.flag_select.HeaderText = "  ";
-            this.flag_select.Name = "flag_select";
-            this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.flag_select.Width = 60;
-            // 
-            // brand_id
-            // 
-            this.brand_id.DataPropertyName = "brand_id";
-            this.brand_id.HeaderText = "牌子編號(客戶)";
-            this.brand_id.Name = "brand_id";
-            this.brand_id.ReadOnly = true;
-            this.brand_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // brand_name
-            // 
-            this.brand_name.DataPropertyName = "brand_name";
-            this.brand_name.HeaderText = "牌子(客戶)描述";
-            this.brand_name.Name = "brand_name";
-            this.brand_name.ReadOnly = true;
-            this.brand_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.brand_name.Width = 200;
-            // 
-            // usd1
-            // 
-            this.usd1.DataPropertyName = "usd1";
-            this.usd1.HeaderText = "USD參數1";
-            this.usd1.Name = "usd1";
-            this.usd1.ReadOnly = true;
-            this.usd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.usd1.Width = 80;
-            // 
-            // usd2
-            // 
-            this.usd2.DataPropertyName = "usd2";
-            this.usd2.HeaderText = "USD參數2";
-            this.usd2.Name = "usd2";
-            this.usd2.ReadOnly = true;
-            this.usd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.usd2.Width = 80;
-            // 
-            // rmb1
-            // 
-            this.rmb1.DataPropertyName = "rmb1";
-            this.rmb1.HeaderText = "RMB參數1";
-            this.rmb1.Name = "rmb1";
-            this.rmb1.ReadOnly = true;
-            this.rmb1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.rmb1.Width = 80;
-            // 
-            // rmb2
-            // 
-            this.rmb2.DataPropertyName = "rmb2";
-            this.rmb2.HeaderText = "RMB參數2";
-            this.rmb2.Name = "rmb2";
-            this.rmb2.ReadOnly = true;
-            this.rmb2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.rmb2.Width = 80;
-            // 
-            // hkd1
-            // 
-            this.hkd1.DataPropertyName = "hkd1";
-            this.hkd1.HeaderText = "HKD參數1";
-            this.hkd1.Name = "hkd1";
-            this.hkd1.ReadOnly = true;
-            this.hkd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.hkd1.Width = 80;
-            // 
-            // hkd2
-            // 
-            this.hkd2.DataPropertyName = "hkd2";
-            this.hkd2.HeaderText = "HKD參數2 (EX-FTY)";
-            this.hkd2.Name = "hkd2";
-            this.hkd2.ReadOnly = true;
-            this.hkd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.hkd2.Width = 120;
-            // 
-            // usd3
-            // 
-            this.usd3.DataPropertyName = "usd3";
-            this.usd3.HeaderText = "USD EX-FTY";
-            this.usd3.Name = "usd3";
-            this.usd3.ReadOnly = true;
-            this.usd3.Width = 120;
-            // 
-            // discount
-            // 
-            this.discount.DataPropertyName = "discount";
-            this.discount.HeaderText = "Discount";
-            this.discount.Name = "discount";
-            this.discount.ReadOnly = true;
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            this.remark.HeaderText = "備註";
-            this.remark.Name = "remark";
-            this.remark.ReadOnly = true;
-            this.remark.Width = 220;
-            // 
-            // crusr
-            // 
-            this.crusr.DataPropertyName = "crusr";
-            this.crusr.HeaderText = "crusr";
-            this.crusr.Name = "crusr";
-            this.crusr.ReadOnly = true;
-            this.crusr.Visible = false;
-            // 
-            // crtim
-            // 
-            this.crtim.DataPropertyName = "crtim";
-            this.crtim.HeaderText = "crtim";
-            this.crtim.Name = "crtim";
-            this.crtim.ReadOnly = true;
-            this.crtim.Visible = false;
-            // 
-            // amusr
-            // 
-            this.amusr.DataPropertyName = "amusr";
-            this.amusr.HeaderText = "amusr";
-            this.amusr.Name = "amusr";
-            this.amusr.ReadOnly = true;
-            this.amusr.Visible = false;
-            // 
-            // amtim
-            // 
-            this.amtim.DataPropertyName = "amtim";
-            this.amtim.HeaderText = "amtim";
-            this.amtim.Name = "amtim";
-            this.amtim.ReadOnly = true;
-            this.amtim.Visible = false;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // bp_hkd_ex
-            // 
-            this.bp_hkd_ex.DataPropertyName = "bp_hkd_ex";
-            this.bp_hkd_ex.HeaderText = "bp_hkd_ex";
-            this.bp_hkd_ex.Name = "bp_hkd_ex";
-            this.bp_hkd_ex.ReadOnly = true;
-            this.bp_hkd_ex.Visible = false;
-            // 
             // frmQuotation_Formula_Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1008,6 +1239,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtvnd1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvndusd1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvndbp1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsd3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBp_hkd_ex.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHkd2.Properties)).EndInit();
@@ -1018,7 +1254,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHkd1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiscount.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1081,6 +1316,24 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblDiscount;
+        private DevExpress.XtraEditors.TextEdit txtDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private DevExpress.XtraEditors.TextEdit txtvnd1;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private DevExpress.XtraEditors.TextEdit txtvndusd1;
+        private System.Windows.Forms.Label label28;
+        private DevExpress.XtraEditors.TextEdit txtvndbp1;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flag_select;
         private System.Windows.Forms.DataGridViewTextBoxColumn brand_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn brand_name;
@@ -1093,14 +1346,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn usd3;
         private System.Windows.Forms.DataGridViewTextBoxColumn discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vndbp1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vndusd1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vnd1;
         private System.Windows.Forms.DataGridViewTextBoxColumn crusr;
         private System.Windows.Forms.DataGridViewTextBoxColumn crtim;
         private System.Windows.Forms.DataGridViewTextBoxColumn amusr;
         private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn bp_hkd_ex;
-        private System.Windows.Forms.Label lblDiscount;
-        private DevExpress.XtraEditors.TextEdit txtDiscount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
     }
 }
