@@ -684,7 +684,7 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
 
-            string dep="", mo="", item="", Request_date="", Remark="";
+            string dep="", mo="", item="", Request_date="", Remark="",next_goods_id="";
 
             DataTable dtNewWork = new DataTable();
             dtNewWork.Columns.Add("wp_id", typeof(string));
@@ -750,10 +750,18 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
             dtNewWork.Columns.Add("prod_date", typeof(string));
 
+            dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
+            dtNewWork.Columns.Add("next_next_do_color", typeof(string));
+
             DataRow dr = null;
             string order_unit;
             int order_qty, order_qty_pcs;
             string plate_remark = "";
+            DataTable dt_wk = new DataTable();
+            DataTable dtPosition = new DataTable();
+            DataTable dtQty = new DataTable();
+            DataTable dtPs = new DataTable();
+            DataTable dtNextNextItem = new DataTable();
             for (int j = 0; j < dgvDetails.RowCount; j++)
             {
                 if ((bool)dgvDetails.Rows[j].Cells["CheckBox"].EditedFormattedValue)
@@ -764,13 +772,15 @@ namespace cf01.ReportForm
                     dep = dgr.Cells["wp_id"].Value.ToString().Trim();
                     mo = dgr.Cells["mo_id"].Value.ToString().Trim();
                     item = dgr.Cells["goods_id"].Value.ToString().Trim();
+                    next_goods_id = dgr.Cells["next_goods_id"].Value.ToString().Trim(); //2023/03/02
                     if (dep != "" && mo != "" && item != "")
                     {
-                        DataTable dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item);
+                        dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item);
                         //DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
-                        DataTable dtPosition = clsMo_for_jx.GetPosition(item);
-                        DataTable dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
-                        DataTable dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
+                        dtPosition = clsMo_for_jx.GetPosition(item);
+                        dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
+                        dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
+                        dtNextNextItem = clsMo_for_jx.GetNextNextItem(mo, next_goods_id);
                         //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
                         //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);
                         //當前貨品的下部門顏色做法
@@ -790,6 +800,7 @@ namespace cf01.ReportForm
                         {
                             DataRow drDtWk = dt_wk.Rows[0];
                             string strBarCode = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
+
                             int Per_qty = Convert.ToInt32(dgr.Cells["per_prod_qty"].Value);  //每次生產數量
                             int Total_qty = Convert.ToInt32(dgr.Cells["prod_qty"].Value);    //生產總量
                             int NumPage = 0;     //報表頁數
@@ -925,6 +936,11 @@ namespace cf01.ReportForm
                                 dr["next_goods_name"] = dgr.Cells["next_goods_name"].Value.ToString();
                                 dr["next_next_dep_name"] = dgr.Cells["next_next_dep_name"].Value.ToString();
                                 dr["prod_date"] = "";
+                                if(dtNextNextItem.Rows.Count>0)
+                                {
+                                    dr["next_next_goods_id"] = dtNextNextItem.Rows[0]["next_next_goods_id"].ToString();
+                                    dr["next_next_do_color"] = dtNextNextItem.Rows[0]["next_next_do_color"].ToString();
+                                }
                                 dtNewWork.Rows.Add(dr);
                             }
                         }

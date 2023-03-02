@@ -584,6 +584,8 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_vendor_id", typeof(string));
             dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
             dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
+            dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
+            dtNewWork.Columns.Add("next_next_do_color", typeof(string));
 
             DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));
             int row_total = drw.Length;
@@ -706,6 +708,9 @@ namespace cf01.ReportForm
                                 dr["next_vendor_id"] = dtCard.Rows[j]["next_vendor_id"].ToString();
                                 dr["next_next_wp_id"] = dtCard.Rows[j]["next_next_wp_id"].ToString();
                                 dr["next_next_dep_name"] = dtCard.Rows[j]["next_next_dep_name"].ToString();
+
+                                dr["next_next_goods_id"] = dtCard.Rows[j]["next_next_goods_id"].ToString();
+                                dr["next_next_do_color"] = dtCard.Rows[j]["next_next_do_color"].ToString();
 
                                 dtNewWork.Rows.Add(dr);
                             }

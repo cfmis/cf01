@@ -1012,21 +1012,24 @@ namespace cf01.CLS
         /// <param name="pGoods_id"></param>
         /// <param name="pflevel"></param>
         /// <returns></returns>
-        public static DataTable Get_Next_Department_Flow(string pMo, string pGoods_id, int pflevel)
+        public static DataTable Get_Next_Department_Flow(string mo_id, string goods_id) //, int pflevel)
         {
-//          //2019-07-15 取消  pflevel A.flevel={2} 部分手加的流程引起異常
-//            string strSql = string.Format(
-//                       @"SELECT A.goods_id,A.next_wp_id,A.vendor_id,B.name as next_goods_name,B.do_color,C.name as next_dep_name
-//                        FROM 
-//                        (select Top 1 A1.within_code,A1.id,A1.ver,ISNULL(B1.materiel_id,'') AS goods_id ,B1.upper_sequence
-//                        from jo_bill_mostly A1 with(nolock),jo_bill_materiel_details B1 with(nolock)
-//                        where A1.within_code=B1.within_code AND A1.id=B1.id and A1.ver=B1.ver and A1.mo_id ='{0}' and B1.materiel_id='{1}'
-//                        ) S
-//                        INNER JOIN jo_bill_goods_details A with(nolock) 
-//	                        ON S.within_code=A.within_code AND S.id=A.id AND S.ver=A.ver AND S.upper_sequence=A.sequence_id AND A.wp_id<>'702' AND A.flevel={2}
-//                        INNER JOIN it_goods B with(nolock) ON A.within_code=A.within_code and A.goods_id=B.id
-//                        INNER JOIN cd_department C with(nolock) ON A.within_code=A.within_code AND A.next_wp_id=C.id
-//                        ", pMo, pGoods_id, pflevel);
+            //          //2019-07-15 取消  pflevel A.flevel={2} 部分手加的流程引起異常
+            //            string strSql = string.Format(
+            //                       @"SELECT A.goods_id,A.next_wp_id,A.vendor_id,B.name as next_goods_name,B.do_color,C.name as next_dep_name
+            //                        FROM 
+            //                        (select Top 1 A1.within_code,A1.id,A1.ver,ISNULL(B1.materiel_id,'') AS goods_id ,B1.upper_sequence
+            //                        from jo_bill_mostly A1 with(nolock),jo_bill_materiel_details B1 with(nolock)
+            //                        where A1.within_code=B1.within_code AND A1.id=B1.id and A1.ver=B1.ver and A1.mo_id ='{0}' and B1.materiel_id='{1}'
+            //                        ) S
+            //                        INNER JOIN jo_bill_goods_details A with(nolock) 
+            //	                        ON S.within_code=A.within_code AND S.id=A.id AND S.ver=A.ver AND S.upper_sequence=A.sequence_id AND A.wp_id<>'702' AND A.flevel={2}
+            //                        INNER JOIN it_goods B with(nolock) ON A.within_code=A.within_code and A.goods_id=B.id
+            //                        INNER JOIN cd_department C with(nolock) ON A.within_code=A.within_code AND A.next_wp_id=C.id
+            //                        ", pMo, pGoods_id, pflevel);
+
+            /*
+             * 2023/03/02 取消,改為從存儲過程取資料
             string strSql = string.Format(
                        @"SELECT A.goods_id,A.next_wp_id,A.vendor_id,B.name as next_goods_name,B.do_color,C.name as next_dep_name
                         FROM 
@@ -1037,11 +1040,34 @@ namespace cf01.CLS
                         INNER JOIN jo_bill_goods_details A with(nolock) 
 	                        ON S.within_code=A.within_code AND S.id=A.id AND S.ver=A.ver AND S.upper_sequence=A.sequence_id AND A.wp_id NOT IN('702','722')
                         INNER JOIN it_goods B with(nolock) ON A.within_code=A.within_code and A.goods_id=B.id
-                        INNER JOIN cd_department C with(nolock) ON A.within_code=A.within_code AND A.next_wp_id=C.id ", pMo, pGoods_id);
+                        INNER JOIN cd_department C with(nolock) ON A.within_code=C.within_code AND A.next_wp_id=C.id ", pMo, pGoods_id);
 
             DataTable dtProcess = clsConErp.GetDataTable(strSql);
+            */
+            SqlParameter[] paras = new SqlParameter[] {
+               new SqlParameter("@mo_id",mo_id),
+               new SqlParameter("@goods_id",goods_id)
+            };
+            DataTable dtProcess = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_get_next_dept_flow", paras);
             return dtProcess;
         }
+
+        public static DataTable GetNextNextItem(string mo_id, string goods_id)
+        {
+            string strSql = string.Format(
+                @"SELECT A.goods_id as next_next_goods_id,B.do_color as next_next_do_color         
+	            FROM jo_bill_goods_details A with(nolock) 
+	            INNER JOIN ( SELECT Top 1 aa.within_code,aa.id,aa.ver,bb.upper_sequence
+				             FROM jo_bill_mostly aa with(nolock),jo_bill_materiel_details bb with(nolock)
+				             WHERE aa.within_code=bb.within_code AND aa.id=bb.id AND aa.ver=bb.ver AND aa.mo_id='{0}' AND bb.materiel_id='{1}'
+			               ) S 
+			               ON A.within_code=S.within_code AND A.id=S.id AND A.ver=S.ver AND A.sequence_id=S.upper_sequence AND A.within_code='0000' AND A.wp_id NOT IN('702','722')
+	            INNER JOIN it_goods B with(nolock) ON A.within_code=B.within_code AND A.goods_id=B.id", mo_id, goods_id
+            );
+            DataTable dt = clsConErp.GetDataTable(strSql);
+            return dt;
+        }
+
         public static DataTable getNextDepItem(string mo_id,string wp_id,string goods_id)
         {
             string strSql = "";

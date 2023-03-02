@@ -176,20 +176,24 @@ namespace cf01.ReportForm
                         txtOrderQty.Text = Convert.ToInt32(dtQty.Rows[0]["order_qty"]).ToString();
                         txtOrderPcsQty.Text = Convert.ToInt32(dtQty.Rows[0]["order_qty_pcs"]).ToString();
                     }
-                    
+
                     //******************************
                     //以下代碼新增于2019-07-11
                     //當前部門的貨品交下部生產的之物料，并取下部門生產的物料編號，顏色做法、申請的供應商，再交落下一部
                     //******************************
-                    DataTable dt = clsMo_for_jx.Get_Next_Department_Flow(txtMoId.Text, lueGoodsId.Text, int.Parse(bom_flevel.Text)-1);
+                    //DataTable dt = clsMo_for_jx.Get_Next_Department_Flow(txtMoId.Text, lueGoodsId.Text, int.Parse(bom_flevel.Text)-1);
+                    DataTable dt = clsMo_for_jx.Get_Next_Department_Flow(txtMoId.Text, lueGoodsId.Text);
                     if (dt.Rows.Count > 0)
                     {
-                        next_goods_id.Text = dt.Rows[0]["goods_id"].ToString();
-                        next_next_wp_id.Text = dt.Rows[0]["next_wp_id"].ToString();
+                        next_goods_id.Text = dt.Rows[0]["goods_id"].ToString();                        
                         next_vendor_id.Text = dt.Rows[0]["vendor_id"].ToString();
                         next_do_color.Text = dt.Rows[0]["do_color"].ToString();
                         next_goods_name.Text = dt.Rows[0]["next_goods_name"].ToString();
+
+                        next_next_wp_id.Text = dt.Rows[0]["next_wp_id"].ToString();
                         next_next_dep_name.Text = dt.Rows[0]["next_dep_name"].ToString();
+                        next_next_goods_id.Text = dt.Rows[0]["next_next_goods_id"].ToString(); 
+                        next_next_do_color.Text = dt.Rows[0]["next_next_do_color"].ToString();
                     }
                     else
                     {
@@ -199,8 +203,9 @@ namespace cf01.ReportForm
                         next_do_color.Text = "";
                         next_goods_name.Text = "";
                         next_next_dep_name.Text = "";
+                        next_next_goods_id.Text = "";
+                        next_next_do_color.Text = "";
                     }
-
                     break;
                 }
             }
@@ -428,7 +433,9 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("next_goods_name", typeof(string));
                     dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
                     dtNewWork.Columns.Add("prod_date", typeof(string));
-                    
+                    dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
+                    dtNewWork.Columns.Add("next_next_do_color", typeof(string));
+
                     if (Total_qty > 0)
                     {
                         if (Total_qty % Per_qty > 0)                        
@@ -535,6 +542,9 @@ namespace cf01.ReportForm
                             dr["next_vendor_id"] = txtVender_id.Text.Trim(); //next_vendor_id.Text;
                             dr["next_goods_name"] = next_goods_name.Text;
                             dr["next_next_dep_name"] = next_next_dep_name.Text;
+                            dr["next_next_goods_id"] = next_next_goods_id.Text;
+                            dr["next_next_do_color"] = next_next_do_color.Text;
+
                             dtNewWork.Rows.Add(dr);
                         }
                     }
