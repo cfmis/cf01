@@ -1552,8 +1552,6 @@
             this.gridColumn18.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn18.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn18.OptionsFilter.AllowFilter = false;
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 21;
             this.gridColumn18.Width = 65;
             // 
             // cl_discount
@@ -1587,8 +1585,6 @@
             this.gridColumn19.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn19.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn19.OptionsFilter.AllowFilter = false;
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 22;
             // 
             // gridColumn20
             // 
@@ -1609,8 +1605,6 @@
             this.gridColumn20.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn20.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn20.OptionsFilter.AllowFilter = false;
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 23;
             // 
             // gridColumn21
             // 
@@ -1631,8 +1625,6 @@
             this.gridColumn21.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn21.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn21.OptionsFilter.AllowFilter = false;
-            this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 24;
             // 
             // gridColumn27
             // 
@@ -1653,6 +1645,8 @@
             this.gridColumn27.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn27.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn27.OptionsFilter.AllowFilter = false;
+            this.gridColumn27.Visible = true;
+            this.gridColumn27.VisibleIndex = 43;
             // 
             // gridColumn22
             // 
@@ -1673,8 +1667,6 @@
             this.gridColumn22.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn22.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn22.OptionsFilter.AllowFilter = false;
-            this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 25;
             // 
             // actual_price
             // 
@@ -1696,7 +1688,7 @@
             this.actual_price.OptionsFilter.AllowAutoFilter = false;
             this.actual_price.OptionsFilter.AllowFilter = false;
             this.actual_price.Visible = true;
-            this.actual_price.VisibleIndex = 26;
+            this.actual_price.VisibleIndex = 21;
             // 
             // actual_price_type
             // 
@@ -1720,7 +1712,7 @@
             this.actual_price_type.OptionsFilter.AllowAutoFilter = false;
             this.actual_price_type.OptionsFilter.AllowFilter = false;
             this.actual_price_type.Visible = true;
-            this.actual_price_type.VisibleIndex = 27;
+            this.actual_price_type.VisibleIndex = 22;
             // 
             // moq
             // 
@@ -1738,7 +1730,7 @@
             this.moq.OptionsFilter.AllowAutoFilter = false;
             this.moq.OptionsFilter.AllowFilter = false;
             this.moq.Visible = true;
-            this.moq.VisibleIndex = 28;
+            this.moq.VisibleIndex = 23;
             this.moq.Width = 39;
             // 
             // gridColumn26
@@ -1751,7 +1743,7 @@
             this.gridColumn26.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn26.OptionsFilter.AllowFilter = false;
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 29;
+            this.gridColumn26.VisibleIndex = 24;
             // 
             // gridColumn1
             // 
@@ -1767,7 +1759,7 @@
             this.gridColumn1.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn1.OptionsFilter.AllowFilter = false;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 30;
+            this.gridColumn1.VisibleIndex = 25;
             this.gridColumn1.Width = 35;
             // 
             // moq_for_test
@@ -1785,7 +1777,7 @@
             this.moq_for_test.OptionsFilter.AllowAutoFilter = false;
             this.moq_for_test.OptionsFilter.AllowFilter = false;
             this.moq_for_test.Visible = true;
-            this.moq_for_test.VisibleIndex = 31;
+            this.moq_for_test.VisibleIndex = 26;
             this.moq_for_test.Width = 81;
             // 
             // clMoq_for_test
@@ -1809,7 +1801,7 @@
             this.remark1.OptionsFilter.AllowAutoFilter = false;
             this.remark1.OptionsFilter.AllowFilter = false;
             this.remark1.Visible = true;
-            this.remark1.VisibleIndex = 32;
+            this.remark1.VisibleIndex = 27;
             this.remark1.Width = 100;
             // 
             // gridColumn3
@@ -1824,7 +1816,7 @@
             this.gridColumn3.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn3.OptionsFilter.AllowFilter = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 33;
+            this.gridColumn3.VisibleIndex = 28;
             // 
             // gridColumn2
             // 
@@ -1837,7 +1829,7 @@
             this.gridColumn2.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn2.OptionsFilter.AllowFilter = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 34;
+            this.gridColumn2.VisibleIndex = 29;
             // 
             // gridColumn4
             // 
@@ -1850,7 +1842,7 @@
             this.gridColumn4.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn4.OptionsFilter.AllowFilter = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 35;
+            this.gridColumn4.VisibleIndex = 30;
             // 
             // gridColumn5
             // 
@@ -1863,7 +1855,7 @@
             this.gridColumn5.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn5.OptionsFilter.AllowFilter = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 36;
+            this.gridColumn5.VisibleIndex = 31;
             // 
             // gridColumn6
             // 
@@ -1876,7 +1868,7 @@
             this.gridColumn6.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn6.OptionsFilter.AllowFilter = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 37;
+            this.gridColumn6.VisibleIndex = 32;
             // 
             // gridColumn7
             // 
@@ -1889,7 +1881,7 @@
             this.gridColumn7.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn7.OptionsFilter.AllowFilter = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 38;
+            this.gridColumn7.VisibleIndex = 33;
             // 
             // gridColumn8
             // 
@@ -1902,7 +1894,7 @@
             this.gridColumn8.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn8.OptionsFilter.AllowFilter = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 39;
+            this.gridColumn8.VisibleIndex = 34;
             // 
             // gridColumn9
             // 
@@ -1915,7 +1907,7 @@
             this.gridColumn9.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn9.OptionsFilter.AllowFilter = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 40;
+            this.gridColumn9.VisibleIndex = 35;
             // 
             // gridColumn13
             // 
@@ -1929,7 +1921,7 @@
             this.gridColumn13.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn13.OptionsFilter.AllowFilter = false;
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 41;
+            this.gridColumn13.VisibleIndex = 36;
             // 
             // gridColumn14
             // 
@@ -1943,7 +1935,7 @@
             this.gridColumn14.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn14.OptionsFilter.AllowFilter = false;
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 42;
+            this.gridColumn14.VisibleIndex = 37;
             // 
             // gridColumn15
             // 
@@ -1957,7 +1949,7 @@
             this.gridColumn15.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn15.OptionsFilter.AllowFilter = false;
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 43;
+            this.gridColumn15.VisibleIndex = 38;
             // 
             // gridColumn16
             // 
@@ -1971,7 +1963,7 @@
             this.gridColumn16.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn16.OptionsFilter.AllowFilter = false;
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 44;
+            this.gridColumn16.VisibleIndex = 39;
             // 
             // gridColumn23
             // 
@@ -1988,7 +1980,7 @@
             this.gridColumn23.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn23.OptionsFilter.AllowFilter = false;
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 45;
+            this.gridColumn23.VisibleIndex = 40;
             // 
             // gridColumn24
             // 
@@ -2003,7 +1995,7 @@
             this.gridColumn24.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn24.OptionsFilter.AllowFilter = false;
             this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 46;
+            this.gridColumn24.VisibleIndex = 41;
             // 
             // gridColumn25
             // 
@@ -2018,7 +2010,7 @@
             this.gridColumn25.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn25.OptionsFilter.AllowFilter = false;
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 47;
+            this.gridColumn25.VisibleIndex = 42;
             // 
             // gridColumn11
             // 

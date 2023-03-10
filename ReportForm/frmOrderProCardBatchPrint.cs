@@ -92,23 +92,37 @@ namespace cf01.ReportForm
                 txtOut_detp1.Focus();
                 return;
             }
-            if (txtCon_date1.Text == "")
+            //當頁數不為空時,不用檢查日期是否為空
+            if(txtmo_id1.Text.Trim() == "")
             {
-                MessageBox.Show("批準日期不可為空!", "提示信息");
-                txtCon_date1.Focus();
-                return;
+                if (txtCon_date1.Text == "")
+                {
+                    MessageBox.Show("批準日期不可為空!", "提示信息");
+                    txtCon_date1.Focus();
+                    return;
+                }
+                if (txtCon_date2.Text == "")
+                {
+                    MessageBox.Show("批準日期不可為空!", "提示信息");
+                    txtCon_date2.Focus();
+                    return;
+                }
             }
-            if (txtCon_date2.Text == "")
+            string strDate1 = "", strDate2 = "";
+            if (txtCon_date1.Text != "")
             {
-                MessageBox.Show("批準日期不可為空!", "提示信息");
-                txtCon_date2.Focus();
-                return;
-            }           
+                strDate1 = DateTime.Parse(txtCon_date1.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss");
+            }
+            if (txtCon_date2.Text != "")
+            {
+                strDate2 = DateTime.Parse(txtCon_date2.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss");
+            }
+
             SqlParameter[] paras = new SqlParameter[]
             {
                     //yyyy/MM/dd HH:mm:ss
-                    new SqlParameter("@check_date1",DateTime.Parse(txtCon_date1.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss")),
-                    new SqlParameter("@check_date2", DateTime.Parse(txtCon_date2.EditValue.ToString()).ToString("yyyy/MM/dd HH:mm:ss")),
+                    new SqlParameter("@check_date1",strDate1),
+                    new SqlParameter("@check_date2", strDate2),
                     new SqlParameter("@dept", txtOut_detp1.EditValue.ToString()),
                     new SqlParameter("@mo_id", txtmo_id1.Text),
                     new SqlParameter("@format", cmbFormat.SelectedIndex.ToString())   
