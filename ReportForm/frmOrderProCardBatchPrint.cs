@@ -33,10 +33,10 @@ namespace cf01.ReportForm
         {
             InitializeComponent();
 
-            dtPrint.Columns.Add("wp_id", typeof(String));
-            dtPrint.Columns.Add("mo_id", typeof(String));
-            dtPrint.Columns.Add("goods_id", typeof(String));
-            //dtPrint.Columns.Add("next_wp_id", typeof(String));
+            dtPrint.Columns.Add("wp_id", typeof(string));
+            dtPrint.Columns.Add("mo_id", typeof(string));
+            dtPrint.Columns.Add("goods_id", typeof(string));
+            //dtPrint.Columns.Add("next_wp_id", typeof(string));
             dtPrint.Columns.Add("per_qty", typeof(int));
 
             //設置菜單按鈕的權限

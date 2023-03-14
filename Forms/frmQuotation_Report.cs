@@ -2699,7 +2699,7 @@ namespace cf01.Forms
           @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
             dbo.fn_getTermRemark(A.term_id,A.quota_date,'0') as terms,dbo.fn_getTermRemark(A.term_id,A.quota_date,'1') as terms_other,
             dbo.fn_getAddress(A.address_id) as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,
-            A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,A.position,A.address, B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
+            A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,A.position,A.address as address1, B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
             B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,Isnull(B.remark,'') as remark,
             ISNULL(C.name,'') AS name_customer,B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, 
             B.number_enter,B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,B.sales_group,

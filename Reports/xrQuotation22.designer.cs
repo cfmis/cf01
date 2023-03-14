@@ -608,7 +608,7 @@
             this.xrLabel86.SizeF = new System.Drawing.SizeF(894.5271F, 124.2635F);
             this.xrLabel86.StylePriority.UseFont = false;
             this.xrLabel86.StylePriority.UseTextAlignment = false;
-            this.xrLabel86.Text = "[address]";
+            this.xrLabel86.Text = "[address1]";
             this.xrLabel86.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel56
