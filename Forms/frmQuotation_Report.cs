@@ -243,7 +243,7 @@ namespace cf01.Forms
         }
 
 
-        private static string Get_Remark(DataTable dt, string strid)
+        private static string GetRemark(DataTable dt, string strid)
         {
             int id = Int32.Parse(strid);
             string strResult = "";
@@ -359,6 +359,7 @@ namespace cf01.Forms
             txtDate.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
             txtValid_date.EditValue = txtDate.DateTime.AddDays(30).ToString("yyyy-MM-dd");
             txtAddress_id.EditValue = 1;//新增時默認Hongkong地址
+            memRemark.Text = GetRemark(dtAddress1, "1");
             txtTerm_id.EditValue = 0;
             txtMoney_id.EditValue = "HKD";
 
@@ -1221,7 +1222,7 @@ namespace cf01.Forms
             txtAddress_id.SelectAll();
             if (!string.IsNullOrEmpty(txtAddress_id.EditValue.ToString()))
             {
-                memRemark.Text = Get_Remark(dtAddress1, txtAddress_id.EditValue.ToString());
+                memRemark.Text = GetRemark(dtAddress1, txtAddress_id.EditValue.ToString());
             }
         }
 
@@ -1229,7 +1230,7 @@ namespace cf01.Forms
         {
             if (!string.IsNullOrEmpty(txtTerm_id.EditValue.ToString()))
             {
-                memRemark.Text = Get_Remark(dtTerm1, txtTerm_id.EditValue.ToString());
+                memRemark.Text = GetRemark(dtTerm1, txtTerm_id.EditValue.ToString());
             }
         }
 
