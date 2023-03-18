@@ -358,7 +358,7 @@ namespace cf01.Forms
             txtVersion.Text = "0";
             txtDate.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
             txtValid_date.EditValue = txtDate.DateTime.AddDays(30).ToString("yyyy-MM-dd");
-            txtAddress_id.EditValue = 0;
+            txtAddress_id.EditValue = 1;//新增時默認Hongkong地址
             txtTerm_id.EditValue = 0;
             txtMoney_id.EditValue = "HKD";
 
@@ -390,7 +390,7 @@ namespace cf01.Forms
                    } 
                 }
                 GetDocNo();
-                txtAddress_id.EditValue = 1;
+                txtAddress_id.EditValue = 1;//新增時默認Hongkong地址
                 txtTerm_id.EditValue = 0;
                 txtMoney_id.EditValue = "HKD";
                 chkHkd.Checked = true;
