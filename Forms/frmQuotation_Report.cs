@@ -71,7 +71,9 @@ namespace cf01.Forms
             clsApp.Initialize_find_value(this.Name, panel1.Controls);//定價查找頁面條件初始化
             clsApp.Initialize_find_value("frmQuotation_Report_browse", tabControl1.TabPages[1].Controls);//報價資料查找頁面條件初始化
             gridView1.IndicatorWidth = 40;
-            
+
+            dtAddress1 = clsPublicOfCF01.GetDataTable("select id,item from dbo.quotation_address order by id,seq");
+            dtTerm1 = clsPublicOfCF01.GetDataTable("SELECT id,item FROM dbo.quotation_term ORDER BY id,seq");
             //NextControl oNext = new NextControl(this, "1");
             //oNext.EnterToTab();
         }
@@ -127,15 +129,14 @@ namespace cf01.Forms
             dtAddress = clsPublicOfCF01.GetDataTable("SELECT id,Convert(varchar(5),id)+'['+area+']' as cdesc FROM dbo.quotation_address GROUP BY id,area ORDER BY id,area");
             txtAddress_id.Properties.DataSource = dtAddress;
             txtAddress_id.Properties.ValueMember = "id";
-            txtAddress_id.Properties.DisplayMember = "cdesc";
-            dtAddress1 = clsPublicOfCF01.GetDataTable("select id,item from dbo.quotation_address order by id,seq");
+            txtAddress_id.Properties.DisplayMember = "cdesc";            
 
             DataTable dtTerm = new DataTable();
             dtTerm = clsPublicOfCF01.GetDataTable("SELECT id FROM dbo.quotation_term GROUP BY id ORDER BY id");
             txtTerm_id.Properties.DataSource = dtTerm;
             txtTerm_id.Properties.ValueMember = "id";
             txtTerm_id.Properties.DisplayMember = "id";
-            dtTerm1 = clsPublicOfCF01.GetDataTable("SELECT id,item FROM dbo.quotation_term ORDER BY id,seq");
+            
             //tabPage3.Parent = null;
             tabControl1.SelectTab(2);
             chkSelectAll.Checked = false;
@@ -245,7 +246,7 @@ namespace cf01.Forms
 
         private static string GetRemark(DataTable dt, string strid)
         {
-            int id = Int32.Parse(strid);
+            int id = int.Parse(strid);
             string strResult = "";
             DataRow[] arryDr = dt.Select(string.Format("id={0}", id));
             for (int i = 0; i < arryDr.Length; i++)
