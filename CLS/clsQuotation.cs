@@ -402,21 +402,39 @@ namespace cf01.CLS
             return strVer;
         }
 
+        public static DataTable GetUserGroup()
+        {
+            //string strSql = string.Format(@"Select '1' From sys_user where user_id='{0}' AND (group_id='DG_PDD' OR group_id='HK_PDD')", DBUtility._user_id); 
+            //2023/03/23改為從CF01中取group_id
+            string strSql = string.Format(@"Select user_group As group_id From tb_sy_user Where uname='{0}' AND (user_group='DG_PDD' OR user_group='HK_PDD')", DBUtility._user_id);
+            System.Data.DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+
         public static void IsDisplayRemark_PDD(DataGridView dgv, DataGridViewColumn clsName)
         {
-            //顯示PDD備註
-            string strSql = string.Format(@"Select '1' From sys_user where user_id='{0}' AND (group_id='DG_PDD' OR group_id='HK_PDD')", DBUtility._user_id);
-            System.Data.DataTable dt = new System.Data.DataTable();
-            dt = clsPublicOfGEO.GetDataTable(strSql);
+            //顯示HK PDD,DG PDD備註
+                     
+            System.Data.DataTable dt = GetUserGroup(); 
+            //false--不可見;true--可見
             if (dt.Rows.Count == 0)
             {
-                if (DBUtility._user_id.ToUpper() != "ADMIN")
-                    clsName.Visible = false;//不可見
-                else
-                    clsName.Visible = true;//可見
+                //用戶id=ADMIN時 HK,DG備註全顯示
+                clsName.Visible = (DBUtility._user_id.ToUpper() == "ADMIN") ? true : false;
             }
             else
-                clsName.Visible = true;
+            {
+                if (dt.Rows[0]["group_id"].ToString() == "HK_PDD")
+                {
+                    //HK,DG備註全顯示
+                    clsName.Visible = true;
+                }
+                if (dt.Rows[0]["group_id"].ToString() == "DG_PDD" && clsName.Name=="remark_pdd_dg")
+                {
+                    //只顯示DG備註
+                    clsName.Visible = true;
+                }                
+            }
         }
 
         public static void Set_Brand_id(DevExpress.XtraEditors.LookUpEdit obj)

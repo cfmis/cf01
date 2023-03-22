@@ -182,8 +182,10 @@ namespace cf01.Forms
             txtMoney_id.Properties.DisplayMember = "id";
 
 
-            //顯示PDD備註
+            //根據當前登入UserID判斷是否顯示HK PDD備註
             clsQuotation.IsDisplayRemark_PDD(dgvDetails, remark_pdd);
+            //根據當前登入UserID判斷是否顯示DG PDD備註
+            clsQuotation.IsDisplayRemark_PDD(dgvDetails, remark_pdd_dg);
 
             //從定價資料中生成報價單
             if (mList.Count > 0)
