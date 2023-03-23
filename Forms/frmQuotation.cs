@@ -195,10 +195,9 @@ namespace cf01.Forms
             gridView1.IndicatorWidth = 50;
             tabPage2.Parent = null;
 
-            //顯示PDD備註
-            strSql = string.Format(@"Select group_id From sys_user WHERE user_id='{0}' AND (group_id='DG_PDD' OR group_id='HK_PDD')", DBUtility._user_id);
+            //顯示PDD備註            
             System.Data.DataTable dt = new System.Data.DataTable();
-            dt = clsConErp.GetDataTable(strSql);
+            dt = clsQuotation.GetUserGroup();
             if (dt.Rows.Count == 0)
             {
                 if (DBUtility._user_id.ToUpper() != "ADMIN")
