@@ -80,6 +80,7 @@
             this.lueProductType = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMat = new DevExpress.XtraEditors.LookUpEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCopyFile = new DevExpress.XtraEditors.SimpleButton();
             this.txtInvoice_id = new DevExpress.XtraEditors.TextEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.lueTest_dept = new DevExpress.XtraEditors.LookUpEdit();
@@ -181,7 +182,6 @@
             this.valid_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.report_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnCopyFile = new DevExpress.XtraEditors.SimpleButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditTest_report_Path.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deExpriy.Properties.CalendarTimeProperties)).BeginInit();
@@ -775,6 +775,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1085, 219);
             this.panel1.TabIndex = 14;
+            // 
+            // btnCopyFile
+            // 
+            this.btnCopyFile.Location = new System.Drawing.Point(1003, 83);
+            this.btnCopyFile.Name = "btnCopyFile";
+            this.btnCopyFile.Size = new System.Drawing.Size(55, 23);
+            this.btnCopyFile.TabIndex = 46;
+            this.btnCopyFile.Text = "複製";
+            this.btnCopyFile.Click += new System.EventHandler(this.btnCopyFile_Click);
             // 
             // txtInvoice_id
             // 
@@ -1919,15 +1928,6 @@
             // 
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ShowAlways = true;
-            // 
-            // btnCopyFile
-            // 
-            this.btnCopyFile.Location = new System.Drawing.Point(1003, 84);
-            this.btnCopyFile.Name = "btnCopyFile";
-            this.btnCopyFile.Size = new System.Drawing.Size(55, 23);
-            this.btnCopyFile.TabIndex = 46;
-            this.btnCopyFile.Text = "複製";
-            this.btnCopyFile.Click += new System.EventHandler(this.btnCopyFile_Click);
             // 
             // frmTestExcel
             // 
