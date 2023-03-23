@@ -1110,8 +1110,9 @@ namespace cf01.CLS
         }
 
 
-        public static void Open_Test_Report(string strFile,DataTable dtPathList)
+        public static bool Open_Test_Report(string strFile,DataTable dtPathList,string oprType)
         {
+            bool Result = false;
             //打開測試報告          
             if (!string.IsNullOrEmpty(strFile))
             {
@@ -1128,24 +1129,40 @@ namespace cf01.CLS
                 }
 
                 if (isExists)
-                {                   
+                {
                     //frmProgress wForm = new frmProgress();
                     //new Thread((ThreadStart)delegate
                     //{
                     //    wForm.TopMost = true;
                     //    wForm.ShowDialog();
                     //}).Start();
+                    if (oprType == "OPEN")
+                    {
+                        Result = true;
+                        //************************
+                        System.Diagnostics.Process.Start(strFullPath);
+                        //************************
+                        //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
-                    //************************
-                    System.Diagnostics.Process.Start(strFullPath);
-                    //************************
-                    //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                    }
+                    else
+                    {
+                        System.Collections.Specialized.StringCollection strcoll = new System.Collections.Specialized.StringCollection(); //收集路径
+
+                        strcoll.Add(strFullPath);
+
+                        //strcoll.Add(dirPath);
+
+                        Clipboard.SetFileDropList(strcoll);//将要复制的文件货文件夹路径放入剪切板
+                        Result = true;
+                    }
                 }
                 else
                 {
                     MessageBox.Show("原始檔案不存在!", "提示信息");
                 }
             }
+            return Result;
         }
 
         public static DataTable Get_test_expriy(int pMonths,string pSalesGroup)

@@ -850,7 +850,7 @@ namespace cf01.Forms
             string strFile = btnEditTest_report_Path.Text;
             if (!string.IsNullOrEmpty(strFile))
             {
-                clsTestProductPlan.Open_Test_Report(strFile, dtReport_Path_List);
+                clsTestProductPlan.Open_Test_Report(strFile, dtReport_Path_List,"OPEN");
                 //strFile = test_public_path + strFile.Trim();
                 //clsTestProductPlan.Open_test_pdf(strFile);               
             }
@@ -1540,5 +1540,23 @@ namespace cf01.Forms
             }
         }
 
+        private void btnCopyFile_Click(object sender, EventArgs e)
+        {
+            string strFile = btnEditTest_report_Path.Text;
+            bool Result=clsTestProductPlan.Open_Test_Report(strFile, dtReport_Path_List, "COPY");
+            if (Result == true)
+                MessageBox.Show("文件已複製到粘貼簿!","系統信息");
+            //string filePath = btnEditTest_report_Path.Text;// @"c:\vue01\index.html";
+
+            //string dirPath = @"c:\vue01";
+
+            //System.Collections.Specialized.StringCollection strcoll = new System.Collections.Specialized.StringCollection(); //收集路径
+
+            //strcoll.Add(filePath);
+
+            ////strcoll.Add(dirPath);
+
+            //Clipboard.SetFileDropList(strcoll);//将要复制的文件货文件夹路径放入剪切板
+        }
     }
 }
