@@ -26,7 +26,7 @@ namespace cf01.CLS
                 if (!string.IsNullOrEmpty(strFile))
                 {
                    DataTable dtPath_List = clsTestProductPlan.Get_Test_Report_Path();
-                   clsTestProductPlan.Open_Test_Report(strFile, dtPath_List);                                
+                   clsTestProductPlan.Open_Test_Report(strFile, dtPath_List,"OPEN");                                
                 }
             }
         }

@@ -1111,7 +1111,7 @@ namespace cf01.Forms
 							{
                                 //strFile = test_public_path + strFile.Trim();
                                 //clsTestProductPlan.Open_test_pdf(strFile);
-                                clsTestProductPlan.Open_Test_Report(strFile, dtReport_Path_List);
+                                clsTestProductPlan.Open_Test_Report(strFile, dtReport_Path_List,"OPEN");
 							}
 						}
 					}
