@@ -22,6 +22,7 @@ namespace cf01.CLS
         private static clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
         private static clsAppPublic clsAppPublic = new clsAppPublic();
         public static string cust_artwork_path = @"\\192.168.3.12\cf_artwork\quo_photo";
+
         public static bool Process_Excel(string _ExcelFile, System.Windows.Forms.ProgressBar progressBar)
         {
             //创建Application对象
