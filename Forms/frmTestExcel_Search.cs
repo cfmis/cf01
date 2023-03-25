@@ -14,8 +14,8 @@ namespace cf01.Forms
         public frmTestExcel_Search()
         {
             InitializeComponent();
-            clsApp.Initialize_find_value("frmTestExcel", SearchPanel.Controls);
-            txtSales_group.Text = "";
+            clsApp.Initialize_find_value("frmTestExcel", SearchPanel.Controls); 
+
         }
 
         private void btnSearchByParam_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace cf01.Forms
             objTe.ref_mo = txtRef_mo.Text.Trim();
             objTe.size = txtSize.Text;
             objTe.cf_color = txtCf_color.Text;
-            objTe.sales_group = txtSales_group.Text;
+            objTe.sales_group = lueSalesGroup.EditValue.ToString();
             objTe.doc_type = txtDoc_type.Text;
             objTe.crusr = txtcrusr.Text;
             objTe.test_dept = lueDept_dept.Text;
@@ -101,6 +101,7 @@ namespace cf01.Forms
             clsTestProductPlan.SetTest_item(lueTestItem_sq);
             clsTestProductPlan.SetColorType(lueColor_sq);
             clsTestProductPlan.SetTestDept(lueDept_dept);
+            clsTestProductPlan.SetGroup(lueSalesGroup);
             this.chkExpiry.Checked = true;
 
         }
@@ -122,7 +123,7 @@ namespace cf01.Forms
             txtTest_report_no.Text = "";
             txtTrim_code.Text = "";
             txtTrim_color_code.Text = "";
-            txtSales_group.Text = "";
+            lueSalesGroup.EditValue = "";
             txtSize.Text = "";
             txtCf_color.Text = "";
             txtDoc_type.Text = "";           
@@ -131,7 +132,7 @@ namespace cf01.Forms
         private void BTNSAVESET1_Click(object sender, EventArgs e)
         {
             //保存數據瀏覽頁面查詢條件
-            txtSales_group.Text = "";
+            //txtSales_group.Text = "";
             if (clsApp.set_find_Value("frmTestExcel", SearchPanel.Controls) > 0)
                 MessageBox.Show("當前查詢條件保存成功!", "提示信息");
             else

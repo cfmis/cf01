@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestExcel_Search));
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.lueSalesGroup = new DevExpress.XtraEditors.LookUpEdit();
+            this.chkExpiry = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtInvoice_id = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -45,7 +47,6 @@
             this.lblDoc_type = new DevExpress.XtraEditors.LabelControl();
             this.txtCf_color = new System.Windows.Forms.TextBox();
             this.lblCf_color = new DevExpress.XtraEditors.LabelControl();
-            this.txtSales_group = new System.Windows.Forms.TextBox();
             this.lblSales_group = new DevExpress.XtraEditors.LabelControl();
             this.txtSize = new System.Windows.Forms.TextBox();
             this.lblSize = new DevExpress.XtraEditors.LabelControl();
@@ -74,8 +75,9 @@
             this.lueColor_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.lueProductType_sq = new DevExpress.XtraEditors.LookUpEdit();
             this.lueMat_sq = new DevExpress.XtraEditors.LookUpEdit();
-            this.chkExpiry = new DevExpress.XtraEditors.CheckEdit();
             this.SearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueSalesGroup.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDept_dept.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).BeginInit();
@@ -87,11 +89,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType_sq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat_sq.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchPanel
             // 
+            this.SearchPanel.Controls.Add(this.lueSalesGroup);
             this.SearchPanel.Controls.Add(this.chkExpiry);
             this.SearchPanel.Controls.Add(this.labelControl5);
             this.SearchPanel.Controls.Add(this.txtInvoice_id);
@@ -108,7 +110,6 @@
             this.SearchPanel.Controls.Add(this.lblDoc_type);
             this.SearchPanel.Controls.Add(this.txtCf_color);
             this.SearchPanel.Controls.Add(this.lblCf_color);
-            this.SearchPanel.Controls.Add(this.txtSales_group);
             this.SearchPanel.Controls.Add(this.lblSales_group);
             this.SearchPanel.Controls.Add(this.txtSize);
             this.SearchPanel.Controls.Add(this.lblSize);
@@ -142,6 +143,30 @@
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(842, 328);
             this.SearchPanel.TabIndex = 12;
+            // 
+            // lueSalesGroup
+            // 
+            this.lueSalesGroup.EnterMoveNextControl = true;
+            this.lueSalesGroup.Location = new System.Drawing.Point(69, 131);
+            this.lueSalesGroup.Name = "lueSalesGroup";
+            this.lueSalesGroup.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.lueSalesGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueSalesGroup.Properties.DropDownRows = 20;
+            this.lueSalesGroup.Properties.NullText = "";
+            this.lueSalesGroup.Properties.ShowHeader = false;
+            this.lueSalesGroup.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueSalesGroup.Size = new System.Drawing.Size(130, 22);
+            this.lueSalesGroup.TabIndex = 209;
+            // 
+            // chkExpiry
+            // 
+            this.chkExpiry.EditValue = true;
+            this.chkExpiry.Location = new System.Drawing.Point(552, 190);
+            this.chkExpiry.Name = "chkExpiry";
+            this.chkExpiry.Properties.Caption = "不顯示測試報告有效期過期的資料";
+            this.chkExpiry.Size = new System.Drawing.Size(215, 19);
+            this.chkExpiry.TabIndex = 208;
             // 
             // labelControl5
             // 
@@ -307,15 +332,6 @@
             this.lblCf_color.Size = new System.Drawing.Size(75, 28);
             this.lblCf_color.TabIndex = 43;
             this.lblCf_color.Text = "   CF Color\r\n(CF 顏色編號)";
-            // 
-            // txtSales_group
-            // 
-            this.txtSales_group.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSales_group.Location = new System.Drawing.Point(69, 130);
-            this.txtSales_group.MaxLength = 1;
-            this.txtSales_group.Name = "txtSales_group";
-            this.txtSales_group.Size = new System.Drawing.Size(130, 22);
-            this.txtSales_group.TabIndex = 40;
             // 
             // lblSales_group
             // 
@@ -615,15 +631,6 @@
             this.lueMat_sq.Size = new System.Drawing.Size(130, 22);
             this.lueMat_sq.TabIndex = 0;
             // 
-            // chkExpiry
-            // 
-            this.chkExpiry.EditValue = true;
-            this.chkExpiry.Location = new System.Drawing.Point(552, 190);
-            this.chkExpiry.Name = "chkExpiry";
-            this.chkExpiry.Properties.Caption = "不顯示測試報告有效期過期的資料";
-            this.chkExpiry.Size = new System.Drawing.Size(215, 19);
-            this.chkExpiry.TabIndex = 208;
-            // 
             // frmTestExcel_Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -639,6 +646,8 @@
             this.Load += new System.EventHandler(this.frmSearchTestExcel_Load);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueSalesGroup.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDept_dept.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).EndInit();
@@ -650,7 +659,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_sq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProductType_sq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMat_sq.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkExpiry.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -687,7 +695,6 @@
         private DevExpress.XtraEditors.LabelControl lblDoc_type;
         private System.Windows.Forms.TextBox txtCf_color;
         private DevExpress.XtraEditors.LabelControl lblCf_color;
-        private System.Windows.Forms.TextBox txtSales_group;
         private DevExpress.XtraEditors.LabelControl lblSales_group;
         private System.Windows.Forms.TextBox txtSize;
         private DevExpress.XtraEditors.LabelControl lblSize;
@@ -703,5 +710,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.TextBox txtInvoice_id;
         private DevExpress.XtraEditors.CheckEdit chkExpiry;
+        private DevExpress.XtraEditors.LookUpEdit lueSalesGroup;
     }
 }

@@ -977,6 +977,18 @@ namespace cf01.CLS
             SetTypeDropValue(dtProduct_type, objLookUpEdit);
         }
 
+        //組別
+        public static void SetGroup(LookUpEdit objLookUpEdit)
+        {
+            DataTable dtGroup = clsPublicOfCF01.GetDataTable(@"Select typ_code AS id From bs_type Where typ_group='3'");
+            //DataRow dr0 = dtGroup.NewRow(); //插一空行        
+            //dtGroup.Rows.InsertAt(dr0, 0);
+            // LookUpEdit objType = (LookUpEdit)PLookUpEdit;
+            objLookUpEdit.Properties.DataSource = dtGroup;
+            objLookUpEdit.Properties.ValueMember = "id";
+            objLookUpEdit.Properties.DisplayMember = "id";            
+        }
+
         /// <summary>
         /// 綁定測試類型
         /// </summary>
