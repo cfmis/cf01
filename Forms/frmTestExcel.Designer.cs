@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestExcel));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -264,7 +264,7 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(52, 45);
+            this.btnNew.Size = new System.Drawing.Size(49, 45);
             this.btnNew.Text = "新增(&A)";
             this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -279,7 +279,7 @@
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(51, 45);
+            this.btnEdit.Size = new System.Drawing.Size(48, 45);
             this.btnEdit.Text = "編輯(&E)";
             this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -295,7 +295,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(51, 45);
+            this.btnSave.Size = new System.Drawing.Size(47, 45);
             this.btnSave.Text = "保存(&S)";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -310,7 +310,7 @@
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(53, 45);
+            this.btnDelete.Size = new System.Drawing.Size(49, 45);
             this.btnDelete.Text = "刪除(&D)";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -325,7 +325,7 @@
             this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
             this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(50, 45);
+            this.btnFind.Size = new System.Drawing.Size(47, 45);
             this.btnFind.Text = "查找(&F)";
             this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
@@ -340,7 +340,7 @@
             this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
             this.btnExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(65, 45);
+            this.btnExcel.Size = new System.Drawing.Size(59, 45);
             this.btnExcel.Text = "匯出Excel";
             this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -356,7 +356,7 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(53, 45);
+            this.btnCancel.Size = new System.Drawing.Size(49, 45);
             this.btnCancel.Text = "取消(&U)";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -371,7 +371,7 @@
             this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
             this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWCOPY.Name = "BTNNEWCOPY";
-            this.BTNNEWCOPY.Size = new System.Drawing.Size(60, 45);
+            this.BTNNEWCOPY.Size = new System.Drawing.Size(57, 45);
             this.BTNNEWCOPY.Text = "覆制新增";
             this.BTNNEWCOPY.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
@@ -386,7 +386,7 @@
             this.BTNINVOICE.Image = ((System.Drawing.Image)(resources.GetObject("BTNINVOICE.Image")));
             this.BTNINVOICE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNINVOICE.Name = "BTNINVOICE";
-            this.BTNINVOICE.Size = new System.Drawing.Size(60, 45);
+            this.BTNINVOICE.Size = new System.Drawing.Size(57, 45);
             this.BTNINVOICE.Text = "設置發票";
             this.BTNINVOICE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNINVOICE.Click += new System.EventHandler(this.BTNINVOICE_Click);
@@ -419,7 +419,7 @@
             this.btnEditTest_report_Path.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.btnEditTest_report_Path.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnEditTest_report_Path.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnEditTest_report_Path.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.btnEditTest_report_Path.Properties.ReadOnly = true;
             this.btnEditTest_report_Path.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEditTest_report_Path_Properties_ButtonClick);
@@ -866,10 +866,10 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.label7.Location = new System.Drawing.Point(956, 72);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 57);
+            this.label7.Size = new System.Drawing.Size(51, 82);
             this.label7.TabIndex = 38;
             this.label7.Text = "*雙擊鼠標左鍵可打開測試報告";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTestReport_no
             // 
@@ -1258,10 +1258,10 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "crusr";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn12.HeaderText = "創建人";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -1359,9 +1359,9 @@
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "report_date";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn24.HeaderText = "Report Date";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
@@ -1383,10 +1383,10 @@
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "Invoice_date";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = "yyyy-MM-dd";
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = "yyyy-MM-dd";
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn27.HeaderText = "Invoice Date";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;

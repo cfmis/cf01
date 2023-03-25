@@ -107,10 +107,29 @@ namespace cf01.Forms
             //用戶要設所屬的用戶組別
             test_public_path = clsTestProductPlan.Get_Test_Public_Path();
             //返回最基礎的測試報告路徑前綴，以免路徑顯示太長
-            dtReport_Path_List = clsTestProductPlan.Get_Test_Report_Path();  
+            dtReport_Path_List = clsTestProductPlan.Get_Test_Report_Path();
 
-            btnSearch.PerformClick();
-            InitLue();
+            //btnSearch.PerformClick();//2023/03/24暫停查詢快到期的數據
+
+            //初始化表結構,因取消 btnSearch.PerformClick()會出錯.
+            strSql = 
+            @"SELECT a.mat_id, a.seq_id, a.color_id, a.finish_name, a.poduct_type_id
+				,a.trim_color_code, a.trim_code, a.pattern_id, a.test_item_id, a.test_report_no
+				,CONVERT(date,a.expiry_date,120) as [expiry_date], a.remark,a.ref_mo, a.crusr, a.crtim, a.amusr, a.amtim, a.test_report_path 
+				,a.mat_id+'('+b.name+')' as mat_cdesc,a.color_id+'('+c.cdesc+')' as color_cdesc
+				,a.poduct_type_id+'('+ d.cdesc+')' as prod_type_cdesc,'' as test_item_cdesc
+				,a.size,a.cf_color,a.sales_group,a.doc_type,
+				CONVERT(date,GETDATE(),120) as valid_date,a.test_report_no as report_no,a.test_dept,a.invoice_id
+	        FROM bs_test_excel a
+			        LEFT JOIN bs_test_mat_type b ON a.mat_id=b.id
+			        LEFT JOIN bs_test_color_category c ON a.color_id=c.id
+			        LEFT JOIN bs_test_product_type d ON a.poduct_type_id=d.id
+	        WHERE 1=0 ";
+            dtTe = clsPublicOfCF01.GetDataTable(strSql);
+            bds1.DataSource = dtTe;
+            gridControl1.DataSource = bds1;
+
+            InitCombBox();
             //設置控件與bds1對象數據綁定
             Set_Data_Binding();           
             toolTip1.SetToolTip(btnTestItem, "從選取的測試項目中一次性生成多筆測試報告數據!");
@@ -561,7 +580,7 @@ namespace cf01.Forms
         /// <summary>
         /// 初始化材料、產品類型、測試項目、顏色
         /// </summary>
-        private void InitLue()
+        private void InitCombBox()
         {
             clsTestProductPlan.SetMatType(lueMat);
             clsTestProductPlan.SetProductType(lueProductType);
@@ -591,7 +610,6 @@ namespace cf01.Forms
                         pnlSearch.Enabled = false;
                         btnTestItem.Enabled = true;
                         btnGetmoinfo.Enabled = true;
-
 
                         lueMat.Enabled = true;
                         lueProductType.Enabled = true;
@@ -1360,7 +1378,7 @@ namespace cf01.Forms
             }
         }
 
-      private void Add_Select_TestIitem(Int32 cur_row, mdlTestExcel objMd)
+      private void Add_Select_TestIitem(int cur_row, mdlTestExcel objMd)
       {
           dgvDetails.SetRowCellValue(cur_row, "mat_id", objMd.mat_id);
           //dgvDetails.SetRowCellValue(cur_row_index, "seq_id", objMdl.seq_id);
@@ -1394,14 +1412,14 @@ namespace cf01.Forms
             {
                 return;
             }
-            if (dgvDetails.RowCount > 0)
+            if (dgvDetails.RowCount > 0)//
             {
                 int i = dgvDetails.FocusedRowHandle;
-                if (i >= 0)                
-                    strSeq_id = dgvDetails.GetRowCellValue(i, "seq_id").ToString();                
+                if (i >= 0)
+                    strSeq_id = dtTe.Rows[i]["seq_id"].ToString();// dgvDetails.GetRowCellValue(i, "seq_id").ToString();                
                 else
                     strSeq_id = "";
-            }         
+            }
         }
 
         private void dgvDetails_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
