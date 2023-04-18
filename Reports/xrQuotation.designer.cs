@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel64 = new DevExpress.XtraReports.UI.XRLabel();
             this.txtmd_charge_cny = new DevExpress.XtraReports.UI.XRLabel();
             this.txtmd_charge = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
@@ -56,6 +57,7 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel44 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel46 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel51 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
@@ -118,8 +120,6 @@
             this.xrCrossBandLine16 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine17 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine18 = new DevExpress.XtraReports.UI.XRCrossBandLine();
-            this.xrLabel44 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel64 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -151,6 +151,21 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel64
+            // 
+            this.xrLabel64.CanShrink = true;
+            this.xrLabel64.Dpi = 254F;
+            this.xrLabel64.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel64.LocationFloat = new DevExpress.Utils.PointFloat(155.7599F, 1F);
+            this.xrLabel64.Multiline = true;
+            this.xrLabel64.Name = "xrLabel64";
+            this.xrLabel64.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel64.SizeF = new System.Drawing.SizeF(108.8859F, 33.6875F);
+            this.xrLabel64.StylePriority.UseFont = false;
+            this.xrLabel64.StylePriority.UseTextAlignment = false;
+            this.xrLabel64.Text = "[season]";
+            this.xrLabel64.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // txtmd_charge_cny
             // 
@@ -531,6 +546,19 @@
             this.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.BeforeBand;
             this.GroupHeader1.RepeatEveryPage = true;
             // 
+            // xrLabel44
+            // 
+            this.xrLabel44.Dpi = 254F;
+            this.xrLabel44.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
+            this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(156.7599F, 872.7499F);
+            this.xrLabel44.Name = "xrLabel44";
+            this.xrLabel44.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel44.SizeF = new System.Drawing.SizeF(108.8128F, 39.6875F);
+            this.xrLabel44.StylePriority.UseFont = false;
+            this.xrLabel44.StylePriority.UseTextAlignment = false;
+            this.xrLabel44.Text = "Season";
+            this.xrLabel44.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // xrLabel46
             // 
             this.xrLabel46.CanGrow = false;
@@ -541,8 +569,7 @@
             this.xrLabel46.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel46.SizeF = new System.Drawing.SizeF(1982.38F, 39.36469F);
             this.xrLabel46.StylePriority.UseFont = false;
-            this.xrLabel46.Text = "***Ching Fung is exempt from liability of the uncontrollable circumstance, e.g. s" +
-    "uspension of manpower or logistic due to the Covid control***";
+            this.xrLabel46.Text = "[terms_remark]";
             this.xrLabel46.WordWrap = false;
             // 
             // xrLabel51
@@ -1310,34 +1337,6 @@
             this.xrCrossBandLine18.StartBand = this.GroupHeader1;
             this.xrCrossBandLine18.StartPointFloat = new DevExpress.Utils.PointFloat(266.4574F, 829.9499F);
             this.xrCrossBandLine18.WidthF = 3F;
-            // 
-            // xrLabel44
-            // 
-            this.xrLabel44.Dpi = 254F;
-            this.xrLabel44.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(156.7599F, 872.7499F);
-            this.xrLabel44.Name = "xrLabel44";
-            this.xrLabel44.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel44.SizeF = new System.Drawing.SizeF(108.8128F, 39.6875F);
-            this.xrLabel44.StylePriority.UseFont = false;
-            this.xrLabel44.StylePriority.UseTextAlignment = false;
-            this.xrLabel44.Text = "Season";
-            this.xrLabel44.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel64
-            // 
-            this.xrLabel64.CanShrink = true;
-            this.xrLabel64.Dpi = 254F;
-            this.xrLabel64.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel64.LocationFloat = new DevExpress.Utils.PointFloat(155.7599F, 1F);
-            this.xrLabel64.Multiline = true;
-            this.xrLabel64.Name = "xrLabel64";
-            this.xrLabel64.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel64.SizeF = new System.Drawing.SizeF(108.8859F, 33.6875F);
-            this.xrLabel64.StylePriority.UseFont = false;
-            this.xrLabel64.StylePriority.UseTextAlignment = false;
-            this.xrLabel64.Text = "[season]";
-            this.xrLabel64.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrQuotation
             // 

@@ -1226,8 +1226,7 @@
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel6.SizeF = new System.Drawing.SizeF(2147.38F, 39.36475F);
             this.xrLabel6.StylePriority.UseFont = false;
-            this.xrLabel6.Text = "***Ching Fung is exempt from liability of the uncontrollable circumstance, e.g. s" +
-    "uspension of manpower or logistic due to the Covid control***";
+            this.xrLabel6.Text = "[terms_remark]";
             this.xrLabel6.WordWrap = false;
             // 
             // xrLabel67

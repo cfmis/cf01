@@ -652,8 +652,7 @@
             this.xrLabel57.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel57.SizeF = new System.Drawing.SizeF(1991.38F, 39.36469F);
             this.xrLabel57.StylePriority.UseFont = false;
-            this.xrLabel57.Text = "***Ching Fung is exempt from liability of the uncontrollable circumstance, e.g. s" +
-    "uspension of manpower or logistic due to the Covid control***";
+            this.xrLabel57.Text = "[terms_remark]";
             this.xrLabel57.WordWrap = false;
             // 
             // xrLabel64
@@ -682,7 +681,7 @@
             this.xrLabel62.SizeF = new System.Drawing.SizeF(1958.294F, 31.33319F);
             this.xrLabel62.StylePriority.UseFont = false;
             this.xrLabel62.StylePriority.UseTextAlignment = false;
-            this.xrLabel62.Text = "12) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
+            this.xrLabel62.Text = "11) Surcharge USD 65(Alloy)/USD 40(Brass/plastic) may apply if the MOQ per order " +
     "/ colour cannot met .";
             this.xrLabel62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel62.WordWrap = false;
@@ -698,7 +697,7 @@
             this.xrLabel63.SizeF = new System.Drawing.SizeF(1958.294F, 30.33319F);
             this.xrLabel63.StylePriority.UseFont = false;
             this.xrLabel63.StylePriority.UseTextAlignment = false;
-            this.xrLabel63.Text = "13) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
+            this.xrLabel63.Text = "12) Additional Surcharge USD 7 for DTM colour (Alloy/Brass) of above point may ap" +
     "ply if the MOQ per order / colour cannot be met .";
             this.xrLabel63.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel63.WordWrap = false;
