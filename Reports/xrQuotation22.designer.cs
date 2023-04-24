@@ -134,6 +134,8 @@
             this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel57 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel47 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
@@ -154,8 +156,6 @@
             this.xrCrossBandLine22 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine23 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine24 = new DevExpress.XtraReports.UI.XRCrossBandLine();
-            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -748,7 +748,7 @@
             this.xrLine16.LineWidth = 3;
             this.xrLine16.LocationFloat = new DevExpress.Utils.PointFloat(2155.532F, 200.4286F);
             this.xrLine16.Name = "xrLine16";
-            this.xrLine16.SizeF = new System.Drawing.SizeF(5F, 584.7731F);
+            this.xrLine16.SizeF = new System.Drawing.SizeF(5F, 585.7731F);
             // 
             // xrLabel85
             // 
@@ -824,7 +824,7 @@
             this.xrLine15.LineWidth = 3;
             this.xrLine15.LocationFloat = new DevExpress.Utils.PointFloat(1237.361F, 200.5F);
             this.xrLine15.Name = "xrLine15";
-            this.xrLine15.SizeF = new System.Drawing.SizeF(5F, 584.7731F);
+            this.xrLine15.SizeF = new System.Drawing.SizeF(5F, 585.7731F);
             // 
             // xrLine14
             // 
@@ -833,7 +833,7 @@
             this.xrLine14.LineWidth = 3;
             this.xrLine14.LocationFloat = new DevExpress.Utils.PointFloat(982.8771F, 200.5F);
             this.xrLine14.Name = "xrLine14";
-            this.xrLine14.SizeF = new System.Drawing.SizeF(5F, 584.7731F);
+            this.xrLine14.SizeF = new System.Drawing.SizeF(5F, 585.7731F);
             // 
             // xrLine13
             // 
@@ -1109,7 +1109,7 @@
             this.xrLine8.LineWidth = 3;
             this.xrLine8.LocationFloat = new DevExpress.Utils.PointFloat(258.6227F, 200.4286F);
             this.xrLine8.Name = "xrLine8";
-            this.xrLine8.SizeF = new System.Drawing.SizeF(5F, 584.7731F);
+            this.xrLine8.SizeF = new System.Drawing.SizeF(5F, 585.7731F);
             // 
             // xrLabel59
             // 
@@ -1614,6 +1614,34 @@
             this.PageFooter.HeightF = 410.1875F;
             this.PageFooter.Name = "PageFooter";
             // 
+            // xrLabel10
+            // 
+            this.xrLabel10.CanGrow = false;
+            this.xrLabel10.Dpi = 254F;
+            this.xrLabel10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(10.05427F, 167.5035F);
+            this.xrLabel10.Name = "xrLabel10";
+            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(1390.069F, 39.15002F);
+            this.xrLabel10.StylePriority.UseFont = false;
+            this.xrLabel10.Text = "                     Final surcharge amount subject to \" REMARK\" stated on quotat" +
+    "ion.";
+            this.xrLabel10.WordWrap = false;
+            // 
+            // xrLabel9
+            // 
+            this.xrLabel9.CanGrow = false;
+            this.xrLabel9.Dpi = 254F;
+            this.xrLabel9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(12.05428F, 128.1387F);
+            this.xrLabel9.Name = "xrLabel9";
+            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(1786.545F, 39.36465F);
+            this.xrLabel9.StylePriority.UseFont = false;
+            this.xrLabel9.Text = "Remark 2) : Surcharge for MOQ/New Color Development: USD 50/col/size for alloy & " +
+    "plastic, USD 25/col/size for brass.";
+            this.xrLabel9.WordWrap = false;
+            // 
             // xrLabel57
             // 
             this.xrLabel57.CanGrow = false;
@@ -1841,34 +1869,6 @@
             this.xrCrossBandLine24.StartBand = this.GroupHeader1;
             this.xrCrossBandLine24.StartPointFloat = new DevExpress.Utils.PointFloat(279.7083F, 845.0002F);
             this.xrCrossBandLine24.WidthF = 3F;
-            // 
-            // xrLabel9
-            // 
-            this.xrLabel9.CanGrow = false;
-            this.xrLabel9.Dpi = 254F;
-            this.xrLabel9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(12.05428F, 128.1387F);
-            this.xrLabel9.Name = "xrLabel9";
-            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(1786.545F, 39.36465F);
-            this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.Text = "Remark 2) : Surcharge for MOQ/New Color Development: USD 50/col/size for alloy & " +
-    "plastic, USD 25/col/size for brass.";
-            this.xrLabel9.WordWrap = false;
-            // 
-            // xrLabel10
-            // 
-            this.xrLabel10.CanGrow = false;
-            this.xrLabel10.Dpi = 254F;
-            this.xrLabel10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(10.05427F, 167.5035F);
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(1390.069F, 39.15002F);
-            this.xrLabel10.StylePriority.UseFont = false;
-            this.xrLabel10.Text = "                     Final surcharge amount subject to \" REMARK\" stated on quotat" +
-    "ion.";
-            this.xrLabel10.WordWrap = false;
             // 
             // xrQuotation22
             // 
