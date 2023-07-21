@@ -238,5 +238,28 @@ namespace cf01.Reports
                 txtColor_qty.Visible = false;
             }
         }
+      
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            //if (GetCurrentColumnValue("dept_flag").ToString() == "LN")
+            //{
+            //    //下部是JX部門時字體加粗
+            //    this.dept_flag.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //}
+        }
+
+        private void next_wp_id_TextChanged(object sender, EventArgs e)
+        {
+            if (GetCurrentColumnValue("dept_flag").ToString() == "LN")
+            {
+                //下部是JX部門時字體加粗
+                this.next_wp_id.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+            else
+            {
+                this.next_wp_id.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Italic,System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+        }
     }
 }

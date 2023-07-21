@@ -32,6 +32,9 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.next_wp_id = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrPanel3 = new DevExpress.XtraReports.UI.XRPanel();
+            this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPanel2 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
@@ -45,7 +48,6 @@
             this.lblMould_fee = new DevExpress.XtraReports.UI.XRLabel();
             this.lblSec_price = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblSec_qty = new DevExpress.XtraReports.UI.XRLabel();
             this.lblProd_qty = new DevExpress.XtraReports.UI.XRLabel();
             this.lblPack_num = new DevExpress.XtraReports.UI.XRLabel();
@@ -103,12 +105,12 @@
             this.xrLine7 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel36 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrPanel3 = new DevExpress.XtraReports.UI.XRPanel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.next_wp_id,
             this.xrPanel3,
             this.xrPanel2,
             this.xrPanel1,
@@ -137,6 +139,46 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // next_wp_id
+            // 
+            this.next_wp_id.CanGrow = false;
+            this.next_wp_id.Dpi = 254F;
+            this.next_wp_id.Font = new System.Drawing.Font("SimSun", 10F);
+            this.next_wp_id.LocationFloat = new DevExpress.Utils.PointFloat(57.4F, 82.49997F);
+            this.next_wp_id.Name = "next_wp_id";
+            this.next_wp_id.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.next_wp_id.SizeF = new System.Drawing.SizeF(211.6673F, 43.18F);
+            this.next_wp_id.StylePriority.UseFont = false;
+            this.next_wp_id.StylePriority.UseTextAlignment = false;
+            this.next_wp_id.Text = "([next_wp_id])";
+            this.next_wp_id.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.next_wp_id.WordWrap = false;
+            this.next_wp_id.TextChanged += new System.EventHandler(this.next_wp_id_TextChanged);
+            // 
+            // xrPanel3
+            // 
+            this.xrPanel3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel27});
+            this.xrPanel3.Dpi = 254F;
+            this.xrPanel3.LocationFloat = new DevExpress.Utils.PointFloat(1418.75F, 0F);
+            this.xrPanel3.Name = "xrPanel3";
+            this.xrPanel3.SizeF = new System.Drawing.SizeF(349.6666F, 87.79167F);
+            // 
+            // xrLabel27
+            // 
+            this.xrLabel27.CanShrink = true;
+            this.xrLabel27.Dpi = 254F;
+            this.xrLabel27.Font = new System.Drawing.Font("SimSun", 9F);
+            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(0F, 2.000059F);
+            this.xrLabel27.Multiline = true;
+            this.xrLabel27.Name = "xrLabel27";
+            this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel27.SizeF = new System.Drawing.SizeF(348.3048F, 82.18F);
+            this.xrLabel27.StylePriority.UseFont = false;
+            this.xrLabel27.StylePriority.UseTextAlignment = false;
+            this.xrLabel27.Text = "[color]";
+            this.xrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrPanel2
             // 
@@ -339,21 +381,6 @@
             this.xrLabel29.Text = "[t_complete_date]";
             this.xrLabel29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrLabel29.WordWrap = false;
-            // 
-            // xrLabel27
-            // 
-            this.xrLabel27.CanShrink = true;
-            this.xrLabel27.Dpi = 254F;
-            this.xrLabel27.Font = new System.Drawing.Font("SimSun", 9F);
-            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(0F, 2.000059F);
-            this.xrLabel27.Multiline = true;
-            this.xrLabel27.Name = "xrLabel27";
-            this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel27.SizeF = new System.Drawing.SizeF(348.3048F, 82.18F);
-            this.xrLabel27.StylePriority.UseFont = false;
-            this.xrLabel27.StylePriority.UseTextAlignment = false;
-            this.xrLabel27.Text = "[color]";
-            this.xrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // lblSec_qty
             // 
@@ -1055,15 +1082,6 @@
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.ReportHeader_BeforePrint);
             // 
-            // xrPanel3
-            // 
-            this.xrPanel3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel27});
-            this.xrPanel3.Dpi = 254F;
-            this.xrPanel3.LocationFloat = new DevExpress.Utils.PointFloat(1418.75F, 0F);
-            this.xrPanel3.Name = "xrPanel3";
-            this.xrPanel3.SizeF = new System.Drawing.SizeF(349.6666F, 87.79167F);
-            // 
             // xrOut_process_out
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1166,5 +1184,6 @@
         private DevExpress.XtraReports.UI.XRPanel xrPanel1;
         private DevExpress.XtraReports.UI.XRPanel xrPanel2;
         private DevExpress.XtraReports.UI.XRPanel xrPanel3;
+        private DevExpress.XtraReports.UI.XRLabel next_wp_id;
     }
 }

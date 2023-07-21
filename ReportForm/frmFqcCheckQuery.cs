@@ -208,7 +208,7 @@ namespace cf01.ReportForm
 
             if (dtqc.Rows.Count == 0)
             {
-                txtMo_id1.Text = "";
+                txtMo_id2.Focus();
                 MessageBox.Show("沒有找到符合條件的記錄", "系統信息", MessageBoxButtons.OK);
                 return;
             }

@@ -12,6 +12,7 @@ using cf01.ModuleClass;
 using DevExpress.XtraEditors;
 using System.IO;
 using DevExpress.XtraReports.UI;
+using System.Threading;
 
 namespace cf01.Forms
 {
@@ -61,16 +62,7 @@ namespace cf01.Forms
         private void LoadData()
         {
             string strDat1 = txtDat1.Text;
-            string strDat2 = txtDat2.Text;
-            //if (strDat1 != "" && strDat2 != "")
-            //{
-            //    if (strDat1 == strDat2)
-            //    {                    
-            //        strDat2 = txtDat2.DateTime.AddDays(1).ToString();
-            //        strDat2 = strDat2.Substring(0, 10);
-            //    }
-            //}
-
+            string strDat2 = txtDat2.Text;            
             SqlParameter[] paras = new SqlParameter[]
             {       
                     new SqlParameter("@within_code", "0000"),
@@ -81,8 +73,18 @@ namespace cf01.Forms
                     new SqlParameter("@vendor_id", txtVendor_id1.EditValue),
                     new SqlParameter("@vendor_id_end", txtVendor_id2.EditValue)
 			};
-            dtPlate = clsConErp.ExecuteProcedureReturnTable("z_rpt_out_process_out", paras);            
-            //--
+
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //---------
+            dtPlate = clsConErp.ExecuteProcedureReturnTable("z_rpt_out_process_out", paras);
+            //---------
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
             if (dtPlate.Rows.Count > 0)
             {
                 //最低消費頁數重復的處理
@@ -106,7 +108,6 @@ namespace cf01.Forms
                                 temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();
                             }
                         }
-
                         //處理噴油合并數量一張單據中只顯示一次
                         //if (unite_qty > 0)
                         //{
@@ -123,7 +124,6 @@ namespace cf01.Forms
                         //unite_qty = int.Parse(dtPlate.Rows[i]["unite_qty"].ToString());
                     }
                 }
-
                 //共用報表
                 DataRow[] drs = dtPlate.Select("id2=''");
                 if (drs.Length > 0)
@@ -282,9 +282,22 @@ namespace cf01.Forms
                 strSB.Append(String.Format(" AND B.mo_id='{0}'", txtMo_id.Text));
             }
             strSB.Append(" ORDER BY A.id,B.sequence_id");
-            dtMo_Data = clsConErp.GetDataTable(strSB.ToString());
-            dgvDetails.DataSource = dtMo_Data;
 
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //---------
+            dtMo_Data = clsConErp.GetDataTable(strSB.ToString());
+            //---------
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });            
+            dgvDetails.DataSource = dtMo_Data;
+            if (dtMo_Data.Rows.Count == 0)
+            {
+                MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void dgvDetails_DoubleClick(object sender, EventArgs e)
