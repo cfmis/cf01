@@ -151,7 +151,7 @@
             this.next_wp_id.SizeF = new System.Drawing.SizeF(211.6673F, 43.18F);
             this.next_wp_id.StylePriority.UseFont = false;
             this.next_wp_id.StylePriority.UseTextAlignment = false;
-            this.next_wp_id.Text = "([next_wp_id])";
+            this.next_wp_id.Text = "[next_wp_id]";
             this.next_wp_id.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.next_wp_id.WordWrap = false;
             this.next_wp_id.TextChanged += new System.EventHandler(this.next_wp_id_TextChanged);
