@@ -145,14 +145,14 @@
             this.next_wp_id.CanGrow = false;
             this.next_wp_id.Dpi = 254F;
             this.next_wp_id.Font = new System.Drawing.Font("SimSun", 10F);
-            this.next_wp_id.LocationFloat = new DevExpress.Utils.PointFloat(57.4F, 82.49997F);
+            this.next_wp_id.LocationFloat = new DevExpress.Utils.PointFloat(57.4F, 44.18F);
             this.next_wp_id.Name = "next_wp_id";
             this.next_wp_id.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.next_wp_id.SizeF = new System.Drawing.SizeF(211.6673F, 43.18F);
+            this.next_wp_id.SizeF = new System.Drawing.SizeF(163.9173F, 44.61165F);
             this.next_wp_id.StylePriority.UseFont = false;
             this.next_wp_id.StylePriority.UseTextAlignment = false;
             this.next_wp_id.Text = "[next_wp_id]";
-            this.next_wp_id.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.next_wp_id.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.next_wp_id.WordWrap = false;
             this.next_wp_id.TextChanged += new System.EventHandler(this.next_wp_id_TextChanged);
             // 
@@ -427,7 +427,7 @@
             this.xrLabel9.AnchorVertical = DevExpress.XtraReports.UI.VerticalAnchorStyles.Top;
             this.xrLabel9.Dpi = 254F;
             this.xrLabel9.Font = new System.Drawing.Font("SimSun", 10F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(277.8041F, 43.18002F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(277.8041F, 44.18F);
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
