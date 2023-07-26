@@ -40,7 +40,7 @@ namespace cf01.MM
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            frmProductCosting.searchProductId = "";
+            frmProductCosting.searchProductId = ""; 
             frmProductCosting.searchProductName = "";
             frmProductCosting.searchProductMo = "";
             //this.Visible = false;

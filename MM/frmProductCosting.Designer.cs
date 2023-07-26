@@ -240,6 +240,8 @@
             this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -313,7 +315,9 @@
             this.btnSetProductWeight,
             this.toolStripSeparator9,
             this.btnOrder,
-            this.toolStripSeparator10});
+            this.toolStripSeparator10,
+            this.btnExcel,
+            this.toolStripSeparator13});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1164, 38);
@@ -2263,6 +2267,22 @@
             this.dataGridViewTextBoxColumn52.HeaderText = "部門描述";
             this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
             // 
+            // btnExcel
+            // 
+            this.btnExcel.AutoSize = false;
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(75, 35);
+            this.btnExcel.Text = "匯出到Excel";
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 38);
+            // 
             // frmProductCosting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2542,5 +2562,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipModality;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWipNextDepId;
+        private System.Windows.Forms.ToolStripButton btnExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
     }
 }

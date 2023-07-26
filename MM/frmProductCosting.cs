@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Reflection;//反射
+using System.IO;
+using System.Threading;
 using cf01.MDL;
 using cf01.CLS;
 using cf01.Forms;
@@ -2067,5 +2069,91 @@ namespace cf01.MM
             DataTable dtItem = clsPublicOfCF01.ExecuteProcedure(strSql, parameters);
             return dtItem;
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            DvExportExcel();
+        }
+
+        /// <summary>
+        /// 匯出Excel
+        /// </summary>
+        private void DvExportExcel()
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Excel files(*.xls)|*.xls";
+            saveFile.FilterIndex = 0;
+            saveFile.RestoreDirectory = true;
+            saveFile.CreatePrompt = true;
+            saveFile.Title = "导出Excel文件到";
+            saveFile.FileName = txtProductMo.Text.Trim();
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+
+
+                //frmProgress wForm = new frmProgress();
+                //new Thread((ThreadStart)delegate
+                //{
+                //    wForm.TopMost = true;
+                //    wForm.ShowDialog();
+                //}).Start();
+
+                Stream myStream;
+                myStream = saveFile.OpenFile();
+
+                //如果匯出到Excel中文變亂碼，可以嘗試改一下這個編碼方式
+                StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));//utf-8
+
+                //Response.Charset = "utf-8";
+                //Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312"); 
+                string str = " ";
+                str += "\t" + "制單編號";
+                str += "上層";
+                str += "\t" + "本層";
+                str += "\t" + "物料編號";
+                str += "\t" + "物料描述";
+                str += "\t" + "顏色做法";
+                str += "\t" + "生產部門";
+                str += "\t" + "部門描述";
+                str += "\t" + "每千粒重量";
+                str += "\t" + "每千粒耗用原料";
+                str += "\t" + "部門加工單價";
+                str += "\t" + "部門生產所需費用";
+                str += "\t" + "外發加工單價(數量)";
+                str += "\t" + "外發加工單價(重量)";
+                str += "\t" + "原料單價";
+                sw.WriteLine(str);
+
+                for (int rowNo = 0; rowNo < dgvBomDetails.RowCount; rowNo++)
+                {
+                    string tempstr = "";
+                    DataGridViewRow dgr = dgvBomDetails.Rows[rowNo];
+                    tempstr += txtProductMo.Text.Trim();
+                    tempstr += "\t" + dgr.Cells["colParentLevel"].Value.ToString();
+                    tempstr += "\t" + dgr.Cells["colBomLevel"].Value.ToString();
+                    tempstr += "\t" + dgr.Cells["colProductId"].Value.ToString();
+                    tempstr += "\t" + dgr.Cells["colProductName"].Value.ToString();
+                    tempstr += "\t" + dgr.Cells["colDoColor"].Value.ToString();
+                    tempstr += "\t" + dgr.Cells["colDepId"].Value.ToString();
+                    tempstr += "\t" + dgr.Cells["colDepCdesc"].Value.ToString();
+                    tempstr += "\t" + "";
+                    tempstr += "\t" + "";
+                    tempstr += "\t" + "";
+                    tempstr += "\t" + "";
+                    tempstr += "\t" + "";
+                    tempstr += "\t" + "";
+                    tempstr += "\t" + "";
+                    //tempstr += "\t" + "=\"" + dgr.Cells[18].Value.ToString() + "\"";
+
+                    sw.WriteLine(tempstr);
+                }
+
+                sw.Close();
+                myStream.Close();
+                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                MessageBox.Show("已匯出記錄！");
+            }
+        }
+
     }
 }

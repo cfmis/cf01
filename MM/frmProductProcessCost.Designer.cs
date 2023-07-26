@@ -36,29 +36,16 @@
             this.rdgIs_set = new DevExpress.XtraEditors.RadioGroup();
             this.lblSource = new DevExpress.XtraEditors.LabelControl();
             this.rdgSource = new DevExpress.XtraEditors.RadioGroup();
-            this.txtClrTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtSizeTo = new DevExpress.XtraEditors.TextEdit();
             this.txtJobTypeTo = new DevExpress.XtraEditors.TextEdit();
             this.txtMachineTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtArtTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtPrdTypeTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtClrFrom = new DevExpress.XtraEditors.TextEdit();
             this.txtJobTypeFrom = new DevExpress.XtraEditors.TextEdit();
             this.txtPrd_item_cdesc = new DevExpress.XtraEditors.TextEdit();
-            this.txtSizeFrom = new DevExpress.XtraEditors.TextEdit();
             this.txtMachineFrom = new DevExpress.XtraEditors.TextEdit();
-            this.lblClr = new DevExpress.XtraEditors.LabelControl();
-            this.txtArtFrom = new DevExpress.XtraEditors.TextEdit();
+            this.txtPrd_item = new DevExpress.XtraEditors.TextEdit();
             this.lblPrd_item_cdesc = new DevExpress.XtraEditors.LabelControl();
             this.lblJob_type = new DevExpress.XtraEditors.LabelControl();
-            this.lblSize = new DevExpress.XtraEditors.LabelControl();
             this.lblMachine = new DevExpress.XtraEditors.LabelControl();
-            this.txtMatTo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPrdTypeFrom = new DevExpress.XtraEditors.TextEdit();
-            this.lblPrdType = new DevExpress.XtraEditors.LabelControl();
-            this.txtMatFrom = new DevExpress.XtraEditors.TextEdit();
-            this.lblMat = new DevExpress.XtraEditors.LabelControl();
             this.txtPrd_dep = new DevExpress.XtraEditors.TextEdit();
             this.lblDep = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -73,6 +60,7 @@
             this.rdgSetType = new DevExpress.XtraEditors.RadioGroup();
             this.lblMsg = new DevExpress.XtraEditors.LabelControl();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
+            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +74,12 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +88,8 @@
             this.colProcess_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProduct_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDefaultLineQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDefaultJobType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrdMachine = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,21 +107,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgIs_set.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgSource.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobTypeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMachineTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobTypeFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item_cdesc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMachineFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatFrom.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_dep.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -145,41 +131,28 @@
             this.panelControl1.Controls.Add(this.rdgIs_set);
             this.panelControl1.Controls.Add(this.lblSource);
             this.panelControl1.Controls.Add(this.rdgSource);
-            this.panelControl1.Controls.Add(this.txtClrTo);
-            this.panelControl1.Controls.Add(this.txtSizeTo);
             this.panelControl1.Controls.Add(this.txtJobTypeTo);
             this.panelControl1.Controls.Add(this.txtMachineTo);
-            this.panelControl1.Controls.Add(this.txtArtTo);
-            this.panelControl1.Controls.Add(this.txtPrdTypeTo);
-            this.panelControl1.Controls.Add(this.txtClrFrom);
             this.panelControl1.Controls.Add(this.txtJobTypeFrom);
             this.panelControl1.Controls.Add(this.txtPrd_item_cdesc);
-            this.panelControl1.Controls.Add(this.txtSizeFrom);
             this.panelControl1.Controls.Add(this.txtMachineFrom);
-            this.panelControl1.Controls.Add(this.lblClr);
-            this.panelControl1.Controls.Add(this.txtArtFrom);
+            this.panelControl1.Controls.Add(this.txtPrd_item);
             this.panelControl1.Controls.Add(this.lblPrd_item_cdesc);
             this.panelControl1.Controls.Add(this.lblJob_type);
-            this.panelControl1.Controls.Add(this.lblSize);
             this.panelControl1.Controls.Add(this.lblMachine);
-            this.panelControl1.Controls.Add(this.txtMatTo);
             this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.txtPrdTypeFrom);
-            this.panelControl1.Controls.Add(this.lblPrdType);
-            this.panelControl1.Controls.Add(this.txtMatFrom);
-            this.panelControl1.Controls.Add(this.lblMat);
             this.panelControl1.Controls.Add(this.txtPrd_dep);
             this.panelControl1.Controls.Add(this.lblDep);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1192, 139);
+            this.panelControl1.Size = new System.Drawing.Size(1192, 111);
             this.panelControl1.TabIndex = 0;
             // 
             // txtPlanDateTo
             // 
             this.txtPlanDateTo.EditValue = null;
-            this.txtPlanDateTo.Location = new System.Drawing.Point(214, 108);
+            this.txtPlanDateTo.Location = new System.Drawing.Point(213, 31);
             this.txtPlanDateTo.Name = "txtPlanDateTo";
             this.txtPlanDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -191,12 +164,12 @@
             this.txtPlanDateTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtPlanDateTo.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtPlanDateTo.Size = new System.Drawing.Size(126, 20);
-            this.txtPlanDateTo.TabIndex = 14;
+            this.txtPlanDateTo.TabIndex = 4;
             // 
             // txtPlanDateFrom
             // 
             this.txtPlanDateFrom.EditValue = null;
-            this.txtPlanDateFrom.Location = new System.Drawing.Point(81, 108);
+            this.txtPlanDateFrom.Location = new System.Drawing.Point(81, 31);
             this.txtPlanDateFrom.Name = "txtPlanDateFrom";
             this.txtPlanDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -208,12 +181,12 @@
             this.txtPlanDateFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtPlanDateFrom.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.txtPlanDateFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtPlanDateFrom.TabIndex = 13;
+            this.txtPlanDateFrom.TabIndex = 3;
             this.txtPlanDateFrom.Leave += new System.EventHandler(this.txtPlanDateFrom_Leave);
             // 
             // lblPlanDate
             // 
-            this.lblPlanDate.Location = new System.Drawing.Point(11, 109);
+            this.lblPlanDate.Location = new System.Drawing.Point(11, 34);
             this.lblPlanDate.Name = "lblPlanDate";
             this.lblPlanDate.Size = new System.Drawing.Size(64, 14);
             this.lblPlanDate.TabIndex = 7;
@@ -221,18 +194,18 @@
             // 
             // rdgIs_set
             // 
-            this.rdgIs_set.Location = new System.Drawing.Point(715, 54);
+            this.rdgIs_set.Location = new System.Drawing.Point(414, 63);
             this.rdgIs_set.Name = "rdgIs_set";
             this.rdgIs_set.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "未設定價錢的物料"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "已設定價錢的物料"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "全部")});
-            this.rdgIs_set.Size = new System.Drawing.Size(263, 74);
-            this.rdgIs_set.TabIndex = 18;
+            this.rdgIs_set.Size = new System.Drawing.Size(597, 33);
+            this.rdgIs_set.TabIndex = 10;
             // 
             // lblSource
             // 
-            this.lblSource.Location = new System.Drawing.Point(681, 8);
+            this.lblSource.Location = new System.Drawing.Point(47, 72);
             this.lblSource.Name = "lblSource";
             this.lblSource.Size = new System.Drawing.Size(28, 14);
             this.lblSource.TabIndex = 5;
@@ -240,127 +213,68 @@
             // 
             // rdgSource
             // 
-            this.rdgSource.Location = new System.Drawing.Point(715, 5);
+            this.rdgSource.Location = new System.Drawing.Point(81, 63);
             this.rdgSource.Name = "rdgSource";
             this.rdgSource.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "從生產計劃"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "從物料編號")});
-            this.rdgSource.Size = new System.Drawing.Size(263, 47);
-            this.rdgSource.TabIndex = 17;
-            // 
-            // txtClrTo
-            // 
-            this.txtClrTo.Location = new System.Drawing.Point(552, 56);
-            this.txtClrTo.Name = "txtClrTo";
-            this.txtClrTo.Properties.MaxLength = 4;
-            this.txtClrTo.Size = new System.Drawing.Size(126, 20);
-            this.txtClrTo.TabIndex = 8;
-            // 
-            // txtSizeTo
-            // 
-            this.txtSizeTo.Location = new System.Drawing.Point(552, 30);
-            this.txtSizeTo.Name = "txtSizeTo";
-            this.txtSizeTo.Properties.MaxLength = 3;
-            this.txtSizeTo.Size = new System.Drawing.Size(126, 20);
-            this.txtSizeTo.TabIndex = 4;
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "從物料編號"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "從生產數據")});
+            this.rdgSource.Size = new System.Drawing.Size(258, 33);
+            this.rdgSource.TabIndex = 9;
             // 
             // txtJobTypeTo
             // 
-            this.txtJobTypeTo.Location = new System.Drawing.Point(552, 108);
+            this.txtJobTypeTo.Location = new System.Drawing.Point(551, 31);
             this.txtJobTypeTo.Name = "txtJobTypeTo";
             this.txtJobTypeTo.Properties.MaxLength = 20;
             this.txtJobTypeTo.Size = new System.Drawing.Size(126, 20);
-            this.txtJobTypeTo.TabIndex = 16;
+            this.txtJobTypeTo.TabIndex = 6;
             // 
             // txtMachineTo
             // 
-            this.txtMachineTo.Location = new System.Drawing.Point(552, 82);
+            this.txtMachineTo.Location = new System.Drawing.Point(885, 31);
             this.txtMachineTo.Name = "txtMachineTo";
             this.txtMachineTo.Properties.MaxLength = 20;
             this.txtMachineTo.Size = new System.Drawing.Size(126, 20);
-            this.txtMachineTo.TabIndex = 12;
-            // 
-            // txtArtTo
-            // 
-            this.txtArtTo.Location = new System.Drawing.Point(214, 82);
-            this.txtArtTo.Name = "txtArtTo";
-            this.txtArtTo.Properties.MaxLength = 7;
-            this.txtArtTo.Size = new System.Drawing.Size(126, 20);
-            this.txtArtTo.TabIndex = 10;
-            // 
-            // txtPrdTypeTo
-            // 
-            this.txtPrdTypeTo.Location = new System.Drawing.Point(214, 56);
-            this.txtPrdTypeTo.Name = "txtPrdTypeTo";
-            this.txtPrdTypeTo.Properties.MaxLength = 2;
-            this.txtPrdTypeTo.Size = new System.Drawing.Size(126, 20);
-            this.txtPrdTypeTo.TabIndex = 6;
-            // 
-            // txtClrFrom
-            // 
-            this.txtClrFrom.Location = new System.Drawing.Point(419, 56);
-            this.txtClrFrom.Name = "txtClrFrom";
-            this.txtClrFrom.Properties.MaxLength = 4;
-            this.txtClrFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtClrFrom.TabIndex = 7;
-            this.txtClrFrom.Leave += new System.EventHandler(this.txtClrFrom_Leave);
+            this.txtMachineTo.TabIndex = 8;
             // 
             // txtJobTypeFrom
             // 
-            this.txtJobTypeFrom.Location = new System.Drawing.Point(419, 108);
+            this.txtJobTypeFrom.Location = new System.Drawing.Point(414, 31);
             this.txtJobTypeFrom.Name = "txtJobTypeFrom";
             this.txtJobTypeFrom.Properties.MaxLength = 20;
             this.txtJobTypeFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtJobTypeFrom.TabIndex = 15;
+            this.txtJobTypeFrom.TabIndex = 5;
             this.txtJobTypeFrom.Leave += new System.EventHandler(this.txtJobTypeFrom_Leave);
             // 
             // txtPrd_item_cdesc
             // 
-            this.txtPrd_item_cdesc.Location = new System.Drawing.Point(419, 5);
+            this.txtPrd_item_cdesc.Location = new System.Drawing.Point(752, 5);
             this.txtPrd_item_cdesc.Name = "txtPrd_item_cdesc";
             this.txtPrd_item_cdesc.Properties.MaxLength = 3;
             this.txtPrd_item_cdesc.Size = new System.Drawing.Size(259, 20);
-            this.txtPrd_item_cdesc.TabIndex = 3;
-            this.txtPrd_item_cdesc.Leave += new System.EventHandler(this.txtSizeFrom_Leave);
-            // 
-            // txtSizeFrom
-            // 
-            this.txtSizeFrom.Location = new System.Drawing.Point(419, 30);
-            this.txtSizeFrom.Name = "txtSizeFrom";
-            this.txtSizeFrom.Properties.MaxLength = 3;
-            this.txtSizeFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtSizeFrom.TabIndex = 3;
-            this.txtSizeFrom.Leave += new System.EventHandler(this.txtSizeFrom_Leave);
+            this.txtPrd_item_cdesc.TabIndex = 2;
             // 
             // txtMachineFrom
             // 
-            this.txtMachineFrom.Location = new System.Drawing.Point(419, 82);
+            this.txtMachineFrom.Location = new System.Drawing.Point(752, 31);
             this.txtMachineFrom.Name = "txtMachineFrom";
             this.txtMachineFrom.Properties.MaxLength = 20;
             this.txtMachineFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtMachineFrom.TabIndex = 11;
+            this.txtMachineFrom.TabIndex = 7;
             this.txtMachineFrom.Leave += new System.EventHandler(this.txtMachineFrom_Leave);
             // 
-            // lblClr
+            // txtPrd_item
             // 
-            this.lblClr.Location = new System.Drawing.Point(357, 59);
-            this.lblClr.Name = "lblClr";
-            this.lblClr.Size = new System.Drawing.Size(52, 14);
-            this.lblClr.TabIndex = 2;
-            this.lblClr.Text = "顏色代號:";
-            // 
-            // txtArtFrom
-            // 
-            this.txtArtFrom.Location = new System.Drawing.Point(81, 82);
-            this.txtArtFrom.Name = "txtArtFrom";
-            this.txtArtFrom.Properties.MaxLength = 7;
-            this.txtArtFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtArtFrom.TabIndex = 9;
-            this.txtArtFrom.Leave += new System.EventHandler(this.txtArtFrom_Leave);
+            this.txtPrd_item.Location = new System.Drawing.Point(414, 5);
+            this.txtPrd_item.Name = "txtPrd_item";
+            this.txtPrd_item.Properties.MaxLength = 18;
+            this.txtPrd_item.Size = new System.Drawing.Size(263, 20);
+            this.txtPrd_item.TabIndex = 1;
             // 
             // lblPrd_item_cdesc
             // 
-            this.lblPrd_item_cdesc.Location = new System.Drawing.Point(357, 8);
+            this.lblPrd_item_cdesc.Location = new System.Drawing.Point(690, 8);
             this.lblPrd_item_cdesc.Name = "lblPrd_item_cdesc";
             this.lblPrd_item_cdesc.Size = new System.Drawing.Size(52, 14);
             this.lblPrd_item_cdesc.TabIndex = 2;
@@ -368,77 +282,27 @@
             // 
             // lblJob_type
             // 
-            this.lblJob_type.Location = new System.Drawing.Point(381, 109);
+            this.lblJob_type.Location = new System.Drawing.Point(380, 34);
             this.lblJob_type.Name = "lblJob_type";
             this.lblJob_type.Size = new System.Drawing.Size(28, 14);
             this.lblJob_type.TabIndex = 2;
             this.lblJob_type.Text = "工种:";
             // 
-            // lblSize
-            // 
-            this.lblSize.Location = new System.Drawing.Point(357, 33);
-            this.lblSize.Name = "lblSize";
-            this.lblSize.Size = new System.Drawing.Size(52, 14);
-            this.lblSize.TabIndex = 2;
-            this.lblSize.Text = "尺寸代號:";
-            // 
             // lblMachine
             // 
-            this.lblMachine.Location = new System.Drawing.Point(357, 85);
+            this.lblMachine.Location = new System.Drawing.Point(690, 34);
             this.lblMachine.Name = "lblMachine";
             this.lblMachine.Size = new System.Drawing.Size(52, 14);
             this.lblMachine.TabIndex = 2;
             this.lblMachine.Text = "生產機器:";
             // 
-            // txtMatTo
-            // 
-            this.txtMatTo.Location = new System.Drawing.Point(214, 30);
-            this.txtMatTo.Name = "txtMatTo";
-            this.txtMatTo.Properties.MaxLength = 2;
-            this.txtMatTo.Size = new System.Drawing.Size(126, 20);
-            this.txtMatTo.TabIndex = 2;
-            // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(23, 85);
+            this.labelControl1.Location = new System.Drawing.Point(356, 8);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 14);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "圖樣代號:";
-            // 
-            // txtPrdTypeFrom
-            // 
-            this.txtPrdTypeFrom.Location = new System.Drawing.Point(81, 56);
-            this.txtPrdTypeFrom.Name = "txtPrdTypeFrom";
-            this.txtPrdTypeFrom.Properties.MaxLength = 2;
-            this.txtPrdTypeFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtPrdTypeFrom.TabIndex = 5;
-            this.txtPrdTypeFrom.Leave += new System.EventHandler(this.txtPrdTypeFrom_Leave);
-            // 
-            // lblPrdType
-            // 
-            this.lblPrdType.Location = new System.Drawing.Point(23, 59);
-            this.lblPrdType.Name = "lblPrdType";
-            this.lblPrdType.Size = new System.Drawing.Size(52, 14);
-            this.lblPrdType.TabIndex = 2;
-            this.lblPrdType.Text = "產品類型:";
-            // 
-            // txtMatFrom
-            // 
-            this.txtMatFrom.Location = new System.Drawing.Point(81, 30);
-            this.txtMatFrom.Name = "txtMatFrom";
-            this.txtMatFrom.Properties.MaxLength = 2;
-            this.txtMatFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtMatFrom.TabIndex = 1;
-            this.txtMatFrom.Leave += new System.EventHandler(this.txtMatFrom_Leave);
-            // 
-            // lblMat
-            // 
-            this.lblMat.Location = new System.Drawing.Point(23, 33);
-            this.lblMat.Name = "lblMat";
-            this.lblMat.Size = new System.Drawing.Size(52, 14);
-            this.lblMat.TabIndex = 2;
-            this.lblMat.Text = "物料種類:";
+            this.labelControl1.Text = "物料編號:";
             // 
             // txtPrd_dep
             // 
@@ -517,6 +381,8 @@
             this.colProcess_name,
             this.colCost_price,
             this.colProduct_qty,
+            this.colPrd_qty,
+            this.colPrd_cost,
             this.colDefaultLineQty,
             this.colDefaultJobType,
             this.colPrdMachine,
@@ -527,12 +393,12 @@
             this.colPrd_machine,
             this.colMachine_desc});
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetails.Location = new System.Drawing.Point(0, 241);
+            this.dgvDetails.Location = new System.Drawing.Point(0, 213);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowHeadersWidth = 20;
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1192, 324);
+            this.dgvDetails.Size = new System.Drawing.Size(1192, 352);
             this.dgvDetails.TabIndex = 2;
             this.dgvDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellDoubleClick);
             // 
@@ -543,7 +409,7 @@
             this.panelControl2.Controls.Add(this.rdgSetType);
             this.panelControl2.Controls.Add(this.lblMsg);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 177);
+            this.panelControl2.Location = new System.Drawing.Point(0, 149);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1192, 64);
             this.panelControl2.TabIndex = 3;
@@ -553,7 +419,7 @@
             this.btnSave.Location = new System.Drawing.Point(715, 15);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 1;
             this.btnSave.Text = "確認(&S)";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -579,7 +445,7 @@
             this.rdgSetType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "使用指定公式:"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "使用已生產的工种套入公式")});
-            this.rdgSetType.Size = new System.Drawing.Size(818, 50);
+            this.rdgSetType.Size = new System.Drawing.Size(851, 50);
             this.rdgSetType.TabIndex = 3;
             // 
             // lblMsg
@@ -592,12 +458,23 @@
             // 
             // chkSelect
             // 
-            this.chkSelect.Location = new System.Drawing.Point(33, 247);
+            this.chkSelect.Location = new System.Drawing.Point(34, 219);
             this.chkSelect.Name = "chkSelect";
             this.chkSelect.Properties.Caption = "";
-            this.chkSelect.Size = new System.Drawing.Size(26, 19);
+            this.chkSelect.Size = new System.Drawing.Size(17, 19);
             this.chkSelect.TabIndex = 1;
             this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
+            // 
+            // colSelect
+            // 
+            this.colSelect.DataPropertyName = "chk_flag";
+            this.colSelect.FillWeight = 60F;
+            this.colSelect.HeaderText = "";
+            this.colSelect.Name = "colSelect";
+            this.colSelect.ReadOnly = true;
+            this.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelect.Width = 40;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -688,17 +565,46 @@
             this.dataGridViewTextBoxColumn13.DataPropertyName = "machine_desc";
             this.dataGridViewTextBoxColumn13.HeaderText = "機器描述";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 120;
             // 
-            // colSelect
+            // dataGridViewTextBoxColumn14
             // 
-            this.colSelect.DataPropertyName = "chk_flag";
-            this.colSelect.FillWeight = 60F;
-            this.colSelect.HeaderText = "";
-            this.colSelect.Name = "colSelect";
-            this.colSelect.ReadOnly = true;
-            this.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelect.Width = 40;
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "default_prd_machine_level";
+            this.dataGridViewTextBoxColumn14.HeaderText = "扣部檔位(預設)";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "ref_mo";
+            this.dataGridViewTextBoxColumn15.HeaderText = "生產制單";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "job_type";
+            this.dataGridViewTextBoxColumn16.HeaderText = "工种";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "job_desc";
+            this.dataGridViewTextBoxColumn17.HeaderText = "工種描述";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "prd_machine";
+            this.dataGridViewTextBoxColumn18.HeaderText = "生產機器";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "machine_desc";
+            this.dataGridViewTextBoxColumn19.HeaderText = "機器描述";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
             // colDep
             // 
@@ -759,11 +665,25 @@
             // 
             // colProduct_qty
             // 
-            this.colProduct_qty.DataPropertyName = "product_qty";
+            this.colProduct_qty.DataPropertyName = "base_qty";
             this.colProduct_qty.HeaderText = "基數";
             this.colProduct_qty.Name = "colProduct_qty";
             this.colProduct_qty.ReadOnly = true;
             this.colProduct_qty.Width = 80;
+            // 
+            // colPrd_qty
+            // 
+            this.colPrd_qty.DataPropertyName = "prd_qty";
+            this.colPrd_qty.HeaderText = "生產數量";
+            this.colPrd_qty.Name = "colPrd_qty";
+            this.colPrd_qty.ReadOnly = true;
+            // 
+            // colPrd_cost
+            // 
+            this.colPrd_cost.DataPropertyName = "prd_cost";
+            this.colPrd_cost.HeaderText = "生產費用";
+            this.colPrd_cost.Name = "colPrd_cost";
+            this.colPrd_cost.ReadOnly = true;
             // 
             // colDefaultLineQty
             // 
@@ -855,21 +775,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgIs_set.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgSource.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobTypeTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMachineTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobTypeFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item_cdesc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMachineFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatFrom.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_dep.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -891,21 +802,8 @@
         private System.Windows.Forms.ToolStripButton btnExit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnFind;
-        private DevExpress.XtraEditors.TextEdit txtClrTo;
-        private DevExpress.XtraEditors.TextEdit txtSizeTo;
-        private DevExpress.XtraEditors.TextEdit txtArtTo;
-        private DevExpress.XtraEditors.TextEdit txtPrdTypeTo;
-        private DevExpress.XtraEditors.TextEdit txtClrFrom;
-        private DevExpress.XtraEditors.TextEdit txtSizeFrom;
-        private DevExpress.XtraEditors.LabelControl lblClr;
-        private DevExpress.XtraEditors.TextEdit txtArtFrom;
-        private DevExpress.XtraEditors.LabelControl lblSize;
-        private DevExpress.XtraEditors.TextEdit txtMatTo;
+        private DevExpress.XtraEditors.TextEdit txtPrd_item;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtPrdTypeFrom;
-        private DevExpress.XtraEditors.LabelControl lblPrdType;
-        private DevExpress.XtraEditors.TextEdit txtMatFrom;
-        private DevExpress.XtraEditors.LabelControl lblMat;
         private DevExpress.XtraEditors.TextEdit txtPrd_dep;
         private DevExpress.XtraEditors.LabelControl lblDep;
         private DevExpress.XtraEditors.RadioGroup rdgSource;
@@ -952,6 +850,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProcess_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduct_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDefaultLineQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDefaultJobType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrdMachine;
@@ -961,5 +861,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colJob_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_machine;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMachine_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
     }
 }
