@@ -332,28 +332,31 @@ namespace cf01.CLS
                 productId1 = productId;
             else
                 productId1 = matFrom + prdTypeFrom + artFrom + sizeFrom + clrFrom;
-            if (isSetCosting == 0)
-                strWhere += " And a.ProductId";
-            else
+            if (productId1 != "")
+            {
+                if (isSetCosting == 0)
+                    strWhere += " And a.ProductId";
+                else
                 if (sourceItem == 0)
-                strWhere += " And b.goods_id";
-            else
-                strWhere += " And mm.id";
-            if (productId1.Length == 18 || (productId1.Length>2 && productId1.Substring(0,2)=="F0"))
-            {
-                strWhere += " = '";
-            }
-            else
-            {
-                strWhere += " Like '";
-                productId1 = (matFrom == "" ? "__" : matFrom)
-                    + (prdTypeFrom == "" ? "__" : prdTypeFrom)
-                    + (artFrom == "" ? "_______" : artFrom)
-                    + (sizeFrom == "" ? "___" : sizeFrom)
-                    + (clrFrom == "" ? "____" : clrFrom);
-            }
-            strWhere += productId1 + "'";
+                    strWhere += " And b.goods_id";
+                else
+                    strWhere += " And mm.id";
 
+                if (productId1.Length == 18 || (productId1.Length > 2 && productId1.Substring(0, 2) == "F0"))
+                {
+                    strWhere += " = '";
+                }
+                else
+                {
+                    strWhere += " Like '";
+                    productId1 = (matFrom == "" ? "__" : matFrom)
+                        + (prdTypeFrom == "" ? "__" : prdTypeFrom)
+                        + (artFrom == "" ? "_______" : artFrom)
+                        + (sizeFrom == "" ? "___" : sizeFrom)
+                        + (clrFrom == "" ? "____" : clrFrom);
+                }
+                strWhere += productId1 + "'";
+            }
             if (isSetCosting == 0)//已設定成本
             {
                 strSql = "Select Top "+RecNumber+" a.ProductId AS goods_id,a.ProductMo AS mo_id,a.ProductWeight AS pcs_weg,mm.name As goods_cname" +

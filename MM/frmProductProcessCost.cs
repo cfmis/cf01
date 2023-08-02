@@ -50,21 +50,22 @@ namespace cf01.MM
         }
         private bool findVaildData()
         {
-            if (txtPrd_dep.Text.Trim() == "")
+
+            if (rdgSource.SelectedIndex != 1)
             {
-                MessageBox.Show("部門不能為空!");
-                txtPrd_dep.Focus();
-                return false;
-            }
-            if (rdgSource.SelectedIndex == 0)
-            {
-                if (txtPlanDateFrom.EditValue == null || txtPlanDateFrom.EditValue == "")
+                if (txtPrd_dep.Text.Trim() == "")
+                {
+                    MessageBox.Show("部門不能為空!");
+                    txtPrd_dep.Focus();
+                    return false;
+                }
+                if (txtPlanDateFrom.EditValue == null || txtPlanDateFrom.EditValue.ToString() == "")
                 {
                     MessageBox.Show("計劃單日期為空!");
                     txtPlanDateFrom.Focus();
                     return false;
                 }
-                if (txtPlanDateTo.EditValue == null || txtPlanDateTo.EditValue == "")
+                if (txtPlanDateTo.EditValue == null || txtPlanDateTo.EditValue.ToString() == "")
                 {
                     MessageBox.Show("計劃單日期為空!");
                     txtPlanDateTo.Focus();
@@ -73,16 +74,10 @@ namespace cf01.MM
             }
             else
             {
-                if (txtMatFrom.Text == "" && txtMatTo.Text == ""
-                    && txtPrdTypeFrom.Text == "" && txtPrdTypeTo.Text == ""
-                    && txtArtFrom.Text == "" && txtArtTo.Text == ""
-                    && txtSizeFrom.Text == "" && txtSizeTo.Text == ""
-                    && txtClrFrom.Text == "" && txtClrTo.Text == ""
-                     && txtPrd_item_cdesc.Text == ""
-                )
+                if (txtPrd_item.Text == "" && txtPrd_item_cdesc.Text == "")
                 {
                     MessageBox.Show("物料編號查詢條件太少!");
-                    txtMatFrom.Focus();
+                    txtPrd_item.Focus();
                     return false;
                 }
             }
@@ -91,45 +86,21 @@ namespace cf01.MM
         private void findDataProcess()
         {
             string Prd_dep = txtPrd_dep.Text;
-            string Mat_from = txtMatFrom.Text;
-            string Mat_to = txtMatTo.Text;
-            string Prd_type_from = txtPrdTypeFrom.Text;
-            string Prd_type_to = txtPrdTypeTo.Text;
-            string Art_from = txtArtFrom.Text;
-            string Art_to = txtArtTo.Text;
-            string Size_from = txtSizeFrom.Text;
-            string Size_to = txtSizeTo.Text;
-            string Clr_from = txtClrFrom.Text;
-            string Clr_to = txtClrTo.Text;
+            string prd_item = txtPrd_item.Text;
             string Machine_from = txtMachineFrom.Text;
             string Machine_to = txtMachineTo.Text;
             if (Machine_to != "")
                 Machine_to = Machine_to + "ZZZ";
-            int Source_type = 0;
-            int Is_set = 0;
-            if (rdgSource.SelectedIndex == 1)
-                Source_type = 1;
-            if (rdgIs_set.SelectedIndex == 1)
-                Is_set = 1;
-            else if (rdgIs_set.SelectedIndex == 2)
-                Is_set = 2;
+            int Source_type = rdgSource.SelectedIndex;
+            int Is_set = rdgIs_set.SelectedIndex;
             string Plan_date_from=txtPlanDateFrom.Text;
             string Plan_date_to=txtPlanDateTo.Text;
             string strSql = "usp_ProductProcessCost";
             SqlParameter[] parameters = {new SqlParameter("@source_type", Source_type)
                         ,new SqlParameter("@is_set", Is_set)
                         ,new SqlParameter("@Prd_dep", Prd_dep)
+                        ,new SqlParameter("@prd_item", prd_item)
                         ,new SqlParameter("@Prd_item_cdesc", txtPrd_item_cdesc.Text.Trim())
-                        ,new SqlParameter("@mat_from", Mat_from)
-                        ,new SqlParameter("@mat_to", Mat_to)
-                        ,new SqlParameter("@prd_type_from", Prd_type_from)
-                        ,new SqlParameter("@prd_type_to", Prd_type_to)
-                        ,new SqlParameter("@art_from", Art_from)
-                        ,new SqlParameter("@art_to", Art_to)
-                        ,new SqlParameter("@size_from", Size_from)
-                        ,new SqlParameter("@size_to", Size_to)
-                        ,new SqlParameter("@clr_from", Clr_from)
-                        ,new SqlParameter("@clr_to", Clr_to)
                         ,new SqlParameter("@plan_date_from", Plan_date_from)
                         ,new SqlParameter("@plan_date_to", Plan_date_to)
                         ,new SqlParameter("@machine_from", Machine_from)
@@ -154,21 +125,12 @@ namespace cf01.MM
             dgvDetails.AutoGenerateColumns = false;
             if (frmProductCosting.searchProductId.Length>=18)
             {
-                rdgSource.SelectedIndex = 1;
-                rdgIs_set.SelectedIndex = 1;
                 txtPrd_dep.Text = frmProductCosting.searchDepId;
                 string productId = frmProductCosting.searchProductId;
-                txtMatFrom.Text = productId.Substring(0,2);
-                txtMatTo.Text = txtMatFrom.Text;
-                txtPrdTypeFrom.Text = productId.Substring(2, 2);
-                txtPrdTypeTo.Text = txtPrdTypeFrom.Text;
-                txtArtFrom.Text = productId.Substring(4, 7);
-                txtArtTo.Text = txtArtFrom.Text;
-                txtSizeFrom.Text = productId.Substring(11, 3);
-                txtSizeTo.Text = txtSizeFrom.Text;
-                txtClrFrom.Text = productId.Substring(14, 4);
-                txtClrTo.Text = txtClrFrom.Text;
+                txtPrd_item.Text = productId;
             }
+            rdgSource.SelectedIndex = 2;
+            rdgIs_set.SelectedIndex = 2;
         }
         private void loadJob_type()
         {
@@ -299,35 +261,14 @@ namespace cf01.MM
             txtMachineTo.Text = txtMachineFrom.Text;
         }
 
-        private void txtMatFrom_Leave(object sender, EventArgs e)
-        {
-            txtMatTo.Text = txtMatFrom.Text;
-        }
 
-        private void txtPrdTypeFrom_Leave(object sender, EventArgs e)
-        {
-            txtPrdTypeTo.Text = txtPrdTypeFrom.Text;
-        }
-
-        private void txtArtFrom_Leave(object sender, EventArgs e)
-        {
-            txtArtTo.Text = txtArtFrom.Text;
-        }
 
         private void txtPlanDateFrom_Leave(object sender, EventArgs e)
         {
             txtPlanDateTo.Text = txtPlanDateFrom.Text;
         }
 
-        private void txtSizeFrom_Leave(object sender, EventArgs e)
-        {
-            txtSizeTo.Text = txtSizeFrom.Text;
-        }
 
-        private void txtClrFrom_Leave(object sender, EventArgs e)
-        {
-            txtClrTo.Text = txtClrFrom.Text;
-        }
 
         private void txtJobTypeFrom_Leave(object sender, EventArgs e)
         {
