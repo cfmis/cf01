@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -91,8 +91,6 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stripe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalesGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
@@ -102,7 +100,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails0)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -320,8 +317,8 @@
             // mo_group
             // 
             this.mo_group.DataPropertyName = "mo_group";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.mo_group.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.mo_group.DefaultCellStyle = dataGridViewCellStyle31;
             this.mo_group.HeaderText = "組別";
             this.mo_group.Name = "mo_group";
             this.mo_group.ReadOnly = true;
@@ -331,9 +328,9 @@
             // orderdate
             // 
             this.orderdate.DataPropertyName = "order_date";
-            dataGridViewCellStyle17.Format = "d";
-            dataGridViewCellStyle17.NullValue = null;
-            this.orderdate.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle32.Format = "d";
+            dataGridViewCellStyle32.NullValue = null;
+            this.orderdate.DefaultCellStyle = dataGridViewCellStyle32;
             this.orderdate.HeaderText = "落單日期";
             this.orderdate.Name = "orderdate";
             this.orderdate.ReadOnly = true;
@@ -343,9 +340,9 @@
             // plan_complete
             // 
             this.plan_complete.DataPropertyName = "plan_complete";
-            dataGridViewCellStyle18.Format = "d";
-            dataGridViewCellStyle18.NullValue = null;
-            this.plan_complete.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle33.Format = "d";
+            dataGridViewCellStyle33.NullValue = null;
+            this.plan_complete.DefaultCellStyle = dataGridViewCellStyle33;
             this.plan_complete.HeaderText = "回港日期";
             this.plan_complete.Name = "plan_complete";
             this.plan_complete.ReadOnly = true;
@@ -355,9 +352,9 @@
             // arrive_date
             // 
             this.arrive_date.DataPropertyName = "arrive_date";
-            dataGridViewCellStyle19.Format = "d";
-            dataGridViewCellStyle19.NullValue = null;
-            this.arrive_date.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle34.Format = "d";
+            dataGridViewCellStyle34.NullValue = null;
+            this.arrive_date.DefaultCellStyle = dataGridViewCellStyle34;
             this.arrive_date.HeaderText = "交客日期";
             this.arrive_date.Name = "arrive_date";
             this.arrive_date.ReadOnly = true;
@@ -367,9 +364,9 @@
             // order_qty
             // 
             this.order_qty.DataPropertyName = "order_qty";
-            dataGridViewCellStyle20.Format = "N0";
-            dataGridViewCellStyle20.NullValue = null;
-            this.order_qty.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle35.Format = "N0";
+            dataGridViewCellStyle35.NullValue = null;
+            this.order_qty.DefaultCellStyle = dataGridViewCellStyle35;
             this.order_qty.HeaderText = "訂單數量";
             this.order_qty.Name = "order_qty";
             this.order_qty.ReadOnly = true;
@@ -379,8 +376,8 @@
             // mo_id
             // 
             this.mo_id.DataPropertyName = "mo_id";
-            dataGridViewCellStyle21.NullValue = null;
-            this.mo_id.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle36.NullValue = null;
+            this.mo_id.DefaultCellStyle = dataGridViewCellStyle36;
             this.mo_id.HeaderText = "頁數";
             this.mo_id.Name = "mo_id";
             this.mo_id.ReadOnly = true;
@@ -417,9 +414,9 @@
             // packing_qty
             // 
             this.packing_qty.DataPropertyName = "packing_qty";
-            dataGridViewCellStyle22.Format = "N0";
-            dataGridViewCellStyle22.NullValue = "0";
-            this.packing_qty.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle37.Format = "N0";
+            dataGridViewCellStyle37.NullValue = "0";
+            this.packing_qty.DefaultCellStyle = dataGridViewCellStyle37;
             this.packing_qty.HeaderText = "完成數量";
             this.packing_qty.Name = "packing_qty";
             this.packing_qty.ReadOnly = true;
@@ -490,10 +487,10 @@
             // flag_select
             // 
             this.flag_select.DataPropertyName = "flag_select";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle23.NullValue = false;
-            this.flag_select.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle38.NullValue = false;
+            this.flag_select.DefaultCellStyle = dataGridViewCellStyle38;
             this.flag_select.HeaderText = "選擇";
             this.flag_select.Name = "flag_select";
             this.flag_select.Width = 60;
@@ -510,8 +507,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "mo_group";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridViewTextBoxColumn2.HeaderText = "組別";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -520,9 +517,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "order_date";
-            dataGridViewCellStyle25.Format = "d";
-            dataGridViewCellStyle25.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle40.Format = "d";
+            dataGridViewCellStyle40.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridViewTextBoxColumn3.HeaderText = "落單日期";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -531,9 +528,9 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "plan_complete";
-            dataGridViewCellStyle26.Format = "d";
-            dataGridViewCellStyle26.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle41.Format = "d";
+            dataGridViewCellStyle41.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridViewTextBoxColumn4.HeaderText = "回港日期";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -542,9 +539,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "arrive_date";
-            dataGridViewCellStyle27.Format = "d";
-            dataGridViewCellStyle27.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle42.Format = "d";
+            dataGridViewCellStyle42.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataGridViewTextBoxColumn5.HeaderText = "交客日期";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -553,9 +550,9 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "order_qty";
-            dataGridViewCellStyle28.Format = "N0";
-            dataGridViewCellStyle28.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle43.Format = "N0";
+            dataGridViewCellStyle43.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle43;
             this.dataGridViewTextBoxColumn6.HeaderText = "訂單數量";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -564,8 +561,8 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "mo_id";
-            dataGridViewCellStyle29.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle44.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridViewTextBoxColumn7.HeaderText = "頁數";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -601,9 +598,9 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "packing_qty";
-            dataGridViewCellStyle30.Format = "N0";
-            dataGridViewCellStyle30.NullValue = "0";
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle45.Format = "N0";
+            dataGridViewCellStyle45.NullValue = "0";
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle45;
             this.dataGridViewTextBoxColumn10.HeaderText = "完成數量";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -626,33 +623,11 @@
             this.stripe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.stripe.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(531, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 33);
-            this.button1.TabIndex = 156;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.EnterMoveNextControl = true;
-            this.textEdit1.Location = new System.Drawing.Point(657, 77);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textEdit1.Properties.MaxLength = 1;
-            this.textEdit1.Size = new System.Drawing.Size(156, 20);
-            this.textEdit1.TabIndex = 157;
-            // 
             // frmDeliveryPrepare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 543);
-            this.Controls.Add(this.textEdit1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvDetails0);
             this.Controls.Add(this.radioGroup1);
             this.Controls.Add(this.dgvDetails1);
@@ -676,7 +651,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails0)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -732,7 +706,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn stripe;
-        private System.Windows.Forms.Button button1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }

@@ -217,10 +217,10 @@ namespace cf01.ReportForm
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DataRow[] ary_drs = dtReport0.Select("flag_select=true");
-            textEdit1.Text = ary_drs.Length.ToString();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    DataRow[] ary_drs = dtReport0.Select("flag_select=true");
+        //    textEdit1.Text = ary_drs.Length.ToString();
+        //}
     }
 }
