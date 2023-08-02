@@ -197,10 +197,11 @@ namespace cf01.ReportForm
             {
                 return;
             }
-            txtSalesGroup.Focus();
-            string result = "";
+            
             if (dgvDetails0.Columns[e.ColumnIndex].Name == "flag_select")
             {
+                txtSalesGroup.Focus();
+                string result = "";
                 DataGridViewRow row = dgvDetails0.Rows[e.RowIndex];
                 result = row.Cells["flag_select"].Value.ToString();
                 if (bool.Parse(row.Cells["flag_select"].Value.ToString()) == true)
