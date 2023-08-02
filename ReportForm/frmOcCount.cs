@@ -59,7 +59,7 @@ namespace cf01.ReportForm
         { 
             if (txtDat1.Text == "" && txtDat2.Text == "" &&txtSalesGroup.Text ==""&&txtBrand_id1.Text ==""&&txtBrand_id2.Text=="" )
             {
-                MessageBox.Show("查詢條件條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDat1.Focus();
                 return;
             }
