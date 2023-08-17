@@ -33,7 +33,7 @@ namespace cf01.ReportForm
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
-        {
+        {      
             if (txtDat1.Text == "" && txtDat2.Text == "" && txtSalesGroup.Text == "" )
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
