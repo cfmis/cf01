@@ -11,13 +11,6 @@ namespace cf01.CLS
         public static void SetDropBox(DevExpress.XtraEditors.LookUpEdit obj, string strType)
         {
             string strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", strType);
-            //switch (strType)
-            //{
-            //    case "divisions":
-
-            //        break;
-
-            //}
             System.Data.DataTable dtObj = new System.Data.DataTable();
             dtObj = clsPublicOfCF01.GetDataTable(strSql);
             obj.Properties.DataSource = dtObj;
@@ -91,9 +84,9 @@ namespace cf01.CLS
             return dt;
         }
 
-        public static DataTable GetProcess()
+        public static DataTable GetProcess(string field_type)
         {
-            string strSql = string.Format(@"SELECT Convert(bit, 0) AS flagSelect,contents FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "processes");
+            string strSql = string.Format(@"SELECT Convert(bit, 0) AS flagSelect,contents FROM development_pvh_type WHERE type='{0}' ORDER BY sort", field_type);
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }

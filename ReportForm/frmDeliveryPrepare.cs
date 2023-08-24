@@ -33,7 +33,23 @@ namespace cf01.ReportForm
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
-        {      
+        {
+            // 測試用
+            //string str5 = @"D:\Workspace\DMS\CF2025.Web.Admin\Document\Files\public\Test3\abc\brand_1.XLS";
+            //int index_start = str5.IndexOf(@"\public");
+            //string currentPath = str5.Substring(index_start, str5.Length - index_start);
+            //string currentPath = str5.Substring(index_start);
+            //string fileName = "test04_01_001.xls";
+            //index_start = currentPath.LastIndexOf(fileName);
+            //string currentPath1 = currentPath.Substring(0, index_start -1);
+
+            //string currentPath = "public\\TEST6\\123";
+            //string fileName = "123";
+            //int index_start = currentPath.LastIndexOf(fileName);
+            //string strParentPath = "\\" + currentPath.Substring(0, index_start-1);
+           // return;
+           
+
             if (txtDat1.Text == "" && txtDat2.Text == "" && txtSalesGroup.Text == "" )
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);

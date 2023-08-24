@@ -12,11 +12,14 @@ namespace cf01.Forms
 {
     public partial class frmPvhProcess : Form
     {
-        public string strProcess = "";
+        public string strProcess = string.Empty;
         public DataTable dtProcess = new DataTable();
-        public frmPvhProcess()
+        string field_type = string.Empty;
+        public frmPvhProcess(string fieldType)
         {
             InitializeComponent();
+            field_type = fieldType;
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace cf01.Forms
 
         private void frmPvhProcess_Load(object sender, EventArgs e)
         {
-            dtProcess = clsDevelopentPvh.GetProcess();
+            dtProcess = clsDevelopentPvh.GetProcess(field_type);
             dgvProcess.DataSource = dtProcess;
         }
 

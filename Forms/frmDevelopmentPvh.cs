@@ -40,7 +40,7 @@ namespace cf01.Forms
             objToolbar = new clsToolBar(this.Name, this.Controls);
             objToolbar.SetToolBar();
 
-            const string sql = @"SELECT * From development_pvh with(nolock) where 1=0 ";
+            const string sql = @"SELECT * FROM development_pvh With(nolock) WHERE 1=0 ";
             dtDetail = clsPublicOfCF01.GetDataTable(sql); 
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;// dtDetail;
@@ -52,12 +52,11 @@ namespace cf01.Forms
             //clsDevelopentPvh.SetDropBox(lueDivision, "divisions");
             clsDevelopentPvh.SetDropBox(lueHandling_office, "hand_office");
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
-            clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type");           
-            clsDevelopentPvh.SetDropBox(lueFinish, "finish");
-            clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");
-            //clsDevelopentPvh.SetDropBox(lueProcess, "processes");
+            clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type"); 
+            clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");            
             clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
-            
+           
+
             string strSql = "";
             string strGroup = "V,E";
             if (user_group == "W")
@@ -289,7 +288,7 @@ namespace cf01.Forms
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
             txtProcess.DataBindings.Add("EditValue", bds1, "process");
-            lueFinish.DataBindings.Add("EditValue", bds1, "finish");
+            txtFinish.DataBindings.Add("EditValue", bds1, "finish");
             txtPrevious_submit_ref.DataBindings.Add("Text", bds1, "previous_submit_ref");
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
             luePrevious_submit_vr.DataBindings.Add("EditValue", bds1, "previous_submit_vr");
@@ -392,7 +391,11 @@ namespace cf01.Forms
             //chksubmit2.DataBindings.Add("Checked", bds1, "submit2");
             //chksubmit3.DataBindings.Add("Checked", bds1, "submit3");
             //chkurgent_bulk_order.DataBindings.Add("Checked", bds1, "urgent_bulk_order");
-            
+            //------------------------------------------------------------------------------------
+            //added in 2023/08/23            
+            txtDye_type.DataBindings.Add("EditValue", bds1, "dye_type");
+            txtDye_method.DataBindings.Add("EditValue", bds1, "dye_method");
+
         }
 
         private void SetButtonSatus(bool _flag)
@@ -493,7 +496,8 @@ namespace cf01.Forms
             cert2_type_other,cert2_scope_no,cert2_expiry_date,cert2_scope_holder,cert3_mat_finish,cert3_type,cert3_type_other,cert3_scope_no,cert3_expiry_date,cert3_scope_holder,
             cert4_mat_finish,cert4_type,cert4_type_other,cert4_scope_no,cert4_expiry_date,cert4_scope_holder,rsl_certificate_type,rsl_certificate_expiry_date,machine_washable,
             dry_cleanable,dry_clean_only,do_not_dry_clean,suitable_for_tumble_dry,suitable_for_swimwear,passes_metal_detection,complies_with_pvh,complies_with_cfr,quality_callouts,
-            submit1,submit2,submit3,urgent_bulk_order,for_bulk_feference,for_quality_approval,color_already_approved,size_already_approved,create_by,create_date,mo_id1,mo_id2,mo_id3) 
+            submit1,submit2,submit3,urgent_bulk_order,for_bulk_feference,for_quality_approval,color_already_approved,size_already_approved,create_by,create_date,mo_id1,mo_id2,mo_id3,
+            dye_type,dye_method) 
             VALUES(@serial_no,@division,@handling_office,@season,@date,@requested_by,@supplier_ref_no,@plm_material_code,@pvh_submit_ref,@supplier_name,@factory_name,
             @material_subtype,@size,@colour,@finish,@process,@previous_submit_ref,@sample_type,@previous_submit_vr,@weight,@weight_uom,@obj_fbx,@u3ma,@raw_mat1_compostion,
             @raw_mat1_percent,@raw_mat1_l3,@raw_mat1_l4,@raw_mat1_l5,@raw_mat2_compostion,@raw_mat2_percent,@raw_mat2_l3,@raw_mat2_l4,@raw_mat2_l5,@raw_mat3_compostion,@raw_mat3_percent,
@@ -504,7 +508,8 @@ namespace cf01.Forms
             @cert4_mat_finish,@cert4_type,@cert4_type_other,@cert4_scope_no,@cert4_expiry_date,@cert4_scope_holder,@rsl_certificate_type,
             CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END ,@machine_washable,
             @dry_cleanable,@dry_clean_only,@do_not_dry_clean,@suitable_for_tumble_dry,@suitable_for_swimwear,@passes_metal_detection,@complies_with_pvh,@complies_with_cfr,@quality_callouts,
-            @submit1,@submit2,@submit3,@urgent_bulk_order,@for_bulk_feference,@for_quality_approval,@color_already_approved,@size_already_approved,@user_id,getdate(),@mo_id1,@mo_id2,@mo_id3)";
+            @submit1,@submit2,@submit3,@urgent_bulk_order,@for_bulk_feference,@for_quality_approval,@color_already_approved,@size_already_approved,@user_id,getdate(),@mo_id1,@mo_id2,@mo_id3,
+            @dye_type,@dye_method)";
 
             const string sql_update =
             @"Update development_pvh 
@@ -525,7 +530,7 @@ namespace cf01.Forms
             dry_cleanable=@dry_cleanable,dry_clean_only=@dry_clean_only,do_not_dry_clean=@do_not_dry_clean,suitable_for_tumble_dry=@suitable_for_tumble_dry,suitable_for_swimwear=@suitable_for_swimwear,
             passes_metal_detection=@passes_metal_detection,complies_with_pvh=@complies_with_pvh,complies_with_cfr=@complies_with_cfr,quality_callouts=@quality_callouts,submit1=@submit1,submit2=@submit2,submit3=@submit3,
             urgent_bulk_order=@urgent_bulk_order,for_bulk_feference=@for_bulk_feference,for_quality_approval=@for_quality_approval,color_already_approved=@color_already_approved,size_already_approved=@size_already_approved,
-            update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3
+            update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3, dye_type=@dye_type,dye_method=@dye_method
             WHERE serial_no=@serial_no";
 
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -574,7 +579,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@material_subtype", lueMaterial_subtype.EditValue);
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
-                    myCommand.Parameters.AddWithValue("@finish", lueFinish.EditValue);
+                    myCommand.Parameters.AddWithValue("@finish", txtFinish.EditValue);
                     myCommand.Parameters.AddWithValue("@process", txtProcess.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_ref", txtPrevious_submit_ref.Text);
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
@@ -680,6 +685,10 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@mo_id1", txtMo_id1.Text);
                     myCommand.Parameters.AddWithValue("@mo_id2", txtMo_id2.Text);
                     myCommand.Parameters.AddWithValue("@mo_id3", txtMo_id3.Text);
+                    //added 2023/08/23-------------------------------------------------------------------
+                    myCommand.Parameters.AddWithValue("@dye_type", txtDye_type.EditValue);
+                    myCommand.Parameters.AddWithValue("@dye_method", txtDye_method.EditValue);
+
                     myCommand.ExecuteNonQuery();
                     myTrans.Commit(); //數據提交                    
                     save_flag = true;
@@ -903,7 +912,7 @@ namespace cf01.Forms
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();
             txtProcess.EditValue = pdr.Cells["process"].Value.ToString();
-            lueFinish.EditValue = pdr.Cells["finish"].Value.ToString();
+            txtFinish.EditValue = pdr.Cells["finish"].Value.ToString();
             txtPrevious_submit_ref.Text = pdr.Cells["previous_submit_ref"].Value.ToString();
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
             luePrevious_submit_vr.EditValue = pdr.Cells["previous_submit_vr"].Value.ToString();
@@ -995,6 +1004,10 @@ namespace cf01.Forms
             lueFor_quality_approval.EditValue = pdr.Cells["for_quality_approval"].Value.ToString();
             lueColor_already_approved.EditValue = pdr.Cells["color_already_approved"].Value.ToString();
             lueSize_already_approved.EditValue = pdr.Cells["size_already_approved"].Value.ToString();
+            //added in 2023/08/23----------------------------------------------------------------
+            txtDye_type.EditValue = pdr.Cells["dye_type"].Value.ToString();
+            txtDye_method.EditValue = pdr.Cells["dye_method"].Value.ToString();
+
             SetCheckBoxStatus(pdr);
         }
 
@@ -1209,6 +1222,45 @@ namespace cf01.Forms
 
         private void txtProcess_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            CallContents(txtProcess, "processes");
+            //if (mState == "NEW" || mState == "EDIT")
+            //{
+            //    /*Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标
+            //    Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
+            //    同理：Point button1Point= button1Point.PointToClient(Control.MousePosition);//鼠标相对于button1左上角的坐标
+            //    还有Control.PointToScreen方法，返回的是相对于屏幕的坐标。
+            //    */
+            //    Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
+            //    using (frmPvhProcess ofrm = new frmPvhProcess("processes"))
+            //    {
+            //        ofrm.StartPosition = FormStartPosition.Manual;
+            //        ofrm.Location= new Point(formPoint.X, formPoint.Y);
+            //        ofrm.ShowDialog();
+            //        if (ofrm.strProcess != "")
+            //        {
+            //            txtProcess.EditValue = ofrm.strProcess;
+            //        }
+            //    }
+            //}
+        }
+
+        private void txtFinish_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            CallContents(txtFinish,"finish");
+        }
+        //
+        private void txtDye_type_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            CallContents(txtDye_type, "dye_type");
+        }
+
+        private void txtDye_method_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            CallContents(txtDye_method, "dye_method");
+        }
+
+        private void CallContents(DevExpress.XtraEditors.ButtonEdit obj,string field_type)
+        {
             if (mState == "NEW" || mState == "EDIT")
             {
                 /*Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标
@@ -1217,18 +1269,20 @@ namespace cf01.Forms
                 还有Control.PointToScreen方法，返回的是相对于屏幕的坐标。
                 */
                 Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标
-                using (frmPvhProcess ofrm = new frmPvhProcess())
+                using (frmPvhProcess ofrm = new frmPvhProcess(field_type))
                 {
                     ofrm.StartPosition = FormStartPosition.Manual;
-                    ofrm.Location= new Point(formPoint.X, formPoint.Y);
+                    ofrm.Location = new Point(formPoint.X, formPoint.Y);
                     ofrm.ShowDialog();
                     if (ofrm.strProcess != "")
-                    {
-                        txtProcess.EditValue = ofrm.strProcess;
+                    {                        
+                        obj.EditValue = ofrm.strProcess;
                     }
                 }
             }
         }
+
+        //
         public int ConvertToInt(string _val)
         {
             int result = 0;
