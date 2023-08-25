@@ -23,6 +23,7 @@ namespace cf01.ReportForm
             InitializeComponent();
         }
 
+
         private void frmPrintOc_Load(object sender, EventArgs e)
         {
             comboBox1.Items.Add("訂單明細表");
