@@ -837,6 +837,7 @@ namespace cf01.ReportForm
                                 dr["blueprint_id"] = drDtWk["blueprint_id"].ToString();
                                 dr["production_remark"] = drDtWk["production_remark"].ToString();
                                 dr["remark"] = drDtWk["remark"].ToString();
+                                //string dept= drDtWk["next_wp_id"].ToString();
                                 dr["next_wp_id"] = drDtWk["next_wp_id"].ToString();
                                 dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(drDtWk["predept_rechange_qty"]);
                                 dr["order_qty"] = clsUtility.NumberConvert(order_qty);
@@ -850,8 +851,11 @@ namespace cf01.ReportForm
                                 dr["plate_remark"] = plate_remark;                                
                                 string next_dep_id = dgr.Cells["next_wp_id"].Value.ToString().Trim();
                                 DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
+                                if (next_dep_id == "702")
+                                {
+                                    dr["next_wp_id"] = "702"; //當有測式工序卡時部門名稱與描述不一致的情況.2023/09/14改為手動賦值.
+                                }
                                 dr["next_dep_name"] = drDept[0]["next_wp_name"].ToString();
-
                                 dr["customer_id"] = drDtWk["customer_id"].ToString();
                                 dr["brand_id"] = drDtWk["brand_id"].ToString();
                                 dr["get_color_sample"] = drDtWk["get_color_sample"].ToString();

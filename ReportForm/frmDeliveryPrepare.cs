@@ -34,8 +34,15 @@ namespace cf01.ReportForm
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {
-            // 測試用
-            //string str5 = @"D:\Workspace\DMS\CF2025.Web.Admin\Document\Files\public\Test3\abc\brand_1.XLS";
+            //// 測試用
+            //int index = 0;
+            //string fileName = "test04_01_001.xls";
+            //string str6 = @"D:\Workspace\DMS\CF2025.Web.Admin\Document\Files\public\TEST6\test04_018\test04_01_001.xls";
+            //index = str6.IndexOf(@"public\");
+            //string currentPath = str6.Substring(index); //currentPath="public\TEST6\test04_018\test04_01_001.xls"                   
+            //index = currentPath.LastIndexOf(fileName);
+            //currentPath = currentPath.Substring(0, index - 1);//currentPath="public\TEST6\test04_018"
+
             //int index_start = str5.IndexOf(@"\public");
             //string currentPath = str5.Substring(index_start, str5.Length - index_start);
             //string currentPath = str5.Substring(index_start);
@@ -47,8 +54,8 @@ namespace cf01.ReportForm
             //string fileName = "123";
             //int index_start = currentPath.LastIndexOf(fileName);
             //string strParentPath = "\\" + currentPath.Substring(0, index_start-1);
-           // return;
-           
+            //return;
+
 
             if (txtDat1.Text == "" && txtDat2.Text == "" && txtSalesGroup.Text == "" )
             {
