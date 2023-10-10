@@ -776,6 +776,7 @@
             // 
             // xrLabel46
             // 
+            this.xrLabel46.CanGrow = false;
             this.xrLabel46.Dpi = 254F;
             this.xrLabel46.Font = new System.Drawing.Font("SimSun", 9F);
             this.xrLabel46.LocationFloat = new DevExpress.Utils.PointFloat(262.3609F, 593.1901F);
@@ -783,7 +784,10 @@
             this.xrLabel46.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel46.SizeF = new System.Drawing.SizeF(61.2774F, 37.09998F);
             this.xrLabel46.StylePriority.UseFont = false;
+            this.xrLabel46.StylePriority.UseTextAlignment = false;
             this.xrLabel46.Text = "[total_page]";
+            this.xrLabel46.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel46.WordWrap = false;
             // 
             // xrLabel45
             // 
@@ -792,14 +796,15 @@
             this.xrLabel45.LocationFloat = new DevExpress.Utils.PointFloat(213.5716F, 593.6501F);
             this.xrLabel45.Name = "xrLabel45";
             this.xrLabel45.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel45.SizeF = new System.Drawing.SizeF(43.70937F, 33.01996F);
+            this.xrLabel45.SizeF = new System.Drawing.SizeF(43.70937F, 37.01996F);
             this.xrLabel45.StylePriority.UseFont = false;
             this.xrLabel45.StylePriority.UseTextAlignment = false;
             this.xrLabel45.Text = "of";
-            this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel25
             // 
+            this.xrLabel25.CanGrow = false;
             this.xrLabel25.Dpi = 254F;
             this.xrLabel25.Font = new System.Drawing.Font("SimSun", 9F);
             this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(159.9142F, 594.1901F);
@@ -809,7 +814,9 @@
             this.xrLabel25.StylePriority.UseFont = false;
             this.xrLabel25.StylePriority.UseTextAlignment = false;
             this.xrLabel25.Text = "[page_num]";
-            this.xrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel25.WordWrap = false;
+            this.xrLabel25.TextChanged += new System.EventHandler(this.xrLabel25_TextChanged);
             // 
             // xrLabel22
             // 

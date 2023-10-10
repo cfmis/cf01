@@ -159,7 +159,7 @@ namespace cf01.ReportForm
             string strID2 = txtID2.Text;
             if ((strID1 != "" && strID1.Length >= 2) && (strID2 != "" && strID2.Length >= 2))
             {
-                if (  (strID1.Substring(0, 2) == "DA" && strID2.Substring(0, 2) == "DA") || (strID1.Substring(0, 2) == "LA" && strID2.Substring(0, 2) == "LA"))
+                if ((strID1.Substring(0, 2) == "DA" && strID2.Substring(0, 2) == "DA") || (strID1.Substring(0, 2) == "LA" && strID2.Substring(0, 2) == "LA"))
                 {
                     radioGroup1.SelectedIndex = 1;//倉庫轉倉
                 }
@@ -330,8 +330,13 @@ namespace cf01.ReportForm
             string prdDep = dep;
             if (dep == "125")
                 prdDep = "105";
-            else if (dep == "128")//如果是128的，則包含108、102的記錄都要一起提取出來
-                prdDep = "108";
+            else
+            {
+                if (dep == "128")//如果是128的，則包含108、102的記錄都要一起提取出來
+                {
+                    prdDep = "108";
+                }
+            }
             string strSelect = "", strWhere1 = "", strWhere2 = "";
             string strSql = "";
             strSelect = "Select a.Prd_id,a.Transfer_date,a.Prd_dep,c.dep_cdesc AS Prd_dep_cdesc,a.prd_item,b.name As goods_name"+
@@ -586,17 +591,16 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
             dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
             dtNewWork.Columns.Add("next_next_do_color", typeof(string));
+            dtNewWork.Columns.Add("qty_remaining", typeof(int));
 
-            DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));
-            int row_total = drw.Length;
-            if (row_total > 0)
+            DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));            
+            if (drw.Length > 0)
             {
                 DataTable dtCard = new DataTable();
                 string in_dept = "";
                 string mo_id = "";
-                string goods_id = "";
-                //string barcode_id = "";
-                int page_num = 0, Per_qty = 0,prod_qty=0, numPage = 1;
+                string goods_id = "";             
+                int page_num = 0, per_qty = 0,prod_qty=0, numPage = 1,qty_remaining=0;
                 decimal net_weight = 0, sec_qty=0;
                 frmProgress wForm = new frmProgress();
                 new Thread((ThreadStart)delegate
@@ -609,10 +613,9 @@ namespace cf01.ReportForm
                 {
                     in_dept = drw[i]["in_dept"].ToString();
                     mo_id = drw[i]["mo_id"].ToString();
-                    goods_id = drw[i]["goods_id"].ToString();
-                    //barcode_id = drw[i]["barcode_id"].ToString();
+                    goods_id = drw[i]["goods_id"].ToString();                    
                     page_num = string.IsNullOrEmpty(drw[i]["package_num"].ToString()) ? 0 : int.Parse(drw[i]["package_num"].ToString());
-                    Per_qty = string.IsNullOrEmpty(drw[i]["per_qty"].ToString()) ? 0 : Int32.Parse(drw[i]["per_qty"].ToString());//每次生產數量
+                    per_qty = string.IsNullOrEmpty(drw[i]["per_qty"].ToString()) ? 0 : Int32.Parse(drw[i]["per_qty"].ToString());//每次生產數量
                     net_weight = string.IsNullOrEmpty(drw[i]["net_weight"].ToString()) ? 0 : decimal.Parse(drw[i]["net_weight"].ToString());//生產重量
                     sec_qty = string.IsNullOrEmpty(drw[i]["sec_qty"].ToString()) ? 0 : decimal.Parse(drw[i]["sec_qty"].ToString());
                     SqlParameter[] paras = new SqlParameter[] {
@@ -624,27 +627,27 @@ namespace cf01.ReportForm
 
                     if (dtCard.Rows.Count > 0)
                     {
-
                         prod_qty = 0;
                         for (int j = 0; j < dtCard.Rows.Count; j++)
                         {
                             prod_qty = Int32.Parse(dtCard.Rows[j]["prod_qty"].ToString());
-                            if (Per_qty == 0)
+                            if (per_qty == 0)
                             {
-                                Per_qty = prod_qty;
+                                per_qty = prod_qty;
                             }
-                            if(Per_qty < 0)
+                            if(per_qty < 0)
                             {
                                 MessageBox.Show("每次生產數量不可小于0 !", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 return;
                             }
-                            //計算列印張數                           
+                            //計算列印張數   
+                            qty_remaining = prod_qty % per_qty;//余數
                             if (prod_qty > 0)
                             {
-                                if (prod_qty % Per_qty > 0)
-                                    numPage = (prod_qty / Per_qty) + 1;
+                                if (qty_remaining > 0)
+                                    numPage = (prod_qty / per_qty) + 1;
                                 else
-                                    numPage = (prod_qty / Per_qty);
+                                    numPage = (prod_qty / per_qty);
                             }
                             else
                             {        
@@ -674,16 +677,15 @@ namespace cf01.ReportForm
                                 if (in_dept == "128" || in_dept == "108")
                                 {
                                     //移交到洗油部上部門交過來多少,就移交下部門多少
-                                    dr["per_qty"] = Per_qty;
+                                    dr["per_qty"] = per_qty;
                                 }
                                 else
                                 {
-                                    if (prod_qty % Per_qty > 0 && ii == numPage)
-                                        dr["per_qty"] = prod_qty % Per_qty;
+                                    if (qty_remaining > 0 && ii == numPage)
+                                        dr["per_qty"] = qty_remaining;//最后一頁時
                                     else
-                                        dr["per_qty"] = Per_qty;
-                                }
-                                //dr["per_qty"] = string.IsNullOrEmpty(dtCard.Rows[j]["per_qty"].ToString()) ? 0 : dtCard.Rows[j]["per_qty"];
+                                        dr["per_qty"] = per_qty;
+                                }                                
                                 if (net_weight > 0)
                                     dr["net_weight"] = net_weight;
                                 else
@@ -711,6 +713,7 @@ namespace cf01.ReportForm
 
                                 dr["next_next_goods_id"] = dtCard.Rows[j]["next_next_goods_id"].ToString();
                                 dr["next_next_do_color"] = dtCard.Rows[j]["next_next_do_color"].ToString();
+                                dr["qty_remaining"] = qty_remaining;
 
                                 dtNewWork.Rows.Add(dr);
                             }

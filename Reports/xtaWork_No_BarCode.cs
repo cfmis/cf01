@@ -60,5 +60,22 @@ namespace cf01.Reports
                 lblnet_weight.Visible = true;
             }
         }
+
+        private void xrLabel25_TextChanged(object sender, EventArgs e)
+        {
+            //start 2023/10/06 
+            string qty_remaining = GetCurrentColumnValue("qty_remaining").ToString();
+            if (string.IsNullOrEmpty(qty_remaining))
+            {
+                qty_remaining = "0";
+            }
+            int page_num = int.Parse(GetCurrentColumnValue("page_num").ToString());
+            int total_page = int.Parse(GetCurrentColumnValue("total_page").ToString());
+            qty_remaining = qty_remaining.Replace(",", "");
+            if (Int32.Parse(qty_remaining) > 0 && page_num == total_page)
+            {
+                lblper_qty.Text = GetCurrentColumnValue("qty_remaining").ToString();
+            }
+        }
     }
 }

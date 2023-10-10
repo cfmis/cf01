@@ -410,4 +410,48 @@ namespace cf01.MDL
         public decimal tr_id_weg;
         public string carton_size;
     }
+
+    public class st_delivery_prepare
+    {
+        public string id;
+        public string group_no;
+        public string linkman;
+        public string transfer_date;
+        public string create_by;
+        public string create_date;
+        public string update_by;
+        public string update_date;
+        public string state;
+        public string transfers_state;
+        public string remark;
+        public string row_status;
+    }
+
+    public class st_delivery_prepare_detail
+    {
+        public string id;
+        public string sequence_id;
+        public string mo_id;
+        public string goods_id;
+        public string goods_name;
+        public decimal plan_qty;
+        public decimal move_qty;
+        public string base_unit;
+        public string up_deptment;
+        public string state;
+    }
+
+    public class st_delivery_find
+    {
+        public string id1;
+        public string id2;
+        public string group_no;        
+        public string transfer_date1;
+        public string transfer_date2;
+        public string create_by1;
+        public string create_by2;
+        public string mo_id1;
+        public string mo_id2;
+
+    }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrderProCardBatchPrint));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.chkNoQc = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -67,6 +68,7 @@
             this.colPer_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.net_weight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clProdQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.goods_unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.total_page = new DevExpress.XtraGrid.Columns.GridColumn();
             this.goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,6 +90,7 @@
             this.old_prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.old_goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.page_num = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.qty_remaining = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -117,7 +120,6 @@
             this.goods_name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t_complete_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties)).BeginInit();
@@ -130,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.colPrintFlag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPrintSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPer_qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clProdQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clCheck_date)).BeginInit();
@@ -171,6 +174,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1283, 124);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(7, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 13);
+            this.label4.TabIndex = 150;
+            this.label4.Text = "(部門生產已完成或未完成)";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chkNoQc
             // 
@@ -444,7 +456,8 @@
             this.colProd_date,
             this.cololdPrintFlag,
             this.colPer_qty,
-            this.clCheck_date});
+            this.clCheck_date,
+            this.clProdQty});
             this.gridControl1.Size = new System.Drawing.Size(1282, 499);
             this.gridControl1.TabIndex = 140;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -480,7 +493,8 @@
             this.old_jo_ver,
             this.old_prod_qty,
             this.old_goods_id,
-            this.page_num});
+            this.page_num,
+            this.qty_remaining});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -490,6 +504,7 @@
             this.gridView1.RowHeight = 22;
             this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
+            this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
             // 
             // wp_id
             // 
@@ -613,7 +628,7 @@
             this.per_qty.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.per_qty.AppearanceCell.Options.UseBackColor = true;
             this.per_qty.Caption = "生產數量";
-            this.per_qty.ColumnEdit = this.colPer_qty;
+            this.per_qty.ColumnEdit = this.clProdQty;
             this.per_qty.DisplayFormat.FormatString = "f0";
             this.per_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.per_qty.FieldName = "per_qty";
@@ -667,6 +682,18 @@
             this.prod_qty.Visible = true;
             this.prod_qty.VisibleIndex = 8;
             this.prod_qty.Width = 60;
+            // 
+            // clProdQty
+            // 
+            this.clProdQty.AutoHeight = false;
+            this.clProdQty.DisplayFormat.FormatString = "n0";
+            this.clProdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clProdQty.EditFormat.FormatString = "n0";
+            this.clProdQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clProdQty.Mask.EditMask = "n0";
+            this.clProdQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clProdQty.Name = "clProdQty";
+            this.clProdQty.Leave += new System.EventHandler(this.clProdQty_Leave);
             // 
             // goods_unit
             // 
@@ -960,6 +987,21 @@
             this.page_num.FieldName = "page_num";
             this.page_num.Name = "page_num";
             // 
+            // qty_remaining
+            // 
+            this.qty_remaining.Caption = "拆分生產數量余數";
+            this.qty_remaining.DisplayFormat.FormatString = "n0";
+            this.qty_remaining.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.qty_remaining.FieldName = "qty_remaining";
+            this.qty_remaining.Name = "qty_remaining";
+            this.qty_remaining.OptionsColumn.AllowMove = false;
+            this.qty_remaining.OptionsColumn.AllowShowHide = false;
+            this.qty_remaining.OptionsColumn.AllowSize = false;
+            this.qty_remaining.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.qty_remaining.OptionsColumn.ReadOnly = true;
+            this.qty_remaining.OptionsFilter.AllowAutoFilter = false;
+            this.qty_remaining.OptionsFilter.AllowFilter = false;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1224,15 +1266,6 @@
             this.t_complete_date1.Name = "t_complete_date1";
             this.t_complete_date1.ReadOnly = true;
             // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(7, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 13);
-            this.label4.TabIndex = 150;
-            this.label4.Text = "(部門生產已完成或未完成)";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // frmOrderProCardBatchPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1261,6 +1294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.colPrintFlag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPrintSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPer_qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clProdQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clCheck_date.CalendarTimeProperties)).EndInit();
@@ -1365,5 +1399,7 @@
         private System.Windows.Forms.CheckBox chkNoQc;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit clCheck_date;
         private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clProdQty;
+        private DevExpress.XtraGrid.Columns.GridColumn qty_remaining;
     }
 }

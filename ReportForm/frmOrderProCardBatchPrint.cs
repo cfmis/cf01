@@ -618,6 +618,41 @@ namespace cf01.ReportForm
                 gridView1.SetRowCellValue(cur_row, "prod_date", ls_prod_date);
             }
         }
-      
+
+        private void clProdQty_Leave(object sender, EventArgs e)
+        {
+            gridView1.CloseEditor();
+            int rowIndex = gridView1.FocusedRowHandle;
+            int per_qty = int.Parse(gridView1.GetRowCellValue(rowIndex, "per_qty").ToString());
+            int prod_qty = int.Parse(gridView1.GetRowCellValue(rowIndex, "prod_qty").ToString());
+            int qty_remaining = 0;
+            int total_page = 0;
+            if (per_qty > 0)
+            {
+                total_page = prod_qty / per_qty;
+                qty_remaining = prod_qty % per_qty;
+                if (qty_remaining > 0)
+                {
+                    total_page += 1;
+                }
+                gridView1.SetRowCellValue(rowIndex, "qty_remaining", qty_remaining);
+                gridView1.SetRowCellValue(rowIndex, "total_page", total_page);
+            }
+            else
+            {
+                gridView1.SetRowCellValue(rowIndex, "qty_remaining", 0);
+                gridView1.SetRowCellValue(rowIndex, "total_page", 1);
+            }
+        }
+
+        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        
     }        
 }

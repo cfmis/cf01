@@ -389,13 +389,14 @@ namespace cf01.ReportForm
                 if (dtGoodsInfo.Rows.Count > 0)
                 {
                     int PrintCopies = Convert.ToInt32(txtPrintCopies.Text.Trim());  //列印份數
-                    int Per_qty = Convert.ToInt32(txtPer_qty.Text.Trim());  //每次生產數量
-                    if (Per_qty == 0)
+                    int per_qty = Convert.ToInt32(txtPer_qty.Text.Trim());  //每次生產數量
+                    if (per_qty == 0)
                     {
-                        Per_qty = 1;
+                        per_qty = 1;
                     }
                     //int Total_qty = Convert.ToInt32(txtPro_qty.Text.Trim());    //生產總量
-                    int Total_qty = Convert.ToInt32(txtFact_qty.Text.Trim());    //實際生產總量
+                    int total_qty = Convert.ToInt32(txtFact_qty.Text.Trim());    //實際生產總量
+                    int qty_remaining = 0;
                     int NumPage = 0;     //報表頁數
 
                     DataTable dtNewWork = new DataTable();
@@ -435,13 +436,14 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("prod_date", typeof(string));
                     dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
                     dtNewWork.Columns.Add("next_next_do_color", typeof(string));
-
-                    if (Total_qty > 0)
+                    dtNewWork.Columns.Add("qty_remaining", typeof(int));
+                    qty_remaining = total_qty % per_qty;
+                    if (total_qty > 0)
                     {
-                        if (Total_qty % Per_qty > 0)                        
-                            NumPage = (Total_qty / Per_qty) + 1;                        
+                        if (qty_remaining > 0)                        
+                            NumPage = (total_qty / per_qty) + 1;
                         else                        
-                            NumPage = (Total_qty / Per_qty);
+                            NumPage = (total_qty / per_qty);
                     }
                     else
                     {
@@ -518,20 +520,20 @@ namespace cf01.ReportForm
                                 dr["arrive_date"] = Convert.ToDateTime(txtArrive_date.Text).ToString("yyyy/MM/dd");
                             }
 
-                            if (i == NumPage && Per_qty != 0)
+                            if (i == NumPage && per_qty != 0)
                             {
-                                if (Total_qty % Per_qty > 0)
+                                if (qty_remaining > 0)
                                 {
-                                    dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);
+                                    dr["per_qty"] = clsUtility.NumberConvert(qty_remaining);
                                 }
                                 else
                                 {
-                                    dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
+                                    dr["per_qty"] = clsUtility.NumberConvert(per_qty);
                                 }
                             }
                             else
                             {
-                                dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
+                                dr["per_qty"] = clsUtility.NumberConvert(per_qty);
                             }
                             //條碼
                             dr["BarCode"] = clsMo_for_jx.ReturnBarCode(string.Format("{0}{1}{2}", txtMoId.Text.Trim(), txtVer.Text.Trim().PadLeft(2,'0'), txtSequenceId.Text.Substring(2, 2)));
@@ -544,6 +546,8 @@ namespace cf01.ReportForm
                             dr["next_next_dep_name"] = next_next_dep_name.Text;
                             dr["next_next_goods_id"] = next_next_goods_id.Text;
                             dr["next_next_do_color"] = next_next_do_color.Text;
+                            dr["qty_remaining"] = qty_remaining;
+                            
 
                             dtNewWork.Rows.Add(dr);
                         }

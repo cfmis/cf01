@@ -741,11 +741,11 @@
             this.xrLabel45.LocationFloat = new DevExpress.Utils.PointFloat(215.5716F, 605.9009F);
             this.xrLabel45.Name = "xrLabel45";
             this.xrLabel45.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel45.SizeF = new System.Drawing.SizeF(43.70938F, 33.01996F);
+            this.xrLabel45.SizeF = new System.Drawing.SizeF(46.70938F, 35.01996F);
             this.xrLabel45.StylePriority.UseFont = false;
             this.xrLabel45.StylePriority.UseTextAlignment = false;
             this.xrLabel45.Text = "of";
-            this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel25
             // 
@@ -755,12 +755,13 @@
             this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(159.9142F, 607.4409F);
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel25.SizeF = new System.Drawing.SizeF(53.65746F, 38.09998F);
+            this.xrLabel25.SizeF = new System.Drawing.SizeF(54.65746F, 38.09998F);
             this.xrLabel25.StylePriority.UseFont = false;
             this.xrLabel25.StylePriority.UseTextAlignment = false;
             this.xrLabel25.Text = "[page_num]";
             this.xrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrLabel25.WordWrap = false;
+            this.xrLabel25.TextChanged += new System.EventHandler(this.xrLabel25_TextChanged);
             // 
             // xrLabel22
             // 

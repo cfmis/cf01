@@ -284,6 +284,7 @@ namespace cf01.CLS
             }
             catch (Exception ex)
             {
+                result = -1;
                 MessageBox.Show(ex.Message);
             }
             finally

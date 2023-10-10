@@ -244,6 +244,7 @@
     <Compile Include="CLS\clsCustComplain.cs" />
     <Compile Include="CLS\clsCustomDelivery.cs" />
     <Compile Include="CLS\clsDeliveryBill.cs" />
+    <Compile Include="CLS\clsDeliveryPrepare.cs" />
     <Compile Include="CLS\clsDepWasteRate.cs" />
     <Compile Include="CLS\clsDevelopentPvh.cs" />
     <Compile Include="CLS\clsDgdDeliverGoods.cs" />
@@ -1568,6 +1569,18 @@
     <Compile Include="ReportForm\frmDeliveryPrepare.Designer.cs">
       <DependentUpon>frmDeliveryPrepare.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmDeliveryPrepareAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmDeliveryPrepareAdd.Designer.cs">
+      <DependentUpon>frmDeliveryPrepareAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\frmDeliveryPrepareList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmDeliveryPrepareList.Designer.cs">
+      <DependentUpon>frmDeliveryPrepareList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmDepPlanCost.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2139,6 +2152,12 @@
     </Compile>
     <Compile Include="Reports\xrDeliveryBill_by_id.designer.cs">
       <DependentUpon>xrDeliveryBill_by_id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrDeliveryPrepare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrDeliveryPrepare.designer.cs">
+      <DependentUpon>xrDeliveryPrepare.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrDelivery_details_A4.cs">
       <SubType>Component</SubType>
@@ -3347,6 +3366,12 @@
     <EmbeddedResource Include="ReportForm\frmDeliveryPrepare.resx">
       <DependentUpon>frmDeliveryPrepare.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmDeliveryPrepareAdd.resx">
+      <DependentUpon>frmDeliveryPrepareAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmDeliveryPrepareList.resx">
+      <DependentUpon>frmDeliveryPrepareList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmDepPlanCost.resx">
       <DependentUpon>frmDepPlanCost.cs</DependentUpon>
     </EmbeddedResource>
@@ -3661,6 +3686,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrDeliveryBill_by_id.resx">
       <DependentUpon>xrDeliveryBill_by_id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrDeliveryPrepare.resx">
+      <DependentUpon>xrDeliveryPrepare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrDelivery_details_A4.resx">
       <DependentUpon>xrDelivery_details_A4.cs</DependentUpon>
