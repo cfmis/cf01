@@ -201,17 +201,17 @@ namespace cf01.ReportForm
 
         private void dgvDetails0_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || e.ColumnIndex<0)
             {
                 return;
             }
             
             if (dgvDetails0.Columns[e.ColumnIndex].Name == "flag_select")
             {
-                txtSalesGroup.Focus();
-                string result = "";
+                txtSalesGroup.Focus();              
                 DataGridViewRow row = dgvDetails0.Rows[e.RowIndex];
-                result = row.Cells["flag_select"].Value.ToString();
+                //string result = row.Cells["flag_select"].Value.ToString();
+                string mo_id = row.Cells["moid"].Value.ToString();
                 if (bool.Parse(row.Cells["flag_select"].Value.ToString()) == true)
                 {
                     if (!string.IsNullOrEmpty(row.Cells["mo_id1"].Value.ToString()))
@@ -220,7 +220,6 @@ namespace cf01.ReportForm
                         row.Cells["flag_select"].Value = false;//賦值
                         return;
                     }
-                    string mo_id = row.Cells["moid"].Value.ToString();
                     for(int i=0;i< dgvDetails0.RowCount; i++)
                     {
                         row = dgvDetails0.Rows[i];
@@ -230,9 +229,17 @@ namespace cf01.ReportForm
                         }
                     }
                 }
-                //dtReport0.AcceptChanges();
-                // result = dgvDetails0.Rows[e.RowIndex].Cells["flag_select"].Value.ToString();
-                // result = dtReport0.Rows[e.RowIndex]["flag_select"].ToString();
+                else
+                {                   
+                    for (int i = 0; i < dgvDetails0.RowCount; i++)
+                    {
+                        row = dgvDetails0.Rows[i];
+                        if (row.Cells["moid"].Value.ToString() == mo_id && row.Cells["flag_select"].Value.ToString() == "True")
+                        {
+                            row.Cells["flag_select"].Value = false;//賦值
+                        }
+                    }
+                }                
             }
         }
 
@@ -370,6 +377,30 @@ namespace cf01.ReportForm
                 xr.PrintingSystem.ShowMarginsWarning = false;
                 xr.ShowPreviewDialog();
             }            
+        }
+
+        private void dgvDetails0_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                if (dgvDetails0.Columns[e.ColumnIndex].Name == "packing_qty1")
+                {
+                    DataGridViewRow row = dgvDetails0.Rows[e.RowIndex];
+                    string is_all_complete = row.Cells["is_all_complete"].Value.ToString();
+                    string mo_id1 = row.Cells["mo_id1"].Value.ToString();
+                    if (is_all_complete == "1" && mo_id1=="")
+                    {
+                        row.Cells[e.ColumnIndex].Style.BackColor = Color.LightGreen;
+                    }
+                    else
+                    {
+                        if(is_all_complete == "0" && mo_id1 == "")
+                        {
+                            row.Cells[e.ColumnIndex].Style.BackColor = Color.LightSalmon;
+                        }
+                    }
+                }
+            }
         }
     }
 }
