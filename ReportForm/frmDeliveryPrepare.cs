@@ -363,7 +363,7 @@ namespace cf01.ReportForm
                 MessageBox.Show("請首先指定一個追貨單號!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DataTable dt = clsDeliveryPrepare.GetPrintData(this.txtId.Text);
+            DataTable dt = clsDeliveryPrepare.GetPrintData(this.txtId.Text,this.chkSortByMo.Checked);
             using (xrDeliveryPrepare xr = new xrDeliveryPrepare(DBUtility._user_id) { DataSource = dt })
             {
                 xr.CreateDocument();

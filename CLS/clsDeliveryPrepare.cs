@@ -135,10 +135,15 @@ namespace cf01.CLS
             return result;
         }
 
-        public static DataTable GetPrintData(string id)
+        public static DataTable GetPrintData(string id,bool is_sort_by_mo)
         {
+            string str_sort_by = "";
+            if (is_sort_by_mo)
+                str_sort_by = " b.mo_id";
+            else
+                str_sort_by = " b.sequence_id";
             string sql = string.Format(
-            @"SELECT ROW_NUMBER() OVER(ORDER BY b.sequence_id) AS no, a.id,a.group_no,a.linkman,Isnull(a.department_id,'') AS ext_no,
+            @"SELECT ROW_NUMBER() OVER(ORDER BY {2}) AS no, a.id,a.group_no,a.linkman,Isnull(a.department_id,'') AS ext_no,
             CASE WHEN a.transfer_date IS NULL Then '' ELSE CONVERT(varchar(10),a.transfer_date ,120) End AS transfer_date,b.mo_id,b.goods_id,b.goods_name,
             Cast(b.plan_qty as int) as plan_qty ,CAST(b.move_qty AS int) as move_qty,Cast(ISNULL(b.hk_qty,0) as int) AS hk_qty,
             b.base_unit,b.up_deptment,c.name as dept_name,CONVERT(VARCHAR(10),a.create_date,120) AS create_date,
@@ -146,7 +151,7 @@ namespace cf01.CLS
             From {0}st_delivery_prepare a 
 	             INNER JOIN {0}st_delivery_prepare_detail b on a.within_code=b.within_code AND a.id=b.id
 	             INNER JOIN {0}cd_department c on b.within_code=c.within_code AND b.up_deptment=c.id 
-            WHERE a.id='{1}' AND a.within_code='0000' ORDER BY b.sequence_id", DBUtility.remote_db, id);
+            WHERE a.id='{1}' AND a.within_code='0000' ORDER BY {2}", DBUtility.remote_db, id, str_sort_by);
             DataTable dt = clsPublicOfCF01.GetDataTable(sql);            
             return dt;
         }

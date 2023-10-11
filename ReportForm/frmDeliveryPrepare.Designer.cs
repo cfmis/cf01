@@ -99,6 +99,7 @@
             this.txtId = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.chkSortByMo = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalesGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
@@ -710,11 +711,22 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // chkSortByMo
+            // 
+            this.chkSortByMo.AutoSize = true;
+            this.chkSortByMo.Location = new System.Drawing.Point(759, 63);
+            this.chkSortByMo.Name = "chkSortByMo";
+            this.chkSortByMo.Size = new System.Drawing.Size(120, 16);
+            this.chkSortByMo.TabIndex = 160;
+            this.chkSortByMo.Text = "打印時按制單排序";
+            this.chkSortByMo.UseVisualStyleBackColor = true;
+            // 
             // frmDeliveryPrepare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 543);
+            this.Controls.Add(this.chkSortByMo);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
@@ -805,5 +817,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ToolStripButton BTNPRINT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.CheckBox chkSortByMo;
     }
 }
