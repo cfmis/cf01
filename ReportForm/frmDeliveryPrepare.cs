@@ -344,8 +344,20 @@ namespace cf01.ReportForm
                 {
                     ofrm.ShowDialog();
                     txtId.Text = ofrm.id;
+                                       
+                    if(ofrm.id != "")
+                    {
+                        //移除保存追貨紙成功的頁數
+                        DataRow[] drws = dtReport0.Select("flag_select=true");
+                        DataRow drw;
+                        for (int i = 0; i < drws.Length; i++)
+                        {
+                            drw = drws[i];
+                            dtReport0.Rows.Remove(drw);
+                        }
+                    }
                 }
-            }            
+            } 
 
         }
 

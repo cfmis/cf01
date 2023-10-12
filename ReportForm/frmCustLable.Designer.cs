@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustLable));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustLable));
             this.txtDept = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +45,32 @@
             this.cmbFormat = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_qty_ok = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_page = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contract_cid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.table_head = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.check_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picture_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysis_codes_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_company_logo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.print_eng_text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.print_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -70,34 +98,11 @@
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_qty_ok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer_goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contract_cid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.table_head = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.check_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.picture_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customer_name_eng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.analysis_codes_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_company_logo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.print_eng_text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.print_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties.VistaTimeProperties)).BeginInit();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +128,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 40);
+            this.label2.Location = new System.Drawing.Point(33, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -135,16 +140,16 @@
             this.txtCheck_date2.EnterMoveNextControl = true;
             this.txtCheck_date2.Location = new System.Drawing.Point(274, 37);
             this.txtCheck_date2.Name = "txtCheck_date2";
-            this.txtCheck_date2.Properties.Appearance.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCheck_date2.Properties.Appearance.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtCheck_date2.Properties.Appearance.Options.UseFont = true;
             this.txtCheck_date2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtCheck_date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtCheck_date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCheck_date2.Properties.Mask.EditMask = "yyyy/MM/dd HH:mm:ss";
             this.txtCheck_date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtCheck_date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtCheck_date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCheck_date2.Size = new System.Drawing.Size(162, 24);
             this.txtCheck_date2.TabIndex = 5;
             // 
@@ -154,16 +159,16 @@
             this.txtCheck_date1.EnterMoveNextControl = true;
             this.txtCheck_date1.Location = new System.Drawing.Point(90, 37);
             this.txtCheck_date1.Name = "txtCheck_date1";
-            this.txtCheck_date1.Properties.Appearance.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCheck_date1.Properties.Appearance.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtCheck_date1.Properties.Appearance.Options.UseFont = true;
             this.txtCheck_date1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtCheck_date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtCheck_date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCheck_date1.Properties.Mask.EditMask = "yyyy/MM/dd HH:mm:ss";
             this.txtCheck_date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtCheck_date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtCheck_date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtCheck_date1.Size = new System.Drawing.Size(160, 24);
             this.txtCheck_date1.TabIndex = 4;
             this.txtCheck_date1.Leave += new System.EventHandler(this.txtCheck_date1_Leave);
@@ -171,7 +176,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.Location = new System.Drawing.Point(255, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 15);
@@ -200,7 +205,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 68);
+            this.label4.Location = new System.Drawing.Point(42, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 12);
             this.label4.TabIndex = 9;
@@ -209,7 +214,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label5.Location = new System.Drawing.Point(253, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 15);
@@ -218,7 +223,7 @@
             // 
             // cmbFormat
             // 
-            this.cmbFormat.Font = new System.Drawing.Font("新細明體", 11.25F);
+            this.cmbFormat.Font = new System.Drawing.Font("PMingLiU", 11.25F);
             this.cmbFormat.FormattingEnabled = true;
             this.cmbFormat.Items.AddRange(new object[] {
             "格式A (全部)",
@@ -231,7 +236,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 95);
+            this.label6.Location = new System.Drawing.Point(42, 97);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 12);
             this.label6.TabIndex = 12;
@@ -241,9 +246,9 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.AllowUserToDeleteRows = false;
-            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -253,6 +258,7 @@
             this.goods_name,
             this.prod_qty,
             this.c_qty_ok,
+            this.total_page,
             this.color2,
             this.size_id,
             this.name,
@@ -278,6 +284,207 @@
             this.dgvDetails.Size = new System.Drawing.Size(805, 393);
             this.dgvDetails.TabIndex = 13;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
+            // 
+            // flag_select
+            // 
+            this.flag_select.DataPropertyName = "flag_select";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.NullValue = false;
+            this.flag_select.DefaultCellStyle = dataGridViewCellStyle1;
+            this.flag_select.Frozen = true;
+            this.flag_select.HeaderText = "全選";
+            this.flag_select.Name = "flag_select";
+            this.flag_select.Width = 50;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.FillWeight = 65F;
+            this.mo_id.HeaderText = "頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            this.mo_id.Width = 85;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "貨品編號";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.Width = 150;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品名稱";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.Width = 200;
+            // 
+            // prod_qty
+            // 
+            this.prod_qty.DataPropertyName = "prod_qty";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.prod_qty.DefaultCellStyle = dataGridViewCellStyle2;
+            this.prod_qty.HeaderText = "生產數量";
+            this.prod_qty.Name = "prod_qty";
+            this.prod_qty.Width = 80;
+            // 
+            // c_qty_ok
+            // 
+            this.c_qty_ok.DataPropertyName = "c_qty_ok";
+            this.c_qty_ok.HeaderText = "完成數量";
+            this.c_qty_ok.Name = "c_qty_ok";
+            this.c_qty_ok.Width = 80;
+            // 
+            // total_page
+            // 
+            this.total_page.DataPropertyName = "total_page";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.total_page.DefaultCellStyle = dataGridViewCellStyle3;
+            this.total_page.HeaderText = "列印份數";
+            this.total_page.Name = "total_page";
+            this.total_page.Width = 60;
+            // 
+            // color2
+            // 
+            this.color2.DataPropertyName = "color2";
+            this.color2.HeaderText = "顏色";
+            this.color2.Name = "color2";
+            this.color2.ReadOnly = true;
+            this.color2.Width = 70;
+            // 
+            // size_id
+            // 
+            this.size_id.DataPropertyName = "size_id";
+            this.size_id.HeaderText = "尺寸";
+            this.size_id.Name = "size_id";
+            this.size_id.ReadOnly = true;
+            this.size_id.Width = 80;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "客戶名稱";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // customer_goods
+            // 
+            this.customer_goods.DataPropertyName = "customer_goods";
+            this.customer_goods.HeaderText = "客戶產品編號";
+            this.customer_goods.Name = "customer_goods";
+            this.customer_goods.ReadOnly = true;
+            this.customer_goods.Width = 120;
+            // 
+            // customer_goods_name
+            // 
+            this.customer_goods_name.DataPropertyName = "customer_goods_name";
+            this.customer_goods_name.HeaderText = "客戶產品描述";
+            this.customer_goods_name.Name = "customer_goods_name";
+            this.customer_goods_name.ReadOnly = true;
+            this.customer_goods_name.Width = 120;
+            // 
+            // customer_color_id
+            // 
+            this.customer_color_id.DataPropertyName = "customer_color_id";
+            this.customer_color_id.HeaderText = "客戶顏色";
+            this.customer_color_id.Name = "customer_color_id";
+            this.customer_color_id.ReadOnly = true;
+            // 
+            // contract_cid
+            // 
+            this.contract_cid.DataPropertyName = "contract_cid";
+            this.contract_cid.HeaderText = "PO.No.";
+            this.contract_cid.Name = "contract_cid";
+            // 
+            // table_head
+            // 
+            this.table_head.DataPropertyName = "table_head";
+            this.table_head.HeaderText = "客戶款號";
+            this.table_head.Name = "table_head";
+            this.table_head.ReadOnly = true;
+            // 
+            // check_date
+            // 
+            this.check_date.DataPropertyName = "check_date";
+            this.check_date.HeaderText = "批準日期";
+            this.check_date.Name = "check_date";
+            this.check_date.ReadOnly = true;
+            // 
+            // picture_name
+            // 
+            this.picture_name.DataPropertyName = "picture_name";
+            this.picture_name.HeaderText = "圖樣路徑";
+            this.picture_name.Name = "picture_name";
+            this.picture_name.ReadOnly = true;
+            this.picture_name.Visible = false;
+            // 
+            // goods_name_eng
+            // 
+            this.goods_name_eng.DataPropertyName = "goods_name_eng";
+            this.goods_name_eng.HeaderText = "goods_name_eng";
+            this.goods_name_eng.Name = "goods_name_eng";
+            this.goods_name_eng.Visible = false;
+            // 
+            // color_name_eng
+            // 
+            this.color_name_eng.DataPropertyName = "color_name_eng";
+            this.color_name_eng.HeaderText = "color_name_eng";
+            this.color_name_eng.Name = "color_name_eng";
+            this.color_name_eng.Visible = false;
+            // 
+            // customer_name_eng
+            // 
+            this.customer_name_eng.DataPropertyName = "customer_name_eng";
+            this.customer_name_eng.HeaderText = "customer_name_eng";
+            this.customer_name_eng.Name = "customer_name_eng";
+            this.customer_name_eng.Visible = false;
+            // 
+            // analysis_codes_1
+            // 
+            this.analysis_codes_1.DataPropertyName = "analysis_codes_1";
+            this.analysis_codes_1.HeaderText = "analysis_codes_1";
+            this.analysis_codes_1.Name = "analysis_codes_1";
+            this.analysis_codes_1.Visible = false;
+            // 
+            // is_company_logo
+            // 
+            this.is_company_logo.DataPropertyName = "is_company_logo";
+            this.is_company_logo.HeaderText = "is_company_logo";
+            this.is_company_logo.Name = "is_company_logo";
+            this.is_company_logo.Visible = false;
+            // 
+            // print_eng_text
+            // 
+            this.print_eng_text.DataPropertyName = "print_eng_text";
+            this.print_eng_text.HeaderText = "print_eng_text";
+            this.print_eng_text.Name = "print_eng_text";
+            this.print_eng_text.Visible = false;
+            // 
+            // remark1
+            // 
+            this.remark1.DataPropertyName = "remark1";
+            this.remark1.HeaderText = "remark1";
+            this.remark1.Name = "remark1";
+            this.remark1.Visible = false;
+            // 
+            // barcode
+            // 
+            this.barcode.DataPropertyName = "barcode";
+            this.barcode.HeaderText = "bardcode";
+            this.barcode.Name = "barcode";
+            this.barcode.Visible = false;
+            // 
+            // print_date
+            // 
+            this.print_date.DataPropertyName = "print_date";
+            this.print_date.HeaderText = "print_date";
+            this.print_date.Name = "print_date";
+            this.print_date.ReadOnly = true;
+            this.print_date.Visible = false;
             // 
             // btnFind
             // 
@@ -320,7 +527,7 @@
             // 
             // chkSelect
             // 
-            this.chkSelect.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkSelect.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkSelect.Location = new System.Drawing.Point(44, 119);
             this.chkSelect.Name = "chkSelect";
             this.chkSelect.Size = new System.Drawing.Size(58, 18);
@@ -404,12 +611,14 @@
             this.dataGridViewTextBoxColumn11.DataPropertyName = "contract_cid";
             this.dataGridViewTextBoxColumn11.HeaderText = "PO.No.";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 120;
             // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "table_head";
             this.dataGridViewTextBoxColumn12.HeaderText = "客戶款號";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -422,6 +631,7 @@
             this.dataGridViewTextBoxColumn14.DataPropertyName = "picture_name";
             this.dataGridViewTextBoxColumn14.HeaderText = "圖樣路徑";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.Visible = false;
             // 
             // dataGridViewTextBoxColumn15
@@ -429,6 +639,7 @@
             this.dataGridViewTextBoxColumn15.DataPropertyName = "goods_name_eng";
             this.dataGridViewTextBoxColumn15.HeaderText = "goods_name_eng";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.Visible = false;
             // 
             // dataGridViewTextBoxColumn16
@@ -436,6 +647,7 @@
             this.dataGridViewTextBoxColumn16.DataPropertyName = "color_name_eng";
             this.dataGridViewTextBoxColumn16.HeaderText = "color_name_eng";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.Visible = false;
             // 
             // dataGridViewTextBoxColumn17
@@ -487,180 +699,20 @@
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.Visible = false;
             // 
-            // flag_select
+            // dataGridViewTextBoxColumn24
             // 
-            this.flag_select.DataPropertyName = "flag_select";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.NullValue = false;
-            this.flag_select.DefaultCellStyle = dataGridViewCellStyle1;
-            this.flag_select.Frozen = true;
-            this.flag_select.HeaderText = "全選";
-            this.flag_select.Name = "flag_select";
-            this.flag_select.Width = 50;
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "barcode";
+            this.dataGridViewTextBoxColumn24.HeaderText = "bardcode";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.Visible = false;
             // 
-            // mo_id
+            // dataGridViewTextBoxColumn25
             // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.FillWeight = 65F;
-            this.mo_id.HeaderText = "頁數";
-            this.mo_id.Name = "mo_id";
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "貨品編號";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.Width = 150;
-            // 
-            // goods_name
-            // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "貨品名稱";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.Width = 200;
-            // 
-            // prod_qty
-            // 
-            this.prod_qty.DataPropertyName = "prod_qty";
-            this.prod_qty.HeaderText = "生產數量";
-            this.prod_qty.Name = "prod_qty";
-            this.prod_qty.Width = 90;
-            // 
-            // c_qty_ok
-            // 
-            this.c_qty_ok.DataPropertyName = "c_qty_ok";
-            this.c_qty_ok.HeaderText = "完成數量";
-            this.c_qty_ok.Name = "c_qty_ok";
-            // 
-            // color2
-            // 
-            this.color2.DataPropertyName = "color2";
-            this.color2.HeaderText = "顏色";
-            this.color2.Name = "color2";
-            this.color2.Width = 70;
-            // 
-            // size_id
-            // 
-            this.size_id.DataPropertyName = "size_id";
-            this.size_id.HeaderText = "尺寸";
-            this.size_id.Name = "size_id";
-            this.size_id.Width = 80;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "客戶名稱";
-            this.name.Name = "name";
-            // 
-            // customer_goods
-            // 
-            this.customer_goods.DataPropertyName = "customer_goods";
-            this.customer_goods.HeaderText = "客戶產品編號";
-            this.customer_goods.Name = "customer_goods";
-            this.customer_goods.Width = 120;
-            // 
-            // customer_goods_name
-            // 
-            this.customer_goods_name.DataPropertyName = "customer_goods_name";
-            this.customer_goods_name.HeaderText = "客戶產品描述";
-            this.customer_goods_name.Name = "customer_goods_name";
-            this.customer_goods_name.Width = 120;
-            // 
-            // customer_color_id
-            // 
-            this.customer_color_id.DataPropertyName = "customer_color_id";
-            this.customer_color_id.HeaderText = "客戶顏色";
-            this.customer_color_id.Name = "customer_color_id";
-            // 
-            // contract_cid
-            // 
-            this.contract_cid.DataPropertyName = "contract_cid";
-            this.contract_cid.HeaderText = "PO.No.";
-            this.contract_cid.Name = "contract_cid";
-            // 
-            // table_head
-            // 
-            this.table_head.DataPropertyName = "table_head";
-            this.table_head.HeaderText = "客戶款號";
-            this.table_head.Name = "table_head";
-            // 
-            // check_date
-            // 
-            this.check_date.DataPropertyName = "check_date";
-            this.check_date.HeaderText = "批準日期";
-            this.check_date.Name = "check_date";
-            // 
-            // picture_name
-            // 
-            this.picture_name.DataPropertyName = "picture_name";
-            this.picture_name.HeaderText = "圖樣路徑";
-            this.picture_name.Name = "picture_name";
-            this.picture_name.Visible = false;
-            // 
-            // goods_name_eng
-            // 
-            this.goods_name_eng.DataPropertyName = "goods_name_eng";
-            this.goods_name_eng.HeaderText = "goods_name_eng";
-            this.goods_name_eng.Name = "goods_name_eng";
-            this.goods_name_eng.Visible = false;
-            // 
-            // color_name_eng
-            // 
-            this.color_name_eng.DataPropertyName = "color_name_eng";
-            this.color_name_eng.HeaderText = "color_name_eng";
-            this.color_name_eng.Name = "color_name_eng";
-            this.color_name_eng.Visible = false;
-            // 
-            // customer_name_eng
-            // 
-            this.customer_name_eng.DataPropertyName = "customer_name_eng";
-            this.customer_name_eng.HeaderText = "customer_name_eng";
-            this.customer_name_eng.Name = "customer_name_eng";
-            this.customer_name_eng.Visible = false;
-            // 
-            // analysis_codes_1
-            // 
-            this.analysis_codes_1.DataPropertyName = "analysis_codes_1";
-            this.analysis_codes_1.HeaderText = "analysis_codes_1";
-            this.analysis_codes_1.Name = "analysis_codes_1";
-            this.analysis_codes_1.Visible = false;
-            // 
-            // is_company_logo
-            // 
-            this.is_company_logo.DataPropertyName = "is_company_logo";
-            this.is_company_logo.HeaderText = "is_company_logo";
-            this.is_company_logo.Name = "is_company_logo";
-            this.is_company_logo.Visible = false;
-            // 
-            // print_eng_text
-            // 
-            this.print_eng_text.DataPropertyName = "print_eng_text";
-            this.print_eng_text.HeaderText = "print_eng_text";
-            this.print_eng_text.Name = "print_eng_text";
-            this.print_eng_text.Visible = false;
-            // 
-            // remark1
-            // 
-            this.remark1.DataPropertyName = "remark1";
-            this.remark1.HeaderText = "remark1";
-            this.remark1.Name = "remark1";
-            this.remark1.Visible = false;
-            // 
-            // barcode
-            // 
-            this.barcode.DataPropertyName = "barcode";
-            this.barcode.HeaderText = "bardcode";
-            this.barcode.Name = "barcode";
-            this.barcode.Visible = false;
-            // 
-            // print_date
-            // 
-            this.print_date.DataPropertyName = "print_date";
-            this.print_date.HeaderText = "print_date";
-            this.print_date.Name = "print_date";
-            this.print_date.ReadOnly = true;
-            this.print_date.Visible = false;
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "print_date";
+            this.dataGridViewTextBoxColumn25.HeaderText = "print_date";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Visible = false;
             // 
             // frmCustLable
             // 
@@ -687,9 +739,9 @@
             this.Name = "frmCustLable";
             this.Text = "frmCustLable";
             this.Load += new System.EventHandler(this.frmCustLable_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             this.ResumeLayout(false);
@@ -739,12 +791,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.CheckBox chkSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flag_select;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_qty_ok;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_page;
         private System.Windows.Forms.DataGridViewTextBoxColumn color2;
         private System.Windows.Forms.DataGridViewTextBoxColumn size_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;

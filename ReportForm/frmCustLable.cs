@@ -29,21 +29,25 @@ namespace cf01.ReportForm
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (txtDept.Text == "" || txtCheck_date1.Text == "" || txtCheck_date2.Text == "")
+            if (txtDept.Text == "")
             {
                 MessageBox.Show("查詢條件：部門或批準日期不可以為空");
                 return;
             }
             string strSql =
-                @"SELECT CONVERT(bit,0) as flag_select, A.check_date,A.mo_id,B.goods_id,convert(int,B.prod_qty) as prod_qty,convert(int,B.c_qty_ok) as c_qty_ok,C.goods_name,C.goods_name_eng,C.color_name as color2,C.color_name_eng,C.size_id,
-                D.name ,D.english_name as customer_name_eng,ISNULL(D.analysis_codes_1,'') AS analysis_codes_1,E.contract_cid,E.customer_goods,E.customer_goods_name,E.customer_color_id,E.table_head,
-                dbo.Fn_get_picture_name('0000',B.goods_id,'1') AS picture_name,ISNULL(G.is_company_logo,'') AS is_company_logo,H.packing_remark8 AS print_eng_text,H.packing_remark as remark1,'' as barcode,dbo.fn_z_convert_sat_sun(GETDATE()) as print_date
+                @"SELECT CONVERT(bit,0) as flag_select,A.mo_id,B.goods_id,C.goods_name,Convert(int,B.prod_qty) as prod_qty,Convert(int,B.c_qty_ok) as c_qty_ok,
+                1 AS total_page,C.color_name as color2,C.size_id,D.name ,E.customer_goods,E.customer_goods_name,E.customer_color_id,E.contract_cid,E.table_head, 
+                A.check_date, C.goods_name_eng,C.color_name_eng,D.english_name as customer_name_eng,
+                ISNULL(D.analysis_codes_1,'') AS analysis_codes_1,
+                dbo.Fn_get_picture_name('0000',B.goods_id,'1') AS picture_name,ISNULL(G.is_company_logo,'') AS is_company_logo,H.packing_remark8 AS print_eng_text,
+                H.packing_remark as remark1,'' as barcode,dbo.fn_z_convert_sat_sun(GETDATE()) as print_date
                 FROM jo_bill_mostly A with(nolock)
                 INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code=B.within_code and A.id=B.id and A.ver=B.ver 
-                INNER JOIN (Select a1.within_code,a1.id as goods_id,a1.name as goods_name,a1.english_name as goods_name_eng,a2.name as color_name,a2.english_name as color_name_eng ,a3.name as size_id
+                INNER JOIN (Select a1.within_code,a1.id as goods_id,a1.name as goods_name,a1.english_name as goods_name_eng,a2.name as color_name,
+                             a2.english_name as color_name_eng ,a3.name as size_id
 			                FROM it_goods a1 left join cd_color a2 on a1.within_code=a2.within_code and a1.color=a2.id  
-			                left join cd_size a3 on a1.within_code=a3.within_code and a1.size_id=a3.id) C 
-                        ON B.within_code=C.within_code and B.goods_id=C.goods_id 
+			                left join cd_size a3 on a1.within_code=a3.within_code and a1.size_id=a3.id
+                            ) C ON B.within_code=C.within_code and B.goods_id=C.goods_id 
                 INNER JOIN it_customer D with(nolock) ON A.within_code=D.within_code AND A.customer_id=D.id 
                 INNER JOIN so_order_details E with(nolock) ON A.within_code=E.within_code and A.mo_id=E.mo_id 
                 INNER JOIN so_order_bom F with(nolock) ON E.within_code=F.within_code and E.id=F.id and E.ver=F.ver and E.sequence_id=F.upper_sequence                  
@@ -71,8 +75,7 @@ namespace cf01.ReportForm
             if (dtReport.Rows.Count == 0)
             {
                 MessageBox.Show("沒有符合查找條件的數據!");
-            }
-             
+            }             
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -87,10 +90,24 @@ namespace cf01.ReportForm
             DataRow[] ary_drs = dtReport.Select("flag_select=true");
             if (ary_drs.Length > 0)
             {               
-                dt = dtReport.Clone();                          
+                dt = dtReport.Clone();
+                int total_page = 1;
                 foreach (DataRow dr in ary_drs)
                 {
-                    dt.ImportRow(dr);
+                    if(string.IsNullOrEmpty(dr["total_page"].ToString()))
+                    {
+                        dr["total_page"] = 1;
+                    }
+                    total_page = int.Parse(dr["total_page"].ToString());
+                    if(total_page<=0)
+                    {
+                        MessageBox.Show("注意,列印份數不可為0!");
+                        break;
+                    }
+                    for (int i=1;i<=int.Parse(dr["total_page"].ToString());i++)
+                    {
+                        dt.ImportRow(dr);
+                    }                    
                 }
             }
             else
