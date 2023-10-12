@@ -732,7 +732,7 @@
             dataGridViewCellStyle14.Format = "N0";
             dataGridViewCellStyle14.NullValue = "0";
             this.packing_qty1.DefaultCellStyle = dataGridViewCellStyle14;
-            this.packing_qty1.HeaderText = "交包裝部數量";
+            this.packing_qty1.HeaderText = "已交包裝數量";
             this.packing_qty1.Name = "packing_qty1";
             this.packing_qty1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.packing_qty1.Width = 110;
