@@ -71,7 +71,7 @@ namespace cf01.ReportForm
                 dgvDetails1.DataSource = dtReport1;
                 result = dtReport1.Rows.Count;
             } 
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });            
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
            
             if (result == 0)
             {

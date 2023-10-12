@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using cf01.CLS;
 using cf01.Reports;
 using DevExpress.XtraReports.UI;
+using cf01.Forms;
+using System.Threading;
 
 namespace cf01.ReportForm
 {
@@ -70,12 +72,20 @@ namespace cf01.ReportForm
             {
                  strSql += " and isnull(B.prod_qty,0) > isnull(B.c_qty_ok,0)";//未完成
             }
+
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
             dtReport = clsgeo.GetDataTable(strSql);
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             dgvDetails.DataSource = dtReport;
             if (dtReport.Rows.Count == 0)
             {
                 MessageBox.Show("沒有符合查找條件的數據!");
-            }             
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
