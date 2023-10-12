@@ -234,9 +234,19 @@ namespace cf01.ReportForm
             for (int i = 0; i < gridView1.RowCount; i++)
             {
                 if (gridView1.GetRowCellValue(i, "print_select").ToString() == "True")
-                {                    
-                    li_total_page = int.Parse(dtDetails.Rows[i]["total_page"].ToString());                    
-                    drs = gridView1.GetDataRow(i);
+                {
+                    drs = gridView1.GetDataRow(i);                   
+                    if (string.IsNullOrEmpty(dtDetails.Rows[i]["total_page"].ToString()))
+                    {
+                        li_total_page = 1;
+                        drs["total_page"] = li_total_page;
+                    }
+                    li_total_page = int.Parse(dtDetails.Rows[i]["total_page"].ToString());
+                    if (li_total_page < 0)
+                    {
+                        li_total_page = Math.Abs(li_total_page);
+                        drs["total_page"] = li_total_page;
+                    }                    
                     for (int j = 1; j <= li_total_page; j++)
                     {
                         drs["page_num"] = j;
@@ -254,29 +264,23 @@ namespace cf01.ReportForm
             {
                 MessageBox.Show("無需要列印之數!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }
+            }           
+
+            XtraReport rpt;
             if (!chkPaperA4.Checked)
             {
-                using (xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtReport })
-                {
-                    xr.CreateDocument();
-                    xr.PrintingSystem.ShowMarginsWarning = false;
-                    xr.ShowPreviewDialog();                    
-                }
+                rpt = new xtaWork_No_BarCode() { DataSource = dtReport };                
             }
             else
-            {   
-                using (xtaWork_No_BarCodeA4 xr = new xtaWork_No_BarCodeA4() { DataSource = dtReport })
-                {
-                    xr.CreateDocument();
-                    xr.PrintingSystem.ShowMarginsWarning = false;
-                    xr.ShowPreviewDialog();
-                    //if (operationType == clsUtility.enumOperationType.PreView)
-                    //    xr.ShowPreviewDialog();//判斷是預覽 Or 打印                            
-                    //else
-                    //    xr.Print();
-                }
+            {
+                rpt = new xtaWork_No_BarCodeA4() { DataSource = dtReport };               
             }
+            rpt.CreateDocument();
+            rpt.PrintingSystem.ShowMarginsWarning = false;
+            rpt.ShowPreviewDialog();
+            rpt = null;
+
+
         }
 
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)

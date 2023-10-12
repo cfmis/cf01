@@ -510,32 +510,27 @@ namespace cf01.ReportForm
             {
                 MessageBox.Show("請首先選擇要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }           
-            //-----------
-            if (pType=="1")
-            {
-                //加載報表                
-                xrDelivery oRepot = new xrDelivery() { DataSource = dtReport };
-                oRepot.CreateDocument();
-                oRepot.PrintingSystem.ShowMarginsWarning = false ;                
-                oRepot.ShowPreview();
             }
-
+            //-----------
+            XtraReport rpt = new XtraReport();
+            if (pType == "1")
+            {
+                rpt = new xrDelivery() { DataSource = dtReport };               
+            }
             if (pType == "2")
             {               
-                xrDelivery_A4 oRepot = new xrDelivery_A4() { DataSource = dtReport };
-                oRepot.CreateDocument();
-                oRepot.PrintingSystem.ShowMarginsWarning = false ;                
-                oRepot.ShowPreview();
+                rpt = new xrDelivery_A4() { DataSource = dtReport };               
             }
-
             if (pType == "3")
             {
-                xrDelivery_details_A4 oRepot = new xrDelivery_details_A4() { DataSource = dtReport };
-                oRepot.CreateDocument();
-                oRepot.PrintingSystem.ShowMarginsWarning = false;
-                oRepot.ShowPreview();
-            }  
+                rpt = new xrDelivery_details_A4() { DataSource = dtReport };                
+            }
+            using (rpt)
+            {
+                rpt.CreateDocument();
+                rpt.PrintingSystem.ShowMarginsWarning = false;
+                rpt.ShowPreview();
+            }            
         }
 
         private void PrintProductCard()

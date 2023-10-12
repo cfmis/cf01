@@ -21,7 +21,7 @@ namespace cf01.ReportForm
         private clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
         private List<Mo_for_jx> lsModel = new List<Mo_for_jx>();
         private DataTable dtGoodsInfo = new DataTable();
-        public static DataTable dtNext_Goods= new DataTable();
+        public static DataTable dtNext_Goods = new DataTable();
 
         private clsUtility.enumOperationType operationType;
         private string goods_id;
@@ -554,32 +554,28 @@ namespace cf01.ReportForm
                     }
 
                     if (dtNewWork.Rows.Count > 0)
-                    {                        
+                    {
+                        XtraReport rpt;
                         if (!chkPA4.Checked)//工序卡非A4纸
-                        {                            
-                            using (xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtNewWork })
-                            {
-                                xr.CreateDocument();
-                                xr.PrintingSystem.ShowMarginsWarning = false;
-                                if (operationType == clsUtility.enumOperationType.PreView)
-                                    xr.ShowPreviewDialog();//判斷是預覽 Or 打印                            
-                                else
-                                    xr.Print();
-                            }
+                        {
+                            rpt = new xtaWork_No_BarCode() { DataSource = dtNewWork };                            
                         }
                         else
                         {
-                            using (xtaWork_No_BarCodeA4 xr = new xtaWork_No_BarCodeA4() { DataSource = dtNewWork })
-                            {
-                                xr.CreateDocument();
-                                xr.PrintingSystem.ShowMarginsWarning = false;
-                                if (operationType == clsUtility.enumOperationType.PreView)
-                                    xr.ShowPreviewDialog();//判斷是預覽 Or 打印                            
-                                else
-                                    xr.Print();
-                            }
+                            rpt = new xtaWork_No_BarCodeA4() { DataSource = dtNewWork };                            
                         }
-                        
+                        rpt.CreateDocument();
+                        rpt.PrintingSystem.ShowMarginsWarning = false;
+                        if (operationType == clsUtility.enumOperationType.PreView)
+                        {
+                            rpt.ShowPreviewDialog();//判斷是預覽 Or 打印   
+                        }
+                        else
+                        {
+                            rpt.Print();
+                        }
+                        rpt.Dispose();
+
                     }
                     else
                     {
@@ -984,7 +980,6 @@ namespace cf01.ReportForm
             dtCard_product.Dispose();
             dtReport.Dispose();
             dtMould.Dispose();
-
         }
 
         private void txtPro_qty_KeyPress(object sender, KeyPressEventArgs e)

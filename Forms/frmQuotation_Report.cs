@@ -50,7 +50,7 @@ namespace cf01.Forms
         DataTable dtTerm1 = new DataTable();
         DataTable dtAddress1 = new DataTable();
         DataTable dtFind = new DataTable();
-        DataTable dtReport = new DataTable();        
+        DataTable dtReport = new DataTable();
         //public static DataSet dsCopy = new DataSet();
         public List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
 
@@ -66,7 +66,7 @@ namespace cf01.Forms
             //clsApp.SetToolBarEnable(this.Name, this.Controls);
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
-            
+
 
             clsApp.Initialize_find_value(this.Name, panel1.Controls);//定價查找頁面條件初始化
             clsApp.Initialize_find_value("frmQuotation_Report_browse", tabControl1.TabPages[1].Controls);//報價資料查找頁面條件初始化
@@ -101,8 +101,8 @@ namespace cf01.Forms
             //strArea = strArea.Substring(0, 2);
             //strArea = (strArea == "DG") ? "QD" : "QH";//QD--DG輸入;QH--HK輸入
             strArea = (chkIsvn.Checked == false) ? "QD" : "QV";
-            
-            
+
+
             //客戶資料           
             string strSql = string.Format(
             @"SELECT '' AS id,'' AS cdesc,'' AS desc_e,'' as money_id,'' AS contact,'' AS tel,'' AS fax,'' AS email,'' AS address
@@ -121,22 +121,22 @@ namespace cf01.Forms
             //生成gridview1明細表結構
             dtQuotation_details = clsPublicOfCF01.GetDataTable(@"SELECT a.*,b.name as name_brand FROM quotation_details a,v_brand_customer b  WHERE 1=0");
             gridControl1.DataSource = dtQuotation_details;
-            
+
             //臨時項目刪除表結構
             dtTempDel = dtQuotation_details.Clone();
-            
+
             DataTable dtAddress = new DataTable();
             dtAddress = clsPublicOfCF01.GetDataTable("SELECT id,Convert(varchar(5),id)+'['+area+']' as cdesc FROM dbo.quotation_address GROUP BY id,area ORDER BY id,area");
             txtAddress_id.Properties.DataSource = dtAddress;
             txtAddress_id.Properties.ValueMember = "id";
-            txtAddress_id.Properties.DisplayMember = "cdesc";            
+            txtAddress_id.Properties.DisplayMember = "cdesc";
 
             DataTable dtTerm = new DataTable();
             dtTerm = clsPublicOfCF01.GetDataTable("SELECT id FROM dbo.quotation_term GROUP BY id ORDER BY id");
             txtTerm_id.Properties.DataSource = dtTerm;
             txtTerm_id.Properties.ValueMember = "id";
             txtTerm_id.Properties.DisplayMember = "id";
-            
+
             //tabPage3.Parent = null;
             tabControl1.SelectTab(2);
             chkSelectAll.Checked = false;
@@ -157,7 +157,7 @@ namespace cf01.Forms
                 dgvDetails.Columns[25].ReadOnly = true;
                 dgvDetails.Columns[26].ReadOnly = true;
             }
-            
+
             //BTNSAVE_PRICE.Enabled;// false;//設置Price_salesperson為可編輯
 
             using (DataTable dtSales_Group = clsPublicOfCF01.GetDataTable(@"Select typ_code AS id From bs_type Where typ_group='3'"))
@@ -198,7 +198,7 @@ namespace cf01.Forms
             System.Data.DataTable dtReportFormat = new System.Data.DataTable();
             //可以通用戶控制只可以看哪幾種報表
             //strSql = string.Format("Select A.report_id as id,B.typ_cdesc as cdesc FROM dbo.quotation_report A,bs_type B WHERE A.user_id='{0}' AND A.report_id=B.typ_code AND B.typ_group='AA'", DBUtility._user_id);
-            strSql ="Select typ_code as id,typ_cdesc as cdesc From bs_type Where typ_group ='AA'";
+            strSql = "Select typ_code as id,typ_cdesc as cdesc From bs_type Where typ_group ='AA'";
             dtReportFormat = clsPublicOfCF01.GetDataTable(strSql);
             txtReportFormat.Properties.DataSource = dtReportFormat;
             txtReportFormat.Properties.ValueMember = "id";
@@ -224,7 +224,7 @@ namespace cf01.Forms
                 INNER JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
                 LEFT JOIN {0}it_customer C with(nolock) ON C.within_code='0000' and A.customer_id=C.id COLLATE Chinese_Taiwan_Stroke_CI_AS
                 LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-            WHERE 1=0 ", DBUtility.remote_db);           
+            WHERE 1=0 ", DBUtility.remote_db);
             dtReport = clsPublicOfCF01.GetDataTable(strSql);
 
             //DataGridViewComboBoxColumn cmbox = dgvDetails.Columns["price_kind"] as DataGridViewComboBoxColumn ;  
@@ -308,7 +308,7 @@ namespace cf01.Forms
                 for (int i = dgvFind.Rows.Count - 1; i >= 0; i--)
                 {
                     if (dgvFind.Rows[i].Cells["quotaion_id"].Value.ToString() == txtID.Text &&
-                        dgvFind.Rows[i].Cells["version_h"].Value.ToString() == txtVersion.Text && 
+                        dgvFind.Rows[i].Cells["version_h"].Value.ToString() == txtVersion.Text &&
                         dgvFind.Rows[i].Cells["seqno"].Value.ToString() == seq_id_del)
                     {
                         dtReport.Rows.RemoveAt(i);
@@ -333,7 +333,7 @@ namespace cf01.Forms
         {
             if (edit_state == "" && !string.IsNullOrEmpty(txtID.Text))
             {
-                get_print_data();               
+                get_print_data();
             }
             else
             {
@@ -386,12 +386,12 @@ namespace cf01.Forms
                 chkIsvn.Checked = false;
                 foreach (mdlQuotation_Reprot lst in mList)
                 {
-                   if (lst.price_vnd > 0)
-                   {
+                    if (lst.price_vnd > 0)
+                    {
                         chkIsvn.Checked = true;
                         strArea = "QV";
                         break;
-                   } 
+                    }
                 }
                 GetDocNo();
                 txtAddress_id.EditValue = 1;//新增時默認Hongkong地址
@@ -414,7 +414,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cf_color", stu.cf_color);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_usd", stu.price_usd);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_hkd", stu.price_hkd);
-                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_rmb", stu.price_rmb);                   
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_rmb", stu.price_rmb);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "moq", stu.moq);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "price_unit", stu.price_unit);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "remark", stu.remark);
@@ -423,7 +423,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "id2", txtID.Text);
 
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "moq_desc", stu.moq_desc);
-                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "moq_unit",stu.moq_unit);
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "moq_unit", stu.moq_unit);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "season", stu.season);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "salesman", stu.salesman);
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "mwq", stu.mwq);
@@ -651,8 +651,8 @@ namespace cf01.Forms
             edit_state = "";
             if (!String.IsNullOrEmpty(tempID))
             {
-               // Find_Data();
-                Find_doc(tempID,temp_version);
+                // Find_Data();
+                Find_doc(tempID, temp_version);
             }
             memRemark.Properties.ReadOnly = true;
             memRemark.BackColor = Color.LightGray;
@@ -663,7 +663,7 @@ namespace cf01.Forms
 
         }
 
-        private void Find_doc(string temp_id,string pVer) //主檔非新增的情況下，保存或取消時重新查出資料
+        private void Find_doc(string temp_id, string pVer) //主檔非新增的情況下，保存或取消時重新查出資料
         {
             if (!string.IsNullOrEmpty(temp_id))
             {
@@ -672,13 +672,13 @@ namespace cf01.Forms
                 @"SELECT A.*,B.name as name_customer 
                   FROM dbo.quotation_mostly A with(nolock) 
                   LEFT JOIN {0}it_customer B with(nolock) ON B.within_code='0000' and A.customer_id=B.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-                  WHERE A.id ='{1}' AND A.version='{2}'", DBUtility.remote_db, temp_id,pVer);
+                  WHERE A.id ='{1}' AND A.version='{2}'", DBUtility.remote_db, temp_id, pVer);
                 //明細表
                 string sql_d = string.Format(
                 @"SELECT A.*,B.name as name_brand 
                 FROM dbo.quotation_details A with(nolock) 
                 LEFT JOIN v_brand_customer B ON A.brand=B.id COLLATE Chinese_Taiwan_Stroke_CI_AS
-                WHERE A.id='{0}' And A.version='{1}'", temp_id, pVer);              
+                WHERE A.id='{0}' And A.version='{1}'", temp_id, pVer);
 
                 dtQuotation_mostly = clsPublicOfCF01.GetDataTable(sql_h);
                 if (dtQuotation_mostly.Rows.Count > 0)
@@ -772,20 +772,20 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@remark_other", txtRemark_other.Text);
                     myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                     myCommand.Parameters.AddWithValue("@id_referred", txtId_referred.Text);
-                    myCommand.Parameters.AddWithValue("@valid_date", string.IsNullOrEmpty(txtValid_date.EditValue.ToString())?"":DateTime.Parse(txtValid_date.EditValue.ToString()).Date.ToString("yyyy/MM/dd"));
+                    myCommand.Parameters.AddWithValue("@valid_date", string.IsNullOrEmpty(txtValid_date.EditValue.ToString()) ? "" : DateTime.Parse(txtValid_date.EditValue.ToString()).Date.ToString("yyyy/MM/dd"));
                     myCommand.Parameters.AddWithValue("@money_id", txtMoney_id.EditValue);
                     myCommand.Parameters.AddWithValue("@tel", txtTel.Text);
                     myCommand.Parameters.AddWithValue("@fax", txtFax.Text);
                     myCommand.Parameters.AddWithValue("@email", txtEmail.Text);
                     myCommand.Parameters.AddWithValue("@contact", txtContact.Text);
                     myCommand.Parameters.AddWithValue("@position", txtPosition.Text);
-                    myCommand.Parameters.AddWithValue("@address", txtAddress.Text);                    
+                    myCommand.Parameters.AddWithValue("@address", txtAddress.Text);
                     bool blChecked;
                     blChecked = chkUsd.Checked ? true : false;
-                    myCommand.Parameters.AddWithValue("@isusd", blChecked);                    
-                    blChecked = chkHkd.Checked ? true : false;                    
+                    myCommand.Parameters.AddWithValue("@isusd", blChecked);
+                    blChecked = chkHkd.Checked ? true : false;
                     myCommand.Parameters.AddWithValue("@ishkd", blChecked);
-                    blChecked = chkRmb.Checked ? true : false;                    
+                    blChecked = chkRmb.Checked ? true : false;
                     myCommand.Parameters.AddWithValue("@isrmb", blChecked);
                     blChecked = chkIsvn.Checked ? true : false;
                     myCommand.Parameters.AddWithValue("@isvn", blChecked);
@@ -809,7 +809,7 @@ namespace cf01.Forms
                     //處理明細表
                     //刪除明細資料
                     if (edit_state == "EDIT")
-                    {                        
+                    {
                         for (int i = 0; i < dtTempDel.Rows.Count; i++)
                         {
                             myCommand.CommandText = sql_item_d;
@@ -834,7 +834,7 @@ namespace cf01.Forms
                                 if (rowStatus == "Added")
                                 {
                                     myCommand.CommandText = sql_detail_insert;
-                                    strSeq_id = Get_Details_Seq(txtID.Text.Trim(),txtVersion.Text.Trim()); //新增狀態重新取最大序號
+                                    strSeq_id = Get_Details_Seq(txtID.Text.Trim(), txtVersion.Text.Trim()); //新增狀態重新取最大序號
                                     //insert
                                 }
                                 if (rowStatus == "Modified")
@@ -858,14 +858,14 @@ namespace cf01.Forms
 
                                 myCommand.Parameters.AddWithValue("@price_usd", Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString()));
                                 myCommand.Parameters.AddWithValue("@price_hkd", Return_Float_Value(dtQuotation_details.Rows[i]["price_hkd"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_rmb", Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString()));                              
+                                myCommand.Parameters.AddWithValue("@price_rmb", Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString()));
 
                                 myCommand.Parameters.AddWithValue("@moq", dtQuotation_details.Rows[i]["moq"]);
                                 myCommand.Parameters.AddWithValue("@price_unit", dtQuotation_details.Rows[i]["price_unit"].ToString());
                                 myCommand.Parameters.AddWithValue("@remark", dtQuotation_details.Rows[i]["remark"].ToString());
                                 myCommand.Parameters.AddWithValue("@temp_code", dtQuotation_details.Rows[i]["temp_code"].ToString());
                                 myCommand.Parameters.AddWithValue("@ver", dtQuotation_details.Rows[i]["ver"]);
-                                
+
                                 //--Katie報表格式新加的字段
                                 myCommand.Parameters.AddWithValue("@moq_desc", dtQuotation_details.Rows[i]["moq_desc"].ToString());
                                 myCommand.Parameters.AddWithValue("@moq_unit", dtQuotation_details.Rows[i]["moq_unit"].ToString());
@@ -957,7 +957,7 @@ namespace cf01.Forms
                 if (temp_state == "EDIT" || temp_state == "NEW")
                 {
                     ReSet_Datagrid_Value();//將值更新回查詢頁面
-                    if (temp_state == "NEW" && dgvFind.Rows.Count>0)
+                    if (temp_state == "NEW" && dgvFind.Rows.Count > 0)
                     {
                         //新增時將光標定位到最后一行
                         dgvFind.CurrentCell = dgvFind.Rows[dgvFind.Rows.Count - 1].Cells[1];
@@ -1019,15 +1019,15 @@ namespace cf01.Forms
                         rtn = false;
                         break;
                     }
-                    if (price_vnd_pdd>price_vnd)
+                    if (price_vnd_pdd > price_vnd)
                     {
-                        MessageBox.Show(string.Format("注意:單價VND'{0}'不可小于HK PDD'{1}'報價!", price_vnd, price_vnd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                       
+                        MessageBox.Show(string.Format("注意:單價VND'{0}'不可小于HK PDD'{1}'報價!", price_vnd, price_vnd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = false;
                         break;
                     }
                     if (price_vnd_grs_pdd > price_vnd_grs)
                     {
-                        MessageBox.Show(string.Format("注意:單價VND(GRS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_grs, price_vnd_grs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                        
+                        MessageBox.Show(string.Format("注意:單價VND(GRS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_grs, price_vnd_grs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = false;
                         break;
                     }
@@ -1042,7 +1042,7 @@ namespace cf01.Forms
             else
             {
                 float price_usd, price_hkd, price_rmb, hkd_ex_fty, usd_ex_fty;
-                float price_usd_pdd, price_hkd_pdd, price_rmb_pdd,hkd_ex_fty_pdd, usd_ex_fty_pdd;
+                float price_usd_pdd, price_hkd_pdd, price_rmb_pdd, hkd_ex_fty_pdd, usd_ex_fty_pdd;
                 for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
                 {
                     price_usd = Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString());
@@ -1064,25 +1064,25 @@ namespace cf01.Forms
                         rtn = false;
                         break;
                     }
-                    if (price_hkd_pdd > 0 && ( price_hkd_pdd > price_hkd))
-                    {                       
+                    if (price_hkd_pdd > 0 && (price_hkd_pdd > price_hkd))
+                    {
                         MessageBox.Show(string.Format("注意:單價HKD'{0}'不可小于HK PDD'{1}'報價!", price_hkd, price_hkd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = false;
                         break;
                     }
-                    if (price_rmb_pdd > 0 && ( price_rmb_pdd > price_rmb))
+                    if (price_rmb_pdd > 0 && (price_rmb_pdd > price_rmb))
                     {
                         MessageBox.Show(string.Format("注意:單價RMB'{0}'不可小于HK PDD'{1}'報價!", price_rmb, price_rmb_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = false;
                         break;
                     }
-                    if (hkd_ex_fty_pdd > 0 && ( hkd_ex_fty_pdd > hkd_ex_fty))
+                    if (hkd_ex_fty_pdd > 0 && (hkd_ex_fty_pdd > hkd_ex_fty))
                     {
                         MessageBox.Show(string.Format("注意:單價HKD-EX-FTY'{0}'不可小于HK PDD'{1}'報價!", hkd_ex_fty, hkd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = false;
                         break;
-                    }                    
-                    if (usd_ex_fty_pdd > 0 && ( usd_ex_fty_pdd > usd_ex_fty))
+                    }
+                    if (usd_ex_fty_pdd > 0 && (usd_ex_fty_pdd > usd_ex_fty))
                     {
                         MessageBox.Show(string.Format("注意:單價USD-EX-FTY'{0}'不可小于HK PDD'{1}'報價!", usd_ex_fty, usd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = false;
@@ -1112,10 +1112,10 @@ namespace cf01.Forms
             return flag;
         }
 
-        private string Get_Details_Seq(string pID,string pVer) //取明細的序號
+        private string Get_Details_Seq(string pID, string pVer) //取明細的序號
         {
             DataTable dtMaxseq = new DataTable();
-            dtMaxseq = clsPublicOfCF01.GetDataTable(String.Format("SELECT MAX(seq_id) as seq_id FROM dbo.quotation_details with(nolock) WHERE id ='{0}' and version='{1}'", pID,pVer));
+            dtMaxseq = clsPublicOfCF01.GetDataTable(String.Format("SELECT MAX(seq_id) as seq_id FROM dbo.quotation_details with(nolock) WHERE id ='{0}' and version='{1}'", pID, pVer));
 
             string strSeq;
             if (String.IsNullOrEmpty(dtMaxseq.Rows[0]["seq_id"].ToString()))
@@ -1171,7 +1171,7 @@ namespace cf01.Forms
         private void Set_Master_Data(DataTable dt) //綁定主檔資料
         {
             txtID.Text = dt.Rows[0]["id"].ToString();
-            txtVersion.Text = dt.Rows[0]["version"].ToString();            
+            txtVersion.Text = dt.Rows[0]["version"].ToString();
             txtDate.EditValue = clsApp.Return_String_Date(dt.Rows[0]["quota_date"].ToString());
             txtCustomer_id.EditValue = dt.Rows[0]["customer_id"].ToString();
             txtCust_desc.Text = dt.Rows[0]["name_customer"].ToString();
@@ -1185,9 +1185,9 @@ namespace cf01.Forms
             txtCrtim.Text = dt.Rows[0]["crtim"].ToString();
             txtAmusr.Text = dt.Rows[0]["amusr"].ToString();
             txtAmtim.Text = dt.Rows[0]["amtim"].ToString();
-            
+
             if (!string.IsNullOrEmpty(dt.Rows[0]["valid_date"].ToString()))
-                txtValid_date.EditValue = clsApp.Return_String_Date(dt.Rows[0]["valid_date"].ToString()); 
+                txtValid_date.EditValue = clsApp.Return_String_Date(dt.Rows[0]["valid_date"].ToString());
             else
                 txtValid_date.EditValue = "";
             txtMoney_id.EditValue = dt.Rows[0]["money_id"].ToString();
@@ -1210,10 +1210,10 @@ namespace cf01.Forms
             {
                 if (edit_state == "") //流覽模式
                 {
-                    Find_doc(txtID.Text,txtVersion.Text);
+                    Find_doc(txtID.Text, txtVersion.Text);
                 }
             }
-        }      
+        }
 
         private void txtCustomer_id_Click(object sender, EventArgs e)
         {
@@ -1268,7 +1268,7 @@ namespace cf01.Forms
         }
 
         private void BTNFIND3_Click(object sender, EventArgs e)
-        {           
+        {
             DataRow[] drs = null;
             if (dgvDetails.RowCount > 0)
             {
@@ -1292,7 +1292,7 @@ namespace cf01.Forms
             strDat2 = !string.IsNullOrEmpty(strDat2) ? DateTime.Parse(strDat2).Date.ToString("yyyy/MM/dd") : "";
             strCrtim1 = !string.IsNullOrEmpty(txtCrtim1.Text) ? DateTime.Parse(txtCrtim1.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
             strCrtim2 = !string.IsNullOrEmpty(txtCrtim2.Text) ? DateTime.Parse(txtCrtim2.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
-            SqlParameter[] paras = new SqlParameter[] { 
+            SqlParameter[] paras = new SqlParameter[] {
                        new SqlParameter("@user_id",DBUtility._user_id),
                        new SqlParameter("@sales_group",txtSales_group.Text),
                        new SqlParameter("@brand",txtBrand.Text),
@@ -1304,7 +1304,7 @@ namespace cf01.Forms
                        new SqlParameter("@season",txtSeason.Text),
                        new SqlParameter("@temp_code",txtTemp_code.Text),
                        new SqlParameter("@size",txtSize.Text),
-                       new SqlParameter("@dat1",strDat1), 
+                       new SqlParameter("@dat1",strDat1),
                        new SqlParameter("@dat2",strDat2),
                        new SqlParameter("@mo_id",txtMo_id.Text),
                        new SqlParameter("@sub_mo_id",txtSub.Text),
@@ -1351,7 +1351,7 @@ namespace cf01.Forms
                             dtFind.Rows.Remove(row_del);//先移走已存在的行
                         }
                     }
-                    
+
                     //將打勾的添加進新查詢的結果中
                     foreach (DataRow dr in drs)
                     {
@@ -1365,7 +1365,7 @@ namespace cf01.Forms
             dtFind = dv.ToTable();
             //------------
 
-            
+
             //dtFind.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));           
             dgvDetails.DataSource = dtFind;
             //dgvDetails.Columns["season"].Frozen = true;
@@ -1399,7 +1399,7 @@ namespace cf01.Forms
             bool flag_vn = true;
             //越南報價單只可以添加越南報價單大于零的記錄
             if (chkIsvn.Checked)
-            {               
+            {
                 for (int i = 0; i < dgvDetails.RowCount; i++)
                 {
                     if (dtFind.Rows[i]["flag_select"].ToString() == "True")
@@ -1492,7 +1492,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(cur_row, "disc_price_rmb", dtTempAdd.Rows[i]["disc_price_rmb"]);
                     gridView1.SetRowCellValue(cur_row, "disc_hkd_ex_fty", dtTempAdd.Rows[i]["disc_hkd_ex_fty"]);
                     gridView1.SetRowCellValue(cur_row, "die_mould_usd", dtTempAdd.Rows[i]["die_mould_usd"]);
-                    gridView1.SetRowCellValue(cur_row, "die_mould_cny", dtTempAdd.Rows[i]["die_mould_cny"].ToString());                   
+                    gridView1.SetRowCellValue(cur_row, "die_mould_cny", dtTempAdd.Rows[i]["die_mould_cny"].ToString());
                     gridView1.SetRowCellValue(cur_row, "actual_price", dtTempAdd.Rows[i]["price_salesperson"].ToString());
                     gridView1.SetRowCellValue(cur_row, "rmb_remark", dtTempAdd.Rows[i]["rmb_remark"].ToString());
                     gridView1.SetRowCellValue(cur_row, "cust_artwork", dtTempAdd.Rows[i]["cust_artwork"].ToString());
@@ -1521,10 +1521,10 @@ namespace cf01.Forms
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             //產生行號
-           Rectangle rectangle = new Rectangle(e.RowBounds.Location.X,
-                e.RowBounds.Location.Y,
-                dgvDetails.RowHeadersWidth - 4,
-                e.RowBounds.Height);
+            Rectangle rectangle = new Rectangle(e.RowBounds.Location.X,
+                 e.RowBounds.Location.Y,
+                 dgvDetails.RowHeadersWidth - 4,
+                 e.RowBounds.Height);
 
             TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
                 dgvDetails.RowHeadersDefaultCellStyle.Font,
@@ -1561,7 +1561,7 @@ namespace cf01.Forms
             if (clsApp.set_find_Value(Name, panel1.Controls) > 0)
                 MessageBox.Show("當前查詢條件保存成功!", "提示信息");
             else
-                MessageBox.Show("當前查詢條件保存失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("當前查詢條件保存失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -1590,7 +1590,7 @@ namespace cf01.Forms
                 sb.Append(string.Format(" AND A.customer_id>='{0}'", txtCust_id1.Text));
             if (txtCust_id2.Text != "")
                 sb.Append(string.Format(" AND A.customer_id<='{0}'", txtCust_id2.Text));
-            if(txtCreateby.Text != "")
+            if (txtCreateby.Text != "")
                 sb.Append(string.Format(" AND A.crusr='{0}'", txtCreateby.Text));
             if (txtBrand_id1.Text != "")
                 sb.Append(string.Format(" AND B.brand>='{0}'", txtBrand_id1.Text));
@@ -1650,7 +1650,7 @@ namespace cf01.Forms
             return strsql;
         }
 
-        
+
         private void txtQuotation1_Leave(object sender, EventArgs e)
         {
             txtQuotation2.Text = txtQuotation1.Text;
@@ -1686,23 +1686,23 @@ namespace cf01.Forms
         private void dgvFind_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvFind.RowCount > 0)
-            {               
+            {
                 if (txtID.Text != dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["quotaion_id"].Value.ToString())
                 {
                     txtID.Text = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["quotaion_id"].Value.ToString();
                     txtVersion.Text = dgvFind.Rows[dgvFind.CurrentCell.RowIndex].Cells["version_h"].Value.ToString();
                     Find_doc(txtID.Text, txtVersion.Text);
                 }
-            }          
+            }
         }
 
         private void BTNSAVESET1_Click(object sender, EventArgs e)
         {
             //保存數據瀏覽頁面查詢條件
-            if(clsApp.set_find_Value("frmQuotation_Report_browse", tabControl1.TabPages[1].Controls)>0)
+            if (clsApp.set_find_Value("frmQuotation_Report_browse", tabControl1.TabPages[1].Controls) > 0)
                 MessageBox.Show("當前查詢條件保存成功!", "提示信息");
             else
-                MessageBox.Show("當前查詢條件保存失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("當前查詢條件保存失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
@@ -1714,7 +1714,7 @@ namespace cf01.Forms
                 {
                     return;
                 }
-                
+
                 if (ofrmCopy.dr_copy.Length > 0)
                 {
                     int cur_row;
@@ -1722,7 +1722,7 @@ namespace cf01.Forms
                     for (int i = 0; i < ofrmCopy.dr_copy.Length; i++)
                     {
                         if (i == 0)
-                        {                            
+                        {
                             txtDate.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
                             txtCustomer_id.EditValue = ofrmCopy.dr_copy[0]["customer_id"].ToString();
                             txtCust_desc.Text = ofrmCopy.dr_copy[0]["name_customer"].ToString();
@@ -1742,13 +1742,13 @@ namespace cf01.Forms
                             txtTel.Text = ofrmCopy.dr_copy[0]["tel"].ToString();
                             txtFax.Text = ofrmCopy.dr_copy[0]["fax"].ToString();
                             txtEmail.Text = ofrmCopy.dr_copy[0]["email"].ToString();
-                            txtPosition.Text= ofrmCopy.dr_copy[0]["position"].ToString();
+                            txtPosition.Text = ofrmCopy.dr_copy[0]["position"].ToString();
                             txtAddress.Text = ofrmCopy.dr_copy[0]["address"].ToString();
                             chkUsd.Checked = (ofrmCopy.dr_copy[0]["isusd"].ToString() == "True") ? true : false;
                             chkHkd.Checked = (ofrmCopy.dr_copy[0]["ishkd"].ToString() == "True") ? true : false;
                             chkRmb.Checked = (ofrmCopy.dr_copy[0]["isrmb"].ToString() == "True") ? true : false;
                             chkIsvn.Checked = (ofrmCopy.dr_copy[0]["isvn"].ToString() == "True") ? true : false;
-                          
+
                         }
 
                         gridView1.AddNewRow();//新增
@@ -1765,7 +1765,7 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "cf_color", ofrmCopy.dr_copy[i]["cf_color"].ToString());
                         gridView1.SetRowCellValue(cur_row, "price_usd", ofrmCopy.dr_copy[i]["price_usd"]);
                         gridView1.SetRowCellValue(cur_row, "price_hkd", ofrmCopy.dr_copy[i]["price_hkd"]);
-                        gridView1.SetRowCellValue(cur_row, "price_rmb", ofrmCopy.dr_copy[i]["price_rmb"]);                        
+                        gridView1.SetRowCellValue(cur_row, "price_rmb", ofrmCopy.dr_copy[i]["price_rmb"]);
                         gridView1.SetRowCellValue(cur_row, "moq", ofrmCopy.dr_copy[i]["moq"]);
                         gridView1.SetRowCellValue(cur_row, "price_unit", ofrmCopy.dr_copy[i]["price_unit"].ToString());
                         gridView1.SetRowCellValue(cur_row, "remark", ofrmCopy.dr_copy[i]["remark"].ToString());
@@ -1790,7 +1790,7 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "usd_lab_test_prx", ofrmCopy.dr_copy[i]["usd_lab_test_prx"]);
                         gridView1.SetRowCellValue(cur_row, "ex_fty_hkd", ofrmCopy.dr_copy[i]["ex_fty_hkd"]);
                         gridView1.SetRowCellValue(cur_row, "ex_fty_usd", ofrmCopy.dr_copy[i]["ex_fty_usd"]);
-                        
+
                         gridView1.SetRowCellValue(cur_row, "discount", ofrmCopy.dr_copy[i]["discount"]);
                         gridView1.SetRowCellValue(cur_row, "disc_price_usd", ofrmCopy.dr_copy[i]["disc_price_usd"]);
                         gridView1.SetRowCellValue(cur_row, "disc_price_hkd", ofrmCopy.dr_copy[i]["disc_price_hkd"]);
@@ -1884,7 +1884,7 @@ namespace cf01.Forms
         {
             if (dgvFind.RowCount > 0)
             {
-               // Print();
+                // Print();
             }
             else
             {
@@ -1898,15 +1898,15 @@ namespace cf01.Forms
             if (strReport == "04" || strReport == "05")
             {
                 bool flag_gap = false;
-                string strBrand_id="";
+                string strBrand_id = "";
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    strBrand_id=dt.Rows[i]["brand"].ToString();
-                    if (strBrand_id.Contains("GAP") || strBrand_id.Contains("BANA-"))                    
+                    strBrand_id = dt.Rows[i]["brand"].ToString();
+                    if (strBrand_id.Contains("GAP") || strBrand_id.Contains("BANA-"))
                     {
                         flag_gap = true;
                         break;
-                    }                   
+                    }
                 }
                 if (!flag_gap)
                 {
@@ -1919,6 +1919,7 @@ namespace cf01.Forms
                 MessageBox.Show("請首先選擇要列印的報表格式!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            XtraReport rpt = new XtraReport();
             switch (strReport)
             {
                 case "01": //格式一通用
@@ -1937,115 +1938,89 @@ namespace cf01.Forms
                             myReport.ExportToImage(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
                     }*/
-
-                    xrQuotation myReport1 = new xrQuotation() { DataSource = dt };
-                    ReportPrint(myReport1);
+                    rpt = new xrQuotation() { DataSource = dt };
                     break;
                 case "02": //格式二(1)，一般格式USD,HKD,RMB
-                    xrQuotation2a myReport2a = new xrQuotation2a() { DataSource = dt };
-                    ReportPrint(myReport2a);
+                    rpt = new xrQuotation2a() { DataSource = dt };
                     break;
                 case "03": //格式二(2)，一般格式USD
-                    xrQuotation2b myReport2b = new xrQuotation2b() { DataSource = dt };
-                    ReportPrint(myReport2b);
+                    rpt = new xrQuotation2b() { DataSource = dt };
                     break;
                 case "04": //格式三（1）USD only GAP/BANA
-                    xrQuotation31 myReport31 = new xrQuotation31() { DataSource = dt };
-                    ReportPrint(myReport31);
+                    rpt = new xrQuotation31() { DataSource = dt };
                     break;
                 case "05": //格式三（2）USD & HKD GAP/BANA
-                    xrQuotation32 myReport32 = new xrQuotation32() { DataSource = dt };
-                    ReportPrint(myReport32);
+                    rpt = new xrQuotation32() { DataSource = dt };
                     break;
                 case "06":  //格式四ex_fty_usd,ex_fty_hkd
-                    xrQuotation4 myReport4 = new xrQuotation4() { DataSource = dt };
-                    ReportPrint(myReport4);
+                    rpt = new xrQuotation4() { DataSource = dt };
                     break;
                 case "07"://格式五
-                    xrQuotation5 myReport5 = new xrQuotation5() { DataSource = dt };
-                    ReportPrint(myReport5);
+                    rpt = new xrQuotation5() { DataSource = dt };
                     break;
                 case "08"://格式六1
-                    xrQuotation61 myReport61 = new xrQuotation61() { DataSource = dt };
-                    ReportPrint(myReport61);
+                    rpt = new xrQuotation61() { DataSource = dt };
                     break;
                 case "09"://格式六2
-                    xrQuotation62 myReport62 = new xrQuotation62() { DataSource = dt };
-                    ReportPrint(myReport62);
+                    rpt = new xrQuotation62() { DataSource = dt };
                     break;
                 case "10"://格式七1
-                    xrQuotation71 myReport71 = new xrQuotation71() { DataSource = dt };
-                    ReportPrint(myReport71);
+                    rpt = new xrQuotation71() { DataSource = dt };
                     break;
                 case "11"://格式七2
-                    xrQuotation72 myReport72 = new xrQuotation72() { DataSource = dt };
-                    ReportPrint(myReport72);
+                    rpt = new xrQuotation72() { DataSource = dt };
                     break;
                 case "12"://格式八HKD_EX_FTY
-                    xrQuotation8 myReport8 = new xrQuotation8() { DataSource = dt };
-                    ReportPrint(myReport8);
+                    rpt = new xrQuotation8() { DataSource = dt };
                     break;
                 case "13"://格式九HKD_EX_FTY
-                    xrQuotation9 myReport9 = new xrQuotation9() { DataSource = dt };
-                    ReportPrint(myReport9);
+                    rpt = new xrQuotation9() { DataSource = dt };
                     break;
                 case "14"://格式十RMB
-                    xrQuotation10 myReport10 = new xrQuotation10() { DataSource = dt };
-                    ReportPrint(myReport10);
+                    rpt = new xrQuotation10() { DataSource = dt };
                     break;
                 case "15"://格式十一 HKD EX-FTY，USD EX-FTY,USD FOB-HK,RMB(including 17% VAT TAX)
-                    xrQuotation11 myReport11 = new xrQuotation11() { DataSource = dt };
-                    ReportPrint(myReport11);
+                    rpt = new xrQuotation11() { DataSource = dt };
                     break;
                 case "16"://格式十二 USD EX-FTY,USD FOB-USD,
-                    xrQuotation12 myReport12 = new xrQuotation12() { DataSource = dt };
-                    ReportPrint(myReport12);
+                    rpt = new xrQuotation12() { DataSource = dt };
                     break;
                 case "17"://格式十三 FOB-USD有圖樣                
-                    xrQuotation13 myReport13 = new xrQuotation13() { DataSource = dt };
-                    ReportPrint(myReport13);
+                    rpt = new xrQuotation13() { DataSource = dt };
                     break;
                 case "18"://格式十四(無條款 USD EX-FTY)                
-                    xrQuotation14 myReport14 = new xrQuotation14() { DataSource = dt };
-                    ReportPrint(myReport14);
+                    rpt = new xrQuotation14() { DataSource = dt };
                     break;
                 case "19"://格式十五(TORY HK)              
-                    xrQuotation15 myReport15 = new xrQuotation15() { DataSource = dt };
-                    ReportPrint(myReport15);
+                    rpt = new xrQuotation15() { DataSource = dt };
                     break;
                 case "20"://格式十六(TORY US)
-                    xrQuotation16 myReport16 = new xrQuotation16() { DataSource = dt };
-                    ReportPrint(myReport16);
+                    rpt = new xrQuotation16() { DataSource = dt };
                     break;
                 case "21"://格式十七(Ex-fty HKD & Ex-fty USD)                 
-                    xrQuotation17 myReport17 = new xrQuotation17() { DataSource = dt };
-                    ReportPrint(myReport17);
+                    rpt = new xrQuotation17() { DataSource = dt };
                     break;
                 case "22"://格式十八(無條款 RMB)                  
-                    xrQuotation18 myReport18 = new xrQuotation18() { DataSource = dt };
-                    ReportPrint(myReport18);
+                    rpt = new xrQuotation18() { DataSource = dt };
                     break;
                 case "23"://格式十九(price remark)                   
-                    xrQuotation19 myReport19 = new xrQuotation19() { DataSource = dt };
-                    ReportPrint(myReport19);
+                    rpt = new xrQuotation19() { DataSource = dt };
                     break;
                 case "24"://格式二十(Usd ex_fty & price remark)
-                    xrQuotation20 myReport20 = new xrQuotation20() { DataSource = dt };
-                    ReportPrint(myReport20);
+                    rpt = new xrQuotation20() { DataSource = dt };
                     break;
                 case "25"://格式二十一(VM ex_fty)   
-                    xrQuotation21 myReport21 = new xrQuotation21() { DataSource = dt };
-                    ReportPrint(myReport21);
+                    rpt = new xrQuotation21() { DataSource = dt };
                     break;
                 case "26"://格式二十二(VND & VN USD)   
-                    xrQuotation22 myReport22 = new xrQuotation22() { DataSource = dt };
-                    ReportPrint(myReport22);                    
+                    rpt = new xrQuotation22() { DataSource = dt };
                     break;
             }
+            ReportPrint(rpt);
         }
 
         private void ReportPrint(XtraReport rpt)
-        {           
+        {
             using (rpt)
             {
                 rpt.CreateDocument();
@@ -2067,26 +2042,15 @@ namespace cf01.Forms
             }
         }
 
-        //private void BTNFIND_Click_1(object sender, EventArgs e)
-        //{            
-        //    //tabControl1.SelectTab(1);
-        //    //if (txtDat1.Text == "" && txtDat2.Text == "")
-        //    //{
-        //    //    txtDat1.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
-        //    //    txtDat2.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
-        //    //}
-        //}
-
-
         private void ReSet_Datagrid_Value()
-        {            
+        {
             string strSql = string.Format(@"Select dbo.fn_getAddress('{0}') as address", txtAddress_id.EditValue);
             string strAddress = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             strSql = string.Format(@"Select dbo.fn_getTermRemark('{0}','{1}','0') as terms", txtTerm_id.EditValue, txtValid_date.Text);
-            string strTerms = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);                
+            string strTerms = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             string strName_brand = "";
             bool flag_update;
-            for (int i=0; i<dtQuotation_details.Rows.Count; i++)
+            for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
             {
                 strSql = string.Format("Select SS.name AS name_brand FROM (select id,name from {0}cd_brand with(nolock) Union all select id,name from {0}it_customer with(nolock)) SS Where SS.id='{1}'",
                             DBUtility.remote_db, dtQuotation_details.Rows[i]["brand"]);
@@ -2095,9 +2059,9 @@ namespace cf01.Forms
                 //更新舊值
                 for (int ii = 0; ii < dgvFind.RowCount; ii++)
                 {
-                    if (dtReport.Rows[ii]["id_h"].ToString() == txtID.Text && dtReport.Rows[ii]["version"].ToString() ==  txtVersion.Text &&
+                    if (dtReport.Rows[ii]["id_h"].ToString() == txtID.Text && dtReport.Rows[ii]["version"].ToString() == txtVersion.Text &&
                         dtReport.Rows[ii]["seq_id"].ToString() == dtQuotation_details.Rows[i]["seq_id"].ToString())
-                    {                        
+                    {
                         dtReport.Rows[ii]["quota_date_h"] = txtDate.Text;
                         dtReport.Rows[ii]["customer_id"] = txtCustomer_id.EditValue;
                         dtReport.Rows[ii]["name_customer"] = txtCust_desc.Text;
@@ -2113,7 +2077,7 @@ namespace cf01.Forms
                         dtReport.Rows[ii]["fax"] = txtFax.Text;
                         dtReport.Rows[ii]["email"] = txtEmail.Text;
                         if (chkUsd.Checked)
-                            dtReport.Rows[ii]["isusd"] = true;    
+                            dtReport.Rows[ii]["isusd"] = true;
                         else
                             dtReport.Rows[ii]["isusd"] = false;
                         if (chkHkd.Checked)
@@ -2141,7 +2105,7 @@ namespace cf01.Forms
                         dtReport.Rows[ii]["price_vnd"] = dtQuotation_details.Rows[i]["price_vnd"];
                         dtReport.Rows[ii]["moq"] = dtQuotation_details.Rows[i]["moq"];
                         dtReport.Rows[ii]["price_unit"] = dtQuotation_details.Rows[i]["price_unit"].ToString();
-                        dtReport.Rows[ii]["remark_h"] = txtRemark.Text;                            
+                        dtReport.Rows[ii]["remark_h"] = txtRemark.Text;
                         dtReport.Rows[ii]["name_brand"] = strName_brand;
 
                         dtReport.Rows[ii]["moq_unit"] = dtQuotation_details.Rows[i]["moq_unit"].ToString();
@@ -2173,13 +2137,13 @@ namespace cf01.Forms
                         dtReport.Rows[ii]["actual_price"] = dtQuotation_details.Rows[i]["actual_price"];
                         dtReport.Rows[ii]["actual_price_type"] = dtQuotation_details.Rows[i]["actual_price_type"].ToString();
                         dtReport.Rows[ii]["die_mould_usd"] = dtQuotation_details.Rows[i]["die_mould_usd"];
-                        dtReport.Rows[ii]["die_mould_cny"] = dtQuotation_details.Rows[i]["die_mould_cny"].ToString(); 
+                        dtReport.Rows[ii]["die_mould_cny"] = dtQuotation_details.Rows[i]["die_mould_cny"].ToString();
                         flag_update = true;
                     }
                 }
-                
+
                 //插入新增加值
-                if (flag_update == false )
+                if (flag_update == false)
                 {
                     DataRow dr = dtReport.NewRow();
                     dr["id_h"] = txtID.Text;
@@ -2188,9 +2152,9 @@ namespace cf01.Forms
                     dr["quota_date_h"] = txtDate.Text;
                     dr["customer_id"] = txtCustomer_id.EditValue;
                     dr["name_customer"] = txtCust_desc.Text;
-                    dr["address_id"] = txtAddress_id.EditValue;                        
-                    dr["address"] =strAddress;
-                    dr["term_id"] = txtTerm_id.EditValue;                        
+                    dr["address_id"] = txtAddress_id.EditValue;
+                    dr["address"] = strAddress;
+                    dr["term_id"] = txtTerm_id.EditValue;
                     dr["terms"] = strTerms;
                     dr["valid_date"] = txtValid_date.Text;
                     dr["money_id"] = txtMoney_id.EditValue;
@@ -2227,7 +2191,7 @@ namespace cf01.Forms
                     dr["price_vnd"] = dtQuotation_details.Rows[i]["price_vnd"];
                     dr["moq"] = dtQuotation_details.Rows[i]["moq"];
                     dr["price_unit"] = dtQuotation_details.Rows[i]["price_unit"].ToString();
-                    dr["remark_h"] = txtRemark.Text;                       
+                    dr["remark_h"] = txtRemark.Text;
                     dr["name_brand"] = strName_brand;
 
                     dr["moq_unit"] = dtQuotation_details.Rows[i]["moq_unit"].ToString();
@@ -2242,7 +2206,7 @@ namespace cf01.Forms
                     dr["moq_for_test"] = dtQuotation_details.Rows[i]["moq_for_test"];
                     dr["number_enter"] = dtQuotation_details.Rows[i]["number_enter"];
                     dr["hkd_ex_fty"] = dtQuotation_details.Rows[i]["hkd_ex_fty"];
-                    dr["usd_ex_fty"] = dtQuotation_details.Rows[i]["usd_ex_fty"]; 
+                    dr["usd_ex_fty"] = dtQuotation_details.Rows[i]["usd_ex_fty"];
                     dr["sales_group"] = dtQuotation_details.Rows[i]["sales_group"].ToString();
 
                     dr["usd_dap"] = dtQuotation_details.Rows[i]["usd_dap"];
@@ -2263,10 +2227,10 @@ namespace cf01.Forms
                     dtReport.Rows.Add(dr);
                 }
             }
-            dtReport.AcceptChanges();            
+            dtReport.AcceptChanges();
             //重新排序
             dgvFind.Sort(dgvFind.Columns["quotaion_id"], ListSortDirection.Ascending);
-           
+
         }
 
         private void chkSelectAll_CheckedChanged(object sender, EventArgs e)
@@ -2278,7 +2242,7 @@ namespace cf01.Forms
             else
             {
                 Select_All(false);
-            }        
+            }
         }
 
         private void Select_All(bool _flag)
@@ -2301,7 +2265,7 @@ namespace cf01.Forms
             }
             else
             {
-                MessageBox.Show("沒有可匯出到Excel的數據。","提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                MessageBox.Show("沒有可匯出到Excel的數據。", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             }
         }
 
@@ -2313,7 +2277,7 @@ namespace cf01.Forms
 
         private void BTNNEWVER_Click(object sender, EventArgs e)
         {
-            if (gridView1.RowCount>0)
+            if (gridView1.RowCount > 0)
             {
                 tabControl1.SelectTab(0);
                 DialogResult result = MessageBox.Show(string.Format("當前報價單號【{0}】確定是否真的要產生新版本?", txtID.Text), "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -2326,30 +2290,30 @@ namespace cf01.Forms
                         new SqlParameter("@new_version",strNew_version),
                         new SqlParameter("@user_id",DBUtility._user_id),
                     };
-                  
-                  string strSql,strResult;
-                  strSql = string.Format(@"Select '1' From dbo.quotation_mostly with(nolock) Where id='{0}' and version='{1}'", txtID.Text, strNew_version);
-                  strResult = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
-                  if (strResult != "")
-                  {
-                      MessageBox.Show("另一用戶已對此報價單做了新版本，請返回查詢!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                      return;
-                  }
-                  int Result = clsPublicOfCF01.ExecuteNonQuery("usp_qt_new_version", paras, true);
-                  if (Result > 0)
-                  {
-                      Find_doc(txtID.Text, strNew_version);
-                      for(int i=0;i< dtReport.Rows.Count;i++)
-                      {
-                          if (dtReport.Rows[i]["id_h"].ToString() == txtID.Text)
-                          {
-                              dtReport.Rows[i]["version"] = strNew_version;
-                          }
-                      }
-                      MessageBox.Show("已成功生成新的報價單版本", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                  }
-                  else
-                      MessageBox.Show(" 產生新的報價單版本失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+
+                    string strSql, strResult;
+                    strSql = string.Format(@"Select '1' From dbo.quotation_mostly with(nolock) Where id='{0}' and version='{1}'", txtID.Text, strNew_version);
+                    strResult = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
+                    if (strResult != "")
+                    {
+                        MessageBox.Show("另一用戶已對此報價單做了新版本，請返回查詢!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    int Result = clsPublicOfCF01.ExecuteNonQuery("usp_qt_new_version", paras, true);
+                    if (Result > 0)
+                    {
+                        Find_doc(txtID.Text, strNew_version);
+                        for (int i = 0; i < dtReport.Rows.Count; i++)
+                        {
+                            if (dtReport.Rows[i]["id_h"].ToString() == txtID.Text)
+                            {
+                                dtReport.Rows[i]["version"] = strNew_version;
+                            }
+                        }
+                        MessageBox.Show("已成功生成新的報價單版本", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show(" 產生新的報價單版本失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -2369,23 +2333,23 @@ namespace cf01.Forms
         private void BTNEXCEL_Click(object sender, EventArgs e)
         {
             Export_to_Excel("1");//無圖樣
-            //if (gridView1.RowCount > 0)
-            //{
-            //    //bool fileSaved = false; 
-            //    SaveFileDialog saveDialog = new SaveFileDialog();
-            //    //saveDialog.DefaultExt = "";
-            //    saveDialog.Title = "保存EXECL文件";
-            //    saveDialog.Filter = "EXECL文件|*.xls";
-            //    saveDialog.FilterIndex = 1;
-            //    if (saveDialog.ShowDialog() == DialogResult.OK)
-            //    {
-            //        string FileName = saveDialog.FileName;
-            //        if (File.Exists(FileName))
-            //        {
-            //            File.Delete(FileName);
-            //        }
-            //        int FormatNum;//保存excel文件的格式
-            //        string Version;//excel版本號
+                                 //if (gridView1.RowCount > 0)
+                                 //{
+                                 //    //bool fileSaved = false; 
+                                 //    SaveFileDialog saveDialog = new SaveFileDialog();
+                                 //    //saveDialog.DefaultExt = "";
+                                 //    saveDialog.Title = "保存EXECL文件";
+                                 //    saveDialog.Filter = "EXECL文件|*.xls";
+                                 //    saveDialog.FilterIndex = 1;
+                                 //    if (saveDialog.ShowDialog() == DialogResult.OK)
+                                 //    {
+                                 //        string FileName = saveDialog.FileName;
+                                 //        if (File.Exists(FileName))
+                                 //        {
+                                 //            File.Delete(FileName);
+                                 //        }
+                                 //        int FormatNum;//保存excel文件的格式
+                                 //        string Version;//excel版本號
 
             //        Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
             //        if (xlApp == null)
@@ -2406,14 +2370,14 @@ namespace cf01.Forms
             //        Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
             //        Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1  
             //        SqlParameter[] paras = new SqlParameter[] { new SqlParameter("@id", txtID.Text) };
-                    
+
             //        DataTable dtHead = new DataTable();
             //        dtHead = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_info_convert", paras);
             //        //第一行为报表名称
             //        worksheet.Cells[1, 1] = dtHead.Rows[0]["address_id"].ToString(); //標題地址
             //        worksheet.Cells[2, 1] = dtHead.Rows[0]["terms"].ToString();      //條款
             //        worksheet.Cells[2, 11] = dtHead.Rows[0]["cust_info"].ToString();
-                    
+
             //        worksheet.Range["A1:M1"].Merge(0);//合并单元格
             //        worksheet.Rows[1].Font.Size = 9;
             //        worksheet.Rows[1].Font.Bold = true;//粗體
@@ -2428,7 +2392,7 @@ namespace cf01.Forms
             //        worksheet.Range["K2:O2"].Font.Bold = true;
             //        worksheet.Rows[3].Font.Size = 9;
             //        worksheet.Rows[3].Font.Bold = true;//粗體                    
-                   
+
             //        cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
             //        new Thread((ThreadStart)delegate
             //        {
@@ -2483,7 +2447,7 @@ namespace cf01.Forms
             //        }
             //        worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
             //        worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;               
-                    
+
             //        wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
             //        if (FileName != "")
@@ -2518,7 +2482,7 @@ namespace cf01.Forms
             if (edit_state != "")
             {
                 //折扣前單價
-                int row= gridView1.FocusedRowHandle;                
+                int row = gridView1.FocusedRowHandle;
                 mdlFormula_Result objDisc = new mdlFormula_Result();
                 objDisc.price_usd = clsApp.Return_Float_Value(gridView1.GetRowCellValue(row, "price_usd").ToString());
                 objDisc.price_hkd = clsApp.Return_Float_Value(gridView1.GetRowCellValue(row, "price_hkd").ToString());
@@ -2527,7 +2491,7 @@ namespace cf01.Forms
 
                 //返回折扣后單價
                 objDisc = clsQuotation.Get_Cust_Formula_Disc(gridView1.GetRowCellValue(row, "brand").ToString(),
-                                                             gridView1.GetRowCellValue(row, "discount").ToString(), objDisc, 
+                                                             gridView1.GetRowCellValue(row, "discount").ToString(), objDisc,
                                                              gridView1.GetRowCellValue(row, "price_unit").ToString());
                 gridView1.SetRowCellValue(row, "disc_price_usd", objDisc.disc_price_usd.ToString());
                 gridView1.SetRowCellValue(row, "disc_price_hkd", objDisc.disc_price_hkd.ToString());
@@ -2535,112 +2499,78 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(row, "disc_hkd_ex_fty", objDisc.disc_hkd_ex_fty.ToString());
             }
         }
-        
+
         private void txtSales_group_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");                
-            }
+            SetMoveNextControl(e);            
         }
 
         private void txtBrand_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);            
         }
 
         private void txtTemp_code_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);            
         }
 
         private void txtMaterial_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);           
         }
 
         private void txtSeason_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);           
         }
 
         private void txtSize_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);
         }
 
         private void txtCust_code_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);
         }
 
         private void txtCust_color_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);
         }
 
         private void txtDate1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);            
         }
 
         private void txtCf_code_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);
         }
 
         private void txtCf_color_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);
         }
 
         private void txtDate2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);
         }
 
         private void txtMo_id_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            SetMoveNextControl(e);
         }
 
         private void txtSub_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SetMoveNextControl(e);
+        }
+
+        private void SetMoveNextControl(KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
@@ -3507,8 +3437,7 @@ namespace cf01.Forms
             {
                 clsTestExcel.Open_Test_Report(ls_cust_code, ls_cust_color);                
             }           
-        }
-     
+        }     
 
         private void dgvDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -3533,12 +3462,10 @@ namespace cf01.Forms
         {         
             txtDate2.EditValue = txtDate1.EditValue;            
         }
-
         private void txtCrtim1_Leave(object sender, EventArgs e)
         {
             txtCrtim2.EditValue = txtCrtim1.EditValue;
         }
-
         private void chkIsvn_MouseUp(object sender, MouseEventArgs e)
         {
             strArea = chkIsvn.Checked ? "QV" : "QD";
