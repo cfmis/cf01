@@ -507,12 +507,6 @@ namespace cf01.ReportForm
             }
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
-            //if (dtNewWork.Rows.Count > 0)
-            //{
-            //    xtaWorkjx xr = new xtaWorkjx();
-            //    xr.DataSource = dtNewWork;
-            //    xr.ShowPreviewDialog();
-            //}
             if (dtNewWork.Rows.Count > 0)
             {
                 //xtaWork_jx xr = new xtaWork_jx();舊報表注釋于2016-03-04
@@ -523,8 +517,7 @@ namespace cf01.ReportForm
                 xtaWork_No_BarCode rpt = new xtaWork_No_BarCode() { DataSource = dtNewWork };
                 rpt.CreateDocument();
                 rpt.PrintingSystem.ShowMarginsWarning = false;
-                rpt.ShowPreview();
-                //rpt.Dispose();
+                rpt.ShowPreview();               
             }
 
         }
