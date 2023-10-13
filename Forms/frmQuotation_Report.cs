@@ -2020,13 +2020,10 @@ namespace cf01.Forms
         }
 
         private void ReportPrint(XtraReport rpt)
-        {
-            using (rpt)
-            {
-                rpt.CreateDocument();
-                rpt.PrintingSystem.ShowMarginsWarning = false;
-                rpt.ShowPreviewDialog();
-            }
+        {            
+            rpt.CreateDocument();
+            rpt.PrintingSystem.ShowMarginsWarning = false;
+            rpt.ShowPreviewDialog();            
         }
 
         private void txtMoney_id_EditValueChanged(object sender, EventArgs e)

@@ -278,9 +278,7 @@ namespace cf01.ReportForm
             rpt.CreateDocument();
             rpt.PrintingSystem.ShowMarginsWarning = false;
             rpt.ShowPreviewDialog();
-            rpt = null;
-
-
+           
         }
 
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)

@@ -525,12 +525,11 @@ namespace cf01.ReportForm
             {
                 rpt = new xrDelivery_details_A4() { DataSource = dtReport };                
             }
-            using (rpt)
-            {
-                rpt.CreateDocument();
-                rpt.PrintingSystem.ShowMarginsWarning = false;
-                rpt.ShowPreview();
-            }            
+          
+            rpt.CreateDocument();
+            rpt.PrintingSystem.ShowMarginsWarning = false;
+            rpt.ShowPreview();
+                  
         }
 
         private void PrintProductCard()

@@ -573,9 +573,7 @@ namespace cf01.ReportForm
                         else
                         {
                             rpt.Print();
-                        }
-                        rpt.Dispose();
-
+                        } 
                     }
                     else
                     {
