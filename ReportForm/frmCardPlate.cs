@@ -197,6 +197,9 @@ namespace cf01.ReportForm
             dtWordCard = clsConErp.ExecuteProcedureReturnTable("z_rpt_card_510", paras);
             //客戶端加bool字段或後端返回(bit型)都可以
             dtWordCard.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
+            
+            //關掉進程
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
             if (dtWordCard.Rows.Count > 0)
             {                
@@ -206,10 +209,7 @@ namespace cf01.ReportForm
             {                
                 gridControl1.DataSource = null;
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            //關掉進程
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            }            
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)

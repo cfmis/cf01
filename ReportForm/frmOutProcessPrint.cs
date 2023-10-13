@@ -322,10 +322,12 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_goods_name", typeof(string));
             dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
             dtNewWork.Columns.Add("prod_date", typeof(string));
+            dtNewWork.Columns.Add("qty_remaining", typeof(int));
+            
 
             DataRow dr = null;
             string order_unit;
-            int order_qty, order_qty_pcs;
+            int order_qty, order_qty_pcs, qty_remaining;
             string plate_remark = "";
             for (int j = 0; j < dgvDetails.RowCount; j++)
             {
@@ -352,7 +354,7 @@ namespace cf01.ReportForm
 
                         order_unit = "";
                         order_qty = 0;
-                        order_qty_pcs = 0;
+                        order_qty_pcs = 0;                        
                         if (dtQty.Rows.Count > 0)
                         {
                             order_unit = dtQty.Rows[0]["goods_unit"].ToString();
@@ -363,23 +365,24 @@ namespace cf01.ReportForm
                         if (dt_wk.Rows.Count > 0)
                         {
                             DataRow drDtWk = dt_wk.Rows[0];
+                            //默認這里每次生產數量與生產總量是一樣的,所以只列印一頁,考慮到報表的通用性,所以分頁也要進行以下處理
                             int Per_qty = Convert.ToInt32(dgr.Cells["colProdQty"].Value);  //每次生產數量
                             int Total_qty = Convert.ToInt32(dgr.Cells["colProdQty"].Value);    //生產總量
-                            int NumPage = 0;     //報表頁數
+                            int total_page = 0;     //報表頁數
+                            qty_remaining = Total_qty % Per_qty;
                             if (Total_qty > 0 && Per_qty > 0)
                             {
-                                if (Total_qty % Per_qty > 0)                                
-                                    NumPage = (Total_qty / Per_qty) + 1;                                
-                                else                                
-                                    NumPage = (Total_qty / Per_qty);                                
+                                if (qty_remaining > 0)
+                                    total_page = (Total_qty / Per_qty) + 1;                                
+                                else
+                                    total_page = (Total_qty / Per_qty);                                
                             }
-                            else                            
-                                NumPage = 1;                            
+                            else
+                                total_page = 1;                            
 
-                            for (int i = 1; i <= NumPage; i++)
+                            for (int i = 1; i <= total_page; i++)
                             {
                                 dr = dtNewWork.NewRow();
-
                                 dr["wp_id"] = drDtWk["wp_id"].ToString();
                                 dr["mo_id"] = drDtWk["mo_id"].ToString();
                                 dr["goods_id"] = drDtWk["goods_id"].ToString();
@@ -411,7 +414,7 @@ namespace cf01.ReportForm
                                 dr["get_color_sample"] = drDtWk["get_color_sample"].ToString();
                                 dr["do_color1"] = drDtWk["get_color_sample"];
                                 dr["page_num"] = i;
-                                dr["total_page"] = NumPage;
+                                dr["total_page"] = total_page;
                                 dr["c_sec_qty_ok"] = clsUtility.FormatNullableInt32(drDtWk["c_sec_qty_ok"]);
                                 dr["get_color_sample_name"] = drDtWk["get_color_sample_name"];
                                 dr["vendor_id"] = drDtWk["vendor_id"];
@@ -453,17 +456,26 @@ namespace cf01.ReportForm
                                 if (!string.IsNullOrEmpty(drDtWk["arrive_date"].ToString()))
                                 {
                                     dr["arrive_date"] = Convert.ToDateTime(drDtWk["arrive_date"]).ToString("yyyy/MM/dd");
-                                }                          
-
-                                if (i == NumPage && Per_qty != 0)
-                                {
-                                    if (Total_qty % Per_qty > 0)                                    
-                                        dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);                                    
-                                    else                                    
-                                        dr["per_qty"] = clsUtility.NumberConvert(Per_qty);                                    
                                 }
-                                else                                
+
+                                if (i == total_page && Per_qty != 0)
+                                {
+                                    if (qty_remaining > 0)
+                                    {
+                                        dr["per_qty"] = clsUtility.NumberConvert(qty_remaining);
+                                        dr["qty_remaining"] = qty_remaining;
+                                    }
+                                    else
+                                    {
+                                        dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
+                                        dr["qty_remaining"] = 0;
+                                    }
+                                }
+                                else
+                                {
                                     dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
+                                    dr["qty_remaining"] = 0;
+                                }
                                 if (dtPs.Rows.Count > 0)
                                 {
                                     dr["pe_qty"] = dtPs.Rows[0]["pe_qty"].ToString();
@@ -486,7 +498,7 @@ namespace cf01.ReportForm
                                 }
                                 dr["next_next_wp_id"] = "";// dgr.Cells["next_next_wp_id"].Value.ToString();
                                 dr["next_next_dep_name"] = "";// dgr.Cells["next_next_dep_name"].Value.ToString();
-                                dr["prod_date"] = "";
+                                dr["prod_date"] = "";  
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
@@ -507,10 +519,12 @@ namespace cf01.ReportForm
                 //xr.DataSource = dtNewWork;
                 //xr.ShowPreviewDialog();
                 //xtaWorkjx xr = new xtaWorkjx() { DataSource = dtNewWork };
-                xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtNewWork };
-                xr.CreateDocument();
-                xr.PrintingSystem.ShowMarginsWarning = false;
-                xr.ShowPreview();
+                
+                xtaWork_No_BarCode rpt = new xtaWork_No_BarCode() { DataSource = dtNewWork };
+                rpt.CreateDocument();
+                rpt.PrintingSystem.ShowMarginsWarning = false;
+                rpt.ShowPreview();
+                //rpt.Dispose();
             }
 
         }
