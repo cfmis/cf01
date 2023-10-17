@@ -50,11 +50,13 @@ namespace cf01.ReportForm
                 wForm.TopMost = true;
                 wForm.ShowDialog();
             }).Start();
+            string is_include_vat = chkIs_not_include_vat.Checked ? "Y" : "";            
 
             SqlParameter[] paras = new SqlParameter[]{
                 new SqlParameter("@mo_group",txtSalesGroup.Text),
                 new SqlParameter("@order_date",txtDat1.Text),
-                new SqlParameter("@order_date_end",txtDat2.Text)
+                new SqlParameter("@order_date_end",txtDat2.Text),
+                new SqlParameter("@is_include_vat",is_include_vat)
             };
             int result = 0;          
             if (radioGroup1.SelectedIndex == 0)

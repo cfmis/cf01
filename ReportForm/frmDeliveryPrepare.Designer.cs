@@ -79,15 +79,6 @@
             this.stripe1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.dgvDetails0 = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtId = new DevExpress.XtraEditors.TextEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.chkSortByMo = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,12 +90,23 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.up_deptment_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packing_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_all_complete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rmk_hk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stripe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.up_deptment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtId = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.chkSortByMo = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.chkIs_not_include_vat = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalesGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
@@ -509,6 +511,7 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewTextBoxColumn6,
+            this.up_deptment_name,
             this.packing_qty1,
             this.is_all_complete,
             this.rmk_hk,
@@ -524,99 +527,6 @@
             this.dgvDetails0.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetails0_CellMouseUp);
             this.dgvDetails0.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvDetails0_CellPainting);
             this.dgvDetails0.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails0_RowPostPaint);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(558, 122);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(148, 31);
-            this.btnAdd.TabIndex = 156;
-            this.btnAdd.Text = "生成回港货品追货纸";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtId
-            // 
-            this.txtId.EnterMoveNextControl = true;
-            this.txtId.Location = new System.Drawing.Point(556, 70);
-            this.txtId.Name = "txtId";
-            this.txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Properties.Appearance.Options.UseFont = true;
-            this.txtId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtId.Properties.MaxLength = 20;
-            this.txtId.Properties.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(154, 26);
-            this.txtId.TabIndex = 157;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(454, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
-            this.label1.TabIndex = 158;
-            this.label1.Text = "追貨紙單據號";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Image = global::cf01.Properties.Resources.find;
-            this.btnSearch.Location = new System.Drawing.Point(711, 70);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(32, 26);
-            this.btnSearch.TabIndex = 159;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // chkSortByMo
-            // 
-            this.chkSortByMo.AutoSize = true;
-            this.chkSortByMo.Location = new System.Drawing.Point(556, 48);
-            this.chkSortByMo.Name = "chkSortByMo";
-            this.chkSortByMo.Size = new System.Drawing.Size(120, 16);
-            this.chkSortByMo.TabIndex = 160;
-            this.chkSortByMo.Text = "打印時按制單排序";
-            this.chkSortByMo.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(726, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 161;
-            this.label2.Text = "已齊件";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.LightGreen;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(787, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
-            this.label3.TabIndex = 162;
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.LightSalmon;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Location = new System.Drawing.Point(787, 137);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 16);
-            this.label4.TabIndex = 164;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(726, 139);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 163;
-            this.label5.Text = "未齊件";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // flag_select
             // 
@@ -726,6 +636,15 @@
             this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn6.Width = 70;
             // 
+            // up_deptment_name
+            // 
+            this.up_deptment_name.DataPropertyName = "up_deptment_name";
+            this.up_deptment_name.HeaderText = "交貨部門";
+            this.up_deptment_name.Name = "up_deptment_name";
+            this.up_deptment_name.ReadOnly = true;
+            this.up_deptment_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.up_deptment_name.Width = 120;
+            // 
             // packing_qty1
             // 
             this.packing_qty1.DataPropertyName = "packing_qty";
@@ -777,16 +696,122 @@
             // up_deptment
             // 
             this.up_deptment.DataPropertyName = "up_deptment";
-            this.up_deptment.HeaderText = "上一個交貨部門";
+            this.up_deptment.HeaderText = "up_deptment";
             this.up_deptment.Name = "up_deptment";
             this.up_deptment.ReadOnly = true;
             this.up_deptment.Visible = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(558, 122);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(148, 31);
+            this.btnAdd.TabIndex = 156;
+            this.btnAdd.Text = "生成回港货品追货纸";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.EnterMoveNextControl = true;
+            this.txtId.Location = new System.Drawing.Point(556, 70);
+            this.txtId.Name = "txtId";
+            this.txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Properties.Appearance.Options.UseFont = true;
+            this.txtId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtId.Properties.MaxLength = 20;
+            this.txtId.Properties.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(154, 26);
+            this.txtId.TabIndex = 157;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(454, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 13);
+            this.label1.TabIndex = 158;
+            this.label1.Text = "追貨紙單據號";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::cf01.Properties.Resources.find;
+            this.btnSearch.Location = new System.Drawing.Point(711, 70);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(32, 26);
+            this.btnSearch.TabIndex = 159;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // chkSortByMo
+            // 
+            this.chkSortByMo.AutoSize = true;
+            this.chkSortByMo.Location = new System.Drawing.Point(556, 48);
+            this.chkSortByMo.Name = "chkSortByMo";
+            this.chkSortByMo.Size = new System.Drawing.Size(120, 16);
+            this.chkSortByMo.TabIndex = 160;
+            this.chkSortByMo.Text = "打印時按制單排序";
+            this.chkSortByMo.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(726, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 161;
+            this.label2.Text = "已齊件";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.LightGreen;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Location = new System.Drawing.Point(787, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.TabIndex = 162;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.LightSalmon;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Location = new System.Drawing.Point(787, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 16);
+            this.label4.TabIndex = 164;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(726, 139);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 163;
+            this.label5.Text = "未齊件";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkIs_not_include_vat
+            // 
+            this.chkIs_not_include_vat.AutoSize = true;
+            this.chkIs_not_include_vat.Checked = true;
+            this.chkIs_not_include_vat.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIs_not_include_vat.Location = new System.Drawing.Point(295, 51);
+            this.chkIs_not_include_vat.Name = "chkIs_not_include_vat";
+            this.chkIs_not_include_vat.Size = new System.Drawing.Size(67, 16);
+            this.chkIs_not_include_vat.TabIndex = 165;
+            this.chkIs_not_include_vat.Text = "包含T單";
+            this.chkIs_not_include_vat.UseVisualStyleBackColor = true;
             // 
             // frmDeliveryPrepare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 543);
+            this.Controls.Add(this.chkIs_not_include_vat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -883,11 +908,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn up_deptment_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn packing_qty1;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_all_complete;
         private System.Windows.Forms.DataGridViewTextBoxColumn rmk_hk;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn stripe;
         private System.Windows.Forms.DataGridViewTextBoxColumn up_deptment;
+        private System.Windows.Forms.CheckBox chkIs_not_include_vat;
     }
 }
