@@ -191,6 +191,12 @@ namespace cf01.ReportForm
             {               
                 dgvDetails0.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGray;
             }
+           
+            if (dgvDetails0.Rows[e.RowIndex].Cells["mo_id2"].Value.ToString() != "")
+            {
+                dgvDetails0.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;               
+            }
+            
         }
 
         private void dgvDetails1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -413,8 +419,9 @@ namespace cf01.ReportForm
                             row.Cells[e.ColumnIndex].Style.BackColor = Color.LightSalmon;
                         }
                     }
-                }
+                }                
             }
+           
         }
     }
 }
