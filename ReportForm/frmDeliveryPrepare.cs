@@ -64,14 +64,14 @@ namespace cf01.ReportForm
             int result = 0;          
             if (radioGroup1.SelectedIndex == 0)
             {
-                dtReport0 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare_debug", paras);
+                dtReport0 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare", paras);
                 SetStripe(dtReport0);
                 dgvDetails0.DataSource = dtReport0;
                 result = dtReport0.Rows.Count;
             }
             else
             {
-                dtReport1 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare_prev_dept_debug", paras);
+                dtReport1 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare_prev_dept", paras);
                 SetStripe(dtReport1);
                 dgvDetails1.DataSource = dtReport1;
                 result = dtReport1.Rows.Count;
