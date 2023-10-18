@@ -37,7 +37,8 @@ namespace cf01.ReportForm
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {
-            if (txtDat1.Text == "" && txtDat2.Text == "" && txtSalesGroup.Text == "" )
+            txtSearchMo.Focus();
+            if (txtDat1.Text == "" && txtDat2.Text == "" && txtSalesGroup.Text == "" && txtMo_id1.Text=="" && txtMo_id2.Text=="")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDat1.Focus();
@@ -56,19 +57,21 @@ namespace cf01.ReportForm
                 new SqlParameter("@mo_group",txtSalesGroup.Text),
                 new SqlParameter("@order_date",txtDat1.Text),
                 new SqlParameter("@order_date_end",txtDat2.Text),
+                new SqlParameter("@mo_id1",txtMo_id1.Text),
+                new SqlParameter("@mo_id2",txtMo_id2.Text),
                 new SqlParameter("@is_include_vat",is_include_vat)
             };
             int result = 0;          
             if (radioGroup1.SelectedIndex == 0)
             {
-                dtReport0 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare", paras);
+                dtReport0 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare_debug", paras);
                 SetStripe(dtReport0);
                 dgvDetails0.DataSource = dtReport0;
                 result = dtReport0.Rows.Count;
             }
             else
             {
-                dtReport1 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare_prev_dept", paras);
+                dtReport1 = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_delivery_prepare_prev_dept_debug", paras);
                 SetStripe(dtReport1);
                 dgvDetails1.DataSource = dtReport1;
                 result = dtReport1.Rows.Count;
@@ -338,6 +341,7 @@ namespace cf01.ReportForm
                     delivery_d.mo_id = dr["mo_id"].ToString();
                     delivery_d.goods_id = dr["goods_id"].ToString();
                     delivery_d.goods_name = dr["goods_name"].ToString();
+                    decimal qty = decimal.Parse(dr["order_qty"].ToString());
                     delivery_d.plan_qty = decimal.Parse(dr["order_qty"].ToString());
                     delivery_d.move_qty = decimal.Parse(dr["packing_qty"].ToString());
                     delivery_d.base_unit = "PCS";
@@ -422,6 +426,54 @@ namespace cf01.ReportForm
                 }                
             }
            
+        }
+
+        private void txtMo_id1_Leave(object sender, EventArgs e)
+        {
+            txtMo_id2.Text = txtMo_id1.Text;
+        }
+
+        private void txtSearchMo_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void txtSearchMo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (txtSearchMo.Text.Trim() == "")
+                {
+                    return;
+                }
+                string mo = txtSearchMo.Text.Trim();
+                string column_mo_id = string.Empty;
+                DataGridView dgv;
+                if (radioGroup1.SelectedIndex == 0)
+                {
+                    dgv = dgvDetails0;
+                    column_mo_id = "moid";
+                }
+                else
+                {
+                    dgv = dgvDetails1;
+                    column_mo_id = "mo_id";
+                }
+                if (dgv.Rows.Count == 0)
+                {
+                    return;
+                }                             
+                for (int i = 0; i < dgv.Rows.Count; i++)
+                {
+                    if (dgv.Rows[i].Cells[column_mo_id].Value.ToString() == mo)
+                    {
+                        dgv.CurrentCell = dgv.Rows[i].Cells[2]; //设置当前单元格
+                        dgv.Rows[i].Selected = true; //選中整行                        
+                        break;
+                    }
+                }
+
+            }
         }
     }
 }
