@@ -99,17 +99,40 @@ namespace cf01.CLS
                 string seq_max_id = dt.Rows[0]["sequence_id"].ToString();               
                 iSeqId = int.Parse(seq_max_id.Substring(0, 4)); //當前最大序號
                 sql_update_h = string.Format(
-                @" Update st_delivery_prepare SET update_by='{0}',update_date=GETDATE() WHERE id='{1}' And within_code='0000'",DBUtility._user_id, delivery_h.id);                
+                @" Update st_delivery_prepare SET update_by='{0}',update_date=GETDATE() WHERE id='{1}' And within_code='0000'",DBUtility._user_id, delivery_h.id);
+                sb.Append(sql_update_h);
             }
             else
-            {
+            {                
+                //start 更新系統表最大單據號
+                string sql_update_bill_code = string.Empty;
+                string id = delivery_h.id;
+                id = id.Substring(3);
+                if (id == "000000001")//第一張單
+                {
+                    //Z-C000000001                   
+                    sql_update_bill_code = string.Format(
+                    @" Insert Into sys_bill_max_separate(within_code,bill_id,year_month,bill_code,bill_text1,bill_text2,bill_text3,bill_text4,bill_text5)
+                       Values('0000','DP01','','{0}','','{1}','','','')", delivery_h.id, delivery_h.group_no);
+                }
+                else
+                {
+                    //Z-C000002429
+                    sql_update_bill_code = string.Format(
+                    @" Update sys_bill_max_separate SET bill_code='{0}' Where within_code='0000' And bill_id='DP01' And year_month='' And bill_text2='{1}'",
+                     delivery_h.id, delivery_h.group_no);
+                }                 
+                sb.Append(sql_update_bill_code);
+                //end 更新系統表最大單據號
+
                 //添加新的追貨紙
                 sql_update_h = string.Format(
                    @" Insert into st_delivery_prepare (within_code,id,transfer_date,handler,state,transfers_state,update_count,group_no,create_by,create_date) 
                    Values('0000','{0}','{1}','{2}','0','0','1','{3}','{4}',getdate())",
-                   delivery_h.id, delivery_h.transfer_date,DBUtility._user_id, delivery_h.group_no, DBUtility._user_id);                             
+                   delivery_h.id, delivery_h.transfer_date,DBUtility._user_id, delivery_h.group_no, DBUtility._user_id);
+                sb.Append(sql_update_h);
             }
-            sb.Append(sql_update_h);
+           
             int i = 0;
             foreach (st_delivery_prepare_detail dr in lstDetails)
             {
@@ -127,7 +150,8 @@ namespace cf01.CLS
                    Values ('{0}','{1}','{2}','{3}','{4}',{5},{6},'{7}','{8}','{9}','0')", 
                 "0000", dr.id, seq_id, dr.goods_id, dr.goods_name, dr.plan_qty, dr.move_qty, dr.base_unit, dr.mo_id, dr.up_deptment, dr.state);
                 sb.Append(sql_insert_d);                
-            }                     
+            }
+                                         
             sb.Append(@" COMMIT TRANSACTION ");            
             clsPublicOfGEO clsConErp = new clsPublicOfGEO();
             result= clsConErp.ExecuteSqlUpdate(sb.ToString());

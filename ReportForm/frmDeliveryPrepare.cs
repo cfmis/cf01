@@ -283,22 +283,27 @@ namespace cf01.ReportForm
             }
             bool new_id = false;
             string id = "", id_prex = string.Format("Z-{0}%", group_no);
+            
+            //當天當前用戶沒有開追貨紙,在沒有添加至用戶指定的哪一張追貨紙的情況下,自動生成當前第一個頁數的組別的最大單號
+            string str_max_by_group = string.Format(
+            @"Select Top 1 Max(id) As id From {0}st_delivery_prepare Where id like '{1}' and within_code='0000' and state<>'2'",
+            DBUtility.remote_db, id_prex);
+
             //當前用戶當天是否已開有追貨紙           
             //當天當前用戶是否有開追貨紙,有就默認帶出此張追貨單號
             string str_curr_day = string.Format(
             @"Select Top 1 id From {0}st_delivery_prepare Where within_code='0000' And CAST(create_date AS DATE)=CONVERT(varchar(10),GETDATE(),120) And create_by='{1}' And state<>'2'",
             DBUtility.remote_db, DBUtility._user_id);
-            //當天當前用戶沒有開追貨紙,在沒有添加至用戶指定的哪一張追貨紙的情況下,自動生成當前第一個頁數的組別的最大單號
-            string str_max_by_group = string.Format(
-            @"Select Top 1 Max(id) As id From {0}st_delivery_prepare Where id like '{1}' and within_code='0000' and state<>'2'",
-            DBUtility.remote_db, id_prex);
             DataTable dt = clsPublicOfCF01.GetDataTable(str_curr_day);           
             if (dt.Rows.Count == 0)
             {
-                //找出當前組別歷史最大單號,序列號再加1               
+                //找出當前組別歷史最大單號,序列號再加1   
+                str_max_by_group = string.Format(@"Select bill_code as id From {0}sys_bill_max_separate Where within_code='0000' And bill_id='{1}' And year_month='{2}' And bill_text2='{3}'",
+                    DBUtility.remote_db, "DP01", "", group_no);
                 dt = clsPublicOfCF01.GetDataTable(str_max_by_group);
                 id_prex = string.Format("Z-{0}", group_no);
-                if (!string.IsNullOrEmpty(dt.Rows[0]["id"].ToString()))
+                //if (!string.IsNullOrEmpty(dt.Rows[0]["id"].ToString())) //OLD CODE 2023/10/18
+                if(dt.Rows.Count>0)
                 {
                     //Z-E000002796                    
                     id = dt.Rows[0]["id"].ToString();
