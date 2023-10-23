@@ -53,5 +53,32 @@ namespace cf01.Reports
         {
             txtUser.Text = user_id;
         }
+
+        private void xrLabel33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            decimal plan_qty = decimal.Parse(GetCurrentColumnValue("plan_qty").ToString());
+            if (plan_qty > 0)
+                xrLabel33.Text = string.Format("{0:###,###}", plan_qty);
+            else
+                xrLabel33.Text = "0";
+        }
+
+        private void xrLabel34_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            decimal move_qty = decimal.Parse(GetCurrentColumnValue("move_qty").ToString());
+            if (move_qty > 0)
+                xrLabel34.Text = string.Format("{0:###,###}", move_qty);
+            else
+                xrLabel34.Text = "0";
+        }
+
+        private void xrLabel35_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            decimal hk_qty = decimal.Parse(GetCurrentColumnValue("hk_qty").ToString());
+            if (hk_qty > 0)
+                xrLabel35.Text = string.Format("{0:###,###}", hk_qty);
+            else
+                xrLabel35.Text = "0";
+        }
     }
 }

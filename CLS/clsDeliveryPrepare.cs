@@ -172,8 +172,8 @@ namespace cf01.CLS
             Cast(b.plan_qty as int) as plan_qty ,CAST(b.move_qty AS int) as move_qty,Cast(ISNULL(b.hk_qty,0) as int) AS hk_qty,
             b.base_unit,b.up_deptment,c.name as dept_name,CONVERT(VARCHAR(10),a.create_date,120) AS create_date,
             dbo.fn_get_picture_name_of_artwork('0000',substring(b.goods_id,5,7),'out') As picture_name
-            From {0}st_delivery_prepare a 
-	             INNER JOIN {0}st_delivery_prepare_detail b on a.within_code=b.within_code AND a.id=b.id
+            From {0}st_delivery_prepare a with(nolock)
+	             INNER JOIN {0}st_delivery_prepare_detail b with(nolock) on a.within_code=b.within_code AND a.id=b.id
 	             INNER JOIN {0}cd_department c on b.within_code=c.within_code AND b.up_deptment=c.id 
             WHERE a.id='{1}' AND a.within_code='0000' ORDER BY {2}", DBUtility.remote_db, id, str_sort_by);
             DataTable dt = clsPublicOfCF01.GetDataTable(sql);            

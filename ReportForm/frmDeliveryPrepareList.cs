@@ -40,7 +40,8 @@ namespace cf01.ReportForm
                 return_id = "";
                 MessageBox.Show("沒有滿足查找條件的數據!");
             }
-
+            DataGridViewRow row = dgv1.Rows[0];
+            return_id = row.Cells["id"].Value.ToString();
         }
 
         private void frmDeliveryPrepareList_Load(object sender, EventArgs e)
