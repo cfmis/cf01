@@ -94,7 +94,7 @@ namespace cf01.CLS
                 //在原有追貨紙上添加
                 //查找最原有的最大序號
                 string strSql = string.Format(
-                @"Select Max(sequence_id) As sequence_id FROM st_delivery_prepare_detail Where within_code='0000' and id='{0}'", delivery_h.id);
+                @"Select Max(sequence_id) As sequence_id FROM {0}st_delivery_prepare_detail Where within_code='0000' and id='{1}'",DBUtility.remote_db, delivery_h.id);
                 DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
                 string seq_max_id = dt.Rows[0]["sequence_id"].ToString();               
                 iSeqId = int.Parse(seq_max_id.Substring(0, 4)); //當前最大序號
