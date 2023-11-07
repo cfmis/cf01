@@ -30,7 +30,7 @@
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtPrice_vnd = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtPrice_vnd_usd = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel50 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel48 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel45 = new DevExpress.XtraReports.UI.XRLabel();
@@ -166,7 +166,7 @@
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel21,
-            this.txtPrice_vnd,
+            this.txtPrice_vnd_usd,
             this.xrLabel50,
             this.xrLabel48,
             this.xrLabel45,
@@ -207,21 +207,21 @@
             this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel21.WordWrap = false;
             // 
-            // txtPrice_vnd
+            // txtPrice_vnd_usd
             // 
-            this.txtPrice_vnd.CanGrow = false;
-            this.txtPrice_vnd.Dpi = 254F;
-            this.txtPrice_vnd.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice_vnd.LocationFloat = new DevExpress.Utils.PointFloat(1477.496F, 0.9999268F);
-            this.txtPrice_vnd.Name = "txtPrice_vnd";
-            this.txtPrice_vnd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtPrice_vnd.SizeF = new System.Drawing.SizeF(155.9994F, 33.6875F);
-            this.txtPrice_vnd.StylePriority.UseFont = false;
-            this.txtPrice_vnd.StylePriority.UseTextAlignment = false;
-            this.txtPrice_vnd.Text = "[price_vnd]";
-            this.txtPrice_vnd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.txtPrice_vnd.WordWrap = false;
-            this.txtPrice_vnd.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.txtPrice_vnd_BeforePrint);
+            this.txtPrice_vnd_usd.CanGrow = false;
+            this.txtPrice_vnd_usd.Dpi = 254F;
+            this.txtPrice_vnd_usd.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrice_vnd_usd.LocationFloat = new DevExpress.Utils.PointFloat(1477.496F, 0.9999268F);
+            this.txtPrice_vnd_usd.Name = "txtPrice_vnd_usd";
+            this.txtPrice_vnd_usd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtPrice_vnd_usd.SizeF = new System.Drawing.SizeF(155.9994F, 33.6875F);
+            this.txtPrice_vnd_usd.StylePriority.UseFont = false;
+            this.txtPrice_vnd_usd.StylePriority.UseTextAlignment = false;
+            this.txtPrice_vnd_usd.Text = "[price_vnd_usd]";
+            this.txtPrice_vnd_usd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtPrice_vnd_usd.WordWrap = false;
+            this.txtPrice_vnd_usd.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.txtPrice_vnd_usd_BeforePrint);
             // 
             // xrLabel50
             // 
@@ -2109,7 +2109,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;
-        private DevExpress.XtraReports.UI.XRLabel txtPrice_vnd;
+        private DevExpress.XtraReports.UI.XRLabel txtPrice_vnd_usd;
         private DevExpress.XtraReports.UI.XRLabel xrLabel22;
         private DevExpress.XtraReports.UI.XRCrossBandLine xrCrossBandLine4;
     }

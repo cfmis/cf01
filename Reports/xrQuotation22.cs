@@ -79,14 +79,14 @@ namespace cf01.Reports
         //    txtPrice_vnd_pcs.Text = strPrice_vnd_pcs.Replace(".000", "");
         //}
 
-        private void txtPrice_vnd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            decimal price_vnd = decimal.Parse(GetCurrentColumnValue("price_vnd").ToString());
-            if (price_vnd > 0)
-                txtPrice_vnd.Text = string.Format("{0:###,###}", price_vnd);
-            else
-                txtPrice_vnd.Text = "0";
-        }
+        //private void txtPrice_vnd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        //{
+        //    //decimal price_vnd = decimal.Parse(GetCurrentColumnValue("price_vnd").ToString());
+        //    //if (price_vnd > 0)
+        //    //    txtPrice_vnd_usd.Text = string.Format("{0:###,###}", price_vnd);
+        //    //else
+        //    //    txtPrice_vnd_usd.Text = "0";
+        //}
 
         private void txtPrice_vnd_pcs_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
@@ -95,6 +95,12 @@ namespace cf01.Reports
                 txtPrice_vnd_pcs.Text = string.Format("{0:###,###}", price_vnd_pcs);
             else
                 txtPrice_vnd_pcs.Text = "0";
+        }
+
+        private void txtPrice_vnd_usd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string strPrice_vnd_usd = GetCurrentColumnValue("price_vnd_usd").ToString();
+            txtPrice_vnd_usd.Text = strPrice_vnd_usd.Replace(".000", "");
         }
     }
 }
