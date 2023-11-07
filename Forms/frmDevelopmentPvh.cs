@@ -1092,6 +1092,7 @@ namespace cf01.Forms
                 txtSerial_no.Text = max_serial_no;
                 //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);
                 txtPvh_submit_ref.Text = "";
+                mState = "NEW";
             }
             else
             {

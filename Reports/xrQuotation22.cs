@@ -73,10 +73,28 @@ namespace cf01.Reports
             }
         }
 
-        private void txtPrice_vnd_pcs_TextChanged(object sender, EventArgs e)
+        //private void txtPrice_vnd_pcs_TextChanged(object sender, EventArgs e)
+        //{
+        //    string strPrice_vnd_pcs = GetCurrentColumnValue("price_vnd_pcs").ToString();
+        //    txtPrice_vnd_pcs.Text = strPrice_vnd_pcs.Replace(".000", "");
+        //}
+
+        private void txtPrice_vnd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            string strPrice_vnd_pcs = GetCurrentColumnValue("price_vnd_pcs").ToString();
-            txtPrice_vnd_pcs.Text = strPrice_vnd_pcs.Replace(".000", "");
+            decimal price_vnd = decimal.Parse(GetCurrentColumnValue("price_vnd").ToString());
+            if (price_vnd > 0)
+                txtPrice_vnd.Text = string.Format("{0:###,###}", price_vnd);
+            else
+                txtPrice_vnd.Text = "0";
+        }
+
+        private void txtPrice_vnd_pcs_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            decimal price_vnd_pcs = decimal.Parse(GetCurrentColumnValue("price_vnd_pcs").ToString());
+            if (price_vnd_pcs > 0)
+                txtPrice_vnd_pcs.Text = string.Format("{0:###,###}", price_vnd_pcs);
+            else
+                txtPrice_vnd_pcs.Text = "0";
         }
     }
 }
