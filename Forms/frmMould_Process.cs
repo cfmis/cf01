@@ -49,11 +49,19 @@ namespace cf01.Forms
             dtDetail = clsPublicOfCF01.GetDataTable(sql);
             if (dtcon_date1.Text == "")
             {
-                dtcon_date1.EditValue = DateTime.Now.AddDays(-7).ToString("yyyy/MM/dd").Substring(0, 10);
+                dtcon_date1.EditValue = DateTime.Now.AddDays(-7).Date.ToString("yyyy/MM/dd");
+            }
+            else
+            {
+                dtcon_date1.EditValue = DateTime.Parse(dtcon_date1.EditValue.ToString()).Date.ToString("yyyy/MM/dd");
             }
             if (dtcon_date2.Text == "")
             {
-                dtcon_date2.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd").Substring(0, 10);
+                dtcon_date2.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
+            }
+            else
+            {
+                dtcon_date2.EditValue = DateTime.Parse(dtcon_date2.EditValue.ToString()).Date.ToString("yyyy/MM/dd");
             }
             chkPrintAll.Checked = false;
         }

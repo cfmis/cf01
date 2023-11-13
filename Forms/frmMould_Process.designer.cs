@@ -2360,7 +2360,7 @@
             this.txtmould_id2.Location = new System.Drawing.Point(303, 42);
             this.txtmould_id2.Name = "txtmould_id2";
             this.txtmould_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtmould_id2.Properties.MaxLength = 12;
+            this.txtmould_id2.Properties.MaxLength = 13;
             this.txtmould_id2.Size = new System.Drawing.Size(131, 22);
             this.txtmould_id2.TabIndex = 168;
             // 
@@ -2392,7 +2392,7 @@
             this.txtmould_id1.Location = new System.Drawing.Point(138, 42);
             this.txtmould_id1.Name = "txtmould_id1";
             this.txtmould_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtmould_id1.Properties.MaxLength = 12;
+            this.txtmould_id1.Properties.MaxLength = 13;
             this.txtmould_id1.Size = new System.Drawing.Size(132, 22);
             this.txtmould_id1.TabIndex = 167;
             // 
