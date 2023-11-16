@@ -1587,6 +1587,12 @@
     <Compile Include="ReportForm\frmDepPlanCost.Designer.cs">
       <DependentUpon>frmDepPlanCost.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmDeptBusinessCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmDeptBusinessCheck.designer.cs">
+      <DependentUpon>frmDeptBusinessCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmDepWorkCost.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3374,6 +3380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmDepPlanCost.resx">
       <DependentUpon>frmDepPlanCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmDeptBusinessCheck.resx">
+      <DependentUpon>frmDeptBusinessCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmDepWorkCost.resx">
       <DependentUpon>frmDepWorkCost.cs</DependentUpon>
