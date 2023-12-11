@@ -34,7 +34,7 @@ namespace cf01.MM
             txtProductId.Text = getProductId;
             if (txtProductId.Text != "")
             {
-                findData();
+                findData(); 
             }
             //txtDateFrom.Text = System.DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             //txtDateTo.Text = System.DateTime.Now.ToString("yyyy/MM/dd");

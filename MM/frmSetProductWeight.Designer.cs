@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSetProductWeight));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtWip_id = new DevExpress.XtraEditors.TextEdit();
+            this.lblDep = new DevExpress.XtraEditors.LabelControl();
+            this.txtPlanDateTo = new DevExpress.XtraEditors.DateEdit();
+            this.txtPlanDateFrom = new DevExpress.XtraEditors.DateEdit();
+            this.lblPlanDate = new DevExpress.XtraEditors.LabelControl();
             this.lblProductId = new DevExpress.XtraEditors.LabelControl();
             this.txtProductId = new DevExpress.XtraEditors.TextEdit();
             this.palShowF0 = new DevExpress.XtraEditors.PanelControl();
@@ -97,13 +102,13 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPlanDateTo = new DevExpress.XtraEditors.DateEdit();
-            this.txtPlanDateFrom = new DevExpress.XtraEditors.DateEdit();
-            this.lblPlanDate = new DevExpress.XtraEditors.LabelControl();
-            this.txtWip_id = new DevExpress.XtraEditors.TextEdit();
-            this.lblDep = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).BeginInit();
             this.palShowF0.SuspendLayout();
@@ -115,11 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductWeight)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -139,6 +139,64 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1049, 107);
             this.panelControl1.TabIndex = 0;
+            // 
+            // txtWip_id
+            // 
+            this.txtWip_id.Location = new System.Drawing.Point(91, 30);
+            this.txtWip_id.Name = "txtWip_id";
+            this.txtWip_id.Properties.MaxLength = 3;
+            this.txtWip_id.Size = new System.Drawing.Size(126, 20);
+            this.txtWip_id.TabIndex = 37;
+            // 
+            // lblDep
+            // 
+            this.lblDep.Location = new System.Drawing.Point(33, 34);
+            this.lblDep.Name = "lblDep";
+            this.lblDep.Size = new System.Drawing.Size(52, 14);
+            this.lblDep.TabIndex = 38;
+            this.lblDep.Text = "部門編號:";
+            // 
+            // txtPlanDateTo
+            // 
+            this.txtPlanDateTo.EditValue = null;
+            this.txtPlanDateTo.Location = new System.Drawing.Point(223, 5);
+            this.txtPlanDateTo.Name = "txtPlanDateTo";
+            this.txtPlanDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPlanDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtPlanDateTo.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateTo.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateTo.Properties.Mask.EditMask = "yyyy/MM/dd";
+            this.txtPlanDateTo.Size = new System.Drawing.Size(126, 20);
+            this.txtPlanDateTo.TabIndex = 35;
+            // 
+            // txtPlanDateFrom
+            // 
+            this.txtPlanDateFrom.EditValue = null;
+            this.txtPlanDateFrom.Location = new System.Drawing.Point(91, 5);
+            this.txtPlanDateFrom.Name = "txtPlanDateFrom";
+            this.txtPlanDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPlanDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtPlanDateFrom.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateFrom.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateFrom.Properties.Mask.EditMask = "yyyy/MM/dd";
+            this.txtPlanDateFrom.Size = new System.Drawing.Size(126, 20);
+            this.txtPlanDateFrom.TabIndex = 34;
+            // 
+            // lblPlanDate
+            // 
+            this.lblPlanDate.Location = new System.Drawing.Point(21, 8);
+            this.lblPlanDate.Name = "lblPlanDate";
+            this.lblPlanDate.Size = new System.Drawing.Size(64, 14);
+            this.lblPlanDate.TabIndex = 36;
+            this.lblPlanDate.Text = "計劃單日期:";
             // 
             // lblProductId
             // 
@@ -713,64 +771,6 @@
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.Width = 60;
             // 
-            // txtPlanDateTo
-            // 
-            this.txtPlanDateTo.EditValue = null;
-            this.txtPlanDateTo.Location = new System.Drawing.Point(223, 5);
-            this.txtPlanDateTo.Name = "txtPlanDateTo";
-            this.txtPlanDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtPlanDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtPlanDateTo.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
-            this.txtPlanDateTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.txtPlanDateTo.Properties.EditFormat.FormatString = "yyyy/MM/dd";
-            this.txtPlanDateTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.txtPlanDateTo.Properties.Mask.EditMask = "yyyy/MM/dd";
-            this.txtPlanDateTo.Size = new System.Drawing.Size(126, 20);
-            this.txtPlanDateTo.TabIndex = 35;
-            // 
-            // txtPlanDateFrom
-            // 
-            this.txtPlanDateFrom.EditValue = null;
-            this.txtPlanDateFrom.Location = new System.Drawing.Point(91, 5);
-            this.txtPlanDateFrom.Name = "txtPlanDateFrom";
-            this.txtPlanDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtPlanDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtPlanDateFrom.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
-            this.txtPlanDateFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.txtPlanDateFrom.Properties.EditFormat.FormatString = "yyyy/MM/dd";
-            this.txtPlanDateFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.txtPlanDateFrom.Properties.Mask.EditMask = "yyyy/MM/dd";
-            this.txtPlanDateFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtPlanDateFrom.TabIndex = 34;
-            // 
-            // lblPlanDate
-            // 
-            this.lblPlanDate.Location = new System.Drawing.Point(21, 8);
-            this.lblPlanDate.Name = "lblPlanDate";
-            this.lblPlanDate.Size = new System.Drawing.Size(64, 14);
-            this.lblPlanDate.TabIndex = 36;
-            this.lblPlanDate.Text = "計劃單日期:";
-            // 
-            // txtWip_id
-            // 
-            this.txtWip_id.Location = new System.Drawing.Point(91, 31);
-            this.txtWip_id.Name = "txtWip_id";
-            this.txtWip_id.Properties.MaxLength = 3;
-            this.txtWip_id.Size = new System.Drawing.Size(126, 20);
-            this.txtWip_id.TabIndex = 37;
-            // 
-            // lblDep
-            // 
-            this.lblDep.Location = new System.Drawing.Point(33, 34);
-            this.lblDep.Name = "lblDep";
-            this.lblDep.Size = new System.Drawing.Size(52, 14);
-            this.lblDep.TabIndex = 38;
-            this.lblDep.Text = "部門編號:";
-            // 
             // frmSetProductWeight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -789,6 +789,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.palShowF0)).EndInit();
             this.palShowF0.ResumeLayout(false);
@@ -802,11 +807,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductWeight)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
