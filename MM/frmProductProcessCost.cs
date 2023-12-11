@@ -96,8 +96,7 @@ namespace cf01.MM
             string Plan_date_from=txtPlanDateFrom.Text;
             string Plan_date_to=txtPlanDateTo.Text;
             string strSql = "usp_ProductProcessCost";
-            SqlParameter[] parameters = {new SqlParameter("@source_type", Source_type)
-                        ,new SqlParameter("@is_set", Is_set)
+            SqlParameter[] parameters = {new SqlParameter("@is_set", Is_set)
                         ,new SqlParameter("@Prd_dep", Prd_dep)
                         ,new SqlParameter("@prd_item", prd_item)
                         ,new SqlParameter("@Prd_item_cdesc", txtPrd_item_cdesc.Text.Trim())

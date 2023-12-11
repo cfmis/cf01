@@ -926,44 +926,16 @@ namespace cf01.CLS
 
         //
         public static DataTable findProductWeight(int isSetFlag, bool showF0
-            , string matFrom, string matTo, string prdTypeFrom, string prdTypeTo, string artFrom, string artTo, string sizeFrom, string sizeTo
-            , string clrFrom, string clrTo, string productId,bool noShowDmItem
+            , string productId,bool noShowDmItem
             )
         {
             string strSql = "";
             string strWhere = "";
             string productId1 = productId;
-            if (productId1 == "")
-            {
-                productId1 = matFrom + prdTypeFrom + artFrom + sizeFrom + clrFrom;
-                if (productId1.Length == 18)
-                {
-                    if (isSetFlag == 0)
-                        strWhere += " And a.prd_item='" + productId1 + "'";
-                    else
-                        strWhere += " And mm.id='" + productId1 + "'";
-                }
-                else
-                {
-                    if (matFrom != "" && matTo != "")
-                        strWhere += " And mm.datum >='" + matFrom + "' And mm.datum<='" + matTo + "'";
-                    if (prdTypeFrom != "" && prdTypeTo != "")
-                        strWhere += " And mm.base_class >='" + prdTypeFrom + "' And mm.base_class<='" + prdTypeTo + "'";
-                    if (artFrom != "" && artTo != "")
-                        strWhere += " And mm.blueprint_id >='" + artFrom + "' And mm.blueprint_id<='" + artTo + "'";
-                    if (sizeFrom != "" && sizeTo != "")
-                        strWhere += " And mm.size_id >='" + sizeFrom + "' And mm.size_id<='" + sizeTo + "'";
-                    if (clrFrom != "" && clrTo != "")
-                        strWhere += " And mm.color >='" + clrFrom + "' And mm.color<='" + clrTo + "'";
-                }
-            }
-            else
-            {
                 if (isSetFlag == 0)
                     strWhere += " And a.prd_item Like '%" + productId1 + "%'";
                 else
                     strWhere += " And mm.id Like'%" + productId1 + "%'";
-            }
             if (noShowDmItem == true)
                 strWhere += " And mm.datum<>'DM'";
             if (isSetFlag == 0)//已設定重量
@@ -971,6 +943,7 @@ namespace cf01.CLS
                 strSql = "Select a.prd_item AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
                 ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg,a.mat_item,mm1.name As mat_cdesc" +
                 ",a.dep_id AS DepId,b.dep_cdesc AS DepName,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim"+
+                ",a.prd_weg,a.waste_weg,a.use_weg"+
                 " From bs_product_qty_rate a" +
                 " Inner join geo_it_goods mm On a.prd_item=mm.id" +
                 " Left join geo_it_goods mm1 On a.mat_item=mm1.id" +
@@ -985,9 +958,10 @@ namespace cf01.CLS
             else
             {
                 strSql += "SELECT aa.*,bb.name As mat_cdesc,cc.dep_cdesc AS DepName FROM (";
-                strSql += "Select Top 100000 mm.id AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
+                strSql += "Select Top 500 mm.id AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
                     ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg" +
                     ",a.mat_item,a.dep_id AS DepId,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim" +
+                    ",a.prd_weg,a.waste_weg,a.use_weg" +
                     " From geo_it_goods mm" +
                     " Left join bs_product_qty_rate a On mm.id=a.prd_item" +
                      " Where mm.id>=''";

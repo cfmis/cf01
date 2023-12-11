@@ -36,21 +36,6 @@
             this.chkShowF0 = new DevExpress.XtraEditors.CheckEdit();
             this.chkNoShowDmItem = new DevExpress.XtraEditors.CheckEdit();
             this.lblIsSetCosting = new DevExpress.XtraEditors.LabelControl();
-            this.txtClrTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtSizeTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtArtTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtPrdTypeTo = new DevExpress.XtraEditors.TextEdit();
-            this.txtClrFrom = new DevExpress.XtraEditors.TextEdit();
-            this.txtSizeFrom = new DevExpress.XtraEditors.TextEdit();
-            this.lblClr = new DevExpress.XtraEditors.LabelControl();
-            this.txtArtFrom = new DevExpress.XtraEditors.TextEdit();
-            this.lblSize = new DevExpress.XtraEditors.LabelControl();
-            this.txtMatTo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPrdTypeFrom = new DevExpress.XtraEditors.TextEdit();
-            this.lblPrdType = new DevExpress.XtraEditors.LabelControl();
-            this.txtMatFrom = new DevExpress.XtraEditors.TextEdit();
-            this.lblMat = new DevExpress.XtraEditors.LabelControl();
             this.rdgIsSetCosting = new DevExpress.XtraEditors.RadioGroup();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -60,6 +45,21 @@
             this.lblProductWeight = new DevExpress.XtraEditors.LabelControl();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.dgvProductWeight = new System.Windows.Forms.DataGridView();
+            this.colSelectFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterialCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWaste_weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUse_weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPcsG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDepName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCrUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCrTim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -97,18 +97,11 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSelectFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterialCdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPcsG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCrUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCrTim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPlanDateTo = new DevExpress.XtraEditors.DateEdit();
+            this.txtPlanDateFrom = new DevExpress.XtraEditors.DateEdit();
+            this.lblPlanDate = new DevExpress.XtraEditors.LabelControl();
+            this.txtWip_id = new DevExpress.XtraEditors.TextEdit();
+            this.lblDep = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductId.Properties)).BeginInit();
@@ -116,45 +109,30 @@
             this.palShowF0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowF0.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkNoShowDmItem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgIsSetCosting.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductWeight)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtWip_id);
+            this.panelControl1.Controls.Add(this.lblDep);
+            this.panelControl1.Controls.Add(this.txtPlanDateTo);
+            this.panelControl1.Controls.Add(this.txtPlanDateFrom);
+            this.panelControl1.Controls.Add(this.lblPlanDate);
             this.panelControl1.Controls.Add(this.lblProductId);
             this.panelControl1.Controls.Add(this.txtProductId);
             this.panelControl1.Controls.Add(this.palShowF0);
             this.panelControl1.Controls.Add(this.lblIsSetCosting);
-            this.panelControl1.Controls.Add(this.txtClrTo);
-            this.panelControl1.Controls.Add(this.txtSizeTo);
-            this.panelControl1.Controls.Add(this.txtArtTo);
-            this.panelControl1.Controls.Add(this.txtPrdTypeTo);
-            this.panelControl1.Controls.Add(this.txtClrFrom);
-            this.panelControl1.Controls.Add(this.txtSizeFrom);
-            this.panelControl1.Controls.Add(this.lblClr);
-            this.panelControl1.Controls.Add(this.txtArtFrom);
-            this.panelControl1.Controls.Add(this.lblSize);
-            this.panelControl1.Controls.Add(this.txtMatTo);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.txtPrdTypeFrom);
-            this.panelControl1.Controls.Add(this.lblPrdType);
-            this.panelControl1.Controls.Add(this.txtMatFrom);
-            this.panelControl1.Controls.Add(this.lblMat);
             this.panelControl1.Controls.Add(this.rdgIsSetCosting);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
@@ -214,141 +192,6 @@
             this.lblIsSetCosting.Size = new System.Drawing.Size(52, 14);
             this.lblIsSetCosting.TabIndex = 30;
             this.lblIsSetCosting.Text = "設定狀態:";
-            // 
-            // txtClrTo
-            // 
-            this.txtClrTo.Location = new System.Drawing.Point(207, 54);
-            this.txtClrTo.Name = "txtClrTo";
-            this.txtClrTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClrTo.Properties.MaxLength = 4;
-            this.txtClrTo.Size = new System.Drawing.Size(126, 20);
-            this.txtClrTo.TabIndex = 9;
-            // 
-            // txtSizeTo
-            // 
-            this.txtSizeTo.Location = new System.Drawing.Point(545, 29);
-            this.txtSizeTo.Name = "txtSizeTo";
-            this.txtSizeTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSizeTo.Properties.MaxLength = 3;
-            this.txtSizeTo.Size = new System.Drawing.Size(126, 20);
-            this.txtSizeTo.TabIndex = 7;
-            // 
-            // txtArtTo
-            // 
-            this.txtArtTo.Location = new System.Drawing.Point(545, 5);
-            this.txtArtTo.Name = "txtArtTo";
-            this.txtArtTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtArtTo.Properties.MaxLength = 7;
-            this.txtArtTo.Size = new System.Drawing.Size(126, 20);
-            this.txtArtTo.TabIndex = 5;
-            // 
-            // txtPrdTypeTo
-            // 
-            this.txtPrdTypeTo.Location = new System.Drawing.Point(207, 29);
-            this.txtPrdTypeTo.Name = "txtPrdTypeTo";
-            this.txtPrdTypeTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPrdTypeTo.Properties.MaxLength = 2;
-            this.txtPrdTypeTo.Size = new System.Drawing.Size(126, 20);
-            this.txtPrdTypeTo.TabIndex = 3;
-            // 
-            // txtClrFrom
-            // 
-            this.txtClrFrom.Location = new System.Drawing.Point(74, 54);
-            this.txtClrFrom.Name = "txtClrFrom";
-            this.txtClrFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClrFrom.Properties.MaxLength = 4;
-            this.txtClrFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtClrFrom.TabIndex = 8;
-            this.txtClrFrom.Leave += new System.EventHandler(this.txtClrFrom_Leave);
-            // 
-            // txtSizeFrom
-            // 
-            this.txtSizeFrom.Location = new System.Drawing.Point(412, 29);
-            this.txtSizeFrom.Name = "txtSizeFrom";
-            this.txtSizeFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSizeFrom.Properties.MaxLength = 3;
-            this.txtSizeFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtSizeFrom.TabIndex = 6;
-            this.txtSizeFrom.Leave += new System.EventHandler(this.txtSizeFrom_Leave);
-            // 
-            // lblClr
-            // 
-            this.lblClr.Location = new System.Drawing.Point(16, 58);
-            this.lblClr.Name = "lblClr";
-            this.lblClr.Size = new System.Drawing.Size(52, 14);
-            this.lblClr.TabIndex = 13;
-            this.lblClr.Text = "顏色代號:";
-            // 
-            // txtArtFrom
-            // 
-            this.txtArtFrom.Location = new System.Drawing.Point(412, 5);
-            this.txtArtFrom.Name = "txtArtFrom";
-            this.txtArtFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtArtFrom.Properties.MaxLength = 7;
-            this.txtArtFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtArtFrom.TabIndex = 4;
-            this.txtArtFrom.Leave += new System.EventHandler(this.txtArtFrom_Leave);
-            // 
-            // lblSize
-            // 
-            this.lblSize.Location = new System.Drawing.Point(350, 32);
-            this.lblSize.Name = "lblSize";
-            this.lblSize.Size = new System.Drawing.Size(52, 14);
-            this.lblSize.TabIndex = 12;
-            this.lblSize.Text = "尺寸代號:";
-            // 
-            // txtMatTo
-            // 
-            this.txtMatTo.Location = new System.Drawing.Point(207, 5);
-            this.txtMatTo.Name = "txtMatTo";
-            this.txtMatTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMatTo.Properties.MaxLength = 2;
-            this.txtMatTo.Size = new System.Drawing.Size(126, 20);
-            this.txtMatTo.TabIndex = 1;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(350, 8);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(52, 14);
-            this.labelControl1.TabIndex = 16;
-            this.labelControl1.Text = "圖樣代號:";
-            // 
-            // txtPrdTypeFrom
-            // 
-            this.txtPrdTypeFrom.Location = new System.Drawing.Point(74, 29);
-            this.txtPrdTypeFrom.Name = "txtPrdTypeFrom";
-            this.txtPrdTypeFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPrdTypeFrom.Properties.MaxLength = 2;
-            this.txtPrdTypeFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtPrdTypeFrom.TabIndex = 2;
-            this.txtPrdTypeFrom.Leave += new System.EventHandler(this.txtPrdTypeFrom_Leave);
-            // 
-            // lblPrdType
-            // 
-            this.lblPrdType.Location = new System.Drawing.Point(16, 32);
-            this.lblPrdType.Name = "lblPrdType";
-            this.lblPrdType.Size = new System.Drawing.Size(52, 14);
-            this.lblPrdType.TabIndex = 14;
-            this.lblPrdType.Text = "產品類型:";
-            // 
-            // txtMatFrom
-            // 
-            this.txtMatFrom.Location = new System.Drawing.Point(74, 5);
-            this.txtMatFrom.Name = "txtMatFrom";
-            this.txtMatFrom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMatFrom.Properties.MaxLength = 2;
-            this.txtMatFrom.Size = new System.Drawing.Size(126, 20);
-            this.txtMatFrom.TabIndex = 0;
-            this.txtMatFrom.Leave += new System.EventHandler(this.txtMatFrom_Leave);
-            // 
-            // lblMat
-            // 
-            this.lblMat.Location = new System.Drawing.Point(16, 8);
-            this.lblMat.Name = "lblMat";
-            this.lblMat.Size = new System.Drawing.Size(52, 14);
-            this.lblMat.TabIndex = 15;
-            this.lblMat.Text = "物料種類:";
             // 
             // rdgIsSetCosting
             // 
@@ -439,6 +282,9 @@
             this.colDoColor,
             this.colMaterialId,
             this.colMaterialCdesc,
+            this.colPrd_weg,
+            this.colWaste_weg,
+            this.colUse_weg,
             this.colProductWeight,
             this.colPcsG,
             this.colDepId,
@@ -453,6 +299,113 @@
             this.dgvProductWeight.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductWeight.Size = new System.Drawing.Size(1049, 460);
             this.dgvProductWeight.TabIndex = 0;
+            // 
+            // colSelectFlag
+            // 
+            this.colSelectFlag.DataPropertyName = "SetFlag";
+            this.colSelectFlag.Frozen = true;
+            this.colSelectFlag.HeaderText = "";
+            this.colSelectFlag.Name = "colSelectFlag";
+            this.colSelectFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelectFlag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelectFlag.Width = 40;
+            // 
+            // colProductId
+            // 
+            this.colProductId.DataPropertyName = "goods_id";
+            this.colProductId.HeaderText = "物料編號";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Width = 160;
+            // 
+            // colProductName
+            // 
+            this.colProductName.DataPropertyName = "goods_cname";
+            this.colProductName.HeaderText = "物料描述";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 260;
+            // 
+            // colDoColor
+            // 
+            this.colDoColor.DataPropertyName = "DoColor";
+            this.colDoColor.HeaderText = "顏色做法";
+            this.colDoColor.Name = "colDoColor";
+            this.colDoColor.ReadOnly = true;
+            this.colDoColor.Width = 160;
+            // 
+            // colMaterialId
+            // 
+            this.colMaterialId.DataPropertyName = "mat_item";
+            this.colMaterialId.HeaderText = "原料編號";
+            this.colMaterialId.Name = "colMaterialId";
+            this.colMaterialId.Width = 160;
+            // 
+            // colMaterialCdesc
+            // 
+            this.colMaterialCdesc.DataPropertyName = "mat_cdesc";
+            this.colMaterialCdesc.HeaderText = "原料描述";
+            this.colMaterialCdesc.Name = "colMaterialCdesc";
+            this.colMaterialCdesc.Width = 260;
+            // 
+            // colPrd_weg
+            // 
+            this.colPrd_weg.DataPropertyName = "prd_weg";
+            this.colPrd_weg.HeaderText = "每千重量";
+            this.colPrd_weg.Name = "colPrd_weg";
+            // 
+            // colWaste_weg
+            // 
+            this.colWaste_weg.DataPropertyName = "waste_weg";
+            this.colWaste_weg.HeaderText = "每千損耗";
+            this.colWaste_weg.Name = "colWaste_weg";
+            // 
+            // colUse_weg
+            // 
+            this.colUse_weg.DataPropertyName = "use_weg";
+            this.colUse_weg.HeaderText = "每千用料";
+            this.colUse_weg.Name = "colUse_weg";
+            // 
+            // colProductWeight
+            // 
+            this.colProductWeight.DataPropertyName = "prd_kg_qty_rate";
+            this.colProductWeight.HeaderText = "每Kg數量";
+            this.colProductWeight.Name = "colProductWeight";
+            this.colProductWeight.ReadOnly = true;
+            this.colProductWeight.Width = 80;
+            // 
+            // colPcsG
+            // 
+            this.colPcsG.DataPropertyName = "pcs_weg";
+            this.colPcsG.HeaderText = "每千重量";
+            this.colPcsG.Name = "colPcsG";
+            this.colPcsG.Width = 80;
+            // 
+            // colDepId
+            // 
+            this.colDepId.DataPropertyName = "DepId";
+            this.colDepId.HeaderText = "部門編號";
+            this.colDepId.Name = "colDepId";
+            this.colDepId.Width = 65;
+            // 
+            // colDepName
+            // 
+            this.colDepName.DataPropertyName = "DepName";
+            this.colDepName.HeaderText = "部門描述";
+            this.colDepName.Name = "colDepName";
+            // 
+            // colCrUsr
+            // 
+            this.colCrUsr.DataPropertyName = "CrUsr";
+            this.colCrUsr.HeaderText = "修改人";
+            this.colCrUsr.Name = "colCrUsr";
+            // 
+            // colCrTim
+            // 
+            this.colCrTim.DataPropertyName = "CrTim";
+            this.colCrTim.HeaderText = "修改時間";
+            this.colCrTim.Name = "colCrTim";
+            this.colCrTim.Width = 120;
             // 
             // toolStrip1
             // 
@@ -760,94 +713,63 @@
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.Width = 60;
             // 
-            // colSelectFlag
+            // txtPlanDateTo
             // 
-            this.colSelectFlag.DataPropertyName = "SetFlag";
-            this.colSelectFlag.Frozen = true;
-            this.colSelectFlag.HeaderText = "";
-            this.colSelectFlag.Name = "colSelectFlag";
-            this.colSelectFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelectFlag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelectFlag.Width = 40;
+            this.txtPlanDateTo.EditValue = null;
+            this.txtPlanDateTo.Location = new System.Drawing.Point(223, 5);
+            this.txtPlanDateTo.Name = "txtPlanDateTo";
+            this.txtPlanDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPlanDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtPlanDateTo.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateTo.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateTo.Properties.Mask.EditMask = "yyyy/MM/dd";
+            this.txtPlanDateTo.Size = new System.Drawing.Size(126, 20);
+            this.txtPlanDateTo.TabIndex = 35;
             // 
-            // colProductId
+            // txtPlanDateFrom
             // 
-            this.colProductId.DataPropertyName = "goods_id";
-            this.colProductId.HeaderText = "物料編號";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Width = 160;
+            this.txtPlanDateFrom.EditValue = null;
+            this.txtPlanDateFrom.Location = new System.Drawing.Point(91, 5);
+            this.txtPlanDateFrom.Name = "txtPlanDateFrom";
+            this.txtPlanDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPlanDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtPlanDateFrom.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateFrom.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.txtPlanDateFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtPlanDateFrom.Properties.Mask.EditMask = "yyyy/MM/dd";
+            this.txtPlanDateFrom.Size = new System.Drawing.Size(126, 20);
+            this.txtPlanDateFrom.TabIndex = 34;
             // 
-            // colProductName
+            // lblPlanDate
             // 
-            this.colProductName.DataPropertyName = "goods_cname";
-            this.colProductName.HeaderText = "物料描述";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 260;
+            this.lblPlanDate.Location = new System.Drawing.Point(21, 8);
+            this.lblPlanDate.Name = "lblPlanDate";
+            this.lblPlanDate.Size = new System.Drawing.Size(64, 14);
+            this.lblPlanDate.TabIndex = 36;
+            this.lblPlanDate.Text = "計劃單日期:";
             // 
-            // colDoColor
+            // txtWip_id
             // 
-            this.colDoColor.DataPropertyName = "DoColor";
-            this.colDoColor.HeaderText = "顏色做法";
-            this.colDoColor.Name = "colDoColor";
-            this.colDoColor.ReadOnly = true;
-            this.colDoColor.Width = 160;
+            this.txtWip_id.Location = new System.Drawing.Point(91, 31);
+            this.txtWip_id.Name = "txtWip_id";
+            this.txtWip_id.Properties.MaxLength = 3;
+            this.txtWip_id.Size = new System.Drawing.Size(126, 20);
+            this.txtWip_id.TabIndex = 37;
             // 
-            // colMaterialId
+            // lblDep
             // 
-            this.colMaterialId.DataPropertyName = "mat_item";
-            this.colMaterialId.HeaderText = "原料編號";
-            this.colMaterialId.Name = "colMaterialId";
-            this.colMaterialId.Width = 160;
-            // 
-            // colMaterialCdesc
-            // 
-            this.colMaterialCdesc.DataPropertyName = "mat_cdesc";
-            this.colMaterialCdesc.HeaderText = "原料描述";
-            this.colMaterialCdesc.Name = "colMaterialCdesc";
-            this.colMaterialCdesc.Width = 260;
-            // 
-            // colProductWeight
-            // 
-            this.colProductWeight.DataPropertyName = "prd_kg_qty_rate";
-            this.colProductWeight.HeaderText = "每Kg數量";
-            this.colProductWeight.Name = "colProductWeight";
-            this.colProductWeight.ReadOnly = true;
-            this.colProductWeight.Width = 80;
-            // 
-            // colPcsG
-            // 
-            this.colPcsG.DataPropertyName = "pcs_weg";
-            this.colPcsG.HeaderText = "每PCS重量";
-            this.colPcsG.Name = "colPcsG";
-            this.colPcsG.Width = 80;
-            // 
-            // colDepId
-            // 
-            this.colDepId.DataPropertyName = "DepId";
-            this.colDepId.HeaderText = "部門編號";
-            this.colDepId.Name = "colDepId";
-            this.colDepId.Width = 65;
-            // 
-            // colDepName
-            // 
-            this.colDepName.DataPropertyName = "DepName";
-            this.colDepName.HeaderText = "部門描述";
-            this.colDepName.Name = "colDepName";
-            // 
-            // colCrUsr
-            // 
-            this.colCrUsr.DataPropertyName = "CrUsr";
-            this.colCrUsr.HeaderText = "修改人";
-            this.colCrUsr.Name = "colCrUsr";
-            // 
-            // colCrTim
-            // 
-            this.colCrTim.DataPropertyName = "CrTim";
-            this.colCrTim.HeaderText = "修改時間";
-            this.colCrTim.Name = "colCrTim";
-            this.colCrTim.Width = 120;
+            this.lblDep.Location = new System.Drawing.Point(33, 34);
+            this.lblDep.Name = "lblDep";
+            this.lblDep.Size = new System.Drawing.Size(52, 14);
+            this.lblDep.TabIndex = 38;
+            this.lblDep.Text = "部門編號:";
             // 
             // frmSetProductWeight
             // 
@@ -872,16 +794,6 @@
             this.palShowF0.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkShowF0.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkNoShowDmItem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClrFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSizeFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtArtFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdTypeFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdgIsSetCosting.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
@@ -890,6 +802,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductWeight)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateTo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanDateFrom.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWip_id.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -914,21 +831,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DevExpress.XtraEditors.TextEdit txtClrTo;
-        private DevExpress.XtraEditors.TextEdit txtSizeTo;
-        private DevExpress.XtraEditors.TextEdit txtArtTo;
-        private DevExpress.XtraEditors.TextEdit txtPrdTypeTo;
-        private DevExpress.XtraEditors.TextEdit txtClrFrom;
-        private DevExpress.XtraEditors.TextEdit txtSizeFrom;
-        private DevExpress.XtraEditors.LabelControl lblClr;
-        private DevExpress.XtraEditors.TextEdit txtArtFrom;
-        private DevExpress.XtraEditors.LabelControl lblSize;
-        private DevExpress.XtraEditors.TextEdit txtMatTo;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtPrdTypeFrom;
-        private DevExpress.XtraEditors.LabelControl lblPrdType;
-        private DevExpress.XtraEditors.TextEdit txtMatFrom;
-        private DevExpress.XtraEditors.LabelControl lblMat;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
@@ -971,11 +873,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaterialCdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_weg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWaste_weg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUse_weg;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPcsG;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCrUsr;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCrTim;
+        private DevExpress.XtraEditors.DateEdit txtPlanDateTo;
+        private DevExpress.XtraEditors.DateEdit txtPlanDateFrom;
+        private DevExpress.XtraEditors.LabelControl lblPlanDate;
+        private DevExpress.XtraEditors.TextEdit txtWip_id;
+        private DevExpress.XtraEditors.LabelControl lblDep;
     }
 }

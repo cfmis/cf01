@@ -60,7 +60,6 @@
             this.rdgSetType = new DevExpress.XtraEditors.RadioGroup();
             this.lblMsg = new DevExpress.XtraEditors.LabelControl();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
-            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +79,7 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_mo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrd_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,7 +146,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 38);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1192, 111);
+            this.panelControl1.Size = new System.Drawing.Size(1192, 95);
             this.panelControl1.TabIndex = 0;
             // 
             // txtPlanDateTo
@@ -194,26 +194,28 @@
             // 
             // rdgIs_set
             // 
-            this.rdgIs_set.Location = new System.Drawing.Point(414, 63);
+            this.rdgIs_set.Location = new System.Drawing.Point(80, 57);
             this.rdgIs_set.Name = "rdgIs_set";
             this.rdgIs_set.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "未設定價錢的物料"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "已設定價錢的物料"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "全部")});
-            this.rdgIs_set.Size = new System.Drawing.Size(597, 33);
+            this.rdgIs_set.Size = new System.Drawing.Size(597, 31);
             this.rdgIs_set.TabIndex = 10;
             // 
             // lblSource
             // 
-            this.lblSource.Location = new System.Drawing.Point(47, 72);
+            this.lblSource.Location = new System.Drawing.Point(719, 65);
             this.lblSource.Name = "lblSource";
             this.lblSource.Size = new System.Drawing.Size(28, 14);
             this.lblSource.TabIndex = 5;
             this.lblSource.Text = "來源:";
+            this.lblSource.Visible = false;
             // 
             // rdgSource
             // 
-            this.rdgSource.Location = new System.Drawing.Point(81, 63);
+            this.rdgSource.Enabled = false;
+            this.rdgSource.Location = new System.Drawing.Point(753, 56);
             this.rdgSource.Name = "rdgSource";
             this.rdgSource.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "從生產計劃"),
@@ -221,6 +223,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "從生產數據")});
             this.rdgSource.Size = new System.Drawing.Size(258, 33);
             this.rdgSource.TabIndex = 9;
+            this.rdgSource.Visible = false;
             // 
             // txtJobTypeTo
             // 
@@ -393,12 +396,12 @@
             this.colPrd_machine,
             this.colMachine_desc});
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetails.Location = new System.Drawing.Point(0, 213);
+            this.dgvDetails.Location = new System.Drawing.Point(0, 197);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowHeadersWidth = 20;
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1192, 352);
+            this.dgvDetails.Size = new System.Drawing.Size(1192, 368);
             this.dgvDetails.TabIndex = 2;
             this.dgvDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellDoubleClick);
             // 
@@ -409,7 +412,7 @@
             this.panelControl2.Controls.Add(this.rdgSetType);
             this.panelControl2.Controls.Add(this.lblMsg);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 149);
+            this.panelControl2.Location = new System.Drawing.Point(0, 133);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1192, 64);
             this.panelControl2.TabIndex = 3;
@@ -458,23 +461,12 @@
             // 
             // chkSelect
             // 
-            this.chkSelect.Location = new System.Drawing.Point(34, 219);
+            this.chkSelect.Location = new System.Drawing.Point(34, 202);
             this.chkSelect.Name = "chkSelect";
             this.chkSelect.Properties.Caption = "";
             this.chkSelect.Size = new System.Drawing.Size(17, 19);
             this.chkSelect.TabIndex = 1;
             this.chkSelect.CheckedChanged += new System.EventHandler(this.chkSelect_CheckedChanged);
-            // 
-            // colSelect
-            // 
-            this.colSelect.DataPropertyName = "chk_flag";
-            this.colSelect.FillWeight = 60F;
-            this.colSelect.HeaderText = "";
-            this.colSelect.Name = "colSelect";
-            this.colSelect.ReadOnly = true;
-            this.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelect.Width = 40;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -606,6 +598,17 @@
             this.dataGridViewTextBoxColumn19.HeaderText = "機器描述";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
+            // colSelect
+            // 
+            this.colSelect.DataPropertyName = "chk_flag";
+            this.colSelect.FillWeight = 60F;
+            this.colSelect.HeaderText = "";
+            this.colSelect.Name = "colSelect";
+            this.colSelect.ReadOnly = true;
+            this.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelect.Width = 40;
+            // 
             // colDep
             // 
             this.colDep.DataPropertyName = "Prd_dep";
@@ -658,7 +661,7 @@
             // colCost_price
             // 
             this.colCost_price.DataPropertyName = "cost_price";
-            this.colCost_price.HeaderText = "單價";
+            this.colCost_price.HeaderText = "單價(RMB)";
             this.colCost_price.Name = "colCost_price";
             this.colCost_price.ReadOnly = true;
             this.colCost_price.Width = 80;
@@ -681,7 +684,7 @@
             // colPrd_cost
             // 
             this.colPrd_cost.DataPropertyName = "prd_cost";
-            this.colPrd_cost.HeaderText = "生產費用";
+            this.colPrd_cost.HeaderText = "生產費用(RMB)";
             this.colPrd_cost.Name = "colPrd_cost";
             this.colPrd_cost.ReadOnly = true;
             // 
@@ -841,6 +844,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private DevExpress.XtraEditors.TextEdit txtPrd_item_cdesc;
         private DevExpress.XtraEditors.LabelControl lblPrd_item_cdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_mo;
@@ -861,11 +870,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colJob_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_machine;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMachine_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
     }
 }
