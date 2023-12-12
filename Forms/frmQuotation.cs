@@ -419,8 +419,14 @@ namespace cf01.Forms
 
         private void CalcuPrice(string edit_state)
         {
+            string brand = txtBrand.Text;
+            string formula = txtFormula.Text;
+            string bp = txtNumber_enter.EditValue.ToString();
+            string vn_bp = txtVnd_bp.Text;
+            string price_unit = txtPrice_unit.Text;
+            bool flag_vnd = chkFlag_vnd.Checked;
             mdlFormula_Result objResult = new mdlFormula_Result();
-            objResult = clsQuotation.Get_Cust_Formula(txtBrand.Text, txtFormula.Text, txtNumber_enter.EditValue.ToString(), txtPrice_unit.Text, edit_state,txtVnd_bp.Text,chkFlag_vnd.Checked);                
+            objResult = clsQuotation.Get_Cust_Formula(brand, formula, bp, price_unit, edit_state,vn_bp,flag_vnd);                
             txtPrice_usd.EditValue = objResult.price_usd;
             txtPrice_rmb.EditValue = objResult.price_rmb;
             txtPrice_hkd.EditValue = objResult.price_hkd;
