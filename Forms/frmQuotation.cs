@@ -445,7 +445,6 @@ namespace cf01.Forms
             {
                 txtDisc.EditValue = objResult.discount;
             }
-
             //2016.10.28取消
             //txtPrice_usd.EditValue = objResult.price_usd;
             //txtPrice_rmb.EditValue = objResult.price_rmb;
