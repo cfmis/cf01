@@ -740,7 +740,6 @@
             this.order_date.Name = "order_date";
             this.order_date.ReadOnly = true;
             this.order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.order_date.Width = 80;
             // 
             // sales_group
             // 
