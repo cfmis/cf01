@@ -125,6 +125,8 @@
             this.m_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fare_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fare_sum_hkd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.test_report_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.test_report_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -333,7 +335,9 @@
             this.remark,
             this.m_id,
             this.fare_sum,
-            this.fare_sum_hkd});
+            this.fare_sum_hkd,
+            this.test_report_no,
+            this.test_report_date});
             this.dgvDetails.Location = new System.Drawing.Point(4, 184);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 40;
@@ -915,6 +919,22 @@
             this.fare_sum_hkd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.fare_sum_hkd.Width = 90;
             // 
+            // test_report_no
+            // 
+            this.test_report_no.DataPropertyName = "test_report_no";
+            this.test_report_no.HeaderText = "測試報告編號";
+            this.test_report_no.Name = "test_report_no";
+            this.test_report_no.ReadOnly = true;
+            this.test_report_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // test_report_date
+            // 
+            this.test_report_date.DataPropertyName = "test_report_date";
+            this.test_report_date.HeaderText = "測試報告日期";
+            this.test_report_date.Name = "test_report_date";
+            this.test_report_date.ReadOnly = true;
+            this.test_report_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // frmOrderFareCharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1034,5 +1054,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn m_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fare_sum;
         private System.Windows.Forms.DataGridViewTextBoxColumn fare_sum_hkd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn test_report_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn test_report_date;
     }
 }
