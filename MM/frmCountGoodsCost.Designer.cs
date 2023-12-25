@@ -647,6 +647,7 @@
             this.btnCopy.Size = new System.Drawing.Size(65, 35);
             this.btnCopy.Text = "複製(&C)";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // toolStripSeparator5
             // 

@@ -1811,5 +1811,10 @@ namespace cf01.MM
                 MessageBox.Show("刪除配件記錄成功!");
             LoadData();
         }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
