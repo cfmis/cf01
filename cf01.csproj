@@ -241,6 +241,7 @@
     <Compile Include="CLS\clsCommonUse.cs" />
     <Compile Include="CLS\clsControlInfoHelper.cs" />
     <Compile Include="CLS\clsCostAlloy.cs" />
+    <Compile Include="CLS\clsCountGoodsCost.cs" />
     <Compile Include="CLS\clsCustComplain.cs" />
     <Compile Include="CLS\clsCustomDelivery.cs" />
     <Compile Include="CLS\clsDeliveryBill.cs" />
@@ -1342,6 +1343,7 @@
     </Compile>
     <Compile Include="MDL\mdlColorPlateQuotation.cs" />
     <Compile Include="MDL\mdlCostAlloy.cs" />
+    <Compile Include="MDL\mdlCountGoodsCost.cs" />
     <Compile Include="MDL\mdlCustComplain.cs" />
     <Compile Include="MDL\mdlMaterialType.cs" />
     <Compile Include="MDL\mdlMmCalculatePrice.cs" />
@@ -1359,6 +1361,30 @@
     <Compile Include="MDL\mdlUser.cs" />
     <Compile Include="MDL\Mo_for_jx.cs" />
     <Compile Include="MDL\product_qc_records.cs" />
+    <Compile Include="MM\frmCountGoodsCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCost.Designer.cs">
+      <DependentUpon>frmCountGoodsCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCostFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCostFind.Designer.cs">
+      <DependentUpon>frmCountGoodsCostFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCostFindGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCostFindGoods.Designer.cs">
+      <DependentUpon>frmCountGoodsCostFindGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCostFindProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCostFindProcess.Designer.cs">
+      <DependentUpon>frmCountGoodsCostFindProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="MM\frmDepWasteRate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3271,6 +3297,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Main_sub.resx">
       <DependentUpon>frm_Main_sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmCountGoodsCost.resx">
+      <DependentUpon>frmCountGoodsCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmCountGoodsCostFind.resx">
+      <DependentUpon>frmCountGoodsCostFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmCountGoodsCostFindGoods.resx">
+      <DependentUpon>frmCountGoodsCostFindGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmCountGoodsCostFindProcess.resx">
+      <DependentUpon>frmCountGoodsCostFindProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmDepWasteRate.resx">
       <DependentUpon>frmDepWasteRate.cs</DependentUpon>

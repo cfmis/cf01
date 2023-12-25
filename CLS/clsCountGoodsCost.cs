@@ -1,0 +1,675 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+using cf01.MDL;
+
+namespace cf01.CLS
+{
+    public class clsCountGoodsCost
+    {
+        private static string userid = DBUtility._user_id.ToUpper();
+        private static string remote_db = DBUtility.remote_db;
+        private static string within_code = DBUtility.within_code;
+        private static clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
+        public static DataTable getBomCid(string pid)
+        {
+            string strSql = "";
+            string pid1 = pid + "001";
+            string pid2 = pid + "999";
+            //strSql = " SELECT a.id,a.goods_id,b.id AS d_id,b.goods_id AS d_goods_id,c.name AS d_goods_name" +
+            //    " FROM it_bom_mostly a" +
+            //    " INNER JOIN it_bom b ON a.within_code=b.within_code AND a.id=b.id AND a.exp_id=b.exp_id" +
+            //    " LEFT JOIN it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
+            //    " WHERE a.within_code='" + within_code + "' AND a.goods_id='" + pid + "'" +
+            //    " Order By b.log_no";
+            strSql = " SELECT a.id,a.goods_id,b.id AS d_id,b.goods_id AS ProductID,c.name AS ProductName"+
+                " ,CASE WHEN b.primary_key='1' THEN 'Y' ELSE '' END AS FrontPart" +
+                " FROM it_bom_mostly a" +
+                " INNER JOIN it_bom b ON a.within_code=b.within_code AND a.id=b.id AND a.exp_id=b.exp_id" +
+                " LEFT JOIN it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
+                " WHERE a.within_code='" + within_code + "' AND a.id>='" + pid1 + "' AND a.id<='" + pid2 + "'" +
+                " Order By b.primary_key DESC,b.log_no";
+            DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
+            return dt;
+        }
+        public static DataTable LoadProductCostHead(string ID)
+        {
+            string strSql = "";
+            strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName"+
+                ",ProductSize,ProductSizeName,ProductColor,ProductColorName"+
+                ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
+                ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
+                " From mm_product_cost_head " +
+                " Where ID='" + ID + "' And Status<>'D' ";
+            DataTable dtProductType = clsPublicOfCF01.GetDataTable(strSql);
+            return dtProductType;
+        }
+        /// <summary>
+        /// ///點擊查找時，查找記錄
+        /// </summary>
+        /// <param name="productID"></param>
+        /// <param name="productName"></param>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static DataTable QueryProductCost(string productID,string productName,string ID)
+        {
+            string strSql = "";
+            strSql = "Select a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
+                ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName" +
+                ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
+                ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
+                " From mm_product_cost_head a" +
+                " Where a.Status<>'D'";
+            if (productID != "")
+                strSql += " And a.ProductID Like '%" + productID + "%'";
+            if (productName != "")
+                strSql += " And a.productName Like '%" + productName + "%'";
+            if (ID != "")
+                strSql += " And a.ID Like '%" + ID + "%'";
+            DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+            return dtPrd;
+        }
+        /// <summary>
+        /// ///查找產品編號
+        /// </summary>
+        /// <param name="productID"></param>
+        /// <param name="productName"></param>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static DataTable QueryProductData(string productID, string productName,int showExistWeg)
+        {
+            string strSql = "";
+            strSql = "Select a.ID As ProductID,a.name As ProductName" +
+                ",b.prd_weg,b.waste_weg,b.use_weg,b.mat_item,c.name AS mat_name" +
+                ",b.dep_id,d.dep_cdesc" +
+                " From geo_it_goods a";
+            if (showExistWeg == 0)
+                strSql += " Left Join bs_product_qty_rate b On a.id=b.prd_item ";
+            else//////顯示已設定的產品重量
+                strSql += " Inner Join bs_product_qty_rate b On a.id=b.prd_item ";
+            strSql += " Left Join geo_it_goods c On b.mat_item=c.id " +
+                " Left Join bs_dep d On b.dep_id=d.dep_id" +
+                " Where a.ID>=''";
+            if (productID != "")
+                strSql += " And a.ID Like '%" + productID + "%'";
+            if (productName != "")
+                strSql += " And a.name Like '%" + productName + "%'";
+            DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+            return dtPrd;
+        }
+        public static string Save(mdlCountGoodsCost mdlGoods)
+        {
+            string result = "";
+            string ID = mdlGoods.ID;
+            string strSql = "", strUpd = "";
+            int Ver = mdlGoods.Ver;
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            if (ID == "")
+            {
+                ID = GenID();
+            }
+            if (!CheckID(ID))
+            {
+                Ver = 0;
+                strUpd = @" Insert Into mm_product_cost_head " +
+                    " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                    ",Remark,CreateUser,CreateTime,AmendUser,AmendTime )" +
+                    " Values ( " +
+                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}',GETDATE(),'{13}',GETDATE() )";
+            }
+            else
+                strUpd = @" Update mm_product_cost_head Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
+                    ",ProductType='{6}',ProductTypeName='{7}'" +
+                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
+                    ",Remark='{12}',AmendUser='{13}',AmendTime=GETDATE() " +
+                    " Where ID='{0}' And Ver='{1}'";
+            strSql += string.Format(strUpd
+                    , ID, Ver, mdlGoods.ProductID, mdlGoods.ProductName, mdlGoods.ArtWork, mdlGoods.ArtWorkName
+                    , mdlGoods.ProductType, mdlGoods.ProductTypeName, mdlGoods.ProductSize, mdlGoods.ProductSizeName
+                    , mdlGoods.ProductColor, mdlGoods.ProductColorName
+                    , mdlGoods.Remark, userid);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = ID;
+            return result;
+        }
+        private static string GenID()
+        {
+            string result = "";
+            string strSql = "";
+            strSql += " Select Max(ID) AS ID From mm_product_cost_head ";
+            DataTable dtID = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtID.Rows[0]["ID"].ToString() == "")
+                result = "QT" + "00000001";
+            else
+                result = "QT" + (Convert.ToInt32(dtID.Rows[0]["ID"].ToString().Substring(2, 8)) + 1).ToString().PadLeft(8, '0');
+            return result;
+        }
+        private static bool CheckID(string ID)
+        {
+            bool result = false;
+            string strSql = "";
+            strSql += " Select ID From mm_product_cost_head Where ID='" + ID + "'";
+            DataTable dtID = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtID.Rows.Count > 0)
+                result = true;
+            return result;
+        }
+        /// ///注銷所有報價記錄
+        public static string Delete(int SN)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strSql += string.Format(@" Update mm_product_cost_head Set Status='D',AmendUser='{1}',AmendTime=GETDATE() Where SN='{0}'"
+                    , SN, userid);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+
+        /// <summary>
+        /// ///儲存配件
+        /// </summary>
+        /// <param name="mdlGoods"></param>
+        /// <returns></returns>
+        public static string SaveGoodsPart(mdlCountGoodsCostPart mdlGoodsPart)
+        {
+            string result = "";
+            int upperSN = mdlGoodsPart.UpperSN;
+            string seq = mdlGoodsPart.Seq;
+            string strSql = "", strUpd = "";
+            int Ver = mdlGoodsPart.Ver;
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            if (seq == "")
+            {
+                seq = GenSeq("mm_product_cost_part", upperSN, "");
+            }
+            if (!CheckExistSeq("mm_product_cost_part", upperSN, seq, ""))
+            {
+                Ver = 0;
+                strUpd = @" Insert Into mm_product_cost_part " +
+                    " ( upperSN,Seq,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                    ",MatWeg,MatUse,MatCost,ProcessCostTotal,ProcessProfitRate,ProcessProfit" +
+                    ",PlateCost,PackCost" +
+                    ",CostPcs,CostGrs,CostK" +
+                    ",FactoryFee,FactoryCostPcs,FactoryCostGrs,FactoryCostK" +
+                    ",FrontPart,Remark,CreateUser,CreateTime,AmendUser,AmendTime" +
+                    " )" +
+                    " Values ( " +
+                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}'" +
+                    ",'{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}'" +
+                    ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}'" +
+                    ",GETDATE(),'{29}',GETDATE() " +
+                    " )";
+            }
+            else
+                strUpd = @" Update mm_product_cost_part Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
+                    ",ProductType='{6}',ProductTypeName='{7}'" +
+                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
+                    ",MatWeg='{12}',MatUse='{13}',MatCost='{14}',ProcessCostTotal='{15}',ProcessProfitRate='{16}',ProcessProfit='{17}'" +
+                    ",PlateCost='{18}',PackCost='{19}'" +
+                    ",CostPcs='{20}',CostGrs='{21}',CostK='{22}'" +
+                    ",FactoryFee='{23}',FactoryCostPcs='{24}',FactoryCostGrs='{25}',FactoryCostK='{26}'" +
+                    ",FrontPart='{27}',Remark='{28}',AmendUser='{29}',AmendTime=GETDATE() " +
+                    " Where upperSN='{0}' And Seq='{1}'";
+            strSql += string.Format(strUpd
+                    , upperSN, seq, mdlGoodsPart.ProductID, mdlGoodsPart.ProductName, mdlGoodsPart.ArtWork, mdlGoodsPart.ArtWorkName
+                    , mdlGoodsPart.ProductType, mdlGoodsPart.ProductTypeName, mdlGoodsPart.ProductSize, mdlGoodsPart.ProductSizeName
+                    , mdlGoodsPart.ProductColor, mdlGoodsPart.ProductColorName
+                    , mdlGoodsPart.MatWeg, mdlGoodsPart.MatUse, mdlGoodsPart.MatCost, mdlGoodsPart.ProcessCostTotal, mdlGoodsPart.ProcessProfitRate, mdlGoodsPart.ProcessProfit
+                    , mdlGoodsPart.PlateCost, mdlGoodsPart.PackCost
+                    , mdlGoodsPart.CostPcs, mdlGoodsPart.CostGrs, mdlGoodsPart.CostK
+                    , mdlGoodsPart.FactoryFee, mdlGoodsPart.FactoryCostPcs, mdlGoodsPart.FactoryCostGrs, mdlGoodsPart.FactoryCostK
+                    , mdlGoodsPart.FrontPart, mdlGoodsPart.Remark, userid);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = seq;
+            return result;
+        }
+
+
+        /// <summary>
+        /// ///儲存配件---批量
+        /// </summary>
+        /// <param name="mdlGoods"></param>
+        /// <returns></returns>
+        public static string SaveGoodsPartBatch(List<mdlCountGoodsCostPart> lsGoodsPart)
+        {
+            string result = "";
+            int upperSN = lsGoodsPart[0].UpperSN;
+            string strSql = "", strUpd = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            int stepSeq = 0;
+            string maxSeq = GenSeq("mm_product_cost_part", upperSN, "");
+            for (int i = 0; i < lsGoodsPart.Count; i++)
+            {
+                mdlCountGoodsCostPart mdlGoodsPart = lsGoodsPart[i];
+                string seq = mdlGoodsPart.Seq;
+                if (seq == "")
+                {
+                    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + stepSeq).ToString().PadLeft(3, '0');
+                    stepSeq++;
+                }
+                if (!CheckExistSeq("mm_product_cost_part", upperSN, seq, ""))
+                {
+                    strUpd = @" Insert Into mm_product_cost_part " +
+                        " ( upperSN,Seq,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+                        ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                        ",MatWeg,MatUse,MatCost,ProcessCostTotal,ProcessProfitRate,ProcessProfit" +
+                        ",PlateCost,PackCost" +
+                        ",CostPcs,CostGrs,CostK" +
+                        ",FactoryFee,FactoryCostPcs,FactoryCostGrs,FactoryCostK" +
+                        ",FrontPart,Remark,CreateUser,CreateTime,AmendUser,AmendTime" +
+                        " )" +
+                        " Values ( " +
+                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}'" +
+                        ",'{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}'" +
+                        ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}'" +
+                        ",GETDATE(),'{29}',GETDATE() " +
+                        " )";
+                }
+                else
+                    strUpd = @" Update mm_product_cost_part Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
+                        ",ProductType='{6}',ProductTypeName='{7}'" +
+                        ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
+                        ",MatWeg='{12}',MatUse='{13}',MatCost='{14}',ProcessCostTotal='{15}',ProcessProfitRate='{16}',ProcessProfit='{17}'" +
+                        ",PlateCost='{18}',PackCost='{19}'" +
+                        ",CostPcs='{20}',CostGrs='{21}',CostK='{22}'" +
+                        ",FactoryFee='{23}',FactoryCostPcs='{24}',FactoryCostGrs='{25}',FactoryCostK='{26}'" +
+                        ",FrontPart='{27}',Remark='{28}',AmendUser='{29}',AmendTime=GETDATE() " +
+                        " Where upperSN='{0}' And Seq='{1}'";
+                strSql += string.Format(strUpd
+                        , upperSN, seq, mdlGoodsPart.ProductID, mdlGoodsPart.ProductName, mdlGoodsPart.ArtWork, mdlGoodsPart.ArtWorkName
+                        , mdlGoodsPart.ProductType, mdlGoodsPart.ProductTypeName, mdlGoodsPart.ProductSize, mdlGoodsPart.ProductSizeName
+                        , mdlGoodsPart.ProductColor, mdlGoodsPart.ProductColorName
+                        , mdlGoodsPart.MatWeg, mdlGoodsPart.MatUse, mdlGoodsPart.MatCost, mdlGoodsPart.ProcessCostTotal, mdlGoodsPart.ProcessProfitRate, mdlGoodsPart.ProcessProfit
+                        , mdlGoodsPart.PlateCost, mdlGoodsPart.PackCost
+                        , mdlGoodsPart.CostPcs, mdlGoodsPart.CostGrs, mdlGoodsPart.CostK
+                        , mdlGoodsPart.FactoryFee, mdlGoodsPart.FactoryCostPcs, mdlGoodsPart.FactoryCostGrs, mdlGoodsPart.FactoryCostK
+                        , mdlGoodsPart.FrontPart, mdlGoodsPart.Remark, userid);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+
+
+        private static string GenSeq(string tb,int upperSN,string processType)
+        {
+            string Seq = "";
+            string strSql = "Select Max(Seq) AS Seq From " + tb + " Where upperSN='" + upperSN + "'";
+            if (processType != "")
+                strSql += " And ProcessType='" + processType + "'";
+            DataTable dtSeq = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtSeq.Rows[0]["Seq"].ToString() == "")
+                Seq = "001";
+            else
+                Seq = (Convert.ToInt32(dtSeq.Rows[0]["Seq"].ToString().Substring(0, 3)) + 1).ToString().PadLeft(3, '0');
+            return Seq;
+        }
+
+        private static bool CheckExistSeq(string tb,int upperSN, string seq,string processType)
+        {
+            bool result=false;
+            string strSql = "Select Seq From " + tb + " Where upperSN='" + upperSN + "' And Seq='" + seq + "'";
+            if (processType != "")
+                strSql += " And processType='" + processType + "'";
+            DataTable dtSeq = clsPublicOfCF01.GetDataTable(strSql);
+            if (dtSeq.Rows.Count > 0)
+                result = true;
+            return result;
+        }
+        public static DataTable LoadProductCostPart(int upperSN,string seq)
+        {
+            string strSql = "";
+            strSql = "Select upperSN,Seq,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+                ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                ",MatWeg,MatUse,MatCost,ProcessCostTotal,ProcessProfitRate,ProcessProfit" +
+                ",PlateCost,PackCost" +
+                ",FrontPart,CostPcs,CostGrs,CostK" +
+                ",FactoryFee,FactoryCostPcs,FactoryCostGrs,FactoryCostK" +
+                ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
+                ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN,Status" +
+                " From mm_product_cost_part " +
+                " Where upperSN='" + upperSN + "' And Status <>'D' ";
+            if (seq != "")
+                strSql += " And Seq='" + seq + "'";
+            strSql += " Order By FrontPart Desc,Seq";
+            DataTable dtGoodsPart = clsPublicOfCF01.GetDataTable(strSql);
+            return dtGoodsPart;
+        }
+        public static DataTable LoadProductCostMat(int upperSN)
+        {
+            string strSql = "";
+            strSql = "Select upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost " +
+                " From mm_product_cost_mat " +
+                " Where upperSN='" + upperSN + "' And Status <>'D' ";
+            //if (Seq != "")
+            //    strSql += " And Seq='" + Seq + "'";
+            DataTable dtMat = clsPublicOfCF01.GetDataTable(strSql);
+            return dtMat;
+        }
+
+        /// <summary>
+        /// ///儲存原料成本
+        /// </summary>
+        /// <param name="lsGoodsMat"></param>
+        /// <returns></returns>
+        public static string SaveGoodsCostMat(List<mdlCountGoodsCostMat> lsGoodsMat)
+        {
+            string result = "";
+            int upperSN = lsGoodsMat[0].UpperSN;
+            string strSql = "", strUpd = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            string maxSeq = GenSeq("mm_product_cost_mat", upperSN, "");
+            for (int i = 0; i < lsGoodsMat.Count; i++)
+            {
+                var mdlGoodsMat = lsGoodsMat[i];
+                string seq = mdlGoodsMat.Seq;
+                if (seq == "")
+                {
+                    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + i).ToString().PadLeft(3, '0');
+                }
+                if (!CheckExistSeq("mm_product_cost_mat", upperSN, seq,""))
+                {
+                    strUpd = @" Insert Into mm_product_cost_mat " +
+                        " ( upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost"+
+                        ",CreateUser,CreateTime,AmendUser,AmendTime" +
+                        " )" +
+                        " Values ( " +
+                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}'"+
+                        ",'{11}',GETDATE(),'{11}',GETDATE() )";
+                }
+                else
+                    strUpd = @" Update mm_product_cost_mat Set MatCode='{2}',MatName='{3}',WasteRate='{4}',MatWeg='{5}',MatWaste='{6}'" +
+                        ",MatUse='{7}',MatPrice='{8}'" +
+                        ",MatPriceUnit='{9}',MatCost='{10}',AmendUser='{11}',AmendTime=GETDATE() " +
+                        " Where upperSN='{0}' And Seq='{1}'";
+                strSql += string.Format(strUpd
+                        , upperSN, seq, mdlGoodsMat.MatCode, mdlGoodsMat.MatName, mdlGoodsMat.WasteRate, mdlGoodsMat.MatWeg, mdlGoodsMat.MatWaste
+                        , mdlGoodsMat.MatUse, mdlGoodsMat.MatPrice, mdlGoodsMat.MatPriceUnit, mdlGoodsMat.MatCost, userid);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+
+        /// <summary>
+        /// ///刪除原料成本
+        /// </summary>
+        /// <param name="UpperSN"></param>
+        /// <param name="Seq"></param>
+        /// <returns></returns>
+        public static string DeleteGoodsCostMat(int UpperSN, string Seq)
+        {
+            string result = "";
+            string strSql = "", strUpd = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strUpd = @" Delete From mm_product_cost_mat Where upperSN='{0}' And Seq='{1}'";
+            strSql += string.Format(strUpd
+                    , UpperSN, Seq);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+
+        /// <summary>
+        /// ///提取工序費用、外發費用、包裝費用　等等。。。
+        /// </summary>
+        /// <param name="upperSN"></param>
+        /// <param name="processType"></param>
+        /// <returns></returns>
+        public static DataTable LoadProductCostProcess(int upperSN,string processType)
+        {
+            string strSql = "";
+            strSql = "Select upperSN,Seq,PrdDep,ProcessID,ProcessName,ProcessPrice,ProcessBaseQty,ProcessUnit,CostK " +
+                ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK,VendID,VendName" +
+                " From mm_product_cost_process " +
+                " Where upperSN='" + upperSN + "' And ProcessType='" + processType + "' And Status <>'D' ";
+            //if (Seq != "")
+            //    strSql += " And Seq='" + Seq + "'";
+            DataTable dtProcess = clsPublicOfCF01.GetDataTable(strSql);
+            return dtProcess;
+        }
+
+        public static string SaveGoodsCostProcess(List<mdlCountGoodsCostProcess> lsGoodsProcess)
+        {
+            string result = "";
+            int upperSN = lsGoodsProcess[0].UpperSN;
+            string processType = lsGoodsProcess[0].ProcessType;
+            string strSql = "", strUpd = "";
+            int stepSeq = 0;
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            string maxSeq = GenSeq("mm_product_cost_process", upperSN, processType);
+            for (int i = 0; i < lsGoodsProcess.Count; i++)
+            {
+                var mdlGoodsProcess = lsGoodsProcess[i];
+                string seq = mdlGoodsProcess.Seq;
+                if (seq == "")
+                {
+                    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + stepSeq).ToString().PadLeft(3, '0');
+                    stepSeq++;
+                }
+                if (!CheckExistSeq("mm_product_cost_process", upperSN, seq,processType))
+                {
+                    strUpd = @" Insert Into mm_product_cost_process " +
+                        " ( upperSN,Seq,ProcessType,PrdDep,ProcessID,ProcessName,ProcessPrice,ProcessBaseQty,ProcessUnit,CostK" +
+                        ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK" +
+                        ",VendID,VendName,CreateUser,CreateTime,AmendUser,AmendTime" +
+                        " )" +
+                        " Values ( " +
+                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'" +
+                        ",'{13}','{14}','{15}','{16}','{17}',GETDATE(),'{17}',GETDATE()" +
+                        " )";
+                }
+                else
+                    strUpd = @" Update mm_product_cost_process Set PrdDep='{3}',ProcessID='{4}',ProcessName='{5}',ProcessPrice='{6}'" +
+                        ",ProcessBaseQty='{7}',ProcessUnit='{8}',CostK='{9}'" +
+                        ",WasteRate='{10}',WegPrice='{11}',WegUnit='{12}',WegCost='{13}',TotalCostK='{14}'" +
+                        ",VendID='{15}',VendName='{16}',AmendUser='{17}',AmendTime=GETDATE() " +
+                        " Where upperSN='{0}' And Seq='{1}' And ProcessType='{2}'";
+                strSql += string.Format(strUpd
+                        , upperSN, seq, processType, mdlGoodsProcess.PrdDep, mdlGoodsProcess.ProcessID, mdlGoodsProcess.ProcessName
+                        , mdlGoodsProcess.ProcessPrice, mdlGoodsProcess.ProcessBaseQty
+                        , mdlGoodsProcess.ProcessUnit, mdlGoodsProcess.CostK
+                        , mdlGoodsProcess.WasteRate, mdlGoodsProcess.WegPrice, mdlGoodsProcess.WegUnit, mdlGoodsProcess.WegCost
+                        , mdlGoodsProcess.TotalCostK
+                        , mdlGoodsProcess.VendID, mdlGoodsProcess.VendName
+                        , userid);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+        public static DataTable GetProductDataPart(string productID)
+        {
+            string strSql = "";
+            strSql = "Select a.id,a.name" +
+                " ,b.prd_weg,b.waste_weg,b.use_weg,b.mat_item,c.name AS mat_name" +
+                " ,a.datum,d.mat_cdesc,a.base_class,e.prd_cdesc" +
+                " ,a.blueprint_id,f.art_cdesc" +
+                " ,a.size_id,g.size_cdesc,a.color,h.clr_cdesc" +
+                " From  geo_it_goods a" +
+                " Left Join bs_product_qty_rate b On a.id=b.prd_item " +
+                " Left Join geo_it_goods c On b.mat_item=c.id " +
+                " Left Join bs_mat_type d On a.datum=d.mat_code" +
+                " Left Join bs_product_type e On a.base_class=e.prd_code" +
+                " Left Join bs_artwork f On a.blueprint_id=f.art_code" +
+                " Left Join bs_size g On a.size_id=g.size_id" +
+                " Left Join bs_color h On a.color=h.clr_code" +
+                " Where a.id='" + productID + "'";
+            DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+            return dtPrd;
+        }
+
+
+        public static string DeleteGoodsCostProcess(mdlCountGoodsCostProcess mdlGoodsProcess)
+        {
+            string result = "";
+            int upperSN = mdlGoodsProcess.UpperSN;
+            string processType = mdlGoodsProcess.ProcessType;
+            string seq = mdlGoodsProcess.Seq;
+            string strSql = "", strUpd = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+
+            strUpd = @" Delete From mm_product_cost_process Where upperSN='{0}' And Seq='{1}' And ProcessType='{2}'";
+            strSql += string.Format(strUpd
+                    , upperSN, seq, processType);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+
+        /// ///點擊刪除配件時，刪除配件的記錄
+        public static string DeleteItem(int SN)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            //////刪除配件表記錄
+            strSql += string.Format(@" Update mm_product_cost_part Set Status='D',AmendUser='{1}',AmendTime=GETDATE() Where SN='{0}'"
+                    , SN, userid);
+            //////刪除原料表記錄
+            strSql += string.Format(@" Update mm_product_cost_mat Set Status='D',AmendUser='{1}',AmendTime=GETDATE() Where UpperSN='{0}'"
+                    , SN, userid);
+            //////刪除各種加工費、外發加工費、包裝材料費等
+            strSql += string.Format(@" Update mm_product_cost_process Set Status='D',AmendUser='{1}',AmendTime=GETDATE() Where UpperSN='{0}'"
+                    , SN, userid);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+        public static DataTable FindPlateStdPrice(string vendID,string plateType,string colorID,string colorName)
+        {
+            string strSql = "";
+            strSql = "Select Top 100 a.vendor_id,a.vendor_name As vendor,a.cf_color_id As goods_id,a.cf_color As do_color" +
+                ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id,a.price,a.price As QtyPriceHKD" +
+                ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
+                ",a.prod_type As goods_name,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
+                " From quotation_plate a" +
+                " Where a.quotation_id>=''";
+            if (vendID != "")
+                strSql += " And a.vendor_id Like '%" + vendID + "%'";
+            if (plateType != "")
+                strSql += " And a.plate_type Like '%" + plateType + "%'";
+            if (colorID != "")
+                strSql += " And a.cf_color_id Like '%" + colorID + "%'";
+            if (colorName != "")
+                strSql += " And a.cf_color Like '%" + colorName + "%'";
+            strSql += " Order By a.prod_type,a.quotation_date Desc";
+            DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+            for (int i=0;i<dtPrd.Rows.Count;i++)
+            {
+                DataRow dr = dtPrd.Rows[i];
+                decimal exchangeRate = 0;
+                exchangeRate = clsBaseData.GetMidRate(dr["m_id"].ToString());
+                dr["QtyPriceHKD"] = Math.Round(clsValidRule.ConvertStrToDecimal(dr["price"].ToString()) * exchangeRate, 4);
+            }
+            return dtPrd;
+        }
+
+        /// <summary>
+        /// ///提取意向報價
+        /// </summary>
+        /// <param name="SN"></param>
+        /// <returns></returns>
+        public static DataTable LoadPurPriceDetails(int SN)
+        {
+            string strSql = "";
+            strSql = "Select upperSN,Seq,BrandID,PurPriceRate,PurPricePcs,PurPriceGrs,PurPriceK" +
+                ",CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
+                ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime" +
+                " From mm_product_cost_pur " +
+                " Where upperSN='" + SN + "'";
+            DataTable dtPur = clsPublicOfCF01.GetDataTable(strSql);
+            return dtPur;
+        }
+
+        public static string SavePurPrice(List<mdlPurPrice> lsPurPrice)
+        {
+            string result = "";
+            int upperSN = lsPurPrice[0].UpperSN;
+            string strSql = "", strUpd = "";
+            int stepSeq = 0;
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            string maxSeq = GenSeq("mm_product_cost_pur", upperSN, "");
+            for (int i = 0; i < lsPurPrice.Count; i++)
+            {
+                var objPurPrice = lsPurPrice[i];
+                string seq = objPurPrice.Seq;
+                if (seq == "")
+                {
+                    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + stepSeq).ToString().PadLeft(3, '0');
+                    stepSeq++;
+                }
+                if (!CheckExistSeq("mm_product_cost_pur", upperSN, seq, ""))
+                {
+                    strUpd = @" Insert Into mm_product_cost_pur " +
+                        " ( upperSN,Seq,BrandID,PurPriceRate,PurPricePcs,PurPriceGrs,PurPriceK,CreateUser,CreateTime,AmendUser,AmendTime" +
+                        " )" +
+                        " Values ( " +
+                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',GETDATE(),'{7}',GETDATE()" +
+                        " )";
+                }
+                else
+                    strUpd = @" Update mm_product_cost_pur Set BrandID='{2}',PurPriceRate='{3}',PurPricePcs='{4}',PurPriceGrs='{5}'" +
+                        ",PurPriceK='{6}',AmendUser='{7}',AmendTime=GETDATE() " +
+                        " Where upperSN='{0}' And Seq='{1}'";
+                strSql += string.Format(strUpd
+                        , upperSN, seq, objPurPrice.BrandID, objPurPrice.PurPriceRate, objPurPrice.PurPricePcs
+                        , objPurPrice.PurPriceGrs, objPurPrice.PurPriceK, userid);
+            }
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+
+        public static string DeletePurPrice(int UpperSN, string Seq)
+        {
+            string result = "";
+            string strSql = "";
+            strSql += string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
+            strSql += string.Format(@" Delete From mm_product_cost_pur Where upperSN='{0}' And Seq='{1}'"
+                    , UpperSN, Seq);
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            if (result == "")
+                result = "";
+            return result;
+        }
+    }
+}

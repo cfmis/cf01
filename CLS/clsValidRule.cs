@@ -129,6 +129,59 @@ namespace cf01.CLS
                 return false;
             return Regex.IsMatch(value, @"^[+-]?\d*?\d*$");
         }
+
+        private static string ConvertDateToString(string strVal)
+        {
+            string dVal = "";
+            try
+            {
+                dVal = Convert.ToDateTime(strVal).ToString("yyyy/MM/dd");
+            }
+            catch (Exception ex)
+            {
+                dVal = strVal.ToString().Trim();
+            }
+            return dVal;
+        }
+        private static int ConvertStrToInt(string strVal)
+        {
+            int dVal = 0;
+            try
+            {
+                dVal = Convert.ToInt32(strVal);
+            }
+            catch (Exception ex)
+            {
+                dVal = 0;
+            }
+            return dVal;
+        }
+        public static float ConvertStrToSingle(string strVal)
+        {
+            float dVal = 0;
+            try
+            {
+                dVal = Convert.ToSingle(strVal);
+            }
+            catch (Exception ex)
+            {
+                dVal = 0;
+            }
+            return dVal;
+        }
+        public static decimal ConvertStrToDecimal(string strVal)
+        {
+            decimal dVal = 0;
+            try
+            {
+                dVal = Convert.ToDecimal(strVal);
+            }
+            catch (Exception ex)
+            {
+                dVal = 0;
+            }
+            return dVal;
+        }
     }
 
 }

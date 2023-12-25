@@ -602,7 +602,8 @@ namespace cf01.CLS
                         ",Convert(Decimal(18,4),(b.price*g.exchange_rate)/d.rate) AS price_pcs,Convert(Decimal(18,4),g.exchange_rate) AS exchange_rate" +
                         ",f.money_id AS m_id,a.department_id,b.process_request" +
                         ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit" +
-                        " FROM "+remote_db+"op_outpro_out_mostly a " +
+                        ",Convert(Decimal(18,2),b.price*g.exchange_rate) AS QtyPriceHKD,Convert(Decimal(18,2),(b.sec_price*g.exchange_rate)) AS WegPriceHKD" +
+                        " FROM " +remote_db+"op_outpro_out_mostly a " +
                         " INNER JOIN " + remote_db + "op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
                         " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
                         " INNER JOIN " + remote_db + "it_coding d ON b.within_code=d.within_code AND b.p_unit=d.unit_code" +
@@ -630,7 +631,7 @@ namespace cf01.CLS
             strSql += " AND d.id='*' ";
             strSql += " AND g.state='0' ";
             
-            strSql += " Order By b.goods_id,a.issue_date Desc";
+            strSql += " Order By a.issue_date Desc,b.goods_id";
             //DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             //if (dt.Rows.Count > 0)
