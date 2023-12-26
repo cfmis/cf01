@@ -602,7 +602,8 @@ namespace cf01.CLS
                         ",Convert(Decimal(18,4),(b.price*g.exchange_rate)/d.rate) AS price_pcs,Convert(Decimal(18,4),g.exchange_rate) AS exchange_rate" +
                         ",f.money_id AS m_id,a.department_id,b.process_request" +
                         ",h.ProductPrice AS StdProductPrice,h.PriceUnit AS StdPriceUnit" +
-                        " FROM "+remote_db+"op_outpro_out_mostly a " +
+                        ",Convert(Decimal(18,2),b.price*g.exchange_rate) AS QtyPriceHKD,Convert(Decimal(18,2),(b.sec_price*g.exchange_rate)) AS WegPriceHKD" +
+                        " FROM " +remote_db+"op_outpro_out_mostly a " +
                         " INNER JOIN " + remote_db + "op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
                         " LEFT JOIN " + remote_db + "it_goods c ON b.within_code=c.within_code  AND b.goods_id=c.id" +
                         " INNER JOIN " + remote_db + "it_coding d ON b.within_code=d.within_code AND b.p_unit=d.unit_code" +
@@ -630,7 +631,7 @@ namespace cf01.CLS
             strSql += " AND d.id='*' ";
             strSql += " AND g.state='0' ";
             
-            strSql += " Order By b.goods_id,a.issue_date Desc";
+            strSql += " Order By a.issue_date Desc,b.goods_id";
             //DataTable dt = clsPublicOfGEO.GetDataTable(strSql);
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             //if (dt.Rows.Count > 0)
@@ -926,44 +927,16 @@ namespace cf01.CLS
 
         //
         public static DataTable findProductWeight(int isSetFlag, bool showF0
-            , string matFrom, string matTo, string prdTypeFrom, string prdTypeTo, string artFrom, string artTo, string sizeFrom, string sizeTo
-            , string clrFrom, string clrTo, string productId,bool noShowDmItem
+            , string productId,bool noShowDmItem
             )
         {
             string strSql = "";
             string strWhere = "";
             string productId1 = productId;
-            if (productId1 == "")
-            {
-                productId1 = matFrom + prdTypeFrom + artFrom + sizeFrom + clrFrom;
-                if (productId1.Length == 18)
-                {
-                    if (isSetFlag == 0)
-                        strWhere += " And a.prd_item='" + productId1 + "'";
-                    else
-                        strWhere += " And mm.id='" + productId1 + "'";
-                }
-                else
-                {
-                    if (matFrom != "" && matTo != "")
-                        strWhere += " And mm.datum >='" + matFrom + "' And mm.datum<='" + matTo + "'";
-                    if (prdTypeFrom != "" && prdTypeTo != "")
-                        strWhere += " And mm.base_class >='" + prdTypeFrom + "' And mm.base_class<='" + prdTypeTo + "'";
-                    if (artFrom != "" && artTo != "")
-                        strWhere += " And mm.blueprint_id >='" + artFrom + "' And mm.blueprint_id<='" + artTo + "'";
-                    if (sizeFrom != "" && sizeTo != "")
-                        strWhere += " And mm.size_id >='" + sizeFrom + "' And mm.size_id<='" + sizeTo + "'";
-                    if (clrFrom != "" && clrTo != "")
-                        strWhere += " And mm.color >='" + clrFrom + "' And mm.color<='" + clrTo + "'";
-                }
-            }
-            else
-            {
                 if (isSetFlag == 0)
                     strWhere += " And a.prd_item Like '%" + productId1 + "%'";
                 else
                     strWhere += " And mm.id Like'%" + productId1 + "%'";
-            }
             if (noShowDmItem == true)
                 strWhere += " And mm.datum<>'DM'";
             if (isSetFlag == 0)//已設定重量
@@ -971,6 +944,7 @@ namespace cf01.CLS
                 strSql = "Select a.prd_item AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
                 ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg,a.mat_item,mm1.name As mat_cdesc" +
                 ",a.dep_id AS DepId,b.dep_cdesc AS DepName,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim"+
+                ",a.prd_weg,a.waste_weg,a.use_weg"+
                 " From bs_product_qty_rate a" +
                 " Inner join geo_it_goods mm On a.prd_item=mm.id" +
                 " Left join geo_it_goods mm1 On a.mat_item=mm1.id" +
@@ -985,9 +959,10 @@ namespace cf01.CLS
             else
             {
                 strSql += "SELECT aa.*,bb.name As mat_cdesc,cc.dep_cdesc AS DepName FROM (";
-                strSql += "Select Top 100000 mm.id AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
+                strSql += "Select Top 500 mm.id AS goods_id,mm.name As goods_cname,mm.do_color AS DoColor" +
                     ",a.kg_qty_rate,a.prd_kg_qty_rate,a.pcs_weg" +
                     ",a.mat_item,a.dep_id AS DepId,a.CrUsr,Convert(Varchar(20),a.crtim,120) AS CrTim" +
+                    ",a.prd_weg,a.waste_weg,a.use_weg" +
                     " From geo_it_goods mm" +
                     " Left join bs_product_qty_rate a On mm.id=a.prd_item" +
                      " Where mm.id>=''";

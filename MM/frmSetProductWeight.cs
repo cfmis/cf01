@@ -31,11 +31,10 @@ namespace cf01.MM
         {
             dgvProductWeight.AutoGenerateColumns = false;
             rdgIsSetCosting.SelectedIndex = 2;
-            txtMatFrom.Focus();
             txtProductId.Text = getProductId;
             if (txtProductId.Text != "")
             {
-                findData();
+                findData(); 
             }
             //txtDateFrom.Text = System.DateTime.Now.AddDays(-90).ToString("yyyy/MM/dd");
             //txtDateTo.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
@@ -50,12 +49,7 @@ namespace cf01.MM
             chkSelectAll.Checked = false;
             if (rdgIsSetCosting.SelectedIndex != 0)
             {
-                if (txtMatFrom.Text.Trim() == ""
-                    && txtPrdTypeFrom.Text.Trim() == ""
-                    && txtArtFrom.Text.Trim() == ""
-                    && txtSizeFrom.Text.Trim() == ""
-                    && txtClrFrom.Text.Trim() == ""
-                    && txtProductId.Text.Trim() == ""
+                if (txtProductId.Text.Trim() == ""
                     )
                 {
                     MessageBox.Show("請輸入查詢條件!");
@@ -80,38 +74,11 @@ namespace cf01.MM
         {
             int isSetFlag = rdgIsSetCosting.SelectedIndex;
             DataTable dtProductWeight= clsProductCosting.findProductWeight(isSetFlag, chkShowF0.Checked
-                , txtMatFrom.Text.Trim(), txtMatTo.Text.Trim(), txtPrdTypeFrom.Text.Trim(), txtPrdTypeTo.Text.Trim()
-                , txtArtFrom.Text.Trim(), txtArtTo.Text.Trim(), txtSizeFrom.Text.Trim(), txtSizeTo.Text.Trim()
-                , txtClrFrom.Text.Trim(), txtClrTo.Text.Trim(), txtProductId.Text.Trim(),chkNoShowDmItem.Checked
+                , txtProductId.Text.Trim(),chkNoShowDmItem.Checked
                 );
             dgvProductWeight.DataSource = dtProductWeight;
             if (dgvProductWeight.Rows.Count == 0)
                 MessageBox.Show("沒有找到符合條件的記錄");
-        }
-        
-        private void txtMatFrom_Leave(object sender, EventArgs e)
-        {
-            txtMatTo.Text = txtMatFrom.Text;
-        }
-
-        private void txtPrdTypeFrom_Leave(object sender, EventArgs e)
-        {
-            txtPrdTypeTo.Text = txtPrdTypeFrom.Text;
-        }
-
-        private void txtSizeFrom_Leave(object sender, EventArgs e)
-        {
-            txtSizeTo.Text = txtSizeFrom.Text;
-        }
-
-        private void txtClrFrom_Leave(object sender, EventArgs e)
-        {
-            txtClrTo.Text = txtClrFrom.Text;
-        }
-
-        private void txtArtFrom_Leave(object sender, EventArgs e)
-        {
-            txtArtTo.Text = txtArtFrom.Text;
         }
 
         private void printData(DataTable dt)
@@ -135,7 +102,6 @@ namespace cf01.MM
         }
         private void btnConf_Click(object sender, EventArgs e)
         {
-            txtClrTo.Focus();
             if (!validData())
                 return;
             saveData();
@@ -189,7 +155,6 @@ namespace cf01.MM
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            txtClrTo.Focus();
             if (!validData())
                 return;
             deleteData();
