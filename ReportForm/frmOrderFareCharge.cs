@@ -78,6 +78,7 @@ namespace cf01.ReportForm
             {
                 flag_complete = "3";
             }
+
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
