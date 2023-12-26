@@ -44,6 +44,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -79,6 +82,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lueFare_id = new DevExpress.XtraEditors.LookUpEdit();
+            this.rbtn1 = new System.Windows.Forms.RadioButton();
+            this.rbtn2 = new System.Windows.Forms.RadioButton();
+            this.rbtn3 = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,6 +127,7 @@
             this.fare_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fare_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.is_test_report = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,16 +146,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSalesGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIt_customer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueFare_id.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(284, 63);
+            this.label6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Location = new System.Drawing.Point(305, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 12);
+            this.label6.Size = new System.Drawing.Size(12, 12);
             this.label6.TabIndex = 137;
-            this.label6.Text = "--";
+            this.label6.Text = "~";
             // 
             // lblDate
             // 
@@ -162,7 +172,7 @@
             // 
             this.txtDat2.EditValue = null;
             this.txtDat2.EnterMoveNextControl = true;
-            this.txtDat2.Location = new System.Drawing.Point(323, 59);
+            this.txtDat2.Location = new System.Drawing.Point(368, 59);
             this.txtDat2.Name = "txtDat2";
             this.txtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -331,6 +341,7 @@
             this.fare_id,
             this.fare_name,
             this.order_qty,
+            this.total_sum,
             this.is_test_report,
             this.remark,
             this.m_id,
@@ -349,7 +360,7 @@
             // txtBrand_id2
             // 
             this.txtBrand_id2.EnterMoveNextControl = true;
-            this.txtBrand_id2.Location = new System.Drawing.Point(323, 86);
+            this.txtBrand_id2.Location = new System.Drawing.Point(368, 86);
             this.txtBrand_id2.Name = "txtBrand_id2";
             this.txtBrand_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBrand_id2.Properties.MaxLength = 20;
@@ -359,11 +370,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(284, 90);
+            this.label2.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(305, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 12);
+            this.label2.Size = new System.Drawing.Size(12, 12);
             this.label2.TabIndex = 158;
-            this.label2.Text = "--";
+            this.label2.Text = "~";
             // 
             // txtBrand_id1
             // 
@@ -407,7 +419,7 @@
             // txtIt_customer
             // 
             this.txtIt_customer.EnterMoveNextControl = true;
-            this.txtIt_customer.Location = new System.Drawing.Point(323, 114);
+            this.txtIt_customer.Location = new System.Drawing.Point(368, 114);
             this.txtIt_customer.Name = "txtIt_customer";
             this.txtIt_customer.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIt_customer.Properties.MaxLength = 10;
@@ -416,7 +428,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(240, 120);
+            this.label1.Location = new System.Drawing.Point(286, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 162;
@@ -446,6 +458,49 @@
             this.lueFare_id.Properties.PopupWidth = 200;
             this.lueFare_id.Size = new System.Drawing.Size(156, 20);
             this.lueFare_id.TabIndex = 165;
+            // 
+            // rbtn1
+            // 
+            this.rbtn1.AutoSize = true;
+            this.rbtn1.Checked = true;
+            this.rbtn1.Location = new System.Drawing.Point(6, 4);
+            this.rbtn1.Name = "rbtn1";
+            this.rbtn1.Size = new System.Drawing.Size(47, 16);
+            this.rbtn1.TabIndex = 167;
+            this.rbtn1.TabStop = true;
+            this.rbtn1.Text = "全部";
+            this.rbtn1.UseVisualStyleBackColor = true;
+            // 
+            // rbtn2
+            // 
+            this.rbtn2.AutoSize = true;
+            this.rbtn2.Location = new System.Drawing.Point(61, 4);
+            this.rbtn2.Name = "rbtn2";
+            this.rbtn2.Size = new System.Drawing.Size(95, 16);
+            this.rbtn2.TabIndex = 168;
+            this.rbtn2.Text = "已做測試報告";
+            this.rbtn2.UseVisualStyleBackColor = true;
+            // 
+            // rbtn3
+            // 
+            this.rbtn3.AutoSize = true;
+            this.rbtn3.Location = new System.Drawing.Point(160, 4);
+            this.rbtn3.Name = "rbtn3";
+            this.rbtn3.Size = new System.Drawing.Size(95, 16);
+            this.rbtn3.TabIndex = 169;
+            this.rbtn3.Text = "未做測試報告";
+            this.rbtn3.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.rbtn3);
+            this.panel1.Controls.Add(this.rbtn1);
+            this.panel1.Controls.Add(this.rbtn2);
+            this.panel1.Location = new System.Drawing.Point(267, 139);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(257, 27);
+            this.panel1.TabIndex = 170;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -623,6 +678,8 @@
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "prd_dep_d";
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn16.HeaderText = "部門";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
@@ -641,6 +698,10 @@
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "prd_group_d";
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Format = "N2";
+            dataGridViewCellStyle19.NullValue = "0";
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewTextBoxColumn18.HeaderText = "臺號";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
@@ -650,17 +711,22 @@
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "work_code_d";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            dataGridViewCellStyle20.NullValue = "0";
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewTextBoxColumn19.HeaderText = "工種類別";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             this.dataGridViewTextBoxColumn19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn19.Width = 90;
             // 
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "members_d";
-            dataGridViewCellStyle18.Format = "N0";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle21.Format = "N0";
+            dataGridViewCellStyle21.NullValue = null;
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewTextBoxColumn20.HeaderText = "臺號人數";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -669,9 +735,9 @@
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "prd_nomal_time_d";
-            dataGridViewCellStyle19.Format = "N2";
-            dataGridViewCellStyle19.NullValue = "0";
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle22.Format = "N2";
+            dataGridViewCellStyle22.NullValue = "0";
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn21.HeaderText = "正常上班";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -681,9 +747,9 @@
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.DataPropertyName = "prd_qty_d";
-            dataGridViewCellStyle20.Format = "N0";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle23.Format = "N0";
+            dataGridViewCellStyle23.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn22.HeaderText = "生產數量";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
@@ -693,9 +759,9 @@
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "prd_weg_d";
-            dataGridViewCellStyle21.Format = "N2";
-            dataGridViewCellStyle21.NullValue = "0";
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle24.Format = "N2";
+            dataGridViewCellStyle24.NullValue = "0";
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn23.HeaderText = "生產重量";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
@@ -705,9 +771,9 @@
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.DataPropertyName = "prd_ot_weg";
-            dataGridViewCellStyle22.Format = "N2";
-            dataGridViewCellStyle22.NullValue = "0";
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle25.Format = "N2";
+            dataGridViewCellStyle25.NullValue = "0";
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn24.HeaderText = "加班重量";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
@@ -744,6 +810,7 @@
             this.order_date.Name = "order_date";
             this.order_date.ReadOnly = true;
             this.order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.order_date.Width = 60;
             // 
             // sales_group
             // 
@@ -754,7 +821,7 @@
             this.sales_group.Name = "sales_group";
             this.sales_group.ReadOnly = true;
             this.sales_group.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sales_group.Width = 50;
+            this.sales_group.Width = 40;
             // 
             // it_customer
             // 
@@ -763,7 +830,7 @@
             this.it_customer.Name = "it_customer";
             this.it_customer.ReadOnly = true;
             this.it_customer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.it_customer.Width = 80;
+            this.it_customer.Width = 70;
             // 
             // mo_id
             // 
@@ -772,7 +839,7 @@
             this.mo_id.Name = "mo_id";
             this.mo_id.ReadOnly = true;
             this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mo_id.Width = 90;
+            this.mo_id.Width = 75;
             // 
             // goods_id
             // 
@@ -781,7 +848,6 @@
             this.goods_id.Name = "goods_id";
             this.goods_id.ReadOnly = true;
             this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_id.Width = 130;
             // 
             // goods_name
             // 
@@ -799,6 +865,7 @@
             this.customer_goods.Name = "customer_goods";
             this.customer_goods.ReadOnly = true;
             this.customer_goods.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.customer_goods.Width = 85;
             // 
             // customer_goods_name
             // 
@@ -831,7 +898,7 @@
             this.brand_id.HeaderText = "牌子";
             this.brand_id.Name = "brand_id";
             this.brand_id.ReadOnly = true;
-            this.brand_id.Width = 70;
+            this.brand_id.Width = 65;
             // 
             // fare_id
             // 
@@ -840,7 +907,7 @@
             this.fare_id.Name = "fare_id";
             this.fare_id.ReadOnly = true;
             this.fare_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.fare_id.Width = 80;
+            this.fare_id.Width = 75;
             // 
             // fare_name
             // 
@@ -862,6 +929,16 @@
             this.order_qty.HeaderText = "訂單數量(PCS)";
             this.order_qty.Name = "order_qty";
             this.order_qty.ReadOnly = true;
+            this.order_qty.Width = 70;
+            // 
+            // total_sum
+            // 
+            this.total_sum.DataPropertyName = "total_sum";
+            this.total_sum.HeaderText = "頁數金額(HKD)";
+            this.total_sum.Name = "total_sum";
+            this.total_sum.ReadOnly = true;
+            this.total_sum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.total_sum.Width = 70;
             // 
             // is_test_report
             // 
@@ -904,7 +981,7 @@
             this.fare_sum.Name = "fare_sum";
             this.fare_sum.ReadOnly = true;
             this.fare_sum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.fare_sum.Width = 80;
+            this.fare_sum.Width = 60;
             // 
             // fare_sum_hkd
             // 
@@ -917,7 +994,7 @@
             this.fare_sum_hkd.Name = "fare_sum_hkd";
             this.fare_sum_hkd.ReadOnly = true;
             this.fare_sum_hkd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.fare_sum_hkd.Width = 90;
+            this.fare_sum_hkd.Width = 65;
             // 
             // test_report_no
             // 
@@ -940,6 +1017,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 632);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lueFare_id);
             this.Controls.Add(this.txtSalesGroup);
             this.Controls.Add(this.label3);
@@ -973,6 +1051,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSalesGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIt_customer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueFare_id.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1035,6 +1115,10 @@
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.LookUpEdit lueFare_id;
         private System.Windows.Forms.ToolStripButton BTNSAVE;
+        private System.Windows.Forms.RadioButton rbtn1;
+        private System.Windows.Forms.RadioButton rbtn2;
+        private System.Windows.Forms.RadioButton rbtn3;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
         private System.Windows.Forms.DataGridViewTextBoxColumn it_customer;
@@ -1049,6 +1133,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fare_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fare_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_sum;
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_test_report;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn m_id;

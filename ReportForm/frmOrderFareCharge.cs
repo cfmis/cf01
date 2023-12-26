@@ -65,7 +65,19 @@ namespace cf01.ReportForm
                 txtDat1.Focus();
                 return;
             }
-
+            string flag_complete = "1";
+            if (rbtn1.Checked)
+            {
+                flag_complete = "1";
+            }
+            if (rbtn2.Checked)
+            {
+                flag_complete = "2";
+            }
+            if (rbtn3.Checked)
+            {
+                flag_complete = "3";
+            }
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -80,7 +92,8 @@ namespace cf01.ReportForm
                 new SqlParameter("@sales_group",txtSalesGroup.Text),
                 new SqlParameter("@brand_id_s",txtBrand_id1.Text),
                 new SqlParameter("@brand_id_e",txtBrand_id2.Text),
-                new SqlParameter("@fare_id",lueFare_id.EditValue.ToString())
+                new SqlParameter("@fare_id",lueFare_id.EditValue.ToString()),
+                new SqlParameter("@flag_complete",flag_complete)                
             };
             dtReport = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_so_test_charge", paras); 
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
