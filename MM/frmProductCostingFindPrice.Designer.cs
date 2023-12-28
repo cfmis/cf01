@@ -91,31 +91,37 @@
             this.colPrdDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtpFindPlateStdPrice = new DevExpress.XtraTab.XtraTabPage();
             this.dgvDetails3 = new System.Windows.Forms.DataGridView();
-            this.colPlateType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPlateProcess = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
             this.lblMaterialName = new DevExpress.XtraEditors.LabelControl();
             this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
             this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.cmbPlateType = new System.Windows.Forms.ComboBox();
+            this.cmbPlateProcess = new System.Windows.Forms.ComboBox();
             this.lblDepId = new DevExpress.XtraEditors.LabelControl();
             this.txtDepId = new DevExpress.XtraEditors.TextEdit();
+            this.colPlateType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateProcess = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateDoColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateQtyPriceHKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateUnitPCS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateVendId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateVendName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateQuoDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateQuoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateWegPriceHKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPlateUnitKG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcFind)).BeginInit();
             this.xtcFind.SuspendLayout();
@@ -181,10 +187,10 @@
             // xtcFind
             // 
             this.xtcFind.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtcFind.Location = new System.Drawing.Point(0, 94);
+            this.xtcFind.Location = new System.Drawing.Point(0, 112);
             this.xtcFind.Name = "xtcFind";
             this.xtcFind.SelectedTabPage = this.xtpFindMatrialPrice;
-            this.xtcFind.Size = new System.Drawing.Size(993, 492);
+            this.xtcFind.Size = new System.Drawing.Size(993, 474);
             this.xtcFind.TabIndex = 1;
             this.xtcFind.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpFindMatrialPrice,
@@ -196,7 +202,7 @@
             // 
             this.xtpFindMatrialPrice.Controls.Add(this.dgvDetails1);
             this.xtpFindMatrialPrice.Name = "xtpFindMatrialPrice";
-            this.xtpFindMatrialPrice.Size = new System.Drawing.Size(987, 463);
+            this.xtpFindMatrialPrice.Size = new System.Drawing.Size(987, 445);
             this.xtpFindMatrialPrice.Text = "原料單價";
             // 
             // dgvDetails1
@@ -231,7 +237,7 @@
             this.dgvDetails1.ReadOnly = true;
             this.dgvDetails1.RowHeadersWidth = 20;
             this.dgvDetails1.RowTemplate.Height = 24;
-            this.dgvDetails1.Size = new System.Drawing.Size(987, 463);
+            this.dgvDetails1.Size = new System.Drawing.Size(987, 445);
             this.dgvDetails1.TabIndex = 1;
             this.dgvDetails1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails1_CellDoubleClick);
             // 
@@ -394,7 +400,7 @@
             // 
             this.xtpFindPlatePrice.Controls.Add(this.dgvDetails2);
             this.xtpFindPlatePrice.Name = "xtpFindPlatePrice";
-            this.xtpFindPlatePrice.Size = new System.Drawing.Size(987, 449);
+            this.xtpFindPlatePrice.Size = new System.Drawing.Size(987, 445);
             this.xtpFindPlatePrice.Text = "外發加工實際單價";
             // 
             // dgvDetails2
@@ -439,7 +445,7 @@
             this.dgvDetails2.ReadOnly = true;
             this.dgvDetails2.RowHeadersWidth = 20;
             this.dgvDetails2.RowTemplate.Height = 24;
-            this.dgvDetails2.Size = new System.Drawing.Size(987, 449);
+            this.dgvDetails2.Size = new System.Drawing.Size(987, 445);
             this.dgvDetails2.TabIndex = 0;
             this.dgvDetails2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails2_CellDoubleClick);
             // 
@@ -691,7 +697,7 @@
             // 
             this.xtpFindPlateStdPrice.Controls.Add(this.dgvDetails3);
             this.xtpFindPlateStdPrice.Name = "xtpFindPlateStdPrice";
-            this.xtpFindPlateStdPrice.Size = new System.Drawing.Size(987, 463);
+            this.xtpFindPlateStdPrice.Size = new System.Drawing.Size(987, 445);
             this.xtpFindPlateStdPrice.Text = "外發加工標準價";
             // 
             // dgvDetails3
@@ -703,175 +709,34 @@
             this.colPlateType,
             this.colPlateProcess,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
+            this.colPlateDoColor,
+            this.colPlateQtyPriceHKD,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
+            this.colPlateUnitPCS,
             this.dataGridViewTextBoxColumn10,
+            this.colMat,
+            this.colSize,
+            this.colColorId,
+            this.colProdDesc,
+            this.colPlateVendId,
+            this.colPlateVendName,
+            this.colPlateQuoDate,
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26,
+            this.colPlateQuoId,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
+            this.colPlateWegPriceHKD,
+            this.colPlateUnitKG,
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn24});
             this.dgvDetails3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetails3.Location = new System.Drawing.Point(0, 0);
             this.dgvDetails3.Name = "dgvDetails3";
-            this.dgvDetails3.ReadOnly = true;
             this.dgvDetails3.RowHeadersWidth = 20;
             this.dgvDetails3.RowTemplate.Height = 24;
-            this.dgvDetails3.Size = new System.Drawing.Size(987, 463);
+            this.dgvDetails3.Size = new System.Drawing.Size(987, 445);
             this.dgvDetails3.TabIndex = 1;
+            this.dgvDetails3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails3_CellClick);
             this.dgvDetails3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails3_CellDoubleClick);
-            // 
-            // colPlateType
-            // 
-            this.colPlateType.DataPropertyName = "plate_type";
-            this.colPlateType.HeaderText = "顏色類型";
-            this.colPlateType.Name = "colPlateType";
-            this.colPlateType.ReadOnly = true;
-            // 
-            // colPlateProcess
-            // 
-            this.colPlateProcess.DataPropertyName = "plate_process";
-            this.colPlateProcess.HeaderText = "電鍍方法";
-            this.colPlateProcess.Name = "colPlateProcess";
-            this.colPlateProcess.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "goods_name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "物料描述";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "do_color";
-            this.dataGridViewTextBoxColumn3.HeaderText = "顏色做法";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "price";
-            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "數量單價";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "QtyPriceHKD";
-            this.dataGridViewTextBoxColumn5.HeaderText = "數量單價HKD)";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "p_unit";
-            this.dataGridViewTextBoxColumn6.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "單價單位";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "m_id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "貨幣代號";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "goods_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "物料編號";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn28.HeaderText = "報價單號";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            this.dataGridViewTextBoxColumn28.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            this.dataGridViewTextBoxColumn29.DataPropertyName = "issue_date";
-            this.dataGridViewTextBoxColumn29.HeaderText = "報價單日期";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "vendor_id";
-            this.dataGridViewTextBoxColumn25.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn25.HeaderText = "供應商";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            this.dataGridViewTextBoxColumn25.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.DataPropertyName = "vendor";
-            this.dataGridViewTextBoxColumn26.FillWeight = 160F;
-            this.dataGridViewTextBoxColumn26.HeaderText = "供應商描述";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            this.dataGridViewTextBoxColumn26.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "sec_price";
-            this.dataGridViewTextBoxColumn7.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn7.HeaderText = "重量單價";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "WegPriceHKD";
-            this.dataGridViewTextBoxColumn8.HeaderText = "重量單價(HKD)";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "sec_p_unit";
-            this.dataGridViewTextBoxColumn9.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn9.HeaderText = "單價單位";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "exchange_rate";
-            this.dataGridViewTextBoxColumn19.HeaderText = "HKD轉換率";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "process_request";
-            this.dataGridViewTextBoxColumn24.FillWeight = 160F;
-            this.dataGridViewTextBoxColumn24.HeaderText = "價格備註";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.Width = 160;
             // 
             // txtMaterialName
             // 
@@ -907,6 +772,8 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.cmbPlateType);
+            this.panelControl2.Controls.Add(this.cmbPlateProcess);
             this.panelControl2.Controls.Add(this.txtMaterialName);
             this.panelControl2.Controls.Add(this.lblDepId);
             this.panelControl2.Controls.Add(this.lblMaterialId);
@@ -916,8 +783,34 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 38);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(993, 56);
+            this.panelControl2.Size = new System.Drawing.Size(993, 74);
             this.panelControl2.TabIndex = 2;
+            // 
+            // cmbPlateType
+            // 
+            this.cmbPlateType.FormattingEnabled = true;
+            this.cmbPlateType.Items.AddRange(new object[] {
+            "",
+            "無叻",
+            "含叻",
+            "環保色"});
+            this.cmbPlateType.Location = new System.Drawing.Point(744, 15);
+            this.cmbPlateType.Name = "cmbPlateType";
+            this.cmbPlateType.Size = new System.Drawing.Size(121, 22);
+            this.cmbPlateType.TabIndex = 3;
+            // 
+            // cmbPlateProcess
+            // 
+            this.cmbPlateProcess.FormattingEnabled = true;
+            this.cmbPlateProcess.Items.AddRange(new object[] {
+            "",
+            "掛電",
+            "滾電",
+            "磨光"});
+            this.cmbPlateProcess.Location = new System.Drawing.Point(86, 17);
+            this.cmbPlateProcess.Name = "cmbPlateProcess";
+            this.cmbPlateProcess.Size = new System.Drawing.Size(121, 22);
+            this.cmbPlateProcess.TabIndex = 2;
             // 
             // lblDepId
             // 
@@ -934,6 +827,158 @@
             this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDepId.Size = new System.Drawing.Size(177, 20);
             this.txtDepId.TabIndex = 1;
+            // 
+            // colPlateType
+            // 
+            this.colPlateType.DataPropertyName = "plate_type";
+            this.colPlateType.HeaderText = "顏色類別";
+            this.colPlateType.Name = "colPlateType";
+            this.colPlateType.Width = 80;
+            // 
+            // colPlateProcess
+            // 
+            this.colPlateProcess.DataPropertyName = "plate_process";
+            this.colPlateProcess.HeaderText = "電鍍方法";
+            this.colPlateProcess.Name = "colPlateProcess";
+            this.colPlateProcess.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "prod_type";
+            this.dataGridViewTextBoxColumn2.HeaderText = "產品類型";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // colPlateDoColor
+            // 
+            this.colPlateDoColor.DataPropertyName = "do_color";
+            this.colPlateDoColor.HeaderText = "顏色描述";
+            this.colPlateDoColor.Name = "colPlateDoColor";
+            this.colPlateDoColor.Width = 260;
+            // 
+            // colPlateQtyPriceHKD
+            // 
+            this.colPlateQtyPriceHKD.DataPropertyName = "QtyPriceHKD";
+            this.colPlateQtyPriceHKD.HeaderText = "數量單價HKD)";
+            this.colPlateQtyPriceHKD.Name = "colPlateQtyPriceHKD";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "price";
+            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "數量單價";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 65;
+            // 
+            // colPlateUnitPCS
+            // 
+            this.colPlateUnitPCS.DataPropertyName = "p_unit";
+            this.colPlateUnitPCS.FillWeight = 80F;
+            this.colPlateUnitPCS.HeaderText = "單價單位";
+            this.colPlateUnitPCS.Name = "colPlateUnitPCS";
+            this.colPlateUnitPCS.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "m_id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "貨幣代號";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 65;
+            // 
+            // colMat
+            // 
+            this.colMat.DataPropertyName = "mat";
+            this.colMat.HeaderText = "材質";
+            this.colMat.Name = "colMat";
+            // 
+            // colSize
+            // 
+            this.colSize.DataPropertyName = "size";
+            this.colSize.HeaderText = "尺寸";
+            this.colSize.Name = "colSize";
+            // 
+            // colColorId
+            // 
+            this.colColorId.DataPropertyName = "cf_color_id";
+            this.colColorId.HeaderText = "顏色編號";
+            this.colColorId.Name = "colColorId";
+            // 
+            // colProdDesc
+            // 
+            this.colProdDesc.DataPropertyName = "prod_desc";
+            this.colProdDesc.HeaderText = "產品描述";
+            this.colProdDesc.Name = "colProdDesc";
+            // 
+            // colPlateVendId
+            // 
+            this.colPlateVendId.DataPropertyName = "vendor_id";
+            this.colPlateVendId.FillWeight = 80F;
+            this.colPlateVendId.HeaderText = "供應商";
+            this.colPlateVendId.Name = "colPlateVendId";
+            this.colPlateVendId.Width = 80;
+            // 
+            // colPlateVendName
+            // 
+            this.colPlateVendName.DataPropertyName = "vendor";
+            this.colPlateVendName.FillWeight = 160F;
+            this.colPlateVendName.HeaderText = "供應商描述";
+            this.colPlateVendName.Name = "colPlateVendName";
+            this.colPlateVendName.Width = 160;
+            // 
+            // colPlateQuoDate
+            // 
+            this.colPlateQuoDate.DataPropertyName = "issue_date";
+            this.colPlateQuoDate.HeaderText = "報價單日期";
+            this.colPlateQuoDate.Name = "colPlateQuoDate";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "prod_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "物料編號";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 160;
+            // 
+            // colPlateQuoId
+            // 
+            this.colPlateQuoId.DataPropertyName = "id";
+            this.colPlateQuoId.HeaderText = "報價單號";
+            this.colPlateQuoId.Name = "colPlateQuoId";
+            this.colPlateQuoId.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "sec_price";
+            this.dataGridViewTextBoxColumn7.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "重量單價";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 65;
+            // 
+            // colPlateWegPriceHKD
+            // 
+            this.colPlateWegPriceHKD.DataPropertyName = "WegPriceHKD";
+            this.colPlateWegPriceHKD.HeaderText = "重量單價(HKD)";
+            this.colPlateWegPriceHKD.Name = "colPlateWegPriceHKD";
+            // 
+            // colPlateUnitKG
+            // 
+            this.colPlateUnitKG.DataPropertyName = "sec_p_unit";
+            this.colPlateUnitKG.FillWeight = 80F;
+            this.colPlateUnitKG.HeaderText = "單價單位";
+            this.colPlateUnitKG.Name = "colPlateUnitKG";
+            this.colPlateUnitKG.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "exchange_rate";
+            this.dataGridViewTextBoxColumn19.HeaderText = "HKD轉換率";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "process_request";
+            this.dataGridViewTextBoxColumn24.FillWeight = 160F;
+            this.dataGridViewTextBoxColumn24.HeaderText = "價格備註";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.Width = 160;
             // 
             // frmProductCostingFindPrice
             // 
@@ -1038,22 +1083,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrdDep;
         private System.Windows.Forms.DataGridView dgvDetails3;
+        private System.Windows.Forms.ComboBox cmbPlateProcess;
+        private System.Windows.Forms.ComboBox cmbPlateType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlateType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlateProcess;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateDoColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateQtyPriceHKD;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateUnitPCS;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateVendId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateVendName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateQuoDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateQuoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateWegPriceHKD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPlateUnitKG;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
     }

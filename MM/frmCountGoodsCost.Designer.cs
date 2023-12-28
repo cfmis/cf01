@@ -34,14 +34,14 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCopy = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnCopy = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcel = new System.Windows.Forms.ToolStripButton();
@@ -263,6 +263,8 @@
             this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn63 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit14 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemLookUpEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -555,14 +557,14 @@
             this.toolStripSeparator1,
             this.btnNew,
             this.toolStripSeparator2,
+            this.btnSave,
+            this.toolStripSeparator3,
+            this.btnCopy,
+            this.toolStripSeparator5,
             this.btnDelete,
             this.toolStripSeparator7,
             this.btnDeleteItem,
             this.toolStripSeparator8,
-            this.btnCopy,
-            this.toolStripSeparator5,
-            this.btnSave,
-            this.toolStripSeparator3,
             this.btnFind,
             this.toolStripSeparator4,
             this.btnExcel,
@@ -606,6 +608,38 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
+            // btnSave
+            // 
+            this.btnSave.AutoSize = false;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(65, 35);
+            this.btnSave.Text = "儲存(&S)";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.AutoSize = false;
+            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
+            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(65, 35);
+            this.btnCopy.Text = "複製(&C)";
+            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 39);
+            // 
             // btnDelete
             // 
             this.btnDelete.AutoSize = false;
@@ -637,38 +671,6 @@
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(6, 39);
-            // 
-            // btnCopy
-            // 
-            this.btnCopy.AutoSize = false;
-            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
-            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(65, 35);
-            this.btnCopy.Text = "複製(&C)";
-            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 39);
-            // 
-            // btnSave
-            // 
-            this.btnSave.AutoSize = false;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(65, 35);
-            this.btnSave.Text = "儲存(&S)";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
             // 
             // btnFind
             // 
@@ -756,7 +758,7 @@
             this.txtArtWorkName.Location = new System.Drawing.Point(267, 37);
             this.txtArtWorkName.Name = "txtArtWorkName";
             this.txtArtWorkName.Size = new System.Drawing.Size(161, 20);
-            this.txtArtWorkName.TabIndex = 7;
+            this.txtArtWorkName.TabIndex = 6;
             // 
             // lblColor
             // 
@@ -803,49 +805,49 @@
             this.txtProductTypeName.Location = new System.Drawing.Point(647, 37);
             this.txtProductTypeName.Name = "txtProductTypeName";
             this.txtProductTypeName.Size = new System.Drawing.Size(173, 20);
-            this.txtProductTypeName.TabIndex = 5;
+            this.txtProductTypeName.TabIndex = 8;
             // 
             // txtColorName
             // 
             this.txtColorName.Location = new System.Drawing.Point(986, 37);
             this.txtColorName.Name = "txtColorName";
             this.txtColorName.Size = new System.Drawing.Size(124, 20);
-            this.txtColorName.TabIndex = 5;
+            this.txtColorName.TabIndex = 10;
             // 
             // txtColor
             // 
             this.txtColor.Location = new System.Drawing.Point(888, 37);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(92, 20);
-            this.txtColor.TabIndex = 5;
+            this.txtColor.TabIndex = 9;
             // 
             // txtSizeName
             // 
             this.txtSizeName.Location = new System.Drawing.Point(986, 14);
             this.txtSizeName.Name = "txtSizeName";
             this.txtSizeName.Size = new System.Drawing.Size(124, 20);
-            this.txtSizeName.TabIndex = 5;
+            this.txtSizeName.TabIndex = 4;
             // 
             // txtSize
             // 
             this.txtSize.Location = new System.Drawing.Point(888, 14);
             this.txtSize.Name = "txtSize";
             this.txtSize.Size = new System.Drawing.Size(92, 20);
-            this.txtSize.TabIndex = 5;
+            this.txtSize.TabIndex = 3;
             // 
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(541, 14);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(279, 20);
-            this.txtProductName.TabIndex = 5;
+            this.txtProductName.TabIndex = 2;
             // 
             // txtProductId
             // 
             this.txtProductId.Location = new System.Drawing.Point(267, 14);
             this.txtProductId.Name = "txtProductId";
             this.txtProductId.Size = new System.Drawing.Size(161, 20);
-            this.txtProductId.TabIndex = 5;
+            this.txtProductId.TabIndex = 1;
             this.txtProductId.Leave += new System.EventHandler(this.txtProductId_Leave);
             // 
             // lblRemark
@@ -861,12 +863,13 @@
             this.txtRemark.Location = new System.Drawing.Point(84, 60);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(344, 20);
-            this.txtRemark.TabIndex = 4;
+            this.txtRemark.TabIndex = 11;
             // 
             // txtSN
             // 
             this.txtSN.Location = new System.Drawing.Point(1163, 37);
             this.txtSN.Name = "txtSN";
+            this.txtSN.Properties.ReadOnly = true;
             this.txtSN.Size = new System.Drawing.Size(60, 20);
             this.txtSN.TabIndex = 2;
             // 
@@ -880,7 +883,7 @@
             this.txtAmendTime.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAmendTime.Properties.ReadOnly = true;
             this.txtAmendTime.Size = new System.Drawing.Size(161, 20);
-            this.txtAmendTime.TabIndex = 1;
+            this.txtAmendTime.TabIndex = 15;
             // 
             // txtCreateTime
             // 
@@ -892,7 +895,7 @@
             this.txtCreateTime.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtCreateTime.Properties.ReadOnly = true;
             this.txtCreateTime.Size = new System.Drawing.Size(161, 20);
-            this.txtCreateTime.TabIndex = 1;
+            this.txtCreateTime.TabIndex = 13;
             // 
             // lblAmendTime
             // 
@@ -920,7 +923,7 @@
             this.txtAmendUser.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAmendUser.Properties.ReadOnly = true;
             this.txtAmendUser.Size = new System.Drawing.Size(161, 20);
-            this.txtAmendUser.TabIndex = 1;
+            this.txtAmendUser.TabIndex = 14;
             // 
             // lblAmendUser
             // 
@@ -940,7 +943,7 @@
             this.txtCreateUser.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtCreateUser.Properties.ReadOnly = true;
             this.txtCreateUser.Size = new System.Drawing.Size(122, 20);
-            this.txtCreateUser.TabIndex = 1;
+            this.txtCreateUser.TabIndex = 12;
             // 
             // lblCreateUser
             // 
@@ -973,7 +976,7 @@
             this.txtProductType.Location = new System.Drawing.Point(541, 37);
             this.txtProductType.Name = "txtProductType";
             this.txtProductType.Size = new System.Drawing.Size(100, 20);
-            this.txtProductType.TabIndex = 2;
+            this.txtProductType.TabIndex = 7;
             // 
             // lblPrdType
             // 
@@ -989,7 +992,7 @@
             this.txtArtWork.Name = "txtArtWork";
             this.txtArtWork.Properties.MaxLength = 7;
             this.txtArtWork.Size = new System.Drawing.Size(122, 20);
-            this.txtArtWork.TabIndex = 1;
+            this.txtArtWork.TabIndex = 5;
             // 
             // lblArtWork
             // 
@@ -2430,7 +2433,7 @@
             this.gridColumn44.Name = "gridColumn44";
             this.gridColumn44.Visible = true;
             this.gridColumn44.VisibleIndex = 1;
-            this.gridColumn44.Width = 112;
+            this.gridColumn44.Width = 106;
             // 
             // repositoryItemLookUpEdit24
             // 
@@ -2684,6 +2687,8 @@
             this.gridColumn48,
             this.gridColumn30,
             this.gridColumn31,
+            this.gridColumn71,
+            this.gridColumn72,
             this.gridColumn63});
             this.gvGoodsPlate.FooterPanelHeight = 30;
             this.gvGoodsPlate.GridControl = this.gcGoodsPlate;
@@ -2712,7 +2717,7 @@
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
             this.gridColumn38.VisibleIndex = 1;
-            this.gridColumn38.Width = 102;
+            this.gridColumn38.Width = 85;
             // 
             // repositoryItemLookUpEdit12
             // 
@@ -2749,7 +2754,7 @@
             this.gridColumn39.Name = "gridColumn39";
             this.gridColumn39.Visible = true;
             this.gridColumn39.VisibleIndex = 3;
-            this.gridColumn39.Width = 120;
+            this.gridColumn39.Width = 196;
             // 
             // gridColumn26
             // 
@@ -2864,13 +2869,29 @@
             this.gridColumn31.VisibleIndex = 13;
             this.gridColumn31.Width = 125;
             // 
+            // gridColumn71
+            // 
+            this.gridColumn71.Caption = "報價單日期";
+            this.gridColumn71.FieldName = "QuoDate";
+            this.gridColumn71.Name = "gridColumn71";
+            this.gridColumn71.Visible = true;
+            this.gridColumn71.VisibleIndex = 14;
+            // 
+            // gridColumn72
+            // 
+            this.gridColumn72.Caption = "報價單號";
+            this.gridColumn72.FieldName = "QuoID";
+            this.gridColumn72.Name = "gridColumn72";
+            this.gridColumn72.Visible = true;
+            this.gridColumn72.VisibleIndex = 15;
+            // 
             // gridColumn63
             // 
             this.gridColumn63.Caption = "移除";
             this.gridColumn63.ColumnEdit = this.repositoryItemButtonEdit14;
             this.gridColumn63.Name = "gridColumn63";
             this.gridColumn63.Visible = true;
-            this.gridColumn63.VisibleIndex = 14;
+            this.gridColumn63.VisibleIndex = 16;
             this.gridColumn63.Width = 60;
             // 
             // repositoryItemButtonEdit14
@@ -3056,7 +3077,7 @@
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 1;
-            this.gridColumn17.Width = 117;
+            this.gridColumn17.Width = 84;
             // 
             // repositoryItemLookUpEdit11
             // 
@@ -3077,7 +3098,7 @@
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.Visible = true;
             this.gridColumn19.VisibleIndex = 2;
-            this.gridColumn19.Width = 90;
+            this.gridColumn19.Width = 76;
             // 
             // repositoryItemButtonEdit2
             // 
@@ -3094,7 +3115,7 @@
             this.gridColumn20.Name = "gridColumn20";
             this.gridColumn20.Visible = true;
             this.gridColumn20.VisibleIndex = 3;
-            this.gridColumn20.Width = 145;
+            this.gridColumn20.Width = 199;
             // 
             // gridColumn21
             // 
@@ -3798,6 +3819,7 @@
             // 
             this.txtSNPart.Location = new System.Drawing.Point(1084, 42);
             this.txtSNPart.Name = "txtSNPart";
+            this.txtSNPart.Properties.ReadOnly = true;
             this.txtSNPart.Size = new System.Drawing.Size(92, 20);
             this.txtSNPart.TabIndex = 5;
             // 
@@ -3805,6 +3827,7 @@
             // 
             this.txtSeqPart.Location = new System.Drawing.Point(977, 42);
             this.txtSeqPart.Name = "txtSeqPart";
+            this.txtSeqPart.Properties.ReadOnly = true;
             this.txtSeqPart.Size = new System.Drawing.Size(92, 20);
             this.txtSeqPart.TabIndex = 5;
             // 
@@ -4408,5 +4431,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton btnDeleteItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn71;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
     }
 }

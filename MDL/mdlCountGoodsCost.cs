@@ -90,6 +90,8 @@ namespace cf01.MDL
         public float TotalCostK { get; set; }
         public string VendID { get; set; }
         public string VendName { get; set; }
+        public string QuoDate { get; set; }
+        public string QuoID { get; set; }
     }
     public class mdlPurPrice: mdlCountGoodsCostBase1
     {
