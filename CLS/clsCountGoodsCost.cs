@@ -37,8 +37,9 @@ namespace cf01.CLS
         public static DataTable LoadProductCostHead(string ID)
         {
             string strSql = "";
-            strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName"+
-                ",ProductSize,ProductSizeName,ProductColor,ProductColorName"+
+            strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+                ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                ",PrdMo,MdNo,MoGroup" +
                 ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
                 " From mm_product_cost_head " +
@@ -58,6 +59,7 @@ namespace cf01.CLS
             string strSql = "";
             strSql = "Select a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
                 ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName" +
+                ",a.PrdMo,a.MdNo,a.MoGroup" +
                 ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
@@ -117,20 +119,24 @@ namespace cf01.CLS
                 strUpd = @" Insert Into mm_product_cost_head " +
                     " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
                     ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                    ",PrdMo,MdNo,MoGroup" +
                     ",Remark,CreateUser,CreateTime,AmendUser,AmendTime )" +
                     " Values ( " +
-                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}',GETDATE(),'{13}',GETDATE() )";
+                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}'" +
+                    ",'{16}',GETDATE(),'{16}',GETDATE() )";
             }
             else
                 strUpd = @" Update mm_product_cost_head Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
                     ",ProductType='{6}',ProductTypeName='{7}'" +
                     ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
-                    ",Remark='{12}',AmendUser='{13}',AmendTime=GETDATE() " +
+                    ",PrdMo='{12}',MdNo='{13}',MoGroup='{14}'" +
+                    ",Remark='{15}',AmendUser='{16}',AmendTime=GETDATE() " +
                     " Where ID='{0}' And Ver='{1}'";
             strSql += string.Format(strUpd
                     , ID, Ver, mdlGoods.ProductID, mdlGoods.ProductName, mdlGoods.ArtWork, mdlGoods.ArtWorkName
                     , mdlGoods.ProductType, mdlGoods.ProductTypeName, mdlGoods.ProductSize, mdlGoods.ProductSizeName
                     , mdlGoods.ProductColor, mdlGoods.ProductColorName
+                    , mdlGoods.PrdMo, mdlGoods.MdNo, mdlGoods.MoGroup
                     , mdlGoods.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);

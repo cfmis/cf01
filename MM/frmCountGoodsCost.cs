@@ -84,6 +84,9 @@ namespace cf01.MM
                 txtSizeName.Text = dr["ProductSizeName"].ToString();
                 txtColor.Text = dr["ProductColor"].ToString();
                 txtColorName.Text = dr["ProductColorName"].ToString();
+                txtPrdMo.Text = dr["PrdMo"].ToString();
+                txtMdNo.Text = dr["MdNo"].ToString();
+                lueMoGroup.EditValue = dr["MoGroup"].ToString() != "" ? dr["MoGroup"].ToString() : "";
                 txtRemark.Text = dr["Remark"].ToString();
                 txtCreateUser.Text = dr["CreateUser"].ToString();
                 txtCreateTime.Text = dr["CreateTime"].ToString();
@@ -104,6 +107,9 @@ namespace cf01.MM
                 txtSizeName.Text = "";
                 txtColor.Text = "";
                 txtColorName.Text = "";
+                txtPrdMo.Text = "";
+                txtMdNo.Text = "";
+                lueMoGroup.EditValue = "";
                 txtCreateUser.Text = "";
                 txtCreateTime.Text = "";
                 txtAmendUser.Text = "";
@@ -180,7 +186,10 @@ namespace cf01.MM
             mdlGoods.ProductColorName = txtColorName.Text;
             mdlGoods.ProductSize = txtSize.Text;
             mdlGoods.ProductSizeName = txtSizeName.Text;
-            mdlGoods.Remark = txtRemark.Text;
+            mdlGoods.PrdMo = txtPrdMo.Text.Trim();
+            mdlGoods.MdNo = txtMdNo.Text.Trim();
+            mdlGoods.MoGroup = lueMoGroup.EditValue.ToString().Trim();
+            mdlGoods.Remark = txtRemark.Text.Trim();
             string result = clsCountGoodsCost.Save(mdlGoods);
             txtID.Text = result;
             txtID.ReadOnly = false;
@@ -208,34 +217,11 @@ namespace cf01.MM
                 DataRow dr = dtGoodsPartDetails.Rows[i];
                 mdlCountGoodsCostPart mdlGoodsPpart = new mdlCountGoodsCostPart();
                 mdlGoodsPpart.UpperSN = txtSN.Text == "" ? 0 : Convert.ToInt32(txtSN.Text);
-                mdlGoodsPpart.Seq = "";
+                mdlGoodsPpart.Seq = dr["Seq"].ToString().Trim();
                 mdlGoodsPpart.ProductID = dr["ProductID"].ToString();
                 mdlGoodsPpart.ProductName = dr["ProductName"].ToString();
                 mdlGoodsPpart.FrontPart= dr["FrontPart"].ToString();
-                //mdlGoodsPpart.ArtWork = txtArtWorkPart.Text;
-                //mdlGoodsPpart.ArtWorkName = txtArtWorkNamePart.Text;
-                //mdlGoodsPpart.ProductType = txtProductTypePart.Text;
-                //mdlGoodsPpart.ProductTypeName = txtProductTypeNamePart.Text;
-                //mdlGoodsPpart.ProductColor = txtColorPart.Text;
-                //mdlGoodsPpart.ProductColorName = txtColorNamePart.Text;
-                //mdlGoodsPpart.ProductSize = txtSizePart.Text;
-                //mdlGoodsPpart.ProductSizeName = txtSizeNamePart.Text;
-                //mdlGoodsPpart.MatWeg = clsValidRule.ConvertStrToSingle(txtMatWegTotal.Text);
-                //mdlGoodsPpart.MatUse = clsValidRule.ConvertStrToSingle(txtMatUseTotal.Text);
-                //mdlGoodsPpart.MatCost = clsValidRule.ConvertStrToSingle(txtMatCostTotal.Text);
-                //mdlGoodsPpart.ProcessCostTotal = clsValidRule.ConvertStrToSingle(txtProcessCostTotal.Text);
                 mdlGoodsPpart.ProcessProfitRate = 30;// clsValidRule.ConvertStrToSingle(txtProcessProfitRate.Text);
-                //mdlGoodsPpart.ProcessProfit = clsValidRule.ConvertStrToSingle(txtProcessProfit.Text);
-                //mdlGoodsPpart.PlateCost = clsValidRule.ConvertStrToSingle(txtPlateCostTotal.Text);
-                //mdlGoodsPpart.PackCost = clsValidRule.ConvertStrToSingle(txtPackCostTotal.Text);
-                //mdlGoodsPpart.CostPcs = clsValidRule.ConvertStrToSingle(txtCostPcs.Text);
-                //mdlGoodsPpart.CostGrs = clsValidRule.ConvertStrToSingle(txtCostGrs.Text);
-                //mdlGoodsPpart.CostK = clsValidRule.ConvertStrToSingle(txtCostK.Text);
-                //mdlGoodsPpart.FactoryFee = clsValidRule.ConvertStrToSingle(txtFactoryCostTotal.Text);
-                //mdlGoodsPpart.FactoryCostPcs = clsValidRule.ConvertStrToSingle(txtFactoryCostPcs.Text);
-                //mdlGoodsPpart.FactoryCostGrs = clsValidRule.ConvertStrToSingle(txtFactoryCostGrs.Text);
-                //mdlGoodsPpart.FactoryCostK = clsValidRule.ConvertStrToSingle(txtFactoryCostK.Text);
-                //mdlGoodsPpart.Remark = "";
                 lsCountGoodsCostPart.Add(mdlGoodsPpart);
             }
             string result = "";
@@ -254,11 +240,16 @@ namespace cf01.MM
             txtProfitRate.Text = "30";//////工廠利潤率
             //gcMatDetails.DataSource = dtMat;
             //gcGoodsProcess.DataSource = dtProcess;
-
+            //////組別
+            //////外發加工的部門
+            lueMoGroup.Properties.DataSource = clsBaseData.LoadMoGroup("");
+            lueMoGroup.Properties.ValueMember = "group_id";
+            lueMoGroup.Properties.DisplayMember = "group_desc";
+            //////單位
             lueTestUnit.Properties.DataSource = clsBs_Unit.LoadUnit("0");
             lueTestUnit.Properties.ValueMember = "unit_id";
             lueTestUnit.Properties.DisplayMember = "unit_cdesc";
-            lueTestUnit.Text = "PCS";
+            lueTestUnit.EditValue = "PCS";
 
             repositoryItemLookUpEdit2.DataSource = clsBs_Unit.LoadUnit("");
             repositoryItemLookUpEdit2.ValueMember = "unit_id";
@@ -297,7 +288,7 @@ namespace cf01.MM
         private void CountTestCost()
         {
             float unitRate = 0;
-            unitRate = clsBaseData.GetUnitRate(lueTestUnit.Text.Trim());
+            unitRate = clsBaseData.GetUnitRate(lueTestUnit.EditValue != null ? lueTestUnit.EditValue.ToString().Trim() : "");
             float Qty = clsValidRule.ConvertStrToSingle(txtTestQty.Text);
             float profitRate = clsValidRule.ConvertStrToSingle(txtProfitRate.Text) / 100;
             txtSalePricePcs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostPcs.Text) * (1 + profitRate), 4).ToString();
@@ -635,9 +626,9 @@ namespace cf01.MM
                 txtArtWorkPart.Text = drPrd["blueprint_id"].ToString();
                 txtArtWorkNamePart.Text = drPrd["art_cdesc"].ToString();
                 txtArtWorkPart.Text = drPrd["blueprint_id"].ToString();
-                txtProductTypePart.Text= drPrd["base_class"].ToString();
+                txtProductTypePart.Text = drPrd["base_class"].ToString();
                 txtProductTypeNamePart.Text = drPrd["prd_cdesc"].ToString();
-                txtSizePart.Text= drPrd["size_id"].ToString();
+                txtSizePart.Text = drPrd["size_id"].ToString();
                 txtSizeNamePart.Text = drPrd["size_cdesc"].ToString();
                 txtColorPart.Text = drPrd["color"].ToString();
                 txtColorNamePart.Text = drPrd["clr_cdesc"].ToString();
@@ -651,6 +642,20 @@ namespace cf01.MM
                     drMat["MatUse"] = drPrd["use_weg"].ToString();
                     CountMatCost();
                 }
+            }
+            else
+            {
+                txtProductNamePart.Text = "";
+                txtArtWorkPart.Text = "";
+                txtArtWorkNamePart.Text = "";
+                txtArtWorkPart.Text = "";
+                txtProductTypePart.Text = "";
+                txtProductTypeNamePart.Text = "";
+                txtSizePart.Text = "";
+                txtSizeNamePart.Text = "";
+                txtColorPart.Text = "";
+                txtColorNamePart.Text = "";
+                txtFrontPart.Text = "";
             }
             
         }
