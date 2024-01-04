@@ -38,7 +38,6 @@ namespace cf01.Forms
 
             dgvDetails.RowHeadersVisible = true;  //因類clsControlInfoHelper DataGridView中已屏蔽行標頭,此處重新恢覆回來
             dgvDetails.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect; //因類clsControlInfoHelper的問題，此處重新恢覆整行選中的屬性
-
         }
 
         private void frmAgent_Load(object sender, EventArgs e)

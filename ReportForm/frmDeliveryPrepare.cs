@@ -38,7 +38,8 @@ namespace cf01.ReportForm
         private void BTNFIND_Click(object sender, EventArgs e)
         {
             txtSearchMo.Focus();
-            if (txtDat1.Text == "" && txtDat2.Text == "" && txtSalesGroup.Text == "" && txtMo_id1.Text=="" && txtMo_id2.Text=="")
+            if (txtDat1.Text == "" && txtDat2.Text == "" && txtSalesGroup.Text == "" && txtMo_id1.Text=="" && txtMo_id2.Text =="" &&
+                txtBrand_id1.Text == "" && txtBrand_id2.Text == "" && txtCreateBy.Text == "")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDat1.Focus();
@@ -59,6 +60,9 @@ namespace cf01.ReportForm
                 new SqlParameter("@order_date_end",txtDat2.Text),
                 new SqlParameter("@mo_id1",txtMo_id1.Text),
                 new SqlParameter("@mo_id2",txtMo_id2.Text),
+                new SqlParameter("@brand_id1",txtBrand_id1.Text),
+                new SqlParameter("@brand_id2",txtBrand_id2.Text),
+                new SqlParameter("@create_by",txtCreateBy.Text),
                 new SqlParameter("@is_include_vat",is_include_vat)
             };
             int result = 0;          
@@ -263,7 +267,7 @@ namespace cf01.ReportForm
             }
             //獲取第一個頁數的組別
             bool is_select = false;
-            string group_no = "",mo_id="";
+            string group_no = "", mo_id = "";
             DataGridViewRow row = null;
             for (int i = 0; i < dgvDetails0.RowCount; i++)
             {
@@ -438,11 +442,6 @@ namespace cf01.ReportForm
             txtMo_id2.Text = txtMo_id1.Text;
         }
 
-        private void txtSearchMo_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-        }
-
         private void txtSearchMo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -451,7 +450,7 @@ namespace cf01.ReportForm
                 {
                     return;
                 }
-                string mo = txtSearchMo.Text.Trim();
+                string mo_id = txtSearchMo.Text.Trim();
                 string column_mo_id = string.Empty;
                 DataGridView dgv;
                 if (radioGroup1.SelectedIndex == 0)
@@ -470,7 +469,7 @@ namespace cf01.ReportForm
                 }                             
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
-                    if (dgv.Rows[i].Cells[column_mo_id].Value.ToString() == mo)
+                    if (dgv.Rows[i].Cells[column_mo_id].Value.ToString() == mo_id)
                     {
                         dgv.CurrentCell = dgv.Rows[i].Cells[2]; //设置当前单元格
                         dgv.Rows[i].Selected = true; //選中整行                        
@@ -479,6 +478,11 @@ namespace cf01.ReportForm
                 }
 
             }
+        }
+
+        private void txtBrand_id1_Leave(object sender, EventArgs e)
+        {
+            txtBrand_id2.Text = txtBrand_id1.Text;
         }
     }
 }
