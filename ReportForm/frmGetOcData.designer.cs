@@ -84,23 +84,30 @@
             this.order_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unit_price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.total_sum = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.it_customer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lueCust2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lueCust1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblCustcode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCust2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCust1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBrand_id1
             // 
             this.txtBrand_id1.EnterMoveNextControl = true;
-            this.txtBrand_id1.Location = new System.Drawing.Point(98, 12);
+            this.txtBrand_id1.Location = new System.Drawing.Point(98, 7);
             this.txtBrand_id1.Name = "txtBrand_id1";
             this.txtBrand_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBrand_id1.Properties.MaxLength = 13;
@@ -111,7 +118,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(279, 43);
+            this.label6.Location = new System.Drawing.Point(279, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 12);
             this.label6.TabIndex = 117;
@@ -119,7 +126,7 @@
             // 
             // lblDate
             // 
-            this.lblDate.Location = new System.Drawing.Point(12, 43);
+            this.lblDate.Location = new System.Drawing.Point(12, 35);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(80, 13);
             this.lblDate.TabIndex = 116;
@@ -130,16 +137,21 @@
             // 
             this.dtDat2.EditValue = "";
             this.dtDat2.EnterMoveNextControl = true;
-            this.dtDat2.Location = new System.Drawing.Point(315, 39);
+            this.dtDat2.Location = new System.Drawing.Point(315, 31);
             this.dtDat2.Name = "dtDat2";
             this.dtDat2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDat2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtDat2.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.dtDat2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtDat2.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.dtDat2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat2.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.dtDat2.Properties.MaxLength = 10;
             this.dtDat2.Properties.NullDate = "";
-            this.dtDat2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDat2.Size = new System.Drawing.Size(156, 20);
             this.dtDat2.TabIndex = 3;
             this.dtDat2.Tag = "2";
@@ -149,16 +161,21 @@
             // 
             this.dtDat1.EditValue = "";
             this.dtDat1.EnterMoveNextControl = true;
-            this.dtDat1.Location = new System.Drawing.Point(98, 39);
+            this.dtDat1.Location = new System.Drawing.Point(98, 31);
             this.dtDat1.Name = "dtDat1";
             this.dtDat1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDat1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtDat1.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.dtDat1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtDat1.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.dtDat1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtDat1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat1.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.dtDat1.Properties.MaxLength = 10;
             this.dtDat1.Properties.NullDate = "";
-            this.dtDat1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDat1.Size = new System.Drawing.Size(156, 20);
             this.dtDat1.TabIndex = 2;
             this.dtDat1.Tag = "2";
@@ -287,7 +304,7 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(12, 15);
+            this.lblID.Location = new System.Drawing.Point(12, 10);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(80, 13);
             this.lblID.TabIndex = 126;
@@ -297,7 +314,7 @@
             // txtBrand_id2
             // 
             this.txtBrand_id2.EnterMoveNextControl = true;
-            this.txtBrand_id2.Location = new System.Drawing.Point(315, 12);
+            this.txtBrand_id2.Location = new System.Drawing.Point(315, 7);
             this.txtBrand_id2.Name = "txtBrand_id2";
             this.txtBrand_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBrand_id2.Properties.MaxLength = 13;
@@ -307,7 +324,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(279, 15);
+            this.label1.Location = new System.Drawing.Point(279, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 12);
             this.label1.TabIndex = 128;
@@ -460,9 +477,9 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(4, 133);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
@@ -488,7 +505,8 @@
             this.customer_color_id,
             this.order_qty,
             this.unit_price,
-            this.total_sum});
+            this.total_sum,
+            this.it_customer});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -504,6 +522,7 @@
             this.season.FieldName = "season";
             this.season.Name = "season";
             this.season.OptionsColumn.AllowMove = false;
+            this.season.OptionsColumn.AllowSize = false;
             this.season.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.season.OptionsColumn.ReadOnly = true;
             this.season.OptionsFilter.AllowAutoFilter = false;
@@ -518,13 +537,14 @@
             this.division.FieldName = "division";
             this.division.Name = "division";
             this.division.OptionsColumn.AllowMove = false;
+            this.division.OptionsColumn.AllowSize = false;
             this.division.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.division.OptionsColumn.ReadOnly = true;
             this.division.OptionsFilter.AllowAutoFilter = false;
             this.division.OptionsFilter.AllowFilter = false;
             this.division.Visible = true;
             this.division.VisibleIndex = 1;
-            this.division.Width = 98;
+            this.division.Width = 90;
             // 
             // order_date
             // 
@@ -532,6 +552,7 @@
             this.order_date.FieldName = "order_date";
             this.order_date.Name = "order_date";
             this.order_date.OptionsColumn.AllowMove = false;
+            this.order_date.OptionsColumn.AllowSize = false;
             this.order_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.order_date.OptionsColumn.ReadOnly = true;
             this.order_date.OptionsFilter.AllowAutoFilter = false;
@@ -546,6 +567,7 @@
             this.arrive_date.FieldName = "arrive_date";
             this.arrive_date.Name = "arrive_date";
             this.arrive_date.OptionsColumn.AllowMove = false;
+            this.arrive_date.OptionsColumn.AllowSize = false;
             this.arrive_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.arrive_date.OptionsColumn.ReadOnly = true;
             this.arrive_date.OptionsFilter.AllowAutoFilter = false;
@@ -560,13 +582,14 @@
             this.sp.FieldName = "sp";
             this.sp.Name = "sp";
             this.sp.OptionsColumn.AllowMove = false;
+            this.sp.OptionsColumn.AllowSize = false;
             this.sp.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.sp.OptionsColumn.ReadOnly = true;
             this.sp.OptionsFilter.AllowAutoFilter = false;
             this.sp.OptionsFilter.AllowFilter = false;
             this.sp.Visible = true;
             this.sp.VisibleIndex = 4;
-            this.sp.Width = 103;
+            this.sp.Width = 120;
             // 
             // rms
             // 
@@ -574,13 +597,14 @@
             this.rms.FieldName = "rms";
             this.rms.Name = "rms";
             this.rms.OptionsColumn.AllowMove = false;
+            this.rms.OptionsColumn.AllowSize = false;
             this.rms.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.rms.OptionsColumn.ReadOnly = true;
             this.rms.OptionsFilter.AllowAutoFilter = false;
             this.rms.OptionsFilter.AllowFilter = false;
             this.rms.Visible = true;
             this.rms.VisibleIndex = 5;
-            this.rms.Width = 47;
+            this.rms.Width = 100;
             // 
             // hw_subtype
             // 
@@ -588,6 +612,7 @@
             this.hw_subtype.FieldName = "hw_subtype";
             this.hw_subtype.Name = "hw_subtype";
             this.hw_subtype.OptionsColumn.AllowMove = false;
+            this.hw_subtype.OptionsColumn.AllowSize = false;
             this.hw_subtype.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.hw_subtype.OptionsColumn.ReadOnly = true;
             this.hw_subtype.OptionsFilter.AllowAutoFilter = false;
@@ -603,13 +628,14 @@
             this.mo_id.FieldName = "mo_id";
             this.mo_id.Name = "mo_id";
             this.mo_id.OptionsColumn.AllowMove = false;
+            this.mo_id.OptionsColumn.AllowSize = false;
             this.mo_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.mo_id.OptionsColumn.ReadOnly = true;
             this.mo_id.OptionsFilter.AllowAutoFilter = false;
             this.mo_id.OptionsFilter.AllowFilter = false;
             this.mo_id.Visible = true;
             this.mo_id.VisibleIndex = 7;
-            this.mo_id.Width = 81;
+            this.mo_id.Width = 80;
             // 
             // customer_goods
             // 
@@ -617,6 +643,7 @@
             this.customer_goods.FieldName = "customer_goods";
             this.customer_goods.Name = "customer_goods";
             this.customer_goods.OptionsColumn.AllowMove = false;
+            this.customer_goods.OptionsColumn.AllowSize = false;
             this.customer_goods.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.customer_goods.OptionsColumn.ReadOnly = true;
             this.customer_goods.OptionsFilter.AllowAutoFilter = false;
@@ -624,7 +651,7 @@
             this.customer_goods.Tag = "2";
             this.customer_goods.Visible = true;
             this.customer_goods.VisibleIndex = 8;
-            this.customer_goods.Width = 95;
+            this.customer_goods.Width = 120;
             // 
             // customer_goods_name
             // 
@@ -632,13 +659,14 @@
             this.customer_goods_name.FieldName = "customer_goods_name";
             this.customer_goods_name.Name = "customer_goods_name";
             this.customer_goods_name.OptionsColumn.AllowMove = false;
+            this.customer_goods_name.OptionsColumn.AllowSize = false;
             this.customer_goods_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.customer_goods_name.OptionsColumn.ReadOnly = true;
             this.customer_goods_name.OptionsFilter.AllowAutoFilter = false;
             this.customer_goods_name.OptionsFilter.AllowFilter = false;
             this.customer_goods_name.Visible = true;
             this.customer_goods_name.VisibleIndex = 9;
-            this.customer_goods_name.Width = 127;
+            this.customer_goods_name.Width = 150;
             // 
             // customer_color_id
             // 
@@ -646,6 +674,7 @@
             this.customer_color_id.FieldName = "customer_color_id";
             this.customer_color_id.Name = "customer_color_id";
             this.customer_color_id.OptionsColumn.AllowMove = false;
+            this.customer_color_id.OptionsColumn.AllowSize = false;
             this.customer_color_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.customer_color_id.OptionsColumn.ReadOnly = true;
             this.customer_color_id.OptionsFilter.AllowAutoFilter = false;
@@ -662,6 +691,7 @@
             this.order_qty.FieldName = "order_qty";
             this.order_qty.Name = "order_qty";
             this.order_qty.OptionsColumn.AllowMove = false;
+            this.order_qty.OptionsColumn.AllowSize = false;
             this.order_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.order_qty.OptionsColumn.ReadOnly = true;
             this.order_qty.OptionsFilter.AllowAutoFilter = false;
@@ -669,7 +699,7 @@
             this.order_qty.Tag = "2";
             this.order_qty.Visible = true;
             this.order_qty.VisibleIndex = 11;
-            this.order_qty.Width = 76;
+            this.order_qty.Width = 110;
             // 
             // unit_price
             // 
@@ -679,6 +709,7 @@
             this.unit_price.FieldName = "unit_price";
             this.unit_price.Name = "unit_price";
             this.unit_price.OptionsColumn.AllowMove = false;
+            this.unit_price.OptionsColumn.AllowSize = false;
             this.unit_price.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.unit_price.OptionsColumn.ReadOnly = true;
             this.unit_price.OptionsFilter.AllowAutoFilter = false;
@@ -686,7 +717,7 @@
             this.unit_price.Tag = "2";
             this.unit_price.Visible = true;
             this.unit_price.VisibleIndex = 12;
-            this.unit_price.Width = 59;
+            this.unit_price.Width = 90;
             // 
             // total_sum
             // 
@@ -696,6 +727,7 @@
             this.total_sum.FieldName = "total_sum";
             this.total_sum.Name = "total_sum";
             this.total_sum.OptionsColumn.AllowMove = false;
+            this.total_sum.OptionsColumn.AllowSize = false;
             this.total_sum.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.total_sum.OptionsColumn.ReadOnly = true;
             this.total_sum.OptionsFilter.AllowAutoFilter = false;
@@ -704,10 +736,30 @@
             this.total_sum.VisibleIndex = 13;
             this.total_sum.Width = 131;
             // 
+            // it_customer
+            // 
+            this.it_customer.Caption = "Customer ID";
+            this.it_customer.FieldName = "it_customer";
+            this.it_customer.Name = "it_customer";
+            this.it_customer.OptionsColumn.AllowEdit = false;
+            this.it_customer.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.it_customer.OptionsColumn.AllowMove = false;
+            this.it_customer.OptionsColumn.AllowSize = false;
+            this.it_customer.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.it_customer.OptionsColumn.ReadOnly = true;
+            this.it_customer.OptionsFilter.AllowAutoFilter = false;
+            this.it_customer.OptionsFilter.AllowFilter = false;
+            this.it_customer.Visible = true;
+            this.it_customer.VisibleIndex = 14;
+            // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lueCust2);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lueCust1);
+            this.panel1.Controls.Add(this.lblCustcode);
             this.panel1.Controls.Add(this.txtBrand_id1);
             this.panel1.Controls.Add(this.dtDat1);
             this.panel1.Controls.Add(this.dtDat2);
@@ -720,6 +772,69 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1009, 86);
             this.panel1.TabIndex = 138;
+            // 
+            // lueCust2
+            // 
+            this.lueCust2.EditValue = "";
+            this.lueCust2.EnterMoveNextControl = true;
+            this.lueCust2.Location = new System.Drawing.Point(315, 56);
+            this.lueCust2.Name = "lueCust2";
+            this.lueCust2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueCust2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueCust2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 100, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 150, "cdesc")});
+            this.lueCust2.Properties.DropDownRows = 15;
+            this.lueCust2.Properties.MaxLength = 8;
+            this.lueCust2.Properties.NullText = "";
+            this.lueCust2.Properties.PopupFormMinSize = new System.Drawing.Size(30, 0);
+            this.lueCust2.Properties.PopupWidth = 250;
+            this.lueCust2.Properties.ShowHeader = false;
+            this.lueCust2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueCust2.Size = new System.Drawing.Size(156, 20);
+            this.lueCust2.TabIndex = 132;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(279, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 12);
+            this.label2.TabIndex = 131;
+            this.label2.Text = "--";
+            // 
+            // lueCust1
+            // 
+            this.lueCust1.EditValue = "";
+            this.lueCust1.EnterMoveNextControl = true;
+            this.lueCust1.Location = new System.Drawing.Point(98, 56);
+            this.lueCust1.Name = "lueCust1";
+            this.lueCust1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueCust1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueCust1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 100, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 150, "cdesc")});
+            this.lueCust1.Properties.DropDownRows = 15;
+            this.lueCust1.Properties.MaxLength = 8;
+            this.lueCust1.Properties.NullText = "";
+            this.lueCust1.Properties.PopupFormMinSize = new System.Drawing.Size(30, 0);
+            this.lueCust1.Properties.PopupWidth = 250;
+            this.lueCust1.Properties.ShowHeader = false;
+            this.lueCust1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueCust1.Size = new System.Drawing.Size(156, 20);
+            this.lueCust1.TabIndex = 129;
+            this.lueCust1.Leave += new System.EventHandler(this.lueCust1_Leave);
+            // 
+            // lblCustcode
+            // 
+            this.lblCustcode.Location = new System.Drawing.Point(-2, 60);
+            this.lblCustcode.Name = "lblCustcode";
+            this.lblCustcode.Size = new System.Drawing.Size(94, 13);
+            this.lblCustcode.TabIndex = 130;
+            this.lblCustcode.Text = "客戶編號";
+            this.lblCustcode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmGetOcData
             // 
@@ -736,9 +851,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmGetOcData_FormClosed);
             this.Load += new System.EventHandler(this.frmGetOcData_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -747,6 +862,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCust2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueCust1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -807,5 +924,10 @@
         private System.Windows.Forms.ToolStripButton BTNSAVESET;
         private DevExpress.XtraGrid.Columns.GridColumn total_sum;
         private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraEditors.LookUpEdit lueCust2;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.LookUpEdit lueCust1;
+        private System.Windows.Forms.Label lblCustcode;
+        private DevExpress.XtraGrid.Columns.GridColumn it_customer;
     }
 }

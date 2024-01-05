@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors;
 using cf01.CLS;
+using cf01.Forms;
+using System.Threading;
 //using cf01.Reports;
 
 namespace cf01.ReportForm
@@ -49,7 +51,16 @@ namespace cf01.ReportForm
             //    dtDat1.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
             //if (string.IsNullOrEmpty(dtDat2.Text))
             //    dtDat2.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
-            
+            //客戶編號
+            DataTable dtCustomer = clsCustComplain.GetCustomerData();
+            lueCust1.Properties.DataSource = dtCustomer;
+            lueCust1.Properties.ValueMember = "id";
+            lueCust1.Properties.DisplayMember = "id";
+
+            lueCust2.Properties.DataSource = dtCustomer;
+            lueCust2.Properties.ValueMember = "id";
+            lueCust2.Properties.DisplayMember = "id";
+
         }
 
         private void frmGetOcData_FormClosed(object sender, FormClosedEventArgs e)
@@ -59,15 +70,16 @@ namespace cf01.ReportForm
 
         private void dtDat1_Leave(object sender, EventArgs e)
         {
-            string strDate = dtDat1.Text;
-            if (string.IsNullOrEmpty(strDate))
-            {
-                return;
-            }
-            if (CheckDate(sender))
-            {
-                dtDat2.EditValue = dtDat1.EditValue;
-            }
+            dtDat2.EditValue = dtDat1.EditValue;
+            //string strDate = dtDat1.Text;
+            //if (string.IsNullOrEmpty(strDate))
+            //{
+            //    return;
+            //}
+            //if (CheckDate(sender))
+            //{
+            //    dtDat2.EditValue = dtDat1.EditValue;
+            //}
         }
 
         private void dtDat2_Leave(object sender, EventArgs e)
@@ -99,23 +111,48 @@ namespace cf01.ReportForm
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {  
-            string strID1 = txtBrand_id1.Text;
-            string strID2 = txtBrand_id2.Text;
-            
-            if (strID1 == "" && strID2 == "" && dtDat1.Text == "" && dtDat2.Text == ""  )
+            string strBrandId1 = txtBrand_id1.Text;
+            string strBrandId2 = txtBrand_id2.Text;
+            string strCust1 = lueCust1.EditValue.ToString();
+            string strCust2 = lueCust2.EditValue.ToString();
+            string strOrderDate1 = "";
+            string strOrderDate2 = "";
+            if (!string.IsNullOrEmpty(dtDat1.Text))
             {
-                MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                strOrderDate1 = DateTime.Parse(dtDat1.EditValue.ToString()).Date.ToString("yyyy-MM-dd");
+            }
+            if (!string.IsNullOrEmpty(dtDat2.Text))
+            {
+                strOrderDate2 = DateTime.Parse(dtDat2.EditValue.ToString()).Date.ToString("yyyy-MM-dd");
             }
 
+            
+            if (strBrandId1 == "" && strBrandId2 == "" && strOrderDate1 == "" && strOrderDate2 == "" && strCust1=="" && strCust2=="")
+            {
+                MessageBox.Show("查詢條件不可全為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             SqlParameter[] paras = new SqlParameter[]
             {
-                new SqlParameter("@order_date_s", dtDat1.Text),
-                new SqlParameter("@order_date_e", dtDat2.Text),
-                new SqlParameter("@brand_id_s",strID1),
-                new SqlParameter("@brand_id_e",strID2)
+                new SqlParameter("@order_date_s", strOrderDate1),
+                new SqlParameter("@order_date_e", strOrderDate2),
+                new SqlParameter("@brand_id_s",strBrandId1),
+                new SqlParameter("@brand_id_e",strBrandId2),
+                new SqlParameter("@it_customer_s",strCust1),
+                new SqlParameter("@it_customer_e",strCust2)
             };
+            //是示查詢進度
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //************************
             dtDelivery = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_rpt_oc_data", paras);
+            //************************
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
 
             if (dtDelivery.Rows.Count > 0)
             {                
@@ -126,7 +163,7 @@ namespace cf01.ReportForm
                 gridControl1.DataSource = null;
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            this.gridView1.BestFitColumns();            
+            gridView1.BestFitColumns();            
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)
@@ -185,5 +222,9 @@ namespace cf01.ReportForm
             }
         }
 
+        private void lueCust1_Leave(object sender, EventArgs e)
+        {
+            lueCust2.EditValue = lueCust1.EditValue;
+        }
     }
 }
