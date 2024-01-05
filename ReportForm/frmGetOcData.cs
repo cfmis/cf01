@@ -60,7 +60,6 @@ namespace cf01.ReportForm
             lueCust2.Properties.DataSource = dtCustomer;
             lueCust2.Properties.ValueMember = "id";
             lueCust2.Properties.DisplayMember = "id";
-
         }
 
         private void frmGetOcData_FormClosed(object sender, FormClosedEventArgs e)
