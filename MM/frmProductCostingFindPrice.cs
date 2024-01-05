@@ -62,28 +62,40 @@ namespace cf01.MM
                 lblMaterialId.Text = "物料編號:";
                 lblMaterialName.Text = "物料描述:";
                 lblDepId.Text = "部門編號:";
+                txtMaterialId.Visible = true;
+                cmbPlateProcess.Visible = false;
+                cmbPlateType.Visible = false;
+                txtDepId.Visible = true;
             }
             else if (xtcFind.SelectedTabPageIndex == 1)
             {
                 lblMaterialId.Text = "物料/顏色編號:";
                 lblMaterialName.Text = "物料/顏色描述:";
                 lblDepId.Text = "部門編號:";
+                txtMaterialId.Visible = true;
+                cmbPlateProcess.Visible = false;
+                cmbPlateType.Visible = false;
+                txtDepId.Visible = true;
             }
             else if (xtcFind.SelectedTabPageIndex == 2)
             {
-                lblMaterialId.Text = "顏色編號:";
+                lblMaterialId.Text = "電鍍方法:";
                 lblMaterialName.Text = "顏色描述:";
                 lblDepId.Text = "顏色類別:";
+                txtMaterialId.Visible = false;
+                cmbPlateProcess.Visible = true;
+                cmbPlateType.Visible = true;
+                txtDepId.Visible = false;
             }
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (txtDepId.Text.Trim() == "" && txtMaterialId.Text.Trim() == "" && txtMaterialName.Text.Trim() == "")
-            {
-                MessageBox.Show("請輸入查詢內容!");
-                return;
-            }
+            //if (txtDepId.Text.Trim() == "" && txtMaterialId.Text.Trim() == "" && txtMaterialName.Text.Trim() == "" && cmbPlateProcess.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("請輸入查詢內容!");
+            //    return;
+            //}
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -124,7 +136,7 @@ namespace cf01.MM
         private bool findPlatePrice()
         {
             bool result = true;
-            dtPlatePrice = clsProductCosting.findPlatePrice("",txtDepId.Text.Trim(),txtMaterialId.Text.Trim(), txtMaterialName.Text.Trim());
+            dtPlatePrice = clsProductCosting.findPlatePrice("",txtDepId.Text.Trim(),cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails2.DataSource = dtPlatePrice;
             if (dgvDetails2.Rows.Count == 0)
                 result = false;
@@ -133,7 +145,7 @@ namespace cf01.MM
         private bool findPlateStdPrice()
         {
             bool result = true;
-            dtPlateStdPrice = clsCountGoodsCost.FindPlateStdPrice("", txtDepId.Text.Trim(), txtMaterialId.Text.Trim(), txtMaterialName.Text.Trim());
+            dtPlateStdPrice = clsCountGoodsCost.FindPlateStdPrice("", cmbPlateType.Text.Trim(), cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails3.DataSource = dtPlateStdPrice;
             if (dgvDetails3.Rows.Count == 0)
                 result = false;
@@ -178,13 +190,18 @@ namespace cf01.MM
             float searchPrice = 0;
             float searchPriceWeg = 0;
             int rowIndex = dgv.CurrentRow.Index;
-            DataRow dr = dt.Rows[rowIndex];
-            searchPrice = clsValidRule.ConvertStrToSingle(dr["QtyPriceHKD"].ToString());
-            searchPriceWeg = clsValidRule.ConvertStrToSingle(dr["WegPriceHKD"].ToString());
-            getProductId = dr["goods_id"].ToString();
-            getProductName = dr["do_color"].ToString();
-            string qtyUnit = dr["p_unit"].ToString().Trim();
-            string wegUnit = dr["sec_p_unit"].ToString().Trim();
+            //DataRow dr = dt.Rows[rowIndex];//
+            DataGridViewRow dgvDr = dgv.Rows[rowIndex];
+            searchPrice = clsValidRule.ConvertStrToSingle(dgvDr.Cells["colPlateQtyPriceHKD"].Value.ToString()); //clsValidRule.ConvertStrToSingle(dr["QtyPriceHKD"].ToString());
+            searchPriceWeg = clsValidRule.ConvertStrToSingle(dgvDr.Cells["colPlateWegPriceHKD"].Value.ToString());
+            getProductId = dgvDr.Cells["colColorId"].Value.ToString();
+            getProductName = dgvDr.Cells["colPlateDoColor"].Value.ToString(); //dr["do_color"].ToString();
+            string qtyUnit = dgvDr.Cells["colPlateUnitPCS"].Value.ToString();
+            string wegUnit = dgvDr.Cells["colPlateUnitKG"].Value.ToString();
+            frmCountGoodsCost.getVendID = dgvDr.Cells["colPlateVendId"].Value.ToString();
+            frmCountGoodsCost.getVendName = dgvDr.Cells["colPlateVendName"].Value.ToString();
+            frmCountGoodsCost.getQuoID = dgvDr.Cells["colPlateQuoId"].Value.ToString();
+            frmCountGoodsCost.getQuoDate = dgvDr.Cells["colPlateQuoDate"].Value.ToString();
             //searchPrice = clsValidRule.ConvertStrToSingle(dgv.Rows[rowIndex].Cells["colQtyPriceHKD"].Value.ToString());
             //searchPriceWeg = clsValidRule.ConvertStrToSingle(dgv.Rows[rowIndex].Cells["colWegPriceHKD"].Value.ToString());
             //getProductId = dgv.Rows[rowIndex].Cells["colProductID"].Value.ToString().Substring(14, 4);
@@ -195,7 +212,7 @@ namespace cf01.MM
             frmCountGoodsCost.searchPriceWeg = searchPriceWeg;
             frmCountGoodsCost.searchPriceQtyUnit = qtyUnit;
             frmCountGoodsCost.searchPriceWegUnit = wegUnit;
-            getDepId = dr["department_id"].ToString();// dgv.Rows[rowIndex].Cells["colPrdDep"].Value.ToString();
+            getDepId = "";// dr["department_id"].ToString();// dgv.Rows[rowIndex].Cells["colPrdDep"].Value.ToString();
             //////有些是入錯單位的，在數量那裡入了重量單價了，轉換回重量那裡
             if (qtyUnit == "KG" && searchPrice != 0 && searchPriceWeg == 0)
             {
@@ -214,6 +231,13 @@ namespace cf01.MM
         private void xtcFind_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
             SetTextDesc();
+        }
+
+        private void dgvDetails3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //int rowIndex = dgvDetails3.CurrentRow.Index;
+            //MessageBox.Show(rowIndex.ToString());
+
         }
     }
 }

@@ -49,13 +49,13 @@ namespace cf01.MM
             txtProcesslId.Text = getProcessId;
             txtProcessName.Text = getProcessName;
 
-            if (getProcessId != "")
-                btnFind_Click(sender, e);
-            else
-            {
-                if (getDepId != "")
-                    btnFind_Click(sender, e);
-            }
+            //if (getProcessId != "")
+            //    btnFind_Click(sender, e);
+            //else
+            //{
+            //    if (getDepId != "")
+            //        btnFind_Click(sender, e);
+            //}
         }
         private void findProcessPrice()
         {

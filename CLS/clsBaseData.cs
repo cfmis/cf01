@@ -157,5 +157,22 @@ namespace cf01.CLS
             }
             return dtType;
         }
+
+        //////提取制單組別
+        public static DataTable LoadMoGroup(string moGroup)
+        {
+            string strSql = "Select group_id,group_desc" +
+                " From bs_mo_group" +
+                " Where group_id >'0'";
+            if (moGroup != "")
+                strSql += " And group_id='" + moGroup + "'";
+            strSql += " Order By group_id";
+            DataTable dtMoGroup = clsPublicOfCF01.GetDataTable(strSql);
+            //DataRow dr = dtMoGroup.NewRow();
+            //dr["group_id"] = "";
+            //dr["group_desc"] = "";
+            //dtMoGroup.Rows.Add(dr);
+            return dtMoGroup;
+        }
     }
 }

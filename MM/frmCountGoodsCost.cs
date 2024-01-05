@@ -31,6 +31,10 @@ namespace cf01.MM
         public static float searchPriceWeg = 0;
         public static string searchPriceQtyUnit = "";
         public static string searchPriceWegUnit = "";
+        public static string getVendID = "";
+        public static string getVendName = ""; 
+        public static string getQuoDate = "";
+        public static string getQuoID = "";
         public frmCountGoodsCost()
         {
             InitializeComponent();
@@ -46,9 +50,12 @@ namespace cf01.MM
             txtID.Text = "";
             txtID.ReadOnly = true;
             newMode = 1;
+            newPartMode = 0;
             LoadDataHead("ZZZZZZ");
             LoadGoodsPartToGrid(999999999);
+            LoadPurPriceDetails(-999);
             txtTestQty.Text = "";
+            txtProfitRate.Text = "30";//////工廠利潤率
             ShowProductCost();
             //////默認新增配件
             LoadProductCostPart("ZZZ");
@@ -77,6 +84,9 @@ namespace cf01.MM
                 txtSizeName.Text = dr["ProductSizeName"].ToString();
                 txtColor.Text = dr["ProductColor"].ToString();
                 txtColorName.Text = dr["ProductColorName"].ToString();
+                txtPrdMo.Text = dr["PrdMo"].ToString();
+                txtMdNo.Text = dr["MdNo"].ToString();
+                lueMoGroup.EditValue = dr["MoGroup"].ToString() != "" ? dr["MoGroup"].ToString() : "";
                 txtRemark.Text = dr["Remark"].ToString();
                 txtCreateUser.Text = dr["CreateUser"].ToString();
                 txtCreateTime.Text = dr["CreateTime"].ToString();
@@ -97,6 +107,9 @@ namespace cf01.MM
                 txtSizeName.Text = "";
                 txtColor.Text = "";
                 txtColorName.Text = "";
+                txtPrdMo.Text = "";
+                txtMdNo.Text = "";
+                lueMoGroup.EditValue = "";
                 txtCreateUser.Text = "";
                 txtCreateTime.Text = "";
                 txtAmendUser.Text = "";
@@ -110,7 +123,11 @@ namespace cf01.MM
             //LoadColorDetails();
 
         }
-
+        /// <summary>
+        /// ///儲存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (xtc1.SelectedTabPage == xtp1)
@@ -120,6 +137,7 @@ namespace cf01.MM
                 //    MessageBox.Show("主表為非編輯狀態，請點擊新增!");
                 //    return;
                 //}
+                txtProductName.Focus();
                 SaveProductCostHead();
                 SavePorductPart();//儲存配件列表
                 SavePurPrice();//儲存意向報價表
@@ -127,6 +145,7 @@ namespace cf01.MM
                 MessageBox.Show("主表記錄儲存成功!");
             }else
             {
+                txtProductNamePart.Focus();
                 SaveProductPartDetails();
             }
         }
@@ -167,7 +186,10 @@ namespace cf01.MM
             mdlGoods.ProductColorName = txtColorName.Text;
             mdlGoods.ProductSize = txtSize.Text;
             mdlGoods.ProductSizeName = txtSizeName.Text;
-            mdlGoods.Remark = txtRemark.Text;
+            mdlGoods.PrdMo = txtPrdMo.Text.Trim();
+            mdlGoods.MdNo = txtMdNo.Text.Trim();
+            mdlGoods.MoGroup = lueMoGroup.EditValue.ToString().Trim();
+            mdlGoods.Remark = txtRemark.Text.Trim();
             string result = clsCountGoodsCost.Save(mdlGoods);
             txtID.Text = result;
             txtID.ReadOnly = false;
@@ -195,34 +217,11 @@ namespace cf01.MM
                 DataRow dr = dtGoodsPartDetails.Rows[i];
                 mdlCountGoodsCostPart mdlGoodsPpart = new mdlCountGoodsCostPart();
                 mdlGoodsPpart.UpperSN = txtSN.Text == "" ? 0 : Convert.ToInt32(txtSN.Text);
-                mdlGoodsPpart.Seq = "";
+                mdlGoodsPpart.Seq = dr["Seq"].ToString().Trim();
                 mdlGoodsPpart.ProductID = dr["ProductID"].ToString();
                 mdlGoodsPpart.ProductName = dr["ProductName"].ToString();
                 mdlGoodsPpart.FrontPart= dr["FrontPart"].ToString();
-                //mdlGoodsPpart.ArtWork = txtArtWorkPart.Text;
-                //mdlGoodsPpart.ArtWorkName = txtArtWorkNamePart.Text;
-                //mdlGoodsPpart.ProductType = txtProductTypePart.Text;
-                //mdlGoodsPpart.ProductTypeName = txtProductTypeNamePart.Text;
-                //mdlGoodsPpart.ProductColor = txtColorPart.Text;
-                //mdlGoodsPpart.ProductColorName = txtColorNamePart.Text;
-                //mdlGoodsPpart.ProductSize = txtSizePart.Text;
-                //mdlGoodsPpart.ProductSizeName = txtSizeNamePart.Text;
-                //mdlGoodsPpart.MatWeg = clsValidRule.ConvertStrToSingle(txtMatWegTotal.Text);
-                //mdlGoodsPpart.MatUse = clsValidRule.ConvertStrToSingle(txtMatUseTotal.Text);
-                //mdlGoodsPpart.MatCost = clsValidRule.ConvertStrToSingle(txtMatCostTotal.Text);
-                //mdlGoodsPpart.ProcessCostTotal = clsValidRule.ConvertStrToSingle(txtProcessCostTotal.Text);
                 mdlGoodsPpart.ProcessProfitRate = 30;// clsValidRule.ConvertStrToSingle(txtProcessProfitRate.Text);
-                //mdlGoodsPpart.ProcessProfit = clsValidRule.ConvertStrToSingle(txtProcessProfit.Text);
-                //mdlGoodsPpart.PlateCost = clsValidRule.ConvertStrToSingle(txtPlateCostTotal.Text);
-                //mdlGoodsPpart.PackCost = clsValidRule.ConvertStrToSingle(txtPackCostTotal.Text);
-                //mdlGoodsPpart.CostPcs = clsValidRule.ConvertStrToSingle(txtCostPcs.Text);
-                //mdlGoodsPpart.CostGrs = clsValidRule.ConvertStrToSingle(txtCostGrs.Text);
-                //mdlGoodsPpart.CostK = clsValidRule.ConvertStrToSingle(txtCostK.Text);
-                //mdlGoodsPpart.FactoryFee = clsValidRule.ConvertStrToSingle(txtFactoryCostTotal.Text);
-                //mdlGoodsPpart.FactoryCostPcs = clsValidRule.ConvertStrToSingle(txtFactoryCostPcs.Text);
-                //mdlGoodsPpart.FactoryCostGrs = clsValidRule.ConvertStrToSingle(txtFactoryCostGrs.Text);
-                //mdlGoodsPpart.FactoryCostK = clsValidRule.ConvertStrToSingle(txtFactoryCostK.Text);
-                //mdlGoodsPpart.Remark = "";
                 lsCountGoodsCostPart.Add(mdlGoodsPpart);
             }
             string result = "";
@@ -238,14 +237,19 @@ namespace cf01.MM
         }
         private void BindData()
         {
-            txtProfitRate.Text = "30";//////加工費利潤率
+            txtProfitRate.Text = "30";//////工廠利潤率
             //gcMatDetails.DataSource = dtMat;
             //gcGoodsProcess.DataSource = dtProcess;
-
+            //////組別
+            //////外發加工的部門
+            lueMoGroup.Properties.DataSource = clsBaseData.LoadMoGroup("");
+            lueMoGroup.Properties.ValueMember = "group_id";
+            lueMoGroup.Properties.DisplayMember = "group_desc";
+            //////單位
             lueTestUnit.Properties.DataSource = clsBs_Unit.LoadUnit("0");
             lueTestUnit.Properties.ValueMember = "unit_id";
             lueTestUnit.Properties.DisplayMember = "unit_cdesc";
-            lueTestUnit.Text = "PCS";
+            lueTestUnit.EditValue = "PCS";
 
             repositoryItemLookUpEdit2.DataSource = clsBs_Unit.LoadUnit("");
             repositoryItemLookUpEdit2.ValueMember = "unit_id";
@@ -284,7 +288,7 @@ namespace cf01.MM
         private void CountTestCost()
         {
             float unitRate = 0;
-            unitRate = clsBaseData.GetUnitRate(lueTestUnit.Text.Trim());
+            unitRate = clsBaseData.GetUnitRate(lueTestUnit.EditValue != null ? lueTestUnit.EditValue.ToString().Trim() : "");
             float Qty = clsValidRule.ConvertStrToSingle(txtTestQty.Text);
             float profitRate = clsValidRule.ConvertStrToSingle(txtProfitRate.Text) / 100;
             txtSalePricePcs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostPcs.Text) * (1 + profitRate), 4).ToString();
@@ -320,7 +324,7 @@ namespace cf01.MM
 
         /// <summary>
         /// ///提取意向報價
-        /// 如果不存在的默認添加10行空記錄
+        /// 如果不存在的默認添加5行空記錄
         /// 點擊查詢時執行
         /// </summary>
         /// <param name="SN"></param>
@@ -364,32 +368,41 @@ namespace cf01.MM
         /// <param name="e"></param>
         private void btnAddPart_Click(object sender, EventArgs e)
         {
+            if(newPartMode==1)
+            {
+                var dls = MessageBox.Show("當前記錄未儲存,需要儲存嗎?", "系統信息", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dls == DialogResult.Yes)
+                    btnSave_Click(sender, e);
+                else if (dls == DialogResult.Cancel)
+                    return;
+            }
             LoadProductCostPart("ZZZ");
+            LoadGoodsDetails();
             CleanProductCostPart();
             SumTotalCost();
         }
         private void CleanProductCostPart()
         {
-            for(int i=0;i<dtMat.Rows.Count;i++)
-            {
-                dtMat.Rows[i]["Seq"] = "";
-            }
-            for (int i = 0; i < dtProcess.Rows.Count; i++)
-            {
-                dtProcess.Rows[i]["Seq"] = "";
-            }
-            for (int i = 0; i < dtPlate.Rows.Count; i++)
-            {
-                dtPlate.Rows[i]["Seq"] = "";
-            }
-            for (int i = 0; i < dtPack.Rows.Count; i++)
-            {
-                dtPack.Rows[i]["Seq"] = "";
-            }
-            for (int i = 0; i < dtFactory.Rows.Count; i++)
-            {
-                dtFactory.Rows[i]["Seq"] = "";
-            }
+            //for(int i=0;i<dtMat.Rows.Count;i++)
+            //{
+            //    dtMat.Rows[i]["Seq"] = "";
+            //}
+            //for (int i = 0; i < dtProcess.Rows.Count; i++)
+            //{
+            //    dtProcess.Rows[i]["Seq"] = "";
+            //}
+            //for (int i = 0; i < dtPlate.Rows.Count; i++)
+            //{
+            //    dtPlate.Rows[i]["Seq"] = "";
+            //}
+            //for (int i = 0; i < dtPack.Rows.Count; i++)
+            //{
+            //    dtPack.Rows[i]["Seq"] = "";
+            //}
+            //for (int i = 0; i < dtFactory.Rows.Count; i++)
+            //{
+            //    dtFactory.Rows[i]["Seq"] = "";
+            //}
             txtMatWegTotal.Text = "0";
             txtMatUseTotal.Text = "0";
             txtMatCostTotal.Text = "0";
@@ -405,6 +418,7 @@ namespace cf01.MM
             txtFactoryCostPcs.Text = "0";
             txtFactoryCostGrs.Text = "0";
             txtFactoryCostK.Text = "0";
+            newPartMode = 1;
         }
         private void LoadProductCostPart(string seq)
         {
@@ -612,9 +626,9 @@ namespace cf01.MM
                 txtArtWorkPart.Text = drPrd["blueprint_id"].ToString();
                 txtArtWorkNamePart.Text = drPrd["art_cdesc"].ToString();
                 txtArtWorkPart.Text = drPrd["blueprint_id"].ToString();
-                txtProductTypePart.Text= drPrd["base_class"].ToString();
+                txtProductTypePart.Text = drPrd["base_class"].ToString();
                 txtProductTypeNamePart.Text = drPrd["prd_cdesc"].ToString();
-                txtSizePart.Text= drPrd["size_id"].ToString();
+                txtSizePart.Text = drPrd["size_id"].ToString();
                 txtSizeNamePart.Text = drPrd["size_cdesc"].ToString();
                 txtColorPart.Text = drPrd["color"].ToString();
                 txtColorNamePart.Text = drPrd["clr_cdesc"].ToString();
@@ -628,6 +642,20 @@ namespace cf01.MM
                     drMat["MatUse"] = drPrd["use_weg"].ToString();
                     CountMatCost();
                 }
+            }
+            else
+            {
+                txtProductNamePart.Text = "";
+                txtArtWorkPart.Text = "";
+                txtArtWorkNamePart.Text = "";
+                txtArtWorkPart.Text = "";
+                txtProductTypePart.Text = "";
+                txtProductTypeNamePart.Text = "";
+                txtSizePart.Text = "";
+                txtSizeNamePart.Text = "";
+                txtColorPart.Text = "";
+                txtColorNamePart.Text = "";
+                txtFrontPart.Text = "";
             }
             
         }
@@ -781,35 +809,41 @@ namespace cf01.MM
             }
             else
             {
-                txtProductIdPart.Text = "";
-                txtProductNamePart.Text = "";
-                txtArtWorkPart.Text = "";
-                txtArtWorkNamePart.Text = "";
-                txtProductTypePart.Text = "";
-                txtProductTypeNamePart.Text = "";
-                txtSizePart.Text = "";
-                txtSizeNamePart.Text = "";
-                txtColorPart.Text = "";
-                txtColorNamePart.Text = "";
-                txtMatUseTotal.Text = "";
-                txtMatCostTotal.Text = "";
-                txtProcessCostTotal.Text = "";
-                txtProcessProfitRate.Text = "0";
-                txtProcessProfit.Text = "";
-                txtPlateCostTotal.Text = "";
-                txtPackCostTotal.Text = "";
-                txtCostPcs.Text = "";
-                txtCostGrs.Text = "";
-                txtCostK.Text = "";
-                txtFactoryCostTotal.Text = "";
-                txtFactoryCostPcs.Text = "";
-                txtFactoryCostGrs.Text = "";
-                txtFactoryCostK.Text = "";
-                txtSNPart.Text = "";
-                txtSeqPart.Text = "";
+                CleanProductCostPartText();
             }
         }
 
+        private void CleanProductCostPartText()
+        {
+            txtProductIdPart.Text = "";
+            txtProductNamePart.Text = "";
+            txtArtWorkPart.Text = "";
+            txtArtWorkNamePart.Text = "";
+            txtProductTypePart.Text = "";
+            txtProductTypeNamePart.Text = "";
+            txtSizePart.Text = "";
+            txtSizeNamePart.Text = "";
+            txtColorPart.Text = "";
+            txtColorNamePart.Text = "";
+            txtMatWegTotal.Text = "";
+            txtMatUseTotal.Text = "";
+            txtMatCostTotal.Text = "";
+            txtProcessCostTotal.Text = "";
+            txtProcessProfitRate.Text = "0";
+            txtProcessProfit.Text = "";
+            txtPlateCostTotal.Text = "";
+            txtPackCostTotal.Text = "";
+            txtCostPcs.Text = "";
+            txtCostGrs.Text = "";
+            txtCostK.Text = "";
+            txtFactoryCostTotal.Text = "";
+            txtFactoryCostPcs.Text = "";
+            txtFactoryCostGrs.Text = "";
+            txtFactoryCostK.Text = "";
+            txtSNPart.Text = "";
+            txtSeqPart.Text = "";
+            newPartMode = 1;//默認為新增狀態
+        }
         /// <summary>
         /// ///儲存配件
         /// </summary>
@@ -936,7 +970,7 @@ namespace cf01.MM
                         mdlGoodsProcess.WegCost = 0;
                         mdlGoodsProcess.WasteRate = 0;
                     }
-                    else if (processType == "02")//部門加工費
+                    else if (processType == "02")//外發加工費
                     {
                         mdlGoodsProcess.WegPrice = clsValidRule.ConvertStrToSingle(dr["WegPrice"].ToString());
                         mdlGoodsProcess.WegUnit = dr["WegUnit"].ToString();
@@ -944,6 +978,8 @@ namespace cf01.MM
                         mdlGoodsProcess.WasteRate = clsValidRule.ConvertStrToSingle(dr["WasteRate"].ToString());
                         mdlGoodsProcess.VendID = dr["VendID"].ToString();
                         mdlGoodsProcess.VendName = dr["VendName"].ToString();
+                        mdlGoodsProcess.QuoDate= dr["QuoDate"].ToString();
+                        mdlGoodsProcess.QuoID = dr["QuoID"].ToString();
                     }
                     lsGoodsProcess.Add(mdlGoodsProcess);
                 }
@@ -1020,7 +1056,7 @@ namespace cf01.MM
         private void repositoryItemButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             DataRow Row = gvGoodsProcess.GetFocusedDataRow();
-            frmCountGoodsCostFindProcess.getProcessId = Row["ProcessID"].ToString();// txtProductId.Text;
+            frmCountGoodsCostFindProcess.getProcessId = "";// Row["ProcessID"].ToString();// txtProductId.Text;
             frmCountGoodsCostFindProcess.getProcessName = "";// txtProductName.Text;
             frmCountGoodsCostFindProcess.getDepId = Row["PrdDep"].ToString();
             frmCountGoodsCostFindProcess.modality = "PROCESS";
@@ -1036,9 +1072,14 @@ namespace cf01.MM
                 Row["ProcessBaseQty"] = frmCountGoodsCostFindProcess.getBaseQty;
                 Row["ProcessUnit"] = frmCountGoodsCostFindProcess.getPriceUnit;
                 CountProcessCost();
+                //////返回後設置焦點，不然數據不會更新
+                ColumnView newview = (ColumnView)gcGoodsProcess.FocusedView;
+                newview.FocusedColumn = newview.Columns["ProcessName"];//定位焦点网格的位置
+                //int FocuseRow_Handle = newview.FocusedRowHandle;//获取新焦点行的FocuseRowHandle
             }
 
             frm.Dispose();
+            
         }
 
         private void btnAddProcess_Click(object sender, EventArgs e)
@@ -1134,11 +1175,19 @@ namespace cf01.MM
                 Row["PrdDep"] = frmProductCostingFindPrice.getDepId;
                 Row["ProcessID"] = frmProductCostingFindPrice.getProductId;
                 Row["ProcessName"] = frmProductCostingFindPrice.getProductName;
-                Row["ProcessPrice"] = Math.Round(searchPrice, 2);
+                Row["ProcessPrice"] = Math.Round(searchPrice, 4);
                 Row["ProcessUnit"] = searchPriceQtyUnit;
-                Row["WegPrice"] = Math.Round(searchPriceWeg, 2);
+                Row["WegPrice"] = Math.Round(searchPriceWeg, 4);
                 Row["WegUnit"] = searchPriceWegUnit;
+                Row["VendID"] = getVendID;
+                Row["VendName"] = getVendName;
+                Row["QuoDate"] = getQuoDate;
+                Row["QuoID"] = getQuoID;
                 CountPlateCost();
+                //////返回後設置焦點，不然數據不會更新
+                ColumnView newview = (ColumnView)gcGoodsPlate.FocusedView;
+                newview.FocusedColumn = newview.Columns["ProcessName"];//定位焦点网格的位置
+                //int FocuseRow_Handle = newview.FocusedRowHandle;//获取新焦点行的FocuseRowHandle
             }
 
             frm.Dispose();
@@ -1404,6 +1453,38 @@ namespace cf01.MM
             txtFactoryCostPcs.Text = Math.Round((factoryTotalCostK / baseQtyRate), 4).ToString();
             txtFactoryCostGrs.Text = Math.Round((factoryTotalCostK / baseQtyRate) * 144, 2).ToString();
         }
+        
+
+        
+        /// <summary>
+        /// ///刪除原料表格中的明細記錄
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryItemButtonEdit13_Click(object sender, EventArgs e)
+        {
+            //if (txtSNPart.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("配件記錄不存在,刪除無效!");
+            //    return;
+            //}
+            int rowIndex = gvMatDetails.FocusedRowHandle;
+            DataRow Row = dtMat.Rows[rowIndex];
+            string Seq = Row["Seq"].ToString().Trim();
+            if (Seq != "")
+            {
+                int UpperSN = txtSNPart.Text.Trim() != "" ? Convert.ToInt32(txtSNPart.Text) : 0;
+                string result = clsCountGoodsCost.DeleteGoodsCostMat(UpperSN,Seq);
+            }
+            dtMat.Rows.Remove(Row);
+            SumMatCost();
+            SumTotalCost();//刪除後重新計算總成本
+            if (Seq != "")
+            {
+                SaveProductPartDetails();//刪除後重新儲存第二個Tap中的所有內容
+            }
+        }
+
         /// <summary>
         /// 刪除表格中的部門加工費記錄
         /// </summary>
@@ -1412,18 +1493,34 @@ namespace cf01.MM
         private void repositoryItemButtonEdit12_Click(object sender, EventArgs e)
         {
             DeleteGoodsCostProcess(dtProcess, "01", gvGoodsProcess.FocusedRowHandle);//刪除部門加工費
-            SumProcessCost();
-            SumTotalCost();
-            SaveProductPartDetails();//刪除後重新儲存第二個Tap中的所有內容
+        }
+        /// <summary>
+        /// ///刪除外發加工費
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryItemButtonEdit14_Click(object sender, EventArgs e)
+        {
+            DeleteGoodsCostProcess(dtPlate, "02", gvGoodsPlate.FocusedRowHandle);//刪除外發加工費
         }
 
-        private void DeleteGoodsCostProcess(DataTable dt, string processType,int rowIndex)
+        private void repositoryItemButtonEdit15_Click(object sender, EventArgs e)
         {
-            if(txtSNPart.Text.Trim()=="")
-            {
-                MessageBox.Show("配件記錄編號不存在,刪除無效!");
-                return;
-            }
+            DeleteGoodsCostProcess(dtPack, "03", gvGoodsPack.FocusedRowHandle);//刪除包裝費
+        }
+
+        private void repositoryItemButtonEdit16_Click(object sender, EventArgs e)
+        {
+            DeleteGoodsCostProcess(dtFactory, "04", gvGoodsFactory.FocusedRowHandle);//刪除工廠皮費
+        }
+
+        private void DeleteGoodsCostProcess(DataTable dt, string processType, int rowIndex)
+        {
+            //if(txtSNPart.Text.Trim()=="")
+            //{
+            //    MessageBox.Show("配件記錄編號不存在,刪除無效!");
+            //    return;
+            //}
             //DataRow dr = dt.Rows[0];
             //if (dr["Seq"].ToString().Trim() == "")
             //{
@@ -1440,69 +1537,27 @@ namespace cf01.MM
 
             //DataRow Row = gvGoodsProcess.GetFocusedDataRow();
             DataRow Row = dt.Rows[rowIndex];
-            if (Row["Seq"].ToString().Trim() != "")
+            string Seq = Row["Seq"].ToString().Trim();
+            if ( Seq != "")
             {
                 mdlCountGoodsCostProcess mdlGoodsProcess = new mdlCountGoodsCostProcess();
                 mdlGoodsProcess.UpperSN = txtSNPart.Text.Trim() != "" ? Convert.ToInt32(txtSNPart.Text) : 0;
-                mdlGoodsProcess.Seq = Row["Seq"].ToString();
+                mdlGoodsProcess.Seq = Seq;
                 mdlGoodsProcess.ProcessType = processType;
                 string result = clsCountGoodsCost.DeleteGoodsCostProcess(mdlGoodsProcess);
             }
             dt.Rows.Remove(Row);
-            //gvGoodsProcess.DeleteSelectedRows();
-        }
-        /// <summary>
-        /// ///刪除原料表格中的明細記錄
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void repositoryItemButtonEdit13_Click(object sender, EventArgs e)
-        {
-            if (txtSNPart.Text.Trim() == "")
-            {
-                MessageBox.Show("配件記錄不存在,刪除無效!");
-                return;
-            }
-            int rowIndex = gvMatDetails.FocusedRowHandle;
-            DataRow Row = dtMat.Rows[rowIndex];
-            if (Row["Seq"].ToString().Trim() != "")
-            {
-                int UpperSN = txtSNPart.Text.Trim() != "" ? Convert.ToInt32(txtSNPart.Text) : 0;
-                string Seq = Row["Seq"].ToString();
-                string result = clsCountGoodsCost.DeleteGoodsCostMat(UpperSN,Seq);
-            }
-            dtMat.Rows.Remove(Row);
             SumMatCost();
-            SumTotalCost();//刪除後重新計算總成本
-            SaveProductPartDetails();//刪除後重新儲存第二個Tap中的所有內容
-        }
-        /// <summary>
-        /// ///刪除外發加工費
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void repositoryItemButtonEdit14_Click(object sender, EventArgs e)
-        {
-            DeleteGoodsCostProcess(dtPlate, "02", gvGoodsPlate.FocusedRowHandle);//刪除外發加工費
+            SumProcessCost();
             SumPlateCost();
-            SumTotalCost();
-            SaveProductPartDetails();//刪除後重新儲存第二個Tap中的所有內容
-        }
-
-        private void repositoryItemButtonEdit15_Click(object sender, EventArgs e)
-        {
-            DeleteGoodsCostProcess(dtPack, "03", gvGoodsPack.FocusedRowHandle);//刪除包裝費
             SumPackCost();
-            SumTotalCost();
-            SaveProductPartDetails();//刪除後重新儲存第二個Tap中的所有內容
-        }
-
-        private void repositoryItemButtonEdit16_Click(object sender, EventArgs e)
-        {
-            DeleteGoodsCostProcess(dtFactory, "04", gvGoodsFactory.FocusedRowHandle);//刪除包裝費
             SumFactoryCost();
             SumTotalCost();
-            SaveProductPartDetails();//刪除後重新儲存第二個Tap中的所有內容
+            if (Seq != "")
+            {
+                SaveProductPartDetails();//刪除後重新儲存第二個Tap中的所有內容
+            }
+            //gvGoodsProcess.DeleteSelectedRows();
         }
         /// <summary>
         /// ///查找并填入包裝費用
@@ -1539,8 +1594,8 @@ namespace cf01.MM
         private void repositoryItemButtonEdit6_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             DataRow Row = gvGoodsFactory.GetFocusedDataRow();
-            frmCountGoodsCostFindProcess.getProcessId = Row["ProcessID"].ToString();// txtProductId.Text;
-            frmCountGoodsCostFindProcess.getProcessName = Row["ProcessName"].ToString();// txtProductName.Text;
+            frmCountGoodsCostFindProcess.getProcessId = "";// Row["ProcessID"].ToString();// txtProductId.Text;
+            frmCountGoodsCostFindProcess.getProcessName = "";// Row["ProcessName"].ToString();// txtProductName.Text;
             frmCountGoodsCostFindProcess.modality = "FT_FEE";
             searchPrice = 0;
             frmCountGoodsCostFindProcess frm = new frmCountGoodsCostFindProcess();
@@ -1551,6 +1606,10 @@ namespace cf01.MM
                 Row["ProcessName"] = frmCountGoodsCostFindProcess.getProcessName.Trim();
                 Row["ProcessBaseQty"] = frmCountGoodsCostFindProcess.getBaseQty;
                 CountFactoryCost();
+                //////返回後設置焦點，不然數據不會更新
+                ColumnView newview = (ColumnView)gcGoodsFactory.FocusedView;
+                newview.FocusedColumn = newview.Columns["ProcessName"];//定位焦点网格的位置
+                //int FocuseRow_Handle = newview.FocusedRowHandle;//获取新焦点行的FocuseRowHandle
             }
 
             frm.Dispose();
@@ -1594,6 +1653,8 @@ namespace cf01.MM
                 txtColor.Text = "";
                 txtColorName.Text = "";
             }
+            if (productID.Substring(0, 2) != "F0")
+                productID = "ZZZZZZZZZZ999999999";
             dtGoodsPartDetails = clsCountGoodsCost.getBomCid(productID);
             gcGoodsPartDetails.DataSource = dtGoodsPartDetails;
         }
@@ -1617,6 +1678,8 @@ namespace cf01.MM
         }
         private void btnFind_Click(object sender, EventArgs e)
         {
+            newMode = 0;
+            newPartMode = 0;
             frmCountGoodsCostFind frm = new frmCountGoodsCostFind();
             frm.ShowDialog();
             if (getID != "")
@@ -1799,6 +1862,11 @@ namespace cf01.MM
             }
 
             DataRow Row = gvGoodsPartDetails.GetFocusedDataRow();
+            if(Row==null)
+            {
+                MessageBox.Show("配件的記錄編號不存在,刪除無效!");
+                return;
+            }
             int SN = Row["SN"].ToString() != "" ? Convert.ToInt32(Row["SN"].ToString()) : 0;
             if (SN == 0)
             {
@@ -1808,8 +1876,19 @@ namespace cf01.MM
             
             string result = clsCountGoodsCost.DeleteItem(SN);
             if (result == "")
+            {
                 MessageBox.Show("刪除配件記錄成功!");
-            LoadData();
+                if (xtc1.SelectedTabPage == xtp2)
+                {
+                    //FillGoodsPart();
+                    CleanProductCostPartText();
+                    LoadGoodsDetails();
+                }
+                else
+                    LoadData();
+            }
+            else
+                MessageBox.Show(result);
         }
 
         private void btnCopy_Click(object sender, EventArgs e)

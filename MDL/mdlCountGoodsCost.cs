@@ -35,6 +35,9 @@ namespace cf01.MDL
         public string ProductSizeName { get; set; }
         public string ProductColor { get; set; }
         public string ProductColorName { get; set; }
+        public string PrdMo { get; set; }
+        public string MdNo { get; set; }
+        public string MoGroup { get; set; }
         public string Remark { get; set; }
         public string CreateUser { get; set; }
         public string CreateTime { get; set; }
@@ -90,6 +93,8 @@ namespace cf01.MDL
         public float TotalCostK { get; set; }
         public string VendID { get; set; }
         public string VendName { get; set; }
+        public string QuoDate { get; set; }
+        public string QuoID { get; set; }
     }
     public class mdlPurPrice: mdlCountGoodsCostBase1
     {

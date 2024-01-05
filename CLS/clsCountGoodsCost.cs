@@ -37,8 +37,9 @@ namespace cf01.CLS
         public static DataTable LoadProductCostHead(string ID)
         {
             string strSql = "";
-            strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName"+
-                ",ProductSize,ProductSizeName,ProductColor,ProductColorName"+
+            strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+                ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                ",PrdMo,MdNo,MoGroup" +
                 ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
                 " From mm_product_cost_head " +
@@ -58,6 +59,7 @@ namespace cf01.CLS
             string strSql = "";
             strSql = "Select a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
                 ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName" +
+                ",a.PrdMo,a.MdNo,a.MoGroup" +
                 ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
@@ -117,20 +119,24 @@ namespace cf01.CLS
                 strUpd = @" Insert Into mm_product_cost_head " +
                     " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
                     ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                    ",PrdMo,MdNo,MoGroup" +
                     ",Remark,CreateUser,CreateTime,AmendUser,AmendTime )" +
                     " Values ( " +
-                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}',GETDATE(),'{13}',GETDATE() )";
+                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}'" +
+                    ",'{16}',GETDATE(),'{16}',GETDATE() )";
             }
             else
                 strUpd = @" Update mm_product_cost_head Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
                     ",ProductType='{6}',ProductTypeName='{7}'" +
                     ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
-                    ",Remark='{12}',AmendUser='{13}',AmendTime=GETDATE() " +
+                    ",PrdMo='{12}',MdNo='{13}',MoGroup='{14}'" +
+                    ",Remark='{15}',AmendUser='{16}',AmendTime=GETDATE() " +
                     " Where ID='{0}' And Ver='{1}'";
             strSql += string.Format(strUpd
                     , ID, Ver, mdlGoods.ProductID, mdlGoods.ProductName, mdlGoods.ArtWork, mdlGoods.ArtWorkName
                     , mdlGoods.ProductType, mdlGoods.ProductTypeName, mdlGoods.ProductSize, mdlGoods.ProductSizeName
                     , mdlGoods.ProductColor, mdlGoods.ProductColorName
+                    , mdlGoods.PrdMo, mdlGoods.MdNo, mdlGoods.MoGroup
                     , mdlGoods.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
@@ -397,12 +403,12 @@ namespace cf01.CLS
                         ",'{11}',GETDATE(),'{11}',GETDATE() )";
                 }
                 else
-                    strUpd = @" Update mm_product_cost_mat Set MatCode='{2}',MatName='{3}',WasteRate='{4}',MatWeg='{5}',MatWaste='{6}'" +
+                    strUpd = @" Update mm_product_cost_mat Set MatCode='{2}',MatName='{3}',MatWeg='{4}',WasteRate='{5}',MatWaste='{6}'" +
                         ",MatUse='{7}',MatPrice='{8}'" +
                         ",MatPriceUnit='{9}',MatCost='{10}',AmendUser='{11}',AmendTime=GETDATE() " +
                         " Where upperSN='{0}' And Seq='{1}'";
                 strSql += string.Format(strUpd
-                        , upperSN, seq, mdlGoodsMat.MatCode, mdlGoodsMat.MatName, mdlGoodsMat.WasteRate, mdlGoodsMat.MatWeg, mdlGoodsMat.MatWaste
+                        , upperSN, seq, mdlGoodsMat.MatCode, mdlGoodsMat.MatName, mdlGoodsMat.MatWeg, mdlGoodsMat.WasteRate, mdlGoodsMat.MatWaste
                         , mdlGoodsMat.MatUse, mdlGoodsMat.MatPrice, mdlGoodsMat.MatPriceUnit, mdlGoodsMat.MatCost, userid);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
@@ -444,7 +450,7 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql = "Select upperSN,Seq,PrdDep,ProcessID,ProcessName,ProcessPrice,ProcessBaseQty,ProcessUnit,CostK " +
-                ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK,VendID,VendName" +
+                ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK,VendID,VendName,QuoDate,QuoID" +
                 " From mm_product_cost_process " +
                 " Where upperSN='" + upperSN + "' And ProcessType='" + processType + "' And Status <>'D' ";
             //if (Seq != "")
@@ -477,18 +483,18 @@ namespace cf01.CLS
                     strUpd = @" Insert Into mm_product_cost_process " +
                         " ( upperSN,Seq,ProcessType,PrdDep,ProcessID,ProcessName,ProcessPrice,ProcessBaseQty,ProcessUnit,CostK" +
                         ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK" +
-                        ",VendID,VendName,CreateUser,CreateTime,AmendUser,AmendTime" +
+                        ",VendID,VendName,QuoDate,QuoID,CreateUser,CreateTime,AmendUser,AmendTime" +
                         " )" +
                         " Values ( " +
                         " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'" +
-                        ",'{13}','{14}','{15}','{16}','{17}',GETDATE(),'{17}',GETDATE()" +
+                        ",'{13}','{14}','{15}','{16}','{17}','{18}','{19}',GETDATE(),'{19}',GETDATE()" +
                         " )";
                 }
                 else
                     strUpd = @" Update mm_product_cost_process Set PrdDep='{3}',ProcessID='{4}',ProcessName='{5}',ProcessPrice='{6}'" +
                         ",ProcessBaseQty='{7}',ProcessUnit='{8}',CostK='{9}'" +
                         ",WasteRate='{10}',WegPrice='{11}',WegUnit='{12}',WegCost='{13}',TotalCostK='{14}'" +
-                        ",VendID='{15}',VendName='{16}',AmendUser='{17}',AmendTime=GETDATE() " +
+                        ",VendID='{15}',VendName='{16}',QuoDate='{17}',QuoID='{18}',AmendUser='{19}',AmendTime=GETDATE() " +
                         " Where upperSN='{0}' And Seq='{1}' And ProcessType='{2}'";
                 strSql += string.Format(strUpd
                         , upperSN, seq, processType, mdlGoodsProcess.PrdDep, mdlGoodsProcess.ProcessID, mdlGoodsProcess.ProcessName
@@ -496,7 +502,7 @@ namespace cf01.CLS
                         , mdlGoodsProcess.ProcessUnit, mdlGoodsProcess.CostK
                         , mdlGoodsProcess.WasteRate, mdlGoodsProcess.WegPrice, mdlGoodsProcess.WegUnit, mdlGoodsProcess.WegCost
                         , mdlGoodsProcess.TotalCostK
-                        , mdlGoodsProcess.VendID, mdlGoodsProcess.VendName
+                        , mdlGoodsProcess.VendID, mdlGoodsProcess.VendName, mdlGoodsProcess.QuoDate, mdlGoodsProcess.QuoID
                         , userid);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
@@ -569,32 +575,35 @@ namespace cf01.CLS
                 result = "";
             return result;
         }
-        public static DataTable FindPlateStdPrice(string vendID,string plateType,string colorID,string colorName)
+        public static DataTable FindPlateStdPrice(string vendID,string plateType,string plate_process, string colorName)
         {
             string strSql = "";
-            strSql = "Select Top 100 a.vendor_id,a.vendor_name As vendor,a.cf_color_id As goods_id,a.cf_color As do_color" +
-                ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id,a.price,a.price As QtyPriceHKD" +
+            strSql = "Select a.vendor_id,a.vendor_name As vendor,a.cf_color_id,a.cf_color As do_color" +
+                ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id"+
+                ",a.price,Convert(decimal(18, 4),a.price*b.exchange_rate) As QtyPriceHKD" +
                 ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
-                ",a.prod_type As goods_name,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
+                ",a.prod_type,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
+                ",a.price_remark,a.mat,a.prod_desc,a.prod_id,a.size" +
                 " From quotation_plate a" +
-                " Where a.quotation_id>=''";
+                " Left Join " + remote_db + "cd_exchange_rate b On a.m_id=b.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                " Where b.within_code='" + within_code + "' And b.state='0' ";
             if (vendID != "")
                 strSql += " And a.vendor_id Like '%" + vendID + "%'";
             if (plateType != "")
                 strSql += " And a.plate_type Like '%" + plateType + "%'";
-            if (colorID != "")
-                strSql += " And a.cf_color_id Like '%" + colorID + "%'";
+            if (plate_process != "")
+                strSql += " And a.plate_process = '" + plate_process + "'";
             if (colorName != "")
                 strSql += " And a.cf_color Like '%" + colorName + "%'";
-            strSql += " Order By a.prod_type,a.quotation_date Desc";
+            strSql += " Order By a.do_color,a.prod_type,a.plate_type,a.quotation_date Desc";
             DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
-            for (int i=0;i<dtPrd.Rows.Count;i++)
-            {
-                DataRow dr = dtPrd.Rows[i];
-                decimal exchangeRate = 0;
-                exchangeRate = clsBaseData.GetMidRate(dr["m_id"].ToString());
-                dr["QtyPriceHKD"] = Math.Round(clsValidRule.ConvertStrToDecimal(dr["price"].ToString()) * exchangeRate, 4);
-            }
+            //for (int i=0;i<dtPrd.Rows.Count;i++)
+            //{
+            //    DataRow dr = dtPrd.Rows[i];
+            //    decimal exchangeRate = 0;
+            //    exchangeRate = clsBaseData.GetMidRate(dr["m_id"].ToString());
+            //    dr["QtyPriceHKD"] = Math.Round(clsValidRule.ConvertStrToDecimal(dr["price"].ToString()) * exchangeRate, 4);
+            //}
             return dtPrd;
         }
 
