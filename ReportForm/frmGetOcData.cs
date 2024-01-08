@@ -36,8 +36,7 @@ namespace cf01.ReportForm
                 
                 //設置菜單按鈕的權限
                 //clsApp.SetToolBarEnable(this.Name, this.Controls);
-                clsApp.Initialize_find_value(this.Name, panel1.Controls);
-               
+                clsApp.Initialize_find_value(this.Name, panel1.Controls);               
             }
             catch (Exception ex)
             {
