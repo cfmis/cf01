@@ -12,11 +12,13 @@ namespace cf01.MDL
     {
         public string ID { get; set; }
         public int Ver { get; set; }
+        public int SN { get; set; }
     }
     public class mdlCountGoodsCostBase1
     {
         public int UpperSN { get; set; }
         public string Seq { get; set; }
+        public string NewSeq { get; set; }
         public string CreateUser { get; set; }
         public string CreateTime { get; set; }
         public string AmendUser { get; set; }
@@ -35,6 +37,7 @@ namespace cf01.MDL
         public string ProductSizeName { get; set; }
         public string ProductColor { get; set; }
         public string ProductColorName { get; set; }
+        public string CustColor { get; set; }
         public string PrdMo { get; set; }
         public string MdNo { get; set; }
         public string MoGroup { get; set; }
@@ -48,6 +51,7 @@ namespace cf01.MDL
     {
         public int UpperSN { get; set; }
         public string Seq { get; set; }
+        public string NewSeq { get; set; }
         public float MatWeg { get; set; }
         public float MatUse { get; set; }
         public float MatCost { get; set; }
@@ -86,6 +90,7 @@ namespace cf01.MDL
         public float ProcessBaseQty { get; set; }
         public string ProcessUnit { get; set; }
         public float CostK { get; set; }
+        public float ProcessWeg { get; set; }
         public float WegPrice { get; set; }
         public string WegUnit { get; set; }
         public float WegCost { get; set; }
@@ -95,6 +100,7 @@ namespace cf01.MDL
         public string VendName { get; set; }
         public string QuoDate { get; set; }
         public string QuoID { get; set; }
+        public string PSeq { get; set; }
     }
     public class mdlPurPrice: mdlCountGoodsCostBase1
     {

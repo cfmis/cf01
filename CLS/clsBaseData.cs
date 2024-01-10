@@ -168,10 +168,11 @@ namespace cf01.CLS
                 strSql += " And group_id='" + moGroup + "'";
             strSql += " Order By group_id";
             DataTable dtMoGroup = clsPublicOfCF01.GetDataTable(strSql);
-            //DataRow dr = dtMoGroup.NewRow();
-            //dr["group_id"] = "";
-            //dr["group_desc"] = "";
-            //dtMoGroup.Rows.Add(dr);
+            DataRow dr = dtMoGroup.NewRow();
+            dr["group_id"] = "";
+            dr["group_desc"] = "";
+            dtMoGroup.Rows.Add(dr);
+            dtMoGroup.DefaultView.Sort = "group_id";
             return dtMoGroup;
         }
     }

@@ -264,6 +264,7 @@
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
     <Compile Include="CLS\clsOrderFareCharge.cs" />
+    <Compile Include="CLS\clsOrderHistory.cs" />
     <Compile Include="CLS\clsPackingList.cs" />
     <Compile Include="CLS\clsPlateFee.cs" />
     <Compile Include="CLS\clsPrdTransfer.cs" />
@@ -1421,6 +1422,12 @@
     <Compile Include="MM\frmMmCalculatePriceFind.designer.cs">
       <DependentUpon>frmMmCalculatePriceFind.cs</DependentUpon>
     </Compile>
+    <Compile Include="MM\frmOrderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmOrderHistory.Designer.cs">
+      <DependentUpon>frmOrderHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="MM\frmProductCosting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1492,6 +1499,12 @@
     </Compile>
     <Compile Include="MM\frmSetProductWeight.Designer.cs">
       <DependentUpon>frmSetProductWeight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MM\progressBar_windows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\progressBar_windows.Designer.cs">
+      <DependentUpon>progressBar_windows.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleClass\DataGridViewMaskedTextBoxCell.cs" />
     <Compile Include="ModuleClass\DataGridViewMaskedTextBoxColumn.cs" />
@@ -3334,6 +3347,9 @@
     <EmbeddedResource Include="MM\frmMmCalculatePriceFind.resx">
       <DependentUpon>frmMmCalculatePriceFind.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmOrderHistory.resx">
+      <DependentUpon>frmOrderHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MM\frmProductCosting.resx">
       <DependentUpon>frmProductCosting.cs</DependentUpon>
     </EmbeddedResource>
@@ -3369,6 +3385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmSetProductWeight.resx">
       <DependentUpon>frmSetProductWeight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\progressBar_windows.resx">
+      <DependentUpon>progressBar_windows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleClass\LineX.resx">
       <DependentUpon>LineX.cs</DependentUpon>
