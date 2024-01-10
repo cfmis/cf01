@@ -14,7 +14,7 @@ namespace cf01.ModuleClass
         public static DataRow[] getGrant(string lang, string name, string pwd)
         {
             DataTable dt = new DataTable();
-            string strSQL = String.Format("select * from view_1 where lang= '{0}'", lang);
+            string strSQL = String.Format("Select * From view_1 Where lang= '{0}' Order By gid_sort", lang);
             dt = CLS.clsPublicOfCF01.GetDataTable(strSQL);
 
             //筛选出这个用户所在的角色的所有的权限
@@ -26,7 +26,7 @@ namespace cf01.ModuleClass
         public static DataTable getAllGrant(string lang, string name)
         {
             DataTable dt = new DataTable();
-            string strSQL = String.Format("select * from view_1 where Uname = '{0}' And lang = '{1}' order by gid_sort", name, lang);
+            string strSQL = String.Format("Select * From view_1 Where Uname = '{0}' And lang = '{1}' Order By gid_sort", name, lang);
             dt = CLS.clsPublicOfCF01.GetDataTable(strSQL);
             return dt;
         }

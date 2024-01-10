@@ -85,7 +85,7 @@ namespace cf01.Forms
         /// <param name="tsi"></param>
         public void AddChildMenu(ToolStripMenuItem tsi1, int pid, string userName)
         {
-            DataRow[] drArr = dt.Select(String.Format("Pid={0} and Uname='{1}'", pid, userName));//查出这个菜单的所有的子菜单
+            DataRow[] drArr = dt.Select(string.Format("Pid={0} and Uname='{1}'", pid, userName));//查出这个菜单的所有的子菜单
             ToolStripMenuItem tsi;
             foreach (DataRow dr in drArr)
             {
