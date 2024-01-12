@@ -16,7 +16,7 @@ using cf01.ModuleClass;
 using System.Drawing;
 using System.IO;
 using DevExpress.XtraReports.UI;
-using System.ComponentModel;
+
 
 namespace cf01.Forms
 {
@@ -31,8 +31,7 @@ namespace cf01.Forms
         private clsAppPublic clsApp = new clsAppPublic();
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public BindingSource bds1 = new BindingSource();
-        string strTip = "編輯狀態雙擊鼠標左鍵清除此欄內容.";
-        ListSortDirection sortDirection;//排序方式
+        string strTip = "編輯狀態雙擊鼠標左鍵清除此欄內容.";       
 
         public frmDevelopmentPvh()
         {
@@ -1357,17 +1356,17 @@ namespace cf01.Forms
 
         private void txtProcess_DoubleClick(object sender, EventArgs e)
         {
-            ClearContents(txtFinish);
+            ClearContents(txtProcess);
         }
 
         private void txtDye_method_DoubleClick(object sender, EventArgs e)
         {
-            ClearContents(txtFinish);
+            ClearContents(txtDye_method);
         }
 
         private void txtDye_type_DoubleClick(object sender, EventArgs e)
         {
-            ClearContents(txtFinish);
+            ClearContents(txtDye_type);
         }
 
         
