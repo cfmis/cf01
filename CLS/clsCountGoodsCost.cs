@@ -38,7 +38,7 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
-                ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                ",ProductSize,ProductSizeName,ProductColor,ProductColorName,CustColor" +
                 ",PrdMo,MdNo,MoGroup" +
                 ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
@@ -54,12 +54,13 @@ namespace cf01.CLS
         /// <param name="productName"></param>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public static DataTable QueryProductCost(string productID,string productName,string ID)
+        public static DataTable QueryProductCost(string productID,string productName,string ID,string CustColor,string MoGroup)
         {
             string strSql = "";
-            strSql = "Select a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
+            strSql += " Select aa.* From ( ";
+            strSql += " Select "+"'M' As MFlag"+",a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
                 ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName" +
-                ",a.PrdMo,a.MdNo,a.MoGroup" +
+                ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor" +
                 ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
@@ -70,6 +71,30 @@ namespace cf01.CLS
                 strSql += " And a.productName Like '%" + productName + "%'";
             if (ID != "")
                 strSql += " And a.ID Like '%" + ID + "%'";
+            if (CustColor != "")
+                strSql += " And a.CustColor Like '%" + CustColor + "%'";
+            if (MoGroup != "")
+                strSql += " And a.MoGroup = '" + MoGroup + "'";
+            if (productID!=""|| productName!="")
+            {
+                strSql += " Union ";
+                strSql += " Select "+"' ' As MFlag"+",a.ID,a.Ver,b.ProductID,b.ProductName,b.ArtWork,b.ArtWorkName,b.ProductType,b.ProductTypeName" +
+                ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName" +
+                ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor" +
+                ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
+                ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
+                " From mm_product_cost_head a" +
+                " Inner Join mm_product_cost_part b On a.SN=b.UpperSN" +
+                " Where a.Status<>'D' And b.Status<>'D' ";
+                if (productID != "")
+                    strSql += " And b.ProductID Like '%" + productID + "%'";
+                if (productName != "")
+                    strSql += " And b.productName Like '%" + productName + "%'";
+                if (MoGroup != "")
+                    strSql += " And a.MoGroup = '" + MoGroup + "'";
+            }
+            strSql += " ) aa ";
+            strSql += " Order By aa.ID,aa.MFlag Desc ";
             DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
             return dtPrd;
         }
@@ -113,29 +138,29 @@ namespace cf01.CLS
             {
                 ID = GenID();
             }
-            if (!CheckID(ID))
+            if (CheckID(ID).Rows.Count==0)
             {
                 Ver = 0;
                 strUpd = @" Insert Into mm_product_cost_head " +
                     " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
-                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName,CustColor" +
                     ",PrdMo,MdNo,MoGroup" +
                     ",Remark,CreateUser,CreateTime,AmendUser,AmendTime )" +
                     " Values ( " +
-                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}'" +
-                    ",'{16}',GETDATE(),'{16}',GETDATE() )";
+                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}'" +
+                    ",'{17}',GETDATE(),'{17}',GETDATE() )";
             }
             else
                 strUpd = @" Update mm_product_cost_head Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
                     ",ProductType='{6}',ProductTypeName='{7}'" +
-                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
-                    ",PrdMo='{12}',MdNo='{13}',MoGroup='{14}'" +
-                    ",Remark='{15}',AmendUser='{16}',AmendTime=GETDATE() " +
+                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}',CustColor='{12}'" +
+                    ",PrdMo='{13}',MdNo='{14}',MoGroup='{15}'" +
+                    ",Remark='{16}',AmendUser='{17}',AmendTime=GETDATE() " +
                     " Where ID='{0}' And Ver='{1}'";
             strSql += string.Format(strUpd
                     , ID, Ver, mdlGoods.ProductID, mdlGoods.ProductName, mdlGoods.ArtWork, mdlGoods.ArtWorkName
                     , mdlGoods.ProductType, mdlGoods.ProductTypeName, mdlGoods.ProductSize, mdlGoods.ProductSizeName
-                    , mdlGoods.ProductColor, mdlGoods.ProductColorName
+                    , mdlGoods.ProductColor, mdlGoods.ProductColorName, mdlGoods.CustColor
                     , mdlGoods.PrdMo, mdlGoods.MdNo, mdlGoods.MoGroup
                     , mdlGoods.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
@@ -144,7 +169,7 @@ namespace cf01.CLS
                 result = ID;
             return result;
         }
-        private static string GenID()
+        public static string GenID()
         {
             string result = "";
             string strSql = "";
@@ -156,15 +181,12 @@ namespace cf01.CLS
                 result = "QT" + (Convert.ToInt32(dtID.Rows[0]["ID"].ToString().Substring(2, 8)) + 1).ToString().PadLeft(8, '0');
             return result;
         }
-        private static bool CheckID(string ID)
+        public static DataTable CheckID(string ID)
         {
-            bool result = false;
             string strSql = "";
-            strSql += " Select ID From mm_product_cost_head Where ID='" + ID + "'";
+            strSql += " Select ID,SN From mm_product_cost_head Where ID='" + ID + "'";
             DataTable dtID = clsPublicOfCF01.GetDataTable(strSql);
-            if (dtID.Rows.Count > 0)
-                result = true;
-            return result;
+            return dtID;
         }
         /// ///注銷所有報價記錄
         public static string Delete(int SN)
@@ -332,7 +354,7 @@ namespace cf01.CLS
         private static bool CheckExistSeq(string tb,int upperSN, string seq,string processType)
         {
             bool result=false;
-            string strSql = "Select Seq From " + tb + " Where upperSN='" + upperSN + "' And Seq='" + seq + "'";
+            string strSql = "Select Seq From " + tb + " Where upperSN='" + upperSN + "' And Seq='" + seq + "' And Status<>'D' ";
             if (processType != "")
                 strSql += " And processType='" + processType + "'";
             DataTable dtSeq = clsPublicOfCF01.GetDataTable(strSql);
@@ -350,19 +372,20 @@ namespace cf01.CLS
                 ",FrontPart,CostPcs,CostGrs,CostK" +
                 ",FactoryFee,FactoryCostPcs,FactoryCostGrs,FactoryCostK" +
                 ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
-                ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN,Status" +
+                ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN,Status,Seq As NewSeq" +
                 " From mm_product_cost_part " +
                 " Where upperSN='" + upperSN + "' And Status <>'D' ";
             if (seq != "")
                 strSql += " And Seq='" + seq + "'";
             strSql += " Order By FrontPart Desc,Seq";
             DataTable dtGoodsPart = clsPublicOfCF01.GetDataTable(strSql);
+            dtGoodsPart.Columns.Add("SelectFlag", typeof(bool));
             return dtGoodsPart;
         }
         public static DataTable LoadProductCostMat(int upperSN)
         {
             string strSql = "";
-            strSql = "Select upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost " +
+            strSql = "Select upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost,Seq As NewSeq " +
                 " From mm_product_cost_mat " +
                 " Where upperSN='" + upperSN + "' And Status <>'D' ";
             //if (Seq != "")
@@ -387,11 +410,12 @@ namespace cf01.CLS
             for (int i = 0; i < lsGoodsMat.Count; i++)
             {
                 var mdlGoodsMat = lsGoodsMat[i];
-                string seq = mdlGoodsMat.Seq;
-                if (seq == "")
-                {
-                    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + i).ToString().PadLeft(3, '0');
-                }
+                //string newSeq = mdlGoodsMat.NewSeq;
+                string seq =mdlGoodsMat.Seq;
+                //if (newSeq == "")
+                //{
+                //    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + i).ToString().PadLeft(3, '0');
+                //}
                 if (!CheckExistSeq("mm_product_cost_mat", upperSN, seq,""))
                 {
                     strUpd = @" Insert Into mm_product_cost_mat " +
@@ -449,8 +473,8 @@ namespace cf01.CLS
         public static DataTable LoadProductCostProcess(int upperSN,string processType)
         {
             string strSql = "";
-            strSql = "Select upperSN,Seq,PrdDep,ProcessID,ProcessName,ProcessPrice,ProcessBaseQty,ProcessUnit,CostK " +
-                ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK,VendID,VendName,QuoDate,QuoID" +
+            strSql = "Select upperSN,Seq,PrdDep,ProcessID,ProcessName,ProcessPrice,ProcessBaseQty,ProcessUnit,ProcessWeg,CostK " +
+                ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK,VendID,VendName,QuoDate,QuoID,PSeq,Seq As NewSeq" +
                 " From mm_product_cost_process " +
                 " Where upperSN='" + upperSN + "' And ProcessType='" + processType + "' And Status <>'D' ";
             //if (Seq != "")
@@ -465,7 +489,7 @@ namespace cf01.CLS
             int upperSN = lsGoodsProcess[0].UpperSN;
             string processType = lsGoodsProcess[0].ProcessType;
             string strSql = "", strUpd = "";
-            int stepSeq = 0;
+            //int stepSeq = 0;
             strSql += string.Format(@" SET XACT_ABORT  ON ");
             strSql += string.Format(@" BEGIN TRANSACTION ");
             string maxSeq = GenSeq("mm_product_cost_process", upperSN, processType);
@@ -473,28 +497,30 @@ namespace cf01.CLS
             {
                 var mdlGoodsProcess = lsGoodsProcess[i];
                 string seq = mdlGoodsProcess.Seq;
-                if (seq == "")
-                {
-                    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + stepSeq).ToString().PadLeft(3, '0');
-                    stepSeq++;
-                }
-                if (!CheckExistSeq("mm_product_cost_process", upperSN, seq,processType))
+                //if (seq == "")
+                //{
+                //    seq = (Convert.ToInt32(maxSeq.Substring(0, 3)) + stepSeq).ToString().PadLeft(3, '0');
+                //    stepSeq++;
+                //}
+                if (!CheckExistSeq("mm_product_cost_process", upperSN, seq, processType))
                 {
                     strUpd = @" Insert Into mm_product_cost_process " +
                         " ( upperSN,Seq,ProcessType,PrdDep,ProcessID,ProcessName,ProcessPrice,ProcessBaseQty,ProcessUnit,CostK" +
                         ",WasteRate,WegPrice,WegUnit,WegCost,TotalCostK" +
-                        ",VendID,VendName,QuoDate,QuoID,CreateUser,CreateTime,AmendUser,AmendTime" +
+                        ",VendID,VendName,QuoDate,QuoID,PSeq,ProcessWeg" +
+                        ",CreateUser,CreateTime,AmendUser,AmendTime" +
                         " )" +
                         " Values ( " +
                         " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'" +
-                        ",'{13}','{14}','{15}','{16}','{17}','{18}','{19}',GETDATE(),'{19}',GETDATE()" +
+                        ",'{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',GETDATE(),'{21}',GETDATE()" +
                         " )";
                 }
                 else
                     strUpd = @" Update mm_product_cost_process Set PrdDep='{3}',ProcessID='{4}',ProcessName='{5}',ProcessPrice='{6}'" +
                         ",ProcessBaseQty='{7}',ProcessUnit='{8}',CostK='{9}'" +
                         ",WasteRate='{10}',WegPrice='{11}',WegUnit='{12}',WegCost='{13}',TotalCostK='{14}'" +
-                        ",VendID='{15}',VendName='{16}',QuoDate='{17}',QuoID='{18}',AmendUser='{19}',AmendTime=GETDATE() " +
+                        ",VendID='{15}',VendName='{16}',QuoDate='{17}',QuoID='{18}',PSeq='{19}',ProcessWeg='{20}'" +
+                        ",AmendUser='{21}',AmendTime=GETDATE() " +
                         " Where upperSN='{0}' And Seq='{1}' And ProcessType='{2}'";
                 strSql += string.Format(strUpd
                         , upperSN, seq, processType, mdlGoodsProcess.PrdDep, mdlGoodsProcess.ProcessID, mdlGoodsProcess.ProcessName
@@ -503,6 +529,7 @@ namespace cf01.CLS
                         , mdlGoodsProcess.WasteRate, mdlGoodsProcess.WegPrice, mdlGoodsProcess.WegUnit, mdlGoodsProcess.WegCost
                         , mdlGoodsProcess.TotalCostK
                         , mdlGoodsProcess.VendID, mdlGoodsProcess.VendName, mdlGoodsProcess.QuoDate, mdlGoodsProcess.QuoID
+                        , mdlGoodsProcess.PSeq, mdlGoodsProcess.ProcessWeg
                         , userid);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");

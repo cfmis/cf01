@@ -46,6 +46,8 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnOrderHistory = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lueMoGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.btnFindProduct = new DevExpress.XtraEditors.SimpleButton();
@@ -78,7 +80,9 @@
             this.lblCreateUser = new DevExpress.XtraEditors.LabelControl();
             this.txtVer = new DevExpress.XtraEditors.TextEdit();
             this.lblVer = new DevExpress.XtraEditors.LabelControl();
+            this.txtCustColor = new DevExpress.XtraEditors.TextEdit();
             this.txtProductType = new DevExpress.XtraEditors.TextEdit();
+            this.lblCustColor = new DevExpress.XtraEditors.LabelControl();
             this.txtPrdMo = new DevExpress.XtraEditors.TextEdit();
             this.lblPrdType = new DevExpress.XtraEditors.LabelControl();
             this.lblPrdMo = new DevExpress.XtraEditors.LabelControl();
@@ -144,11 +148,14 @@
             this.repositoryItemButtonEdit20 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit18 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
             this.btnSavePur = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetPurPriceVisible = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddPur = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
             this.plcProfit = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.lueTestUnit = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
@@ -166,6 +173,7 @@
             this.lblTestQty = new DevExpress.XtraEditors.LabelControl();
             this.lblSalePricePcs = new DevExpress.XtraEditors.LabelControl();
             this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.btnSetProfitVisible = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.txtProductCostPcs = new DevExpress.XtraEditors.TextEdit();
@@ -252,6 +260,7 @@
             this.gcGoodsPlate = new DevExpress.XtraGrid.GridControl();
             this.gvGoodsPlate = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit12 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -260,6 +269,7 @@
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.luePlateQtyUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.luePlateWegUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -396,6 +406,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAmendUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCustColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWork.Properties)).BeginInit();
@@ -577,7 +588,9 @@
             this.btnFind,
             this.toolStripSeparator4,
             this.btnExcel,
-            this.toolStripSeparator6});
+            this.toolStripSeparator6,
+            this.btnOrderHistory,
+            this.toolStripSeparator9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1543, 39);
@@ -639,8 +652,8 @@
             this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
             this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(65, 35);
-            this.btnCopy.Text = "複製(&C)";
+            this.btnCopy.Size = new System.Drawing.Size(75, 35);
+            this.btnCopy.Text = "整單複製(&C)";
             this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
@@ -706,11 +719,27 @@
             this.btnExcel.Size = new System.Drawing.Size(77, 36);
             this.btnExcel.Text = "匯出到Excel";
             this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 39);
+            // 
+            // btnOrderHistory
+            // 
+            this.btnOrderHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnOrderHistory.Image")));
+            this.btnOrderHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOrderHistory.Name = "btnOrderHistory";
+            this.btnOrderHistory.Size = new System.Drawing.Size(72, 36);
+            this.btnOrderHistory.Text = "曾落單資料";
+            this.btnOrderHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnOrderHistory.Click += new System.EventHandler(this.btnOrderHistory_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 39);
             // 
             // panelControl1
             // 
@@ -745,7 +774,9 @@
             this.panelControl1.Controls.Add(this.lblCreateUser);
             this.panelControl1.Controls.Add(this.txtVer);
             this.panelControl1.Controls.Add(this.lblVer);
+            this.panelControl1.Controls.Add(this.txtCustColor);
             this.panelControl1.Controls.Add(this.txtProductType);
+            this.panelControl1.Controls.Add(this.lblCustColor);
             this.panelControl1.Controls.Add(this.txtPrdMo);
             this.panelControl1.Controls.Add(this.lblPrdType);
             this.panelControl1.Controls.Add(this.lblPrdMo);
@@ -756,12 +787,12 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1537, 126);
+            this.panelControl1.Size = new System.Drawing.Size(1537, 110);
             this.panelControl1.TabIndex = 2;
             // 
             // lueMoGroup
             // 
-            this.lueMoGroup.Location = new System.Drawing.Point(541, 60);
+            this.lueMoGroup.Location = new System.Drawing.Point(1172, 37);
             this.lueMoGroup.Name = "lueMoGroup";
             this.lueMoGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -769,7 +800,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_id", 60, "組別代號"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_desc", 80, "組別描述")});
             this.lueMoGroup.Properties.NullText = "";
-            this.lueMoGroup.Size = new System.Drawing.Size(122, 20);
+            this.lueMoGroup.Size = new System.Drawing.Size(78, 20);
             this.lueMoGroup.TabIndex = 16;
             // 
             // btnFindProduct
@@ -814,7 +845,7 @@
             // 
             // lblMoGroup
             // 
-            this.lblMoGroup.Location = new System.Drawing.Point(510, 62);
+            this.lblMoGroup.Location = new System.Drawing.Point(1141, 40);
             this.lblMoGroup.Name = "lblMoGroup";
             this.lblMoGroup.Size = new System.Drawing.Size(28, 14);
             this.lblMoGroup.TabIndex = 6;
@@ -920,12 +951,12 @@
             // 
             this.txtRemark.Location = new System.Drawing.Point(888, 60);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(344, 20);
+            this.txtRemark.Size = new System.Drawing.Size(362, 20);
             this.txtRemark.TabIndex = 11;
             // 
             // txtSN
             // 
-            this.txtSN.Location = new System.Drawing.Point(1172, 37);
+            this.txtSN.Location = new System.Drawing.Point(1280, 14);
             this.txtSN.Name = "txtSN";
             this.txtSN.Properties.ReadOnly = true;
             this.txtSN.Size = new System.Drawing.Size(60, 20);
@@ -945,7 +976,7 @@
             // 
             // txtCreateTime
             // 
-            this.txtCreateTime.Location = new System.Drawing.Point(267, 86);
+            this.txtCreateTime.Location = new System.Drawing.Point(267, 83);
             this.txtCreateTime.Name = "txtCreateTime";
             this.txtCreateTime.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtCreateTime.Properties.AppearanceDisabled.Options.UseBackColor = true;
@@ -957,7 +988,7 @@
             // 
             // lblAmendTime
             // 
-            this.lblAmendTime.Location = new System.Drawing.Point(829, 86);
+            this.lblAmendTime.Location = new System.Drawing.Point(833, 86);
             this.lblAmendTime.Name = "lblAmendTime";
             this.lblAmendTime.Size = new System.Drawing.Size(52, 14);
             this.lblAmendTime.TabIndex = 0;
@@ -965,7 +996,7 @@
             // 
             // lblCreateTime
             // 
-            this.lblCreateTime.Location = new System.Drawing.Point(212, 89);
+            this.lblCreateTime.Location = new System.Drawing.Point(212, 86);
             this.lblCreateTime.Name = "lblCreateTime";
             this.lblCreateTime.Size = new System.Drawing.Size(52, 14);
             this.lblCreateTime.TabIndex = 0;
@@ -973,7 +1004,7 @@
             // 
             // txtAmendUser
             // 
-            this.txtAmendUser.Location = new System.Drawing.Point(541, 86);
+            this.txtAmendUser.Location = new System.Drawing.Point(541, 83);
             this.txtAmendUser.Name = "txtAmendUser";
             this.txtAmendUser.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtAmendUser.Properties.AppearanceDisabled.Options.UseBackColor = true;
@@ -985,7 +1016,7 @@
             // 
             // lblAmendUser
             // 
-            this.lblAmendUser.Location = new System.Drawing.Point(498, 89);
+            this.lblAmendUser.Location = new System.Drawing.Point(498, 86);
             this.lblAmendUser.Name = "lblAmendUser";
             this.lblAmendUser.Size = new System.Drawing.Size(40, 14);
             this.lblAmendUser.TabIndex = 0;
@@ -993,7 +1024,7 @@
             // 
             // txtCreateUser
             // 
-            this.txtCreateUser.Location = new System.Drawing.Point(84, 86);
+            this.txtCreateUser.Location = new System.Drawing.Point(84, 83);
             this.txtCreateUser.Name = "txtCreateUser";
             this.txtCreateUser.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtCreateUser.Properties.AppearanceDisabled.Options.UseBackColor = true;
@@ -1005,7 +1036,7 @@
             // 
             // lblCreateUser
             // 
-            this.lblCreateUser.Location = new System.Drawing.Point(36, 89);
+            this.lblCreateUser.Location = new System.Drawing.Point(36, 86);
             this.lblCreateUser.Name = "lblCreateUser";
             this.lblCreateUser.Size = new System.Drawing.Size(40, 14);
             this.lblCreateUser.TabIndex = 0;
@@ -1018,7 +1049,7 @@
             this.txtVer.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtVer.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtVer.Properties.ReadOnly = true;
-            this.txtVer.Size = new System.Drawing.Size(60, 20);
+            this.txtVer.Size = new System.Drawing.Size(78, 20);
             this.txtVer.TabIndex = 1;
             // 
             // lblVer
@@ -1029,6 +1060,14 @@
             this.lblVer.TabIndex = 0;
             this.lblVer.Text = "版本號:";
             // 
+            // txtCustColor
+            // 
+            this.txtCustColor.Location = new System.Drawing.Point(541, 60);
+            this.txtCustColor.Name = "txtCustColor";
+            this.txtCustColor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCustColor.Size = new System.Drawing.Size(279, 20);
+            this.txtCustColor.TabIndex = 7;
+            // 
             // txtProductType
             // 
             this.txtProductType.Location = new System.Drawing.Point(541, 37);
@@ -1037,6 +1076,14 @@
             this.txtProductType.Properties.MaxLength = 2;
             this.txtProductType.Size = new System.Drawing.Size(122, 20);
             this.txtProductType.TabIndex = 7;
+            // 
+            // lblCustColor
+            // 
+            this.lblCustColor.Location = new System.Drawing.Point(462, 62);
+            this.lblCustColor.Name = "lblCustColor";
+            this.lblCustColor.Size = new System.Drawing.Size(76, 14);
+            this.lblCustColor.TabIndex = 0;
+            this.lblCustColor.Text = "客戶顏色編號:";
             // 
             // txtPrdMo
             // 
@@ -1105,7 +1152,7 @@
             this.panelControl2.Controls.Add(this.gcGoodsPartDetails);
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 126);
+            this.panelControl2.Location = new System.Drawing.Point(0, 110);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1537, 236);
             this.panelControl2.TabIndex = 3;
@@ -1490,7 +1537,7 @@
             // 
             this.plcPurPrice.Controls.Add(this.gcPurPriceDetails);
             this.plcPurPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcPurPrice.Location = new System.Drawing.Point(0, 527);
+            this.plcPurPrice.Location = new System.Drawing.Point(0, 511);
             this.plcPurPrice.Name = "plcPurPrice";
             this.plcPurPrice.Size = new System.Drawing.Size(1537, 146);
             this.plcPurPrice.TabIndex = 5;
@@ -1607,6 +1654,7 @@
             this.repositoryItemButtonEdit21.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit21.Name = "repositoryItemButtonEdit21";
+            this.repositoryItemButtonEdit21.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit21.Click += new System.EventHandler(this.repositoryItemButtonEdit21_Click);
             // 
             // repositoryItemLookUpEdit27
@@ -1698,15 +1746,26 @@
             // 
             // panelControl15
             // 
+            this.panelControl15.Controls.Add(this.labelControl33);
             this.panelControl15.Controls.Add(this.btnSavePur);
             this.panelControl15.Controls.Add(this.btnSetPurPriceVisible);
             this.panelControl15.Controls.Add(this.btnAddPur);
             this.panelControl15.Controls.Add(this.labelControl38);
             this.panelControl15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl15.Location = new System.Drawing.Point(0, 495);
+            this.panelControl15.Location = new System.Drawing.Point(0, 479);
             this.panelControl15.Name = "panelControl15";
             this.panelControl15.Size = new System.Drawing.Size(1537, 32);
             this.panelControl15.TabIndex = 6;
+            // 
+            // labelControl33
+            // 
+            this.labelControl33.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl33.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl33.Location = new System.Drawing.Point(608, 7);
+            this.labelControl33.Name = "labelControl33";
+            this.labelControl33.Size = new System.Drawing.Size(182, 19);
+            this.labelControl33.TabIndex = 11;
+            this.labelControl33.Text = "J = I * ( 1+ 單價浮動% )";
             // 
             // btnSavePur
             // 
@@ -1746,6 +1805,8 @@
             // 
             // plcProfit
             // 
+            this.plcProfit.Controls.Add(this.labelControl32);
+            this.plcProfit.Controls.Add(this.labelControl31);
             this.plcProfit.Controls.Add(this.lueTestUnit);
             this.plcProfit.Controls.Add(this.labelControl24);
             this.plcProfit.Controls.Add(this.labelControl27);
@@ -1763,10 +1824,30 @@
             this.plcProfit.Controls.Add(this.lblTestQty);
             this.plcProfit.Controls.Add(this.lblSalePricePcs);
             this.plcProfit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcProfit.Location = new System.Drawing.Point(0, 394);
+            this.plcProfit.Location = new System.Drawing.Point(0, 378);
             this.plcProfit.Name = "plcProfit";
             this.plcProfit.Size = new System.Drawing.Size(1537, 101);
             this.plcProfit.TabIndex = 4;
+            // 
+            // labelControl32
+            // 
+            this.labelControl32.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl32.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl32.Location = new System.Drawing.Point(608, 43);
+            this.labelControl32.Name = "labelControl32";
+            this.labelControl32.Size = new System.Drawing.Size(122, 19);
+            this.labelControl32.TabIndex = 10;
+            this.labelControl32.Text = "I = G * ( 1 + H )";
+            // 
+            // labelControl31
+            // 
+            this.labelControl31.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl31.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl31.Location = new System.Drawing.Point(271, 15);
+            this.labelControl31.Name = "labelControl31";
+            this.labelControl31.Size = new System.Drawing.Size(11, 19);
+            this.labelControl31.TabIndex = 9;
+            this.labelControl31.Text = "H";
             // 
             // lueTestUnit
             // 
@@ -1900,6 +1981,7 @@
             // 
             // panelControl16
             // 
+            this.panelControl16.Controls.Add(this.labelControl30);
             this.panelControl16.Controls.Add(this.btnSetProfitVisible);
             this.panelControl16.Controls.Add(this.labelControl25);
             this.panelControl16.Controls.Add(this.txtProductCostPcs);
@@ -1909,10 +1991,20 @@
             this.panelControl16.Controls.Add(this.lblProductCostK);
             this.panelControl16.Controls.Add(this.txtProductCostGrs);
             this.panelControl16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl16.Location = new System.Drawing.Point(0, 362);
+            this.panelControl16.Location = new System.Drawing.Point(0, 346);
             this.panelControl16.Name = "panelControl16";
             this.panelControl16.Size = new System.Drawing.Size(1537, 32);
             this.panelControl16.TabIndex = 7;
+            // 
+            // labelControl30
+            // 
+            this.labelControl30.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl30.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl30.Location = new System.Drawing.Point(608, 5);
+            this.labelControl30.Name = "labelControl30";
+            this.labelControl30.Size = new System.Drawing.Size(11, 19);
+            this.labelControl30.TabIndex = 8;
+            this.labelControl30.Text = "G";
             // 
             // btnSetProfitVisible
             // 
@@ -1926,7 +2018,7 @@
             // 
             // labelControl25
             // 
-            this.labelControl25.Location = new System.Drawing.Point(11, 6);
+            this.labelControl25.Location = new System.Drawing.Point(11, 9);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(76, 14);
             this.labelControl25.TabIndex = 2;
@@ -2131,6 +2223,7 @@
             this.gvGoodsFactory.FooterPanelHeight = 30;
             this.gvGoodsFactory.GridControl = this.gcGoodsFactory;
             this.gvGoodsFactory.Name = "gvGoodsFactory";
+            this.gvGoodsFactory.OptionsCustomization.AllowSort = false;
             this.gvGoodsFactory.OptionsSelection.MultiSelect = true;
             this.gvGoodsFactory.OptionsView.ColumnAutoWidth = false;
             this.gvGoodsFactory.OptionsView.ShowGroupPanel = false;
@@ -2207,6 +2300,7 @@
             this.repositoryItemButtonEdit16.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit16.Name = "repositoryItemButtonEdit16";
+            this.repositoryItemButtonEdit16.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit16.Click += new System.EventHandler(this.repositoryItemButtonEdit16_Click);
             // 
             // repositoryItemLookUpEdit19
@@ -2487,6 +2581,7 @@
             this.gvGoodsPack.FooterPanelHeight = 30;
             this.gvGoodsPack.GridControl = this.gcGoodsPack;
             this.gvGoodsPack.Name = "gvGoodsPack";
+            this.gvGoodsPack.OptionsCustomization.AllowSort = false;
             this.gvGoodsPack.OptionsSelection.MultiSelect = true;
             this.gvGoodsPack.OptionsView.ColumnAutoWidth = false;
             this.gvGoodsPack.OptionsView.ShowGroupPanel = false;
@@ -2574,6 +2669,7 @@
             this.repositoryItemButtonEdit15.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit15.Name = "repositoryItemButtonEdit15";
+            this.repositoryItemButtonEdit15.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit15.Click += new System.EventHandler(this.repositoryItemButtonEdit15_Click);
             // 
             // repositoryItemLookUpEdit15
@@ -2701,7 +2797,7 @@
             // 
             // btnAddPack
             // 
-            this.btnAddPack.Location = new System.Drawing.Point(164, 7);
+            this.btnAddPack.Location = new System.Drawing.Point(164, 4);
             this.btnAddPack.Name = "btnAddPack";
             this.btnAddPack.Size = new System.Drawing.Size(100, 23);
             this.btnAddPack.TabIndex = 1;
@@ -2752,11 +2848,13 @@
             this.gvGoodsPlate.ColumnPanelRowHeight = 25;
             this.gvGoodsPlate.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn25,
+            this.gridColumn75,
             this.gridColumn38,
             this.gridColumn41,
             this.gridColumn39,
             this.gridColumn26,
             this.gridColumn27,
+            this.gridColumn74,
             this.gridColumn28,
             this.gridColumn29,
             this.gridColumn40,
@@ -2771,6 +2869,7 @@
             this.gvGoodsPlate.FooterPanelHeight = 30;
             this.gvGoodsPlate.GridControl = this.gcGoodsPlate;
             this.gvGoodsPlate.Name = "gvGoodsPlate";
+            this.gvGoodsPlate.OptionsCustomization.AllowSort = false;
             this.gvGoodsPlate.OptionsSelection.MultiSelect = true;
             this.gvGoodsPlate.OptionsView.ColumnAutoWidth = false;
             this.gvGoodsPlate.OptionsView.ShowGroupPanel = false;
@@ -2787,6 +2886,15 @@
             this.gridColumn25.VisibleIndex = 0;
             this.gridColumn25.Width = 40;
             // 
+            // gridColumn75
+            // 
+            this.gridColumn75.Caption = "對應原料序號";
+            this.gridColumn75.FieldName = "PSeq";
+            this.gridColumn75.Name = "gridColumn75";
+            this.gridColumn75.Visible = true;
+            this.gridColumn75.VisibleIndex = 1;
+            this.gridColumn75.Width = 83;
+            // 
             // gridColumn38
             // 
             this.gridColumn38.Caption = "外發部門";
@@ -2794,7 +2902,7 @@
             this.gridColumn38.FieldName = "PrdDep";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 1;
+            this.gridColumn38.VisibleIndex = 2;
             this.gridColumn38.Width = 85;
             // 
             // repositoryItemLookUpEdit12
@@ -2815,7 +2923,7 @@
             this.gridColumn41.FieldName = "ProcessID";
             this.gridColumn41.Name = "gridColumn41";
             this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 2;
+            this.gridColumn41.VisibleIndex = 3;
             // 
             // repositoryItemButtonEdit3
             // 
@@ -2831,7 +2939,7 @@
             this.gridColumn39.FieldName = "ProcessName";
             this.gridColumn39.Name = "gridColumn39";
             this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 3;
+            this.gridColumn39.VisibleIndex = 4;
             this.gridColumn39.Width = 196;
             // 
             // gridColumn26
@@ -2840,8 +2948,8 @@
             this.gridColumn26.FieldName = "ProcessPrice";
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 4;
-            this.gridColumn26.Width = 90;
+            this.gridColumn26.VisibleIndex = 5;
+            this.gridColumn26.Width = 64;
             // 
             // gridColumn27
             // 
@@ -2850,8 +2958,8 @@
             this.gridColumn27.FieldName = "ProcessUnit";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 5;
-            this.gridColumn27.Width = 80;
+            this.gridColumn27.VisibleIndex = 6;
+            this.gridColumn27.Width = 60;
             // 
             // luePlateQtyUnit
             // 
@@ -2864,14 +2972,23 @@
             this.luePlateQtyUnit.Name = "luePlateQtyUnit";
             this.luePlateQtyUnit.NullText = "";
             // 
+            // gridColumn74
+            // 
+            this.gridColumn74.Caption = "每千重量";
+            this.gridColumn74.FieldName = "ProcessWeg";
+            this.gridColumn74.Name = "gridColumn74";
+            this.gridColumn74.Visible = true;
+            this.gridColumn74.VisibleIndex = 7;
+            this.gridColumn74.Width = 60;
+            // 
             // gridColumn28
             // 
             this.gridColumn28.Caption = "重量單價";
             this.gridColumn28.FieldName = "WegPrice";
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 6;
-            this.gridColumn28.Width = 90;
+            this.gridColumn28.VisibleIndex = 8;
+            this.gridColumn28.Width = 62;
             // 
             // gridColumn29
             // 
@@ -2880,8 +2997,8 @@
             this.gridColumn29.FieldName = "WegUnit";
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 7;
-            this.gridColumn29.Width = 80;
+            this.gridColumn29.VisibleIndex = 9;
+            this.gridColumn29.Width = 58;
             // 
             // luePlateWegUnit
             // 
@@ -2900,7 +3017,8 @@
             this.gridColumn40.FieldName = "WasteRate";
             this.gridColumn40.Name = "gridColumn40";
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 8;
+            this.gridColumn40.VisibleIndex = 10;
+            this.gridColumn40.Width = 46;
             // 
             // gridColumn32
             // 
@@ -2908,8 +3026,8 @@
             this.gridColumn32.FieldName = "CostK";
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 9;
-            this.gridColumn32.Width = 90;
+            this.gridColumn32.VisibleIndex = 11;
+            this.gridColumn32.Width = 80;
             // 
             // gridColumn33
             // 
@@ -2917,8 +3035,8 @@
             this.gridColumn33.FieldName = "WegCost";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 10;
-            this.gridColumn33.Width = 90;
+            this.gridColumn33.VisibleIndex = 12;
+            this.gridColumn33.Width = 86;
             // 
             // gridColumn48
             // 
@@ -2926,8 +3044,8 @@
             this.gridColumn48.FieldName = "TotalCostK";
             this.gridColumn48.Name = "gridColumn48";
             this.gridColumn48.Visible = true;
-            this.gridColumn48.VisibleIndex = 11;
-            this.gridColumn48.Width = 90;
+            this.gridColumn48.VisibleIndex = 13;
+            this.gridColumn48.Width = 65;
             // 
             // gridColumn30
             // 
@@ -2935,7 +3053,7 @@
             this.gridColumn30.FieldName = "VendID";
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 12;
+            this.gridColumn30.VisibleIndex = 14;
             this.gridColumn30.Width = 90;
             // 
             // gridColumn31
@@ -2944,7 +3062,7 @@
             this.gridColumn31.FieldName = "VendName";
             this.gridColumn31.Name = "gridColumn31";
             this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 13;
+            this.gridColumn31.VisibleIndex = 15;
             this.gridColumn31.Width = 125;
             // 
             // gridColumn71
@@ -2953,7 +3071,7 @@
             this.gridColumn71.FieldName = "QuoDate";
             this.gridColumn71.Name = "gridColumn71";
             this.gridColumn71.Visible = true;
-            this.gridColumn71.VisibleIndex = 14;
+            this.gridColumn71.VisibleIndex = 16;
             // 
             // gridColumn72
             // 
@@ -2961,7 +3079,7 @@
             this.gridColumn72.FieldName = "QuoID";
             this.gridColumn72.Name = "gridColumn72";
             this.gridColumn72.Visible = true;
-            this.gridColumn72.VisibleIndex = 15;
+            this.gridColumn72.VisibleIndex = 17;
             // 
             // gridColumn63
             // 
@@ -2969,7 +3087,7 @@
             this.gridColumn63.ColumnEdit = this.repositoryItemButtonEdit14;
             this.gridColumn63.Name = "gridColumn63";
             this.gridColumn63.Visible = true;
-            this.gridColumn63.VisibleIndex = 16;
+            this.gridColumn63.VisibleIndex = 18;
             this.gridColumn63.Width = 60;
             // 
             // repositoryItemButtonEdit14
@@ -2978,6 +3096,7 @@
             this.repositoryItemButtonEdit14.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit14.Name = "repositoryItemButtonEdit14";
+            this.repositoryItemButtonEdit14.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit14.Click += new System.EventHandler(this.repositoryItemButtonEdit14_Click);
             // 
             // repositoryItemLookUpEdit8
@@ -3131,6 +3250,7 @@
             this.gvGoodsProcess.FooterPanelHeight = 30;
             this.gvGoodsProcess.GridControl = this.gcGoodsProcess;
             this.gvGoodsProcess.Name = "gvGoodsProcess";
+            this.gvGoodsProcess.OptionsCustomization.AllowSort = false;
             this.gvGoodsProcess.OptionsSelection.MultiSelect = true;
             this.gvGoodsProcess.OptionsView.ColumnAutoWidth = false;
             this.gvGoodsProcess.OptionsView.ShowGroupPanel = false;
@@ -3155,7 +3275,7 @@
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 1;
-            this.gridColumn17.Width = 84;
+            this.gridColumn17.Width = 110;
             // 
             // repositoryItemLookUpEdit11
             // 
@@ -3257,6 +3377,7 @@
             this.repositoryItemButtonEdit12.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit12.Name = "repositoryItemButtonEdit12";
+            this.repositoryItemButtonEdit12.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit12.Click += new System.EventHandler(this.repositoryItemButtonEdit12_Click);
             // 
             // repositoryItemLookUpEdit6
@@ -3465,6 +3586,7 @@
             this.gvMatDetails.FooterPanelHeight = 30;
             this.gvMatDetails.GridControl = this.gcMatDetails;
             this.gvMatDetails.Name = "gvMatDetails";
+            this.gvMatDetails.OptionsCustomization.AllowSort = false;
             this.gvMatDetails.OptionsSelection.MultiSelect = true;
             this.gvMatDetails.OptionsView.ColumnAutoWidth = false;
             this.gvMatDetails.OptionsView.ShowGroupPanel = false;
@@ -3616,6 +3738,7 @@
             this.repositoryItemButtonEdit13.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit13.Name = "repositoryItemButtonEdit13";
+            this.repositoryItemButtonEdit13.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit13.Click += new System.EventHandler(this.repositoryItemButtonEdit13_Click);
             // 
             // repositoryItemLookUpEdit1
@@ -4002,6 +4125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAmendUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreateUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCustColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdMo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWork.Properties)).EndInit();
@@ -4530,5 +4654,15 @@
         private DevExpress.XtraEditors.LabelControl lblMdNo;
         private DevExpress.XtraEditors.TextEdit txtPrdMo;
         private DevExpress.XtraEditors.LabelControl lblPrdMo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn75;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn74;
+        private DevExpress.XtraEditors.TextEdit txtCustColor;
+        private DevExpress.XtraEditors.LabelControl lblCustColor;
+        private DevExpress.XtraEditors.LabelControl labelControl33;
+        private DevExpress.XtraEditors.LabelControl labelControl32;
+        private DevExpress.XtraEditors.LabelControl labelControl31;
+        private DevExpress.XtraEditors.LabelControl labelControl30;
+        private System.Windows.Forms.ToolStripButton btnOrderHistory;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
     }
 }
