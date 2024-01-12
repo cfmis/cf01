@@ -16,7 +16,7 @@ using cf01.ModuleClass;
 using System.Drawing;
 using System.IO;
 using DevExpress.XtraReports.UI;
-
+using System.ComponentModel;
 
 namespace cf01.Forms
 {
@@ -31,6 +31,8 @@ namespace cf01.Forms
         private clsAppPublic clsApp = new clsAppPublic();
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public BindingSource bds1 = new BindingSource();
+        string strTip = "編輯狀態雙擊鼠標左鍵清除此欄內容.";
+        ListSortDirection sortDirection;//排序方式
 
         public frmDevelopmentPvh()
         {
@@ -263,11 +265,15 @@ namespace cf01.Forms
 
 
             dtDat1.EditValue = DateTime.Now.AddDays(-7).ToString("yyyy/MM/dd").Substring(0, 10);
-            dtDat2.EditValue = DateTime.Now.ToString("yyyy/MM/dd").Substring(0, 10);
+            dtDat2.EditValue = DateTime.Now.ToString("yyyy/MM/dd").Substring(0, 10);            
 
             //數據綁定
             SetDataBindings();
 
+            txtFinish.ToolTip = strTip;
+            txtProcess.ToolTip = strTip;
+            txtDye_type.ToolTip = strTip;
+            txtDye_method.ToolTip = strTip;
         }
 
         private void SetDataBindings()
@@ -832,7 +838,8 @@ namespace cf01.Forms
                 , date1, date2 , txtPlm_material_code1.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
-            dgvFind.DataSource = dtDetail;
+            dgvFind.DataSource = dtDetail;  
+
             //if(dtDetail.Rows.Count>0)
             //{
             //    tabControl1.SelectTab(0);
@@ -1283,6 +1290,14 @@ namespace cf01.Forms
             }
         }
 
+        private void ClearContents(DevExpress.XtraEditors.ButtonEdit obj)
+        {
+            if (mState == "NEW" || mState == "EDIT")
+            {              
+                obj.EditValue = "";
+            }
+        }
+
         //
         public int ConvertToInt(string _val)
         {
@@ -1326,6 +1341,45 @@ namespace cf01.Forms
             clsDevelopentPvh.SetCertificate(lueCert3_type, txtCert3_scope_no, txtCert3_expiry_date, txtCert3_scope_holder);
         }
 
-      
+        private void dgvFind_Sorted(object sender, EventArgs e)
+        {
+            ResetSortedDataSource();
+        }
+        private void dgvDetails_Sorted(object sender, EventArgs e)
+        {
+            ResetSortedDataSource();
+        }
+
+        private void txtFinish_DoubleClick(object sender, EventArgs e)
+        {
+            ClearContents(txtFinish);
+        }
+
+        private void txtProcess_DoubleClick(object sender, EventArgs e)
+        {
+            ClearContents(txtFinish);
+        }
+
+        private void txtDye_method_DoubleClick(object sender, EventArgs e)
+        {
+            ClearContents(txtFinish);
+        }
+
+        private void txtDye_type_DoubleClick(object sender, EventArgs e)
+        {
+            ClearContents(txtFinish);
+        }
+
+        
+        private void ResetSortedDataSource()
+        {
+            if (dtDetail.Rows.Count > 0)
+            {
+                dtDetail = dtDetail.DefaultView.ToTable();//排序后重新賦數據源,否則出現新增后保存成功,但實際后臺并沒有保存成功的情況
+                bds1.DataSource = dtDetail;
+                dgvDetails.DataSource = bds1;
+                dgvFind.DataSource = dtDetail;
+            }
+        }
     }
 }
