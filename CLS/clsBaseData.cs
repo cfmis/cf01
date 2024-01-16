@@ -88,6 +88,7 @@ namespace cf01.CLS
                 strSql += " And a.process_id Like'%" + processID + "%'";
             if (processName != "")
                 strSql += " And a.process_name Like'%" + processName + "%'";
+            strSql += " And a.quo_flag='Y' ";
             strSql += " Order By a.process_id";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
 
@@ -174,6 +175,20 @@ namespace cf01.CLS
             dtMoGroup.Rows.Add(dr);
             dtMoGroup.DefaultView.Sort = "group_id";
             return dtMoGroup;
+        }
+
+
+        //////提取貨幣代號
+        public static DataTable LoadCurr(string Curr)
+        {
+            string strSql = "Select curr_id,curr_cdesc" +
+                " From bs_curr" +
+                " Where curr_id >'000'";
+            if (Curr != "")
+                strSql += " And curr_id='" + Curr + "'";
+            strSql += " Order By curr_id";
+            DataTable dtCurr = clsPublicOfCF01.GetDataTable(strSql);
+            return dtCurr;
         }
     }
 }

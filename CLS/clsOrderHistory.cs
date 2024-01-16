@@ -102,6 +102,7 @@ namespace cf01.CLS
             strSql += " ) aa ";
             strSql += " Order By aa.mo_id,aa.MFlag Desc,aa.primary_key,aa.sequence_id ";
             DataTable dtOcDetails = clsPublicOfGEO.GetDataTable(strSql);
+            dtOcDetails.Columns.Add("SelectFlag", typeof(bool));
             return dtOcDetails;
         }
 
@@ -117,6 +118,7 @@ namespace cf01.CLS
                 ",a.it_customer,e.name As cust_cname,a.contract_id,b.brand_id" +
                 ",b.add_remark,b.plate_remark,b.customer_goods,b.customer_color_id,a.seller_id" +
                 ",Convert(Varchar(10),b.arrive_date,111) AS arrive_date,a.season" +
+                ",b.goods_id As goods_id_m,b.goods_name As goods_name_m" +
             " From so_order_manage a " +
                 " Inner Join so_order_details b On a.within_code=b.within_code And a.id=b.id And a.ver=b.ver " +
                 " Inner Join so_order_bom c On b.within_code=c.within_code And b.id=c.id And b.ver=c.ver And b.sequence_id=c.upper_sequence " +
@@ -148,7 +150,7 @@ namespace cf01.CLS
             strSql += " From jo_bill_mostly a " +
                 " Inner Join jo_bill_goods_details b On a.within_code=b.within_code And a.id=b.id And a.ver=b.ver " +
                 " Inner Join it_goods c On b.within_code=c.within_code And b.goods_id=c.id ";
-            strSql += " Where a.within_code='" + within_code + "' And a.state<>'2' And a.state<>'V' And b.prod_qty >0 ";
+            strSql += " Where a.within_code='" + within_code + "' And a.state<>'2' And a.state<>'V' ";
             if (mo_id != "")
                 strSql += " And a.mo_id = '" + mo_id + "'";
             if (goods_name != "")
@@ -161,6 +163,28 @@ namespace cf01.CLS
                 strSql += " And a.bill_date >= '" + date_from + "' And a.bill_date < '" + date_to1 + "'";
             }
             strSql += " Order By a.mo_id,b.sequence_id";
+            DataTable dtWip = clsPublicOfGEO.GetDataTable(strSql);
+            dtWip.Columns.Add("SelectFlag", typeof(bool));
+            return dtWip;
+        }
+        public static DataTable LoadWipMatData(string mo_id, string seq)
+        {
+            string strSql = "";
+            strSql += " Select ";
+            strSql += "a.mo_id,c.sequence_id,c.materiel_id,d.name As goods_name,Convert(int,c.fl_qty) As fl_qty" +
+                ",c.unit,c.sec_qty,c.sec_unit,c.location,Convert(int,c.i_qty) As i_qty" +
+                ",Convert(decimal(18,2),c.i_sec_qty) As i_sec_qty" +
+                ",CASE WHEN c.i_qty >0 THEN Convert(decimal(18,4),(c.i_sec_qty / c.i_qty)*1000) ELSE 0 END As WegK";
+            strSql += " From jo_bill_mostly a " +
+                " Inner Join jo_bill_goods_details b On a.within_code=b.within_code And a.id=b.id And a.ver=b.ver " +
+                " Inner Join jo_bill_materiel_details c On b.within_code=c.within_code And b.id=c.id And b.ver=c.ver And b.sequence_id=c.upper_sequence"+
+                " Inner Join it_goods d On c.within_code=d.within_code And c.materiel_id=d.id ";
+            strSql += " Where a.within_code='" + within_code + "' And a.state<>'2' And a.state<>'V' ";
+            if (mo_id != "")
+                strSql += " And a.mo_id = '" + mo_id + "'";
+            if (seq != "")
+                strSql += " And b.sequence_id = '" + seq + "'";
+            strSql += " Order By a.mo_id,c.sequence_id";
             DataTable dtWip = clsPublicOfGEO.GetDataTable(strSql);
             return dtWip;
         }

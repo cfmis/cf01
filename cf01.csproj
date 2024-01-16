@@ -1348,6 +1348,12 @@
     <Compile Include="Forms\frm_Main_sub.designer.cs">
       <DependentUpon>frm_Main_sub.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmProcessBarWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProcessBarWindows.Designer.cs">
+      <DependentUpon>frmProcessBarWindows.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDL\mdlColorPlateQuotation.cs" />
     <Compile Include="MDL\mdlCostAlloy.cs" />
     <Compile Include="MDL\mdlCountGoodsCost.cs" />
@@ -1499,12 +1505,6 @@
     </Compile>
     <Compile Include="MM\frmSetProductWeight.Designer.cs">
       <DependentUpon>frmSetProductWeight.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MM\progressBar_windows.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MM\progressBar_windows.Designer.cs">
-      <DependentUpon>progressBar_windows.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleClass\DataGridViewMaskedTextBoxCell.cs" />
     <Compile Include="ModuleClass\DataGridViewMaskedTextBoxColumn.cs" />
@@ -3320,6 +3320,9 @@
     <EmbeddedResource Include="Forms\frm_Main_sub.resx">
       <DependentUpon>frm_Main_sub.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProcessBarWindows.resx">
+      <DependentUpon>frmProcessBarWindows.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MM\frmCountGoodsCost.resx">
       <DependentUpon>frmCountGoodsCost.cs</DependentUpon>
     </EmbeddedResource>
@@ -3385,9 +3388,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmSetProductWeight.resx">
       <DependentUpon>frmSetProductWeight.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MM\progressBar_windows.resx">
-      <DependentUpon>progressBar_windows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleClass\LineX.resx">
       <DependentUpon>LineX.cs</DependentUpon>

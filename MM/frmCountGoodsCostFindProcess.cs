@@ -27,19 +27,50 @@ namespace cf01.MM
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            frmProgress wForm = new frmProgress();
-            new Thread((ThreadStart)delegate
-            {
-                wForm.TopMost = true;
-                wForm.ShowDialog();
-            }).Start();
+            //frmProgress wForm = new frmProgress();
+            //new Thread((ThreadStart)delegate
+            //{
+            //    wForm.TopMost = true;
+            //    wForm.ShowDialog();
+            //}).Start();
 
-            //**********************
+            ////**********************
+            //findProcessPrice(); //数据处理
+
+            ////genBomTree(pid);
+            ////**********************
+            //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+
+            int progressBar_Cnt2 = 0;
+            int Coun = 20;
+            frmProcessBarWindows processBarWindows = new frmProcessBarWindows(0, Coun, "正在查詢數據，請稍候。。。");
+            //processBarWindows.Text = "正在查詢數據，請稍候。。。";
+            processBarWindows.Show(this);//设置父窗体
+            int pausCnt = 5;
+            for (int i = 0; i <= pausCnt; i++)
+            {
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                Thread.Sleep(10);
+            }
+
+
             findProcessPrice(); //数据处理
 
-            //genBomTree(pid);
-            //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            for (int i = pausCnt; i < Coun; i++)
+            {
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                if (progressBar_Cnt2 >= Coun)
+                {
+                    processBarWindows.Close();
+                }
+                Thread.Sleep(10);
+            }
+
+
+
         }
 
         private void frmCountGoodsCostFindProcess_Load(object sender, EventArgs e)

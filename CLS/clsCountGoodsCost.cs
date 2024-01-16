@@ -385,7 +385,7 @@ namespace cf01.CLS
         public static DataTable LoadProductCostMat(int upperSN)
         {
             string strSql = "";
-            strSql = "Select upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost,Seq As NewSeq " +
+            strSql = "Select upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost,Curr,Seq As NewSeq " +
                 " From mm_product_cost_mat " +
                 " Where upperSN='" + upperSN + "' And Status <>'D' ";
             //if (Seq != "")
@@ -419,21 +419,21 @@ namespace cf01.CLS
                 if (!CheckExistSeq("mm_product_cost_mat", upperSN, seq,""))
                 {
                     strUpd = @" Insert Into mm_product_cost_mat " +
-                        " ( upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost"+
+                        " ( upperSN,Seq,MatCode,MatName,MatWeg,WasteRate,MatWaste,MatUse,MatPrice,MatPriceUnit,MatCost,Curr"+
                         ",CreateUser,CreateTime,AmendUser,AmendTime" +
                         " )" +
                         " Values ( " +
-                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}'"+
-                        ",'{11}',GETDATE(),'{11}',GETDATE() )";
+                        " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}'" +
+                        ",'{12}',GETDATE(),'{12}',GETDATE() )";
                 }
                 else
                     strUpd = @" Update mm_product_cost_mat Set MatCode='{2}',MatName='{3}',MatWeg='{4}',WasteRate='{5}',MatWaste='{6}'" +
                         ",MatUse='{7}',MatPrice='{8}'" +
-                        ",MatPriceUnit='{9}',MatCost='{10}',AmendUser='{11}',AmendTime=GETDATE() " +
+                        ",MatPriceUnit='{9}',MatCost='{10}',Curr='{11}',AmendUser='{12}',AmendTime=GETDATE() " +
                         " Where upperSN='{0}' And Seq='{1}'";
                 strSql += string.Format(strUpd
                         , upperSN, seq, mdlGoodsMat.MatCode, mdlGoodsMat.MatName, mdlGoodsMat.MatWeg, mdlGoodsMat.WasteRate, mdlGoodsMat.MatWaste
-                        , mdlGoodsMat.MatUse, mdlGoodsMat.MatPrice, mdlGoodsMat.MatPriceUnit, mdlGoodsMat.MatCost, userid);
+                        , mdlGoodsMat.MatUse, mdlGoodsMat.MatPrice, mdlGoodsMat.MatPriceUnit, mdlGoodsMat.MatCost, mdlGoodsMat.Curr, userid);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
@@ -605,24 +605,45 @@ namespace cf01.CLS
         public static DataTable FindPlateStdPrice(string vendID,string plateType,string plate_process, string colorName)
         {
             string strSql = "";
-            strSql = "Select a.vendor_id,a.vendor_name As vendor,a.cf_color_id,a.cf_color As do_color" +
-                ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id"+
-                ",a.price,Convert(decimal(18, 4),a.price*b.exchange_rate) As QtyPriceHKD" +
+            //strSql = "Select a.vendor_id,a.vendor_name As vendor,a.cf_color_id,a.cf_color As do_color" +
+            //    ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id"+
+            //    ",a.price,Convert(decimal(18, 4),a.price*b.exchange_rate) As QtyPriceHKD" +
+            //    ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
+            //    ",a.prod_type,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
+            //    ",a.price_remark,a.mat,a.prod_desc,a.prod_id,a.size" +
+            //    " From quotation_plate a" +
+            //    " Left Join " + remote_db + "cd_exchange_rate b On a.m_id=b.id COLLATE chinese_taiwan_stroke_CI_AS" +
+            //    " Where b.within_code='" + within_code + "' And b.state='0' ";
+            //if (vendID != "")
+            //    strSql += " And a.vendor_id Like '%" + vendID + "%'";
+            //if (plateType != "")
+            //    strSql += " And a.plate_type Like '%" + plateType + "%'";
+            //if (plate_process != "")
+            //    strSql += " And a.plate_process = '" + plate_process + "'";
+            //if (colorName != "")
+            //    strSql += " And a.cf_color Like '%" + colorName + "%'";
+            //strSql += " Order By a.do_color,a.prod_type,a.plate_type,a.quotation_date Desc";
+
+            strSql = " Select b.pm73vendid As vendor_id,d.logogram As vendor,a.pm71clr As cf_color_id,a.pm71clrdesc As do_color" +
+                ",a.pm71dat As issue_date,b.pm73qtno As id" +
+                ",b.pm73price As price,Convert(decimal(18, 4),b.pm73price*c.exchange_rate) As QtyPriceHKD" +
                 ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
-                ",a.prod_type,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
-                ",a.price_remark,a.mat,a.prod_desc,a.prod_id,a.size" +
-                " From quotation_plate a" +
-                " Left Join " + remote_db + "cd_exchange_rate b On a.m_id=b.id COLLATE chinese_taiwan_stroke_CI_AS" +
-                " Where b.within_code='" + within_code + "' And b.state='0' ";
+                ",a.pm71type As prod_type,b.pm73pkind As plate_type,b.pm73ptype As plate_process,b.pm73punit As p_unit,b.pm73curr As m_id" +
+                ",b.pm73rmk As price_remark,a.pm71matdesc As mat,a.pm71cdesc As prod_desc,a.pm71item As prod_id,a.pm71sizedesc As size" +
+                " From dgsql1.dg_data.dbo.pum71 a" +
+                " Inner Join dgsql1.dg_data.dbo.pum73 b On a.pm71id=b.pm73id "+
+                " Left Join " + remote_db + "cd_exchange_rate c On b.pm73curr=c.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                " Left Join " + remote_db + "it_vendor d On b.pm73vendid=d.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                " Where c.within_code='" + within_code + "' And c.state='0' ";
             if (vendID != "")
-                strSql += " And a.vendor_id Like '%" + vendID + "%'";
+                strSql += " And b.pm73vendid Like '%" + vendID + "%'";
             if (plateType != "")
-                strSql += " And a.plate_type Like '%" + plateType + "%'";
+                strSql += " And b.pm73pkind Like '%" + plateType + "%'";
             if (plate_process != "")
-                strSql += " And a.plate_process = '" + plate_process + "'";
+                strSql += " And b.pm73ptype = '" + plate_process + "'";
             if (colorName != "")
-                strSql += " And a.cf_color Like '%" + colorName + "%'";
-            strSql += " Order By a.do_color,a.prod_type,a.plate_type,a.quotation_date Desc";
+                strSql += " And a.pm71clrdesc Like '%" + colorName + "%'";
+            strSql += " Order By a.pm71clrdesc,b.pm73ptype,a.pm71dat Desc";
             DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
             //for (int i=0;i<dtPrd.Rows.Count;i++)
             //{
@@ -706,6 +727,24 @@ namespace cf01.CLS
             if (result == "")
                 result = "";
             return result;
+        }
+        /// <summary>
+        /// ///用於在查詢時，選擇加入到報價單　自動產生序號
+        /// </summary>
+        /// <param name="dtSeq"></param>
+        /// <returns></returns>
+        public static string GenSeqNo(DataTable dtSeq)
+        {
+            string Seq = "";
+            string MaxSeq = "000";
+            for (int i = 0; i < dtSeq.Rows.Count; i++)
+            {
+                Seq = dtSeq.Rows[i]["Seq"].ToString().Trim();
+                MaxSeq = string.Compare(MaxSeq, Seq) >= 0 ? MaxSeq : Seq;
+            }
+            int MaxSeqInt = Convert.ToInt32(MaxSeq);
+            Seq = (MaxSeqInt + 1).ToString().PadLeft(3, '0');
+            return Seq;
         }
     }
 }

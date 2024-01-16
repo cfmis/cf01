@@ -20,6 +20,12 @@ namespace cf01.MM
         public static string modality = "";
         DataTable dtPlatePrice = new DataTable();
         DataTable dtPlateStdPrice = new DataTable();
+
+        frmProcessBarWindows processBarWindows;
+        int progressBar_Cnt2 = 0;
+        int Coun = 100;
+        int pausCnt = 20;
+
         public frmProductCostingFindPrice()
         {
             InitializeComponent();
@@ -41,7 +47,7 @@ namespace cf01.MM
             string itemPart = "";
             if (txtMaterialId.Text.Trim().Length > 2)
                 itemPart = txtMaterialId.Text.Substring(0, 2);
-            if (modality=="2" || modality == "ML" || itemPart == "ML" || itemPart=="PL")//採購件
+            if (modality == "2" || modality == "ML" || itemPart == "ML" || itemPart == "PL")//採購件
                 xtcFind.SelectedTabPageIndex = 0;
             else
             {
@@ -96,20 +102,17 @@ namespace cf01.MM
             //    MessageBox.Show("請輸入查詢內容!");
             //    return;
             //}
-            frmProgress wForm = new frmProgress();
-            new Thread((ThreadStart)delegate
-            {
-                wForm.TopMost = true;
-                wForm.ShowDialog();
-            }).Start();
+            progressBar_Cnt2 = 0;
+            processBarWindows = new frmProcessBarWindows(0, Coun, "正在儲存數據，請稍候。。。");
+
+            ShowProcessBar();
 
             //**********************
-            bool result=selectFind(); //数据处理
+            bool result = selectFind(); //数据处理
 
-            //genBomTree(pid);
-            //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-            if(result==false)
+            HideProcessBar();
+
+            if (result == false)
                 MessageBox.Show("沒有找到符合條件的記錄!");
         }
         private bool selectFind()
@@ -126,17 +129,17 @@ namespace cf01.MM
         private bool findMaterialPrice()
         {
             bool result = true;
-            DataTable dtMaterialPrice = clsProductCosting.findMaterialPrice("FIND",txtMaterialId.Text.Trim(),txtMaterialName.Text.Trim());
+            DataTable dtMaterialPrice = clsProductCosting.findMaterialPrice("FIND", txtMaterialId.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails1.DataSource = dtMaterialPrice;
             if (dgvDetails1.Rows.Count == 0)
                 result = false;
             return result;
-                
+
         }
         private bool findPlatePrice()
         {
             bool result = true;
-            dtPlatePrice = clsProductCosting.findPlatePrice("",txtDepId.Text.Trim(),cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
+            dtPlatePrice = clsProductCosting.findPlatePrice("", txtDepId.Text.Trim(), cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails2.DataSource = dtPlatePrice;
             if (dgvDetails2.Rows.Count == 0)
                 result = false;
@@ -145,7 +148,10 @@ namespace cf01.MM
         private bool findPlateStdPrice()
         {
             bool result = true;
-            dtPlateStdPrice = clsCountGoodsCost.FindPlateStdPrice("", cmbPlateType.Text.Trim(), cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
+            string vendor_id = "";
+            if (chkJx.Checked == true)
+                vendor_id = "CL-K0036";
+            dtPlateStdPrice = clsCountGoodsCost.FindPlateStdPrice(vendor_id, cmbPlateType.Text.Trim(), cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails3.DataSource = dtPlateStdPrice;
             if (dgvDetails3.Rows.Count == 0)
                 result = false;
@@ -166,7 +172,7 @@ namespace cf01.MM
                 searchPrice = clsValidRule.ConvertStrToSingle(dgvDetails1.Rows[dgvDetails1.CurrentRow.Index].Cells["colMaterialPriceHkd"].Value.ToString());
                 frmProductCosting.searchPrice = Convert.ToDecimal(searchPrice);
             }
-            
+
             this.Close();
         }
 
@@ -185,7 +191,7 @@ namespace cf01.MM
             }
             this.Close();
         }
-        private void SetReturnValue(DataGridView dgv,DataTable dt)
+        private void SetReturnValue(DataGridView dgv, DataTable dt)
         {
             float searchPrice = 0;
             float searchPriceWeg = 0;
@@ -238,6 +244,32 @@ namespace cf01.MM
             //int rowIndex = dgvDetails3.CurrentRow.Index;
             //MessageBox.Show(rowIndex.ToString());
 
+        }
+
+        private void ShowProcessBar()
+        {
+            processBarWindows.Show(this);//设置父窗体
+            for (int i = 0; i <= pausCnt; i++)
+            {
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                Thread.Sleep(10);
+            }
+        }
+        private void HideProcessBar()
+        {
+            for (int i = pausCnt; i < Coun; i++)
+            {
+
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                if (progressBar_Cnt2 >= Coun)
+                {
+                    //Thread.Sleep(1000);
+                    processBarWindows.Close();
+
+                }
+            }
         }
     }
 }
