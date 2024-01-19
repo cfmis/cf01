@@ -8,16 +8,17 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
-namespace cf01.MM
+namespace cf01.Forms
 {
-    public partial class progressBar_windows : Form
+    public partial class frmProcessBarWindows : Form
     {
-        public progressBar_windows(int _Minimum, int _Maximum)
+        public frmProcessBarWindows(int _Minimum, int _Maximum,string _Msg)
         {
             InitializeComponent();
             progressBar1.Maximum = _Maximum;//设置范围最大值
             progressBar1.Value = progressBar1.Minimum = _Minimum;//设置范围最小值
-
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = _Msg;
         }
 
         public void setPos(int value)//设置进度条当前进度值
@@ -25,6 +26,7 @@ namespace cf01.MM
             if (value <= progressBar1.Maximum)//如果值有效
             {
                 progressBar1.Value = value;//设置进度值
+                
                 label1.Text = (value * 100 / progressBar1.Maximum).ToString() + "%";//显示百分比
             }
             Application.DoEvents();//重点，必须加上，否则父子窗体都假死
@@ -38,6 +40,8 @@ namespace cf01.MM
         private void progressBar_windows_Load(object sender, EventArgs e)
         {
             this.Owner.Enabled = false;//设置父窗体不可用
+
         }
+
     }
 }

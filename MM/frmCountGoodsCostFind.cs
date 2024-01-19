@@ -14,7 +14,11 @@ namespace cf01.MM
 {
     public partial class frmCountGoodsCostFind : Form
     {
-        public static int copyMode = 0;
+        frmProcessBarWindows processBarWindows;
+        int progressBar_Cnt2 = 0;
+        int Coun = 100;
+        int pausCnt = 20;
+
         public frmCountGoodsCostFind()
         {
             InitializeComponent();
@@ -22,20 +26,15 @@ namespace cf01.MM
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            frmProgress wForm = new frmProgress();
-            new Thread((ThreadStart)delegate
-            {
-                wForm.TopMost = true;
-                wForm.ShowDialog();
-            }).Start();
+            progressBar_Cnt2 = 0;
+            processBarWindows = new frmProcessBarWindows(0, Coun, "正在儲存配件數據，請稍候。。。");
+
+            ShowProcessBar();
 
             //**********************
             DataTable dtPrd = QueryProductCost(); //数据处理
-
-            //genBomTree(pid);
-            //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             gcGoodsCostHead.DataSource = dtPrd;
+            HideProcessBar();
             if (gvGoodsCostHead.DataRowCount == 0)
                 MessageBox.Show("沒有找到符合條件的記錄!");
         }
@@ -44,20 +43,24 @@ namespace cf01.MM
             string moGroup = lueMoGroup.EditValue != null ? lueMoGroup.EditValue.ToString() : "";
             DataTable dtPrd = clsCountGoodsCost.QueryProductCost(txtProcesslId.Text.Trim(), txtProcessName.Text.Trim()
                 , txtID.Text,txtCustColor.Text,moGroup);
-            
+            LoadProductCostPrt(-999);
             return dtPrd;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void gvGoodsCostHead_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             DataRow Row = gvGoodsCostHead.GetFocusedDataRow();
             int upperSN = Convert.ToInt32(Row["SN"]);
-            DataTable dtPart = clsCountGoodsCost.LoadProductCostPart(upperSN,"");
+            LoadProductCostPrt(upperSN);
+        }
+        private void LoadProductCostPrt(int upperSN)
+        {
+            DataTable dtPart = clsCountGoodsCost.LoadProductCostPart(upperSN, "");
             gcGoodsCostDetails.DataSource = dtPart;
         }
 
@@ -65,7 +68,7 @@ namespace cf01.MM
         {
             DataRow Row = gvGoodsCostHead.GetFocusedDataRow();
             frmCountGoodsCost.getID = Row["ID"].ToString();
-            this.Hide();
+            this.Close();
         }
 
         private void btnAddCost_Click(object sender, EventArgs e)
@@ -87,7 +90,7 @@ namespace cf01.MM
                 {
                     DataRow dr =frmCountGoodsCost.dtGoodsPartDetails.NewRow();
                     dr["SN"] = Row["SN"];
-                    dr["Seq"] = GenSeqNo(frmCountGoodsCost.dtGoodsPartDetails);
+                    dr["Seq"] = clsCountGoodsCost.GenSeqNo(frmCountGoodsCost.dtGoodsPartDetails);
                     dr["ProductID"] = Row["ProductID"].ToString();
                     dr["ProductName"] = Row["ProductName"].ToString();
                     dr["ArtWork"] = Row["ArtWork"].ToString();
@@ -124,22 +127,10 @@ namespace cf01.MM
                 MessageBox.Show("沒有待複製的記錄!");
                 return;
             }
-            copyMode = 1;//改為複製模式
-            this.Hide();
+            frmCountGoodsCost.copyMode = 1;//改為複製模式
+            this.Close();
         }
-        private string GenSeqNo(DataTable dtSeq)
-        {
-            string Seq = "";
-            string MaxSeq = "000";
-            for (int i = 0; i < dtSeq.Rows.Count; i++)
-            {
-                Seq = dtSeq.Rows[i]["Seq"].ToString().Trim();
-                MaxSeq = string.Compare(MaxSeq, Seq) >= 0 ? MaxSeq : Seq;
-            }
-            int MaxSeqInt = Convert.ToInt32(MaxSeq);
-            Seq = (MaxSeqInt + 1).ToString().PadLeft(3, '0');
-            return Seq;
-        }
+
 
         private void gvGoodsCostHead_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
@@ -169,6 +160,30 @@ namespace cf01.MM
             lueMoGroup.Properties.DisplayMember = "group_desc";
         }
 
+        private void ShowProcessBar()
+        {
+            processBarWindows.Show(this);//设置父窗体
+            for (int i = 0; i <= pausCnt; i++)
+            {
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                Thread.Sleep(10);
+            }
+        }
+        private void HideProcessBar()
+        {
+            for (int i = pausCnt; i < Coun; i++)
+            {
 
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                if (progressBar_Cnt2 >= Coun)
+                {
+                    //Thread.Sleep(1000);
+                    processBarWindows.Close();
+
+                }
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace cf01.MM
+﻿namespace cf01.Forms
 {
-    partial class progressBar_windows
+    partial class frmProcessBarWindows
     {
         /// <summary>
         /// Required designer variable.
@@ -34,28 +34,31 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(83, 97);
+            this.progressBar1.Location = new System.Drawing.Point(28, 38);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.Size = new System.Drawing.Size(162, 23);
             this.progressBar1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 46);
+            this.label1.Location = new System.Drawing.Point(26, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
-            // progressBar_windows
+            // frmProcessBarWindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(218, 98);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
-            this.Name = "progressBar_windows";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "frmProcessBarWindows";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "progressBar_windows";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.progressBar_windows_FormClosed);
             this.Load += new System.EventHandler(this.progressBar_windows_Load);

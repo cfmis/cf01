@@ -17,43 +17,64 @@ namespace cf01.MM
         private DataTable dtOc = new DataTable();
         private DataTable dtWip = new DataTable();
 
-        Int32 Coun = 100;
-        Int32 progressBar_Cnt2 = 0;
-        Int32 progressBar_all2 = 0;
-        progressBar_windows form2;// 显示进度条窗体
-
+        //private Int32 Coun = 100;
+        //private Int32 progressBar_Cnt2 = 0;
+        //private Int32 progressBar_all2 = 0;
+        //private frmProcessBarWindows processBarWindows;//= new progressBar_windows(0,100);// 显示进度条窗体
+        //Form form2;
+        //创建BackgroundWorker的对象
+        //BackgroundWorker bw = new BackgroundWorker();
         public frmOrderHistory()
         {
             InitializeComponent();
+            //InitializeBackgroundWorker();
         }
+        //private void InitializeBackgroundWorker()
+        //{
+        //    bw = new BackgroundWorker();
+        //    bw.WorkerReportsProgress = true;
+        //    bw.WorkerSupportsCancellation = true;
+        //    bw.DoWork += bw_DoWork;
+        //    //bw.ProgressChanged += BgWorker_ProgressChanged;
+        //    bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+        //}
 
-        private void btnReSearch_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            frmProgress wForm = new frmProgress();
-            new Thread((ThreadStart)delegate
+            int progressBar_Cnt2 = 0;
+            int Coun = 100;
+            int slp = xtc1.SelectedTabPageIndex;
+            frmProcessBarWindows processBarWindows = new frmProcessBarWindows(0, Coun, "正在查詢數據，請稍候。。。");
+            //processBarWindows.Text = "正在查詢數據，請稍候。。。";
+            processBarWindows.Show(this);//设置父窗体
+            int pausCnt = 20;
+            for (int i = 0; i <= pausCnt; i++)
             {
-                wForm.TopMost = true;
-                wForm.ShowDialog();
-            }).Start();
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                Thread.Sleep(100);
+            }
 
-            //**********************
-            int i = xtc1.SelectedTabPageIndex;
-            if (i == 0)
+            
+            if (slp == 0)
 
                 dtOc = LoadOcData(); //数据处理
             else
                 dtWip = LoadWipData();
 
-            //genBomTree(pid);
-            //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            for (int i = pausCnt; i < Coun; i++)
+            {
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                if (progressBar_Cnt2 >= Coun)
+                {
+                    processBarWindows.Close();
+                }
+                Thread.Sleep(10);
+            }
             int rows = 0;
-            if (i == 0)
+            if (slp == 0)
             {
                 dgvOc.DataSource = dtOc;
                 rows = dgvOc.RowCount;
@@ -65,19 +86,20 @@ namespace cf01.MM
             }
             if (rows == 0)
                 MessageBox.Show("沒有找到符合條件的記錄!");
+
         }
         private DataTable LoadOcData()
         {
             string moGroup = lueMoGroup.EditValue != null ? lueMoGroup.EditValue.ToString() : "";
             string recNumber = "";
-            //recNumber = cmbBefRec.SelectedValue.ToString() == "99" ? "" : cmbBefRec.Text.Trim();
-            DataTable dtOc = clsOrderHistory.LoadOcData(txtMoID.Text.Trim(), txtDateFrom.Text, txtDateTo.Text
+            recNumber = this.cmbBefRec.SelectedValue.ToString() == "99" ? "" : cmbBefRec.Text.Trim();
+            DataTable dtOc1 = clsOrderHistory.LoadOcData(txtMoID.Text.Trim(), txtDateFrom.Text, txtDateTo.Text
                 , moGroup, txtSales.Text, txtGoodsID.Text, txtGoodsName.Text, txtPo.Text, txtMat.Text, txtPrdType.Text
                 , txtArt.Text, txtSize.Text, txtClr.Text, txtCustItem.Text, txtCustColor.Text, txtCust.Text
                 , txtBrand.Text, txtSeason.Text
                 , recNumber);
-            //LoadOcDataDetails("ZZZZZZZZZ");//填充各種控件
-            return dtOc;
+            LoadOcDataDetails("ZZZZZZZZZ");//填充各種控件
+            return dtOc1;
         }
         private void LoadOcDataDetails(string mo_id)
         {
@@ -95,6 +117,7 @@ namespace cf01.MM
                 , txtBrand.Text, txtSeason.Text
                 , recNumber);
             LoadWipDataDetails("ZZZZZZZZZ");
+            LoadWipMatData("ZZZZZZZZZ", "ZZZZ");
             return dtWip;
         }
         private void LoadWipDataDetails(string mo_id)
@@ -111,6 +134,7 @@ namespace cf01.MM
             dgvOcDetails.AutoGenerateColumns = false;
             dgvWip.AutoGenerateColumns = false;
             dgvWipDetails.AutoGenerateColumns = false;
+            dgvMatData.AutoGenerateColumns = false;
             lueMoGroup.Properties.DataSource = clsBaseData.LoadMoGroup("");
             lueMoGroup.Properties.ValueMember = "group_id";
             lueMoGroup.Properties.DisplayMember = "group_desc";
@@ -140,47 +164,158 @@ namespace cf01.MM
             DataGridViewRow Row = dgvWip.Rows[i];
             string mo_id = Row.Cells["colWipMoID"].Value.ToString();
             LoadWipDataDetails(mo_id);//填充各種控件
+            LoadWipMatData("ZZZZZZZZZ", "ZZZZ");
+        }
+
+        private void btnShowCont_Click(object sender, EventArgs e)
+        {
+            if (btnShowCont.Text == "折疊<<")
+            {
+                btnShowCont.Text = "顯示>>";
+                panelControl4.Visible = false;
+            }
+            else
+            {
+                btnShowCont.Text = "折疊<<";
+                panelControl4.Visible = true;
+            }
+        }
+
+        private void dgvWipDetails_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvWipDetails.CurrentRow.Index;
+            DataGridViewRow Row = dgvWipDetails.Rows[i];
+            string mo_id = Row.Cells["colWipMoIdDetails"].Value.ToString();
+            string seq = Row.Cells["colWipSeqDetails"].Value.ToString();
+            LoadWipMatData(mo_id, seq);//填充各種控件
+        }
+        private void LoadWipMatData(string mo_id, string seq)
+        {
+            DataTable dtWipMat = clsOrderHistory.LoadWipMatData(mo_id, seq);
+            dgvMatData.DataSource = dtWipMat;
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //////form2 = new progressBar_windows(0, progressBar_all2);
+            //////form2.Show(this);//设置父窗体
+
+            //////LoadOcData1();
+            //////form2.Close();
 
 
-            progressBar_Cnt2 = 0;
-            progressBar_all2 = 0;
-            progressBar_all2 = Coun;
-            if (progressBar_all2 > 0)
-            {
 
-                form2 = new progressBar_windows(0, progressBar_all2);
-                form2.Show(this);//设置父窗体
+            ////BackgroundWorker bw = new BackgroundWorker();
+            ////bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            ////bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
 
-                LoadOcData();
-                //progressBar2_updata();
-                for (int i = 0; i < Coun; i++)
-                {
+            ////progressBar_windows progressForm = new progressBar_windows(0, 100);
+            ////form2 = new progressBar_windows(0, 100);
 
-                    progressBar2_updata();
+            //form2.ControlBox = false;
+            //form2.TopMost = true;
 
-                }
-
-
-            }
+            //form2.Show();
+            //bw.RunWorkerAsync();
 
         }
 
-        public void progressBar2_updata()
+        //public void progressBar2_updata()
+        //{
+        //    if (progressBar_all2 > 0)
+        //    {
+        //        progressBar_Cnt2++;
+        //        processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+        //        if (progressBar_Cnt2 >= progressBar_all2)
+        //        {
+        //            //Thread.Sleep(1000);
+        //            processBarWindows.Close();
+
+        //        }
+        //    }
+        //}
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (progressBar_all2 > 0)
-            {
-                progressBar_Cnt2++;
-                form2.setPos(progressBar_Cnt2);//设置进度条位置
-                if (progressBar_Cnt2 >= progressBar_all2)
-                {
-                    form2.Close();
-                }
-            }
+            //KeyValuePair < GridControl, string> params = e.Argument as KeyValuePair<GridControl, string>;
+            //ConnectionClass cc = new Connection Class();
+            //cc.fillGrid(params.Value, params.Key);
+            e.Result=LoadOcData1();
         }
 
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            dgvOc.DataSource = e.Result;
+            try
+            {
+                //processBarWindows.Close(); //
+            }
+            catch (Exception ex)
+            {
+                var er = ex.Message;
+            }
+        }
+        //private void LoadOcData1()
+        //{
+        //    dtOc = LoadOcData1(); //数据处理
+        //    dgvOc.DataSource = dtOc;
+        //}
+
+        private DataTable LoadOcData1()
+        {
+            string moGroup = lueMoGroup.EditValue != null ? lueMoGroup.EditValue.ToString() : "";
+            string recNumber = "";
+            var dt = txtDateFrom.Text;
+            recNumber = cmbBefRec.SelectedValue.ToString() == "99" ? "" : cmbBefRec.Text.Trim();
+            DataTable dtOc = clsOrderHistory.LoadOcData(txtMoID.Text.Trim(), txtDateFrom.Text, txtDateTo.Text
+                , moGroup, txtSales.Text, txtGoodsID.Text, txtGoodsName.Text, txtPo.Text, txtMat.Text, txtPrdType.Text
+                , txtArt.Text, txtSize.Text, txtClr.Text, txtCustItem.Text, txtCustColor.Text, txtCust.Text
+                , txtBrand.Text, txtSeason.Text
+                , recNumber);
+            dgvOc.DataSource = dtOc;
+            //LoadOcDataDetails("ZZZZZZZZZ");//填充各種控件
+            return dtOc;
+        }
+
+        private void btnAddCost_Click(object sender, EventArgs e)
+        {
+            bool selectFlag = false;
+            for (int i = 0; i < dgvOcDetails.Rows.Count; i++)
+            {
+                DataGridViewRow Row = dgvOcDetails.Rows[i];
+                if (Row.Cells["colSelectFlagOc"].Value == null ? false : Convert.ToBoolean(Row.Cells["colSelectFlagOc"].Value.ToString()) == true)
+                {
+                    DataRow dr = frmCountGoodsCost.dtGoodsPartDetails.NewRow();
+                    dr["Seq"] = clsCountGoodsCost.GenSeqNo(frmCountGoodsCost.dtGoodsPartDetails);
+                    string goods_id= Row.Cells["colGoodsIdOc"].Value.ToString();
+                    dr["ProductID"] = goods_id;
+                    dr["ProductName"] = Row.Cells["colGoodsNameOc"].Value.ToString();
+                    DataTable dtGoods = clsCountGoodsCost.GetProductDataPart(goods_id);
+                    if (dtGoods.Rows.Count > 0)
+                    {
+                        DataRow drGoods = dtGoods.Rows[0];
+                        dr["ArtWork"] = drGoods["blueprint_id"].ToString();
+                        dr["ArtWorkName"] = drGoods["art_cdesc"].ToString();
+                        dr["ProductType"] = drGoods["base_class"].ToString();
+                        dr["ProductTypeName"] = drGoods["prd_cdesc"].ToString();
+                        //dr["FrontPart"] = drGoods["FrontPart"].ToString();
+                        dr["ProductSize"] = drGoods["size_id"].ToString();
+                        dr["ProductSizeName"] = drGoods["size_cdesc"].ToString();
+                        dr["ProductColor"] = drGoods["color"].ToString();
+                        dr["ProductColorName"] = drGoods["clr_cdesc"].ToString();
+                    }
+                    frmCountGoodsCost.dtGoodsPartDetails.Rows.Add(dr);
+                    selectFlag = true;
+                }
+            }
+            if (!selectFlag)
+            {
+                MessageBox.Show("沒有待複製的記錄!");
+                return;
+            }
+            frmCountGoodsCost.copyMode = 1;//改為複製模式
+            this.Close();
+        }
     }
 }

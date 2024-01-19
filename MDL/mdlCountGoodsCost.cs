@@ -79,6 +79,7 @@ namespace cf01.MDL
         public float MatPrice { get; set; }
         public string MatPriceUnit { get; set; }
         public float MatCost { get; set; }
+        public string Curr { get; set; }
     }
     public class mdlCountGoodsCostProcess : mdlCountGoodsCostBase1
     {

@@ -28,9 +28,11 @@ namespace cf01.MM
         private DataTable dtPack = new DataTable();
         private DataTable dtFactory = new DataTable();
         private frmCountGoodsCostFind frmCountGoodsCostFind;
+        private frmOrderHistory frmOrderHistory;
         private mdlCountGoodsCostBase mdlCopyID = new mdlCountGoodsCostBase();
         public static int newMode = 0;
         private int newPartMode = 0;
+        public static int copyMode = 0;
         private float baseQtyRate = 1000;
         public static string getID = "";
         public static float searchPrice = 0;
@@ -41,6 +43,12 @@ namespace cf01.MM
         public static string getVendName = ""; 
         public static string getQuoDate = "";
         public static string getQuoID = "";
+
+        frmProcessBarWindows processBarWindows;
+        int progressBar_Cnt2 = 0;
+        int Coun = 100;
+        int pausCnt = 20;
+
         public frmCountGoodsCost()
         {
             InitializeComponent();
@@ -174,6 +182,11 @@ namespace cf01.MM
         /// </summary>
         private void SaveProductPartDetails()
         {
+            progressBar_Cnt2 = 0;
+            processBarWindows = new frmProcessBarWindows(0, Coun, "正在儲存配件數據，請稍候。。。");
+
+            ShowProcessBar();
+
             if (txtSN.Text.Trim() == "")
                 SaveProductCostHead();
             SavePorductCostPart();
@@ -184,7 +197,9 @@ namespace cf01.MM
             SaveGoodsCostProcess(dtFactory, "04");//保存工廠皮費用
             newPartMode = 0;
             LoadGoodsDetails();//刷新、提取各種費用詳細
-            MessageBox.Show("配件記錄儲存成功!");
+            //MessageBox.Show("配件記錄儲存成功!");
+
+            HideProcessBar();
         }
         private void SaveProductCostHead()
         {
@@ -229,7 +244,7 @@ namespace cf01.MM
                 //    DoCopy();
                 SavePurPrice();//儲存意向報價表
                 newMode = 0;
-                MessageBox.Show("主表記錄儲存成功!");
+                //MessageBox.Show("主表記錄儲存成功!");
                 LoadData();
             }
             
@@ -276,6 +291,12 @@ namespace cf01.MM
             repositoryItemLookUpEdit23.DataSource = clsBaseData.LoadProcessType("MAT_CODE", "");
             repositoryItemLookUpEdit23.ValueMember = "process_id";
             repositoryItemLookUpEdit23.DisplayMember = "process_name";
+            //////原料表格中綁定貨幣代號
+            repositoryItemLookUpEdit30.DataSource = clsBaseData.LoadCurr("");
+            repositoryItemLookUpEdit30.ValueMember = "curr_id";
+            repositoryItemLookUpEdit30.DisplayMember = "curr_cdesc";
+            repositoryItemLookUpEdit30.ImmediatePopup = true;
+            repositoryItemLookUpEdit30.SearchMode = SearchMode.OnlyInPopup;
             //////表格中的加工費的部門
             repositoryItemLookUpEdit11.DataSource = clsBaseData.loadDep();
             repositoryItemLookUpEdit11.ValueMember = "dep_id";
@@ -512,6 +533,7 @@ namespace cf01.MM
             //Row["MatPriceUnit"] = "KG";
             DataRow dr = dtMat.NewRow();
             dr["MatPriceUnit"] = "KG";
+            dr["Curr"] = "HKD";
             string Seq = GenSeqNo(gvMatDetails, "Seq");
             dr["Seq"] = Seq;
             dtMat.Rows.Add(dr);
@@ -549,38 +571,59 @@ namespace cf01.MM
             float wasteRate = 0;
             double matWaste = 0;
             double matUse = 0;
+            DataRow dr = dtMat.Rows[rowIndex];
+            string matType = "";
+            string matCode = dr["MatCode"].ToString().Trim();
+            if (matCode.Length > 1)
+                matType = matCode.Substring(0, 1);
             if (fname== "MatCode")
             {
-                DataRow dr = dtMat.Rows[rowIndex];
-                string matCode = dr["MatCode"].ToString().Trim();
+                
                 DataTable dtMatType = clsBaseData.LoadProcessType("MAT_CODE", matCode);
                 if(dtMatType.Rows.Count>0)
                 {
                     DataRow drMatType = dtMatType.Rows[0];
                     dr["MatName"] = drMatType["process_name"].ToString().Trim();
-                    matWeg = Math.Round(clsValidRule.ConvertStrToSingle(drMatType["use_weg"].ToString()), 2);
                     wasteRate = clsValidRule.ConvertStrToSingle(drMatType["waste_rate"].ToString());
-                    dr["MatWeg"] = matWeg;
                     dr["WasteRate"] = wasteRate;
-                    matUse = Math.Round(matWeg / (1 - (wasteRate / 100)), 4);
-                    dr["MatWaste"] = matUse - matWeg;
-                    dr["MatUse"] = matUse;
+                    matWeg = Math.Round(clsValidRule.ConvertStrToSingle(drMatType["use_weg"].ToString()), 2);
+                    dr["MatWeg"] = matWeg;
                     dr["MatPrice"] = Math.Round(clsValidRule.ConvertStrToSingle(drMatType["cost_price"].ToString()), 2);
+                    dr["Curr"] = "HKD";
+                    if (matType == "M")//如果是原料，自動計算原料用料
+                    {
+                        matUse = Math.Round(matWeg / (1 - (wasteRate / 100)), 4);
+                        dr["MatWaste"] = matUse - matWeg;
+                        dr["MatUse"] = matUse;
+                        dr["MatPriceUnit"] = "KG";
+                        
+                    }else//matType=="Q" 如果是成品或半成品，按數量計算的，就不計算重量用料了
+                    {
+                        dr["MatWaste"] = 0;
+                        dr["MatUse"] = matWeg;
+                        dr["MatPriceUnit"] = "PCS";
+                    }
                     CountMatCost();
                 }
             }
             if (fname == "MatWeg" || fname == "WasteRate")
             {
-                DataRow dr = dtMat.Rows[rowIndex];
                 matWeg = Math.Round(clsValidRule.ConvertStrToSingle(dr["MatWeg"].ToString()), 2);
                 wasteRate = clsValidRule.ConvertStrToSingle(dr["WasteRate"].ToString());
-                matUse = Math.Round(matWeg / (1 - (wasteRate / 100)), 4);
-                matWaste = matUse - matWeg;
-                dr["MatWaste"] = matWaste;
-                dr["MatUse"] = matUse;
+                if (matType == "M")//如果是原料，自動計算原料用料
+                {
+                    matUse = Math.Round(matWeg / (1 - (wasteRate / 100)), 4);
+                    matWaste = matUse - matWeg;
+                    dr["MatWaste"] = matWaste;
+                    dr["MatUse"] = matUse;
+                }
+                else//matType=="Q" 如果是成品或半成品，按數量計算的，就不計算重量用料了
+                {
+                    dr["MatUse"] = matWeg;
+                }
                 CountMatCost();
             }
-            if (fname == "MatWaste" || fname == "MatUse" || fname == "MatPrice")
+            if (fname == "MatWaste" || fname == "MatUse" || fname == "MatPrice" || fname== "MatPriceUnit" || fname == "Curr")
             {
                 CountMatCost();
             }
@@ -597,9 +640,27 @@ namespace cf01.MM
                 decimal matWeg = clsValidRule.ConvertStrToDecimal(Row["MatWeg"].ToString());
                 decimal matWaste = clsValidRule.ConvertStrToDecimal(Row["MatWaste"].ToString());
                 decimal matPrice = clsValidRule.ConvertStrToDecimal(Row["MatPrice"].ToString());
+                string matPriceUnit = Row["MatPriceUnit"].ToString();
                 decimal matUse = Math.Round(matWeg + matWaste, 4);
+                string Curr = Row["Curr"].ToString();
+                decimal currRate = 1;
+                decimal unitRate = 1;
+                decimal matCost = 0;
+                if (Curr != "HKD")
+                    currRate = clsBaseData.GetMidRate(Curr);
+                if (matPriceUnit != "KG" && matPriceUnit != "PCS")
+                    unitRate = (decimal)clsBaseData.GetUnitRate(matPriceUnit);
+                
                 Row["MatUse"] = matUse;
-                Row["MatCost"] = Math.Round(matUse * matPrice, 4);
+                if (matPriceUnit == "KG")
+                    matCost = Math.Round(matUse * matPrice * currRate, 4);
+                else
+                {
+                    decimal wasteRate = clsValidRule.ConvertStrToDecimal(Row["WasteRate"].ToString()) / 100;
+                    decimal baseQtyRate1 = (decimal)baseQtyRate;
+                    matCost = Math.Round((matPrice / unitRate) * baseQtyRate1 * currRate * (1 + wasteRate), 4);
+                }
+                Row["MatCost"] = matCost;
                 string Seq = Row["Seq"].ToString().Trim();
                 FillPlateWeg(Seq, matWeg);
             }
@@ -1027,6 +1088,7 @@ namespace cf01.MM
                     mdlGoodsMat.MatUse = clsValidRule.ConvertStrToSingle(dr["MatUse"].ToString());
                     mdlGoodsMat.MatPrice = clsValidRule.ConvertStrToSingle(dr["MatPrice"].ToString());
                     mdlGoodsMat.MatPriceUnit = dr["MatPriceUnit"].ToString();
+                    mdlGoodsMat.Curr = dr["Curr"].ToString();
                     mdlGoodsMat.MatCost = matCost;
                     lsGoodsMat.Add(mdlGoodsMat);
                 }
@@ -1112,18 +1174,20 @@ namespace cf01.MM
         {
             string fname = e.Column.FieldName.ToString();
             DataRow Row = gvGoodsProcess.GetFocusedDataRow();
-            if (fname == "ProcessID")//fname == "PrdDep" || 
+            if (fname == "PrdDep" || fname == "ProcessID")//
             {
                 DataTable dtProcessBase = clsBaseData.LoadProductProcess(Row["PrdDep"].ToString(), Row["ProcessID"].ToString(), "");
                 if (dtProcessBase.Rows.Count > 0)
                 {
                     DataRow dr = dtProcessBase.Rows[0];
+                    Row["ProcessID"] = dr["process_id"].ToString();
                     Row["ProcessName"] = dr["process_name"].ToString();
                     Row["ProcessPrice"] = dr["cost_price"];
                     Row["ProcessBaseQty"] = dr["product_qty"];
                 }
                 else
                 {
+                    Row["ProcessID"] = "";
                     Row["ProcessName"] = "";
                     Row["ProcessPrice"] = "";
                     Row["ProcessBaseQty"] = "";
@@ -1176,6 +1240,7 @@ namespace cf01.MM
             frmCountGoodsCostFindProcess.getDepId = Row["PrdDep"].ToString();
             frmCountGoodsCostFindProcess.modality = "PROCESS";
             searchPrice = 0;
+            searchPriceWeg = 0;
             frmCountGoodsCostFindProcess frm = new frmCountGoodsCostFindProcess();
             frm.ShowDialog();
             if (searchPrice != 0 || searchPriceWeg != 0)
@@ -1205,12 +1270,17 @@ namespace cf01.MM
 
             DataRow dr = dtProcess.NewRow();
             dr["Seq"] = GenSeqNo(gvGoodsProcess, "Seq");
-            dr["ProcessUnit"] = "KG";
+            dr["ProcessUnit"] = "PCS";
             dtProcess.Rows.Add(dr);
         }
 
         private void btnAddPlate_Click(object sender, EventArgs e)
         {
+            if(gvMatDetails.GetFocusedDataRow()==null)
+            {
+                MessageBox.Show("這個是由原料產生的，請新增一筆原料記錄!");
+                return;
+            }
             //gvGoodsPlate.AddNewRow();
             //DataRow Row = gvGoodsPlate.GetFocusedDataRow();
             DataRow Row = dtPlate.NewRow();
@@ -1220,6 +1290,7 @@ namespace cf01.MM
             Row["WegUnit"] = "KG";
             Row["WasteRate"] = "1.1";
             Row["PSeq"] = gvMatDetails.GetFocusedDataRow()["Seq"].ToString();
+            Row["ProcessWeg"] = gvMatDetails.GetFocusedDataRow()["MatWeg"].ToString();
             dtPlate.Rows.Add(Row);
         }
 
@@ -1286,7 +1357,7 @@ namespace cf01.MM
             frm.ShowDialog();
             if (searchPrice != 0 || searchPriceWeg != 0)
             {
-                Row["PrdDep"] = frmProductCostingFindPrice.getDepId;
+                //Row["PrdDep"] = frmProductCostingFindPrice.getDepId;
                 Row["ProcessID"] = frmProductCostingFindPrice.getProductId;
                 Row["ProcessName"] = frmProductCostingFindPrice.getProductName;
                 Row["ProcessPrice"] = Math.Round(searchPrice, 4);
@@ -1815,6 +1886,16 @@ namespace cf01.MM
         {
             if (CheckDeletePartStatus())
                 return;
+            if (copyMode == 1)
+            {
+                if (MessageBox.Show("存在已複製而未儲存的記錄！需要儲存嗎？", "系統信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    return;
+                else
+                {
+                    LoadData();
+                    copyMode = 0;
+                }
+            }
 
             getID = "";
             newMode = 0;
@@ -1826,7 +1907,7 @@ namespace cf01.MM
 
             frmCountGoodsCostFind.ShowDialog();
             //如果是查詢模式
-            if (frmCountGoodsCostFind.copyMode == 0)
+            if (copyMode == 0)
             {
                 if (getID != "")
                 {
@@ -2100,20 +2181,15 @@ namespace cf01.MM
         private void SavePorductPart()
         {
 
+            progressBar_Cnt2 = 0;
+            processBarWindows = new frmProcessBarWindows(0, Coun, "正在儲存數據，請稍候。。。");
 
-            frmProgress wForm = new frmProgress();
-            new Thread((ThreadStart)delegate
-            {
-                wForm.TopMost = true;
-                wForm.ShowDialog();
-            }).Start();
+            ShowProcessBar();
 
-            //**********************
             DoCopy(); //数据处理
 
-            //genBomTree(pid);
-            //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            HideProcessBar();
+
         }
         private void DoCopy()
         {
@@ -2215,10 +2291,42 @@ namespace cf01.MM
             if (CheckDeletePartStatus())
                 return;
 
-            frmOrderHistory frm = new frmOrderHistory();
-            frm.ShowDialog();
-            frm.Dispose();
+            //frmOrderHistory frm = new frmOrderHistory();
+            //frm.ShowDialog();
+            //frm.Dispose();
 
+            if (frmOrderHistory == null)
+            {
+                frmOrderHistory = new frmOrderHistory();
+            }
+
+            frmOrderHistory.ShowDialog();
+
+        }
+        private void ShowProcessBar()
+        {
+            processBarWindows.Show(this);//设置父窗体
+            for (int i = 0; i <= pausCnt; i++)
+            {
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                Thread.Sleep(10);
+            }
+        }
+        private void HideProcessBar()
+        {
+            for (int i = pausCnt; i < Coun; i++)
+            {
+
+                progressBar_Cnt2++;
+                processBarWindows.setPos(progressBar_Cnt2);//设置进度条位置
+                if (progressBar_Cnt2 >= Coun)
+                {
+                    //Thread.Sleep(1000);
+                    processBarWindows.Close();
+
+                }
+            }
         }
     }
 }
