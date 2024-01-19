@@ -16,7 +16,7 @@ using cf01.ModuleClass;
 using System.Drawing;
 using System.IO;
 using DevExpress.XtraReports.UI;
-
+using System.ComponentModel;
 
 namespace cf01.Forms
 {
@@ -31,7 +31,10 @@ namespace cf01.Forms
         private clsAppPublic clsApp = new clsAppPublic();
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public BindingSource bds1 = new BindingSource();
-        string strTip = "編輯狀態雙擊鼠標左鍵清除此欄內容.";       
+        string strTip = "編輯狀態雙擊鼠標左鍵清除此欄內容.";
+        ListSortDirection sortDirection;//排序方式
+        string sortColumnName = "";
+        string cur_temp_code = "";
 
         public frmDevelopmentPvh()
         {
@@ -44,7 +47,7 @@ namespace cf01.Forms
             const string sql = @"SELECT * FROM development_pvh With(nolock) WHERE 1=0 ";
             dtDetail = clsPublicOfCF01.GetDataTable(sql); 
             bds1.DataSource = dtDetail;
-            dgvDetails.DataSource = bds1;// dtDetail;
+            dgvDetails.DataSource = dtDetail;
         }
 
         private void frmDevelopmentPvh_Load(object sender, EventArgs e)
@@ -55,8 +58,7 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type"); 
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");            
-            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
-           
+            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");           
 
             string strSql = "";
             string strGroup = "V,E";
@@ -570,6 +572,7 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@serial_no", txtSerial_no.Text);
                         strSerial_no = txtSerial_no.Text;
                     }
+                    this.cur_temp_code = strSerial_no;
                     myCommand.Parameters.AddWithValue("@division", lueDivision.EditValue.ToString());
                     myCommand.Parameters.AddWithValue("@season", txtSeason.Text);
                     myCommand.Parameters.AddWithValue("@date", clsApp.Return_String_Date(txtDate.Text));                   
@@ -717,14 +720,39 @@ namespace cf01.Forms
 
             if (save_flag)
             {
+                //重新按原來的排序方式重新排序
+                if (sortColumnName != "")
+                {
+                    dgvDetails.Sort(dgvDetails.Columns[sortColumnName], sortDirection);
+                }
                 dgvDetails.Enabled = true;
+
                 //新增狀態下定位到新增的行
                 if (mState == "NEW")
                 {
-                    int cur_row_index = dgvDetails.RowCount - 1;
-                    dgvDetails.CurrentCell = dgvDetails.Rows[cur_row_index].Cells[2]; //设置当前单元格
-                    dgvDetails.Rows[cur_row_index].Selected = true; //選中整行
+                    //定位到當前行
+                    int row_index = 0;
+                    //使用foreach重新定位到當前編輯的行.
+                    string temp_code_no = "";
+                    foreach (DataGridViewRow row in dgvDetails.Rows)
+                    {
+                        //获取第i行，列名是列名A的单元格的值
+                        temp_code_no = row.Cells["serial_no"].Value.ToString();
+                        if (temp_code_no == cur_temp_code)
+                        {
+                            row_index = row.Index;
+                            break;
+                        }
+                    }
+                    dgvDetails.CurrentCell = dgvDetails.Rows[row_index].Cells[0];
+                    dgvDetails.Rows[row_index].Selected = true; //選中整行
+
+                    //int cur_row_index = dgvDetails.RowCount - 1;
+                    //dgvDetails.CurrentCell = dgvDetails.Rows[cur_row_index].Cells[2]; //设置当前单元格
+                    //dgvDetails.Rows[cur_row_index].Selected = true; //選中整行
                 }
+
+
                 mState = "";              
                 //MessageBoxTimeout((IntPtr )0,"數據保存成功!","提示信息",0,0,1000); //提示窗體1秒后自動關閉    
                 clsUtility.myMessageBox("數據保存成功!", "提示信息");
@@ -837,7 +865,12 @@ namespace cf01.Forms
                 , date1, date2 , txtPlm_material_code1.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
-            dgvFind.DataSource = dtDetail;  
+            dgvFind.DataSource = bds1;// dtDetail;  
+            if (dtDetail.Rows.Count == 0)
+            {                
+                MessageBox.Show("找不到符合查找條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             //if(dtDetail.Rows.Count>0)
             //{
@@ -1090,6 +1123,11 @@ namespace cf01.Forms
         {           
             if (dgvDetails.RowCount > 0)
             {
+                dtDetail = dtDetail.DefaultView.ToTable(); //排序後需重新賦值,否數據會錯亂;              
+                bds1.DataSource = dtDetail;
+                dgvDetails.DataSource = bds1;
+
+
                 DataGridViewRow current_row = dgvDetails.CurrentRow;
                 AddNew();
                 SetNewCopyData(current_row);
@@ -1166,13 +1204,13 @@ namespace cf01.Forms
             {
                 return;
             }            
-            int index = dgvFind.CurrentRow.Index;
-            if (index >= 0)
-            {
-                dgvDetails.ClearSelection();
-                dgvDetails.Rows[index].Selected = true;
-                dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
-            }
+            //int index = dgvFind.CurrentRow.Index;
+            //if (index >= 0)
+            //{
+            //    dgvDetails.ClearSelection();
+            //    dgvDetails.Rows[index].Selected = true;
+            //    dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
+            //}
         }
 
         private void txtMo_id2_Leave(object sender, EventArgs e)
@@ -1342,11 +1380,14 @@ namespace cf01.Forms
 
         private void dgvFind_Sorted(object sender, EventArgs e)
         {
-            ResetSortedDataSource();
+            //ResetSortedDataSource();
+            SaveSortInfo(dgvFind);
+            //this.dgvFind.FirstDisplayedCell = this.dgvFind.CurrentCell;
         }
         private void dgvDetails_Sorted(object sender, EventArgs e)
         {
-            ResetSortedDataSource();
+            SaveSortInfo(dgvDetails);
+            //ResetSortedDataSource();
         }
 
         private void txtFinish_DoubleClick(object sender, EventArgs e)
@@ -1377,7 +1418,25 @@ namespace cf01.Forms
                 dtDetail = dtDetail.DefaultView.ToTable();//排序后重新賦數據源,否則出現新增后保存成功,但實際后臺并沒有保存成功的情況
                 bds1.DataSource = dtDetail;
                 dgvDetails.DataSource = bds1;
-                dgvFind.DataSource = dtDetail;
+                dgvFind.DataSource = bds1;// dtDetail;
+            }
+        }
+
+        private void SaveSortInfo(DataGridView grd)
+        {
+            //保存排序信息
+            if (grd.Rows.Count == 0)
+            {
+                sortColumnName = "";
+                return;
+            }
+            sortColumnName = "";
+            if (grd.SortOrder.ToString() != "None")
+            {
+                //表格某列有排序 //return value is : Ascending,Descending or None
+                sortColumnName = grd.SortedColumn.Name;//獲取有排序的列的名稱
+                string strSort = grd.SortOrder.ToString();//獲取有排序列的排序方式 Descending
+                sortDirection= (strSort == "Ascending")? ListSortDirection.Ascending: ListSortDirection.Descending;                             
             }
         }
     }
