@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvhUs));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -960,9 +960,9 @@
             // doc_date
             // 
             this.doc_date.DataPropertyName = "doc_date";
-            dataGridViewCellStyle11.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle11.NullValue = null;
-            this.doc_date.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.doc_date.DefaultCellStyle = dataGridViewCellStyle1;
             this.doc_date.HeaderText = "Date";
             this.doc_date.Name = "doc_date";
             this.doc_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1129,8 +1129,8 @@
             // trim_flat_price
             // 
             this.trim_flat_price.DataPropertyName = "trim_flat_price";
-            dataGridViewCellStyle12.Format = "N2";
-            this.trim_flat_price.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Format = "N2";
+            this.trim_flat_price.DefaultCellStyle = dataGridViewCellStyle2;
             this.trim_flat_price.HeaderText = "Flat Price";
             this.trim_flat_price.Name = "trim_flat_price";
             this.trim_flat_price.ReadOnly = true;
@@ -1139,9 +1139,9 @@
             // trim_1k
             // 
             this.trim_1k.DataPropertyName = "trim_1k";
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.trim_1k.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.trim_1k.DefaultCellStyle = dataGridViewCellStyle3;
             this.trim_1k.HeaderText = "小于1000";
             this.trim_1k.Name = "trim_1k";
             this.trim_1k.ReadOnly = true;
@@ -1150,8 +1150,8 @@
             // trim_1k_3k
             // 
             this.trim_1k_3k.DataPropertyName = "trim_1k_3k";
-            dataGridViewCellStyle14.Format = "N2";
-            this.trim_1k_3k.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Format = "N2";
+            this.trim_1k_3k.DefaultCellStyle = dataGridViewCellStyle4;
             this.trim_1k_3k.HeaderText = "大于1000~3000";
             this.trim_1k_3k.Name = "trim_1k_3k";
             this.trim_1k_3k.ReadOnly = true;
@@ -4728,7 +4728,7 @@
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
             this.dgvFind.RowTemplate.Height = 24;
-            this.dgvFind.Size = new System.Drawing.Size(995, 637);
+            this.dgvFind.Size = new System.Drawing.Size(1335, 637);
             this.dgvFind.TabIndex = 166;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
@@ -4885,9 +4885,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle15.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle15.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -4906,9 +4906,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle16.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -4984,8 +4984,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "artwork_limit";
-            dataGridViewCellStyle17.Format = "N2";
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Format = "N2";
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn13.HeaderText = "Artwork limittations";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -4996,9 +4996,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "tiered_qty1";
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn14.HeaderText = "Tiered Quantity1";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -5009,8 +5009,8 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "m_id1";
-            dataGridViewCellStyle19.Format = "N2";
-            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Format = "N2";
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn15.HeaderText = "Currency1";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
@@ -5056,8 +5056,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle20.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;

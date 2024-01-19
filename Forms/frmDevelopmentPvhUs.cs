@@ -88,6 +88,7 @@ namespace cf01.Forms
 
             dtDoc_date1.EditValue = DateTime.Now.AddDays(-7).ToString("yyyy/MM/dd").Substring(0, 10);
             dtDoc_date2.EditValue = DateTime.Now.ToString("yyyy/MM/dd").Substring(0, 10);
+           
 
             //數據綁定
             SetDataBindings();
@@ -660,7 +661,16 @@ namespace cf01.Forms
             dtDetail = clsPublicOfCF01.GetDataTable(sql);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
-            dgvFind.DataSource = dtDetail;
+            dgvFind.DataSource = bds1;// dtDetail;
+            if (dtDetail.Rows.Count == 0)
+            {
+                MessageBox.Show("找不到符合查找條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            for (int i = 0; i < dgvFind.ColumnCount; i++)
+            {
+                dgvFind.Columns[i].SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            }
             //if(dtDetail.Rows.Count>0)
             //{
             //    tabControl1.SelectTab(0);
@@ -955,17 +965,17 @@ namespace cf01.Forms
 
         private void dgvFind_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvFind.Rows.Count == 0)
-            {
-                return;
-            }            
-            int index = dgvFind.CurrentRow.Index;
-            if (index >= 0)
-            {
-                dgvDetails.ClearSelection();
-                dgvDetails.Rows[index].Selected = true;
-                dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
-            }
+            //if (dgvFind.Rows.Count == 0)
+            //{
+            //    return;
+            //}            
+            //int index = dgvFind.CurrentRow.Index;
+            //if (index >= 0)
+            //{
+            //    dgvDetails.ClearSelection();
+            //    dgvDetails.Rows[index].Selected = true;
+            //    dgvDetails.CurrentCell = dgvDetails.Rows[index].Cells[1];
+            //}
         }
         
         private void lueCheck_EditValueChanged(object sender, EventArgs e)
@@ -1024,4 +1034,4 @@ namespace cf01.Forms
     }
 
 }
-}
+
