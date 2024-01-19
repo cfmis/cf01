@@ -17,6 +17,7 @@ using System.Drawing;
 using System.IO;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraEditors;
+using System.ComponentModel;
 
 namespace cf01.Forms
 {
@@ -31,6 +32,10 @@ namespace cf01.Forms
         private clsAppPublic clsApp = new clsAppPublic();
         private DataGridViewRow dgvrow = new DataGridViewRow();
         public BindingSource bds1 = new BindingSource();
+        ListSortDirection sortDirection;//排序方式
+        string sortColumnName = "";
+        string cur_temp_code = "";
+
 
         public frmDevelopmentPvhUs()
         {
@@ -328,6 +333,7 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@serial_no", txtSerial_no.Text);
                         strSerial_no = txtSerial_no.Text;
                     }
+                    cur_temp_code = strSerial_no;
                     myCommand.Parameters.AddWithValue("@raw_material_country", lueRaw_material_country.EditValue);
                     myCommand.Parameters.AddWithValue("@production_country", txtProduction_country.Text);
                     myCommand.Parameters.AddWithValue("@reference_number", txtreference_number.Text);
@@ -479,9 +485,26 @@ namespace cf01.Forms
                 //新增狀態下定位到新增的行
                 if (mState == "NEW")
                 {
-                    int cur_row_index = dgvDetails.RowCount - 1;
-                    dgvDetails.CurrentCell = dgvDetails.Rows[cur_row_index].Cells[2]; //设置当前单元格
-                    dgvDetails.Rows[cur_row_index].Selected = true; //選中整行
+                    //定位到當前行
+                    int row_index = 0;
+                    //使用foreach重新定位到當前編輯的行.
+                    string temp_code_no = "";
+                    foreach (DataGridViewRow row in dgvDetails.Rows)
+                    {
+                        //获取第i行，列名是列名A的单元格的值
+                        temp_code_no = row.Cells["serial_no"].Value.ToString();
+                        if (temp_code_no == cur_temp_code)
+                        {
+                            row_index = row.Index;
+                            break;
+                        }
+                    }
+                    dgvDetails.CurrentCell = dgvDetails.Rows[row_index].Cells[0];
+                    dgvDetails.Rows[row_index].Selected = true; //選中整行
+
+                    //int cur_row_index = dgvDetails.RowCount - 1;
+                    //dgvDetails.CurrentCell = dgvDetails.Rows[cur_row_index].Cells[2]; //设置当前单元格
+                    //dgvDetails.Rows[cur_row_index].Selected = true; //選中整行
                 }
                 mState = "";              
                 //MessageBoxTimeout((IntPtr )0,"數據保存成功!","提示信息",0,0,1000); //提示窗體1秒后自動關閉    
@@ -858,6 +881,10 @@ namespace cf01.Forms
         {           
             if (dgvDetails.RowCount > 0)
             {
+                dtDetail = dtDetail.DefaultView.ToTable(); //排序後需重新賦值,否數據會錯亂;              
+                bds1.DataSource = dtDetail;
+                dgvDetails.DataSource = bds1;
+
                 DataGridViewRow current_row = dgvDetails.CurrentRow;
                 AddNew();
                 SetNewCopyData(current_row);
@@ -965,21 +992,36 @@ namespace cf01.Forms
         private void txtTrim_flat_price_Click(object sender, EventArgs e)
         {
             Set_Number_Focus(txttrim_1k);
+        }      
+
+        private void SaveSortInfo(DataGridView grd)
+        {
+            //保存排序信息
+            if (grd.Rows.Count == 0)
+            {
+                sortColumnName = "";
+                return;
+            }
+            sortColumnName = "";
+            if (grd.SortOrder.ToString() != "None")
+            {
+                //表格某列有排序 //return value is : Ascending,Descending or None
+                sortColumnName = grd.SortedColumn.Name;//獲取有排序的列的名稱
+                string strSort = grd.SortOrder.ToString();//獲取有排序列的排序方式 Descending
+                sortDirection = (strSort == "Ascending") ? ListSortDirection.Ascending : ListSortDirection.Descending;
+            }
         }
 
-        private int test1()
+        private void dgvFind_Sorted(object sender, EventArgs e)
         {
-            int rtn = 0;
-            rtn = -1;
-            if (rtn == -1)
-            {
-                return -1;
-            }
-            MessageBox.Show("dfdfdfdFDFD");
-            rtn = 1;
-            return rtn;
-            
+            SaveSortInfo(dgvFind);
         }
-       
+
+        private void dgvDetails_Sorted(object sender, EventArgs e)
+        {
+            SaveSortInfo(dgvDetails);
+        }
     }
+
+}
 }
