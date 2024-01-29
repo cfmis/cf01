@@ -33,9 +33,9 @@ namespace cf01.MM
 
             //**********************
             DataTable dtPrd = QueryProductCost(); //数据处理
-            gcGoodsCostHead.DataSource = dtPrd;
+            dgvGoodsCostHead.DataSource = dtPrd;
             HideProcessBar();
-            if (gvGoodsCostHead.DataRowCount == 0)
+            if (dgvGoodsCostHead.Rows.Count == 0)
                 MessageBox.Show("沒有找到符合條件的記錄!");
         }
         private DataTable QueryProductCost()
@@ -52,24 +52,12 @@ namespace cf01.MM
             this.Close();
         }
 
-        private void gvGoodsCostHead_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
-        {
-            DataRow Row = gvGoodsCostHead.GetFocusedDataRow();
-            int upperSN = Convert.ToInt32(Row["SN"]);
-            LoadProductCostPrt(upperSN);
-        }
         private void LoadProductCostPrt(int upperSN)
         {
             DataTable dtPart = clsCountGoodsCost.LoadProductCostPart(upperSN, "");
             gcGoodsCostDetails.DataSource = dtPart;
         }
 
-        private void repositoryItemButtonEdit6_Click(object sender, EventArgs e)
-        {
-            DataRow Row = gvGoodsCostHead.GetFocusedDataRow();
-            frmCountGoodsCost.getID = Row["ID"].ToString();
-            this.Close();
-        }
 
         private void btnAddCost_Click(object sender, EventArgs e)
         {
@@ -140,21 +128,9 @@ namespace cf01.MM
             }
         }
 
-        private void gvGoodsCostHead_MouseDown(object sender, MouseEventArgs e)
-        {
-            DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo hInfo = gvGoodsCostHead.CalcHitInfo(new Point(e.X, e.Y));
-            if (e.Button == MouseButtons.Left && e.Clicks == 2)
-            {
-                //判断光标是否在行范围内 
-                if (hInfo.InRow)
-                {
-                    MessageBox.Show(hInfo.RowHandle.ToString());
-                }
-            }
-        }
-
         private void frmCountGoodsCostFind_Load(object sender, EventArgs e)
         {
+            dgvGoodsCostHead.AutoGenerateColumns = false;
             lueMoGroup.Properties.DataSource = clsBaseData.LoadMoGroup("");
             lueMoGroup.Properties.ValueMember = "group_id";
             lueMoGroup.Properties.DisplayMember = "group_desc";
@@ -184,6 +160,17 @@ namespace cf01.MM
 
                 }
             }
+        }
+        private void dgvGoodsCostHead_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmCountGoodsCost.getID = dgvGoodsCostHead.Rows[dgvGoodsCostHead.CurrentRow.Index].Cells["colID"].Value.ToString().Trim();
+            this.Close();
+        }
+
+        private void dgvGoodsCostHead_SelectionChanged(object sender, EventArgs e)
+        {
+            int upperSN = Convert.ToInt32(dgvGoodsCostHead.Rows[dgvGoodsCostHead.CurrentRow.Index].Cells["colSN"].Value.ToString().Trim());
+            LoadProductCostPrt(upperSN);
         }
     }
 }

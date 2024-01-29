@@ -41,6 +41,8 @@ namespace cf01.MDL
         public string PrdMo { get; set; }
         public string MdNo { get; set; }
         public string MoGroup { get; set; }
+        public float FactAddWasteRate { get; set; }
+        public float CompProfitRate { get; set; }
         public string Remark { get; set; }
         public string CreateUser { get; set; }
         public string CreateTime { get; set; }

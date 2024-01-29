@@ -14,7 +14,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Threading;
 using DevExpress.XtraEditors.Controls;
-
+using System.IO;
 
 namespace cf01.MM
 {
@@ -29,6 +29,7 @@ namespace cf01.MM
         private DataTable dtFactory = new DataTable();
         private frmCountGoodsCostFind frmCountGoodsCostFind;
         private frmOrderHistory frmOrderHistory;
+        frmCountGoodsCostFindGoods frmCountGoodsCostFindGoods;
         private mdlCountGoodsCostBase mdlCopyID = new mdlCountGoodsCostBase();
         public static int newMode = 0;
         private int newPartMode = 0;
@@ -43,7 +44,8 @@ namespace cf01.MM
         public static string getVendName = ""; 
         public static string getQuoDate = "";
         public static string getQuoID = "";
-
+        string factAddWasteRate = "";
+        string compProfitRate = "";
         frmProcessBarWindows processBarWindows;
         int progressBar_Cnt2 = 0;
         int Coun = 100;
@@ -71,7 +73,8 @@ namespace cf01.MM
             LoadGoodsPartToGrid(999999999);
             LoadPurPriceDetails(-999);
             txtTestQty.Text = "";
-            txtProfitRate.Text = "30";//////工廠利潤率
+            txtFactAddWasteRate.Text = factAddWasteRate;//////工廠利潤率
+            txtCompProfitRate.Text = compProfitRate;//////工廠利潤率
             ShowProductCost();
             //////默認新增配件
             LoadProductCostPart("ZZZ");
@@ -116,6 +119,8 @@ namespace cf01.MM
                 txtPrdMo.Text = dr["PrdMo"].ToString();
                 txtMdNo.Text = dr["MdNo"].ToString();
                 lueMoGroup.EditValue = dr["MoGroup"].ToString() != "" ? dr["MoGroup"].ToString() : "";
+                txtFactAddWasteRate.Text = dr["FactAddWasteRate"].ToString();
+                txtCompProfitRate.Text = dr["CompProfitRate"].ToString();
                 txtRemark.Text = dr["Remark"].ToString();
                 txtCreateUser.Text = dr["CreateUser"].ToString();
                 txtCreateTime.Text = dr["CreateTime"].ToString();
@@ -140,6 +145,8 @@ namespace cf01.MM
                 txtPrdMo.Text = "";
                 txtMdNo.Text = "";
                 lueMoGroup.EditValue = "";
+                txtFactAddWasteRate.Text = factAddWasteRate;
+                txtCompProfitRate.Text = compProfitRate;
                 txtCreateUser.Text = "";
                 txtCreateTime.Text = "";
                 txtAmendUser.Text = "";
@@ -230,6 +237,8 @@ namespace cf01.MM
             mdlGoods.PrdMo = txtPrdMo.Text.Trim();
             mdlGoods.MdNo = txtMdNo.Text.Trim();
             mdlGoods.MoGroup = lueMoGroup.EditValue != null ? lueMoGroup.EditValue.ToString().Trim() : "";
+            mdlGoods.FactAddWasteRate = clsValidRule.ConvertStrToSingle(txtFactAddWasteRate.Text);
+            mdlGoods.CompProfitRate = clsValidRule.ConvertStrToSingle(txtCompProfitRate.Text);
             mdlGoods.Remark = txtRemark.Text.Trim();
             string result = clsCountGoodsCost.Save(mdlGoods);
             if (newMode != 4)//如果是複製的，就不用執行以下
@@ -262,13 +271,19 @@ namespace cf01.MM
             //初始化配件表，以便在查詢畫面中，做複製的時候，有表的結構可以儲存值
             LoadGoodsPartToGrid(-999);
             newMode = 1;
-            txtProfitRate.Text = "30";//////工廠利潤率
+            
             BindData();
         }
         private void BindData()
         {
             //gcMatDetails.DataSource = dtMat;
             //gcGoodsProcess.DataSource = dtProcess;
+            //////主表中顯示利潤率
+            DataTable dtProfit = clsBaseData.LoadProcessType("CP_PROFIT", "");
+            factAddWasteRate = dtProfit.Rows[0]["use_weg"].ToString();
+            compProfitRate = dtProfit.Rows[0]["product_qty"].ToString();
+            txtFactAddWasteRate.Text = factAddWasteRate;//工廠附加損耗率
+            txtCompProfitRate.Text = compProfitRate;//////公司利潤率
             //////組別
             //////外發加工的部門
             lueMoGroup.Properties.DataSource = clsBaseData.LoadMoGroup("");
@@ -329,15 +344,26 @@ namespace cf01.MM
 
         private void CountTestCost()
         {
+            
+            //////工廠總成本
+            float factAddRate= clsValidRule.ConvertStrToSingle(txtFactAddWasteRate.Text) / 100;
+            txtFactoryPricePcs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostPcs.Text) * (1 + factAddRate), 4).ToString();
+            txtFactoryPriceGrs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostGrs.Text) * (1 + factAddRate), 4).ToString();
+            txtFactoryPriceK.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostK.Text) * (1 + factAddRate), 2).ToString();
+            //////公司利潤
+            float profitRate = clsValidRule.ConvertStrToSingle(txtCompProfitRate.Text) / 100;
+            txtSalePricePcs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtFactoryPricePcs.Text) * (1 + profitRate), 4).ToString();
+            txtSalePriceGrs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtFactoryPriceGrs.Text) * (1 + profitRate), 2).ToString();
+            txtSalePriceK.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtFactoryPriceK.Text) * (1 + profitRate), 2).ToString();
+            //////試算表
             float unitRate = 0;
-            unitRate = clsBaseData.GetUnitRate(lueTestUnit.EditValue != null ? lueTestUnit.EditValue.ToString().Trim() : "");
             float Qty = clsValidRule.ConvertStrToSingle(txtTestQty.Text);
-            float profitRate = clsValidRule.ConvertStrToSingle(txtProfitRate.Text) / 100;
-            txtSalePricePcs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostPcs.Text) * (1 + profitRate), 4).ToString();
-            txtSalePriceGrs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostGrs.Text) * (1 + profitRate), 2).ToString();
-            txtSalePriceK.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtProductCostK.Text) * (1 + profitRate), 2).ToString();
-            double baseAmt = Math.Round((Qty * unitRate) * clsValidRule.ConvertStrToSingle(txtProductCostPcs.Text), 2);
-            txtProfitAmt.Text=Math.Round(baseAmt * (1 + profitRate), 2).ToString();
+            unitRate = clsBaseData.GetUnitRate(lueTestUnit.EditValue != null ? lueTestUnit.EditValue.ToString().Trim() : "");
+            float qtyPcs = Qty * unitRate;
+            //////成本金額
+            txtFactoryAmt.Text= Math.Round(qtyPcs * clsValidRule.ConvertStrToSingle(txtFactoryPricePcs.Text), 4).ToString();
+            //////公司含利潤金額
+            txtProfitAmt.Text = Math.Round(qtyPcs * clsValidRule.ConvertStrToSingle(txtSalePricePcs.Text), 4).ToString();
             //float purRate = clsValidRule.ConvertStrToSingle(txtPurRate.Text) / 100;
             //txtPurPricePcs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtSalePricePcs.Text) * (1 + purRate), 4).ToString();
             //txtPurPriceGrs.Text = Math.Round(clsValidRule.ConvertStrToSingle(txtSalePriceGrs.Text) * (1 + purRate), 4).ToString();
@@ -689,6 +715,50 @@ namespace cf01.MM
                 }
             }
             CountPlateCost();
+        }
+        /// <summary>
+        /// ///原料表格中，點擊查詢時轉到物料用料表，并帶入用料、損耗、廢料數值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryItemButtonEdit22_Click(object sender, EventArgs e)
+        {
+            getID = "";
+            if (frmCountGoodsCostFindGoods == null)
+            {
+                frmCountGoodsCostFindGoods = new frmCountGoodsCostFindGoods();
+            }
+            frmCountGoodsCostFindGoods.ShowDialog();
+            if (getID != "")
+            {
+                DataRow Row = gvMatDetails.GetFocusedDataRow();
+                decimal matUse = 0;
+                decimal matWeg = 0;
+                decimal wasteRate = 0;
+                decimal matWaste = 0;
+                decimal defaultWasteRate = clsValidRule.ConvertStrToDecimal(Row["WasteRate"].ToString());
+                string matCode = Row["MatCode"].ToString().Trim();
+                DataTable dtMatType = clsBaseData.LoadProcessType("MAT_CODE", matCode);
+                if (dtMatType.Rows.Count > 0)
+                {
+                    defaultWasteRate= clsValidRule.ConvertStrToDecimal(dtMatType.Rows[0]["waste_rate"].ToString());
+                }
+                matWeg = frmCountGoodsCostFindGoods.prdWeg;
+                decimal newWasteRate = frmCountGoodsCostFindGoods.useWeg != 0 ? Math.Round((frmCountGoodsCostFindGoods.wasteWeg / frmCountGoodsCostFindGoods.useWeg) * 100, 2) : 0;
+                //////如果損耗比默認的小的，取默認的
+                wasteRate = newWasteRate < defaultWasteRate ? defaultWasteRate : newWasteRate;
+                matUse = Math.Round(matWeg / (1 - (wasteRate / 100)), 4);
+                matWaste = matUse - matWeg;
+                Row["MatWeg"] = matWeg;
+                Row["WasteRate"] = wasteRate;
+                Row["MatWaste"] = matWaste;
+                Row["MatUse"] = matUse;
+                //////返回後設置焦點，不然數據不會更新
+                ColumnView newview = (ColumnView)gcMatDetails.FocusedView;
+                newview.FocusedColumn = newview.Columns["MatWeg"];//定位焦点网格的位置
+                //int FocuseRow_Handle = newview.FocusedRowHandle;//获取新焦点行的FocuseRowHandle
+                CountMatCost();
+            }
         }
         private void repositoryItemButtonEdit8_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -1182,7 +1252,7 @@ namespace cf01.MM
                     DataRow dr = dtProcessBase.Rows[0];
                     Row["ProcessID"] = dr["process_id"].ToString();
                     Row["ProcessName"] = dr["process_name"].ToString();
-                    Row["ProcessPrice"] = dr["cost_price"];
+                    Row["ProcessPrice"] = dr["PriceHKD"];
                     Row["ProcessBaseQty"] = dr["product_qty"];
                 }
                 else
@@ -1874,6 +1944,10 @@ namespace cf01.MM
         {
             CountTestCost();
         }
+        private void txtFactAddWasteRate_EditValueChanged(object sender, EventArgs e)
+        {
+            CountTestCost();
+        }
         private void txtProfitRate_EditValueChanged(object sender, EventArgs e)
         {
             CountTestCost();
@@ -1940,15 +2014,16 @@ namespace cf01.MM
         private void btnFindProductPart_Click(object sender, EventArgs e)
         {
             getID = "";
-            frmCountGoodsCostFindGoods frm = new frmCountGoodsCostFindGoods();
-            frm.ShowDialog();
+            if (frmCountGoodsCostFindGoods == null)
+            {
+                frmCountGoodsCostFindGoods = new frmCountGoodsCostFindGoods();
+            }
+            frmCountGoodsCostFindGoods.ShowDialog();
             if (getID != "")
             {
                 txtProductIdPart.Text = getID;
                 GetProductDataPart();
             }
-
-            frm.Dispose();
         }
 
         private void txtPlateWasteRate_EditValueChanged(object sender, EventArgs e)
@@ -2284,8 +2359,262 @@ namespace cf01.MM
         {
             if (CheckDeletePartStatus())
                 return;
+            LoadData();
+            if (txtID.Text.Trim() == "")
+            {
+                MessageBox.Show("沒有要匯出的記錄!");
+                return;
+            }
+            FolderBrowserDialog saveFile = new FolderBrowserDialog();
+            saveFile.Description = "請選擇文件路徑";
+            DialogResult result = saveFile.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            { return; }
+
+            //saveFile.Filter = "Excel files(*.xls)|*.xls";
+            //saveFile.FilterIndex = 0;
+            //saveFile.RestoreDirectory = true;
+            ////saveFile.CreatePrompt = true;
+            //saveFile.Title = "导出Excel文件到";
+            string folderPath = saveFile.SelectedPath.Trim();
+
+            string fileName = folderPath + "\\" + txtID.Text.ToString().Trim() + ".xls";// saveFile.FileName;
+            progressBar_Cnt2 = 0;
+            processBarWindows = new frmProcessBarWindows(0, Coun, "正在匯出數據，請稍候。。。");
+
+            ShowProcessBar();
+            ExpToExcel(fileName);
+            HideProcessBar();
         }
 
+        /// <summary>
+        /// ///匯出報價單到Excel
+        /// </summary>
+        private void ExpToExcel(string fileName)
+        {
+            
+            //SaveFileDialog saveFile = new SaveFileDialog();
+            //OpenFileDialog saveFile = new OpenFileDialog();
+            
+             // 创建Excel应用程序对象
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            var ev = excel.Version;
+            Microsoft.Office.Interop.Excel.Range excelRange;
+            //excel.Visible = true;       //激活Excel
+            Microsoft.Office.Interop.Excel.Workbook wBook = excel.Workbooks.Add(true);
+            Microsoft.Office.Interop.Excel.Worksheet wSheet = (Microsoft.Office.Interop.Excel.Worksheet)wBook.ActiveSheet;
+            int rowIndex = 1;
+            int totalColumns = 18;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 1], wSheet.Cells[rowIndex, totalColumns]];
+            wSheet.Cells[rowIndex, 1] = "產品計價";
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            excelRange.Font.Size = 16;
+            excelRange.Font.Bold = true;
+            rowIndex ++;
+            wSheet.Cells[rowIndex, 1] = "文件編號";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 1], wSheet.Cells[rowIndex, 2]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 3] = txtID.Text;
+            wSheet.Cells[rowIndex, 4] = "產品編號";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 4], wSheet.Cells[rowIndex, 5]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 6] = txtProductId.Text;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 6], wSheet.Cells[rowIndex, 7]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 8] = "產品描述";
+            wSheet.Cells[rowIndex, 9] = txtProductName.Text;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 9], wSheet.Cells[rowIndex, 12]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 13] = "產品尺寸";
+            wSheet.Cells[rowIndex, 14] = txtSize.Text.ToString().Trim() + " " + txtSizeName.Text.ToString().Trim();
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 14], wSheet.Cells[rowIndex, 15]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 16] = "版本";
+            wSheet.Cells[rowIndex, 17] = txtVer.Text.ToString().Trim();
+            DataTable dtGoods = clsCountGoodsCost.GetProductDataPart(txtProductId.Text.Trim());
+            if (dtGoods.Rows.Count > 0)
+            {
+                string picPath = DBUtility.imagePath;// context.Server.MapPath("~/") + "images\\";
+                string picName = dtGoods.Rows[0]["art_image"].ToString().Trim(); //"pencil.png";
+                if (picName != "")
+                {
+                    //picName = picName.Replace("\\", "/");
+                    picName = picPath + picName;
+                    if (File.Exists(picName))
+                    {
+                        excelRange = wSheet.Range[wSheet.Cells[rowIndex, 18], wSheet.Cells[rowIndex, totalColumns]];
+                        excelRange.Select();
+                        float PicLeft, PicTop;
+                        PicLeft = Convert.ToSingle(excelRange.Left + 2);
+                        PicTop = Convert.ToSingle(excelRange.Top + 2);
+                        wSheet.Shapes.AddPicture(picName, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoTrue, PicLeft, PicTop, 50, 50);
+                        excelRange = wSheet.Range[wSheet.Cells[rowIndex, 18], wSheet.Cells[rowIndex + 1, 18]];
+                        excelRange.MergeCells = true;//合併單元格
+
+                    }
+
+                    //wSheet.Cells[excelRow, 28] = file_d;
+                }
+            }
+            rowIndex++;
+            wSheet.Cells[rowIndex, 1] = "圖樣代號";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 1], wSheet.Cells[rowIndex, 2]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 3] = txtArtWork.Text;
+            wSheet.Cells[rowIndex, 4] = "圖樣描述";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 4], wSheet.Cells[rowIndex, 5]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 6] = txtArtWorkName.Text;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 6], wSheet.Cells[rowIndex, 7]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 8] = "產品類型";
+            wSheet.Cells[rowIndex, 9] = txtProductType.ToString().Trim() + " " + txtProductTypeName.Text.ToString().Trim();
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 9], wSheet.Cells[rowIndex, 12]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 13]= "產品顏色";
+            wSheet.Cells[rowIndex, 14]= txtColor.Text.ToString().Trim() + " " + txtColorName.Text.ToString().Trim();
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 14], wSheet.Cells[rowIndex, 15]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 16]= "組別";
+            wSheet.Cells[rowIndex, 17] = lueMoGroup.EditValue != null ? lueMoGroup.EditValue : "";
+            rowIndex++;
+            wSheet.Cells[rowIndex, 1] = "制單編號";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 1], wSheet.Cells[rowIndex, 2]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 3] = txtPrdMo.Text;
+            wSheet.Cells[rowIndex, 4] = "新模編號";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 4], wSheet.Cells[rowIndex, 5]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 6] = txtMdNo.Text;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 6], wSheet.Cells[rowIndex, 7]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 8] = "客戶顏色編號";
+            wSheet.Cells[rowIndex, 9] = txtCustColor;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 9], wSheet.Cells[rowIndex, 12]];
+            excelRange.MergeCells = true;//合併單元格
+            wSheet.Cells[rowIndex, 13]= "備註";
+            wSheet.Cells[rowIndex, 14]= txtRemark;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 14], wSheet.Cells[rowIndex, 17]];
+            excelRange.MergeCells = true;//合併單元格
+            //顯示表格
+            rowIndex++;
+            wSheet.Cells[rowIndex, 1] = "序號";
+            wSheet.Cells[rowIndex, 2] = "配件編號";
+            wSheet.Cells[rowIndex, 3] = "配件描述";
+            wSheet.Cells[rowIndex, 4] = "主件";
+            wSheet.Cells[rowIndex, 5] = "工廠合計成本/PCS";
+            wSheet.Cells[rowIndex, 6] = "工廠合計成本/GRS";
+            wSheet.Cells[rowIndex, 7] = "工廠合計成本/K";
+            wSheet.Cells[rowIndex, 8] = "重量(Kg)/K";
+            wSheet.Cells[rowIndex, 9] = "原料用料(Kg)/K";
+            wSheet.Cells[rowIndex, 10] = "原料成本";
+            wSheet.Cells[rowIndex, 11] = "部門加工費";
+            wSheet.Cells[rowIndex, 12] = "外發加工成本";
+            wSheet.Cells[rowIndex, 13] = "包裝物料費用";
+            wSheet.Cells[rowIndex, 14] = "產品成本/PCS";
+            wSheet.Cells[rowIndex, 15] = "產品成本/GRS";
+            wSheet.Cells[rowIndex, 16] = "產品成本/K";
+            wSheet.Cells[rowIndex, 17] = "其它成本";
+            
+            rowIndex++;
+            decimal factoryAmtPcs = 0, factoryAmtGrs = 0, factoryAmtK = 0;
+            for (int i = 0; i < gvGoodsPartDetails.DataRowCount; i++)
+            {
+                DataRow dr = gvGoodsPartDetails.GetDataRow(i);
+                wSheet.Cells[rowIndex, 1] = dr["Seq"].ToString();
+                wSheet.Cells[rowIndex, 2] = dr["ProductID"].ToString();
+                wSheet.Cells[rowIndex, 3] = dr["ProductName"].ToString();
+                wSheet.Cells[rowIndex, 4] = dr["FrontPart"].ToString();
+                wSheet.Cells[rowIndex, 5] = dr["FactoryCostPcs"].ToString();
+                wSheet.Cells[rowIndex, 6] = dr["FactoryCostGrs"].ToString();
+                wSheet.Cells[rowIndex, 7] = dr["FactoryCostK"].ToString();
+                wSheet.Cells[rowIndex, 8] = dr["MatWeg"].ToString();
+                wSheet.Cells[rowIndex, 9] = dr["MatUse"].ToString();
+                wSheet.Cells[rowIndex, 10] = dr["MatCost"].ToString();
+                wSheet.Cells[rowIndex, 11] = dr["ProcessCostTotal"].ToString();
+                wSheet.Cells[rowIndex, 12] = dr["PlateCost"].ToString();
+                wSheet.Cells[rowIndex, 13] = dr["PackCost"].ToString();
+                wSheet.Cells[rowIndex, 14] = dr["CostPcs"].ToString();
+                wSheet.Cells[rowIndex, 15] = dr["CostGrs"].ToString();
+                wSheet.Cells[rowIndex, 16] = dr["CostK"].ToString();
+                wSheet.Cells[rowIndex, 17] = dr["FactoryFee"].ToString();
+                
+                factoryAmtPcs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostPcs"].ToString());
+                factoryAmtGrs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostGrs"].ToString());
+                factoryAmtK += clsValidRule.ConvertStrToDecimal(dr["FactoryCostK"].ToString());
+                rowIndex++;
+            }
+            wSheet.Cells[rowIndex, 3] = "產品合計成本";
+            wSheet.Cells[rowIndex, 5] = factoryAmtPcs;
+            wSheet.Cells[rowIndex, 6] = factoryAmtGrs;
+            wSheet.Cells[rowIndex, 7] = factoryAmtK;
+            rowIndex++;
+            wSheet.Cells[rowIndex, 3] = "工廠附加損耗率(%)";
+            wSheet.Cells[rowIndex, 5] = txtFactAddWasteRate.Text;
+            rowIndex++;
+            wSheet.Cells[rowIndex, 3] = "工廠總成本 PCS/GRS/K";
+            wSheet.Cells[rowIndex, 5] = txtFactoryPricePcs.Text;
+            wSheet.Cells[rowIndex, 6] = txtFactoryPriceGrs.Text;
+            wSheet.Cells[rowIndex, 7] = txtFactoryPriceK.Text;
+            rowIndex++;
+            wSheet.Cells[rowIndex, 3] = "含利潤價錢 PCS/GRS/K";
+            wSheet.Cells[rowIndex, 5] = txtSalePricePcs.Text;
+            wSheet.Cells[rowIndex, 6] = txtSalePriceGrs.Text;
+            wSheet.Cells[rowIndex, 7] = txtSalePriceK.Text;
+
+            wSheet.Columns[1].ColumnWidth = 3.75;
+            wSheet.Columns[2].ColumnWidth = 13.75;
+            wSheet.Columns[3].ColumnWidth = 24.38;
+            wSheet.Columns[4].ColumnWidth = 3.63;
+            wSheet.Columns[5].ColumnWidth = 7.38;
+            wSheet.Columns[6].ColumnWidth = 8.25;
+            wSheet.Columns[7].ColumnWidth = 8.5;
+            wSheet.Columns[8].ColumnWidth = 10.13;
+            wSheet.Columns[9].ColumnWidth = 8.38;
+            wSheet.Columns[10].ColumnWidth = 8.38;
+            wSheet.Columns[11].ColumnWidth = 8.38;
+            wSheet.Columns[12].ColumnWidth = 6.63;
+            wSheet.Columns[13].ColumnWidth = 7.38;
+            wSheet.Columns[14].ColumnWidth = 7.25;
+            wSheet.Columns[15].ColumnWidth = 7.38;
+            wSheet.Columns[16].ColumnWidth = 5.25;
+            wSheet.Columns[17].ColumnWidth = 6.25;
+
+            wSheet.PageSetup.Zoom = 85;
+            wSheet.Cells.Font.Size = 10;
+            wSheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4;//纸张大小.XIPaperSize.xIPaperA3;//.xIPaperB4;//纸张大小
+            wSheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlLandscape;//横向:纸张方向:豎向；XlPageOrientation.xlPortrait;
+            wSheet.PageSetup.TopMargin = 12.5;
+            wSheet.PageSetup.BottomMargin = 20;
+            wSheet.PageSetup.LeftMargin = 12.5;
+            wSheet.PageSetup.RightMargin = 12.5;
+            
+            excelRange = wSheet.Range[wSheet.Cells[1, 1], wSheet.Cells[rowIndex, totalColumns]];
+            excelRange.RowHeight = 30;
+            //设置文本自動換行
+            excelRange.WrapText = true;
+            //设置边框
+            excelRange.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+
+            object m_objOpt = System.Reflection.Missing.Value;
+            wBook.SaveAs(fileName, m_objOpt, m_objOpt, m_objOpt, m_objOpt, m_objOpt, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, m_objOpt, m_objOpt, m_objOpt, m_objOpt, m_objOpt);
+            wBook.Close();
+            wBook = null;
+            clsBaseData.NAR(wBook);
+            excel.Quit();
+            excel = null;
+            clsBaseData.NAR(excel);
+            GC.Collect();
+            //MessageBox.Show("已匯出到Excel文件!");
+        }
+        
         private void btnOrderHistory_Click(object sender, EventArgs e)
         {
             if (CheckDeletePartStatus())
@@ -2328,5 +2657,7 @@ namespace cf01.MM
                 }
             }
         }
+
+        
     }
 }
