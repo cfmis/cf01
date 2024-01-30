@@ -752,6 +752,7 @@ namespace cf01.ReportForm
 
             dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
             dtNewWork.Columns.Add("next_next_do_color", typeof(string));
+            dtNewWork.Columns.Add("qty_remaining", typeof(int));
 
             DataRow dr = null;
             string order_unit;
@@ -803,22 +804,28 @@ namespace cf01.ReportForm
 
                             int Per_qty = Convert.ToInt32(dgr.Cells["per_prod_qty"].Value);  //每次生產數量
                             int Total_qty = Convert.ToInt32(dgr.Cells["prod_qty"].Value);    //生產總量
-                            int NumPage = 0;     //報表頁數
+                            int qty_remaining = 0; //2024/01/31 ADD ALLEN
+                            int NumPage = 0;     //報表頁數                            
                             if (Total_qty > 0 && Per_qty > 0)
                             {
                                 if (Total_qty % Per_qty > 0)
                                 {
                                     NumPage = (Total_qty / Per_qty) + 1;
+                                    qty_remaining = Total_qty % Per_qty; //2024/01/31 ADD ALLEN
                                 }
                                 else
                                 {
                                     NumPage = (Total_qty / Per_qty);
+                                    qty_remaining = 0; //2024/01/31 ADD ALLEN
                                 }
                             }
                             else
                             {
                                 NumPage = 1;
                             }
+
+                            
+                            
 
                             for (int i = 1; i <= NumPage; i++)
                             {
@@ -908,9 +915,19 @@ namespace cf01.ReportForm
                                 }
                                 if (i == NumPage && Per_qty != 0)
                                 {
-                                    if (Total_qty % Per_qty > 0)
+                                    /* 2024/01/30 CANCEL ALLEN
+                                    //if (Total_qty % Per_qty > 0)
+                                    //{
+                                    //    dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);
+                                    //}
+                                    //else
+                                    //{
+                                    //    dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
+                                    //}
+                                    */
+                                    if (qty_remaining > 0)
                                     {
-                                        dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);
+                                        dr["per_qty"] = clsUtility.NumberConvert(qty_remaining);
                                     }
                                     else
                                     {
@@ -945,6 +962,7 @@ namespace cf01.ReportForm
                                     dr["next_next_goods_id"] = dtNextNextItem.Rows[0]["next_next_goods_id"].ToString();
                                     dr["next_next_do_color"] = dtNextNextItem.Rows[0]["next_next_do_color"].ToString();
                                 }
+                                dr["qty_remaining"] = qty_remaining; //2024/01/31 ADD ALLEN
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
