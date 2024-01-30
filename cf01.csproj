@@ -1800,6 +1800,12 @@
     <Compile Include="ReportForm\frmMouldInfo.Designer.cs">
       <DependentUpon>frmMouldInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmMouldProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmMouldProcess.Designer.cs">
+      <DependentUpon>frmMouldProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmNewMould.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2245,6 +2251,12 @@
     </Compile>
     <Compile Include="Reports\xrhg_plate.Designer.cs">
       <DependentUpon>xrhg_plate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrMouldProcess.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrMouldProcess.designer.cs">
+      <DependentUpon>xrMouldProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrMould_Process.cs">
       <SubType>Component</SubType>
@@ -3531,6 +3543,9 @@
     <EmbeddedResource Include="ReportForm\frmMouldInfo.resx">
       <DependentUpon>frmMouldInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmMouldProcess.resx">
+      <DependentUpon>frmMouldProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmNewMould.resx">
       <DependentUpon>frmNewMould.cs</DependentUpon>
     </EmbeddedResource>
@@ -3782,6 +3797,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrhg_plate.resx">
       <DependentUpon>xrhg_plate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrMouldProcess.resx">
+      <DependentUpon>xrMouldProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrMould_Process.resx">
       <DependentUpon>xrMould_Process.cs</DependentUpon>
