@@ -190,5 +190,18 @@ namespace cf01.CLS
             DataTable dtCurr = clsPublicOfCF01.GetDataTable(strSql);
             return dtCurr;
         }
+
+        public static void NAR(object o)
+        {
+            try
+            {
+                while (System.Runtime.InteropServices.Marshal.FinalReleaseComObject(o) > 0) ;
+            }
+            catch { }
+            finally
+            {
+                o = null;
+            }
+        }
     }
 }

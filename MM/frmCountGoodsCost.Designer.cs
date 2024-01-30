@@ -34,13 +34,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -108,14 +108,15 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn77 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn55 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn55 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn57 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -152,28 +153,40 @@
             this.btnAddPur = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
             this.plcProfit = new DevExpress.XtraEditors.PanelControl();
+            this.txtFactAddWasteRate = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.lueTestUnit = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
+            this.txtFactoryPriceK = new DevExpress.XtraEditors.TextEdit();
             this.txtSalePriceK = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
             this.lblSalePriceK = new DevExpress.XtraEditors.LabelControl();
+            this.txtFactoryAmt = new DevExpress.XtraEditors.TextEdit();
             this.txtProfitAmt = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.lblProfitAmt = new DevExpress.XtraEditors.LabelControl();
+            this.txtFactoryPriceGrs = new DevExpress.XtraEditors.TextEdit();
             this.txtSalePriceGrs = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
             this.lblSalePriceGrs = new DevExpress.XtraEditors.LabelControl();
             this.txtTestQty = new DevExpress.XtraEditors.TextEdit();
             this.lblTestUnit = new DevExpress.XtraEditors.LabelControl();
-            this.txtProfitRate = new DevExpress.XtraEditors.TextEdit();
+            this.txtCompProfitRate = new DevExpress.XtraEditors.TextEdit();
+            this.txtFactoryPricePcs = new DevExpress.XtraEditors.TextEdit();
             this.txtSalePricePcs = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
             this.lblTestQty = new DevExpress.XtraEditors.LabelControl();
             this.lblSalePricePcs = new DevExpress.XtraEditors.LabelControl();
             this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.btnSetProfitVisible = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.txtProductCostPcs = new DevExpress.XtraEditors.TextEdit();
             this.lblProductCostPcs = new DevExpress.XtraEditors.LabelControl();
             this.txtProductCostK = new DevExpress.XtraEditors.TextEdit();
@@ -333,6 +346,8 @@
             this.colMatCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit23 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colMatName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit22 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colMatWeg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWasteRate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -383,10 +398,12 @@
             this.txtColorNamePart = new DevExpress.XtraEditors.TextEdit();
             this.txtProductTypeNamePart = new DevExpress.XtraEditors.TextEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.btnAddPart = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
-            this.gridColumn77 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -443,12 +460,17 @@
             this.panelControl15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.plcProfit)).BeginInit();
             this.plcProfit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactAddWasteRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTestUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryPriceK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePriceK.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryAmt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfitAmt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryPriceGrs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePriceGrs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTestQty.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProfitRate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCompProfitRate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryPricePcs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePricePcs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
             this.panelControl16.SuspendLayout();
@@ -540,6 +562,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcMatDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMatDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
@@ -632,6 +655,17 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
+            // btnSave
+            // 
+            this.btnSave.AutoSize = false;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(65, 35);
+            this.btnSave.Text = "儲存(&S)";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -679,17 +713,6 @@
             this.btnDeleteItem.Text = "刪除配件";
             this.btnDeleteItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.AutoSize = false;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(65, 35);
-            this.btnSave.Text = "儲存(&S)";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStripSeparator8
             // 
@@ -1056,7 +1079,7 @@
             // 
             // lblVer
             // 
-            this.lblVer.Location = new System.Drawing.Point(1124, 17);
+            this.lblVer.Location = new System.Drawing.Point(1129, 17);
             this.lblVer.Name = "lblVer";
             this.lblVer.Size = new System.Drawing.Size(40, 14);
             this.lblVer.TabIndex = 0;
@@ -1199,10 +1222,10 @@
             this.gridColumn35,
             this.gridColumn51,
             this.gridColumn55,
-            this.gridColumn57,
             this.gridColumn4,
             this.gridColumn5,
-            this.gridColumn6});
+            this.gridColumn6,
+            this.gridColumn57});
             this.gvGoodsPartDetails.FooterPanelHeight = 30;
             this.gvGoodsPartDetails.GridControl = this.gcGoodsPartDetails;
             this.gvGoodsPartDetails.Name = "gvGoodsPartDetails";
@@ -1253,7 +1276,7 @@
             // 
             // gridColumn58
             // 
-            this.gridColumn58.Caption = "工廠合計成本(PCS)";
+            this.gridColumn58.Caption = "工廠合計成本/PCS";
             this.gridColumn58.FieldName = "FactoryCostPcs";
             this.gridColumn58.Name = "gridColumn58";
             this.gridColumn58.OptionsColumn.ReadOnly = true;
@@ -1263,7 +1286,7 @@
             // 
             // gridColumn59
             // 
-            this.gridColumn59.Caption = "工廠合計成本(GRS)";
+            this.gridColumn59.Caption = "工廠合計成本/GRS";
             this.gridColumn59.FieldName = "FactoryCostGrs";
             this.gridColumn59.Name = "gridColumn59";
             this.gridColumn59.OptionsColumn.ReadOnly = true;
@@ -1273,7 +1296,7 @@
             // 
             // gridColumn60
             // 
-            this.gridColumn60.Caption = "工廠合計成本(K)";
+            this.gridColumn60.Caption = "工廠合計成本/K";
             this.gridColumn60.FieldName = "FactoryCostK";
             this.gridColumn60.Name = "gridColumn60";
             this.gridColumn60.OptionsColumn.ReadOnly = true;
@@ -1361,9 +1384,18 @@
             this.gridColumn14.VisibleIndex = 14;
             this.gridColumn14.Width = 100;
             // 
+            // gridColumn77
+            // 
+            this.gridColumn77.Caption = "重量(Kg)/K";
+            this.gridColumn77.FieldName = "MatWeg";
+            this.gridColumn77.Name = "gridColumn77";
+            this.gridColumn77.Visible = true;
+            this.gridColumn77.VisibleIndex = 15;
+            this.gridColumn77.Width = 100;
+            // 
             // gridColumn23
             // 
-            this.gridColumn23.Caption = "原料用料/K";
+            this.gridColumn23.Caption = "原料用料(Kg)/K";
             this.gridColumn23.FieldName = "MatUse";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.OptionsColumn.ReadOnly = true;
@@ -1381,42 +1413,12 @@
             // 
             // gridColumn35
             // 
-            this.gridColumn35.Caption = "合計加工費/K";
+            this.gridColumn35.Caption = "部門加工費/K";
             this.gridColumn35.FieldName = "ProcessCostTotal";
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.OptionsColumn.ReadOnly = true;
             this.gridColumn35.Visible = true;
             this.gridColumn35.VisibleIndex = 18;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "每PCS成本";
-            this.gridColumn4.FieldName = "CostPcs";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.ReadOnly = true;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 20;
-            this.gridColumn4.Width = 90;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "每GRS成本";
-            this.gridColumn5.FieldName = "CostGrs";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.OptionsColumn.ReadOnly = true;
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 21;
-            this.gridColumn5.Width = 90;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "每K成本";
-            this.gridColumn6.FieldName = "CostK";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.ReadOnly = true;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 22;
-            this.gridColumn6.Width = 90;
             // 
             // gridColumn51
             // 
@@ -1430,13 +1432,43 @@
             // 
             // gridColumn55
             // 
-            this.gridColumn55.Caption = "包裝成本/K";
+            this.gridColumn55.Caption = "包裝物料費用/K";
             this.gridColumn55.FieldName = "PackCost";
             this.gridColumn55.Name = "gridColumn55";
             this.gridColumn55.OptionsColumn.ReadOnly = true;
             this.gridColumn55.Visible = true;
             this.gridColumn55.VisibleIndex = 20;
             this.gridColumn55.Width = 80;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "產品成本/PCS";
+            this.gridColumn4.FieldName = "CostPcs";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.ReadOnly = true;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 21;
+            this.gridColumn4.Width = 90;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "產品成本/GRS";
+            this.gridColumn5.FieldName = "CostGrs";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.ReadOnly = true;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 24;
+            this.gridColumn5.Width = 90;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "產品成本/K";
+            this.gridColumn6.FieldName = "CostK";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 22;
+            this.gridColumn6.Width = 90;
             // 
             // gridColumn57
             // 
@@ -1445,7 +1477,7 @@
             this.gridColumn57.Name = "gridColumn57";
             this.gridColumn57.OptionsColumn.ReadOnly = true;
             this.gridColumn57.Visible = true;
-            this.gridColumn57.VisibleIndex = 21;
+            this.gridColumn57.VisibleIndex = 23;
             this.gridColumn57.Width = 80;
             // 
             // repositoryItemLookUpEdit4
@@ -1518,7 +1550,7 @@
             // 
             this.plcPurPrice.Controls.Add(this.gcPurPriceDetails);
             this.plcPurPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcPurPrice.Location = new System.Drawing.Point(0, 511);
+            this.plcPurPrice.Location = new System.Drawing.Point(0, 538);
             this.plcPurPrice.Name = "plcPurPrice";
             this.plcPurPrice.Size = new System.Drawing.Size(1537, 146);
             this.plcPurPrice.TabIndex = 5;
@@ -1733,7 +1765,7 @@
             this.panelControl15.Controls.Add(this.btnAddPur);
             this.panelControl15.Controls.Add(this.labelControl38);
             this.panelControl15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl15.Location = new System.Drawing.Point(0, 479);
+            this.panelControl15.Location = new System.Drawing.Point(0, 506);
             this.panelControl15.Name = "panelControl15";
             this.panelControl15.Size = new System.Drawing.Size(1537, 32);
             this.panelControl15.TabIndex = 6;
@@ -1742,11 +1774,11 @@
             // 
             this.labelControl33.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.labelControl33.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl33.Location = new System.Drawing.Point(608, 7);
+            this.labelControl33.Location = new System.Drawing.Point(567, 7);
             this.labelControl33.Name = "labelControl33";
-            this.labelControl33.Size = new System.Drawing.Size(182, 19);
+            this.labelControl33.Size = new System.Drawing.Size(186, 19);
             this.labelControl33.TabIndex = 11;
-            this.labelControl33.Text = "J = I * ( 1+ 單價浮動% )";
+            this.labelControl33.Text = "L = K * ( 1+ 單價浮動% )";
             // 
             // btnSavePur
             // 
@@ -1786,39 +1818,111 @@
             // 
             // plcProfit
             // 
+            this.plcProfit.Controls.Add(this.txtFactAddWasteRate);
+            this.plcProfit.Controls.Add(this.labelControl34);
+            this.plcProfit.Controls.Add(this.labelControl40);
+            this.plcProfit.Controls.Add(this.labelControl42);
+            this.plcProfit.Controls.Add(this.labelControl41);
             this.plcProfit.Controls.Add(this.labelControl32);
+            this.plcProfit.Controls.Add(this.labelControl39);
             this.plcProfit.Controls.Add(this.labelControl31);
             this.plcProfit.Controls.Add(this.lueTestUnit);
-            this.plcProfit.Controls.Add(this.labelControl24);
             this.plcProfit.Controls.Add(this.labelControl27);
+            this.plcProfit.Controls.Add(this.txtFactoryPriceK);
             this.plcProfit.Controls.Add(this.txtSalePriceK);
+            this.plcProfit.Controls.Add(this.labelControl37);
             this.plcProfit.Controls.Add(this.lblSalePriceK);
+            this.plcProfit.Controls.Add(this.txtFactoryAmt);
             this.plcProfit.Controls.Add(this.txtProfitAmt);
+            this.plcProfit.Controls.Add(this.labelControl24);
             this.plcProfit.Controls.Add(this.lblProfitAmt);
+            this.plcProfit.Controls.Add(this.txtFactoryPriceGrs);
             this.plcProfit.Controls.Add(this.txtSalePriceGrs);
+            this.plcProfit.Controls.Add(this.labelControl36);
             this.plcProfit.Controls.Add(this.lblSalePriceGrs);
             this.plcProfit.Controls.Add(this.txtTestQty);
             this.plcProfit.Controls.Add(this.lblTestUnit);
-            this.plcProfit.Controls.Add(this.txtProfitRate);
+            this.plcProfit.Controls.Add(this.txtCompProfitRate);
+            this.plcProfit.Controls.Add(this.txtFactoryPricePcs);
             this.plcProfit.Controls.Add(this.txtSalePricePcs);
             this.plcProfit.Controls.Add(this.labelControl4);
+            this.plcProfit.Controls.Add(this.labelControl35);
             this.plcProfit.Controls.Add(this.lblTestQty);
             this.plcProfit.Controls.Add(this.lblSalePricePcs);
             this.plcProfit.Dock = System.Windows.Forms.DockStyle.Top;
             this.plcProfit.Location = new System.Drawing.Point(0, 378);
             this.plcProfit.Name = "plcProfit";
-            this.plcProfit.Size = new System.Drawing.Size(1537, 101);
+            this.plcProfit.Size = new System.Drawing.Size(1537, 128);
             this.plcProfit.TabIndex = 4;
+            // 
+            // txtFactAddWasteRate
+            // 
+            this.txtFactAddWasteRate.Location = new System.Drawing.Point(152, 15);
+            this.txtFactAddWasteRate.Name = "txtFactAddWasteRate";
+            this.txtFactAddWasteRate.Size = new System.Drawing.Size(100, 20);
+            this.txtFactAddWasteRate.TabIndex = 12;
+            this.txtFactAddWasteRate.EditValueChanged += new System.EventHandler(this.txtFactAddWasteRate_EditValueChanged);
+            // 
+            // labelControl34
+            // 
+            this.labelControl34.Enabled = false;
+            this.labelControl34.Location = new System.Drawing.Point(570, 13);
+            this.labelControl34.Name = "labelControl34";
+            this.labelControl34.Size = new System.Drawing.Size(74, 14);
+            this.labelControl34.TabIndex = 11;
+            this.labelControl34.Text = "公司利潤(%):";
+            this.labelControl34.Visible = false;
+            // 
+            // labelControl40
+            // 
+            this.labelControl40.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl40.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl40.Location = new System.Drawing.Point(567, 77);
+            this.labelControl40.Name = "labelControl40";
+            this.labelControl40.Size = new System.Drawing.Size(10, 19);
+            this.labelControl40.TabIndex = 10;
+            this.labelControl40.Text = "K";
+            // 
+            // labelControl42
+            // 
+            this.labelControl42.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl42.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl42.Location = new System.Drawing.Point(985, 86);
+            this.labelControl42.Name = "labelControl42";
+            this.labelControl42.Size = new System.Drawing.Size(136, 19);
+            this.labelControl42.TabIndex = 10;
+            this.labelControl42.Text = "數量  *  ( K / PCS )";
+            // 
+            // labelControl41
+            // 
+            this.labelControl41.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl41.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl41.Location = new System.Drawing.Point(985, 61);
+            this.labelControl41.Name = "labelControl41";
+            this.labelControl41.Size = new System.Drawing.Size(133, 19);
+            this.labelControl41.TabIndex = 10;
+            this.labelControl41.Text = "數量  * (  I / PCS )";
             // 
             // labelControl32
             // 
             this.labelControl32.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.labelControl32.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl32.Location = new System.Drawing.Point(608, 43);
+            this.labelControl32.Location = new System.Drawing.Point(567, 46);
             this.labelControl32.Name = "labelControl32";
             this.labelControl32.Size = new System.Drawing.Size(122, 19);
             this.labelControl32.TabIndex = 10;
             this.labelControl32.Text = "I = G * ( 1 + H )";
+            // 
+            // labelControl39
+            // 
+            this.labelControl39.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl39.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl39.Location = new System.Drawing.Point(767, 15);
+            this.labelControl39.Name = "labelControl39";
+            this.labelControl39.Size = new System.Drawing.Size(7, 19);
+            this.labelControl39.TabIndex = 9;
+            this.labelControl39.Text = "J";
+            this.labelControl39.Visible = false;
             // 
             // labelControl31
             // 
@@ -1832,7 +1936,7 @@
             // 
             // lueTestUnit
             // 
-            this.lueTestUnit.Location = new System.Drawing.Point(308, 65);
+            this.lueTestUnit.Location = new System.Drawing.Point(1024, 40);
             this.lueTestUnit.Name = "lueTestUnit";
             this.lueTestUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1844,62 +1948,105 @@
             this.lueTestUnit.TabIndex = 3;
             this.lueTestUnit.EditValueChanged += new System.EventHandler(this.lueTestUnit_EditValueChanged);
             // 
-            // labelControl24
-            // 
-            this.labelControl24.Location = new System.Drawing.Point(33, 43);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(64, 14);
-            this.labelControl24.TabIndex = 2;
-            this.labelControl24.Text = "工廠總成本:";
-            // 
             // labelControl27
             // 
-            this.labelControl27.Location = new System.Drawing.Point(57, 68);
+            this.labelControl27.Location = new System.Drawing.Point(902, 18);
             this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(40, 14);
+            this.labelControl27.Size = new System.Drawing.Size(36, 14);
             this.labelControl27.TabIndex = 2;
-            this.labelControl27.Text = "試算表:";
+            this.labelControl27.Text = "試算表";
+            // 
+            // txtFactoryPriceK
+            // 
+            this.txtFactoryPriceK.Location = new System.Drawing.Point(439, 45);
+            this.txtFactoryPriceK.Name = "txtFactoryPriceK";
+            this.txtFactoryPriceK.Properties.ReadOnly = true;
+            this.txtFactoryPriceK.Size = new System.Drawing.Size(100, 20);
+            this.txtFactoryPriceK.TabIndex = 1;
             // 
             // txtSalePriceK
             // 
-            this.txtSalePriceK.Location = new System.Drawing.Point(481, 40);
+            this.txtSalePriceK.Location = new System.Drawing.Point(439, 77);
             this.txtSalePriceK.Name = "txtSalePriceK";
+            this.txtSalePriceK.Properties.ReadOnly = true;
             this.txtSalePriceK.Size = new System.Drawing.Size(100, 20);
             this.txtSalePriceK.TabIndex = 1;
             // 
+            // labelControl37
+            // 
+            this.labelControl37.Location = new System.Drawing.Point(419, 48);
+            this.labelControl37.Name = "labelControl37";
+            this.labelControl37.Size = new System.Drawing.Size(11, 14);
+            this.labelControl37.TabIndex = 0;
+            this.labelControl37.Text = "K:";
+            // 
             // lblSalePriceK
             // 
-            this.lblSalePriceK.Location = new System.Drawing.Point(461, 43);
+            this.lblSalePriceK.Location = new System.Drawing.Point(419, 78);
             this.lblSalePriceK.Name = "lblSalePriceK";
             this.lblSalePriceK.Size = new System.Drawing.Size(11, 14);
             this.lblSalePriceK.TabIndex = 0;
             this.lblSalePriceK.Text = "K:";
             // 
+            // txtFactoryAmt
+            // 
+            this.txtFactoryAmt.Location = new System.Drawing.Point(868, 64);
+            this.txtFactoryAmt.Name = "txtFactoryAmt";
+            this.txtFactoryAmt.Properties.ReadOnly = true;
+            this.txtFactoryAmt.Size = new System.Drawing.Size(100, 20);
+            this.txtFactoryAmt.TabIndex = 1;
+            // 
             // txtProfitAmt
             // 
-            this.txtProfitAmt.Location = new System.Drawing.Point(481, 65);
+            this.txtProfitAmt.Location = new System.Drawing.Point(868, 88);
             this.txtProfitAmt.Name = "txtProfitAmt";
+            this.txtProfitAmt.Properties.ReadOnly = true;
             this.txtProfitAmt.Size = new System.Drawing.Size(100, 20);
             this.txtProfitAmt.TabIndex = 1;
             // 
+            // labelControl24
+            // 
+            this.labelControl24.Location = new System.Drawing.Point(795, 91);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(64, 14);
+            this.labelControl24.TabIndex = 0;
+            this.labelControl24.Text = "含利潤金額:";
+            // 
             // lblProfitAmt
             // 
-            this.lblProfitAmt.Location = new System.Drawing.Point(420, 68);
+            this.lblProfitAmt.Location = new System.Drawing.Point(783, 65);
             this.lblProfitAmt.Name = "lblProfitAmt";
-            this.lblProfitAmt.Size = new System.Drawing.Size(52, 14);
+            this.lblProfitAmt.Size = new System.Drawing.Size(76, 14);
             this.lblProfitAmt.TabIndex = 0;
-            this.lblProfitAmt.Text = "成本金額:";
+            this.lblProfitAmt.Text = "工廠成本金額:";
+            // 
+            // txtFactoryPriceGrs
+            // 
+            this.txtFactoryPriceGrs.Location = new System.Drawing.Point(308, 45);
+            this.txtFactoryPriceGrs.Name = "txtFactoryPriceGrs";
+            this.txtFactoryPriceGrs.Properties.ReadOnly = true;
+            this.txtFactoryPriceGrs.Size = new System.Drawing.Size(100, 20);
+            this.txtFactoryPriceGrs.TabIndex = 1;
             // 
             // txtSalePriceGrs
             // 
-            this.txtSalePriceGrs.Location = new System.Drawing.Point(308, 40);
+            this.txtSalePriceGrs.Location = new System.Drawing.Point(308, 77);
             this.txtSalePriceGrs.Name = "txtSalePriceGrs";
+            this.txtSalePriceGrs.Properties.ReadOnly = true;
             this.txtSalePriceGrs.Size = new System.Drawing.Size(100, 20);
             this.txtSalePriceGrs.TabIndex = 1;
             // 
+            // labelControl36
+            // 
+            this.labelControl36.Location = new System.Drawing.Point(271, 48);
+            this.labelControl36.Name = "labelControl36";
+            this.labelControl36.Size = new System.Drawing.Size(26, 14);
+            this.labelControl36.TabIndex = 0;
+            this.labelControl36.Text = "GRS:";
+            // 
             // lblSalePriceGrs
             // 
-            this.lblSalePriceGrs.Location = new System.Drawing.Point(271, 43);
+            this.lblSalePriceGrs.Location = new System.Drawing.Point(271, 78);
             this.lblSalePriceGrs.Name = "lblSalePriceGrs";
             this.lblSalePriceGrs.Size = new System.Drawing.Size(26, 14);
             this.lblSalePriceGrs.TabIndex = 0;
@@ -1907,7 +2054,7 @@
             // 
             // txtTestQty
             // 
-            this.txtTestQty.Location = new System.Drawing.Point(152, 65);
+            this.txtTestQty.Location = new System.Drawing.Point(868, 40);
             this.txtTestQty.Name = "txtTestQty";
             this.txtTestQty.Size = new System.Drawing.Size(100, 20);
             this.txtTestQty.TabIndex = 1;
@@ -1915,24 +2062,35 @@
             // 
             // lblTestUnit
             // 
-            this.lblTestUnit.Location = new System.Drawing.Point(269, 68);
+            this.lblTestUnit.Location = new System.Drawing.Point(985, 43);
             this.lblTestUnit.Name = "lblTestUnit";
             this.lblTestUnit.Size = new System.Drawing.Size(28, 14);
             this.lblTestUnit.TabIndex = 0;
             this.lblTestUnit.Text = "單位:";
             // 
-            // txtProfitRate
+            // txtCompProfitRate
             // 
-            this.txtProfitRate.Location = new System.Drawing.Point(152, 15);
-            this.txtProfitRate.Name = "txtProfitRate";
-            this.txtProfitRate.Size = new System.Drawing.Size(100, 20);
-            this.txtProfitRate.TabIndex = 1;
-            this.txtProfitRate.EditValueChanged += new System.EventHandler(this.txtProfitRate_EditValueChanged);
+            this.txtCompProfitRate.Enabled = false;
+            this.txtCompProfitRate.Location = new System.Drawing.Point(653, 12);
+            this.txtCompProfitRate.Name = "txtCompProfitRate";
+            this.txtCompProfitRate.Size = new System.Drawing.Size(100, 20);
+            this.txtCompProfitRate.TabIndex = 1;
+            this.txtCompProfitRate.Visible = false;
+            this.txtCompProfitRate.EditValueChanged += new System.EventHandler(this.txtProfitRate_EditValueChanged);
+            // 
+            // txtFactoryPricePcs
+            // 
+            this.txtFactoryPricePcs.Location = new System.Drawing.Point(152, 45);
+            this.txtFactoryPricePcs.Name = "txtFactoryPricePcs";
+            this.txtFactoryPricePcs.Properties.ReadOnly = true;
+            this.txtFactoryPricePcs.Size = new System.Drawing.Size(100, 20);
+            this.txtFactoryPricePcs.TabIndex = 1;
             // 
             // txtSalePricePcs
             // 
-            this.txtSalePricePcs.Location = new System.Drawing.Point(152, 40);
+            this.txtSalePricePcs.Location = new System.Drawing.Point(152, 77);
             this.txtSalePricePcs.Name = "txtSalePricePcs";
+            this.txtSalePricePcs.Properties.ReadOnly = true;
             this.txtSalePricePcs.Size = new System.Drawing.Size(100, 20);
             this.txtSalePricePcs.TabIndex = 1;
             // 
@@ -1944,9 +2102,17 @@
             this.labelControl4.TabIndex = 0;
             this.labelControl4.Text = "工廠附加損耗率(%):";
             // 
+            // labelControl35
+            // 
+            this.labelControl35.Location = new System.Drawing.Point(58, 48);
+            this.labelControl35.Name = "labelControl35";
+            this.labelControl35.Size = new System.Drawing.Size(85, 14);
+            this.labelControl35.TabIndex = 0;
+            this.labelControl35.Text = "工廠總成本PCS:";
+            // 
             // lblTestQty
             // 
-            this.lblTestQty.Location = new System.Drawing.Point(115, 68);
+            this.lblTestQty.Location = new System.Drawing.Point(831, 43);
             this.lblTestQty.Name = "lblTestQty";
             this.lblTestQty.Size = new System.Drawing.Size(28, 14);
             this.lblTestQty.TabIndex = 0;
@@ -1954,17 +2120,16 @@
             // 
             // lblSalePricePcs
             // 
-            this.lblSalePricePcs.Location = new System.Drawing.Point(118, 43);
+            this.lblSalePricePcs.Location = new System.Drawing.Point(58, 78);
             this.lblSalePricePcs.Name = "lblSalePricePcs";
-            this.lblSalePricePcs.Size = new System.Drawing.Size(25, 14);
+            this.lblSalePricePcs.Size = new System.Drawing.Size(85, 14);
             this.lblSalePricePcs.TabIndex = 0;
-            this.lblSalePricePcs.Text = "PCS:";
+            this.lblSalePricePcs.Text = "含利潤價錢PCS:";
             // 
             // panelControl16
             // 
             this.panelControl16.Controls.Add(this.labelControl30);
             this.panelControl16.Controls.Add(this.btnSetProfitVisible);
-            this.panelControl16.Controls.Add(this.labelControl25);
             this.panelControl16.Controls.Add(this.txtProductCostPcs);
             this.panelControl16.Controls.Add(this.lblProductCostPcs);
             this.panelControl16.Controls.Add(this.txtProductCostK);
@@ -1981,7 +2146,7 @@
             // 
             this.labelControl30.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.labelControl30.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl30.Location = new System.Drawing.Point(608, 5);
+            this.labelControl30.Location = new System.Drawing.Point(567, 5);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(11, 19);
             this.labelControl30.TabIndex = 8;
@@ -1997,33 +2162,27 @@
             this.btnSetProfitVisible.Text = "折疊<<";
             this.btnSetProfitVisible.Click += new System.EventHandler(this.btnSetProfitVisible_Click);
             // 
-            // labelControl25
-            // 
-            this.labelControl25.Location = new System.Drawing.Point(11, 9);
-            this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(76, 14);
-            this.labelControl25.TabIndex = 2;
-            this.labelControl25.Text = "產品合計成本:";
-            // 
             // txtProductCostPcs
             // 
             this.txtProductCostPcs.Location = new System.Drawing.Point(152, 6);
             this.txtProductCostPcs.Name = "txtProductCostPcs";
+            this.txtProductCostPcs.Properties.ReadOnly = true;
             this.txtProductCostPcs.Size = new System.Drawing.Size(100, 20);
             this.txtProductCostPcs.TabIndex = 1;
             // 
             // lblProductCostPcs
             // 
-            this.lblProductCostPcs.Location = new System.Drawing.Point(118, 9);
+            this.lblProductCostPcs.Location = new System.Drawing.Point(46, 9);
             this.lblProductCostPcs.Name = "lblProductCostPcs";
-            this.lblProductCostPcs.Size = new System.Drawing.Size(25, 14);
+            this.lblProductCostPcs.Size = new System.Drawing.Size(97, 14);
             this.lblProductCostPcs.TabIndex = 0;
-            this.lblProductCostPcs.Text = "PCS:";
+            this.lblProductCostPcs.Text = "產品合計成本PCS:";
             // 
             // txtProductCostK
             // 
-            this.txtProductCostK.Location = new System.Drawing.Point(481, 6);
+            this.txtProductCostK.Location = new System.Drawing.Point(439, 6);
             this.txtProductCostK.Name = "txtProductCostK";
+            this.txtProductCostK.Properties.ReadOnly = true;
             this.txtProductCostK.Size = new System.Drawing.Size(100, 20);
             this.txtProductCostK.TabIndex = 1;
             // 
@@ -2037,7 +2196,7 @@
             // 
             // lblProductCostK
             // 
-            this.lblProductCostK.Location = new System.Drawing.Point(461, 9);
+            this.lblProductCostK.Location = new System.Drawing.Point(419, 9);
             this.lblProductCostK.Name = "lblProductCostK";
             this.lblProductCostK.Size = new System.Drawing.Size(11, 14);
             this.lblProductCostK.TabIndex = 0;
@@ -2047,6 +2206,7 @@
             // 
             this.txtProductCostGrs.Location = new System.Drawing.Point(308, 6);
             this.txtProductCostGrs.Name = "txtProductCostGrs";
+            this.txtProductCostGrs.Properties.ReadOnly = true;
             this.txtProductCostGrs.Size = new System.Drawing.Size(100, 20);
             this.txtProductCostGrs.TabIndex = 1;
             // 
@@ -3544,7 +3704,8 @@
             this.repositoryItemButtonEdit9,
             this.repositoryItemButtonEdit13,
             this.repositoryItemLookUpEdit23,
-            this.repositoryItemLookUpEdit30});
+            this.repositoryItemLookUpEdit30,
+            this.repositoryItemButtonEdit22});
             this.gcMatDetails.Size = new System.Drawing.Size(1533, 86);
             this.gcMatDetails.TabIndex = 35;
             this.gcMatDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -3557,6 +3718,7 @@
             this.colMatSeq,
             this.colMatCode,
             this.colMatName,
+            this.gridColumn36,
             this.colMatWeg,
             this.colWasteRate,
             this.colMatWaste,
@@ -3616,6 +3778,24 @@
             this.colMatName.VisibleIndex = 2;
             this.colMatName.Width = 217;
             // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "選擇";
+            this.gridColumn36.ColumnEdit = this.repositoryItemButtonEdit22;
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 3;
+            this.gridColumn36.Width = 41;
+            // 
+            // repositoryItemButtonEdit22
+            // 
+            this.repositoryItemButtonEdit22.AutoHeight = false;
+            this.repositoryItemButtonEdit22.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit22.Name = "repositoryItemButtonEdit22";
+            this.repositoryItemButtonEdit22.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemButtonEdit22.Click += new System.EventHandler(this.repositoryItemButtonEdit22_Click);
+            // 
             // colMatWeg
             // 
             this.colMatWeg.Caption = "每千重量(Kg)";
@@ -3623,7 +3803,7 @@
             this.colMatWeg.FieldName = "MatWeg";
             this.colMatWeg.Name = "colMatWeg";
             this.colMatWeg.Visible = true;
-            this.colMatWeg.VisibleIndex = 3;
+            this.colMatWeg.VisibleIndex = 4;
             this.colMatWeg.Width = 90;
             // 
             // repositoryItemTextEdit1
@@ -3637,7 +3817,7 @@
             this.colWasteRate.FieldName = "WasteRate";
             this.colWasteRate.Name = "colWasteRate";
             this.colWasteRate.Visible = true;
-            this.colWasteRate.VisibleIndex = 4;
+            this.colWasteRate.VisibleIndex = 5;
             this.colWasteRate.Width = 107;
             // 
             // colMatWaste
@@ -3646,7 +3826,7 @@
             this.colMatWaste.FieldName = "MatWaste";
             this.colMatWaste.Name = "colMatWaste";
             this.colMatWaste.Visible = true;
-            this.colMatWaste.VisibleIndex = 5;
+            this.colMatWaste.VisibleIndex = 6;
             this.colMatWaste.Width = 90;
             // 
             // colMatUse
@@ -3655,7 +3835,7 @@
             this.colMatUse.FieldName = "MatUse";
             this.colMatUse.Name = "colMatUse";
             this.colMatUse.Visible = true;
-            this.colMatUse.VisibleIndex = 6;
+            this.colMatUse.VisibleIndex = 7;
             this.colMatUse.Width = 90;
             // 
             // colMatPrice
@@ -3665,7 +3845,7 @@
             this.colMatPrice.FieldName = "MatPrice";
             this.colMatPrice.Name = "colMatPrice";
             this.colMatPrice.Visible = true;
-            this.colMatPrice.VisibleIndex = 7;
+            this.colMatPrice.VisibleIndex = 8;
             this.colMatPrice.Width = 90;
             // 
             // repositoryItemButtonEdit9
@@ -3683,7 +3863,7 @@
             this.colMatUnit.FieldName = "MatPriceUnit";
             this.colMatUnit.Name = "colMatUnit";
             this.colMatUnit.Visible = true;
-            this.colMatUnit.VisibleIndex = 8;
+            this.colMatUnit.VisibleIndex = 9;
             this.colMatUnit.Width = 60;
             // 
             // repositoryItemLookUpEdit2
@@ -3704,7 +3884,7 @@
             this.gridColumn76.FieldName = "Curr";
             this.gridColumn76.Name = "gridColumn76";
             this.gridColumn76.Visible = true;
-            this.gridColumn76.VisibleIndex = 9;
+            this.gridColumn76.VisibleIndex = 10;
             // 
             // repositoryItemLookUpEdit30
             // 
@@ -3723,7 +3903,7 @@
             this.colMatCost.FieldName = "MatCost";
             this.colMatCost.Name = "colMatCost";
             this.colMatCost.Visible = true;
-            this.colMatCost.VisibleIndex = 10;
+            this.colMatCost.VisibleIndex = 11;
             this.colMatCost.Width = 90;
             // 
             // gridColumn62
@@ -3732,7 +3912,7 @@
             this.gridColumn62.ColumnEdit = this.repositoryItemButtonEdit13;
             this.gridColumn62.Name = "gridColumn62";
             this.gridColumn62.Visible = true;
-            this.gridColumn62.VisibleIndex = 11;
+            this.gridColumn62.VisibleIndex = 12;
             this.gridColumn62.Width = 60;
             // 
             // repositoryItemButtonEdit13
@@ -3762,6 +3942,7 @@
             // 
             // panelControl7
             // 
+            this.panelControl7.Controls.Add(this.labelControl25);
             this.panelControl7.Controls.Add(this.labelControl10);
             this.panelControl7.Controls.Add(this.btnSetMatVisible);
             this.panelControl7.Controls.Add(this.txtMatWegTotal);
@@ -4061,6 +4242,8 @@
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.btnNext);
+            this.panelControl4.Controls.Add(this.btnPrev);
             this.panelControl4.Controls.Add(this.labelControl23);
             this.panelControl4.Controls.Add(this.btnAddPart);
             this.panelControl4.Controls.Add(this.textEdit10);
@@ -4069,6 +4252,22 @@
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(1537, 32);
             this.panelControl4.TabIndex = 3;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(563, 4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 6;
+            this.btnNext.Text = "下一筆";
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Location = new System.Drawing.Point(482, 4);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(75, 23);
+            this.btnPrev.TabIndex = 6;
+            this.btnPrev.Text = "上一筆";
             // 
             // labelControl23
             // 
@@ -4095,14 +4294,13 @@
             this.textEdit10.TabIndex = 2;
             this.textEdit10.Visible = false;
             // 
-            // gridColumn77
+            // labelControl25
             // 
-            this.gridColumn77.Caption = "每千重量(Kg)";
-            this.gridColumn77.FieldName = "MatWeg";
-            this.gridColumn77.Name = "gridColumn77";
-            this.gridColumn77.Visible = true;
-            this.gridColumn77.VisibleIndex = 15;
-            this.gridColumn77.Width = 100;
+            this.labelControl25.Location = new System.Drawing.Point(908, 8);
+            this.labelControl25.Name = "labelControl25";
+            this.labelControl25.Size = new System.Drawing.Size(372, 14);
+            this.labelControl25.TabIndex = 7;
+            this.labelControl25.Text = "實際損耗率小於預設的，以預設的為准；大於預設的，以實際的為准。";
             // 
             // frmCountGoodsCost
             // 
@@ -4176,12 +4374,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.plcProfit)).EndInit();
             this.plcProfit.ResumeLayout(false);
             this.plcProfit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactAddWasteRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTestUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryPriceK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePriceK.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryAmt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfitAmt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryPriceGrs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePriceGrs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTestQty.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProfitRate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCompProfitRate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactoryPricePcs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalePricePcs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
             this.panelControl16.ResumeLayout(false);
@@ -4280,6 +4483,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcMatDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMatDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
@@ -4588,7 +4792,6 @@
         private DevExpress.XtraEditors.TextEdit txtFrontPart;
         private DevExpress.XtraEditors.LabelControl lblFrontPart;
         private DevExpress.XtraEditors.PanelControl plcProfit;
-        private DevExpress.XtraEditors.LabelControl labelControl25;
         private DevExpress.XtraEditors.TextEdit txtProductCostK;
         private DevExpress.XtraEditors.LabelControl lblProductCostK;
         private DevExpress.XtraEditors.TextEdit txtProductCostGrs;
@@ -4606,7 +4809,7 @@
         private DevExpress.XtraEditors.LabelControl lblSalePriceK;
         private DevExpress.XtraEditors.TextEdit txtSalePriceGrs;
         private DevExpress.XtraEditors.LabelControl lblSalePriceGrs;
-        private DevExpress.XtraEditors.TextEdit txtProfitRate;
+        private DevExpress.XtraEditors.TextEdit txtCompProfitRate;
         private DevExpress.XtraEditors.TextEdit txtSalePricePcs;
         private DevExpress.XtraEditors.LabelControl lblSalePricePcs;
         private DevExpress.XtraEditors.TextEdit txtProfitAmt;
@@ -4651,7 +4854,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit21;
         private DevExpress.XtraEditors.PanelControl panelControl16;
         private DevExpress.XtraEditors.SimpleButton btnSetProfitVisible;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
@@ -4678,5 +4880,24 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn76;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit30;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn77;
+        private DevExpress.XtraEditors.TextEdit txtFactAddWasteRate;
+        private DevExpress.XtraEditors.LabelControl labelControl34;
+        private DevExpress.XtraEditors.TextEdit txtFactoryPriceK;
+        private DevExpress.XtraEditors.LabelControl labelControl37;
+        private DevExpress.XtraEditors.TextEdit txtFactoryPriceGrs;
+        private DevExpress.XtraEditors.LabelControl labelControl36;
+        private DevExpress.XtraEditors.TextEdit txtFactoryPricePcs;
+        private DevExpress.XtraEditors.LabelControl labelControl35;
+        private DevExpress.XtraEditors.LabelControl labelControl40;
+        private DevExpress.XtraEditors.LabelControl labelControl39;
+        private DevExpress.XtraEditors.TextEdit txtFactoryAmt;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.LabelControl labelControl42;
+        private DevExpress.XtraEditors.LabelControl labelControl41;
+        private DevExpress.XtraEditors.SimpleButton btnNext;
+        private DevExpress.XtraEditors.SimpleButton btnPrev;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit22;
+        private DevExpress.XtraEditors.LabelControl labelControl25;
     }
 }

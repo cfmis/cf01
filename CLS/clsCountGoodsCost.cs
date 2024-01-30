@@ -39,7 +39,7 @@ namespace cf01.CLS
             string strSql = "";
             strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
                 ",ProductSize,ProductSizeName,ProductColor,ProductColorName,CustColor" +
-                ",PrdMo,MdNo,MoGroup" +
+                ",PrdMo,MdNo,MoGroup,FactAddWasteRate,CompProfitRate" +
                 ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
                 " From mm_product_cost_head " +
@@ -60,7 +60,7 @@ namespace cf01.CLS
             strSql += " Select aa.* From ( ";
             strSql += " Select "+"'M' As MFlag"+",a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
                 ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName" +
-                ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor" +
+                ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
                 ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
@@ -80,7 +80,7 @@ namespace cf01.CLS
                 strSql += " Union ";
                 strSql += " Select "+"' ' As MFlag"+",a.ID,a.Ver,b.ProductID,b.ProductName,b.ArtWork,b.ArtWorkName,b.ProductType,b.ProductTypeName" +
                 ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName" +
-                ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor" +
+                ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
                 ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
@@ -94,7 +94,7 @@ namespace cf01.CLS
                     strSql += " And a.MoGroup = '" + MoGroup + "'";
             }
             strSql += " ) aa ";
-            strSql += " Order By aa.ID,aa.MFlag Desc ";
+            strSql += " Order By aa.ID Desc,aa.MFlag Desc ";
             DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
             return dtPrd;
         }
@@ -126,6 +126,22 @@ namespace cf01.CLS
             DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
             return dtPrd;
         }
+
+        public static DataTable QueryGoodsQtyConvert(string productID, string productName)
+        {
+            string strSql = "";
+            strSql = "Select a.ID As ProductID,a.name As ProductName" +
+                ",Convert(Int,b.rate) AS rate " +
+                " From it_goods a "+
+                " Left Join it_coding b On a.within_code=b.within_code And a.id=b.id " +
+                " Where a.ID>=''";
+            if (productID != "")
+                strSql += " And a.ID Like '%" + productID + "%'";
+            if (productName != "")
+                strSql += " And a.name Like '%" + productName + "%'";
+            DataTable dtPrd = clsPublicOfGEO.GetDataTable(strSql);
+            return dtPrd;
+        }
         public static string Save(mdlCountGoodsCost mdlGoods)
         {
             string result = "";
@@ -138,30 +154,31 @@ namespace cf01.CLS
             {
                 ID = GenID();
             }
-            if (CheckID(ID).Rows.Count==0)
+            if (CheckID(ID).Rows.Count == 0)
             {
                 Ver = 0;
                 strUpd = @" Insert Into mm_product_cost_head " +
                     " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
                     ",ProductSize,ProductSizeName,ProductColor,ProductColorName,CustColor" +
-                    ",PrdMo,MdNo,MoGroup" +
+                    ",PrdMo,MdNo,MoGroup,FactAddWasteRate,CompProfitRate" +
                     ",Remark,CreateUser,CreateTime,AmendUser,AmendTime )" +
                     " Values ( " +
-                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}'" +
-                    ",'{17}',GETDATE(),'{17}',GETDATE() )";
+                    " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'" +
+                    ",'{13}','{14}','{15}','{16}','{17}','{18}'" +
+                    ",'{19}',GETDATE(),'{19}',GETDATE() )";
             }
             else
                 strUpd = @" Update mm_product_cost_head Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
                     ",ProductType='{6}',ProductTypeName='{7}'" +
                     ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}',CustColor='{12}'" +
-                    ",PrdMo='{13}',MdNo='{14}',MoGroup='{15}'" +
-                    ",Remark='{16}',AmendUser='{17}',AmendTime=GETDATE() " +
+                    ",PrdMo='{13}',MdNo='{14}',MoGroup='{15}',FactAddWasteRate='{16}',CompProfitRate='{17}'" +
+                    ",Remark='{18}',AmendUser='{19}',AmendTime=GETDATE() " +
                     " Where ID='{0}' And Ver='{1}'";
             strSql += string.Format(strUpd
                     , ID, Ver, mdlGoods.ProductID, mdlGoods.ProductName, mdlGoods.ArtWork, mdlGoods.ArtWorkName
                     , mdlGoods.ProductType, mdlGoods.ProductTypeName, mdlGoods.ProductSize, mdlGoods.ProductSizeName
                     , mdlGoods.ProductColor, mdlGoods.ProductColorName, mdlGoods.CustColor
-                    , mdlGoods.PrdMo, mdlGoods.MdNo, mdlGoods.MoGroup
+                    , mdlGoods.PrdMo, mdlGoods.MdNo, mdlGoods.MoGroup, mdlGoods.FactAddWasteRate, mdlGoods.CompProfitRate
                     , mdlGoods.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
@@ -544,7 +561,7 @@ namespace cf01.CLS
             strSql = "Select a.id,a.name" +
                 " ,b.prd_weg,b.waste_weg,b.use_weg,b.mat_item,c.name AS mat_name" +
                 " ,a.datum,d.mat_cdesc,a.base_class,e.prd_cdesc" +
-                " ,a.blueprint_id,f.art_cdesc" +
+                " ,a.blueprint_id,f.art_cdesc,f.art_image" +
                 " ,a.size_id,g.size_cdesc,a.color,h.clr_cdesc" +
                 " From  geo_it_goods a" +
                 " Left Join bs_product_qty_rate b On a.id=b.prd_item " +

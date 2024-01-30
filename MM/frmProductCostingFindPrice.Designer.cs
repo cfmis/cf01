@@ -91,6 +91,16 @@
             this.colPrdDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtpFindPlateStdPrice = new DevExpress.XtraTab.XtraTabPage();
             this.dgvDetails3 = new System.Windows.Forms.DataGridView();
+            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
+            this.lblMaterialName = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
+            this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.chkJx = new System.Windows.Forms.CheckBox();
+            this.cmbPlateType = new System.Windows.Forms.ComboBox();
+            this.cmbPlateProcess = new System.Windows.Forms.ComboBox();
+            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
+            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
             this.colPlateType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPlateProcess = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,16 +123,6 @@
             this.colPlateUnitKG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
-            this.lblMaterialName = new DevExpress.XtraEditors.LabelControl();
-            this.txtMaterialId = new DevExpress.XtraEditors.TextEdit();
-            this.lblMaterialId = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.cmbPlateType = new System.Windows.Forms.ComboBox();
-            this.cmbPlateProcess = new System.Windows.Forms.ComboBox();
-            this.lblDepId = new DevExpress.XtraEditors.LabelControl();
-            this.txtDepId = new DevExpress.XtraEditors.TextEdit();
-            this.chkJx = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcFind)).BeginInit();
             this.xtcFind.SuspendLayout();
@@ -739,6 +739,108 @@
             this.dgvDetails3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails3_CellClick);
             this.dgvDetails3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails3_CellDoubleClick);
             // 
+            // txtMaterialName
+            // 
+            this.txtMaterialName.Location = new System.Drawing.Point(326, 17);
+            this.txtMaterialName.Name = "txtMaterialName";
+            this.txtMaterialName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaterialName.Size = new System.Drawing.Size(353, 20);
+            this.txtMaterialName.TabIndex = 1;
+            // 
+            // lblMaterialName
+            // 
+            this.lblMaterialName.Location = new System.Drawing.Point(268, 20);
+            this.lblMaterialName.Name = "lblMaterialName";
+            this.lblMaterialName.Size = new System.Drawing.Size(52, 14);
+            this.lblMaterialName.TabIndex = 0;
+            this.lblMaterialName.Text = "物料編號:";
+            // 
+            // txtMaterialId
+            // 
+            this.txtMaterialId.Location = new System.Drawing.Point(86, 17);
+            this.txtMaterialId.Name = "txtMaterialId";
+            this.txtMaterialId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMaterialId.Size = new System.Drawing.Size(177, 20);
+            this.txtMaterialId.TabIndex = 1;
+            // 
+            // lblMaterialId
+            // 
+            this.lblMaterialId.Location = new System.Drawing.Point(28, 20);
+            this.lblMaterialId.Name = "lblMaterialId";
+            this.lblMaterialId.Size = new System.Drawing.Size(52, 14);
+            this.lblMaterialId.TabIndex = 0;
+            this.lblMaterialId.Text = "物料編號:";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.chkJx);
+            this.panelControl2.Controls.Add(this.cmbPlateType);
+            this.panelControl2.Controls.Add(this.cmbPlateProcess);
+            this.panelControl2.Controls.Add(this.txtMaterialName);
+            this.panelControl2.Controls.Add(this.lblDepId);
+            this.panelControl2.Controls.Add(this.lblMaterialId);
+            this.panelControl2.Controls.Add(this.lblMaterialName);
+            this.panelControl2.Controls.Add(this.txtDepId);
+            this.panelControl2.Controls.Add(this.txtMaterialId);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 38);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(993, 74);
+            this.panelControl2.TabIndex = 2;
+            // 
+            // chkJx
+            // 
+            this.chkJx.AutoSize = true;
+            this.chkJx.Location = new System.Drawing.Point(86, 50);
+            this.chkJx.Name = "chkJx";
+            this.chkJx.Size = new System.Drawing.Size(62, 18);
+            this.chkJx.TabIndex = 4;
+            this.chkJx.Text = "JX噴油";
+            this.chkJx.UseVisualStyleBackColor = true;
+            // 
+            // cmbPlateType
+            // 
+            this.cmbPlateType.FormattingEnabled = true;
+            this.cmbPlateType.Items.AddRange(new object[] {
+            "",
+            "無叻",
+            "含叻",
+            "環保色"});
+            this.cmbPlateType.Location = new System.Drawing.Point(744, 15);
+            this.cmbPlateType.Name = "cmbPlateType";
+            this.cmbPlateType.Size = new System.Drawing.Size(121, 22);
+            this.cmbPlateType.TabIndex = 3;
+            // 
+            // cmbPlateProcess
+            // 
+            this.cmbPlateProcess.FormattingEnabled = true;
+            this.cmbPlateProcess.Items.AddRange(new object[] {
+            "",
+            "掛電",
+            "滾電",
+            "磨光",
+            "噴油"});
+            this.cmbPlateProcess.Location = new System.Drawing.Point(86, 17);
+            this.cmbPlateProcess.Name = "cmbPlateProcess";
+            this.cmbPlateProcess.Size = new System.Drawing.Size(121, 22);
+            this.cmbPlateProcess.TabIndex = 2;
+            // 
+            // lblDepId
+            // 
+            this.lblDepId.Location = new System.Drawing.Point(686, 20);
+            this.lblDepId.Name = "lblDepId";
+            this.lblDepId.Size = new System.Drawing.Size(52, 14);
+            this.lblDepId.TabIndex = 0;
+            this.lblDepId.Text = "部門編號:";
+            // 
+            // txtDepId
+            // 
+            this.txtDepId.Location = new System.Drawing.Point(744, 17);
+            this.txtDepId.Name = "txtDepId";
+            this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDepId.Size = new System.Drawing.Size(177, 20);
+            this.txtDepId.TabIndex = 1;
+            // 
             // colPlateType
             // 
             this.colPlateType.DataPropertyName = "plate_type";
@@ -818,6 +920,7 @@
             this.colProdDesc.DataPropertyName = "prod_desc";
             this.colProdDesc.HeaderText = "產品描述";
             this.colProdDesc.Name = "colProdDesc";
+            this.colProdDesc.Width = 260;
             // 
             // colPlateVendId
             // 
@@ -885,113 +988,11 @@
             // 
             // dataGridViewTextBoxColumn24
             // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "process_request";
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "price_remark";
             this.dataGridViewTextBoxColumn24.FillWeight = 160F;
             this.dataGridViewTextBoxColumn24.HeaderText = "價格備註";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.Width = 160;
-            // 
-            // txtMaterialName
-            // 
-            this.txtMaterialName.Location = new System.Drawing.Point(326, 17);
-            this.txtMaterialName.Name = "txtMaterialName";
-            this.txtMaterialName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMaterialName.Size = new System.Drawing.Size(353, 20);
-            this.txtMaterialName.TabIndex = 1;
-            // 
-            // lblMaterialName
-            // 
-            this.lblMaterialName.Location = new System.Drawing.Point(268, 20);
-            this.lblMaterialName.Name = "lblMaterialName";
-            this.lblMaterialName.Size = new System.Drawing.Size(52, 14);
-            this.lblMaterialName.TabIndex = 0;
-            this.lblMaterialName.Text = "物料編號:";
-            // 
-            // txtMaterialId
-            // 
-            this.txtMaterialId.Location = new System.Drawing.Point(86, 17);
-            this.txtMaterialId.Name = "txtMaterialId";
-            this.txtMaterialId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMaterialId.Size = new System.Drawing.Size(177, 20);
-            this.txtMaterialId.TabIndex = 1;
-            // 
-            // lblMaterialId
-            // 
-            this.lblMaterialId.Location = new System.Drawing.Point(28, 20);
-            this.lblMaterialId.Name = "lblMaterialId";
-            this.lblMaterialId.Size = new System.Drawing.Size(52, 14);
-            this.lblMaterialId.TabIndex = 0;
-            this.lblMaterialId.Text = "物料編號:";
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.chkJx);
-            this.panelControl2.Controls.Add(this.cmbPlateType);
-            this.panelControl2.Controls.Add(this.cmbPlateProcess);
-            this.panelControl2.Controls.Add(this.txtMaterialName);
-            this.panelControl2.Controls.Add(this.lblDepId);
-            this.panelControl2.Controls.Add(this.lblMaterialId);
-            this.panelControl2.Controls.Add(this.lblMaterialName);
-            this.panelControl2.Controls.Add(this.txtDepId);
-            this.panelControl2.Controls.Add(this.txtMaterialId);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 38);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(993, 74);
-            this.panelControl2.TabIndex = 2;
-            // 
-            // cmbPlateType
-            // 
-            this.cmbPlateType.FormattingEnabled = true;
-            this.cmbPlateType.Items.AddRange(new object[] {
-            "",
-            "無叻",
-            "含叻",
-            "環保色"});
-            this.cmbPlateType.Location = new System.Drawing.Point(744, 15);
-            this.cmbPlateType.Name = "cmbPlateType";
-            this.cmbPlateType.Size = new System.Drawing.Size(121, 22);
-            this.cmbPlateType.TabIndex = 3;
-            // 
-            // cmbPlateProcess
-            // 
-            this.cmbPlateProcess.FormattingEnabled = true;
-            this.cmbPlateProcess.Items.AddRange(new object[] {
-            "",
-            "掛電",
-            "滾電",
-            "磨光",
-            "噴油"});
-            this.cmbPlateProcess.Location = new System.Drawing.Point(86, 17);
-            this.cmbPlateProcess.Name = "cmbPlateProcess";
-            this.cmbPlateProcess.Size = new System.Drawing.Size(121, 22);
-            this.cmbPlateProcess.TabIndex = 2;
-            // 
-            // lblDepId
-            // 
-            this.lblDepId.Location = new System.Drawing.Point(686, 20);
-            this.lblDepId.Name = "lblDepId";
-            this.lblDepId.Size = new System.Drawing.Size(52, 14);
-            this.lblDepId.TabIndex = 0;
-            this.lblDepId.Text = "部門編號:";
-            // 
-            // txtDepId
-            // 
-            this.txtDepId.Location = new System.Drawing.Point(744, 17);
-            this.txtDepId.Name = "txtDepId";
-            this.txtDepId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDepId.Size = new System.Drawing.Size(177, 20);
-            this.txtDepId.TabIndex = 1;
-            // 
-            // chkJx
-            // 
-            this.chkJx.AutoSize = true;
-            this.chkJx.Location = new System.Drawing.Point(86, 50);
-            this.chkJx.Name = "chkJx";
-            this.chkJx.Size = new System.Drawing.Size(62, 18);
-            this.chkJx.TabIndex = 4;
-            this.chkJx.Text = "JX噴油";
-            this.chkJx.UseVisualStyleBackColor = true;
             // 
             // frmProductCostingFindPrice
             // 
@@ -1098,6 +1099,7 @@
         private System.Windows.Forms.DataGridView dgvDetails3;
         private System.Windows.Forms.ComboBox cmbPlateProcess;
         private System.Windows.Forms.ComboBox cmbPlateType;
+        private System.Windows.Forms.CheckBox chkJx;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlateType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlateProcess;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1120,6 +1122,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlateUnitKG;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.CheckBox chkJx;
     }
 }

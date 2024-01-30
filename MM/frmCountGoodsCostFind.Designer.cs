@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCountGoodsCostFind));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lueMoGroup = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblMoGroup = new DevExpress.XtraEditors.LabelControl();
             this.txtCustColor = new DevExpress.XtraEditors.TextEdit();
             this.txtProcessName = new DevExpress.XtraEditors.TextEdit();
             this.lbID = new DevExpress.XtraEditors.LabelControl();
@@ -51,28 +53,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gcGoodsCostHead = new DevExpress.XtraGrid.GridControl();
-            this.gvGoodsCostHead = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn66 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn69 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit27 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemTextEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.repositoryItemLookUpEdit28 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit29 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit26 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit25 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemButtonEdit19 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemButtonEdit17 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemButtonEdit20 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemButtonEdit18 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemButtonEdit21 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnAddCost = new DevExpress.XtraEditors.SimpleButton();
             this.gcGoodsCostDetails = new DevExpress.XtraGrid.GridControl();
@@ -108,29 +88,23 @@
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.lueMoGroup = new DevExpress.XtraEditors.LookUpEdit();
-            this.lblMoGroup = new DevExpress.XtraEditors.LabelControl();
+            this.dgvGoodsCostHead = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueMoGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcessName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcesslId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcGoodsCostHead)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGoodsCostHead)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcGoodsCostDetails)).BeginInit();
@@ -139,7 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueMoGroup.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGoodsCostHead)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl2
@@ -159,6 +133,27 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1214, 70);
             this.panelControl2.TabIndex = 8;
+            // 
+            // lueMoGroup
+            // 
+            this.lueMoGroup.Location = new System.Drawing.Point(326, 40);
+            this.lueMoGroup.Name = "lueMoGroup";
+            this.lueMoGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueMoGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_id", 60, "組別代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_desc", 80, "組別描述")});
+            this.lueMoGroup.Properties.NullText = "";
+            this.lueMoGroup.Size = new System.Drawing.Size(95, 20);
+            this.lueMoGroup.TabIndex = 18;
+            // 
+            // lblMoGroup
+            // 
+            this.lblMoGroup.Location = new System.Drawing.Point(292, 43);
+            this.lblMoGroup.Name = "lblMoGroup";
+            this.lblMoGroup.Size = new System.Drawing.Size(28, 14);
+            this.lblMoGroup.TabIndex = 17;
+            this.lblMoGroup.Text = "組別:";
             // 
             // txtCustColor
             // 
@@ -325,251 +320,11 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 200;
             // 
-            // gcGoodsCostHead
-            // 
-            this.gcGoodsCostHead.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcGoodsCostHead.Location = new System.Drawing.Point(0, 108);
-            this.gcGoodsCostHead.MainView = this.gvGoodsCostHead;
-            this.gcGoodsCostHead.Name = "gcGoodsCostHead";
-            this.gcGoodsCostHead.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit27,
-            this.repositoryItemTextEdit7,
-            this.repositoryItemLookUpEdit28,
-            this.repositoryItemLookUpEdit29,
-            this.repositoryItemLookUpEdit26,
-            this.repositoryItemLookUpEdit25,
-            this.repositoryItemButtonEdit19,
-            this.repositoryItemButtonEdit17,
-            this.repositoryItemButtonEdit20,
-            this.repositoryItemButtonEdit18,
-            this.repositoryItemButtonEdit21,
-            this.repositoryItemButtonEdit6});
-            this.gcGoodsCostHead.Size = new System.Drawing.Size(1214, 408);
-            this.gcGoodsCostHead.TabIndex = 38;
-            this.gcGoodsCostHead.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvGoodsCostHead});
-            // 
-            // gvGoodsCostHead
-            // 
-            this.gvGoodsCostHead.ColumnPanelRowHeight = 25;
-            this.gvGoodsCostHead.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn9,
-            this.gridColumn43,
-            this.gridColumn66,
-            this.gridColumn67,
-            this.gridColumn68,
-            this.gridColumn69,
-            this.gridColumn70,
-            this.gridColumn8});
-            this.gvGoodsCostHead.FooterPanelHeight = 30;
-            this.gvGoodsCostHead.GridControl = this.gcGoodsCostHead;
-            this.gvGoodsCostHead.Name = "gvGoodsCostHead";
-            this.gvGoodsCostHead.OptionsSelection.MultiSelect = true;
-            this.gvGoodsCostHead.OptionsView.ColumnAutoWidth = false;
-            this.gvGoodsCostHead.OptionsView.ShowGroupPanel = false;
-            this.gvGoodsCostHead.RowHeight = 25;
-            this.gvGoodsCostHead.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvGoodsCostHead_RowCellClick);
-            this.gvGoodsCostHead.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvGoodsCostHead_SelectionChanged);
-            this.gvGoodsCostHead.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvGoodsCostHead_MouseDown);
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "確認";
-            this.gridColumn9.ColumnEdit = this.repositoryItemButtonEdit6;
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn9.OptionsColumn.ReadOnly = true;
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 0;
-            this.gridColumn9.Width = 60;
-            // 
-            // repositoryItemButtonEdit6
-            // 
-            this.repositoryItemButtonEdit6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit6.Appearance.Image")));
-            this.repositoryItemButtonEdit6.Appearance.Options.UseImage = true;
-            this.repositoryItemButtonEdit6.AutoHeight = false;
-            this.repositoryItemButtonEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit6.Name = "repositoryItemButtonEdit6";
-            this.repositoryItemButtonEdit6.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repositoryItemButtonEdit6.Click += new System.EventHandler(this.repositoryItemButtonEdit6_Click);
-            // 
-            // gridColumn43
-            // 
-            this.gridColumn43.Caption = "文件編號";
-            this.gridColumn43.FieldName = "ID";
-            this.gridColumn43.Name = "gridColumn43";
-            this.gridColumn43.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn43.OptionsColumn.ReadOnly = true;
-            this.gridColumn43.Visible = true;
-            this.gridColumn43.VisibleIndex = 1;
-            this.gridColumn43.Width = 120;
-            // 
-            // gridColumn66
-            // 
-            this.gridColumn66.Caption = "產品編號";
-            this.gridColumn66.FieldName = "ProductID";
-            this.gridColumn66.Name = "gridColumn66";
-            this.gridColumn66.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn66.OptionsColumn.ReadOnly = true;
-            this.gridColumn66.Visible = true;
-            this.gridColumn66.VisibleIndex = 2;
-            this.gridColumn66.Width = 160;
-            // 
-            // gridColumn67
-            // 
-            this.gridColumn67.Caption = "產品描述";
-            this.gridColumn67.FieldName = "ProductName";
-            this.gridColumn67.Name = "gridColumn67";
-            this.gridColumn67.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn67.OptionsColumn.ReadOnly = true;
-            this.gridColumn67.Visible = true;
-            this.gridColumn67.VisibleIndex = 3;
-            this.gridColumn67.Width = 260;
-            // 
-            // gridColumn68
-            // 
-            this.gridColumn68.Caption = "標識";
-            this.gridColumn68.FieldName = "MFlag";
-            this.gridColumn68.Name = "gridColumn68";
-            this.gridColumn68.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn68.OptionsColumn.ReadOnly = true;
-            this.gridColumn68.Visible = true;
-            this.gridColumn68.VisibleIndex = 4;
-            this.gridColumn68.Width = 60;
-            // 
-            // gridColumn69
-            // 
-            this.gridColumn69.Caption = "客戶產品顏色";
-            this.gridColumn69.FieldName = "CustColor";
-            this.gridColumn69.Name = "gridColumn69";
-            this.gridColumn69.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn69.OptionsColumn.ReadOnly = true;
-            this.gridColumn69.Visible = true;
-            this.gridColumn69.VisibleIndex = 5;
-            this.gridColumn69.Width = 160;
-            // 
-            // gridColumn70
-            // 
-            this.gridColumn70.Caption = "建立人";
-            this.gridColumn70.FieldName = "CreateUser";
-            this.gridColumn70.Name = "gridColumn70";
-            this.gridColumn70.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn70.OptionsColumn.ReadOnly = true;
-            this.gridColumn70.Visible = true;
-            this.gridColumn70.VisibleIndex = 6;
-            this.gridColumn70.Width = 151;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "建立日期";
-            this.gridColumn8.FieldName = "CreateTime";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn8.OptionsColumn.ReadOnly = true;
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
-            this.gridColumn8.Width = 192;
-            // 
-            // repositoryItemLookUpEdit27
-            // 
-            this.repositoryItemLookUpEdit27.AutoHeight = false;
-            this.repositoryItemLookUpEdit27.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit27.Name = "repositoryItemLookUpEdit27";
-            this.repositoryItemLookUpEdit27.NullText = "";
-            // 
-            // repositoryItemTextEdit7
-            // 
-            this.repositoryItemTextEdit7.AutoHeight = false;
-            this.repositoryItemTextEdit7.Name = "repositoryItemTextEdit7";
-            // 
-            // repositoryItemLookUpEdit28
-            // 
-            this.repositoryItemLookUpEdit28.AutoHeight = false;
-            this.repositoryItemLookUpEdit28.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit28.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unit_id", "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unit_cdesc", "單位描述")});
-            this.repositoryItemLookUpEdit28.Name = "repositoryItemLookUpEdit28";
-            this.repositoryItemLookUpEdit28.NullText = "";
-            // 
-            // repositoryItemLookUpEdit29
-            // 
-            this.repositoryItemLookUpEdit29.AutoHeight = false;
-            this.repositoryItemLookUpEdit29.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit29.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("process_id", 60, "工序代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("process_name", 80, "工序描述"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cost_price", 80, "加工單價"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("product_qty", 80, "基數")});
-            this.repositoryItemLookUpEdit29.Name = "repositoryItemLookUpEdit29";
-            this.repositoryItemLookUpEdit29.NullText = "";
-            // 
-            // repositoryItemLookUpEdit26
-            // 
-            this.repositoryItemLookUpEdit26.AutoHeight = false;
-            this.repositoryItemLookUpEdit26.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit26.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unit_id", 60, "Name23"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("unit_cdesc", 80, "Name24")});
-            this.repositoryItemLookUpEdit26.Name = "repositoryItemLookUpEdit26";
-            this.repositoryItemLookUpEdit26.NullText = "";
-            // 
-            // repositoryItemLookUpEdit25
-            // 
-            this.repositoryItemLookUpEdit25.AutoHeight = false;
-            this.repositoryItemLookUpEdit25.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit25.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("dep_id", 60, "部門編號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("dep_cdesc", 80, "部門描述")});
-            this.repositoryItemLookUpEdit25.Name = "repositoryItemLookUpEdit25";
-            this.repositoryItemLookUpEdit25.NullText = "";
-            // 
-            // repositoryItemButtonEdit19
-            // 
-            this.repositoryItemButtonEdit19.AutoHeight = false;
-            this.repositoryItemButtonEdit19.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit19.Name = "repositoryItemButtonEdit19";
-            // 
-            // repositoryItemButtonEdit17
-            // 
-            this.repositoryItemButtonEdit17.AutoHeight = false;
-            this.repositoryItemButtonEdit17.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit17.Name = "repositoryItemButtonEdit17";
-            // 
-            // repositoryItemButtonEdit20
-            // 
-            this.repositoryItemButtonEdit20.AutoHeight = false;
-            this.repositoryItemButtonEdit20.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit20.Name = "repositoryItemButtonEdit20";
-            // 
-            // repositoryItemButtonEdit18
-            // 
-            this.repositoryItemButtonEdit18.AutoHeight = false;
-            this.repositoryItemButtonEdit18.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit18.Name = "repositoryItemButtonEdit18";
-            // 
-            // repositoryItemButtonEdit21
-            // 
-            this.repositoryItemButtonEdit21.AutoHeight = false;
-            this.repositoryItemButtonEdit21.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit21.Name = "repositoryItemButtonEdit21";
-            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.btnAddCost);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 516);
+            this.panelControl1.Location = new System.Drawing.Point(0, 540);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1214, 46);
             this.panelControl1.TabIndex = 39;
@@ -586,7 +341,7 @@
             // gcGoodsCostDetails
             // 
             this.gcGoodsCostDetails.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcGoodsCostDetails.Location = new System.Drawing.Point(0, 562);
+            this.gcGoodsCostDetails.Location = new System.Drawing.Point(0, 586);
             this.gcGoodsCostDetails.MainView = this.gvGoodsCostDetails;
             this.gcGoodsCostDetails.Name = "gcGoodsCostDetails";
             this.gcGoodsCostDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -935,26 +690,85 @@
             this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
             this.repositoryItemLookUpEdit3.NullText = "";
             // 
-            // lueMoGroup
+            // dgvGoodsCostHead
             // 
-            this.lueMoGroup.Location = new System.Drawing.Point(326, 40);
-            this.lueMoGroup.Name = "lueMoGroup";
-            this.lueMoGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueMoGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_id", 60, "組別代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_desc", 80, "組別描述")});
-            this.lueMoGroup.Properties.NullText = "";
-            this.lueMoGroup.Size = new System.Drawing.Size(95, 20);
-            this.lueMoGroup.TabIndex = 18;
+            this.dgvGoodsCostHead.AllowUserToAddRows = false;
+            this.dgvGoodsCostHead.ColumnHeadersHeight = 25;
+            this.dgvGoodsCostHead.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvGoodsCostHead.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colID,
+            this.Column1,
+            this.Column2,
+            this.Column6,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.colSN});
+            this.dgvGoodsCostHead.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvGoodsCostHead.Location = new System.Drawing.Point(0, 108);
+            this.dgvGoodsCostHead.Name = "dgvGoodsCostHead";
+            this.dgvGoodsCostHead.RowHeadersWidth = 20;
+            this.dgvGoodsCostHead.RowTemplate.Height = 24;
+            this.dgvGoodsCostHead.Size = new System.Drawing.Size(1214, 432);
+            this.dgvGoodsCostHead.TabIndex = 41;
+            this.dgvGoodsCostHead.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGoodsCostHead_CellDoubleClick);
+            this.dgvGoodsCostHead.SelectionChanged += new System.EventHandler(this.dgvGoodsCostHead_SelectionChanged);
             // 
-            // lblMoGroup
+            // colID
             // 
-            this.lblMoGroup.Location = new System.Drawing.Point(292, 43);
-            this.lblMoGroup.Name = "lblMoGroup";
-            this.lblMoGroup.Size = new System.Drawing.Size(28, 14);
-            this.lblMoGroup.TabIndex = 17;
-            this.lblMoGroup.Text = "組別:";
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "文件編號　";
+            this.colID.Name = "colID";
+            this.colID.Width = 120;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ProductID";
+            this.Column1.HeaderText = "產品編號";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 160;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "ProductName";
+            this.Column2.HeaderText = "產品描述";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 260;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "CustColor";
+            this.Column6.HeaderText = "客戶產品顏色";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MFlag";
+            this.Column3.HeaderText = "標識";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 60;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "CreateUser";
+            this.Column4.HeaderText = "建立人";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 160;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "CreateTime";
+            this.Column5.HeaderText = "建立日期";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 200;
+            // 
+            // colSN
+            // 
+            this.colSN.DataPropertyName = "SN";
+            this.colSN.HeaderText = "SN";
+            this.colSN.Name = "colSN";
+            this.colSN.Visible = false;
             // 
             // frmCountGoodsCostFind
             // 
@@ -963,7 +777,7 @@
             this.ClientSize = new System.Drawing.Size(1214, 762);
             this.Controls.Add(this.gcGoodsCostDetails);
             this.Controls.Add(this.panelControl1);
-            this.Controls.Add(this.gcGoodsCostHead);
+            this.Controls.Add(this.dgvGoodsCostHead);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmCountGoodsCostFind";
@@ -973,26 +787,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueMoGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcessName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcesslId.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcGoodsCostHead)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGoodsCostHead)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcGoodsCostDetails)).EndInit();
@@ -1001,7 +802,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueMoGroup.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGoodsCostHead)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1027,31 +828,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DevExpress.XtraGrid.GridControl gcGoodsCostHead;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvGoodsCostHead;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn66;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn67;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn68;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn69;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn70;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit21;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit27;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit7;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit28;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit29;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit26;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit25;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit19;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit17;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit20;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit18;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraEditors.TextEdit txtCustColor;
         private DevExpress.XtraEditors.LabelControl lblCustColor;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit6;
         private DevExpress.XtraEditors.SimpleButton btnAddCost;
         private DevExpress.XtraGrid.GridControl gcGoodsCostDetails;
         private DevExpress.XtraGrid.Views.Grid.GridView gvGoodsCostDetails;
@@ -1088,5 +867,14 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
         private DevExpress.XtraEditors.LookUpEdit lueMoGroup;
         private DevExpress.XtraEditors.LabelControl lblMoGroup;
+        private System.Windows.Forms.DataGridView dgvGoodsCostHead;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSN;
     }
 }
