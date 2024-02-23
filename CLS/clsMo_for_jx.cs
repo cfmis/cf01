@@ -77,8 +77,9 @@ namespace cf01.CLS
             {
                 strSql += string.Format(" AND b.goods_id='{0}' ", goods_id);
             }
-            DataTable dtGoods = clsPublicOfCF01.GetDataTable(strSql);
-            if(dtGoods.Rows.Count>0)
+            //DataTable dtGoods = clsPublicOfCF01.GetDataTable(strSql);
+            DataTable dtGoods = clsConErp.ExecuteSqlReturnDataTable(strSql);//modified in 2024/02/23
+            if (dtGoods.Rows.Count>0)
             {
                 dtGoods.Columns.Add("wh_location", typeof(string));
                 for (int i=0;i<dtGoods.Rows.Count;i++)
