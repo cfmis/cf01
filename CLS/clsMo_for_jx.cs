@@ -22,6 +22,19 @@ namespace cf01.CLS
         private readonly static string remote_db = DBUtility.remote_db;
         public static DataTable GetGoods_DetailsById(string wp_id, string mo_id, string goods_id)
         {
+            //--START因未知的原因,取顏色表的字段總是出錯,改為從存儲過程中取,新增于2024/02/24
+            SqlParameter[] paras = new SqlParameter[] {
+                new SqlParameter("@wp_id",wp_id),
+                new SqlParameter("@mo_id",mo_id),
+                new SqlParameter("@goods_id",goods_id)                    
+            };
+            return clsPublicOfCF01.ExecuteProcedureReturnTable("p_plan_with_print_card", paras);
+            //--END 2024/02/24
+
+
+
+            /*
+             * 以下為舊代碼取消于 2024/02/24
             string strSql = "";
             //***************此代碼取消于2022/03/12
             //部分非R單INNER JOIN so_order_special_info 異常出錯.
@@ -77,8 +90,7 @@ namespace cf01.CLS
             {
                 strSql += string.Format(" AND b.goods_id='{0}' ", goods_id);
             }
-            DataTable dtGoods = clsPublicOfCF01.GetDataTable(strSql);
-            //DataTable dtGoods = clsConErp.ExecuteSqlReturnDataTable(strSql);//modified in 2024/02/23
+            DataTable dtGoods = clsPublicOfCF01.GetDataTable(strSql);            
             if (dtGoods.Rows.Count>0)
             {
                 dtGoods.Columns.Add("wh_location", typeof(string));
@@ -95,8 +107,9 @@ namespace cf01.CLS
                 }
             }
             return dtGoods;
+            */
         }
-        
+
         /// <summary>
         /// 取補單頁數正單的生產備註
         /// </summary>
@@ -134,9 +147,9 @@ namespace cf01.CLS
                               " WHERE A.within_code = '0000'";
             if (mo_id != "" && wp_id != "" && goods_id != "")
             {
-                strSql += String.Format(" AND A.mo_id = '{0}'", mo_id);
-                strSql += String.Format(" AND B.wp_id = '{0}'", wp_id);
-                strSql += String.Format(" AND B.goods_id='{0}'", goods_id);
+                strSql += string.Format(" AND A.mo_id = '{0}'", mo_id);
+                strSql += string.Format(" AND B.wp_id = '{0}'", wp_id);
+                strSql += string.Format(" AND B.goods_id='{0}'", goods_id);
                 //"AND C.materiel_id = ''"
             }
             dtColorInfo = clsConErp.GetDataTable(strSql);
@@ -259,7 +272,7 @@ namespace cf01.CLS
             DataTable dtColor = new DataTable();
             try
             {
-                string strSQL = String.Format(
+                string strSQL = string.Format(
                     @"SELECT a.mo_id, c.sequence_id,c.materiel_id, b.goods_id,e.name AS color_desc, d.do_color, b.next_wp_id,b.wp_id
                     From jo_bill_mostly a with(nolock)
                     Inner Join jo_bill_goods_details b with(nolock) on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver
@@ -288,7 +301,7 @@ namespace cf01.CLS
             DataTable dtSize = new DataTable();
             try
             {
-                string strSQL = String.Format(@"SELECT a.name AS size_name FROM dbo.cd_size a WHERE a.within_code='0000' and a.id='{0}'", size_id);
+                string strSQL = string.Format(@"SELECT a.name AS size_name FROM dbo.cd_size a WHERE a.within_code='0000' and a.id='{0}'", size_id);
 
                 dtSize = clsConErp.GetDataTable(strSQL);
             }
@@ -313,7 +326,7 @@ namespace cf01.CLS
             DataTable dtUnitRate = new DataTable();
             try
             {
-                string strSQL = String.Format(@"SELECT rate FROM dbo.it_coding a WHERE a.within_code='0000' and a.id='*' and a.unit_code='{0}'", basic_unit);
+                string strSQL = string.Format(@"SELECT rate FROM dbo.it_coding a WHERE a.within_code='0000' and a.id='*' and a.unit_code='{0}'", basic_unit);
                 dtUnitRate = clsConErp.GetDataTable(strSQL);
                 if (dtUnitRate.Rows.Count > 0)
                 {
@@ -332,7 +345,7 @@ namespace cf01.CLS
             DataTable dtLockInfo = new DataTable();
             try
             {
-                string strSQL = String.Format(
+                string strSQL = string.Format(
                 @"SELECT apr_usr,apr_tim FROM mo_for_jx 
                   WHERE mo_id='{0}' AND wp_id='{1}' AND goods_id='{2}'", mo_id, wp_id, goods_id);
                 strSQL += " AND apr_usr IS NOT NULL AND apr_tim IS NOT NULL ";
