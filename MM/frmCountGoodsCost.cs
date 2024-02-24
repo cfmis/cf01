@@ -2658,6 +2658,108 @@ namespace cf01.MM
             }
         }
 
-        
+        private void txtSizePart_Leave(object sender, EventArgs e)
+        {
+            txtSizeNamePart.Text = "";
+            if (txtSizePart.Text.Trim() != "")
+            {
+                DataTable dtSize = clsBaseData.GetSize(txtSizePart.Text.Trim());
+                if(dtSize.Rows.Count>0)
+                {
+                    txtSizeNamePart.Text = dtSize.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtProductTypePart_Leave(object sender, EventArgs e)
+        {
+            txtProductTypeNamePart.Text = "";
+            if (txtProductTypePart.Text.Trim() != "")
+            {
+                DataTable dtPrdType = clsBaseData.GetProductType(txtProductTypePart.Text.Trim());
+                if (dtPrdType.Rows.Count > 0)
+                {
+                    txtProductTypeNamePart.Text = dtPrdType.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtArtWorkPart_Leave(object sender, EventArgs e)
+        {
+            txtArtWorkNamePart.Text = "";
+            if (txtArtWorkPart.Text.Trim() != "")
+            {
+                DataTable dtArtwork = clsBaseData.GetArtwork(txtArtWorkPart.Text.Trim());
+                if (dtArtwork.Rows.Count > 0)
+                {
+                    txtArtWorkNamePart.Text = dtArtwork.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtColorPart_Leave(object sender, EventArgs e)
+        {
+            txtColorNamePart.Text = "";
+            if (txtColorPart.Text.Trim() != "")
+            {
+                DataTable dtColor = clsBaseData.GetColor(txtColorPart.Text.Trim());
+                if (dtColor.Rows.Count > 0)
+                {
+                    txtColorNamePart.Text = dtColor.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtSize_Leave(object sender, EventArgs e)
+        {
+            txtSizeName.Text = "";
+            if (txtSize.Text.Trim() != "")
+            {
+                DataTable dtSize = clsBaseData.GetSize(txtSize.Text.Trim());
+                if (dtSize.Rows.Count > 0)
+                {
+                    txtSizeName.Text = dtSize.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtArtWork_Leave(object sender, EventArgs e)
+        {
+            txtArtWorkName.Text = "";
+            if (txtArtWork.Text.Trim() != "")
+            {
+                DataTable dtArtwork = clsBaseData.GetArtwork(txtArtWork.Text.Trim());
+                if (dtArtwork.Rows.Count > 0)
+                {
+                    txtArtWorkName.Text = dtArtwork.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtProductType_Leave(object sender, EventArgs e)
+        {
+            txtProductTypeName.Text = "";
+            if (txtProductType.Text.Trim() != "")
+            {
+                DataTable dtPrdType = clsBaseData.GetProductType(txtProductType.Text.Trim());
+                if (dtPrdType.Rows.Count > 0)
+                {
+                    txtProductTypeName.Text = dtPrdType.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtColor_Properties_Leave(object sender, EventArgs e)
+        {
+            txtColorName.Text = "";
+            if (txtColor.Text.Trim() != "")
+            {
+                DataTable dtColor = clsBaseData.GetColor(txtColor.Text.Trim());
+                if (dtColor.Rows.Count > 0)
+                {
+                    txtColorName.Text = dtColor.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
     }
 }

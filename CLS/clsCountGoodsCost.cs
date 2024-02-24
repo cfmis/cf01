@@ -558,21 +558,36 @@ namespace cf01.CLS
         public static DataTable GetProductDataPart(string productID)
         {
             string strSql = "";
+            //strSql = "Select a.id,a.name" +
+            //    " ,b.prd_weg,b.waste_weg,b.use_weg,b.mat_item,c.name AS mat_name" +
+            //    " ,a.datum,d.mat_cdesc,a.base_class,e.prd_cdesc" +
+            //    " ,a.blueprint_id,f.art_cdesc,f.art_image" +
+            //    " ,a.size_id,g.size_cdesc,a.color,h.clr_cdesc" +
+            //    " From  geo_it_goods a" +
+            //    " Left Join bs_product_qty_rate b On a.id=b.prd_item " +
+            //    " Left Join geo_it_goods c On b.mat_item=c.id " +
+            //    " Left Join bs_mat_type d On a.datum=d.mat_code" +
+            //    " Left Join bs_product_type e On a.base_class=e.prd_code" +
+            //    " Left Join bs_artwork f On a.blueprint_id=f.art_code" +
+            //    " Left Join bs_size g On a.size_id=g.size_id" +
+            //    " Left Join bs_color h On a.color=h.clr_code" +
+            //    " Where a.id='" + productID + "'";
+            //DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+
+
             strSql = "Select a.id,a.name" +
-                " ,b.prd_weg,b.waste_weg,b.use_weg,b.mat_item,c.name AS mat_name" +
-                " ,a.datum,d.mat_cdesc,a.base_class,e.prd_cdesc" +
-                " ,a.blueprint_id,f.art_cdesc,f.art_image" +
-                " ,a.size_id,g.size_cdesc,a.color,h.clr_cdesc" +
-                " From  geo_it_goods a" +
-                " Left Join bs_product_qty_rate b On a.id=b.prd_item " +
-                " Left Join geo_it_goods c On b.mat_item=c.id " +
-                " Left Join bs_mat_type d On a.datum=d.mat_code" +
-                " Left Join bs_product_type e On a.base_class=e.prd_code" +
-                " Left Join bs_artwork f On a.blueprint_id=f.art_code" +
-                " Left Join bs_size g On a.size_id=g.size_id" +
-                " Left Join bs_color h On a.color=h.clr_code" +
-                " Where a.id='" + productID + "'";
-            DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+                " ,a.datum,b.name As mat_cdesc,a.base_class,c.name As prd_cdesc" +
+                " ,a.blueprint_id,d.name As art_cdesc,e.picture_name As art_image" +
+                " ,a.size_id,f.name As size_cdesc,a.color,g.name As clr_cdesc" +
+                " From it_goods a " +
+                " Left Join cd_datum b On a.within_code=b.within_code And a.datum=b.id" +
+                " Left Join cd_goods_class c On a.within_code=c.within_code And a.base_class=c.id" +
+                " Left Join cd_pattern d On a.within_code=d.within_code And a.blueprint_id=d.id" +
+                " Left Join cd_pattern_details e On d.within_code=e.within_code And d.id=e.id" +
+                " Left Join cd_size f On a.within_code=f.within_code And a.size_id=f.id" +
+                " Left Join cd_color g On a.within_code=g.within_code And a.color=g.id" +
+                " Where a.within_code='" + within_code + "' And a.id='" + productID + "'";
+            DataTable dtPrd = clsPublicOfGEO.GetDataTable(strSql);
             return dtPrd;
         }
 

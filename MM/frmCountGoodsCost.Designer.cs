@@ -365,6 +365,7 @@
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemButtonEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.btnSetMatVisible = new DevExpress.XtraEditors.SimpleButton();
             this.txtMatWegTotal = new DevExpress.XtraEditors.TextEdit();
@@ -403,7 +404,6 @@
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.btnAddPart = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -826,7 +826,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_desc", 80, "組別描述")});
             this.lueMoGroup.Properties.NullText = "";
             this.lueMoGroup.Size = new System.Drawing.Size(78, 20);
-            this.lueMoGroup.TabIndex = 16;
+            this.lueMoGroup.TabIndex = 11;
             // 
             // btnFindProduct
             // 
@@ -843,7 +843,7 @@
             this.txtMdNo.Name = "txtMdNo";
             this.txtMdNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMdNo.Size = new System.Drawing.Size(161, 20);
-            this.txtMdNo.TabIndex = 6;
+            this.txtMdNo.TabIndex = 13;
             // 
             // txtArtWorkName
             // 
@@ -928,6 +928,7 @@
             this.txtColor.Name = "txtColor";
             this.txtColor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColor.Properties.MaxLength = 4;
+            this.txtColor.Properties.Leave += new System.EventHandler(this.txtColor_Properties_Leave);
             this.txtColor.Size = new System.Drawing.Size(92, 20);
             this.txtColor.TabIndex = 9;
             // 
@@ -946,6 +947,7 @@
             this.txtSize.Properties.MaxLength = 3;
             this.txtSize.Size = new System.Drawing.Size(92, 20);
             this.txtSize.TabIndex = 3;
+            this.txtSize.Leave += new System.EventHandler(this.txtSize_Leave);
             // 
             // txtProductName
             // 
@@ -977,7 +979,7 @@
             this.txtRemark.Location = new System.Drawing.Point(888, 60);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(362, 20);
-            this.txtRemark.TabIndex = 11;
+            this.txtRemark.TabIndex = 15;
             // 
             // txtSN
             // 
@@ -1091,7 +1093,7 @@
             this.txtCustColor.Name = "txtCustColor";
             this.txtCustColor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCustColor.Size = new System.Drawing.Size(279, 20);
-            this.txtCustColor.TabIndex = 7;
+            this.txtCustColor.TabIndex = 14;
             // 
             // txtProductType
             // 
@@ -1101,6 +1103,7 @@
             this.txtProductType.Properties.MaxLength = 2;
             this.txtProductType.Size = new System.Drawing.Size(122, 20);
             this.txtProductType.TabIndex = 7;
+            this.txtProductType.Leave += new System.EventHandler(this.txtProductType_Leave);
             // 
             // lblCustColor
             // 
@@ -1117,7 +1120,7 @@
             this.txtPrdMo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPrdMo.Properties.MaxLength = 9;
             this.txtPrdMo.Size = new System.Drawing.Size(122, 20);
-            this.txtPrdMo.TabIndex = 5;
+            this.txtPrdMo.TabIndex = 12;
             // 
             // lblPrdType
             // 
@@ -1143,6 +1146,7 @@
             this.txtArtWork.Properties.MaxLength = 7;
             this.txtArtWork.Size = new System.Drawing.Size(122, 20);
             this.txtArtWork.TabIndex = 5;
+            this.txtArtWork.Leave += new System.EventHandler(this.txtArtWork_Leave);
             // 
             // lblArtWork
             // 
@@ -3959,6 +3963,14 @@
             this.panelControl7.Size = new System.Drawing.Size(1537, 32);
             this.panelControl7.TabIndex = 0;
             // 
+            // labelControl25
+            // 
+            this.labelControl25.Location = new System.Drawing.Point(908, 8);
+            this.labelControl25.Name = "labelControl25";
+            this.labelControl25.Size = new System.Drawing.Size(372, 14);
+            this.labelControl25.TabIndex = 7;
+            this.labelControl25.Text = "實際損耗率小於預設的，以預設的為准；大於預設的，以實際的為准。";
+            // 
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -4085,7 +4097,7 @@
             this.txtFrontPart.Name = "txtFrontPart";
             this.txtFrontPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFrontPart.Size = new System.Drawing.Size(92, 20);
-            this.txtFrontPart.TabIndex = 11;
+            this.txtFrontPart.TabIndex = 4;
             // 
             // lblFrontPart
             // 
@@ -4100,14 +4112,14 @@
             this.txtArtWorkNamePart.Location = new System.Drawing.Point(475, 42);
             this.txtArtWorkNamePart.Name = "txtArtWorkNamePart";
             this.txtArtWorkNamePart.Size = new System.Drawing.Size(183, 20);
-            this.txtArtWorkNamePart.TabIndex = 7;
+            this.txtArtWorkNamePart.TabIndex = 8;
             // 
             // txtSizeNamePart
             // 
             this.txtSizeNamePart.Location = new System.Drawing.Point(803, 16);
             this.txtSizeNamePart.Name = "txtSizeNamePart";
             this.txtSizeNamePart.Size = new System.Drawing.Size(124, 20);
-            this.txtSizeNamePart.TabIndex = 5;
+            this.txtSizeNamePart.TabIndex = 3;
             // 
             // txtProductIdPart
             // 
@@ -4116,7 +4128,7 @@
             this.txtProductIdPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProductIdPart.Properties.MaxLength = 18;
             this.txtProductIdPart.Size = new System.Drawing.Size(161, 20);
-            this.txtProductIdPart.TabIndex = 5;
+            this.txtProductIdPart.TabIndex = 0;
             this.txtProductIdPart.Leave += new System.EventHandler(this.txtProductIdPart_Leave);
             // 
             // txtSizePart
@@ -4126,7 +4138,8 @@
             this.txtSizePart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizePart.Properties.MaxLength = 3;
             this.txtSizePart.Size = new System.Drawing.Size(63, 20);
-            this.txtSizePart.TabIndex = 5;
+            this.txtSizePart.TabIndex = 2;
+            this.txtSizePart.Leave += new System.EventHandler(this.txtSizePart_Leave);
             // 
             // labelControl1
             // 
@@ -4159,7 +4172,8 @@
             this.txtArtWorkPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtArtWorkPart.Properties.MaxLength = 7;
             this.txtArtWorkPart.Size = new System.Drawing.Size(102, 20);
-            this.txtArtWorkPart.TabIndex = 1;
+            this.txtArtWorkPart.TabIndex = 7;
+            this.txtArtWorkPart.Leave += new System.EventHandler(this.txtArtWorkPart_Leave);
             // 
             // txtProductTypePart
             // 
@@ -4168,14 +4182,15 @@
             this.txtProductTypePart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProductTypePart.Properties.MaxLength = 2;
             this.txtProductTypePart.Size = new System.Drawing.Size(63, 20);
-            this.txtProductTypePart.TabIndex = 2;
+            this.txtProductTypePart.TabIndex = 5;
+            this.txtProductTypePart.Leave += new System.EventHandler(this.txtProductTypePart_Leave);
             // 
             // txtProductNamePart
             // 
             this.txtProductNamePart.Location = new System.Drawing.Point(364, 16);
             this.txtProductNamePart.Name = "txtProductNamePart";
             this.txtProductNamePart.Size = new System.Drawing.Size(294, 20);
-            this.txtProductNamePart.TabIndex = 5;
+            this.txtProductNamePart.TabIndex = 1;
             // 
             // labelControl13
             // 
@@ -4198,9 +4213,10 @@
             this.txtColorPart.Location = new System.Drawing.Point(734, 42);
             this.txtColorPart.Name = "txtColorPart";
             this.txtColorPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtColorPart.Properties.MaxLength = 3;
+            this.txtColorPart.Properties.MaxLength = 4;
             this.txtColorPart.Size = new System.Drawing.Size(63, 20);
-            this.txtColorPart.TabIndex = 5;
+            this.txtColorPart.TabIndex = 9;
+            this.txtColorPart.Leave += new System.EventHandler(this.txtColorPart_Leave);
             // 
             // labelControl5
             // 
@@ -4231,14 +4247,14 @@
             this.txtColorNamePart.Location = new System.Drawing.Point(803, 42);
             this.txtColorNamePart.Name = "txtColorNamePart";
             this.txtColorNamePart.Size = new System.Drawing.Size(124, 20);
-            this.txtColorNamePart.TabIndex = 5;
+            this.txtColorNamePart.TabIndex = 10;
             // 
             // txtProductTypeNamePart
             // 
             this.txtProductTypeNamePart.Location = new System.Drawing.Point(146, 42);
             this.txtProductTypeNamePart.Name = "txtProductTypeNamePart";
             this.txtProductTypeNamePart.Size = new System.Drawing.Size(141, 20);
-            this.txtProductTypeNamePart.TabIndex = 5;
+            this.txtProductTypeNamePart.TabIndex = 6;
             // 
             // panelControl4
             // 
@@ -4293,14 +4309,6 @@
             this.textEdit10.Size = new System.Drawing.Size(100, 20);
             this.textEdit10.TabIndex = 2;
             this.textEdit10.Visible = false;
-            // 
-            // labelControl25
-            // 
-            this.labelControl25.Location = new System.Drawing.Point(908, 8);
-            this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(372, 14);
-            this.labelControl25.TabIndex = 7;
-            this.labelControl25.Text = "實際損耗率小於預設的，以預設的為准；大於預設的，以實際的為准。";
             // 
             // frmCountGoodsCost
             // 
