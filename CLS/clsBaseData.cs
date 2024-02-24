@@ -191,6 +191,44 @@ namespace cf01.CLS
             return dtCurr;
         }
 
+        public static DataTable GetMat(string mat_code)
+        {
+            string strSql = "Select id,name From cd_datum " +
+                " Where within_code='" + within_code + "' And id='" + mat_code + "'";
+            DataTable dtMat = clsPublicOfGEO.GetDataTable(strSql);
+            return dtMat;
+        }
+
+        public static DataTable GetProductType(string type_code)
+        {
+            string strSql = "Select id,name From cd_goods_class " +
+                " Where within_code='" + within_code + "' And id='" + type_code + "'";
+            DataTable dtPrdType = clsPublicOfGEO.GetDataTable(strSql);
+            return dtPrdType;
+        }
+        public static DataTable GetArtwork(string art_code)
+        {
+            string strSql = "Select a.id,a.name,b.picture_name " +
+                " From cd_pattern a " +
+                " Left Join cd_pattern_details b On a.within_code=b.within_code And a.id=b.id " +
+                " Where a.within_code='" + within_code + "' And a.id='" + art_code + "'";
+            DataTable dtArtwork = clsPublicOfGEO.GetDataTable(strSql);
+            return dtArtwork;
+        }
+        public static DataTable GetSize(string size_id)
+        {
+            string strSql = "Select id,name From cd_size a " +
+                " Where within_code='" + within_code + "' And id='" + size_id + "'";
+            DataTable dtArtwork = clsPublicOfGEO.GetDataTable(strSql);
+            return dtArtwork;
+        }
+        public static DataTable GetColor(string color_id)
+        {
+            string strSql = "Select id,name From cd_color a " +
+                " Where within_code='" + within_code + "' And id='" + color_id + "'";
+            DataTable dtArtwork = clsPublicOfGEO.GetDataTable(strSql);
+            return dtArtwork;
+        }
         public static void NAR(object o)
         {
             try
