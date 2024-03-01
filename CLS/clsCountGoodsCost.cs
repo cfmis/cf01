@@ -61,7 +61,7 @@ namespace cf01.CLS
             strSql += " Select "+"'M' As MFlag"+",a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
                 ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName" +
                 ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
-                ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
+                ",1 AS MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
                 " Where a.Status<>'D'";
@@ -81,7 +81,7 @@ namespace cf01.CLS
                 strSql += " Select "+"' ' As MFlag"+",a.ID,a.Ver,b.ProductID,b.ProductName,b.ArtWork,b.ArtWorkName,b.ProductType,b.ProductTypeName" +
                 ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName" +
                 ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
-                ",a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
+                ",a.MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
                 " Inner Join mm_product_cost_part b On a.SN=b.UpperSN" +
@@ -249,13 +249,13 @@ namespace cf01.CLS
                     ",PlateCost,PackCost" +
                     ",CostPcs,CostGrs,CostK" +
                     ",FactoryFee,FactoryCostPcs,FactoryCostGrs,FactoryCostK" +
-                    ",FrontPart,Remark,CreateUser,CreateTime,AmendUser,AmendTime" +
+                    ",FrontPart,MultRate,Remark,CreateUser,CreateTime,AmendUser,AmendTime" +
                     " )" +
                     " Values ( " +
                     " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}'" +
                     ",'{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}'" +
-                    ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}'" +
-                    ",GETDATE(),'{29}',GETDATE() " +
+                    ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}'" +
+                    ",GETDATE(),'{30}',GETDATE() " +
                     " )";
             }
             else
@@ -266,7 +266,7 @@ namespace cf01.CLS
                     ",PlateCost='{18}',PackCost='{19}'" +
                     ",CostPcs='{20}',CostGrs='{21}',CostK='{22}'" +
                     ",FactoryFee='{23}',FactoryCostPcs='{24}',FactoryCostGrs='{25}',FactoryCostK='{26}'" +
-                    ",FrontPart='{27}',Remark='{28}',AmendUser='{29}',AmendTime=GETDATE() " +
+                    ",FrontPart='{27}',MultRate='{28}',Remark='{29}',AmendUser='{30}',AmendTime=GETDATE() " +
                     " Where upperSN='{0}' And Seq='{1}'";
             strSql += string.Format(strUpd
                     , upperSN, seq, mdlGoodsPart.ProductID, mdlGoodsPart.ProductName, mdlGoodsPart.ArtWork, mdlGoodsPart.ArtWorkName
@@ -276,7 +276,7 @@ namespace cf01.CLS
                     , mdlGoodsPart.PlateCost, mdlGoodsPart.PackCost
                     , mdlGoodsPart.CostPcs, mdlGoodsPart.CostGrs, mdlGoodsPart.CostK
                     , mdlGoodsPart.FactoryFee, mdlGoodsPart.FactoryCostPcs, mdlGoodsPart.FactoryCostGrs, mdlGoodsPart.FactoryCostK
-                    , mdlGoodsPart.FrontPart, mdlGoodsPart.Remark, userid);
+                    , mdlGoodsPart.FrontPart, mdlGoodsPart.MultRate, mdlGoodsPart.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             if (result == "")
@@ -317,13 +317,13 @@ namespace cf01.CLS
                         ",PlateCost,PackCost" +
                         ",CostPcs,CostGrs,CostK" +
                         ",FactoryFee,FactoryCostPcs,FactoryCostGrs,FactoryCostK" +
-                        ",FrontPart,Remark,CreateUser,CreateTime,AmendUser,AmendTime" +
+                        ",FrontPart,MultRate,Remark,CreateUser,CreateTime,AmendUser,AmendTime" +
                         " )" +
                         " Values ( " +
                         " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}'" +
                         ",'{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}'" +
-                        ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}'" +
-                        ",GETDATE(),'{29}',GETDATE() " +
+                        ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}'" +
+                        ",GETDATE(),'{30}',GETDATE() " +
                         " )";
                 }
                 else
@@ -334,7 +334,7 @@ namespace cf01.CLS
                         ",PlateCost='{18}',PackCost='{19}'" +
                         ",CostPcs='{20}',CostGrs='{21}',CostK='{22}'" +
                         ",FactoryFee='{23}',FactoryCostPcs='{24}',FactoryCostGrs='{25}',FactoryCostK='{26}'" +
-                        ",FrontPart='{27}',Remark='{28}',AmendUser='{29}',AmendTime=GETDATE() " +
+                        ",FrontPart='{27}',MultRate='{28}',Remark='{29}',AmendUser='{30}',AmendTime=GETDATE() " +
                         " Where upperSN='{0}' And Seq='{1}'";
                 strSql += string.Format(strUpd
                         , upperSN, seq, mdlGoodsPart.ProductID, mdlGoodsPart.ProductName, mdlGoodsPart.ArtWork, mdlGoodsPart.ArtWorkName
@@ -344,7 +344,7 @@ namespace cf01.CLS
                         , mdlGoodsPart.PlateCost, mdlGoodsPart.PackCost
                         , mdlGoodsPart.CostPcs, mdlGoodsPart.CostGrs, mdlGoodsPart.CostK
                         , mdlGoodsPart.FactoryFee, mdlGoodsPart.FactoryCostPcs, mdlGoodsPart.FactoryCostGrs, mdlGoodsPart.FactoryCostK
-                        , mdlGoodsPart.FrontPart, mdlGoodsPart.Remark, userid);
+                        , mdlGoodsPart.FrontPart, mdlGoodsPart.MultRate, mdlGoodsPart.Remark, userid);
             }
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
@@ -388,7 +388,7 @@ namespace cf01.CLS
                 ",PlateCost,PackCost" +
                 ",FrontPart,CostPcs,CostGrs,CostK" +
                 ",FactoryFee,FactoryCostPcs,FactoryCostGrs,FactoryCostK" +
-                ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
+                ",MultRate,Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN,Status,Seq As NewSeq" +
                 " From mm_product_cost_part " +
                 " Where upperSN='" + upperSN + "' And Status <>'D' ";
@@ -634,49 +634,56 @@ namespace cf01.CLS
                 result = "";
             return result;
         }
-        public static DataTable FindPlateStdPrice(string vendID,string plateType,string plate_process, string colorName)
+        public static DataTable FindPlateStdPrice(int recPrice,string vendID,string plateType,string plate_process, string colorName)
         {
             string strSql = "";
-            //strSql = "Select a.vendor_id,a.vendor_name As vendor,a.cf_color_id,a.cf_color As do_color" +
-            //    ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id"+
-            //    ",a.price,Convert(decimal(18, 4),a.price*b.exchange_rate) As QtyPriceHKD" +
-            //    ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
-            //    ",a.prod_type,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
-            //    ",a.price_remark,a.mat,a.prod_desc,a.prod_id,a.size" +
-            //    " From quotation_plate a" +
-            //    " Left Join " + remote_db + "cd_exchange_rate b On a.m_id=b.id COLLATE chinese_taiwan_stroke_CI_AS" +
-            //    " Where b.within_code='" + within_code + "' And b.state='0' ";
-            //if (vendID != "")
-            //    strSql += " And a.vendor_id Like '%" + vendID + "%'";
-            //if (plateType != "")
-            //    strSql += " And a.plate_type Like '%" + plateType + "%'";
-            //if (plate_process != "")
-            //    strSql += " And a.plate_process = '" + plate_process + "'";
-            //if (colorName != "")
-            //    strSql += " And a.cf_color Like '%" + colorName + "%'";
-            //strSql += " Order By a.do_color,a.prod_type,a.plate_type,a.quotation_date Desc";
-
-            strSql = " Select b.pm73vendid As vendor_id,d.logogram As vendor,a.pm71clr As cf_color_id,a.pm71clrdesc As do_color" +
-                ",a.pm71dat As issue_date,b.pm73qtno As id" +
-                ",b.pm73price As price,Convert(decimal(18, 4),b.pm73price*c.exchange_rate) As QtyPriceHKD" +
-                ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
-                ",a.pm71type As prod_type,b.pm73pkind As plate_type,b.pm73ptype As plate_process,b.pm73punit As p_unit,b.pm73curr As m_id" +
-                ",b.pm73rmk As price_remark,a.pm71matdesc As mat,a.pm71cdesc As prod_desc,a.pm71item As prod_id,a.pm71sizedesc As size" +
-                " From dgsql1.dg_data.dbo.pum71 a" +
-                " Inner Join dgsql1.dg_data.dbo.pum73 b On a.pm71id=b.pm73id "+
-                " Left Join " + remote_db + "cd_exchange_rate c On b.pm73curr=c.id COLLATE chinese_taiwan_stroke_CI_AS" +
-                " Left Join " + remote_db + "it_vendor d On b.pm73vendid=d.id COLLATE chinese_taiwan_stroke_CI_AS" +
-                " Where c.within_code='" + within_code + "' And c.state='0' ";
-            if (vendID != "")
-                strSql += " And b.pm73vendid Like '%" + vendID + "%'";
-            if (plateType != "")
-                strSql += " And b.pm73pkind Like '%" + plateType + "%'";
-            if (plate_process != "")
-                strSql += " And b.pm73ptype = '" + plate_process + "'";
-            if (colorName != "")
-                strSql += " And a.pm71clrdesc Like '%" + colorName + "%'";
-            strSql += " Order By a.pm71clrdesc,b.pm73ptype,a.pm71dat Desc";
+            if (recPrice == 1)
+            {
+                strSql = "Select a.vendor_id,a.vendor_name As vendor,a.cf_color_id,a.cf_color As do_color" +
+                    ",Convert(Varchar(20),a.quotation_date,20) As issue_date,a.quotation_id As id" +
+                    ",a.price,Convert(decimal(18, 4),a.price*b.exchange_rate) As QtyPriceHKD" +
+                    ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
+                    ",a.prod_type,a.plate_type,a.plate_process,a.price_unit As p_unit,a.m_id" +
+                    ",a.price_remark,a.mat,a.prod_desc,a.prod_id,a.size" +
+                    " From quotation_plate a" +
+                    " Left Join " + remote_db + "cd_exchange_rate b On a.m_id=b.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                    " Where b.within_code='" + within_code + "' And b.state='0' ";
+                if (vendID != "")
+                    strSql += " And a.vendor_id Like '%" + vendID + "%'";
+                if (plateType != "")
+                    strSql += " And a.plate_type Like '%" + plateType + "%'";
+                if (plate_process != "")
+                    strSql += " And a.plate_process = '" + plate_process + "'";
+                if (colorName != "")
+                    strSql += " And a.cf_color Like '%" + colorName + "%'";
+                strSql += " Order By a.do_color,a.prod_type,a.plate_type,a.quotation_date Desc";
+            }
+            else
+            {
+                strSql = " Select b.pm73vendid As vendor_id,d.logogram As vendor,a.pm71clr As cf_color_id,a.pm71clrdesc As do_color" +
+                    ",a.pm71dat As issue_date,b.pm73qtno As id" +
+                    ",b.pm73price As price,Convert(decimal(18, 4),b.pm73price*c.exchange_rate) As QtyPriceHKD" +
+                    ",0.00 As WegPriceHKD,' ' As sec_p_unit,' ' As department_id" +
+                    ",a.pm71type As prod_type,b.pm73pkind As plate_type,b.pm73ptype As plate_process,b.pm73punit As p_unit,b.pm73curr As m_id" +
+                    ",b.pm73rmk As price_remark,a.pm71matdesc As mat,a.pm71cdesc As prod_desc,a.pm71item As prod_id,a.pm71sizedesc As size" +
+                    " From dgsql1.dg_data.dbo.pum71 a" +
+                    " Inner Join dgsql1.dg_data.dbo.pum73 b On a.pm71id=b.pm73id " +
+                    " Left Join " + remote_db + "cd_exchange_rate c On b.pm73curr=c.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                    " Left Join " + remote_db + "it_vendor d On b.pm73vendid=d.id COLLATE chinese_taiwan_stroke_CI_AS" +
+                    " Where c.within_code='" + within_code + "' And c.state='0' ";
+                if (vendID != "")
+                    strSql += " And b.pm73vendid Like '%" + vendID + "%'";
+                if (plateType != "")
+                    strSql += " And b.pm73pkind Like '%" + plateType + "%'";
+                if (plate_process != "")
+                    strSql += " And b.pm73ptype = '" + plate_process + "'";
+                if (colorName != "")
+                    strSql += " And a.pm71clrdesc Like '%" + colorName + "%'";
+                strSql += " Order By a.pm71clrdesc,b.pm73ptype,a.pm71dat Desc";
+            }
             DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+
+
             //for (int i=0;i<dtPrd.Rows.Count;i++)
             //{
             //    DataRow dr = dtPrd.Rows[i];

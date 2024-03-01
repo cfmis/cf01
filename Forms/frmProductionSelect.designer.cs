@@ -70,16 +70,6 @@
             this.BTNNOSTART = new System.Windows.Forms.Button();
             this.BTNNOCOMP = new System.Windows.Forms.Button();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPrd_id = new System.Windows.Forms.Label();
             this.txtPrd_id_ref = new System.Windows.Forms.TextBox();
@@ -93,10 +83,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dgvDefective = new System.Windows.Forms.DataGridView();
-            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDefective_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDefective_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOth_defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel12 = new System.Windows.Forms.Panel();
             this.cmbDefective_id = new System.Windows.Forms.ComboBox();
             this.lblDefective = new System.Windows.Forms.Label();
@@ -106,8 +92,6 @@
             this.btnAddDefective = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvWorker = new System.Windows.Forms.DataGridView();
-            this.prd_worker = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnDeleteMember = new System.Windows.Forms.Button();
             this.lblPer_hour_std_qty = new System.Windows.Forms.Label();
@@ -131,7 +115,6 @@
             this.lblchkcont_work = new System.Windows.Forms.Label();
             this.lblWork_code = new System.Windows.Forms.Label();
             this.txtWork_code = new System.Windows.Forms.TextBox();
-            this.cmbWork_code = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtOkqty_All = new System.Windows.Forms.TextBox();
             this.txtSample_no = new System.Windows.Forms.TextBox();
@@ -177,6 +160,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDefective = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.lueJobType = new DevExpress.XtraEditors.LookUpEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,6 +177,22 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDefective_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDefective_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOth_defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prd_worker = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -212,6 +212,7 @@
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // chkcont_work1
@@ -709,74 +710,6 @@
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.Leave += new System.EventHandler(this.dgvDetails_Leave);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "prd_end_time";
-            this.Column1.HeaderText = "結束時間";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "prd_start_time";
-            this.Column2.HeaderText = "開始時間";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 80;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "work_type_desc";
-            this.Column3.HeaderText = "工作類型";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 80;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "prd_group";
-            this.Column4.HeaderText = "組別";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "prd_qty";
-            this.Column5.HeaderText = "生產數量";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "prd_weg";
-            this.Column6.HeaderText = "生產重量";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "prd_mo";
-            this.Column7.HeaderText = "制單編號";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 120;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "prd_item";
-            this.Column8.HeaderText = "物料編號";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 240;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "prd_date";
-            this.Column9.HeaderText = "生產日期";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 120;
-            // 
-            // colPrd_Id
-            // 
-            this.colPrd_Id.DataPropertyName = "prd_id";
-            this.colPrd_Id.HeaderText = "記錄號";
-            this.colPrd_Id.Name = "colPrd_Id";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Moccasin;
@@ -944,33 +877,6 @@
             this.dgvDefective.Size = new System.Drawing.Size(484, 188);
             this.dgvDefective.TabIndex = 45;
             // 
-            // colSeq
-            // 
-            this.colSeq.DataPropertyName = "seq";
-            this.colSeq.HeaderText = "序號";
-            this.colSeq.Name = "colSeq";
-            this.colSeq.Width = 60;
-            // 
-            // colDefective_id
-            // 
-            this.colDefective_id.DataPropertyName = "defective_id";
-            this.colDefective_id.HeaderText = "次品種類";
-            this.colDefective_id.Name = "colDefective_id";
-            this.colDefective_id.Width = 80;
-            // 
-            // colDefective_cdesc
-            // 
-            this.colDefective_cdesc.DataPropertyName = "defective_cdesc";
-            this.colDefective_cdesc.HeaderText = "種類描述";
-            this.colDefective_cdesc.Name = "colDefective_cdesc";
-            // 
-            // colOth_defective
-            // 
-            this.colOth_defective.DataPropertyName = "oth_defective";
-            this.colOth_defective.HeaderText = "其它描述";
-            this.colOth_defective.Name = "colOth_defective";
-            this.colOth_defective.Width = 200;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.SystemColors.Control;
@@ -1071,20 +977,6 @@
             this.dgvWorker.Size = new System.Drawing.Size(508, 192);
             this.dgvWorker.TabIndex = 41;
             this.dgvWorker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvWorker_KeyPress);
-            // 
-            // prd_worker
-            // 
-            this.prd_worker.DataPropertyName = "prd_worker";
-            this.prd_worker.HeaderText = "工號";
-            this.prd_worker.Name = "prd_worker";
-            this.prd_worker.Width = 120;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "hrm1name";
-            this.Column10.HeaderText = "姓名";
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 160;
             // 
             // panel11
             // 
@@ -1204,6 +1096,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel6.Controls.Add(this.lueJobType);
             this.panel6.Controls.Add(this.txtprd_weg);
             this.panel6.Controls.Add(this.lblActual_qty);
             this.panel6.Controls.Add(this.txtPack_num);
@@ -1227,7 +1120,6 @@
             this.panel6.Controls.Add(this.lblAdd_work);
             this.panel6.Controls.Add(this.lblchkcont_work);
             this.panel6.Controls.Add(this.lblWork_code);
-            this.panel6.Controls.Add(this.cmbWork_code);
             this.panel6.Controls.Add(this.txtWork_code);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Font = new System.Drawing.Font("細明體", 12F);
@@ -1354,17 +1246,6 @@
             this.txtWork_code.Size = new System.Drawing.Size(146, 27);
             this.txtWork_code.TabIndex = 9;
             this.txtWork_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
-            // 
-            // cmbWork_code
-            // 
-            this.cmbWork_code.Font = new System.Drawing.Font("細明體", 14F);
-            this.cmbWork_code.FormattingEnabled = true;
-            this.cmbWork_code.Location = new System.Drawing.Point(593, 66);
-            this.cmbWork_code.Name = "cmbWork_code";
-            this.cmbWork_code.Size = new System.Drawing.Size(146, 27);
-            this.cmbWork_code.TabIndex = 8;
-            this.cmbWork_code.Visible = false;
-            this.cmbWork_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // panel5
             // 
@@ -1782,9 +1663,10 @@
             this.btnRedo.Image = ((System.Drawing.Image)(resources.GetObject("btnRedo.Image")));
             this.btnRedo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRedo.Name = "btnRedo";
-            this.btnRedo.Size = new System.Drawing.Size(65, 35);
-            this.btnRedo.Text = "未完再續";
+            this.btnRedo.Size = new System.Drawing.Size(85, 35);
+            this.btnRedo.Text = "繼續選貨";
             this.btnRedo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRedo.ToolTipText = "繼續選貨";
             this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
             // toolStripSeparator4
@@ -1853,6 +1735,29 @@
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 50);
+            // 
+            // lueJobType
+            // 
+            this.lueJobType.Location = new System.Drawing.Point(593, 63);
+            this.lueJobType.Name = "lueJobType";
+            this.lueJobType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lueJobType.Properties.Appearance.Options.UseFont = true;
+            this.lueJobType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lueJobType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueJobType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lueJobType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.lueJobType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueJobType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueJobType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_type", 60, "代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("remark", 260, "描述"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_desc", 200, "種類")});
+            this.lueJobType.Properties.NullText = "";
+            this.lueJobType.Properties.PopupFormMinSize = new System.Drawing.Size(500, 30);
+            this.lueJobType.Size = new System.Drawing.Size(146, 30);
+            this.lueJobType.TabIndex = 61;
+            this.lueJobType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1965,6 +1870,115 @@
             this.dataGridViewTextBoxColumn16.HeaderText = "記錄號";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             // 
+            // colSeq
+            // 
+            this.colSeq.DataPropertyName = "seq";
+            this.colSeq.HeaderText = "序號";
+            this.colSeq.Name = "colSeq";
+            this.colSeq.Width = 60;
+            // 
+            // colDefective_id
+            // 
+            this.colDefective_id.DataPropertyName = "defective_id";
+            this.colDefective_id.HeaderText = "次品種類";
+            this.colDefective_id.Name = "colDefective_id";
+            this.colDefective_id.Width = 80;
+            // 
+            // colDefective_cdesc
+            // 
+            this.colDefective_cdesc.DataPropertyName = "defective_cdesc";
+            this.colDefective_cdesc.HeaderText = "種類描述";
+            this.colDefective_cdesc.Name = "colDefective_cdesc";
+            // 
+            // colOth_defective
+            // 
+            this.colOth_defective.DataPropertyName = "oth_defective";
+            this.colOth_defective.HeaderText = "其它描述";
+            this.colOth_defective.Name = "colOth_defective";
+            this.colOth_defective.Width = 200;
+            // 
+            // prd_worker
+            // 
+            this.prd_worker.DataPropertyName = "prd_worker";
+            this.prd_worker.HeaderText = "工號";
+            this.prd_worker.Name = "prd_worker";
+            this.prd_worker.Width = 120;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "hrm1name";
+            this.Column10.HeaderText = "姓名";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 160;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "prd_end_time";
+            this.Column1.HeaderText = "結束時間";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "prd_start_time";
+            this.Column2.HeaderText = "開始時間";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 80;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "work_type_desc";
+            this.Column3.HeaderText = "工作類型";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "prd_group";
+            this.Column4.HeaderText = "組別";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "prd_qty";
+            this.Column5.HeaderText = "生產數量";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "prd_weg";
+            this.Column6.HeaderText = "生產重量";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "prd_mo";
+            this.Column7.HeaderText = "制單編號";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 120;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "prd_item";
+            this.Column8.HeaderText = "物料編號";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 240;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "prd_date";
+            this.Column9.HeaderText = "生產日期";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 120;
+            // 
+            // colPrd_Id
+            // 
+            this.colPrd_Id.DataPropertyName = "prd_id";
+            this.colPrd_Id.HeaderText = "記錄號";
+            this.colPrd_Id.Name = "colPrd_Id";
+            // 
             // frmProductionSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2007,6 +2021,7 @@
             this.panel2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2139,7 +2154,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_Id;
-        private System.Windows.Forms.ComboBox cmbWork_code;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
@@ -2177,5 +2191,6 @@
         private System.Windows.Forms.Label lblActual_weg;
         private System.Windows.Forms.TextBox txtActual_qty;
         private System.Windows.Forms.TextBox txtActual_weg;
+        private DevExpress.XtraEditors.LookUpEdit lueJobType;
     }
 }

@@ -151,7 +151,10 @@ namespace cf01.MM
             string vendor_id = "";
             if (chkJx.Checked == true)
                 vendor_id = "CL-K0036";
-            dtPlateStdPrice = clsCountGoodsCost.FindPlateStdPrice(vendor_id, cmbPlateType.Text.Trim(), cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
+            int recPrice = 1;
+            if (chkRec.Checked == false)
+                recPrice = 0;
+            dtPlateStdPrice = clsCountGoodsCost.FindPlateStdPrice(recPrice,vendor_id, cmbPlateType.Text.Trim(), cmbPlateProcess.Text.Trim(), txtMaterialName.Text.Trim());
             dgvDetails3.DataSource = dtPlateStdPrice;
             if (dgvDetails3.Rows.Count == 0)
                 result = false;
@@ -270,6 +273,11 @@ namespace cf01.MM
 
                 }
             }
+        }
+
+        private void chkJx_Click(object sender, EventArgs e)
+        {
+            this.chkRec.Checked = false;
         }
     }
 }

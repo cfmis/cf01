@@ -69,6 +69,7 @@ namespace cf01.MDL
         public float FactoryCostPcs { get; set; }
         public float FactoryCostGrs { get; set; }
         public float FactoryCostK { get; set; }
+        public int MultRate { get; set; }
     }
     public class mdlCountGoodsCostMat: mdlCountGoodsCostBase1
     {
