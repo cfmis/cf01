@@ -74,35 +74,13 @@ namespace cf01.ReportForm
 
             findData();
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-            if(rdbSummary.Checked==true)
-            {
-                dgvDetails.Visible = false;
-                dgvSummary.Visible = true;
-                dgvPrdWorker.Visible = false;
-            }
-            else if (rdbDetails1.Checked == true)
-            {
-                dgvDetails.Visible = true;
-                dgvSummary.Visible = false;
-                dgvPrdWorker.Visible = false;
-            }
-            else
-            {
-                dgvDetails.Visible = false;
-                dgvSummary.Visible = false;
-                dgvPrdWorker.Visible = true;
-            }
+
         }
         private void findData()
         {
             clsCommonUse commUse = new clsCommonUse();
-            
-            
-            int rpt_type = 1;//按工種匯總
-            if (rdbDetails1.Checked == true)//明細表
-                rpt_type = 0;
-            else if (rdbPrdWorker.Checked == true)//按工號匯總表
-                rpt_type = 2;
+
+            int rpt_type = tc1.SelectedIndex;//報表類型
             string source_type = "DG";
             if (rdbJX.Checked == true)
                 source_type = "JX";
@@ -123,13 +101,29 @@ namespace cf01.ReportForm
                 complete_state = 0;
             else if (rdbAll.Checked == true)//全部
                 complete_state = 2;
-            dtPrd = commUse.getDataProcedure("usp_LoadProductionRecords",
-                new object[] { rpt_type,source_type, date_from,date_to,dep_from, dep_to, mo_from, mo_to
+            if (source_type == "DG")
+            {
+                dtPrd = commUse.getDataProcedure("usp_LoadProductionRecords",
+                    new object[] { rpt_type,source_type, date_from,date_to,dep_from, dep_to, mo_from, mo_to
                     , mac_from, mac_to, work_from, work_to, group_from,group_to, complete_state
-                    });
-            if (rdbDetails1.Checked == true)
+                        });
+            }else
+            {
+                SqlParameter[] parameters = { new SqlParameter("@rpt_type", rpt_type)
+                                        ,new SqlParameter("@date_from", date_from),new SqlParameter("@date_to", date_to)
+                                        ,new SqlParameter("@dep_from", dep_from),new SqlParameter("@dep_to", dep_to)
+                                        ,new SqlParameter("@mo_from", mo_from), new SqlParameter("@mo_to", mo_to)
+                                        , new SqlParameter("@mac_from", mac_from), new SqlParameter("@mac_to", mac_to)
+                                        , new SqlParameter("@work_from", work_from), new SqlParameter("@work_to", work_to)
+                                        , new SqlParameter("@group_from", group_from), new SqlParameter("@group_to", group_to)
+                                        , new SqlParameter("@complete_state", complete_state)
+                };
+                clsPublicOfPad clsConPad = new clsPublicOfPad();
+                dtPrd = clsConPad.ExecuteProcedureReturnTableConn("usp_LoadProductionRecords", parameters);
+            }
+            if (rpt_type==0)
                 dgvDetails.DataSource = dtPrd;
-            else if (rdbSummary.Checked == true)
+            else if (rpt_type==1)
                 dgvSummary.DataSource = dtPrd;
             else
                 dgvPrdWorker.DataSource = dtPrd;
@@ -171,8 +165,8 @@ namespace cf01.ReportForm
                 myStream = saveFile.OpenFile();
                 StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));
                 string str = " ";
-                
-                if (rdbDetails1.Checked == true)//明細表
+                int rpt_type = tc1.SelectedIndex;//報表類型
+                if (rpt_type==0)//明細表
                 {
                     //写标题
                     for (int i = 0; i < dgvDetails.ColumnCount; i++)
@@ -205,7 +199,7 @@ namespace cf01.ReportForm
                 }else//匯總表
                 {
                     DataGridView dgvObj = new DataGridView();
-                    if (rdbSummary.Checked == true)
+                    if (rpt_type==1)//按工作類型匯總
                         dgvObj = dgvSummary;
                     else
                         dgvObj = dgvPrdWorker;

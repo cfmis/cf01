@@ -116,7 +116,9 @@ namespace cf01.CLS
             DataTable dtmo_data = new DataTable();
             try
             {
-                string strSql = @" SELECT DISTINCT b.goods_id,c.name as name,b.prod_qty,b.next_wp_id,d.materiel_id AS mat_item,e.name AS mat_item_desc,b.sequence_id,b.ver
+                string strSql = @" SELECT DISTINCT b.goods_id,c.name as name,b.prod_qty,b.next_wp_id
+                       ,d.materiel_id AS mat_item,e.name AS mat_item_desc,b.sequence_id,b.ver
+                       ,(b.goods_id+'--'+c.name) As goods_cname
                        from jo_bill_mostly a 
                        INNER join jo_bill_goods_details b on a.within_code=b.within_code and a.id=b.id  and a.ver=b.ver
                        INNER JOIN it_goods c on b.within_code=c.within_code and b.goods_id=c.id 

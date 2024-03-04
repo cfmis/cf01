@@ -125,7 +125,7 @@ namespace cf01.Forms
                 }
                 //cmbProductDept.Text = dtBarCode.Rows[0]["wp_id"].ToString();
                 GetMo_itme(goods_id);
-                cmbGoods_id.Text = goods_id;
+                cmbGoods_id.SelectedValue = goods_id;
                 get_data_details();
                 //edit_type = "Y";//轉為可編輯狀態
             }
@@ -305,7 +305,7 @@ namespace cf01.Forms
         }
         private void txtmo_id_Leave(object sender, EventArgs e)
         {
-            cmbGoods_id.Text = "";
+            cmbGoods_id.SelectedValue = "";
             txtgoods_desc.Text = "";
             if (txtmo_id.Text != "" && cmbProductDept.Text != "")
             {
@@ -318,9 +318,9 @@ namespace cf01.Forms
         }
 
         //獲取制單編號資料，并綁定物料編號
-        private void GetMo_itme(string item)
+        private void GetMo_itme(string goods_id)
         {
-            cmbGoods_id.Items.Clear();
+            //cmbGoods_id.Items.Clear();
             string fdep, tdep;
             if (cmbProductDept.Text.Trim() == cmbOwnDep.Text.Trim())
             {
@@ -332,14 +332,14 @@ namespace cf01.Forms
                 fdep = "";
                 tdep = cmbOwnDep.Text.Trim();
             }
-            dtMo_item = clsProductionSchedule.GetMo_dataById(txtmo_id.Text.Trim(), fdep, tdep, item);
-            for (int i = 0; i < dtMo_item.Rows.Count; i++)
-            {
-                cmbGoods_id.Items.Add(dtMo_item.Rows[i]["goods_id"].ToString());
-            }
-            //cmbGoods_id.DataSource = dtMo_item;
-            //cmbGoods_id.DisplayMember = "goods_id";
-            //cmbGoods_id.ValueMember = "goods_id";
+            dtMo_item = clsProductionSchedule.GetMo_dataById(txtmo_id.Text.Trim(), fdep, tdep, goods_id);
+            //for (int i = 0; i < dtMo_item.Rows.Count; i++)
+            //{
+            //    cmbGoods_id.Items.Add(dtMo_item.Rows[i]["goods_id"].ToString());
+            //}
+            cmbGoods_id.DataSource = dtMo_item;
+            cmbGoods_id.DisplayMember = "goods_cname";
+            cmbGoods_id.ValueMember = "goods_id";
 
         }
 
@@ -358,7 +358,7 @@ namespace cf01.Forms
                 if (con_type == 1)//是否查找當日未完成標識
                 {
                     sql += " And a.prd_mo = " + "'" + txtmo_id.Text.ToString() + "'";
-                    sql += " And a.prd_item = " + "'" + cmbGoods_id.Text.ToString() + "'";
+                    sql += " And a.prd_item = " + "'" + cmbGoods_id.SelectedValue.ToString() + "'";
                 }
                 else
                 {
@@ -425,22 +425,19 @@ namespace cf01.Forms
         private void get_prd_worker()
         {
             //獲取制單編號資料 COLLATE Chinese_PRC_CI_AS
-            string sql = "";
-            sql += " Select a.prd_worker,b.hrm1name " +
-                " From product_records_worker a with(nolock) " +
-                " Left Join dgsql1.dghr.dbo.hrm01 b on a.prd_worker=b.hrm1wid  COLLATE Chinese_PRC_CI_AS" +
-                " Where a.prd_id = " + "'" + (txtPrd_id.Text != "" ? Convert.ToInt32(txtPrd_id.Text) : 0) + "'";
-            DataTable tempdtWorker = clsPublicOfPad.GetDataTable(sql);
-            dtWorker.Clear();
-            for (int i = 0; i < tempdtWorker.Rows.Count; i++)
-            {
-                DataRow dr = dtWorker.NewRow();
-                dr["prd_worker"] = tempdtWorker.Rows[i]["prd_worker"].ToString();
-                dr["hrm1name"] = tempdtWorker.Rows[i]["hrm1name"];
-                dtWorker.Rows.Add(dr);
-            }
+            //DataTable tempdtWorker = clsProductionSelect.GetPrdWorkerDetails(txtPrd_id.Text.Trim());
+            //dtWorker.Clear();
+            //for (int i = 0; i < tempdtWorker.Rows.Count; i++)
+            //{
+            //    DataRow dr = dtWorker.NewRow();
+            //    dr["prd_worker"] = tempdtWorker.Rows[i]["prd_worker"].ToString();
+            //    dr["hrm1name"] = tempdtWorker.Rows[i]["hrm1name"];
+            //    dtWorker.Rows.Add(dr);
+            //}
 
-            dgvWorker.DataSource = dtWorker;
+            //dgvWorker.DataSource = dtWorker;
+
+            dgvWorker.DataSource = clsProductionSelect.GetPrdWorkerDetails(txtPrd_id.Text.Trim());
         }
         //提取次品記錄
         private void get_prd_defective()
@@ -626,7 +623,7 @@ namespace cf01.Forms
             cmbOrder_class.Text = "";
             cmbGroup.Text = "";
             txtmo_id.Text = "";
-            cmbGoods_id.Text = "";
+            cmbGoods_id.SelectedValue = "";
             ClearPartOfText();
         }
         // 清空部份值
@@ -666,6 +663,7 @@ namespace cf01.Forms
             txtPrd_id_ref.Text = "";
             txtActual_weg.Text = "";
             txtActual_qty.Text = "";
+            lueJobType.EditValue = "";
         }
 
         private void fill_plan_value()
@@ -673,7 +671,7 @@ namespace cf01.Forms
             txtgoods_desc.Text = "";
             for (int i = 0; i < dtMo_item.Rows.Count; i++)
             {
-                if (cmbGoods_id.Text.ToString() == dtMo_item.Rows[i]["goods_id"].ToString())
+                if (cmbGoods_id.SelectedValue.ToString() == dtMo_item.Rows[i]["goods_id"].ToString())
                 {
                     txtgoods_desc.Text = dtMo_item.Rows[i]["name"].ToString();
                     if (dtMo_item.Rows[i]["prod_qty"].ToString() != "" && txtPrd_qty.Text == "")
@@ -716,7 +714,7 @@ namespace cf01.Forms
                 txtmo_id.SelectAll();
                 return false;
             }
-            if (cmbGoods_id.Text == "")
+            if (cmbGoods_id.SelectedValue.ToString() == "")
             {
                 MessageBox.Show("物料編號不能為空,請重新輸入!");
                 cmbGoods_id.Focus();
@@ -769,13 +767,13 @@ namespace cf01.Forms
                         txtOk_qty.SelectAll();
                         return false;
                     }
-                    if ((lueJobType.EditValue != null ? lueJobType.EditValue.ToString().Trim() : "") == "")
-                    {
-                        MessageBox.Show("標準編碼不能為空,請重新輸入!");
-                        lueJobType.Focus();
-                        lueJobType.SelectAll();
-                        return false;
-                    }
+                    //if ((lueJobType.EditValue != null ? lueJobType.EditValue.ToString().Trim() : "") == "")
+                    //{
+                    //    MessageBox.Show("標準編碼不能為空,請重新輸入!");
+                    //    lueJobType.Focus();
+                    //    lueJobType.SelectAll();
+                    //    return false;
+                    //}
                 }
             }
             if (string.Compare(dteProdcutDate.Text, System.DateTime.Now.ToString("yyyy/MM/dd")) > 0)
@@ -1032,20 +1030,21 @@ namespace cf01.Forms
         /// <param name="e"></param>
         private void dgvDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string item;
+            
             if (dgvDetails.Rows.Count > 0)
             {
+                string goods_id;
                 edit_type = "N";//控件不作為編輯
                 fill_exist_record(e.RowIndex);
                 get_prd_worker();//獲取工號
                 get_prd_defective();//提取次品記錄
                 txtmo_id.Text = dtProductionRecordslist.Rows[e.RowIndex]["prd_mo"].ToString();
-                item = dtProductionRecordslist.Rows[e.RowIndex]["prd_item"].ToString();
-                cmbGoods_id.Items.Clear();
-                cmbGoods_id.Items.Add(item);
-                //GetMo_itme(item);
-                cmbGoods_id.Text = item;//物料編號
-                txtgoods_desc.Text = GetItemDesc(item);//獲取物料描述
+                goods_id = dtProductionRecordslist.Rows[e.RowIndex]["prd_item"].ToString();
+                //cmbGoods_id.Items.Clear();
+                //cmbGoods_id.Items.Add(item);
+                GetMo_itme(goods_id);
+                cmbGoods_id.SelectedValue = goods_id;//物料編號
+                txtgoods_desc.Text = GetItemDesc(goods_id);//獲取物料描述
                 get_total_prd_qty();//顯示單的總完成數量
             }
         }
@@ -1071,7 +1070,8 @@ namespace cf01.Forms
         //獲取所有已選貨的數量
         private void get_total_prd_qty()
         {
-            DataTable dtShowQty = clsProductionSelect.GetTotalPrdQty(cmbProductDept.SelectedValue.ToString(), txtmo_id.Text.ToString(), cmbGoods_id.Text.ToString());
+            string goods_id = cmbGoods_id.SelectedValue != null ? cmbGoods_id.SelectedValue.ToString() : "";
+            DataTable dtShowQty = clsProductionSelect.GetTotalPrdQty(cmbProductDept.SelectedValue.ToString(), txtmo_id.Text.ToString(), goods_id);
             txtTotalQty.Text = dtShowQty.Rows[0]["prd_qty"].ToString();
         }
 
@@ -1079,14 +1079,16 @@ namespace cf01.Forms
         private int get_kg_pcs_rate()
         {
             int kg_pcs_rate = 0;
-                DataTable dtKgPcsRate = clsProductionSelect.GetKgPcsRate(cmbProductDept.SelectedValue.ToString(), cmbGoods_id.Text.ToString());
+            string goods_id = cmbGoods_id.SelectedValue != null ? cmbGoods_id.SelectedValue.ToString() : "";
+            DataTable dtKgPcsRate = clsProductionSelect.GetKgPcsRate(cmbProductDept.SelectedValue.ToString(), goods_id);
             if (dtKgPcsRate.Rows.Count > 0)
                 kg_pcs_rate = Convert.ToInt32(dtKgPcsRate.Rows[0]["rate"].ToString());
             return kg_pcs_rate;
         }
         private void fill_txt_kg_pcs()
         {
-            if (txtkgPCS.Text == "" && cmbProductDept.Text != "" && cmbGoods_id.Text != "")
+            string goods_id = cmbGoods_id.SelectedValue != null ? cmbGoods_id.SelectedValue.ToString() : "";
+            if (txtkgPCS.Text == "" && cmbProductDept.Text != "" && goods_id != "")
             {
                 txtkgPCS.Text = get_kg_pcs_rate().ToString();
                 txtkgPCS.Text = (txtkgPCS.Text.ToString() != "0" ? txtkgPCS.Text : "");
@@ -1192,11 +1194,12 @@ namespace cf01.Forms
         private void get_plate_qty()
         {
             string strSql = "";
+            string goods_id = cmbGoods_id.SelectedValue != null ? cmbGoods_id.SelectedValue.ToString() : "";
             string dat = Convert.ToDateTime(dteProdcutDate.Text).AddDays(-3).ToString("yyyy/MM/dd");// System.DateTime.Now.AddDays(-3).ToString("yyyy/MM/dd");
             strSql = "Select b.t_ir_qty,b.sec_qty From op_outpro_in_mostly a "+
                 " Inner Join op_outpro_in_detail b ON a.within_code=b.within_code AND a.id=b.id";
             strSql += " Where a.within_code='0000' AND a.dept_id='" + cmbProductDept.Text + "' And a.ir_date > '" + dat + "'" +
-                " AND b.mo_id='" + txtmo_id.Text + "' AND b.goods_id='" + cmbGoods_id.Text + "'";
+                " AND b.mo_id='" + txtmo_id.Text + "' AND b.goods_id='" + goods_id + "'";
             strSql += " Order By a.ir_date Desc,b.id,b.sequence_id Desc";
             DataTable dtPrdPlate = clsConErp.GetDataTable(strSql);
             if (dtPrdPlate.Rows.Count > 0)
@@ -1610,7 +1613,7 @@ namespace cf01.Forms
             objModel.prd_pdate = dteProdcutDate.Text.ToString();//計劃日期=生產日期
             objModel.prd_date = dteProdcutDate.Text.ToString();
             objModel.prd_mo = txtmo_id.Text.Trim();
-            objModel.prd_item = cmbGoods_id.Text.ToString().Trim();
+            objModel.prd_item = cmbGoods_id.SelectedValue != null ? cmbGoods_id.SelectedValue.ToString() : "";
             objModel.prd_qty = (txtPrd_qty.Text != "" ? Convert.ToInt32(txtPrd_qty.Text) : 0);
             objModel.prd_weg = (txtprd_weg.Text != "" ? Convert.ToSingle(txtprd_weg.Text) : 0);
             objModel.prd_machine = "";

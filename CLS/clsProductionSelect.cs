@@ -100,5 +100,16 @@ namespace cf01.CLS
             DataTable dtKgPcsRate = clsPublicOfPad.GetDataTable(sql);
             return dtKgPcsRate;
         }
+
+        public static DataTable GetPrdWorkerDetails(string prd_id)
+        {
+            string sql = "";
+            sql += " Select a.prd_worker,b.hrm1name " +
+                " From product_records_worker a with(nolock) " +
+                " Left Join dgsql1.dghr.dbo.hrm01 b on a.prd_worker=b.hrm1wid  COLLATE Chinese_PRC_CI_AS" +
+                " Where a.prd_id = " + "'" + (prd_id != "" ? Convert.ToInt32(prd_id) : 0) + "'";
+            DataTable dtWorker = clsPublicOfPad.GetDataTable(sql);
+            return dtWorker;
+        }
     }
 }
