@@ -199,6 +199,10 @@
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -213,6 +217,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrdWorker)).BeginInit();
+            this.tc1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -659,14 +667,13 @@
             this.colNoOk_qty,
             this.colNoOk_weg});
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetails.Location = new System.Drawing.Point(0, 0);
+            this.dgvDetails.Location = new System.Drawing.Point(3, 3);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowHeadersWidth = 20;
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1047, 577);
+            this.dgvDetails.Size = new System.Drawing.Size(1033, 545);
             this.dgvDetails.TabIndex = 0;
-            this.dgvDetails.Visible = false;
             // 
             // colId
             // 
@@ -1026,6 +1033,7 @@
             this.palRptType.Name = "palRptType";
             this.palRptType.Size = new System.Drawing.Size(219, 25);
             this.palRptType.TabIndex = 14;
+            this.palRptType.Visible = false;
             // 
             // rdbPrdWorker
             // 
@@ -1069,6 +1077,7 @@
             this.lblRptType.Size = new System.Drawing.Size(56, 12);
             this.lblRptType.TabIndex = 13;
             this.lblRptType.Text = "報表類型:";
+            this.lblRptType.Visible = false;
             // 
             // lblSource
             // 
@@ -1129,12 +1138,12 @@
             this.dataGridViewTextBoxColumn56,
             this.colPrd_time});
             this.dgvSummary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSummary.Location = new System.Drawing.Point(0, 0);
+            this.dgvSummary.Location = new System.Drawing.Point(3, 3);
             this.dgvSummary.Name = "dgvSummary";
             this.dgvSummary.ReadOnly = true;
             this.dgvSummary.RowHeadersWidth = 20;
             this.dgvSummary.RowTemplate.Height = 24;
-            this.dgvSummary.Size = new System.Drawing.Size(1047, 577);
+            this.dgvSummary.Size = new System.Drawing.Size(1033, 545);
             this.dgvSummary.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn83
@@ -1219,9 +1228,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dgvDetails);
-            this.panel3.Controls.Add(this.dgvPrdWorker);
-            this.panel3.Controls.Add(this.dgvSummary);
+            this.panel3.Controls.Add(this.tc1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 164);
             this.panel3.Name = "panel3";
@@ -1252,9 +1259,8 @@
             this.dgvPrdWorker.ReadOnly = true;
             this.dgvPrdWorker.RowHeadersWidth = 20;
             this.dgvPrdWorker.RowTemplate.Height = 24;
-            this.dgvPrdWorker.Size = new System.Drawing.Size(1047, 577);
+            this.dgvPrdWorker.Size = new System.Drawing.Size(1039, 551);
             this.dgvPrdWorker.TabIndex = 15;
-            this.dgvPrdWorker.Visible = false;
             // 
             // dataGridViewTextBoxColumn54
             // 
@@ -1685,6 +1691,50 @@
             this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
             this.dataGridViewTextBoxColumn53.Width = 80;
             // 
+            // tc1
+            // 
+            this.tc1.Controls.Add(this.tabPage1);
+            this.tc1.Controls.Add(this.tabPage2);
+            this.tc1.Controls.Add(this.tabPage3);
+            this.tc1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc1.Location = new System.Drawing.Point(0, 0);
+            this.tc1.Name = "tc1";
+            this.tc1.SelectedIndex = 0;
+            this.tc1.Size = new System.Drawing.Size(1047, 577);
+            this.tc1.TabIndex = 16;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dgvDetails);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1039, 551);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "明細表";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dgvSummary);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1039, 551);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "按工作類型匯總";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvPrdWorker);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1039, 551);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "按工號匯總";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // frmProductRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1717,6 +1767,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrdWorker)).EndInit();
+            this.tc1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1893,5 +1947,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn65;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn66;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
+        private System.Windows.Forms.TabControl tc1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }

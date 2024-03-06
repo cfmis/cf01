@@ -404,6 +404,9 @@
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.btnAddPart = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
+            this.lblMultRate = new DevExpress.XtraEditors.LabelControl();
+            this.txtMultRate = new DevExpress.XtraEditors.TextEdit();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -593,6 +596,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMultRate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -1209,6 +1213,7 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn15,
+            this.gridColumn37,
             this.gridColumn58,
             this.gridColumn59,
             this.gridColumn60,
@@ -2152,9 +2157,9 @@
             this.labelControl30.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl30.Location = new System.Drawing.Point(567, 5);
             this.labelControl30.Name = "labelControl30";
-            this.labelControl30.Size = new System.Drawing.Size(11, 19);
+            this.labelControl30.Size = new System.Drawing.Size(228, 19);
             this.labelControl30.TabIndex = 8;
-            this.labelControl30.Text = "G";
+            this.labelControl30.Text = "G = 累加:  配件成本 * 用量倍數";
             // 
             // btnSetProfitVisible
             // 
@@ -4056,6 +4061,8 @@
             // panelControl5
             // 
             this.panelControl5.Controls.Add(this.btnFindProductPart);
+            this.panelControl5.Controls.Add(this.txtMultRate);
+            this.panelControl5.Controls.Add(this.lblMultRate);
             this.panelControl5.Controls.Add(this.txtFrontPart);
             this.panelControl5.Controls.Add(this.lblFrontPart);
             this.panelControl5.Controls.Add(this.txtArtWorkNamePart);
@@ -4093,7 +4100,7 @@
             // 
             // txtFrontPart
             // 
-            this.txtFrontPart.Location = new System.Drawing.Point(977, 16);
+            this.txtFrontPart.Location = new System.Drawing.Point(970, 16);
             this.txtFrontPart.Name = "txtFrontPart";
             this.txtFrontPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFrontPart.Size = new System.Drawing.Size(92, 20);
@@ -4101,7 +4108,7 @@
             // 
             // lblFrontPart
             // 
-            this.lblFrontPart.Location = new System.Drawing.Point(942, 19);
+            this.lblFrontPart.Location = new System.Drawing.Point(935, 19);
             this.lblFrontPart.Name = "lblFrontPart";
             this.lblFrontPart.Size = new System.Drawing.Size(28, 14);
             this.lblFrontPart.TabIndex = 10;
@@ -4109,14 +4116,14 @@
             // 
             // txtArtWorkNamePart
             // 
-            this.txtArtWorkNamePart.Location = new System.Drawing.Point(475, 42);
+            this.txtArtWorkNamePart.Location = new System.Drawing.Point(461, 42);
             this.txtArtWorkNamePart.Name = "txtArtWorkNamePart";
             this.txtArtWorkNamePart.Size = new System.Drawing.Size(183, 20);
             this.txtArtWorkNamePart.TabIndex = 8;
             // 
             // txtSizeNamePart
             // 
-            this.txtSizeNamePart.Location = new System.Drawing.Point(803, 16);
+            this.txtSizeNamePart.Location = new System.Drawing.Point(779, 16);
             this.txtSizeNamePart.Name = "txtSizeNamePart";
             this.txtSizeNamePart.Size = new System.Drawing.Size(124, 20);
             this.txtSizeNamePart.TabIndex = 3;
@@ -4133,7 +4140,7 @@
             // 
             // txtSizePart
             // 
-            this.txtSizePart.Location = new System.Drawing.Point(734, 16);
+            this.txtSizePart.Location = new System.Drawing.Point(710, 16);
             this.txtSizePart.Name = "txtSizePart";
             this.txtSizePart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSizePart.Properties.MaxLength = 3;
@@ -4143,7 +4150,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(673, 45);
+            this.labelControl1.Location = new System.Drawing.Point(649, 45);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 14);
             this.labelControl1.TabIndex = 6;
@@ -4151,7 +4158,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(673, 19);
+            this.labelControl2.Location = new System.Drawing.Point(649, 19);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(52, 14);
             this.labelControl2.TabIndex = 6;
@@ -4167,7 +4174,7 @@
             // 
             // txtArtWorkPart
             // 
-            this.txtArtWorkPart.Location = new System.Drawing.Point(364, 42);
+            this.txtArtWorkPart.Location = new System.Drawing.Point(350, 42);
             this.txtArtWorkPart.Name = "txtArtWorkPart";
             this.txtArtWorkPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtArtWorkPart.Properties.MaxLength = 7;
@@ -4187,14 +4194,14 @@
             // 
             // txtProductNamePart
             // 
-            this.txtProductNamePart.Location = new System.Drawing.Point(364, 16);
+            this.txtProductNamePart.Location = new System.Drawing.Point(350, 16);
             this.txtProductNamePart.Name = "txtProductNamePart";
             this.txtProductNamePart.Size = new System.Drawing.Size(294, 20);
             this.txtProductNamePart.TabIndex = 1;
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(306, 45);
+            this.labelControl13.Location = new System.Drawing.Point(292, 45);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(52, 14);
             this.labelControl13.TabIndex = 0;
@@ -4202,7 +4209,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(306, 19);
+            this.labelControl3.Location = new System.Drawing.Point(292, 19);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(52, 14);
             this.labelControl3.TabIndex = 6;
@@ -4210,7 +4217,7 @@
             // 
             // txtColorPart
             // 
-            this.txtColorPart.Location = new System.Drawing.Point(734, 42);
+            this.txtColorPart.Location = new System.Drawing.Point(710, 42);
             this.txtColorPart.Name = "txtColorPart";
             this.txtColorPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColorPart.Properties.MaxLength = 4;
@@ -4228,7 +4235,7 @@
             // 
             // txtSNPart
             // 
-            this.txtSNPart.Location = new System.Drawing.Point(1084, 42);
+            this.txtSNPart.Location = new System.Drawing.Point(1181, 16);
             this.txtSNPart.Name = "txtSNPart";
             this.txtSNPart.Properties.ReadOnly = true;
             this.txtSNPart.Size = new System.Drawing.Size(92, 20);
@@ -4236,7 +4243,7 @@
             // 
             // txtSeqPart
             // 
-            this.txtSeqPart.Location = new System.Drawing.Point(977, 42);
+            this.txtSeqPart.Location = new System.Drawing.Point(1074, 16);
             this.txtSeqPart.Name = "txtSeqPart";
             this.txtSeqPart.Properties.ReadOnly = true;
             this.txtSeqPart.Size = new System.Drawing.Size(92, 20);
@@ -4244,7 +4251,7 @@
             // 
             // txtColorNamePart
             // 
-            this.txtColorNamePart.Location = new System.Drawing.Point(803, 42);
+            this.txtColorNamePart.Location = new System.Drawing.Point(779, 42);
             this.txtColorNamePart.Name = "txtColorNamePart";
             this.txtColorNamePart.Size = new System.Drawing.Size(124, 20);
             this.txtColorNamePart.TabIndex = 10;
@@ -4309,6 +4316,31 @@
             this.textEdit10.Size = new System.Drawing.Size(100, 20);
             this.textEdit10.TabIndex = 2;
             this.textEdit10.Visible = false;
+            // 
+            // lblMultRate
+            // 
+            this.lblMultRate.Location = new System.Drawing.Point(911, 45);
+            this.lblMultRate.Name = "lblMultRate";
+            this.lblMultRate.Size = new System.Drawing.Size(52, 14);
+            this.lblMultRate.TabIndex = 10;
+            this.lblMultRate.Text = "用料倍數:";
+            // 
+            // txtMultRate
+            // 
+            this.txtMultRate.Location = new System.Drawing.Point(970, 42);
+            this.txtMultRate.Name = "txtMultRate";
+            this.txtMultRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMultRate.Size = new System.Drawing.Size(92, 20);
+            this.txtMultRate.TabIndex = 4;
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "用量倍數";
+            this.gridColumn37.FieldName = "MultRate";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Visible = true;
+            this.gridColumn37.VisibleIndex = 4;
+            this.gridColumn37.Width = 56;
             // 
             // frmCountGoodsCost
             // 
@@ -4525,6 +4557,7 @@
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMultRate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4907,5 +4940,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit22;
         private DevExpress.XtraEditors.LabelControl labelControl25;
+        private DevExpress.XtraEditors.TextEdit txtMultRate;
+        private DevExpress.XtraEditors.LabelControl lblMultRate;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
     }
 }

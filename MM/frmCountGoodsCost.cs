@@ -419,12 +419,14 @@ namespace cf01.MM
             float costPCS = 0;
             float costGRS = 0;
             float costK = 0;
+            float multRate = 0;
             for (int i = 0; i < dtGoodsPartDetails.Rows.Count; i++)
             {
                 DataRow dr = dtGoodsPartDetails.Rows[i];
-                costPCS += clsValidRule.ConvertStrToSingle(dr["FactoryCostPcs"].ToString());
-                costGRS += clsValidRule.ConvertStrToSingle(dr["FactoryCostGrs"].ToString());
-                costK += clsValidRule.ConvertStrToSingle(dr["FactoryCostK"].ToString());
+                multRate= clsValidRule.ConvertStrToSingle(dr["MultRate"].ToString());
+                costPCS += clsValidRule.ConvertStrToSingle(dr["FactoryCostPcs"].ToString()) * multRate;
+                costGRS += clsValidRule.ConvertStrToSingle(dr["FactoryCostGrs"].ToString()) * multRate;
+                costK += clsValidRule.ConvertStrToSingle(dr["FactoryCostK"].ToString()) * multRate;
             }
             txtProductCostPcs.Text = costPCS.ToString();
             txtProductCostGrs.Text = costGRS.ToString();
@@ -492,6 +494,7 @@ namespace cf01.MM
             txtFactoryCostGrs.Text = "0";
             txtFactoryCostK.Text = "0";
             newPartMode = 1;
+            txtMultRate.Text = "1";
         }
         private void LoadProductCostPart(string seq)
         {
@@ -517,6 +520,7 @@ namespace cf01.MM
                 txtCostK.Text = dr["CostK"].ToString();
                 txtSNPart.Text = dr["SN"].ToString();
                 txtSeqPart.Text = dr["Seq"].ToString();
+                txtMultRate.Text = dr["MultRate"].ToString();
             }
             else
             {
@@ -532,6 +536,7 @@ namespace cf01.MM
                 txtColorNamePart.Text = "";
                 txtSNPart.Text = "";
                 txtSeqPart.Text = "";
+                txtMultRate.Text = "1";
             }
             txtFrontPart.Text = "";
             //LoadPrdSizeGroup();
@@ -1036,6 +1041,7 @@ namespace cf01.MM
                 txtFactoryCostK.Text = Row["FactoryCostK"].ToString();
                 txtSNPart.Text = Row["SN"].ToString();
                 txtSeqPart.Text = Row["Seq"].ToString();
+                txtMultRate.Text = Row["MultRate"].ToString();
             }
             else
             {
@@ -1072,6 +1078,7 @@ namespace cf01.MM
             txtFactoryCostK.Text = "";
             txtSNPart.Text = "";
             txtSeqPart.Text = "";
+            txtMultRate.Text = "1";
             newPartMode = 1;//默認為新增狀態
         }
         /// <summary>
@@ -1113,6 +1120,7 @@ namespace cf01.MM
             mdlGoodsPpart.FactoryCostPcs = clsValidRule.ConvertStrToSingle(txtFactoryCostPcs.Text);
             mdlGoodsPpart.FactoryCostGrs = clsValidRule.ConvertStrToSingle(txtFactoryCostGrs.Text);
             mdlGoodsPpart.FactoryCostK = clsValidRule.ConvertStrToSingle(txtFactoryCostK.Text);
+            mdlGoodsPpart.MultRate = txtMultRate.Text == "" ? 1 : Convert.ToInt32(txtMultRate.Text);
             mdlGoodsPpart.Remark = "";
             string result = clsCountGoodsCost.SaveGoodsPart(mdlGoodsPpart);
             txtSeqPart.Text = result;
@@ -2508,7 +2516,7 @@ namespace cf01.MM
             wSheet.Cells[rowIndex, 1] = "序號";
             wSheet.Cells[rowIndex, 2] = "配件編號";
             wSheet.Cells[rowIndex, 3] = "配件描述";
-            wSheet.Cells[rowIndex, 4] = "主件";
+            wSheet.Cells[rowIndex, 4] = "用量倍數";
             wSheet.Cells[rowIndex, 5] = "工廠合計成本/PCS";
             wSheet.Cells[rowIndex, 6] = "工廠合計成本/GRS";
             wSheet.Cells[rowIndex, 7] = "工廠合計成本/K";
@@ -2522,16 +2530,18 @@ namespace cf01.MM
             wSheet.Cells[rowIndex, 15] = "產品成本/GRS";
             wSheet.Cells[rowIndex, 16] = "產品成本/K";
             wSheet.Cells[rowIndex, 17] = "其它成本";
-            
+            wSheet.Cells[rowIndex, 18] = "主件";
+
             rowIndex++;
             decimal factoryAmtPcs = 0, factoryAmtGrs = 0, factoryAmtK = 0;
+            decimal multRate = 0;
             for (int i = 0; i < gvGoodsPartDetails.DataRowCount; i++)
             {
                 DataRow dr = gvGoodsPartDetails.GetDataRow(i);
                 wSheet.Cells[rowIndex, 1] = dr["Seq"].ToString();
                 wSheet.Cells[rowIndex, 2] = dr["ProductID"].ToString();
                 wSheet.Cells[rowIndex, 3] = dr["ProductName"].ToString();
-                wSheet.Cells[rowIndex, 4] = dr["FrontPart"].ToString();
+                wSheet.Cells[rowIndex, 4] = dr["MultRate"].ToString();
                 wSheet.Cells[rowIndex, 5] = dr["FactoryCostPcs"].ToString();
                 wSheet.Cells[rowIndex, 6] = dr["FactoryCostGrs"].ToString();
                 wSheet.Cells[rowIndex, 7] = dr["FactoryCostK"].ToString();
@@ -2545,13 +2555,15 @@ namespace cf01.MM
                 wSheet.Cells[rowIndex, 15] = dr["CostGrs"].ToString();
                 wSheet.Cells[rowIndex, 16] = dr["CostK"].ToString();
                 wSheet.Cells[rowIndex, 17] = dr["FactoryFee"].ToString();
-                
-                factoryAmtPcs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostPcs"].ToString());
-                factoryAmtGrs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostGrs"].ToString());
-                factoryAmtK += clsValidRule.ConvertStrToDecimal(dr["FactoryCostK"].ToString());
+                wSheet.Cells[rowIndex, 18] = dr["FrontPart"].ToString();
+
+                multRate= clsValidRule.ConvertStrToDecimal(dr["MultRate"].ToString());
+                factoryAmtPcs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostPcs"].ToString()) * multRate;
+                factoryAmtGrs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostGrs"].ToString()) * multRate;
+                factoryAmtK += clsValidRule.ConvertStrToDecimal(dr["FactoryCostK"].ToString()) * multRate;
                 rowIndex++;
             }
-            wSheet.Cells[rowIndex, 3] = "產品合計成本";
+            wSheet.Cells[rowIndex, 3] = "產品合計成本(累加:配件成本 * 用量倍數)";
             wSheet.Cells[rowIndex, 5] = factoryAmtPcs;
             wSheet.Cells[rowIndex, 6] = factoryAmtGrs;
             wSheet.Cells[rowIndex, 7] = factoryAmtK;

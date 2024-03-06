@@ -12,6 +12,7 @@ namespace cf01.CLS
     public class clsPublicOfPad
     {
         private static String strConn = DBUtility.dgcf_pad_connectionString;
+        //private static String strConn = DBUtility.conn_ln_pad;
         private clsAppPublic clsAppPublic = new clsAppPublic();
 
         public clsPublicOfPad()
@@ -103,6 +104,37 @@ namespace cf01.CLS
         /// <param name="paras"></param>
         /// <returns></returns>
         public static DataTable ExecuteProcedureReturnTable(string strSql, SqlParameter[] paras)
+        {
+            DataTable dtData = new DataTable();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(strConn))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = strSql;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddRange(paras);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    sda.Fill(dtData);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return dtData;
+        }
+
+
+        /// <summary>
+        /// 執行存儲過程返回DataTable
+        /// </summary>
+        /// <param name="strSql"></param>
+        /// <param name="paras"></param>
+        /// <returns></returns>
+        public DataTable ExecuteProcedureReturnTableConn(string strSql, SqlParameter[] paras)
         {
             DataTable dtData = new DataTable();
             try
