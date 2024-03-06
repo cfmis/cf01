@@ -125,6 +125,7 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
@@ -144,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHkd1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id.Properties)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvDetails
@@ -366,7 +368,7 @@
             // 
             this.txtBrand_id2.EditValue = "";
             this.txtBrand_id2.EnterMoveNextControl = true;
-            this.txtBrand_id2.Location = new System.Drawing.Point(257, 19);
+            this.txtBrand_id2.Location = new System.Drawing.Point(256, 43);
             this.txtBrand_id2.Name = "txtBrand_id2";
             this.txtBrand_id2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtBrand_id2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -386,16 +388,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(242, 23);
+            this.label1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(240, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 12);
+            this.label1.Size = new System.Drawing.Size(16, 16);
             this.label1.TabIndex = 243;
-            this.label1.Text = "--";
+            this.label1.Text = "~";
             // 
             // lblDept
             // 
             this.lblDept.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblDept.Location = new System.Drawing.Point(3, 22);
+            this.lblDept.Location = new System.Drawing.Point(4, 46);
             this.lblDept.Name = "lblDept";
             this.lblDept.Size = new System.Drawing.Size(95, 15);
             this.lblDept.TabIndex = 242;
@@ -406,7 +409,7 @@
             // 
             this.txtBrand_id1.EditValue = "";
             this.txtBrand_id1.EnterMoveNextControl = true;
-            this.txtBrand_id1.Location = new System.Drawing.Point(104, 19);
+            this.txtBrand_id1.Location = new System.Drawing.Point(101, 43);
             this.txtBrand_id1.Name = "txtBrand_id1";
             this.txtBrand_id1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtBrand_id1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -461,9 +464,9 @@
             this.groupBox1.Controls.Add(this.lblRmb);
             this.groupBox1.Controls.Add(this.txtBrand_id);
             this.groupBox1.Controls.Add(this.lblBrand_id);
-            this.groupBox1.Location = new System.Drawing.Point(411, -3);
+            this.groupBox1.Location = new System.Drawing.Point(413, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(616, 213);
+            this.groupBox1.Size = new System.Drawing.Size(614, 206);
             this.groupBox1.TabIndex = 279;
             this.groupBox1.TabStop = false;
             // 
@@ -1048,7 +1051,7 @@
             // 
             this.BTNOK.Image = ((System.Drawing.Image)(resources.GetObject("BTNOK.Image")));
             this.BTNOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNOK.Location = new System.Drawing.Point(209, 70);
+            this.BTNOK.Location = new System.Drawing.Point(310, 107);
             this.BTNOK.Name = "BTNOK";
             this.BTNOK.Size = new System.Drawing.Size(81, 31);
             this.BTNOK.TabIndex = 281;
@@ -1061,7 +1064,7 @@
             // 
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNFIND.Location = new System.Drawing.Point(104, 70);
+            this.BTNFIND.Location = new System.Drawing.Point(205, 107);
             this.BTNFIND.Name = "BTNFIND";
             this.BTNFIND.Size = new System.Drawing.Size(81, 31);
             this.BTNFIND.TabIndex = 280;
@@ -1074,7 +1077,7 @@
             // 
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNEXIT.Location = new System.Drawing.Point(312, 70);
+            this.BTNEXIT.Location = new System.Drawing.Point(101, 107);
             this.BTNEXIT.Name = "BTNEXIT";
             this.BTNEXIT.Size = new System.Drawing.Size(81, 31);
             this.BTNEXIT.TabIndex = 282;
@@ -1215,20 +1218,30 @@
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.Visible = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BTNEXIT);
+            this.groupBox2.Controls.Add(this.txtBrand_id1);
+            this.groupBox2.Controls.Add(this.BTNOK);
+            this.groupBox2.Controls.Add(this.lblDept);
+            this.groupBox2.Controls.Add(this.BTNFIND);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtBrand_id2);
+            this.groupBox2.Location = new System.Drawing.Point(5, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(402, 206);
+            this.groupBox2.TabIndex = 283;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "查找條件";
+            // 
             // frmQuotation_Formula_Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 563);
-            this.Controls.Add(this.BTNEXIT);
-            this.Controls.Add(this.BTNOK);
-            this.Controls.Add(this.BTNFIND);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDetails);
-            this.Controls.Add(this.txtBrand_id2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblDept);
-            this.Controls.Add(this.txtBrand_id1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmQuotation_Formula_Set";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1254,8 +1267,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHkd1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id.Properties)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1355,5 +1369,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn bp_hkd_ex;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

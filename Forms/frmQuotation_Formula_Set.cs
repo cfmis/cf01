@@ -13,11 +13,13 @@ namespace cf01.Forms
 {
     public partial class frmQuotation_Formula_Set : Form
     {
-        DataTable dtDetail = new DataTable();
+        DataTable dtDetail = new DataTable();         
         public string brand_Selected = "";
-        public frmQuotation_Formula_Set()
+        private string strFormula = "";
+        public frmQuotation_Formula_Set(string formula)
         {
             InitializeComponent();
+            strFormula = formula;
         }
 
         private void frmQuotation_Formula_Set_FormClosed(object sender, FormClosedEventArgs e)
@@ -31,10 +33,16 @@ namespace cf01.Forms
         }
 
         private void Quotation_Formula_Set_Load(object sender, EventArgs e)
-        {           
+        {
             clsQuotation.Set_Brand_id(txtBrand_id);
             clsQuotation.Set_Brand_id(txtBrand_id1);
-            clsQuotation.Set_Brand_id(txtBrand_id2);
+            clsQuotation.Set_Brand_id(txtBrand_id2);            
+            if (!string.IsNullOrEmpty(strFormula))
+            {
+                txtBrand_id1.EditValue = strFormula;
+                txtBrand_id2.EditValue = strFormula;
+                Find_Data();
+            }            
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)

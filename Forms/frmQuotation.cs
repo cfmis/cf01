@@ -2474,7 +2474,8 @@ namespace cf01.Forms
         {
             if (editState== "NEW" || editState== "EDIT")
             {
-                using (frmQuotation_Formula_Set ofrm = new frmQuotation_Formula_Set())
+                string formula = txtFormula.Text;
+                using (frmQuotation_Formula_Set ofrm = new frmQuotation_Formula_Set(formula))
                 {
                     ofrm.ShowDialog();
                     if (!string.IsNullOrEmpty(ofrm.brand_Selected))
