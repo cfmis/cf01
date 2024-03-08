@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel66 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel67 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine17 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel65 = new DevExpress.XtraReports.UI.XRLabel();
@@ -134,6 +135,7 @@
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel66,
             this.xrLabel67,
             this.xrLine17,
             this.xrLabel65,
@@ -236,6 +238,21 @@
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.PageBreak = DevExpress.XtraReports.UI.PageBreak.BeforeBand;
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel66
+            // 
+            this.xrLabel66.CanGrow = false;
+            this.xrLabel66.Dpi = 254F;
+            this.xrLabel66.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel66.LocationFloat = new DevExpress.Utils.PointFloat(203.9434F, 1309.042F);
+            this.xrLabel66.Name = "xrLabel66";
+            this.xrLabel66.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel66.SizeF = new System.Drawing.SizeF(425.9274F, 49.10925F);
+            this.xrLabel66.StylePriority.UseFont = false;
+            this.xrLabel66.StylePriority.UseTextAlignment = false;
+            this.xrLabel66.Text = "[next_next_wp_id]--[next_next_dep_name]";
+            this.xrLabel66.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel66.WordWrap = false;
             // 
             // xrLabel67
             // 
@@ -434,13 +451,13 @@
             this.xrLabel61.CanGrow = false;
             this.xrLabel61.Dpi = 254F;
             this.xrLabel61.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel61.LocationFloat = new DevExpress.Utils.PointFloat(207.5715F, 1310.974F);
+            this.xrLabel61.LocationFloat = new DevExpress.Utils.PointFloat(634.9124F, 1310.974F);
             this.xrLabel61.Name = "xrLabel61";
             this.xrLabel61.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel61.SizeF = new System.Drawing.SizeF(858.1704F, 47.10925F);
+            this.xrLabel61.SizeF = new System.Drawing.SizeF(420.8295F, 47.10925F);
             this.xrLabel61.StylePriority.UseFont = false;
             this.xrLabel61.StylePriority.UseTextAlignment = false;
-            this.xrLabel61.Text = "【[next_next_wp_id][next_next_dep_name]】【[next_next_goods_id]】";
+            this.xrLabel61.Text = "【[next_next_goods_id]】";
             this.xrLabel61.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel61.WordWrap = false;
             // 
@@ -939,7 +956,7 @@
             // 
             this.xrLabel41.CanGrow = false;
             this.xrLabel41.Dpi = 254F;
-            this.xrLabel41.Font = new System.Drawing.Font("SimSun", 9F);
+            this.xrLabel41.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel41.LocationFloat = new DevExpress.Utils.PointFloat(330.8083F, 1099.405F);
             this.xrLabel41.Name = "xrLabel41";
             this.xrLabel41.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -1561,5 +1578,6 @@
         private DevExpress.XtraReports.UI.XRLine xrLine17;
         private DevExpress.XtraReports.UI.XRLabel xrLabel65;
         private DevExpress.XtraReports.UI.XRLabel xrLabel67;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel66;
     }
 }
