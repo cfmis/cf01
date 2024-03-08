@@ -111,5 +111,92 @@ namespace cf01.CLS
             DataTable dtWorker = clsPublicOfPad.GetDataTable(sql);
             return dtWorker;
         }
+
+        public static DataTable GetPrdRecords(int con_type,string prd_dep,string mo_id,string goods_id,string prd_date,string prd_id,string s_mo_id)
+        {
+            //獲取制單編號資料
+            string sql = "";
+            sql += " Select a.*,rtrim(b.work_type_desc) as work_type_desc ";
+            sql += " From product_records a with(nolock) ";
+            sql += " Left outer join work_type b on a.prd_work_type=b.work_type_id ";
+            sql += " Where a.prd_dep = " + "'" + prd_dep + "'";
+            sql += " And a.prd_work_type = " + "'" + "A03" + "'";
+            if (con_type == 1)//是否查找當日未完成標識
+            {
+                sql += " And a.prd_mo = '" + mo_id + "'";
+                sql += " And a.prd_item = '" + goods_id + "'";
+            }
+            else
+            {
+                if (con_type == 2)//未完成的記錄
+                {
+                    //sql += " And a.prd_date = " + "'" + dteProdcutDate.Text + "'";
+                    sql += " And a.prd_start_time <> " + "'" + "" + "'" + " And a.prd_end_time = " + "'" + "" + "'";
+                }
+                else
+                {
+                    if (con_type == 3)//如果是查找當日所有記錄
+                        sql += " And a.prd_date = " + "'" + prd_date + "'";
+                    else
+                    {
+                        if (con_type == 4)//未開始生產的記錄
+                        {
+                            //sql += " And a.prd_date = " + "'" + dteProdcutDate.Text + "'";
+                            sql += " And a.prd_start_time = " + "'" + "" + "'" + " And a.prd_end_time = " + "'" + "" + "'";
+                        }
+                        else
+                        {
+                            if (con_type == 5)//當天完成的記錄
+                            {
+                                sql += " And a.prd_date = " + "'" + prd_date + "'";
+                                sql += " And a.prd_start_time <> " + "'" + "" + "'" + " And a.prd_end_time <> " + "'" + "" + "'";
+                            }
+                            else
+                            {
+                                if (con_type == 6)//按制單編號查詢未完成的記錄
+                                {
+                                    sql += " And a.prd_mo like " + "'%" + s_mo_id + "%'";
+                                    sql += " And a.prd_end_time = " + "'" + "" + "'";
+                                }
+                                else
+                                {
+                                    if (con_type == 7)//按制單編號查詢所有記錄
+                                    {
+                                        sql += " And a.prd_mo like " + "'%" + s_mo_id + "%'";
+                                    }
+                                    else
+                                    {
+                                        if (con_type == 8)//按記錄號提取記錄
+                                        {
+                                            sql += " And a.prd_id = '" + prd_id + "'";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            sql += " Order By a.prd_date desc,a.prd_end_time,a.crtim ";
+            DataTable dtProductionRecordslist = clsPublicOfPad.GetDataTable(sql);
+            return dtProductionRecordslist;
+        }
+        public static DataTable GetPrdFromTransfer(string barcode_type,string doc,string seq)
+        {
+            string strSql = "";
+            if (barcode_type == "11")
+            {
+                strSql = "Select a.in_dept,b.mo_id,b.goods_id From jo_materiel_con_mostly a" +
+                    " Inner Join jo_materiel_con_details b ON a.within_code=b.within_code  AND a.id=b.id" +
+                    " Where b.within_code='0000' AND b.id='" + doc + "' AND b.sequence_id='" + seq + "'";
+            }
+            else
+            {
+                strSql = "Select a.inventory_receipt AS in_dep,a.mo_id,a.goods_id From st_i_subordination a" +
+                    " Where a.within_code='0000' AND a.id='" + doc + "' AND a.sequence_id='" + seq + "'";
+            }
+            DataTable dtTranMo = clsConErp.GetDataTable(strSql);
+            return dtTranMo;
+        }
     }
 }
