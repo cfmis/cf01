@@ -104,19 +104,7 @@ namespace cf01.Forms
                 {
                     string doc = dtBarCode.Rows[0]["doc_id"].ToString();
                     string seq = dtBarCode.Rows[0]["doc_seq"].ToString();
-                    string strSql = "";
-                    if (barcode_type == "11")
-                    {
-                        strSql = "Select a.in_dept,b.mo_id,b.goods_id From jo_materiel_con_mostly a" +
-                            " Inner Join jo_materiel_con_details b ON a.within_code=b.within_code  AND a.id=b.id" +
-                            " Where b.within_code='0000' AND b.id='" + doc + "' AND b.sequence_id='" + seq + "'";
-                    }
-                    else
-                    {
-                        strSql = "Select a.inventory_receipt AS in_dep,a.mo_id,a.goods_id From st_i_subordination a" +
-                            " Where a.within_code='0000' AND a.id='" + doc + "' AND a.sequence_id='" + seq + "'";
-                    }
-                    DataTable dtTranMo = clsConErp.GetDataTable(strSql);
+                    DataTable dtTranMo = clsProductionSelect.GetPrdFromTransfer(barcode_type, doc, seq);
                     if (dtTranMo.Rows.Count > 0)
                     {
                         goods_id = dtTranMo.Rows[0]["goods_id"].ToString();
@@ -311,7 +299,8 @@ namespace cf01.Forms
             {
                 GetMo_itme("");
                 //設定第一個為默認的
-                cmbGoods_id.SelectedIndex = 0;
+                if (cmbGoods_id.SelectedIndex > 0)
+                    cmbGoods_id.SelectedIndex = 0;
                 get_data_details();
                 txtOk_qty.Focus();
             }
@@ -346,79 +335,11 @@ namespace cf01.Forms
         //查詢未完成的記錄，並重新賦值，便於重新輸入完整資料
         private void get_prd_records(int con_type)
         {
-            try
-            {
-                //獲取制單編號資料
-                string sql = "";
-                sql += " Select a.*,rtrim(b.work_type_desc) as work_type_desc ";
-                sql += " From product_records a with(nolock) ";
-                sql += " Left outer join work_type b on a.prd_work_type=b.work_type_id ";
-                sql += " Where a.prd_dep = " + "'" + cmbProductDept.SelectedValue.ToString() + "'";
-                sql += " And a.prd_work_type = " + "'" + "A03" + "'";
-                if (con_type == 1)//是否查找當日未完成標識
-                {
-                    sql += " And a.prd_mo = " + "'" + txtmo_id.Text.ToString() + "'";
-                    sql += " And a.prd_item = " + "'" + cmbGoods_id.SelectedValue.ToString() + "'";
-                }
-                else
-                {
-                    if (con_type == 2)//未完成的記錄
-                    {
-                        //sql += " And a.prd_date = " + "'" + dteProdcutDate.Text + "'";
-                        sql += " And a.prd_start_time <> " + "'" + "" + "'" + " And a.prd_end_time = " + "'" + "" + "'";
-                    }
-                    else
-                    {
-                        if (con_type == 3)//如果是查找當日所有記錄
-                            sql += " And a.prd_date = " + "'" + dteProdcutDate.Text + "'";
-                        else
-                        {
-                            if (con_type == 4)//未開始生產的記錄
-                            {
-                                //sql += " And a.prd_date = " + "'" + dteProdcutDate.Text + "'";
-                                sql += " And a.prd_start_time = " + "'" + "" + "'" + " And a.prd_end_time = " + "'" + "" + "'";
-                            }
-                            else
-                            {
-                                if (con_type == 5)//當天完成的記錄
-                                {
-                                    sql += " And a.prd_date = " + "'" + dteProdcutDate.Text + "'";
-                                    sql += " And a.prd_start_time <> " + "'" + "" + "'" + " And a.prd_end_time <> " + "'" + "" + "'";
-                                }
-                                else
-                                {
-                                    if (con_type == 6)//按制單編號查詢未完成的記錄
-                                    {
-                                        sql += " And a.prd_mo like " + "'%" + txtSearchMo.Text + "%'";
-                                        sql += " And a.prd_end_time = " + "'" + "" + "'";
-                                    }
-                                    else
-                                    {
-                                        if (con_type == 7)//按制單編號查詢所有記錄
-                                        {
-                                            sql += " And a.prd_mo like " + "'%" + txtSearchMo.Text + "%'";
-                                        }
-                                        else
-                                        {
-                                            if (con_type == 8)//按記錄號提取記錄
-                                            {
-                                                sql += " And a.prd_id =' " + txtPrd_id.Text + "'";
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                sql += " Order By a.prd_date desc,a.prd_end_time,a.crtim ";
-                dtProductionRecordslist = clsPublicOfPad.GetDataTable(sql);
-            }
-            catch (Exception e1)
-            {
-                MessageBox.Show(e1.Message);
-            }
-            //GBW004725
+            string goods_id = cmbGoods_id.SelectedValue != null ? cmbGoods_id.SelectedValue.ToString() : "";
+            dtProductionRecordslist = clsProductionSelect.GetPrdRecords(con_type, cmbProductDept.SelectedValue.ToString(), txtmo_id.Text.ToString()
+                ,goods_id, dteProdcutDate.Text, txtPrd_id.Text, txtSearchMo.Text);
+            //獲取制單編號資料
+
         }
 
         //提取工號
@@ -528,16 +449,17 @@ namespace cf01.Forms
         /// </summary>
         private void FillGrid()
         {
-            if (dtProductionRecordslist.Rows.Count > 0)
-            {
-                dgvDetails.DataSource = dtProductionRecordslist;
-                //dgvDetails.Refresh();
-            }
-            else
-            {
-                dgvDetails.DataSource = null;
-                dgvDetails.Refresh();
-            }
+            dgvDetails.DataSource = dtProductionRecordslist;
+            //if (dtProductionRecordslist.Rows.Count > 0)
+            //{
+            //    dgvDetails.DataSource = dtProductionRecordslist;
+            //    //dgvDetails.Refresh();
+            //}
+            //else
+            //{
+            //    dgvDetails.DataSource = null;
+            //    dgvDetails.Refresh();
+            //}
         }
         //ToolStripButton click 事件集合
         private void ToolStripButtonEvents()
@@ -1372,18 +1294,19 @@ namespace cf01.Forms
         }
         private void txtOk_weg_Leave(object sender, EventArgs e)
         {
-            txtOk_qty.Text = "";
-            count_select_qty();//計算良品數量
+            add_prd_qty();//生產數量=良品+不良品
+            //txtOk_qty.Text = "";
+            //count_select_qty();//計算良品數量
         }
         private void count_select_qty()
         {
-            if (txtkgPCS.Text != "" && txtkgPCS.Text != "0")
-            {
-                if (txtOk_weg.Text != "")
-                    txtOk_qty.Text = Math.Round(Convert.ToSingle(txtOk_weg.Text) * Convert.ToInt32(txtkgPCS.Text), 0).ToString();
-                if (txtNook_weg.Text != "")
-                    txtNook_qty.Text = Math.Round(Convert.ToSingle(txtNook_weg.Text) * Convert.ToInt32(txtkgPCS.Text), 0).ToString();
-            }
+            //if (txtkgPCS.Text != "" && txtkgPCS.Text != "0")
+            //{
+            //    if (txtOk_weg.Text != "")
+            //        txtOk_qty.Text = Math.Round(Convert.ToSingle(txtOk_weg.Text) * Convert.ToInt32(txtkgPCS.Text), 0).ToString();
+            //    if (txtNook_weg.Text != "")
+            //        txtNook_qty.Text = Math.Round(Convert.ToSingle(txtNook_weg.Text) * Convert.ToInt32(txtkgPCS.Text), 0).ToString();
+            //}
             add_prd_qty();//生產數量=良品+不良品
         }
         //生產數量=良品+不良品
@@ -1401,8 +1324,9 @@ namespace cf01.Forms
         }
         private void txtNook_weg_Leave(object sender, EventArgs e)
         {
-            txtNook_qty.Text = "";
-            count_select_qty();//計算不良品數量
+            add_prd_qty();//生產數量=良品+不良品
+            //txtNook_qty.Text = "";
+            //count_select_qty();//計算不良品數量
         }
         //獲取組別的成員
         private void get_group_member()
@@ -1582,7 +1506,7 @@ namespace cf01.Forms
         private void cmbGoods_id_Leave(object sender, EventArgs e)
         {
             get_data_details();
-            txtOk_qty.Focus();
+            //txtOk_qty.Focus();
         }
 
         private void txtprd_weg_Leave(object sender, EventArgs e)
@@ -1607,7 +1531,7 @@ namespace cf01.Forms
         {
             if (!valid_data())
                 return;
-            product_records  objModel = new product_records();
+            product_records objModel = new product_records();
             objModel.prd_dep = cmbProductDept.SelectedValue.ToString();
             objModel.prd_owndep = cmbOwnDep.Text.ToString();
             objModel.prd_pdate = dteProdcutDate.Text.ToString();//計劃日期=生產日期
@@ -1661,73 +1585,68 @@ namespace cf01.Forms
             objModel.work_class = txtWork_class.Text;
             objModel.actual_qty = (txtActual_qty.Text != "" ? Convert.ToInt32(txtActual_qty.Text) : 0);
             objModel.actual_weg = (txtActual_weg.Text != "" ? Convert.ToDecimal(txtActual_weg.Text) : 0);
-            try
+
+            if (record_id == -1)
             {
-                if (record_id == -1)
-                {
 
-                    record_id = clsPublicOfPad.GenNo("frmProductionSchedule");//自動產生序列號
+                record_id = clsPublicOfPad.GenNo("frmProductionSchedule");//自動產生序列號
 
-                    if (record_id > 0)
-                    {
-                        objModel.prd_id = record_id;
-                        if (txtPrd_id_ref.Text == "")//此單再續的，需要用回舊的記錄號
-                        {
-                            txtPrd_id_ref.Text = record_id.ToString();
-                            objModel.prd_id_ref = record_id;
-                        }
-                        Result = clsProductionSchedule.AddProductionRecords(objModel);
-                    }
-                    else
-                    {
-                        MessageBox.Show("儲存記錄失敗!");
-                        return;
-                    }
-
-                    txtPrd_id.Text = record_id.ToString().Trim();
-
-                }
-                else
-                {
-                    Result = clsProductionSchedule.UpdateProductionRecords(objModel);
-                }
                 if (record_id > 0)
                 {
-                    //檢查是否存在工號,若有則先刪除
-                    if (clsProductionSchedule.DeletePrdWorker(record_id) > 0)
+                    objModel.prd_id = record_id;
+                    if (txtPrd_id_ref.Text == "")//此單再續的，需要用回舊的記錄號
                     {
-                        //重新儲存工號
-                        for (int i = 0; i < dtWorker.Rows.Count; i++)
-                        {
-                            if (dgvWorker.Rows[i].Cells["prd_worker"].Value.ToString() != "")
-                                Result = clsProductionSchedule.AddPrdWorker(record_id, dgvWorker.Rows[i].Cells["prd_worker"].Value.ToString(), _userid, DateTime.Now);
-                        }
+                        txtPrd_id_ref.Text = record_id.ToString();
+                        objModel.prd_id_ref = record_id;
                     }
-                    ////儲存次品記錄
-                    //if (clsProductionSchedule.DeletePrdDefective(record_id) > 0)
-                    //{
-                        //儲存次品記錄
-                        if (clsProductionSchedule.DeletePrdDefective(record_id) > 0)
-                        {
-                            //重新儲存工號
-                            string seq;
-                            for (int i = 0; i < dgvDefective.Rows.Count; i++)
-                            {
-                                seq = (i + 1).ToString().PadLeft(2, '0');
-                                Result = clsProductionSchedule.AddPrdDefective(record_id, seq, dgvDefective.Rows[i].Cells["colDefective_id"].Value.ToString()
-                                    , dgvDefective.Rows[i].Cells["colOth_defective"].Value.ToString(), _userid, DateTime.Now);
-                            }
-                        }
-                    //}
-                    MessageBox.Show("保存成功!");
+                    Result = clsProductionSchedule.AddProductionRecords(objModel);
                 }
                 else
-                    MessageBox.Show("獲取記錄號失敗,不能更新工號表!");
+                {
+                    MessageBox.Show("儲存記錄失敗!");
+                    return;
+                }
+
+                txtPrd_id.Text = record_id.ToString().Trim();
+
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                Result = clsProductionSchedule.UpdateProductionRecords(objModel);
             }
+            if (record_id > 0)
+            {
+                //檢查是否存在工號,若有則先刪除
+                if (clsProductionSchedule.DeletePrdWorker(record_id) > 0)
+                {
+                    //重新儲存工號
+                    for (int i = 0; i < dtWorker.Rows.Count; i++)
+                    {
+                        if (dgvWorker.Rows[i].Cells["prd_worker"].Value.ToString() != "")
+                            Result = clsProductionSchedule.AddPrdWorker(record_id, dgvWorker.Rows[i].Cells["prd_worker"].Value.ToString(), _userid, DateTime.Now);
+                    }
+                }
+                ////儲存次品記錄
+                //if (clsProductionSchedule.DeletePrdDefective(record_id) > 0)
+                //{
+                //儲存次品記錄
+                if (clsProductionSchedule.DeletePrdDefective(record_id) > 0)
+                {
+                    //重新儲存工號
+                    string seq;
+                    for (int i = 0; i < dgvDefective.Rows.Count; i++)
+                    {
+                        seq = (i + 1).ToString().PadLeft(2, '0');
+                        Result = clsProductionSchedule.AddPrdDefective(record_id, seq, dgvDefective.Rows[i].Cells["colDefective_id"].Value.ToString()
+                            , dgvDefective.Rows[i].Cells["colOth_defective"].Value.ToString(), _userid, DateTime.Now);
+                    }
+                }
+                //}
+                MessageBox.Show("保存成功!");
+            }
+            else
+                MessageBox.Show("獲取記錄號失敗,不能更新工號表!");
+
             get_prd_records(8);//按記錄號查詢記錄
             FillGrid(); //將查詢到的記錄存入列表
             OperationType = clsUtility.enumOperationType.Save;

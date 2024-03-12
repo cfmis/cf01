@@ -70,6 +70,16 @@
             this.BTNNOSTART = new System.Windows.Forms.Button();
             this.BTNNOCOMP = new System.Windows.Forms.Button();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPrd_id = new System.Windows.Forms.Label();
             this.txtPrd_id_ref = new System.Windows.Forms.TextBox();
@@ -81,8 +91,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.dgvDefective = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
             this.cmbDefective_id = new System.Windows.Forms.ComboBox();
             this.lblDefective = new System.Windows.Forms.Label();
@@ -92,6 +100,8 @@
             this.btnAddDefective = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvWorker = new System.Windows.Forms.DataGridView();
+            this.prd_worker = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnDeleteMember = new System.Windows.Forms.Button();
             this.lblPer_hour_std_qty = new System.Windows.Forms.Label();
@@ -103,6 +113,7 @@
             this.txtWorker = new System.Windows.Forms.TextBox();
             this.lblMemo = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lueJobType = new DevExpress.XtraEditors.LookUpEdit();
             this.lblActual_qty = new System.Windows.Forms.Label();
             this.txtPack_num = new System.Windows.Forms.TextBox();
             this.txtActual_qty = new System.Windows.Forms.TextBox();
@@ -160,7 +171,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDefective = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.lueJobType = new DevExpress.XtraEditors.LookUpEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -177,42 +187,30 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDefective = new System.Windows.Forms.DataGridView();
             this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDefective_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDefective_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOth_defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prd_worker = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDefective)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.panel11.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDefective)).BeginInit();
             this.SuspendLayout();
             // 
             // chkcont_work1
@@ -246,7 +244,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("細明體", 12F);
             this.label1.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label1.Location = new System.Drawing.Point(11, 12);
+            this.label1.Location = new System.Drawing.Point(512, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 26;
@@ -267,10 +265,10 @@
             this.cmbGroup.DropDownWidth = 150;
             this.cmbGroup.Font = new System.Drawing.Font("細明體", 14F);
             this.cmbGroup.FormattingEnabled = true;
-            this.cmbGroup.Location = new System.Drawing.Point(91, 6);
+            this.cmbGroup.Location = new System.Drawing.Point(856, 100);
             this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(165, 27);
-            this.cmbGroup.TabIndex = 0;
+            this.cmbGroup.Size = new System.Drawing.Size(146, 27);
+            this.cmbGroup.TabIndex = 13;
             this.cmbGroup.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.cmbGroup.Leave += new System.EventHandler(this.cmbGroup_Leave);
             // 
@@ -310,7 +308,8 @@
             this.cmbWorkType.Location = new System.Drawing.Point(91, 36);
             this.cmbWorkType.Name = "cmbWorkType";
             this.cmbWorkType.Size = new System.Drawing.Size(165, 27);
-            this.cmbWorkType.TabIndex = 6;
+            this.cmbWorkType.TabIndex = 16;
+            this.cmbWorkType.TabStop = false;
             this.cmbWorkType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // lblGroup
@@ -318,7 +317,7 @@
             this.lblGroup.AutoSize = true;
             this.lblGroup.Font = new System.Drawing.Font("細明體", 12F);
             this.lblGroup.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblGroup.Location = new System.Drawing.Point(3, 11);
+            this.lblGroup.Location = new System.Drawing.Point(767, 105);
             this.lblGroup.Name = "lblGroup";
             this.lblGroup.Size = new System.Drawing.Size(88, 16);
             this.lblGroup.TabIndex = 4;
@@ -338,7 +337,7 @@
             // txtper_Standrad_qty
             // 
             this.txtper_Standrad_qty.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtper_Standrad_qty.Location = new System.Drawing.Point(355, 37);
+            this.txtper_Standrad_qty.Location = new System.Drawing.Point(336, 10);
             this.txtper_Standrad_qty.Name = "txtper_Standrad_qty";
             this.txtper_Standrad_qty.Size = new System.Drawing.Size(146, 27);
             this.txtper_Standrad_qty.TabIndex = 3;
@@ -407,20 +406,20 @@
             // txtprd_weg
             // 
             this.txtprd_weg.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtprd_weg.Location = new System.Drawing.Point(91, 4);
+            this.txtprd_weg.Location = new System.Drawing.Point(593, 131);
             this.txtprd_weg.Name = "txtprd_weg";
-            this.txtprd_weg.Size = new System.Drawing.Size(165, 27);
-            this.txtprd_weg.TabIndex = 0;
+            this.txtprd_weg.Size = new System.Drawing.Size(146, 27);
+            this.txtprd_weg.TabIndex = 11;
             this.txtprd_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.txtprd_weg.Leave += new System.EventHandler(this.txtprd_weg_Leave);
             // 
             // txtPrd_qty
             // 
             this.txtPrd_qty.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtPrd_qty.Location = new System.Drawing.Point(355, 4);
+            this.txtPrd_qty.Location = new System.Drawing.Point(856, 131);
             this.txtPrd_qty.Name = "txtPrd_qty";
             this.txtPrd_qty.Size = new System.Drawing.Size(146, 27);
-            this.txtPrd_qty.TabIndex = 1;
+            this.txtPrd_qty.TabIndex = 12;
             this.txtPrd_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.txtPrd_qty.Leave += new System.EventHandler(this.txtPrd_qty_Leave);
             // 
@@ -434,7 +433,7 @@
             this.dtpReqEnd.Name = "dtpReqEnd";
             this.dtpReqEnd.ShowUpDown = true;
             this.dtpReqEnd.Size = new System.Drawing.Size(146, 27);
-            this.dtpReqEnd.TabIndex = 70;
+            this.dtpReqEnd.TabIndex = 15;
             this.dtpReqEnd.Value = new System.DateTime(2014, 8, 19, 0, 0, 0, 0);
             this.dtpReqEnd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
@@ -443,11 +442,11 @@
             this.dtpEnd.CustomFormat = "HH:mm";
             this.dtpEnd.Font = new System.Drawing.Font("細明體", 12F);
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEnd.Location = new System.Drawing.Point(355, 34);
+            this.dtpEnd.Location = new System.Drawing.Point(355, 100);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.ShowUpDown = true;
-            this.dtpEnd.Size = new System.Drawing.Size(146, 27);
-            this.dtpEnd.TabIndex = 4;
+            this.dtpEnd.Size = new System.Drawing.Size(157, 27);
+            this.dtpEnd.TabIndex = 7;
             this.dtpEnd.Value = new System.DateTime(2014, 8, 19, 0, 0, 0, 0);
             this.dtpEnd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.dtpEnd.Leave += new System.EventHandler(this.dtpEnd_Leave);
@@ -467,11 +466,11 @@
             this.dtpStart.CustomFormat = "HH:mm";
             this.dtpStart.Font = new System.Drawing.Font("細明體", 12F);
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStart.Location = new System.Drawing.Point(91, 34);
+            this.dtpStart.Location = new System.Drawing.Point(91, 100);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.ShowUpDown = true;
             this.dtpStart.Size = new System.Drawing.Size(165, 27);
-            this.dtpStart.TabIndex = 3;
+            this.dtpStart.TabIndex = 6;
             this.dtpStart.Value = new System.DateTime(2014, 8, 19, 0, 0, 0, 0);
             this.dtpStart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.dtpStart.Leave += new System.EventHandler(this.dtpStart_Leave);
@@ -482,7 +481,7 @@
             this.lblPrd_qty.AutoSize = true;
             this.lblPrd_qty.Font = new System.Drawing.Font("細明體", 12F);
             this.lblPrd_qty.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblPrd_qty.Location = new System.Drawing.Point(272, 12);
+            this.lblPrd_qty.Location = new System.Drawing.Point(775, 137);
             this.lblPrd_qty.Name = "lblPrd_qty";
             this.lblPrd_qty.Size = new System.Drawing.Size(80, 16);
             this.lblPrd_qty.TabIndex = 6;
@@ -491,10 +490,10 @@
             // txtAdd_work
             // 
             this.txtAdd_work.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtAdd_work.Location = new System.Drawing.Point(355, 66);
+            this.txtAdd_work.Location = new System.Drawing.Point(355, 131);
             this.txtAdd_work.Name = "txtAdd_work";
-            this.txtAdd_work.Size = new System.Drawing.Size(146, 27);
-            this.txtAdd_work.TabIndex = 7;
+            this.txtAdd_work.Size = new System.Drawing.Size(157, 27);
+            this.txtAdd_work.TabIndex = 10;
             this.txtAdd_work.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.txtAdd_work.Leave += new System.EventHandler(this.txtAdd_work_Leave);
             // 
@@ -505,16 +504,17 @@
             this.txtgoods_desc.Name = "txtgoods_desc";
             this.txtgoods_desc.ReadOnly = true;
             this.txtgoods_desc.Size = new System.Drawing.Size(384, 27);
-            this.txtgoods_desc.TabIndex = 7;
+            this.txtgoods_desc.TabIndex = 17;
+            this.txtgoods_desc.TabStop = false;
             this.txtgoods_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // txtNormal_work
             // 
             this.txtNormal_work.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtNormal_work.Location = new System.Drawing.Point(91, 66);
+            this.txtNormal_work.Location = new System.Drawing.Point(91, 131);
             this.txtNormal_work.Name = "txtNormal_work";
             this.txtNormal_work.Size = new System.Drawing.Size(165, 27);
-            this.txtNormal_work.TabIndex = 6;
+            this.txtNormal_work.TabIndex = 9;
             this.txtNormal_work.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.txtNormal_work.Leave += new System.EventHandler(this.txtNormal_work_Leave);
             // 
@@ -534,7 +534,7 @@
             this.lblAdd_work.AutoSize = true;
             this.lblAdd_work.Font = new System.Drawing.Font("細明體", 12F);
             this.lblAdd_work.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAdd_work.Location = new System.Drawing.Point(304, 72);
+            this.lblAdd_work.Location = new System.Drawing.Point(304, 137);
             this.lblAdd_work.Name = "lblAdd_work";
             this.lblAdd_work.Size = new System.Drawing.Size(48, 16);
             this.lblAdd_work.TabIndex = 5;
@@ -580,7 +580,7 @@
             this.lblNormal_work.AutoSize = true;
             this.lblNormal_work.Font = new System.Drawing.Font("細明體", 12F);
             this.lblNormal_work.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNormal_work.Location = new System.Drawing.Point(27, 72);
+            this.lblNormal_work.Location = new System.Drawing.Point(27, 137);
             this.lblNormal_work.Name = "lblNormal_work";
             this.lblNormal_work.Size = new System.Drawing.Size(64, 16);
             this.lblNormal_work.TabIndex = 5;
@@ -591,7 +591,7 @@
             this.lblEnd_time.AutoSize = true;
             this.lblEnd_time.Font = new System.Drawing.Font("細明體", 12F);
             this.lblEnd_time.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblEnd_time.Location = new System.Drawing.Point(272, 41);
+            this.lblEnd_time.Location = new System.Drawing.Point(272, 106);
             this.lblEnd_time.Name = "lblEnd_time";
             this.lblEnd_time.Size = new System.Drawing.Size(80, 16);
             this.lblEnd_time.TabIndex = 4;
@@ -602,7 +602,7 @@
             this.lblStart_time.AutoSize = true;
             this.lblStart_time.Font = new System.Drawing.Font("細明體", 12F);
             this.lblStart_time.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblStart_time.Location = new System.Drawing.Point(11, 41);
+            this.lblStart_time.Location = new System.Drawing.Point(11, 106);
             this.lblStart_time.Name = "lblStart_time";
             this.lblStart_time.Size = new System.Drawing.Size(80, 16);
             this.lblStart_time.TabIndex = 3;
@@ -710,6 +710,74 @@
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.Leave += new System.EventHandler(this.dgvDetails_Leave);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "prd_end_time";
+            this.Column1.HeaderText = "結束時間";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "prd_start_time";
+            this.Column2.HeaderText = "開始時間";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 80;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "work_type_desc";
+            this.Column3.HeaderText = "工作類型";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "prd_group";
+            this.Column4.HeaderText = "組別";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "prd_qty";
+            this.Column5.HeaderText = "生產數量";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "prd_weg";
+            this.Column6.HeaderText = "生產重量";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "prd_mo";
+            this.Column7.HeaderText = "制單編號";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 120;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "prd_item";
+            this.Column8.HeaderText = "物料編號";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 240;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "prd_date";
+            this.Column9.HeaderText = "生產日期";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 120;
+            // 
+            // colPrd_Id
+            // 
+            this.colPrd_Id.DataPropertyName = "prd_id";
+            this.colPrd_Id.HeaderText = "記錄號";
+            this.colPrd_Id.Name = "colPrd_Id";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Moccasin;
@@ -814,9 +882,9 @@
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Controls.Add(this.panel7);
             this.tabPage1.Controls.Add(this.panel6);
-            this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -834,48 +902,22 @@
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Controls.Add(this.lblMemo);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 266);
+            this.panel7.Location = new System.Drawing.Point(3, 245);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1166, 305);
+            this.panel7.Size = new System.Drawing.Size(1166, 332);
             this.panel7.TabIndex = 59;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.Control;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.dgvDefective);
+            this.panel9.Controls.Add(this.panel12);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(512, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(654, 305);
+            this.panel9.Size = new System.Drawing.Size(654, 332);
             this.panel9.TabIndex = 57;
-            // 
-            // panel10
-            // 
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel10.Controls.Add(this.dgvDefective);
-            this.panel10.Controls.Add(this.panel12);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(488, 301);
-            this.panel10.TabIndex = 55;
-            // 
-            // dgvDefective
-            // 
-            this.dgvDefective.AllowUserToAddRows = false;
-            this.dgvDefective.ColumnHeadersHeight = 25;
-            this.dgvDefective.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSeq,
-            this.colDefective_id,
-            this.colDefective_cdesc,
-            this.colOth_defective});
-            this.dgvDefective.Location = new System.Drawing.Point(0, 109);
-            this.dgvDefective.Name = "dgvDefective";
-            this.dgvDefective.RowHeadersWidth = 20;
-            this.dgvDefective.RowTemplate.Height = 25;
-            this.dgvDefective.Size = new System.Drawing.Size(484, 188);
-            this.dgvDefective.TabIndex = 45;
             // 
             // panel12
             // 
@@ -889,7 +931,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(484, 109);
+            this.panel12.Size = new System.Drawing.Size(650, 88);
             this.panel12.TabIndex = 60;
             // 
             // cmbDefective_id
@@ -959,24 +1001,38 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(512, 305);
+            this.panel8.Size = new System.Drawing.Size(512, 332);
             this.panel8.TabIndex = 56;
             // 
             // dgvWorker
             // 
             this.dgvWorker.AllowUserToAddRows = false;
-            this.dgvWorker.ColumnHeadersHeight = 25;
+            this.dgvWorker.ColumnHeadersHeight = 35;
             this.dgvWorker.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prd_worker,
             this.Column10});
             this.dgvWorker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvWorker.Location = new System.Drawing.Point(0, 109);
+            this.dgvWorker.Location = new System.Drawing.Point(0, 88);
             this.dgvWorker.Name = "dgvWorker";
             this.dgvWorker.RowHeadersWidth = 20;
             this.dgvWorker.RowTemplate.Height = 25;
-            this.dgvWorker.Size = new System.Drawing.Size(508, 192);
+            this.dgvWorker.Size = new System.Drawing.Size(508, 240);
             this.dgvWorker.TabIndex = 41;
             this.dgvWorker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvWorker_KeyPress);
+            // 
+            // prd_worker
+            // 
+            this.prd_worker.DataPropertyName = "prd_worker";
+            this.prd_worker.HeaderText = "工號";
+            this.prd_worker.Name = "prd_worker";
+            this.prd_worker.Width = 120;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "hrm1name";
+            this.Column10.HeaderText = "姓名";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 160;
             // 
             // panel11
             // 
@@ -988,21 +1044,17 @@
             this.panel11.Controls.Add(this.lblTotMember);
             this.panel11.Controls.Add(this.lblStandard_per_qty);
             this.panel11.Controls.Add(this.txtper_Standrad_qty);
-            this.panel11.Controls.Add(this.lblWorker);
-            this.panel11.Controls.Add(this.cmbGroup);
-            this.panel11.Controls.Add(this.lblGroup);
             this.panel11.Controls.Add(this.txtTotMember);
-            this.panel11.Controls.Add(this.txtWorker);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(508, 109);
+            this.panel11.Size = new System.Drawing.Size(508, 88);
             this.panel11.TabIndex = 60;
             // 
             // btnDeleteMember
             // 
             this.btnDeleteMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnDeleteMember.Location = new System.Drawing.Point(355, 68);
+            this.btnDeleteMember.Location = new System.Drawing.Point(336, 41);
             this.btnDeleteMember.Name = "btnDeleteMember";
             this.btnDeleteMember.Size = new System.Drawing.Size(146, 30);
             this.btnDeleteMember.TabIndex = 5;
@@ -1014,7 +1066,7 @@
             // 
             this.lblPer_hour_std_qty.Font = new System.Drawing.Font("細明體", 10F);
             this.lblPer_hour_std_qty.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPer_hour_std_qty.Location = new System.Drawing.Point(36, 39);
+            this.lblPer_hour_std_qty.Location = new System.Drawing.Point(17, 12);
             this.lblPer_hour_std_qty.Name = "lblPer_hour_std_qty";
             this.lblPer_hour_std_qty.Size = new System.Drawing.Size(55, 31);
             this.lblPer_hour_std_qty.TabIndex = 0;
@@ -1023,7 +1075,7 @@
             // txtPer_hour_std_qty
             // 
             this.txtPer_hour_std_qty.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtPer_hour_std_qty.Location = new System.Drawing.Point(91, 37);
+            this.txtPer_hour_std_qty.Location = new System.Drawing.Point(72, 10);
             this.txtPer_hour_std_qty.Name = "txtPer_hour_std_qty";
             this.txtPer_hour_std_qty.Size = new System.Drawing.Size(165, 27);
             this.txtPer_hour_std_qty.TabIndex = 2;
@@ -1034,7 +1086,7 @@
             this.lblTotMember.AutoSize = true;
             this.lblTotMember.Font = new System.Drawing.Font("細明體", 12F);
             this.lblTotMember.ForeColor = System.Drawing.Color.Black;
-            this.lblTotMember.Location = new System.Drawing.Point(36, 73);
+            this.lblTotMember.Location = new System.Drawing.Point(17, 46);
             this.lblTotMember.Name = "lblTotMember";
             this.lblTotMember.Size = new System.Drawing.Size(48, 16);
             this.lblTotMember.TabIndex = 43;
@@ -1045,7 +1097,7 @@
             this.lblStandard_per_qty.AutoSize = true;
             this.lblStandard_per_qty.Font = new System.Drawing.Font("細明體", 12F);
             this.lblStandard_per_qty.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblStandard_per_qty.Location = new System.Drawing.Point(256, 42);
+            this.lblStandard_per_qty.Location = new System.Drawing.Point(237, 15);
             this.lblStandard_per_qty.Name = "lblStandard_per_qty";
             this.lblStandard_per_qty.Size = new System.Drawing.Size(96, 16);
             this.lblStandard_per_qty.TabIndex = 0;
@@ -1056,7 +1108,7 @@
             this.lblWorker.AutoSize = true;
             this.lblWorker.Font = new System.Drawing.Font("細明體", 12F);
             this.lblWorker.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblWorker.Location = new System.Drawing.Point(304, 11);
+            this.lblWorker.Location = new System.Drawing.Point(544, 106);
             this.lblWorker.Name = "lblWorker";
             this.lblWorker.Size = new System.Drawing.Size(48, 16);
             this.lblWorker.TabIndex = 0;
@@ -1065,7 +1117,7 @@
             // txtTotMember
             // 
             this.txtTotMember.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtTotMember.Location = new System.Drawing.Point(91, 68);
+            this.txtTotMember.Location = new System.Drawing.Point(72, 41);
             this.txtTotMember.Name = "txtTotMember";
             this.txtTotMember.Size = new System.Drawing.Size(165, 27);
             this.txtTotMember.TabIndex = 4;
@@ -1075,11 +1127,11 @@
             // txtWorker
             // 
             this.txtWorker.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtWorker.Location = new System.Drawing.Point(355, 6);
+            this.txtWorker.Location = new System.Drawing.Point(593, 101);
             this.txtWorker.MaxLength = 10;
             this.txtWorker.Name = "txtWorker";
             this.txtWorker.Size = new System.Drawing.Size(146, 27);
-            this.txtWorker.TabIndex = 1;
+            this.txtWorker.TabIndex = 8;
             this.txtWorker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWorker_KeyPress);
             this.txtWorker.Leave += new System.EventHandler(this.txtWorker_Leave);
             // 
@@ -1095,43 +1147,54 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel6.BackColor = System.Drawing.Color.Moccasin;
             this.panel6.Controls.Add(this.lueJobType);
-            this.panel6.Controls.Add(this.txtprd_weg);
             this.panel6.Controls.Add(this.lblActual_qty);
             this.panel6.Controls.Add(this.txtPack_num);
             this.panel6.Controls.Add(this.txtActual_qty);
-            this.panel6.Controls.Add(this.lblPrd_qty);
-            this.panel6.Controls.Add(this.txtNormal_work);
             this.panel6.Controls.Add(this.lblActual_weg);
-            this.panel6.Controls.Add(this.dtpStart);
-            this.panel6.Controls.Add(this.txtPrd_qty);
             this.panel6.Controls.Add(this.txtActual_weg);
             this.panel6.Controls.Add(this.txtWork_class);
             this.panel6.Controls.Add(this.lblPack_num);
-            this.panel6.Controls.Add(this.lblStart_time);
-            this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.panel3);
-            this.panel6.Controls.Add(this.txtAdd_work);
-            this.panel6.Controls.Add(this.dtpEnd);
-            this.panel6.Controls.Add(this.lblNormal_work);
-            this.panel6.Controls.Add(this.lblEnd_time);
             this.panel6.Controls.Add(this.lblWork_class);
-            this.panel6.Controls.Add(this.lblAdd_work);
             this.panel6.Controls.Add(this.lblchkcont_work);
             this.panel6.Controls.Add(this.lblWork_code);
             this.panel6.Controls.Add(this.txtWork_code);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Font = new System.Drawing.Font("細明體", 12F);
-            this.panel6.Location = new System.Drawing.Point(3, 169);
+            this.panel6.Location = new System.Drawing.Point(3, 166);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1166, 97);
+            this.panel6.Size = new System.Drawing.Size(1166, 79);
             this.panel6.TabIndex = 58;
+            // 
+            // lueJobType
+            // 
+            this.lueJobType.Location = new System.Drawing.Point(92, 38);
+            this.lueJobType.Name = "lueJobType";
+            this.lueJobType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lueJobType.Properties.Appearance.Options.UseFont = true;
+            this.lueJobType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lueJobType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueJobType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lueJobType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.lueJobType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueJobType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueJobType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_type", 60, "代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("remark", 260, "描述"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_desc", 200, "種類")});
+            this.lueJobType.Properties.NullText = "";
+            this.lueJobType.Properties.PopupFormMinSize = new System.Drawing.Size(500, 30);
+            this.lueJobType.Size = new System.Drawing.Size(165, 30);
+            this.lueJobType.TabIndex = 61;
+            this.lueJobType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // lblActual_qty
             // 
             this.lblActual_qty.AutoSize = true;
-            this.lblActual_qty.Location = new System.Drawing.Point(775, 41);
+            this.lblActual_qty.Location = new System.Drawing.Point(775, 13);
             this.lblActual_qty.Name = "lblActual_qty";
             this.lblActual_qty.Size = new System.Drawing.Size(80, 16);
             this.lblActual_qty.TabIndex = 60;
@@ -1141,15 +1204,15 @@
             // 
             this.txtPack_num.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPack_num.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtPack_num.Location = new System.Drawing.Point(593, 4);
+            this.txtPack_num.Location = new System.Drawing.Point(92, 6);
             this.txtPack_num.Name = "txtPack_num";
-            this.txtPack_num.Size = new System.Drawing.Size(146, 27);
+            this.txtPack_num.Size = new System.Drawing.Size(165, 27);
             this.txtPack_num.TabIndex = 2;
             this.txtPack_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // txtActual_qty
             // 
-            this.txtActual_qty.Location = new System.Drawing.Point(856, 34);
+            this.txtActual_qty.Location = new System.Drawing.Point(856, 6);
             this.txtActual_qty.Name = "txtActual_qty";
             this.txtActual_qty.Size = new System.Drawing.Size(146, 27);
             this.txtActual_qty.TabIndex = 12;
@@ -1159,7 +1222,7 @@
             // 
             this.lblActual_weg.AutoSize = true;
             this.lblActual_weg.Font = new System.Drawing.Font("細明體", 12F);
-            this.lblActual_weg.Location = new System.Drawing.Point(775, 12);
+            this.lblActual_weg.Location = new System.Drawing.Point(274, 14);
             this.lblActual_weg.Name = "lblActual_weg";
             this.lblActual_weg.Size = new System.Drawing.Size(80, 16);
             this.lblActual_weg.TabIndex = 59;
@@ -1167,9 +1230,9 @@
             // 
             // txtActual_weg
             // 
-            this.txtActual_weg.Location = new System.Drawing.Point(856, 4);
+            this.txtActual_weg.Location = new System.Drawing.Point(355, 6);
             this.txtActual_weg.Name = "txtActual_weg";
-            this.txtActual_weg.Size = new System.Drawing.Size(146, 27);
+            this.txtActual_weg.Size = new System.Drawing.Size(157, 27);
             this.txtActual_weg.TabIndex = 11;
             this.txtActual_weg.TextChanged += new System.EventHandler(this.txtActual_weg_TextChanged);
             this.txtActual_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
@@ -1177,9 +1240,9 @@
             // txtWork_class
             // 
             this.txtWork_class.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtWork_class.Location = new System.Drawing.Point(856, 66);
+            this.txtWork_class.Location = new System.Drawing.Point(355, 41);
             this.txtWork_class.Name = "txtWork_class";
-            this.txtWork_class.Size = new System.Drawing.Size(146, 27);
+            this.txtWork_class.Size = new System.Drawing.Size(157, 27);
             this.txtWork_class.TabIndex = 10;
             this.txtWork_class.Visible = false;
             this.txtWork_class.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
@@ -1189,7 +1252,7 @@
             this.lblPack_num.AutoSize = true;
             this.lblPack_num.Font = new System.Drawing.Font("細明體", 12F);
             this.lblPack_num.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPack_num.Location = new System.Drawing.Point(544, 12);
+            this.lblPack_num.Location = new System.Drawing.Point(43, 14);
             this.lblPack_num.Name = "lblPack_num";
             this.lblPack_num.Size = new System.Drawing.Size(48, 16);
             this.lblPack_num.TabIndex = 0;
@@ -1200,7 +1263,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.chkcont_work2);
             this.panel3.Controls.Add(this.chkcont_work1);
-            this.panel3.Location = new System.Drawing.Point(593, 34);
+            this.panel3.Location = new System.Drawing.Point(593, 6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(146, 27);
             this.panel3.TabIndex = 5;
@@ -1209,7 +1272,7 @@
             // 
             this.lblWork_class.AutoSize = true;
             this.lblWork_class.Font = new System.Drawing.Font("細明體", 12F);
-            this.lblWork_class.Location = new System.Drawing.Point(807, 72);
+            this.lblWork_class.Location = new System.Drawing.Point(306, 47);
             this.lblWork_class.Name = "lblWork_class";
             this.lblWork_class.Size = new System.Drawing.Size(48, 16);
             this.lblWork_class.TabIndex = 56;
@@ -1220,7 +1283,7 @@
             // 
             this.lblchkcont_work.AutoSize = true;
             this.lblchkcont_work.Font = new System.Drawing.Font("細明體", 12F);
-            this.lblchkcont_work.Location = new System.Drawing.Point(512, 41);
+            this.lblchkcont_work.Location = new System.Drawing.Point(512, 13);
             this.lblchkcont_work.Name = "lblchkcont_work";
             this.lblchkcont_work.Size = new System.Drawing.Size(80, 16);
             this.lblchkcont_work.TabIndex = 53;
@@ -1231,7 +1294,7 @@
             this.lblWork_code.AutoSize = true;
             this.lblWork_code.Font = new System.Drawing.Font("細明體", 12F);
             this.lblWork_code.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblWork_code.Location = new System.Drawing.Point(512, 72);
+            this.lblWork_code.Location = new System.Drawing.Point(11, 47);
             this.lblWork_code.Name = "lblWork_code";
             this.lblWork_code.Size = new System.Drawing.Size(80, 16);
             this.lblWork_code.TabIndex = 0;
@@ -1241,9 +1304,9 @@
             // 
             this.txtWork_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtWork_code.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtWork_code.Location = new System.Drawing.Point(593, 66);
+            this.txtWork_code.Location = new System.Drawing.Point(92, 41);
             this.txtWork_code.Name = "txtWork_code";
-            this.txtWork_code.Size = new System.Drawing.Size(146, 27);
+            this.txtWork_code.Size = new System.Drawing.Size(165, 27);
             this.txtWork_code.TabIndex = 9;
             this.txtWork_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
@@ -1266,9 +1329,9 @@
             this.panel5.Controls.Add(this.lblKG);
             this.panel5.Controls.Add(this.lblmWeg2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(3, 103);
+            this.panel5.Location = new System.Drawing.Point(3, 577);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1166, 66);
+            this.panel5.Size = new System.Drawing.Size(1166, 70);
             this.panel5.TabIndex = 57;
             // 
             // txtOkqty_All
@@ -1411,38 +1474,54 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.lblStart_time);
+            this.panel4.Controls.Add(this.lblOk_weg);
+            this.panel4.Controls.Add(this.lblWorker);
+            this.panel4.Controls.Add(this.txtNormal_work);
+            this.panel4.Controls.Add(this.lblNook_weg);
+            this.panel4.Controls.Add(this.lblGroup);
+            this.panel4.Controls.Add(this.lblNook_qty);
+            this.panel4.Controls.Add(this.lblPrd_qty);
+            this.panel4.Controls.Add(this.lblEnd_time);
             this.panel4.Controls.Add(this.txtOk_qty);
+            this.panel4.Controls.Add(this.txtAdd_work);
+            this.panel4.Controls.Add(this.lblNormal_work);
+            this.panel4.Controls.Add(this.txtprd_weg);
+            this.panel4.Controls.Add(this.cmbGroup);
+            this.panel4.Controls.Add(this.lblAdd_work);
             this.panel4.Controls.Add(this.cmbWorkType);
             this.panel4.Controls.Add(this.txtNook_weg);
             this.panel4.Controls.Add(this.txtgoods_desc);
             this.panel4.Controls.Add(this.txtNook_qty);
+            this.panel4.Controls.Add(this.txtWorker);
             this.panel4.Controls.Add(this.cmbGoods_id);
-            this.panel4.Controls.Add(this.lblOk_weg);
             this.panel4.Controls.Add(this.txtmo_id);
-            this.panel4.Controls.Add(this.lblNook_qty);
+            this.panel4.Controls.Add(this.txtPrd_qty);
+            this.panel4.Controls.Add(this.dtpStart);
             this.panel4.Controls.Add(this.lblmo_id);
             this.panel4.Controls.Add(this.txtOk_weg);
-            this.panel4.Controls.Add(this.lblNook_weg);
             this.panel4.Controls.Add(this.lblMtItem);
             this.panel4.Controls.Add(this.lblOk_qty);
             this.panel4.Controls.Add(this.lblgoods_desc);
             this.panel4.Controls.Add(this.txtTotalQty);
             this.panel4.Controls.Add(this.dtpReqEnd);
+            this.panel4.Controls.Add(this.dtpEnd);
             this.panel4.Controls.Add(this.lblWork_type);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1166, 100);
+            this.panel4.Size = new System.Drawing.Size(1166, 163);
             this.panel4.TabIndex = 56;
             // 
             // txtOk_qty
             // 
             this.txtOk_qty.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtOk_qty.Location = new System.Drawing.Point(355, 69);
+            this.txtOk_qty.Location = new System.Drawing.Point(355, 68);
             this.txtOk_qty.Name = "txtOk_qty";
-            this.txtOk_qty.Size = new System.Drawing.Size(146, 27);
+            this.txtOk_qty.Size = new System.Drawing.Size(157, 27);
             this.txtOk_qty.TabIndex = 3;
             this.txtOk_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.txtOk_qty.Leave += new System.EventHandler(this.txtOk_qty_Leave);
@@ -1450,7 +1529,7 @@
             // txtNook_weg
             // 
             this.txtNook_weg.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtNook_weg.Location = new System.Drawing.Point(593, 69);
+            this.txtNook_weg.Location = new System.Drawing.Point(593, 68);
             this.txtNook_weg.Name = "txtNook_weg";
             this.txtNook_weg.Size = new System.Drawing.Size(146, 27);
             this.txtNook_weg.TabIndex = 4;
@@ -1460,7 +1539,7 @@
             // txtNook_qty
             // 
             this.txtNook_qty.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtNook_qty.Location = new System.Drawing.Point(856, 69);
+            this.txtNook_qty.Location = new System.Drawing.Point(856, 68);
             this.txtNook_qty.Name = "txtNook_qty";
             this.txtNook_qty.Size = new System.Drawing.Size(146, 27);
             this.txtNook_qty.TabIndex = 5;
@@ -1472,7 +1551,7 @@
             this.lblOk_weg.AutoSize = true;
             this.lblOk_weg.Font = new System.Drawing.Font("細明體", 12F);
             this.lblOk_weg.ForeColor = System.Drawing.Color.Black;
-            this.lblOk_weg.Location = new System.Drawing.Point(11, 74);
+            this.lblOk_weg.Location = new System.Drawing.Point(11, 73);
             this.lblOk_weg.Name = "lblOk_weg";
             this.lblOk_weg.Size = new System.Drawing.Size(80, 16);
             this.lblOk_weg.TabIndex = 37;
@@ -1483,7 +1562,7 @@
             this.lblNook_qty.AutoSize = true;
             this.lblNook_qty.Font = new System.Drawing.Font("細明體", 12F);
             this.lblNook_qty.ForeColor = System.Drawing.Color.Black;
-            this.lblNook_qty.Location = new System.Drawing.Point(775, 74);
+            this.lblNook_qty.Location = new System.Drawing.Point(775, 73);
             this.lblNook_qty.Name = "lblNook_qty";
             this.lblNook_qty.Size = new System.Drawing.Size(80, 16);
             this.lblNook_qty.TabIndex = 37;
@@ -1492,7 +1571,7 @@
             // txtOk_weg
             // 
             this.txtOk_weg.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtOk_weg.Location = new System.Drawing.Point(91, 69);
+            this.txtOk_weg.Location = new System.Drawing.Point(91, 68);
             this.txtOk_weg.Name = "txtOk_weg";
             this.txtOk_weg.Size = new System.Drawing.Size(165, 27);
             this.txtOk_weg.TabIndex = 2;
@@ -1504,7 +1583,7 @@
             this.lblNook_weg.AutoSize = true;
             this.lblNook_weg.Font = new System.Drawing.Font("細明體", 12F);
             this.lblNook_weg.ForeColor = System.Drawing.Color.Black;
-            this.lblNook_weg.Location = new System.Drawing.Point(512, 74);
+            this.lblNook_weg.Location = new System.Drawing.Point(512, 73);
             this.lblNook_weg.Name = "lblNook_weg";
             this.lblNook_weg.Size = new System.Drawing.Size(80, 16);
             this.lblNook_weg.TabIndex = 37;
@@ -1515,7 +1594,7 @@
             this.lblOk_qty.AutoSize = true;
             this.lblOk_qty.Font = new System.Drawing.Font("細明體", 12F);
             this.lblOk_qty.ForeColor = System.Drawing.Color.Black;
-            this.lblOk_qty.Location = new System.Drawing.Point(272, 74);
+            this.lblOk_qty.Location = new System.Drawing.Point(272, 73);
             this.lblOk_qty.Name = "lblOk_qty";
             this.lblOk_qty.Size = new System.Drawing.Size(80, 16);
             this.lblOk_qty.TabIndex = 37;
@@ -1538,7 +1617,7 @@
             this.txtTotalQty.Location = new System.Drawing.Point(856, 5);
             this.txtTotalQty.Name = "txtTotalQty";
             this.txtTotalQty.Size = new System.Drawing.Size(146, 27);
-            this.txtTotalQty.TabIndex = 30;
+            this.txtTotalQty.TabIndex = 14;
             this.txtTotalQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // label3
@@ -1602,7 +1681,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1184, 50);
-            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnExit
@@ -1736,29 +1815,6 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 50);
             // 
-            // lueJobType
-            // 
-            this.lueJobType.Location = new System.Drawing.Point(593, 63);
-            this.lueJobType.Name = "lueJobType";
-            this.lueJobType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lueJobType.Properties.Appearance.Options.UseFont = true;
-            this.lueJobType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.lueJobType.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lueJobType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.lueJobType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
-            this.lueJobType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueJobType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lueJobType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_type", 60, "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("remark", 260, "描述"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_desc", 200, "種類")});
-            this.lueJobType.Properties.NullText = "";
-            this.lueJobType.Properties.PopupFormMinSize = new System.Drawing.Size(500, 30);
-            this.lueJobType.Size = new System.Drawing.Size(146, 30);
-            this.lueJobType.TabIndex = 61;
-            this.lueJobType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "end_time";
@@ -1870,12 +1926,29 @@
             this.dataGridViewTextBoxColumn16.HeaderText = "記錄號";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             // 
+            // dgvDefective
+            // 
+            this.dgvDefective.AllowUserToAddRows = false;
+            this.dgvDefective.ColumnHeadersHeight = 35;
+            this.dgvDefective.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSeq,
+            this.colDefective_id,
+            this.colDefective_cdesc,
+            this.colOth_defective});
+            this.dgvDefective.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDefective.Location = new System.Drawing.Point(0, 88);
+            this.dgvDefective.Name = "dgvDefective";
+            this.dgvDefective.RowHeadersWidth = 20;
+            this.dgvDefective.RowTemplate.Height = 25;
+            this.dgvDefective.Size = new System.Drawing.Size(650, 240);
+            this.dgvDefective.TabIndex = 45;
+            // 
             // colSeq
             // 
             this.colSeq.DataPropertyName = "seq";
             this.colSeq.HeaderText = "序號";
             this.colSeq.Name = "colSeq";
-            this.colSeq.Width = 60;
+            this.colSeq.Width = 80;
             // 
             // colDefective_id
             // 
@@ -1896,88 +1969,6 @@
             this.colOth_defective.HeaderText = "其它描述";
             this.colOth_defective.Name = "colOth_defective";
             this.colOth_defective.Width = 200;
-            // 
-            // prd_worker
-            // 
-            this.prd_worker.DataPropertyName = "prd_worker";
-            this.prd_worker.HeaderText = "工號";
-            this.prd_worker.Name = "prd_worker";
-            this.prd_worker.Width = 120;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "hrm1name";
-            this.Column10.HeaderText = "姓名";
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 160;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "prd_end_time";
-            this.Column1.HeaderText = "結束時間";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "prd_start_time";
-            this.Column2.HeaderText = "開始時間";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 80;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "work_type_desc";
-            this.Column3.HeaderText = "工作類型";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 80;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "prd_group";
-            this.Column4.HeaderText = "組別";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "prd_qty";
-            this.Column5.HeaderText = "生產數量";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "prd_weg";
-            this.Column6.HeaderText = "生產重量";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "prd_mo";
-            this.Column7.HeaderText = "制單編號";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 120;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "prd_item";
-            this.Column8.HeaderText = "物料編號";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 240;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "prd_date";
-            this.Column9.HeaderText = "生產日期";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 120;
-            // 
-            // colPrd_Id
-            // 
-            this.colPrd_Id.DataPropertyName = "prd_id";
-            this.colPrd_Id.HeaderText = "記錄號";
-            this.colPrd_Id.Name = "colPrd_Id";
             // 
             // frmProductionSelect
             // 
@@ -2000,8 +1991,6 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDefective)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -2010,6 +1999,7 @@
             this.panel11.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -2021,7 +2011,7 @@
             this.panel2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDefective)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2126,7 +2116,6 @@
         private System.Windows.Forms.Label lblmWeg1;
         private System.Windows.Forms.Label lblOkqty_All;
         private System.Windows.Forms.Label lblgoods_desc;
-        private System.Windows.Forms.DataGridView dgvDefective;
         private System.Windows.Forms.ComboBox cmbDefective_id;
         private System.Windows.Forms.TextBox txtOth_Defective;
         private System.Windows.Forms.Label lblDefective;
@@ -2140,10 +2129,6 @@
         private System.Windows.Forms.Label lblOth_Defective;
         private System.Windows.Forms.Label lblchkcont_work;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSeq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDefective_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDefective_cdesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOth_defective;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -2180,7 +2165,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataGridViewTextBoxColumn prd_worker;
@@ -2192,5 +2176,10 @@
         private System.Windows.Forms.TextBox txtActual_qty;
         private System.Windows.Forms.TextBox txtActual_weg;
         private DevExpress.XtraEditors.LookUpEdit lueJobType;
+        private System.Windows.Forms.DataGridView dgvDefective;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDefective_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDefective_cdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOth_defective;
     }
 }
