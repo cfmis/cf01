@@ -290,39 +290,58 @@ namespace cf01.ReportForm
                     dr["current_prod_qty"] = drCurrent["prod_qty"];
                     dr["current_req_date"] = drCurrent["req_date"];
                     if (dep == "102" || dep == "108")
+                    {
                         dr["do_color"] = drCurrent["next_do_color"];
+                    }                        
                 }
             }
             //======
         }
         private DataTable getNextDepItem(string mo_id, string wp_id, string goods_id)
         {
+            DataTable dt = new DataTable(); 
             string strSql = "";
             //如果是102或108的，則只提取該部門發出物料的相關流程即可
             if (wp_id == "102" || wp_id == "108")
             {
                 strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
                     ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
-                strSql += " FROM jo_bill_mostly a";
-                strSql += " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
+                strSql += " FROM jo_bill_mostly a with(nolock)";
+                strSql += " INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
                         " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
                         " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
                         " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND b.goods_id='" + goods_id + "'" +
                         " AND b.wp_id='" + wp_id + "'";
+                dt = clsConErp.GetDataTable(strSql);
             }
             else
             {
                 strSql += " Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name" +
                     ",mm.do_color AS next_do_color,b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date ";
-                strSql += " FROM jo_bill_mostly a";
-                strSql += " INNER JOIN jo_bill_goods_details b ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
-                        " INNER JOIN jo_bill_materiel_details c ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
+                strSql += " FROM jo_bill_mostly a with(nolock)";
+                strSql += " INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver" +
+                        " INNER JOIN jo_bill_materiel_details c with(nolock) ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence" +
                         " INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id" +
                         " LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id" +
                         " WHERE a.within_code='" + within_code + "' AND a.mo_id='" + mo_id + "' AND c.materiel_id='" + goods_id + "'" +
                         " AND b.wp_id='" + wp_id + "'";
+                dt= clsConErp.GetDataTable(strSql);
+                if (dt.Rows.Count == 0)
+                {
+                    //收貨部門的貨品編號為空時,換另一種方法查找
+                    strSql = string.Format(
+                    @"Select b.wp_id,b.goods_id,mm.name AS goods_name,b.next_wp_id,d.name AS next_wp_name,mm.do_color AS next_do_color,
+                      b.vendor_id AS next_vendor_id,b.prod_qty,Convert(Varchar(20),b.t_complete_date,111) AS req_date 
+                    FROM jo_bill_mostly a with(nolock)
+                    INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
+                    INNER JOIN it_goods mm ON b.within_code=mm.within_code AND b.goods_id=mm.id
+                    LEFT JOIN cd_department d ON b.within_code=d.within_code AND b.next_wp_id=d.id
+                    WHERE a.within_code='0000' AND a.mo_id='{0}' AND SUBSTRING(b.goods_id,1,14)=SUBSTRING('{1}',1,14)
+                    AND b.wp_id='{2}' And b.next_wp_id<>'702'", mo_id, goods_id, wp_id);
+                    dt = clsConErp.GetDataTable(strSql);
+                }
             }
-            DataTable dt = clsConErp.GetDataTable(strSql);
+            
             return dt;
         }
         private void loadJxData(string dep,string dateFrom,string dateTo,string moFrom,string moTo)
@@ -617,10 +636,11 @@ namespace cf01.ReportForm
                 string is_qc_dept = "";
                 for (int i = 0; i < drw.Length; i++)
                 {
-                    //in_dept = drw[i]["in_dept"].ToString(); //2024/03/13 取消 奇怪當初怎麼會用IN_DEPT ?
-                    in_dept = drw[i]["out_dept"].ToString(); //2024/03/13 改為負責部門
+                    in_dept = drw[i]["in_dept"].ToString(); //2024/03/13 取消 奇怪當初怎麼會用IN_DEPT ?
+                    //in_dept = drw[i]["out_dept"].ToString(); //2024/03/13 改為負責部門
                     mo_id = drw[i]["mo_id"].ToString();
-                    goods_id = drw[i]["goods_id"].ToString();                    
+                    //goods_id = drw[i]["goods_id"].ToString(); // CANCEL 2024/03/14
+                    goods_id = drw[i]["current_goods_id"].ToString();  //Add 2024/03/14                                  
                     page_num = string.IsNullOrEmpty(drw[i]["package_num"].ToString()) ? 0 : int.Parse(drw[i]["package_num"].ToString());
                     per_qty = string.IsNullOrEmpty(drw[i]["per_qty"].ToString()) ? 0 : Int32.Parse(drw[i]["per_qty"].ToString());//每次生產數量
                     net_weight = string.IsNullOrEmpty(drw[i]["net_weight"].ToString()) ? 0 : decimal.Parse(drw[i]["net_weight"].ToString());//生產重量
