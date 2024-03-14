@@ -323,7 +323,14 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
             dtNewWork.Columns.Add("prod_date", typeof(string));
             dtNewWork.Columns.Add("qty_remaining", typeof(int));
-            
+
+            dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
+            dtNewWork.Columns.Add("next_next_do_color", typeof(string));
+            //2024/03/12
+            dtNewWork.Columns.Add("qc_dept", typeof(string));
+            dtNewWork.Columns.Add("qc_name", typeof(string));
+            dtNewWork.Columns.Add("qc_qty", typeof(string));
+
 
             DataRow dr = null;
             string order_unit;
@@ -341,7 +348,7 @@ namespace cf01.ReportForm
                     item = dgr.Cells["colGoodsId"].Value.ToString().Trim();
                     if (dep != "" && mo_id != "" && item != "")
                     {
-                        DataTable dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);
+                        DataTable dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);//提取工序卡大部份的數據
                         DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
                         DataTable dtPosition = clsMo_for_jx.GetPosition(item);
                         DataTable dtQty = clsMo_for_jx.GetOrderQty(mo_id);//獲取訂單數量
@@ -498,7 +505,22 @@ namespace cf01.ReportForm
                                 }
                                 dr["next_next_wp_id"] = "";// dgr.Cells["next_next_wp_id"].Value.ToString();
                                 dr["next_next_dep_name"] = "";// dgr.Cells["next_next_dep_name"].Value.ToString();
-                                dr["prod_date"] = "";  
+                                dr["prod_date"] = "";
+
+                                //next_next_goods_id,next_next_do_color 這部分暫沒有實現,參考frmOderProCard中的代碼
+
+                                //--start 2024/3/14 add qc info allen
+                                dr["qc_dept"] = drDtWk["qc_dept"].ToString();
+                                dr["qc_name"] = drDtWk["qc_name"].ToString();
+                                dr["qc_qty"] = drDtWk["qc_qty"].ToString();
+                                if (drDtWk["next_wp_id"].ToString() == "702" || drDtWk["next_wp_id"].ToString() == "722")
+                                {
+                                    dr["qc_dept"] = "";
+                                    dr["qc_name"] = "";
+                                    dr["qc_qty"] = "";
+                                }
+                                //--end 2024/3/14 add qc info allen
+
                                 dtNewWork.Rows.Add(dr);
                             }
                         }

@@ -122,6 +122,11 @@
             this.txtProd_date = new DevExpress.XtraEditors.DateEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.next_next_goods_id = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.next_next_do_color = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.next_next_dep_name = new System.Windows.Forms.TextBox();
             this.next_goods_name = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -159,11 +164,10 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label13 = new System.Windows.Forms.Label();
-            this.next_next_do_color = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.next_next_goods_id = new System.Windows.Forms.TextBox();
+            this.txtQc_name = new System.Windows.Forms.TextBox();
+            this.txtQc_dept = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtQc_qty = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1151,8 +1155,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtQc_qty);
+            this.panel2.Controls.Add(this.txtQc_name);
             this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.txtQc_dept);
             this.panel2.Controls.Add(this.next_next_goods_id);
+            this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.next_next_do_color);
             this.panel2.Controls.Add(this.label13);
@@ -1168,11 +1176,56 @@
             this.panel2.Controls.Add(this.next_next_wp_id);
             this.panel2.Controls.Add(this.next_vendor_id);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(604, 446);
+            this.panel2.Location = new System.Drawing.Point(604, 417);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(416, 208);
+            this.panel2.Size = new System.Drawing.Size(416, 236);
             this.panel2.TabIndex = 94;
             this.panel2.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label15.Location = new System.Drawing.Point(12, 178);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(194, 12);
+            this.label15.TabIndex = 101;
+            this.label15.Text = "下部門貨品再交下部門貨品編號";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // next_next_goods_id
+            // 
+            this.next_next_goods_id.BackColor = System.Drawing.SystemColors.Control;
+            this.next_next_goods_id.Location = new System.Drawing.Point(212, 175);
+            this.next_next_goods_id.Name = "next_next_goods_id";
+            this.next_next_goods_id.Size = new System.Drawing.Size(175, 22);
+            this.next_next_goods_id.TabIndex = 100;
+            // 
+            // label14
+            // 
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label14.Location = new System.Drawing.Point(12, 153);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(194, 12);
+            this.label14.TabIndex = 99;
+            this.label14.Text = "下部門貨品再交下部門的顏色做法";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // next_next_do_color
+            // 
+            this.next_next_do_color.BackColor = System.Drawing.SystemColors.Control;
+            this.next_next_do_color.Location = new System.Drawing.Point(212, 150);
+            this.next_next_do_color.Name = "next_next_do_color";
+            this.next_next_do_color.Size = new System.Drawing.Size(175, 22);
+            this.next_next_do_color.TabIndex = 98;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(19, 81);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(101, 12);
+            this.label13.TabIndex = 97;
+            this.label13.Text = "交下部門貨品名稱";
             // 
             // next_next_dep_name
             // 
@@ -1492,50 +1545,39 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // label13
+            // txtQc_name
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(19, 81);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(101, 12);
-            this.label13.TabIndex = 97;
-            this.label13.Text = "交下部門貨品名稱";
+            this.txtQc_name.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQc_name.Location = new System.Drawing.Point(157, 203);
+            this.txtQc_name.Name = "txtQc_name";
+            this.txtQc_name.Size = new System.Drawing.Size(118, 22);
+            this.txtQc_name.TabIndex = 104;
             // 
-            // next_next_do_color
+            // txtQc_dept
             // 
-            this.next_next_do_color.BackColor = System.Drawing.SystemColors.Control;
-            this.next_next_do_color.Location = new System.Drawing.Point(212, 150);
-            this.next_next_do_color.Name = "next_next_do_color";
-            this.next_next_do_color.Size = new System.Drawing.Size(175, 22);
-            this.next_next_do_color.TabIndex = 98;
+            this.txtQc_dept.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQc_dept.Location = new System.Drawing.Point(84, 203);
+            this.txtQc_dept.Name = "txtQc_dept";
+            this.txtQc_dept.Size = new System.Drawing.Size(71, 22);
+            this.txtQc_dept.TabIndex = 102;
             // 
-            // label14
+            // label16
             // 
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(12, 153);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(194, 12);
-            this.label14.TabIndex = 99;
-            this.label14.Text = "下部門貨品再交下部門的顏色做法";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label16.Location = new System.Drawing.Point(21, 209);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 13);
+            this.label16.TabIndex = 103;
+            this.label16.Text = "QC部門";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label15
+            // txtQc_qty
             // 
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(12, 178);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(194, 12);
-            this.label15.TabIndex = 101;
-            this.label15.Text = "下部門貨品再交下部門貨品編號";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // next_next_goods_id
-            // 
-            this.next_next_goods_id.BackColor = System.Drawing.SystemColors.Control;
-            this.next_next_goods_id.Location = new System.Drawing.Point(212, 175);
-            this.next_next_goods_id.Name = "next_next_goods_id";
-            this.next_next_goods_id.Size = new System.Drawing.Size(175, 22);
-            this.next_next_goods_id.TabIndex = 100;
+            this.txtQc_qty.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQc_qty.Location = new System.Drawing.Point(269, 203);
+            this.txtQc_qty.Name = "txtQc_qty";
+            this.txtQc_qty.Size = new System.Drawing.Size(118, 22);
+            this.txtQc_qty.TabIndex = 105;
             // 
             // frmOrderProCard
             // 
@@ -1698,5 +1740,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox next_next_do_color;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtQc_qty;
+        private System.Windows.Forms.TextBox txtQc_name;
+        private System.Windows.Forms.TextBox txtQc_dept;
+        private System.Windows.Forms.Label label16;
     }
 }

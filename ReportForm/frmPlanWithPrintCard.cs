@@ -754,6 +754,13 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_next_do_color", typeof(string));
             dtNewWork.Columns.Add("qty_remaining", typeof(int));
 
+            //2024/03/12
+            dtNewWork.Columns.Add("qc_dept", typeof(string));
+            dtNewWork.Columns.Add("qc_name", typeof(string));
+            dtNewWork.Columns.Add("qc_qty", typeof(string));
+
+
+
             DataRow dr = null;
             string order_unit;
             int order_qty, order_qty_pcs;
@@ -776,7 +783,7 @@ namespace cf01.ReportForm
                     next_goods_id = dgr.Cells["next_goods_id"].Value.ToString().Trim(); //2023/03/02
                     if (dep != "" && mo != "" && item != "")
                     {
-                        dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item);
+                        dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item); //獲取工序卡大部分數據
                         //DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
                         dtPosition = clsMo_for_jx.GetPosition(item);
                         dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
@@ -822,9 +829,7 @@ namespace cf01.ReportForm
                             else
                             {
                                 NumPage = 1;
-                            }
-
-                            
+                            }                           
                             
 
                             for (int i = 1; i <= NumPage; i++)
@@ -885,7 +890,7 @@ namespace cf01.ReportForm
                                 //if (dtArt.Rows.Count > 0)
                                 //{
                                 dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
-                                    dr["picture_name"] = dgr.Cells["picture_name"].Value.ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
+                                dr["picture_name"] = dgr.Cells["picture_name"].Value.ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
                                 //}
 
                                 //if (dtColor.Rows.Count > 0)
@@ -913,6 +918,19 @@ namespace cf01.ReportForm
                                 {
                                     dr["arrive_date"] = Convert.ToDateTime(drDtWk["arrive_date"]).ToString("yyyy/MM/dd");
                                 }
+
+                                //--start 2024/03/13 add qc info by allen
+                                dr["qc_dept"] = drDtWk["qc_dept"].ToString();
+                                dr["qc_name"] = drDtWk["qc_name"].ToString();
+                                dr["qc_qty"] = drDtWk["qc_qty"].ToString();
+                                if(next_dep_id=="702" || next_dep_id == "722")
+                                {
+                                    dr["qc_dept"] = "";
+                                    dr["qc_name"] = "";
+                                    dr["qc_qty"] = "";
+                                }
+                                //--end 2024/03/13 add by allen
+
                                 if (i == NumPage && Per_qty != 0)
                                 {
                                     /* 2024/01/30 CANCEL ALLEN

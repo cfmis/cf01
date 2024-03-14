@@ -17,9 +17,9 @@ namespace cf01.CLS
         /// <param name="mo_id"></param>
         /// <param name="goods_id"></param>
         /// <returns></returns>
-        private readonly static clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-        private readonly static string within_code = DBUtility.within_code;
-        private readonly static string remote_db = DBUtility.remote_db;
+        private static clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        private static string within_code = DBUtility.within_code;
+        private static string remote_db = DBUtility.remote_db;
         public static DataTable GetGoods_DetailsById(string wp_id, string mo_id, string goods_id)
         {
             //--START因未知的原因,取顏色表的字段總是出錯,改為從存儲過程中取,新增于2024/02/24
@@ -28,7 +28,8 @@ namespace cf01.CLS
                 new SqlParameter("@mo_id",mo_id),
                 new SqlParameter("@goods_id",goods_id)                    
             };
-            return clsPublicOfCF01.ExecuteProcedureReturnTable("p_plan_with_print_card", paras);
+            //return clsPublicOfCF01.ExecuteProcedureReturnTable("p_plan_with_print_card", paras); //2024/03/13 cancel
+            return clsConErp.ExecuteProcedureReturnTable("z_plan_with_print_card", paras); //2024/03/13 add
             //--END 2024/02/24
 
 
@@ -1062,7 +1063,8 @@ namespace cf01.CLS
                new SqlParameter("@mo_id",mo_id),
                new SqlParameter("@goods_id",goods_id)
             };
-            DataTable dtProcess = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_get_next_dept_flow", paras);
+            //DataTable dtProcess = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_get_next_dept_flow", paras); //old code 2024/03/14 Cancel 
+            DataTable dtProcess = clsConErp.ExecuteProcedureReturnTable("z_get_next_dept_flow", paras); //2024/03/14 ADD
             return dtProcess;
         }
 

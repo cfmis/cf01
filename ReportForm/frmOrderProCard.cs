@@ -24,7 +24,8 @@ namespace cf01.ReportForm
         public static DataTable dtNext_Goods = new DataTable();
 
         private clsUtility.enumOperationType operationType;
-        private string goods_id;
+        private string goods_id="";
+        //private string cur_sequence_id = "";
         private int Reserve_Qty;
         public static string strProcess = "";
         private DataSet dsCard_product = new DataSet();
@@ -131,12 +132,16 @@ namespace cf01.ReportForm
         /// <param name="e"></param>
         private void ShowByItem()
         {
+            txtQc_dept.Text = "";
+            txtQc_name.Text = "";
+            txtQc_qty.Text = "";
             for (int i = 0; i < lsModel.Count; i++)
             {
                 if (lueGoodsId.EditValue.ToString() == lsModel[i].sequence_id)
                 {
                     Reserve_Qty = lsModel[i].Reserve_qty;
                     goods_id = lsModel[i].goods_id;
+                    //cur_sequence_id = lsModel[i].sequence_id;//2024/03/12
                     txtgoods_name.Text = lsModel[i].goods_name;
                     txtPer_qty.Text = lsModel[i].prod_qty.ToString();
                     txtPro_qty.Text = lsModel[i].prod_qty.ToString();
@@ -157,6 +162,17 @@ namespace cf01.ReportForm
                     txtC_sec_qty_ok.Text = lsModel[i].c_sec_qty_ok.ToString();
                     txtWh_location.Text = lsModel[i].wh_location;
                     bom_flevel.Text = lsModel[i].flevel.ToString();
+
+                    //當前行是交QC的工序卡,則保持空白,即不顯示QC信息
+                    txtQc_dept.Text = lsModel[i].qc_dept;
+                    txtQc_name.Text = lsModel[i].qc_name;
+                    txtQc_qty.Text = lsModel[i].qc_qty;
+                    if (lsModel[i].next_wp_id == "702" || lsModel[i].next_wp_id == "722")
+                    {
+                        txtQc_dept.Text = "";
+                        txtQc_name.Text = "";
+                        txtQc_qty.Text = "";                       
+                    }
                     getArtDetails();//獲取圖樣代號資料
 
                     /****************獲取訂單數量*******************/
@@ -209,6 +225,23 @@ namespace cf01.ReportForm
                     break;
                 }
             }
+            ////--start 2024/03/12
+            ////查找移交下部門,同時有交移交QC的
+            //txtQc_dept.Text = "";
+            //txtQc_name.Text = "";
+            //txtQc_qty.Text = "";
+            //for (int i = 0; i < lsModel.Count; i++)
+            //{
+            //    //當前行是交QC的工序卡,則保持空白,即不顯示QC信息
+            //    if(goods_id==lsModel[i].goods_id && lsModel[i].next_wp_id == "702" && cur_sequence_id != lsModel[i].sequence_id)
+            //    {
+            //        txtQc_dept.Text = "702";
+            //        txtQc_name.Text = lsModel[i].next_wp_name.ToString();
+            //        txtQc_qty.Text = lsModel[i].prod_qty.ToString();
+            //        break;
+            //    }
+            //}
+            ////--end 2024/03/12
         }
 
         private void getArtDetails()
@@ -260,7 +293,7 @@ namespace cf01.ReportForm
                 lueGoodsId.Refresh();
                 return;
             }
-            dtGoodsInfo = clsMo_for_jx.GetGoods_DetailsById(txtDept1.Text, txtMoId.Text, "");
+            dtGoodsInfo = clsMo_for_jx.GetGoods_DetailsById(txtDept1.Text, txtMoId.Text, "");//獲取工序卡數據
             if (dtGoodsInfo.Rows.Count > 0)
             {
                 lsModel.Clear();
@@ -304,7 +337,10 @@ namespace cf01.ReportForm
                         Vendor_id = dtGoodsInfo.Rows[i]["vendor_id"].ToString(), 
                         c_sec_qty_ok = clsUtility.FormatNullableInt32(dtGoodsInfo.Rows[i]["c_sec_qty_ok"]),
                         wh_location = dtGoodsInfo.Rows[i]["wh_location"].ToString(),
-                        flevel = !string.IsNullOrEmpty(dtGoodsInfo.Rows[i]["flevel"].ToString())?int.Parse(dtGoodsInfo.Rows[i]["flevel"].ToString()):0                       
+                        flevel = !string.IsNullOrEmpty(dtGoodsInfo.Rows[i]["flevel"].ToString())?int.Parse(dtGoodsInfo.Rows[i]["flevel"].ToString()):0,
+                        qc_dept = dtGoodsInfo.Rows[i]["qc_dept"].ToString(),
+                        qc_name = dtGoodsInfo.Rows[i]["qc_name"].ToString(),
+                        qc_qty = dtGoodsInfo.Rows[i]["qc_qty"].ToString(),
                     };
                     lsModel.Add(objModel);
                 }
@@ -437,20 +473,19 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
                     dtNewWork.Columns.Add("next_next_do_color", typeof(string));
                     dtNewWork.Columns.Add("qty_remaining", typeof(int));
+                    ////2024/03/12
+                    //dtNewWork.Columns.Add("qc_dept", typeof(string));
+                    //dtNewWork.Columns.Add("qc_name", typeof(string));
+                    //dtNewWork.Columns.Add("qc_qty", typeof(string));
+
                     qty_remaining = total_qty % per_qty;
                     if (total_qty > 0)
                     {
-                        if (qty_remaining > 0)                        
-                            NumPage = (total_qty / per_qty) + 1;
-                        else                        
-                            NumPage = (total_qty / per_qty);
+                        NumPage = (qty_remaining > 0)? (total_qty / per_qty) + 1: (total_qty / per_qty);                        
                     }
                     else
-                    {
-                        //if (Reserve_Qty > 0)  //如果生產數量為0，且預留數量大於0，任需要打印工序卡
-                        //{
-                        NumPage = 1;
-                        //}
+                    {                        
+                        NumPage = 1;                        
                     }
 
                     DataRow dr = null;
@@ -547,7 +582,10 @@ namespace cf01.ReportForm
                             dr["next_next_goods_id"] = next_next_goods_id.Text;
                             dr["next_next_do_color"] = next_next_do_color.Text;
                             dr["qty_remaining"] = qty_remaining;
-                            
+
+                            dr["qc_dept"] = txtQc_dept.Text;
+                            dr["qc_name"] = txtQc_name.Text;
+                            dr["qc_qty"] = txtQc_qty.Text;
 
                             dtNewWork.Rows.Add(dr);
                         }
@@ -728,7 +766,7 @@ namespace cf01.ReportForm
 
         private void lueGoodsId_EditValueChanged(object sender, EventArgs e)
         {
-            ShowByItem();
+            this.ShowByItem();//貨品編號下拉框選中某一行時
 
             //以下代處理合金工序
             string strMO = txtMoId.Text;

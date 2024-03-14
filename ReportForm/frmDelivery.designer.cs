@@ -130,6 +130,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
             this.btnExcel = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -1264,11 +1265,22 @@
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Enabled = false;
+            this.progressBar1.Location = new System.Drawing.Point(600, 69);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(299, 17);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 149;
+            this.progressBar1.Visible = false;
+            // 
             // frmDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 672);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMo_id2);
@@ -1434,5 +1446,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn per_qty;
         private DevExpress.XtraGrid.Columns.GridColumn net_weight;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit colSec_qty;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

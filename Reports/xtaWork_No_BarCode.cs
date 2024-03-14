@@ -72,9 +72,20 @@ namespace cf01.Reports
             int page_num = int.Parse(GetCurrentColumnValue("page_num").ToString());
             int total_page = int.Parse(GetCurrentColumnValue("total_page").ToString());
             qty_remaining = qty_remaining.Replace(",", "");
-            if (Int32.Parse(qty_remaining) > 0 && page_num == total_page)
+            if (int.Parse(qty_remaining) > 0 && page_num == total_page)
             {
                 lblper_qty.Text = GetCurrentColumnValue("qty_remaining").ToString();
+            }
+        }
+
+        private void txtQc_dept_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString())){
+                txtQc_dept.Visible = false;
+            }
+            else
+            {
+                txtQc_dept.Visible = true;
             }
         }
     }

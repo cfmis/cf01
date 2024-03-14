@@ -586,6 +586,10 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
             dtNewWork.Columns.Add("next_next_do_color", typeof(string));
             dtNewWork.Columns.Add("qty_remaining", typeof(int));
+            //2024/03/12
+            dtNewWork.Columns.Add("qc_dept", typeof(string));
+            dtNewWork.Columns.Add("qc_name", typeof(string));
+            dtNewWork.Columns.Add("qc_qty", typeof(string));
 
             DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drw.Length > 0)
@@ -596,16 +600,25 @@ namespace cf01.ReportForm
                 string goods_id = "";             
                 int page_num = 0, per_qty = 0,prod_qty=0, numPage = 1,qty_remaining=0;
                 decimal net_weight = 0, sec_qty=0;
-                frmProgress wForm = new frmProgress();
-                new Thread((ThreadStart)delegate
-                {
-                    wForm.TopMost = true;
-                    wForm.ShowDialog();
-                }).Start();                
+                //frmProgress wForm = new frmProgress();
+                //new Thread((ThreadStart)delegate
+                //{
+                //    wForm.TopMost = true;
+                //    wForm.ShowDialog();
+                //}).Start();
 
+                //設置進度條屬性
+                progressBar1.Enabled = true;
+                progressBar1.Visible = true;
+                progressBar1.Value = 0;
+                progressBar1.Step = 1;
+                progressBar1.Maximum = drw.Length;
+                //***************
+                string is_qc_dept = "";
                 for (int i = 0; i < drw.Length; i++)
                 {
-                    in_dept = drw[i]["in_dept"].ToString();
+                    //in_dept = drw[i]["in_dept"].ToString(); //2024/03/13 取消 奇怪當初怎麼會用IN_DEPT ?
+                    in_dept = drw[i]["out_dept"].ToString(); //2024/03/13 改為負責部門
                     mo_id = drw[i]["mo_id"].ToString();
                     goods_id = drw[i]["goods_id"].ToString();                    
                     page_num = string.IsNullOrEmpty(drw[i]["package_num"].ToString()) ? 0 : int.Parse(drw[i]["package_num"].ToString());
@@ -617,8 +630,19 @@ namespace cf01.ReportForm
                            new SqlParameter("@mo_id",mo_id),
                            new SqlParameter("@goods_id",goods_id)
                     };
-                    dtCard = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_product_card", paras);
 
+                    //************
+                    //顯示進度條
+                    progressBar1.Value += progressBar1.Step; 
+                    //dtCard = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_product_card", paras);//2024/3/13取消
+                    dtCard = clsConErp.ExecuteProcedureReturnTable("z_rpt_product_card", paras);
+                    if (progressBar1.Value == progressBar1.Maximum)
+                    {
+                        progressBar1.Enabled = false;
+                        progressBar1.Visible = false;
+                    }
+                    //*************
+                    is_qc_dept = drw[i]["in_dept"].ToString();
                     if (dtCard.Rows.Count > 0)
                     {
                         prod_qty = 0;
@@ -709,12 +733,21 @@ namespace cf01.ReportForm
                                 dr["next_next_do_color"] = dtCard.Rows[j]["next_next_do_color"].ToString();
                                 dr["qty_remaining"] = qty_remaining;
 
+                                dr["qc_dept"] = dtCard.Rows[j]["qc_dept"].ToString();
+                                dr["qc_name"] = dtCard.Rows[j]["qc_name"].ToString();
+                                dr["qc_qty"] = dtCard.Rows[j]["qc_qty"].ToString();
+                                if (is_qc_dept == "702"|| is_qc_dept == "722")
+                                {
+                                    dr["qc_dept"] = "";
+                                    dr["qc_name"] = "";
+                                    dr["qc_qty"] = "";
+                                }                                
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
                     }
                 }
-                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
             }
             else
             {

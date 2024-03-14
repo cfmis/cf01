@@ -56,7 +56,9 @@ namespace cf01.MDL
         public string wh_location;
         public int flevel;
         public string arrive_date;
-
+        public string qc_dept;
+        public string qc_name;
+        public string qc_qty;
 
 
     }

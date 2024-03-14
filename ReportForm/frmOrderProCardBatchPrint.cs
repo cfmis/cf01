@@ -257,7 +257,14 @@ namespace cf01.ReportForm
 
             for (int i = 0; i < dtReport.Rows.Count; i++)
             {               
-                dtReport.Rows[i]["report_name"] = "工序卡" + "(" + dtReport.Rows[i]["wp_id"] + ")"; 
+                dtReport.Rows[i]["report_name"] = "工序卡" + "(" + dtReport.Rows[i]["wp_id"] + ")";
+                //2024/03/13 add qc information by allen
+                if (dtReport.Rows[i]["next_wp_id"].ToString() == "702")
+                {
+                    dtReport.Rows[i]["qc_dept"] = "";
+                    dtReport.Rows[i]["qc_name"] = "";
+                    dtReport.Rows[i]["qc_qty"] = "";
+                }
             }
 
             if (dtReport.Rows.Count == 0)
