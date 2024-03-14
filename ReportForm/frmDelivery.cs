@@ -661,8 +661,7 @@ namespace cf01.ReportForm
                         progressBar1.Enabled = false;
                         progressBar1.Visible = false;
                     }
-                    //*************
-                    is_qc_dept = drw[i]["in_dept"].ToString();
+                    //*************                    
                     if (dtCard.Rows.Count > 0)
                     {
                         prod_qty = 0;
@@ -756,6 +755,8 @@ namespace cf01.ReportForm
                                 dr["qc_dept"] = dtCard.Rows[j]["qc_dept"].ToString();
                                 dr["qc_name"] = dtCard.Rows[j]["qc_name"].ToString();
                                 dr["qc_qty"] = dtCard.Rows[j]["qc_qty"].ToString();
+                                //本身是交702的流程不用顯示相關QC信息
+                                is_qc_dept = dtCard.Rows[j]["next_wp_id"].ToString();
                                 if (is_qc_dept == "702"|| is_qc_dept == "722")
                                 {
                                     dr["qc_dept"] = "";
