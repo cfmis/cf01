@@ -184,5 +184,28 @@ namespace cf01.ReportForm
                 Select_All(false);
             }    
         }
+
+        private void txtSearchMo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtSearchMo.Text.Trim() == "")
+            {
+                return;
+            }
+            string mo_id = txtSearchMo.Text.Trim();
+            string column_mo_id = "mo_id";                        
+            if (dgvDetails.Rows.Count == 0)
+            {
+                return;
+            }
+            for (int i = 0; i < dgvDetails.Rows.Count; i++)
+            {
+                if (dgvDetails.Rows[i].Cells[column_mo_id].Value.ToString() == mo_id)
+                {
+                    dgvDetails.CurrentCell = dgvDetails.Rows[i].Cells[2]; //设置当前单元格
+                    dgvDetails.Rows[i].Selected = true; //選中整行                        
+                    break;
+                }
+            }
+        }
     }
 }

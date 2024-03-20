@@ -100,11 +100,14 @@
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchMo = new DevExpress.XtraEditors.TextEdit();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchMo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDept
@@ -714,11 +717,36 @@
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
             this.dataGridViewTextBoxColumn25.Visible = false;
             // 
+            // txtSearchMo
+            // 
+            this.txtSearchMo.EditValue = "";
+            this.txtSearchMo.EnterMoveNextControl = true;
+            this.txtSearchMo.Location = new System.Drawing.Point(609, 105);
+            this.txtSearchMo.Name = "txtSearchMo";
+            this.txtSearchMo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchMo.Properties.Appearance.Options.UseFont = true;
+            this.txtSearchMo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSearchMo.Properties.MaxLength = 9;
+            this.txtSearchMo.Size = new System.Drawing.Size(117, 26);
+            this.txtSearchMo.TabIndex = 175;
+            this.txtSearchMo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchMo_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(482, 113);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(126, 13);
+            this.label11.TabIndex = 176;
+            this.label11.Text = "在查詢結果中搜索頁數";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmCustLable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 533);
+            this.Controls.Add(this.txtSearchMo);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.chkSelect);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPrint);
@@ -744,6 +772,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchMo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -819,5 +848,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn remark1;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn print_date;
+        private DevExpress.XtraEditors.TextEdit txtSearchMo;
+        private System.Windows.Forms.Label label11;
     }
 }

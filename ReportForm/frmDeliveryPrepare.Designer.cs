@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeliveryPrepare));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -115,14 +115,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtMo_id2 = new DevExpress.XtraEditors.TextEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearchMo = new DevExpress.XtraEditors.TextEdit();
-            this.label11 = new System.Windows.Forms.Label();
+            this.txtCreateBy = new DevExpress.XtraEditors.TextEdit();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtBrand_id2 = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBrand_id1 = new DevExpress.XtraEditors.TextEdit();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtCreateBy = new DevExpress.XtraEditors.TextEdit();
-            this.label14 = new System.Windows.Forms.Label();
+            this.txtSearchMo = new DevExpress.XtraEditors.TextEdit();
+            this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalesGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
@@ -136,10 +136,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearchMo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCreateBy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCreateBy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchMo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -380,8 +380,8 @@
             // mo_group
             // 
             this.mo_group.DataPropertyName = "mo_group";
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.mo_group.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.mo_group.DefaultCellStyle = dataGridViewCellStyle1;
             this.mo_group.HeaderText = "組別";
             this.mo_group.Name = "mo_group";
             this.mo_group.ReadOnly = true;
@@ -391,9 +391,9 @@
             // orderdate
             // 
             this.orderdate.DataPropertyName = "order_date";
-            dataGridViewCellStyle44.Format = "d";
-            dataGridViewCellStyle44.NullValue = null;
-            this.orderdate.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.orderdate.DefaultCellStyle = dataGridViewCellStyle2;
             this.orderdate.HeaderText = "落單日期";
             this.orderdate.Name = "orderdate";
             this.orderdate.ReadOnly = true;
@@ -403,9 +403,9 @@
             // plan_complete
             // 
             this.plan_complete.DataPropertyName = "plan_complete";
-            dataGridViewCellStyle45.Format = "d";
-            dataGridViewCellStyle45.NullValue = null;
-            this.plan_complete.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.plan_complete.DefaultCellStyle = dataGridViewCellStyle3;
             this.plan_complete.HeaderText = "回港日期";
             this.plan_complete.Name = "plan_complete";
             this.plan_complete.ReadOnly = true;
@@ -415,9 +415,9 @@
             // arrive_date
             // 
             this.arrive_date.DataPropertyName = "arrive_date";
-            dataGridViewCellStyle46.Format = "d";
-            dataGridViewCellStyle46.NullValue = null;
-            this.arrive_date.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.arrive_date.DefaultCellStyle = dataGridViewCellStyle4;
             this.arrive_date.HeaderText = "交客日期";
             this.arrive_date.Name = "arrive_date";
             this.arrive_date.ReadOnly = true;
@@ -427,9 +427,9 @@
             // order_qty
             // 
             this.order_qty.DataPropertyName = "order_qty";
-            dataGridViewCellStyle47.Format = "N0";
-            dataGridViewCellStyle47.NullValue = null;
-            this.order_qty.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.order_qty.DefaultCellStyle = dataGridViewCellStyle5;
             this.order_qty.HeaderText = "訂單數量";
             this.order_qty.Name = "order_qty";
             this.order_qty.ReadOnly = true;
@@ -439,8 +439,8 @@
             // mo_id
             // 
             this.mo_id.DataPropertyName = "mo_id";
-            dataGridViewCellStyle48.NullValue = null;
-            this.mo_id.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle6.NullValue = null;
+            this.mo_id.DefaultCellStyle = dataGridViewCellStyle6;
             this.mo_id.HeaderText = "頁數";
             this.mo_id.Name = "mo_id";
             this.mo_id.ReadOnly = true;
@@ -477,9 +477,9 @@
             // packing_qty
             // 
             this.packing_qty.DataPropertyName = "packing_qty";
-            dataGridViewCellStyle49.Format = "N0";
-            dataGridViewCellStyle49.NullValue = "0";
-            this.packing_qty.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = "0";
+            this.packing_qty.DefaultCellStyle = dataGridViewCellStyle7;
             this.packing_qty.HeaderText = "完成數量";
             this.packing_qty.Name = "packing_qty";
             this.packing_qty.ReadOnly = true;
@@ -573,8 +573,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "mo_group";
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn2.HeaderText = "組別";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -584,9 +584,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "order_date";
-            dataGridViewCellStyle51.Format = "d";
-            dataGridViewCellStyle51.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle9.Format = "d";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn3.HeaderText = "落單日期";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -596,9 +596,9 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "plan_complete";
-            dataGridViewCellStyle52.Format = "d";
-            dataGridViewCellStyle52.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle10.Format = "d";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn4.HeaderText = "回港日期";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -608,9 +608,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "arrive_date";
-            dataGridViewCellStyle53.Format = "d";
-            dataGridViewCellStyle53.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle11.Format = "d";
+            dataGridViewCellStyle11.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn5.HeaderText = "交客日期";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -620,8 +620,8 @@
             // moid
             // 
             this.moid.DataPropertyName = "mo_id";
-            dataGridViewCellStyle54.NullValue = null;
-            this.moid.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle12.NullValue = null;
+            this.moid.DefaultCellStyle = dataGridViewCellStyle12;
             this.moid.HeaderText = "頁數";
             this.moid.Name = "moid";
             this.moid.ReadOnly = true;
@@ -658,9 +658,9 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "order_qty";
-            dataGridViewCellStyle55.Format = "N0";
-            dataGridViewCellStyle55.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle13.Format = "N0";
+            dataGridViewCellStyle13.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn6.HeaderText = "訂單數量";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -679,9 +679,9 @@
             // packing_qty1
             // 
             this.packing_qty1.DataPropertyName = "packing_qty";
-            dataGridViewCellStyle56.Format = "N0";
-            dataGridViewCellStyle56.NullValue = "0";
-            this.packing_qty1.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle14.Format = "N0";
+            dataGridViewCellStyle14.NullValue = "0";
+            this.packing_qty1.DefaultCellStyle = dataGridViewCellStyle14;
             this.packing_qty1.HeaderText = "已交包裝數量";
             this.packing_qty1.Name = "packing_qty1";
             this.packing_qty1.ReadOnly = true;
@@ -745,7 +745,7 @@
             // 
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(558, 132);
+            this.btnAdd.Location = new System.Drawing.Point(569, 132);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(148, 31);
             this.btnAdd.TabIndex = 156;
@@ -757,7 +757,7 @@
             // txtId
             // 
             this.txtId.EnterMoveNextControl = true;
-            this.txtId.Location = new System.Drawing.Point(556, 83);
+            this.txtId.Location = new System.Drawing.Point(567, 83);
             this.txtId.Name = "txtId";
             this.txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Properties.Appearance.Options.UseFont = true;
@@ -769,7 +769,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(454, 92);
+            this.label1.Location = new System.Drawing.Point(465, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 158;
@@ -789,7 +789,7 @@
             // chkSortByMo
             // 
             this.chkSortByMo.AutoSize = true;
-            this.chkSortByMo.Location = new System.Drawing.Point(556, 50);
+            this.chkSortByMo.Location = new System.Drawing.Point(567, 50);
             this.chkSortByMo.Name = "chkSortByMo";
             this.chkSortByMo.Size = new System.Drawing.Size(120, 16);
             this.chkSortByMo.TabIndex = 160;
@@ -798,7 +798,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(848, 165);
+            this.label2.Location = new System.Drawing.Point(854, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 161;
@@ -809,7 +809,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.LightGreen;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(908, 162);
+            this.label3.Location = new System.Drawing.Point(914, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 16);
             this.label3.TabIndex = 162;
@@ -819,7 +819,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.LightSalmon;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Location = new System.Drawing.Point(908, 185);
+            this.label4.Location = new System.Drawing.Point(914, 185);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 164;
@@ -827,7 +827,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(848, 187);
+            this.label5.Location = new System.Drawing.Point(854, 187);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 163;
@@ -850,7 +850,7 @@
             // 
             this.label7.BackColor = System.Drawing.Color.Blue;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(908, 208);
+            this.label7.Location = new System.Drawing.Point(914, 208);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 16);
             this.label7.TabIndex = 167;
@@ -858,7 +858,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(701, 211);
+            this.label8.Location = new System.Drawing.Point(707, 211);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(206, 13);
             this.label8.TabIndex = 166;
@@ -932,28 +932,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查找條件";
             // 
-            // txtSearchMo
+            // txtCreateBy
             // 
-            this.txtSearchMo.EditValue = "";
-            this.txtSearchMo.EnterMoveNextControl = true;
-            this.txtSearchMo.Location = new System.Drawing.Point(589, 203);
-            this.txtSearchMo.Name = "txtSearchMo";
-            this.txtSearchMo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchMo.Properties.Appearance.Options.UseFont = true;
-            this.txtSearchMo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSearchMo.Properties.MaxLength = 9;
-            this.txtSearchMo.Size = new System.Drawing.Size(117, 26);
-            this.txtSearchMo.TabIndex = 173;
-            this.txtSearchMo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchMo_KeyPress);
+            this.txtCreateBy.EnterMoveNextControl = true;
+            this.txtCreateBy.Location = new System.Drawing.Point(98, 113);
+            this.txtCreateBy.Name = "txtCreateBy";
+            this.txtCreateBy.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCreateBy.Properties.MaxLength = 20;
+            this.txtCreateBy.Size = new System.Drawing.Size(156, 20);
+            this.txtCreateBy.TabIndex = 176;
             // 
-            // label11
+            // label14
             // 
-            this.label11.Location = new System.Drawing.Point(462, 211);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 13);
-            this.label11.TabIndex = 174;
-            this.label11.Text = "在查詢結果中搜索頁數";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label14.Location = new System.Drawing.Point(10, 119);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(80, 13);
+            this.label14.TabIndex = 177;
+            this.label14.Text = "建檔人";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtBrand_id2
             // 
@@ -995,24 +991,28 @@
             this.label13.Text = "牌子編碼";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtCreateBy
+            // txtSearchMo
             // 
-            this.txtCreateBy.EnterMoveNextControl = true;
-            this.txtCreateBy.Location = new System.Drawing.Point(98, 113);
-            this.txtCreateBy.Name = "txtCreateBy";
-            this.txtCreateBy.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCreateBy.Properties.MaxLength = 20;
-            this.txtCreateBy.Size = new System.Drawing.Size(156, 20);
-            this.txtCreateBy.TabIndex = 176;
+            this.txtSearchMo.EditValue = "";
+            this.txtSearchMo.EnterMoveNextControl = true;
+            this.txtSearchMo.Location = new System.Drawing.Point(600, 203);
+            this.txtSearchMo.Name = "txtSearchMo";
+            this.txtSearchMo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchMo.Properties.Appearance.Options.UseFont = true;
+            this.txtSearchMo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSearchMo.Properties.MaxLength = 9;
+            this.txtSearchMo.Size = new System.Drawing.Size(117, 26);
+            this.txtSearchMo.TabIndex = 173;
+            this.txtSearchMo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchMo_KeyPress);
             // 
-            // label14
+            // label11
             // 
-            this.label14.Location = new System.Drawing.Point(10, 119);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(80, 13);
-            this.label14.TabIndex = 177;
-            this.label14.Text = "建檔人";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Location = new System.Drawing.Point(473, 211);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(126, 13);
+            this.label11.TabIndex = 174;
+            this.label11.Text = "在查詢結果中搜索頁數";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmDeliveryPrepare
             // 
@@ -1054,10 +1054,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearchMo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCreateBy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCreateBy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchMo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
