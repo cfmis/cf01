@@ -1350,6 +1350,7 @@ namespace cf01.Forms
                     objMdl.cf_color = txtCf_color.Text;
                     objMdl.sales_group = txtSales_group.EditValue.ToString();
                     objMdl.doc_type = txtDoc_type.Text;
+                    objMdl.test_dept = lueTest_dept.EditValue.ToString();
                     
                     int i = 0;
                     Int32 cur_row_index = 0;
@@ -1404,7 +1405,8 @@ namespace cf01.Forms
           dgvDetails.SetRowCellValue(cur_row, "crusr", DBUtility._user_id);
           dgvDetails.SetRowCellValue(cur_row, "crtim", DateTime.Now.Date.ToShortDateString());
           dgvDetails.SetRowCellValue(cur_row, "valid_date", DateTime.Now.Date.ToString("yyyy-MM-dd"));//.ToShortDateString());
-      }
+          dgvDetails.SetRowCellValue(cur_row, "test_dept", objMd.test_dept);
+        }
 
         private void dgvDetails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
