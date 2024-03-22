@@ -31,6 +31,5 @@ namespace cf01.Reports
                 lblpackage.Visible = true;
             }           
         }
-
     }
 }
