@@ -368,7 +368,7 @@
             // 
             this.txtBrand_id2.EditValue = "";
             this.txtBrand_id2.EnterMoveNextControl = true;
-            this.txtBrand_id2.Location = new System.Drawing.Point(256, 43);
+            this.txtBrand_id2.Location = new System.Drawing.Point(235, 43);
             this.txtBrand_id2.Name = "txtBrand_id2";
             this.txtBrand_id2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtBrand_id2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -382,14 +382,14 @@
             this.txtBrand_id2.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
             this.txtBrand_id2.Properties.PopupWidth = 350;
             this.txtBrand_id2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtBrand_id2.Size = new System.Drawing.Size(135, 20);
+            this.txtBrand_id2.Size = new System.Drawing.Size(112, 20);
             this.txtBrand_id2.TabIndex = 240;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(240, 44);
+            this.label1.Location = new System.Drawing.Point(216, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 16);
             this.label1.TabIndex = 243;
@@ -423,7 +423,7 @@
             this.txtBrand_id1.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
             this.txtBrand_id1.Properties.PopupWidth = 350;
             this.txtBrand_id1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtBrand_id1.Size = new System.Drawing.Size(135, 20);
+            this.txtBrand_id1.Size = new System.Drawing.Size(112, 20);
             this.txtBrand_id1.TabIndex = 239;
             this.txtBrand_id1.Leave += new System.EventHandler(this.txtBrand_id1_Leave);
             // 
@@ -464,9 +464,9 @@
             this.groupBox1.Controls.Add(this.lblRmb);
             this.groupBox1.Controls.Add(this.txtBrand_id);
             this.groupBox1.Controls.Add(this.lblBrand_id);
-            this.groupBox1.Location = new System.Drawing.Point(413, 3);
+            this.groupBox1.Location = new System.Drawing.Point(367, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 206);
+            this.groupBox1.Size = new System.Drawing.Size(664, 206);
             this.groupBox1.TabIndex = 279;
             this.groupBox1.TabStop = false;
             // 
@@ -490,7 +490,7 @@
             this.panel2.Controls.Add(this.label25);
             this.panel2.Location = new System.Drawing.Point(376, 13);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(229, 97);
+            this.panel2.Size = new System.Drawing.Size(283, 100);
             this.panel2.TabIndex = 289;
             // 
             // label35
@@ -508,7 +508,7 @@
             // 
             this.label32.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold);
             this.label32.ForeColor = System.Drawing.Color.DarkRed;
-            this.label32.Location = new System.Drawing.Point(75, 72);
+            this.label32.Location = new System.Drawing.Point(75, 75);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(63, 15);
             this.label32.TabIndex = 273;
@@ -518,7 +518,7 @@
             // label33
             // 
             this.label33.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label33.Location = new System.Drawing.Point(58, 68);
+            this.label33.Location = new System.Drawing.Point(58, 71);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(16, 16);
             this.label33.TabIndex = 272;
@@ -529,7 +529,7 @@
             // 
             this.label34.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label34.ForeColor = System.Drawing.Color.Olive;
-            this.label34.Location = new System.Drawing.Point(5, 72);
+            this.label34.Location = new System.Drawing.Point(5, 75);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(53, 15);
             this.label34.TabIndex = 271;
@@ -539,13 +539,13 @@
             // txtvnd1
             // 
             this.txtvnd1.EnterMoveNextControl = true;
-            this.txtvnd1.Location = new System.Drawing.Point(141, 71);
+            this.txtvnd1.Location = new System.Drawing.Point(141, 72);
             this.txtvnd1.Name = "txtvnd1";
             this.txtvnd1.Properties.Mask.EditMask = "n3";
             this.txtvnd1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtvnd1.Properties.ReadOnly = true;
             this.txtvnd1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtvnd1.Size = new System.Drawing.Size(60, 20);
+            this.txtvnd1.Size = new System.Drawing.Size(107, 20);
             this.txtvnd1.TabIndex = 270;
             this.txtvnd1.Tag = "2";
             this.txtvnd1.ToolTipTitle = "USD 參數2";
@@ -554,7 +554,7 @@
             // 
             this.label31.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold);
             this.label31.ForeColor = System.Drawing.Color.Green;
-            this.label31.Location = new System.Drawing.Point(77, 50);
+            this.label31.Location = new System.Drawing.Point(77, 51);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(63, 15);
             this.label31.TabIndex = 269;
@@ -564,7 +564,7 @@
             // label30
             // 
             this.label30.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label30.Location = new System.Drawing.Point(58, 46);
+            this.label30.Location = new System.Drawing.Point(58, 47);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(16, 16);
             this.label30.TabIndex = 268;
@@ -575,7 +575,7 @@
             // 
             this.label29.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label29.ForeColor = System.Drawing.Color.DarkRed;
-            this.label29.Location = new System.Drawing.Point(5, 50);
+            this.label29.Location = new System.Drawing.Point(5, 51);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(53, 15);
             this.label29.TabIndex = 267;
@@ -591,7 +591,7 @@
             this.txtvndusd1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtvndusd1.Properties.ReadOnly = true;
             this.txtvndusd1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtvndusd1.Size = new System.Drawing.Size(60, 20);
+            this.txtvndusd1.Size = new System.Drawing.Size(107, 20);
             this.txtvndusd1.TabIndex = 266;
             this.txtvndusd1.Tag = "2";
             this.txtvndusd1.ToolTipTitle = "USD 參數2";
@@ -599,7 +599,7 @@
             // label28
             // 
             this.label28.Font = new System.Drawing.Font("PMingLiU", 11.25F);
-            this.label28.Location = new System.Drawing.Point(202, 25);
+            this.label28.Location = new System.Drawing.Point(249, 25);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(25, 15);
             this.label28.TabIndex = 265;
@@ -615,7 +615,7 @@
             this.txtvndbp1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtvndbp1.Properties.ReadOnly = true;
             this.txtvndbp1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtvndbp1.Size = new System.Drawing.Size(60, 20);
+            this.txtvndbp1.Size = new System.Drawing.Size(107, 20);
             this.txtvndbp1.TabIndex = 257;
             this.txtvndbp1.Tag = "2";
             this.txtvndbp1.ToolTipTitle = "USD 參數1";
@@ -1051,7 +1051,7 @@
             // 
             this.BTNOK.Image = ((System.Drawing.Image)(resources.GetObject("BTNOK.Image")));
             this.BTNOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNOK.Location = new System.Drawing.Point(310, 107);
+            this.BTNOK.Location = new System.Drawing.Point(265, 107);
             this.BTNOK.Name = "BTNOK";
             this.BTNOK.Size = new System.Drawing.Size(81, 31);
             this.BTNOK.TabIndex = 281;
@@ -1064,7 +1064,7 @@
             // 
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNFIND.Location = new System.Drawing.Point(205, 107);
+            this.BTNFIND.Location = new System.Drawing.Point(160, 107);
             this.BTNFIND.Name = "BTNFIND";
             this.BTNFIND.Size = new System.Drawing.Size(81, 31);
             this.BTNFIND.TabIndex = 280;
@@ -1077,7 +1077,7 @@
             // 
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTNEXIT.Location = new System.Drawing.Point(101, 107);
+            this.BTNEXIT.Location = new System.Drawing.Point(56, 107);
             this.BTNEXIT.Name = "BTNEXIT";
             this.BTNEXIT.Size = new System.Drawing.Size(81, 31);
             this.BTNEXIT.TabIndex = 282;
@@ -1229,7 +1229,7 @@
             this.groupBox2.Controls.Add(this.txtBrand_id2);
             this.groupBox2.Location = new System.Drawing.Point(5, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(402, 206);
+            this.groupBox2.Size = new System.Drawing.Size(357, 206);
             this.groupBox2.TabIndex = 283;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "查找條件";
