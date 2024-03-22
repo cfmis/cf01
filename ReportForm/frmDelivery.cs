@@ -59,7 +59,9 @@ namespace cf01.ReportForm
         }        
 
         private void frmDelivery_Load(object sender, EventArgs e)
-        {            
+        {
+            chkReplaceQty.Checked = true;
+
             dtDept = clsBaseData.Get_Department();
             DataRow dr0 = dtDept.NewRow(); //插一空行        
             dtDept.Rows.InsertAt(dr0, 0);
@@ -293,6 +295,11 @@ namespace cf01.ReportForm
                     {
                         dr["do_color"] = drCurrent["next_do_color"];
                     }                        
+                }
+                if(chkReplaceQty.Checked==true)
+                {
+                    dr["per_qty"] = dr["con_qty"];
+                    dr["net_weight"] = dr["sec_qty"];
                 }
             }
             //======
@@ -667,7 +674,8 @@ namespace cf01.ReportForm
                         prod_qty = 0;
                         for (int j = 0; j < dtCard.Rows.Count; j++)
                         {
-                            prod_qty = Int32.Parse(dtCard.Rows[j]["prod_qty"].ToString());
+                            //prod_qty = Int32.Parse(dtCard.Rows[j]["prod_qty"].ToString());
+                            prod_qty = Int32.Parse(drw[i]["con_qty"].ToString());////2024/03/20日修改，已收到的移交數為生產數
                             if (per_qty == 0)
                             {
                                 per_qty = prod_qty;

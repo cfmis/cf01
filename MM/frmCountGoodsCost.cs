@@ -2341,6 +2341,7 @@ namespace cf01.MM
             mdlGoodsPpart.ProductType = Row["ProductType"].ToString();
             mdlGoodsPpart.ProductTypeName = Row["ProductTypeName"].ToString();
             mdlGoodsPpart.FrontPart = Row["FrontPart"].ToString();
+            mdlGoodsPpart.MultRate = clsValidRule.ConvertStrToInt(Row["MultRate"].ToString());
             mdlGoodsPpart.ProductSize = Row["ProductSize"].ToString();
             mdlGoodsPpart.ProductSizeName = Row["ProductSizeName"].ToString();
             mdlGoodsPpart.ProductColor = Row["ProductColor"].ToString();

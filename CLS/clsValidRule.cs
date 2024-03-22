@@ -143,7 +143,7 @@ namespace cf01.CLS
             }
             return dVal;
         }
-        private static int ConvertStrToInt(string strVal)
+        public static int ConvertStrToInt(string strVal)
         {
             int dVal = 0;
             try
