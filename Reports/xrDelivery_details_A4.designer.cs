@@ -420,7 +420,7 @@
             this.xrLabel4.SizeF = new System.Drawing.SizeF(644.5037F, 41.56001F);
             this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "計划回港日期/要求交客日期/電鍍-噴油備註";
+            this.xrLabel4.Text = "計划回港日期/客人要求日期/電鍍-噴油備註";
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel7
