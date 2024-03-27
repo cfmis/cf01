@@ -24,7 +24,8 @@ namespace cf01.Forms
     {
         public string mID = "";    //臨時的主鍵值
         public int row_reset = 0;
-        public DataTable dtDetail = new DataTable();        
+        public DataTable dtDetail = new DataTable();
+        DataTable dtFactoryName = new DataTable();
         public string mState = "";
         private string user_group = clsDgdDeliverGoods.getUserGroup(DBUtility._user_id);
         clsToolBar objToolbar;
@@ -58,7 +59,7 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type"); 
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");            
-            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");           
+            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");            
 
             string strSql = "";
             string strGroup = "V,E";
@@ -264,6 +265,14 @@ namespace cf01.Forms
             lueCheck.Properties.ValueMember = "id";
             lueCheck.Properties.DisplayMember = "name";
 
+            dtFactoryName = clsPublicOfCF01.GetDataTable("Select factory_name From development_factory order by id");
+            for(int i = 0; i < dtFactoryName.Rows.Count; i++)
+            {
+                cbeFactory_name.Properties.Items.Add(dtFactoryName.Rows[i]["factory_name"].ToString());
+                //string[] aryItems = { "Ching Fung Metal Manufactory(Longnan) Co.,Ltd", "CFAA VN PRODUCTION-TRADING COMPANY LIMITED" };
+                //cbeFactory_name.Properties.Items.AddRange(aryItems);
+            }
+
 
             dtDat1.EditValue = DateTime.Now.AddDays(-7).ToString("yyyy/MM/dd").Substring(0, 10);
             dtDat2.EditValue = DateTime.Now.ToString("yyyy/MM/dd").Substring(0, 10);            
@@ -290,7 +299,8 @@ namespace cf01.Forms
             txtPvh_submit_ref.DataBindings.Add("Text", bds1, "pvh_submit_ref");
             //-------------------------------------------------------
             txtsupplier_name.DataBindings.Add("Text", bds1, "supplier_name");
-            txtFactory_name.DataBindings.Add("Text", bds1, "factory_name");
+            //txtFactory_name.DataBindings.Add("Text", bds1, "factory_name");
+            cbeFactory_name.DataBindings.Add("EditValue", bds1, "factory_name");
             lueMaterial_subtype.DataBindings.Add("EditValue",bds1, "material_subtype");
             txtColour.DataBindings.Add("Text", bds1, "colour");
             txtSize.DataBindings.Add("Text", bds1, "size");
@@ -456,7 +466,8 @@ namespace cf01.Forms
             txtSerial_no.Text = clsTommyTest.GetSeqNo("development_pvh","serial_no");
             //txtPvh_submit_ref.Text = clsDevelopentPvh.GetPvhNo(txtSerial_no.Text);2022/04/20 Cancel
             txtsupplier_name.Text = "Ching Fung Apparel Accessories Co.,Ltd";
-            txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
+            //txtFactory_name.Text = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
+            cbeFactory_name.EditValue = "Ching Fung Metal Manufactory(Longnan) Co.,Ltd";
             lueCurrency.EditValue = "US$";
             txtSurcharge.Text = "NIL";
             txtleadtime_sample.Text = "16";
@@ -583,7 +594,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@pvh_submit_ref", txtPvh_submit_ref.Text);
                     //-------------------------------------------------------------------------------------------
                     myCommand.Parameters.AddWithValue("@supplier_name", txtsupplier_name.Text);                   
-                    myCommand.Parameters.AddWithValue("@factory_name", txtFactory_name.Text);
+                    myCommand.Parameters.AddWithValue("@factory_name", cbeFactory_name.Text);
                     myCommand.Parameters.AddWithValue("@material_subtype", lueMaterial_subtype.EditValue);
                     myCommand.Parameters.AddWithValue("@colour", txtColour.Text);
                     myCommand.Parameters.AddWithValue("@size", txtSize.Text);
@@ -946,7 +957,8 @@ namespace cf01.Forms
             txtPlm_material_code.Text = pdr.Cells["plm_material_code"].Value.ToString();
             //-------------------------------------------------------------------------------------------
             txtsupplier_name.Text = pdr.Cells["supplier_name"].Value.ToString();
-            txtFactory_name.Text = pdr.Cells["factory_name"].Value.ToString();
+            //txtFactory_name.Text = pdr.Cells["factory_name"].Value.ToString();
+            cbeFactory_name.EditValue = pdr.Cells["factory_name"].Value.ToString();
             lueMaterial_subtype.EditValue = pdr.Cells["material_subtype"].Value.ToString();
             txtColour.Text = pdr.Cells["colour"].Value.ToString();
             txtSize.Text = pdr.Cells["size"].Value.ToString();

@@ -522,6 +522,7 @@
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn114 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn115 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbeFactory_name = new DevExpress.XtraEditors.ComboBoxEdit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -666,6 +667,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -2122,6 +2124,7 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.cbeFactory_name);
             this.panel8.Controls.Add(this.label88);
             this.panel8.Controls.Add(this.txtProcess);
             this.panel8.Controls.Add(this.txtWeight_uom);
@@ -2174,7 +2177,6 @@
             this.panel8.Controls.Add(this.label59);
             this.panel8.Controls.Add(this.txtWeight);
             this.panel8.Controls.Add(this.label55);
-            this.panel8.Controls.Add(this.txtFactory_name);
             this.panel8.Controls.Add(this.label52);
             this.panel8.Controls.Add(this.txtsupplier_name);
             this.panel8.Controls.Add(this.label12);
@@ -2190,6 +2192,7 @@
             this.panel8.Controls.Add(this.txtDye_type);
             this.panel8.Controls.Add(this.txtDye_method);
             this.panel8.Controls.Add(this.label51);
+            this.panel8.Controls.Add(this.txtFactory_name);
             this.panel8.Location = new System.Drawing.Point(2, 49);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(995, 208);
@@ -3077,7 +3080,7 @@
             this.txtFactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtFactory_name.Properties.MaxLength = 100;
             this.txtFactory_name.Properties.ReadOnly = true;
-            this.txtFactory_name.Size = new System.Drawing.Size(359, 20);
+            this.txtFactory_name.Size = new System.Drawing.Size(38, 20);
             this.txtFactory_name.TabIndex = 1;
             this.txtFactory_name.Tag = "2";
             // 
@@ -6320,6 +6323,18 @@
             this.dataGridViewTextBoxColumn115.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn115.Name = "dataGridViewTextBoxColumn115";
             // 
+            // cbeFactory_name
+            // 
+            this.cbeFactory_name.EditValue = "";
+            this.cbeFactory_name.Enabled = false;
+            this.cbeFactory_name.Location = new System.Drawing.Point(103, 21);
+            this.cbeFactory_name.Name = "cbeFactory_name";
+            this.cbeFactory_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbeFactory_name.Size = new System.Drawing.Size(359, 20);
+            this.cbeFactory_name.TabIndex = 170;
+            this.cbeFactory_name.Tag = "2";
+            // 
             // frmDevelopmentPvh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6478,6 +6493,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6968,5 +6984,6 @@
         private DevExpress.XtraEditors.ButtonEdit txtDye_type;
         private DevExpress.XtraEditors.ButtonEdit txtDye_method;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
+        private DevExpress.XtraEditors.ComboBoxEdit cbeFactory_name;
     }
 }
