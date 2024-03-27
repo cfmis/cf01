@@ -115,6 +115,7 @@ namespace cf01.MM
                 txtSizeName.Text = dr["ProductSizeName"].ToString();
                 txtColor.Text = dr["ProductColor"].ToString();
                 txtColorName.Text = dr["ProductColorName"].ToString();
+                txtDoColor.Text = dr["DoColor"].ToString();
                 txtCustColor.Text = dr["CustColor"].ToString();
                 txtPrdMo.Text = dr["PrdMo"].ToString();
                 txtMdNo.Text = dr["MdNo"].ToString();
@@ -137,6 +138,7 @@ namespace cf01.MM
                 txtArtWorkName.Text = "";
                 txtProductType.Text = "";
                 txtProductTypeName.Text = "";
+                txtDoColor.Text = "";
                 txtSize.Text = "";
                 txtSizeName.Text = "";
                 txtColor.Text = "";
@@ -231,6 +233,7 @@ namespace cf01.MM
             mdlGoods.ProductTypeName = txtProductTypeName.Text;
             mdlGoods.ProductColor = txtColor.Text;
             mdlGoods.ProductColorName = txtColorName.Text;
+            mdlGoods.DoColor = txtDoColor.Text;
             mdlGoods.CustColor = txtCustColor.Text;
             mdlGoods.ProductSize = txtSize.Text;
             mdlGoods.ProductSizeName = txtSizeName.Text;
@@ -511,10 +514,12 @@ namespace cf01.MM
                 txtArtWorkNamePart.Text = dr["ArtWorkName"].ToString();
                 txtProductTypePart.Text = dr["ProductType"].ToString();
                 txtProductTypeNamePart.Text = dr["ProductTypeName"].ToString();
+                txtDoColorPart.Text = dr["DoColor"].ToString();
                 txtSizePart.Text = dr["ProductSize"].ToString();
                 txtSizeNamePart.Text = dr["ProductSizeName"].ToString();
                 txtColorPart.Text = dr["ProductColor"].ToString();
                 txtColorNamePart.Text = dr["ProductColorName"].ToString();
+                txtDoColorPart.Text = dr["DoColor"].ToString();
                 txtCostPcs.Text = dr["CostPcs"].ToString();
                 txtCostGrs.Text = dr["CostGrs"].ToString();
                 txtCostK.Text = dr["CostK"].ToString();
@@ -530,10 +535,12 @@ namespace cf01.MM
                 txtArtWorkNamePart.Text = "";
                 txtProductTypePart.Text = "";
                 txtProductTypeNamePart.Text = "";
+                txtDoColorPart.Text = "";
                 txtSizePart.Text = "";
                 txtSizeNamePart.Text = "";
                 txtColorPart.Text = "";
                 txtColorNamePart.Text = "";
+                txtDoColorPart.Text = "";
                 txtSNPart.Text = "";
                 txtSeqPart.Text = "";
                 txtMultRate.Text = "1";
@@ -841,10 +848,12 @@ namespace cf01.MM
                 txtArtWorkPart.Text = drPrd["blueprint_id"].ToString();
                 txtProductTypePart.Text = drPrd["base_class"].ToString();
                 txtProductTypeNamePart.Text = drPrd["prd_cdesc"].ToString();
+                txtDoColor.Text = drPrd["DoColor"].ToString();
                 txtSizePart.Text = drPrd["size_id"].ToString();
                 txtSizeNamePart.Text = drPrd["size_cdesc"].ToString();
                 txtColorPart.Text = drPrd["color"].ToString();
                 txtColorNamePart.Text = drPrd["clr_cdesc"].ToString();
+                txtDoColorPart.Text= drPrd["DoColor"].ToString();
                 ////在新增狀態時，填入原料
                 //if (newPartMode == 1 && drPrd["mat_item"].ToString() != "")
                 //{
@@ -865,10 +874,12 @@ namespace cf01.MM
                 txtArtWorkPart.Text = "";
                 txtProductTypePart.Text = "";
                 txtProductTypeNamePart.Text = "";
+                txtDoColor.Text = "";
                 txtSizePart.Text = "";
                 txtSizeNamePart.Text = "";
                 txtColorPart.Text = "";
                 txtColorNamePart.Text = "";
+                txtDoColorPart.Text = "";
                 txtFrontPart.Text = "";
             }
             
@@ -1024,6 +1035,7 @@ namespace cf01.MM
                 txtSizeNamePart.Text = Row["ProductSizeName"].ToString();
                 txtColorPart.Text = Row["ProductColor"].ToString();
                 txtColorNamePart.Text = Row["ProductColorName"].ToString();
+                txtDoColorPart.Text = Row["DoColor"].ToString();
                 txtMatWegTotal.Text = Row["MatWeg"].ToString();
                 txtMatUseTotal.Text = Row["MatUse"].ToString();
                 txtMatCostTotal.Text = Row["MatCost"].ToString();
@@ -1061,6 +1073,7 @@ namespace cf01.MM
             txtSizeNamePart.Text = "";
             txtColorPart.Text = "";
             txtColorNamePart.Text = "";
+            txtDoColorPart.Text = "";
             txtMatWegTotal.Text = "";
             txtMatUseTotal.Text = "";
             txtMatCostTotal.Text = "";
@@ -1103,6 +1116,7 @@ namespace cf01.MM
             mdlGoodsPpart.ProductTypeName = txtProductTypeNamePart.Text;
             mdlGoodsPpart.ProductColor = txtColorPart.Text;
             mdlGoodsPpart.ProductColorName = txtColorNamePart.Text;
+            mdlGoodsPpart.DoColor = txtDoColorPart.Text;
             mdlGoodsPpart.ProductSize = txtSizePart.Text;
             mdlGoodsPpart.ProductSizeName = txtSizeNamePart.Text;
             mdlGoodsPpart.MatWeg = clsValidRule.ConvertStrToSingle(txtMatWegTotal.Text);
@@ -2341,7 +2355,7 @@ namespace cf01.MM
             mdlGoodsPpart.ProductType = Row["ProductType"].ToString();
             mdlGoodsPpart.ProductTypeName = Row["ProductTypeName"].ToString();
             mdlGoodsPpart.FrontPart = Row["FrontPart"].ToString();
-            mdlGoodsPpart.MultRate = clsValidRule.ConvertStrToInt(Row["MultRate"].ToString());
+            mdlGoodsPpart.MultRate = 1;// clsValidRule.ConvertStrToInt(Row["MultRate"].ToString());
             mdlGoodsPpart.ProductSize = Row["ProductSize"].ToString();
             mdlGoodsPpart.ProductSizeName = Row["ProductSizeName"].ToString();
             mdlGoodsPpart.ProductColor = Row["ProductColor"].ToString();
@@ -2486,7 +2500,7 @@ namespace cf01.MM
             excelRange = wSheet.Range[wSheet.Cells[rowIndex, 9], wSheet.Cells[rowIndex, 12]];
             excelRange.MergeCells = true;//合併單元格
             wSheet.Cells[rowIndex, 13]= "產品顏色";
-            wSheet.Cells[rowIndex, 14]= txtColor.Text.ToString().Trim() + " " + txtColorName.Text.ToString().Trim();
+            wSheet.Cells[rowIndex, 14] = txtColor.Text.ToString().Trim() + " " + txtColorName.Text.ToString().Trim() + " ( " + txtDoColor.Text.ToString().Trim() + " )";
             excelRange = wSheet.Range[wSheet.Cells[rowIndex, 14], wSheet.Cells[rowIndex, 15]];
             excelRange.MergeCells = true;//合併單元格
             wSheet.Cells[rowIndex, 16]= "組別";
@@ -2713,12 +2727,14 @@ namespace cf01.MM
         private void txtColorPart_Leave(object sender, EventArgs e)
         {
             txtColorNamePart.Text = "";
+            txtDoColorPart.Text = "";
             if (txtColorPart.Text.Trim() != "")
             {
                 DataTable dtColor = clsBaseData.GetColor(txtColorPart.Text.Trim());
                 if (dtColor.Rows.Count > 0)
                 {
                     txtColorNamePart.Text = dtColor.Rows[0]["name"].ToString().Trim();
+                    txtDoColorPart.Text = dtColor.Rows[0]["do_color"].ToString().Trim();
                 }
             }
         }
@@ -2771,6 +2787,21 @@ namespace cf01.MM
                 if (dtColor.Rows.Count > 0)
                 {
                     txtColorName.Text = dtColor.Rows[0]["name"].ToString().Trim();
+                }
+            }
+        }
+
+        private void txtColor_Leave(object sender, EventArgs e)
+        {
+            txtColorName.Text = "";
+            txtDoColor.Text = "";
+            if (txtColor.Text.Trim() != "")
+            {
+                DataTable dtColor = clsBaseData.GetColor(txtColor.Text.Trim());
+                if (dtColor.Rows.Count > 0)
+                {
+                    txtColorName.Text = dtColor.Rows[0]["name"].ToString().Trim();
+                    txtDoColor.Text= dtColor.Rows[0]["do_color"].ToString().Trim();
                 }
             }
         }

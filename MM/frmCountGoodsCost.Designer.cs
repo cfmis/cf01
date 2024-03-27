@@ -53,6 +53,7 @@
             this.btnFindProduct = new DevExpress.XtraEditors.SimpleButton();
             this.txtMdNo = new DevExpress.XtraEditors.TextEdit();
             this.txtArtWorkName = new DevExpress.XtraEditors.TextEdit();
+            this.lblDoColor = new DevExpress.XtraEditors.LabelControl();
             this.lblColor = new DevExpress.XtraEditors.LabelControl();
             this.lblSize = new DevExpress.XtraEditors.LabelControl();
             this.lblMoGroup = new DevExpress.XtraEditors.LabelControl();
@@ -61,6 +62,7 @@
             this.lblArtWorkName = new DevExpress.XtraEditors.LabelControl();
             this.lblProductId = new DevExpress.XtraEditors.LabelControl();
             this.txtProductTypeName = new DevExpress.XtraEditors.TextEdit();
+            this.txtDoColor = new DevExpress.XtraEditors.TextEdit();
             this.txtColorName = new DevExpress.XtraEditors.TextEdit();
             this.txtColor = new DevExpress.XtraEditors.TextEdit();
             this.txtSizeName = new DevExpress.XtraEditors.TextEdit();
@@ -97,6 +99,7 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn58 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn59 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn60 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -377,7 +380,11 @@
             this.btnAddMat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.lblDoColorPart = new DevExpress.XtraEditors.LabelControl();
+            this.txtDoColorPart = new DevExpress.XtraEditors.TextEdit();
             this.btnFindProductPart = new DevExpress.XtraEditors.SimpleButton();
+            this.txtMultRate = new DevExpress.XtraEditors.TextEdit();
+            this.lblMultRate = new DevExpress.XtraEditors.LabelControl();
             this.txtFrontPart = new DevExpress.XtraEditors.TextEdit();
             this.lblFrontPart = new DevExpress.XtraEditors.LabelControl();
             this.txtArtWorkNamePart = new DevExpress.XtraEditors.TextEdit();
@@ -404,9 +411,7 @@
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.btnAddPart = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
-            this.lblMultRate = new DevExpress.XtraEditors.LabelControl();
-            this.txtMultRate = new DevExpress.XtraEditors.TextEdit();
-            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -414,6 +419,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMdNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWorkName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductTypeName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeName.Properties)).BeginInit();
@@ -580,6 +586,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMatCostTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoColorPart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMultRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFrontPart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWorkNamePart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeNamePart.Properties)).BeginInit();
@@ -596,7 +604,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMultRate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -776,6 +783,7 @@
             this.panelControl1.Controls.Add(this.btnFindProduct);
             this.panelControl1.Controls.Add(this.txtMdNo);
             this.panelControl1.Controls.Add(this.txtArtWorkName);
+            this.panelControl1.Controls.Add(this.lblDoColor);
             this.panelControl1.Controls.Add(this.lblColor);
             this.panelControl1.Controls.Add(this.lblSize);
             this.panelControl1.Controls.Add(this.lblMoGroup);
@@ -784,6 +792,7 @@
             this.panelControl1.Controls.Add(this.lblArtWorkName);
             this.panelControl1.Controls.Add(this.lblProductId);
             this.panelControl1.Controls.Add(this.txtProductTypeName);
+            this.panelControl1.Controls.Add(this.txtDoColor);
             this.panelControl1.Controls.Add(this.txtColorName);
             this.panelControl1.Controls.Add(this.txtColor);
             this.panelControl1.Controls.Add(this.txtSizeName);
@@ -816,7 +825,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1537, 110);
+            this.panelControl1.Size = new System.Drawing.Size(1537, 136);
             this.panelControl1.TabIndex = 2;
             // 
             // lueMoGroup
@@ -855,6 +864,14 @@
             this.txtArtWorkName.Name = "txtArtWorkName";
             this.txtArtWorkName.Size = new System.Drawing.Size(161, 20);
             this.txtArtWorkName.TabIndex = 6;
+            // 
+            // lblDoColor
+            // 
+            this.lblDoColor.Location = new System.Drawing.Point(833, 62);
+            this.lblDoColor.Name = "lblDoColor";
+            this.lblDoColor.Size = new System.Drawing.Size(52, 14);
+            this.lblDoColor.TabIndex = 6;
+            this.lblDoColor.Text = "顏色做法:";
             // 
             // lblColor
             // 
@@ -919,6 +936,13 @@
             this.txtProductTypeName.Size = new System.Drawing.Size(151, 20);
             this.txtProductTypeName.TabIndex = 8;
             // 
+            // txtDoColor
+            // 
+            this.txtDoColor.Location = new System.Drawing.Point(888, 60);
+            this.txtDoColor.Name = "txtDoColor";
+            this.txtDoColor.Size = new System.Drawing.Size(222, 20);
+            this.txtDoColor.TabIndex = 10;
+            // 
             // txtColorName
             // 
             this.txtColorName.Location = new System.Drawing.Point(986, 37);
@@ -935,6 +959,7 @@
             this.txtColor.Properties.Leave += new System.EventHandler(this.txtColor_Properties_Leave);
             this.txtColor.Size = new System.Drawing.Size(92, 20);
             this.txtColor.TabIndex = 9;
+            this.txtColor.Leave += new System.EventHandler(this.txtColor_Leave);
             // 
             // txtSizeName
             // 
@@ -972,7 +997,7 @@
             // 
             // lblRemark
             // 
-            this.lblRemark.Location = new System.Drawing.Point(857, 62);
+            this.lblRemark.Location = new System.Drawing.Point(510, 84);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(28, 14);
             this.lblRemark.TabIndex = 4;
@@ -980,9 +1005,9 @@
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(888, 60);
+            this.txtRemark.Location = new System.Drawing.Point(541, 83);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(362, 20);
+            this.txtRemark.Size = new System.Drawing.Size(569, 20);
             this.txtRemark.TabIndex = 15;
             // 
             // txtSN
@@ -995,14 +1020,14 @@
             // 
             // txtAmendTime
             // 
-            this.txtAmendTime.Location = new System.Drawing.Point(888, 83);
+            this.txtAmendTime.Location = new System.Drawing.Point(267, 109);
             this.txtAmendTime.Name = "txtAmendTime";
             this.txtAmendTime.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtAmendTime.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.txtAmendTime.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtAmendTime.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAmendTime.Properties.ReadOnly = true;
-            this.txtAmendTime.Size = new System.Drawing.Size(222, 20);
+            this.txtAmendTime.Size = new System.Drawing.Size(161, 20);
             this.txtAmendTime.TabIndex = 15;
             // 
             // txtCreateTime
@@ -1019,7 +1044,7 @@
             // 
             // lblAmendTime
             // 
-            this.lblAmendTime.Location = new System.Drawing.Point(833, 86);
+            this.lblAmendTime.Location = new System.Drawing.Point(212, 112);
             this.lblAmendTime.Name = "lblAmendTime";
             this.lblAmendTime.Size = new System.Drawing.Size(52, 14);
             this.lblAmendTime.TabIndex = 0;
@@ -1035,19 +1060,19 @@
             // 
             // txtAmendUser
             // 
-            this.txtAmendUser.Location = new System.Drawing.Point(541, 83);
+            this.txtAmendUser.Location = new System.Drawing.Point(84, 109);
             this.txtAmendUser.Name = "txtAmendUser";
             this.txtAmendUser.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtAmendUser.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.txtAmendUser.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtAmendUser.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAmendUser.Properties.ReadOnly = true;
-            this.txtAmendUser.Size = new System.Drawing.Size(279, 20);
+            this.txtAmendUser.Size = new System.Drawing.Size(122, 20);
             this.txtAmendUser.TabIndex = 14;
             // 
             // lblAmendUser
             // 
-            this.lblAmendUser.Location = new System.Drawing.Point(498, 86);
+            this.lblAmendUser.Location = new System.Drawing.Point(36, 112);
             this.lblAmendUser.Name = "lblAmendUser";
             this.lblAmendUser.Size = new System.Drawing.Size(40, 14);
             this.lblAmendUser.TabIndex = 0;
@@ -1185,7 +1210,7 @@
             this.panelControl2.Controls.Add(this.gcGoodsPartDetails);
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 110);
+            this.panelControl2.Location = new System.Drawing.Point(0, 136);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1537, 236);
             this.panelControl2.TabIndex = 3;
@@ -1225,6 +1250,7 @@
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
+            this.gridColumn78,
             this.gridColumn77,
             this.gridColumn23,
             this.gridColumn34,
@@ -1283,6 +1309,15 @@
             this.gridColumn15.VisibleIndex = 3;
             this.gridColumn15.Width = 60;
             // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "用量倍數";
+            this.gridColumn37.FieldName = "MultRate";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Visible = true;
+            this.gridColumn37.VisibleIndex = 4;
+            this.gridColumn37.Width = 56;
+            // 
             // gridColumn58
             // 
             this.gridColumn58.Caption = "工廠合計成本/PCS";
@@ -1290,7 +1325,7 @@
             this.gridColumn58.Name = "gridColumn58";
             this.gridColumn58.OptionsColumn.ReadOnly = true;
             this.gridColumn58.Visible = true;
-            this.gridColumn58.VisibleIndex = 4;
+            this.gridColumn58.VisibleIndex = 5;
             this.gridColumn58.Width = 119;
             // 
             // gridColumn59
@@ -1300,7 +1335,7 @@
             this.gridColumn59.Name = "gridColumn59";
             this.gridColumn59.OptionsColumn.ReadOnly = true;
             this.gridColumn59.Visible = true;
-            this.gridColumn59.VisibleIndex = 5;
+            this.gridColumn59.VisibleIndex = 6;
             this.gridColumn59.Width = 124;
             // 
             // gridColumn60
@@ -1310,7 +1345,7 @@
             this.gridColumn60.Name = "gridColumn60";
             this.gridColumn60.OptionsColumn.ReadOnly = true;
             this.gridColumn60.Visible = true;
-            this.gridColumn60.VisibleIndex = 6;
+            this.gridColumn60.VisibleIndex = 7;
             this.gridColumn60.Width = 100;
             // 
             // gridColumn7
@@ -1320,7 +1355,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.ReadOnly = true;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.VisibleIndex = 8;
             this.gridColumn7.Width = 90;
             // 
             // gridColumn8
@@ -1330,7 +1365,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.ReadOnly = true;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.VisibleIndex = 9;
             this.gridColumn8.Width = 120;
             // 
             // gridColumn9
@@ -1340,7 +1375,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 9;
+            this.gridColumn9.VisibleIndex = 10;
             this.gridColumn9.Width = 80;
             // 
             // gridColumn10
@@ -1350,7 +1385,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.ReadOnly = true;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 10;
+            this.gridColumn10.VisibleIndex = 11;
             this.gridColumn10.Width = 100;
             // 
             // gridColumn11
@@ -1360,7 +1395,7 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.ReadOnly = true;
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 11;
+            this.gridColumn11.VisibleIndex = 12;
             this.gridColumn11.Width = 80;
             // 
             // gridColumn12
@@ -1370,7 +1405,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.ReadOnly = true;
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 12;
+            this.gridColumn12.VisibleIndex = 13;
             this.gridColumn12.Width = 100;
             // 
             // gridColumn13
@@ -1380,7 +1415,7 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.ReadOnly = true;
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 13;
+            this.gridColumn13.VisibleIndex = 14;
             this.gridColumn13.Width = 80;
             // 
             // gridColumn14
@@ -1390,7 +1425,7 @@
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.ReadOnly = true;
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 14;
+            this.gridColumn14.VisibleIndex = 15;
             this.gridColumn14.Width = 100;
             // 
             // gridColumn77
@@ -1399,7 +1434,7 @@
             this.gridColumn77.FieldName = "MatWeg";
             this.gridColumn77.Name = "gridColumn77";
             this.gridColumn77.Visible = true;
-            this.gridColumn77.VisibleIndex = 15;
+            this.gridColumn77.VisibleIndex = 17;
             this.gridColumn77.Width = 100;
             // 
             // gridColumn23
@@ -1409,7 +1444,7 @@
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.OptionsColumn.ReadOnly = true;
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 16;
+            this.gridColumn23.VisibleIndex = 18;
             // 
             // gridColumn34
             // 
@@ -1418,7 +1453,7 @@
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.OptionsColumn.ReadOnly = true;
             this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 17;
+            this.gridColumn34.VisibleIndex = 19;
             // 
             // gridColumn35
             // 
@@ -1427,7 +1462,7 @@
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.OptionsColumn.ReadOnly = true;
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 18;
+            this.gridColumn35.VisibleIndex = 20;
             // 
             // gridColumn51
             // 
@@ -1436,7 +1471,7 @@
             this.gridColumn51.Name = "gridColumn51";
             this.gridColumn51.OptionsColumn.ReadOnly = true;
             this.gridColumn51.Visible = true;
-            this.gridColumn51.VisibleIndex = 19;
+            this.gridColumn51.VisibleIndex = 21;
             this.gridColumn51.Width = 100;
             // 
             // gridColumn55
@@ -1446,7 +1481,7 @@
             this.gridColumn55.Name = "gridColumn55";
             this.gridColumn55.OptionsColumn.ReadOnly = true;
             this.gridColumn55.Visible = true;
-            this.gridColumn55.VisibleIndex = 20;
+            this.gridColumn55.VisibleIndex = 22;
             this.gridColumn55.Width = 80;
             // 
             // gridColumn4
@@ -1456,7 +1491,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 21;
+            this.gridColumn4.VisibleIndex = 23;
             this.gridColumn4.Width = 90;
             // 
             // gridColumn5
@@ -1466,7 +1501,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 24;
+            this.gridColumn5.VisibleIndex = 26;
             this.gridColumn5.Width = 90;
             // 
             // gridColumn6
@@ -1476,7 +1511,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 22;
+            this.gridColumn6.VisibleIndex = 24;
             this.gridColumn6.Width = 90;
             // 
             // gridColumn57
@@ -1486,7 +1521,7 @@
             this.gridColumn57.Name = "gridColumn57";
             this.gridColumn57.OptionsColumn.ReadOnly = true;
             this.gridColumn57.Visible = true;
-            this.gridColumn57.VisibleIndex = 23;
+            this.gridColumn57.VisibleIndex = 25;
             this.gridColumn57.Width = 80;
             // 
             // repositoryItemLookUpEdit4
@@ -1559,7 +1594,7 @@
             // 
             this.plcPurPrice.Controls.Add(this.gcPurPriceDetails);
             this.plcPurPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcPurPrice.Location = new System.Drawing.Point(0, 538);
+            this.plcPurPrice.Location = new System.Drawing.Point(0, 564);
             this.plcPurPrice.Name = "plcPurPrice";
             this.plcPurPrice.Size = new System.Drawing.Size(1537, 146);
             this.plcPurPrice.TabIndex = 5;
@@ -1774,7 +1809,7 @@
             this.panelControl15.Controls.Add(this.btnAddPur);
             this.panelControl15.Controls.Add(this.labelControl38);
             this.panelControl15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl15.Location = new System.Drawing.Point(0, 506);
+            this.panelControl15.Location = new System.Drawing.Point(0, 532);
             this.panelControl15.Name = "panelControl15";
             this.panelControl15.Size = new System.Drawing.Size(1537, 32);
             this.panelControl15.TabIndex = 6;
@@ -1859,7 +1894,7 @@
             this.plcProfit.Controls.Add(this.lblTestQty);
             this.plcProfit.Controls.Add(this.lblSalePricePcs);
             this.plcProfit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcProfit.Location = new System.Drawing.Point(0, 378);
+            this.plcProfit.Location = new System.Drawing.Point(0, 404);
             this.plcProfit.Name = "plcProfit";
             this.plcProfit.Size = new System.Drawing.Size(1537, 128);
             this.plcProfit.TabIndex = 4;
@@ -2146,7 +2181,7 @@
             this.panelControl16.Controls.Add(this.lblProductCostK);
             this.panelControl16.Controls.Add(this.txtProductCostGrs);
             this.panelControl16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl16.Location = new System.Drawing.Point(0, 346);
+            this.panelControl16.Location = new System.Drawing.Point(0, 372);
             this.panelControl16.Name = "panelControl16";
             this.panelControl16.Size = new System.Drawing.Size(1537, 32);
             this.panelControl16.TabIndex = 7;
@@ -2251,7 +2286,7 @@
             this.panelControl9.Controls.Add(this.lblFactoryCostPcs);
             this.panelControl9.Controls.Add(this.lblFactoryTotalK);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl9.Location = new System.Drawing.Point(0, 878);
+            this.panelControl9.Location = new System.Drawing.Point(0, 873);
             this.panelControl9.Name = "panelControl9";
             this.panelControl9.Size = new System.Drawing.Size(1537, 44);
             this.panelControl9.TabIndex = 40;
@@ -2333,7 +2368,7 @@
             // 
             this.plcFactory.Controls.Add(this.gcGoodsFactory);
             this.plcFactory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcFactory.Location = new System.Drawing.Point(0, 778);
+            this.plcFactory.Location = new System.Drawing.Point(0, 773);
             this.plcFactory.Name = "plcFactory";
             this.plcFactory.Size = new System.Drawing.Size(1537, 100);
             this.plcFactory.TabIndex = 39;
@@ -2529,7 +2564,7 @@
             this.panelControl8.Controls.Add(this.btnSetFactoryVisible);
             this.panelControl8.Controls.Add(this.labelControl8);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl8.Location = new System.Drawing.Point(0, 746);
+            this.panelControl8.Location = new System.Drawing.Point(0, 741);
             this.panelControl8.Name = "panelControl8";
             this.panelControl8.Size = new System.Drawing.Size(1537, 32);
             this.panelControl8.TabIndex = 10;
@@ -2608,7 +2643,7 @@
             this.panelControl6.Controls.Add(this.lblCostPcs);
             this.panelControl6.Controls.Add(this.lblCostGrs);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl6.Location = new System.Drawing.Point(0, 710);
+            this.panelControl6.Location = new System.Drawing.Point(0, 705);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(1537, 36);
             this.panelControl6.TabIndex = 9;
@@ -2690,7 +2725,7 @@
             // 
             this.plcPack.Controls.Add(this.gcGoodsPack);
             this.plcPack.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcPack.Location = new System.Drawing.Point(0, 614);
+            this.plcPack.Location = new System.Drawing.Point(0, 609);
             this.plcPack.Name = "plcPack";
             this.plcPack.Size = new System.Drawing.Size(1537, 96);
             this.plcPack.TabIndex = 8;
@@ -2905,7 +2940,7 @@
             this.panelControl14.Controls.Add(this.btnAddPack);
             this.panelControl14.Controls.Add(this.labelControl20);
             this.panelControl14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl14.Location = new System.Drawing.Point(0, 582);
+            this.panelControl14.Location = new System.Drawing.Point(0, 577);
             this.panelControl14.Name = "panelControl14";
             this.panelControl14.Size = new System.Drawing.Size(1537, 32);
             this.panelControl14.TabIndex = 1;
@@ -2966,7 +3001,7 @@
             // 
             this.plcPlate.Controls.Add(this.gcGoodsPlate);
             this.plcPlate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcPlate.Location = new System.Drawing.Point(0, 481);
+            this.plcPlate.Location = new System.Drawing.Point(0, 476);
             this.plcPlate.Name = "plcPlate";
             this.plcPlate.Size = new System.Drawing.Size(1537, 101);
             this.plcPlate.TabIndex = 7;
@@ -3296,7 +3331,7 @@
             this.panelControl12.Controls.Add(this.btnAddPlate);
             this.panelControl12.Controls.Add(this.labelControl19);
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl12.Location = new System.Drawing.Point(0, 449);
+            this.panelControl12.Location = new System.Drawing.Point(0, 444);
             this.panelControl12.Name = "panelControl12";
             this.panelControl12.Size = new System.Drawing.Size(1537, 32);
             this.panelControl12.TabIndex = 0;
@@ -3357,7 +3392,7 @@
             // 
             this.plcProcess.Controls.Add(this.gcGoodsProcess);
             this.plcProcess.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcProcess.Location = new System.Drawing.Point(0, 260);
+            this.plcProcess.Location = new System.Drawing.Point(0, 255);
             this.plcProcess.Name = "plcProcess";
             this.plcProcess.Size = new System.Drawing.Size(1537, 189);
             this.plcProcess.TabIndex = 6;
@@ -3594,7 +3629,7 @@
             this.panelControl10.Controls.Add(this.lblProcessCostTotal);
             this.panelControl10.Controls.Add(this.labelControl18);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl10.Location = new System.Drawing.Point(0, 228);
+            this.panelControl10.Location = new System.Drawing.Point(0, 223);
             this.panelControl10.Name = "panelControl10";
             this.panelControl10.Size = new System.Drawing.Size(1537, 32);
             this.panelControl10.TabIndex = 0;
@@ -3694,7 +3729,7 @@
             // 
             this.plcMat.Controls.Add(this.gcMatDetails);
             this.plcMat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcMat.Location = new System.Drawing.Point(0, 138);
+            this.plcMat.Location = new System.Drawing.Point(0, 133);
             this.plcMat.Name = "plcMat";
             this.plcMat.Size = new System.Drawing.Size(1537, 90);
             this.plcMat.TabIndex = 5;
@@ -3963,7 +3998,7 @@
             this.panelControl7.Controls.Add(this.btnAddMat);
             this.panelControl7.Controls.Add(this.labelControl6);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl7.Location = new System.Drawing.Point(0, 106);
+            this.panelControl7.Location = new System.Drawing.Point(0, 101);
             this.panelControl7.Name = "panelControl7";
             this.panelControl7.Size = new System.Drawing.Size(1537, 32);
             this.panelControl7.TabIndex = 0;
@@ -4060,6 +4095,8 @@
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.lblDoColorPart);
+            this.panelControl5.Controls.Add(this.txtDoColorPart);
             this.panelControl5.Controls.Add(this.btnFindProductPart);
             this.panelControl5.Controls.Add(this.txtMultRate);
             this.panelControl5.Controls.Add(this.lblMultRate);
@@ -4086,8 +4123,23 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(0, 32);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1537, 74);
+            this.panelControl5.Size = new System.Drawing.Size(1537, 69);
             this.panelControl5.TabIndex = 4;
+            // 
+            // lblDoColorPart
+            // 
+            this.lblDoColorPart.Location = new System.Drawing.Point(889, 41);
+            this.lblDoColorPart.Name = "lblDoColorPart";
+            this.lblDoColorPart.Size = new System.Drawing.Size(52, 14);
+            this.lblDoColorPart.TabIndex = 13;
+            this.lblDoColorPart.Text = "顏色做法:";
+            // 
+            // txtDoColorPart
+            // 
+            this.txtDoColorPart.Location = new System.Drawing.Point(948, 39);
+            this.txtDoColorPart.Name = "txtDoColorPart";
+            this.txtDoColorPart.Size = new System.Drawing.Size(196, 20);
+            this.txtDoColorPart.TabIndex = 14;
             // 
             // btnFindProductPart
             // 
@@ -4098,17 +4150,33 @@
             this.btnFindProductPart.Text = "...";
             this.btnFindProductPart.Click += new System.EventHandler(this.btnFindProductPart_Click);
             // 
+            // txtMultRate
+            // 
+            this.txtMultRate.Location = new System.Drawing.Point(1080, 16);
+            this.txtMultRate.Name = "txtMultRate";
+            this.txtMultRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMultRate.Size = new System.Drawing.Size(64, 20);
+            this.txtMultRate.TabIndex = 4;
+            // 
+            // lblMultRate
+            // 
+            this.lblMultRate.Location = new System.Drawing.Point(1022, 19);
+            this.lblMultRate.Name = "lblMultRate";
+            this.lblMultRate.Size = new System.Drawing.Size(52, 14);
+            this.lblMultRate.TabIndex = 10;
+            this.lblMultRate.Text = "用料倍數:";
+            // 
             // txtFrontPart
             // 
-            this.txtFrontPart.Location = new System.Drawing.Point(970, 16);
+            this.txtFrontPart.Location = new System.Drawing.Point(948, 16);
             this.txtFrontPart.Name = "txtFrontPart";
             this.txtFrontPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFrontPart.Size = new System.Drawing.Size(92, 20);
+            this.txtFrontPart.Size = new System.Drawing.Size(64, 20);
             this.txtFrontPart.TabIndex = 4;
             // 
             // lblFrontPart
             // 
-            this.lblFrontPart.Location = new System.Drawing.Point(935, 19);
+            this.lblFrontPart.Location = new System.Drawing.Point(913, 19);
             this.lblFrontPart.Name = "lblFrontPart";
             this.lblFrontPart.Size = new System.Drawing.Size(28, 14);
             this.lblFrontPart.TabIndex = 10;
@@ -4116,7 +4184,7 @@
             // 
             // txtArtWorkNamePart
             // 
-            this.txtArtWorkNamePart.Location = new System.Drawing.Point(461, 42);
+            this.txtArtWorkNamePart.Location = new System.Drawing.Point(461, 39);
             this.txtArtWorkNamePart.Name = "txtArtWorkNamePart";
             this.txtArtWorkNamePart.Size = new System.Drawing.Size(183, 20);
             this.txtArtWorkNamePart.TabIndex = 8;
@@ -4125,7 +4193,7 @@
             // 
             this.txtSizeNamePart.Location = new System.Drawing.Point(779, 16);
             this.txtSizeNamePart.Name = "txtSizeNamePart";
-            this.txtSizeNamePart.Size = new System.Drawing.Size(124, 20);
+            this.txtSizeNamePart.Size = new System.Drawing.Size(105, 20);
             this.txtSizeNamePart.TabIndex = 3;
             // 
             // txtProductIdPart
@@ -4150,7 +4218,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(649, 45);
+            this.labelControl1.Location = new System.Drawing.Point(649, 42);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 14);
             this.labelControl1.TabIndex = 6;
@@ -4166,7 +4234,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(21, 45);
+            this.labelControl12.Location = new System.Drawing.Point(21, 42);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(52, 14);
             this.labelControl12.TabIndex = 0;
@@ -4174,7 +4242,7 @@
             // 
             // txtArtWorkPart
             // 
-            this.txtArtWorkPart.Location = new System.Drawing.Point(350, 42);
+            this.txtArtWorkPart.Location = new System.Drawing.Point(350, 39);
             this.txtArtWorkPart.Name = "txtArtWorkPart";
             this.txtArtWorkPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtArtWorkPart.Properties.MaxLength = 7;
@@ -4184,7 +4252,7 @@
             // 
             // txtProductTypePart
             // 
-            this.txtProductTypePart.Location = new System.Drawing.Point(81, 42);
+            this.txtProductTypePart.Location = new System.Drawing.Point(81, 39);
             this.txtProductTypePart.Name = "txtProductTypePart";
             this.txtProductTypePart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProductTypePart.Properties.MaxLength = 2;
@@ -4201,7 +4269,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(292, 45);
+            this.labelControl13.Location = new System.Drawing.Point(292, 42);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(52, 14);
             this.labelControl13.TabIndex = 0;
@@ -4217,7 +4285,7 @@
             // 
             // txtColorPart
             // 
-            this.txtColorPart.Location = new System.Drawing.Point(710, 42);
+            this.txtColorPart.Location = new System.Drawing.Point(710, 39);
             this.txtColorPart.Name = "txtColorPart";
             this.txtColorPart.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColorPart.Properties.MaxLength = 4;
@@ -4235,30 +4303,32 @@
             // 
             // txtSNPart
             // 
-            this.txtSNPart.Location = new System.Drawing.Point(1181, 16);
+            this.txtSNPart.Location = new System.Drawing.Point(1248, 16);
             this.txtSNPart.Name = "txtSNPart";
             this.txtSNPart.Properties.ReadOnly = true;
             this.txtSNPart.Size = new System.Drawing.Size(92, 20);
             this.txtSNPart.TabIndex = 5;
+            this.txtSNPart.Visible = false;
             // 
             // txtSeqPart
             // 
-            this.txtSeqPart.Location = new System.Drawing.Point(1074, 16);
+            this.txtSeqPart.Location = new System.Drawing.Point(1150, 16);
             this.txtSeqPart.Name = "txtSeqPart";
             this.txtSeqPart.Properties.ReadOnly = true;
             this.txtSeqPart.Size = new System.Drawing.Size(92, 20);
             this.txtSeqPart.TabIndex = 5;
+            this.txtSeqPart.Visible = false;
             // 
             // txtColorNamePart
             // 
-            this.txtColorNamePart.Location = new System.Drawing.Point(779, 42);
+            this.txtColorNamePart.Location = new System.Drawing.Point(779, 39);
             this.txtColorNamePart.Name = "txtColorNamePart";
-            this.txtColorNamePart.Size = new System.Drawing.Size(124, 20);
+            this.txtColorNamePart.Size = new System.Drawing.Size(105, 20);
             this.txtColorNamePart.TabIndex = 10;
             // 
             // txtProductTypeNamePart
             // 
-            this.txtProductTypeNamePart.Location = new System.Drawing.Point(146, 42);
+            this.txtProductTypeNamePart.Location = new System.Drawing.Point(146, 39);
             this.txtProductTypeNamePart.Name = "txtProductTypeNamePart";
             this.txtProductTypeNamePart.Size = new System.Drawing.Size(141, 20);
             this.txtProductTypeNamePart.TabIndex = 6;
@@ -4317,30 +4387,14 @@
             this.textEdit10.TabIndex = 2;
             this.textEdit10.Visible = false;
             // 
-            // lblMultRate
+            // gridColumn78
             // 
-            this.lblMultRate.Location = new System.Drawing.Point(911, 45);
-            this.lblMultRate.Name = "lblMultRate";
-            this.lblMultRate.Size = new System.Drawing.Size(52, 14);
-            this.lblMultRate.TabIndex = 10;
-            this.lblMultRate.Text = "用料倍數:";
-            // 
-            // txtMultRate
-            // 
-            this.txtMultRate.Location = new System.Drawing.Point(970, 42);
-            this.txtMultRate.Name = "txtMultRate";
-            this.txtMultRate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMultRate.Size = new System.Drawing.Size(92, 20);
-            this.txtMultRate.TabIndex = 4;
-            // 
-            // gridColumn37
-            // 
-            this.gridColumn37.Caption = "用量倍數";
-            this.gridColumn37.FieldName = "MultRate";
-            this.gridColumn37.Name = "gridColumn37";
-            this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 4;
-            this.gridColumn37.Width = 56;
+            this.gridColumn78.Caption = "顏色做法";
+            this.gridColumn78.FieldName = "DoColor";
+            this.gridColumn78.Name = "gridColumn78";
+            this.gridColumn78.Visible = true;
+            this.gridColumn78.VisibleIndex = 16;
+            this.gridColumn78.Width = 100;
             // 
             // frmCountGoodsCost
             // 
@@ -4362,6 +4416,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMdNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWorkName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductTypeName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColorName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeName.Properties)).EndInit();
@@ -4540,6 +4595,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoColorPart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMultRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFrontPart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWorkNamePart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSizeNamePart.Properties)).EndInit();
@@ -4557,7 +4614,6 @@
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMultRate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4943,5 +4999,10 @@
         private DevExpress.XtraEditors.TextEdit txtMultRate;
         private DevExpress.XtraEditors.LabelControl lblMultRate;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraEditors.LabelControl lblDoColor;
+        private DevExpress.XtraEditors.TextEdit txtDoColor;
+        private DevExpress.XtraEditors.LabelControl lblDoColorPart;
+        private DevExpress.XtraEditors.TextEdit txtDoColorPart;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
     }
 }
