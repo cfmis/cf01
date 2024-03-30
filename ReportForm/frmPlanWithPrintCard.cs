@@ -45,6 +45,7 @@ namespace cf01.ReportForm
             dgvDetails.AutoGenerateColumns = false;
             AddCheckBox();
             InitQueryValue();
+            txtNextWip.Text = "128";
         }
 
         /// <summary>
@@ -195,7 +196,7 @@ namespace cf01.ReportForm
                     return;
                 }
                 //**********************
-                show_workcard(); //数据处理
+                show_workcard(1); //数据处理
                 //**********************
 
             }
@@ -675,7 +676,7 @@ namespace cf01.ReportForm
         /// <summary>
         ///獲取數據，并顯示工序卡 
         /// </summary>
-        private void show_workcard()
+        private void show_workcard(int rpt_type)
         {
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
@@ -686,81 +687,8 @@ namespace cf01.ReportForm
 
             string dep="", mo="", item="", Request_date="", Remark="",next_goods_id="";
 
-            DataTable dtNewWork = new DataTable();
-            dtNewWork.Columns.Add("wp_id", typeof(string));
-            dtNewWork.Columns.Add("mo_id", typeof(string));
-            dtNewWork.Columns.Add("goods_id", typeof(string));
-            dtNewWork.Columns.Add("goods_name", typeof(string));
-            dtNewWork.Columns.Add("prod_qty", typeof(string));
-            dtNewWork.Columns.Add("goods_unit", typeof(string));
-            dtNewWork.Columns.Add("within_code", typeof(string));
-            dtNewWork.Columns.Add("id", typeof(string));
-            dtNewWork.Columns.Add("ver", typeof(string));
-            dtNewWork.Columns.Add("sequence_id", typeof(string));
-            dtNewWork.Columns.Add("blueprint_id", typeof(string));
-            dtNewWork.Columns.Add("production_remark", typeof(string));
-            dtNewWork.Columns.Add("remark", typeof(string));            
-            dtNewWork.Columns.Add("next_wp_id", typeof(string));
-            dtNewWork.Columns.Add("predept_rechange_qty", typeof(decimal));
-            dtNewWork.Columns.Add("order_qty", typeof(string));
-            dtNewWork.Columns.Add("order_unit", typeof(string));
-            dtNewWork.Columns.Add("color", typeof(string));
-            dtNewWork.Columns.Add("base_qty", typeof(int));
-            dtNewWork.Columns.Add("unit_code", typeof(string));
-            dtNewWork.Columns.Add("base_rate", typeof(int));
-            dtNewWork.Columns.Add("basic_unit", typeof(string));
-            dtNewWork.Columns.Add("art_id", typeof(string));
-            dtNewWork.Columns.Add("picture_name", typeof(string));
-            dtNewWork.Columns.Add("color_name", typeof(string));
-            dtNewWork.Columns.Add("do_color", typeof(string));
-            dtNewWork.Columns.Add("order_qty_pcs", typeof(string));
-            dtNewWork.Columns.Add("next_dep_name", typeof(string));
-            dtNewWork.Columns.Add("customer_id", typeof(string));
-            dtNewWork.Columns.Add("brand_id", typeof(string));
-            dtNewWork.Columns.Add("get_color_sample", typeof(string));
-            dtNewWork.Columns.Add("do_color1", typeof(string));
-            dtNewWork.Columns.Add("page_num", typeof(int));
-            dtNewWork.Columns.Add("per_qty", typeof(string));
-            dtNewWork.Columns.Add("t_complete_date", typeof(string));
-            dtNewWork.Columns.Add("arrive_date", typeof(string));
-            dtNewWork.Columns.Add("total_page", typeof(int));
-            dtNewWork.Columns.Add("get_color_sample_name", typeof(string));
-            dtNewWork.Columns.Add("vendor_id", typeof(string));
-            dtNewWork.Columns.Add("c_sec_qty_ok", typeof(int));
-            dtNewWork.Columns.Add("depRemark", typeof(string));
-            dtNewWork.Columns.Add("request_date", typeof(string));
-            dtNewWork.Columns.Add("position_id", typeof(string));
-            dtNewWork.Columns.Add("report_name", typeof(string));
-            dtNewWork.Columns.Add("crtime", typeof(string));
-            dtNewWork.Columns.Add("mould_no", typeof(string));
-            dtNewWork.Columns.Add("BarCode", typeof(string));
-            //dtNewWork.Columns.Add("goods_position", typeof(string));
-            dtNewWork.Columns.Add("pe_qty", typeof(string));
-            dtNewWork.Columns.Add("step", typeof(string));
-            dtNewWork.Columns.Add("do_color_next_dep", typeof(string));
-            dtNewWork.Columns.Add("plate_remark", typeof(string));            
-            dtNewWork.Columns.Add("net_weight", typeof(string));
-            dtNewWork.Columns.Add("wh_location", typeof(string));
-
-            dtNewWork.Columns.Add("next_goods_id", typeof(string));
-            dtNewWork.Columns.Add("next_do_color", typeof(string));
-            dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
-            dtNewWork.Columns.Add("next_vendor_id", typeof(string));
-            dtNewWork.Columns.Add("next_goods_name", typeof(string));
-            dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
-            dtNewWork.Columns.Add("prod_date", typeof(string));
-
-            dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
-            dtNewWork.Columns.Add("next_next_do_color", typeof(string));
-            dtNewWork.Columns.Add("qty_remaining", typeof(int));
-
-            //2024/03/12
-            dtNewWork.Columns.Add("qc_dept", typeof(string));
-            dtNewWork.Columns.Add("qc_name", typeof(string));
-            dtNewWork.Columns.Add("qc_qty", typeof(string));
-
-
-
+            ////建立工序卡臨時表
+            DataTable dtNewWork = CreateNewWork();
             DataRow dr = null;
             string order_unit;
             int order_qty, order_qty_pcs;
@@ -770,17 +698,52 @@ namespace cf01.ReportForm
             DataTable dtQty = new DataTable();
             DataTable dtPs = new DataTable();
             DataTable dtNextNextItem = new DataTable();
+            DataTable dtCurrentWipItem = new DataTable();
+            DataTable dtNextItem = new DataTable();
+            string do_color_next_dep = "";
+            string next_dep_id = "";
             for (int j = 0; j < dgvDetails.RowCount; j++)
             {
                 if ((bool)dgvDetails.Rows[j].Cells["CheckBox"].EditedFormattedValue)
                 {
                     DataGridViewRow dgr = dgvDetails.Rows[j];
                     Remark = "";
-                    Request_date = dgr.Cells["t_complete_date"].Value.ToString().Trim();
-                    dep = dgr.Cells["wp_id"].Value.ToString().Trim();
                     mo = dgr.Cells["mo_id"].Value.ToString().Trim();
-                    item = dgr.Cells["goods_id"].Value.ToString().Trim();
-                    next_goods_id = dgr.Cells["next_goods_id"].Value.ToString().Trim(); //2023/03/02
+                    if (rpt_type == 1)//列印當前部門的工序卡
+                    {
+                        dep = dgr.Cells["wp_id"].Value.ToString().Trim();
+                        item = dgr.Cells["goods_id"].Value.ToString().Trim();
+                        //當前貨品的下部門的貨品、顏色做法
+                        next_goods_id = dgr.Cells["next_goods_id"].Value.ToString().Trim(); //2023/03/02
+                        do_color_next_dep = dgr.Cells["next_do_color"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
+                        next_dep_id = dgr.Cells["next_wp_id"].Value.ToString().Trim();
+                    }
+                    else//列印下部門的工序卡
+                    {
+                        dep = txtNextWip.Text.Trim();
+                        if (dgr.Cells["next_wp_id"].Value.ToString().Trim() != dep)
+                            continue;
+                        item = dgr.Cells["next_goods_id"].Value.ToString().Trim();
+
+                        //獲取當前貨品的下部門的貨品、顏色做法
+                        //這裡是將當前貨品作為下部門的原料來查找，所以找出來的已是下部門的資料
+                        dtNextItem = clsMo_for_jx.GetNextItem(mo, item);
+                        if (dtNextItem.Rows.Count > 0)
+                        {
+                            next_goods_id = dtNextItem.Rows[0]["goods_id"].ToString();// dgr.Cells["next_next_goods_id"].Value.ToString().Trim(); //2023/03/02
+                            do_color_next_dep = dtNextItem.Rows[0]["do_color"].ToString();
+                            //next_dep_id = dtNextItem.Rows[0]["wp_id"].ToString();
+                        }
+                        else
+                        {
+                            next_goods_id = "";
+                            do_color_next_dep = "";
+                            //next_dep_id = "";
+                        }
+                        dtCurrentWipItem = clsMo_for_jx.GetCurrentWipData(dep,mo, item);
+
+                    }
+                    
                     if (dep != "" && mo != "" && item != "")
                     {
                         dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item); //獲取工序卡大部分數據
@@ -788,11 +751,12 @@ namespace cf01.ReportForm
                         dtPosition = clsMo_for_jx.GetPosition(item);
                         dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
                         dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
+                        //////通過下部門貨品再找下下部門的貨品資料
                         dtNextNextItem = clsMo_for_jx.GetNextNextItem(mo, next_goods_id);
                         //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
                         //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);
-                        //當前貨品的下部門顏色做法
-                        string do_color_next_dep = dgr.Cells["next_do_color"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
+                        
+
                         order_unit = "";
                         order_qty = 0;
                         order_qty_pcs = 0;
@@ -829,9 +793,9 @@ namespace cf01.ReportForm
                             else
                             {
                                 NumPage = 1;
-                            }                           
-                            
-
+                            }
+                            if (rpt_type == 2)//當列印當前部門的下部門工序卡時
+                                next_dep_id = drDtWk["next_wp_id"].ToString();
                             for (int i = 1; i <= NumPage; i++)
                             {
                                 dr = dtNewWork.NewRow();
@@ -860,14 +824,17 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["basic_unit"] = drDtWk["basic_unit"].ToString();
                                 dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
-                                dr["plate_remark"] = plate_remark;                                
-                                string next_dep_id = dgr.Cells["next_wp_id"].Value.ToString().Trim();
+                                dr["plate_remark"] = plate_remark;
+                                
                                 DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
                                 if (next_dep_id == "702")
                                 {
                                     dr["next_wp_id"] = "702"; //當有測式工序卡時部門名稱與描述不一致的情況.2023/09/14改為手動賦值.
                                 }
-                                dr["next_dep_name"] = drDept[0]["next_wp_name"].ToString();
+                                if (drDept.Length > 0)
+                                    dr["next_dep_name"] = drDept[0]["next_wp_name"].ToString();
+                                else
+                                    dr["next_dep_name"] = "";
                                 dr["customer_id"] = drDtWk["customer_id"].ToString();
                                 dr["brand_id"] = drDtWk["brand_id"].ToString();
                                 dr["get_color_sample"] = drDtWk["get_color_sample"].ToString();
@@ -878,7 +845,7 @@ namespace cf01.ReportForm
                                 dr["get_color_sample_name"] = drDtWk["get_color_sample_name"];
                                 dr["vendor_id"] = drDtWk["vendor_id"];
                                 dr["depRemark"] = Remark;
-                                dr["request_date"] = Request_date;
+                                dr["request_date"] = drDtWk["t_complete_date"];// Request_date;
                                 dr["color_name"] = drDtWk["color_name"].ToString();
                                 dr["do_color"] = drDtWk["do_color"].ToString();
                                 dr["wh_location"] = drDtWk["wh_location"].ToString();
@@ -890,14 +857,17 @@ namespace cf01.ReportForm
                                 //if (dtArt.Rows.Count > 0)
                                 //{
                                 dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
-                                dr["picture_name"] = dgr.Cells["picture_name"].Value.ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
+                                if (rpt_type == 1)//如果是列印當前部門的
+                                    dr["picture_name"] = dgr.Cells["picture_name"].Value.ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
+                                else//如果是列印當前部門的下部門的
+                                    dr["picture_name"] = dtCurrentWipItem.Rows[0]["picture_name"];
                                 //}
 
-                                //if (dtColor.Rows.Count > 0)
-                                //{
-                                //    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
-                                //    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
-                                //}
+                                    //if (dtColor.Rows.Count > 0)
+                                    //{
+                                    //    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
+                                    //    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
+                                    //}
 
                                 if (dtPosition.Rows.Count > 0)
                                 {
@@ -967,13 +937,36 @@ namespace cf01.ReportForm
                                 //貨倉位置
                                 //dr["goods_position"] = drDtWk["wh_location"].ToString(); //clsMo_for_jx.ReturnGoodsPosition(drDtWk["goods_id"].ToString(), drDtWk["next_wp_id"].ToString());
                                 dr["do_color_next_dep"] = do_color_next_dep;
+                                if (rpt_type == 1)//如果是列印當前部門的
+                                {
+                                    dr["next_goods_id"] = dgr.Cells["next_goods_id"].Value.ToString();
+                                    dr["next_do_color"] = dgr.Cells["next_do_color"].Value.ToString();
+                                    dr["next_vendor_id"] = dgr.Cells["next_vendor_id"].Value.ToString();
+                                    dr["next_goods_name"] = dgr.Cells["next_goods_name"].Value.ToString();
 
-                                dr["next_goods_id"] = dgr.Cells["next_goods_id"].Value.ToString();
-                                dr["next_do_color"] = dgr.Cells["next_do_color"].Value.ToString();
-                                dr["next_next_wp_id"] = dgr.Cells["next_next_wp_id"].Value.ToString();
-                                dr["next_vendor_id"] = dgr.Cells["next_vendor_id"].Value.ToString();
-                                dr["next_goods_name"] = dgr.Cells["next_goods_name"].Value.ToString();
-                                dr["next_next_dep_name"] = dgr.Cells["next_next_dep_name"].Value.ToString();
+                                    dr["next_next_wp_id"] = dgr.Cells["next_next_wp_id"].Value.ToString();
+                                    dr["next_next_dep_name"] = dgr.Cells["next_next_dep_name"].Value.ToString();
+                                }
+                                else//如果是列印當前部門的下部門的
+                                {
+                                    if (dtNextItem.Rows.Count > 0)
+                                    {
+                                        //////下部門
+                                        dr["next_goods_id"] = dtNextItem.Rows[0]["goods_id"].ToString();
+                                        dr["next_do_color"] = dtNextItem.Rows[0]["do_color"].ToString();
+                                        dr["next_goods_name"] = dtNextItem.Rows[0]["goods_name"].ToString();
+                                        //////下下部門
+                                        dr["next_next_wp_id"] = dtNextItem.Rows[0]["next_wp_id"].ToString();
+                                        dr["next_next_dep_name"] = dtNextItem.Rows[0]["next_wp_name"].ToString();
+                                    }
+                                    else
+                                    {
+                                        dr["next_next_wp_id"] = "";
+                                        dr["next_next_dep_name"] = "";//drDtWk["vendor_id"]
+                                    }
+                                    dr["next_vendor_id"] = drDtWk["vendor_id"];
+
+                                }
                                 dr["prod_date"] = "";
                                 if(dtNextNextItem.Rows.Count>0)
                                 {
@@ -1021,6 +1014,83 @@ namespace cf01.ReportForm
 
         }
 
+
+        private DataTable CreateNewWork()
+        {
+            DataTable dtNewWork = new DataTable();
+            dtNewWork.Columns.Add("wp_id", typeof(string));
+            dtNewWork.Columns.Add("mo_id", typeof(string));
+            dtNewWork.Columns.Add("goods_id", typeof(string));
+            dtNewWork.Columns.Add("goods_name", typeof(string));
+            dtNewWork.Columns.Add("prod_qty", typeof(string));
+            dtNewWork.Columns.Add("goods_unit", typeof(string));
+            dtNewWork.Columns.Add("within_code", typeof(string));
+            dtNewWork.Columns.Add("id", typeof(string));
+            dtNewWork.Columns.Add("ver", typeof(string));
+            dtNewWork.Columns.Add("sequence_id", typeof(string));
+            dtNewWork.Columns.Add("blueprint_id", typeof(string));
+            dtNewWork.Columns.Add("production_remark", typeof(string));
+            dtNewWork.Columns.Add("remark", typeof(string));
+            dtNewWork.Columns.Add("next_wp_id", typeof(string));
+            dtNewWork.Columns.Add("predept_rechange_qty", typeof(decimal));
+            dtNewWork.Columns.Add("order_qty", typeof(string));
+            dtNewWork.Columns.Add("order_unit", typeof(string));
+            dtNewWork.Columns.Add("color", typeof(string));
+            dtNewWork.Columns.Add("base_qty", typeof(int));
+            dtNewWork.Columns.Add("unit_code", typeof(string));
+            dtNewWork.Columns.Add("base_rate", typeof(int));
+            dtNewWork.Columns.Add("basic_unit", typeof(string));
+            dtNewWork.Columns.Add("art_id", typeof(string));
+            dtNewWork.Columns.Add("picture_name", typeof(string));
+            dtNewWork.Columns.Add("color_name", typeof(string));
+            dtNewWork.Columns.Add("do_color", typeof(string));
+            dtNewWork.Columns.Add("order_qty_pcs", typeof(string));
+            dtNewWork.Columns.Add("next_dep_name", typeof(string));
+            dtNewWork.Columns.Add("customer_id", typeof(string));
+            dtNewWork.Columns.Add("brand_id", typeof(string));
+            dtNewWork.Columns.Add("get_color_sample", typeof(string));
+            dtNewWork.Columns.Add("do_color1", typeof(string));
+            dtNewWork.Columns.Add("page_num", typeof(int));
+            dtNewWork.Columns.Add("per_qty", typeof(string));
+            dtNewWork.Columns.Add("t_complete_date", typeof(string));
+            dtNewWork.Columns.Add("arrive_date", typeof(string));
+            dtNewWork.Columns.Add("total_page", typeof(int));
+            dtNewWork.Columns.Add("get_color_sample_name", typeof(string));
+            dtNewWork.Columns.Add("vendor_id", typeof(string));
+            dtNewWork.Columns.Add("c_sec_qty_ok", typeof(int));
+            dtNewWork.Columns.Add("depRemark", typeof(string));
+            dtNewWork.Columns.Add("request_date", typeof(string));
+            dtNewWork.Columns.Add("position_id", typeof(string));
+            dtNewWork.Columns.Add("report_name", typeof(string));
+            dtNewWork.Columns.Add("crtime", typeof(string));
+            dtNewWork.Columns.Add("mould_no", typeof(string));
+            dtNewWork.Columns.Add("BarCode", typeof(string));
+            //dtNewWork.Columns.Add("goods_position", typeof(string));
+            dtNewWork.Columns.Add("pe_qty", typeof(string));
+            dtNewWork.Columns.Add("step", typeof(string));
+            dtNewWork.Columns.Add("do_color_next_dep", typeof(string));
+            dtNewWork.Columns.Add("plate_remark", typeof(string));
+            dtNewWork.Columns.Add("net_weight", typeof(string));
+            dtNewWork.Columns.Add("wh_location", typeof(string));
+
+            dtNewWork.Columns.Add("next_goods_id", typeof(string));
+            dtNewWork.Columns.Add("next_do_color", typeof(string));
+            dtNewWork.Columns.Add("next_next_wp_id", typeof(string));
+            dtNewWork.Columns.Add("next_vendor_id", typeof(string));
+            dtNewWork.Columns.Add("next_goods_name", typeof(string));
+            dtNewWork.Columns.Add("next_next_dep_name", typeof(string));
+            dtNewWork.Columns.Add("prod_date", typeof(string));
+
+            dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
+            dtNewWork.Columns.Add("next_next_do_color", typeof(string));
+            dtNewWork.Columns.Add("qty_remaining", typeof(int));
+
+            //2024/03/12
+            dtNewWork.Columns.Add("qc_dept", typeof(string));
+            dtNewWork.Columns.Add("qc_name", typeof(string));
+            dtNewWork.Columns.Add("qc_qty", typeof(string));
+            return dtNewWork;
+        }
         /// <summary>
         /// 加載 User上次查詢條件 
         /// </summary>
@@ -1189,6 +1259,11 @@ namespace cf01.ReportForm
                     MessageBox.Show("生成排期表失敗!");
                 }
             }
+        }
+
+        private void btnPrintNextWp_Click(object sender, EventArgs e)
+        {
+            show_workcard(2);
         }
 
         private void checkBox2_Click(object sender, EventArgs e)

@@ -83,6 +83,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtNextWip = new System.Windows.Forms.TextBox();
+            this.lblNextWp = new System.Windows.Forms.Label();
+            this.btnPrintNextWp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -92,6 +95,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPrintNextWp);
+            this.panel1.Controls.Add(this.txtNextWip);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.chkReqPrdQty);
@@ -101,6 +106,7 @@
             this.panel1.Controls.Add(this.mkPlanDat2);
             this.panel1.Controls.Add(this.txtDep);
             this.panel1.Controls.Add(this.mkPlanDat1);
+            this.panel1.Controls.Add(this.lblNextWp);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtPrd_item1);
             this.panel1.Controls.Add(this.txtMo1);
@@ -118,7 +124,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 123);
+            this.panel1.Size = new System.Drawing.Size(1227, 123);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -127,9 +133,9 @@
             this.panel2.Controls.Add(this.rdbZeroVer);
             this.panel2.Controls.Add(this.rdbNoZeroVer);
             this.panel2.Controls.Add(this.rdbAllVer);
-            this.panel2.Location = new System.Drawing.Point(412, 64);
+            this.panel2.Location = new System.Drawing.Point(412, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(670, 25);
+            this.panel2.Size = new System.Drawing.Size(500, 25);
             this.panel2.TabIndex = 21;
             // 
             // rdbZeroVer
@@ -171,7 +177,7 @@
             this.flowLayoutPanel1.Controls.Add(this.rdbIsPrint);
             this.flowLayoutPanel1.Controls.Add(this.rdbAllPrint);
             this.flowLayoutPanel1.Controls.Add(this.lblShowMsg);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(412, 93);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(412, 92);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(670, 25);
             this.flowLayoutPanel1.TabIndex = 20;
@@ -221,7 +227,7 @@
             // chkReqPrdQty
             // 
             this.chkReqPrdQty.AutoSize = true;
-            this.chkReqPrdQty.Location = new System.Drawing.Point(70, 90);
+            this.chkReqPrdQty.Location = new System.Drawing.Point(926, 69);
             this.chkReqPrdQty.Name = "chkReqPrdQty";
             this.chkReqPrdQty.Size = new System.Drawing.Size(156, 16);
             this.chkReqPrdQty.TabIndex = 18;
@@ -235,7 +241,7 @@
             this.mkChkDat2.Mask = "0000/00/00 00:00:00";
             this.mkChkDat2.Name = "mkChkDat2";
             this.mkChkDat2.PromptChar = ' ';
-            this.mkChkDat2.Size = new System.Drawing.Size(120, 22);
+            this.mkChkDat2.Size = new System.Drawing.Size(133, 22);
             this.mkChkDat2.TabIndex = 6;
             // 
             // cmbReportType
@@ -243,7 +249,7 @@
             this.cmbReportType.FormattingEnabled = true;
             this.cmbReportType.Location = new System.Drawing.Point(70, 64);
             this.cmbReportType.Name = "cmbReportType";
-            this.cmbReportType.Size = new System.Drawing.Size(247, 20);
+            this.cmbReportType.Size = new System.Drawing.Size(260, 20);
             this.cmbReportType.TabIndex = 9;
             // 
             // label1
@@ -415,7 +421,7 @@
             // 
             this.chkSimplePlan.AutoSize = true;
             this.chkSimplePlan.ForeColor = System.Drawing.Color.Red;
-            this.chkSimplePlan.Location = new System.Drawing.Point(641, 98);
+            this.chkSimplePlan.Location = new System.Drawing.Point(641, 97);
             this.chkSimplePlan.Name = "chkSimplePlan";
             this.chkSimplePlan.Size = new System.Drawing.Size(370, 16);
             this.chkSimplePlan.TabIndex = 15;
@@ -458,7 +464,7 @@
             this.toolStripSeparator8});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1148, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1227, 38);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -624,7 +630,7 @@
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 35;
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1148, 506);
+            this.dgvDetails.Size = new System.Drawing.Size(1227, 506);
             this.dgvDetails.TabIndex = 1;
             this.dgvDetails.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvDetails_CellPainting);
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
@@ -636,17 +642,44 @@
             this.CheckBox.Name = "CheckBox";
             this.CheckBox.Width = 30;
             // 
+            // txtNextWip
+            // 
+            this.txtNextWip.Location = new System.Drawing.Point(181, 90);
+            this.txtNextWip.Name = "txtNextWip";
+            this.txtNextWip.Size = new System.Drawing.Size(68, 22);
+            this.txtNextWip.TabIndex = 23;
+            // 
+            // lblNextWp
+            // 
+            this.lblNextWp.AutoSize = true;
+            this.lblNextWp.Location = new System.Drawing.Point(68, 96);
+            this.lblNextWp.Name = "lblNextWp";
+            this.lblNextWp.Size = new System.Drawing.Size(116, 12);
+            this.lblNextWp.TabIndex = 1;
+            this.lblNextWp.Text = "列印下部門的工序卡:";
+            // 
+            // btnPrintNextWp
+            // 
+            this.btnPrintNextWp.Location = new System.Drawing.Point(255, 87);
+            this.btnPrintNextWp.Name = "btnPrintNextWp";
+            this.btnPrintNextWp.Size = new System.Drawing.Size(75, 30);
+            this.btnPrintNextWp.TabIndex = 25;
+            this.btnPrintNextWp.Text = "列印";
+            this.btnPrintNextWp.UseVisualStyleBackColor = true;
+            this.btnPrintNextWp.Click += new System.EventHandler(this.btnPrintNextWp_Click);
+            // 
             // frmPlanWithPrintCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 667);
+            this.ClientSize = new System.Drawing.Size(1227, 667);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.dgvDetails);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmPlanWithPrintCard";
             this.Text = "frmPlanWithPrintCard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPlan01_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -718,5 +751,8 @@
         private System.Windows.Forms.ToolStripButton btnExpToExcelJx;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private DevExpress.XtraEditors.LabelControl lblShowMsg;
+        private System.Windows.Forms.TextBox txtNextWip;
+        private System.Windows.Forms.Button btnPrintNextWp;
+        private System.Windows.Forms.Label lblNextWp;
     }
 }
