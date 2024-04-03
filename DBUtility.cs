@@ -22,6 +22,7 @@ namespace cf01
     public abstract class DBUtility
     {
         public static string _user_id = "admin";//此變量用於保存當前登入的用戶ID
+        public static string user_name = "";//此變量用於保存當前登入的用戶名稱D
         public static string _language = "0";//此變量用於保存當前登入的語言
         public static string comp_type = "DG";
         public static string remote_db = "dgerp2.cferp.dbo.";//遠程數據庫名稱

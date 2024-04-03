@@ -11,7 +11,10 @@ namespace cf01.Reports
         public xrDelivery_details_A4()
         {
             InitializeComponent();
-            lblUser_id.Text = DBUtility._user_id;
+            lblUser_id.Text = DBUtility.user_name;
+
+            lblCon_qty_sum.DataBindings.Add("Text", DataSource, "con_qty");//合計欄位綁定
+            lblSec_qty_sum.DataBindings.Add("Text", DataSource, "sec_qty");            
         }
 
         private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

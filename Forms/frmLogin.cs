@@ -80,7 +80,8 @@ namespace cf01.Forms
                         //MessageBox.Show(DBUtility._language);
                         //SaveLoginInfo(); //保存用戶登入信息
                         Save_LoginInfo();
-                        DBUtility._user_id = userid;  //2014-08-15 因取消SaveLoginInfo()而增加此行代碼                        
+                        DBUtility._user_id = userid;  //2014-08-15 因取消SaveLoginInfo()而增加此行代碼
+                        DBUtility.user_name = txtUserName.Text.Trim();
                         DBUtility._language = cmbLanguage.SelectedIndex.ToString(); //設置用戶登入語言臨時公共變量   2014-08-01 因取消SaveLoginInfo()而增加此行代碼
 
                         /*
