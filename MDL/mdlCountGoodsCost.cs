@@ -37,6 +37,7 @@ namespace cf01.MDL
         public string ProductSizeName { get; set; }
         public string ProductColor { get; set; }
         public string ProductColorName { get; set; }
+        public string DoColor { get; set; }
         public string CustColor { get; set; }
         public string PrdMo { get; set; }
         public string MdNo { get; set; }

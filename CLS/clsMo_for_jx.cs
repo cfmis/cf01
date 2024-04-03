@@ -1068,6 +1068,20 @@ namespace cf01.CLS
             return dtProcess;
         }
 
+        public static DataTable GetCurrentWipData(string dep,string mo_id, string goods_id)
+        {
+            string strSql = string.Format(
+                @"SELECT TOP 1 b.goods_id,b.next_wp_id,c.do_color,b.vendor_id,d.picture_name
+	            FROM jo_bill_mostly a with(nolock)
+                INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
+	            INNER JOIN it_goods c with(nolock) ON b.within_code=c.within_code AND b.goods_id=c.id
+                INNER JOIN cd_pattern_details d ON c.within_code=d.within_code AND c.blueprint_id=d.id
+                WHERE a.within_code='{0}' And a.mo_id='{1}' And b.wp_id='{2}' And b.goods_id='{3}'", "0000", mo_id, dep, goods_id
+            );
+            DataTable dt = clsConErp.GetDataTable(strSql);
+            return dt;
+        }
+
         public static DataTable GetNextNextItem(string mo_id, string goods_id)
         {
             string strSql = string.Format(
@@ -1080,6 +1094,36 @@ namespace cf01.CLS
 			               ON A.within_code=S.within_code AND A.id=S.id AND A.ver=S.ver AND A.sequence_id=S.upper_sequence AND A.within_code='0000' AND A.wp_id NOT IN('702','722')
 	            INNER JOIN it_goods B with(nolock) ON A.within_code=B.within_code AND A.goods_id=B.id", mo_id, goods_id
             );
+            DataTable dt = clsConErp.GetDataTable(strSql);
+            return dt;
+        }
+
+        public static DataTable GetNextItem(string mo_id, string goods_id)
+        {
+            string strSql = string.Format(
+                @"SELECT a.wp_id,a.goods_id,c.name AS goods_name,a.next_wp_id,d.name AS next_wp_name,c.do_color
+	            FROM jo_bill_goods_details a with(nolock) 
+	            INNER JOIN ( SELECT Top 1 aa.within_code,aa.id,aa.ver,bb.upper_sequence
+				             FROM jo_bill_mostly aa with(nolock)
+                            INNER JOIN jo_bill_materiel_details bb with(nolock)
+				            ON aa.within_code=bb.within_code AND aa.id=bb.id AND aa.ver=bb.ver
+                            WHERE aa.within_code='0000' AND aa.mo_id='{0}' AND bb.materiel_id='{1}'
+			               ) b 
+			    ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver AND a.sequence_id=b.upper_sequence
+	            INNER JOIN it_goods c with(nolock) ON a.within_code=c.within_code AND a.goods_id=c.id
+                INNER JOIN cd_department d with(nolock) ON a.within_code=d.within_code AND a.next_wp_id=d.id
+                WHERE a.within_code='0000' AND a.wp_id NOT IN('702','722')", mo_id, goods_id
+            );
+
+            //string strSql = string.Format(
+            //    @"SELECT b.goods_id AS next_goods_id,b.next_wp_id,b.t_complete_date,d.do_color as next_do_color         
+	           // FROM jo_bill_mostly a with(nolock)
+            //    INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver AND a.sequence_id=b.sequence_id
+            //    INNER JOIN jo_bill_materiel_details c with(nolock) ON b.within_code=c.within_code AND b.id=c.id AND b.ver=c.ver AND b.sequence_id=c.upper_sequence
+	           // INNER JOIN it_goods d with(nolock) ON b.within_code=d.within_code AND b.goods_id=d.id
+            //    WHERE a.within_code='{0}' And a.mo_id='{1}' And b.wp_id='{2}' And b.goods_id='{3}'", "0000", dep, mo_id, goods_id
+            //);
+
             DataTable dt = clsConErp.GetDataTable(strSql);
             return dt;
         }

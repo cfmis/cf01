@@ -38,7 +38,7 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
-                ",ProductSize,ProductSizeName,ProductColor,ProductColorName,CustColor" +
+                ",ProductSize,ProductSizeName,ProductColor,ProductColorName,DoColor,CustColor" +
                 ",PrdMo,MdNo,MoGroup,FactAddWasteRate,CompProfitRate" +
                 ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
                 ",AmendUser,Convert(Varchar(50),AmendTime,20) AS AmendTime,SN" +
@@ -59,7 +59,7 @@ namespace cf01.CLS
             string strSql = "";
             strSql += " Select aa.* From ( ";
             strSql += " Select "+"'M' As MFlag"+",a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
-                ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName" +
+                ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName,a.DoColor" +
                 ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
                 ",1 AS MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
@@ -78,8 +78,8 @@ namespace cf01.CLS
             if (productID!=""|| productName!="")
             {
                 strSql += " Union ";
-                strSql += " Select "+"' ' As MFlag"+",a.ID,a.Ver,b.ProductID,b.ProductName,b.ArtWork,b.ArtWorkName,b.ProductType,b.ProductTypeName" +
-                ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName" +
+                strSql += " Select " + "' ' As MFlag" + ",a.ID,a.Ver,b.ProductID,b.ProductName,b.ArtWork,b.ArtWorkName,b.ProductType,b.ProductTypeName" +
+                ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName,b.DoColor" +
                 ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
                 ",a.MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
@@ -159,25 +159,25 @@ namespace cf01.CLS
                 Ver = 0;
                 strUpd = @" Insert Into mm_product_cost_head " +
                     " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
-                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName,CustColor" +
+                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName,DoColor,CustColor" +
                     ",PrdMo,MdNo,MoGroup,FactAddWasteRate,CompProfitRate" +
                     ",Remark,CreateUser,CreateTime,AmendUser,AmendTime )" +
                     " Values ( " +
                     " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'" +
-                    ",'{13}','{14}','{15}','{16}','{17}','{18}'" +
-                    ",'{19}',GETDATE(),'{19}',GETDATE() )";
+                    ",'{13}','{14}','{15}','{16}','{17}','{18}','{19}'" +
+                    ",'{20}',GETDATE(),'{20}',GETDATE() )";
             }
             else
                 strUpd = @" Update mm_product_cost_head Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
                     ",ProductType='{6}',ProductTypeName='{7}'" +
-                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}',CustColor='{12}'" +
-                    ",PrdMo='{13}',MdNo='{14}',MoGroup='{15}',FactAddWasteRate='{16}',CompProfitRate='{17}'" +
-                    ",Remark='{18}',AmendUser='{19}',AmendTime=GETDATE() " +
+                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}',DoColor='{12}',CustColor='{13}'" +
+                    ",PrdMo='{14}',MdNo='{15}',MoGroup='{16}',FactAddWasteRate='{17}',CompProfitRate='{18}'" +
+                    ",Remark='{19}',AmendUser='{20}',AmendTime=GETDATE() " +
                     " Where ID='{0}' And Ver='{1}'";
             strSql += string.Format(strUpd
                     , ID, Ver, mdlGoods.ProductID, mdlGoods.ProductName, mdlGoods.ArtWork, mdlGoods.ArtWorkName
                     , mdlGoods.ProductType, mdlGoods.ProductTypeName, mdlGoods.ProductSize, mdlGoods.ProductSizeName
-                    , mdlGoods.ProductColor, mdlGoods.ProductColorName, mdlGoods.CustColor
+                    , mdlGoods.ProductColor, mdlGoods.ProductColorName, mdlGoods.DoColor, mdlGoods.CustColor
                     , mdlGoods.PrdMo, mdlGoods.MdNo, mdlGoods.MoGroup, mdlGoods.FactAddWasteRate, mdlGoods.CompProfitRate
                     , mdlGoods.Remark, userid);
             strSql += string.Format(@" COMMIT TRANSACTION ");
@@ -244,7 +244,7 @@ namespace cf01.CLS
                 Ver = 0;
                 strUpd = @" Insert Into mm_product_cost_part " +
                     " ( upperSN,Seq,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
-                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                    ",ProductSize,ProductSizeName,ProductColor,ProductColorName,DoColor" +
                     ",MatWeg,MatUse,MatCost,ProcessCostTotal,ProcessProfitRate,ProcessProfit" +
                     ",PlateCost,PackCost" +
                     ",CostPcs,CostGrs,CostK" +
@@ -254,24 +254,24 @@ namespace cf01.CLS
                     " Values ( " +
                     " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}'" +
                     ",'{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}'" +
-                    ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}'" +
-                    ",GETDATE(),'{30}',GETDATE() " +
+                    ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}'" +
+                    ",GETDATE(),'{31}',GETDATE() " +
                     " )";
             }
             else
                 strUpd = @" Update mm_product_cost_part Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
                     ",ProductType='{6}',ProductTypeName='{7}'" +
-                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
-                    ",MatWeg='{12}',MatUse='{13}',MatCost='{14}',ProcessCostTotal='{15}',ProcessProfitRate='{16}',ProcessProfit='{17}'" +
-                    ",PlateCost='{18}',PackCost='{19}'" +
-                    ",CostPcs='{20}',CostGrs='{21}',CostK='{22}'" +
-                    ",FactoryFee='{23}',FactoryCostPcs='{24}',FactoryCostGrs='{25}',FactoryCostK='{26}'" +
-                    ",FrontPart='{27}',MultRate='{28}',Remark='{29}',AmendUser='{30}',AmendTime=GETDATE() " +
+                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}',DoColor='{12}'" +
+                    ",MatWeg='{13}',MatUse='{14}',MatCost='{15}',ProcessCostTotal='{16}',ProcessProfitRate='{17}',ProcessProfit='{18}'" +
+                    ",PlateCost='{19}',PackCost='{20}'" +
+                    ",CostPcs='{21}',CostGrs='{22}',CostK='{23}'" +
+                    ",FactoryFee='{24}',FactoryCostPcs='{25}',FactoryCostGrs='{26}',FactoryCostK='{27}'" +
+                    ",FrontPart='{28}',MultRate='{29}',Remark='{30}',AmendUser='{31}',AmendTime=GETDATE() " +
                     " Where upperSN='{0}' And Seq='{1}'";
             strSql += string.Format(strUpd
                     , upperSN, seq, mdlGoodsPart.ProductID, mdlGoodsPart.ProductName, mdlGoodsPart.ArtWork, mdlGoodsPart.ArtWorkName
                     , mdlGoodsPart.ProductType, mdlGoodsPart.ProductTypeName, mdlGoodsPart.ProductSize, mdlGoodsPart.ProductSizeName
-                    , mdlGoodsPart.ProductColor, mdlGoodsPart.ProductColorName
+                    , mdlGoodsPart.ProductColor, mdlGoodsPart.ProductColorName, mdlGoodsPart.DoColor
                     , mdlGoodsPart.MatWeg, mdlGoodsPart.MatUse, mdlGoodsPart.MatCost, mdlGoodsPart.ProcessCostTotal, mdlGoodsPart.ProcessProfitRate, mdlGoodsPart.ProcessProfit
                     , mdlGoodsPart.PlateCost, mdlGoodsPart.PackCost
                     , mdlGoodsPart.CostPcs, mdlGoodsPart.CostGrs, mdlGoodsPart.CostK
@@ -312,7 +312,7 @@ namespace cf01.CLS
                 {
                     strUpd = @" Insert Into mm_product_cost_part " +
                         " ( upperSN,Seq,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
-                        ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                        ",ProductSize,ProductSizeName,ProductColor,ProductColorName,DoColor" +
                         ",MatWeg,MatUse,MatCost,ProcessCostTotal,ProcessProfitRate,ProcessProfit" +
                         ",PlateCost,PackCost" +
                         ",CostPcs,CostGrs,CostK" +
@@ -322,24 +322,24 @@ namespace cf01.CLS
                         " Values ( " +
                         " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}'" +
                         ",'{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}'" +
-                        ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}'" +
-                        ",GETDATE(),'{30}',GETDATE() " +
+                        ",'{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}'" +
+                        ",GETDATE(),'{31}',GETDATE() " +
                         " )";
                 }
                 else
                     strUpd = @" Update mm_product_cost_part Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
                         ",ProductType='{6}',ProductTypeName='{7}'" +
-                        ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}'" +
-                        ",MatWeg='{12}',MatUse='{13}',MatCost='{14}',ProcessCostTotal='{15}',ProcessProfitRate='{16}',ProcessProfit='{17}'" +
-                        ",PlateCost='{18}',PackCost='{19}'" +
-                        ",CostPcs='{20}',CostGrs='{21}',CostK='{22}'" +
-                        ",FactoryFee='{23}',FactoryCostPcs='{24}',FactoryCostGrs='{25}',FactoryCostK='{26}'" +
-                        ",FrontPart='{27}',MultRate='{28}',Remark='{29}',AmendUser='{30}',AmendTime=GETDATE() " +
+                        ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}',DoColor='{12}'" +
+                        ",MatWeg='{13}',MatUse='{14}',MatCost='{15}',ProcessCostTotal='{16}',ProcessProfitRate='{17}',ProcessProfit='{18}'" +
+                        ",PlateCost='{19}',PackCost='{20}'" +
+                        ",CostPcs='{21}',CostGrs='{22}',CostK='{23}'" +
+                        ",FactoryFee='{24}',FactoryCostPcs='{25}',FactoryCostGrs='{26}',FactoryCostK='{27}'" +
+                        ",FrontPart='{28}',MultRate='{29}',Remark='{30}',AmendUser='{31}',AmendTime=GETDATE() " +
                         " Where upperSN='{0}' And Seq='{1}'";
                 strSql += string.Format(strUpd
                         , upperSN, seq, mdlGoodsPart.ProductID, mdlGoodsPart.ProductName, mdlGoodsPart.ArtWork, mdlGoodsPart.ArtWorkName
                         , mdlGoodsPart.ProductType, mdlGoodsPart.ProductTypeName, mdlGoodsPart.ProductSize, mdlGoodsPart.ProductSizeName
-                        , mdlGoodsPart.ProductColor, mdlGoodsPart.ProductColorName
+                        , mdlGoodsPart.ProductColor, mdlGoodsPart.ProductColorName, mdlGoodsPart.DoColor
                         , mdlGoodsPart.MatWeg, mdlGoodsPart.MatUse, mdlGoodsPart.MatCost, mdlGoodsPart.ProcessCostTotal, mdlGoodsPart.ProcessProfitRate, mdlGoodsPart.ProcessProfit
                         , mdlGoodsPart.PlateCost, mdlGoodsPart.PackCost
                         , mdlGoodsPart.CostPcs, mdlGoodsPart.CostGrs, mdlGoodsPart.CostK
@@ -383,7 +383,7 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql = "Select upperSN,Seq,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
-                ",ProductSize,ProductSizeName,ProductColor,ProductColorName" +
+                ",ProductSize,ProductSizeName,ProductColor,ProductColorName,DoColor" +
                 ",MatWeg,MatUse,MatCost,ProcessCostTotal,ProcessProfitRate,ProcessProfit" +
                 ",PlateCost,PackCost" +
                 ",FrontPart,CostPcs,CostGrs,CostK" +
@@ -578,7 +578,7 @@ namespace cf01.CLS
             strSql = "Select a.id,a.name" +
                 " ,a.datum,b.name As mat_cdesc,a.base_class,c.name As prd_cdesc" +
                 " ,a.blueprint_id,d.name As art_cdesc,e.picture_name As art_image" +
-                " ,a.size_id,f.name As size_cdesc,a.color,g.name As clr_cdesc" +
+                " ,a.size_id,f.name As size_cdesc,a.color,g.name As clr_cdesc,a.do_color As DoColor" +
                 " From it_goods a " +
                 " Left Join cd_datum b On a.within_code=b.within_code And a.datum=b.id" +
                 " Left Join cd_goods_class c On a.within_code=c.within_code And a.base_class=c.id" +

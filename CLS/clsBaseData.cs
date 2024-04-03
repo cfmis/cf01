@@ -224,7 +224,7 @@ namespace cf01.CLS
         }
         public static DataTable GetColor(string color_id)
         {
-            string strSql = "Select id,name From cd_color a " +
+            string strSql = "Select id,name,do_color From cd_color a " +
                 " Where within_code='" + within_code + "' And id='" + color_id + "'";
             DataTable dtArtwork = clsPublicOfGEO.GetDataTable(strSql);
             return dtArtwork;
