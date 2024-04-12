@@ -43,7 +43,7 @@
             // 
             this.lblID.Location = new System.Drawing.Point(12, 25);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(97, 13);
+            this.lblID.Size = new System.Drawing.Size(120, 13);
             this.lblID.TabIndex = 14;
             this.lblID.Text = "原發票編號";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -52,7 +52,7 @@
             // 
             this.txtinvoice_id_org.EditValue = "";
             this.txtinvoice_id_org.EnterMoveNextControl = true;
-            this.txtinvoice_id_org.Location = new System.Drawing.Point(115, 19);
+            this.txtinvoice_id_org.Location = new System.Drawing.Point(137, 19);
             this.txtinvoice_id_org.Name = "txtinvoice_id_org";
             this.txtinvoice_id_org.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtinvoice_id_org.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -65,9 +65,9 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(8, 53);
+            this.label1.Location = new System.Drawing.Point(6, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.Size = new System.Drawing.Size(126, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "更改為當前發票編號";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -76,7 +76,7 @@
             // 
             this.txtinvoice_id_target.EditValue = "";
             this.txtinvoice_id_target.EnterMoveNextControl = true;
-            this.txtinvoice_id_target.Location = new System.Drawing.Point(115, 49);
+            this.txtinvoice_id_target.Location = new System.Drawing.Point(137, 49);
             this.txtinvoice_id_target.Name = "txtinvoice_id_target";
             this.txtinvoice_id_target.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
             this.txtinvoice_id_target.Properties.Appearance.Options.UseBackColor = true;
@@ -92,7 +92,7 @@
             // 
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(198, 86);
+            this.btnOk.Location = new System.Drawing.Point(220, 86);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(70, 33);
             this.btnOk.TabIndex = 17;
@@ -105,7 +105,7 @@
             // 
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(115, 86);
+            this.btnExit.Location = new System.Drawing.Point(137, 86);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(70, 33);
             this.btnExit.TabIndex = 18;

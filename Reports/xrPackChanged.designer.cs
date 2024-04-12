@@ -63,6 +63,9 @@
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLine46 = new DevExpress.XtraReports.UI.XRLine();
+            this.xrLabel65 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel78 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine45 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine23 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
@@ -137,6 +140,7 @@
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.lblPrimary = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
@@ -248,7 +252,6 @@
             this.lblCust_color = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine25 = new DevExpress.XtraReports.UI.XRLine();
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
-            this.lblPrimary = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -632,6 +635,9 @@
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine46,
+            this.xrLabel65,
+            this.xrLabel78,
             this.xrLine45,
             this.xrLine23,
             this.xrLabel27,
@@ -718,9 +724,46 @@
             this.xrLabel14,
             this.xrLabel13});
             this.GroupHeader1.Dpi = 254F;
-            this.GroupHeader1.HeightF = 851.8629F;
+            this.GroupHeader1.HeightF = 899.4879F;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.RepeatEveryPage = true;
+            // 
+            // xrLine46
+            // 
+            this.xrLine46.Dpi = 254F;
+            this.xrLine46.LocationFloat = new DevExpress.Utils.PointFloat(267.1302F, 802.9671F);
+            this.xrLine46.Name = "xrLine46";
+            this.xrLine46.SizeF = new System.Drawing.SizeF(252.5206F, 5.291656F);
+            // 
+            // xrLabel65
+            // 
+            this.xrLabel65.CanGrow = false;
+            this.xrLabel65.Dpi = 254F;
+            this.xrLabel65.Font = new System.Drawing.Font("Arial", 8.5F);
+            this.xrLabel65.LocationFloat = new DevExpress.Utils.PointFloat(40.20822F, 763.0679F);
+            this.xrLabel65.Name = "xrLabel65";
+            this.xrLabel65.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel65.SizeF = new System.Drawing.SizeF(223.3749F, 39.89923F);
+            this.xrLabel65.StylePriority.UseFont = false;
+            this.xrLabel65.StylePriority.UseTextAlignment = false;
+            this.xrLabel65.Text = "建議包裝箱:";
+            this.xrLabel65.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel65.WordWrap = false;
+            // 
+            // xrLabel78
+            // 
+            this.xrLabel78.CanGrow = false;
+            this.xrLabel78.Dpi = 254F;
+            this.xrLabel78.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel78.LocationFloat = new DevExpress.Utils.PointFloat(267.1302F, 765.0679F);
+            this.xrLabel78.Name = "xrLabel78";
+            this.xrLabel78.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel78.SizeF = new System.Drawing.SizeF(253.229F, 36.89923F);
+            this.xrLabel78.StylePriority.UseFont = false;
+            this.xrLabel78.StylePriority.UseTextAlignment = false;
+            this.xrLabel78.Text = "[carton_size]";
+            this.xrLabel78.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel78.WordWrap = false;
             // 
             // xrLine45
             // 
@@ -822,10 +865,11 @@
             // 
             // xrPanel2
             // 
+            this.xrPanel2.CanGrow = false;
             this.xrPanel2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel66});
             this.xrPanel2.Dpi = 254F;
-            this.xrPanel2.LocationFloat = new DevExpress.Utils.PointFloat(42.04089F, 761.9879F);
+            this.xrPanel2.LocationFloat = new DevExpress.Utils.PointFloat(42.04089F, 809.2587F);
             this.xrPanel2.Name = "xrPanel2";
             this.xrPanel2.SizeF = new System.Drawing.SizeF(1094.875F, 89.875F);
             // 
@@ -838,7 +882,7 @@
             this.xrLabel66.Multiline = true;
             this.xrLabel66.Name = "xrLabel66";
             this.xrLabel66.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel66.SizeF = new System.Drawing.SizeF(1085.396F, 84.8783F);
+            this.xrLabel66.SizeF = new System.Drawing.SizeF(1093.813F, 84.8783F);
             this.xrLabel66.StylePriority.UseFont = false;
             this.xrLabel66.StylePriority.UseTextAlignment = false;
             this.xrLabel66.Text = "備註：[remark]";
@@ -1776,6 +1820,21 @@
             this.GroupFooter1.HeightF = 1356.57F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.RepeatEveryPage = true;
+            // 
+            // lblPrimary
+            // 
+            this.lblPrimary.CanGrow = false;
+            this.lblPrimary.Dpi = 254F;
+            this.lblPrimary.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPrimary.LocationFloat = new DevExpress.Utils.PointFloat(858.2077F, 687.8242F);
+            this.lblPrimary.Name = "lblPrimary";
+            this.lblPrimary.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lblPrimary.SizeF = new System.Drawing.SizeF(236.084F, 58.42004F);
+            this.lblPrimary.StylePriority.UseFont = false;
+            this.lblPrimary.StylePriority.UseTextAlignment = false;
+            this.lblPrimary.Text = "[primary_key]";
+            this.lblPrimary.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblPrimary.WordWrap = false;
             // 
             // xrLine2
             // 
@@ -3190,21 +3249,6 @@
             this.xrShape3.Shape = shapeRectangle3;
             this.xrShape3.SizeF = new System.Drawing.SizeF(1063.146F, 163.2501F);
             // 
-            // lblPrimary
-            // 
-            this.lblPrimary.CanGrow = false;
-            this.lblPrimary.Dpi = 254F;
-            this.lblPrimary.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPrimary.LocationFloat = new DevExpress.Utils.PointFloat(858.2077F, 687.8242F);
-            this.lblPrimary.Name = "lblPrimary";
-            this.lblPrimary.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblPrimary.SizeF = new System.Drawing.SizeF(236.084F, 58.42004F);
-            this.lblPrimary.StylePriority.UseFont = false;
-            this.lblPrimary.StylePriority.UseTextAlignment = false;
-            this.lblPrimary.Text = "[primary_key]";
-            this.lblPrimary.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.lblPrimary.WordWrap = false;
-            // 
             // xrPackChanged
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -3225,7 +3269,7 @@
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.ShowPreviewMarginLines = false;
             this.SnapGridSize = 31.75F;
-            this.Version = "11.2";
+            this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -3448,5 +3492,8 @@
         private DevExpress.XtraReports.UI.XRLine xrLine23;
         private DevExpress.XtraReports.UI.XRLine xrLine45;
         private DevExpress.XtraReports.UI.XRLabel lblPrimary;
+        private DevExpress.XtraReports.UI.XRLine xrLine46;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel65;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel78;
     }
 }
