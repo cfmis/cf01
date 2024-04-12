@@ -21,7 +21,7 @@ namespace cf01.Reports
         {
             //分組
             GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("id", XRColumnSortOrder.Ascending) });
-        } 
+        }
 
         private void lblpackage_TextChanged(object sender, EventArgs e)
         {
@@ -32,7 +32,27 @@ namespace cf01.Reports
             else
             {
                 lblpackage.Visible = true;
-            }           
+            }
+        }
+
+        private void lblAdd_days_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {           
+            string strDays = GetCurrentColumnValue("add_days").ToString();
+            if (!string.IsNullOrEmpty(strDays))
+            {               
+                if (GetCurrentColumnValue("row_no").ToString() == "1")
+                {
+                    lblAdd_days.Visible = true;
+                }
+                else
+                {
+                    lblAdd_days.Visible = false;
+                }
+            }
+            else
+            {
+                lblAdd_days.Visible = false;
+            }
         }
     }
 }

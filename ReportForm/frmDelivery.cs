@@ -480,6 +480,8 @@ namespace cf01.ReportForm
                     newRow["remark"] = dtDelivery.Rows[i]["remark"].ToString();
                     newRow["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString();
                     newRow["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
+                    newRow["add_days"] = dtDelivery.Rows[i]["add_days"].ToString();
+                    newRow["row_no"] = dtDelivery.Rows[i]["row_no"].ToString();
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtDelivery.Rows[i]["package_num"].ToString()!="1")
@@ -522,6 +524,8 @@ namespace cf01.ReportForm
                                 dr["remark"] = dtDelivery.Rows[i]["remark"].ToString();
                                 dr["sent_bef_year"] = dtDelivery.Rows[i]["sent_bef_year"].ToString();
                                 dr["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
+                                dr["add_days"] = dtDelivery.Rows[i]["add_days"].ToString();
+                                dr["row_no"] = dtDelivery.Rows[i]["row_no"].ToString();
                                 dtReport.Rows.Add(dr);
                             }
                         }
