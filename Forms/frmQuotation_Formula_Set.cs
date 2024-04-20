@@ -34,9 +34,9 @@ namespace cf01.Forms
 
         private void Quotation_Formula_Set_Load(object sender, EventArgs e)
         {
-            clsQuotation.Set_Brand_id(txtBrand_id);
-            clsQuotation.Set_Brand_id(txtBrand_id1);
-            clsQuotation.Set_Brand_id(txtBrand_id2);            
+            clsQuotation.Set_Brand_id2(txtBrand_id);
+            clsQuotation.Set_Brand_id2(txtBrand_id1);
+            clsQuotation.Set_Brand_id2(txtBrand_id2);
             if (!string.IsNullOrEmpty(strFormula))
             {
                 txtBrand_id1.EditValue = strFormula;

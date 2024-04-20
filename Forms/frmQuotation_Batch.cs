@@ -309,7 +309,7 @@ namespace cf01.Forms
                    
                     //計算折前單價
                    mdlFormula_Result objResult = new mdlFormula_Result();
-                   objResult = clsQuotation.Get_Cust_Formula(brand_id, dt.Rows[i]["formula_id"].ToString(), bp.ToString(), dt.Rows[i]["price_unit"].ToString(),"EDIT", vnd_bp, flag_vnd);//設置單價
+                   objResult = clsQuotation.Get_Cust_Formula(brand_id, dt.Rows[i]["formula_id"].ToString(), bp.ToString(), dt.Rows[i]["price_unit"].ToString(),vnd_bp, flag_vnd);//設置單價
                    
                    //計算折扣后單價                   
                    mdlFormula_Result objDiscount = new mdlFormula_Result();

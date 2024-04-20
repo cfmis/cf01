@@ -92,7 +92,7 @@ namespace cf01.Forms
             A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.disc_price_vnd,A.usd_ex_fty,
             A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
             A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new,
-            A.flag_vnd,A.flag_vnd_date,A.vnd_bp,A.price_vnd_usd,A.price_vnd,A.price_vnd_grs,A.price_vnd_pcs,A.cf_color_id,A.material_type,A.product_type
+            A.flag_vnd,A.flag_vnd_date,A.vnd_bp,A.price_vnd_usd,A.price_vnd,A.price_vnd_grs,A.price_vnd_pcs,A.cf_color_id,A.material_type,A.product_type,A.md_charge_vn,A.die_mould_usd_vn
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
             WHERE 1=0";
@@ -382,6 +382,8 @@ namespace cf01.Forms
             lueCf_color_id.DataBindings.Add("EditValue", bds1, "cf_color_id");
             lueMaterial_type.DataBindings.Add("EditValue", bds1, "material_type");
             lueProduct_type.DataBindings.Add("EditValue", bds1, "product_type");
+            txtMd_charge_vn.DataBindings.Add("Text", bds1, "md_charge_vn");
+            txtDie_mould_usd_vn.DataBindings.Add("Text", bds1, "die_mould_usd_vn");
 
             //Binding bind = new Binding("Checked", bds1, "flag_vnd");
             Binding bind = new Binding("EditValue", bds1, "flag_vnd");
@@ -411,13 +413,13 @@ namespace cf01.Forms
                     MessageBox.Show("單價單位不可為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                CalcuPrice(editState); //0為正常的單價計算,1為越南單價                
+                CalcuPrice();                
                 CalcuPriceDisc(txtDisc.Text);
                 txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
             }
         }
 
-        private void CalcuPrice(string edit_state)
+        private void CalcuPrice()
         {
             string brand = txtBrand.Text;
             string formula = txtFormula.Text;
@@ -426,7 +428,7 @@ namespace cf01.Forms
             string price_unit = txtPrice_unit.Text;
             bool flag_vnd = chkFlag_vnd.Checked;
             mdlFormula_Result objResult = new mdlFormula_Result();
-            objResult = clsQuotation.Get_Cust_Formula(brand, formula, bp, price_unit, edit_state,vn_bp,flag_vnd);                
+            objResult = clsQuotation.Get_Cust_Formula(brand, formula, bp, price_unit,vn_bp,flag_vnd);                
             txtPrice_usd.EditValue = objResult.price_usd;
             txtPrice_rmb.EditValue = objResult.price_rmb;
             txtPrice_hkd.EditValue = objResult.price_hkd;
@@ -780,7 +782,7 @@ namespace cf01.Forms
                     polo_care,moq_for_test,plm_code,trim_color_code,test_sample_hk,sms,sample_card,meeting_recap,usd_dap,usd_lab_test_prx,ex_fty_hkd,ex_fty_usd,
                     discount,disc_price_usd,disc_price_hkd,disc_price_rmb,disc_hkd_ex_fty, usd_ex_fty,reason_edit,rmb_remark,special_price,cust_artwork,cost_price,
                     labtest_prod_type,termremark,pending,remark_pdd_dg,ref_temp_code,price_vnd,disc_price_vnd, flag_vnd_date,flag_vnd,vnd_bp,price_vnd_usd,
-                    price_vnd_grs,price_vnd_pcs,cf_color_id,material_type,product_type)
+                    price_vnd_grs,price_vnd_pcs,cf_color_id,material_type,product_type,md_charge_vn,die_mould_usd_vn)
             VALUES(@sales_group,@temp_code,CASE LEN(@date) WHEN 0 THEN null ELSE @date END,@brand,@brand_desc,@formula_id,@season,@season_desc,@division,@contact,
                     @material,@size,@product_desc, @cust_code,@cf_code,@cust_color,@cf_color,@price_usd,@price_hkd,@price_rmb,@price_unit,@salesman,@moq_below_over,
                     @moq,@moq_desc,@moq_unit,@mwq,@mwq_unit,@lead_time_min,@lead_time_max,@lead_time_unit,@md_charge,@md_charge_cny,@md_charge_unit,@remark,@remark_other,
@@ -789,7 +791,7 @@ namespace cf01.Forms
                     @test_sample_hk,@sms,@sample_card,@meeting_recap,@usd_dap,@usd_lab_test_prx,@ex_fty_hkd,@ex_fty_usd,@discount,@disc_price_usd,@disc_price_hkd,
                     @disc_price_rmb,@disc_hkd_ex_fty,@usd_ex_fty,@reason_edit,@rmb_remark,@special_price,@cust_artwork,@cost_price,@labtest_prod_type,@termremark,
                     @pending,@remark_pdd_dg,@ref_temp_code,@price_vnd,@disc_price_vnd, CASE LEN(@flag_vnd_date) WHEN 0 THEN null ELSE @flag_vnd_date END,
-                    @flag_vnd,@vnd_bp,@price_vnd_usd,@price_vnd_grs,@price_vnd_pcs,@cf_color_id,@material_type,@product_type)";
+                    @flag_vnd,@vnd_bp,@price_vnd_usd,@price_vnd_grs,@price_vnd_pcs,@cf_color_id,@material_type,@product_type,@md_charge_vn,@die_mould_usd_vn)";
             const string sql_update =
             @"UPDATE quotation 
             SET sales_group=@sales_group,date=CASE LEN(@date) WHEN 0 THEN null ELSE @date END,brand=@brand,brand_desc=@brand_desc,formula_id=@formula_id,
@@ -808,7 +810,7 @@ namespace cf01.Forms
                 remark_pdd_dg=@remark_pdd_dg,ref_temp_code=@ref_temp_code,price_vnd=@price_vnd,disc_price_vnd=@disc_price_vnd,
                 flag_vnd_date= CASE LEN(@flag_vnd_date) WHEN 0 THEN null ELSE @flag_vnd_date END, flag_vnd=@flag_vnd,vnd_bp=@vnd_bp,
                 price_vnd_usd=@price_vnd_usd,price_vnd_grs=@price_vnd_grs,price_vnd_pcs=@price_vnd_pcs,cf_color_id=@cf_color_id,
-                material_type=@material_type,product_type=@product_type
+                material_type=@material_type,product_type=@product_type,md_charge_vn=@md_charge_vn,die_mould_usd_vn=@die_mould_usd_vn
             WHERE temp_code=@temp_code";
 
             //組別設置
@@ -935,6 +937,8 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@cf_color_id", lueCf_color_id.EditValue);
                     myCommand.Parameters.AddWithValue("@material_type", lueMaterial_type.EditValue);
                     myCommand.Parameters.AddWithValue("@product_type", lueProduct_type.EditValue);
+                    myCommand.Parameters.AddWithValue("@md_charge_vn", clsApp.Return_Float_Value(txtMd_charge_vn.Text));
+                    myCommand.Parameters.AddWithValue("@die_mould_usd_vn", clsApp.Return_Float_Value(txtDie_mould_usd_vn.Text));
                     myCommand.ExecuteNonQuery();
                     
                     //設置組別
@@ -2481,6 +2485,14 @@ namespace cf01.Forms
                     if (!string.IsNullOrEmpty(ofrm.brand_Selected))
                     {
                         txtFormula.Text = ofrm.brand_Selected;
+                                              
+                        if (string.IsNullOrEmpty(txtPrice_unit.Text))
+                        {                               
+                            return;
+                        }
+                        CalcuPrice(); //0為正常的單價計算,1為越南單價                
+                        CalcuPriceDisc(txtDisc.Text);
+                        txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);    
                     }                    
                 }
             }
@@ -2569,7 +2581,7 @@ namespace cf01.Forms
             mdlFormula_Result objResult = new mdlFormula_Result();
             if (bp > 0)
             {
-                objResult = clsQuotation.Get_Cust_Formula(brand_id,formula_id, bp.ToString(), strUnit,"EDIT", vnd_bp, flag_vn);
+                objResult = clsQuotation.Get_Cust_Formula(brand_id,formula_id, bp.ToString(), strUnit,vnd_bp, flag_vn);
             }
             else
             {
@@ -3600,7 +3612,7 @@ namespace cf01.Forms
                 {
                     return;
                 }                            
-                CalcuPrice(editState);
+                CalcuPrice();
                 CalcuPriceDisc(txtDisc.Text);
                 txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
             }            
@@ -3617,7 +3629,7 @@ namespace cf01.Forms
                     {
                         return;
                     }
-                    CalcuPrice(editState); 
+                    CalcuPrice(); 
                 }
                 else
                 {
@@ -3641,7 +3653,7 @@ namespace cf01.Forms
                 {
                     return;
                 }
-                CalcuPrice(editState); 
+                CalcuPrice(); 
             }
         }
 
@@ -3678,6 +3690,24 @@ namespace cf01.Forms
                 {
                     txtProduct_desc.Text = "";
                 }
+            }
+        }
+
+        private void txtMd_charge_Leave(object sender, EventArgs e)
+        {        
+            CalculateMdCharge(txtMd_charge, txtMd_charge_vn);
+        }
+        private void txtDie_mould_usd_Leave(object sender, EventArgs e)
+        {
+            CalculateMdCharge(txtDie_mould_usd, txtDie_mould_usd_vn);
+        }
+
+        private void CalculateMdCharge(DevExpress.XtraEditors.TextEdit obj1, DevExpress.XtraEditors.TextEdit obj2)
+        {
+            if (editState != "")
+            {
+                float md_charge = clsApp.Return_Float_Value(obj1.Text);
+                obj2.Text = (md_charge * 1.20).ToString();
             }
         }
 

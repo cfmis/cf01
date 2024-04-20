@@ -2637,7 +2637,7 @@ namespace cf01.Forms
             B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_price_vnd,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,
             B.die_mould_cny, CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,ISNULL(D.moq_desc,'') AS moqdesc,
             dbo.fn_get_picture_name_of_artwork('0000',Substring(Isnull(B.cf_code,''),1,7),'OUT') AS picture_name,Isnull(B.cust_artwork,'') AS cust_artwork,D.termremark,
-            B.price_vnd_usd,B.price_vnd,B.price_vnd_grs,B.price_vnd_pcs,terms_remark
+            B.price_vnd_usd,B.price_vnd,B.price_vnd_grs,B.price_vnd_pcs,terms_remark, D.md_charge_vn,D.die_mould_usd_vn
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
                 LEFT JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code

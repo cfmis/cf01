@@ -45,7 +45,7 @@
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtmd_charge = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtmd_charge_vn = new DevExpress.XtraReports.UI.XRLabel();
             this.txtmd_charge_cny = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel64 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -181,7 +181,7 @@
             this.xrLabel12,
             this.xrLabel3,
             this.xrLabel14,
-            this.txtmd_charge,
+            this.txtmd_charge_vn,
             this.txtmd_charge_cny,
             this.xrLabel64,
             this.xrPictureBox1,
@@ -428,20 +428,20 @@
             this.xrLabel14.Text = "[product_desc]";
             this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // txtmd_charge
+            // txtmd_charge_vn
             // 
-            this.txtmd_charge.CanGrow = false;
-            this.txtmd_charge.Dpi = 254F;
-            this.txtmd_charge.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmd_charge.LocationFloat = new DevExpress.Utils.PointFloat(2341.63F, 1.000008F);
-            this.txtmd_charge.Name = "txtmd_charge";
-            this.txtmd_charge.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtmd_charge.SizeF = new System.Drawing.SizeF(177.6338F, 33.6875F);
-            this.txtmd_charge.StylePriority.UseFont = false;
-            this.txtmd_charge.StylePriority.UseTextAlignment = false;
-            this.txtmd_charge.Text = "[md_charge]";
-            this.txtmd_charge.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.txtmd_charge.WordWrap = false;
+            this.txtmd_charge_vn.CanGrow = false;
+            this.txtmd_charge_vn.Dpi = 254F;
+            this.txtmd_charge_vn.Font = new System.Drawing.Font("SimSun", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmd_charge_vn.LocationFloat = new DevExpress.Utils.PointFloat(2341.63F, 1.000008F);
+            this.txtmd_charge_vn.Name = "txtmd_charge_vn";
+            this.txtmd_charge_vn.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtmd_charge_vn.SizeF = new System.Drawing.SizeF(177.6338F, 33.6875F);
+            this.txtmd_charge_vn.StylePriority.UseFont = false;
+            this.txtmd_charge_vn.StylePriority.UseTextAlignment = false;
+            this.txtmd_charge_vn.Text = "[md_charge_vn]";
+            this.txtmd_charge_vn.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtmd_charge_vn.WordWrap = false;
             // 
             // txtmd_charge_cny
             // 
@@ -2042,7 +2042,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel51;
         private DevExpress.XtraReports.UI.XRLabel xrLabel49;
         private DevExpress.XtraReports.UI.XRCrossBandLine xrCrossBandLine22;
-        private DevExpress.XtraReports.UI.XRLabel txtmd_charge;
+        private DevExpress.XtraReports.UI.XRLabel txtmd_charge_vn;
         private DevExpress.XtraReports.UI.XRLabel txtmd_charge_cny;
         private DevExpress.XtraReports.UI.XRCrossBandLine xrCrossBandLine23;
         private DevExpress.XtraReports.UI.XRLabel xrLabel24;

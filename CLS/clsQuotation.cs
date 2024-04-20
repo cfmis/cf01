@@ -470,6 +470,23 @@ namespace cf01.CLS
             obj.Properties.DisplayMember = "id";
         }
 
+        public static void Set_Brand_id2(DevExpress.XtraEditors.LookUpEdit obj)
+        {
+            const string strSql =
+            @"SELECT S.id,S.cdesc,S.type_desc 
+            FROM
+            (SELECT brand_id as id,brand_id AS cdesc,'牌子' AS type_desc,'0' as seq FROM quotation_formula with(nolock)) S
+            ORDER BY S.seq,S.id,S.type_desc";
+            System.Data.DataTable dtDept = new System.Data.DataTable();
+            dtDept = clsPublicOfCF01.GetDataTable(strSql);  
+            System.Data.DataRow dr2 = dtDept.NewRow();//插一空行 
+            dr2["id"] = "";
+            dtDept.Rows.InsertAt(dr2, 0);
+            obj.Properties.DataSource = dtDept;
+            obj.Properties.ValueMember = "id";
+            obj.Properties.DisplayMember = "id";
+        }
+
         /// <summary>
         /// 根據不同牌子定義單價不同的小數位
         /// </summary>
@@ -518,7 +535,7 @@ namespace cf01.CLS
         /// 依據牌子找到對應的公式，如參數為空，則取默認的值
         /// </summary>
         /// <param name="brand_id","formula_id","hk_bp","unit","copyType","vnBp"></param>        
-        public static mdlFormula_Result Get_Cust_Formula(string brand_id, string formula_id, string hk_bp, string unit,string edit_state, string vnBp,bool flag_vn)
+        public static mdlFormula_Result Get_Cust_Formula(string brand_id, string formula_id, string hk_bp, string unit,string vnBp,bool flag_vn)
         {
             int iDecimal = Get_Decimal(brand_id);
             //*--------------------------------------------------------
@@ -638,20 +655,12 @@ namespace cf01.CLS
             if (number_input > 0 && flag_vn)
             {
                 //vn_bp是傳進來的參數
-                objResult.vnd_bp = float.Parse(Math.Round(number_input * (1 + vndbp1 / 100), 2).ToString());//計算之后的越南BP
-                //if (edit_state == "EDIT")
-                //{
-                //    if (vn_bp > 0 && vn_bp != objResult.vnd_bp)
-                //    {
-                //        //如果手動更改了VN_BP,則以手勸更改的為準
-                //        //if (edit_state == "EDIT")
-                //        //{
-                //        //    objResult.vnd_bp = vn_bp;
-                //        //}
-                //        objResult.vnd_bp = vn_bp;
-                //    }
-                //}
-                objResult.price_vnd_usd = float.Parse(Math.Round(objResult.vnd_bp / vndusd1, 2).ToString());
+                //objResult.vnd_bp = float.Parse(Math.Round(number_input * (1 + vndbp1 / 100), 2).ToString());//計算之后的越南BP 2024/04/18 取消百分比表示
+                //計算之后的越南BP 2024/04/18 改為小數表示 vndbp1 原來20% -->0.2 最終vndbp1= 1.20,記得參數vndbp1直接改為1.20
+                objResult.vnd_bp = float.Parse(Math.Round((number_input * vndbp1), 2).ToString());
+            
+                //objResult.price_vnd_usd = float.Parse(Math.Round(objResult.vnd_bp / vndusd1, 2).ToString()); //2024/04/18 cancel
+                objResult.price_vnd_usd = float.Parse(Math.Round(objResult.vnd_bp / usd2, 2).ToString()); //2024/04/18 改為統一使用香港的匯率usd2
                 objResult.price_vnd = float.Parse(Math.Round(objResult.price_vnd_usd * vnd1,0).ToString());//原單位單價
                 //PCS單價
                 if ("PCS,PC,SET".Contains(unit.ToUpper()))                    

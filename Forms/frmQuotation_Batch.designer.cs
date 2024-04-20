@@ -358,6 +358,8 @@
             this.cf_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.material_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.md_charge_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.die_mould_usd_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBP.Properties)).BeginInit();
@@ -702,7 +704,9 @@
             this.special_price,
             this.cf_color_id,
             this.material_type,
-            this.product_type});
+            this.product_type,
+            this.md_charge_vn,
+            this.die_mould_usd_vn});
             this.dgvDetails.Location = new System.Drawing.Point(4, 317);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 40;
@@ -2980,6 +2984,20 @@
             this.product_type.Name = "product_type";
             this.product_type.ReadOnly = true;
             // 
+            // md_charge_vn
+            // 
+            this.md_charge_vn.DataPropertyName = "md_charge_vn";
+            this.md_charge_vn.HeaderText = "md_charge_vn";
+            this.md_charge_vn.Name = "md_charge_vn";
+            this.md_charge_vn.ReadOnly = true;
+            // 
+            // die_mould_usd_vn
+            // 
+            this.die_mould_usd_vn.DataPropertyName = "die_mould_usd_vn";
+            this.die_mould_usd_vn.HeaderText = "die_mould_usd_vn";
+            this.die_mould_usd_vn.Name = "die_mould_usd_vn";
+            this.die_mould_usd_vn.ReadOnly = true;
+            // 
             // frmQuotation_Batch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3282,5 +3300,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_color_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn material_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_vn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_usd_vn;
     }
 }

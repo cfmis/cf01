@@ -309,7 +309,7 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@discount", clsApp.Return_Float_Value(txtDiscount.EditValue.ToString()));
                         myCommand.Parameters.AddWithValue("@remark", txtRemark.Text);
                         myCommand.Parameters.AddWithValue("@vndbp1", clsApp.Return_Float_Value(txtvndbp1.EditValue.ToString()));
-                        myCommand.Parameters.AddWithValue("@vndusd1", clsApp.Return_Float_Value(txtvndusd1.EditValue.ToString()));
+                        myCommand.Parameters.AddWithValue("@vndusd1", clsApp.Return_Float_Value(txtUsd2.EditValue.ToString()));//2024/04/19改為與txtUsd2一致
                         myCommand.Parameters.AddWithValue("@vnd1", clsApp.Return_Float_Value(txtvnd1.EditValue.ToString()));
                         if (chkBp_hkd_ex.Checked)
                             isCheck = true;
@@ -349,7 +349,7 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@discount", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["discount"].Value.ToString()));
                                 myCommand.Parameters.AddWithValue("@remark", txtRemark.Text);
                                 myCommand.Parameters.AddWithValue("@vndbp1", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["vndbp1"].Value.ToString()));
-                                myCommand.Parameters.AddWithValue("@vndusd1", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["vndusd1"].Value.ToString()));
+                                myCommand.Parameters.AddWithValue("@vndusd1", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["usd2"].Value.ToString()));//2024/04/19改為與txtUsd2一致
                                 myCommand.Parameters.AddWithValue("@vnd1", clsApp.Return_Float_Value(dgvDetails.Rows[i].Cells["vnd1"].Value.ToString()));
 
                                 if (dgvDetails.Rows[i].Cells["bp_hkd_ex"].Value.ToString() == "True")

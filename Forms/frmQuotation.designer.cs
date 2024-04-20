@@ -146,6 +146,7 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNCALCULATEPRICE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
             this.txt = new DevExpress.XtraEditors.TextEdit();
             this.label14 = new System.Windows.Forms.Label();
@@ -274,6 +275,8 @@
             this.cf_color_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.material_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.md_charge_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.die_mould_usd_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BTNFORMULA = new System.Windows.Forms.Button();
@@ -578,6 +581,9 @@
             this.lbldgRmkPdd = new System.Windows.Forms.Label();
             this.pic_artwork = new System.Windows.Forms.PictureBox();
             this.pnlHeard = new System.Windows.Forms.Panel();
+            this.txtDie_mould_usd_vn = new DevExpress.XtraEditors.TextEdit();
+            this.txtMd_charge_vn = new DevExpress.XtraEditors.TextEdit();
+            this.lblMd_charge_vn = new System.Windows.Forms.Label();
             this.lueCf_color_id = new DevExpress.XtraEditors.LookUpEdit();
             this.lblMaterial_type = new System.Windows.Forms.Label();
             this.lblProduct_type = new System.Windows.Forms.Label();
@@ -604,6 +610,7 @@
             this.lblDisc_price_vnd = new System.Windows.Forms.Label();
             this.lblCf_color_id = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lblDie_mould_usd_vn = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt.Properties)).BeginInit();
@@ -719,6 +726,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.memDgRmkPdd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).BeginInit();
             this.pnlHeard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDie_mould_usd_vn.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMd_charge_vn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCf_color_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProduct_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_type.Properties)).BeginInit();
@@ -768,11 +777,12 @@
             this.BTNEXCEL_ART,
             this.toolStripSeparator13,
             this.BTNCALCULATEPRICE,
-            this.toolStripSeparator11});
+            this.toolStripSeparator11,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1361, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1361, 35);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.Click += new System.EventHandler(this.toolStrip1_Click);
@@ -783,7 +793,7 @@
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXIT.Name = "BTNEXIT";
-            this.BTNEXIT.Size = new System.Drawing.Size(65, 35);
+            this.BTNEXIT.Size = new System.Drawing.Size(65, 32);
             this.BTNEXIT.Text = "退出(&X)";
             this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
@@ -791,14 +801,14 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNNEW
             // 
             this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
             this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEW.Name = "BTNNEW";
-            this.BTNNEW.Size = new System.Drawing.Size(49, 35);
+            this.BTNNEW.Size = new System.Drawing.Size(49, 32);
             this.BTNNEW.Text = "新增(&A)";
             this.BTNNEW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
@@ -808,7 +818,7 @@
             this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
             this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEDIT.Name = "BTNEDIT";
-            this.BTNEDIT.Size = new System.Drawing.Size(48, 35);
+            this.BTNEDIT.Size = new System.Drawing.Size(48, 32);
             this.BTNEDIT.Text = "編輯(&E)";
             this.BTNEDIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
@@ -816,7 +826,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNSAVE
             // 
@@ -824,7 +834,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(47, 35);
+            this.BTNSAVE.Size = new System.Drawing.Size(47, 32);
             this.BTNSAVE.Text = "保存(&S)";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
@@ -835,7 +845,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(49, 35);
+            this.BTNCANCEL.Size = new System.Drawing.Size(49, 32);
             this.BTNCANCEL.Text = "取消(&C)";
             this.BTNCANCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
@@ -843,14 +853,14 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNDELETE
             // 
             this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
             this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNDELETE.Name = "BTNDELETE";
-            this.BTNDELETE.Size = new System.Drawing.Size(49, 35);
+            this.BTNDELETE.Size = new System.Drawing.Size(49, 32);
             this.BTNDELETE.Text = "刪除(&D)";
             this.BTNDELETE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
@@ -858,14 +868,14 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNFIND
             // 
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(47, 35);
+            this.BTNFIND.Size = new System.Drawing.Size(47, 32);
             this.BTNFIND.Text = "查詢(&F)";
             this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
@@ -875,7 +885,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(47, 35);
+            this.BTNPRINT.Size = new System.Drawing.Size(47, 32);
             this.BTNPRINT.Text = "列印(&P)";
             this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
@@ -885,7 +895,7 @@
             this.BTNEXCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXCEL.Image")));
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(70, 35);
+            this.BTNEXCEL.Size = new System.Drawing.Size(70, 32);
             this.BTNEXCEL.Text = "匯出EXCEL";
             this.BTNEXCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
@@ -893,14 +903,14 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNNEWCOPY
             // 
             this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
             this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWCOPY.Name = "BTNNEWCOPY";
-            this.BTNNEWCOPY.Size = new System.Drawing.Size(73, 35);
+            this.BTNNEWCOPY.Size = new System.Drawing.Size(73, 32);
             this.BTNNEWCOPY.Text = "覆制新增(&C)";
             this.BTNNEWCOPY.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
@@ -908,13 +918,13 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 35);
             // 
             // toolStripSeparator15
             // 
             this.toolStripSeparator15.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 35);
             this.toolStripSeparator15.Visible = false;
             // 
             // BTNCOPYVND
@@ -923,7 +933,7 @@
             this.BTNCOPYVND.Image = ((System.Drawing.Image)(resources.GetObject("BTNCOPYVND.Image")));
             this.BTNCOPYVND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCOPYVND.Name = "BTNCOPYVND";
-            this.BTNCOPYVND.Size = new System.Drawing.Size(89, 35);
+            this.BTNCOPYVND.Size = new System.Drawing.Size(89, 32);
             this.BTNCOPYVND.Text = "覆制新增(VND)";
             this.BTNCOPYVND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNCOPYVND.Visible = false;
@@ -932,14 +942,14 @@
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNIMPORT
             // 
             this.BTNIMPORT.Image = ((System.Drawing.Image)(resources.GetObject("BTNIMPORT.Image")));
             this.BTNIMPORT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNIMPORT.Name = "BTNIMPORT";
-            this.BTNIMPORT.Size = new System.Drawing.Size(62, 35);
+            this.BTNIMPORT.Size = new System.Drawing.Size(62, 32);
             this.BTNIMPORT.Text = "Excel 導入";
             this.BTNIMPORT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNIMPORT.Click += new System.EventHandler(this.BTNIMPORT_Click);
@@ -947,14 +957,14 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNNEWVER
             // 
             this.BTNNEWVER.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWVER.Image")));
             this.BTNNEWVER.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWVER.Name = "BTNNEWVER";
-            this.BTNNEWVER.Size = new System.Drawing.Size(51, 35);
+            this.BTNNEWVER.Size = new System.Drawing.Size(51, 32);
             this.BTNNEWVER.Text = "新 版 本";
             this.BTNNEWVER.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNNEWVER.Click += new System.EventHandler(this.BTNNEWVER_Click);
@@ -962,14 +972,14 @@
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNQUOTATION
             // 
             this.BTNQUOTATION.Image = ((System.Drawing.Image)(resources.GetObject("BTNQUOTATION.Image")));
             this.BTNQUOTATION.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNQUOTATION.Name = "BTNQUOTATION";
-            this.BTNQUOTATION.Size = new System.Drawing.Size(69, 35);
+            this.BTNQUOTATION.Size = new System.Drawing.Size(69, 32);
             this.BTNQUOTATION.Text = "生成報價單";
             this.BTNQUOTATION.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNQUOTATION.Click += new System.EventHandler(this.BTNQUOTATION_Click);
@@ -977,14 +987,14 @@
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNDEL_BATCH
             // 
             this.BTNDEL_BATCH.Image = ((System.Drawing.Image)(resources.GetObject("BTNDEL_BATCH.Image")));
             this.BTNDEL_BATCH.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNDEL_BATCH.Name = "BTNDEL_BATCH";
-            this.BTNDEL_BATCH.Size = new System.Drawing.Size(57, 35);
+            this.BTNDEL_BATCH.Size = new System.Drawing.Size(57, 32);
             this.BTNDEL_BATCH.Text = "批量刪除";
             this.BTNDEL_BATCH.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNDEL_BATCH.Click += new System.EventHandler(this.BTNDEL_BATCH_Click);
@@ -994,7 +1004,7 @@
             this.BTNEXCEL_ART.Image = global::cf01.Properties.Resources.Excel1;
             this.BTNEXCEL_ART.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL_ART.Name = "BTNEXCEL_ART";
-            this.BTNEXCEL_ART.Size = new System.Drawing.Size(102, 35);
+            this.BTNEXCEL_ART.Size = new System.Drawing.Size(102, 32);
             this.BTNEXCEL_ART.Text = "匯出EXCEL(有圖)";
             this.BTNEXCEL_ART.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXCEL_ART.Click += new System.EventHandler(this.BTNEXCEL_ART_Click);
@@ -1002,14 +1012,14 @@
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 35);
             // 
             // BTNCALCULATEPRICE
             // 
             this.BTNCALCULATEPRICE.Image = ((System.Drawing.Image)(resources.GetObject("BTNCALCULATEPRICE.Image")));
             this.BTNCALCULATEPRICE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCALCULATEPRICE.Name = "BTNCALCULATEPRICE";
-            this.BTNCALCULATEPRICE.Size = new System.Drawing.Size(57, 35);
+            this.BTNCALCULATEPRICE.Size = new System.Drawing.Size(57, 32);
             this.BTNCALCULATEPRICE.Text = "產品計价";
             this.BTNCALCULATEPRICE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNCALCULATEPRICE.Click += new System.EventHandler(this.BTNCALCULATEPRICE_Click);
@@ -1018,7 +1028,16 @@
             // 
             this.toolStripSeparator11.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 35);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 32);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // textEdit6
             // 
@@ -1274,7 +1293,9 @@
             this.flag_vnd_date,
             this.cf_color_id,
             this.material_type,
-            this.product_type});
+            this.product_type,
+            this.md_charge_vn,
+            this.die_mould_usd_vn});
             this.dgvDetails.Location = new System.Drawing.Point(-2, -3);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
@@ -2280,6 +2301,22 @@
             this.product_type.HeaderText = "Product Type";
             this.product_type.Name = "product_type";
             this.product_type.ReadOnly = true;
+            // 
+            // md_charge_vn
+            // 
+            this.md_charge_vn.DataPropertyName = "md_charge_vn";
+            this.md_charge_vn.HeaderText = "Md Charge VN";
+            this.md_charge_vn.Name = "md_charge_vn";
+            this.md_charge_vn.ReadOnly = true;
+            this.md_charge_vn.Width = 30;
+            // 
+            // die_mould_usd_vn
+            // 
+            this.die_mould_usd_vn.DataPropertyName = "die_mould_usd_vn";
+            this.die_mould_usd_vn.HeaderText = "Die Mould Usd Vn";
+            this.die_mould_usd_vn.Name = "die_mould_usd_vn";
+            this.die_mould_usd_vn.ReadOnly = true;
+            this.die_mould_usd_vn.Width = 60;
             // 
             // tabPage2
             // 
@@ -3766,7 +3803,7 @@
             // 
             // lblVersion
             // 
-            this.lblVersion.Location = new System.Drawing.Point(831, 188);
+            this.lblVersion.Location = new System.Drawing.Point(831, 191);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(45, 13);
             this.lblVersion.TabIndex = 111;
@@ -3775,7 +3812,7 @@
             // 
             // lblAw
             // 
-            this.lblAw.Location = new System.Drawing.Point(1017, 9);
+            this.lblAw.Location = new System.Drawing.Point(1017, 5);
             this.lblAw.Name = "lblAw";
             this.lblAw.Size = new System.Drawing.Size(50, 13);
             this.lblAw.TabIndex = 79;
@@ -3785,7 +3822,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(185, 224);
+            this.label2.Location = new System.Drawing.Point(185, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 23);
             this.label2.TabIndex = 201;
@@ -3795,7 +3832,7 @@
             // txtPrice_rmb
             // 
             this.txtPrice_rmb.EditValue = "";
-            this.txtPrice_rmb.Location = new System.Drawing.Point(362, 161);
+            this.txtPrice_rmb.Location = new System.Drawing.Point(362, 151);
             this.txtPrice_rmb.Name = "txtPrice_rmb";
             this.txtPrice_rmb.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.txtPrice_rmb.Properties.Appearance.Options.UseForeColor = true;
@@ -3817,7 +3854,7 @@
             // lblRmb_remark
             // 
             this.lblRmb_remark.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRmb_remark.Location = new System.Drawing.Point(266, 330);
+            this.lblRmb_remark.Location = new System.Drawing.Point(266, 326);
             this.lblRmb_remark.Name = "lblRmb_remark";
             this.lblRmb_remark.Size = new System.Drawing.Size(99, 18);
             this.lblRmb_remark.TabIndex = 184;
@@ -3828,7 +3865,7 @@
             // 
             this.txtEx_fty_hkd.EditValue = "";
             this.txtEx_fty_hkd.EnterMoveNextControl = true;
-            this.txtEx_fty_hkd.Location = new System.Drawing.Point(578, 276);
+            this.txtEx_fty_hkd.Location = new System.Drawing.Point(578, 279);
             this.txtEx_fty_hkd.Name = "txtEx_fty_hkd";
             this.txtEx_fty_hkd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtEx_fty_hkd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
@@ -3850,7 +3887,7 @@
             // 
             this.txtEx_fty_usd.EditValue = "";
             this.txtEx_fty_usd.EnterMoveNextControl = true;
-            this.txtEx_fty_usd.Location = new System.Drawing.Point(578, 274);
+            this.txtEx_fty_usd.Location = new System.Drawing.Point(578, 277);
             this.txtEx_fty_usd.Name = "txtEx_fty_usd";
             this.txtEx_fty_usd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtEx_fty_usd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
@@ -3871,7 +3908,7 @@
             // lblEx_fty_hkd
             // 
             this.lblEx_fty_hkd.ForeColor = System.Drawing.Color.Green;
-            this.lblEx_fty_hkd.Location = new System.Drawing.Point(578, 280);
+            this.lblEx_fty_hkd.Location = new System.Drawing.Point(579, 283);
             this.lblEx_fty_hkd.Name = "lblEx_fty_hkd";
             this.lblEx_fty_hkd.Size = new System.Drawing.Size(19, 13);
             this.lblEx_fty_hkd.TabIndex = 163;
@@ -3882,7 +3919,7 @@
             // lblEx_fty_usd
             // 
             this.lblEx_fty_usd.ForeColor = System.Drawing.Color.Green;
-            this.lblEx_fty_usd.Location = new System.Drawing.Point(574, 279);
+            this.lblEx_fty_usd.Location = new System.Drawing.Point(574, 282);
             this.lblEx_fty_usd.Name = "lblEx_fty_usd";
             this.lblEx_fty_usd.Size = new System.Drawing.Size(38, 13);
             this.lblEx_fty_usd.TabIndex = 165;
@@ -3893,7 +3930,7 @@
             // lblLabTest
             // 
             this.lblLabTest.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblLabTest.Location = new System.Drawing.Point(552, 274);
+            this.lblLabTest.Location = new System.Drawing.Point(552, 277);
             this.lblLabTest.Name = "lblLabTest";
             this.lblLabTest.Size = new System.Drawing.Size(111, 13);
             this.lblLabTest.TabIndex = 198;
@@ -3902,7 +3939,7 @@
             // 
             // lblPlm_code
             // 
-            this.lblPlm_code.Location = new System.Drawing.Point(914, 121);
+            this.lblPlm_code.Location = new System.Drawing.Point(914, 109);
             this.lblPlm_code.Name = "lblPlm_code";
             this.lblPlm_code.Size = new System.Drawing.Size(57, 13);
             this.lblPlm_code.TabIndex = 149;
@@ -3911,7 +3948,7 @@
             // 
             // lblMd_charge_cny
             // 
-            this.lblMd_charge_cny.Location = new System.Drawing.Point(723, 122);
+            this.lblMd_charge_cny.Location = new System.Drawing.Point(723, 110);
             this.lblMd_charge_cny.Name = "lblMd_charge_cny";
             this.lblMd_charge_cny.Size = new System.Drawing.Size(53, 13);
             this.lblMd_charge_cny.TabIndex = 123;
@@ -3920,7 +3957,7 @@
             // 
             // lblDie_mould_cny
             // 
-            this.lblDie_mould_cny.Location = new System.Drawing.Point(723, 145);
+            this.lblDie_mould_cny.Location = new System.Drawing.Point(723, 131);
             this.lblDie_mould_cny.Name = "lblDie_mould_cny";
             this.lblDie_mould_cny.Size = new System.Drawing.Size(53, 13);
             this.lblDie_mould_cny.TabIndex = 182;
@@ -3930,7 +3967,7 @@
             // txtCustartwork
             // 
             this.txtCustartwork.EditValue = "";
-            this.txtCustartwork.Location = new System.Drawing.Point(511, 27);
+            this.txtCustartwork.Location = new System.Drawing.Point(511, 22);
             this.txtCustartwork.Name = "txtCustartwork";
             this.txtCustartwork.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
@@ -3946,7 +3983,7 @@
             // 
             this.lblNumber_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblNumber_enter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNumber_enter.Location = new System.Drawing.Point(409, 98);
+            this.lblNumber_enter.Location = new System.Drawing.Point(409, 90);
             this.lblNumber_enter.Name = "lblNumber_enter";
             this.lblNumber_enter.Size = new System.Drawing.Size(29, 13);
             this.lblNumber_enter.TabIndex = 75;
@@ -3955,7 +3992,7 @@
             // 
             // lblCrtim
             // 
-            this.lblCrtim.Location = new System.Drawing.Point(130, 379);
+            this.lblCrtim.Location = new System.Drawing.Point(130, 375);
             this.lblCrtim.Name = "lblCrtim";
             this.lblCrtim.Size = new System.Drawing.Size(61, 13);
             this.lblCrtim.TabIndex = 13;
@@ -3964,7 +4001,7 @@
             // 
             // lblAmtim
             // 
-            this.lblAmtim.Location = new System.Drawing.Point(410, 379);
+            this.lblAmtim.Location = new System.Drawing.Point(410, 375);
             this.lblAmtim.Name = "lblAmtim";
             this.lblAmtim.Size = new System.Drawing.Size(62, 13);
             this.lblAmtim.TabIndex = 15;
@@ -3973,7 +4010,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(157, 350);
+            this.label4.Location = new System.Drawing.Point(157, 346);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 25);
             this.label4.TabIndex = 188;
@@ -3983,7 +4020,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("PMingLiU", 9F);
-            this.label5.Location = new System.Drawing.Point(265, 348);
+            this.label5.Location = new System.Drawing.Point(265, 344);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 26);
             this.label5.TabIndex = 190;
@@ -3992,7 +4029,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(7, 350);
+            this.label3.Location = new System.Drawing.Point(7, 346);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 186;
@@ -4001,7 +4038,7 @@
             // 
             // lblReason_edit
             // 
-            this.lblReason_edit.Location = new System.Drawing.Point(571, 252);
+            this.lblReason_edit.Location = new System.Drawing.Point(571, 255);
             this.lblReason_edit.Name = "lblReason_edit";
             this.lblReason_edit.Size = new System.Drawing.Size(95, 13);
             this.lblReason_edit.TabIndex = 180;
@@ -4011,7 +4048,7 @@
             // lblDisc_hkd_ex_fty
             // 
             this.lblDisc_hkd_ex_fty.Font = new System.Drawing.Font("Tahoma", 6.75F);
-            this.lblDisc_hkd_ex_fty.Location = new System.Drawing.Point(931, 329);
+            this.lblDisc_hkd_ex_fty.Location = new System.Drawing.Point(931, 332);
             this.lblDisc_hkd_ex_fty.Name = "lblDisc_hkd_ex_fty";
             this.lblDisc_hkd_ex_fty.Size = new System.Drawing.Size(62, 23);
             this.lblDisc_hkd_ex_fty.TabIndex = 174;
@@ -4021,7 +4058,7 @@
             // lblDisc_rmb
             // 
             this.lblDisc_rmb.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisc_rmb.Location = new System.Drawing.Point(931, 284);
+            this.lblDisc_rmb.Location = new System.Drawing.Point(931, 287);
             this.lblDisc_rmb.Name = "lblDisc_rmb";
             this.lblDisc_rmb.Size = new System.Drawing.Size(62, 22);
             this.lblDisc_rmb.TabIndex = 175;
@@ -4031,7 +4068,7 @@
             // lblDisc_usd
             // 
             this.lblDisc_usd.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisc_usd.Location = new System.Drawing.Point(931, 238);
+            this.lblDisc_usd.Location = new System.Drawing.Point(931, 241);
             this.lblDisc_usd.Name = "lblDisc_usd";
             this.lblDisc_usd.Size = new System.Drawing.Size(62, 22);
             this.lblDisc_usd.TabIndex = 172;
@@ -4041,7 +4078,7 @@
             // lblDisc_hkd
             // 
             this.lblDisc_hkd.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisc_hkd.Location = new System.Drawing.Point(931, 262);
+            this.lblDisc_hkd.Location = new System.Drawing.Point(931, 265);
             this.lblDisc_hkd.Name = "lblDisc_hkd";
             this.lblDisc_hkd.Size = new System.Drawing.Size(62, 22);
             this.lblDisc_hkd.TabIndex = 173;
@@ -4051,7 +4088,7 @@
             // lblDisc
             // 
             this.lblDisc.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lblDisc.Location = new System.Drawing.Point(942, 218);
+            this.lblDisc.Location = new System.Drawing.Point(942, 221);
             this.lblDisc.Name = "lblDisc";
             this.lblDisc.Size = new System.Drawing.Size(49, 13);
             this.lblDisc.TabIndex = 167;
@@ -4061,7 +4098,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1046, 216);
+            this.label1.Location = new System.Drawing.Point(1046, 219);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 15);
             this.label1.TabIndex = 178;
@@ -4071,7 +4108,7 @@
             // lblUsd_ex_fty
             // 
             this.lblUsd_ex_fty.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblUsd_ex_fty.Location = new System.Drawing.Point(281, 210);
+            this.lblUsd_ex_fty.Location = new System.Drawing.Point(281, 206);
             this.lblUsd_ex_fty.Name = "lblUsd_ex_fty";
             this.lblUsd_ex_fty.Size = new System.Drawing.Size(83, 13);
             this.lblUsd_ex_fty.TabIndex = 177;
@@ -4081,7 +4118,7 @@
             // lblUsd_lab_test
             // 
             this.lblUsd_lab_test.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblUsd_lab_test.Location = new System.Drawing.Point(576, 211);
+            this.lblUsd_lab_test.Location = new System.Drawing.Point(576, 214);
             this.lblUsd_lab_test.Name = "lblUsd_lab_test";
             this.lblUsd_lab_test.Size = new System.Drawing.Size(91, 13);
             this.lblUsd_lab_test.TabIndex = 153;
@@ -4091,7 +4128,7 @@
             // lblKkd_ex_fty
             // 
             this.lblKkd_ex_fty.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblKkd_ex_fty.Location = new System.Drawing.Point(281, 188);
+            this.lblKkd_ex_fty.Location = new System.Drawing.Point(281, 184);
             this.lblKkd_ex_fty.Name = "lblKkd_ex_fty";
             this.lblKkd_ex_fty.Size = new System.Drawing.Size(83, 13);
             this.lblKkd_ex_fty.TabIndex = 73;
@@ -4102,7 +4139,7 @@
             // 
             this.txtStatus.EditValue = "";
             this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(969, 27);
+            this.txtStatus.Location = new System.Drawing.Point(969, 22);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -4116,7 +4153,7 @@
             // txtTemp_code
             // 
             this.txtTemp_code.EditValue = "";
-            this.txtTemp_code.Location = new System.Drawing.Point(76, 5);
+            this.txtTemp_code.Location = new System.Drawing.Point(76, 1);
             this.txtTemp_code.Name = "txtTemp_code";
             this.txtTemp_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTemp_code.Properties.MaxLength = 12;
@@ -4127,7 +4164,7 @@
             // 
             // lblSalesman
             // 
-            this.lblSalesman.Location = new System.Drawing.Point(-5, 77);
+            this.lblSalesman.Location = new System.Drawing.Point(-5, 69);
             this.lblSalesman.Name = "lblSalesman";
             this.lblSalesman.Size = new System.Drawing.Size(82, 13);
             this.lblSalesman.TabIndex = 51;
@@ -4137,7 +4174,7 @@
             // lblCf_code
             // 
             this.lblCf_code.ForeColor = System.Drawing.Color.Blue;
-            this.lblCf_code.Location = new System.Drawing.Point(259, 31);
+            this.lblCf_code.Location = new System.Drawing.Point(259, 26);
             this.lblCf_code.Name = "lblCf_code";
             this.lblCf_code.Size = new System.Drawing.Size(79, 13);
             this.lblCf_code.TabIndex = 39;
@@ -4146,7 +4183,7 @@
             // 
             // lblCust_code
             // 
-            this.lblCust_code.Location = new System.Drawing.Point(259, 9);
+            this.lblCust_code.Location = new System.Drawing.Point(259, 5);
             this.lblCust_code.Name = "lblCust_code";
             this.lblCust_code.Size = new System.Drawing.Size(79, 13);
             this.lblCust_code.TabIndex = 37;
@@ -4157,7 +4194,7 @@
             // 
             this.lblPrice_rmb.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblPrice_rmb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblPrice_rmb.Location = new System.Drawing.Point(297, 164);
+            this.lblPrice_rmb.Location = new System.Drawing.Point(297, 157);
             this.lblPrice_rmb.Name = "lblPrice_rmb";
             this.lblPrice_rmb.Size = new System.Drawing.Size(63, 14);
             this.lblPrice_rmb.TabIndex = 105;
@@ -4168,7 +4205,7 @@
             // 
             this.lblBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblBrand.ForeColor = System.Drawing.Color.Blue;
-            this.lblBrand.Location = new System.Drawing.Point(-2, 117);
+            this.lblBrand.Location = new System.Drawing.Point(-2, 109);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(79, 17);
             this.lblBrand.TabIndex = 5;
@@ -4178,7 +4215,7 @@
             // txtSeasonDesc
             // 
             this.txtSeasonDesc.EditValue = "";
-            this.txtSeasonDesc.Location = new System.Drawing.Point(164, 139);
+            this.txtSeasonDesc.Location = new System.Drawing.Point(164, 130);
             this.txtSeasonDesc.Name = "txtSeasonDesc";
             this.txtSeasonDesc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
@@ -4193,7 +4230,7 @@
             // 
             // lblLead_time_max
             // 
-            this.lblLead_time_max.Location = new System.Drawing.Point(635, 74);
+            this.lblLead_time_max.Location = new System.Drawing.Point(635, 66);
             this.lblLead_time_max.Name = "lblLead_time_max";
             this.lblLead_time_max.Size = new System.Drawing.Size(98, 13);
             this.lblLead_time_max.TabIndex = 61;
@@ -4203,7 +4240,7 @@
             // lblCf_color
             // 
             this.lblCf_color.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblCf_color.Location = new System.Drawing.Point(290, 75);
+            this.lblCf_color.Location = new System.Drawing.Point(290, 67);
             this.lblCf_color.Name = "lblCf_color";
             this.lblCf_color.Size = new System.Drawing.Size(77, 13);
             this.lblCf_color.TabIndex = 43;
@@ -4212,7 +4249,7 @@
             // 
             // lblCust_color
             // 
-            this.lblCust_color.Location = new System.Drawing.Point(259, 51);
+            this.lblCust_color.Location = new System.Drawing.Point(259, 44);
             this.lblCust_color.Name = "lblCust_color";
             this.lblCust_color.Size = new System.Drawing.Size(79, 13);
             this.lblCust_color.TabIndex = 41;
@@ -4222,7 +4259,7 @@
             // txtBrandDesc
             // 
             this.txtBrandDesc.EditValue = "";
-            this.txtBrandDesc.Location = new System.Drawing.Point(164, 117);
+            this.txtBrandDesc.Location = new System.Drawing.Point(164, 109);
             this.txtBrandDesc.Name = "txtBrandDesc";
             this.txtBrandDesc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
@@ -4237,7 +4274,7 @@
             // txtMo_id
             // 
             this.txtMo_id.EditValue = "";
-            this.txtMo_id.Location = new System.Drawing.Point(76, 226);
+            this.txtMo_id.Location = new System.Drawing.Point(76, 222);
             this.txtMo_id.Name = "txtMo_id";
             this.txtMo_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
@@ -4255,7 +4292,7 @@
             // 
             this.txtVersion.EditValue = "";
             this.txtVersion.Enabled = false;
-            this.txtVersion.Location = new System.Drawing.Point(875, 184);
+            this.txtVersion.Location = new System.Drawing.Point(875, 187);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVersion.Properties.MaxLength = 2;
@@ -4269,7 +4306,7 @@
             this.txtSeason.EditValue = "";
             this.txtSeason.Enabled = false;
             this.txtSeason.EnterMoveNextControl = true;
-            this.txtSeason.Location = new System.Drawing.Point(76, 139);
+            this.txtSeason.Location = new System.Drawing.Point(76, 130);
             this.txtSeason.Name = "txtSeason";
             this.txtSeason.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtSeason.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4296,7 +4333,7 @@
             this.txtBrand.EditValue = "";
             this.txtBrand.Enabled = false;
             this.txtBrand.EnterMoveNextControl = true;
-            this.txtBrand.Location = new System.Drawing.Point(76, 117);
+            this.txtBrand.Location = new System.Drawing.Point(76, 109);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtBrand.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4322,7 +4359,7 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.EnterMoveNextControl = true;
-            this.txtID.Location = new System.Drawing.Point(1199, 10);
+            this.txtID.Location = new System.Drawing.Point(1199, 6);
             this.txtID.Name = "txtID";
             this.txtID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Properties.MaxLength = 20;
@@ -4336,7 +4373,7 @@
             this.txtLead_time_unit.EditValue = "";
             this.txtLead_time_unit.Enabled = false;
             this.txtLead_time_unit.EnterMoveNextControl = true;
-            this.txtLead_time_unit.Location = new System.Drawing.Point(733, 94);
+            this.txtLead_time_unit.Location = new System.Drawing.Point(733, 84);
             this.txtLead_time_unit.Name = "txtLead_time_unit";
             this.txtLead_time_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtLead_time_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4356,7 +4393,7 @@
             this.txtValid_date.EditValue = "";
             this.txtValid_date.Enabled = false;
             this.txtValid_date.EnterMoveNextControl = true;
-            this.txtValid_date.Location = new System.Drawing.Point(665, 185);
+            this.txtValid_date.Location = new System.Drawing.Point(665, 188);
             this.txtValid_date.Name = "txtValid_date";
             this.txtValid_date.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtValid_date.Properties.Appearance.Options.UseForeColor = true;
@@ -4379,7 +4416,7 @@
             // txtProduct_desc
             // 
             this.txtProduct_desc.EnterMoveNextControl = true;
-            this.txtProduct_desc.Location = new System.Drawing.Point(235, 268);
+            this.txtProduct_desc.Location = new System.Drawing.Point(235, 264);
             this.txtProduct_desc.Name = "txtProduct_desc";
             this.txtProduct_desc.Properties.MaxLength = 150;
             this.txtProduct_desc.Properties.ReadOnly = true;
@@ -4392,7 +4429,7 @@
             this.txtDate.EditValue = "";
             this.txtDate.Enabled = false;
             this.txtDate.EnterMoveNextControl = true;
-            this.txtDate.Location = new System.Drawing.Point(76, 95);
+            this.txtDate.Location = new System.Drawing.Point(76, 87);
             this.txtDate.Name = "txtDate";
             this.txtDate.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtDate.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4414,7 +4451,7 @@
             // lblSales_group
             // 
             this.lblSales_group.ForeColor = System.Drawing.Color.Blue;
-            this.lblSales_group.Location = new System.Drawing.Point(3, 28);
+            this.lblSales_group.Location = new System.Drawing.Point(3, 23);
             this.lblSales_group.Name = "lblSales_group";
             this.lblSales_group.Size = new System.Drawing.Size(73, 13);
             this.lblSales_group.TabIndex = 1;
@@ -4424,7 +4461,7 @@
             // lblTemp_code
             // 
             this.lblTemp_code.ForeColor = System.Drawing.Color.Blue;
-            this.lblTemp_code.Location = new System.Drawing.Point(3, 7);
+            this.lblTemp_code.Location = new System.Drawing.Point(3, 3);
             this.lblTemp_code.Name = "lblTemp_code";
             this.lblTemp_code.Size = new System.Drawing.Size(73, 13);
             this.lblTemp_code.TabIndex = 3;
@@ -4436,7 +4473,7 @@
             this.txtSales_group.EditValue = "";
             this.txtSales_group.Enabled = false;
             this.txtSales_group.EnterMoveNextControl = true;
-            this.txtSales_group.Location = new System.Drawing.Point(76, 27);
+            this.txtSales_group.Location = new System.Drawing.Point(76, 22);
             this.txtSales_group.Name = "txtSales_group";
             this.txtSales_group.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtSales_group.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4459,7 +4496,7 @@
             // lblMaterial
             // 
             this.lblMaterial.ForeColor = System.Drawing.Color.Blue;
-            this.lblMaterial.Location = new System.Drawing.Point(163, 251);
+            this.lblMaterial.Location = new System.Drawing.Point(163, 247);
             this.lblMaterial.Name = "lblMaterial";
             this.lblMaterial.Size = new System.Drawing.Size(73, 13);
             this.lblMaterial.TabIndex = 20;
@@ -4470,7 +4507,7 @@
             // 
             this.txtMaterial.EditValue = "";
             this.txtMaterial.EnterMoveNextControl = true;
-            this.txtMaterial.Location = new System.Drawing.Point(235, 247);
+            this.txtMaterial.Location = new System.Drawing.Point(235, 243);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Properties.MaxLength = 100;
             this.txtMaterial.Properties.ReadOnly = true;
@@ -4481,7 +4518,7 @@
             // lblDate
             // 
             this.lblDate.ForeColor = System.Drawing.Color.Blue;
-            this.lblDate.Location = new System.Drawing.Point(3, 99);
+            this.lblDate.Location = new System.Drawing.Point(3, 92);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(73, 13);
             this.lblDate.TabIndex = 23;
@@ -4490,7 +4527,7 @@
             // 
             // lblSeason
             // 
-            this.lblSeason.Location = new System.Drawing.Point(3, 142);
+            this.lblSeason.Location = new System.Drawing.Point(3, 133);
             this.lblSeason.Name = "lblSeason";
             this.lblSeason.Size = new System.Drawing.Size(73, 13);
             this.lblSeason.TabIndex = 25;
@@ -4499,7 +4536,7 @@
             // 
             // lblDivision
             // 
-            this.lblDivision.Location = new System.Drawing.Point(3, 164);
+            this.lblDivision.Location = new System.Drawing.Point(3, 157);
             this.lblDivision.Name = "lblDivision";
             this.lblDivision.Size = new System.Drawing.Size(73, 13);
             this.lblDivision.TabIndex = 27;
@@ -4510,7 +4547,7 @@
             // 
             this.txtDivision.EditValue = "";
             this.txtDivision.EnterMoveNextControl = true;
-            this.txtDivision.Location = new System.Drawing.Point(76, 161);
+            this.txtDivision.Location = new System.Drawing.Point(76, 151);
             this.txtDivision.Name = "txtDivision";
             this.txtDivision.Properties.MaxLength = 100;
             this.txtDivision.Properties.ReadOnly = true;
@@ -4520,7 +4557,7 @@
             // 
             // lblContact
             // 
-            this.lblContact.Location = new System.Drawing.Point(3, 186);
+            this.lblContact.Location = new System.Drawing.Point(3, 182);
             this.lblContact.Name = "lblContact";
             this.lblContact.Size = new System.Drawing.Size(73, 13);
             this.lblContact.TabIndex = 29;
@@ -4531,7 +4568,7 @@
             // 
             this.txtContact.EditValue = "";
             this.txtContact.EnterMoveNextControl = true;
-            this.txtContact.Location = new System.Drawing.Point(76, 183);
+            this.txtContact.Location = new System.Drawing.Point(76, 179);
             this.txtContact.Name = "txtContact";
             this.txtContact.Properties.MaxLength = 100;
             this.txtContact.Properties.ReadOnly = true;
@@ -4541,7 +4578,7 @@
             // 
             // lblSize
             // 
-            this.lblSize.Location = new System.Drawing.Point(3, 209);
+            this.lblSize.Location = new System.Drawing.Point(3, 205);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(73, 13);
             this.lblSize.TabIndex = 30;
@@ -4552,7 +4589,7 @@
             // 
             this.txtSize.EditValue = "";
             this.txtSize.EnterMoveNextControl = true;
-            this.txtSize.Location = new System.Drawing.Point(76, 205);
+            this.txtSize.Location = new System.Drawing.Point(76, 201);
             this.txtSize.Name = "txtSize";
             this.txtSize.Properties.MaxLength = 250;
             this.txtSize.Properties.ReadOnly = true;
@@ -4562,7 +4599,7 @@
             // 
             // lblProduct_desc
             // 
-            this.lblProduct_desc.Location = new System.Drawing.Point(166, 271);
+            this.lblProduct_desc.Location = new System.Drawing.Point(166, 267);
             this.lblProduct_desc.Name = "lblProduct_desc";
             this.lblProduct_desc.Size = new System.Drawing.Size(69, 13);
             this.lblProduct_desc.TabIndex = 34;
@@ -4573,7 +4610,7 @@
             // 
             this.txtCust_code.EditValue = "";
             this.txtCust_code.EnterMoveNextControl = true;
-            this.txtCust_code.Location = new System.Drawing.Point(336, 5);
+            this.txtCust_code.Location = new System.Drawing.Point(336, 1);
             this.txtCust_code.Name = "txtCust_code";
             this.txtCust_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCust_code.Properties.MaxLength = 100;
@@ -4586,7 +4623,7 @@
             // 
             this.txtCf_code.EditValue = "";
             this.txtCf_code.EnterMoveNextControl = true;
-            this.txtCf_code.Location = new System.Drawing.Point(336, 27);
+            this.txtCf_code.Location = new System.Drawing.Point(336, 22);
             this.txtCf_code.Name = "txtCf_code";
             this.txtCf_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCf_code.Properties.MaxLength = 100;
@@ -4600,7 +4637,7 @@
             // 
             this.txtCust_color.EditValue = "";
             this.txtCust_color.EnterMoveNextControl = true;
-            this.txtCust_color.Location = new System.Drawing.Point(336, 49);
+            this.txtCust_color.Location = new System.Drawing.Point(336, 42);
             this.txtCust_color.Name = "txtCust_color";
             this.txtCust_color.Properties.MaxLength = 100;
             this.txtCust_color.Properties.ReadOnly = true;
@@ -4612,7 +4649,7 @@
             // 
             this.txtCf_color.EditValue = "";
             this.txtCf_color.EnterMoveNextControl = true;
-            this.txtCf_color.Location = new System.Drawing.Point(366, 71);
+            this.txtCf_color.Location = new System.Drawing.Point(366, 63);
             this.txtCf_color.Name = "txtCf_color";
             this.txtCf_color.Properties.MaxLength = 200;
             this.txtCf_color.Properties.ReadOnly = true;
@@ -4622,7 +4659,7 @@
             // 
             // lblPrice_usd
             // 
-            this.lblPrice_usd.Location = new System.Drawing.Point(300, 122);
+            this.lblPrice_usd.Location = new System.Drawing.Point(300, 114);
             this.lblPrice_usd.Name = "lblPrice_usd";
             this.lblPrice_usd.Size = new System.Drawing.Size(64, 13);
             this.lblPrice_usd.TabIndex = 45;
@@ -4633,7 +4670,7 @@
             // 
             this.txtPrice_usd.EditValue = "";
             this.txtPrice_usd.EnterMoveNextControl = true;
-            this.txtPrice_usd.Location = new System.Drawing.Point(362, 117);
+            this.txtPrice_usd.Location = new System.Drawing.Point(362, 109);
             this.txtPrice_usd.Name = "txtPrice_usd";
             this.txtPrice_usd.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.txtPrice_usd.Properties.Appearance.Options.UseForeColor = true;
@@ -4650,7 +4687,7 @@
             // 
             // lblPrice_hkd
             // 
-            this.lblPrice_hkd.Location = new System.Drawing.Point(300, 143);
+            this.lblPrice_hkd.Location = new System.Drawing.Point(300, 134);
             this.lblPrice_hkd.Name = "lblPrice_hkd";
             this.lblPrice_hkd.Size = new System.Drawing.Size(63, 13);
             this.lblPrice_hkd.TabIndex = 47;
@@ -4661,7 +4698,7 @@
             // 
             this.txtPrice_hkd.EditValue = "";
             this.txtPrice_hkd.EnterMoveNextControl = true;
-            this.txtPrice_hkd.Location = new System.Drawing.Point(362, 139);
+            this.txtPrice_hkd.Location = new System.Drawing.Point(362, 130);
             this.txtPrice_hkd.Name = "txtPrice_hkd";
             this.txtPrice_hkd.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.txtPrice_hkd.Properties.Appearance.Options.UseForeColor = true;
@@ -4679,7 +4716,7 @@
             // lblPrice_unit
             // 
             this.lblPrice_unit.ForeColor = System.Drawing.Color.Blue;
-            this.lblPrice_unit.Location = new System.Drawing.Point(306, 98);
+            this.lblPrice_unit.Location = new System.Drawing.Point(306, 90);
             this.lblPrice_unit.Name = "lblPrice_unit";
             this.lblPrice_unit.Size = new System.Drawing.Size(56, 13);
             this.lblPrice_unit.TabIndex = 48;
@@ -4690,7 +4727,7 @@
             // 
             this.txtSalesman.EditValue = "";
             this.txtSalesman.EnterMoveNextControl = true;
-            this.txtSalesman.Location = new System.Drawing.Point(76, 73);
+            this.txtSalesman.Location = new System.Drawing.Point(76, 65);
             this.txtSalesman.Name = "txtSalesman";
             this.txtSalesman.Properties.MaxLength = 100;
             this.txtSalesman.Properties.ReadOnly = true;
@@ -4700,7 +4737,7 @@
             // 
             // lblMoq
             // 
-            this.lblMoq.Location = new System.Drawing.Point(627, 9);
+            this.lblMoq.Location = new System.Drawing.Point(627, 5);
             this.lblMoq.Name = "lblMoq";
             this.lblMoq.Size = new System.Drawing.Size(37, 13);
             this.lblMoq.TabIndex = 53;
@@ -4711,7 +4748,7 @@
             // 
             this.txtMoq.EditValue = "";
             this.txtMoq.EnterMoveNextControl = true;
-            this.txtMoq.Location = new System.Drawing.Point(665, 5);
+            this.txtMoq.Location = new System.Drawing.Point(665, 1);
             this.txtMoq.Name = "txtMoq";
             this.txtMoq.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMoq.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -4726,7 +4763,7 @@
             // 
             // lblMoq_unit
             // 
-            this.lblMoq_unit.Location = new System.Drawing.Point(940, 9);
+            this.lblMoq_unit.Location = new System.Drawing.Point(940, 5);
             this.lblMoq_unit.Name = "lblMoq_unit";
             this.lblMoq_unit.Size = new System.Drawing.Size(28, 13);
             this.lblMoq_unit.TabIndex = 55;
@@ -4735,7 +4772,7 @@
             // 
             // lblMwq
             // 
-            this.lblMwq.Location = new System.Drawing.Point(618, 31);
+            this.lblMwq.Location = new System.Drawing.Point(618, 26);
             this.lblMwq.Name = "lblMwq";
             this.lblMwq.Size = new System.Drawing.Size(47, 13);
             this.lblMwq.TabIndex = 57;
@@ -4746,7 +4783,7 @@
             // 
             this.txtMwq.EditValue = "";
             this.txtMwq.EnterMoveNextControl = true;
-            this.txtMwq.Location = new System.Drawing.Point(665, 27);
+            this.txtMwq.Location = new System.Drawing.Point(665, 22);
             this.txtMwq.Name = "txtMwq";
             this.txtMwq.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMwq.Properties.Mask.EditMask = "n0";
@@ -4759,7 +4796,7 @@
             // 
             // lblLead_time_min
             // 
-            this.lblLead_time_min.Location = new System.Drawing.Point(642, 51);
+            this.lblLead_time_min.Location = new System.Drawing.Point(642, 46);
             this.lblLead_time_min.Name = "lblLead_time_min";
             this.lblLead_time_min.Size = new System.Drawing.Size(91, 13);
             this.lblLead_time_min.TabIndex = 59;
@@ -4770,7 +4807,7 @@
             // 
             this.txtLead_time_min.EditValue = "";
             this.txtLead_time_min.EnterMoveNextControl = true;
-            this.txtLead_time_min.Location = new System.Drawing.Point(733, 49);
+            this.txtLead_time_min.Location = new System.Drawing.Point(733, 42);
             this.txtLead_time_min.Name = "txtLead_time_min";
             this.txtLead_time_min.Properties.Mask.EditMask = "d";
             this.txtLead_time_min.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -4784,7 +4821,7 @@
             // 
             this.txtLead_time_max.EditValue = "";
             this.txtLead_time_max.EnterMoveNextControl = true;
-            this.txtLead_time_max.Location = new System.Drawing.Point(733, 72);
+            this.txtLead_time_max.Location = new System.Drawing.Point(733, 63);
             this.txtLead_time_max.Name = "txtLead_time_max";
             this.txtLead_time_max.Properties.Mask.EditMask = "d";
             this.txtLead_time_max.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -4796,7 +4833,7 @@
             // 
             // lblLead_time_unit
             // 
-            this.lblLead_time_unit.Location = new System.Drawing.Point(640, 97);
+            this.lblLead_time_unit.Location = new System.Drawing.Point(640, 87);
             this.lblLead_time_unit.Name = "lblLead_time_unit";
             this.lblLead_time_unit.Size = new System.Drawing.Size(91, 13);
             this.lblLead_time_unit.TabIndex = 62;
@@ -4806,7 +4843,7 @@
             // lblMd_charge
             // 
             this.lblMd_charge.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMd_charge.Location = new System.Drawing.Point(576, 122);
+            this.lblMd_charge.Location = new System.Drawing.Point(576, 110);
             this.lblMd_charge.Name = "lblMd_charge";
             this.lblMd_charge.Size = new System.Drawing.Size(87, 13);
             this.lblMd_charge.TabIndex = 65;
@@ -4817,7 +4854,7 @@
             // 
             this.txtMd_charge.EditValue = "";
             this.txtMd_charge.EnterMoveNextControl = true;
-            this.txtMd_charge.Location = new System.Drawing.Point(665, 117);
+            this.txtMd_charge.Location = new System.Drawing.Point(665, 105);
             this.txtMd_charge.Name = "txtMd_charge";
             this.txtMd_charge.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMd_charge.Properties.Mask.EditMask = "d";
@@ -4827,10 +4864,11 @@
             this.txtMd_charge.Size = new System.Drawing.Size(58, 20);
             this.txtMd_charge.TabIndex = 40;
             this.txtMd_charge.Tag = "2";
+            this.txtMd_charge.Leave += new System.EventHandler(this.txtMd_charge_Leave);
             // 
             // lblDie_mould_usd
             // 
-            this.lblDie_mould_usd.Location = new System.Drawing.Point(583, 144);
+            this.lblDie_mould_usd.Location = new System.Drawing.Point(583, 131);
             this.lblDie_mould_usd.Name = "lblDie_mould_usd";
             this.lblDie_mould_usd.Size = new System.Drawing.Size(82, 13);
             this.lblDie_mould_usd.TabIndex = 66;
@@ -4841,19 +4879,21 @@
             // 
             this.txtDie_mould_usd.EditValue = "";
             this.txtDie_mould_usd.EnterMoveNextControl = true;
-            this.txtDie_mould_usd.Location = new System.Drawing.Point(665, 140);
+            this.txtDie_mould_usd.Location = new System.Drawing.Point(665, 126);
             this.txtDie_mould_usd.Name = "txtDie_mould_usd";
-            this.txtDie_mould_usd.Properties.Mask.EditMask = "n";
+            this.txtDie_mould_usd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDie_mould_usd.Properties.Mask.EditMask = "d";
             this.txtDie_mould_usd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtDie_mould_usd.Properties.ReadOnly = true;
             this.txtDie_mould_usd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtDie_mould_usd.Size = new System.Drawing.Size(58, 20);
             this.txtDie_mould_usd.TabIndex = 43;
             this.txtDie_mould_usd.Tag = "2";
+            this.txtDie_mould_usd.Leave += new System.EventHandler(this.txtDie_mould_usd_Leave);
             // 
             // lblAccount_code
             // 
-            this.lblAccount_code.Location = new System.Drawing.Point(580, 167);
+            this.lblAccount_code.Location = new System.Drawing.Point(884, 150);
             this.lblAccount_code.Name = "lblAccount_code";
             this.lblAccount_code.Size = new System.Drawing.Size(83, 13);
             this.lblAccount_code.TabIndex = 69;
@@ -4864,18 +4904,18 @@
             // 
             this.txtAccount_code.EditValue = "";
             this.txtAccount_code.EnterMoveNextControl = true;
-            this.txtAccount_code.Location = new System.Drawing.Point(665, 163);
+            this.txtAccount_code.Location = new System.Drawing.Point(969, 146);
             this.txtAccount_code.Name = "txtAccount_code";
             this.txtAccount_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAccount_code.Properties.MaxLength = 100;
             this.txtAccount_code.Properties.ReadOnly = true;
-            this.txtAccount_code.Size = new System.Drawing.Size(168, 20);
+            this.txtAccount_code.Size = new System.Drawing.Size(209, 20);
             this.txtAccount_code.TabIndex = 44;
             this.txtAccount_code.Tag = "2";
             // 
             // lblValid_date
             // 
-            this.lblValid_date.Location = new System.Drawing.Point(580, 188);
+            this.lblValid_date.Location = new System.Drawing.Point(580, 191);
             this.lblValid_date.Name = "lblValid_date";
             this.lblValid_date.Size = new System.Drawing.Size(83, 13);
             this.lblValid_date.TabIndex = 71;
@@ -4886,7 +4926,7 @@
             // 
             this.txtNumber_enter.EditValue = "";
             this.txtNumber_enter.EnterMoveNextControl = true;
-            this.txtNumber_enter.Location = new System.Drawing.Point(437, 94);
+            this.txtNumber_enter.Location = new System.Drawing.Point(437, 86);
             this.txtNumber_enter.Name = "txtNumber_enter";
             this.txtNumber_enter.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtNumber_enter.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -4904,7 +4944,7 @@
             // 
             // lblDate_req
             // 
-            this.lblDate_req.Location = new System.Drawing.Point(579, 294);
+            this.lblDate_req.Location = new System.Drawing.Point(579, 297);
             this.lblDate_req.Name = "lblDate_req";
             this.lblDate_req.Size = new System.Drawing.Size(83, 13);
             this.lblDate_req.TabIndex = 77;
@@ -4915,7 +4955,7 @@
             // 
             this.txtDate_req.EditValue = "";
             this.txtDate_req.EnterMoveNextControl = true;
-            this.txtDate_req.Location = new System.Drawing.Point(665, 290);
+            this.txtDate_req.Location = new System.Drawing.Point(665, 293);
             this.txtDate_req.Name = "txtDate_req";
             this.txtDate_req.Properties.MaxLength = 50;
             this.txtDate_req.Properties.ReadOnly = true;
@@ -4927,7 +4967,7 @@
             // 
             this.txtAw.EditValue = "";
             this.txtAw.EnterMoveNextControl = true;
-            this.txtAw.Location = new System.Drawing.Point(1068, 5);
+            this.txtAw.Location = new System.Drawing.Point(1068, 1);
             this.txtAw.Name = "txtAw";
             this.txtAw.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAw.Properties.MaxLength = 100;
@@ -4938,7 +4978,7 @@
             // 
             // lblSample_request
             // 
-            this.lblSample_request.Location = new System.Drawing.Point(885, 51);
+            this.lblSample_request.Location = new System.Drawing.Point(885, 45);
             this.lblSample_request.Name = "lblSample_request";
             this.lblSample_request.Size = new System.Drawing.Size(83, 13);
             this.lblSample_request.TabIndex = 86;
@@ -4949,7 +4989,7 @@
             // 
             this.txtSample_request.EditValue = "";
             this.txtSample_request.EnterMoveNextControl = true;
-            this.txtSample_request.Location = new System.Drawing.Point(969, 49);
+            this.txtSample_request.Location = new System.Drawing.Point(969, 42);
             this.txtSample_request.Name = "txtSample_request";
             this.txtSample_request.Properties.MaxLength = 100;
             this.txtSample_request.Properties.ReadOnly = true;
@@ -4959,7 +4999,7 @@
             // 
             // lblNeedle_test
             // 
-            this.lblNeedle_test.Location = new System.Drawing.Point(885, 73);
+            this.lblNeedle_test.Location = new System.Drawing.Point(885, 65);
             this.lblNeedle_test.Name = "lblNeedle_test";
             this.lblNeedle_test.Size = new System.Drawing.Size(83, 13);
             this.lblNeedle_test.TabIndex = 88;
@@ -4968,7 +5008,7 @@
             // 
             // lblCrusr
             // 
-            this.lblCrusr.Location = new System.Drawing.Point(3, 379);
+            this.lblCrusr.Location = new System.Drawing.Point(3, 375);
             this.lblCrusr.Name = "lblCrusr";
             this.lblCrusr.Size = new System.Drawing.Size(73, 13);
             this.lblCrusr.TabIndex = 12;
@@ -4979,7 +5019,7 @@
             // 
             this.txtNeedle_test.EditValue = "";
             this.txtNeedle_test.EnterMoveNextControl = true;
-            this.txtNeedle_test.Location = new System.Drawing.Point(969, 72);
+            this.txtNeedle_test.Location = new System.Drawing.Point(969, 63);
             this.txtNeedle_test.Name = "txtNeedle_test";
             this.txtNeedle_test.Properties.MaxLength = 100;
             this.txtNeedle_test.Properties.ReadOnly = true;
@@ -4989,7 +5029,7 @@
             // 
             // lblRemark
             // 
-            this.lblRemark.Location = new System.Drawing.Point(3, 293);
+            this.lblRemark.Location = new System.Drawing.Point(3, 289);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(73, 13);
             this.lblRemark.TabIndex = 93;
@@ -5000,7 +5040,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(76, 289);
+            this.txtRemark.Location = new System.Drawing.Point(76, 285);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.MaxLength = 150;
             this.txtRemark.Properties.ReadOnly = true;
@@ -5012,7 +5052,7 @@
             // 
             this.txtCrusr.EditValue = "";
             this.txtCrusr.Enabled = false;
-            this.txtCrusr.Location = new System.Drawing.Point(76, 373);
+            this.txtCrusr.Location = new System.Drawing.Point(76, 369);
             this.txtCrusr.Name = "txtCrusr";
             this.txtCrusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtCrusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5023,7 +5063,7 @@
             // 
             // lblAmusr
             // 
-            this.lblAmusr.Location = new System.Drawing.Point(291, 379);
+            this.lblAmusr.Location = new System.Drawing.Point(291, 375);
             this.lblAmusr.Name = "lblAmusr";
             this.lblAmusr.Size = new System.Drawing.Size(60, 13);
             this.lblAmusr.TabIndex = 14;
@@ -5034,7 +5074,7 @@
             // 
             this.txtHkd_ex_fty.EditValue = "";
             this.txtHkd_ex_fty.EnterMoveNextControl = true;
-            this.txtHkd_ex_fty.Location = new System.Drawing.Point(362, 183);
+            this.txtHkd_ex_fty.Location = new System.Drawing.Point(362, 179);
             this.txtHkd_ex_fty.Name = "txtHkd_ex_fty";
             this.txtHkd_ex_fty.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtHkd_ex_fty.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5055,7 +5095,7 @@
             // 
             this.txtCrtim.EditValue = "";
             this.txtCrtim.Enabled = false;
-            this.txtCrtim.Location = new System.Drawing.Point(189, 373);
+            this.txtCrtim.Location = new System.Drawing.Point(189, 369);
             this.txtCrtim.Name = "txtCrtim";
             this.txtCrtim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCrtim.Properties.Appearance.Options.UseFont = true;
@@ -5070,7 +5110,7 @@
             // 
             this.txtAmusr.EditValue = "";
             this.txtAmusr.Enabled = false;
-            this.txtAmusr.Location = new System.Drawing.Point(351, 373);
+            this.txtAmusr.Location = new System.Drawing.Point(351, 369);
             this.txtAmusr.Name = "txtAmusr";
             this.txtAmusr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtAmusr.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5083,7 +5123,7 @@
             // 
             this.txtAmtim.EditValue = "";
             this.txtAmtim.Enabled = false;
-            this.txtAmtim.Location = new System.Drawing.Point(471, 373);
+            this.txtAmtim.Location = new System.Drawing.Point(471, 369);
             this.txtAmtim.Name = "txtAmtim";
             this.txtAmtim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmtim.Properties.Appearance.Options.UseFont = true;
@@ -5096,7 +5136,7 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(920, 30);
+            this.lblStatus.Location = new System.Drawing.Point(920, 25);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(48, 13);
             this.lblStatus.TabIndex = 103;
@@ -5108,7 +5148,7 @@
             this.txtPrice_unit.EditValue = "";
             this.txtPrice_unit.Enabled = false;
             this.txtPrice_unit.EnterMoveNextControl = true;
-            this.txtPrice_unit.Location = new System.Drawing.Point(362, 94);
+            this.txtPrice_unit.Location = new System.Drawing.Point(362, 86);
             this.txtPrice_unit.Name = "txtPrice_unit";
             this.txtPrice_unit.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtPrice_unit.Properties.Appearance.Options.UseForeColor = true;
@@ -5131,7 +5171,7 @@
             // 
             // lblRemark_other
             // 
-            this.lblRemark_other.Location = new System.Drawing.Point(3, 312);
+            this.lblRemark_other.Location = new System.Drawing.Point(3, 308);
             this.lblRemark_other.Name = "lblRemark_other";
             this.lblRemark_other.Size = new System.Drawing.Size(73, 13);
             this.lblRemark_other.TabIndex = 115;
@@ -5142,7 +5182,7 @@
             // 
             this.txtRemark_other.EditValue = "";
             this.txtRemark_other.EnterMoveNextControl = true;
-            this.txtRemark_other.Location = new System.Drawing.Point(76, 309);
+            this.txtRemark_other.Location = new System.Drawing.Point(76, 305);
             this.txtRemark_other.Name = "txtRemark_other";
             this.txtRemark_other.Properties.MaxLength = 150;
             this.txtRemark_other.Properties.ReadOnly = true;
@@ -5152,7 +5192,7 @@
             // 
             // lblComment
             // 
-            this.lblComment.Location = new System.Drawing.Point(1, 332);
+            this.lblComment.Location = new System.Drawing.Point(1, 328);
             this.lblComment.Name = "lblComment";
             this.lblComment.Size = new System.Drawing.Size(72, 13);
             this.lblComment.TabIndex = 117;
@@ -5163,7 +5203,7 @@
             // 
             this.txtComment.EditValue = "";
             this.txtComment.EnterMoveNextControl = true;
-            this.txtComment.Location = new System.Drawing.Point(76, 329);
+            this.txtComment.Location = new System.Drawing.Point(76, 325);
             this.txtComment.Name = "txtComment";
             this.txtComment.Properties.MaxLength = 600;
             this.txtComment.Properties.ReadOnly = true;
@@ -5173,7 +5213,7 @@
             // 
             // lblMoqDesc
             // 
-            this.lblMoqDesc.Location = new System.Drawing.Point(725, 9);
+            this.lblMoqDesc.Location = new System.Drawing.Point(725, 5);
             this.lblMoqDesc.Name = "lblMoqDesc";
             this.lblMoqDesc.Size = new System.Drawing.Size(39, 13);
             this.lblMoqDesc.TabIndex = 119;
@@ -5184,7 +5224,7 @@
             // 
             this.txtMoq_Desc.EditValue = "";
             this.txtMoq_Desc.EnterMoveNextControl = true;
-            this.txtMoq_Desc.Location = new System.Drawing.Point(764, 5);
+            this.txtMoq_Desc.Location = new System.Drawing.Point(764, 1);
             this.txtMoq_Desc.Name = "txtMoq_Desc";
             this.txtMoq_Desc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMoq_Desc.Properties.MaxLength = 100;
@@ -5195,7 +5235,7 @@
             // 
             // lblMwq_unit
             // 
-            this.lblMwq_unit.Location = new System.Drawing.Point(728, 31);
+            this.lblMwq_unit.Location = new System.Drawing.Point(728, 26);
             this.lblMwq_unit.Name = "lblMwq_unit";
             this.lblMwq_unit.Size = new System.Drawing.Size(60, 13);
             this.lblMwq_unit.TabIndex = 24;
@@ -5207,7 +5247,7 @@
             this.txtMwq_unit.EditValue = "";
             this.txtMwq_unit.Enabled = false;
             this.txtMwq_unit.EnterMoveNextControl = true;
-            this.txtMwq_unit.Location = new System.Drawing.Point(787, 27);
+            this.txtMwq_unit.Location = new System.Drawing.Point(787, 22);
             this.txtMwq_unit.Name = "txtMwq_unit";
             this.txtMwq_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtMwq_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5228,7 +5268,7 @@
             this.txtMd_charge_cny.EditValue = "";
             this.txtMd_charge_cny.Enabled = false;
             this.txtMd_charge_cny.EnterMoveNextControl = true;
-            this.txtMd_charge_cny.Location = new System.Drawing.Point(777, 117);
+            this.txtMd_charge_cny.Location = new System.Drawing.Point(777, 105);
             this.txtMd_charge_cny.Name = "txtMd_charge_cny";
             this.txtMd_charge_cny.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtMd_charge_cny.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5247,7 +5287,7 @@
             // 
             // lblMd_charge_unit
             // 
-            this.lblMd_charge_unit.Location = new System.Drawing.Point(832, 122);
+            this.lblMd_charge_unit.Location = new System.Drawing.Point(832, 110);
             this.lblMd_charge_unit.Name = "lblMd_charge_unit";
             this.lblMd_charge_unit.Size = new System.Drawing.Size(26, 13);
             this.lblMd_charge_unit.TabIndex = 126;
@@ -5259,7 +5299,7 @@
             this.txtMd_charge_unit.EditValue = "";
             this.txtMd_charge_unit.Enabled = false;
             this.txtMd_charge_unit.EnterMoveNextControl = true;
-            this.txtMd_charge_unit.Location = new System.Drawing.Point(857, 117);
+            this.txtMd_charge_unit.Location = new System.Drawing.Point(857, 105);
             this.txtMd_charge_unit.Name = "txtMd_charge_unit";
             this.txtMd_charge_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtMd_charge_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5279,9 +5319,9 @@
             // 
             this.pnlRemarkPDD.Controls.Add(this.memRemark_pdd);
             this.pnlRemarkPDD.Controls.Add(this.lblRemark_pdd);
-            this.pnlRemarkPDD.Location = new System.Drawing.Point(13, 395);
+            this.pnlRemarkPDD.Location = new System.Drawing.Point(13, 391);
             this.pnlRemarkPDD.Name = "pnlRemarkPDD";
-            this.pnlRemarkPDD.Size = new System.Drawing.Size(560, 58);
+            this.pnlRemarkPDD.Size = new System.Drawing.Size(560, 62);
             this.pnlRemarkPDD.TabIndex = 131;
             this.pnlRemarkPDD.Visible = false;
             // 
@@ -5296,7 +5336,7 @@
             this.memRemark_pdd.Properties.MaxLength = 300;
             this.memRemark_pdd.Properties.ReadOnly = true;
             this.memRemark_pdd.Properties.Tag = "2";
-            this.memRemark_pdd.Size = new System.Drawing.Size(495, 54);
+            this.memRemark_pdd.Size = new System.Drawing.Size(495, 58);
             this.memRemark_pdd.TabIndex = 119;
             this.memRemark_pdd.Tag = "2";
             // 
@@ -5312,7 +5352,7 @@
             // lblMo_id
             // 
             this.lblMo_id.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMo_id.Location = new System.Drawing.Point(3, 230);
+            this.lblMo_id.Location = new System.Drawing.Point(3, 226);
             this.lblMo_id.Name = "lblMo_id";
             this.lblMo_id.Size = new System.Drawing.Size(73, 13);
             this.lblMo_id.TabIndex = 133;
@@ -5321,7 +5361,7 @@
             // 
             // lblFormula
             // 
-            this.lblFormula.Location = new System.Drawing.Point(165, 98);
+            this.lblFormula.Location = new System.Drawing.Point(165, 90);
             this.lblFormula.Name = "lblFormula";
             this.lblFormula.Size = new System.Drawing.Size(45, 13);
             this.lblFormula.TabIndex = 136;
@@ -5332,7 +5372,7 @@
             // 
             this.txtFormula.EditValue = "";
             this.txtFormula.EnterMoveNextControl = true;
-            this.txtFormula.Location = new System.Drawing.Point(208, 95);
+            this.txtFormula.Location = new System.Drawing.Point(208, 87);
             this.txtFormula.Name = "txtFormula";
             this.txtFormula.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.txtFormula.Properties.Appearance.Options.UseForeColor = true;
@@ -5350,7 +5390,7 @@
             // 
             // btnApproved
             // 
-            this.btnApproved.Location = new System.Drawing.Point(1184, 178);
+            this.btnApproved.Location = new System.Drawing.Point(1184, 181);
             this.btnApproved.Name = "btnApproved";
             this.btnApproved.Size = new System.Drawing.Size(78, 26);
             this.btnApproved.TabIndex = 138;
@@ -5374,7 +5414,7 @@
             this.approval_date,
             this.remark_sub,
             this.approval_status});
-            this.dgvSub.Location = new System.Drawing.Point(839, 205);
+            this.dgvSub.Location = new System.Drawing.Point(839, 208);
             this.dgvSub.Name = "dgvSub";
             this.dgvSub.ReadOnly = true;
             this.dgvSub.RowHeadersVisible = false;
@@ -5468,12 +5508,12 @@
             this.dgvGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn60,
             this.group_id});
-            this.dgvGroup.Location = new System.Drawing.Point(165, 1);
+            this.dgvGroup.Location = new System.Drawing.Point(165, 2);
             this.dgvGroup.Name = "dgvGroup";
             this.dgvGroup.ReadOnly = true;
             this.dgvGroup.RowHeadersWidth = 10;
             this.dgvGroup.RowTemplate.Height = 18;
-            this.dgvGroup.Size = new System.Drawing.Size(92, 70);
+            this.dgvGroup.Size = new System.Drawing.Size(92, 62);
             this.dgvGroup.TabIndex = 140;
             // 
             // dataGridViewTextBoxColumn60
@@ -5494,7 +5534,7 @@
             // 
             // btnGroup
             // 
-            this.btnGroup.Location = new System.Drawing.Point(76, 50);
+            this.btnGroup.Location = new System.Drawing.Point(76, 43);
             this.btnGroup.Name = "btnGroup";
             this.btnGroup.Size = new System.Drawing.Size(87, 21);
             this.btnGroup.TabIndex = 141;
@@ -5506,7 +5546,7 @@
             this.txtPolo_care.EditValue = "";
             this.txtPolo_care.Enabled = false;
             this.txtPolo_care.EnterMoveNextControl = true;
-            this.txtPolo_care.Location = new System.Drawing.Point(665, 311);
+            this.txtPolo_care.Location = new System.Drawing.Point(665, 314);
             this.txtPolo_care.Name = "txtPolo_care";
             this.txtPolo_care.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPolo_care.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5528,7 +5568,7 @@
             // 
             // lblPolo_care
             // 
-            this.lblPolo_care.Location = new System.Drawing.Point(579, 314);
+            this.lblPolo_care.Location = new System.Drawing.Point(579, 317);
             this.lblPolo_care.Name = "lblPolo_care";
             this.lblPolo_care.Size = new System.Drawing.Size(83, 13);
             this.lblPolo_care.TabIndex = 143;
@@ -5539,7 +5579,7 @@
             // 
             this.txtMoq_for_test.EditValue = "";
             this.txtMoq_for_test.EnterMoveNextControl = true;
-            this.txtMoq_for_test.Location = new System.Drawing.Point(722, 332);
+            this.txtMoq_for_test.Location = new System.Drawing.Point(722, 335);
             this.txtMoq_for_test.Name = "txtMoq_for_test";
             this.txtMoq_for_test.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMoq_for_test.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -5554,7 +5594,7 @@
             // 
             // lblMoq_for_test
             // 
-            this.lblMoq_for_test.Location = new System.Drawing.Point(641, 335);
+            this.lblMoq_for_test.Location = new System.Drawing.Point(641, 338);
             this.lblMoq_for_test.Name = "lblMoq_for_test";
             this.lblMoq_for_test.Size = new System.Drawing.Size(77, 13);
             this.lblMoq_for_test.TabIndex = 145;
@@ -5563,7 +5603,7 @@
             // 
             // lblTrim_color_code
             // 
-            this.lblTrim_color_code.Location = new System.Drawing.Point(849, 96);
+            this.lblTrim_color_code.Location = new System.Drawing.Point(849, 86);
             this.lblTrim_color_code.Name = "lblTrim_color_code";
             this.lblTrim_color_code.Size = new System.Drawing.Size(121, 13);
             this.lblTrim_color_code.TabIndex = 147;
@@ -5574,7 +5614,7 @@
             // 
             this.txtTrim_color_code.EditValue = "";
             this.txtTrim_color_code.EnterMoveNextControl = true;
-            this.txtTrim_color_code.Location = new System.Drawing.Point(969, 95);
+            this.txtTrim_color_code.Location = new System.Drawing.Point(969, 84);
             this.txtTrim_color_code.Name = "txtTrim_color_code";
             this.txtTrim_color_code.Properties.MaxLength = 100;
             this.txtTrim_color_code.Properties.ReadOnly = true;
@@ -5586,7 +5626,7 @@
             // 
             this.txtPlm_code.EditValue = "";
             this.txtPlm_code.EnterMoveNextControl = true;
-            this.txtPlm_code.Location = new System.Drawing.Point(969, 117);
+            this.txtPlm_code.Location = new System.Drawing.Point(969, 105);
             this.txtPlm_code.Name = "txtPlm_code";
             this.txtPlm_code.Properties.MaxLength = 100;
             this.txtPlm_code.Properties.ReadOnly = true;
@@ -5597,7 +5637,7 @@
             // lblUsd_dap
             // 
             this.lblUsd_dap.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblUsd_dap.Location = new System.Drawing.Point(616, 232);
+            this.lblUsd_dap.Location = new System.Drawing.Point(616, 235);
             this.lblUsd_dap.Name = "lblUsd_dap";
             this.lblUsd_dap.Size = new System.Drawing.Size(51, 13);
             this.lblUsd_dap.TabIndex = 151;
@@ -5608,7 +5648,7 @@
             // 
             this.txtUsd_dap.EditValue = "";
             this.txtUsd_dap.EnterMoveNextControl = true;
-            this.txtUsd_dap.Location = new System.Drawing.Point(665, 227);
+            this.txtUsd_dap.Location = new System.Drawing.Point(665, 230);
             this.txtUsd_dap.Name = "txtUsd_dap";
             this.txtUsd_dap.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtUsd_dap.Properties.Appearance.Options.UseForeColor = true;
@@ -5626,7 +5666,7 @@
             // 
             this.txtUsd_lab_test_prx.EditValue = "";
             this.txtUsd_lab_test_prx.EnterMoveNextControl = true;
-            this.txtUsd_lab_test_prx.Location = new System.Drawing.Point(665, 206);
+            this.txtUsd_lab_test_prx.Location = new System.Drawing.Point(665, 209);
             this.txtUsd_lab_test_prx.Name = "txtUsd_lab_test_prx";
             this.txtUsd_lab_test_prx.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtUsd_lab_test_prx.Properties.Appearance.Options.UseForeColor = true;
@@ -5642,7 +5682,7 @@
             // 
             // lblMeeting_recap
             // 
-            this.lblMeeting_recap.Location = new System.Drawing.Point(579, 357);
+            this.lblMeeting_recap.Location = new System.Drawing.Point(579, 360);
             this.lblMeeting_recap.Name = "lblMeeting_recap";
             this.lblMeeting_recap.Size = new System.Drawing.Size(83, 13);
             this.lblMeeting_recap.TabIndex = 155;
@@ -5653,7 +5693,7 @@
             // 
             this.txtMeeting_recap.EditValue = "";
             this.txtMeeting_recap.EnterMoveNextControl = true;
-            this.txtMeeting_recap.Location = new System.Drawing.Point(665, 354);
+            this.txtMeeting_recap.Location = new System.Drawing.Point(665, 357);
             this.txtMeeting_recap.Name = "txtMeeting_recap";
             this.txtMeeting_recap.Properties.MaxLength = 100;
             this.txtMeeting_recap.Properties.ReadOnly = true;
@@ -5663,7 +5703,7 @@
             // 
             // lblTest_sample_hk
             // 
-            this.lblTest_sample_hk.Location = new System.Drawing.Point(847, 143);
+            this.lblTest_sample_hk.Location = new System.Drawing.Point(847, 131);
             this.lblTest_sample_hk.Name = "lblTest_sample_hk";
             this.lblTest_sample_hk.Size = new System.Drawing.Size(123, 13);
             this.lblTest_sample_hk.TabIndex = 157;
@@ -5674,7 +5714,7 @@
             // 
             this.txtTest_sample_hk.EditValue = "";
             this.txtTest_sample_hk.EnterMoveNextControl = true;
-            this.txtTest_sample_hk.Location = new System.Drawing.Point(969, 139);
+            this.txtTest_sample_hk.Location = new System.Drawing.Point(969, 126);
             this.txtTest_sample_hk.Name = "txtTest_sample_hk";
             this.txtTest_sample_hk.Properties.MaxLength = 100;
             this.txtTest_sample_hk.Properties.ReadOnly = true;
@@ -5684,7 +5724,7 @@
             // 
             // lblSms
             // 
-            this.lblSms.Location = new System.Drawing.Point(938, 188);
+            this.lblSms.Location = new System.Drawing.Point(938, 191);
             this.lblSms.Name = "lblSms";
             this.lblSms.Size = new System.Drawing.Size(32, 13);
             this.lblSms.TabIndex = 159;
@@ -5695,7 +5735,7 @@
             // 
             this.txtSms.EditValue = "";
             this.txtSms.EnterMoveNextControl = true;
-            this.txtSms.Location = new System.Drawing.Point(969, 184);
+            this.txtSms.Location = new System.Drawing.Point(969, 187);
             this.txtSms.Name = "txtSms";
             this.txtSms.Properties.MaxLength = 100;
             this.txtSms.Properties.ReadOnly = true;
@@ -5705,7 +5745,7 @@
             // 
             // lblSample_Card
             // 
-            this.lblSample_Card.Location = new System.Drawing.Point(847, 166);
+            this.lblSample_Card.Location = new System.Drawing.Point(847, 171);
             this.lblSample_Card.Name = "lblSample_Card";
             this.lblSample_Card.Size = new System.Drawing.Size(123, 13);
             this.lblSample_Card.TabIndex = 161;
@@ -5716,7 +5756,7 @@
             // 
             this.txtSample_card.EditValue = "";
             this.txtSample_card.EnterMoveNextControl = true;
-            this.txtSample_card.Location = new System.Drawing.Point(969, 162);
+            this.txtSample_card.Location = new System.Drawing.Point(969, 167);
             this.txtSample_card.Name = "txtSample_card";
             this.txtSample_card.Properties.MaxLength = 100;
             this.txtSample_card.Properties.ReadOnly = true;
@@ -5728,7 +5768,7 @@
             // 
             this.txtDisc.EditValue = "";
             this.txtDisc.EnterMoveNextControl = true;
-            this.txtDisc.Location = new System.Drawing.Point(991, 214);
+            this.txtDisc.Location = new System.Drawing.Point(991, 217);
             this.txtDisc.Name = "txtDisc";
             this.txtDisc.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc.Properties.Appearance.Options.UseForeColor = true;
@@ -5746,7 +5786,7 @@
             // 
             this.txtDisc_usd.EditValue = "";
             this.txtDisc_usd.EnterMoveNextControl = true;
-            this.txtDisc_usd.Location = new System.Drawing.Point(991, 240);
+            this.txtDisc_usd.Location = new System.Drawing.Point(991, 243);
             this.txtDisc_usd.Name = "txtDisc_usd";
             this.txtDisc_usd.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc_usd.Properties.Appearance.Options.UseForeColor = true;
@@ -5764,7 +5804,7 @@
             // 
             this.txtDisc_hkd.EditValue = "";
             this.txtDisc_hkd.EnterMoveNextControl = true;
-            this.txtDisc_hkd.Location = new System.Drawing.Point(991, 263);
+            this.txtDisc_hkd.Location = new System.Drawing.Point(991, 266);
             this.txtDisc_hkd.Name = "txtDisc_hkd";
             this.txtDisc_hkd.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc_hkd.Properties.Appearance.Options.UseForeColor = true;
@@ -5782,7 +5822,7 @@
             // 
             this.txtDisc_hkd_ex_fty.EditValue = "";
             this.txtDisc_hkd_ex_fty.EnterMoveNextControl = true;
-            this.txtDisc_hkd_ex_fty.Location = new System.Drawing.Point(991, 329);
+            this.txtDisc_hkd_ex_fty.Location = new System.Drawing.Point(991, 332);
             this.txtDisc_hkd_ex_fty.Name = "txtDisc_hkd_ex_fty";
             this.txtDisc_hkd_ex_fty.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtDisc_hkd_ex_fty.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -5802,7 +5842,7 @@
             // 
             this.txtDisc_rmb.EditValue = "";
             this.txtDisc_rmb.EnterMoveNextControl = true;
-            this.txtDisc_rmb.Location = new System.Drawing.Point(991, 285);
+            this.txtDisc_rmb.Location = new System.Drawing.Point(991, 288);
             this.txtDisc_rmb.Name = "txtDisc_rmb";
             this.txtDisc_rmb.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtDisc_rmb.Properties.Appearance.Options.UseForeColor = true;
@@ -5820,7 +5860,7 @@
             // 
             this.txtUsd_ex_fty.EditValue = "";
             this.txtUsd_ex_fty.EnterMoveNextControl = true;
-            this.txtUsd_ex_fty.Location = new System.Drawing.Point(362, 205);
+            this.txtUsd_ex_fty.Location = new System.Drawing.Point(362, 201);
             this.txtUsd_ex_fty.Name = "txtUsd_ex_fty";
             this.txtUsd_ex_fty.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtUsd_ex_fty.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5841,7 +5881,7 @@
             this.txtReason_edit.EditValue = "";
             this.txtReason_edit.Enabled = false;
             this.txtReason_edit.EnterMoveNextControl = true;
-            this.txtReason_edit.Location = new System.Drawing.Point(665, 248);
+            this.txtReason_edit.Location = new System.Drawing.Point(665, 251);
             this.txtReason_edit.Name = "txtReason_edit";
             this.txtReason_edit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtReason_edit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5864,7 +5904,7 @@
             this.txtDie_mould_cny.EditValue = "";
             this.txtDie_mould_cny.Enabled = false;
             this.txtDie_mould_cny.EnterMoveNextControl = true;
-            this.txtDie_mould_cny.Location = new System.Drawing.Point(777, 140);
+            this.txtDie_mould_cny.Location = new System.Drawing.Point(777, 126);
             this.txtDie_mould_cny.Name = "txtDie_mould_cny";
             this.txtDie_mould_cny.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtDie_mould_cny.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5886,7 +5926,7 @@
             this.txtRmb_remark.EditValue = "";
             this.txtRmb_remark.Enabled = false;
             this.txtRmb_remark.EnterMoveNextControl = true;
-            this.txtRmb_remark.Location = new System.Drawing.Point(361, 329);
+            this.txtRmb_remark.Location = new System.Drawing.Point(361, 325);
             this.txtRmb_remark.Name = "txtRmb_remark";
             this.txtRmb_remark.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtRmb_remark.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -5901,7 +5941,7 @@
             this.txtPrice_salesperson.EditValue = "";
             this.txtPrice_salesperson.Enabled = false;
             this.txtPrice_salesperson.EnterMoveNextControl = true;
-            this.txtPrice_salesperson.Location = new System.Drawing.Point(76, 350);
+            this.txtPrice_salesperson.Location = new System.Drawing.Point(76, 346);
             this.txtPrice_salesperson.Name = "txtPrice_salesperson";
             this.txtPrice_salesperson.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtPrice_salesperson.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5922,7 +5962,7 @@
             this.txtPrice_kind.EditValue = "";
             this.txtPrice_kind.Enabled = false;
             this.txtPrice_kind.EnterMoveNextControl = true;
-            this.txtPrice_kind.Location = new System.Drawing.Point(189, 350);
+            this.txtPrice_kind.Location = new System.Drawing.Point(189, 346);
             this.txtPrice_kind.Name = "txtPrice_kind";
             this.txtPrice_kind.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtPrice_kind.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5943,7 +5983,7 @@
             this.txtRemark_salesperson.EditValue = "";
             this.txtRemark_salesperson.Enabled = false;
             this.txtRemark_salesperson.EnterMoveNextControl = true;
-            this.txtRemark_salesperson.Location = new System.Drawing.Point(331, 350);
+            this.txtRemark_salesperson.Location = new System.Drawing.Point(331, 346);
             this.txtRemark_salesperson.Name = "txtRemark_salesperson";
             this.txtRemark_salesperson.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtRemark_salesperson.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -5957,7 +5997,7 @@
             // 
             // lblCost_price
             // 
-            this.lblCost_price.Location = new System.Drawing.Point(1181, 140);
+            this.lblCost_price.Location = new System.Drawing.Point(1181, 136);
             this.lblCost_price.Name = "lblCost_price";
             this.lblCost_price.Size = new System.Drawing.Size(60, 10);
             this.lblCost_price.TabIndex = 194;
@@ -5968,7 +6008,7 @@
             // chkSpecialPrice
             // 
             this.chkSpecialPrice.Enabled = false;
-            this.chkSpecialPrice.Location = new System.Drawing.Point(1069, 26);
+            this.chkSpecialPrice.Location = new System.Drawing.Point(1069, 22);
             this.chkSpecialPrice.Name = "chkSpecialPrice";
             this.chkSpecialPrice.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.chkSpecialPrice.Properties.Appearance.Options.UseForeColor = true;
@@ -5982,7 +6022,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(448, 31);
+            this.label6.Location = new System.Drawing.Point(448, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 193;
@@ -5993,7 +6033,7 @@
             // 
             this.txtCost_price.EditValue = "";
             this.txtCost_price.EnterMoveNextControl = true;
-            this.txtCost_price.Location = new System.Drawing.Point(1242, 136);
+            this.txtCost_price.Location = new System.Drawing.Point(1242, 132);
             this.txtCost_price.Name = "txtCost_price";
             this.txtCost_price.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtCost_price.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -6015,7 +6055,7 @@
             // 
             this.lblIsCalPrice.AutoSize = true;
             this.lblIsCalPrice.ForeColor = System.Drawing.Color.Red;
-            this.lblIsCalPrice.Location = new System.Drawing.Point(7, 54);
+            this.lblIsCalPrice.Location = new System.Drawing.Point(7, 47);
             this.lblIsCalPrice.Name = "lblIsCalPrice";
             this.lblIsCalPrice.Size = new System.Drawing.Size(65, 12);
             this.lblIsCalPrice.TabIndex = 196;
@@ -6027,7 +6067,7 @@
             this.lueLabtest.EditValue = "";
             this.lueLabtest.Enabled = false;
             this.lueLabtest.EnterMoveNextControl = true;
-            this.lueLabtest.Location = new System.Drawing.Point(665, 269);
+            this.lueLabtest.Location = new System.Drawing.Point(665, 272);
             this.lueLabtest.Name = "lueLabtest";
             this.lueLabtest.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lueLabtest.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6049,7 +6089,7 @@
             // btnLabTest
             // 
             this.btnLabTest.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.btnLabTest.Location = new System.Drawing.Point(805, 269);
+            this.btnLabTest.Location = new System.Drawing.Point(805, 272);
             this.btnLabTest.Name = "btnLabTest";
             this.btnLabTest.Size = new System.Drawing.Size(28, 21);
             this.btnLabTest.TabIndex = 199;
@@ -6061,7 +6101,7 @@
             // 
             this.txtTermremark.EditValue = "";
             this.txtTermremark.EnterMoveNextControl = true;
-            this.txtTermremark.Location = new System.Drawing.Point(270, 226);
+            this.txtTermremark.Location = new System.Drawing.Point(270, 222);
             this.txtTermremark.Name = "txtTermremark";
             this.txtTermremark.Properties.MaxLength = 100;
             this.txtTermremark.Properties.ReadOnly = true;
@@ -6074,7 +6114,7 @@
             this.cmbmoq_below_over.EditValue = "";
             this.cmbmoq_below_over.Enabled = false;
             this.cmbmoq_below_over.EnterMoveNextControl = true;
-            this.cmbmoq_below_over.Location = new System.Drawing.Point(580, 332);
+            this.cmbmoq_below_over.Location = new System.Drawing.Point(580, 335);
             this.cmbmoq_below_over.Name = "cmbmoq_below_over";
             this.cmbmoq_below_over.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.cmbmoq_below_over.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6094,7 +6134,7 @@
             this.txtMoq_unit.EditValue = "";
             this.txtMoq_unit.Enabled = false;
             this.txtMoq_unit.EnterMoveNextControl = true;
-            this.txtMoq_unit.Location = new System.Drawing.Point(969, 5);
+            this.txtMoq_unit.Location = new System.Drawing.Point(969, 1);
             this.txtMoq_unit.Name = "txtMoq_unit";
             this.txtMoq_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtMoq_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6114,7 +6154,7 @@
             // 
             this.txtPending.EditValue = "";
             this.txtPending.Enabled = false;
-            this.txtPending.Location = new System.Drawing.Point(839, 27);
+            this.txtPending.Location = new System.Drawing.Point(839, 22);
             this.txtPending.Name = "txtPending";
             this.txtPending.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -6129,16 +6169,16 @@
             // 
             this.pnlRemarkPDD_dg.Controls.Add(this.memDgRmkPdd);
             this.pnlRemarkPDD_dg.Controls.Add(this.lbldgRmkPdd);
-            this.pnlRemarkPDD_dg.Location = new System.Drawing.Point(573, 395);
+            this.pnlRemarkPDD_dg.Location = new System.Drawing.Point(574, 400);
             this.pnlRemarkPDD_dg.Name = "pnlRemarkPDD_dg";
-            this.pnlRemarkPDD_dg.Size = new System.Drawing.Size(777, 58);
+            this.pnlRemarkPDD_dg.Size = new System.Drawing.Size(777, 54);
             this.pnlRemarkPDD_dg.TabIndex = 204;
             this.pnlRemarkPDD_dg.Visible = false;
             // 
             // memDgRmkPdd
             // 
             this.memDgRmkPdd.EnterMoveNextControl = true;
-            this.memDgRmkPdd.Location = new System.Drawing.Point(92, 2);
+            this.memDgRmkPdd.Location = new System.Drawing.Point(92, 1);
             this.memDgRmkPdd.Name = "memDgRmkPdd";
             this.memDgRmkPdd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.memDgRmkPdd.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6146,13 +6186,13 @@
             this.memDgRmkPdd.Properties.MaxLength = 300;
             this.memDgRmkPdd.Properties.ReadOnly = true;
             this.memDgRmkPdd.Properties.Tag = "2";
-            this.memDgRmkPdd.Size = new System.Drawing.Size(682, 54);
+            this.memDgRmkPdd.Size = new System.Drawing.Size(682, 51);
             this.memDgRmkPdd.TabIndex = 119;
             this.memDgRmkPdd.Tag = "2";
             // 
             // lbldgRmkPdd
             // 
-            this.lbldgRmkPdd.Location = new System.Drawing.Point(4, 1);
+            this.lbldgRmkPdd.Location = new System.Drawing.Point(4, 0);
             this.lbldgRmkPdd.Name = "lbldgRmkPdd";
             this.lbldgRmkPdd.Size = new System.Drawing.Size(86, 24);
             this.lbldgRmkPdd.TabIndex = 118;
@@ -6162,7 +6202,7 @@
             // pic_artwork
             // 
             this.pic_artwork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_artwork.Location = new System.Drawing.Point(1183, 8);
+            this.pic_artwork.Location = new System.Drawing.Point(1182, 4);
             this.pic_artwork.Name = "pic_artwork";
             this.pic_artwork.Size = new System.Drawing.Size(162, 164);
             this.pic_artwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6174,6 +6214,8 @@
             this.pnlHeard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlHeard.Controls.Add(this.txtDie_mould_usd_vn);
+            this.pnlHeard.Controls.Add(this.txtMd_charge_vn);
             this.pnlHeard.Controls.Add(this.lueCf_color_id);
             this.pnlHeard.Controls.Add(this.lblMaterial_type);
             this.pnlHeard.Controls.Add(this.lblProduct_type);
@@ -6360,17 +6402,59 @@
             this.pnlHeard.Controls.Add(this.lblCf_color_id);
             this.pnlHeard.Controls.Add(this.lblCf_color);
             this.pnlHeard.Controls.Add(this.label11);
-            this.pnlHeard.Location = new System.Drawing.Point(2, 41);
+            this.pnlHeard.Controls.Add(this.lblMd_charge_vn);
+            this.pnlHeard.Controls.Add(this.lblDie_mould_usd_vn);
+            this.pnlHeard.Location = new System.Drawing.Point(2, 37);
             this.pnlHeard.Name = "pnlHeard";
             this.pnlHeard.Size = new System.Drawing.Size(1358, 456);
             this.pnlHeard.TabIndex = 11;
+            // 
+            // txtDie_mould_usd_vn
+            // 
+            this.txtDie_mould_usd_vn.EditValue = "";
+            this.txtDie_mould_usd_vn.EnterMoveNextControl = true;
+            this.txtDie_mould_usd_vn.Location = new System.Drawing.Point(665, 167);
+            this.txtDie_mould_usd_vn.Name = "txtDie_mould_usd_vn";
+            this.txtDie_mould_usd_vn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtDie_mould_usd_vn.Properties.Mask.EditMask = "d";
+            this.txtDie_mould_usd_vn.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDie_mould_usd_vn.Properties.ReadOnly = true;
+            this.txtDie_mould_usd_vn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDie_mould_usd_vn.Size = new System.Drawing.Size(58, 20);
+            this.txtDie_mould_usd_vn.TabIndex = 232;
+            this.txtDie_mould_usd_vn.Tag = "2";
+            // 
+            // txtMd_charge_vn
+            // 
+            this.txtMd_charge_vn.EditValue = "";
+            this.txtMd_charge_vn.EnterMoveNextControl = true;
+            this.txtMd_charge_vn.Location = new System.Drawing.Point(665, 147);
+            this.txtMd_charge_vn.Name = "txtMd_charge_vn";
+            this.txtMd_charge_vn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtMd_charge_vn.Properties.Mask.EditMask = "d";
+            this.txtMd_charge_vn.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMd_charge_vn.Properties.ReadOnly = true;
+            this.txtMd_charge_vn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMd_charge_vn.Size = new System.Drawing.Size(58, 20);
+            this.txtMd_charge_vn.TabIndex = 230;
+            this.txtMd_charge_vn.Tag = "2";
+            // 
+            // lblMd_charge_vn
+            // 
+            this.lblMd_charge_vn.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMd_charge_vn.Location = new System.Drawing.Point(577, 152);
+            this.lblMd_charge_vn.Name = "lblMd_charge_vn";
+            this.lblMd_charge_vn.Size = new System.Drawing.Size(87, 13);
+            this.lblMd_charge_vn.TabIndex = 231;
+            this.lblMd_charge_vn.Text = "Mould Charge(VN)";
+            this.lblMd_charge_vn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lueCf_color_id
             // 
             this.lueCf_color_id.EditValue = "";
             this.lueCf_color_id.Enabled = false;
             this.lueCf_color_id.EnterMoveNextControl = true;
-            this.lueCf_color_id.Location = new System.Drawing.Point(227, 73);
+            this.lueCf_color_id.Location = new System.Drawing.Point(227, 65);
             this.lueCf_color_id.Name = "lueCf_color_id";
             this.lueCf_color_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueCf_color_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6392,7 +6476,7 @@
             // 
             // lblMaterial_type
             // 
-            this.lblMaterial_type.Location = new System.Drawing.Point(4, 251);
+            this.lblMaterial_type.Location = new System.Drawing.Point(4, 247);
             this.lblMaterial_type.Name = "lblMaterial_type";
             this.lblMaterial_type.Size = new System.Drawing.Size(71, 13);
             this.lblMaterial_type.TabIndex = 227;
@@ -6401,7 +6485,7 @@
             // 
             // lblProduct_type
             // 
-            this.lblProduct_type.Location = new System.Drawing.Point(5, 271);
+            this.lblProduct_type.Location = new System.Drawing.Point(5, 267);
             this.lblProduct_type.Name = "lblProduct_type";
             this.lblProduct_type.Size = new System.Drawing.Size(71, 13);
             this.lblProduct_type.TabIndex = 226;
@@ -6413,7 +6497,7 @@
             this.lueProduct_type.EditValue = "";
             this.lueProduct_type.Enabled = false;
             this.lueProduct_type.EnterMoveNextControl = true;
-            this.lueProduct_type.Location = new System.Drawing.Point(76, 268);
+            this.lueProduct_type.Location = new System.Drawing.Point(76, 264);
             this.lueProduct_type.Name = "lueProduct_type";
             this.lueProduct_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueProduct_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6440,7 +6524,7 @@
             this.lueMaterial_type.EditValue = "";
             this.lueMaterial_type.Enabled = false;
             this.lueMaterial_type.EnterMoveNextControl = true;
-            this.lueMaterial_type.Location = new System.Drawing.Point(76, 247);
+            this.lueMaterial_type.Location = new System.Drawing.Point(76, 243);
             this.lueMaterial_type.Name = "lueMaterial_type";
             this.lueMaterial_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueMaterial_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6465,7 +6549,7 @@
             // chkFlag_vnd
             // 
             this.chkFlag_vnd.Enabled = false;
-            this.chkFlag_vnd.Location = new System.Drawing.Point(508, 93);
+            this.chkFlag_vnd.Location = new System.Drawing.Point(508, 86);
             this.chkFlag_vnd.Name = "chkFlag_vnd";
             this.chkFlag_vnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFlag_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
@@ -6484,7 +6568,7 @@
             // 
             this.txtFlag_new.EditValue = "";
             this.txtFlag_new.Enabled = false;
-            this.txtFlag_new.Location = new System.Drawing.Point(1299, 179);
+            this.txtFlag_new.Location = new System.Drawing.Point(1298, 182);
             this.txtFlag_new.Name = "txtFlag_new";
             this.txtFlag_new.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtFlag_new.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6497,7 +6581,7 @@
             // 
             this.lblOf.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblOf.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblOf.Location = new System.Drawing.Point(572, 375);
+            this.lblOf.Location = new System.Drawing.Point(572, 378);
             this.lblOf.Name = "lblOf";
             this.lblOf.Size = new System.Drawing.Size(95, 21);
             this.lblOf.TabIndex = 205;
@@ -6507,7 +6591,7 @@
             // 
             this.txtRef_temp_code.EditValue = "";
             this.txtRef_temp_code.Enabled = false;
-            this.txtRef_temp_code.Location = new System.Drawing.Point(743, 374);
+            this.txtRef_temp_code.Location = new System.Drawing.Point(743, 377);
             this.txtRef_temp_code.Name = "txtRef_temp_code";
             this.txtRef_temp_code.Properties.ReadOnly = true;
             this.txtRef_temp_code.Size = new System.Drawing.Size(90, 20);
@@ -6528,9 +6612,9 @@
             this.pnlFlagVnd.Controls.Add(this.label8);
             this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd);
             this.pnlFlagVnd.Controls.Add(this.label10);
-            this.pnlFlagVnd.Location = new System.Drawing.Point(432, 115);
+            this.pnlFlagVnd.Location = new System.Drawing.Point(432, 107);
             this.pnlFlagVnd.Name = "pnlFlagVnd";
-            this.pnlFlagVnd.Size = new System.Drawing.Size(143, 132);
+            this.pnlFlagVnd.Size = new System.Drawing.Size(143, 135);
             this.pnlFlagVnd.TabIndex = 223;
             // 
             // txtFlag_vnd_date
@@ -6565,7 +6649,7 @@
             this.txtVnd_bp.EditValue = "";
             this.txtVnd_bp.Enabled = false;
             this.txtVnd_bp.EnterMoveNextControl = true;
-            this.txtVnd_bp.Location = new System.Drawing.Point(57, 24);
+            this.txtVnd_bp.Location = new System.Drawing.Point(57, 23);
             this.txtVnd_bp.Name = "txtVnd_bp";
             this.txtVnd_bp.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtVnd_bp.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
@@ -6586,7 +6670,7 @@
             // 
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Green;
-            this.label12.Location = new System.Drawing.Point(3, 113);
+            this.label12.Location = new System.Drawing.Point(3, 117);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(55, 13);
             this.label12.TabIndex = 221;
@@ -6597,7 +6681,7 @@
             // 
             this.txtPrice_vnd_pcs.EditValue = "";
             this.txtPrice_vnd_pcs.EnterMoveNextControl = true;
-            this.txtPrice_vnd_pcs.Location = new System.Drawing.Point(57, 109);
+            this.txtPrice_vnd_pcs.Location = new System.Drawing.Point(57, 113);
             this.txtPrice_vnd_pcs.Name = "txtPrice_vnd_pcs";
             this.txtPrice_vnd_pcs.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
             this.txtPrice_vnd_pcs.Properties.Appearance.Options.UseForeColor = true;
@@ -6616,7 +6700,7 @@
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Green;
-            this.label9.Location = new System.Drawing.Point(3, 92);
+            this.label9.Location = new System.Drawing.Point(3, 97);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 218;
@@ -6627,7 +6711,7 @@
             // 
             this.txtPrice_vnd_grs.EditValue = "";
             this.txtPrice_vnd_grs.EnterMoveNextControl = true;
-            this.txtPrice_vnd_grs.Location = new System.Drawing.Point(57, 88);
+            this.txtPrice_vnd_grs.Location = new System.Drawing.Point(57, 93);
             this.txtPrice_vnd_grs.Name = "txtPrice_vnd_grs";
             this.txtPrice_vnd_grs.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
             this.txtPrice_vnd_grs.Properties.Appearance.Options.UseForeColor = true;
@@ -6657,7 +6741,7 @@
             // 
             this.txtPrice_vnd_usd.EditValue = "";
             this.txtPrice_vnd_usd.EnterMoveNextControl = true;
-            this.txtPrice_vnd_usd.Location = new System.Drawing.Point(57, 46);
+            this.txtPrice_vnd_usd.Location = new System.Drawing.Point(57, 45);
             this.txtPrice_vnd_usd.Name = "txtPrice_vnd_usd";
             this.txtPrice_vnd_usd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
             this.txtPrice_vnd_usd.Properties.Appearance.Options.UseForeColor = true;
@@ -6676,7 +6760,7 @@
             // 
             this.lblPrice_vnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice_vnd.ForeColor = System.Drawing.Color.Green;
-            this.lblPrice_vnd.Location = new System.Drawing.Point(16, 71);
+            this.lblPrice_vnd.Location = new System.Drawing.Point(16, 75);
             this.lblPrice_vnd.Name = "lblPrice_vnd";
             this.lblPrice_vnd.Size = new System.Drawing.Size(41, 13);
             this.lblPrice_vnd.TabIndex = 210;
@@ -6687,7 +6771,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Green;
-            this.label8.Location = new System.Drawing.Point(7, 50);
+            this.label8.Location = new System.Drawing.Point(7, 49);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 216;
@@ -6698,7 +6782,7 @@
             // 
             this.txtPrice_vnd.EditValue = "";
             this.txtPrice_vnd.EnterMoveNextControl = true;
-            this.txtPrice_vnd.Location = new System.Drawing.Point(57, 67);
+            this.txtPrice_vnd.Location = new System.Drawing.Point(57, 71);
             this.txtPrice_vnd.Name = "txtPrice_vnd";
             this.txtPrice_vnd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtPrice_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
@@ -6731,7 +6815,7 @@
             // 
             this.txtDisc_vnd.EditValue = "";
             this.txtDisc_vnd.EnterMoveNextControl = true;
-            this.txtDisc_vnd.Location = new System.Drawing.Point(991, 307);
+            this.txtDisc_vnd.Location = new System.Drawing.Point(991, 310);
             this.txtDisc_vnd.Name = "txtDisc_vnd";
             this.txtDisc_vnd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtDisc_vnd.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -6749,7 +6833,7 @@
             // lblDisc_price_vnd
             // 
             this.lblDisc_price_vnd.Font = new System.Drawing.Font("Tahoma", 6.75F);
-            this.lblDisc_price_vnd.Location = new System.Drawing.Point(931, 306);
+            this.lblDisc_price_vnd.Location = new System.Drawing.Point(931, 309);
             this.lblDisc_price_vnd.Name = "lblDisc_price_vnd";
             this.lblDisc_price_vnd.Size = new System.Drawing.Size(62, 23);
             this.lblDisc_price_vnd.TabIndex = 211;
@@ -6759,7 +6843,7 @@
             // lblCf_color_id
             // 
             this.lblCf_color_id.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblCf_color_id.Location = new System.Drawing.Point(157, 77);
+            this.lblCf_color_id.Location = new System.Drawing.Point(157, 69);
             this.lblCf_color_id.Name = "lblCf_color_id";
             this.lblCf_color_id.Size = new System.Drawing.Size(69, 13);
             this.lblCf_color_id.TabIndex = 228;
@@ -6768,12 +6852,21 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(681, 378);
+            this.label11.Location = new System.Drawing.Point(681, 381);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 13);
             this.label11.TabIndex = 229;
             this.label11.Text = "Copy From";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblDie_mould_usd_vn
+            // 
+            this.lblDie_mould_usd_vn.Location = new System.Drawing.Point(573, 172);
+            this.lblDie_mould_usd_vn.Name = "lblDie_mould_usd_vn";
+            this.lblDie_mould_usd_vn.Size = new System.Drawing.Size(91, 13);
+            this.lblDie_mould_usd_vn.TabIndex = 233;
+            this.lblDie_mould_usd_vn.Text = "Die Mould(VN)";
+            this.lblDie_mould_usd_vn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmQuotation
             // 
@@ -6909,6 +7002,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).EndInit();
             this.pnlHeard.ResumeLayout(false);
             this.pnlHeard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDie_mould_usd_vn.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMd_charge_vn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCf_color_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueProduct_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_type.Properties)).EndInit();
@@ -7305,6 +7400,11 @@
         private DevExpress.XtraEditors.LookUpEdit lueCf_color_id;
         private System.Windows.Forms.Label lblCf_color_id;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private DevExpress.XtraEditors.TextEdit txtDie_mould_usd_vn;
+        private DevExpress.XtraEditors.TextEdit txtMd_charge_vn;
+        private System.Windows.Forms.Label lblMd_charge_vn;
+        private System.Windows.Forms.Label lblDie_mould_usd_vn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -7420,5 +7520,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cf_color_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn material_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_vn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_usd_vn;
     }
 }
