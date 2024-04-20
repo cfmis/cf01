@@ -92,7 +92,8 @@ namespace cf01.Forms
             A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.disc_price_vnd,A.usd_ex_fty,
             A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
             A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new,
-            A.flag_vnd,A.flag_vnd_date,A.vnd_bp,A.price_vnd_usd,A.price_vnd,A.price_vnd_grs,A.price_vnd_pcs,A.cf_color_id,A.material_type,A.product_type,A.md_charge_vn,A.die_mould_usd_vn
+            A.flag_vnd,A.flag_vnd_date,A.vnd_bp,A.price_vnd_usd,A.price_vnd,A.price_vnd_grs,A.price_vnd_pcs,A.cf_color_id,A.material_type,A.product_type,
+            A.md_charge_vn,A.die_mould_usd_vn
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
             WHERE 1=0";
@@ -257,8 +258,7 @@ namespace cf01.Forms
             }
             if (ls_ip_address.Contains("192.168.18."))
             {
-                imagePath = @"\\192.168.18.24\cf_artwork";
-                             //@"\\192.168.3.12\cf_artwork\Artwork\";
+                imagePath = @"\\192.168.18.24\cf_artwork";                            
             }
             //數據綁定
             SetDataBindings();
@@ -384,7 +384,7 @@ namespace cf01.Forms
             lueProduct_type.DataBindings.Add("EditValue", bds1, "product_type");
             txtMd_charge_vn.DataBindings.Add("Text", bds1, "md_charge_vn");
             txtDie_mould_usd_vn.DataBindings.Add("Text", bds1, "die_mould_usd_vn");
-
+            //復選框的綁定
             //Binding bind = new Binding("Checked", bds1, "flag_vnd");
             Binding bind = new Binding("EditValue", bds1, "flag_vnd");
             bind.Format += (s, e) =>
@@ -1191,7 +1191,7 @@ namespace cf01.Forms
                     string strSql = string.Format(
                         @"SELECT S.id,Max(S.picture_name) AS picture_name
                           FROM (SELECT a.id, b.picture_name FROM cd_pattern a with(nolock),cd_pattern_details b with(nolock)
-	                                WHERE a.within_code=b.within_code and a.id=b.id and a.within_code='0000' AND a.id='{0}' 
+	                            WHERE a.within_code=b.within_code and a.id=b.id and a.within_code='0000' AND a.id='{0}' 
                                ) S
                           WHERE S.picture_name>'' GROUP BY S.id", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();

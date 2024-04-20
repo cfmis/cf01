@@ -496,6 +496,7 @@ namespace cf01.CLS
         {
             //COAC牌子作特別處理，小數點取3位，其他牌子取2位
             //JOUL牌子作特別處理，小數點取3位，其他牌子取2位2016-10-12
+            //--start對傳進來的參數brand_id進行變換處理,以便在取小數點匹配表中是否存在,存在匹配的小數點取3位
             string strBrand_id, strResult,sql;
             if (string.IsNullOrEmpty(brand_id))
                 strBrand_id = "";
@@ -516,10 +517,14 @@ namespace cf01.CLS
                     }
                     else
                     {
-                        strBrand_id = brand_id.Substring(0, 5); //有牌子編號的按此方法處理                       
+                        //有牌子編號的按此方法處理,例如:COAC-01, brand_id.Substring(0, 5)得到COAC- 
+                        strBrand_id = brand_id.Substring(0, 5);             
                     }
                 }
             }
+            //--end
+
+            //--quotation_decimal此表記錄哪些牌子或客戶編號單價的小數點要保留3位
             sql = string.Format(@"SELECT '1' FROM quotation_decimal WHERE brand_id='{0}'", strBrand_id);
             strResult = clsPublicOfCF01.ExecuteSqlReturnObject(sql);
             int iDecimal;
