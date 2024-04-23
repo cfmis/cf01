@@ -81,7 +81,7 @@ namespace cf01.CLS
                 strSql += " Select " + "' ' As MFlag" + ",a.ID,a.Ver,b.ProductID,b.ProductName,b.ArtWork,b.ArtWorkName,b.ProductType,b.ProductTypeName" +
                 ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName,b.DoColor" +
                 ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
-                ",a.MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
+                ",b.MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
                 " Inner Join mm_product_cost_part b On a.SN=b.UpperSN" +
