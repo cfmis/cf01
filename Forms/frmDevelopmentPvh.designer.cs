@@ -198,6 +198,7 @@
             this.label47 = new System.Windows.Forms.Label();
             this.lueFor_quality_approval = new DevExpress.XtraEditors.LookUpEdit();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.cbeFactory_name = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label88 = new System.Windows.Forms.Label();
             this.txtProcess = new DevExpress.XtraEditors.ButtonEdit();
             this.txtWeight_uom = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -250,7 +251,6 @@
             this.label59 = new System.Windows.Forms.Label();
             this.txtWeight = new DevExpress.XtraEditors.TextEdit();
             this.label55 = new System.Windows.Forms.Label();
-            this.txtFactory_name = new DevExpress.XtraEditors.TextEdit();
             this.label52 = new System.Windows.Forms.Label();
             this.txtsupplier_name = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
@@ -266,6 +266,7 @@
             this.txtDye_type = new DevExpress.XtraEditors.ButtonEdit();
             this.txtDye_method = new DevExpress.XtraEditors.ButtonEdit();
             this.label51 = new System.Windows.Forms.Label();
+            this.txtFactory_name = new DevExpress.XtraEditors.TextEdit();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lueHandling_office = new DevExpress.XtraEditors.LookUpEdit();
             this.txtPlm_material_code = new DevExpress.XtraEditors.TextEdit();
@@ -522,7 +523,10 @@
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn114 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn115 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbeFactory_name = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtColour1 = new DevExpress.XtraEditors.TextEdit();
+            this.label90 = new System.Windows.Forms.Label();
+            this.txtSize1 = new DevExpress.XtraEditors.TextEdit();
+            this.label91 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -539,6 +543,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_already_approved.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueFor_quality_approval.Properties)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcess.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrevious_submit_vr.Properties)).BeginInit();
@@ -573,13 +578,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFinish.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code.Properties)).BeginInit();
@@ -667,7 +672,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -2198,6 +2204,18 @@
             this.panel8.Size = new System.Drawing.Size(995, 208);
             this.panel8.TabIndex = 80;
             // 
+            // cbeFactory_name
+            // 
+            this.cbeFactory_name.EditValue = "";
+            this.cbeFactory_name.Enabled = false;
+            this.cbeFactory_name.Location = new System.Drawing.Point(103, 21);
+            this.cbeFactory_name.Name = "cbeFactory_name";
+            this.cbeFactory_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbeFactory_name.Size = new System.Drawing.Size(359, 20);
+            this.cbeFactory_name.TabIndex = 170;
+            this.cbeFactory_name.Tag = "2";
+            // 
             // label88
             // 
             this.label88.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -3071,19 +3089,6 @@
             this.label55.Text = "Weight";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtFactory_name
-            // 
-            this.txtFactory_name.EnterMoveNextControl = true;
-            this.txtFactory_name.Location = new System.Drawing.Point(103, 21);
-            this.txtFactory_name.Name = "txtFactory_name";
-            this.txtFactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtFactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtFactory_name.Properties.MaxLength = 100;
-            this.txtFactory_name.Properties.ReadOnly = true;
-            this.txtFactory_name.Size = new System.Drawing.Size(38, 20);
-            this.txtFactory_name.TabIndex = 1;
-            this.txtFactory_name.Tag = "2";
-            // 
             // label52
             // 
             this.label52.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -3271,6 +3276,19 @@
             this.label51.TabIndex = 125;
             this.label51.Text = "Finish (inc Sustainable,if applicable)";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtFactory_name
+            // 
+            this.txtFactory_name.EnterMoveNextControl = true;
+            this.txtFactory_name.Location = new System.Drawing.Point(103, 21);
+            this.txtFactory_name.Name = "txtFactory_name";
+            this.txtFactory_name.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtFactory_name.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtFactory_name.Properties.MaxLength = 100;
+            this.txtFactory_name.Properties.ReadOnly = true;
+            this.txtFactory_name.Size = new System.Drawing.Size(38, 20);
+            this.txtFactory_name.TabIndex = 1;
+            this.txtFactory_name.Tag = "2";
             // 
             // panel7
             // 
@@ -3572,7 +3590,6 @@
             this.txtprice6.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice6.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtprice6.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtprice6.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtprice6.Properties.Mask.EditMask = "n4";
             this.txtprice6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice6.Properties.ReadOnly = true;
@@ -3613,7 +3630,6 @@
             this.txtprice5.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice5.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtprice5.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtprice5.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtprice5.Properties.Mask.EditMask = "n4";
             this.txtprice5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice5.Properties.ReadOnly = true;
@@ -3655,7 +3671,6 @@
             this.txtprice4.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice4.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtprice4.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtprice4.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtprice4.Properties.Mask.EditMask = "n4";
             this.txtprice4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice4.Properties.ReadOnly = true;
@@ -3697,7 +3712,6 @@
             this.txtprice3.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice3.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtprice3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtprice3.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtprice3.Properties.Mask.EditMask = "n4";
             this.txtprice3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice3.Properties.ReadOnly = true;
@@ -3715,7 +3729,6 @@
             this.txtprice2.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice2.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtprice2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtprice2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtprice2.Properties.Mask.EditMask = "n4";
             this.txtprice2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice2.Properties.ReadOnly = true;
@@ -3735,7 +3748,6 @@
             this.txtprice1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice1.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtprice1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtprice1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtprice1.Properties.Mask.EditMask = "n4";
             this.txtprice1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice1.Properties.ReadOnly = true;
@@ -5173,6 +5185,10 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.txtSize1);
+            this.tabPage2.Controls.Add(this.label91);
+            this.tabPage2.Controls.Add(this.txtColour1);
+            this.tabPage2.Controls.Add(this.label90);
             this.tabPage2.Controls.Add(this.txtPlm_material_code1);
             this.tabPage2.Controls.Add(this.label62);
             this.tabPage2.Controls.Add(this.txtMo3);
@@ -5230,7 +5246,7 @@
             // txtMo3
             // 
             this.txtMo3.EnterMoveNextControl = true;
-            this.txtMo3.Location = new System.Drawing.Point(135, 159);
+            this.txtMo3.Location = new System.Drawing.Point(135, 209);
             this.txtMo3.Name = "txtMo3";
             this.txtMo3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo3.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -5241,7 +5257,7 @@
             // label87
             // 
             this.label87.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label87.Location = new System.Drawing.Point(14, 163);
+            this.label87.Location = new System.Drawing.Point(14, 213);
             this.label87.Name = "label87";
             this.label87.Size = new System.Drawing.Size(113, 15);
             this.label87.TabIndex = 176;
@@ -5251,7 +5267,7 @@
             // txtMo2
             // 
             this.txtMo2.EnterMoveNextControl = true;
-            this.txtMo2.Location = new System.Drawing.Point(135, 136);
+            this.txtMo2.Location = new System.Drawing.Point(135, 186);
             this.txtMo2.Name = "txtMo2";
             this.txtMo2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -5262,7 +5278,7 @@
             // label86
             // 
             this.label86.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label86.Location = new System.Drawing.Point(79, 140);
+            this.label86.Location = new System.Drawing.Point(79, 190);
             this.label86.Name = "label86";
             this.label86.Size = new System.Drawing.Size(48, 15);
             this.label86.TabIndex = 174;
@@ -5272,7 +5288,7 @@
             // txtMo1
             // 
             this.txtMo1.EnterMoveNextControl = true;
-            this.txtMo1.Location = new System.Drawing.Point(135, 113);
+            this.txtMo1.Location = new System.Drawing.Point(135, 163);
             this.txtMo1.Name = "txtMo1";
             this.txtMo1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -5283,7 +5299,7 @@
             // label85
             // 
             this.label85.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label85.Location = new System.Drawing.Point(14, 117);
+            this.label85.Location = new System.Drawing.Point(14, 167);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(113, 15);
             this.label85.TabIndex = 172;
@@ -5341,11 +5357,11 @@
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.serialno});
-            this.dgvFind.Location = new System.Drawing.Point(6, 195);
+            this.dgvFind.Location = new System.Drawing.Point(6, 250);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
             this.dgvFind.RowTemplate.Height = 24;
-            this.dgvFind.Size = new System.Drawing.Size(995, 617);
+            this.dgvFind.Size = new System.Drawing.Size(995, 562);
             this.dgvFind.TabIndex = 166;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
@@ -6323,17 +6339,45 @@
             this.dataGridViewTextBoxColumn115.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn115.Name = "dataGridViewTextBoxColumn115";
             // 
-            // cbeFactory_name
+            // txtColour1
             // 
-            this.cbeFactory_name.EditValue = "";
-            this.cbeFactory_name.Enabled = false;
-            this.cbeFactory_name.Location = new System.Drawing.Point(103, 21);
-            this.cbeFactory_name.Name = "cbeFactory_name";
-            this.cbeFactory_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbeFactory_name.Size = new System.Drawing.Size(359, 20);
-            this.cbeFactory_name.TabIndex = 170;
-            this.cbeFactory_name.Tag = "2";
+            this.txtColour1.EnterMoveNextControl = true;
+            this.txtColour1.Location = new System.Drawing.Point(135, 114);
+            this.txtColour1.Name = "txtColour1";
+            this.txtColour1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtColour1.Properties.MaxLength = 100;
+            this.txtColour1.Size = new System.Drawing.Size(302, 22);
+            this.txtColour1.TabIndex = 179;
+            // 
+            // label90
+            // 
+            this.label90.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label90.Location = new System.Drawing.Point(14, 118);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(113, 15);
+            this.label90.TabIndex = 180;
+            this.label90.Text = "Colour：";
+            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSize1
+            // 
+            this.txtSize1.EnterMoveNextControl = true;
+            this.txtSize1.Location = new System.Drawing.Point(135, 139);
+            this.txtSize1.Name = "txtSize1";
+            this.txtSize1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtSize1.Properties.MaxLength = 100;
+            this.txtSize1.Size = new System.Drawing.Size(302, 22);
+            this.txtSize1.TabIndex = 181;
+            // 
+            // label91
+            // 
+            this.label91.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label91.Location = new System.Drawing.Point(14, 143);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(113, 15);
+            this.label91.TabIndex = 182;
+            this.label91.Text = "Size：";
+            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmDevelopmentPvh
             // 
@@ -6365,6 +6409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_already_approved.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueFor_quality_approval.Properties)).EndInit();
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcess.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrevious_submit_vr.Properties)).EndInit();
@@ -6399,13 +6444,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFinish.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code.Properties)).EndInit();
@@ -6493,7 +6538,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6985,5 +7031,9 @@
         private DevExpress.XtraEditors.ButtonEdit txtDye_method;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
         private DevExpress.XtraEditors.ComboBoxEdit cbeFactory_name;
+        private DevExpress.XtraEditors.TextEdit txtSize1;
+        private System.Windows.Forms.Label label91;
+        private DevExpress.XtraEditors.TextEdit txtColour1;
+        private System.Windows.Forms.Label label90;
     }
 }

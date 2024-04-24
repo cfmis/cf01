@@ -128,11 +128,12 @@ namespace cf01.CLS
         }
 
         public static DataTable Find_Data(string id1,string id2, string pvh_submit_ref1,string pvh_submit_ref2,
-            string date1,string date2,string plm_material_code1,string mo_id1,string mo_id2,string mo_id3)
+            string date1,string date2,string plm_material_code1,string mo_id1,string mo_id2,string mo_id3,string colour1,string size1)
         {
             string sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
             if (id1 != "" || id2 != "" || pvh_submit_ref1 !=""|| pvh_submit_ref2!="" 
-                || date1 !="" || date2 != "" || plm_material_code1 != "" || mo_id1!="" || mo_id2 !="" || mo_id3 !="" )
+                || date1 !="" || date2 != "" || plm_material_code1 != "" || mo_id1!="" || mo_id2 !="" || mo_id3 !="" ||
+                colour1!="" || size1!="")
             {
                 if (id1 != "")
                 {
@@ -173,6 +174,14 @@ namespace cf01.CLS
                 if (mo_id3 != "")
                 {
                     sql += string.Format(" and mo_id3='{0}'", mo_id3);
+                }
+                if (colour1 != "")
+                {
+                    sql += string.Format(" and colour like '%{0}%'", colour1);
+                }
+                if (size1 != "")
+                {
+                    sql += string.Format(" and size like '%{0}%'", size1);
                 }
             }
 

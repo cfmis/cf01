@@ -22,7 +22,7 @@ namespace cf01.Reports
 
         private void lblPrice1_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("price1").ToString() == "0.000")
+            if (GetCurrentColumnValue("price1").ToString() == "0.0000")
                 lblPrice1.Visible = false;
             else
                 lblPrice1.Visible = true;
@@ -30,7 +30,7 @@ namespace cf01.Reports
 
         private void lblPrice2_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("price2").ToString() == "0.000")
+            if (GetCurrentColumnValue("price2").ToString() == "0.0000")
                 lblPrice2.Visible = false;
             else
                 lblPrice2.Visible = true;
@@ -38,7 +38,7 @@ namespace cf01.Reports
 
         private void lblPrice3_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("price3").ToString() == "0.000")
+            if (GetCurrentColumnValue("price3").ToString() == "0.0000")
                 lblPrice3.Visible = false;
             else
                 lblPrice3.Visible = true;
@@ -46,7 +46,7 @@ namespace cf01.Reports
 
         private void lblPrice4_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("price4").ToString() == "0.000")
+            if (GetCurrentColumnValue("price4").ToString() == "0.0000")
                 lblPrice4.Visible = false;
             else
                 lblPrice4.Visible = true;
@@ -54,7 +54,7 @@ namespace cf01.Reports
 
         private void lblPrice5_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("price5").ToString() == "0.000")
+            if (GetCurrentColumnValue("price5").ToString() == "0.0000")
                 lblPrice5.Visible = false;
             else
                 lblPrice5.Visible = true;
@@ -62,7 +62,7 @@ namespace cf01.Reports
 
         private void lblPrice6_TextChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("price6").ToString() == "0.000")
+            if (GetCurrentColumnValue("price6").ToString() == "0.0000")
                 lblPrice6.Visible = false;
             else
                 lblPrice6.Visible = true;
