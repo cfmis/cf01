@@ -114,8 +114,9 @@ namespace cf01.ReportForm
             string strBrandId2 = txtBrand_id2.Text;
             string strCust1 = lueCust1.EditValue.ToString();
             string strCust2 = lueCust2.EditValue.ToString();
+            string strSeller_id = txtSeller_id.Text;
             string strOrderDate1 = "";
-            string strOrderDate2 = "";
+            string strOrderDate2 = "";            
             if (!string.IsNullOrEmpty(dtDat1.Text))
             {
                 strOrderDate1 = DateTime.Parse(dtDat1.EditValue.ToString()).Date.ToString("yyyy-MM-dd");
@@ -138,7 +139,8 @@ namespace cf01.ReportForm
                 new SqlParameter("@brand_id_s",strBrandId1),
                 new SqlParameter("@brand_id_e",strBrandId2),
                 new SqlParameter("@it_customer_s",strCust1),
-                new SqlParameter("@it_customer_e",strCust2)
+                new SqlParameter("@it_customer_e",strCust2),
+                new SqlParameter("@seller_id",strSeller_id)
             };
             //是示查詢進度
             frmProgress wForm = new frmProgress();
@@ -148,7 +150,7 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
             //************************
-            dtDelivery = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_rpt_oc_data", paras);
+            dtDelivery = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_rpt_oc_data_l", paras);
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 

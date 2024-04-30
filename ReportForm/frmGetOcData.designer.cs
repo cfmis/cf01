@@ -86,10 +86,13 @@
             this.total_sum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.it_customer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSeller_id = new DevExpress.XtraEditors.TextEdit();
+            this.label3 = new System.Windows.Forms.Label();
             this.lueCust2 = new DevExpress.XtraEditors.LookUpEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.lueCust1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lblCustcode = new System.Windows.Forms.Label();
+            this.seller_id = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
@@ -100,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeller_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCust2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCust1.Properties)).BeginInit();
             this.SuspendLayout();
@@ -506,7 +510,8 @@
             this.order_qty,
             this.unit_price,
             this.total_sum,
-            this.it_customer});
+            this.it_customer,
+            this.seller_id});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -756,6 +761,8 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.txtSeller_id);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lueCust2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lueCust1);
@@ -772,6 +779,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1009, 86);
             this.panel1.TabIndex = 138;
+            // 
+            // txtSeller_id
+            // 
+            this.txtSeller_id.EnterMoveNextControl = true;
+            this.txtSeller_id.Location = new System.Drawing.Point(607, 7);
+            this.txtSeller_id.Name = "txtSeller_id";
+            this.txtSeller_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSeller_id.Properties.MaxLength = 13;
+            this.txtSeller_id.Size = new System.Drawing.Size(156, 20);
+            this.txtSeller_id.TabIndex = 133;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(521, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.TabIndex = 134;
+            this.label3.Text = "營業員";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lueCust2
             // 
@@ -829,12 +855,28 @@
             // 
             // lblCustcode
             // 
-            this.lblCustcode.Location = new System.Drawing.Point(-2, 60);
+            this.lblCustcode.Location = new System.Drawing.Point(1, 60);
             this.lblCustcode.Name = "lblCustcode";
-            this.lblCustcode.Size = new System.Drawing.Size(94, 13);
+            this.lblCustcode.Size = new System.Drawing.Size(91, 13);
             this.lblCustcode.TabIndex = 130;
             this.lblCustcode.Text = "客戶編號";
             this.lblCustcode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // seller_id
+            // 
+            this.seller_id.Caption = "Seller Id";
+            this.seller_id.FieldName = "seller_id";
+            this.seller_id.Name = "seller_id";
+            this.seller_id.OptionsColumn.AllowEdit = false;
+            this.seller_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.seller_id.OptionsColumn.AllowMove = false;
+            this.seller_id.OptionsColumn.AllowSize = false;
+            this.seller_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.seller_id.OptionsColumn.ReadOnly = true;
+            this.seller_id.OptionsFilter.AllowAutoFilter = false;
+            this.seller_id.OptionsFilter.AllowFilter = false;
+            this.seller_id.Visible = true;
+            this.seller_id.VisibleIndex = 15;
             // 
             // frmGetOcData
             // 
@@ -862,6 +904,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeller_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCust2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCust1.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -929,5 +972,8 @@
         private DevExpress.XtraEditors.LookUpEdit lueCust1;
         private System.Windows.Forms.Label lblCustcode;
         private DevExpress.XtraGrid.Columns.GridColumn it_customer;
+        private DevExpress.XtraEditors.TextEdit txtSeller_id;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraGrid.Columns.GridColumn seller_id;
     }
 }
