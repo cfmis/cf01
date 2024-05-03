@@ -28,10 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuotation_Formula_Set));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuotation_Formula_Set));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.brand_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rmb1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rmb2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vndbp1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vndusd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bp_hkd_ex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtBrand_id2 = new DevExpress.XtraEditors.LookUpEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDept = new System.Windows.Forms.Label();
@@ -105,27 +126,7 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.brand_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brand_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rmb1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rmb2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hkd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hkd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usd3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vndbp1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vndusd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amusr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amtim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bp_hkd_ex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblVndusd1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
@@ -185,6 +186,185 @@
             this.dgvDetails.Size = new System.Drawing.Size(1028, 344);
             this.dgvDetails.TabIndex = 244;
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
+            // 
+            // flag_select
+            // 
+            this.flag_select.DataPropertyName = "flag_select";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.NullValue = false;
+            this.flag_select.DefaultCellStyle = dataGridViewCellStyle3;
+            this.flag_select.HeaderText = "  ";
+            this.flag_select.Name = "flag_select";
+            this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.flag_select.Width = 60;
+            // 
+            // brand_id
+            // 
+            this.brand_id.DataPropertyName = "brand_id";
+            this.brand_id.HeaderText = "牌子編號(客戶)";
+            this.brand_id.Name = "brand_id";
+            this.brand_id.ReadOnly = true;
+            this.brand_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // brand_name
+            // 
+            this.brand_name.DataPropertyName = "brand_name";
+            this.brand_name.HeaderText = "牌子(客戶)描述";
+            this.brand_name.Name = "brand_name";
+            this.brand_name.ReadOnly = true;
+            this.brand_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.brand_name.Width = 200;
+            // 
+            // usd1
+            // 
+            this.usd1.DataPropertyName = "usd1";
+            this.usd1.HeaderText = "USD參數1";
+            this.usd1.Name = "usd1";
+            this.usd1.ReadOnly = true;
+            this.usd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.usd1.Width = 80;
+            // 
+            // usd2
+            // 
+            this.usd2.DataPropertyName = "usd2";
+            this.usd2.HeaderText = "USD參數2";
+            this.usd2.Name = "usd2";
+            this.usd2.ReadOnly = true;
+            this.usd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.usd2.Width = 80;
+            // 
+            // rmb1
+            // 
+            this.rmb1.DataPropertyName = "rmb1";
+            this.rmb1.HeaderText = "RMB參數1";
+            this.rmb1.Name = "rmb1";
+            this.rmb1.ReadOnly = true;
+            this.rmb1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.rmb1.Width = 80;
+            // 
+            // rmb2
+            // 
+            this.rmb2.DataPropertyName = "rmb2";
+            this.rmb2.HeaderText = "RMB參數2";
+            this.rmb2.Name = "rmb2";
+            this.rmb2.ReadOnly = true;
+            this.rmb2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.rmb2.Width = 80;
+            // 
+            // hkd1
+            // 
+            this.hkd1.DataPropertyName = "hkd1";
+            this.hkd1.HeaderText = "HKD參數1";
+            this.hkd1.Name = "hkd1";
+            this.hkd1.ReadOnly = true;
+            this.hkd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.hkd1.Width = 80;
+            // 
+            // hkd2
+            // 
+            this.hkd2.DataPropertyName = "hkd2";
+            this.hkd2.HeaderText = "HKD參數2 (EX-FTY)";
+            this.hkd2.Name = "hkd2";
+            this.hkd2.ReadOnly = true;
+            this.hkd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.hkd2.Width = 120;
+            // 
+            // usd3
+            // 
+            this.usd3.DataPropertyName = "usd3";
+            this.usd3.HeaderText = "USD EX-FTY";
+            this.usd3.Name = "usd3";
+            this.usd3.ReadOnly = true;
+            this.usd3.Width = 120;
+            // 
+            // discount
+            // 
+            this.discount.DataPropertyName = "discount";
+            this.discount.HeaderText = "Discount";
+            this.discount.Name = "discount";
+            this.discount.ReadOnly = true;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "備註";
+            this.remark.Name = "remark";
+            this.remark.ReadOnly = true;
+            this.remark.Width = 220;
+            // 
+            // vndbp1
+            // 
+            this.vndbp1.DataPropertyName = "vndbp1";
+            this.vndbp1.HeaderText = "VN BP";
+            this.vndbp1.Name = "vndbp1";
+            this.vndbp1.ReadOnly = true;
+            this.vndbp1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // vndusd1
+            // 
+            this.vndusd1.DataPropertyName = "vndusd1";
+            this.vndusd1.HeaderText = "VN USD";
+            this.vndusd1.Name = "vndusd1";
+            this.vndusd1.ReadOnly = true;
+            this.vndusd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vndusd1.Visible = false;
+            // 
+            // vnd1
+            // 
+            this.vnd1.DataPropertyName = "vnd1";
+            this.vnd1.HeaderText = "VND";
+            this.vnd1.Name = "vnd1";
+            this.vnd1.ReadOnly = true;
+            this.vnd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // crusr
+            // 
+            this.crusr.DataPropertyName = "crusr";
+            this.crusr.HeaderText = "crusr";
+            this.crusr.Name = "crusr";
+            this.crusr.ReadOnly = true;
+            this.crusr.Visible = false;
+            // 
+            // crtim
+            // 
+            this.crtim.DataPropertyName = "crtim";
+            this.crtim.HeaderText = "crtim";
+            this.crtim.Name = "crtim";
+            this.crtim.ReadOnly = true;
+            this.crtim.Visible = false;
+            // 
+            // amusr
+            // 
+            this.amusr.DataPropertyName = "amusr";
+            this.amusr.HeaderText = "amusr";
+            this.amusr.Name = "amusr";
+            this.amusr.ReadOnly = true;
+            this.amusr.Visible = false;
+            // 
+            // amtim
+            // 
+            this.amtim.DataPropertyName = "amtim";
+            this.amtim.HeaderText = "amtim";
+            this.amtim.Name = "amtim";
+            this.amtim.ReadOnly = true;
+            this.amtim.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // bp_hkd_ex
+            // 
+            this.bp_hkd_ex.DataPropertyName = "bp_hkd_ex";
+            this.bp_hkd_ex.HeaderText = "bp_hkd_ex";
+            this.bp_hkd_ex.Name = "bp_hkd_ex";
+            this.bp_hkd_ex.ReadOnly = true;
+            this.bp_hkd_ex.Visible = false;
             // 
             // txtBrand_id2
             // 
@@ -296,6 +476,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lblVndusd1);
             this.panel2.Controls.Add(this.label35);
             this.panel2.Controls.Add(this.label32);
             this.panel2.Controls.Add(this.label33);
@@ -407,13 +588,13 @@
             // txtvndusd1
             // 
             this.txtvndusd1.EnterMoveNextControl = true;
-            this.txtvndusd1.Location = new System.Drawing.Point(141, 48);
+            this.txtvndusd1.Location = new System.Drawing.Point(256, 48);
             this.txtvndusd1.Name = "txtvndusd1";
             this.txtvndusd1.Properties.Mask.EditMask = "n3";
             this.txtvndusd1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtvndusd1.Properties.ReadOnly = true;
             this.txtvndusd1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtvndusd1.Size = new System.Drawing.Size(107, 20);
+            this.txtvndusd1.Size = new System.Drawing.Size(19, 20);
             this.txtvndusd1.TabIndex = 266;
             this.txtvndusd1.Tag = "2";
             this.txtvndusd1.ToolTipTitle = "USD 參數2";
@@ -919,8 +1100,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "flag_select";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.HeaderText = "  ";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1064,184 +1245,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "查找條件";
             // 
-            // flag_select
+            // lblVndusd1
             // 
-            this.flag_select.DataPropertyName = "flag_select";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.NullValue = false;
-            this.flag_select.DefaultCellStyle = dataGridViewCellStyle4;
-            this.flag_select.HeaderText = "  ";
-            this.flag_select.Name = "flag_select";
-            this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.flag_select.Width = 60;
-            // 
-            // brand_id
-            // 
-            this.brand_id.DataPropertyName = "brand_id";
-            this.brand_id.HeaderText = "牌子編號(客戶)";
-            this.brand_id.Name = "brand_id";
-            this.brand_id.ReadOnly = true;
-            this.brand_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // brand_name
-            // 
-            this.brand_name.DataPropertyName = "brand_name";
-            this.brand_name.HeaderText = "牌子(客戶)描述";
-            this.brand_name.Name = "brand_name";
-            this.brand_name.ReadOnly = true;
-            this.brand_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.brand_name.Width = 200;
-            // 
-            // usd1
-            // 
-            this.usd1.DataPropertyName = "usd1";
-            this.usd1.HeaderText = "USD參數1";
-            this.usd1.Name = "usd1";
-            this.usd1.ReadOnly = true;
-            this.usd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.usd1.Width = 80;
-            // 
-            // usd2
-            // 
-            this.usd2.DataPropertyName = "usd2";
-            this.usd2.HeaderText = "USD參數2";
-            this.usd2.Name = "usd2";
-            this.usd2.ReadOnly = true;
-            this.usd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.usd2.Width = 80;
-            // 
-            // rmb1
-            // 
-            this.rmb1.DataPropertyName = "rmb1";
-            this.rmb1.HeaderText = "RMB參數1";
-            this.rmb1.Name = "rmb1";
-            this.rmb1.ReadOnly = true;
-            this.rmb1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.rmb1.Width = 80;
-            // 
-            // rmb2
-            // 
-            this.rmb2.DataPropertyName = "rmb2";
-            this.rmb2.HeaderText = "RMB參數2";
-            this.rmb2.Name = "rmb2";
-            this.rmb2.ReadOnly = true;
-            this.rmb2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.rmb2.Width = 80;
-            // 
-            // hkd1
-            // 
-            this.hkd1.DataPropertyName = "hkd1";
-            this.hkd1.HeaderText = "HKD參數1";
-            this.hkd1.Name = "hkd1";
-            this.hkd1.ReadOnly = true;
-            this.hkd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.hkd1.Width = 80;
-            // 
-            // hkd2
-            // 
-            this.hkd2.DataPropertyName = "hkd2";
-            this.hkd2.HeaderText = "HKD參數2 (EX-FTY)";
-            this.hkd2.Name = "hkd2";
-            this.hkd2.ReadOnly = true;
-            this.hkd2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.hkd2.Width = 120;
-            // 
-            // usd3
-            // 
-            this.usd3.DataPropertyName = "usd3";
-            this.usd3.HeaderText = "USD EX-FTY";
-            this.usd3.Name = "usd3";
-            this.usd3.ReadOnly = true;
-            this.usd3.Width = 120;
-            // 
-            // discount
-            // 
-            this.discount.DataPropertyName = "discount";
-            this.discount.HeaderText = "Discount";
-            this.discount.Name = "discount";
-            this.discount.ReadOnly = true;
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            this.remark.HeaderText = "備註";
-            this.remark.Name = "remark";
-            this.remark.ReadOnly = true;
-            this.remark.Width = 220;
-            // 
-            // vndbp1
-            // 
-            this.vndbp1.DataPropertyName = "vndbp1";
-            this.vndbp1.HeaderText = "VN BP";
-            this.vndbp1.Name = "vndbp1";
-            this.vndbp1.ReadOnly = true;
-            this.vndbp1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // vndusd1
-            // 
-            this.vndusd1.DataPropertyName = "vndusd1";
-            this.vndusd1.HeaderText = "VN USD";
-            this.vndusd1.Name = "vndusd1";
-            this.vndusd1.ReadOnly = true;
-            this.vndusd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.vndusd1.Visible = false;
-            // 
-            // vnd1
-            // 
-            this.vnd1.DataPropertyName = "vnd1";
-            this.vnd1.HeaderText = "VND";
-            this.vnd1.Name = "vnd1";
-            this.vnd1.ReadOnly = true;
-            this.vnd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // crusr
-            // 
-            this.crusr.DataPropertyName = "crusr";
-            this.crusr.HeaderText = "crusr";
-            this.crusr.Name = "crusr";
-            this.crusr.ReadOnly = true;
-            this.crusr.Visible = false;
-            // 
-            // crtim
-            // 
-            this.crtim.DataPropertyName = "crtim";
-            this.crtim.HeaderText = "crtim";
-            this.crtim.Name = "crtim";
-            this.crtim.ReadOnly = true;
-            this.crtim.Visible = false;
-            // 
-            // amusr
-            // 
-            this.amusr.DataPropertyName = "amusr";
-            this.amusr.HeaderText = "amusr";
-            this.amusr.Name = "amusr";
-            this.amusr.ReadOnly = true;
-            this.amusr.Visible = false;
-            // 
-            // amtim
-            // 
-            this.amtim.DataPropertyName = "amtim";
-            this.amtim.HeaderText = "amtim";
-            this.amtim.Name = "amtim";
-            this.amtim.ReadOnly = true;
-            this.amtim.Visible = false;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // bp_hkd_ex
-            // 
-            this.bp_hkd_ex.DataPropertyName = "bp_hkd_ex";
-            this.bp_hkd_ex.HeaderText = "bp_hkd_ex";
-            this.bp_hkd_ex.Name = "bp_hkd_ex";
-            this.bp_hkd_ex.ReadOnly = true;
-            this.bp_hkd_ex.Visible = false;
+            this.lblVndusd1.Location = new System.Drawing.Point(143, 49);
+            this.lblVndusd1.Name = "lblVndusd1";
+            this.lblVndusd1.Size = new System.Drawing.Size(105, 17);
+            this.lblVndusd1.TabIndex = 276;
+            this.lblVndusd1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmQuotation_Formula_Set
             // 
@@ -1379,5 +1389,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amtim;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn bp_hkd_ex;
+        private System.Windows.Forms.Label lblVndusd1;
     }
 }

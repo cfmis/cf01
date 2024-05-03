@@ -92,7 +92,7 @@ namespace cf01.Forms
             {
                 //ReturnToParent();
                 flagReturn = false;
-                this.Hide();
+                this.Hide();               
             }
             else
             {
@@ -785,7 +785,7 @@ namespace cf01.Forms
                 string ls_cust_code = dtFind.Rows[li_currentRow]["cust_code"].ToString();
                 string ls_cust_color = dtFind.Rows[li_currentRow]["cust_color"].ToString();
                 string ls_sql = string.Format(
-                    @"Select Top 1 Isnull(test_report_path,'') as test_report_path 
+                @"Select Top 1 Isnull(test_report_path,'') as test_report_path 
                 From dbo.bs_test_excel with(nolock) 
                 Where trim_code='{0}' and finish_name='{1}'", ls_cust_code, ls_cust_color);
                 lblTestReportPath.Text = clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql);

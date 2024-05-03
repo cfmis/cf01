@@ -91,6 +91,8 @@ namespace cf01.Forms
             txtvndusd1.Text = pdr.Cells["vndusd1"].Value.ToString();
             txtvnd1.Text = pdr.Cells["vnd1"].Value.ToString();
 
+            lblVndusd1.Text = pdr.Cells["usd2"].Value.ToString();
+
             string strCheck = pdr.Cells["bp_hkd_ex"].Value.ToString();
             if (string.IsNullOrEmpty(strCheck) || strCheck == "False")
             {

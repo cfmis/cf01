@@ -109,6 +109,8 @@ namespace cf01.Forms
             txtvndusd1.DataBindings.Add("Text", bds1, "vndusd1");
             txtvnd1.DataBindings.Add("Text", bds1, "vnd1");
 
+            lblVndusd1.DataBindings.Add("Text", bds1, "usd2");
+
             //tabPage2.Parent = null;
             cmbRmb.SelectedIndex = 0;
             Find_Data();
@@ -222,6 +224,7 @@ namespace cf01.Forms
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(panel1.Controls, true);
             SetObjValue.ClearObjValue(panel1.Controls, "1");
+            lblVndusd1.Text = "";
             dgvDetails.Enabled = false;
             txtBrand_id.Focus();
         }
@@ -257,7 +260,7 @@ namespace cf01.Forms
             mState = "";
             
             //SetObjValue.ClearObjValue(tabControl1.TabPages[0].Controls, "1");
-            if (!String.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
+            if (!string.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
             {
                 //Find_doc(mID);
                 dgvDetails.CurrentCell = this.dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
