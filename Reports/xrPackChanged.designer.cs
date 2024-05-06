@@ -351,6 +351,7 @@
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.Text = "[transfer_date]";
             this.xrLabel10.WordWrap = false;
+            this.xrLabel10.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrLabel10_BeforePrint);
             // 
             // xrLabel7
             // 
