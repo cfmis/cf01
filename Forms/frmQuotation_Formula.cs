@@ -64,10 +64,15 @@ namespace cf01.Forms
         private bool isUpdated { get; set; }
 
         private void frmQuotation_Formula_Load(object sender, EventArgs e)
-        {           
+        {       
+            //下拉框取全部的牌子和客戶資料
             clsQuotation.Set_Brand_id(txtBrand_id);           
             clsQuotation.Set_Brand_id(txtBrand_id1);
             clsQuotation.Set_Brand_id(txtBrand_id2);
+
+            //下拉框取已設置有公式全部的牌子作為下拉框資料來源
+            clsQuotation.Set_Brand_id2(luebrand1);
+            clsQuotation.Set_Brand_id2(luebrand2);
             if (!string.IsNullOrEmpty(init_brand_id))
             {
                 txtBrand_id1.EditValue = init_brand_id;
@@ -730,8 +735,8 @@ namespace cf01.Forms
         private void Find_Data_Batch()
         {
             SqlParameter[] paras = new SqlParameter[]{
-                new SqlParameter("@brand_id1",txtBrand_id1.EditValue),
-                new SqlParameter("@brand_id2",txtBrand_id2.EditValue),
+                new SqlParameter("@brand_id1",luebrand1.EditValue),
+                new SqlParameter("@brand_id2",luebrand2.EditValue),
                 new SqlParameter("@rmb_is_more_than_zero",chkRmb.Checked?"1":"")
             };
             dtBatchUpdate = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_formula_find_batch", paras);
@@ -925,6 +930,9 @@ namespace cf01.Forms
             }
         }
 
-        
+        private void luebrand1_Leave(object sender, EventArgs e)
+        {
+            luebrand2.EditValue = luebrand1.EditValue;
+        }
     }
 }

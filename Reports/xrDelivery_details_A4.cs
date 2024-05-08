@@ -54,5 +54,11 @@ namespace cf01.Reports
                 lblAdd_days.Visible = false;
             }
         }
+
+        private void xrLabel2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string strdate = GetCurrentColumnValue("con_date").ToString();
+            xrLabel2.Text = DateTime.Parse(strdate).Date.ToString("yyyy-MM-dd");
+        }
     }
 }

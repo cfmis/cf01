@@ -249,7 +249,7 @@
             this.xrLabel21.CanGrow = false;
             this.xrLabel21.Dpi = 254F;
             this.xrLabel21.Font = new System.Drawing.Font("SimSun", 9F);
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(1239.369F, 0F);
+            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(1251.369F, 0F);
             this.xrLabel21.Name = "xrLabel21";
             this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel21.SizeF = new System.Drawing.SizeF(140.0676F, 38.18F);
@@ -263,15 +263,15 @@
             // 
             this.lblpackage.CanGrow = false;
             this.lblpackage.Dpi = 254F;
-            this.lblpackage.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold);
+            this.lblpackage.Font = new System.Drawing.Font("SimSun", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpackage.LocationFloat = new DevExpress.Utils.PointFloat(1192.786F, 0F);
             this.lblpackage.Name = "lblpackage";
             this.lblpackage.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblpackage.SizeF = new System.Drawing.SizeF(46.99634F, 38.18F);
+            this.lblpackage.SizeF = new System.Drawing.SizeF(56.99634F, 38.18F);
             this.lblpackage.StylePriority.UseFont = false;
             this.lblpackage.StylePriority.UseTextAlignment = false;
             this.lblpackage.Text = "[package_num]";
-            this.lblpackage.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.lblpackage.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.lblpackage.WordWrap = false;
             this.lblpackage.TextChanged += new System.EventHandler(this.lblpackage_TextChanged);
             // 
@@ -373,6 +373,7 @@
             this.xrLabel2.Text = "[con_date]";
             this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel2.WordWrap = false;
+            this.xrLabel2.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrLabel2_BeforePrint);
             // 
             // xrLabel6
             // 
