@@ -165,6 +165,10 @@ namespace cf01.Reports
         private void xrLabel10_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             string strdate = GetCurrentColumnValue("transfer_date").ToString();
+            if(string.IsNullOrEmpty(strdate))
+            {
+                return;
+            }
             xrLabel10.Text = DateTime.Parse(strdate).Date.ToString("yyyy/MM/dd");
         }
     }
