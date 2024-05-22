@@ -2048,13 +2048,22 @@ namespace cf01.Forms
                 dt = clsPublicOfCF01.GetDataTable(string.Format("Select brand_id FROM quotation_formula Where brand_id='{0}'", txtBrand.EditValue));
                 if (dt.Rows.Count == 0)
                 {
-                    txtFormula.Text = "*";
+                    txtFormula.Text = "**";//2024/05/22 不輸入公式情況下由*改為**
                 }
                 else
                 {
                     txtFormula.Text = dt.Rows[0]["brand_id"].ToString();
                 }
                 Set_Moq(txtBrand.EditValue.ToString(), txtPrice_unit.EditValue.ToString());
+                //--start allen 2024/05/22 
+                if (string.IsNullOrEmpty(txtPrice_unit.Text))
+                {
+                    return;
+                }
+                CalcuPrice();               
+                CalcuPriceDisc(txtDisc.Text);
+                txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
+                //--end allen 2024/05/22
             }
         }
 
