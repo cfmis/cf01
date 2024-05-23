@@ -111,7 +111,7 @@
             this.xrLine43,
             this.xrLabel117});
             this.Detail.Dpi = 254F;
-            this.Detail.HeightF = 500F;
+            this.Detail.HeightF = 600F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -608,11 +608,12 @@
             this.BottomMargin});
             this.Dpi = 254F;
             this.Margins = new System.Drawing.Printing.Margins(58, 0, 0, 0);
-            this.PageHeight = 700;
+            this.PageHeight = 600;
             this.PageWidth = 1220;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
-            this.PaperName = "11x7";
+            this.PaperName = "11x6";
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
+            this.ShowPreviewMarginLines = false;
             this.SnapGridSize = 31.75F;
             this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
