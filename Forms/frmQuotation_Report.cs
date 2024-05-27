@@ -41,6 +41,7 @@ namespace cf01.Forms
         string image_path = "";
         bool save_flag;
         string strArea = "";
+        string cur_price_edit = "";
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         clsAppPublic clsApp = new clsAppPublic();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
@@ -51,6 +52,7 @@ namespace cf01.Forms
         DataTable dtAddress1 = new DataTable();
         DataTable dtFind = new DataTable();
         DataTable dtReport = new DataTable();
+        DataTable dtPriceRateAdj = new DataTable();
         //public static DataSet dsCopy = new DataSet();
         public List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
 
@@ -74,6 +76,7 @@ namespace cf01.Forms
 
             dtAddress1 = clsPublicOfCF01.GetDataTable("select id,item from dbo.quotation_address order by id,seq");
             dtTerm1 = clsPublicOfCF01.GetDataTable("SELECT id,item FROM dbo.quotation_term ORDER BY id,seq");
+            dtPriceRateAdj = clsPublicOfCF01.GetDataTable("SELECT field_name FROM quotation_rate_ajd Order By id");
             //NextControl oNext = new NextControl(this, "1");
             //oNext.EnterToTab();
         }
@@ -3467,6 +3470,185 @@ namespace cf01.Forms
         {
             strArea = chkIsvn.Checked ? "QV" : "QD";
             GetDocNo();
+        }       
+
+        private void clUsd_Leave(object sender, EventArgs e)
+        {  
+            ReSetPrice("price_usd");
         }
+        private void clHkd_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("price_hkd");
+        }
+        private void clRmb_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("price_rmb");
+        }
+        private void clUsdExFty_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("usd_ex_fty");
+        }
+        private void clHkdExFty_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("hkd_ex_fty");
+        }
+        private void clVndUsd_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("price_vnd_usd");
+        }
+        private void clVnd_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("price_vnd");
+        }
+        private void clVndGrs_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("price_vnd_grs");
+        }
+        private void clVndPcs_Leave(object sender, EventArgs e)
+        {
+            ReSetPrice("price_vnd_pcs");
+        }
+
+        private void ReSetPrice(string price_type)
+        {
+            if (edit_state == "")
+            {
+                return;
+            }
+            //price_type為當前觸發調整單價的類型字段,cur_price_edit為第一次觸發調整單價的原始字段
+            if (price_type != cur_price_edit)
+            {
+                //避免其它貨幣欄位獲取焦點時,移走光標又觸發更改單百分比的調整
+                return;
+            }
+            gridView1.CloseEditor();//此行很重要,輸入或修改的值立即有較
+            int curRow = gridView1.FocusedRowHandle;
+            if (curRow < 0)
+            {
+                return;
+            }
+            decimal rate_adj = 0;
+            decimal cur_price = 0;
+            decimal price_qt_org = 0;            
+            //觸發按百分比調整單價前,比對報價單中已保存的原始數據,先檢查用戶是否更改了單價
+            //已保存客戶報價單中原始單價
+            string id = gridView1.GetRowCellValue(curRow, "id").ToString();
+            string ver = gridView1.GetRowCellValue(curRow, "ver").ToString();
+            string seq_id = gridView1.GetRowCellValue(curRow, "seq_id").ToString();
+            price_qt_org = GetQtOriginalPrice(price_type, id, ver, seq_id);
+            //當前用戶修改的單價
+            cur_price = decimal.Parse(gridView1.GetRowCellValue(curRow, price_type).ToString());//當前調整的單價 例如price_type="price_usd"   
+            if(price_qt_org == cur_price)
+            {
+                //兩個單價相同則不用觸發單價百分比聯動調整
+                return;
+            }
+
+            //與基本單價作對比,檢查是調高單價還是調低了單價
+            //PDD維護的基本單價錄入界面中的原單價
+            string temp_code = gridView1.GetRowCellValue(curRow, "temp_code").ToString();
+            decimal original_price = GetOriginalPrice(temp_code, price_type);
+            if (cur_price > original_price && original_price > 0)
+            {
+                rate_adj = Math.Round((cur_price - original_price) / original_price, 3);
+                this.ReSetGridViewValue(curRow, price_type, rate_adj);
+            }           
+        }
+        private decimal GetOriginalPrice(string temp_code, string price_type)
+        {
+            decimal result = 0;
+            string strSql = string.Format("Select ISNULL({0},0) as price FROM quotation WHERE temp_code='{1}'", price_type, temp_code);           
+            DataTable dt =  clsPublicOfCF01.GetDataTable(strSql);
+            result = (dt.Rows.Count > 0) ? decimal.Parse(dt.Rows[0]["price"].ToString()) : 0;           
+            return result;
+        }
+        private decimal GetQtOriginalPrice(string price_type,string id,string version,string seq_id)
+        {
+            decimal result = 0;
+            string strSql = string.Format("Select ISNULL({0},0) as price FROM quotation_details WHERE id='{1}' and version='{2}' and seq_id='{3}'", price_type, id, version, seq_id);
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            result = (dt.Rows.Count > 0) ? decimal.Parse(dt.Rows[0]["price"].ToString()) : 0;         
+            return result;
+        }
+        private void ReSetGridViewValue(int rowIndex, string cur_price_field, decimal rate_adj)
+        {
+            decimal cur_price_adj = 0;
+            int dec = 0;
+            string adj_field_name = "";
+            decimal price_vnd = decimal.Parse(gridView1.GetRowCellValue(rowIndex, "price_vnd_usd").ToString());
+            if (price_vnd <= 0)
+            {
+                for (int i = 0; i < dtPriceRateAdj.Rows.Count; i++)
+                {
+                    adj_field_name = dtPriceRateAdj.Rows[i]["field_name"].ToString();
+
+                    if ("price_vnd_usd,price_vnd,price_vnd_grs,price_vnd_pcs".Contains(adj_field_name)|| adj_field_name==cur_price_edit)
+                    {
+                        //price_vnd <= 0表示沒有越南單價
+                        //如是當前修改的單價字段則返回循環跳過后的代碼(因已修改過一次),避免重復更改
+                        continue;
+                    }
+                    cur_price_adj = Math.Round(decimal.Parse(gridView1.GetRowCellValue(rowIndex, adj_field_name).ToString()) * (1 + rate_adj), 2);
+                    this.gridView1.SetRowCellValue(rowIndex, adj_field_name, cur_price_adj);
+                }
+            }
+            else
+            {
+                //設置有越南單價
+                for (int i = 0; i < dtPriceRateAdj.Rows.Count; i++)
+                {
+                    adj_field_name = dtPriceRateAdj.Rows[i]["field_name"].ToString();
+                    if (adj_field_name == cur_price_edit)
+                    {
+                        //如是當前修改的單價字段則返回循環跳過后的代碼(因已修改過一次),避免重復更改
+                        continue;
+                    }
+                    //price_vnd,price_vnd_grs,price_vnd_pcs這三種單價只保留整數
+                    dec = "price_vnd,price_vnd_grs,price_vnd_pcs".Contains(adj_field_name) ? 0 : 2;
+                    cur_price_adj = Math.Round(decimal.Parse(gridView1.GetRowCellValue(rowIndex, adj_field_name).ToString()) * (1 + rate_adj), dec);
+                    this.gridView1.SetRowCellValue(rowIndex, adj_field_name, cur_price_adj);
+                }
+            }            
+            gridView1.CloseEditor();//此行很重要,輸入或修改的值立即有較            
+        }
+           
+
+        private void clUsd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "price_usd";
+        }
+        private void clHkd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "price_hkd";
+        }
+        private void clRmb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "price_rmb";
+        }
+        private void clUsdExFty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "usd_ex_fty";
+        }
+        private void clHkdExFty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "hkd_ex_fty";
+        }
+        private void clVndUsd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "price_vnd_usd";
+        }
+        private void clVnd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "price_vnd";
+        }
+        private void clclVndGrs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "price_vnd_grs";
+        }
+        private void clclVndPcs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.cur_price_edit = "price_vnd_pcs";
+        }
+
     }
 }
