@@ -50,6 +50,7 @@ namespace cf01.Forms
         public System.Data.DataTable dtReSet = new System.Data.DataTable();
         System.Data.DataTable dtVersion = new System.Data.DataTable();
         System.Data.DataTable dtSubmo = new System.Data.DataTable();
+        System.Data.DataTable dtPriceDisc= new System.Data.DataTable();        
         clsAppPublic clsApp = new clsAppPublic();
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         DataGridViewRow dgvrow = new DataGridViewRow();
@@ -588,7 +589,8 @@ namespace cf01.Forms
             BTNNEWVER.Enabled = _flag;
             BTNQUOTATION.Enabled = _flag;
             BTNDEL_BATCH.Enabled = _flag;
-            
+            btnPriceDisc.Enabled = _flag;
+
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
         }
@@ -1138,7 +1140,7 @@ namespace cf01.Forms
             {
                 rowReset = dgvDetails.CurrentCell.RowIndex;//當前焦點所在行
                 lblOf.Text = (dgvDetails.CurrentCell.RowIndex + 1).ToString() + " of " + dgvDetails.RowCount.ToString();
-                //dgvrow = dgvDetails.CurrentRow;
+                dgvrow = dgvDetails.CurrentRow;
                 //Sethead(dgvrow);                
                 if (dgvDetails.Rows[dgvDetails.CurrentCell.RowIndex].Cells["special_price"].Value.ToString() == "True")
                 {
@@ -1384,17 +1386,17 @@ namespace cf01.Forms
 
         private void Display_Sub_List(string temp_code)
         {
-          
-            dtSubmo = clsPublicOfCF01.GetDataTable(
-                string.Format(@"SELECT seq_id,sub,pvh_no,status,approval_by,convert(char(10),Approval_date,120) as Approval_date,Approval_status,attn_path,remark as remark_sub
-                              FROM dbo.quotation_sub with(nolock) WHERE temp_code='{0}' Order by seq_id", temp_code));
-            dgvSub.DataSource = dtSubmo;
+            dtSubmo = clsQuotation.GetSub(temp_code);
+            dgvSub.DataSource = dtSubmo;                       
+            dtPriceDisc = clsQuotation.GetPriceDiscount(temp_code);
+            dgvPriceDisc.DataSource = dtPriceDisc;
         }
 
         private void Display_Group_List(string temp_code)
         {
             dgvGroup.DataSource = clsPublicOfCF01.GetDataTable(
                 string.Format(@"SELECT seq_id,group_id FROM dbo.quotation_group with(nolock) WHERE temp_code='{0}' Order by seq_id", temp_code));
+
         }
 
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -1410,6 +1412,8 @@ namespace cf01.Forms
                 rectangle,
                 dgvDetails.RowHeadersDefaultCellStyle.ForeColor = Color.Brown,
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+
+            //clsQuotation.SetGridViewHighLight(dgvDetails, e);//自定義焦點行高亮背景色
 
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
@@ -2098,6 +2102,10 @@ namespace cf01.Forms
 
         private void dgvDetails_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvDetails.CurrentRow == null)
+            {
+                return;
+            }
             if (!is_group_pdd)
             {
                 return;
@@ -2787,7 +2795,9 @@ namespace cf01.Forms
                 using (frmQuotationSub ofrm = new frmQuotationSub(txtTemp_code.Text))
                 {
                     ofrm.ShowDialog();
-                    Display_Sub_List(txtTemp_code.Text);
+                    dtSubmo = clsQuotation.GetSub(txtTemp_code.Text);
+                    dgvSub.DataSource = dtSubmo;
+                    //Display_Sub_List(txtTemp_code.Text);
                 }
             }
         }
@@ -3717,6 +3727,23 @@ namespace cf01.Forms
             {
                 float md_charge = clsApp.Return_Float_Value(obj1.Text);
                 obj2.Text = (md_charge * 1.20).ToString();
+            }
+        }
+
+        private void btnPriceDisc_Click(object sender, EventArgs e)
+        {
+            if (editState == "" && txtTemp_code.Text != "")
+            {
+                if(dgvrow.Index<0)
+                {
+                    dgvrow = dgvDetails.CurrentRow;
+                }
+                using (frmQuotationDiscount ofrm = new frmQuotationDiscount(txtTemp_code.Text, dgvrow))
+                {
+                    ofrm.ShowDialog();
+                    dtPriceDisc = clsQuotation.GetPriceDiscount(txtTemp_code.Text);
+                    dgvPriceDisc.DataSource = dtPriceDisc;
+                }
             }
         }
 

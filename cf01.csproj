@@ -719,6 +719,12 @@
     <Compile Include="Forms\frmQcTestReport_Add_List1.Designer.cs">
       <DependentUpon>frmQcTestReport_Add_List1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmQuotationDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuotationDiscount.designer.cs">
+      <DependentUpon>frmQuotationDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmQuotationPlate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3017,6 +3023,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQcTestReport_Add_List1.resx">
       <DependentUpon>frmQcTestReport_Add_List1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuotationDiscount.resx">
+      <DependentUpon>frmQuotationDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQuotationPlate.resx">
       <DependentUpon>frmQuotationPlate.cs</DependentUpon>

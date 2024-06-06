@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using cf01.MDL;
 using System.IO;
 using System.Data;
-
+using System.Drawing;
 
 namespace cf01.CLS
 {
@@ -1020,6 +1020,64 @@ namespace cf01.CLS
                 flag = false;
             }
             return flag;
+        }
+
+        public static DataTable GetPriceDiscount(string temp_code)
+        {
+            string strSql = string.Format(
+            @"SELECT seq_id,CAST(0 AS bit) as FlagSelect,number_enter,price_usd,price_hkd,price_rmb,usd_ex_fty,hkd_ex_fty,price_unit,vnd_bp,price_vnd_usd,
+            price_vnd,price_vnd_grs,price_vnd_pcs,moq_qty,Convert(char(10),valid_date,120) as valid_date,remark
+            FROM dbo.quotation_discount with(nolock) WHERE temp_code='{0}' Order by seq_id", temp_code);
+            DataTable dtDisc = clsPublicOfCF01.GetDataTable(strSql);
+            return dtDisc;
+        }
+
+        public static DataTable GetSub(string temp_code)
+        {
+            string strSql = string.Format(
+            @"SELECT seq_id,sub,pvh_no,status,approval_by,convert(char(10),Approval_date,120) as Approval_date,Approval_status,attn_path,remark as remark_sub
+             FROM dbo.quotation_sub with(nolock) WHERE temp_code='{0}' Order by seq_id", temp_code);
+            DataTable dtSub = clsPublicOfCF01.GetDataTable(strSql);
+            return dtSub;
+        }
+
+        public static void SetGridViewHighLight(DataGridView dgv, DataGridViewRowPostPaintEventArgs e)
+        {
+            //--start 2024/06/05
+            //判斷索引的有效範圍
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            //if (e.RowIndex >= dgv.Rows.Count - 1) return;
+            //存儲原來的顏色值
+            Color oldForeColor = new Color();
+            Color oldBackColor = new Color();
+            //取行對象,判斷傳入的行是否為當前選中的行
+            var row = dgv.Rows[e.RowIndex];
+            //判斷傳入的行是否為當前選中的行
+            if (row == dgv.CurrentRow)
+            {
+                //設置前景色
+                if (row.DefaultCellStyle.ForeColor != Color.White)
+                {
+                    oldForeColor = row.DefaultCellStyle.ForeColor;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+                //設置背景色
+                if (row.DefaultCellStyle.BackColor != Color.DarkBlue)
+                {
+                    oldBackColor = row.DefaultCellStyle.BackColor;
+                    row.DefaultCellStyle.BackColor = Color.DarkBlue;
+                }
+            }
+            else
+            {
+                //未選中則恢復原來的顏色
+                row.DefaultCellStyle.ForeColor = oldForeColor;
+                row.DefaultCellStyle.BackColor = oldBackColor;
+            }
+            //-- end
         }
 
     }

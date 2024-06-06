@@ -18,6 +18,7 @@ namespace cf01.Forms
     {
         clsAppPublic clsApp = new clsAppPublic();
         DataTable dtFind = new DataTable();
+        DataTable dtPriceDisc = new DataTable();
         public DataTable dtReturn = new DataTable();        
         public int returnRowIndex = 0; 
         public string flagCall = "";
@@ -221,10 +222,19 @@ namespace cf01.Forms
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
         {
+            if(dgvDetails.CurrentRow==null)
+            {
+                return;
+            }
             if (dgvDetails.RowCount > 0)
             {
                 returnRowIndex = dgvDetails.CurrentRow.Index;
-                lblOf.Text = (returnRowIndex + 1).ToString() + " of " + dgvDetails.RowCount.ToString();               
+                lblOf.Text = (returnRowIndex + 1).ToString() + " of " + dgvDetails.RowCount.ToString();
+
+                string temp_code = dgvDetails.CurrentRow.Cells["temp_code"].Value.ToString();
+                dtPriceDisc = clsQuotation.GetPriceDiscount(temp_code);
+                dgvPriceDisc.DataSource = dtPriceDisc;
+                
             }
             else
             {
@@ -247,6 +257,8 @@ namespace cf01.Forms
                 dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
 
+            clsQuotation.SetGridViewHighLight(dgvDetails, e);//自定義焦點行高亮背景色
+
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
             {
@@ -268,12 +280,6 @@ namespace cf01.Forms
             {
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
             }
-        }
-
-        private void dgvDetails_DoubleClick(object sender, EventArgs e)
-        {
-            //returnRowIndex = dgvDetails.CurrentRow.Index;
-            //Close();
         }
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
@@ -819,6 +825,23 @@ namespace cf01.Forms
             {
                 ReturnToParent();
             }
+        }
+       
+        private void dgvDetails_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (flagCall == "Quotation")
+            {
+                ReturnToParent();
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void dgvPriceDisc_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            clsQuotation.SetGridViewHighLight(dgvPriceDisc, e);
         }
     }
 }
