@@ -588,6 +588,23 @@
             this.pnlHeard = new System.Windows.Forms.Panel();
             this.btnPriceDisc = new DevExpress.XtraEditors.SimpleButton();
             this.dgvPriceDisc = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FlagSelect1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vnd_bp1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_usd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_grs1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_vnd_pcs1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valid_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDie_mould_usd_vn = new DevExpress.XtraEditors.TextEdit();
             this.txtMd_charge_vn = new DevExpress.XtraEditors.TextEdit();
             this.lueCf_color_id = new DevExpress.XtraEditors.LookUpEdit();
@@ -618,23 +635,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblMd_charge_vn = new System.Windows.Forms.Label();
             this.lblDie_mould_usd_vn = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FlagSelect1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vnd_bp1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_vnd_usd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_vnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_vnd_grs1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_vnd_pcs1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valid_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt.Properties)).BeginInit();
@@ -6472,6 +6472,172 @@
             this.dgvPriceDisc.Size = new System.Drawing.Size(512, 102);
             this.dgvPriceDisc.TabIndex = 234;
             // 
+            // dataGridViewTextBoxColumn61
+            // 
+            this.dataGridViewTextBoxColumn61.DataPropertyName = "seq_id";
+            this.dataGridViewTextBoxColumn61.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
+            this.dataGridViewTextBoxColumn61.ReadOnly = true;
+            this.dataGridViewTextBoxColumn61.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn61.Width = 25;
+            // 
+            // FlagSelect1
+            // 
+            this.FlagSelect1.DataPropertyName = "FlagSelect";
+            this.FlagSelect1.HeaderText = "";
+            this.FlagSelect1.Name = "FlagSelect1";
+            this.FlagSelect1.ReadOnly = true;
+            this.FlagSelect1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FlagSelect1.Visible = false;
+            this.FlagSelect1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn62
+            // 
+            this.dataGridViewTextBoxColumn62.DataPropertyName = "number_enter";
+            this.dataGridViewTextBoxColumn62.HeaderText = "BP";
+            this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
+            this.dataGridViewTextBoxColumn62.ReadOnly = true;
+            this.dataGridViewTextBoxColumn62.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn62.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn63
+            // 
+            this.dataGridViewTextBoxColumn63.DataPropertyName = "price_usd";
+            this.dataGridViewTextBoxColumn63.HeaderText = "USD";
+            this.dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
+            this.dataGridViewTextBoxColumn63.ReadOnly = true;
+            this.dataGridViewTextBoxColumn63.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn63.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn64
+            // 
+            this.dataGridViewTextBoxColumn64.DataPropertyName = "price_hkd";
+            this.dataGridViewTextBoxColumn64.HeaderText = "HKD";
+            this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
+            this.dataGridViewTextBoxColumn64.ReadOnly = true;
+            this.dataGridViewTextBoxColumn64.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn64.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn65
+            // 
+            this.dataGridViewTextBoxColumn65.DataPropertyName = "price_rmb";
+            this.dataGridViewTextBoxColumn65.HeaderText = "RMB";
+            this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
+            this.dataGridViewTextBoxColumn65.ReadOnly = true;
+            this.dataGridViewTextBoxColumn65.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn65.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn67
+            // 
+            this.dataGridViewTextBoxColumn67.DataPropertyName = "usd_ex_fty";
+            this.dataGridViewTextBoxColumn67.HeaderText = "USD Ex-Fty";
+            this.dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
+            this.dataGridViewTextBoxColumn67.ReadOnly = true;
+            this.dataGridViewTextBoxColumn67.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn67.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn68
+            // 
+            this.dataGridViewTextBoxColumn68.DataPropertyName = "hkd_ex_fty";
+            this.dataGridViewTextBoxColumn68.HeaderText = "HKD Ex-Fty";
+            this.dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
+            this.dataGridViewTextBoxColumn68.ReadOnly = true;
+            this.dataGridViewTextBoxColumn68.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn68.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn66
+            // 
+            this.dataGridViewTextBoxColumn66.DataPropertyName = "price_unit";
+            this.dataGridViewTextBoxColumn66.HeaderText = "Unit";
+            this.dataGridViewTextBoxColumn66.Name = "dataGridViewTextBoxColumn66";
+            this.dataGridViewTextBoxColumn66.ReadOnly = true;
+            this.dataGridViewTextBoxColumn66.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn66.Width = 45;
+            // 
+            // vnd_bp1
+            // 
+            this.vnd_bp1.DataPropertyName = "number_enter";
+            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.Green;
+            this.vnd_bp1.DefaultCellStyle = dataGridViewCellStyle81;
+            this.vnd_bp1.HeaderText = "BP(VND)";
+            this.vnd_bp1.Name = "vnd_bp1";
+            this.vnd_bp1.ReadOnly = true;
+            this.vnd_bp1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vnd_bp1.Width = 60;
+            // 
+            // price_vnd_usd1
+            // 
+            this.price_vnd_usd1.DataPropertyName = "price_vnd_usd";
+            dataGridViewCellStyle82.ForeColor = System.Drawing.Color.Green;
+            this.price_vnd_usd1.DefaultCellStyle = dataGridViewCellStyle82;
+            this.price_vnd_usd1.HeaderText = "VND USD";
+            this.price_vnd_usd1.Name = "price_vnd_usd1";
+            this.price_vnd_usd1.ReadOnly = true;
+            this.price_vnd_usd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.price_vnd_usd1.Width = 80;
+            // 
+            // price_vnd1
+            // 
+            this.price_vnd1.DataPropertyName = "price_vnd";
+            dataGridViewCellStyle83.ForeColor = System.Drawing.Color.Green;
+            this.price_vnd1.DefaultCellStyle = dataGridViewCellStyle83;
+            this.price_vnd1.HeaderText = "VND";
+            this.price_vnd1.Name = "price_vnd1";
+            this.price_vnd1.ReadOnly = true;
+            this.price_vnd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.price_vnd1.Width = 70;
+            // 
+            // price_vnd_grs1
+            // 
+            this.price_vnd_grs1.DataPropertyName = "price_vnd_grs";
+            dataGridViewCellStyle84.ForeColor = System.Drawing.Color.Green;
+            this.price_vnd_grs1.DefaultCellStyle = dataGridViewCellStyle84;
+            this.price_vnd_grs1.HeaderText = "VND GRS";
+            this.price_vnd_grs1.Name = "price_vnd_grs1";
+            this.price_vnd_grs1.ReadOnly = true;
+            this.price_vnd_grs1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.price_vnd_grs1.Width = 80;
+            // 
+            // price_vnd_pcs1
+            // 
+            this.price_vnd_pcs1.DataPropertyName = "price_vnd_pcs";
+            dataGridViewCellStyle85.ForeColor = System.Drawing.Color.Green;
+            this.price_vnd_pcs1.DefaultCellStyle = dataGridViewCellStyle85;
+            this.price_vnd_pcs1.HeaderText = "VND PCS";
+            this.price_vnd_pcs1.Name = "price_vnd_pcs1";
+            this.price_vnd_pcs1.ReadOnly = true;
+            this.price_vnd_pcs1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.price_vnd_pcs1.Width = 80;
+            // 
+            // moq_qty
+            // 
+            this.moq_qty.DataPropertyName = "moq_qty";
+            this.moq_qty.HeaderText = "MOQ(Pcs)";
+            this.moq_qty.Name = "moq_qty";
+            this.moq_qty.ReadOnly = true;
+            this.moq_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.moq_qty.Width = 60;
+            // 
+            // valid_date1
+            // 
+            this.valid_date1.DataPropertyName = "valid_date";
+            dataGridViewCellStyle86.Format = "d";
+            dataGridViewCellStyle86.NullValue = null;
+            this.valid_date1.DefaultCellStyle = dataGridViewCellStyle86;
+            this.valid_date1.HeaderText = "Valid Date";
+            this.valid_date1.Name = "valid_date1";
+            this.valid_date1.ReadOnly = true;
+            this.valid_date1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valid_date1.Width = 80;
+            // 
+            // remark1
+            // 
+            this.remark1.DataPropertyName = "remark";
+            this.remark1.HeaderText = "Remark";
+            this.remark1.Name = "remark1";
+            this.remark1.ReadOnly = true;
+            this.remark1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // txtDie_mould_usd_vn
             // 
             this.txtDie_mould_usd_vn.EditValue = "";
@@ -6930,172 +7096,6 @@
             this.lblDie_mould_usd_vn.TabIndex = 233;
             this.lblDie_mould_usd_vn.Text = "Die Mould(VN)";
             this.lblDie_mould_usd_vn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dataGridViewTextBoxColumn61
-            // 
-            this.dataGridViewTextBoxColumn61.DataPropertyName = "seq_id";
-            this.dataGridViewTextBoxColumn61.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
-            this.dataGridViewTextBoxColumn61.ReadOnly = true;
-            this.dataGridViewTextBoxColumn61.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn61.Width = 25;
-            // 
-            // FlagSelect1
-            // 
-            this.FlagSelect1.DataPropertyName = "FlagSelect";
-            this.FlagSelect1.HeaderText = "";
-            this.FlagSelect1.Name = "FlagSelect1";
-            this.FlagSelect1.ReadOnly = true;
-            this.FlagSelect1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FlagSelect1.Visible = false;
-            this.FlagSelect1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn62
-            // 
-            this.dataGridViewTextBoxColumn62.DataPropertyName = "number_enter";
-            this.dataGridViewTextBoxColumn62.HeaderText = "BP";
-            this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
-            this.dataGridViewTextBoxColumn62.ReadOnly = true;
-            this.dataGridViewTextBoxColumn62.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn62.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn63
-            // 
-            this.dataGridViewTextBoxColumn63.DataPropertyName = "price_usd";
-            this.dataGridViewTextBoxColumn63.HeaderText = "USD";
-            this.dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
-            this.dataGridViewTextBoxColumn63.ReadOnly = true;
-            this.dataGridViewTextBoxColumn63.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn63.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn64
-            // 
-            this.dataGridViewTextBoxColumn64.DataPropertyName = "price_hkd";
-            this.dataGridViewTextBoxColumn64.HeaderText = "HKD";
-            this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
-            this.dataGridViewTextBoxColumn64.ReadOnly = true;
-            this.dataGridViewTextBoxColumn64.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn64.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn65
-            // 
-            this.dataGridViewTextBoxColumn65.DataPropertyName = "price_rmb";
-            this.dataGridViewTextBoxColumn65.HeaderText = "RMB";
-            this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
-            this.dataGridViewTextBoxColumn65.ReadOnly = true;
-            this.dataGridViewTextBoxColumn65.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn65.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn67
-            // 
-            this.dataGridViewTextBoxColumn67.DataPropertyName = "usd_ex_fty";
-            this.dataGridViewTextBoxColumn67.HeaderText = "USD Ex-Fty";
-            this.dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
-            this.dataGridViewTextBoxColumn67.ReadOnly = true;
-            this.dataGridViewTextBoxColumn67.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn67.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn68
-            // 
-            this.dataGridViewTextBoxColumn68.DataPropertyName = "hkd_ex_fty";
-            this.dataGridViewTextBoxColumn68.HeaderText = "HKD Ex-Fty";
-            this.dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
-            this.dataGridViewTextBoxColumn68.ReadOnly = true;
-            this.dataGridViewTextBoxColumn68.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn68.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn66
-            // 
-            this.dataGridViewTextBoxColumn66.DataPropertyName = "price_unit";
-            this.dataGridViewTextBoxColumn66.HeaderText = "Unit";
-            this.dataGridViewTextBoxColumn66.Name = "dataGridViewTextBoxColumn66";
-            this.dataGridViewTextBoxColumn66.ReadOnly = true;
-            this.dataGridViewTextBoxColumn66.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn66.Width = 45;
-            // 
-            // vnd_bp1
-            // 
-            this.vnd_bp1.DataPropertyName = "number_enter";
-            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.Green;
-            this.vnd_bp1.DefaultCellStyle = dataGridViewCellStyle81;
-            this.vnd_bp1.HeaderText = "BP(VND)";
-            this.vnd_bp1.Name = "vnd_bp1";
-            this.vnd_bp1.ReadOnly = true;
-            this.vnd_bp1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.vnd_bp1.Width = 60;
-            // 
-            // price_vnd_usd1
-            // 
-            this.price_vnd_usd1.DataPropertyName = "price_vnd_usd";
-            dataGridViewCellStyle82.ForeColor = System.Drawing.Color.Green;
-            this.price_vnd_usd1.DefaultCellStyle = dataGridViewCellStyle82;
-            this.price_vnd_usd1.HeaderText = "VND USD";
-            this.price_vnd_usd1.Name = "price_vnd_usd1";
-            this.price_vnd_usd1.ReadOnly = true;
-            this.price_vnd_usd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.price_vnd_usd1.Width = 80;
-            // 
-            // price_vnd1
-            // 
-            this.price_vnd1.DataPropertyName = "price_vnd";
-            dataGridViewCellStyle83.ForeColor = System.Drawing.Color.Green;
-            this.price_vnd1.DefaultCellStyle = dataGridViewCellStyle83;
-            this.price_vnd1.HeaderText = "VND";
-            this.price_vnd1.Name = "price_vnd1";
-            this.price_vnd1.ReadOnly = true;
-            this.price_vnd1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.price_vnd1.Width = 70;
-            // 
-            // price_vnd_grs1
-            // 
-            this.price_vnd_grs1.DataPropertyName = "price_vnd_grs";
-            dataGridViewCellStyle84.ForeColor = System.Drawing.Color.Green;
-            this.price_vnd_grs1.DefaultCellStyle = dataGridViewCellStyle84;
-            this.price_vnd_grs1.HeaderText = "VND GRS";
-            this.price_vnd_grs1.Name = "price_vnd_grs1";
-            this.price_vnd_grs1.ReadOnly = true;
-            this.price_vnd_grs1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.price_vnd_grs1.Width = 80;
-            // 
-            // price_vnd_pcs1
-            // 
-            this.price_vnd_pcs1.DataPropertyName = "price_vnd_pcs";
-            dataGridViewCellStyle85.ForeColor = System.Drawing.Color.Green;
-            this.price_vnd_pcs1.DefaultCellStyle = dataGridViewCellStyle85;
-            this.price_vnd_pcs1.HeaderText = "VND PCS";
-            this.price_vnd_pcs1.Name = "price_vnd_pcs1";
-            this.price_vnd_pcs1.ReadOnly = true;
-            this.price_vnd_pcs1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.price_vnd_pcs1.Width = 80;
-            // 
-            // moq_qty
-            // 
-            this.moq_qty.DataPropertyName = "moq_qty";
-            this.moq_qty.HeaderText = "MOQ(Pcs)";
-            this.moq_qty.Name = "moq_qty";
-            this.moq_qty.ReadOnly = true;
-            this.moq_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.moq_qty.Width = 60;
-            // 
-            // valid_date1
-            // 
-            this.valid_date1.DataPropertyName = "valid_date";
-            dataGridViewCellStyle86.Format = "d";
-            dataGridViewCellStyle86.NullValue = null;
-            this.valid_date1.DefaultCellStyle = dataGridViewCellStyle86;
-            this.valid_date1.HeaderText = "Valid Date";
-            this.valid_date1.Name = "valid_date1";
-            this.valid_date1.ReadOnly = true;
-            this.valid_date1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valid_date1.Width = 80;
-            // 
-            // remark1
-            // 
-            this.remark1.DataPropertyName = "remark";
-            this.remark1.HeaderText = "Remark";
-            this.remark1.Name = "remark1";
-            this.remark1.ReadOnly = true;
-            this.remark1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmQuotation
             // 

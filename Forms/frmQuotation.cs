@@ -530,11 +530,16 @@ namespace cf01.Forms
                     bds1.DataSource = dtDetail;
                     dgvDetails.DataSource = bds1;
                     curent_row = frmQuotationFind.returnRowIndex;//返回行號 
-                    if (curent_row > 0)
+                    //if (curent_row > 0)
+                    if(dtDetail.Rows.Count>0)
                     {
                         //定行到當前行(注意指定的當前列不可以隱藏的)
                         dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
                         dgvDetails.Rows[curent_row].Selected = true; //選中整行
+
+                        //刷新.
+                        string temp_code = dgvDetails.CurrentRow.Cells["temp_code"].Value.ToString();
+                        Display_Sub_List(temp_code);
                     }
                 }
             }
