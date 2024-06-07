@@ -138,8 +138,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNNEWCOPY = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNCOPYVND = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNIMPORT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -789,8 +787,6 @@
             this.toolStripSeparator5,
             this.BTNNEWCOPY,
             this.toolStripSeparator6,
-            this.toolStripSeparator15,
-            this.BTNCOPYVND,
             this.toolStripSeparator14,
             this.BTNIMPORT,
             this.toolStripSeparator7,
@@ -943,25 +939,6 @@
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 35);
-            // 
-            // toolStripSeparator15
-            // 
-            this.toolStripSeparator15.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 35);
-            this.toolStripSeparator15.Visible = false;
-            // 
-            // BTNCOPYVND
-            // 
-            this.BTNCOPYVND.Enabled = false;
-            this.BTNCOPYVND.Image = ((System.Drawing.Image)(resources.GetObject("BTNCOPYVND.Image")));
-            this.BTNCOPYVND.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNCOPYVND.Name = "BTNCOPYVND";
-            this.BTNCOPYVND.Size = new System.Drawing.Size(89, 32);
-            this.BTNCOPYVND.Text = "覆制新增(VND)";
-            this.BTNCOPYVND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNCOPYVND.Visible = false;
-            this.BTNCOPYVND.Click += new System.EventHandler(this.BTNCOPYVND_Click);
             // 
             // toolStripSeparator14
             // 
@@ -7599,9 +7576,7 @@
         private System.Windows.Forms.Label lblDisc_price_vnd;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
-        private System.Windows.Forms.ToolStripButton BTNCOPYVND;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private DevExpress.XtraEditors.TextEdit txtPrice_vnd_pcs;
         private DevExpress.XtraEditors.TextEdit txtPrice_vnd_grs;

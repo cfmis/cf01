@@ -256,7 +256,7 @@
             this.remark.OptionsFilter.AllowFilter = false;
             this.remark.Visible = true;
             this.remark.VisibleIndex = 4;
-            this.remark.Width = 113;
+            this.remark.Width = 168;
             // 
             // price_usd
             // 
@@ -271,7 +271,7 @@
             this.price_usd.OptionsFilter.AllowFilter = false;
             this.price_usd.Visible = true;
             this.price_usd.VisibleIndex = 5;
-            this.price_usd.Width = 69;
+            this.price_usd.Width = 59;
             // 
             // clprice
             // 
@@ -299,7 +299,7 @@
             this.price_hkd.Tag = "";
             this.price_hkd.Visible = true;
             this.price_hkd.VisibleIndex = 6;
-            this.price_hkd.Width = 66;
+            this.price_hkd.Width = 60;
             // 
             // price_rmb
             // 
@@ -316,7 +316,7 @@
             this.price_rmb.OptionsFilter.AllowFilter = false;
             this.price_rmb.Visible = true;
             this.price_rmb.VisibleIndex = 7;
-            this.price_rmb.Width = 76;
+            this.price_rmb.Width = 67;
             // 
             // usd_ex_fty
             // 
@@ -416,7 +416,7 @@
             this.price_vnd.OptionsFilter.AllowFilter = false;
             this.price_vnd.Visible = true;
             this.price_vnd.VisibleIndex = 13;
-            this.price_vnd.Width = 81;
+            this.price_vnd.Width = 67;
             // 
             // price_vnd_grs
             // 
@@ -449,6 +449,7 @@
             this.price_vnd_pcs.OptionsFilter.AllowFilter = false;
             this.price_vnd_pcs.Visible = true;
             this.price_vnd_pcs.VisibleIndex = 15;
+            this.price_vnd_pcs.Width = 72;
             // 
             // create_by
             // 

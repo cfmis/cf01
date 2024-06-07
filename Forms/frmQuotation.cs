@@ -537,7 +537,7 @@ namespace cf01.Forms
                         dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
                         dgvDetails.Rows[curent_row].Selected = true; //選中整行
 
-                        //刷新.
+                        //刷新submo表,折扣單價表2024/06/06.
                         string temp_code = dgvDetails.CurrentRow.Cells["temp_code"].Value.ToString();
                         Display_Sub_List(temp_code);
                     }
@@ -584,8 +584,7 @@ namespace cf01.Forms
             BTNDELETE.Enabled = _flag;
             BTNFIND.Enabled = _flag;
             BTNEXCEL.Enabled = _flag;
-            BTNNEWCOPY.Enabled = _flag;
-            BTNCOPYVND.Enabled = _flag;
+            BTNNEWCOPY.Enabled = _flag;           
             BTNIMPORT.Enabled = _flag;
             BTNSAVE.Enabled = !_flag;
             BTNCANCEL.Enabled = !_flag;
@@ -665,6 +664,7 @@ namespace cf01.Forms
             txtTemp_code.Focus();
             dgvGroup.DataSource = null;
             dgvSub.DataSource = null;
+            dgvPriceDisc.DataSource = null;
             txtFlag_new.Text = "1";
             //txtSales_group.Focus();
         }
@@ -1196,11 +1196,9 @@ namespace cf01.Forms
                     pic_artwork.Image = null;
                     string strArtwork = artwork_code.Substring(0, 7);
                     string strSql = string.Format(
-                        @"SELECT S.id,Max(S.picture_name) AS picture_name
-                          FROM (SELECT a.id, b.picture_name FROM cd_pattern a with(nolock),cd_pattern_details b with(nolock)
-	                            WHERE a.within_code=b.within_code and a.id=b.id and a.within_code='0000' AND a.id='{0}' 
-                               ) S
-                          WHERE S.picture_name>'' GROUP BY S.id", strArtwork);
+                    @"SELECT Top 1 id,picture_name FROM cd_pattern_details 
+                    Where within_code='0000' AND id='{0}' And ISNULL(picture_name,'')<>''
+                    Order by sequence_id", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);
                     if (dt.Rows.Count > 0)
@@ -1374,7 +1372,6 @@ namespace cf01.Forms
                 chkFlag_vnd.Checked = false;
                 pnlFlagVnd.Visible = false;
             }
-
             SetArtwork(txtCf_code.Text.Trim());//設置圖欄                       
 
             //顯示Sub 列表            
@@ -1738,14 +1735,22 @@ namespace cf01.Forms
                 dtDetail = dtDetail.DefaultView.ToTable();
                 //bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
                 bds1.DataSource = dtDetail;
-                dgvDetails.DataSource = bds1;                
+                dgvDetails.DataSource = bds1;
                       
                 oldTempCode = txtTemp_code.Text;
-                dgvrow = dgvDetails.CurrentRow;                
 
+                //dgvrow = dgvDetails.CurrentRow;   
+                DataGridViewRow dgrw = new DataGridViewRow();
+                dgrw = dgvDetails.CurrentRow;
                 AddNew();
                 editStateCopy = "NEWCOPY";
-                Sethead(dgvrow,editState);
+                //Sethead(dgvrow,editState);
+                Sethead(dgrw, editState);
+                //--start 2024/06/06
+                //因Sethead(dgrw, editState)方法中取出的是復制前的Temp_Code,所以dgvSub,dgvPriceDisc要清空;
+                dgvSub.DataSource = null;
+                dgvPriceDisc.DataSource = null;
+                //--end 2024/06/06
                 txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
                 txtCrusr.Text = DBUtility._user_id;
@@ -1753,7 +1758,7 @@ namespace cf01.Forms
 
                 txtVersion.Text = "0";
                 txtID.EditValue = "";
-                tabPage2.Parent = null;               
+                tabPage2.Parent = null;
                 
                 /*2018-11-30 CANCEL
                 //Save("2"); //參數2不顯示保存成功或錯誤的信息
