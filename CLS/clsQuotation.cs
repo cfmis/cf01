@@ -1080,6 +1080,37 @@ namespace cf01.CLS
             //-- end
         }
 
+        public static DataTable GetPermissions(string user_id)
+        {
+           string strSql = string.Format(
+           @"SELECT C2_ID AS name_add,C2_STATE as add_state,C4_ID as name_del,C4_STATE as del_state,
+            C5_ID as name_save,C5_STATE as save_state  FROM dbo.tb_sy_user_popedom 
+            Where USR_NO like '{0}' And Window_id='frmQuotation'", user_id);
+            DataTable dtPermis = clsPublicOfCF01.GetDataTable(strSql);
+            return dtPermis;
+        }
+
+        public static DataTable GetQuotationStrutre()
+        {
+            string strsql =
+            @"SELECT convert(bit,0) as flag_select,A.ver,A.sales_group,A.salesman,convert(varchar(10),A.date,121) as date ,A.brand,A.brand_desc,
+            A.formula_id,A.season,A.season_desc,A.material,A.size,A.product_desc,A.cust_code,A.cf_code,A.cust_color,A.cf_color,A.number_enter,
+            A.price_usd,A.price_hkd,A.price_rmb,A.hkd_ex_fty,A.price_unit,A.moq_below_over,A.moq,A.moq_desc,A.moq_unit,A.mwq,A.mwq_unit,A.account_code,A.lead_time_min,A.lead_time_max,
+            A.lead_time_unit,A.md_charge,A.md_charge_cny,A.md_charge_unit,A.die_mould_usd,A.die_mould_cny,A.valid_date,A.date_req,A.aw,A.status,A.pending,
+            A.sample_request,A.needle_test,A.comment,A.remark,A.remark_other,A.remark_pdd,A.division,A.contact,A.crusr,A.crtim,A.amusr,A.amtim,A.flag_del,A.mo_id,A.id,A.temp_code,A.polo_care,A.moq_for_test,
+            A.plm_code,trim_color_code,A.test_sample_hk,A.sms,A.sample_card,A.meeting_recap,A.usd_dap,A.usd_lab_test_prx,A.ex_fty_hkd,A.ex_fty_usd,
+            A.discount,A.disc_price_usd,A.disc_price_hkd,A.disc_price_rmb,A.disc_hkd_ex_fty,A.disc_price_vnd,A.usd_ex_fty,
+            A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
+            A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new,
+            A.flag_vnd,A.flag_vnd_date,A.vnd_bp,A.price_vnd_usd,A.price_vnd,A.price_vnd_grs,A.price_vnd_pcs,A.cf_color_id,A.material_type,A.product_type,
+            A.md_charge_vn,A.die_mould_usd_vn
+            FROM dbo.quotation A with(nolock) 
+	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
+            WHERE 1=0";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strsql);
+            return dt;
+        }
+
     }
 
   }

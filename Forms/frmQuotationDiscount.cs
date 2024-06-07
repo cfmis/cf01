@@ -21,15 +21,32 @@ namespace cf01.Forms
 	
 		DataTable dtPriceDisc = new DataTable();
 		DataTable dtTempDel = new DataTable();
+        DataTable dtPermiss = new DataTable();
         clsAppPublic clsApp = new clsAppPublic();
         DataGridViewRow dgv_row = new DataGridViewRow();
 
-        public frmQuotationDiscount(string temp_code, DataGridViewRow dgvrow)
+        public frmQuotationDiscount(string temp_code, DataGridViewRow dgvrow,DataTable dt)
 		{
 			InitializeComponent();
             txtTemp_code.Text = temp_code;
             dgv_row = dgvrow;
+            dtPermiss = dt;
             //clsAppPublic.SetToolBarEnable("frmQuotation", this.Controls);
+            if (DBUtility._user_id == "admin")
+            {
+                return;
+            }
+            if (dtPermiss.Rows.Count>0)
+            {
+                BTNNEW.Enabled = (dtPermiss.Rows[0]["add_state"].ToString() == "True") ? true : false;
+                BTNSAVE.Enabled = (dtPermiss.Rows[0]["save_state"].ToString() == "True") ? true : false;
+                BTNDELETE.Enabled = (dtPermiss.Rows[0]["del_state"].ToString() == "True") ? true : false;
+            }else
+            {
+                BTNNEW.Enabled =  false;
+                BTNSAVE.Enabled = false;
+                BTNDELETE.Enabled = false;
+            }
         }
 
         private void frmQuotationDiscount_FormClosed(object sender, FormClosedEventArgs e)
