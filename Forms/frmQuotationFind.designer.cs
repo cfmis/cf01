@@ -3887,7 +3887,7 @@
             // dataGridViewTextBoxColumn120
             // 
             this.dataGridViewTextBoxColumn120.DataPropertyName = "vnd_bp";
-            dataGridViewCellStyle119.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle119.ForeColor = System.Drawing.Color.Green;
             this.dataGridViewTextBoxColumn120.DefaultCellStyle = dataGridViewCellStyle119;
             this.dataGridViewTextBoxColumn120.HeaderText = "BP(VND)";
             this.dataGridViewTextBoxColumn120.Name = "dataGridViewTextBoxColumn120";
@@ -3898,7 +3898,7 @@
             // dataGridViewTextBoxColumn121
             // 
             this.dataGridViewTextBoxColumn121.DataPropertyName = "price_vnd_usd";
-            dataGridViewCellStyle120.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle120.ForeColor = System.Drawing.Color.Green;
             this.dataGridViewTextBoxColumn121.DefaultCellStyle = dataGridViewCellStyle120;
             this.dataGridViewTextBoxColumn121.HeaderText = "VND USD";
             this.dataGridViewTextBoxColumn121.Name = "dataGridViewTextBoxColumn121";
@@ -3909,7 +3909,7 @@
             // dataGridViewTextBoxColumn122
             // 
             this.dataGridViewTextBoxColumn122.DataPropertyName = "price_vnd";
-            dataGridViewCellStyle121.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle121.ForeColor = System.Drawing.Color.Green;
             this.dataGridViewTextBoxColumn122.DefaultCellStyle = dataGridViewCellStyle121;
             this.dataGridViewTextBoxColumn122.HeaderText = "VND";
             this.dataGridViewTextBoxColumn122.Name = "dataGridViewTextBoxColumn122";
@@ -3920,7 +3920,7 @@
             // dataGridViewTextBoxColumn123
             // 
             this.dataGridViewTextBoxColumn123.DataPropertyName = "price_vnd_grs";
-            dataGridViewCellStyle122.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle122.ForeColor = System.Drawing.Color.Green;
             this.dataGridViewTextBoxColumn123.DefaultCellStyle = dataGridViewCellStyle122;
             this.dataGridViewTextBoxColumn123.HeaderText = "VND GRS";
             this.dataGridViewTextBoxColumn123.Name = "dataGridViewTextBoxColumn123";
@@ -3931,7 +3931,7 @@
             // dataGridViewTextBoxColumn124
             // 
             this.dataGridViewTextBoxColumn124.DataPropertyName = "price_vnd_pcs";
-            dataGridViewCellStyle123.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle123.ForeColor = System.Drawing.Color.Green;
             this.dataGridViewTextBoxColumn124.DefaultCellStyle = dataGridViewCellStyle123;
             this.dataGridViewTextBoxColumn124.HeaderText = "VND PCS";
             this.dataGridViewTextBoxColumn124.Name = "dataGridViewTextBoxColumn124";

@@ -5591,7 +5591,7 @@
             // VndBp
             // 
             this.VndBp.DataPropertyName = "vnd_bp";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Green;
             this.VndBp.DefaultCellStyle = dataGridViewCellStyle7;
             this.VndBp.HeaderText = "BP(VND)";
             this.VndBp.Name = "VndBp";
@@ -5602,7 +5602,7 @@
             // PriceVndUsd
             // 
             this.PriceVndUsd.DataPropertyName = "price_vnd_usd";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Green;
             this.PriceVndUsd.DefaultCellStyle = dataGridViewCellStyle8;
             this.PriceVndUsd.HeaderText = "VND USD";
             this.PriceVndUsd.Name = "PriceVndUsd";
@@ -5613,7 +5613,7 @@
             // PriceVnd
             // 
             this.PriceVnd.DataPropertyName = "price_vnd";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Green;
             this.PriceVnd.DefaultCellStyle = dataGridViewCellStyle9;
             this.PriceVnd.HeaderText = "VND";
             this.PriceVnd.Name = "PriceVnd";
@@ -5624,7 +5624,7 @@
             // PriceVndGrs
             // 
             this.PriceVndGrs.DataPropertyName = "price_vnd_grs";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Green;
             this.PriceVndGrs.DefaultCellStyle = dataGridViewCellStyle10;
             this.PriceVndGrs.HeaderText = "VND GRS";
             this.PriceVndGrs.Name = "PriceVndGrs";
@@ -5635,7 +5635,7 @@
             // PriceVndPcs
             // 
             this.PriceVndPcs.DataPropertyName = "price_vnd_pcs";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Green;
             this.PriceVndPcs.DefaultCellStyle = dataGridViewCellStyle11;
             this.PriceVndPcs.HeaderText = "VND PCS";
             this.PriceVndPcs.Name = "PriceVndPcs";
