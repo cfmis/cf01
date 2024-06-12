@@ -1026,7 +1026,7 @@ namespace cf01.CLS
         {
             string strSql = string.Format(
             @"SELECT seq_id,CAST(0 AS bit) as FlagSelect,number_enter,price_usd,price_hkd,price_rmb,usd_ex_fty,hkd_ex_fty,price_unit,vnd_bp,price_vnd_usd,
-            price_vnd,price_vnd_grs,price_vnd_pcs,moq_qty,Convert(char(10),valid_date,120) as valid_date,remark
+            price_vnd,price_vnd_grs,price_vnd_pcs,moq_qty,Convert(char(10),valid_date,120) as valid_date,remark,temp_code
             FROM dbo.quotation_discount with(nolock) WHERE temp_code='{0}' Order by seq_id", temp_code);
             DataTable dtDisc = clsPublicOfCF01.GetDataTable(strSql);
             return dtDisc;

@@ -1388,17 +1388,9 @@ namespace cf01.Forms
             dtFind.Select();
             if (aryRows.Length > 0)
             {
-                select_flag = true;                
+                select_flag = true;
             }
-
-            //for (int i = 0; i < dgvDetails.RowCount; i++)
-            //{
-            //    if (dtFind.Rows[i]["flag_select"].ToString() == "True")
-            //    {
-            //        select_flag = true;
-            //        break;
-            //    }
-            //}
+                       
             if (!select_flag)
             {
                 MessageBox.Show("請選擇要添加的記錄!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1418,18 +1410,6 @@ namespace cf01.Forms
                         break;
                     }
                 }                
-                //for (int i = 0; i < dgvDetails.RowCount; i++)
-                //{
-                //    if (dtFind.Rows[i]["flag_select"].ToString() == "True")
-                //    {
-                //        if (Return_Float_Value(dtFind.Rows[i]["price_vnd"].ToString()) <= 0)
-                //        {
-                //            MessageBox.Show("注意:所選的記錄不是越南的報價單!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //            flag_vn = false;
-                //            break;
-                //        }
-                //    }
-                //}
                 if (flag_vn == false)
                 {
                     return;
@@ -1447,19 +1427,7 @@ namespace cf01.Forms
                         flag_vn = false;
                         break;
                     }
-                }
-                //for (int i = 0; i < dgvDetails.RowCount; i++)
-                //{
-                //    if (dtFind.Rows[i]["flag_select"].ToString() == "True")
-                //    {
-                //        if (Return_Float_Value(dtFind.Rows[i]["price_vnd"].ToString()) > 0)
-                //        {
-                //            MessageBox.Show("注意:所勾選的記錄中包含有越南的報價單數據,請返回主表中選中[越南報價單]!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //            flag_vn = false;
-                //            break;
-                //        }
-                //    }
-                //}
+                }                
                 if (flag_vn == false)
                 {
                     return;
@@ -1468,10 +1436,12 @@ namespace cf01.Forms
 
             //生成報價單明細
             int cur_row = 0;
+            string temp_code = "";
             for (int i = 0; i < aryRows.Length; i++)
             {
                 gridView1.AddNewRow();//新增
                 cur_row = gridView1.FocusedRowHandle;
+                temp_code = aryRows[i]["temp_code"].ToString();
                 gridView1.SetRowCellValue(cur_row, "brand", aryRows[i]["brand"].ToString());
                 gridView1.SetRowCellValue(cur_row, "division", aryRows[i]["division"].ToString());
                 gridView1.SetRowCellValue(cur_row, "contact", aryRows[i]["contact"].ToString());
@@ -1532,9 +1502,11 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(cur_row, "product_type", aryRows[i]["product_type"].ToString());
 
                 //--start2024/06/04 add
+                string temp_code_disc = "";
                 for (int j = 0; j < dgvPriceDisc.RowCount; j++)
                 {
-                    if (dtPriceDisc.Rows[j]["FlagSelect"].ToString() == "True")
+                    temp_code_disc = dtPriceDisc.Rows[j]["temp_code"].ToString();
+                    if (dtPriceDisc.Rows[j]["FlagSelect"].ToString() == "True" && temp_code== temp_code_disc)
                     {
                         //折扣后的單價
                         gridView1.SetRowCellValue(cur_row, "number_enter", dtPriceDisc.Rows[j]["number_enter"]);
@@ -1682,31 +1654,6 @@ namespace cf01.Forms
                 rectangle,
                 dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
-            
-            //當前行背景色,用表格本身原來SelectionMode=FullRowSelect雖可以實現,但無法點取單元格
-            clsQuotation.SetGridViewHighLight(dgvDetails, e);
-
-            DataGridView grd = sender as DataGridView;
-            if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
-            {
-                if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
-                {
-                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
-                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
-                }
-                else
-                {
-                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;//紫色字體
-                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
-                }
-                ////備註字段不顯示刪除線
-                //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
-                //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
-            }
-            if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
-            {
-                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
-            }           
         }
 
         private void SetGridViewHighLight(DataGridView dgv ,DataGridViewRowPostPaintEventArgs e)
@@ -3702,6 +3649,34 @@ namespace cf01.Forms
                 }
                
             }
+        }
+
+        private void dgvDetails_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            //當前行背景色,用表格本身原來SelectionMode=FullRowSelect雖可以實現,但無法點取單元格
+            //clsQuotation.SetGridViewHighLight(dgvDetails, e);
+
+            DataGridView grd = sender as DataGridView;
+            if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
+            {
+                if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
+                {
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                }
+                else
+                {
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;//紫色字體
+                    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                }
+                ////備註字段不顯示刪除線
+                //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
+                //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
+            }
+            if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
+            {
+                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
+            }            
         }
 
         //private void clUsd_Leave(object sender, EventArgs e)

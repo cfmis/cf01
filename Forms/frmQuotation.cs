@@ -84,10 +84,10 @@ namespace cf01.Forms
             dgvDetails.RowHeadersVisible = true;  //因類clsControlInfoHelper DataGridView中已屏蔽行標頭,此處重新恢覆回來
             dgvDetails.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect; //因類clsControlInfoHelper的問題，此處重新恢覆整行選中的屬性
           
-            dtDetail = clsQuotation.GetQuotationStrutre();
+            dtDetail = clsQuotation.GetQuotationStrutre();//空的表結構
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;// dtDetail;
-            dtPermiss = clsQuotation.GetPermissions(DBUtility._user_id);
+            dtPermiss = clsQuotation.GetPermissions(DBUtility._user_id);//暫存折扣單價表權限
             
         }
 
@@ -382,6 +382,12 @@ namespace cf01.Forms
                 e.Value = e.Value;
             };
             chkFlag_vnd.DataBindings.Add(bind);
+            Binding bind_special = new Binding("EditValue", bds1, "special_price");
+            bind_special.Format += (s, e) =>
+            {                
+                e.Value = e.Value;
+            };
+            chkSpecialPrice.DataBindings.Add(bind_special);
         }
 
         private void Init_Column_isEnable()
@@ -481,6 +487,7 @@ namespace cf01.Forms
         private void BTNSAVE_Click(object sender, EventArgs e)
         {
             Save("1");
+           
         }
 
         private void BTNCANCEL_Click(object sender, EventArgs e)
@@ -524,10 +531,10 @@ namespace cf01.Forms
                         //定行到當前行(注意指定的當前列不可以隱藏的)
                         dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
                         dgvDetails.Rows[curent_row].Selected = true; //選中整行
-
-                        //刷新submo表,折扣單價表2024/06/06.
-                        string temp_code = dgvDetails.CurrentRow.Cells["temp_code"].Value.ToString();
-                        Display_Sub_List(temp_code);
+                        
+                        //刷新submo表,折扣單價表2024/06/11.
+                        DataGridViewRow dgrw = dgvDetails.CurrentRow;                        
+                        Sethead(dgrw);
                     }
                 }
             }
@@ -538,7 +545,6 @@ namespace cf01.Forms
                 lblOf.Text = dgvDetails.RowCount.ToString();
             else            
                 lblOf.Text = "";
-            
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)
@@ -1219,7 +1225,7 @@ namespace cf01.Forms
         }
 
         #region  Sethead 設置主檔
-        private void Sethead(DataGridViewRow pdr,string copyType)
+        private void Sethead(DataGridViewRow pdr)
         {            
             txtID.EditValue = pdr.Cells["id"].Value.ToString();
             txtSales_group.EditValue = pdr.Cells["sales_group"].Value.ToString();
@@ -1244,7 +1250,6 @@ namespace cf01.Forms
             txtCust_color.Text = pdr.Cells["cust_color"].Value.ToString();
             txtCf_color.Text = pdr.Cells["cf_color"].Value.ToString();
             txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
-
             /* --start 2022/11/17復制新增時清空單價
             //txtNumber_enter.EditValue = pdr.Cells["number_enter"].Value;
             //txtPrice_usd.EditValue = pdr.Cells["price_usd"].Value;
@@ -1258,16 +1263,6 @@ namespace cf01.Forms
             //txtDisc_hkd_ex_fty.EditValue = pdr.Cells["disc_hkd_ex_fty"].Value;
             //txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
             *///-end 
-
-            ////復制新增(越南)的處理
-            //if (copyType == "1")
-            //{
-            //    txtNumber_enter.EditValue = (clsApp.Return_Float_Value(pdr.Cells["number_enter"].Value.ToString())).ToString();
-            //    CalcuPrice(copyType);
-            //    CalcuPriceDisc(txtDisc.Text);
-            //    txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
-            //}
-
             txtSalesman.Text = pdr.Cells["salesman"].Value.ToString(); 
             cmbmoq_below_over.EditValue= pdr.Cells["moq_below_over"].Value.ToString();
             txtMoq.EditValue = pdr.Cells["moq"].Value;
@@ -1285,7 +1280,7 @@ namespace cf01.Forms
             txtDie_mould_cny.EditValue = pdr.Cells["die_mould_cny"].Value;
             txtAccount_code.Text = pdr.Cells["account_code"].Value.ToString();
             strDat = pdr.Cells["valid_date"].Value.ToString();
-            strDat= !string.IsNullOrEmpty(strDat)? Convert.ToDateTime(strDat).ToString("yyyy-MM-dd"):"";            
+            strDat = !string.IsNullOrEmpty(strDat)? Convert.ToDateTime(strDat).ToString("yyyy-MM-dd"):"";            
             txtValid_date.EditValue = strDat;            
             
             txtDate_req.Text = pdr.Cells["date_req"].Value.ToString();
@@ -1360,7 +1355,7 @@ namespace cf01.Forms
                 chkFlag_vnd.Checked = false;
                 pnlFlagVnd.Visible = false;
             }
-            SetArtwork(txtCf_code.Text.Trim());//設置圖欄                       
+            SetArtwork(txtCf_code.Text.Trim());//設置圖欄
 
             //顯示Sub 列表            
             Display_Sub_List(txtTemp_code.Text);
@@ -1380,6 +1375,7 @@ namespace cf01.Forms
             dgvSub.DataSource = dtSubmo;                       
             dtPriceDisc = clsQuotation.GetPriceDiscount(temp_code);
             dgvPriceDisc.DataSource = dtPriceDisc;
+
         }
 
         private void Display_Group_List(string temp_code)
@@ -1404,13 +1400,12 @@ namespace cf01.Forms
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
 
             //clsQuotation.SetGridViewHighLight(dgvDetails, e);//自定義焦點行高亮背景色
-
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
             {
                 if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
                 {
-                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;                    
+                    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
                 }
                 else
                 {
@@ -1429,20 +1424,34 @@ namespace cf01.Forms
                 grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
                 grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular);
             }
-
+            
             if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
             {
                 //特別單價亮藍色背景
-                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;                
+                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
             }
-
-            if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
+            Color oldBackColor = new Color();
+            oldBackColor = grd.Rows[e.RowIndex].DefaultCellStyle.BackColor;
+            if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "False")
             {
-                //新添加記錄背景色
-                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
-            }
+                if(oldBackColor == Color.LightBlue)
+                {
+                    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                }
+            }           
+           
 
-
+            //if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
+            //{
+            //    //新添加記錄背景色
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+            //}
+            //else
+            //{
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            //}
+           
+            
         }
 
 
@@ -1727,19 +1736,26 @@ namespace cf01.Forms
                       
                 oldTempCode = txtTemp_code.Text;
 
-                //dgvrow = dgvDetails.CurrentRow;   
+                //dgvrow = dgvDetails.CurrentRow; //  
                 DataGridViewRow dgrw = new DataGridViewRow();
                 dgrw = dgvDetails.CurrentRow;
+                if (dgrw.Cells["special_price"].Value.ToString() == "True")
+                {
+                    DialogResult result = MessageBox.Show("當前復制的記錄為特殊單價,是否繼續?", myMsg.msgTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
                 AddNew();
-                editStateCopy = "NEWCOPY";
-                //Sethead(dgvrow,editState);
-                Sethead(dgrw, editState);
+                editStateCopy = "NEWCOPY";               
+                Sethead(dgrw);
                 //--start 2024/06/06
                 //因Sethead(dgrw, editState)方法中取出的是復制前的Temp_Code,所以dgvSub,dgvPriceDisc要清空;
                 dgvSub.DataSource = null;
                 dgvPriceDisc.DataSource = null;
                 //--end 2024/06/06
-                txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
+                txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();//生成最大序列號
                 txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
                 txtCrusr.Text = DBUtility._user_id;
                 txtCrtim.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
@@ -1747,64 +1763,13 @@ namespace cf01.Forms
                 txtVersion.Text = "0";
                 txtID.EditValue = "";
                 tabPage2.Parent = null;
-                
-                /*2018-11-30 CANCEL
-                //Save("2"); //參數2不顯示保存成功或錯誤的信息
-                //if (dgvSub.RowCount > 0)
-                //{                   
-                //    //復制SUB MO
-                //    SqlParameter[] paras = new SqlParameter[]
-                //    {
-                //        new SqlParameter("@oldTemp_code", oldTemp_code),
-                //        new SqlParameter("@newTemp_code", strTempCode),
-                //        new SqlParameter("@user_id", DBUtility._user_id)
-                //    };
-                //    clsPublicOfCF01.ExecuteNonQuery("usp_newcopy_submo", paras, true);
-                //}   
-                
-                //dgvDetails.CurrentCell = dgvDetails.Rows[dgvDetails.Rows.Count - 1].Cells[1];
-                //dgvDetails.BeginEdit(true);
-                //int curent_row = dgvDetails.CurrentRow.Index;
-                //dgvDetails.Rows[curent_row].Selected = true; //選中整行
-                //Edit();
-                */
+               
             }
             else
             {
                 MessageBox.Show("註意:當前數據爲空格,或者請首先將當前光標定位到要覆制的行!", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-
-        private void BTNCOPYVND_Click(object sender, EventArgs e)
-        {
-            SetResetID();//保存取消還原的ID
-            if (dgvDetails.RowCount > 0)
-            {
-                dtDetail = dtDetail.DefaultView.ToTable();
-                //bds1.DataSource = dtDetail.DefaultView.ToTable();//排序後需重新賦值,否數據會錯亂;
-                bds1.DataSource = dtDetail;
-                dgvDetails.DataSource = bds1;
-
-                oldTempCode = txtTemp_code.Text;
-                dgvrow = dgvDetails.CurrentRow;
-
-                AddNew();
-                editStateCopy = "NEWCOPY";
-                Sethead(dgvrow,editState);
-                txtTemp_code.Text = clsQuotation.Get_Quote_SeqNo();
-                txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
-                txtCrusr.Text = DBUtility._user_id;
-                txtCrtim.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
-
-                txtVersion.Text = "0";
-                txtID.EditValue = "";
-                tabPage2.Parent = null;
-            }
-            else
-            {
-                MessageBox.Show("註意:當前數據爲空格,或者請首先將當前光標定位到要覆制的行!", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
+        }       
 
         //private void txtTemp_code_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         //{
@@ -3743,6 +3708,53 @@ namespace cf01.Forms
                     dgvPriceDisc.DataSource = dtPriceDisc;
                 }
             }
+        }
+
+        private void dgvDetails_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            ////clsQuotation.SetGridViewHighLight(dgvDetails, e);//自定義焦點行高亮背景色
+            //DataGridView grd = sender as DataGridView;
+            //if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
+            //{
+            //    if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
+            //    {
+            //        grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+            //    }
+            //    else
+            //    {
+            //        //紫色字體
+            //        grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
+            //    }
+            //    //刪除線
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+            //    //備註字段不顯示刪除線
+            //    //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
+            //    //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
+            //}
+            //else
+            //{
+            //    //恢復正常顯示
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular);
+            //}
+            //if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
+            //{
+            //    //特別單價亮藍色背景
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
+            //}
+            //else
+            //{
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            //}
+            //if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
+            //{
+            //    //新添加記錄背景色
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+            //}
+            //else
+            //{
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            //}            
         }
 
 

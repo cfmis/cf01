@@ -257,7 +257,7 @@ namespace cf01.Forms
                 dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
 
-            clsQuotation.SetGridViewHighLight(dgvDetails, e);//自定義焦點行高亮背景色
+            //clsQuotation.SetGridViewHighLight(dgvDetails, e);//自定義焦點行高亮背景色
 
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
@@ -279,7 +279,7 @@ namespace cf01.Forms
             if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
             {
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
-            }
+            }            
         }
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
