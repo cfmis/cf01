@@ -1250,19 +1250,43 @@ namespace cf01.Forms
             txtCust_color.Text = pdr.Cells["cust_color"].Value.ToString();
             txtCf_color.Text = pdr.Cells["cf_color"].Value.ToString();
             txtPrice_unit.EditValue = pdr.Cells["price_unit"].Value;
-            /* --start 2022/11/17復制新增時清空單價
-            //txtNumber_enter.EditValue = pdr.Cells["number_enter"].Value;
-            //txtPrice_usd.EditValue = pdr.Cells["price_usd"].Value;
-            //txtPrice_hkd.EditValue = pdr.Cells["price_hkd"].Value;
-            //txtPrice_rmb.EditValue = pdr.Cells["price_rmb"].Value;            
-            //txtHkd_ex_fty.EditValue = pdr.Cells["hkd_ex_fty"].Value;
-            //txtDisc.EditValue = pdr.Cells["discount"].Value;
-            //txtDisc_usd.EditValue = pdr.Cells["disc_price_usd"].Value;
-            //txtDisc_hkd.EditValue = pdr.Cells["disc_price_hkd"].Value;
-            //txtDisc_rmb.EditValue = pdr.Cells["disc_price_rmb"].Value;
-            //txtDisc_hkd_ex_fty.EditValue = pdr.Cells["disc_hkd_ex_fty"].Value;
-            //txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
-            *///-end 
+            // --start 2024/06/12復制新增時清空單價
+            if (editStateCopy == "NEWCOPY")
+            {                
+                //復制新增時需清空以下這兩個備注 
+                memRemark_pdd.Text = "";
+                memDgRmkPdd.Text = "";
+            }
+            else
+            {
+                txtNumber_enter.EditValue = pdr.Cells["number_enter"].Value;
+                txtPrice_usd.EditValue = pdr.Cells["price_usd"].Value;
+                txtPrice_hkd.EditValue = pdr.Cells["price_hkd"].Value;
+                txtPrice_rmb.EditValue = pdr.Cells["price_rmb"].Value;
+                txtHkd_ex_fty.EditValue = pdr.Cells["hkd_ex_fty"].Value;
+                txtDisc.EditValue = pdr.Cells["discount"].Value;
+                txtDisc_usd.EditValue = pdr.Cells["disc_price_usd"].Value;
+                txtDisc_hkd.EditValue = pdr.Cells["disc_price_hkd"].Value;
+                txtDisc_rmb.EditValue = pdr.Cells["disc_price_rmb"].Value;
+                txtDisc_hkd_ex_fty.EditValue = pdr.Cells["disc_hkd_ex_fty"].Value;
+                txtUsd_ex_fty.EditValue = pdr.Cells["usd_ex_fty"].Value;
+
+                //VN Price
+                txtVnd_bp.EditValue = pdr.Cells["vnd_bp"].Value;
+                txtPrice_vnd_usd.EditValue = pdr.Cells["price_vnd_usd"].Value;
+                txtPrice_vnd.EditValue = pdr.Cells["price_vnd"].Value;
+                txtPrice_vnd_grs.EditValue = pdr.Cells["price_vnd_grs"].Value;
+                txtPrice_vnd_pcs.EditValue = pdr.Cells["price_vnd_pcs"].Value;
+
+                memRemark_pdd.Text = pdr.Cells["remark_pdd"].Value.ToString(); 
+                memDgRmkPdd.Text = pdr.Cells["remark_pdd_dg"].Value.ToString();      
+
+                txtCrusr.Text = pdr.Cells["crusr"].Value.ToString();
+                txtCrtim.Text = pdr.Cells["crtim"].Value.ToString();
+                txtAmusr.Text = pdr.Cells["amusr"].Value.ToString();
+                txtAmtim.Text = pdr.Cells["amtim"].Value.ToString();
+            }
+            //-- 
             txtSalesman.Text = pdr.Cells["salesman"].Value.ToString(); 
             cmbmoq_below_over.EditValue= pdr.Cells["moq_below_over"].Value.ToString();
             txtMoq.EditValue = pdr.Cells["moq"].Value;
@@ -1289,13 +1313,8 @@ namespace cf01.Forms
             txtSample_request.Text = pdr.Cells["sample_request"].Value.ToString();
             txtNeedle_test.Text = pdr.Cells["needle_test"].Value.ToString();
             txtVersion.Text = pdr.Cells["ver"].Value.ToString();
-            txtMo_id.Text = pdr.Cells["mo_id"].Value.ToString();
-            memRemark_pdd.Text = "";// pdr.Cells["remark_pdd"].Value.ToString();//清空
+            txtMo_id.Text = pdr.Cells["mo_id"].Value.ToString();                     
             
-            txtCrusr.Text = pdr.Cells["crusr"].Value.ToString();
-            txtCrtim.Text = pdr.Cells["crtim"].Value.ToString();
-            txtAmusr.Text = pdr.Cells["amusr"].Value.ToString();
-            txtAmtim.Text = pdr.Cells["amtim"].Value.ToString();
             txtComment.Text = pdr.Cells["comment"].Value.ToString();
             txtPolo_care.EditValue = pdr.Cells["polo_care"].Value.ToString();
             txtMoq_for_test.EditValue = pdr.Cells["moq_for_test"].Value;
@@ -1316,7 +1335,7 @@ namespace cf01.Forms
             txtPrice_salesperson.EditValue = pdr.Cells["price_salesperson"].Value;
             txtPrice_kind.Text = pdr.Cells["price_kind"].Value.ToString();
             txtRemark_salesperson.Text = pdr.Cells["remark_salesperson"].Value.ToString();
-
+            
             //顯示是否存在已計价
             if (clsMmCalculatePrice.getIdByQuotationId(txtTemp_code.Text) != "")
             {
@@ -1338,12 +1357,14 @@ namespace cf01.Forms
             txtCost_price.EditValue = pdr.Cells["cost_price"].Value;
             lueLabtest.EditValue = pdr.Cells["labtest_prod_type"].Value;
             txtTermremark.Text = pdr.Cells["termremark"].Value.ToString();
-            txtPending.EditValue = pdr.Cells["pending"].Value.ToString();
-            memDgRmkPdd.Text = "";//pdr.Cells["remark_pdd_dg"].Value.ToString();//清空
+            txtPending.EditValue = pdr.Cells["pending"].Value.ToString();                  
             txtRef_temp_code.Text = pdr.Cells["temp_code"].Value.ToString();
             lueCf_color_id.EditValue = pdr.Cells["cf_color_id"].Value.ToString();
             lueMaterial_type.EditValue = pdr.Cells["material_type"].Value.ToString();
             lueProduct_type.EditValue = pdr.Cells["product_type"].Value.ToString();
+
+            txtMd_charge_vn.EditValue = pdr.Cells["md_charge_vn"].Value;
+            txtDie_mould_usd_vn.EditValue = pdr.Cells["die_mould_usd_vn"].Value;
 
             if (pdr.Cells["flag_vnd"].Value.ToString() == "True")
             {
