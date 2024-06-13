@@ -990,13 +990,15 @@ namespace cf01.Forms
             DataTable dt = new DataTable();
             string tempCode = "";
             string sql = "";
+            string strWrning = "";
             if (chkIsvn.Checked)
             {
                 //檢查明細中越南單價是否大于0
                 float price_vnd, price_vnd_usd, price_vnd_grs, price_vnd_pcs;
                 float price_vnd_usd_pdd, price_vnd_pdd, price_vnd_grs_pdd, price_vnd_pcs_pdd;
+                strWrning = "";
                 for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
-                {
+                {                    
                     price_vnd_usd = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_usd"].ToString());
                     price_vnd = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString());
                     price_vnd_grs = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_grs"].ToString());
@@ -1016,27 +1018,31 @@ namespace cf01.Forms
                     price_vnd_pcs_pdd = Return_Float_Value(dt.Rows[0]["price_vnd_pcs"].ToString());
                     if (price_vnd_usd_pdd > price_vnd_usd)
                     {
-                        MessageBox.Show(string.Format("注意:單價VND(USD)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_usd, price_vnd_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價VND(USD)'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd_usd, price_vnd_usd_pdd) + "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價VND(USD)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_usd, price_vnd_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                        //break;
                     }
                     if (price_vnd_pdd > price_vnd)
                     {
-                        MessageBox.Show(string.Format("注意:單價VND'{0}'不可小于HK PDD'{1}'報價!", price_vnd, price_vnd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價VND'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd, price_vnd_pdd) + "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價VND'{0}'不可小于HK PDD'{1}'報價!", price_vnd, price_vnd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                        //break;
                     }
                     if (price_vnd_grs_pdd > price_vnd_grs)
                     {
-                        MessageBox.Show(string.Format("注意:單價VND(GRS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_grs, price_vnd_grs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價VND(GRS)'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd_grs, price_vnd_grs_pdd) + "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價VND(GRS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_grs, price_vnd_grs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                        //break;
                     }
                     if (price_vnd_pcs_pdd > price_vnd_pcs)
                     {
-                        MessageBox.Show(string.Format("注意:單價VND(PCS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_pcs, price_vnd_pcs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價VND(PCS)'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd_pcs, price_vnd_pcs_pdd)+ "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價VND(PCS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_pcs, price_vnd_pcs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                        //break;
                     }
                 }
             }
@@ -1044,8 +1050,9 @@ namespace cf01.Forms
             {
                 float price_usd, price_hkd, price_rmb, hkd_ex_fty, usd_ex_fty;
                 float price_usd_pdd, price_hkd_pdd, price_rmb_pdd, hkd_ex_fty_pdd, usd_ex_fty_pdd;
+                strWrning = "";
                 for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
-                {
+                {                    
                     price_usd = Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString());
                     price_hkd = Return_Float_Value(dtQuotation_details.Rows[i]["price_hkd"].ToString());
                     price_rmb = Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString());
@@ -1059,37 +1066,47 @@ namespace cf01.Forms
                     price_rmb_pdd = Return_Float_Value(dt.Rows[0]["price_rmb"].ToString());
                     hkd_ex_fty_pdd = Return_Float_Value(dt.Rows[0]["hkd_ex_fty"].ToString());
                     usd_ex_fty_pdd = Return_Float_Value(dt.Rows[0]["usd_ex_fty"].ToString());
+
                     if (price_usd_pdd > 0 && (price_usd < price_usd_pdd))
                     {
-                        MessageBox.Show(string.Format("注意:單價USD'{0}'不可小于HK PDD'{1}'報價!", price_usd, price_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價USD'{1}'小于HK PDD'{2}'報價!", tempCode, price_usd, price_usd_pdd) + "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價USD'{0}'已小于HK PDD'{1}'報價!", price_usd, price_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                        //break;
                     }
                     if (price_hkd_pdd > 0 && (price_hkd_pdd > price_hkd))
                     {
-                        MessageBox.Show(string.Format("注意:單價HKD'{0}'不可小于HK PDD'{1}'報價!", price_hkd, price_hkd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價HKD'{1}'小于HK PDD'{2}'報價!", tempCode, price_hkd, price_hkd_pdd)+"\n\r" ;
+                       //MessageBox.Show(string.Format("注意:單價HKD'{0}'已小于HK PDD'{1}'報價!", price_hkd, price_hkd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                       rtn = true;
+                        //break;
                     }
                     if (price_rmb_pdd > 0 && (price_rmb_pdd > price_rmb))
                     {
-                        MessageBox.Show(string.Format("注意:單價RMB'{0}'不可小于HK PDD'{1}'報價!", price_rmb, price_rmb_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價RMB'{1}'小于HK PDD'{2}'報價!", tempCode, price_rmb, price_rmb_pdd) + "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價RMB'{0}'已小于HK PDD'{1}'報價!", price_rmb, price_rmb_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                        //break;
                     }
                     if (hkd_ex_fty_pdd > 0 && (hkd_ex_fty_pdd > hkd_ex_fty))
                     {
-                        MessageBox.Show(string.Format("注意:單價HKD-EX-FTY'{0}'不可小于HK PDD'{1}'報價!", hkd_ex_fty, hkd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價HKD-EX-FTY'{1}'小于HK PDD'{2}'報價!", tempCode, hkd_ex_fty, hkd_ex_fty_pdd) + "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價HKD-EX-FTY'{0}'已小于HK PDD'{1}'報價!", hkd_ex_fty, hkd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                        //break;
                     }
                     if (usd_ex_fty_pdd > 0 && (usd_ex_fty_pdd > usd_ex_fty))
                     {
-                        MessageBox.Show(string.Format("注意:單價USD-EX-FTY'{0}'不可小于HK PDD'{1}'報價!", usd_ex_fty, usd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        rtn = false;
-                        break;
+                        strWrning += string.Format("注意:{0} 單價USD-EX-FTY'{1}'小于HK PDD'{2}'報價!", tempCode, usd_ex_fty, usd_ex_fty_pdd) + "\n\r";
+                        //MessageBox.Show(string.Format("注意:單價USD-EX-FTY'{0}'已小于HK PDD'{1}'報價!", usd_ex_fty, usd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rtn = true;
+                       // break;
                     }
                 }
+            }
+            if(strWrning != "")
+            {
+                MessageBox.Show(strWrning, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return rtn;
         }
