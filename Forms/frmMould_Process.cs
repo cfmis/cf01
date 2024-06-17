@@ -133,7 +133,7 @@ namespace cf01.Forms
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            AddNew();    
+            AddNew();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -188,7 +188,13 @@ namespace cf01.Forms
                 dtcon_date.Focus();
                 return;
             }
-            
+            if (lueVer.EditValue.ToString() == "")
+            {
+                MessageBox.Show("版本不可为空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lueVer.Focus();
+                return;
+            }
+
             //新增時判斷主鍵是否已存在
             if (mState == "NEW")
             {
@@ -202,11 +208,11 @@ namespace cf01.Forms
             //Select a Cell Focus
             bool save_flag = false;
             const string sql_new =
-            @"INSERT INTO jo_mould_button(id,con_date,require_finish_date,goods_id,mould_id,mould_location,application_date,sample_yes,sample_no,md_new,md_reproduced,lister_by,mo_id,
+            @"INSERT INTO jo_mould_button(id,ver,con_date,require_finish_date,goods_id,mould_id,mould_location,application_date,sample_yes,sample_no,md_new,md_reproduced,lister_by,mo_id,
             universal_machine_receive,universal_machine_receive_sign,universal_machine_md_receive,universal_machine_md_receive_sign,universal_machine_test,universal_machine_test_sign,
             universal_machine_confirm,universal_machine_confirm_sign,eye_machine_receive,eye_machine_receive_sign,eye_machine_md_receive,eye_machine_md_receive_sign,eye_machine_test,
             eye_machine_test_sign,eye_machine_confirm,eye_machine_confirm_sign,mould_instructions,mould_qty,mould_require,drawing_no,create_by,create_date)
-            VALUES(@id,@con_date,CASE LEN(@require_finish_date) WHEN 0 THEN null ELSE @require_finish_date END,@goods_id,@mould_id,@mould_location,
+            VALUES(@id,@ver,@con_date,CASE LEN(@require_finish_date) WHEN 0 THEN null ELSE @require_finish_date END,@goods_id,@mould_id,@mould_location,
             CASE LEN(@application_date) WHEN 0 THEN null ELSE @application_date END,@sample_yes,@sample_no,@md_new,@md_reproduced,@lister_by,@mo_id,
             CASE LEN(@universal_machine_receive) WHEN 0 THEN null ELSE @universal_machine_receive END ,@universal_machine_receive_sign,
             CASE LEN(@universal_machine_md_receive) WHEN 0 THEN null ELSE @universal_machine_md_receive END ,@universal_machine_md_receive_sign,
@@ -232,7 +238,7 @@ namespace cf01.Forms
             eye_machine_test=CASE LEN(@eye_machine_test) WHEN 0 THEN null ELSE @eye_machine_test END,eye_machine_test_sign=@eye_machine_test_sign,
             eye_machine_confirm=CASE LEN(@eye_machine_confirm) WHEN 0 THEN null ELSE @eye_machine_confirm END,eye_machine_confirm_sign=@eye_machine_confirm_sign,
             mould_instructions=@mould_instructions,mould_qty=@mould_qty,mould_require=@mould_require,drawing_no=@drawing_no,update_by=@user_id,update_date=getdate()
-            WHERE id=@id";            
+            WHERE id=@id And ver=@ver";            
 
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             //string strSerial_no;
@@ -244,10 +250,11 @@ namespace cf01.Forms
                 {
                     myCommand.Parameters.Clear();
                     myCommand.Parameters.AddWithValue("@id", txtID.Text);
+                    myCommand.Parameters.AddWithValue("@ver", lueVer.EditValue);
                     if (mState == "NEW")
                     {
                         myCommand.CommandText = sql_new;
-                        string ls_sql_f = string.Format(@"Select '1' From dbo.jo_mould_button where id='{0}'", txtID.Text);
+                        string ls_sql_f = string.Format(@"Select '1' From dbo.jo_mould_button where id='{0}' and ver='{1}'", txtID.Text,lueVer.EditValue);
                         if (clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql_f) != "")
                         {
                             MessageBox.Show("已存在此模具編號，不可以重復新增！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Stop); 
@@ -330,7 +337,6 @@ namespace cf01.Forms
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, false);
             dgvDetails.DataSource = dtDetail;
             dgvDetails.Enabled = true;
-            
 
             if (save_flag)
             {
@@ -363,13 +369,13 @@ namespace cf01.Forms
         /// <returns></returns>
         private bool ValidData()
         {
-            bool result=false ;
-            string ls_sql = string.Format(@"select '1' from dbo.jo_mould_button Where id='{0}'", txtID.Text);
+            bool result = false;
+            string ls_sql = string.Format(@"select '1' from dbo.jo_mould_button Where id='{0}' And ver='{1}'", txtID.Text,lueVer.Text);
             if (clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql) == "")
                 result = true;
             else
             {
-                MessageBox.Show(string.Format("已存在[{0}]畫稿編號,不可以重復錄入!", txtID.Text), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(string.Format("已存在畫稿編號:[{0}][{1}],不可以重復錄入!", txtID.Text, lueVer.Text), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 result = false;
             }
             return result;
@@ -377,7 +383,7 @@ namespace cf01.Forms
 
         private void Delete()
         {
-            if (dgvDetails.RowCount == 0 && String.IsNullOrEmpty(txtID.Text))
+            if (dgvDetails.RowCount == 0 && string.IsNullOrEmpty(txtID.Text))
             {
                 return;
             }
@@ -385,8 +391,9 @@ namespace cf01.Forms
             DialogResult result = MessageBox.Show("確定要當前記錄？", "系統提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                string ls_id_delete = txtID.Text;
-                const string sql_del = "DELETE FROM dbo.jo_mould_button WHERE id=@id";
+                //string ls_id_delete = txtID.Text;
+                string ls_mould_id = txtmould_id.Text;
+                const string sql_del = "DELETE FROM dbo.jo_mould_button WHERE id=@id And ver=@ver";
                 SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
                 myCon.Open();
                 SqlTransaction myTrans = myCon.BeginTransaction();
@@ -397,6 +404,7 @@ namespace cf01.Forms
                         myCommand.CommandText = sql_del;
                         myCommand.Parameters.Clear();
                         myCommand.Parameters.AddWithValue("@id", txtID.Text);
+                        myCommand.Parameters.AddWithValue("@ver", lueVer.EditValue.ToString());
                         myCommand.ExecuteNonQuery();
                         myTrans.Commit(); //數據提交
                         //gridView1.DeleteRow(gridView1.FocusedRowHandle);
@@ -420,7 +428,8 @@ namespace cf01.Forms
                 //应该采用倒序循环刪除,因为正序删除时索引会发生变化
                 for (int i = dgvFind.Rows.Count - 1; i >= 0; i--)
                 {
-                    if (dgvFind.Rows[i].Cells["id1"].Value.ToString() == ls_id_delete)
+                    //if (dgvFind.Rows[i].Cells["id1"].Value.ToString() == ls_id_delete)
+                    if (dgvFind.Rows[i].Cells["mould_id1"].Value.ToString() == ls_mould_id)
                     {
                         dtDetail.Rows.RemoveAt(i);
                     }
@@ -442,6 +451,8 @@ namespace cf01.Forms
             txtUpdate_date.Text = DateTime.Now.Date.ToString();
             txtID.Properties.ReadOnly = true;
             txtID.BackColor = Color.White;
+            lueVer.Properties.ReadOnly = true;
+            lueVer.BackColor = Color.White;
             txtmould_id.Focus();
             dgvDetails.Enabled = false;
         }
@@ -469,7 +480,7 @@ namespace cf01.Forms
             mState = "";
             txtID.Properties.ReadOnly = true;
 
-            if (!String.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
+            if (!string.IsNullOrEmpty(mID) && dgvDetails.RowCount > 0)
             {
                 dgvDetails.CurrentCell = dgvDetails.Rows[row_reset].Cells[2]; //设置当前单元格
                 dgvDetails.Rows[row_reset].Selected = true; //選中整行
@@ -562,7 +573,9 @@ namespace cf01.Forms
         private void Set_head(DataGridViewRow pdr)
         {
             mID = pdr.Cells["id"].Value.ToString();
-            txtID.Text = mID;            
+            txtID.Text = mID;
+            GetVersion();
+            lueVer.EditValue = pdr.Cells["ver"].Value.ToString();
             dtcon_date.EditValue = clsApp.Return_String_Date(pdr.Cells["con_date"].Value.ToString()); 
             txtmould_id.Text = pdr.Cells["mould_id"].Value.ToString();
             txtmould_location.Text = pdr.Cells["mould_location"].Value.ToString();  
@@ -703,6 +716,7 @@ namespace cf01.Forms
                 
                     DataRow row = dtDetail.NewRow();//插一空行
                     row["id"] = txtID.Text ;
+                    row["ver"] = lueVer.EditValue.ToString();
                     row["con_date"] = dtcon_date.Text;
                     if (!string.IsNullOrEmpty(dtrequire_finish_date.Text))
                     {
@@ -772,6 +786,7 @@ namespace cf01.Forms
                 else
                 {                   
                     dtDetail.Rows[row_reset]["id"] = txtID.Text;
+                    dtDetail.Rows[row_reset]["ver"] = lueVer.EditValue.ToString();
                     dtDetail.Rows[row_reset]["con_date"] = dtcon_date.Text;
                     if (!string.IsNullOrEmpty(dtrequire_finish_date.Text))
                     {
@@ -847,23 +862,27 @@ namespace cf01.Forms
 
         private void txtID_Leave(object sender, EventArgs e)
         {
-            Valid_Draw_No();            
+            //Valid_Draw_No();
+            if (mState == "NEW" && txtID.Text != "")
+            {
+                GetVersion();
+            }                
         }
 
         private void Valid_Draw_No()
         {
-            if (mState == "NEW"&& txtID.Text !="")
+            if (mState == "NEW" && txtID.Text !="" && lueVer.Text !="")
             {
                 string ls_sql =
                 string.Format(
-                @"Select Top 1 A.id,A.draw_ver,Convert(varchar(10),A.update_date,120) AS application_date,B.mo_id,B.goods_id,
-                dbo.fn_get_mould_mo(B.id,B.ver) AS str_mo,ISNULL(C.draw_remark,'') as mould_request,D.name as goods_name 
+                @"Select Top 1 A.id,Convert(varchar(10),A.update_date,120) AS application_date,B.mo_id,B.goods_id,
+                dbo.fn_get_mould_mo(B.id,B.ver) AS str_mo,ISNULL(C.draw_remark,'') As mould_request,D.name As goods_name 
                 FROM {0}so_mould_notice_mostly A with(nolock)
                 INNER JOIN {0}so_mould_notice_goods B with(nolock) ON A.within_code=B.within_code and A.id=B.id and A.ver=B.ver and B.sequence_id ='0001h'
                 INNER JOIN {0}so_draw_master C with(nolock) ON A.within_code=C.within_code and A.mould_no=C.id and A.draw_ver=C.ver
                 INNER JOIN {0}it_goods D with(nolock) ON B.within_code=D.within_code and B.goods_id=D.id 
-                WHERE A.mould_no='{1}'
-                ORDER BY A.bill_date DESC", DBUtility.remote_db, txtID.Text);
+                WHERE A.mould_no='{1}' And A.draw_ver='{2}'
+                ORDER BY A.bill_date DESC", DBUtility.remote_db, txtID.Text,lueVer.EditValue.ToString());
                 DataTable dt = clsPublicOfCF01.GetDataTable(ls_sql);
                 if (dt.Rows.Count > 0)
                 {
@@ -872,7 +891,7 @@ namespace cf01.Forms
                     txtgoods_name.Text = dt.Rows[0]["goods_name"].ToString();
                     dtapplication_date.EditValue = dt.Rows[0]["application_date"].ToString();
                     if (dt.Rows[0]["mould_request"].ToString() != "")
-                        memmould_require.Text = String.Format("{0}\r\n{1}", dt.Rows[0]["mould_request"], dt.Rows[0]["str_mo"]);
+                        memmould_require.Text = string.Format("{0}\r\n{1}", dt.Rows[0]["mould_request"], dt.Rows[0]["str_mo"]);
                     else
                         memmould_require.Text = dt.Rows[0]["str_mo"].ToString();
                 }
@@ -886,6 +905,18 @@ namespace cf01.Forms
                     MessageBox.Show("沒有做模通知書或者畫稿編碼不存在！請返回檢查！", "提示信息");
                     txtID.Focus();
                 }
+            }
+        }
+
+        private void GetVersion()
+        {
+            if (txtID.Text != "")
+            {
+                string strSql = string.Format(@"Select draw_ver as id From {0}so_mould_notice_mostly Where mould_no='{1}'", DBUtility.remote_db, txtID.Text);
+                DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+                lueVer.Properties.DataSource = dt;
+                lueVer.Properties.ValueMember = "id";
+                lueVer.Properties.DisplayMember = "id";
             }
         }
 
@@ -922,6 +953,14 @@ namespace cf01.Forms
             //判段某個按鈕是否已被點擊
             //以下代碼為當保存按鈕被點擊時前進行數據的有效性檢查
             if (btnSave.Selected)
+            {
+                Valid_Draw_No();
+            }
+        }
+
+        private void lueVer_Leave(object sender, EventArgs e)
+        {
+            if (mState == "NEW")
             {
                 Valid_Draw_No();
             }

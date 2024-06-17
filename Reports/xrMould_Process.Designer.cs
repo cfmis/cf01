@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel77 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine62 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine60 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine59 = new DevExpress.XtraReports.UI.XRLine();
@@ -217,7 +218,6 @@
             this.xrCrossBandLine2 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine3 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine8 = new DevExpress.XtraReports.UI.XRCrossBandLine();
-            this.xrLabel77 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -400,6 +400,21 @@
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.Detail.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.Detail_BeforePrint);
+            // 
+            // xrLabel77
+            // 
+            this.xrLabel77.CanGrow = false;
+            this.xrLabel77.Dpi = 254F;
+            this.xrLabel77.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel77.LocationFloat = new DevExpress.Utils.PointFloat(745.9813F, 454.8814F);
+            this.xrLabel77.Name = "xrLabel77";
+            this.xrLabel77.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel77.SizeF = new System.Drawing.SizeF(687.52F, 62.02078F);
+            this.xrLabel77.StylePriority.UseFont = false;
+            this.xrLabel77.StylePriority.UseTextAlignment = false;
+            this.xrLabel77.Text = "制  表  人：[lister_by]";
+            this.xrLabel77.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel77.WordWrap = false;
             // 
             // xrLine62
             // 
@@ -2527,13 +2542,13 @@
             this.xrLabel3.CanGrow = false;
             this.xrLabel3.Dpi = 254F;
             this.xrLabel3.Font = new System.Drawing.Font("Arial", 11F);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(1500.833F, 191.2917F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(1444.833F, 191.2917F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(441.1666F, 53.72913F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "No:[id]";
+            this.xrLabel3.Text = "No:[id] ([ver])";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel3.WordWrap = false;
             // 
@@ -2660,21 +2675,6 @@
             this.xrCrossBandLine8.StartPointFloat = new DevExpress.Utils.PointFloat(788.3827F, 4.981844F);
             this.xrCrossBandLine8.WidthF = 3F;
             // 
-            // xrLabel77
-            // 
-            this.xrLabel77.CanGrow = false;
-            this.xrLabel77.Dpi = 254F;
-            this.xrLabel77.Font = new System.Drawing.Font("Arial", 10F);
-            this.xrLabel77.LocationFloat = new DevExpress.Utils.PointFloat(745.9813F, 454.8814F);
-            this.xrLabel77.Name = "xrLabel77";
-            this.xrLabel77.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel77.SizeF = new System.Drawing.SizeF(687.52F, 62.02078F);
-            this.xrLabel77.StylePriority.UseFont = false;
-            this.xrLabel77.StylePriority.UseTextAlignment = false;
-            this.xrLabel77.Text = "制  表  人：[lister_by]";
-            this.xrLabel77.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel77.WordWrap = false;
-            // 
             // xrMould_Process
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -2692,14 +2692,14 @@
             this.xrCrossBandLine1});
             this.Dpi = 254F;
             this.Margins = new System.Drawing.Printing.Margins(93, 53, 0, 74);
-            this.PageHeight = 2969;
-            this.PageWidth = 2101;
+            this.PageHeight = 2970;
+            this.PageWidth = 2100;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.ShowPreviewMarginLines = false;
             this.ShowPrintMarginsWarning = false;
             this.SnapGridSize = 31.75F;
-            this.Version = "11.2";
+            this.Version = "14.2";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrMould_Process_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
