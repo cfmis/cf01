@@ -669,9 +669,9 @@ namespace cf01.Forms
             if (chkPrintAll.Checked == false)
             {
                 string ls_sql = string.Format(
-                    @"SELECT A.*,B.name as goods_name,dbo.fn_get_picture_name_of_artwork('0000',Substring(A.goods_id,5,7),'OUT') AS picture_name 
+                @"SELECT A.*,B.name as goods_name,dbo.fn_get_picture_name_of_artwork('0000',Substring(A.goods_id,5,7),'OUT') AS picture_name 
                 From dbo.jo_mould_button A with(nolock),{0}it_goods B with(nolock) 
-                Where A.goods_id COLLATE Chinese_PRC_CI_AS = B.id and A.id='{1}'", DBUtility.remote_db, txtID.Text);
+                Where A.goods_id COLLATE Chinese_PRC_CI_AS = B.id and A.id='{1}' and A.ver='{2}'", DBUtility.remote_db, txtID.Text,lueVer.Text);
                 DataTable dt = clsPublicOfCF01.GetDataTable(ls_sql);
                 using (xrMould_Process rpt = new xrMould_Process() { DataSource = dt })
                 {
