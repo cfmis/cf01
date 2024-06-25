@@ -71,22 +71,7 @@ namespace cf01.Reports
                 txtmd_charge_vn.Visible = true;
                 txtmd_charge_cny.Visible = true;
             }
-        }
-
-        //private void txtPrice_vnd_pcs_TextChanged(object sender, EventArgs e)
-        //{
-        //    string strPrice_vnd_pcs = GetCurrentColumnValue("price_vnd_pcs").ToString();
-        //    txtPrice_vnd_pcs.Text = strPrice_vnd_pcs.Replace(".000", "");
-        //}
-
-        //private void txtPrice_vnd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        //{
-        //    //decimal price_vnd = decimal.Parse(GetCurrentColumnValue("price_vnd").ToString());
-        //    //if (price_vnd > 0)
-        //    //    txtPrice_vnd_usd.Text = string.Format("{0:###,###}", price_vnd);
-        //    //else
-        //    //    txtPrice_vnd_usd.Text = "0";
-        //}
+        }        
 
         private void txtPrice_vnd_pcs_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
