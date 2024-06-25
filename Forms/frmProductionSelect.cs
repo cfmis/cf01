@@ -141,10 +141,10 @@ namespace cf01.Forms
             //加載時讓條碼框獲得焦點
             //txtBarCode.Focus();
 
-            Font a = new Font("GB2312", 10);//GB2312为字体名称，1为字体大小dataGridView1.Font = a;
-            dgvDetails.Font = a;
-            dgvWorker.Font = a;
-            dgvDefective.Font = a;
+            //Font a = new Font("GB2312", 10);//GB2312为字体名称，1为字体大小dataGridView1.Font = a;
+            //dgvDetails.Font = a;
+            //dgvWorker.Font = a;
+            //dgvDefective.Font = a;
             dgvDetails.AutoGenerateColumns = false;
 
             BarCode.Start();
@@ -183,7 +183,7 @@ namespace cf01.Forms
             cmbWorkType.DataSource = dtWork_type;
             cmbWorkType.DisplayMember = "work_type_desc";
             cmbWorkType.ValueMember = "work_type_id";
-            cmbWorkType.Text = "選貨";
+            //cmbWorkType.Text = "選貨";
             cmbWorkType.SelectedValue = "A03";
             InitComBoxGroup();
             //初始化班次、組別
@@ -221,7 +221,7 @@ namespace cf01.Forms
             }
             if (cmbProductDept.Text == "102")
             {
-                cmbGroup.Text = "BA01";
+                cmbGroup.SelectedValue = "BA01";
             }
             else
             {
@@ -236,7 +236,7 @@ namespace cf01.Forms
                     {
                         txtmWeg1.Text = "0";//去皮
                         txtmWeg2.Text = "0";
-                        cmbGroup.Text = "T1";
+                        //cmbGroup.Text = "T1";
                         txtWork_code.Visible = false;
                         lueJobType.Visible = true;
                         panel5.Visible = true;
@@ -247,7 +247,7 @@ namespace cf01.Forms
                         {
                             txtmWeg1.Text = "0";//去皮
                             txtmWeg2.Text = "0";
-                            cmbGroup.Text = "BC05-01";
+                            cmbGroup.SelectedValue = "BC05-01";
                             panel5.Visible = false;
                         }
                         else
@@ -256,7 +256,7 @@ namespace cf01.Forms
                             {
                                 txtmWeg1.Text = "0";//去皮
                                 txtmWeg2.Text = "0";
-                                cmbGroup.Text = "T1";
+                                cmbGroup.SelectedValue = "T1";
                                 txtWork_code.Visible = false;
                                 lueJobType.Visible = true;
                                 panel5.Visible = false;
@@ -415,9 +415,9 @@ namespace cf01.Forms
             dteProdcutDate.Text = dtProductionRecordslist.Rows[index]["prd_date"].ToString();
             cmbOwnDep.Text = dtProductionRecordslist.Rows[index]["prd_owndep"].ToString();
             cmbOrder_class.Text = dtProductionRecordslist.Rows[index]["prd_class"].ToString();
-            cmbGroup.Text = dtProductionRecordslist.Rows[index]["prd_group"].ToString();
+            cmbGroup.SelectedValue = dtProductionRecordslist.Rows[index]["prd_group"].ToString();
 
-            cmbWorkType.Text = dtProductionRecordslist.Rows[index]["work_type_desc"].ToString().Trim();
+            cmbWorkType.SelectedValue = dtProductionRecordslist.Rows[index]["prd_work_type"].ToString().Trim();
             dtpStart.Value = Convert.ToDateTime("2014/01/01 " + dtProductionRecordslist.Rows[index]["prd_start_time"].ToString());
             dtpEnd.Value = Convert.ToDateTime("2014/01/01 " + dtProductionRecordslist.Rows[index]["prd_end_time"].ToString());
             txtNormal_work.Text = (dtProductionRecordslist.Rows[index]["prd_normal_time"].ToString() != "0" ? dtProductionRecordslist.Rows[index]["prd_normal_time"].ToString() : "");
@@ -543,7 +543,7 @@ namespace cf01.Forms
         private void ClearAllText()
         {
             cmbOrder_class.Text = "";
-            cmbGroup.Text = "";
+            cmbGroup.SelectedValue= "";
             txtmo_id.Text = "";
             cmbGoods_id.SelectedValue = "";
             ClearPartOfText();
@@ -559,7 +559,7 @@ namespace cf01.Forms
             txtkgPCS.Text = "";
             txtPrd_qty.Text = "";
             txtprd_weg.Text = "";
-            cmbWorkType.Text = "";
+            //cmbWorkType.Text = "";
             dtpStart.Value = Convert.ToDateTime("2014/01/01 " + "00:00");
             dtpEnd.Value = Convert.ToDateTime("2014/01/01 " + "00:00");
             chkcont_work1.Checked = false;
@@ -579,7 +579,7 @@ namespace cf01.Forms
             txtkgPCS.Text = "";
             txtOkqty_All.Text = "";
             txtNookqty_All.Text = "";
-            cmbGroup.Text = "";
+            cmbGroup.SelectedValue = "";
             txtPer_hour_std_qty.Text = "";
             txtWork_code.Text = "";
             txtPrd_id_ref.Text = "";
@@ -651,7 +651,7 @@ namespace cf01.Forms
                 return false;
             }
             //如果是完成的，就要做如下控制
-            if (dtpStart.Text != "00:00" && dtpEnd.Text != "00:00" && cmbGroup.Text != "AB99")
+            if (dtpStart.Text != "00:00" && dtpEnd.Text != "00:00")/* && cmbGroup.SelectedValue.ToString() != "AB99"*/
             {
                 if (dtWorker.Rows.Count == 0 )
                 {
@@ -711,7 +711,7 @@ namespace cf01.Forms
                 txtprd_weg.SelectAll();
                 return false;
             }
-            if (cmbWorkType.Text == "")
+            if (cmbWorkType.SelectedValue.ToString().Trim() == "")
             {
                 MessageBox.Show("工作類型不能為空,請重新輸入!");
                 cmbWorkType.Focus();
@@ -1245,7 +1245,7 @@ namespace cf01.Forms
                     dgvWorker.DataSource = dtWorker;
                 }
             }
-            txtmo_id_KeyPress(sender, e);
+            //txtmo_id_KeyPress(sender, e);
         }
         //加入生產工號
         private void add_prd_worker(string wid, string hrm1name)
@@ -1345,7 +1345,7 @@ namespace cf01.Forms
             sql += " Select a.prd_worker,b.hrm1name From product_group_member a " +
                 " Left Join dgsql1.dghr.dbo.hrm01 b on a.prd_worker=b.hrm1wid  COLLATE Chinese_PRC_CI_AS " +
                 " Where a.prd_dep = " + "'" + cmbProductDept.SelectedValue.ToString() + "'" +
-                " And a.prd_group = " + "'" + cmbGroup.Text.ToString() + "'";
+                " And a.prd_group = " + "'" + cmbGroup.SelectedValue.ToString() + "'";
             dtMember = clsPublicOfPad.GetDataTable(sql);
             for (int i = 0; i < dtMember.Rows.Count; i++)
             {
@@ -1496,7 +1496,7 @@ namespace cf01.Forms
         {
             get_group_member();//獲取組別的成員
             get_last_prd_end_time();//查詢組別當日最後的完成時間，作為開始時間
-            if (cmbGroup.Text == "AB99")
+            if (cmbGroup.SelectedValue.ToString() == "AB99")
             {
                 dtpStart.Value = System.DateTime.Now;
                 dtpEnd.Value = dtpStart.Value;
@@ -1544,7 +1544,7 @@ namespace cf01.Forms
             objModel.prd_work_type = cmbWorkType.SelectedValue.ToString();
             objModel.prd_worker = "";
             objModel.prd_class = cmbOrder_class.Text.Trim();
-            objModel.prd_group = cmbGroup.Text.Trim();
+            objModel.prd_group = cmbGroup.SelectedValue.ToString().Trim();
             objModel.prd_start_time = (dtpStart.Text.Trim() != "00:00" ? dtpStart.Text.Trim() : "");
             objModel.prd_end_time = (dtpEnd.Text.Trim() != "00:00" ? dtpEnd.Text.Trim() : "");
             objModel.prd_req_time = (dtpReqEnd.Text.Trim() != "00:00" ? dtpReqEnd.Text.Trim() : "");
@@ -1711,7 +1711,7 @@ namespace cf01.Forms
         private void btnSetMemberGroup_Click(object sender, EventArgs e)
         {
             sent_dep = cmbProductDept.Text;
-            sent_group = cmbGroup.Text;
+            sent_group = cmbGroup.SelectedValue.ToString().Trim();
             frmPrdMemberGroup frmPrdMemberGroup = new frmPrdMemberGroup();
             frmPrdMemberGroup.ShowDialog();
 

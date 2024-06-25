@@ -36,7 +36,8 @@ namespace cf01.CLS
         {
             DataTable dtJobType = new DataTable();
             string strSql = "";
-            strSql = " SELECT work_group,group_desc FROM work_group WHERE ( dep='" + dep + "'" + " AND group_type='" + groupType + "') " + " OR dep='" + "000" + "' ";
+            strSql = " SELECT rtrim(work_group) AS work_group,rtrim(group_desc) AS group_desc" +
+                " FROM work_group WHERE ( dep='" + dep + "'" + " AND group_type='" + groupType + "') " + " OR dep='" + "000" + "' ";
             dtJobType = clsPublicOfPad.GetDataTable(strSql);
             return dtJobType;
         }

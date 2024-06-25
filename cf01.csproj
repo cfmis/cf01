@@ -262,6 +262,7 @@
     <Compile Include="CLS\clsMmProductTypeStdPrice.cs" />
     <Compile Include="CLS\clsMoRepair.cs" />
     <Compile Include="CLS\clsMoStatePrint.cs" />
+    <Compile Include="CLS\clsMoTrace.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
     <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsOrderHistory.cs" />
@@ -1800,6 +1801,12 @@
     </Compile>
     <Compile Include="ReportForm\frmMoStockQuery.designer.cs">
       <DependentUpon>frmMoStockQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\frmMoTrace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmMoTrace.Designer.cs">
+      <DependentUpon>frmMoTrace.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\frmMouldInfo.cs">
       <SubType>Form</SubType>
@@ -3549,6 +3556,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmMoStockQuery.resx">
       <DependentUpon>frmMoStockQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmMoTrace.resx">
+      <DependentUpon>frmMoTrace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmMouldInfo.resx">
       <DependentUpon>frmMouldInfo.cs</DependentUpon>
