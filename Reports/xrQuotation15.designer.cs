@@ -62,6 +62,7 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel58 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel57 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel64 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel62 = new DevExpress.XtraReports.UI.XRLabel();
@@ -138,7 +139,6 @@
             this.xrCrossBandLine20 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine21 = new DevExpress.XtraReports.UI.XRCrossBandLine();
             this.xrCrossBandLine22 = new DevExpress.XtraReports.UI.XRCrossBandLine();
-            this.xrLabel58 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -575,11 +575,11 @@
             this.xrLabel1.CanShrink = true;
             this.xrLabel1.Dpi = 254F;
             this.xrLabel1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(7.152079F, 28.50004F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(7.152079F, 45.08337F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(2870.821F, 109.1769F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(2870.821F, 92.59357F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.Text = "[address]";
@@ -647,6 +647,21 @@
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.BeforeBand;
             this.GroupHeader1.RepeatEveryPage = true;
+            // 
+            // xrLabel58
+            // 
+            this.xrLabel58.CanGrow = false;
+            this.xrLabel58.Dpi = 254F;
+            this.xrLabel58.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel58.LocationFloat = new DevExpress.Utils.PointFloat(2025.438F, 595.3125F);
+            this.xrLabel58.Name = "xrLabel58";
+            this.xrLabel58.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel58.SizeF = new System.Drawing.SizeF(853.3955F, 42.33325F);
+            this.xrLabel58.StylePriority.UseFont = false;
+            this.xrLabel58.StylePriority.UseTextAlignment = false;
+            this.xrLabel58.Text = "Fax :  [fax]";
+            this.xrLabel58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel58.WordWrap = false;
             // 
             // xrLabel57
             // 
@@ -1496,7 +1511,7 @@
             this.xrCrossBandBox2.BorderWidth = 1F;
             this.xrCrossBandBox2.Dpi = 254F;
             this.xrCrossBandBox2.EndBand = this.GroupHeader1;
-            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(2014.792F, 872.0724F);
+            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(2014.792F, 872.0725F);
             this.xrCrossBandBox2.LocationFloat = new DevExpress.Utils.PointFloat(2014.792F, 489.9375F);
             this.xrCrossBandBox2.Name = "xrCrossBandBox2";
             this.xrCrossBandBox2.StartBand = this.GroupHeader1;
@@ -1612,21 +1627,6 @@
             this.xrCrossBandLine22.StartBand = this.GroupHeader1;
             this.xrCrossBandLine22.StartPointFloat = new DevExpress.Utils.PointFloat(2432.509F, 887.75F);
             this.xrCrossBandLine22.WidthF = 3F;
-            // 
-            // xrLabel58
-            // 
-            this.xrLabel58.CanGrow = false;
-            this.xrLabel58.Dpi = 254F;
-            this.xrLabel58.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel58.LocationFloat = new DevExpress.Utils.PointFloat(2025.438F, 595.3125F);
-            this.xrLabel58.Name = "xrLabel58";
-            this.xrLabel58.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel58.SizeF = new System.Drawing.SizeF(853.3955F, 42.33325F);
-            this.xrLabel58.StylePriority.UseFont = false;
-            this.xrLabel58.StylePriority.UseTextAlignment = false;
-            this.xrLabel58.Text = "Fax :  [fax]";
-            this.xrLabel58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel58.WordWrap = false;
             // 
             // xrQuotation15
             // 
