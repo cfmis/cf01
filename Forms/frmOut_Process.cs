@@ -88,10 +88,7 @@ namespace cf01.Forms
             if (dtPlate.Rows.Count > 0)
             {
                 //最低消費頁數重復的處理
-                string temp_mo_id2 = dtPlate.Rows[0]["mo_id2"].ToString();
-                //string id = dtPlate.Rows[0]["id"].ToString();
-                //string clr= dtPlate.Rows[0]["clr"].ToString();
-                //int unite_qty = int.Parse(dtPlate.Rows[0]["unite_qty"].ToString());                
+                string temp_mo_id2 = dtPlate.Rows[0]["mo_id2"].ToString();                         
                 for (int i = 0; i < dtPlate.Rows.Count; i++)
                 {
                     if (i > 0)

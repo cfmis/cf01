@@ -19,10 +19,14 @@ namespace cf01.Reports
             lblPack_num.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty.DataBindings.Add("Text", DataSource, "prod_qty");
             lblSec_qty.DataBindings.Add("Text", DataSource, "sec_qty");
+            lblActual_prod_qty.DataBindings.Add("Text", DataSource, "actual_prod_qty");
+            lblActual_sec_qty.DataBindings.Add("Text", DataSource, "actual_sec_qty");
 
             lblPackag_num_total.DataBindings.Add("Text", DataSource, "package_num");//小計欄位需這樣綁定
             lblProd_qty_total.DataBindings.Add("Text", DataSource, "prod_qty");
             lblSec_qty_total.DataBindings.Add("Text", DataSource, "sec_qty");
+            lblActual_prod_qty_total.DataBindings.Add("Text", DataSource, "actual_prod_qty");
+            lblActual_sec_qty_total.DataBindings.Add("Text", DataSource, "actual_sec_qty");
         }
 
         void BindImage(string pFile)
@@ -260,6 +264,49 @@ namespace cf01.Reports
             {
                 this.next_wp_id.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Italic,System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
+        }
+
+        private void xrLabel4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string strdate = GetCurrentColumnValue("issue_date").ToString();
+            if (string.IsNullOrEmpty(strdate))
+            {
+                return;
+            }
+            xrLabel4.Text = DateTime.Parse(strdate).Date.ToString("yyyy/MM/dd");
+        }
+
+        private void xrLabel29_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string strdate = GetCurrentColumnValue("t_complete_date").ToString();
+            if (string.IsNullOrEmpty(strdate))
+            {
+                return;
+            }
+            xrLabel29.Text = DateTime.Parse(strdate).Date.ToString("yyyy/MM/dd");
+        }
+
+        private void lblVendor_id_TextChanged(object sender, EventArgs e)
+        {
+            string strVendorId = GetCurrentColumnValue("vendor_id").ToString();
+            if(!"CL-K0036,CL-K0035".Contains(strVendorId))
+            {
+                lblActual_prod_qty.Visible = true;
+                lblActual_sec_qty.Visible = true;
+                lblActual_prod_qty_total.Visible = true;
+                lblActual_sec_qty_total.Visible = true;
+                xrLine14.Visible = true;
+                xrLine15.Visible = true;
+            }
+            else
+            {
+                lblActual_prod_qty.Visible = false;
+                lblActual_sec_qty.Visible = false;
+                lblActual_prod_qty_total.Visible = false;
+                lblActual_sec_qty_total.Visible = false;
+                xrLine14.Visible = false;
+                xrLine15.Visible = false;
+            }            
         }
     }
 }
