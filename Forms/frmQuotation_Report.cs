@@ -3274,7 +3274,7 @@ namespace cf01.Forms
                     string pictrue_path = "";
                     string strSql = "";
                     float lf_finish_price_usd = 0.0000f;
-                   
+                    int last_row_no = 0;
                     DataTable dt = new DataTable();
 
                     for (int r = 0; r < gridView1.RowCount; r++)//行
@@ -3396,8 +3396,19 @@ namespace cf01.Forms
                             worksheet.Cells[r + 4, 38] = dt.Rows[0]["unit_code"].ToString();
                         }
                         worksheet.Rows[r + 4].Font.Size = 10;
+                        last_row_no = r + 4;
                         System.Windows.Forms.Application.DoEvents();
                     }
+                    //--START 2024/07/03 add cfaa logo and qrcode
+                    last_row_no += 3;
+                    string rang_logo = "A" + last_row_no.ToString() + ":C" + (last_row_no + 3).ToString();
+                    string img_logo = image_path + @"\artwork\" + "cfaa_logo_qr.png";
+                    worksheet.Range[rang_logo].Merge(0);//合并单元格 
+                    if (File.Exists(img_logo))
+                    {
+                        clsQuotation.InsertPicture(rang_logo, worksheet, img_logo);//插入logo
+                    }
+                    //--End 
                     worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
                     worksheet.Columns[14].ColumnWidth = 12;                    
                     worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
