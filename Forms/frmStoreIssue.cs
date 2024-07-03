@@ -16,7 +16,7 @@ namespace cf01.Forms
     public partial class frmStoreIssue : Form
     {
         private string remote_db = DBUtility.remote_db;
-        private string edit_type = "Y";//控制當控件中當值發生變化時的操作
+        //private string edit_type = "Y";//控制當控件中當值發生變化時的操作
         private string _userid = DBUtility._user_id;
         private string within_code = DBUtility.within_code;
         private DataTable dtStoreList = new DataTable();
