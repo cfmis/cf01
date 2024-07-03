@@ -90,7 +90,7 @@ namespace cf01.Forms
             }
             if (ls_ip_address.Contains("192.168.168."))
             {
-                image_path = @"\\192.168.168.15\cf_artwork";
+                image_path = @"\\192.168.168.19\cf_artwork";
             }
             if (ls_ip_address.Contains("192.168.18."))
             {
@@ -2486,149 +2486,12 @@ namespace cf01.Forms
 
         private void BTNEXCEL_Click(object sender, EventArgs e)
         {
-            Export_to_Excel("1");//無圖樣
-                                 //if (gridView1.RowCount > 0)
-                                 //{
-                                 //    //bool fileSaved = false; 
-                                 //    SaveFileDialog saveDialog = new SaveFileDialog();
-                                 //    //saveDialog.DefaultExt = "";
-                                 //    saveDialog.Title = "保存EXECL文件";
-                                 //    saveDialog.Filter = "EXECL文件|*.xls";
-                                 //    saveDialog.FilterIndex = 1;
-                                 //    if (saveDialog.ShowDialog() == DialogResult.OK)
-                                 //    {
-                                 //        string FileName = saveDialog.FileName;
-                                 //        if (File.Exists(FileName))
-                                 //        {
-                                 //            File.Delete(FileName);
-                                 //        }
-                                 //        int FormatNum;//保存excel文件的格式
-                                 //        string Version;//excel版本號
+            Export_to_Excel("1");//無圖樣                                 
+        }
 
-            //        Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-            //        if (xlApp == null)
-            //        {
-            //            MessageBox.Show("无法创建Excel对象,可能您的机子未安装Excel");
-            //            return;
-            //        }
-            //        Version = xlApp.Version;//獲取當前使用excel版本號
-            //        if (Convert.ToDouble(Version) < 12)//You use Excel 97-2003
-            //        {
-            //            FormatNum = -4143;
-            //        }
-            //        else //you use excel 2007 or later
-            //        {
-            //            FormatNum = 56;
-            //        }
-            //        Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;
-            //        Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
-            //        Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1  
-            //        SqlParameter[] paras = new SqlParameter[] { new SqlParameter("@id", txtID.Text) };
-
-            //        DataTable dtHead = new DataTable();
-            //        dtHead = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_info_convert", paras);
-            //        //第一行为报表名称
-            //        worksheet.Cells[1, 1] = dtHead.Rows[0]["address_id"].ToString(); //標題地址
-            //        worksheet.Cells[2, 1] = dtHead.Rows[0]["terms"].ToString();      //條款
-            //        worksheet.Cells[2, 11] = dtHead.Rows[0]["cust_info"].ToString();
-
-            //        worksheet.Range["A1:M1"].Merge(0);//合并单元格
-            //        worksheet.Rows[1].Font.Size = 9;
-            //        worksheet.Rows[1].Font.Bold = true;//粗體
-            //        worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-            //        worksheet.Rows[1].RowHeight = 75;
-            //        //條款
-            //        worksheet.Range["A2:J2"].Merge(0);//合并单元格
-            //        worksheet.Rows[2].Font.Size = 9;
-            //        worksheet.Rows[2].RowHeight =190;
-            //        //客戶信息
-            //        worksheet.Range["K2:O2"].Merge(0);//合并单元格 
-            //        worksheet.Range["K2:O2"].Font.Bold = true;
-            //        worksheet.Rows[3].Font.Size = 9;
-            //        worksheet.Rows[3].Font.Bold = true;//粗體                    
-
-            //        cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
-            //        new Thread((ThreadStart)delegate
-            //        {
-            //            wForm.TopMost = true;
-            //            wForm.ShowDialog();
-            //        }).Start();
-
-            //        //寫入欄位標題                   
-            //        for (int i = 0; i < gridView1.Columns.Count; i++)
-            //        {
-            //            if (gridView1.Columns[i].Visible || gridView1.Columns[i].FieldName == "seq_id" || gridView1.Columns[i].FieldName == "name_brand")
-            //            {
-            //                worksheet.Cells[3, i + 1] = gridView1.Columns[i].Caption;
-            //                if (gridView1.Columns[i].FieldName == "cust_artwork")
-            //                {                                
-            //                    worksheet.Cells[3, i + 1] = "ArtWork";
-            //                }                            
-            //            }
-            //            else
-            //            {
-            //                continue;
-            //            }
-            //        }
-            //        worksheet.Rows[3].RowHeight = 23;
-            //        //寫入數值
-            //        string field_name;
-            //        for (int r = 0; r < gridView1.RowCount; r++)//行
-            //        {
-            //            for (int i = 0; i < gridView1.Columns.Count; i++) //列
-            //            {
-            //                if (gridView1.Columns[i].Visible || gridView1.Columns[i].FieldName == "seq_id" || gridView1.Columns[i].FieldName == "name_brand")
-            //                {
-            //                    field_name = gridView1.Columns[i].FieldName;
-            //                    if (field_name == "price_unit") //2017/03/15將H轉成100Pcs
-            //                    {
-            //                        if (gridView1.GetRowCellValue(r, field_name).ToString() == "H")
-            //                            worksheet.Cells[r + 4, i + 1] = "100PCS";
-            //                    }
-            //                    worksheet.Cells[r + 4, i + 1] = gridView1.GetRowCellValue(r, field_name).ToString();
-            //                    worksheet.Rows[r + 4].Font.Size = 10;
-            //                    if (field_name == "cust_artwork")
-            //                    {
-            //                        worksheet.Cells[r + 4, i + 1] = "";
-            //                    }
-            //                }
-            //                else
-            //                {
-            //                    continue;
-            //                }
-            //            }
-            //            System.Windows.Forms.Application.DoEvents();
-            //        }
-            //        worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
-            //        worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;               
-
-            //        wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-            //        if (FileName != "")
-            //        {
-            //            try
-            //            {
-            //                workbook.Saved = true;
-            //                //workbook.SaveCopyAs(saveFileName);
-            //                workbook.SaveAs(FileName, FormatNum);
-            //                //fileSaved = true;  
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                //fileSaved = false;  
-            //                MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
-            //            }
-            //        }
-            //        xlApp.Quit();
-            //        GC.Collect();//强行销毁
-            //        // if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL  
-            //        MessageBox.Show(String.Format("[{0}]匯出EXCEL成功!", txtID.Text), "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("當前資料為空,請首先查詢出數據!", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+        private void BTNEXCEL2_Click(object sender, EventArgs e)
+        {
+            Export_to_Excel("2");//有圖樣
         }
 
         private void cl_discount_Leave(object sender, EventArgs e)
@@ -3031,10 +2894,7 @@ namespace cf01.Forms
             }
         }
 
-        private void BTNEXCEL2_Click(object sender, EventArgs e)
-        {
-            Export_to_Excel("2");//有圖樣
-        }
+       
 
         private void BTNEXCEL_TOMMY_Click(object sender, EventArgs e)
         {
@@ -3136,11 +2996,12 @@ namespace cf01.Forms
                     worksheet.Rows[3].RowHeight = 23;
 
                     //寫入數值
+                    int last_row_no=0;
                     string field_name, rang = "";
                     string pictrue_path = "";
                     string strSql = "";
                     DataTable dt = new DataTable();
-
+                    string imagePath = image_path + @"\artwork\";
                     for (int r = 0; r < gridView1.RowCount; r++)//行
                     {
                         if (strType == "2")
@@ -3150,11 +3011,11 @@ namespace cf01.Forms
                             {
                                 strSql = string.Format(
                                 @"Select TOP 1 Isnull(picture_name,'') as picture_name From {0}cd_pattern_details with(nolock)
-                            Where within_code='0000' and id='{1}'", DBUtility.remote_db, gridView1.GetRowCellDisplayText(r, "cf_code"));
+                                Where within_code='0000' and id='{1}'", DBUtility.remote_db, gridView1.GetRowCellDisplayText(r, "cf_code"));
                                 dt = clsPublicOfCF01.GetDataTable(strSql);
                                 if (dt.Rows.Count > 0)
                                 {
-                                    pictrue_path = @"\\192.168.3.12\cf_artwork\Artwork\" + dt.Rows[0]["picture_name"];
+                                    pictrue_path = imagePath + dt.Rows[0]["picture_name"];
                                 }
                                 else
                                 {
@@ -3172,7 +3033,7 @@ namespace cf01.Forms
                                     pictrue_path = gridView1.GetRowCellDisplayText(r, "cust_artwork");
                                 }
                             }
-                            worksheet.Columns[11].ColumnWidth = 11;//圖樣
+                            worksheet.Columns[11].ColumnWidth = 11;//圖樣列
                         }
 
                         for (int i = 0; i < gridView1.Columns.Count; i++) //列
@@ -3200,7 +3061,7 @@ namespace cf01.Forms
                                         if (File.Exists(pictrue_path))
                                         {
                                             worksheet.Rows[r + 4].RowHeight = 70;
-                                       clsQuotation.InsertPicture(rang, worksheet, pictrue_path);//插入圖片
+                                            clsQuotation.InsertPicture(rang, worksheet, pictrue_path);//插入圖片
                                         }
                                     }
                                     else
@@ -3216,7 +3077,19 @@ namespace cf01.Forms
                             }
                         }
                         System.Windows.Forms.Application.DoEvents();
+                        last_row_no = r + 4;
                     }
+                    //--START 2024/07/03 add cfaa logo and qrcode
+                    last_row_no += 3;
+                    string rang_logo = "B" + last_row_no.ToString() + ":D" + (last_row_no + 3).ToString();                   
+                    string img_logo = imagePath + "cfaa_logo_qr.png";
+                    worksheet.Range[rang_logo].Merge(0);//合并单元格 
+                    if (File.Exists(img_logo))
+                    {                        
+                        clsQuotation.InsertPicture(rang_logo, worksheet, img_logo);//插入logo
+                    }
+                    //--End 2024/07/03 
+
                     worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
                     if (strType == "2")
                     {
@@ -3244,7 +3117,7 @@ namespace cf01.Forms
                     xlApp.Quit();
                     GC.Collect();//强行销毁
                     // if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL  
-                    MessageBox.Show(String.Format("[{0}]匯出EXCEL成功!", txtID.Text), "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format("[{0}]匯出EXCEL成功!", txtID.Text), "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
