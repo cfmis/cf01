@@ -103,7 +103,7 @@ namespace cf01.ReportForm
                         rng = xSheet.Cells[ii, "G"]; //貨品編號 
                         goods_id = rng.get_Value();
                         //取圖樣路徑
-                        strPictrue_name = clsConErp.ExecuteSqlReturnObject(String.Format("Select dbo.Fn_get_picture_name('0000','{0}','out')", goods_id));
+                        strPictrue_name = clsConErp.ExecuteSqlReturnObject(string.Format("Select dbo.Fn_get_picture_name('0000','{0}','out')", goods_id));
                         if (File.Exists(strPictrue_name))
                         {
                             //InsertPicture("Q" + ii, xSheet, strPictrue_name);//插入圖片
