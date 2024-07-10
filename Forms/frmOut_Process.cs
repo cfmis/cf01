@@ -95,13 +95,16 @@ namespace cf01.Forms
                     {
                         if (dtPlate.Rows[i]["fl_by"].ToString() == "501") //領料人輸入為501
                         {
+                            //dtPlate.Rows[i]["flag_line"] = "";//短虛線標識
                             if (dtPlate.Rows[i]["mo_id2"].ToString() == temp_mo_id2)
                             {
-                                temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();//臨時值
+                                //dtPlate.Rows[i - 1]["flag_line"] = "";//短虛線標識                               
+                                //temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();//臨時值
                                 dtPlate.Rows[i]["mo_id2"] = "";
                             }
                             else
                             {
+                                dtPlate.Rows[i - 1]["flag_line"] = "*";//當前行的前一行長虛線標識                                
                                 temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();
                             }
                         }
@@ -121,6 +124,7 @@ namespace cf01.Forms
                         //unite_qty = int.Parse(dtPlate.Rows[i]["unite_qty"].ToString());
                     }
                 }
+                dtPlate.Rows[dtPlate.Rows.Count - 1]["flag_line"] = "*";//最后一行長虛線標識   
                 //共用報表
                 DataRow[] drs = dtPlate.Select("id2=''");
                 if (drs.Length > 0)

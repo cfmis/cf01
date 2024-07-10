@@ -177,16 +177,27 @@ namespace cf01.Reports
         private void txtfl_by_TextChanged(object sender, EventArgs e)
         {
             if (txtfl_by.Text != "501")
-            {
-                //txtMo_id1.Visible = true;
+            {               
                 txtSeq.Visible = true;
-                txtMo_id2.Visible = false;                            
+                txtMo_id2.Visible = false;
+                xrLine9.Visible = true;
+                xrLine10.Visible = false;                
             }
             else
-            {
-                //txtMo_id1.Visible = false;    
+            {                
                 txtSeq.Visible = false;
-                txtMo_id2.Visible = true;                         
+                txtMo_id2.Visible = true;
+                //控制顯示長短虛線
+                if (txtFlagLine.Text == "")
+                {
+                    xrLine9.Visible = false; //隱藏長虛線
+                    xrLine10.Visible = true; //顯示短虛線
+                }
+                else
+                {
+                    xrLine9.Visible = true; //顯示長虛線
+                    xrLine10.Visible = false; //隱藏短虛線
+                }                                
             }
         }
 
@@ -289,19 +300,49 @@ namespace cf01.Reports
                 lblActual_prod_qty.Visible = true;
                 lblActual_sec_qty.Visible = true;
                 lblActual_prod_qty_total.Visible = true;
-                lblActual_sec_qty_total.Visible = true;
-                xrLine14.Visible = true;
-                xrLine15.Visible = true;
+                lblActual_sec_qty_total.Visible = true;                
             }
             else
             {
                 lblActual_prod_qty.Visible = false;
                 lblActual_sec_qty.Visible = false;
                 lblActual_prod_qty_total.Visible = false;
-                lblActual_sec_qty_total.Visible = false;
-                xrLine14.Visible = false;
-                xrLine15.Visible = false;
+                lblActual_sec_qty_total.Visible = false;                
             }            
+        }
+
+        private void txtFlagLine_TextChanged(object sender, EventArgs e)
+        {
+            if (txtfl_by.Text != "501")
+            {                
+                xrLine9.Visible = true;
+                xrLine10.Visible = false;
+            }
+            else
+            {               
+                //控制顯示長短虛線
+                if (txtFlagLine.Text == "")
+                {
+                    xrLine9.Visible = false; //隱藏長虛線
+                    xrLine10.Visible = true; //顯示短虛線
+                }
+                else
+                {
+                    xrLine9.Visible = true; //顯示長虛線
+                    xrLine10.Visible = false; //隱藏短虛線
+                }
+            }
+        }
+
+        private void txtMo_id2_TextChanged(object sender, EventArgs e)
+        {
+            //最低消費
+            string mo_id2 = GetCurrentColumnValue("mo_id2").ToString();
+            if (string.IsNullOrEmpty(mo_id2))            
+                txtMiniCons.Visible = false;            
+            else
+                txtMiniCons.Visible = true;
+            
         }
     }
 }

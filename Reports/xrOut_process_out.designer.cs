@@ -106,21 +106,24 @@
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLine8 = new DevExpress.XtraReports.UI.XRLine();
             this.lblActual_sec_qty_total = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLine15 = new DevExpress.XtraReports.UI.XRLine();
             this.lblActual_prod_qty_total = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLine14 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine13 = new DevExpress.XtraReports.UI.XRLine();
             this.lblPackag_num_total = new DevExpress.XtraReports.UI.XRLabel();
             this.lblProd_qty_total = new DevExpress.XtraReports.UI.XRLabel();
             this.lblSec_qty_total = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLine7 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel36 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLine10 = new DevExpress.XtraReports.UI.XRLine();
+            this.txtFlagLine = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtMiniCons = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.txtMiniCons,
+            this.txtFlagLine,
+            this.xrLine10,
             this.txtSeq,
             this.xrLine9,
             this.xrPanel4,
@@ -150,7 +153,7 @@
             this.lblActual_prod_qty,
             this.txtMo_id3});
             this.Detail.Dpi = 254F;
-            this.Detail.HeightF = 185.7364F;
+            this.Detail.HeightF = 187.4674F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -225,7 +228,7 @@
             this.next_wp_id.CanGrow = false;
             this.next_wp_id.Dpi = 254F;
             this.next_wp_id.Font = new System.Drawing.Font("SimSun", 10F);
-            this.next_wp_id.LocationFloat = new DevExpress.Utils.PointFloat(95.40002F, 44.17996F);
+            this.next_wp_id.LocationFloat = new DevExpress.Utils.PointFloat(102.4F, 93.17996F);
             this.next_wp_id.Name = "next_wp_id";
             this.next_wp_id.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.next_wp_id.SizeF = new System.Drawing.SizeF(144.1048F, 44.61164F);
@@ -524,10 +527,10 @@
             this.txtMo_id1.CanGrow = false;
             this.txtMo_id1.Dpi = 254F;
             this.txtMo_id1.Font = new System.Drawing.Font("SimSun", 10F);
-            this.txtMo_id1.LocationFloat = new DevExpress.Utils.PointFloat(49.87914F, 130.0489F);
+            this.txtMo_id1.LocationFloat = new DevExpress.Utils.PointFloat(2655.044F, 105.7915F);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtMo_id1.SizeF = new System.Drawing.SizeF(189.1465F, 43.18002F);
+            this.txtMo_id1.SizeF = new System.Drawing.SizeF(64.79224F, 47.396F);
             this.txtMo_id1.StylePriority.UseFont = false;
             this.txtMo_id1.StylePriority.UseTextAlignment = false;
             this.txtMo_id1.Text = "[mo_id]";
@@ -594,6 +597,7 @@
             this.txtMo_id2.Text = "[mo_id2]";
             this.txtMo_id2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.txtMo_id2.Visible = false;
+            this.txtMo_id2.TextChanged += new System.EventHandler(this.txtMo_id2_TextChanged);
             // 
             // lblActual_prod_qty
             // 
@@ -1126,17 +1130,14 @@
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLine8,
             this.lblActual_sec_qty_total,
-            this.xrLine15,
             this.lblActual_prod_qty_total,
-            this.xrLine14,
             this.xrLine13,
             this.lblPackag_num_total,
             this.lblProd_qty_total,
             this.lblSec_qty_total,
-            this.xrLine7,
             this.xrLabel36});
             this.GroupFooter1.Dpi = 254F;
-            this.GroupFooter1.HeightF = 88.83633F;
+            this.GroupFooter1.HeightF = 88.83631F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
             // xrLine8
@@ -1165,13 +1166,6 @@
             this.lblActual_sec_qty_total.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lblActual_sec_qty_total.WordWrap = false;
             // 
-            // xrLine15
-            // 
-            this.xrLine15.Dpi = 254F;
-            this.xrLine15.LocationFloat = new DevExpress.Utils.PointFloat(1198F, 79.8F);
-            this.xrLine15.Name = "xrLine15";
-            this.xrLine15.SizeF = new System.Drawing.SizeF(367.3882F, 5F);
-            // 
             // lblActual_prod_qty_total
             // 
             this.lblActual_prod_qty_total.AnchorVertical = DevExpress.XtraReports.UI.VerticalAnchorStyles.Top;
@@ -1191,19 +1185,12 @@
             this.lblActual_prod_qty_total.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lblActual_prod_qty_total.WordWrap = false;
             // 
-            // xrLine14
-            // 
-            this.xrLine14.Dpi = 254F;
-            this.xrLine14.LocationFloat = new DevExpress.Utils.PointFloat(1198.427F, 70.3541F);
-            this.xrLine14.Name = "xrLine14";
-            this.xrLine14.SizeF = new System.Drawing.SizeF(366.2051F, 5F);
-            // 
             // xrLine13
             // 
             this.xrLine13.Dpi = 254F;
-            this.xrLine13.LocationFloat = new DevExpress.Utils.PointFloat(680.9006F, 79.52077F);
+            this.xrLine13.LocationFloat = new DevExpress.Utils.PointFloat(500.1194F, 72.52077F);
             this.xrLine13.Name = "xrLine13";
-            this.xrLine13.SizeF = new System.Drawing.SizeF(492.3882F, 5F);
+            this.xrLine13.SizeF = new System.Drawing.SizeF(1097.388F, 5F);
             // 
             // lblPackag_num_total
             // 
@@ -1263,13 +1250,6 @@
             this.lblSec_qty_total.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lblSec_qty_total.WordWrap = false;
             // 
-            // xrLine7
-            // 
-            this.xrLine7.Dpi = 254F;
-            this.xrLine7.LocationFloat = new DevExpress.Utils.PointFloat(680.9006F, 70.3541F);
-            this.xrLine7.Name = "xrLine7";
-            this.xrLine7.SizeF = new System.Drawing.SizeF(492.3882F, 5F);
-            // 
             // xrLabel36
             // 
             this.xrLabel36.CanGrow = false;
@@ -1291,6 +1271,45 @@
             this.ReportHeader.HeightF = 0F;
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.ReportHeader_BeforePrint);
+            // 
+            // xrLine10
+            // 
+            this.xrLine10.Dpi = 254F;
+            this.xrLine10.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.xrLine10.LocationFloat = new DevExpress.Utils.PointFloat(257.8041F, 182.4674F);
+            this.xrLine10.Name = "xrLine10";
+            this.xrLine10.SizeF = new System.Drawing.SizeF(2659.738F, 5F);
+            this.xrLine10.Visible = false;
+            // 
+            // txtFlagLine
+            // 
+            this.txtFlagLine.CanGrow = false;
+            this.txtFlagLine.Dpi = 254F;
+            this.txtFlagLine.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFlagLine.LocationFloat = new DevExpress.Utils.PointFloat(967.5851F, 97.48815F);
+            this.txtFlagLine.Name = "txtFlagLine";
+            this.txtFlagLine.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtFlagLine.SizeF = new System.Drawing.SizeF(154.3049F, 33.97918F);
+            this.txtFlagLine.StylePriority.UseFont = false;
+            this.txtFlagLine.Text = "[flag_line]";
+            this.txtFlagLine.Visible = false;
+            this.txtFlagLine.WordWrap = false;
+            this.txtFlagLine.TextChanged += new System.EventHandler(this.txtFlagLine_TextChanged);
+            // 
+            // txtMiniCons
+            // 
+            this.txtMiniCons.CanGrow = false;
+            this.txtMiniCons.Dpi = 254F;
+            this.txtMiniCons.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMiniCons.LocationFloat = new DevExpress.Utils.PointFloat(68.40002F, 44.79158F);
+            this.txtMiniCons.Name = "txtMiniCons";
+            this.txtMiniCons.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtMiniCons.SizeF = new System.Drawing.SizeF(171.1048F, 48.17998F);
+            this.txtMiniCons.StylePriority.UseFont = false;
+            this.txtMiniCons.StylePriority.UseTextAlignment = false;
+            this.txtMiniCons.Text = "最低消費";
+            this.txtMiniCons.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.txtMiniCons.Visible = false;
             // 
             // xrOut_process_out
             // 
@@ -1369,7 +1388,6 @@
         private DevExpress.XtraReports.UI.XRLabel lblPackag_num_total;
         private DevExpress.XtraReports.UI.XRLabel lblProd_qty_total;
         private DevExpress.XtraReports.UI.XRLabel lblSec_qty_total;
-        private DevExpress.XtraReports.UI.XRLine xrLine7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel36;
         private DevExpress.XtraReports.UI.XRLabel lblSec_price;
         private DevExpress.XtraReports.UI.XRLabel lblPrice;
@@ -1392,11 +1410,9 @@
         private DevExpress.XtraReports.UI.XRLabel lblActual_prod_qty;
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
         private DevExpress.XtraReports.UI.XRLabel lblActual_prod_qty_total;
-        private DevExpress.XtraReports.UI.XRLine xrLine14;
         private DevExpress.XtraReports.UI.XRLine xrLine13;
         private DevExpress.XtraReports.UI.XRLabel lblActual_sec_qty;
         private DevExpress.XtraReports.UI.XRLabel lblActual_sec_qty_total;
-        private DevExpress.XtraReports.UI.XRLine xrLine15;
         private DevExpress.XtraReports.UI.XRLabel xrLabel39;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRLine xrLine8;
@@ -1404,5 +1420,8 @@
         private DevExpress.XtraReports.UI.XRPanel xrPanel4;
         private DevExpress.XtraReports.UI.XRLine xrLine9;
         private DevExpress.XtraReports.UI.XRLabel txtSeq;
+        private DevExpress.XtraReports.UI.XRLine xrLine10;
+        private DevExpress.XtraReports.UI.XRLabel txtFlagLine;
+        private DevExpress.XtraReports.UI.XRLabel txtMiniCons;
     }
 }
