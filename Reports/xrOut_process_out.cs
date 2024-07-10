@@ -178,20 +178,15 @@ namespace cf01.Reports
         {
             if (txtfl_by.Text == "501")
             {
-                //string strid = xrLabel7.Text.Substring(5,7);
-                //string strrmk = GetCurrentColumnValue("process_request").ToString();
-                //if(strrmk.Length>=3)
-                //    strrmk = strrmk.Substring(0, 3);                 
-                
-                txtMo_id1.Visible = false;                
-                txtMo_id2.Visible = true;
-                txtMo_id3.Visible = true;
+                //txtMo_id1.Visible = false;    
+                txtSeq.Visible = false;
+                txtMo_id2.Visible = true;        
             }
             else
             {
-                txtMo_id1.Visible = true;
-                txtMo_id2.Visible = false;
-                txtMo_id3.Visible = false;
+                //txtMo_id1.Visible = true;
+                txtSeq.Visible = true;
+                txtMo_id2.Visible = false;                
             }
         }
 

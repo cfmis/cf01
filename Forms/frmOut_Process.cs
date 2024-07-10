@@ -93,7 +93,7 @@ namespace cf01.Forms
                 {
                     if (i > 0)
                     {
-                        if (dtPlate.Rows[i]["fl_by"].ToString() == "501")
+                        if (dtPlate.Rows[i]["fl_by"].ToString() == "501") //領料人輸入為501
                         {
                             if (dtPlate.Rows[i]["mo_id2"].ToString() == temp_mo_id2)
                             {
