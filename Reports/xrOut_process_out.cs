@@ -176,17 +176,17 @@ namespace cf01.Reports
         }
         private void txtfl_by_TextChanged(object sender, EventArgs e)
         {
-            if (txtfl_by.Text == "501")
-            {
-                //txtMo_id1.Visible = false;    
-                txtSeq.Visible = false;
-                txtMo_id2.Visible = true;        
-            }
-            else
+            if (txtfl_by.Text != "501")
             {
                 //txtMo_id1.Visible = true;
                 txtSeq.Visible = true;
-                txtMo_id2.Visible = false;                
+                txtMo_id2.Visible = false;                            
+            }
+            else
+            {
+                //txtMo_id1.Visible = false;    
+                txtSeq.Visible = false;
+                txtMo_id2.Visible = true;                         
             }
         }
 
