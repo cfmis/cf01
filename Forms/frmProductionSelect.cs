@@ -164,21 +164,31 @@ namespace cf01.Forms
             cmbProductDept.DataSource = dtPrd_dept;
             cmbProductDept.DisplayMember = "int9loc";
             cmbProductDept.ValueMember = "int9loc";
-            if(_userid.Substring(0,3)=="ALY")
+
+            DataTable dtOwnDep = dtPrd_dept.Copy();
+            cmbOwnDep.DataSource = dtOwnDep;
+            cmbOwnDep.DisplayMember = "int9loc";
+            cmbOwnDep.ValueMember = "int9loc";
+
+            if (_userid.Substring(0, 3) == "ALY")
                 cmbProductDept.Text = "302";
             else
                 if (_userid.Substring(0, 3) == "BUT")
-                    cmbProductDept.Text = "102";
-                else
+                cmbProductDept.Text = "102";
+            else
                     if (_userid.Substring(0, 3) == "BUK")
-                        cmbProductDept.Text = "202";
-                    else
+                cmbProductDept.Text = "202";
+            else
                         if (_userid.Substring(0, 3) == "PLA")
-                            cmbProductDept.Text = "501";
-                        else
+            {
+                cmbProductDept.SelectedValue = "501";
+                cmbOwnDep.SelectedValue = "501";
+            }
+
+            else
                             if (_userid.Substring(0, 3) == "BLK")
-                                cmbProductDept.Text = "105";
-            
+                cmbProductDept.Text = "105";
+
             //初始化工作類型
             cmbWorkType.DataSource = dtWork_type;
             cmbWorkType.DisplayMember = "work_type_desc";
@@ -192,11 +202,8 @@ namespace cf01.Forms
             cmbOrder_class.Text = "白班";
             dteProdcutDate.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
 
-            DataTable dtOwnDep = dtPrd_dept.Copy();
-            cmbOwnDep.DataSource = dtOwnDep;
-            cmbOwnDep.DisplayMember = "int9loc";
-            cmbOwnDep.ValueMember = "int9loc";
             
+
         }
         private void InitComBoxGroup()
         {
