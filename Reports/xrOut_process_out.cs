@@ -180,43 +180,12 @@ namespace cf01.Reports
             {               
                 txtSeq.Visible = true;
                 txtMo_id2.Visible = false;
-                xrLine9.Visible = true;
-                xrLine10.Visible = false;                
             }
             else
             {                
                 txtSeq.Visible = false;
-                txtMo_id2.Visible = true;
-                //控制顯示長短虛線
-                if (txtFlagLine.Text == "")
-                {
-                    xrLine9.Visible = false; //隱藏長虛線
-                    xrLine10.Visible = true; //顯示短虛線
-                }
-                else
-                {
-                    xrLine9.Visible = true; //顯示長虛線
-                    xrLine10.Visible = false; //隱藏短虛線
-                }                                
+                txtMo_id2.Visible = true;                                  
             }
-        }
-
-        private void xrOut_process_out_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            //if (isDisplayPrice)
-            //{
-            //    lblPrice.Visible = true;
-            //    lblSec_price.Visible = true;
-            //    lblMould_fee.Visible = true;
-            //    lblTotal_prices.Visible = true;
-            //}
-            //else
-            //{
-            //    lblPrice.Visible = false;
-            //    lblSec_price.Visible = false;
-            //    lblMould_fee.Visible = false;
-            //    lblTotal_prices.Visible = false;
-            //}
         }
 
         private void xrLabel7_TextChanged(object sender, EventArgs e)
@@ -291,49 +260,7 @@ namespace cf01.Reports
             }
             xrLabel29.Text = DateTime.Parse(strdate).Date.ToString("yyyy/MM/dd");
         }
-
-        private void lblVendor_id_TextChanged(object sender, EventArgs e)
-        {
-            //string strVendorId = GetCurrentColumnValue("vendor_id").ToString();
-            //if(!"CL-K0036,CL-K0035".Contains(strVendorId))
-            //{
-            //    lblActual_prod_qty.Visible = true;
-            //    lblActual_sec_qty.Visible = true;
-            //    lblActual_prod_qty_total.Visible = true;
-            //    lblActual_sec_qty_total.Visible = true;                
-            //}
-            //else
-            //{
-            //    lblActual_prod_qty.Visible = false;
-            //    lblActual_sec_qty.Visible = false;
-            //    lblActual_prod_qty_total.Visible = false;
-            //    lblActual_sec_qty_total.Visible = false;                
-            //}            
-        }
-
-        private void txtFlagLine_TextChanged(object sender, EventArgs e)
-        {
-            if (txtfl_by.Text != "501")
-            {                
-                xrLine9.Visible = true;
-                xrLine10.Visible = false;
-            }
-            else
-            {               
-                //控制顯示長短虛線
-                if (txtFlagLine.Text == "")
-                {
-                    xrLine9.Visible = false; //隱藏長虛線
-                    xrLine10.Visible = true; //顯示短虛線
-                }
-                else
-                {
-                    xrLine9.Visible = true; //顯示長虛線
-                    xrLine10.Visible = false; //隱藏短虛線
-                }
-            }
-        }
-
+       
         private void txtMo_id2_TextChanged(object sender, EventArgs e)
         {
             //最低消費
