@@ -34,6 +34,9 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary5 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.txtMiniCons = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtFlagLine = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine10 = new DevExpress.XtraReports.UI.XRLine();
             this.txtSeq = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine9 = new DevExpress.XtraReports.UI.XRLine();
             this.xrPanel4 = new DevExpress.XtraReports.UI.XRPanel();
@@ -113,14 +116,13 @@
             this.lblSec_qty_total = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel36 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLine10 = new DevExpress.XtraReports.UI.XRLine();
-            this.txtFlagLine = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtMiniCons = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtFlagHang = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.txtFlagHang,
             this.txtMiniCons,
             this.txtFlagLine,
             this.xrLine10,
@@ -157,6 +159,45 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // txtMiniCons
+            // 
+            this.txtMiniCons.CanGrow = false;
+            this.txtMiniCons.Dpi = 254F;
+            this.txtMiniCons.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMiniCons.LocationFloat = new DevExpress.Utils.PointFloat(68.40002F, 44.79158F);
+            this.txtMiniCons.Name = "txtMiniCons";
+            this.txtMiniCons.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtMiniCons.SizeF = new System.Drawing.SizeF(171.1048F, 48.17998F);
+            this.txtMiniCons.StylePriority.UseFont = false;
+            this.txtMiniCons.StylePriority.UseTextAlignment = false;
+            this.txtMiniCons.Text = "最低消費";
+            this.txtMiniCons.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.txtMiniCons.Visible = false;
+            // 
+            // txtFlagLine
+            // 
+            this.txtFlagLine.CanGrow = false;
+            this.txtFlagLine.Dpi = 254F;
+            this.txtFlagLine.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFlagLine.LocationFloat = new DevExpress.Utils.PointFloat(967.5851F, 97.48815F);
+            this.txtFlagLine.Name = "txtFlagLine";
+            this.txtFlagLine.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtFlagLine.SizeF = new System.Drawing.SizeF(143.7216F, 33.97918F);
+            this.txtFlagLine.StylePriority.UseFont = false;
+            this.txtFlagLine.Text = "[flag_line]";
+            this.txtFlagLine.Visible = false;
+            this.txtFlagLine.WordWrap = false;
+            this.txtFlagLine.TextChanged += new System.EventHandler(this.txtFlagLine_TextChanged);
+            // 
+            // xrLine10
+            // 
+            this.xrLine10.Dpi = 254F;
+            this.xrLine10.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.xrLine10.LocationFloat = new DevExpress.Utils.PointFloat(257.8041F, 182.4674F);
+            this.xrLine10.Name = "xrLine10";
+            this.xrLine10.SizeF = new System.Drawing.SizeF(2659.738F, 5F);
+            this.xrLine10.Visible = false;
             // 
             // txtSeq
             // 
@@ -575,7 +616,7 @@
             // 
             this.txtfl_by.CanGrow = false;
             this.txtfl_by.Dpi = 254F;
-            this.txtfl_by.LocationFloat = new DevExpress.Utils.PointFloat(667.9005F, 0F);
+            this.txtfl_by.LocationFloat = new DevExpress.Utils.PointFloat(718.1373F, 0F);
             this.txtfl_by.Name = "txtfl_by";
             this.txtfl_by.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.txtfl_by.SizeF = new System.Drawing.SizeF(84.38824F, 41.97919F);
@@ -1272,44 +1313,21 @@
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.ReportHeader_BeforePrint);
             // 
-            // xrLine10
+            // txtFlagHang
             // 
-            this.xrLine10.Dpi = 254F;
-            this.xrLine10.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            this.xrLine10.LocationFloat = new DevExpress.Utils.PointFloat(257.8041F, 182.4674F);
-            this.xrLine10.Name = "xrLine10";
-            this.xrLine10.SizeF = new System.Drawing.SizeF(2659.738F, 5F);
-            this.xrLine10.Visible = false;
-            // 
-            // txtFlagLine
-            // 
-            this.txtFlagLine.CanGrow = false;
-            this.txtFlagLine.Dpi = 254F;
-            this.txtFlagLine.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFlagLine.LocationFloat = new DevExpress.Utils.PointFloat(967.5851F, 97.48815F);
-            this.txtFlagLine.Name = "txtFlagLine";
-            this.txtFlagLine.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtFlagLine.SizeF = new System.Drawing.SizeF(154.3049F, 33.97918F);
-            this.txtFlagLine.StylePriority.UseFont = false;
-            this.txtFlagLine.Text = "[flag_line]";
-            this.txtFlagLine.Visible = false;
-            this.txtFlagLine.WordWrap = false;
-            this.txtFlagLine.TextChanged += new System.EventHandler(this.txtFlagLine_TextChanged);
-            // 
-            // txtMiniCons
-            // 
-            this.txtMiniCons.CanGrow = false;
-            this.txtMiniCons.Dpi = 254F;
-            this.txtMiniCons.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMiniCons.LocationFloat = new DevExpress.Utils.PointFloat(68.40002F, 44.79158F);
-            this.txtMiniCons.Name = "txtMiniCons";
-            this.txtMiniCons.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtMiniCons.SizeF = new System.Drawing.SizeF(171.1048F, 48.17998F);
-            this.txtMiniCons.StylePriority.UseFont = false;
-            this.txtMiniCons.StylePriority.UseTextAlignment = false;
-            this.txtMiniCons.Text = "最低消費";
-            this.txtMiniCons.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.txtMiniCons.Visible = false;
+            this.txtFlagHang.CanGrow = false;
+            this.txtFlagHang.Dpi = 254F;
+            this.txtFlagHang.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFlagHang.LocationFloat = new DevExpress.Utils.PointFloat(596.2457F, 3.910065E-05F);
+            this.txtFlagHang.Name = "txtFlagHang";
+            this.txtFlagHang.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtFlagHang.SizeF = new System.Drawing.SizeF(104.0507F, 42.97917F);
+            this.txtFlagHang.StylePriority.UseFont = false;
+            this.txtFlagHang.StylePriority.UseTextAlignment = false;
+            this.txtFlagHang.Text = "[flag_hang_plate]";
+            this.txtFlagHang.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.txtFlagHang.WordWrap = false;
+            this.txtFlagHang.TextChanged += new System.EventHandler(this.txtFlagHang_TextChanged);
             // 
             // xrOut_process_out
             // 
@@ -1423,5 +1441,6 @@
         private DevExpress.XtraReports.UI.XRLine xrLine10;
         private DevExpress.XtraReports.UI.XRLabel txtFlagLine;
         private DevExpress.XtraReports.UI.XRLabel txtMiniCons;
+        private DevExpress.XtraReports.UI.XRLabel txtFlagHang;
     }
 }

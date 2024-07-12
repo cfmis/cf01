@@ -294,21 +294,21 @@ namespace cf01.Reports
 
         private void lblVendor_id_TextChanged(object sender, EventArgs e)
         {
-            string strVendorId = GetCurrentColumnValue("vendor_id").ToString();
-            if(!"CL-K0036,CL-K0035".Contains(strVendorId))
-            {
-                lblActual_prod_qty.Visible = true;
-                lblActual_sec_qty.Visible = true;
-                lblActual_prod_qty_total.Visible = true;
-                lblActual_sec_qty_total.Visible = true;                
-            }
-            else
-            {
-                lblActual_prod_qty.Visible = false;
-                lblActual_sec_qty.Visible = false;
-                lblActual_prod_qty_total.Visible = false;
-                lblActual_sec_qty_total.Visible = false;                
-            }            
+            //string strVendorId = GetCurrentColumnValue("vendor_id").ToString();
+            //if(!"CL-K0036,CL-K0035".Contains(strVendorId))
+            //{
+            //    lblActual_prod_qty.Visible = true;
+            //    lblActual_sec_qty.Visible = true;
+            //    lblActual_prod_qty_total.Visible = true;
+            //    lblActual_sec_qty_total.Visible = true;                
+            //}
+            //else
+            //{
+            //    lblActual_prod_qty.Visible = false;
+            //    lblActual_sec_qty.Visible = false;
+            //    lblActual_prod_qty_total.Visible = false;
+            //    lblActual_sec_qty_total.Visible = false;                
+            //}            
         }
 
         private void txtFlagLine_TextChanged(object sender, EventArgs e)
@@ -343,6 +343,42 @@ namespace cf01.Reports
             else
                 txtMiniCons.Visible = true;
             
+        }
+
+        private void txtFlagHang_TextChanged(object sender, EventArgs e)
+        {
+            string flag_hang = GetCurrentColumnValue("flag_hang_plate").ToString();
+            string vend_id = GetCurrentColumnValue("vendor_id").ToString();
+            if (flag_hang != "H")
+            {
+                //非掛電隱藏
+                txtFlagHang.Text = "";
+                lblActual_prod_qty.Visible = false;
+                lblActual_sec_qty.Visible = false;
+                lblActual_prod_qty_total.Visible = false;
+                lblActual_sec_qty_total.Visible = false;
+            }
+            else
+            {
+                //掛電
+                if (!"CL-K0036,CL-K0035".Contains(vend_id))
+                {
+                    txtFlagHang.Text = "**";
+                    lblActual_prod_qty.Visible = true;
+                    lblActual_sec_qty.Visible = true;
+                    lblActual_prod_qty_total.Visible = true;
+                    lblActual_sec_qty_total.Visible = true;
+                }
+                else
+                {
+                    //掛電但是CL-K0036,CL-K0035的要隱藏
+                    txtFlagHang.Text = "";
+                    lblActual_prod_qty.Visible = false;
+                    lblActual_sec_qty.Visible = false;
+                    lblActual_prod_qty_total.Visible = false;
+                    lblActual_sec_qty_total.Visible = false;
+                }
+            }           
         }
     }
 }
