@@ -1538,6 +1538,8 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "price_vnd", dtPriceDisc.Rows[j]["price_vnd"].ToString());
                         gridView1.SetRowCellValue(cur_row, "price_vnd_grs", dtPriceDisc.Rows[j]["price_vnd_grs"].ToString());
                         gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", dtPriceDisc.Rows[j]["price_vnd_pcs"].ToString());
+                        gridView1.SetRowCellValue(cur_row, "moq", dtPriceDisc.Rows[j]["moq_qty"].ToString());
+                        gridView1.SetRowCellValue(cur_row, "moq_unit", "PCS");
                         break;//只更新選中的第一條
                     }
                 }
@@ -3489,10 +3491,11 @@ namespace cf01.Forms
             {
                 string ls_cust_code = dtFind.Rows[li_currentRow]["cust_code"].ToString();
                 string ls_cust_color = dtFind.Rows[li_currentRow]["cust_color"].ToString();
+                ls_cust_color = ls_cust_color.Replace("'", " ");//處理條件中因包含單引號'引起異常情況,等式兩邊都要處理.2024/07/17
                 string ls_sql = string.Format(
                     @"Select Top 1 Isnull(test_report_path,'') as test_report_path 
                 From dbo.bs_test_excel with(nolock) 
-                Where trim_code='{0}' and finish_name='{1}'", ls_cust_code, ls_cust_color);
+                Where trim_code='{0}' and REPLACE(ISNULL(finish_name,''),'''',' ')='{1}'", ls_cust_code, ls_cust_color);
                 lblTestReportPath.Text = clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql);
             }
         }
