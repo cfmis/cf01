@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGetOcData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBrand_id1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -85,6 +85,7 @@
             this.unit_price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.total_sum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.it_customer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.seller_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSeller_id = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
@@ -92,7 +93,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lueCust1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lblCustcode = new System.Windows.Forms.Label();
-            this.seller_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.contract_cid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.merchandiser = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
@@ -337,8 +339,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -349,8 +351,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -361,8 +363,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -504,6 +506,7 @@
             this.rms,
             this.hw_subtype,
             this.mo_id,
+            this.contract_cid,
             this.customer_goods,
             this.customer_goods_name,
             this.customer_color_id,
@@ -511,6 +514,7 @@
             this.unit_price,
             this.total_sum,
             this.it_customer,
+            this.merchandiser,
             this.seller_id});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -644,7 +648,7 @@
             // 
             // customer_goods
             // 
-            this.customer_goods.Caption = "KS HW item#";
+            this.customer_goods.Caption = "HW item#";
             this.customer_goods.FieldName = "customer_goods";
             this.customer_goods.Name = "customer_goods";
             this.customer_goods.OptionsColumn.AllowMove = false;
@@ -655,7 +659,7 @@
             this.customer_goods.OptionsFilter.AllowFilter = false;
             this.customer_goods.Tag = "2";
             this.customer_goods.Visible = true;
-            this.customer_goods.VisibleIndex = 8;
+            this.customer_goods.VisibleIndex = 9;
             this.customer_goods.Width = 120;
             // 
             // customer_goods_name
@@ -670,7 +674,7 @@
             this.customer_goods_name.OptionsFilter.AllowAutoFilter = false;
             this.customer_goods_name.OptionsFilter.AllowFilter = false;
             this.customer_goods_name.Visible = true;
-            this.customer_goods_name.VisibleIndex = 9;
+            this.customer_goods_name.VisibleIndex = 10;
             this.customer_goods_name.Width = 150;
             // 
             // customer_color_id
@@ -685,7 +689,7 @@
             this.customer_color_id.OptionsFilter.AllowAutoFilter = false;
             this.customer_color_id.OptionsFilter.AllowFilter = false;
             this.customer_color_id.Visible = true;
-            this.customer_color_id.VisibleIndex = 10;
+            this.customer_color_id.VisibleIndex = 11;
             this.customer_color_id.Width = 74;
             // 
             // order_qty
@@ -703,7 +707,7 @@
             this.order_qty.OptionsFilter.AllowFilter = false;
             this.order_qty.Tag = "2";
             this.order_qty.Visible = true;
-            this.order_qty.VisibleIndex = 11;
+            this.order_qty.VisibleIndex = 12;
             this.order_qty.Width = 110;
             // 
             // unit_price
@@ -721,7 +725,7 @@
             this.unit_price.OptionsFilter.AllowFilter = false;
             this.unit_price.Tag = "2";
             this.unit_price.Visible = true;
-            this.unit_price.VisibleIndex = 12;
+            this.unit_price.VisibleIndex = 13;
             this.unit_price.Width = 90;
             // 
             // total_sum
@@ -738,7 +742,7 @@
             this.total_sum.OptionsFilter.AllowAutoFilter = false;
             this.total_sum.OptionsFilter.AllowFilter = false;
             this.total_sum.Visible = true;
-            this.total_sum.VisibleIndex = 13;
+            this.total_sum.VisibleIndex = 14;
             this.total_sum.Width = 131;
             // 
             // it_customer
@@ -755,7 +759,23 @@
             this.it_customer.OptionsFilter.AllowAutoFilter = false;
             this.it_customer.OptionsFilter.AllowFilter = false;
             this.it_customer.Visible = true;
-            this.it_customer.VisibleIndex = 14;
+            this.it_customer.VisibleIndex = 15;
+            // 
+            // seller_id
+            // 
+            this.seller_id.Caption = "Seller Id";
+            this.seller_id.FieldName = "seller_id";
+            this.seller_id.Name = "seller_id";
+            this.seller_id.OptionsColumn.AllowEdit = false;
+            this.seller_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.seller_id.OptionsColumn.AllowMove = false;
+            this.seller_id.OptionsColumn.AllowSize = false;
+            this.seller_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.seller_id.OptionsColumn.ReadOnly = true;
+            this.seller_id.OptionsFilter.AllowAutoFilter = false;
+            this.seller_id.OptionsFilter.AllowFilter = false;
+            this.seller_id.Visible = true;
+            this.seller_id.VisibleIndex = 17;
             // 
             // panel1
             // 
@@ -862,21 +882,39 @@
             this.lblCustcode.Text = "客戶編號";
             this.lblCustcode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // seller_id
+            // contract_cid
             // 
-            this.seller_id.Caption = "Seller Id";
-            this.seller_id.FieldName = "seller_id";
-            this.seller_id.Name = "seller_id";
-            this.seller_id.OptionsColumn.AllowEdit = false;
-            this.seller_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.seller_id.OptionsColumn.AllowMove = false;
-            this.seller_id.OptionsColumn.AllowSize = false;
-            this.seller_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.seller_id.OptionsColumn.ReadOnly = true;
-            this.seller_id.OptionsFilter.AllowAutoFilter = false;
-            this.seller_id.OptionsFilter.AllowFilter = false;
-            this.seller_id.Visible = true;
-            this.seller_id.VisibleIndex = 15;
+            this.contract_cid.Caption = "PO#";
+            this.contract_cid.FieldName = "contract_cid";
+            this.contract_cid.Name = "contract_cid";
+            this.contract_cid.OptionsColumn.AllowEdit = false;
+            this.contract_cid.OptionsColumn.AllowMove = false;
+            this.contract_cid.OptionsColumn.AllowShowHide = false;
+            this.contract_cid.OptionsColumn.AllowSize = false;
+            this.contract_cid.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.contract_cid.OptionsColumn.ReadOnly = true;
+            this.contract_cid.OptionsFilter.AllowAutoFilter = false;
+            this.contract_cid.OptionsFilter.AllowFilter = false;
+            this.contract_cid.Visible = true;
+            this.contract_cid.VisibleIndex = 8;
+            this.contract_cid.Width = 110;
+            // 
+            // merchandiser
+            // 
+            this.merchandiser.Caption = "Coordinator ID";
+            this.merchandiser.FieldName = "merchandiser";
+            this.merchandiser.Name = "merchandiser";
+            this.merchandiser.OptionsColumn.AllowEdit = false;
+            this.merchandiser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.merchandiser.OptionsColumn.AllowMove = false;
+            this.merchandiser.OptionsColumn.AllowShowHide = false;
+            this.merchandiser.OptionsColumn.AllowSize = false;
+            this.merchandiser.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.merchandiser.OptionsColumn.ReadOnly = true;
+            this.merchandiser.OptionsFilter.AllowAutoFilter = false;
+            this.merchandiser.OptionsFilter.AllowFilter = false;
+            this.merchandiser.Visible = true;
+            this.merchandiser.VisibleIndex = 16;
             // 
             // frmGetOcData
             // 
@@ -975,5 +1013,7 @@
         private DevExpress.XtraEditors.TextEdit txtSeller_id;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraGrid.Columns.GridColumn seller_id;
+        private DevExpress.XtraGrid.Columns.GridColumn contract_cid;
+        private DevExpress.XtraGrid.Columns.GridColumn merchandiser;
     }
 }

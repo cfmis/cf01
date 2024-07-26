@@ -286,6 +286,7 @@
     <Compile Include="CLS\clsQueryValue.cs" />
     <Compile Include="CLS\clsQuotation.cs" />
     <Compile Include="CLS\clsQuotationMoq.cs" />
+    <Compile Include="CLS\clsQuotationSample.cs" />
     <Compile Include="CLS\clsRoleManage.cs" />
     <Compile Include="CLS\clsBs_Sale.cs" />
     <Compile Include="CLS\clsSales_group.cs" />
@@ -731,6 +732,18 @@
     </Compile>
     <Compile Include="Forms\frmQuotationPlate.designer.cs">
       <DependentUpon>frmQuotationPlate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmQuotationSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuotationSample.Designer.cs">
+      <DependentUpon>frmQuotationSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmQuotationSampleAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuotationSampleAdd.Designer.cs">
+      <DependentUpon>frmQuotationSampleAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmQuotation_LabTest.cs">
       <SubType>Form</SubType>
@@ -3036,6 +3049,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQuotationPlate.resx">
       <DependentUpon>frmQuotationPlate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuotationSample.resx">
+      <DependentUpon>frmQuotationSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuotationSampleAdd.resx">
+      <DependentUpon>frmQuotationSampleAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQuotation_LabTest.resx">
       <DependentUpon>frmQuotation_LabTest.cs</DependentUpon>

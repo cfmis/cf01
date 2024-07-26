@@ -254,14 +254,14 @@ namespace cf01.Forms
             //當PDD備註隱藏時重新調整表格位置以顯示更多內容
             if (!is_group_pdd)
             {
-                pnlHeard.Height = 400;
+                pnlHead.Height = 400;
                 this.tabControl1.Location = new System.Drawing.Point(-3, 440);
                 Screen screen = Screen.PrimaryScreen;
                 int screen_width = screen.Bounds.Width;
                 int screen_height = screen.Bounds.Height;
-                this.pnlHeard.Width = screen_width - 10;
+                this.pnlHead.Width = screen_width - 10;
                 this.tabControl1.Width = screen_width - 2;
-                this.tabControl1.Height = screen_height - (pnlHeard.Height + toolStrip1.Height + 115);
+                this.tabControl1.Height = screen_height - (pnlHead.Height + toolStrip1.Height + 115);
             }
         }
 
@@ -528,7 +528,7 @@ namespace cf01.Forms
                     //if (curent_row > 0)
                     if(dtDetail.Rows.Count>0)
                     {
-                        //定行到當前行(注意指定的當前列不可以隱藏的)
+                        //定位到當前行(注意指定的當前列不可以隱藏的)
                         dgvDetails.CurrentCell = dgvDetails.Rows[curent_row].Cells[2]; //设置当前单元格
                         dgvDetails.Rows[curent_row].Selected = true; //選中整行
                         
@@ -632,8 +632,8 @@ namespace cf01.Forms
             
             txtSales_group.Focus();
             SetButtonSatus(false);
-            SetObjValue.SetEditBackColor(pnlHeard.Controls, true);
-            SetObjValue.ClearObjValue(pnlHeard.Controls, "1");
+            SetObjValue.SetEditBackColor(pnlHead.Controls, true);
+            SetObjValue.ClearObjValue(pnlHead.Controls, "1");
             chkSelectAll.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             txtTemp_code.Properties.ReadOnly = true;
             txtTemp_code.BackColor = System.Drawing.Color.White;
@@ -672,7 +672,7 @@ namespace cf01.Forms
             SetResetID();
 
             SetButtonSatus(false);
-            SetObjValue.SetEditBackColor(pnlHeard.Controls, true);
+            SetObjValue.SetEditBackColor(pnlHead.Controls, true);
             tabPage2.Parent = null;
             dgvDetails.Enabled = false;
             editState= "EDIT";            
@@ -693,7 +693,7 @@ namespace cf01.Forms
         {
             bds1.CancelEdit();
             SetButtonSatus(true);            
-            SetObjValue.SetEditBackColor(pnlHeard.Controls, false);
+            SetObjValue.SetEditBackColor(pnlHead.Controls, false);
             chkSelectAll.Enabled = true;
             txtID.Properties.ReadOnly = false;
             txtID.Enabled = true;
@@ -1029,7 +1029,7 @@ namespace cf01.Forms
                 }
             }
             SetButtonSatus(true);
-            SetObjValue.SetEditBackColor(pnlHeard.Controls, false);
+            SetObjValue.SetEditBackColor(pnlHead.Controls, false);
             chkSelectAll.Enabled = true;
             dgvDetails.Enabled = true;
             Init_Column_isEnable();           
