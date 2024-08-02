@@ -408,7 +408,7 @@ namespace cf01.CLS
 
                     //if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL  
                     //if (System.IO.File.Exists(FileName)) System.Diagnostics.Process.Start(FileName); //打开EXCEL  
-                    // MessageBox.Show(string.Format("匯出EXCEL成功!【{0}】", FileName), "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format("匯出EXCEL成功!【{0}】", FileName), "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
