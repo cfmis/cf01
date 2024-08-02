@@ -745,6 +745,18 @@
     <Compile Include="Forms\frmQuotationSampleAdd.Designer.cs">
       <DependentUpon>frmQuotationSampleAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmQuotationSampleFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuotationSampleFind.Designer.cs">
+      <DependentUpon>frmQuotationSampleFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmQuotationSamplePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuotationSamplePrice.designer.cs">
+      <DependentUpon>frmQuotationSamplePrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmQuotation_LabTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3055,6 +3067,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQuotationSampleAdd.resx">
       <DependentUpon>frmQuotationSampleAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuotationSampleFind.resx">
+      <DependentUpon>frmQuotationSampleFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuotationSamplePrice.resx">
+      <DependentUpon>frmQuotationSamplePrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQuotation_LabTest.resx">
       <DependentUpon>frmQuotation_LabTest.cs</DependentUpon>

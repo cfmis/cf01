@@ -1,4 +1,5 @@
 ﻿using cf01.CLS;
+using cf01.MDL;
 using cf01.ModuleClass;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace cf01.Forms
         public frmQuotationSample()
         {
             InitializeComponent();
-            dtDetail = clsQuotationSample.GetEmptyStrutre();//空的表結構
+            dtDetail = clsQuotationSample.GetEmptyStrutre();
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;            
         }
@@ -58,8 +59,10 @@ namespace cf01.Forms
                 dtTemp = dtDetail.Copy();//還原之用.
                 if (frmAdd.insertType == "Bottom")
                 {
-                    //相當于新的記錄,直接添加至文件尾
+                    //相當于新的記錄,直接添加至文件尾                    
+                    string before_clr = GetBeforeAddBgColorValue();
                     AddNew();
+                    txtBgColor.Text = (before_clr == "0") ? "1" : "0"; 
                 }
                 else
                 {
@@ -122,12 +125,15 @@ namespace cf01.Forms
                     txtSeq_id.BackColor = System.Drawing.Color.White;
                     txtArtwork_path.Properties.ReadOnly = true;
                     txtArtwork_path.BackColor = System.Drawing.Color.White;
+                    txtID.Properties.ReadOnly = true;
+                    txtID.BackColor = System.Drawing.Color.White;
                     //--end
                 }
             }
             else
-            {
+            {                
                 AddNew();
+                txtBgColor.Text = "0";
             }
         }
 
@@ -147,33 +153,27 @@ namespace cf01.Forms
             dtDetail = dtTemp.Copy();
             bds1.DataSource = dtDetail;
             SetButtonSatus(true);
-            SetObjValue.SetEditBackColor(pnlHead.Controls, false);            
-            txtID.Properties.ReadOnly = false;
-            txtID.Enabled = true;
+            SetObjValue.SetEditBackColor(pnlHead.Controls, false);
+            this.SetObjReadOnly();
             dgvDetails.Enabled = true;          
-            editState = "";
-            //editStateCopy = "";
+            editState = "";           
         }
 
         private void BTNDELETE_Click(object sender, EventArgs e)
         {
-
+            Delete();
         }
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {
-
+            Find();
         }
 
-        private void BTNEXCEL_ART_Click(object sender, EventArgs e)
+        private void BTNEXCELART_Click(object sender, EventArgs e)
         {
-          
+           clsQuotationSample.ExportToExcel(dgvDetails);           
         }
 
-        private void BTNNEWCOPY_Click(object sender, EventArgs e)
-        {
-
-        }
         private void SetDataBindings()
         {
             txtID.DataBindings.Add("Text", bds1, "id");
@@ -205,30 +205,28 @@ namespace cf01.Forms
             txtCreate_date.DataBindings.Add("Text", bds1, "create_date");
             txtUpdate_by.DataBindings.Add("Text", bds1, "update_by");
             txtUpdate_date.DataBindings.Add("Text", bds1, "update_date");
-            txtRow_flag.DataBindings.Add("Text", bds1, "row_flag");            
+            txtRow_flag.DataBindings.Add("Text", bds1, "row_flag");
+            txtBgColor.DataBindings.Add("Text", bds1, "bgcolor");
+            txtRs.DataBindings.Add("Text", bds1, "rs");
+            txtRow_height.DataBindings.Add("Text", bds1, "row_height");
         }
 
         private void AddNew()  //新增
         {
             SetResetID();
             editState = "NEW";
-            bds1.AddNew();
-           
+            bds1.AddNew();           
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(pnlHead.Controls, true);
-            SetObjValue.ClearObjValue(pnlHead.Controls, "1");          
-            txtSeq_id.Properties.ReadOnly = true;
-            txtSeq_id.BackColor = System.Drawing.Color.White;
-            txtArtwork_path.Properties.ReadOnly = true;
-            txtArtwork_path.BackColor = System.Drawing.Color.White;
-
+            SetObjValue.ClearObjValue(pnlHead.Controls, "1");
+            this.SetObjReadOnly();
             dgvDetails.Enabled = false;
             txtInput_date.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);            
             txtCreate_by.Text = DBUtility._user_id;
             txtCreate_date.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
             txtPrice_unit.EditValue = "PCS";            
             txtSerial_no.Text = clsQuotationSample.GetSerialNo();
-            txtSeq_id.Text = "01";            
+            txtSeq_id.Text = "01";
         }
 
         private void Edit()  //編號
@@ -240,14 +238,22 @@ namespace cf01.Forms
             SetResetID();
             dtTemp = dtDetail.Copy();
             SetButtonSatus(false);
-            SetObjValue.SetEditBackColor(pnlHead.Controls, true);
-          
+            SetObjValue.SetEditBackColor(pnlHead.Controls, true);          
             dgvDetails.Enabled = false;//禁止修改
             editState = "EDIT";
-            txtSeq_id.Properties.ReadOnly = true;            
+            this.SetObjReadOnly();
+        }
+
+        private void SetObjReadOnly()
+        {
+            txtSeq_id.Properties.ReadOnly = true;
             txtSeq_id.BackColor = System.Drawing.Color.White;
             txtArtwork_path.Properties.ReadOnly = true;
             txtArtwork_path.BackColor = System.Drawing.Color.White;
+            txtID.Properties.ReadOnly = true;
+            txtID.BackColor = System.Drawing.Color.White;
+            txtSerial_no.Properties.ReadOnly = true;
+            txtSerial_no.BackColor = System.Drawing.Color.White;
         }
 
         //取消還原到原始記錄位置,要用到pID進行定位
@@ -266,11 +272,11 @@ namespace cf01.Forms
             BTNEDIT.Enabled = _flag;           
             BTNDELETE.Enabled = _flag;
             BTNFIND.Enabled = _flag;
-            BTNEXCEL_ART.Enabled = _flag;
-            BTNNEWCOPY.Enabled = _flag;
-           
+            BTNEXCELART.Enabled = _flag;
+            BTNPRICE.Enabled = _flag;
+                     
             BTNSAVE.Enabled = !_flag;
-            BTNCANCEL.Enabled = !_flag;   
+            BTNCANCEL.Enabled = !_flag;
 
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
@@ -319,8 +325,7 @@ namespace cf01.Forms
             using (SqlCommand myCommand = new SqlCommand() { Connection = myCon, Transaction = myTrans })
             {
                 try
-                {
-                    //分兩個循環先更新修改的,否則會出現序號沖突
+                {                   
                     // for (int i = 0; i < dgvDetails.RowCount; i++)
                     for (int i = 0; i < dtDetail.Rows.Count; i++)
                     {
@@ -364,11 +369,11 @@ namespace cf01.Forms
                             myCommand.ExecuteNonQuery();
                         }
                     }
-                    myTrans.Commit(); //數據提交  
+                    myTrans.Commit(); //數據提交
                     save_flag = true;
                     SetCurrentRowFocus();//定位到當前行
                     //獲取新增的ID號
-                    string sql_f = "";
+                    string sql_f = ""; 
                     DataTable dt = new DataTable();
                     for (int i = 0; i < dtDetail.Rows.Count; i++)
                     {
@@ -389,8 +394,28 @@ namespace cf01.Forms
                                 dtDetail.Rows[i]["update_by"] = dt.Rows[0]["create_by"].ToString();
                                 dtDetail.Rows[i]["update_date"] = DateTime.Parse(dt.Rows[0]["create_date"].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
                             }
+                            sql_f = string.Format(@"Select serial_no,COUNT(*) As rs 
+                            From quotation_sample Where serial_no= '{0}'
+                            GROUP BY serial_no", dtDetail.Rows[i]["serial_no"].ToString());
                         }
-                    }                    
+                    }
+                    sql_f = "Select serial_no,COUNT(*) As rs From quotation_sample GROUP BY serial_no";
+                    DataTable dtCounts = clsPublicOfCF01.GetDataTable(sql_f);
+                    string serialNo = "";
+                    DataRow[] ary_drs;
+                    for (int i = 0; i < dtDetail.Rows.Count; i++)
+                    {
+                        serialNo = dtDetail.Rows[i]["serial_no"].ToString();
+                        dtCounts.Select();
+                        ary_drs = dtCounts.Select(string.Format("serial_no='{0}'", serialNo));
+                        if (ary_drs.Length > 0)
+                        {
+                            if(dtDetail.Rows[i]["rs"].ToString() != ary_drs[0]["rs"].ToString())
+                            {
+                                dtDetail.Rows[i]["rs"] = int.Parse(ary_drs[0]["rs"].ToString());
+                            }
+                        }
+                    }
                     dtDetail.AcceptChanges(); //清除新增或修改的狀態                    
                 }
                 catch (Exception E)
@@ -407,7 +432,8 @@ namespace cf01.Forms
                 }
             }
             SetButtonSatus(true);
-            SetObjValue.SetEditBackColor(pnlHead.Controls, false);            
+            SetObjValue.SetEditBackColor(pnlHead.Controls, false);
+            this.SetObjReadOnly();
             dgvDetails.Enabled = true;
             if (save_flag)
             {
@@ -472,9 +498,11 @@ namespace cf01.Forms
         {
             if (!string.IsNullOrEmpty(artwork_full_path))
             {        
-                pic_artwork.Image = null;
+                //pic_artwork.Image = null;
                 pic_artwork.Image = File.Exists(artwork_full_path) ? Image.FromFile(artwork_full_path) : null;
             }
+            else
+                pic_artwork.Image = null;
         }
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
@@ -492,5 +520,138 @@ namespace cf01.Forms
                 txtEx_fty_usd.Select(1, 0);
             }
         }
+
+        private void Delete() //刪除當前行
+        {
+            if (dgvDetails.RowCount == 0 && String.IsNullOrEmpty(txtID.Text))
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show(myMsg.msgIsDelete, myMsg.msgTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+               string rtn = clsQuotationSample.Delete(Int32.Parse(txtID.Text));
+               if(rtn == "")
+                {
+                    dgvDetails.Rows.Remove(dgvDetails.CurrentRow);//移走當前行
+                    string sql_f = "Select serial_no,COUNT(*) As rs From quotation_sample GROUP BY serial_no";
+                    DataTable dtCounts = clsPublicOfCF01.GetDataTable(sql_f);
+                    string serialNo = "";
+                    DataRow[] ary_drs;
+                    for (int i = 0; i < dtDetail.Rows.Count; i++)
+                    {
+                        serialNo = dtDetail.Rows[i]["serial_no"].ToString();
+                        dtCounts.Select();
+                        ary_drs = dtCounts.Select(string.Format("serial_no='{0}'", serialNo));
+                        if (ary_drs.Length > 0)
+                        {
+                            if (dtDetail.Rows[i]["rs"].ToString() != ary_drs[0]["rs"].ToString())
+                            {
+                                dtDetail.Rows[i]["rs"] = int.Parse(ary_drs[0]["rs"].ToString());
+                            }
+                        }
+                    }                 
+                    MessageBox.Show("數據已刪除!", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dtDetail.AcceptChanges(); //清除新增或修改的狀態  
+                }
+            }
+        }
+
+        private void Find()
+        {
+            frmQuotationSampleFind frm = new frmQuotationSampleFind();
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                dtDetail = frm.dtFind;
+
+                if (dtDetail.Rows.Count > 0)
+                {
+                    dtDetail = clsQuotationSample.SetGridDataBackgroudColor(dtDetail);                    
+                }
+                //dtDetail.AcceptChanges();//恢復正常的Rowstate狀態,否則按編輯按鈕時表格背景色會亂
+                bds1.DataSource = dtDetail;
+                dgvDetails.DataSource = bds1;
+            }
+        }
+
+        private void SetGridDataBackgroudColor(DataTable dt)
+        {
+            if (dtDetail.Rows.Count > 0)
+            {
+                string serial_no = dtDetail.Rows[0]["serial_no"].ToString();
+                string bgcolor = dtDetail.Rows[0]["bgcolor"].ToString();
+                for (int i = 0; i < dtDetail.Rows.Count; i++)
+                {
+                    if (serial_no != dtDetail.Rows[i]["serial_no"].ToString())//組改變時
+                    {
+                        if (bgcolor == "0")
+                        {
+                            dtDetail.Rows[i]["bgcolor"] = "1";
+                            bgcolor = "1";
+                        }
+                        else
+                        {
+                            dtDetail.Rows[i]["bgcolor"] = "0";
+                        }
+                    }
+                    else
+                    {
+                        dtDetail.Rows[i]["bgcolor"] = bgcolor;
+                    }
+                    serial_no = dtDetail.Rows[i]["serial_no"].ToString();
+                }
+            }
+            dtDetail.AcceptChanges();//恢復正常的Rowstate狀態,否則按編輯按鈕時表格背景色會亂
+        }
+
+        private string GetBeforeAddBgColorValue()
+        {
+            string before_add_value = "0";
+            if (dgvDetails.Rows.Count > 0)
+            {
+                int i = dgvDetails.Rows.Count - 1;
+                before_add_value = dgvDetails.Rows[i].Cells["bgcolor"].Value.ToString();
+            }
+            else
+            {
+                before_add_value = dgvDetails.Rows[0].Cells["bgcolor"].Value.ToString();
+            }           
+            return before_add_value;
+        }
+
+        private void BTNPRICE_Click(object sender, EventArgs e)
+        {
+            if (dtDetail.Rows.Count == 0)
+            {
+                return;
+            }
+            if(editState !="")
+            {
+                return;
+            }
+            mdlQuotationSample mdl = new mdlQuotationSample()
+            {                
+                season = txtSeason.Text,
+                plm_code = txtPlm_code.Text,
+                cf_code = txtCf_code.Text,
+                material = txtMaterial.Text,
+                size = txtSize.Text,
+                macys_color_code = txtMacys_color_code.Text,
+                mo_id = txtMo_id.Text,
+                cf_color_code = txtCf_color_code.Text,
+                create_by = "",
+                create_date = ""
+            };
+            frmQuotationSamplePrice frm = new frmQuotationSamplePrice(mdl);
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                this.Edit();
+                txtEx_fty_usd.EditValue = frm.usd_ex_fty;
+                txtPrice_unit.EditValue = "PCS";
+                txtMoq_pcs.EditValue = frm.moq_pcs;               
+            }
+        }
+        
+
     }
 }

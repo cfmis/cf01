@@ -126,4 +126,20 @@ namespace cf01.MDL
         public string flag_Old_Record;
     }
 
+    public class mdlQuotationSample
+    {
+        public string input_date;
+        public string season;
+        public string plm_code;
+        public string cf_code;
+        public string material;
+        public string size;
+        public string macys_color_code;
+        public string mo_id;      
+        public string cf_color_code;
+        public string create_by; 
+        public string create_date;
+        public string input_date2;
+        public string create_date2;
+    }
 }
