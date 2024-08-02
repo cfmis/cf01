@@ -209,6 +209,7 @@ namespace cf01.Forms
             txtBgColor.DataBindings.Add("Text", bds1, "bgcolor");
             txtRs.DataBindings.Add("Text", bds1, "rs");
             txtRow_height.DataBindings.Add("Text", bds1, "row_height");
+            txtStatus.DataBindings.Add("EditValue", bds1, "status");
         }
 
         private void AddNew()  //新增
@@ -307,17 +308,17 @@ namespace cf01.Forms
             string sql_i =
             @"INSERT INTO quotation_sample(serial_no,input_date,season,plm_code,artwork_path,cf_code,product_desc,material,size,seq_id,macys_color_code,mo_id,
             ready_date,cf_color_code,ex_fty_usd,ex_fty_usd_new,price_unit,moq_pcs,surcharge,md_charge,art_approved_by,submission_date,
-            sample_approved_date,remark,create_by,create_date)
+            sample_approved_date,remark,create_by,create_date,status)
             VALUES(@serial_no,@input_date,@season,@plm_code,@artwork_path,@cf_code,@product_desc,@material,@size,@seq_id,@macys_color_code,@mo_id,
             @ready_date,@cf_color_code,@ex_fty_usd,@ex_fty_usd_new,@price_unit,@moq_pcs,@surcharge,@md_charge,@art_approved_by,
-            CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,@sample_approved_date,@remark,@user_id,getdate())";
+            CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,@sample_approved_date,@remark,@user_id,getdate(),@status)";
             string sql_u =
             @"UPDATE quotation_sample 
             SET serial_no=@serial_no,input_date=@input_date,season=@season,plm_code=@plm_code,artwork_path=@artwork_path,cf_code=@cf_code,product_desc=@product_desc,
             material=@material,size=@size,seq_id=@seq_id,macys_color_code=@macys_color_code,mo_id=@mo_id,ready_date=@ready_date,cf_color_code=@cf_color_code,
             ex_fty_usd=@ex_fty_usd,ex_fty_usd_new=@ex_fty_usd_new,price_unit=@price_unit,moq_pcs=@moq_pcs,surcharge=@surcharge,md_charge=@md_charge,
             art_approved_by=@art_approved_by,submission_date=CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,sample_approved_date=@sample_approved_date,
-            remark=@remark,update_by=@user_id,update_date=getdate()
+            remark=@remark,update_by=@user_id,update_date=getdate(),status=@status
             WHERE id=@id";            
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             myCon.Open();
@@ -366,6 +367,7 @@ namespace cf01.Forms
                             myCommand.Parameters.AddWithValue("@sample_approved_date", dtDetail.Rows[i]["sample_approved_date"].ToString());
                             myCommand.Parameters.AddWithValue("@remark", dtDetail.Rows[i]["remark"].ToString());
                             myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
+                            myCommand.Parameters.AddWithValue("@status", dtDetail.Rows[i]["status"].ToString());                            
                             myCommand.ExecuteNonQuery();
                         }
                     }
@@ -435,6 +437,7 @@ namespace cf01.Forms
             SetObjValue.SetEditBackColor(pnlHead.Controls, false);
             this.SetObjReadOnly();
             dgvDetails.Enabled = true;
+            this.editState = "";
             if (save_flag)
             {
                 clsUtility.myMessageBox(myMsg.msgSave_ok, myMsg.msgTitle);
@@ -471,6 +474,29 @@ namespace cf01.Forms
             {
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
             }
+
+            //DataGridView grd1 = sender as DataGridView;
+            if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
+            {
+                //if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
+                //{
+                //    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                //}
+                //else
+                //{
+                //    //紫色字體
+                //    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
+                //}
+                //刪除線
+                grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+            }
+            //else
+            //{
+            //    //恢復正常顯示
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+            //    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular);
+            //}
         }
 
         private void txtArtwork_path_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -646,8 +672,7 @@ namespace cf01.Forms
             if (frm.ShowDialog() == DialogResult.Yes)
             {
                 this.Edit();
-                txtEx_fty_usd.EditValue = frm.usd_ex_fty;
-                txtPrice_unit.EditValue = "PCS";
+                txtEx_fty_usd_new.EditValue = frm.usd_ex_fty + " (" + DateTime.Now.Date.ToString("yyyy/MM/dd") + ")";                
                 txtMoq_pcs.EditValue = frm.moq_pcs;               
             }
         }

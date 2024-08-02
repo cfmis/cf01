@@ -215,13 +215,14 @@ namespace cf01.CLS
                     }).Start();
                    
                     //寫入數值                    
-                    string rang_begin="", merge_rang="";                                      
+                    string rang_begin="", merge_rang="",status = "",range_A,range_T;                                      
                     DataTable dt = new DataTable();
                     string artwork_path = "";
                     int row_index = 1;
                     int row_total = 0,seq_id=0;
                     string serial_no = dgv.Rows[0].Cells["serial_no"].Value.ToString();
                     string a_value = "", b_value = "", d_value = "",e_value,f_value,n_value;
+                    Microsoft.Office.Interop.Excel.Range rang_curr_row;
                     for (int r = 0; r < dgv.RowCount; r++)//行
                     {
                         row_index += 1;                       
@@ -248,6 +249,16 @@ namespace cf01.CLS
                         worksheet.Cells[row_index, 18] = dgv.Rows[r].Cells["art_approved_by"].Value.ToString();
                         worksheet.Cells[row_index, 19] = "'"+ dgv.Rows[r].Cells["submission_date"].Value.ToString(); 
                         worksheet.Cells[row_index, 20] = dgv.Rows[r].Cells["sample_approved_date"].Value.ToString();
+                        status = dgv.Rows[r].Cells["status"].Value.ToString();
+                        status = string.IsNullOrEmpty(status) ? "" : status;
+                        if(status== "CANCELLED")
+                        {
+                            range_A = "A" + row_index;
+                            range_T = "T" + row_index;
+                            rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_T);
+                            rang_curr_row.Font.Strikethrough = true; // 添加删除线效果
+                            rang_curr_row.Font.Color = System.Drawing.Color.Red;//字體顏色
+                        }
                         row_total = int.Parse(dgv.Rows[r].Cells["rs"].Value.ToString());//每組有幾行
                         seq_id = int.Parse(dgv.Rows[r].Cells["seq_id"].Value.ToString()); //當前行的序號
                         a_value = dgv.Rows[r].Cells["season"].Value.ToString();

@@ -126,6 +126,8 @@
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.txtRs = new DevExpress.XtraEditors.TextEdit();
             this.txtRow_height = new DevExpress.XtraEditors.TextEdit();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.txtStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -159,6 +161,7 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.input_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seq_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -192,6 +195,7 @@
             this.bgcolor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.row_height = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_by.Properties)).BeginInit();
@@ -231,6 +235,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow_height.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStatus.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -766,13 +771,13 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(328, 120);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 28);
+            this.label7.Size = new System.Drawing.Size(120, 28);
             this.label7.TabIndex = 179;
-            this.label7.Text = "Ex-fty (USD) new price";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.Text = "Ex-fty (USD) Special";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
@@ -899,11 +904,11 @@
             // 
             this.txtEx_fty_usd_new.EditValue = "";
             this.txtEx_fty_usd_new.EnterMoveNextControl = true;
-            this.txtEx_fty_usd_new.Location = new System.Drawing.Point(419, 125);
+            this.txtEx_fty_usd_new.Location = new System.Drawing.Point(448, 125);
             this.txtEx_fty_usd_new.Name = "txtEx_fty_usd_new";
             this.txtEx_fty_usd_new.Properties.MaxLength = 50;
             this.txtEx_fty_usd_new.Properties.ReadOnly = true;
-            this.txtEx_fty_usd_new.Size = new System.Drawing.Size(203, 20);
+            this.txtEx_fty_usd_new.Size = new System.Drawing.Size(174, 20);
             this.txtEx_fty_usd_new.TabIndex = 14;
             this.txtEx_fty_usd_new.Tag = "2";
             // 
@@ -1097,6 +1102,8 @@
             // 
             this.pnlHead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHead.Controls.Add(this.lblStatus);
+            this.pnlHead.Controls.Add(this.txtStatus);
             this.pnlHead.Controls.Add(this.pic_artwork);
             this.pnlHead.Controls.Add(this.label12);
             this.pnlHead.Controls.Add(this.label10);
@@ -1250,7 +1257,8 @@
             this.row_flag,
             this.bgcolor,
             this.rs,
-            this.row_height});
+            this.row_height,
+            this.status});
             this.dgvDetails.Location = new System.Drawing.Point(4, 323);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
@@ -1284,6 +1292,31 @@
             this.txtRow_height.Size = new System.Drawing.Size(56, 20);
             this.txtRow_height.TabIndex = 208;
             this.txtRow_height.Tag = "2";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.lblStatus.Location = new System.Drawing.Point(628, 153);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(58, 13);
+            this.lblStatus.TabIndex = 210;
+            this.lblStatus.Text = "Status";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.EditValue = "";
+            this.txtStatus.Enabled = false;
+            this.txtStatus.Location = new System.Drawing.Point(694, 150);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtStatus.Properties.Items.AddRange(new object[] {
+            "CANCELLED"});
+            this.txtStatus.Properties.MaxLength = 100;
+            this.txtStatus.Size = new System.Drawing.Size(98, 20);
+            this.txtStatus.TabIndex = 209;
+            this.txtStatus.Tag = "2";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1587,6 +1620,14 @@
             this.dataGridViewTextBoxColumn33.ReadOnly = true;
             this.dataGridViewTextBoxColumn33.Visible = false;
             // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "status";
+            this.dataGridViewTextBoxColumn34.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            this.dataGridViewTextBoxColumn34.Visible = false;
+            // 
             // input_date
             // 
             this.input_date.DataPropertyName = "input_date";
@@ -1886,6 +1927,14 @@
             this.row_height.ReadOnly = true;
             this.row_height.Visible = false;
             // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Visible = false;
+            // 
             // frmQuotationSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1937,6 +1986,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow_height.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStatus.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2056,6 +2106,10 @@
         private System.Windows.Forms.ToolStripButton BTNPRICE;
         private DevExpress.XtraEditors.TextEdit txtRow_height;
         private DevExpress.XtraEditors.TextEdit txtRs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.Label lblStatus;
+        private DevExpress.XtraEditors.ComboBoxEdit txtStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn input_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn seq_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn season;
@@ -2089,7 +2143,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bgcolor;
         private System.Windows.Forms.DataGridViewTextBoxColumn rs;
         private System.Windows.Forms.DataGridViewTextBoxColumn row_height;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
     }
 }
