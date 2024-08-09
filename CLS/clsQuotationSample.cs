@@ -69,6 +69,7 @@ namespace cf01.CLS
                 new SqlParameter("@macys_color_code",mdl.macys_color_code),
                 new SqlParameter("@mo_id",mdl.mo_id),
                 new SqlParameter("@cf_color_code",mdl.cf_color_code),
+                new SqlParameter("@brand_desc",mdl.brand_desc),
                 new SqlParameter("@create_by",mdl.create_by),
                 new SqlParameter("@create_date1",mdl.create_date),
                 new SqlParameter("@create_date2",create_date2),
@@ -357,6 +358,17 @@ namespace cf01.CLS
                                 InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片
                             }
                         }
+                        //隱藏某一行
+                        if (row_index == 10)
+                        {
+                            Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
+                            row.EntireRow.Hidden = true;
+                        }
+                        //if (dgv.Rows[r].Cells["flag_ck"].Value.ToString() == "True")
+                        //{
+                        //    Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
+                        //    row.EntireRow.Hidden = true;
+                        //}
                         serial_no = dgv.Rows[r].Cells["serial_no"].Value.ToString();
                         System.Windows.Forms.Application.DoEvents();                        
                     }                    

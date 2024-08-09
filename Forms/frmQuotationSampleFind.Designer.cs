@@ -61,6 +61,8 @@
             this.btnSearchByParam = new System.Windows.Forms.Button();
             this.pnlFindData = new System.Windows.Forms.Panel();
             this.chkFlag_ck = new DevExpress.XtraEditors.CheckEdit();
+            this.txtBrand_desc = new DevExpress.XtraEditors.TextEdit();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).BeginInit();
@@ -80,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).BeginInit();
             this.pnlFindData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand_desc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInput_date1
@@ -120,7 +123,7 @@
             // 
             this.txtSeason.EditValue = "";
             this.txtSeason.EnterMoveNextControl = true;
-            this.txtSeason.Location = new System.Drawing.Point(129, 29);
+            this.txtSeason.Location = new System.Drawing.Point(129, 28);
             this.txtSeason.Name = "txtSeason";
             this.txtSeason.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSeason.Properties.MaxLength = 20;
@@ -142,7 +145,7 @@
             // 
             this.txtCf_color_code.EditValue = "";
             this.txtCf_color_code.EnterMoveNextControl = true;
-            this.txtCf_color_code.Location = new System.Drawing.Point(539, 29);
+            this.txtCf_color_code.Location = new System.Drawing.Point(539, 28);
             this.txtCf_color_code.Name = "txtCf_color_code";
             this.txtCf_color_code.Properties.MaxLength = 50;
             this.txtCf_color_code.Size = new System.Drawing.Size(317, 20);
@@ -153,7 +156,7 @@
             // 
             this.txtMo_id.EditValue = "";
             this.txtMo_id.EnterMoveNextControl = true;
-            this.txtMo_id.Location = new System.Drawing.Point(539, 4);
+            this.txtMo_id.Location = new System.Drawing.Point(539, 5);
             this.txtMo_id.Name = "txtMo_id";
             this.txtMo_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id.Properties.MaxLength = 20;
@@ -208,7 +211,7 @@
             // 
             this.txtCf_code.EditValue = "";
             this.txtCf_code.EnterMoveNextControl = true;
-            this.txtCf_code.Location = new System.Drawing.Point(129, 76);
+            this.txtCf_code.Location = new System.Drawing.Point(129, 75);
             this.txtCf_code.Name = "txtCf_code";
             this.txtCf_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCf_code.Properties.MaxLength = 50;
@@ -219,7 +222,7 @@
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label13.Location = new System.Drawing.Point(429, 5);
+            this.label13.Location = new System.Drawing.Point(429, 7);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(107, 15);
             this.label13.TabIndex = 192;
@@ -229,7 +232,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label4.Location = new System.Drawing.Point(54, 78);
+            this.label4.Location = new System.Drawing.Point(54, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 15);
             this.label4.TabIndex = 188;
@@ -260,7 +263,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label6.Location = new System.Drawing.Point(54, 102);
+            this.label6.Location = new System.Drawing.Point(54, 99);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 15);
             this.label6.TabIndex = 189;
@@ -271,7 +274,7 @@
             // 
             this.txtMaterial.EditValue = "";
             this.txtMaterial.EnterMoveNextControl = true;
-            this.txtMaterial.Location = new System.Drawing.Point(129, 100);
+            this.txtMaterial.Location = new System.Drawing.Point(129, 99);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Properties.MaxLength = 50;
             this.txtMaterial.Size = new System.Drawing.Size(291, 20);
@@ -326,7 +329,7 @@
             // 
             this.txtCreate_by.EditValue = "";
             this.txtCreate_by.EnterMoveNextControl = true;
-            this.txtCreate_by.Location = new System.Drawing.Point(539, 52);
+            this.txtCreate_by.Location = new System.Drawing.Point(539, 75);
             this.txtCreate_by.Name = "txtCreate_by";
             this.txtCreate_by.Properties.MaxLength = 50;
             this.txtCreate_by.Size = new System.Drawing.Size(317, 20);
@@ -335,7 +338,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label5.Location = new System.Drawing.Point(429, 53);
+            this.label5.Location = new System.Drawing.Point(429, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 15);
             this.label5.TabIndex = 198;
@@ -345,7 +348,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label7.Location = new System.Drawing.Point(689, 78);
+            this.label7.Location = new System.Drawing.Point(689, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 15);
             this.label7.TabIndex = 202;
@@ -356,7 +359,7 @@
             // 
             this.dtCreate_date2.EditValue = "";
             this.dtCreate_date2.EnterMoveNextControl = true;
-            this.dtCreate_date2.Location = new System.Drawing.Point(712, 76);
+            this.dtCreate_date2.Location = new System.Drawing.Point(712, 99);
             this.dtCreate_date2.Name = "dtCreate_date2";
             this.dtCreate_date2.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.dtCreate_date2.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -379,7 +382,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label8.Location = new System.Drawing.Point(464, 78);
+            this.label8.Location = new System.Drawing.Point(464, 99);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 15);
             this.label8.TabIndex = 200;
@@ -390,7 +393,7 @@
             // 
             this.dtCreate_date1.EditValue = "";
             this.dtCreate_date1.EnterMoveNextControl = true;
-            this.dtCreate_date1.Location = new System.Drawing.Point(539, 76);
+            this.dtCreate_date1.Location = new System.Drawing.Point(539, 99);
             this.dtCreate_date1.Name = "dtCreate_date1";
             this.dtCreate_date1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.dtCreate_date1.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -414,9 +417,9 @@
             // 
             this.BTNSAVESET1.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET1.Image")));
             this.BTNSAVESET1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BTNSAVESET1.Location = new System.Drawing.Point(757, 150);
+            this.BTNSAVESET1.Location = new System.Drawing.Point(757, 154);
             this.BTNSAVESET1.Name = "BTNSAVESET1";
-            this.BTNSAVESET1.Size = new System.Drawing.Size(87, 45);
+            this.BTNSAVESET1.Size = new System.Drawing.Size(87, 43);
             this.BTNSAVESET1.TabIndex = 206;
             this.BTNSAVESET1.Text = "保存查找條件";
             this.BTNSAVESET1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -429,9 +432,9 @@
             this.btnClear.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(629, 150);
+            this.btnClear.Location = new System.Drawing.Point(629, 154);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(116, 45);
+            this.btnClear.Size = new System.Drawing.Size(116, 43);
             this.btnClear.TabIndex = 205;
             this.btnClear.Text = "清除查找條件";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -445,9 +448,9 @@
             this.btnClose.ForeColor = System.Drawing.Color.Black;
             this.btnClose.Image = global::cf01.Properties.Resources.exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClose.Location = new System.Drawing.Point(446, 150);
+            this.btnClose.Location = new System.Drawing.Point(446, 154);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(83, 45);
+            this.btnClose.Size = new System.Drawing.Size(83, 43);
             this.btnClose.TabIndex = 204;
             this.btnClose.Text = "退 出";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -460,9 +463,9 @@
             this.btnSearchByParam.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSearchByParam.Image = global::cf01.Properties.Resources.find;
             this.btnSearchByParam.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSearchByParam.Location = new System.Drawing.Point(538, 150);
+            this.btnSearchByParam.Location = new System.Drawing.Point(538, 154);
             this.btnSearchByParam.Name = "btnSearchByParam";
-            this.btnSearchByParam.Size = new System.Drawing.Size(83, 45);
+            this.btnSearchByParam.Size = new System.Drawing.Size(83, 43);
             this.btnSearchByParam.TabIndex = 203;
             this.btnSearchByParam.Text = "查詢";
             this.btnSearchByParam.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -473,6 +476,8 @@
             // pnlFindData
             // 
             this.pnlFindData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlFindData.Controls.Add(this.txtBrand_desc);
+            this.pnlFindData.Controls.Add(this.label10);
             this.pnlFindData.Controls.Add(this.chkFlag_ck);
             this.pnlFindData.Controls.Add(this.label13);
             this.pnlFindData.Controls.Add(this.BTNSAVESET1);
@@ -511,7 +516,7 @@
             // 
             // chkFlag_ck
             // 
-            this.chkFlag_ck.Location = new System.Drawing.Point(540, 105);
+            this.chkFlag_ck.Location = new System.Drawing.Point(774, 126);
             this.chkFlag_ck.Name = "chkFlag_ck";
             this.chkFlag_ck.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFlag_ck.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
@@ -519,9 +524,30 @@
             this.chkFlag_ck.Properties.Appearance.Options.UseForeColor = true;
             this.chkFlag_ck.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.chkFlag_ck.Properties.Caption = "  C K";
-            this.chkFlag_ck.Size = new System.Drawing.Size(141, 21);
+            this.chkFlag_ck.Size = new System.Drawing.Size(83, 21);
             this.chkFlag_ck.TabIndex = 216;
             this.chkFlag_ck.Tag = "";
+            // 
+            // txtBrand_desc
+            // 
+            this.txtBrand_desc.EditValue = "";
+            this.txtBrand_desc.EnterMoveNextControl = true;
+            this.txtBrand_desc.Location = new System.Drawing.Point(539, 52);
+            this.txtBrand_desc.Name = "txtBrand_desc";
+            this.txtBrand_desc.Properties.MaxLength = 50;
+            this.txtBrand_desc.Size = new System.Drawing.Size(317, 20);
+            this.txtBrand_desc.TabIndex = 217;
+            this.txtBrand_desc.Tag = "";
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.label10.Location = new System.Drawing.Point(464, 52);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 15);
+            this.label10.TabIndex = 218;
+            this.label10.Text = "Brand Desc";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmQuotationSampleFind
             // 
@@ -555,6 +581,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).EndInit();
             this.pnlFindData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand_desc.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -593,5 +620,7 @@
         private System.Windows.Forms.Button btnSearchByParam;
         private System.Windows.Forms.Panel pnlFindData;
         private DevExpress.XtraEditors.CheckEdit chkFlag_ck;
+        private DevExpress.XtraEditors.TextEdit txtBrand_desc;
+        private System.Windows.Forms.Label label10;
     }
 }
