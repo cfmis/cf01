@@ -60,6 +60,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearchByParam = new System.Windows.Forms.Button();
             this.pnlFindData = new System.Windows.Forms.Panel();
+            this.chkFlag_ck = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).BeginInit();
@@ -78,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).BeginInit();
             this.pnlFindData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInput_date1
@@ -412,7 +414,7 @@
             // 
             this.BTNSAVESET1.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET1.Image")));
             this.BTNSAVESET1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BTNSAVESET1.Location = new System.Drawing.Point(757, 120);
+            this.BTNSAVESET1.Location = new System.Drawing.Point(757, 150);
             this.BTNSAVESET1.Name = "BTNSAVESET1";
             this.BTNSAVESET1.Size = new System.Drawing.Size(87, 45);
             this.BTNSAVESET1.TabIndex = 206;
@@ -427,7 +429,7 @@
             this.btnClear.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(629, 120);
+            this.btnClear.Location = new System.Drawing.Point(629, 150);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(116, 45);
             this.btnClear.TabIndex = 205;
@@ -443,7 +445,7 @@
             this.btnClose.ForeColor = System.Drawing.Color.Black;
             this.btnClose.Image = global::cf01.Properties.Resources.exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClose.Location = new System.Drawing.Point(446, 120);
+            this.btnClose.Location = new System.Drawing.Point(446, 150);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(83, 45);
             this.btnClose.TabIndex = 204;
@@ -458,7 +460,7 @@
             this.btnSearchByParam.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSearchByParam.Image = global::cf01.Properties.Resources.find;
             this.btnSearchByParam.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSearchByParam.Location = new System.Drawing.Point(538, 120);
+            this.btnSearchByParam.Location = new System.Drawing.Point(538, 150);
             this.btnSearchByParam.Name = "btnSearchByParam";
             this.btnSearchByParam.Size = new System.Drawing.Size(83, 45);
             this.btnSearchByParam.TabIndex = 203;
@@ -471,6 +473,7 @@
             // pnlFindData
             // 
             this.pnlFindData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlFindData.Controls.Add(this.chkFlag_ck);
             this.pnlFindData.Controls.Add(this.label13);
             this.pnlFindData.Controls.Add(this.BTNSAVESET1);
             this.pnlFindData.Controls.Add(this.dtInput_date1);
@@ -506,6 +509,20 @@
             this.pnlFindData.Size = new System.Drawing.Size(902, 204);
             this.pnlFindData.TabIndex = 207;
             // 
+            // chkFlag_ck
+            // 
+            this.chkFlag_ck.Location = new System.Drawing.Point(540, 105);
+            this.chkFlag_ck.Name = "chkFlag_ck";
+            this.chkFlag_ck.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFlag_ck.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.chkFlag_ck.Properties.Appearance.Options.UseFont = true;
+            this.chkFlag_ck.Properties.Appearance.Options.UseForeColor = true;
+            this.chkFlag_ck.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.chkFlag_ck.Properties.Caption = "  C K";
+            this.chkFlag_ck.Size = new System.Drawing.Size(141, 21);
+            this.chkFlag_ck.TabIndex = 216;
+            this.chkFlag_ck.Tag = "";
+            // 
             // frmQuotationSampleFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -537,6 +554,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).EndInit();
             this.pnlFindData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -574,5 +592,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSearchByParam;
         private System.Windows.Forms.Panel pnlFindData;
+        private DevExpress.XtraEditors.CheckEdit chkFlag_ck;
     }
 }

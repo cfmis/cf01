@@ -141,5 +141,6 @@ namespace cf01.MDL
         public string create_date;
         public string input_date2;
         public string create_date2;
+        public int flag_ck;
     }
 }

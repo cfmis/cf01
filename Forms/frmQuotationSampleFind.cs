@@ -88,6 +88,7 @@ namespace cf01.Forms
             mdl.create_by = txtCreate_by.Text;
             mdl.create_date = dtCreate_date1.EditValue.ToString();
             mdl.create_date2 = dtCreate_date2.EditValue.ToString();
+            mdl.flag_ck = chkFlag_ck.Checked ? 1 : 0;
             dtFind = clsQuotationSample.FindDataByMdl(mdl);
         }
         private void InitFindData(mdlQuotationSample mdl)

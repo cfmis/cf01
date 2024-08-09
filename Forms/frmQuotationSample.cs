@@ -95,6 +95,10 @@ namespace cf01.Forms
                     newRow["submission_date"] = strDate;
                     newRow["sample_approved_date"] = dgrw.Cells["sample_approved_date"].Value.ToString();
                     newRow["remark"] = dgrw.Cells["remark"].Value.ToString();
+                    newRow["brand_desc"] = dgrw.Cells["brand_desc"].Value.ToString();
+                    newRow["bulk_lead_time"] = dgrw.Cells["bulk_lead_time"].Value.ToString();
+                    newRow["quality_issue"] = dgrw.Cells["quality_issue"].Value.ToString();                  
+                    newRow["flag_ck"] = (dgrw.Cells["flag_ck"].Value.ToString() == "True") ? true : false;
                     newRow["bgcolor"] = dgrw.Cells["bgcolor"].Value.ToString();
                     newRow["row_flag"] = "Y"; //"Y"為當前添加的新行.
                     //當前行的前方或下方插入新行                    
@@ -174,6 +178,11 @@ namespace cf01.Forms
            clsQuotationSample.ExportToExcel(dgvDetails);           
         }
 
+        private void BTNEXCELCK_Click(object sender, EventArgs e)
+        {
+            clsQuotationSample.ExportToExcelCK(dgvDetails);
+        }
+
         private void SetDataBindings()
         {
             txtID.DataBindings.Add("Text", bds1, "id");
@@ -210,6 +219,18 @@ namespace cf01.Forms
             txtRs.DataBindings.Add("Text", bds1, "rs");
             txtRow_height.DataBindings.Add("Text", bds1, "row_height");
             txtStatus.DataBindings.Add("EditValue", bds1, "status");
+
+            txtBrand_desc.DataBindings.Add("Text", bds1, "brand_desc");
+            txtBulk_lead_time.DataBindings.Add("Text", bds1, "bulk_lead_time");
+            txtQuality_issue.DataBindings.Add("Text", bds1, "quality_issue");
+            //復選框的綁定
+            //Binding bind = new Binding("Checked", bds1, "flag_ck");
+            Binding bind = new Binding("EditValue", bds1, "flag_ck");
+            bind.Format += (s, e) =>
+            {               
+                e.Value = e.Value;
+            };
+            chkFlag_ck.DataBindings.Add(bind);
         }
 
         private void AddNew()  //新增
@@ -308,17 +329,18 @@ namespace cf01.Forms
             string sql_i =
             @"INSERT INTO quotation_sample(serial_no,input_date,season,plm_code,artwork_path,cf_code,product_desc,material,size,seq_id,macys_color_code,mo_id,
             ready_date,cf_color_code,ex_fty_usd,ex_fty_usd_new,price_unit,moq_pcs,surcharge,md_charge,art_approved_by,submission_date,
-            sample_approved_date,remark,create_by,create_date,status)
+            sample_approved_date,remark, brand_desc,bulk_lead_time,quality_issue,flag_ck,create_by,create_date,status)
             VALUES(@serial_no,@input_date,@season,@plm_code,@artwork_path,@cf_code,@product_desc,@material,@size,@seq_id,@macys_color_code,@mo_id,
             @ready_date,@cf_color_code,@ex_fty_usd,@ex_fty_usd_new,@price_unit,@moq_pcs,@surcharge,@md_charge,@art_approved_by,
-            CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,@sample_approved_date,@remark,@user_id,getdate(),@status)";
+            CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,@sample_approved_date,@remark, @brand_desc,@bulk_lead_time,@quality_issue,@flag_ck,
+            @user_id,getdate(),@status)";
             string sql_u =
             @"UPDATE quotation_sample 
             SET serial_no=@serial_no,input_date=@input_date,season=@season,plm_code=@plm_code,artwork_path=@artwork_path,cf_code=@cf_code,product_desc=@product_desc,
             material=@material,size=@size,seq_id=@seq_id,macys_color_code=@macys_color_code,mo_id=@mo_id,ready_date=@ready_date,cf_color_code=@cf_color_code,
             ex_fty_usd=@ex_fty_usd,ex_fty_usd_new=@ex_fty_usd_new,price_unit=@price_unit,moq_pcs=@moq_pcs,surcharge=@surcharge,md_charge=@md_charge,
             art_approved_by=@art_approved_by,submission_date=CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,sample_approved_date=@sample_approved_date,
-            remark=@remark,update_by=@user_id,update_date=getdate(),status=@status
+            remark=@remark, brand_desc=@brand_desc,bulk_lead_time=@bulk_lead_time,quality_issue=@quality_issue,flag_ck=@flag_ck,update_by=@user_id,update_date=getdate(),status=@status
             WHERE id=@id";            
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             myCon.Open();
@@ -366,6 +388,10 @@ namespace cf01.Forms
                             myCommand.Parameters.AddWithValue("@submission_date", clsApp.Return_String_Date(dtDetail.Rows[i]["submission_date"].ToString()));
                             myCommand.Parameters.AddWithValue("@sample_approved_date", dtDetail.Rows[i]["sample_approved_date"].ToString());
                             myCommand.Parameters.AddWithValue("@remark", dtDetail.Rows[i]["remark"].ToString());
+                            myCommand.Parameters.AddWithValue("@brand_desc", dtDetail.Rows[i]["brand_desc"].ToString());
+                            myCommand.Parameters.AddWithValue("@bulk_lead_time", dtDetail.Rows[i]["bulk_lead_time"].ToString());
+                            myCommand.Parameters.AddWithValue("@quality_issue", dtDetail.Rows[i]["quality_issue"].ToString());
+                            myCommand.Parameters.AddWithValue("@flag_ck", chkFlag_ck.Checked ? true : false);
                             myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
                             myCommand.Parameters.AddWithValue("@status", dtDetail.Rows[i]["status"].ToString());                            
                             myCommand.ExecuteNonQuery();
@@ -455,7 +481,7 @@ namespace cf01.Forms
             {
                 if (dgvDetails.Rows[i].Cells["row_flag"].Value.ToString() == "Y")
                 {
-                    dgvDetails.CurrentCell = dgvDetails.Rows[i].Cells[2]; //设置当前单元格
+                    dgvDetails.CurrentCell = dgvDetails.Rows[i].Cells[3]; //设置当前单元格
                     dgvDetails.Rows[i].Selected = true; //選中整行                    
                     break;
                 }
@@ -477,16 +503,7 @@ namespace cf01.Forms
 
             //DataGridView grd1 = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
-            {
-                //if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
-                //{
-                //    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
-                //}
-                //else
-                //{
-                //    //紫色字體
-                //    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
-                //}
+            {                
                 //刪除線
                 grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
                 grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
