@@ -358,17 +358,12 @@ namespace cf01.CLS
                                 InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片
                             }
                         }
-                        //隱藏某一行
-                        if (row_index == 10)
+                        //隱藏某一行                       
+                        if (dgv.Rows[r].Cells["flag_hidden"].Value.ToString() == "True")
                         {
                             Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
                             row.EntireRow.Hidden = true;
                         }
-                        //if (dgv.Rows[r].Cells["flag_ck"].Value.ToString() == "True")
-                        //{
-                        //    Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
-                        //    row.EntireRow.Hidden = true;
-                        //}
                         serial_no = dgv.Rows[r].Cells["serial_no"].Value.ToString();
                         System.Windows.Forms.Application.DoEvents();                        
                     }                    
@@ -639,6 +634,12 @@ namespace cf01.CLS
                                 rang_begin = "C" + row_index;
                                 InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片
                             }
+                        }
+                        //隱藏某一行                       
+                        if (dgv.Rows[r].Cells["flag_hidden"].Value.ToString() == "True")
+                        {
+                            Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
+                            row.EntireRow.Hidden = true;
                         }
                         serial_no = dgv.Rows[r].Cells["serial_no"].Value.ToString();
                         System.Windows.Forms.Application.DoEvents();
