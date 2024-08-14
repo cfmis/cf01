@@ -579,13 +579,19 @@ namespace cf01.Forms
             {
                 return;
             }
+            int index = dgvDetails.CurrentRow.Index;
             DialogResult result = MessageBox.Show(myMsg.msgIsDelete, myMsg.msgTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-               string rtn = clsQuotationSample.Delete(Int32.Parse(txtID.Text));
-               if(rtn == "")
-                {
-                    dgvDetails.Rows.Remove(dgvDetails.CurrentRow);//移走當前行
+               string id = txtID.Text;
+               string seq_id = txtSeq_id.Text;
+               string rtn = clsQuotationSample.Delete(Int32.Parse(txtID.Text));              
+               if (rtn == "")
+               {
+                    dtDetail.Rows.RemoveAt(index);
+                    bds1.DataSource = dtDetail;
+                    dtDetail.AcceptChanges();
+                    //更正每組的記錄總行數
                     string sql_f = "Select serial_no,COUNT(*) As rs From quotation_sample GROUP BY serial_no";
                     DataTable dtCounts = clsPublicOfCF01.GetDataTable(sql_f);
                     string serialNo = "";

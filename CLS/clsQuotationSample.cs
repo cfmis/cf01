@@ -379,7 +379,7 @@ namespace cf01.CLS
                     excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
                     //字體
                     excelRange.Font.Name = "Arial";
-                    Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "T1");                   
+                    Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "T1");
                     headerRange.Interior.Color = System.Drawing.Color.Yellow.ToArgb(); //OK 
                     //headerRange.Interior.Color = System.Drawing.Color.FromArgb(255, 197, 153).ToArgb();//出錯可能不支持此顏色
 
