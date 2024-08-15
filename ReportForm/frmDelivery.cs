@@ -215,7 +215,7 @@ namespace cf01.ReportForm
             };
             //dstReport = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_delivery_all", paras, "");
             //dtDelivery = dstReport.Tables[0];
-            dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all_debug", paras);
+            dtDelivery = clsConErp.ExecuteProcedureReturnTable("z_rpt_delivery_all", paras);
             //dtProductCard = dstReport.Tables[1];//本部部門工序卡數據
             
             //客戶端加bool字段或後端返回(bit型)都可以
