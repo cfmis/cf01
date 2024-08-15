@@ -68,19 +68,11 @@ namespace cf01.ReportForm
             txtOut_detp1.Properties.DataSource = dtDept;
             txtOut_detp1.Properties.ValueMember = "id";
             txtOut_detp1.Properties.DisplayMember = "cdesc";
-
-            txtOut_detp2.Properties.DataSource = dtDept;
-            txtOut_detp2.Properties.ValueMember = "id";
-            txtOut_detp2.Properties.DisplayMember = "cdesc";
-
+            
             txtIn_detp1.Properties.DataSource = dtDept;
             txtIn_detp1.Properties.ValueMember = "id";
             txtIn_detp1.Properties.DisplayMember = "cdesc";
-
-            txtIn_detp2.Properties.DataSource = dtDept;
-            txtIn_detp2.Properties.ValueMember = "id";
-            txtIn_detp2.Properties.DisplayMember = "cdesc";
-
+                        
             string strsql = @"SELECT id,id+'['+name+']' as cdesc FROM it_vendor WHERE id='CL-K0036' ORDER BY id";
             dtVendor = clsConErp.GetDataTable(strsql);
             DataRow dr1 = dtVendor.NewRow(); //插一空行        
@@ -180,45 +172,10 @@ namespace cf01.ReportForm
             }
 
             string select_index = radioGroup1.SelectedIndex.ToString();
-            string out_dept1 = "";
-            if (string.IsNullOrEmpty(txtOut_detp1.EditValue.ToString()))
-            {
-                out_dept1 = "";
-            }
-            else
-            {
-                out_dept1 = txtOut_detp1.EditValue.ToString();
-            }
-            string out_dept2 = "";
-            if (string.IsNullOrEmpty(txtOut_detp2.EditValue.ToString()))
-            {
-                out_dept2 = "";
-            }
-            else
-            {
-                out_dept2 = txtOut_detp2.EditValue.ToString();
-            }
-            string in_dept1 = "";
-            if (string.IsNullOrEmpty(txtIn_detp1.EditValue.ToString()))
-            {
-                in_dept1 = "";
-            }
-            else
-            {
-                in_dept1 = txtIn_detp1.EditValue.ToString();
-            }
-            string in_dept2 = "";
-            if (string.IsNullOrEmpty(txtIn_detp2.EditValue.ToString()))
-            {
-                in_dept2 = "";
-            }
-            else
-            {
-                in_dept2 = txtIn_detp2.EditValue.ToString();
-            }
+            string out_dept1 = string.IsNullOrEmpty(txtOut_detp1.EditValue.ToString())?"": txtOut_detp1.EditValue.ToString();                            
+            string in_dept1 = string.IsNullOrEmpty(txtIn_detp1.EditValue.ToString())?"": txtIn_detp1.EditValue.ToString();
 
-            if (strID1 == "" && strID2 == "" && txtDat1.Text == "" && txtDat2.Text == ""
-                && out_dept1 == "" && out_dept2 == "" && in_dept1 == "" && in_dept2 == "")
+            if (strID1 == "" && strID2 == "" && txtDat1.Text == "" && txtDat2.Text == "" && out_dept1 == "" && in_dept1 == "")
             {
                 MessageBox.Show("查詢條件不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -252,9 +209,7 @@ namespace cf01.ReportForm
                     new SqlParameter("@mo_id_s", txtMo_id1.Text),
                     new SqlParameter("@mo_id_e", txtMo_id2.Text),
                     new SqlParameter("@out_dept_s", out_dept1),
-                    new SqlParameter("@out_dept_e", out_dept2),
                     new SqlParameter("@in_dept_s", in_dept1),
-                    new SqlParameter("@in_dept_e", in_dept2),
                     new SqlParameter("@flag_jx", flag_jx),
                     new SqlParameter("@flag_print", flag_print)
             };
@@ -813,32 +768,12 @@ namespace cf01.ReportForm
         private void txtOut_detp1_Click(object sender, EventArgs e)
         {
             txtOut_detp1.SelectAll();
-        }
-
-        private void txtOut_detp2_Click(object sender, EventArgs e)
-        {
-            txtOut_detp2.SelectAll();
-        }
+        }       
 
         private void txtIn_detp1_Click(object sender, EventArgs e)
         {
             txtIn_detp1.SelectAll();
-        }
-
-        private void txtIn_detp2_Click(object sender, EventArgs e)
-        {
-            txtIn_detp2.SelectAll();
-        }
-
-        private void txtOut_detp1_Leave(object sender, EventArgs e)
-        {          
-            txtOut_detp2.EditValue = txtOut_detp1.EditValue;
-        }
-
-        private void txtIn_detp1_Leave(object sender, EventArgs e)
-        {            
-            txtIn_detp2.EditValue = txtIn_detp1.EditValue;
-        }
+        }       
 
         private void txtID1_Leave(object sender, EventArgs e)
         {           
@@ -852,20 +787,18 @@ namespace cf01.ReportForm
                 txtIn_detp1.Properties.DataSource = dtVendor;
                 txtIn_detp1.Properties.ValueMember = "id";
                 txtIn_detp1.Properties.DisplayMember = "cdesc";
-
-                txtIn_detp2.Properties.DataSource = dtVendor;
-                txtIn_detp2.Properties.ValueMember = "id";
-                txtIn_detp2.Properties.DisplayMember = "cdesc";
+                //txtIn_detp2.Properties.DataSource = dtVendor;
+                //txtIn_detp2.Properties.ValueMember = "id";
+                //txtIn_detp2.Properties.DisplayMember = "cdesc";
             }
             else
             {
                 txtIn_detp1.Properties.DataSource = dtDept;
                 txtIn_detp1.Properties.ValueMember = "id";
                 txtIn_detp1.Properties.DisplayMember = "cdesc";
-
-                txtIn_detp2.Properties.DataSource = dtDept;
-                txtIn_detp2.Properties.ValueMember = "id";
-                txtIn_detp2.Properties.DisplayMember = "cdesc";
+                //txtIn_detp2.Properties.DataSource = dtDept;
+                //txtIn_detp2.Properties.ValueMember = "id";
+                //txtIn_detp2.Properties.DisplayMember = "cdesc";
             }
         }
 

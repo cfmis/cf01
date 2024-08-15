@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -66,10 +66,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtOut_detp1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lblOut_dept = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtOut_detp2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtIn_detp2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.label4 = new System.Windows.Forms.Label();
             this.lblIn_dept = new System.Windows.Forms.Label();
             this.txtIn_detp1 = new DevExpress.XtraEditors.LookUpEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,8 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOut_detp1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOut_detp2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIn_detp2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIn_detp1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -312,7 +306,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(84, 36);
+            this.BTNSAVESET.Size = new System.Drawing.Size(81, 36);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVESET.ToolTipText = "保存查找條件";
@@ -323,7 +317,7 @@
             this.BTNSAVEPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVEPRINT.Image")));
             this.BTNSAVEPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVEPRINT.Name = "BTNSAVEPRINT";
-            this.BTNSAVEPRINT.Size = new System.Drawing.Size(84, 36);
+            this.BTNSAVEPRINT.Size = new System.Drawing.Size(81, 36);
             this.BTNSAVEPRINT.Text = "保存列印數據";
             this.BTNSAVEPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVEPRINT.Click += new System.EventHandler(this.BTNSAVEPRINT_Click);
@@ -338,7 +332,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(87, 36);
+            this.BTNPRINT.Size = new System.Drawing.Size(83, 36);
             this.BTNPRINT.Text = "工序卡列印(&P)";
             this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
@@ -353,7 +347,7 @@
             this.BTNPRINTA4.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINTA4.Image")));
             this.BTNPRINTA4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINTA4.Name = "BTNPRINTA4";
-            this.BTNPRINTA4.Size = new System.Drawing.Size(107, 36);
+            this.BTNPRINTA4.Size = new System.Drawing.Size(103, 36);
             this.BTNPRINTA4.Text = "工序卡列印(A4紙)";
             this.BTNPRINTA4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINTA4.Click += new System.EventHandler(this.BTNPRINTA4_Click);
@@ -363,7 +357,7 @@
             this.BTNPRINTA41.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINTA41.Image")));
             this.BTNPRINTA41.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINTA41.Name = "BTNPRINTA41";
-            this.BTNPRINTA41.Size = new System.Drawing.Size(95, 36);
+            this.BTNPRINTA41.Size = new System.Drawing.Size(91, 36);
             this.BTNPRINTA41.Text = "移交清單(A4紙)";
             this.BTNPRINTA41.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINTA41.Click += new System.EventHandler(this.BTNPRINTA41_Click);
@@ -379,7 +373,7 @@
             this.btnCurrentDept.Image = ((System.Drawing.Image)(resources.GetObject("btnCurrentDept.Image")));
             this.btnCurrentDept.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCurrentDept.Name = "btnCurrentDept";
-            this.btnCurrentDept.Size = new System.Drawing.Size(92, 36);
+            this.btnCurrentDept.Size = new System.Drawing.Size(89, 36);
             this.btnCurrentDept.Text = "工序卡(本部門)";
             this.btnCurrentDept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCurrentDept.Click += new System.EventHandler(this.btnCurrentDept_Click);
@@ -400,7 +394,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(97, 36);
+            this.BTNSAVE.Size = new System.Drawing.Size(93, 36);
             this.BTNSAVE.Text = "保存JX移交數據";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
@@ -490,7 +484,6 @@
             this.txtOut_detp1.Size = new System.Drawing.Size(156, 20);
             this.txtOut_detp1.TabIndex = 6;
             this.txtOut_detp1.Click += new System.EventHandler(this.txtOut_detp1_Click);
-            this.txtOut_detp1.Leave += new System.EventHandler(this.txtOut_detp1_Leave);
             // 
             // lblOut_dept
             // 
@@ -500,62 +493,6 @@
             this.lblOut_dept.TabIndex = 130;
             this.lblOut_dept.Text = "負責部門";
             this.lblOut_dept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 12);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "--";
-            // 
-            // txtOut_detp2
-            // 
-            this.txtOut_detp2.EnterMoveNextControl = true;
-            this.txtOut_detp2.Location = new System.Drawing.Point(376, 120);
-            this.txtOut_detp2.Name = "txtOut_detp2";
-            this.txtOut_detp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtOut_detp2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 60, "id"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 170, "cdesc")});
-            this.txtOut_detp2.Properties.DropDownRows = 15;
-            this.txtOut_detp2.Properties.NullText = "請選擇";
-            this.txtOut_detp2.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
-            this.txtOut_detp2.Properties.ShowHeader = false;
-            this.txtOut_detp2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtOut_detp2.Size = new System.Drawing.Size(156, 20);
-            this.txtOut_detp2.TabIndex = 7;
-            this.txtOut_detp2.Click += new System.EventHandler(this.txtOut_detp2_Click);
-            // 
-            // txtIn_detp2
-            // 
-            this.txtIn_detp2.EnterMoveNextControl = true;
-            this.txtIn_detp2.Location = new System.Drawing.Point(376, 146);
-            this.txtIn_detp2.Name = "txtIn_detp2";
-            this.txtIn_detp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtIn_detp2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 60, "id"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 170, "cdesc")});
-            this.txtIn_detp2.Properties.DropDownRows = 15;
-            this.txtIn_detp2.Properties.NullText = "請選擇";
-            this.txtIn_detp2.Properties.PopupFormMinSize = new System.Drawing.Size(230, 0);
-            this.txtIn_detp2.Properties.ShowHeader = false;
-            this.txtIn_detp2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtIn_detp2.Size = new System.Drawing.Size(156, 20);
-            this.txtIn_detp2.TabIndex = 9;
-            this.txtIn_detp2.Click += new System.EventHandler(this.txtIn_detp2_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(340, 149);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 12);
-            this.label4.TabIndex = 135;
-            this.label4.Text = "--";
             // 
             // lblIn_dept
             // 
@@ -584,13 +521,12 @@
             this.txtIn_detp1.Size = new System.Drawing.Size(156, 20);
             this.txtIn_detp1.TabIndex = 8;
             this.txtIn_detp1.Click += new System.EventHandler(this.txtIn_detp1_Click);
-            this.txtIn_detp1.Leave += new System.EventHandler(this.txtIn_detp1_Leave);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -601,8 +537,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -613,8 +549,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -803,7 +739,7 @@
             this.flag_select.OptionsFilter.AllowFilter = false;
             this.flag_select.Visible = true;
             this.flag_select.VisibleIndex = 0;
-            this.flag_select.Width = 20;
+            this.flag_select.Width = 33;
             // 
             // clFlag_select
             // 
@@ -817,7 +753,6 @@
             this.id.Caption = "單據編號";
             this.id.FieldName = "id";
             this.id.Name = "id";
-            this.id.OptionsColumn.AllowSize = false;
             this.id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.id.OptionsColumn.ReadOnly = true;
             this.id.OptionsFilter.AllowAutoFilter = false;
@@ -832,7 +767,6 @@
             this.sequence_id.Caption = "序號";
             this.sequence_id.FieldName = "sequence_id";
             this.sequence_id.Name = "sequence_id";
-            this.sequence_id.OptionsColumn.AllowSize = false;
             this.sequence_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.sequence_id.OptionsColumn.ReadOnly = true;
             this.sequence_id.OptionsFilter.AllowAutoFilter = false;
@@ -847,7 +781,6 @@
             this.mo_id.Caption = "頁數";
             this.mo_id.FieldName = "mo_id";
             this.mo_id.Name = "mo_id";
-            this.mo_id.OptionsColumn.AllowSize = false;
             this.mo_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.mo_id.OptionsColumn.ReadOnly = true;
             this.mo_id.OptionsFilter.AllowAutoFilter = false;
@@ -860,7 +793,6 @@
             this.goods_id.Caption = "物料編號";
             this.goods_id.FieldName = "goods_id";
             this.goods_id.Name = "goods_id";
-            this.goods_id.OptionsColumn.AllowSize = false;
             this.goods_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.goods_id.OptionsColumn.FixedWidth = true;
             this.goods_id.OptionsColumn.ReadOnly = true;
@@ -875,7 +807,6 @@
             this.goods_name.Caption = "物料名稱";
             this.goods_name.FieldName = "goods_name";
             this.goods_name.Name = "goods_name";
-            this.goods_name.OptionsColumn.AllowSize = false;
             this.goods_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.goods_name.OptionsColumn.ReadOnly = true;
             this.goods_name.OptionsFilter.AllowAutoFilter = false;
@@ -890,7 +821,6 @@
             this.con_qty.ColumnEdit = this.colQty;
             this.con_qty.FieldName = "con_qty";
             this.con_qty.Name = "con_qty";
-            this.con_qty.OptionsColumn.AllowSize = false;
             this.con_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.con_qty.OptionsColumn.ReadOnly = true;
             this.con_qty.OptionsFilter.AllowAutoFilter = false;
@@ -916,7 +846,6 @@
             this.sec_qty.Caption = "移交重量";
             this.sec_qty.FieldName = "sec_qty";
             this.sec_qty.Name = "sec_qty";
-            this.sec_qty.OptionsColumn.AllowSize = false;
             this.sec_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.sec_qty.OptionsColumn.ReadOnly = true;
             this.sec_qty.OptionsFilter.AllowAutoFilter = false;
@@ -936,6 +865,8 @@
             this.per_qty.ColumnEdit = this.colQty;
             this.per_qty.FieldName = "per_qty";
             this.per_qty.Name = "per_qty";
+            this.per_qty.OptionsFilter.AllowAutoFilter = false;
+            this.per_qty.OptionsFilter.AllowFilter = false;
             this.per_qty.Visible = true;
             this.per_qty.VisibleIndex = 8;
             this.per_qty.Width = 80;
@@ -948,6 +879,8 @@
             this.net_weight.ColumnEdit = this.colSec_qty;
             this.net_weight.FieldName = "net_weight";
             this.net_weight.Name = "net_weight";
+            this.net_weight.OptionsFilter.AllowAutoFilter = false;
+            this.net_weight.OptionsFilter.AllowFilter = false;
             this.net_weight.Visible = true;
             this.net_weight.VisibleIndex = 9;
             this.net_weight.Width = 56;
@@ -968,7 +901,6 @@
             this.out_dept.Caption = "發貨部門";
             this.out_dept.FieldName = "out_dept";
             this.out_dept.Name = "out_dept";
-            this.out_dept.OptionsColumn.AllowSize = false;
             this.out_dept.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.out_dept.OptionsColumn.ReadOnly = true;
             this.out_dept.OptionsFilter.AllowAutoFilter = false;
@@ -983,7 +915,6 @@
             this.out_dept_name.Caption = "發貨部門描述";
             this.out_dept_name.FieldName = "out_dept_name";
             this.out_dept_name.Name = "out_dept_name";
-            this.out_dept_name.OptionsColumn.AllowSize = false;
             this.out_dept_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.out_dept_name.OptionsColumn.ReadOnly = true;
             this.out_dept_name.OptionsFilter.AllowAutoFilter = false;
@@ -997,7 +928,6 @@
             this.in_dept.Caption = "收貨部門";
             this.in_dept.FieldName = "in_dept";
             this.in_dept.Name = "in_dept";
-            this.in_dept.OptionsColumn.AllowSize = false;
             this.in_dept.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.in_dept.OptionsColumn.ReadOnly = true;
             this.in_dept.OptionsFilter.AllowAutoFilter = false;
@@ -1012,7 +942,6 @@
             this.in_dept_name.Caption = "收貨部門描述";
             this.in_dept_name.FieldName = "in_dept_name";
             this.in_dept_name.Name = "in_dept_name";
-            this.in_dept_name.OptionsColumn.AllowSize = false;
             this.in_dept_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.in_dept_name.OptionsColumn.ReadOnly = true;
             this.in_dept_name.OptionsFilter.AllowAutoFilter = false;
@@ -1026,7 +955,6 @@
             this.con_date.Caption = "日期";
             this.con_date.FieldName = "con_date";
             this.con_date.Name = "con_date";
-            this.con_date.OptionsColumn.AllowSize = false;
             this.con_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.con_date.OptionsColumn.ReadOnly = true;
             this.con_date.OptionsFilter.AllowAutoFilter = false;
@@ -1043,9 +971,10 @@
             this.package_num.Caption = "包數";
             this.package_num.FieldName = "package_num";
             this.package_num.Name = "package_num";
-            this.package_num.OptionsColumn.AllowSize = false;
             this.package_num.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.package_num.OptionsColumn.ReadOnly = true;
+            this.package_num.OptionsFilter.AllowAutoFilter = false;
+            this.package_num.OptionsFilter.AllowFilter = false;
             this.package_num.Visible = true;
             this.package_num.VisibleIndex = 15;
             this.package_num.Width = 40;
@@ -1055,9 +984,10 @@
             this.vendor_id.Caption = "供應商";
             this.vendor_id.FieldName = "vendor_id";
             this.vendor_id.Name = "vendor_id";
-            this.vendor_id.OptionsColumn.AllowSize = false;
             this.vendor_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.vendor_id.OptionsColumn.ReadOnly = true;
+            this.vendor_id.OptionsFilter.AllowAutoFilter = false;
+            this.vendor_id.OptionsFilter.AllowFilter = false;
             this.vendor_id.Visible = true;
             this.vendor_id.VisibleIndex = 16;
             this.vendor_id.Width = 80;
@@ -1067,9 +997,10 @@
             this.do_color.Caption = "顏色做法";
             this.do_color.FieldName = "do_color";
             this.do_color.Name = "do_color";
-            this.do_color.OptionsColumn.AllowSize = false;
             this.do_color.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.do_color.OptionsColumn.ReadOnly = true;
+            this.do_color.OptionsFilter.AllowAutoFilter = false;
+            this.do_color.OptionsFilter.AllowFilter = false;
             this.do_color.Visible = true;
             this.do_color.VisibleIndex = 17;
             this.do_color.Width = 100;
@@ -1114,6 +1045,8 @@
             this.current_goods_id.Caption = "收貨部門的物料編號";
             this.current_goods_id.FieldName = "current_goods_id";
             this.current_goods_id.Name = "current_goods_id";
+            this.current_goods_id.OptionsFilter.AllowAutoFilter = false;
+            this.current_goods_id.OptionsFilter.AllowFilter = false;
             this.current_goods_id.Visible = true;
             this.current_goods_id.VisibleIndex = 18;
             this.current_goods_id.Width = 120;
@@ -1123,6 +1056,8 @@
             this.current_goods_name.Caption = "收貨部門的物料描述";
             this.current_goods_name.FieldName = "current_goods_name";
             this.current_goods_name.Name = "current_goods_name";
+            this.current_goods_name.OptionsFilter.AllowAutoFilter = false;
+            this.current_goods_name.OptionsFilter.AllowFilter = false;
             this.current_goods_name.Visible = true;
             this.current_goods_name.VisibleIndex = 19;
             this.current_goods_name.Width = 200;
@@ -1132,6 +1067,8 @@
             this.next_wp_id.Caption = "收貨部門的下部門編號";
             this.next_wp_id.FieldName = "next_wp_id";
             this.next_wp_id.Name = "next_wp_id";
+            this.next_wp_id.OptionsFilter.AllowAutoFilter = false;
+            this.next_wp_id.OptionsFilter.AllowFilter = false;
             this.next_wp_id.Visible = true;
             this.next_wp_id.VisibleIndex = 20;
             this.next_wp_id.Width = 80;
@@ -1141,6 +1078,8 @@
             this.next_wp_name.Caption = "收貨部門的下部門描述";
             this.next_wp_name.FieldName = "next_wp_name";
             this.next_wp_name.Name = "next_wp_name";
+            this.next_wp_name.OptionsFilter.AllowAutoFilter = false;
+            this.next_wp_name.OptionsFilter.AllowFilter = false;
             this.next_wp_name.Visible = true;
             this.next_wp_name.VisibleIndex = 21;
             this.next_wp_name.Width = 80;
@@ -1150,6 +1089,8 @@
             this.current_req_date.Caption = "收貨部門的計劃完成日期";
             this.current_req_date.FieldName = "current_req_date";
             this.current_req_date.Name = "current_req_date";
+            this.current_req_date.OptionsFilter.AllowAutoFilter = false;
+            this.current_req_date.OptionsFilter.AllowFilter = false;
             this.current_req_date.Visible = true;
             this.current_req_date.VisibleIndex = 22;
             this.current_req_date.Width = 122;
@@ -1162,6 +1103,8 @@
             this.current_prod_qty.ColumnEdit = this.colQty;
             this.current_prod_qty.FieldName = "current_prod_qty";
             this.current_prod_qty.Name = "current_prod_qty";
+            this.current_prod_qty.OptionsFilter.AllowAutoFilter = false;
+            this.current_prod_qty.OptionsFilter.AllowFilter = false;
             this.current_prod_qty.Visible = true;
             this.current_prod_qty.VisibleIndex = 23;
             this.current_prod_qty.Width = 127;
@@ -1306,12 +1249,8 @@
             this.Controls.Add(this.chkSelect);
             this.Controls.Add(this.chkJx);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.txtIn_detp2);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblIn_dept);
             this.Controls.Add(this.txtIn_detp1);
-            this.Controls.Add(this.txtOut_detp2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblOut_dept);
             this.Controls.Add(this.txtOut_detp1);
             this.Controls.Add(this.label1);
@@ -1341,8 +1280,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOut_detp1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOut_detp2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIn_detp2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIn_detp1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -1380,10 +1317,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.LookUpEdit txtOut_detp1;
         private System.Windows.Forms.Label lblOut_dept;
-        private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.LookUpEdit txtOut_detp2;
-        private DevExpress.XtraEditors.LookUpEdit txtIn_detp2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblIn_dept;
         private DevExpress.XtraEditors.LookUpEdit txtIn_detp1;
         private System.Windows.Forms.ToolStripButton BTNFIND;
