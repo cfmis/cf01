@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDelivery));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtID1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -525,8 +525,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -537,8 +537,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -549,8 +549,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -720,6 +720,10 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsCustomization.AllowFilter = false;
+            this.gridView1.OptionsCustomization.AllowGroup = false;
+            this.gridView1.OptionsCustomization.AllowSort = false;
+            this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.PaintStyleName = "Style3D";
@@ -733,6 +737,10 @@
             this.flag_select.ColumnEdit = this.clFlag_select;
             this.flag_select.FieldName = "flag_select";
             this.flag_select.Name = "flag_select";
+            this.flag_select.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.flag_select.OptionsColumn.AllowIncrementalSearch = false;
+            this.flag_select.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.flag_select.OptionsColumn.AllowMove = false;
             this.flag_select.OptionsColumn.AllowSize = false;
             this.flag_select.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.flag_select.OptionsFilter.AllowAutoFilter = false;
@@ -753,6 +761,10 @@
             this.id.Caption = "單據編號";
             this.id.FieldName = "id";
             this.id.Name = "id";
+            this.id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.id.OptionsColumn.AllowIncrementalSearch = false;
+            this.id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.id.OptionsColumn.AllowMove = false;
             this.id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.id.OptionsColumn.ReadOnly = true;
             this.id.OptionsFilter.AllowAutoFilter = false;
@@ -767,6 +779,10 @@
             this.sequence_id.Caption = "序號";
             this.sequence_id.FieldName = "sequence_id";
             this.sequence_id.Name = "sequence_id";
+            this.sequence_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.sequence_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.sequence_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.sequence_id.OptionsColumn.AllowMove = false;
             this.sequence_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.sequence_id.OptionsColumn.ReadOnly = true;
             this.sequence_id.OptionsFilter.AllowAutoFilter = false;
@@ -781,6 +797,10 @@
             this.mo_id.Caption = "頁數";
             this.mo_id.FieldName = "mo_id";
             this.mo_id.Name = "mo_id";
+            this.mo_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.mo_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.mo_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.mo_id.OptionsColumn.AllowMove = false;
             this.mo_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.mo_id.OptionsColumn.ReadOnly = true;
             this.mo_id.OptionsFilter.AllowAutoFilter = false;
@@ -793,6 +813,10 @@
             this.goods_id.Caption = "物料編號";
             this.goods_id.FieldName = "goods_id";
             this.goods_id.Name = "goods_id";
+            this.goods_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.goods_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.goods_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.goods_id.OptionsColumn.AllowMove = false;
             this.goods_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.goods_id.OptionsColumn.FixedWidth = true;
             this.goods_id.OptionsColumn.ReadOnly = true;
@@ -807,6 +831,10 @@
             this.goods_name.Caption = "物料名稱";
             this.goods_name.FieldName = "goods_name";
             this.goods_name.Name = "goods_name";
+            this.goods_name.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.goods_name.OptionsColumn.AllowIncrementalSearch = false;
+            this.goods_name.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.goods_name.OptionsColumn.AllowMove = false;
             this.goods_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.goods_name.OptionsColumn.ReadOnly = true;
             this.goods_name.OptionsFilter.AllowAutoFilter = false;
@@ -821,6 +849,10 @@
             this.con_qty.ColumnEdit = this.colQty;
             this.con_qty.FieldName = "con_qty";
             this.con_qty.Name = "con_qty";
+            this.con_qty.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.con_qty.OptionsColumn.AllowIncrementalSearch = false;
+            this.con_qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.con_qty.OptionsColumn.AllowMove = false;
             this.con_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.con_qty.OptionsColumn.ReadOnly = true;
             this.con_qty.OptionsFilter.AllowAutoFilter = false;
@@ -846,6 +878,10 @@
             this.sec_qty.Caption = "移交重量";
             this.sec_qty.FieldName = "sec_qty";
             this.sec_qty.Name = "sec_qty";
+            this.sec_qty.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.sec_qty.OptionsColumn.AllowIncrementalSearch = false;
+            this.sec_qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.sec_qty.OptionsColumn.AllowMove = false;
             this.sec_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.sec_qty.OptionsColumn.ReadOnly = true;
             this.sec_qty.OptionsFilter.AllowAutoFilter = false;
@@ -865,6 +901,11 @@
             this.per_qty.ColumnEdit = this.colQty;
             this.per_qty.FieldName = "per_qty";
             this.per_qty.Name = "per_qty";
+            this.per_qty.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.per_qty.OptionsColumn.AllowIncrementalSearch = false;
+            this.per_qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.per_qty.OptionsColumn.AllowMove = false;
+            this.per_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.per_qty.OptionsFilter.AllowAutoFilter = false;
             this.per_qty.OptionsFilter.AllowFilter = false;
             this.per_qty.Visible = true;
@@ -879,6 +920,11 @@
             this.net_weight.ColumnEdit = this.colSec_qty;
             this.net_weight.FieldName = "net_weight";
             this.net_weight.Name = "net_weight";
+            this.net_weight.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.net_weight.OptionsColumn.AllowIncrementalSearch = false;
+            this.net_weight.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.net_weight.OptionsColumn.AllowMove = false;
+            this.net_weight.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.net_weight.OptionsFilter.AllowAutoFilter = false;
             this.net_weight.OptionsFilter.AllowFilter = false;
             this.net_weight.Visible = true;
@@ -901,6 +947,10 @@
             this.out_dept.Caption = "發貨部門";
             this.out_dept.FieldName = "out_dept";
             this.out_dept.Name = "out_dept";
+            this.out_dept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.out_dept.OptionsColumn.AllowIncrementalSearch = false;
+            this.out_dept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.out_dept.OptionsColumn.AllowMove = false;
             this.out_dept.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.out_dept.OptionsColumn.ReadOnly = true;
             this.out_dept.OptionsFilter.AllowAutoFilter = false;
@@ -915,6 +965,10 @@
             this.out_dept_name.Caption = "發貨部門描述";
             this.out_dept_name.FieldName = "out_dept_name";
             this.out_dept_name.Name = "out_dept_name";
+            this.out_dept_name.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.out_dept_name.OptionsColumn.AllowIncrementalSearch = false;
+            this.out_dept_name.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.out_dept_name.OptionsColumn.AllowMove = false;
             this.out_dept_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.out_dept_name.OptionsColumn.ReadOnly = true;
             this.out_dept_name.OptionsFilter.AllowAutoFilter = false;
@@ -928,6 +982,10 @@
             this.in_dept.Caption = "收貨部門";
             this.in_dept.FieldName = "in_dept";
             this.in_dept.Name = "in_dept";
+            this.in_dept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.in_dept.OptionsColumn.AllowIncrementalSearch = false;
+            this.in_dept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.in_dept.OptionsColumn.AllowMove = false;
             this.in_dept.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.in_dept.OptionsColumn.ReadOnly = true;
             this.in_dept.OptionsFilter.AllowAutoFilter = false;
@@ -942,6 +1000,10 @@
             this.in_dept_name.Caption = "收貨部門描述";
             this.in_dept_name.FieldName = "in_dept_name";
             this.in_dept_name.Name = "in_dept_name";
+            this.in_dept_name.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.in_dept_name.OptionsColumn.AllowIncrementalSearch = false;
+            this.in_dept_name.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.in_dept_name.OptionsColumn.AllowMove = false;
             this.in_dept_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.in_dept_name.OptionsColumn.ReadOnly = true;
             this.in_dept_name.OptionsFilter.AllowAutoFilter = false;
@@ -955,6 +1017,10 @@
             this.con_date.Caption = "日期";
             this.con_date.FieldName = "con_date";
             this.con_date.Name = "con_date";
+            this.con_date.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.con_date.OptionsColumn.AllowIncrementalSearch = false;
+            this.con_date.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.con_date.OptionsColumn.AllowMove = false;
             this.con_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.con_date.OptionsColumn.ReadOnly = true;
             this.con_date.OptionsFilter.AllowAutoFilter = false;
@@ -966,13 +1032,19 @@
             // 
             // package_num
             // 
+            this.package_num.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.package_num.AppearanceCell.Options.UseBackColor = true;
             this.package_num.AppearanceCell.Options.UseTextOptions = true;
             this.package_num.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.package_num.Caption = "包數";
             this.package_num.FieldName = "package_num";
             this.package_num.Name = "package_num";
+            this.package_num.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.package_num.OptionsColumn.AllowIncrementalSearch = false;
+            this.package_num.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.package_num.OptionsColumn.AllowMove = false;
+            this.package_num.OptionsColumn.AllowShowHide = false;
             this.package_num.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.package_num.OptionsColumn.ReadOnly = true;
             this.package_num.OptionsFilter.AllowAutoFilter = false;
             this.package_num.OptionsFilter.AllowFilter = false;
             this.package_num.Visible = true;
@@ -984,6 +1056,11 @@
             this.vendor_id.Caption = "供應商";
             this.vendor_id.FieldName = "vendor_id";
             this.vendor_id.Name = "vendor_id";
+            this.vendor_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.vendor_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.vendor_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.vendor_id.OptionsColumn.AllowMove = false;
+            this.vendor_id.OptionsColumn.AllowShowHide = false;
             this.vendor_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.vendor_id.OptionsColumn.ReadOnly = true;
             this.vendor_id.OptionsFilter.AllowAutoFilter = false;
@@ -997,6 +1074,11 @@
             this.do_color.Caption = "顏色做法";
             this.do_color.FieldName = "do_color";
             this.do_color.Name = "do_color";
+            this.do_color.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color.OptionsColumn.AllowIncrementalSearch = false;
+            this.do_color.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.do_color.OptionsColumn.AllowMove = false;
+            this.do_color.OptionsColumn.AllowShowHide = false;
             this.do_color.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.do_color.OptionsColumn.ReadOnly = true;
             this.do_color.OptionsFilter.AllowAutoFilter = false;
@@ -1045,6 +1127,12 @@
             this.current_goods_id.Caption = "收貨部門的物料編號";
             this.current_goods_id.FieldName = "current_goods_id";
             this.current_goods_id.Name = "current_goods_id";
+            this.current_goods_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.current_goods_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.current_goods_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.current_goods_id.OptionsColumn.AllowMove = false;
+            this.current_goods_id.OptionsColumn.AllowShowHide = false;
+            this.current_goods_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.current_goods_id.OptionsFilter.AllowAutoFilter = false;
             this.current_goods_id.OptionsFilter.AllowFilter = false;
             this.current_goods_id.Visible = true;
@@ -1056,6 +1144,12 @@
             this.current_goods_name.Caption = "收貨部門的物料描述";
             this.current_goods_name.FieldName = "current_goods_name";
             this.current_goods_name.Name = "current_goods_name";
+            this.current_goods_name.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.current_goods_name.OptionsColumn.AllowIncrementalSearch = false;
+            this.current_goods_name.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.current_goods_name.OptionsColumn.AllowMove = false;
+            this.current_goods_name.OptionsColumn.AllowShowHide = false;
+            this.current_goods_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.current_goods_name.OptionsFilter.AllowAutoFilter = false;
             this.current_goods_name.OptionsFilter.AllowFilter = false;
             this.current_goods_name.Visible = true;
@@ -1067,6 +1161,12 @@
             this.next_wp_id.Caption = "收貨部門的下部門編號";
             this.next_wp_id.FieldName = "next_wp_id";
             this.next_wp_id.Name = "next_wp_id";
+            this.next_wp_id.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.next_wp_id.OptionsColumn.AllowIncrementalSearch = false;
+            this.next_wp_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.next_wp_id.OptionsColumn.AllowMove = false;
+            this.next_wp_id.OptionsColumn.AllowShowHide = false;
+            this.next_wp_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.next_wp_id.OptionsFilter.AllowAutoFilter = false;
             this.next_wp_id.OptionsFilter.AllowFilter = false;
             this.next_wp_id.Visible = true;
@@ -1078,6 +1178,12 @@
             this.next_wp_name.Caption = "收貨部門的下部門描述";
             this.next_wp_name.FieldName = "next_wp_name";
             this.next_wp_name.Name = "next_wp_name";
+            this.next_wp_name.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.next_wp_name.OptionsColumn.AllowIncrementalSearch = false;
+            this.next_wp_name.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.next_wp_name.OptionsColumn.AllowMove = false;
+            this.next_wp_name.OptionsColumn.AllowShowHide = false;
+            this.next_wp_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.next_wp_name.OptionsFilter.AllowAutoFilter = false;
             this.next_wp_name.OptionsFilter.AllowFilter = false;
             this.next_wp_name.Visible = true;
@@ -1089,6 +1195,12 @@
             this.current_req_date.Caption = "收貨部門的計劃完成日期";
             this.current_req_date.FieldName = "current_req_date";
             this.current_req_date.Name = "current_req_date";
+            this.current_req_date.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.current_req_date.OptionsColumn.AllowIncrementalSearch = false;
+            this.current_req_date.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.current_req_date.OptionsColumn.AllowMove = false;
+            this.current_req_date.OptionsColumn.AllowShowHide = false;
+            this.current_req_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.current_req_date.OptionsFilter.AllowAutoFilter = false;
             this.current_req_date.OptionsFilter.AllowFilter = false;
             this.current_req_date.Visible = true;
@@ -1103,8 +1215,15 @@
             this.current_prod_qty.ColumnEdit = this.colQty;
             this.current_prod_qty.FieldName = "current_prod_qty";
             this.current_prod_qty.Name = "current_prod_qty";
+            this.current_prod_qty.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.current_prod_qty.OptionsColumn.AllowIncrementalSearch = false;
+            this.current_prod_qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.current_prod_qty.OptionsColumn.AllowMove = false;
+            this.current_prod_qty.OptionsColumn.AllowShowHide = false;
+            this.current_prod_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.current_prod_qty.OptionsFilter.AllowAutoFilter = false;
             this.current_prod_qty.OptionsFilter.AllowFilter = false;
+            this.current_prod_qty.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.current_prod_qty.Visible = true;
             this.current_prod_qty.VisibleIndex = 23;
             this.current_prod_qty.Width = 127;

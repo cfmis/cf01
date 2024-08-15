@@ -1108,7 +1108,9 @@
             this.dgvDetails.OptionsBehavior.Editable = false;
             this.dgvDetails.OptionsCustomization.AllowColumnMoving = false;
             this.dgvDetails.OptionsCustomization.AllowFilter = false;
+            this.dgvDetails.OptionsCustomization.AllowGroup = false;
             this.dgvDetails.OptionsCustomization.AllowSort = false;
+            this.dgvDetails.OptionsMenu.EnableColumnMenu = false;
             this.dgvDetails.OptionsView.ColumnAutoWidth = false;
             this.dgvDetails.OptionsView.ShowGroupPanel = false;
             this.dgvDetails.PaintStyleName = "Style3D";
