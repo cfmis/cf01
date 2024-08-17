@@ -98,7 +98,7 @@
             this.radBottom.Size = new System.Drawing.Size(155, 18);
             this.radBottom.TabIndex = 4;
             this.radBottom.TabStop = true;
-            this.radBottom.Text = "文件末尾插入(新的分類)";
+            this.radBottom.Text = "文件末尾插入(建立新組)";
             this.radBottom.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
