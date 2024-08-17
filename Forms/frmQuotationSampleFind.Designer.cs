@@ -60,9 +60,9 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearchByParam = new System.Windows.Forms.Button();
             this.pnlFindData = new System.Windows.Forms.Panel();
-            this.chkFlag_ck = new DevExpress.XtraEditors.CheckEdit();
             this.txtBrand_desc = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
+            this.chkFlag_ck = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).BeginInit();
@@ -81,8 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).BeginInit();
             this.pnlFindData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_desc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInput_date1
@@ -514,20 +514,6 @@
             this.pnlFindData.Size = new System.Drawing.Size(902, 204);
             this.pnlFindData.TabIndex = 207;
             // 
-            // chkFlag_ck
-            // 
-            this.chkFlag_ck.Location = new System.Drawing.Point(774, 126);
-            this.chkFlag_ck.Name = "chkFlag_ck";
-            this.chkFlag_ck.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFlag_ck.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.chkFlag_ck.Properties.Appearance.Options.UseFont = true;
-            this.chkFlag_ck.Properties.Appearance.Options.UseForeColor = true;
-            this.chkFlag_ck.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.chkFlag_ck.Properties.Caption = "  C K";
-            this.chkFlag_ck.Size = new System.Drawing.Size(83, 21);
-            this.chkFlag_ck.TabIndex = 216;
-            this.chkFlag_ck.Tag = "";
-            // 
             // txtBrand_desc
             // 
             this.txtBrand_desc.EditValue = "";
@@ -548,6 +534,20 @@
             this.label10.TabIndex = 218;
             this.label10.Text = "Brand Desc";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkFlag_ck
+            // 
+            this.chkFlag_ck.Location = new System.Drawing.Point(540, 125);
+            this.chkFlag_ck.Name = "chkFlag_ck";
+            this.chkFlag_ck.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFlag_ck.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.chkFlag_ck.Properties.Appearance.Options.UseFont = true;
+            this.chkFlag_ck.Properties.Appearance.Options.UseForeColor = true;
+            this.chkFlag_ck.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.chkFlag_ck.Properties.Caption = "  C K";
+            this.chkFlag_ck.Size = new System.Drawing.Size(141, 21);
+            this.chkFlag_ck.TabIndex = 216;
+            this.chkFlag_ck.Tag = "";
             // 
             // frmQuotationSampleFind
             // 
@@ -580,8 +580,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCreate_date1.Properties)).EndInit();
             this.pnlFindData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_desc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

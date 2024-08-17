@@ -94,6 +94,7 @@ namespace cf01.Forms
                     strDate = string.IsNullOrEmpty(strDate) ? string.Empty : DateTime.Parse(strDate).Date.ToString("yyyy-MM-dd");
                     newRow["submission_date"] = strDate;
                     newRow["sample_approved_date"] = dgrw.Cells["sample_approved_date"].Value.ToString();
+                    newRow["macy_system"] = dgrw.Cells["macy_system"].Value.ToString();
                     newRow["remark"] = dgrw.Cells["remark"].Value.ToString();
                     newRow["brand_desc"] = dgrw.Cells["brand_desc"].Value.ToString();
                     newRow["bulk_lead_time"] = dgrw.Cells["bulk_lead_time"].Value.ToString();
@@ -224,6 +225,7 @@ namespace cf01.Forms
             txtBrand_desc.DataBindings.Add("Text", bds1, "brand_desc");
             txtBulk_lead_time.DataBindings.Add("Text", bds1, "bulk_lead_time");
             txtQuality_issue.DataBindings.Add("Text", bds1, "quality_issue");
+            txtMacy_system.DataBindings.Add("Text", bds1, "macy_system");
             //復選框的綁定
             //Binding bind = new Binding("Checked", bds1, "flag_ck");
             Binding bind = new Binding("EditValue", bds1, "flag_ck");
@@ -336,10 +338,10 @@ namespace cf01.Forms
             string sql_i =
             @"INSERT INTO quotation_sample(serial_no,input_date,season,plm_code,artwork_path,cf_code,product_desc,material,size,seq_id,macys_color_code,mo_id,
             ready_date,cf_color_code,ex_fty_usd,ex_fty_usd_new,price_unit,moq_pcs,surcharge,md_charge,art_approved_by,submission_date,
-            sample_approved_date,remark, brand_desc,bulk_lead_time,quality_issue,flag_ck,flag_hidden,create_by,create_date,status)
+            sample_approved_date,remark,macy_system, brand_desc,bulk_lead_time,quality_issue,flag_ck,flag_hidden,create_by,create_date,status)
             VALUES(@serial_no,@input_date,@season,@plm_code,@artwork_path,@cf_code,@product_desc,@material,@size,@seq_id,@macys_color_code,@mo_id,
             @ready_date,@cf_color_code,@ex_fty_usd,@ex_fty_usd_new,@price_unit,@moq_pcs,@surcharge,@md_charge,@art_approved_by,
-            CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,@sample_approved_date,@remark, @brand_desc,@bulk_lead_time,@quality_issue,
+            CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,@sample_approved_date,@remark,@macy_system,@brand_desc,@bulk_lead_time,@quality_issue,
             @flag_ck,@flag_hidden,@user_id,getdate(),@status)";
             string sql_u =
             @"UPDATE quotation_sample 
@@ -347,7 +349,7 @@ namespace cf01.Forms
             material=@material,size=@size,seq_id=@seq_id,macys_color_code=@macys_color_code,mo_id=@mo_id,ready_date=@ready_date,cf_color_code=@cf_color_code,
             ex_fty_usd=@ex_fty_usd,ex_fty_usd_new=@ex_fty_usd_new,price_unit=@price_unit,moq_pcs=@moq_pcs,surcharge=@surcharge,md_charge=@md_charge,
             art_approved_by=@art_approved_by,submission_date=CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,sample_approved_date=@sample_approved_date,
-            remark=@remark, brand_desc=@brand_desc,bulk_lead_time=@bulk_lead_time,quality_issue=@quality_issue,flag_ck=@flag_ck,flag_hidden=@flag_hidden,
+            remark=@remark,macy_system=@macy_system,brand_desc=@brand_desc,bulk_lead_time=@bulk_lead_time,quality_issue=@quality_issue,flag_ck=@flag_ck,flag_hidden=@flag_hidden,
             update_by=@user_id,update_date=getdate(),status=@status
             WHERE id=@id";            
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -395,6 +397,7 @@ namespace cf01.Forms
                             myCommand.Parameters.AddWithValue("@art_approved_by", dtDetail.Rows[i]["art_approved_by"].ToString());
                             myCommand.Parameters.AddWithValue("@submission_date", clsApp.Return_String_Date(dtDetail.Rows[i]["submission_date"].ToString()));
                             myCommand.Parameters.AddWithValue("@sample_approved_date", dtDetail.Rows[i]["sample_approved_date"].ToString());
+                            myCommand.Parameters.AddWithValue("@macy_system", dtDetail.Rows[i]["macy_system"].ToString()); 
                             myCommand.Parameters.AddWithValue("@remark", dtDetail.Rows[i]["remark"].ToString());
                             myCommand.Parameters.AddWithValue("@brand_desc", dtDetail.Rows[i]["brand_desc"].ToString());
                             myCommand.Parameters.AddWithValue("@bulk_lead_time", dtDetail.Rows[i]["bulk_lead_time"].ToString());
