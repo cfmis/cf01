@@ -201,6 +201,7 @@ namespace cf01.CLS
                     worksheet.Cells[1, 18] = "Artwork Approved Date/by";
                     worksheet.Cells[1, 19] = "Submission Date";
                     worksheet.Cells[1, 20] = "Sample Approved Date/by";
+                    worksheet.Cells[1, 21] = "Macy's System";                    
                     worksheet.Rows[1].Font.Size = 10;
                     worksheet.Rows[1].Font.Bold = true;//粗體
                     worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;//表頭欄位居中
@@ -251,12 +252,13 @@ namespace cf01.CLS
                         worksheet.Cells[row_index, 18] = dgv.Rows[r].Cells["art_approved_by"].Value.ToString();
                         worksheet.Cells[row_index, 19] = "'"+ dgv.Rows[r].Cells["submission_date"].Value.ToString(); 
                         worksheet.Cells[row_index, 20] = dgv.Rows[r].Cells["sample_approved_date"].Value.ToString();
+                        worksheet.Cells[row_index, 21] = dgv.Rows[r].Cells["macy_system"].Value.ToString();
                         status = dgv.Rows[r].Cells["status"].Value.ToString();
                         status = string.IsNullOrEmpty(status) ? "" : status;
                         if(status== "CANCELLED")
                         {
                             range_A = "A" + row_index;
-                            range_T = "T" + row_index;
+                            range_T = "U" + row_index;
                             rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_T);
                             rang_curr_row.Font.Strikethrough = true; // 添加删除线效果
                             rang_curr_row.Font.Color = System.Drawing.Color.Red;//字體顏色
@@ -372,14 +374,14 @@ namespace cf01.CLS
                     //worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                     //畫边框线
                     //获取Excel多个单元格区域
-                    string range_right = string.Format("T{0}", dgv.RowCount + 1);//右下角座標
+                    string range_right = string.Format("U{0}", dgv.RowCount + 1);//右下角座標
                     Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
                     //单元格边框线类型(线型,虚线型)
                     excelRange.Borders.LineStyle = 1;
                     excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
                     //字體
                     excelRange.Font.Name = "Arial";
-                    Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "T1");
+                    Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "U1");
                     headerRange.Interior.Color = System.Drawing.Color.Yellow.ToArgb(); //OK 
                     //headerRange.Interior.Color = System.Drawing.Color.FromArgb(255, 197, 153).ToArgb();//出錯可能不支持此顏色
 

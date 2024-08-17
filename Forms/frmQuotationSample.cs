@@ -315,7 +315,7 @@ namespace cf01.Forms
                
         private bool Save_Before_Valid() //保存前檢查
         {
-            if (txtPlm_code.Text == "" || txtCf_code.Text == "" )
+            if (txtPlm_code.Text == "" || txtCf_code.Text == "" || txtInput_date.Text=="")
             {
                 MessageBox.Show("PLM或者CF_CODE不可爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;

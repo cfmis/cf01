@@ -30,25 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuotationSample));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle115 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle116 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle117 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle118 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle119 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle120 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle126 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle127 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle128 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle129 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle130 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle131 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle132 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle133 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -438,7 +438,7 @@
             // 
             this.txtUpdate_date.EditValue = "";
             this.txtUpdate_date.Enabled = false;
-            this.txtUpdate_date.Location = new System.Drawing.Point(271, 269);
+            this.txtUpdate_date.Location = new System.Drawing.Point(259, 269);
             this.txtUpdate_date.Name = "txtUpdate_date";
             this.txtUpdate_date.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdate_date.Properties.Appearance.Options.UseFont = true;
@@ -453,7 +453,7 @@
             // 
             this.txtUpdate_by.EditValue = "";
             this.txtUpdate_by.Enabled = false;
-            this.txtUpdate_by.Location = new System.Drawing.Point(122, 269);
+            this.txtUpdate_by.Location = new System.Drawing.Point(109, 269);
             this.txtUpdate_by.Name = "txtUpdate_by";
             this.txtUpdate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtUpdate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -466,7 +466,7 @@
             // 
             this.txtCreate_date.EditValue = "";
             this.txtCreate_date.Enabled = false;
-            this.txtCreate_date.Location = new System.Drawing.Point(271, 245);
+            this.txtCreate_date.Location = new System.Drawing.Point(259, 245);
             this.txtCreate_date.Name = "txtCreate_date";
             this.txtCreate_date.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCreate_date.Properties.Appearance.Options.UseFont = true;
@@ -480,7 +480,7 @@
             // lblAmusr
             // 
             this.lblAmusr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmusr.Location = new System.Drawing.Point(55, 271);
+            this.lblAmusr.Location = new System.Drawing.Point(40, 271);
             this.lblAmusr.Name = "lblAmusr";
             this.lblAmusr.Size = new System.Drawing.Size(65, 15);
             this.lblAmusr.TabIndex = 146;
@@ -491,7 +491,7 @@
             // 
             this.txtCreate_by.EditValue = "";
             this.txtCreate_by.Enabled = false;
-            this.txtCreate_by.Location = new System.Drawing.Point(121, 245);
+            this.txtCreate_by.Location = new System.Drawing.Point(109, 245);
             this.txtCreate_by.Name = "txtCreate_by";
             this.txtCreate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtCreate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -504,7 +504,7 @@
             // 
             this.txtRemark.EditValue = "";
             this.txtRemark.EnterMoveNextControl = true;
-            this.txtRemark.Location = new System.Drawing.Point(121, 199);
+            this.txtRemark.Location = new System.Drawing.Point(109, 199);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.MaxLength = 200;
             this.txtRemark.Properties.ReadOnly = true;
@@ -515,7 +515,7 @@
             // lblCrusr
             // 
             this.lblCrusr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrusr.Location = new System.Drawing.Point(55, 247);
+            this.lblCrusr.Location = new System.Drawing.Point(40, 247);
             this.lblCrusr.Name = "lblCrusr";
             this.lblCrusr.Size = new System.Drawing.Size(65, 15);
             this.lblCrusr.TabIndex = 143;
@@ -526,7 +526,7 @@
             // 
             this.txtSeq_id.EditValue = "";
             this.txtSeq_id.EnterMoveNextControl = true;
-            this.txtSeq_id.Location = new System.Drawing.Point(253, 4);
+            this.txtSeq_id.Location = new System.Drawing.Point(241, 4);
             this.txtSeq_id.Name = "txtSeq_id";
             this.txtSeq_id.Properties.MaxLength = 100;
             this.txtSeq_id.Properties.ReadOnly = true;
@@ -538,7 +538,7 @@
             // 
             this.txtSeason.EditValue = "";
             this.txtSeason.EnterMoveNextControl = true;
-            this.txtSeason.Location = new System.Drawing.Point(121, 28);
+            this.txtSeason.Location = new System.Drawing.Point(109, 28);
             this.txtSeason.Name = "txtSeason";
             this.txtSeason.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSeason.Properties.MaxLength = 20;
@@ -552,7 +552,7 @@
             this.txtInput_date.EditValue = "";
             this.txtInput_date.Enabled = false;
             this.txtInput_date.EnterMoveNextControl = true;
-            this.txtInput_date.Location = new System.Drawing.Point(121, 4);
+            this.txtInput_date.Location = new System.Drawing.Point(109, 4);
             this.txtInput_date.Name = "txtInput_date";
             this.txtInput_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtInput_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -575,7 +575,8 @@
             // txtSerial_no
             // 
             this.txtSerial_no.EditValue = "";
-            this.txtSerial_no.Location = new System.Drawing.Point(122, 292);
+            this.txtSerial_no.Enabled = false;
+            this.txtSerial_no.Location = new System.Drawing.Point(109, 292);
             this.txtSerial_no.Name = "txtSerial_no";
             this.txtSerial_no.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSerial_no.Properties.MaxLength = 12;
@@ -587,7 +588,7 @@
             // lblAmtim
             // 
             this.lblAmtim.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmtim.Location = new System.Drawing.Point(201, 271);
+            this.lblAmtim.Location = new System.Drawing.Point(189, 271);
             this.lblAmtim.Name = "lblAmtim";
             this.lblAmtim.Size = new System.Drawing.Size(70, 15);
             this.lblAmtim.TabIndex = 147;
@@ -597,7 +598,7 @@
             // lblCrtim
             // 
             this.lblCrtim.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrtim.Location = new System.Drawing.Point(201, 247);
+            this.lblCrtim.Location = new System.Drawing.Point(189, 247);
             this.lblCrtim.Name = "lblCrtim";
             this.lblCrtim.Size = new System.Drawing.Size(70, 15);
             this.lblCrtim.TabIndex = 145;
@@ -607,7 +608,7 @@
             // lblRemark
             // 
             this.lblRemark.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblRemark.Location = new System.Drawing.Point(54, 203);
+            this.lblRemark.Location = new System.Drawing.Point(43, 203);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(62, 13);
             this.lblRemark.TabIndex = 157;
@@ -618,7 +619,7 @@
             // 
             this.lblDate.Font = new System.Drawing.Font("Tahoma", 9F);
             this.lblDate.ForeColor = System.Drawing.Color.Blue;
-            this.lblDate.Location = new System.Drawing.Point(14, 6);
+            this.lblDate.Location = new System.Drawing.Point(4, 6);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(101, 15);
             this.lblDate.TabIndex = 155;
@@ -627,7 +628,7 @@
             // 
             // lblSerialNo
             // 
-            this.lblSerialNo.Location = new System.Drawing.Point(74, 296);
+            this.lblSerialNo.Location = new System.Drawing.Point(57, 296);
             this.lblSerialNo.Name = "lblSerialNo";
             this.lblSerialNo.Size = new System.Drawing.Size(48, 13);
             this.lblSerialNo.TabIndex = 154;
@@ -637,7 +638,8 @@
             // lblCust_code
             // 
             this.lblCust_code.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblCust_code.Location = new System.Drawing.Point(14, 29);
+            this.lblCust_code.ForeColor = System.Drawing.Color.Blue;
+            this.lblCust_code.Location = new System.Drawing.Point(4, 29);
             this.lblCust_code.Name = "lblCust_code";
             this.lblCust_code.Size = new System.Drawing.Size(101, 15);
             this.lblCust_code.TabIndex = 156;
@@ -646,8 +648,7 @@
             // 
             // label1
             // 
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(240, 296);
+            this.label1.Location = new System.Drawing.Point(228, 296);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 159;
@@ -658,7 +659,7 @@
             // 
             this.txtID.EditValue = "";
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(271, 292);
+            this.txtID.Location = new System.Drawing.Point(258, 292);
             this.txtID.Name = "txtID";
             this.txtID.Properties.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(138, 20);
@@ -668,8 +669,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(220, 6);
+            this.label2.Location = new System.Drawing.Point(208, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 160;
@@ -680,7 +680,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Tahoma", 9F);
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(14, 54);
+            this.label3.Location = new System.Drawing.Point(4, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 15);
             this.label3.TabIndex = 162;
@@ -691,7 +691,7 @@
             // 
             this.txtPlm_code.EditValue = "";
             this.txtPlm_code.EnterMoveNextControl = true;
-            this.txtPlm_code.Location = new System.Drawing.Point(121, 51);
+            this.txtPlm_code.Location = new System.Drawing.Point(109, 51);
             this.txtPlm_code.Name = "txtPlm_code";
             this.txtPlm_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPlm_code.Properties.MaxLength = 25;
@@ -703,7 +703,7 @@
             // lblArtwork_path
             // 
             this.lblArtwork_path.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblArtwork_path.Location = new System.Drawing.Point(14, 78);
+            this.lblArtwork_path.Location = new System.Drawing.Point(4, 78);
             this.lblArtwork_path.Name = "lblArtwork_path";
             this.lblArtwork_path.Size = new System.Drawing.Size(101, 15);
             this.lblArtwork_path.TabIndex = 164;
@@ -714,7 +714,7 @@
             // 
             this.txtCf_code.EditValue = "";
             this.txtCf_code.EnterMoveNextControl = true;
-            this.txtCf_code.Location = new System.Drawing.Point(121, 98);
+            this.txtCf_code.Location = new System.Drawing.Point(109, 98);
             this.txtCf_code.Name = "txtCf_code";
             this.txtCf_code.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCf_code.Properties.MaxLength = 100;
@@ -727,7 +727,7 @@
             // 
             this.txtArtwork_path.EditValue = "";
             this.txtArtwork_path.EnterMoveNextControl = true;
-            this.txtArtwork_path.Location = new System.Drawing.Point(121, 74);
+            this.txtArtwork_path.Location = new System.Drawing.Point(109, 74);
             this.txtArtwork_path.Name = "txtArtwork_path";
             this.txtArtwork_path.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
@@ -743,7 +743,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F);
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(14, 100);
+            this.label4.Location = new System.Drawing.Point(4, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 166;
@@ -753,7 +753,8 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label5.Location = new System.Drawing.Point(17, 153);
+            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(7, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 15);
             this.label5.TabIndex = 168;
@@ -764,7 +765,7 @@
             // 
             this.txtProduct_desc.EditValue = "";
             this.txtProduct_desc.EnterMoveNextControl = true;
-            this.txtProduct_desc.Location = new System.Drawing.Point(121, 150);
+            this.txtProduct_desc.Location = new System.Drawing.Point(109, 150);
             this.txtProduct_desc.Name = "txtProduct_desc";
             this.txtProduct_desc.Properties.MaxLength = 250;
             this.txtProduct_desc.Properties.ReadOnly = true;
@@ -775,7 +776,8 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label6.Location = new System.Drawing.Point(14, 177);
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(4, 177);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 15);
             this.label6.TabIndex = 170;
@@ -786,7 +788,7 @@
             // 
             this.txtMaterial.EditValue = "";
             this.txtMaterial.EnterMoveNextControl = true;
-            this.txtMaterial.Location = new System.Drawing.Point(121, 174);
+            this.txtMaterial.Location = new System.Drawing.Point(109, 174);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Properties.MaxLength = 200;
             this.txtMaterial.Properties.ReadOnly = true;
@@ -797,7 +799,7 @@
             // lblSize
             // 
             this.lblSize.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblSize.Location = new System.Drawing.Point(330, 177);
+            this.lblSize.Location = new System.Drawing.Point(318, 177);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(74, 15);
             this.lblSize.TabIndex = 172;
@@ -808,7 +810,7 @@
             // 
             this.txtSize.EditValue = "";
             this.txtSize.EnterMoveNextControl = true;
-            this.txtSize.Location = new System.Drawing.Point(407, 174);
+            this.txtSize.Location = new System.Drawing.Point(395, 174);
             this.txtSize.Name = "txtSize";
             this.txtSize.Properties.MaxLength = 200;
             this.txtSize.Properties.ReadOnly = true;
@@ -819,7 +821,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(322, 127);
+            this.label7.Location = new System.Drawing.Point(310, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 16);
             this.label7.TabIndex = 179;
@@ -829,9 +831,9 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label8.Location = new System.Drawing.Point(8, 127);
+            this.label8.Location = new System.Drawing.Point(7, 127);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 15);
+            this.label8.Size = new System.Drawing.Size(98, 15);
             this.label8.TabIndex = 178;
             this.label8.Text = "Ex-fty (USD)";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -839,7 +841,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label9.Location = new System.Drawing.Point(315, 100);
+            this.label9.Location = new System.Drawing.Point(303, 100);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 15);
             this.label9.TabIndex = 177;
@@ -849,7 +851,7 @@
             // lblsubmission_date
             // 
             this.lblsubmission_date.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblsubmission_date.Location = new System.Drawing.Point(643, 78);
+            this.lblsubmission_date.Location = new System.Drawing.Point(631, 78);
             this.lblsubmission_date.Name = "lblsubmission_date";
             this.lblsubmission_date.Size = new System.Drawing.Size(168, 15);
             this.lblsubmission_date.TabIndex = 176;
@@ -859,7 +861,7 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label11.Location = new System.Drawing.Point(318, 54);
+            this.label11.Location = new System.Drawing.Point(306, 54);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 15);
             this.label11.TabIndex = 175;
@@ -869,7 +871,7 @@
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(282, 6);
+            this.label12.Location = new System.Drawing.Point(270, 6);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 14);
             this.label12.TabIndex = 173;
@@ -879,7 +881,7 @@
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label13.Location = new System.Drawing.Point(297, 29);
+            this.label13.Location = new System.Drawing.Point(285, 29);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(107, 15);
             this.label13.TabIndex = 174;
@@ -890,7 +892,7 @@
             // 
             this.txtMacys_color_code.EditValue = "";
             this.txtMacys_color_code.EnterMoveNextControl = true;
-            this.txtMacys_color_code.Location = new System.Drawing.Point(407, 4);
+            this.txtMacys_color_code.Location = new System.Drawing.Point(395, 4);
             this.txtMacys_color_code.Name = "txtMacys_color_code";
             this.txtMacys_color_code.Properties.MaxLength = 150;
             this.txtMacys_color_code.Properties.ReadOnly = true;
@@ -902,7 +904,7 @@
             // 
             this.txtMo_id.EditValue = "";
             this.txtMo_id.EnterMoveNextControl = true;
-            this.txtMo_id.Location = new System.Drawing.Point(407, 28);
+            this.txtMo_id.Location = new System.Drawing.Point(395, 28);
             this.txtMo_id.Name = "txtMo_id";
             this.txtMo_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id.Properties.MaxLength = 20;
@@ -915,7 +917,7 @@
             // 
             this.txtReady_date.EditValue = "";
             this.txtReady_date.EnterMoveNextControl = true;
-            this.txtReady_date.Location = new System.Drawing.Point(407, 51);
+            this.txtReady_date.Location = new System.Drawing.Point(395, 51);
             this.txtReady_date.Name = "txtReady_date";
             this.txtReady_date.Properties.MaxLength = 100;
             this.txtReady_date.Properties.ReadOnly = true;
@@ -927,7 +929,7 @@
             // 
             this.txtCf_color_code.EditValue = "";
             this.txtCf_color_code.EnterMoveNextControl = true;
-            this.txtCf_color_code.Location = new System.Drawing.Point(407, 98);
+            this.txtCf_color_code.Location = new System.Drawing.Point(395, 98);
             this.txtCf_color_code.Name = "txtCf_color_code";
             this.txtCf_color_code.Properties.MaxLength = 100;
             this.txtCf_color_code.Properties.ReadOnly = true;
@@ -939,7 +941,7 @@
             // 
             this.txtEx_fty_usd_new.EditValue = "";
             this.txtEx_fty_usd_new.EnterMoveNextControl = true;
-            this.txtEx_fty_usd_new.Location = new System.Drawing.Point(436, 125);
+            this.txtEx_fty_usd_new.Location = new System.Drawing.Point(424, 125);
             this.txtEx_fty_usd_new.Name = "txtEx_fty_usd_new";
             this.txtEx_fty_usd_new.Properties.MaxLength = 100;
             this.txtEx_fty_usd_new.Properties.ReadOnly = true;
@@ -951,7 +953,7 @@
             // 
             this.txtEx_fty_usd.EditValue = "";
             this.txtEx_fty_usd.EnterMoveNextControl = true;
-            this.txtEx_fty_usd.Location = new System.Drawing.Point(121, 125);
+            this.txtEx_fty_usd.Location = new System.Drawing.Point(109, 125);
             this.txtEx_fty_usd.Name = "txtEx_fty_usd";
             this.txtEx_fty_usd.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtEx_fty_usd.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -970,7 +972,8 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label14.Location = new System.Drawing.Point(220, 127);
+            this.label14.ForeColor = System.Drawing.Color.Blue;
+            this.label14.Location = new System.Drawing.Point(208, 127);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 15);
             this.label14.TabIndex = 188;
@@ -982,7 +985,7 @@
             this.txtPrice_unit.EditValue = "";
             this.txtPrice_unit.Enabled = false;
             this.txtPrice_unit.EnterMoveNextControl = true;
-            this.txtPrice_unit.Location = new System.Drawing.Point(254, 125);
+            this.txtPrice_unit.Location = new System.Drawing.Point(242, 125);
             this.txtPrice_unit.Name = "txtPrice_unit";
             this.txtPrice_unit.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtPrice_unit.Properties.Appearance.Options.UseForeColor = true;
@@ -1003,7 +1006,7 @@
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label15.Location = new System.Drawing.Point(627, 128);
+            this.label15.Location = new System.Drawing.Point(615, 128);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(66, 15);
             this.label15.TabIndex = 190;
@@ -1014,11 +1017,11 @@
             // 
             this.txtSurcharge.EditValue = "";
             this.txtSurcharge.EnterMoveNextControl = true;
-            this.txtSurcharge.Location = new System.Drawing.Point(816, 4);
+            this.txtSurcharge.Location = new System.Drawing.Point(803, 4);
             this.txtSurcharge.Name = "txtSurcharge";
             this.txtSurcharge.Properties.MaxLength = 100;
             this.txtSurcharge.Properties.ReadOnly = true;
-            this.txtSurcharge.Size = new System.Drawing.Size(217, 20);
+            this.txtSurcharge.Size = new System.Drawing.Size(234, 20);
             this.txtSurcharge.TabIndex = 17;
             this.txtSurcharge.Tag = "2";
             // 
@@ -1026,7 +1029,7 @@
             // 
             this.txtMoq_pcs.EditValue = "";
             this.txtMoq_pcs.EnterMoveNextControl = true;
-            this.txtMoq_pcs.Location = new System.Drawing.Point(697, 125);
+            this.txtMoq_pcs.Location = new System.Drawing.Point(685, 125);
             this.txtMoq_pcs.Name = "txtMoq_pcs";
             this.txtMoq_pcs.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtMoq_pcs.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -1047,7 +1050,7 @@
             // lblsurcharge
             // 
             this.lblsurcharge.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblsurcharge.Location = new System.Drawing.Point(643, 7);
+            this.lblsurcharge.Location = new System.Drawing.Point(631, 7);
             this.lblsurcharge.Name = "lblsurcharge";
             this.lblsurcharge.Size = new System.Drawing.Size(168, 15);
             this.lblsurcharge.TabIndex = 193;
@@ -1057,7 +1060,7 @@
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label16.Location = new System.Drawing.Point(643, 31);
+            this.label16.Location = new System.Drawing.Point(631, 31);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(168, 15);
             this.label16.TabIndex = 195;
@@ -1068,18 +1071,18 @@
             // 
             this.txtMd_charge.EditValue = "";
             this.txtMd_charge.EnterMoveNextControl = true;
-            this.txtMd_charge.Location = new System.Drawing.Point(816, 28);
+            this.txtMd_charge.Location = new System.Drawing.Point(803, 28);
             this.txtMd_charge.Name = "txtMd_charge";
             this.txtMd_charge.Properties.MaxLength = 100;
             this.txtMd_charge.Properties.ReadOnly = true;
-            this.txtMd_charge.Size = new System.Drawing.Size(217, 20);
+            this.txtMd_charge.Size = new System.Drawing.Size(234, 20);
             this.txtMd_charge.TabIndex = 18;
             this.txtMd_charge.Tag = "2";
             // 
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(643, 54);
+            this.label17.Location = new System.Drawing.Point(631, 54);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(168, 15);
             this.label17.TabIndex = 197;
@@ -1090,11 +1093,11 @@
             // 
             this.txtArt_approved_by.EditValue = "";
             this.txtArt_approved_by.EnterMoveNextControl = true;
-            this.txtArt_approved_by.Location = new System.Drawing.Point(816, 51);
+            this.txtArt_approved_by.Location = new System.Drawing.Point(803, 51);
             this.txtArt_approved_by.Name = "txtArt_approved_by";
             this.txtArt_approved_by.Properties.MaxLength = 100;
             this.txtArt_approved_by.Properties.ReadOnly = true;
-            this.txtArt_approved_by.Size = new System.Drawing.Size(217, 20);
+            this.txtArt_approved_by.Size = new System.Drawing.Size(234, 20);
             this.txtArt_approved_by.TabIndex = 19;
             this.txtArt_approved_by.Tag = "2";
             // 
@@ -1103,7 +1106,7 @@
             this.dtSubmission_date.EditValue = "";
             this.dtSubmission_date.Enabled = false;
             this.dtSubmission_date.EnterMoveNextControl = true;
-            this.dtSubmission_date.Location = new System.Drawing.Point(816, 74);
+            this.dtSubmission_date.Location = new System.Drawing.Point(803, 74);
             this.dtSubmission_date.Name = "dtSubmission_date";
             this.dtSubmission_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.dtSubmission_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1119,14 +1122,14 @@
             this.dtSubmission_date.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.dtSubmission_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtSubmission_date.Properties.MaxLength = 10;
-            this.dtSubmission_date.Size = new System.Drawing.Size(217, 20);
+            this.dtSubmission_date.Size = new System.Drawing.Size(234, 20);
             this.dtSubmission_date.TabIndex = 20;
             this.dtSubmission_date.Tag = "2";
             // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label10.Location = new System.Drawing.Point(643, 100);
+            this.label10.Location = new System.Drawing.Point(631, 100);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(168, 15);
             this.label10.TabIndex = 199;
@@ -1221,7 +1224,7 @@
             // 
             this.txtMacy_system.EditValue = "";
             this.txtMacy_system.EnterMoveNextControl = true;
-            this.txtMacy_system.Location = new System.Drawing.Point(121, 222);
+            this.txtMacy_system.Location = new System.Drawing.Point(109, 222);
             this.txtMacy_system.Name = "txtMacy_system";
             this.txtMacy_system.Properties.MaxLength = 200;
             this.txtMacy_system.Properties.ReadOnly = true;
@@ -1232,7 +1235,7 @@
             // lblmacy_system
             // 
             this.lblmacy_system.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblmacy_system.Location = new System.Drawing.Point(33, 222);
+            this.lblmacy_system.Location = new System.Drawing.Point(22, 222);
             this.lblmacy_system.Name = "lblmacy_system";
             this.lblmacy_system.Size = new System.Drawing.Size(83, 18);
             this.lblmacy_system.TabIndex = 226;
@@ -1242,7 +1245,7 @@
             // chkFlagHidden
             // 
             this.chkFlagHidden.Enabled = false;
-            this.chkFlagHidden.Location = new System.Drawing.Point(743, 173);
+            this.chkFlagHidden.Location = new System.Drawing.Point(731, 173);
             this.chkFlagHidden.Name = "chkFlagHidden";
             this.chkFlagHidden.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFlagHidden.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
@@ -1260,11 +1263,12 @@
             // 
             this.txtSample_approved_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtSample_approved_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSample_approved_date.Location = new System.Drawing.Point(816, 97);
+            this.txtSample_approved_date.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSample_approved_date.Location = new System.Drawing.Point(803, 97);
             this.txtSample_approved_date.MaxLength = 250;
             this.txtSample_approved_date.Name = "txtSample_approved_date";
             this.txtSample_approved_date.ReadOnly = true;
-            this.txtSample_approved_date.Size = new System.Drawing.Size(217, 68);
+            this.txtSample_approved_date.Size = new System.Drawing.Size(234, 68);
             this.txtSample_approved_date.TabIndex = 223;
             this.txtSample_approved_date.Tag = "2";
             this.txtSample_approved_date.Text = "";
@@ -1273,7 +1277,8 @@
             // 
             this.txtQuality_issue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtQuality_issue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuality_issue.Location = new System.Drawing.Point(459, 245);
+            this.txtQuality_issue.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.txtQuality_issue.Location = new System.Drawing.Point(447, 245);
             this.txtQuality_issue.MaxLength = 250;
             this.txtQuality_issue.Name = "txtQuality_issue";
             this.txtQuality_issue.ReadOnly = true;
@@ -1285,7 +1290,7 @@
             // lblQuality
             // 
             this.lblQuality.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblQuality.Location = new System.Drawing.Point(413, 247);
+            this.lblQuality.Location = new System.Drawing.Point(401, 247);
             this.lblQuality.Name = "lblQuality";
             this.lblQuality.Size = new System.Drawing.Size(48, 29);
             this.lblQuality.TabIndex = 221;
@@ -1296,7 +1301,7 @@
             // 
             this.txtBulk_lead_time.EditValue = "";
             this.txtBulk_lead_time.EnterMoveNextControl = true;
-            this.txtBulk_lead_time.Location = new System.Drawing.Point(697, 199);
+            this.txtBulk_lead_time.Location = new System.Drawing.Point(685, 199);
             this.txtBulk_lead_time.Name = "txtBulk_lead_time";
             this.txtBulk_lead_time.Properties.MaxLength = 50;
             this.txtBulk_lead_time.Properties.ReadOnly = true;
@@ -1307,7 +1312,7 @@
             // lblBrand
             // 
             this.lblBrand.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblBrand.Location = new System.Drawing.Point(330, 201);
+            this.lblBrand.Location = new System.Drawing.Point(318, 201);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(74, 15);
             this.lblBrand.TabIndex = 217;
@@ -1318,7 +1323,7 @@
             // 
             this.txtBrand_desc.EditValue = "";
             this.txtBrand_desc.EnterMoveNextControl = true;
-            this.txtBrand_desc.Location = new System.Drawing.Point(407, 199);
+            this.txtBrand_desc.Location = new System.Drawing.Point(395, 199);
             this.txtBrand_desc.Name = "txtBrand_desc";
             this.txtBrand_desc.Properties.MaxLength = 50;
             this.txtBrand_desc.Properties.ReadOnly = true;
@@ -1329,7 +1334,7 @@
             // chkFlagCk
             // 
             this.chkFlagCk.Enabled = false;
-            this.chkFlagCk.Location = new System.Drawing.Point(630, 173);
+            this.chkFlagCk.Location = new System.Drawing.Point(618, 173);
             this.chkFlagCk.Name = "chkFlagCk";
             this.chkFlagCk.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFlagCk.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
@@ -1347,7 +1352,7 @@
             // 
             this.txtStatus.EditValue = "";
             this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(697, 150);
+            this.txtStatus.Location = new System.Drawing.Point(685, 150);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1361,9 +1366,9 @@
             // pic_artwork
             // 
             this.pic_artwork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_artwork.Location = new System.Drawing.Point(842, 169);
+            this.pic_artwork.Location = new System.Drawing.Point(804, 169);
             this.pic_artwork.Name = "pic_artwork";
-            this.pic_artwork.Size = new System.Drawing.Size(172, 143);
+            this.pic_artwork.Size = new System.Drawing.Size(192, 143);
             this.pic_artwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_artwork.TabIndex = 200;
             this.pic_artwork.TabStop = false;
@@ -1423,7 +1428,7 @@
             // lblStatus
             // 
             this.lblStatus.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(618, 153);
+            this.lblStatus.Location = new System.Drawing.Point(606, 153);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(77, 13);
             this.lblStatus.TabIndex = 210;
@@ -1433,7 +1438,7 @@
             // lblBulk
             // 
             this.lblBulk.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBulk.Location = new System.Drawing.Point(608, 201);
+            this.lblBulk.Location = new System.Drawing.Point(596, 201);
             this.lblBulk.Name = "lblBulk";
             this.lblBulk.Size = new System.Drawing.Size(91, 15);
             this.lblBulk.TabIndex = 219;
@@ -1447,14 +1452,14 @@
             this.dgvDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle115.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle115.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle115.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle115.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle115.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle115.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle115.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle115;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.input_date,
@@ -1508,9 +1513,9 @@
             // input_date
             // 
             this.input_date.DataPropertyName = "input_date";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.input_date.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle116.Format = "d";
+            dataGridViewCellStyle116.NullValue = null;
+            this.input_date.DefaultCellStyle = dataGridViewCellStyle116;
             this.input_date.HeaderText = "Date";
             this.input_date.Name = "input_date";
             this.input_date.ReadOnly = true;
@@ -1619,10 +1624,10 @@
             // ex_fty_usd
             // 
             this.ex_fty_usd.DataPropertyName = "ex_fty_usd";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N3";
-            dataGridViewCellStyle3.NullValue = "0.000";
-            this.ex_fty_usd.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle117.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle117.Format = "N3";
+            dataGridViewCellStyle117.NullValue = "0.000";
+            this.ex_fty_usd.DefaultCellStyle = dataGridViewCellStyle117;
             this.ex_fty_usd.HeaderText = "Ex-fty (USD)";
             this.ex_fty_usd.Name = "ex_fty_usd";
             this.ex_fty_usd.ReadOnly = true;
@@ -1647,10 +1652,10 @@
             // moq_pcs
             // 
             this.moq_pcs.DataPropertyName = "moq_pcs";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.moq_pcs.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle118.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle118.Format = "N0";
+            dataGridViewCellStyle118.NullValue = "0";
+            this.moq_pcs.DefaultCellStyle = dataGridViewCellStyle118;
             this.moq_pcs.HeaderText = "MOQ (Pcs)";
             this.moq_pcs.Name = "moq_pcs";
             this.moq_pcs.ReadOnly = true;
@@ -1683,9 +1688,9 @@
             // submission_date
             // 
             this.submission_date.DataPropertyName = "submission_date";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.submission_date.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle119.Format = "d";
+            dataGridViewCellStyle119.NullValue = null;
+            this.submission_date.DefaultCellStyle = dataGridViewCellStyle119;
             this.submission_date.HeaderText = "Submission Date";
             this.submission_date.Name = "submission_date";
             this.submission_date.ReadOnly = true;
@@ -1765,9 +1770,9 @@
             // create_date
             // 
             this.create_date.DataPropertyName = "create_date";
-            dataGridViewCellStyle6.Format = "g";
-            dataGridViewCellStyle6.NullValue = null;
-            this.create_date.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle120.Format = "g";
+            dataGridViewCellStyle120.NullValue = null;
+            this.create_date.DefaultCellStyle = dataGridViewCellStyle120;
             this.create_date.HeaderText = "Create Date";
             this.create_date.Name = "create_date";
             this.create_date.ReadOnly = true;
@@ -1786,9 +1791,9 @@
             // update_date
             // 
             this.update_date.DataPropertyName = "update_date";
-            dataGridViewCellStyle7.Format = "g";
-            dataGridViewCellStyle7.NullValue = null;
-            this.update_date.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle121.Format = "g";
+            dataGridViewCellStyle121.NullValue = null;
+            this.update_date.DefaultCellStyle = dataGridViewCellStyle121;
             this.update_date.HeaderText = "Update Date";
             this.update_date.Name = "update_date";
             this.update_date.ReadOnly = true;
@@ -1798,9 +1803,9 @@
             // id
             // 
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle8.Format = "N0";
-            dataGridViewCellStyle8.NullValue = "0";
-            this.id.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle122.Format = "N0";
+            dataGridViewCellStyle122.NullValue = "0";
+            this.id.DefaultCellStyle = dataGridViewCellStyle122;
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -1861,9 +1866,9 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "input_date";
-            dataGridViewCellStyle9.Format = "d";
-            dataGridViewCellStyle9.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle123.Format = "d";
+            dataGridViewCellStyle123.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle123;
             this.dataGridViewTextBoxColumn1.HeaderText = "Date";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1975,10 +1980,10 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "ex_fty_usd";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N3";
-            dataGridViewCellStyle10.NullValue = "0.000";
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle124.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle124.Format = "N3";
+            dataGridViewCellStyle124.NullValue = "0.000";
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle124;
             this.dataGridViewTextBoxColumn14.HeaderText = "Ex-fty (USD)";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -2003,10 +2008,10 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "moq_pcs";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N0";
-            dataGridViewCellStyle11.NullValue = "0";
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle125.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle125.Format = "N0";
+            dataGridViewCellStyle125.NullValue = "0";
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle125;
             this.dataGridViewTextBoxColumn17.HeaderText = "MOQ (Pcs)";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
@@ -2039,9 +2044,9 @@
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "submission_date";
-            dataGridViewCellStyle12.Format = "d";
-            dataGridViewCellStyle12.NullValue = null;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle126.Format = "d";
+            dataGridViewCellStyle126.NullValue = null;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle126;
             this.dataGridViewTextBoxColumn21.HeaderText = "Submission Date";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -2075,9 +2080,9 @@
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "create_date";
-            dataGridViewCellStyle13.Format = "g";
-            dataGridViewCellStyle13.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle127.Format = "g";
+            dataGridViewCellStyle127.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle127;
             this.dataGridViewTextBoxColumn25.HeaderText = "Create Date";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
@@ -2096,9 +2101,9 @@
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.DataPropertyName = "update_date";
-            dataGridViewCellStyle14.Format = "g";
-            dataGridViewCellStyle14.NullValue = null;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle128.Format = "g";
+            dataGridViewCellStyle128.NullValue = null;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle128;
             this.dataGridViewTextBoxColumn27.HeaderText = "Update Date";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
@@ -2108,9 +2113,9 @@
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.DataPropertyName = "id";
-            dataGridViewCellStyle15.Format = "N0";
-            dataGridViewCellStyle15.NullValue = "0";
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle129.Format = "N0";
+            dataGridViewCellStyle129.NullValue = "0";
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle129;
             this.dataGridViewTextBoxColumn28.HeaderText = "ID";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -2120,9 +2125,9 @@
             // dataGridViewTextBoxColumn29
             // 
             this.dataGridViewTextBoxColumn29.DataPropertyName = "serial_no";
-            dataGridViewCellStyle16.Format = "g";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle130.Format = "g";
+            dataGridViewCellStyle130.NullValue = null;
+            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle130;
             this.dataGridViewTextBoxColumn29.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
@@ -2132,9 +2137,9 @@
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "row_flag";
-            dataGridViewCellStyle17.Format = "g";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle131.Format = "g";
+            dataGridViewCellStyle131.NullValue = null;
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle131;
             this.dataGridViewTextBoxColumn30.HeaderText = "row_flag";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
@@ -2144,9 +2149,9 @@
             // dataGridViewTextBoxColumn31
             // 
             this.dataGridViewTextBoxColumn31.DataPropertyName = "seq_id_org";
-            dataGridViewCellStyle18.Format = "N0";
-            dataGridViewCellStyle18.NullValue = "0";
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle132.Format = "N0";
+            dataGridViewCellStyle132.NullValue = "0";
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle132;
             this.dataGridViewTextBoxColumn31.HeaderText = "Seq_flag";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
@@ -2156,9 +2161,9 @@
             // dataGridViewTextBoxColumn32
             // 
             this.dataGridViewTextBoxColumn32.DataPropertyName = "rs";
-            dataGridViewCellStyle19.Format = "N0";
-            dataGridViewCellStyle19.NullValue = "0";
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle133.Format = "N0";
+            dataGridViewCellStyle133.NullValue = "0";
+            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle133;
             this.dataGridViewTextBoxColumn32.HeaderText = "Rs";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
