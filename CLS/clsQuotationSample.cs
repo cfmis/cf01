@@ -135,286 +135,313 @@ namespace cf01.CLS
             return result;
         }
 
-        public static void ExportToExcel(DataGridView dgv)
+        public static void ExportToExcel(DataGridView dgv,string openType)
         {
             if (dgv.RowCount > 0)
             {
                 //bool fileSaved = false; 
-                SaveFileDialog saveDialog = new SaveFileDialog()
-                {
-                    /*saveDialog.DefaultExt = "";*/
-                    Title = "保存EXECL文件",
-                    Filter = "EXECL文件|*.xls",
-                    FilterIndex = 1
-                };
                 string FileName = "";
-                if (saveDialog.ShowDialog() == DialogResult.OK)
+                if (openType == "")
                 {
-                    FileName = saveDialog.FileName;
-                    if (File.Exists(FileName))
+                    SaveFileDialog saveDialog = new SaveFileDialog()
                     {
-                        File.Delete(FileName);
-                    }
-                    int FormatNum;//保存excel文件的格式
-                    string version;//excel版本號
-                    Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                    if (xlApp == null)
+                        /*saveDialog.DefaultExt = "";*/
+                        Title = "保存EXECL文件",
+                        Filter = "EXECL文件|*.xls",
+                        FilterIndex = 1
+                    };
+                    if (saveDialog.ShowDialog() == DialogResult.OK)
                     {
-                        MessageBox.Show("無法創建Excel對象,可能您的電腦上未安装Excel");
-                        return;
-                    }
-                    version = xlApp.Version;//獲取當前使用excel版本號
-                    if (Convert.ToDouble(version) < 12)//You use Excel 97-2003
-                    {
-                        FormatNum = -4143;
-                    }
-                    else //you use excel 2007 or later
-                    {
-                        FormatNum = 56;
-                    }
-                    //Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;                   
-                    //Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
-                    //Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1  
-
-                    Microsoft.Office.Interop.Excel.Workbook workbook = xlApp.Workbooks.Add(true);
-                    Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
-
-
-                    //第一行为表頭 寫入欄位標題
-                    worksheet.Cells[1, 1] = "Season"; 
-                    worksheet.Cells[1, 2] = "PLM";
-                    worksheet.Cells[1, 3] = "Artwork";//圖樣列
-                    worksheet.Cells[1, 4] = "CF CODE";
-                    worksheet.Cells[1, 5] = "Product Description";
-                    worksheet.Cells[1, 6] = "Material";
-                    worksheet.Cells[1, 7] = "Size";
-                    worksheet.Cells[1, 8] = "Macys Color Code";
-                    worksheet.Cells[1, 9] = "MO#";
-                    worksheet.Cells[1, 10] = "Ready date";
-                    worksheet.Cells[1, 11] = "CF Color Code";
-                    worksheet.Cells[1, 12] = "Ex-fty(USD) --all price are not including 3rd part test";
-                    worksheet.Cells[1, 13] = "Ex-fty (USD)-special price";
-                    worksheet.Cells[1, 14] = "Unit";
-                    worksheet.Cells[1, 15] = "MOQ (PCS)"; 
-                    worksheet.Cells[1, 16] = "Surcharge";
-                    worksheet.Cells[1, 17] = "Mould Engraving Charge";
-                    worksheet.Cells[1, 18] = "Artwork Approved Date/by";
-                    worksheet.Cells[1, 19] = "Submission Date";
-                    worksheet.Cells[1, 20] = "Sample Approved Date/by";
-                    worksheet.Cells[1, 21] = "Macy's System";                    
-                    worksheet.Rows[1].Font.Size = 10;
-                    worksheet.Rows[1].Font.Bold = true;//粗體
-                    worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;//表頭欄位居中
-                    worksheet.Rows[1].RowHeight = 45;
-                    worksheet.Rows[2].Font.Bold = false;
-                    worksheet.Columns[3].ColumnWidth = 20;//圖樣列寬度
-                    worksheet.Rows[2].RowHeight = 20;
-
-                    cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
-                    new Thread((ThreadStart)delegate
-                    {
-                        wForm.TopMost = true;
-                        wForm.ShowDialog();
-                    }).Start();
-                   
-                    //寫入數值                    
-                    string rang_begin="", merge_rang="",status = "",range_A,range_T;                                      
-                    DataTable dt = new DataTable();
-                    string artwork_path = "";
-                    int row_index = 1;
-                    int row_total = 0,seq_id=0;
-                    string serial_no = dgv.Rows[0].Cells["serial_no"].Value.ToString();
-                    string a_value = "", b_value = "", d_value = "",e_value,f_value,n_value;
-                    Microsoft.Office.Interop.Excel.Range rang_curr_row;
-                    for (int r = 0; r < dgv.RowCount; r++)//行
-                    {
-                        row_index += 1;                       
-                        worksheet.Rows[row_index].RowHeight = dgv.Rows[r].Cells["row_height"].Value;//每行高
-                        worksheet.Rows[row_index].Font.Size = 9;
-                        worksheet.Rows[row_index].Font.Bold = false;                       
-                        worksheet.Cells[row_index, 1] = "";// dgv.Rows[r].Cells["season"].Value.ToString();
-                        worksheet.Cells[row_index, 2] = "";// dgv.Rows[r].Cells["plm_code"].Value.ToString();
-                        //worksheet.Cells[row_index, 3] = "Artwork";//圖樣列
-                        worksheet.Cells[row_index, 4] = "";// dgv.Rows[r].Cells["cf_code"].Value.ToString();
-                        worksheet.Cells[row_index, 5] = "";// dgv.Rows[r].Cells["product_desc"].Value.ToString();
-                        worksheet.Cells[row_index, 6] = "";// dgv.Rows[r].Cells["material"].Value.ToString(); 
-                        worksheet.Cells[row_index, 7] = dgv.Rows[r].Cells["size"].Value.ToString();
-                        worksheet.Cells[row_index, 8] = dgv.Rows[r].Cells["macys_color_code"].Value.ToString();
-                        worksheet.Cells[row_index, 9] = dgv.Rows[r].Cells["mo_id"].Value.ToString();
-                        worksheet.Cells[row_index, 10] = dgv.Rows[r].Cells["ready_date"].Value.ToString();
-                        worksheet.Cells[row_index, 11] = dgv.Rows[r].Cells["cf_color_code"].Value.ToString();
-                        worksheet.Cells[row_index, 12] = dgv.Rows[r].Cells["ex_fty_usd"].Value.ToString();
-                        worksheet.Cells[row_index, 13] = dgv.Rows[r].Cells["ex_fty_usd_new"].Value.ToString();
-                        worksheet.Cells[row_index, 14] = "";// dgv.Rows[r].Cells["price_unit"].Value.ToString();
-                        worksheet.Cells[row_index, 15] = dgv.Rows[r].Cells["moq_pcs"].Value.ToString();
-                        worksheet.Cells[row_index, 16] = dgv.Rows[r].Cells["surcharge"].Value.ToString(); 
-                        worksheet.Cells[row_index, 17] = dgv.Rows[r].Cells["md_charge"].Value.ToString();
-                        worksheet.Cells[row_index, 18] = dgv.Rows[r].Cells["art_approved_by"].Value.ToString();
-                        worksheet.Cells[row_index, 19] = "'"+ dgv.Rows[r].Cells["submission_date"].Value.ToString(); 
-                        worksheet.Cells[row_index, 20] = dgv.Rows[r].Cells["sample_approved_date"].Value.ToString();
-                        worksheet.Cells[row_index, 21] = dgv.Rows[r].Cells["macy_system"].Value.ToString();
-                        status = dgv.Rows[r].Cells["status"].Value.ToString();
-                        status = string.IsNullOrEmpty(status) ? "" : status;
-                        if(status== "CANCELLED")
+                        FileName = saveDialog.FileName;
+                        if (File.Exists(FileName))
                         {
-                            range_A = "A" + row_index;
-                            range_T = "U" + row_index;
-                            rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_T);
-                            rang_curr_row.Font.Strikethrough = true; // 添加删除线效果
-                            rang_curr_row.Font.Color = System.Drawing.Color.Red;//字體顏色
+                            File.Delete(FileName);
                         }
-                        row_total = int.Parse(dgv.Rows[r].Cells["rs"].Value.ToString());//每組有幾行
-                        seq_id = int.Parse(dgv.Rows[r].Cells["seq_id"].Value.ToString()); //當前行的序號
-                        a_value = dgv.Rows[r].Cells["season"].Value.ToString();
-                        b_value = dgv.Rows[r].Cells["plm_code"].Value.ToString();
-                        d_value = dgv.Rows[r].Cells["cf_code"].Value.ToString();
-                        e_value = dgv.Rows[r].Cells["product_desc"].Value.ToString();
-                        f_value = dgv.Rows[r].Cells["material"].Value.ToString();                        
-                        n_value = dgv.Rows[r].Cells["price_unit"].Value.ToString();
-                        if(r==0 && seq_id == row_total && seq_id==1)
+                    }
+                }
+
+                int FormatNum;//保存excel文件的格式
+                string version;//excel版本號
+                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                if (xlApp == null)
+                {
+                    MessageBox.Show("無法創建Excel對象,可能您的電腦上未安装Excel");
+                    return;
+                }
+                version = xlApp.Version;//獲取當前使用excel版本號
+                if (Convert.ToDouble(version) < 12)//You use Excel 97-2003
+                {
+                    FormatNum = -4143;
+                }
+                else //you use excel 2007 or later
+                {
+                    FormatNum = 56;
+                }
+                //Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;                   
+                //Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+                //Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1  
+
+                Microsoft.Office.Interop.Excel.Workbook workbook = xlApp.Workbooks.Add(true);
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
+
+                //第一行为表頭 寫入欄位標題
+                worksheet.Cells[1, 1] = "Season";
+                worksheet.Cells[1, 2] = "PLM";
+                worksheet.Cells[1, 3] = "Artwork";//圖樣列
+                worksheet.Cells[1, 4] = "CF CODE";
+                worksheet.Cells[1, 5] = "Product Description";
+                worksheet.Cells[1, 6] = "Material";
+                worksheet.Cells[1, 7] = "Size";
+                worksheet.Cells[1, 8] = "Macys Color Code";
+                worksheet.Cells[1, 9] = "MO#";
+                worksheet.Cells[1, 10] = "Ready date";
+                worksheet.Cells[1, 11] = "CF Color Code";
+                worksheet.Cells[1, 12] = "Ex-fty(USD) --all price are not including 3rd part test";
+                worksheet.Cells[1, 13] = "Ex-fty (USD)-special price";
+                worksheet.Cells[1, 14] = "Unit";
+                worksheet.Cells[1, 15] = "MOQ (PCS)";
+                worksheet.Cells[1, 16] = "Surcharge";
+                worksheet.Cells[1, 17] = "Mould Engraving Charge";
+                worksheet.Cells[1, 18] = "Artwork Approved Date/by";
+                worksheet.Cells[1, 19] = "Submission Date";
+                worksheet.Cells[1, 20] = "Sample Approved Date/by";
+                worksheet.Cells[1, 21] = "Macy's System";
+                worksheet.Rows[1].Font.Size = 10;
+                worksheet.Rows[1].Font.Bold = true;//粗體
+                worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;//表頭欄位水平居中                    
+                worksheet.Rows[1].RowHeight = 45;
+                worksheet.Rows[2].Font.Bold = false;
+                worksheet.Columns[3].ColumnWidth = 20;//圖樣列寬度
+                worksheet.Rows[2].RowHeight = 66;
+
+                cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();
+
+                //寫入數值                    
+                string rang_begin = "", merge_rang = "", status = "", range_A, range_T;
+                DataTable dt = new DataTable();
+                string artwork_path = "";
+                int row_index = 1;
+                int row_total = 0, seq_id = 0;
+                string serial_no = dgv.Rows[0].Cells["serial_no"].Value.ToString();
+                string a_value = "", b_value = "", d_value = "", e_value, f_value, n_value, p_value;
+                Microsoft.Office.Interop.Excel.Range rang_curr_row;
+                for (int r = 0; r < dgv.RowCount; r++)//行
+                {
+                    row_index += 1;
+                    worksheet.Rows[row_index].RowHeight = dgv.Rows[r].Cells["row_height"].Value;//每行高
+                    worksheet.Rows[row_index].Font.Size = 9;
+                    worksheet.Rows[row_index].Font.Bold = false;
+                    worksheet.Cells[row_index, 1] = "";// dgv.Rows[r].Cells["season"].Value.ToString();
+                    worksheet.Cells[row_index, 2] = "";// dgv.Rows[r].Cells["plm_code"].Value.ToString();
+                                                       //worksheet.Cells[row_index, 3] = "Artwork";//圖樣列
+                    worksheet.Cells[row_index, 4] = "";// dgv.Rows[r].Cells["cf_code"].Value.ToString();
+                    worksheet.Cells[row_index, 5] = "";// dgv.Rows[r].Cells["product_desc"].Value.ToString();
+                    worksheet.Cells[row_index, 6] = "";// dgv.Rows[r].Cells["material"].Value.ToString(); 
+                    worksheet.Cells[row_index, 7] = dgv.Rows[r].Cells["size"].Value.ToString();
+                    worksheet.Cells[row_index, 8] = dgv.Rows[r].Cells["macys_color_code"].Value.ToString();
+                    worksheet.Cells[row_index, 9] = dgv.Rows[r].Cells["mo_id"].Value.ToString();
+                    worksheet.Cells[row_index, 10] = dgv.Rows[r].Cells["ready_date"].Value.ToString();
+                    worksheet.Cells[row_index, 11] = dgv.Rows[r].Cells["cf_color_code"].Value.ToString();
+                    worksheet.Cells[row_index, 12] = dgv.Rows[r].Cells["ex_fty_usd"].Value.ToString();
+                    worksheet.Cells[row_index, 13] = dgv.Rows[r].Cells["ex_fty_usd_new"].Value.ToString();
+                    worksheet.Cells[row_index, 14] = "";// dgv.Rows[r].Cells["price_unit"].Value.ToString();
+                    worksheet.Cells[row_index, 15] = dgv.Rows[r].Cells["moq_pcs"].Value.ToString();
+                    worksheet.Cells[row_index, 16] = "";// dgv.Rows[r].Cells["surcharge"].Value.ToString(); 
+                    worksheet.Cells[row_index, 17] = dgv.Rows[r].Cells["md_charge"].Value.ToString();
+                    worksheet.Cells[row_index, 18] = dgv.Rows[r].Cells["art_approved_by"].Value.ToString();
+                    worksheet.Cells[row_index, 19] = "'" + dgv.Rows[r].Cells["submission_date"].Value.ToString();
+                    worksheet.Cells[row_index, 20] = dgv.Rows[r].Cells["sample_approved_date"].Value.ToString();
+                    worksheet.Cells[row_index, 21] = dgv.Rows[r].Cells["macy_system"].Value.ToString();
+                    status = dgv.Rows[r].Cells["status"].Value.ToString();
+                    status = string.IsNullOrEmpty(status) ? "" : status;
+                    if (status == "CANCELLED")
+                    {
+                        range_A = "A" + row_index;
+                        range_T = "U" + row_index;
+                        rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_T);
+                        rang_curr_row.Font.Strikethrough = true; // 添加删除线效果
+                        rang_curr_row.Font.Color = System.Drawing.Color.Red;//字體顏色
+                    }
+                    row_total = int.Parse(dgv.Rows[r].Cells["rs"].Value.ToString());//每組有幾行
+                    seq_id = int.Parse(dgv.Rows[r].Cells["seq_id"].Value.ToString()); //當前行的序號
+                    a_value = dgv.Rows[r].Cells["season"].Value.ToString();
+                    b_value = dgv.Rows[r].Cells["plm_code"].Value.ToString();
+                    d_value = dgv.Rows[r].Cells["cf_code"].Value.ToString();
+                    e_value = dgv.Rows[r].Cells["product_desc"].Value.ToString();
+                    f_value = dgv.Rows[r].Cells["material"].Value.ToString();
+                    n_value = dgv.Rows[r].Cells["price_unit"].Value.ToString();
+                    p_value = dgv.Rows[r].Cells["surcharge"].Value.ToString();
+                    if (r == 0 && seq_id == row_total && seq_id == 1)
+                    {
+                        //圖樣,第一行,且只有一行,自己作一組
+                        artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();
+                        artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                        InsertPicture("C2:C2", worksheet, artwork_path);
+                    }
+                    if (seq_id == 1)
+                    {
+                        //要合并的列只符第一次值
+                        worksheet.Cells[row_index, 1] = a_value;
+                        worksheet.Cells[row_index, 2] = b_value;
+                        worksheet.Cells[row_index, 4] = d_value;
+                        worksheet.Cells[row_index, 5] = e_value;
+                        worksheet.Cells[row_index, 6] = f_value;
+                        worksheet.Cells[row_index, 14] = n_value;
+                        worksheet.Cells[row_index, 16] = p_value;
+                    }
+                    if (r > 0)
+                    {
+                        if (dgv.Rows[r].Cells["serial_no"].Value.ToString() == serial_no)
                         {
-                            //圖樣,第一行,且只有一行,自己作一組
-                            artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();
-                            artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                            InsertPicture("C2:C2", worksheet, artwork_path);
-                        }
-                        if (seq_id == 1)
-                        {
-                            //要合并的列只符第一次值
-                            worksheet.Cells[row_index, 1] = a_value;
-                            worksheet.Cells[row_index, 2] = b_value;
-                            worksheet.Cells[row_index, 4] = d_value;
-                            worksheet.Cells[row_index, 5] = e_value;
-                            worksheet.Cells[row_index, 6] = f_value;                            
-                            worksheet.Cells[row_index, 14] = n_value;
-                        }
-                        if (r > 0)
-                        {                            
-                            if(dgv.Rows[r].Cells["serial_no"].Value.ToString() == serial_no)
+                            //同組
+                            if (seq_id == row_total) //同組最后一行
                             {
-                                //同組
-                                if (seq_id == row_total) //同組最后一行
-                                {           
-                                    merge_rang = GetMergeRang("C", row_index, row_total); //合并的區域
-                                    worksheet.Range[merge_rang].Merge(0);//合并单元格
-                                    //插入圖片
-                                    artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString(); //每組序號01中對應的圖樣路徑
-                                    artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                                    if (artwork_path == "")
-                                    {
-                                        //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
-                                        artwork_path = getSampleArt(serial_no);
-                                    }
-                                    if (File.Exists(artwork_path))
-                                    {
-                                        rang_begin = "C" + (row_index - row_total + 1);//插入圖版的開始位置
-                                        InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
-                                    }
-                                    SetMergeRange(worksheet, row_index, row_total);//合并區域                                   
-                                }                                
-                            }
-                            else
-                            {
-                                //不同組
-                                if (seq_id == row_total && row_total>1)//不同組最后一行
+                                merge_rang = GetMergeRang("C", row_index, row_total); //合并的區域
+                                worksheet.Range[merge_rang].Merge(0);//合并单元格
+                                                                     //插入圖片
+                                artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString(); //每組序號01中對應的圖樣路徑
+                                artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                                if (artwork_path == "")
                                 {
-                                    merge_rang = GetMergeRang("C", row_index, row_total);//合并區域
-                                    worksheet.Range[merge_rang].Merge(0);//合并单元格
-                                    //插入圖片
-                                    artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
-                                    artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                                    if (artwork_path == "")
-                                    {
-                                        //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
-                                        artwork_path = getSampleArt(serial_no);
-                                    }
-                                    if (File.Exists(artwork_path))
-                                    {
-                                        rang_begin = "C" + (row_index - row_total + 1);
-                                        InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
-                                    }
-                                    SetMergeRange(worksheet, row_index, row_total); //合并區域
+                                    //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
+                                    artwork_path = getSampleArt(serial_no);
                                 }
-                                if(seq_id == row_total && row_total == 1)
+                                if (File.Exists(artwork_path))
                                 {
-                                    //同組只有一行的情況                                   
-                                    //插入圖片
-                                    artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
-                                    artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                                    if (File.Exists(artwork_path))
-                                    {
-                                        rang_begin = "C" + row_index;
-                                        InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
-                                    }
+                                    rang_begin = "C" + (row_index - row_total + 1);//插入圖版的開始位置
+                                    InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
                                 }
-                            }                            
-                        } //--end of for r>0
-                        
-                        //表格只有一行時
-                        if(r==0 && dgv.RowCount == 1)
-                        {                            
-                            //插入圖片
-                            if (File.Exists(artwork_path))
-                            {
-                                rang_begin = "C" + row_index;
-                                InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片
+                                SetMergeRange(worksheet, row_index, row_total);//合并區域                                   
                             }
                         }
-                        //隱藏某一行                       
-                        if (dgv.Rows[r].Cells["flag_hidden"].Value.ToString() == "True")
+                        else
                         {
-                            Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
-                            row.EntireRow.Hidden = true;
+                            //不同組
+                            if (seq_id == row_total && row_total > 1)//不同組最后一行
+                            {
+                                merge_rang = GetMergeRang("C", row_index, row_total);//合并區域
+                                worksheet.Range[merge_rang].Merge(0);//合并单元格
+                                                                     //插入圖片
+                                artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
+                                artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                                if (artwork_path == "")
+                                {
+                                    //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
+                                    artwork_path = getSampleArt(serial_no);
+                                }
+                                if (File.Exists(artwork_path))
+                                {
+                                    rang_begin = "C" + (row_index - row_total + 1);
+                                    InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
+                                }
+                                SetMergeRange(worksheet, row_index, row_total); //合并區域
+                            }
+                            if (seq_id == row_total && row_total == 1)
+                            {
+                                //同組只有一行的情況                                   
+                                //插入圖片
+                                artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
+                                artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                                if (File.Exists(artwork_path))
+                                {
+                                    rang_begin = "C" + row_index;
+                                    InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
+                                }
+                            }
                         }
-                        serial_no = dgv.Rows[r].Cells["serial_no"].Value.ToString();
-                        System.Windows.Forms.Application.DoEvents();                        
-                    }                    
-                    worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
-                    worksheet.Columns[3].ColumnWidth = 20;
-                    //worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                    //畫边框线
-                    //获取Excel多个单元格区域
-                    string range_right = string.Format("U{0}", dgv.RowCount + 1);//右下角座標
-                    Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
-                    //单元格边框线类型(线型,虚线型)
-                    excelRange.Borders.LineStyle = 1;
-                    excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                    //字體
-                    excelRange.Font.Name = "Arial";
-                    Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "U1");
-                    headerRange.Interior.Color = System.Drawing.Color.Yellow.ToArgb(); //OK 
-                    //headerRange.Interior.Color = System.Drawing.Color.FromArgb(255, 197, 153).ToArgb();//出錯可能不支持此顏色
+                    } //--end of for r>0
 
-                    wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-                    if (FileName != "")
+                    //表格只有一行時
+                    if (r == 0 && dgv.RowCount == 1)
                     {
-                        try
+                        //插入圖片
+                        if (File.Exists(artwork_path))
                         {
-                            workbook.Saved = true;
-                            //workbook.SaveCopyAs(saveFileName);
-                            workbook.SaveAs(FileName, FormatNum);
-                            //fileSaved = true;  
-                        }
-                        catch (Exception ex)
-                        {
-                            //fileSaved = false;  
-                            MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
+                            rang_begin = "C" + row_index;
+                            InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片
                         }
                     }
+                    //隱藏某一行                       
+                    if (dgv.Rows[r].Cells["flag_hidden"].Value.ToString() == "True")
+                    {
+                        Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
+                        row.EntireRow.Hidden = true;
+                    }
+                    serial_no = dgv.Rows[r].Cells["serial_no"].Value.ToString();
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                worksheet.Columns.EntireColumn.AutoFit();//列宽自适应
+                worksheet.Columns[1].ColumnWidth = 6;//SEASON
+                worksheet.Columns[2].ColumnWidth = 9;//PLM
+                worksheet.Columns[3].ColumnWidth = 20;//ARTWORK
+                worksheet.Columns[4].ColumnWidth = 10;//CF CODE
+                worksheet.Columns[5].ColumnWidth = 21;//Product Description
+                worksheet.Columns[6].ColumnWidth = 12;//Material
+                worksheet.Columns[7].ColumnWidth = 17;//Size
+                worksheet.Columns[8].ColumnWidth = 21;//Macys Color Code
+                worksheet.Columns[9].ColumnWidth = 10;//MO#
+                worksheet.Columns[10].ColumnWidth = 12;//Ready date
+                worksheet.Columns[11].ColumnWidth = 22;//CF Color Code
+                worksheet.Columns[12].ColumnWidth = 12;//Ex-fty(USD)
+                worksheet.Columns[13].ColumnWidth = 9;//Ex-fty (USD)-special price
+                worksheet.Columns[14].ColumnWidth = 4;//Unit
+                worksheet.Columns[15].ColumnWidth = 6;//MOQ (PCS)
+                worksheet.Columns[16].ColumnWidth = 15;//Surcharge
+                worksheet.Columns[17].ColumnWidth = 30;//Mould Engraving Charge
+                worksheet.Columns[18].ColumnWidth = 18;//Artwork Approved Date/by
+                worksheet.Columns[19].ColumnWidth = 10;//Submission Date
+                worksheet.Columns[20].ColumnWidth = 41;//Sample Approved Date/by
+                worksheet.Columns[21].ColumnWidth = 35;//Macy's System
 
-                    ////xlApp.Visible = true;                   
+                //畫边框线
+                //获取Excel多个单元格区域
+                string range_right = string.Format("U{0}", dgv.RowCount + 1);//右下角座標
+                Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
+                //单元格边框线类型(线型,虚线型)
+                excelRange.Borders.LineStyle = 1;
+                excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                //字體
+                excelRange.Font.Name = "Arial";
+                Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "U1");
+                headerRange.Interior.Color = System.Drawing.Color.Yellow.ToArgb(); //OK
+                                                                                   //headerRange.Interior.Color = System.Drawing.Color.FromArgb(255, 197, 153).ToArgb();//出錯可能不支持此顏色             
+                headerRange.WrapText = true;  //自动换行
+                                              //headerRange.EntireRow.AutoFit();//行高根据内容自动调整                    
+
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+                if (FileName != "" && openType == "")
+                {
+                    try
+                    {
+                        workbook.Saved = true;
+                        //workbook.SaveCopyAs(saveFileName);
+                        workbook.SaveAs(FileName, FormatNum);
+                        //fileSaved = true;  
+                        MessageBox.Show("匯出EXCEL成功!" + "\r\n" + FileName, "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        //fileSaved = false;  
+                        MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
+                    }
+
                     workbook.Close();
                     xlApp.Quit();
                     // ReleaseExcel(xlApp, workbook, worksheet);
                     xlApp = null;
                     GC.Collect();
-
-                    //xlApp.Quit();
-                    //GC.Collect();//强行销毁
-                    //if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL  
-                    //if (System.IO.File.Exists(FileName)) System.Diagnostics.Process.Start(FileName); //打开EXCEL  
-                    MessageBox.Show("匯出EXCEL成功!" + "\r\n" + FileName, "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if (openType == "open")
+                {
+                    xlApp.Visible = true;//開啟EXCEL
+                    xlApp = null;
+                    GC.Collect();
                 }
             }
             else
@@ -423,274 +450,279 @@ namespace cf01.CLS
             }
         }
 
-        public static void ExportToExcelCK(DataGridView dgv)
+        public static void ExportToExcelCK(DataGridView dgv,string openType)
         {
             if (dgv.RowCount > 0)
-            {                
-                SaveFileDialog saveDialog = new SaveFileDialog()
-                {
-                    /*saveDialog.DefaultExt = "";*/
-                    Title = "保存EXECL文件",
-                    Filter = "EXECL文件|*.xls",
-                    FilterIndex = 1
-                };
+            {
                 string FileName = "";
-                if (saveDialog.ShowDialog() == DialogResult.OK)
+                if (openType == "")
                 {
-                    FileName = saveDialog.FileName;
-                    if (File.Exists(FileName))
+                    SaveFileDialog saveDialog = new SaveFileDialog()
                     {
-                        File.Delete(FileName);
-                    }
-                    int FormatNum;//保存excel文件的格式
-                    string version;//excel版本號
-                    Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                    if (xlApp == null)
+                        /*saveDialog.DefaultExt = "";*/
+                        Title = "保存EXECL文件",
+                        Filter = "EXECL文件|*.xls",
+                        FilterIndex = 1
+                    };
+                    if (saveDialog.ShowDialog() == DialogResult.OK)
                     {
-                        MessageBox.Show("無法創建Excel對象,可能您的電腦上未安装Excel");
-                        return;
-                    }
-                    version = xlApp.Version;//獲取當前使用excel版本號
-                    if (Convert.ToDouble(version) < 12)//You use Excel 97-2003
-                    {
-                        FormatNum = -4143;
-                    }
-                    else //you use excel 2007 or later
-                    {
-                        FormatNum = 56;
-                    }
-                    Microsoft.Office.Interop.Excel.Workbook workbook = xlApp.Workbooks.Add(true);
-                    Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
-
-                    //第一行为表頭 寫入欄位標題
-                    worksheet.Cells[1, 1] = "Brand (Division)";
-                    worksheet.Cells[1, 2] = "SEASON";
-                    worksheet.Cells[1, 3] = "Image";//圖樣列
-                    worksheet.Cells[1, 4] = "PLM";
-                    worksheet.Cells[1, 5] = "Product Description";
-                    worksheet.Cells[1, 6] = "Material";
-                    worksheet.Cells[1, 7] = "CF Code";
-                    worksheet.Cells[1, 8] = "MO#";
-                    worksheet.Cells[1, 9] = "Ready Date";
-                    worksheet.Cells[1, 10] = "Size";
-                    worksheet.Cells[1, 11] = "Customer Color Code";
-                    worksheet.Cells[1, 12] = "CF Color";
-                    worksheet.Cells[1, 13] = "EX-FTY HK (USD)";
-                    worksheet.Cells[1, 14] = "Builk Lead Time";
-                    worksheet.Cells[1, 15] = "MOQ";
-                    worksheet.Cells[1, 16] = "Quality Issue";                   
-                    worksheet.Cells[1, 17] = "Artwork Approved Date/by";
-                    worksheet.Cells[1, 18] = "Submission Date";                    
-                    worksheet.Rows[1].Font.Size = 10;
-                    worksheet.Rows[1].Font.Bold = true;//粗體
-                    worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;//表頭欄位居中
-                    worksheet.Rows[1].RowHeight = 45;
-                    worksheet.Rows[2].Font.Bold = false;
-                    worksheet.Columns[3].ColumnWidth = 20;//圖樣列寬度
-                    worksheet.Rows[2].RowHeight = 20;
-
-                    cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
-                    new Thread((ThreadStart)delegate
-                    {
-                        wForm.TopMost = true;
-                        wForm.ShowDialog();
-                    }).Start();
-
-                    //寫入數值                    
-                    string rang_begin = "", merge_rang = "", status = "", range_A, range_T;
-                    DataTable dt = new DataTable();
-                    string artwork_path = "";
-                    int row_index = 1;
-                    int row_total = 0, seq_id = 0;
-                    string serial_no = dgv.Rows[0].Cells["serial_no"].Value.ToString();
-                    string a_value = "", b_value = "", d_value = "", e_value, f_value, g_value;
-                    Microsoft.Office.Interop.Excel.Range rang_curr_row;
-                    for (int r = 0; r < dgv.RowCount; r++)//行
-                    {
-                        row_index += 1;
-                        worksheet.Rows[row_index].RowHeight = dgv.Rows[r].Cells["row_height"].Value;//每行高
-                        worksheet.Rows[row_index].Font.Size = 9;
-                        worksheet.Rows[row_index].Font.Bold = false;
-                        worksheet.Cells[row_index, 1] = "";// dgv.Rows[r].Cells["brand_desc"].Value.ToString();
-                        worksheet.Cells[row_index, 2] = "";// dgv.Rows[r].Cells["season"].Value.ToString();
-                        //worksheet.Cells[row_index, 3] = "Artwork";//圖樣列
-                        worksheet.Cells[row_index, 4] = "";// dgv.Rows[r].Cells["plm_code"].Value.ToString();
-                        worksheet.Cells[row_index, 5] = "";// dgv.Rows[r].Cells["product_desc"].Value.ToString();
-                        worksheet.Cells[row_index, 6] = "";// dgv.Rows[r].Cells["material"].Value.ToString(); 
-                        worksheet.Cells[row_index, 7] = "";// dgv.Rows[r].Cells["cf_code"].Value.ToString();
-                        worksheet.Cells[row_index, 8] = dgv.Rows[r].Cells["mo_id"].Value.ToString();
-                        worksheet.Cells[row_index, 9] = dgv.Rows[r].Cells["ready_date"].Value.ToString();
-                        worksheet.Cells[row_index, 10] = dgv.Rows[r].Cells["size"].Value.ToString();
-                        worksheet.Cells[row_index, 11] = dgv.Rows[r].Cells["macys_color_code"].Value.ToString();
-                        worksheet.Cells[row_index, 12] = dgv.Rows[r].Cells["cf_color_code"].Value.ToString();
-                        worksheet.Cells[row_index, 13] = dgv.Rows[r].Cells["ex_fty_usd"].Value.ToString();
-                        worksheet.Cells[row_index, 14] = dgv.Rows[r].Cells["bulk_lead_time"].Value.ToString();                        
-                        worksheet.Cells[row_index, 15] = dgv.Rows[r].Cells["moq_pcs"].Value.ToString();
-                        worksheet.Cells[row_index, 16] = dgv.Rows[r].Cells["quality_issue"].Value.ToString();
-                        worksheet.Cells[row_index, 17] = dgv.Rows[r].Cells["art_approved_by"].Value.ToString();
-                        worksheet.Cells[row_index, 18] = "'" + dgv.Rows[r].Cells["submission_date"].Value.ToString();
-                       
-                        status = dgv.Rows[r].Cells["status"].Value.ToString();
-                        status = string.IsNullOrEmpty(status) ? "" : status;
-                        if (status == "CANCELLED")
+                        FileName = saveDialog.FileName;
+                        if (File.Exists(FileName))
                         {
-                            range_A = "A" + row_index;
-                            range_T = "R" + row_index;
-                            rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_T);
-                            rang_curr_row.Font.Strikethrough = true; // 添加删除线效果
-                            rang_curr_row.Font.Color = System.Drawing.Color.Red;//字體顏色
+                            File.Delete(FileName);
                         }
-                        row_total = int.Parse(dgv.Rows[r].Cells["rs"].Value.ToString());//每組有幾行
-                        seq_id = int.Parse(dgv.Rows[r].Cells["seq_id"].Value.ToString()); //當前行的序號
-                        a_value = dgv.Rows[r].Cells["brand_desc"].Value.ToString();
-                        b_value = dgv.Rows[r].Cells["season"].Value.ToString();
-                        d_value = dgv.Rows[r].Cells["plm_code"].Value.ToString();
-                        e_value = dgv.Rows[r].Cells["product_desc"].Value.ToString();
-                        f_value = dgv.Rows[r].Cells["material"].Value.ToString();
-                        g_value = dgv.Rows[r].Cells["cf_code"].Value.ToString();
-                        if (r == 0 && seq_id == row_total && seq_id == 1)
-                        {
-                            //圖樣,第一行,且只有一行,自己作一組
-                            artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();
-                            artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                            InsertPicture("C2:C2", worksheet, artwork_path);
-                        }
-                        if (seq_id == 1)
-                        {
-                            //要合并的列只符第一次值
-                            worksheet.Cells[row_index, 1] = a_value;
-                            worksheet.Cells[row_index, 2] = b_value;
-                            worksheet.Cells[row_index, 4] = d_value;
-                            worksheet.Cells[row_index, 5] = e_value;
-                            worksheet.Cells[row_index, 6] = f_value;
-                            worksheet.Cells[row_index, 7] = g_value;
-                        }
-                        if (r > 0)
-                        {
-                            if (dgv.Rows[r].Cells["serial_no"].Value.ToString() == serial_no)
-                            {
-                                //同組
-                                if (seq_id == row_total) //同組最后一行
-                                {
-                                    merge_rang = GetMergeRang("C", row_index, row_total); //合并的區域
-                                    worksheet.Range[merge_rang].Merge(0);//合并单元格
-                                    //插入圖片
-                                    artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString(); //每組序號01中對應的圖樣路徑
-                                    artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                                    if (artwork_path == "")
-                                    {
-                                        //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
-                                        artwork_path = getSampleArt(serial_no);
-                                    }
-                                    if (File.Exists(artwork_path))
-                                    {
-                                        rang_begin = "C" + (row_index - row_total + 1);//插入圖版的開始位置
-                                        InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
-                                    }
-                                    SetMergeRange(worksheet, row_index, row_total);//合并區域                                   
-                                }
-                            }
-                            else
-                            {
-                                //不同組
-                                if (seq_id == row_total && row_total > 1)//不同組最后一行
-                                {
-                                    merge_rang = GetMergeRang("C", row_index, row_total);//合并區域
-                                    worksheet.Range[merge_rang].Merge(0);//合并单元格
-                                    //插入圖片
-                                    artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
-                                    artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                                    if (artwork_path == "")
-                                    {
-                                        //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
-                                        artwork_path = getSampleArt(serial_no);
-                                    }
-                                    if (File.Exists(artwork_path))
-                                    {
-                                        rang_begin = "C" + (row_index - row_total + 1);
-                                        InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
-                                    }
-                                    SetMergeRange(worksheet, row_index, row_total); //合并區域
-                                }
-                                if (seq_id == row_total && row_total == 1)
-                                {
-                                    //同組只有一行的情況                                   
-                                    //插入圖片
-                                    artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
-                                    artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
-                                    if (File.Exists(artwork_path))
-                                    {
-                                        rang_begin = "C" + row_index;
-                                        InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
-                                    }
-                                }
-                            }
-                        } //--end of for r>0
+                    }
+                }
 
-                        //表格只有一行時
-                        if (r == 0 && dgv.RowCount == 1)
+                int FormatNum;//保存excel文件的格式
+                string version;//excel版本號
+                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                if (xlApp == null)
+                {
+                    MessageBox.Show("無法創建Excel對象,可能您的電腦上未安装Excel");
+                    return;
+                }
+                version = xlApp.Version;//獲取當前使用excel版本號
+                if (Convert.ToDouble(version) < 12)//You use Excel 97-2003
+                {
+                    FormatNum = -4143;
+                }
+                else //you use excel 2007 or later
+                {
+                    FormatNum = 56;
+                }
+                Microsoft.Office.Interop.Excel.Workbook workbook = xlApp.Workbooks.Add(true);
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
+
+                //第一行为表頭 寫入欄位標題
+                worksheet.Cells[1, 1] = "Brand (Division)";
+                worksheet.Cells[1, 2] = "SEASON";
+                worksheet.Cells[1, 3] = "Image";//圖樣列
+                worksheet.Cells[1, 4] = "PLM";
+                worksheet.Cells[1, 5] = "Product Description";
+                worksheet.Cells[1, 6] = "Material";
+                worksheet.Cells[1, 7] = "CF Code";
+                worksheet.Cells[1, 8] = "MO#";
+                worksheet.Cells[1, 9] = "Ready Date";
+                worksheet.Cells[1, 10] = "Size";
+                worksheet.Cells[1, 11] = "Customer Color Code";
+                worksheet.Cells[1, 12] = "CF Color";
+                worksheet.Cells[1, 13] = "EX-FTY HK (USD)";
+                worksheet.Cells[1, 14] = "Builk Lead Time";
+                worksheet.Cells[1, 15] = "MOQ";
+                worksheet.Cells[1, 16] = "Quality Issue";
+                worksheet.Cells[1, 17] = "Artwork Approved Date/by";
+                worksheet.Cells[1, 18] = "Submission Date";
+                worksheet.Rows[1].Font.Size = 10;
+                worksheet.Rows[1].Font.Bold = true;//粗體
+                worksheet.Rows[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;//表頭欄位居中
+                worksheet.Rows[1].RowHeight = 45;
+                worksheet.Rows[2].Font.Bold = false;
+                worksheet.Columns[3].ColumnWidth = 20;//圖樣列寬度
+                worksheet.Rows[2].RowHeight = 20;
+
+                cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();
+
+                //寫入數值                    
+                string rang_begin = "", merge_rang = "", status = "", range_A, range_T;
+                DataTable dt = new DataTable();
+                string artwork_path = "";
+                int row_index = 1;
+                int row_total = 0, seq_id = 0;
+                string serial_no = dgv.Rows[0].Cells["serial_no"].Value.ToString();
+                string a_value = "", b_value = "", d_value = "", e_value, f_value, g_value;
+                Microsoft.Office.Interop.Excel.Range rang_curr_row;
+                for (int r = 0; r < dgv.RowCount; r++)//行
+                {
+                    row_index += 1;
+                    worksheet.Rows[row_index].RowHeight = dgv.Rows[r].Cells["row_height"].Value;//每行高
+                    worksheet.Rows[row_index].Font.Size = 9;
+                    worksheet.Rows[row_index].Font.Bold = false;
+                    worksheet.Cells[row_index, 1] = "";// dgv.Rows[r].Cells["brand_desc"].Value.ToString();
+                    worksheet.Cells[row_index, 2] = "";// dgv.Rows[r].Cells["season"].Value.ToString();
+                                                       //worksheet.Cells[row_index, 3] = "Artwork";//圖樣列
+                    worksheet.Cells[row_index, 4] = "";// dgv.Rows[r].Cells["plm_code"].Value.ToString();
+                    worksheet.Cells[row_index, 5] = "";// dgv.Rows[r].Cells["product_desc"].Value.ToString();
+                    worksheet.Cells[row_index, 6] = "";// dgv.Rows[r].Cells["material"].Value.ToString(); 
+                    worksheet.Cells[row_index, 7] = "";// dgv.Rows[r].Cells["cf_code"].Value.ToString();
+                    worksheet.Cells[row_index, 8] = dgv.Rows[r].Cells["mo_id"].Value.ToString();
+                    worksheet.Cells[row_index, 9] = dgv.Rows[r].Cells["ready_date"].Value.ToString();
+                    worksheet.Cells[row_index, 10] = dgv.Rows[r].Cells["size"].Value.ToString();
+                    worksheet.Cells[row_index, 11] = dgv.Rows[r].Cells["macys_color_code"].Value.ToString();
+                    worksheet.Cells[row_index, 12] = dgv.Rows[r].Cells["cf_color_code"].Value.ToString();
+                    worksheet.Cells[row_index, 13] = dgv.Rows[r].Cells["ex_fty_usd"].Value.ToString();
+                    worksheet.Cells[row_index, 14] = dgv.Rows[r].Cells["bulk_lead_time"].Value.ToString();
+                    worksheet.Cells[row_index, 15] = dgv.Rows[r].Cells["moq_pcs"].Value.ToString();
+                    worksheet.Cells[row_index, 16] = dgv.Rows[r].Cells["quality_issue"].Value.ToString();
+                    worksheet.Cells[row_index, 17] = dgv.Rows[r].Cells["art_approved_by"].Value.ToString();
+                    worksheet.Cells[row_index, 18] = "'" + dgv.Rows[r].Cells["submission_date"].Value.ToString();
+
+                    status = dgv.Rows[r].Cells["status"].Value.ToString();
+                    status = string.IsNullOrEmpty(status) ? "" : status;
+                    if (status == "CANCELLED")
+                    {
+                        range_A = "A" + row_index;
+                        range_T = "R" + row_index;
+                        rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_T);
+                        rang_curr_row.Font.Strikethrough = true; // 添加删除线效果
+                        rang_curr_row.Font.Color = System.Drawing.Color.Red;//字體顏色
+                    }
+                    row_total = int.Parse(dgv.Rows[r].Cells["rs"].Value.ToString());//每組有幾行
+                    seq_id = int.Parse(dgv.Rows[r].Cells["seq_id"].Value.ToString()); //當前行的序號
+                    a_value = dgv.Rows[r].Cells["brand_desc"].Value.ToString();
+                    b_value = dgv.Rows[r].Cells["season"].Value.ToString();
+                    d_value = dgv.Rows[r].Cells["plm_code"].Value.ToString();
+                    e_value = dgv.Rows[r].Cells["product_desc"].Value.ToString();
+                    f_value = dgv.Rows[r].Cells["material"].Value.ToString();
+                    g_value = dgv.Rows[r].Cells["cf_code"].Value.ToString();
+                    if (r == 0 && seq_id == row_total && seq_id == 1)
+                    {
+                        //圖樣,第一行,且只有一行,自己作一組
+                        artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();
+                        artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                        InsertPicture("C2:C2", worksheet, artwork_path);
+                    }
+                    if (seq_id == 1)
+                    {
+                        //要合并的列只符第一次值
+                        worksheet.Cells[row_index, 1] = a_value;
+                        worksheet.Cells[row_index, 2] = b_value;
+                        worksheet.Cells[row_index, 4] = d_value;
+                        worksheet.Cells[row_index, 5] = e_value;
+                        worksheet.Cells[row_index, 6] = f_value;
+                        worksheet.Cells[row_index, 7] = g_value;
+                    }
+                    if (r > 0)
+                    {
+                        if (dgv.Rows[r].Cells["serial_no"].Value.ToString() == serial_no)
                         {
-                            //插入圖片
-                            if (File.Exists(artwork_path))
+                            //同組
+                            if (seq_id == row_total) //同組最后一行
                             {
-                                rang_begin = "C" + row_index;
-                                InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片
+                                merge_rang = GetMergeRang("C", row_index, row_total); //合并的區域
+                                worksheet.Range[merge_rang].Merge(0);//合并单元格
+                                                                     //插入圖片
+                                artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString(); //每組序號01中對應的圖樣路徑
+                                artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                                if (artwork_path == "")
+                                {
+                                    //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
+                                    artwork_path = getSampleArt(serial_no);
+                                }
+                                if (File.Exists(artwork_path))
+                                {
+                                    rang_begin = "C" + (row_index - row_total + 1);//插入圖版的開始位置
+                                    InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
+                                }
+                                SetMergeRange(worksheet, row_index, row_total);//合并區域                                   
                             }
                         }
-                        //隱藏某一行                       
-                        if (dgv.Rows[r].Cells["flag_hidden"].Value.ToString() == "True")
+                        else
                         {
-                            Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
-                            row.EntireRow.Hidden = true;
+                            //不同組
+                            if (seq_id == row_total && row_total > 1)//不同組最后一行
+                            {
+                                merge_rang = GetMergeRang("C", row_index, row_total);//合并區域
+                                worksheet.Range[merge_rang].Merge(0);//合并单元格
+                                                                     //插入圖片
+                                artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
+                                artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                                if (artwork_path == "")
+                                {
+                                    //當圖樣路徑是空時,重取此組別中存在的路徑,正常同組只有一張圖樣
+                                    artwork_path = getSampleArt(serial_no);
+                                }
+                                if (File.Exists(artwork_path))
+                                {
+                                    rang_begin = "C" + (row_index - row_total + 1);
+                                    InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
+                                }
+                                SetMergeRange(worksheet, row_index, row_total); //合并區域
+                            }
+                            if (seq_id == row_total && row_total == 1)
+                            {
+                                //同組只有一行的情況                                   
+                                //插入圖片
+                                artwork_path = dgv.Rows[r].Cells["artwork_path"].Value.ToString();//每組序號01中對應的圖樣路徑
+                                artwork_path = !string.IsNullOrEmpty(artwork_path) ? artwork_path : "";
+                                if (File.Exists(artwork_path))
+                                {
+                                    rang_begin = "C" + row_index;
+                                    InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片,同組第一行插入
+                                }
+                            }
                         }
-                        serial_no = dgv.Rows[r].Cells["serial_no"].Value.ToString();
-                        System.Windows.Forms.Application.DoEvents();
-                    }
-                    worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
-                    worksheet.Columns[3].ColumnWidth = 20;
-                    //worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                    //畫边框线
-                    //获取Excel多个单元格区域
-                    string range_right = string.Format("R{0}", dgv.RowCount + 1);//右下角座標
-                    Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
-                    //单元格边框线类型(线型,虚线型)
-                    excelRange.Borders.LineStyle = 1;
-                    excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                    //字體
-                    excelRange.Font.Name = "Arial";
-                    Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "R1");
-                    headerRange.Interior.Color = System.Drawing.Color.Green.ToArgb(); //OK                     
-                    //headerRange.Interior.Color = System.Drawing.Color.FromArgb(255, 160, 122).ToArgb();//出錯可能不支持此顏色
+                    } //--end of for r>0
 
-                    wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-                    if (FileName != "")
+                    //表格只有一行時
+                    if (r == 0 && dgv.RowCount == 1)
                     {
-                        try
+                        //插入圖片
+                        if (File.Exists(artwork_path))
                         {
-                            workbook.Saved = true;
-                            //workbook.SaveCopyAs(saveFileName);
-                            workbook.SaveAs(FileName, FormatNum);
-                            //fileSaved = true;  
-                        }
-                        catch (Exception ex)
-                        {
-                            //fileSaved = false;  
-                            MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
+                            rang_begin = "C" + row_index;
+                            InsertPicture(rang_begin, worksheet, artwork_path);//插入圖片
                         }
                     }
-                    ////xlApp.Visible = true;                 
+                    //隱藏某一行                       
+                    if (dgv.Rows[r].Cells["flag_hidden"].Value.ToString() == "True")
+                    {
+                        Microsoft.Office.Interop.Excel.Range row = worksheet.Rows[row_index];
+                        row.EntireRow.Hidden = true;
+                    }
+                    serial_no = dgv.Rows[r].Cells["serial_no"].Value.ToString();
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
+                worksheet.Columns[3].ColumnWidth = 20;
+                //worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                //畫边框线
+                //获取Excel多个单元格区域
+                string range_right = string.Format("R{0}", dgv.RowCount + 1);//右下角座標
+                Microsoft.Office.Interop.Excel.Range excelRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", range_right);
+                //单元格边框线类型(线型,虚线型)
+                excelRange.Borders.LineStyle = 1;
+                excelRange.Borders.get_Item(Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop).LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                //字體
+                excelRange.Font.Name = "Arial";
+                Microsoft.Office.Interop.Excel.Range headerRange = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "R1");
+                headerRange.Interior.Color = System.Drawing.Color.Green.ToArgb(); //OK                     
+                                                                                  //headerRange.Interior.Color = System.Drawing.Color.FromArgb(255, 160, 122).ToArgb();//出錯可能不支持此顏色
+                headerRange.WrapText = true;  //自动换行
+
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+                if (FileName != "" && openType == "")
+                {
+                    try
+                    {
+                        workbook.Saved = true;
+                        //workbook.SaveCopyAs(saveFileName);
+                        workbook.SaveAs(FileName, FormatNum);
+                        //fileSaved = true;  
+                        MessageBox.Show("匯出EXCEL成功!" + "\r\n" + FileName, "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        //fileSaved = false;  
+                        MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
+                    }
                     workbook.Close();
                     xlApp.Quit();
                     // ReleaseExcel(xlApp, workbook, worksheet);
                     xlApp = null;
                     GC.Collect();
-
-                    //xlApp.Quit();
-                    //GC.Collect();//强行销毁
-                    //if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL  
-                    //if (System.IO.File.Exists(FileName)) System.Diagnostics.Process.Start(FileName); //打开EXCEL  
-                    MessageBox.Show("匯出EXCEL成功!"+"\r\n"+ FileName, "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if (openType == "open")
+                {
+                    xlApp.Visible = true;//開啟EXCEL
+                    xlApp = null;
+                    GC.Collect();
                 }
             }
             else

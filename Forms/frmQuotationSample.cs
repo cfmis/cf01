@@ -177,12 +177,12 @@ namespace cf01.Forms
 
         private void BTNEXCELART_Click(object sender, EventArgs e)
         {
-           clsQuotationSample.ExportToExcel(dgvDetails);           
+           clsQuotationSample.ExportToExcel(dgvDetails,"");
         }
 
         private void BTNEXCELCK_Click(object sender, EventArgs e)
         {
-            clsQuotationSample.ExportToExcelCK(dgvDetails);
+            clsQuotationSample.ExportToExcelCK(dgvDetails,"");
         }
 
         private void SetDataBindings()
@@ -502,6 +502,18 @@ namespace cf01.Forms
 
         private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
+            //產生行號
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+                e.RowBounds.Location.Y,
+                dgvDetails.RowHeadersWidth - 4,
+                e.RowBounds.Height);
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+                dgvDetails.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dgvDetails.RowHeadersDefaultCellStyle.ForeColor = Color.Black,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+
+
             DataGridView grd = sender as DataGridView;
             if (grd.Rows[e.RowIndex].Cells["bgcolor"].Value.ToString() == "1")
             {
@@ -711,7 +723,15 @@ namespace cf01.Forms
                 txtMoq_pcs.EditValue = frm.moq_pcs;               
             }
         }
-        
 
+        private void btnOpenExecl1_Click(object sender, EventArgs e)
+        {
+            clsQuotationSample.ExportToExcel(dgvDetails, "open");
+        }
+
+        private void btnOpenExecl2_Click(object sender, EventArgs e)
+        {
+            clsQuotationSample.ExportToExcelCK(dgvDetails, "open");
+        }
     }
 }

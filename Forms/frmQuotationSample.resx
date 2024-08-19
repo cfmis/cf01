@@ -209,6 +209,33 @@
         6e7z+dhyShr/HgB/AI2mMtz7O1yxAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="BTNEXCELOPEN.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATUSURBVEhL1ZR9TBMHGIerDmfix9g0c4vRLOqW0aggXSaD
+        6AFT57czpjoRYaKFisN2gnwMsBZnsSAWZHzjCnUFrAKttIhIqYIialGUjxBwooioiJSWCaLCb3f0NsSA
+        uMR/9iRvLne5+z33vu/lGP9/+ModvAC1b1TYmeDYPSp+Mle+KYufvkHlmbK6wFnwuV6R5sLS6z0t6vN9
+        3qcqnyydlGdJPz4yoQX+0fLr0prK+xX4s60BFHUttahprkZoug/+yNxysvGK5EjdxYiEWp0osbIoLLns
+        VNDBvHiPOYoI90/omOEJ0PAlMecjq4VFgfCQ/4DsMhm2H90CTuo27IzdjItV0aSyGui7gr4X5eh5WgpD
+        69naxqr080Vy/n6J//dWdNTQ+ObxE9W1yvrmtnvYVxiMxYdsQAQwceF2KWKUQhTrD5KCKqBXb66X5eSx
+        HL2tCahIZz0QcR3d6aih8c5yk0tL4+8lnBZjbbQj+AoOiH3zEasOhzDRD7pLIuCZFj0Pk9HVEATDheW4
+        nzMDd9PHQHtgHDjL5nnQUUPjGrtEHakMbs8oScBv2WFIyovE0jAW7L1mYQWPQGlZCHrvhuBJIROtJ8ai
+        5RgDTWkMUjAKWtGEkQUbJQsvpeli+pdL8chkgu6aFtqrReCGeqCwcA/6moVo19ricc4HeJBBCsjwu2mU
+        YPzIAvuAT+Mc/KYW2Pp8qHLZO/OWd+gM8PeysHvfIrhz7XHz2iG8aNpLCyzRQgqot3/rDl7limxd2vOC
+        j9Bz2Rkvb+0COtPw3HQCpvogtBeTglyyAznZgYwSjP7vgnNHV2Ua1JPJRTrDWL0TXQ+T0G04jk5yue3F
+        LLPgnxH928GctxMAjFFnk5cpOjSUwAmmGlLwaGQBd6lZYC2xttwkXzWlP2woKMGZxCUnjflT+jswDerg
+        l4ER0YKmdEb/krlOZgGhXPzV5uw18QKF94T+wNehBPlHnJVGjVlgfFMHxyzQKBuHIuGkXq+tTm5sBXvM
+        gsxFVjF1ogOSsgA33zOu4+nYASiBOppQmQXDj8h4nIHMw3OwJ5kHcdbuNt8kToZbznrtj5oNqtKOE+cq
+        nmmk4ed+duHlug/+IQoEgtGqqEVqEz2i4TroymFg/7Yp+C58GfyLXRB+yQcpN4XIvn0E+S1HUd6Zi+td
+        mrioEj9XQkoMSChBjthB23maFFx0eu0rGtgBJRB5TQUhJOCZuxJ++S74tWQn4ipCkNEQBU1LKvSdp17e
+        7DktWaNYEUjHMxgKco5Z4Y6xd07O7Oi+6oi/6n5Cd2syujsUtGA+2nIn4rmKAfGOj/GN0A6bcxbCK28l
+        AnWuiNDzkFQlQFbDYRQ9lpX6lmyPnJs415aON5MqXjNRHW0Xr0txaGm8wKk3NR1GjzELz+6E4GmZHVpP
+        TUOzzAJBW6cZv1xv277Q29aw2GeBYbmvo2G1P/Fkl3xT3+81+yu9M1yirKVMGzp2MEqx/UQJz95GHr5E
+        Fhu8tjgmaHVZtN+35WLOvMqwrVY3Dm6fd8Odbc+dbWPDZL5S062mb1wpWFDHTdyQSgTazabjhkchYI5l
+        s9ljBATxHlWeLJYFVQI2cyx9yyCmWk/6eu66z/ROHNtZ9KV3i+CQ6IsI6QEH+vTdo7uus7xce3kyfUrD
+        YPwN6kpx56+vONwAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="input_date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
