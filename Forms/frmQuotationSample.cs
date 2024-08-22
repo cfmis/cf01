@@ -174,7 +174,7 @@ namespace cf01.Forms
             Find();
         }
 
-        private void BTNEXCELART_Click(object sender, EventArgs e)
+        private void BTNEXCEL_Click(object sender, EventArgs e)
         {
            clsQuotationSample.ExportToExcel(dgvDetails,"","");
         }
@@ -302,7 +302,7 @@ namespace cf01.Forms
             BTNEDIT.Enabled = _flag;           
             BTNDELETE.Enabled = _flag;
             BTNFIND.Enabled = _flag;
-            BTNEXCELART.Enabled = _flag;
+            BTNEXCEL.Enabled = _flag;
             BTNEXCELCK.Enabled = _flag;
             BTNEXCELOPEN.Enabled = _flag;
             BTNPRICE.Enabled = _flag;
