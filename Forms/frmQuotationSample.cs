@@ -177,12 +177,12 @@ namespace cf01.Forms
 
         private void BTNEXCELART_Click(object sender, EventArgs e)
         {
-           clsQuotationSample.ExportToExcel(dgvDetails,"");
+           clsQuotationSample.ExportToExcel(dgvDetails,"","");
         }
 
         private void BTNEXCELCK_Click(object sender, EventArgs e)
         {
-            clsQuotationSample.ExportToExcelCK(dgvDetails,"");
+            clsQuotationSample.ExportToExcel(dgvDetails,"","CK");
         }
 
         private void SetDataBindings()
@@ -726,12 +726,12 @@ namespace cf01.Forms
 
         private void btnOpenExecl1_Click(object sender, EventArgs e)
         {
-            clsQuotationSample.ExportToExcel(dgvDetails, "open");
+            clsQuotationSample.ExportToExcel(dgvDetails,"open","");
         }
 
         private void btnOpenExecl2_Click(object sender, EventArgs e)
         {
-            clsQuotationSample.ExportToExcelCK(dgvDetails, "open");
+            clsQuotationSample.ExportToExcel(dgvDetails, "open","CK");
         }
     }
 }
