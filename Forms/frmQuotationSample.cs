@@ -303,6 +303,8 @@ namespace cf01.Forms
             BTNDELETE.Enabled = _flag;
             BTNFIND.Enabled = _flag;
             BTNEXCELART.Enabled = _flag;
+            BTNEXCELCK.Enabled = _flag;
+            BTNEXCELOPEN.Enabled = _flag;
             BTNPRICE.Enabled = _flag;
                      
             BTNSAVE.Enabled = !_flag;
