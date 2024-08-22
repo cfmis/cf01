@@ -22,8 +22,7 @@ namespace cf01.Forms
         System.Data.DataTable dtDetail = new System.Data.DataTable();
         System.Data.DataTable dtTemp = new System.Data.DataTable();
         string pID = "";    //臨時的主鍵值
-        string editState = ""; //新增或編號的狀態
-        //string editStateCopy = "";
+        string editState = ""; //新增或編號的狀態       
 
         public frmQuotationSample()
         {
@@ -98,7 +97,7 @@ namespace cf01.Forms
                     newRow["remark"] = dgrw.Cells["remark"].Value.ToString();
                     newRow["brand_desc"] = dgrw.Cells["brand_desc"].Value.ToString();
                     newRow["bulk_lead_time"] = dgrw.Cells["bulk_lead_time"].Value.ToString();
-                    newRow["quality_issue"] = dgrw.Cells["quality_issue"].Value.ToString();                  
+                    newRow["quality_issue"] = dgrw.Cells["quality_issue"].Value.ToString();                   
                     newRow["flag_ck"] = (dgrw.Cells["flag_ck"].Value.ToString() == "True") ? true : false;
                     newRow["flag_hidden"] = (dgrw.Cells["flag_hidden"].Value.ToString() == "True") ? true : false;
                     newRow["bgcolor"] = dgrw.Cells["bgcolor"].Value.ToString();
