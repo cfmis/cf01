@@ -64,6 +64,7 @@ namespace cf01.CLS
                 new SqlParameter("@mo_id",mdl.mo_id),
                 new SqlParameter("@cf_color_code",mdl.cf_color_code),
                 new SqlParameter("@brand_desc",mdl.brand_desc),
+                new SqlParameter("@excel_type",mdl.excel_type),
                 new SqlParameter("@create_by",mdl.create_by),
                 new SqlParameter("@create_date1",mdl.create_date),
                 new SqlParameter("@create_date2",create_date2),
@@ -190,6 +191,7 @@ namespace cf01.CLS
                     worksheet.Cells[1, 19] = "Submission Date";
                     worksheet.Cells[1, 20] = "Sample Approved Date/by";
                     worksheet.Cells[1, 21] = "Macy's System";
+                    worksheet.Cells[1, 22] = "Excel Type";
                 }
                 else
                 {
@@ -211,6 +213,7 @@ namespace cf01.CLS
                     worksheet.Cells[1, 16] = "Quality Issue";
                     worksheet.Cells[1, 17] = "Artwork Approved Date/by";
                     worksheet.Cells[1, 18] = "Submission Date";
+                    worksheet.Cells[1, 19] = "Excel Type";
                 }
                 worksheet.Rows[1].Font.Size = 10;
                 worksheet.Rows[1].Font.Bold = true;//粗體
@@ -228,7 +231,7 @@ namespace cf01.CLS
                 }).Start();
 
                 //寫入數值                    
-                string rang_begin = "", merge_rang = "", status = "", range_A, range_U, artwork_path = "", serial_no;
+                string rang_begin = "", merge_rang = "", status = "", range_A, range_V, artwork_path = "", serial_no;
                 string a_value, b_value, d_value, e_value, f_value, g_value, n_value, p_value;               
                 int row_index = 1, row_total = 0, seq_id = 0;
                 serial_no = dgv.Rows[0].Cells["serial_no"].Value.ToString();
@@ -262,6 +265,7 @@ namespace cf01.CLS
                         worksheet.Cells[row_index, 19] = "'" + dgv.Rows[r].Cells["submission_date"].Value.ToString();
                         worksheet.Cells[row_index, 20] = dgv.Rows[r].Cells["sample_approved_date"].Value.ToString();
                         worksheet.Cells[row_index, 21] = dgv.Rows[r].Cells["macy_system"].Value.ToString();
+                        worksheet.Cells[row_index, 22] = dgv.Rows[r].Cells["excel_type"].Value.ToString();
                     }
                     else
                     {
@@ -282,6 +286,7 @@ namespace cf01.CLS
                         worksheet.Cells[row_index, 16] = dgv.Rows[r].Cells["quality_issue"].Value.ToString();
                         worksheet.Cells[row_index, 17] = dgv.Rows[r].Cells["art_approved_by"].Value.ToString();
                         worksheet.Cells[row_index, 18] = "'" + dgv.Rows[r].Cells["submission_date"].Value.ToString();
+                        worksheet.Cells[row_index, 19] = dgv.Rows[r].Cells["excel_type"].Value.ToString();
                     }
                     status = dgv.Rows[r].Cells["status"].Value.ToString();
                     status = string.IsNullOrEmpty(status) ? "" : status;
@@ -289,10 +294,10 @@ namespace cf01.CLS
                     {
                         range_A = "A" + row_index;
                         if (formatBy != "CK") 
-                            range_U = "U" + row_index;
+                            range_V = "V" + row_index;
                         else
-                            range_U = "R" + row_index;
-                        rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_U);
+                            range_V = "S" + row_index;
+                        rang_curr_row = (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range(range_A, range_V);
                         rang_curr_row.Font.Strikethrough = true; // 添加删除线效果
                         rang_curr_row.Font.Color = System.Drawing.Color.Red;//字體顏色
                     }
@@ -441,12 +446,13 @@ namespace cf01.CLS
                     worksheet.Columns[19].ColumnWidth = 10;//Submission Date
                     worksheet.Columns[20].ColumnWidth = 41;//Sample Approved Date/by
                     worksheet.Columns[21].ColumnWidth = 35;//Macy's System
-                    range_right = string.Format("U{0}", dgv.RowCount + 1);//右下角座標
+                    worksheet.Columns[22].ColumnWidth = 10;//Excel Type
+                    range_right = string.Format("V{0}", dgv.RowCount + 1);//右下角座標
                 }
                 else
                 {
                     worksheet.Columns[3].ColumnWidth = 20;//ARTWORK
-                    range_right = string.Format("R{0}", dgv.RowCount + 1);//右下角座標
+                    range_right = string.Format("S{0}", dgv.RowCount + 1);//右下角座標
                 }
                 //畫边框线
                 //获取Excel多个单元格区域                
@@ -457,7 +463,7 @@ namespace cf01.CLS
                 //字體
                 excelRange.Font.Name = "Arial";
                 Microsoft.Office.Interop.Excel.Range headerRange;
-                headerRange = (formatBy != "CK") ? (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "U1") : (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "R1");
+                headerRange = (formatBy != "CK") ? (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "V1") : (Microsoft.Office.Interop.Excel.Range)worksheet.get_Range("A1", "S1");
                 headerRange.Interior.Color = System.Drawing.Color.Yellow.ToArgb(); //OK
                 //headerRange.Interior.Color = System.Drawing.Color.FromArgb(255, 197, 153).ToArgb();//出錯可能不支持此顏色             
                 headerRange.WrapText = true;  //自动换行

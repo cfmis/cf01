@@ -6003,7 +6003,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
         private DevExpress.XtraEditors.DateEdit txtdoc_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private DevExpress.XtraEditors.TextEdit txtFactory_name1;
+        //private DevExpress.XtraEditors.TextEdit txtFactory_name1;
         private System.Windows.Forms.Label label52;
         private DevExpress.XtraEditors.TextEdit txtreference_number;
         internal System.Windows.Forms.Label label58;

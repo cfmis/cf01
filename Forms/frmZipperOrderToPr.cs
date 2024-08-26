@@ -199,7 +199,7 @@ namespace cf01.Forms
             mdlDetail.mo_id = txtMo_id.Text.Trim();
             mdlDetail.goods_id = txtGoods_id.Text.Trim();
             mdlDetail.ap_qty = (txtOrder_qty.Text.Trim() != "" ? Convert.ToDecimal(txtOrder_qty.Text) : 0);
-            mdlDetail.goods_unit = (lueGoods_unit.EditValue != "" ? lueGoods_unit.EditValue.ToString() : "PCS");
+            mdlDetail.goods_unit = (lueGoods_unit.EditValue.ToString() != "" ? lueGoods_unit.EditValue.ToString() : "PCS");
             mdlDetail.goods_name = txtGoods_name.Text.Trim();
             mdlDetail.req_date = txtReq_date.Text.Trim();
             mdlDetail.remark = txtPr_remark.Text.Trim();

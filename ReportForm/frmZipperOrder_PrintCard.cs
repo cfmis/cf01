@@ -76,7 +76,7 @@ namespace cf01.ReportForm
             float qty_pcs = 0;
             float per_pack = 0;
             string unit="";
-            unit = (lueGoods_unit.EditValue != "" ? lueGoods_unit.EditValue.ToString() : "");
+            unit = (lueGoods_unit.EditValue.ToString() != "" ? lueGoods_unit.EditValue.ToString() : "");
             DataTable dtUnitRate=clsZipperOrder.getUnitRate(unit);
             if (dtUnitRate.Rows.Count > 0)
                 unit_rate = Convert.ToSingle(dtUnitRate.Rows[0]["rate"]);
@@ -150,7 +150,7 @@ namespace cf01.ReportForm
 
         private void luePack_type_EditValueChanged(object sender, EventArgs e)
         {
-            string id=(luePack_type.EditValue!=""?luePack_type.EditValue.ToString():"");
+            string id=(luePack_type.EditValue.ToString() !=""?luePack_type.EditValue.ToString():"");
             DataTable dtPack = clsZipperOrder.getPper_pack(id, "PK");
             if (dtPack.Rows.Count > 0)
                 txtPer_pack.Text = dtPack.Rows[0]["per_pack"].ToString();

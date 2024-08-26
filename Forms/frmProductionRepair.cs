@@ -231,7 +231,7 @@ namespace cf01.Forms
             dtMostly.Rows.InsertAt(dr, 0);
             //txtID.Text =clsMoRepair.GetDocNo();
             luedepartment_id.EditValue ="501";
-            dtorder_date.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            dtorder_date.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
             dtDetails.Clear();
             bdsDetail.DataSource = dtDetails;           
             gridControl1.DataSource = bdsDetail;

@@ -20,7 +20,7 @@ namespace cf01.Forms
         BindingSource bds1 = new BindingSource();
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         System.Data.DataTable dtDetail = new System.Data.DataTable();
-        System.Data.DataTable dtTemp = new System.Data.DataTable();
+        System.Data.DataTable dtTemp = new System.Data.DataTable();       
         string pID = "";    //臨時的主鍵值
         string editState = ""; //新增或編號的狀態       
 
@@ -35,6 +35,8 @@ namespace cf01.Forms
         private void frmQuotationSample_Load(object sender, EventArgs e)
         {
             clsQuotation.Set_Unit(txtPrice_unit);//數量單位  
+            clsQuotation.SetExcelType(lueExcelType);
+            lueExcelType.EditValue = "Trims";
             SetDataBindings();            
         }
 
@@ -97,7 +99,8 @@ namespace cf01.Forms
                     newRow["remark"] = dgrw.Cells["remark"].Value.ToString();
                     newRow["brand_desc"] = dgrw.Cells["brand_desc"].Value.ToString();
                     newRow["bulk_lead_time"] = dgrw.Cells["bulk_lead_time"].Value.ToString();
-                    newRow["quality_issue"] = dgrw.Cells["quality_issue"].Value.ToString();                   
+                    newRow["quality_issue"] = dgrw.Cells["quality_issue"].Value.ToString();
+                    newRow["excel_type"] = dgrw.Cells["excel_type"].Value.ToString();
                     newRow["flag_ck"] = (dgrw.Cells["flag_ck"].Value.ToString() == "True") ? true : false;
                     newRow["flag_hidden"] = (dgrw.Cells["flag_hidden"].Value.ToString() == "True") ? true : false;
                     newRow["bgcolor"] = dgrw.Cells["bgcolor"].Value.ToString();
@@ -225,6 +228,7 @@ namespace cf01.Forms
             txtBulk_lead_time.DataBindings.Add("Text", bds1, "bulk_lead_time");
             txtQuality_issue.DataBindings.Add("Text", bds1, "quality_issue");
             txtMacy_system.DataBindings.Add("Text", bds1, "macy_system");
+            lueExcelType.DataBindings.Add("EditValue", bds1, "excel_type");
             //復選框的綁定
             //Binding bind = new Binding("Checked", bds1, "flag_ck");
             Binding bind = new Binding("EditValue", bds1, "flag_ck");
@@ -257,6 +261,7 @@ namespace cf01.Forms
             txtPrice_unit.EditValue = "PCS";            
             txtSerial_no.Text = clsQuotationSample.GetSerialNo();
             txtSeq_id.Text = "01";
+            lueExcelType.EditValue = "Trims";
         }
 
         private void Edit()  //編號
@@ -339,11 +344,11 @@ namespace cf01.Forms
             string sql_i =
             @"INSERT INTO quotation_sample(serial_no,input_date,season,plm_code,artwork_path,cf_code,product_desc,material,size,seq_id,macys_color_code,mo_id,
             ready_date,cf_color_code,ex_fty_usd,ex_fty_usd_new,price_unit,moq_pcs,surcharge,md_charge,art_approved_by,submission_date,
-            sample_approved_date,remark,macy_system, brand_desc,bulk_lead_time,quality_issue,flag_ck,flag_hidden,create_by,create_date,status)
+            sample_approved_date,remark,macy_system, brand_desc,bulk_lead_time,quality_issue,flag_ck,flag_hidden,create_by,create_date,status,excel_type)
             VALUES(@serial_no,@input_date,@season,@plm_code,@artwork_path,@cf_code,@product_desc,@material,@size,@seq_id,@macys_color_code,@mo_id,
             @ready_date,@cf_color_code,@ex_fty_usd,@ex_fty_usd_new,@price_unit,@moq_pcs,@surcharge,@md_charge,@art_approved_by,
             CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,@sample_approved_date,@remark,@macy_system,@brand_desc,@bulk_lead_time,@quality_issue,
-            @flag_ck,@flag_hidden,@user_id,getdate(),@status)";
+            @flag_ck,@flag_hidden,@user_id,getdate(),@status,@excel_type)";
             string sql_u =
             @"UPDATE quotation_sample 
             SET serial_no=@serial_no,input_date=@input_date,season=@season,plm_code=@plm_code,artwork_path=@artwork_path,cf_code=@cf_code,product_desc=@product_desc,
@@ -351,7 +356,7 @@ namespace cf01.Forms
             ex_fty_usd=@ex_fty_usd,ex_fty_usd_new=@ex_fty_usd_new,price_unit=@price_unit,moq_pcs=@moq_pcs,surcharge=@surcharge,md_charge=@md_charge,
             art_approved_by=@art_approved_by,submission_date=CASE LEN(@submission_date) WHEN 0 THEN null ELSE @submission_date END ,sample_approved_date=@sample_approved_date,
             remark=@remark,macy_system=@macy_system,brand_desc=@brand_desc,bulk_lead_time=@bulk_lead_time,quality_issue=@quality_issue,flag_ck=@flag_ck,flag_hidden=@flag_hidden,
-            update_by=@user_id,update_date=getdate(),status=@status
+            update_by=@user_id,update_date=getdate(),status=@status,excel_type=@excel_type
             WHERE id=@id";            
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             myCon.Open();
@@ -406,7 +411,8 @@ namespace cf01.Forms
                             myCommand.Parameters.AddWithValue("@flag_ck", chkFlagCk.Checked ? true : false);
                             myCommand.Parameters.AddWithValue("@flag_hidden", chkFlagHidden.Checked ? true : false);
                             myCommand.Parameters.AddWithValue("@user_id", DBUtility._user_id);
-                            myCommand.Parameters.AddWithValue("@status", dtDetail.Rows[i]["status"].ToString());                            
+                            myCommand.Parameters.AddWithValue("@status", dtDetail.Rows[i]["status"].ToString());
+                            myCommand.Parameters.AddWithValue("@excel_type", dtDetail.Rows[i]["excel_type"].ToString());
                             myCommand.ExecuteNonQuery();
                         }
                     }

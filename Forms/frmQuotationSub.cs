@@ -146,8 +146,7 @@ namespace cf01.Forms
 				//因toolStrip控件焦點問題
 				//設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，附止取到的值爲空
 				// ColumnView view = (ColumnView)gridView1 ;
-				// view.FocusedColumn = view.Columns["test_item_id"];
-                string strSql = ""; 
+				// view.FocusedColumn = view.Columns["test_item_id"];                
                 string strSubmo = "";
 				int curRow = 0;
 				for (int i = 0; i < gridView1.RowCount; i++)

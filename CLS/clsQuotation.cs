@@ -935,6 +935,14 @@ namespace cf01.CLS
             obj.Properties.ValueMember = "id";
             obj.Properties.DisplayMember = "id";
         }
+        public static void SetExcelType(DevExpress.XtraEditors.LookUpEdit obj)
+        {
+            System.Data.DataTable dtType = new System.Data.DataTable();
+            dtType = clsPublicOfCF01.GetDataTable(@"Select typ_cdesc AS id From bs_type Where typ_group='ZE' Order by typ_code");
+            obj.Properties.DataSource = dtType;
+            obj.Properties.ValueMember = "id";
+            obj.Properties.DisplayMember = "id";
+        }      
 
         public static bool Check_Artwork(string strArtwork)
         {

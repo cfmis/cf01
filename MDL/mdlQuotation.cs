@@ -143,5 +143,6 @@ namespace cf01.MDL
         public string create_date2;
         public string brand_desc;
         public int flag_ck;
+        public string excel_type;
     }
 }

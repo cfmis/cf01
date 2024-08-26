@@ -26,7 +26,8 @@ namespace cf01.Forms
 
         private void frmQuotationSampleFind_Load(object sender, EventArgs e)
         {
-
+            clsQuotation.SetExcelType(lueExcelType);
+            lueExcelType.EditValue = "Trims";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -58,6 +59,8 @@ namespace cf01.Forms
             txtCreate_by.Text = "";
             dtCreate_date1.EditValue = "";
             dtCreate_date2.EditValue = "";
+            txtMacys_color_code.Text = "";
+            lueExcelType.EditValue = "";
         }
 
         private void btnSearchByParam_Click(object sender, EventArgs e)
@@ -85,6 +88,7 @@ namespace cf01.Forms
             mdl.macys_color_code = txtMacys_color_code.Text;
             mdl.mo_id = txtMo_id.Text;
             mdl.cf_color_code = txtCf_color_code.Text;
+            mdl.excel_type = lueExcelType.EditValue.ToString();
             mdl.create_by = txtCreate_by.Text;
             mdl.create_date = dtCreate_date1.EditValue.ToString();
             mdl.create_date2 = dtCreate_date2.EditValue.ToString();

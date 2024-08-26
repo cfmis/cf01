@@ -786,10 +786,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtorder_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtorder_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dtorder_date.Properties.DisplayFormat.FormatString = "yyyy/MM/dd";
             this.dtorder_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtorder_date.Properties.EditFormat.FormatString = "yyyy/MM/dd";
+            this.dtorder_date.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtorder_date.Properties.Mask.BeepOnError = true;
-            this.dtorder_date.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dtorder_date.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtorder_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtorder_date.Properties.MaxLength = 10;
             this.dtorder_date.Properties.NullDate = "";

@@ -75,7 +75,7 @@ namespace cf01.Forms
         }
         private bool checkValid()
         {
-            if (lueClr_Grp.EditValue==null || lueClr_Grp.EditValue == "")
+            if (lueClr_Grp.EditValue==null || lueClr_Grp.EditValue.ToString() == "")
             {
                 MessageBox.Show("顏色組別編號不能為空!");
                 lueClr_Grp.Focus();
