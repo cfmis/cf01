@@ -1,10 +1,12 @@
 ﻿using cf01.CLS;
 using cf01.MDL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -14,6 +16,8 @@ namespace cf01.Forms
     public partial class frmQuotationSampleFind : Form
     {
         public DataTable dtFind = new DataTable();
+        DataTable dtFindDetail = new DataTable();
+        DataSet dtsFind = new DataSet();
         private clsAppPublic clsApp = new clsAppPublic();
         mdlQuotationSample mdl= new mdlQuotationSample();
         public frmQuotationSampleFind()
@@ -32,6 +36,10 @@ namespace cf01.Forms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            if (dtFind.Rows.Count > 0)
+            {
+                this.DialogResult = DialogResult.Yes;//標記查詢到數據并退出
+            }
             this.Close();
         }
 
@@ -69,7 +77,7 @@ namespace cf01.Forms
             FindData();
             if (dtFind.Rows.Count > 0)
             {
-                this.DialogResult = DialogResult.Yes;//標記查詢到數據并退出
+                //this.DialogResult = DialogResult.Yes;//標記查詢到數據并退出
             }
             else
             {
@@ -94,7 +102,47 @@ namespace cf01.Forms
             mdl.create_date2 = dtCreate_date2.EditValue.ToString();
             mdl.brand_desc = txtBrand_desc.Text;
             mdl.flag_ck = chkFlag_ck.Checked ? 1 : 0;
-            dtFind = clsQuotationSample.FindDataByMdl(mdl);
+            dtsFind = clsQuotationSample.FindDataByMdl(mdl);
+            dtFind = dtsFind.Tables[0];//返回的所有數據
+            dtFind = clsQuotationSample.SetGridDataBackgroudColor(dtFind); //設置斑馬線標識  
+            dtFindDetail = dtsFind.Tables[1];//只是滿足查找條件的數據
+            dtFindDetail = clsQuotationSample.SetGridDataBackgroudColor(dtFindDetail); //設置斑馬線標識 
+
+            
+
+            //處理序號
+            ArrayList nStr = new ArrayList();
+            string strSerialNo = "";
+            for (int i = 0; i < dtFindDetail.Rows.Count; i++)
+            {
+                strSerialNo = dtFindDetail.Rows[i]["serial_no"].ToString();
+                if (!nStr.Contains(strSerialNo))
+                {
+                    nStr.Add(strSerialNo);
+                }
+            }                
+
+            int temp_seq_id = 0;
+            string str_temp_seq_id = "";           
+            for (int i=0;i<nStr.Count;i++)
+            {
+                temp_seq_id = 0;
+                strSerialNo = nStr[i].ToString();
+                for (int j = 0; j < dtFindDetail.Rows.Count; j++)
+                {
+                    if (dtFindDetail.Rows[j]["serial_no"].ToString() == strSerialNo)
+                    {
+                        temp_seq_id += 1;
+                        str_temp_seq_id = temp_seq_id.ToString("00");
+                        if (dtFindDetail.Rows[j]["seq_id"].ToString() != str_temp_seq_id)
+                        {
+                            dtFindDetail.Rows[j]["seq_id"] = str_temp_seq_id;
+                        }
+                    }
+                }
+            }
+           
+            dgvDetails.DataSource = dtFindDetail;
         }
         private void InitFindData(mdlQuotationSample mdl)
         {
@@ -113,5 +161,96 @@ namespace cf01.Forms
             dtCreate_date2.EditValue = "";
         }
 
+        private void frmQuotationSampleFind_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (dtFind.Rows.Count > 0)
+            {
+                this.DialogResult = DialogResult.Yes;//標記查詢到數據并退出
+            }
+        }
+
+        private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            //產生行號
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+                e.RowBounds.Location.Y,
+                dgvDetails.RowHeadersWidth - 4,
+                e.RowBounds.Height);
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+                dgvDetails.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dgvDetails.RowHeadersDefaultCellStyle.ForeColor = Color.Black,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+
+
+            DataGridView grd = sender as DataGridView;
+            if (grd.Rows[e.RowIndex].Cells["bgcolor"].Value.ToString() == "1")
+            {
+                //特別單價亮藍色背景
+                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224))))); // Color.Gray;
+            }
+            else
+            {
+                grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            }
+
+            //DataGridView grd1 = sender as DataGridView;
+            if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
+            {
+                //刪除線
+                grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
+                grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            string isCk = chkCk.Checked ? "CK" : "";
+            clsQuotationSample.ExportToExcel(dgvDetails, "", isCk);
+        }
+
+        private void btnExcelOpen_Click(object sender, EventArgs e)
+        {
+            string isCk = chkCk.Checked ? "CK" : "";
+            clsQuotationSample.ExportToExcel(dgvDetails, "open", isCk);
+        }
+
+        private void chkAll_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (dtsFind.Tables.Count > 0)
+            {
+                if (!chkAll.Checked)
+                    dgvDetails.DataSource = dtFindDetail;
+                else
+                    dgvDetails.DataSource = dtFind;
+            }
+        }
+
+        private void dgvDetails_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDetails.RowCount > 0)
+            {
+                int index = dgvDetails.CurrentRow.Index;
+                if (index >= 0)
+                {
+                    //dgvDetails      
+                    DataGridViewRow dgrw = dgvDetails.CurrentRow;
+                    string artworkPath = dgrw.Cells["artwork_path"].Value.ToString();
+                    SetArtwork(artworkPath);
+                }
+
+
+            }
+        }
+
+        private void SetArtwork(string artwork_full_path)
+        {
+            if (!string.IsNullOrEmpty(artwork_full_path))
+            {               
+                pic_artwork.Image = File.Exists(artwork_full_path) ? Image.FromFile(artwork_full_path) : null;
+            }
+            else
+                pic_artwork.Image = null;
+        }
     }
 }

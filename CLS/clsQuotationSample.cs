@@ -44,9 +44,9 @@ namespace cf01.CLS
             return result;
         }
 
-        public static DataTable FindDataByMdl(mdlQuotationSample mdl)
+        public static DataSet FindDataByMdl(mdlQuotationSample mdl)
         {
-            DataTable dt = new DataTable();           
+            DataSet dts = new DataSet();           
             string create_date2 = "";
             if (!string.IsNullOrEmpty(mdl.create_date2))
             {
@@ -70,8 +70,8 @@ namespace cf01.CLS
                 new SqlParameter("@create_date2",create_date2),
                 new SqlParameter("@flag_ck",mdl.flag_ck)
             };
-            dt = clsPublicOfCF01.ExecuteProcedureReturnTable("p_find_quotation_sample", paras);            
-            return dt;
+            dts = clsPublicOfCF01.ExecuteProcedureReturnDataSet("p_find_quotation_sample", paras,null);            
+            return dts;
         }
 
         public static DataTable FindBasePriceByMdl(mdlQuotationSample mdl)

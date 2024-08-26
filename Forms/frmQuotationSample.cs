@@ -306,10 +306,7 @@ namespace cf01.Forms
             BTNNEW.Enabled = _flag;
             BTNEDIT.Enabled = _flag;           
             BTNDELETE.Enabled = _flag;
-            BTNFIND.Enabled = _flag;
-            BTNEXCEL.Enabled = _flag;
-            BTNEXCELCK.Enabled = _flag;
-            BTNEXCELOPEN.Enabled = _flag;
+            BTNFIND.Enabled = _flag;            
             BTNPRICE.Enabled = _flag;
                      
             BTNSAVE.Enabled = !_flag;
@@ -642,13 +639,7 @@ namespace cf01.Forms
             frmQuotationSampleFind frm = new frmQuotationSampleFind();
             if (frm.ShowDialog() == DialogResult.Yes)
             {
-                dtDetail = frm.dtFind;
-
-                if (dtDetail.Rows.Count > 0)
-                {
-                    dtDetail = clsQuotationSample.SetGridDataBackgroudColor(dtDetail);                    
-                }
-                //dtDetail.AcceptChanges();//恢復正常的Rowstate狀態,否則按編輯按鈕時表格背景色會亂
+                dtDetail = frm.dtFind;              
                 bds1.DataSource = dtDetail;
                 dgvDetails.DataSource = bds1;
             }

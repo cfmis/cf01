@@ -938,7 +938,7 @@ namespace cf01.CLS
         public static void SetExcelType(DevExpress.XtraEditors.LookUpEdit obj)
         {
             System.Data.DataTable dtType = new System.Data.DataTable();
-            dtType = clsPublicOfCF01.GetDataTable(@"Select typ_cdesc AS id From bs_type Where typ_group='ZE' Order by typ_code");
+            dtType = clsPublicOfCF01.GetDataTable(@"Select id From (Select '' AS id UNION SELECT typ_cdesc From bs_type Where typ_group='ZE') S Order by S.id");
             obj.Properties.DataSource = dtType;
             obj.Properties.ValueMember = "id";
             obj.Properties.DisplayMember = "id";

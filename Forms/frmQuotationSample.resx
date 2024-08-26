@@ -209,33 +209,6 @@
         6e7z+dhyShr/HgB/AI2mMtz7O1yxAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="BTNEXCELOPEN.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATVSURBVEhL1ZR7TBMHHMerDmfiY2yaucVozHQmNCoIy0SI
-        HjBfU9G5pToRYSKPCsN2gjwGWIuztSAWZPISV6grYJVCpUVEShkoohZFeYSAE0VERaS0TBAVvrujtyEG
-        xCX+s0/yy+Uud9/P/X6/yzH+/3Bzd3KCVQExkefC4vcouSls2ZYsbvompfcx5wIn3uc6eZqLjU7nbdaQ
-        7/8+VflkaSUcc/rx0YkoCIqVXZfUVt2vxJ/tjaCob61DbUsNItL98XvmttNNV8RH6i9GJdZpBUlVRZEp
-        5WdCD+YleMyXR7l/QseMTLCaK44ria7hF4XAQ/Y9ssul8Dy+DV6pO+AXvxUXq2NJZQ3QfwX9LyrQ+7QM
-        +kfn65qq0/8oknH3i4O+saCjhicgj5ukqstpaGm/h32FYVh+yApEMBMXbpchLpePYt1BUlAN9OlM9bKC
-        PFagry0RlemLHgjYDu501PD4ZrnJJGUJ9xLPirAh1gFcuReIfYsQrxKCnxQI7SUB8EyD3ocp6G4Mhf7C
-        17ivmIW76eOgOTABXqsXetBRw+Mav0IVrQjryChNxK/ZkUjOi8bKSBvY+czBGg6BsvJw9N0Nx5NCJtpO
-        jUfrCQaa0xikYAw0gkmjCzaLl15K08YNLJfikdEI7TUNNFeLwI7wQGHhHvS38NGhscZjxQd4kEEKyPC7
-        aZRg4ugCu+BPj9oHTi+w9v9Q6bJ39i3fiFng7rXB7n3L4M62w81rh/CieS8tMEcrKaDe/q07eJUr0o1p
-        zws+Qu9lJ7y8tQvoSsNz4ykYG0LRUUwKcsgOZGQHUkow9r8LSo6vy9SrppKLdIKhxg/dD5PRoz+JLnK5
-        HcU2JsE/I/q3g/lvJwAYY86nrJZ3qimBI4y1pODR6AL2SpPAUmxpvkW2btpA2HBQgnNJK04b8qcNdGAc
-        0sHPgyOiBc3pjIElsx1NAiJ3+Rdbs9cn8OS+kwYCX4cS5B9xyjWoTQLDmzo4YYYm6QQU8af0+Wx3dGPJ
-        WeMWZy6ziKsXHBCXB7sFnHOdSMcOQglUsYTSJBh5RIaTDGQeno89KRyIMne3ByR7ZbgpvtP8oN6kLOs8
-        VVL5TC0RlvzkwslxH/pD5PF4Y5Uxy1RGekQjddCtYGD/jmlYJVyNoGIXCC/549hNPrJvH0F+63FUdOXg
-        erf6aExpoCshIQYllEAhstd0nSUFFx1f+4oGd0AJBD7TQfAJeOesRWC+C34p9cPRynBkNMZA3ZoKneHM
-        y5u9Z8Xr5WtC6HgGQ07OMUvoEH/n9GedPVcd8Ff9j+hpS0FPp5wWLEJ7zmQ8VzIg2vkxlvBtsVWxFD55
-        axGidUWUjoPkah6yGg+j6LG0LKDUM3pB0gJrOt5Eqmj9ZFWsbYLm2JLWpgs7GozNh9FryMKzO+F4Wm6L
-        tjMz0CI1Q/D2GYZ531p32LOt9cv9FutXBTjonYOIJ7tObOn/rXZ/lW+GS4ylhGlFxw4lV2Q3Wcyxs5IJ
-        V0jjwzYUx4U6l8cGflUh8lxYFbnd4obQc+ENd5Yde66VFZP5Ss20mLl5LW9xPTtpUyoRYjuXjhsZOY85
-        nsVijeMRxHtUedvYmFHFYzHH07cMYbrllC8XbJytc/SynkNferfwDgnmRUkO2NOn7x7tda355brLU+lT
-        Ggbjb4A1ccQ0ue30AAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="input_date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
