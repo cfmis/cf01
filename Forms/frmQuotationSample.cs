@@ -190,7 +190,8 @@ namespace cf01.Forms
         private void SetDataBindings()
         {
             txtID.DataBindings.Add("Text", bds1, "id");
-            txtSerial_no.DataBindings.Add("Text", bds1, "serial_no");
+            //txtSerial_no.DataBindings.Add("Text", bds1, "serial_no");
+            txtSerialNo.DataBindings.Add("Text", bds1, "serial_no");
             txtInput_date.DataBindings.Add("EditValue", bds1, "input_date");
             txtSeq_id.DataBindings.Add("Text", bds1, "seq_id");
             txtSeason.DataBindings.Add("Text", bds1, "season");
@@ -259,7 +260,7 @@ namespace cf01.Forms
             txtCreate_by.Text = DBUtility._user_id;
             txtCreate_date.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
             txtPrice_unit.EditValue = "PCS";            
-            txtSerial_no.Text = clsQuotationSample.GetSerialNo();
+            txtSerialNo.Text = clsQuotationSample.GetSerialNo();
             txtSeq_id.Text = "01";
             lueExcelType.EditValue = "Trims";
         }
@@ -287,8 +288,8 @@ namespace cf01.Forms
             txtArtwork_path.BackColor = System.Drawing.Color.White;
             txtID.Properties.ReadOnly = true;
             txtID.BackColor = System.Drawing.Color.White;
-            txtSerial_no.Properties.ReadOnly = true;
-            txtSerial_no.BackColor = System.Drawing.Color.White;
+            txtSerialNo.Properties.ReadOnly = true;
+            txtSerialNo.BackColor = System.Drawing.Color.White;
         }
 
         //取消還原到原始記錄位置,要用到pID進行定位
@@ -730,6 +731,30 @@ namespace cf01.Forms
         private void btnOpenExecl2_Click(object sender, EventArgs e)
         {
             clsQuotationSample.ExportToExcel(dgvDetails, "open","CK");
+        }
+
+        private void txtSerialNo_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (editState == "")
+            {
+                frmQuotationSampleEditNo frm = new frmQuotationSampleEditNo(txtSerialNo.Text);
+                if (frm.ShowDialog() == DialogResult.Yes)
+                {
+                    //更新成功
+                    string new_serial_no = frm.strNewSerailNo;
+                    string org_serial_no = txtSerialNo.Text;
+                    for (int i = 0; i < dtDetail.Rows.Count; i++)
+                    {
+                        if (dtDetail.Rows[i]["serial_no"].ToString() == org_serial_no)
+                        {
+                            dtDetail.Rows[i]["serial_no"] = new_serial_no;
+                        }
+                    }
+                    dtDetail.AcceptChanges();
+                    bds1.DataSource = dtDetail;
+                    dgvDetails.DataSource = bds1;
+                }
+            }            
         }
     }
 }
