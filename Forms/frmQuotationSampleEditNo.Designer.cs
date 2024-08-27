@@ -42,7 +42,7 @@
             this.txtOriginalNo.Enabled = false;
             this.txtOriginalNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOriginalNo.Location = new System.Drawing.Point(118, 25);
-            this.txtOriginalNo.MaxLength = 15;
+            this.txtOriginalNo.MaxLength = 14;
             this.txtOriginalNo.Name = "txtOriginalNo";
             this.txtOriginalNo.ReadOnly = true;
             this.txtOriginalNo.Size = new System.Drawing.Size(142, 22);
@@ -102,7 +102,7 @@
             // makNewSerialNo
             // 
             this.makNewSerialNo.Location = new System.Drawing.Point(118, 56);
-            this.makNewSerialNo.Mask = "999999999999999";
+            this.makNewSerialNo.Mask = "99999999999999";
             this.makNewSerialNo.Name = "makNewSerialNo";
             this.makNewSerialNo.Size = new System.Drawing.Size(142, 22);
             this.makNewSerialNo.TabIndex = 207;

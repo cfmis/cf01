@@ -28,7 +28,7 @@ namespace cf01.Forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if(makNewSerialNo.Text.Length<15 || makNewSerialNo.Text == "")
+            if(makNewSerialNo.Text.Length<14 || makNewSerialNo.Text == "")
             {
                 MessageBox.Show("需指定正確的序列號!", "提信息",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
