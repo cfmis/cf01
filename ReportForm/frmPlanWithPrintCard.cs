@@ -974,6 +974,7 @@ namespace cf01.ReportForm
                                     dr["next_next_do_color"] = dtNextNextItem.Rows[0]["next_next_do_color"].ToString();
                                 }
                                 dr["qty_remaining"] = qty_remaining; //2024/01/31 ADD ALLEN
+                                dr["stantard_qty"] = "";//clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
@@ -1089,6 +1090,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_dept", typeof(string));
             dtNewWork.Columns.Add("qc_name", typeof(string));
             dtNewWork.Columns.Add("qc_qty", typeof(string));
+            dtNewWork.Columns.Add("stantard_qty", typeof(string));
             return dtNewWork;
         }
         /// <summary>

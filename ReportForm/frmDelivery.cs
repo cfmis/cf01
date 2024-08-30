@@ -399,6 +399,7 @@ namespace cf01.ReportForm
 
             DataTable dtReport = new DataTable();
             dtReport = dtDelivery.Clone();
+            int base_rate = 0;
             int ii;
             for (int i = 0; i < dtDelivery.Rows.Count; i++)
             {
@@ -437,6 +438,13 @@ namespace cf01.ReportForm
                     newRow["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
                     newRow["add_days"] = dtDelivery.Rows[i]["add_days"].ToString();
                     newRow["row_no"] = dtDelivery.Rows[i]["row_no"].ToString();
+
+                    newRow["base_qty"] = dtDelivery.Rows[i]["base_qty"];
+                    newRow["unit_code"] = dtDelivery.Rows[i]["unit_code"].ToString();
+                    newRow["base_rate"] = dtDelivery.Rows[i]["base_rate"]; 
+                    newRow["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();                 
+                    base_rate = string.IsNullOrEmpty(dtDelivery.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtDelivery.Rows[i]["base_rate"].ToString());                    
+                    newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtDelivery.Rows[i]["sec_qty"].ToString()) * base_rate, 0); 
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtDelivery.Rows[i]["package_num"].ToString()!="1")
@@ -481,6 +489,11 @@ namespace cf01.ReportForm
                                 dr["arrive_date"] = dtDelivery.Rows[i]["arrive_date"].ToString();
                                 dr["add_days"] = dtDelivery.Rows[i]["add_days"].ToString();
                                 dr["row_no"] = dtDelivery.Rows[i]["row_no"].ToString();
+                                dr["base_qty"] = dtDelivery.Rows[i]["base_qty"];
+                                dr["unit_code"] = dtDelivery.Rows[i]["unit_code"].ToString();
+                                dr["base_rate"] = dtDelivery.Rows[i]["base_rate"];
+                                dr["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();
+                                dr["stantard_qty"] = dtDelivery.Rows[i]["stantard_qty"];
                                 dtReport.Rows.Add(dr);
                             }
                         }
@@ -575,6 +588,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_dept", typeof(string));
             dtNewWork.Columns.Add("qc_name", typeof(string));
             dtNewWork.Columns.Add("qc_qty", typeof(string));
+            dtNewWork.Columns.Add("stantard_qty", typeof(string));
 
             DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drw.Length > 0)
@@ -722,6 +736,7 @@ namespace cf01.ReportForm
                                 dr["qc_dept"] = dtCard.Rows[j]["qc_dept"].ToString();
                                 dr["qc_name"] = dtCard.Rows[j]["qc_name"].ToString();
                                 dr["qc_qty"] = dtCard.Rows[j]["qc_qty"].ToString();
+                                dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dr["net_weight"].ToString()) * clsUtility.FormatNullableInt32(dr["base_rate"].ToString()), 0);
                                 //本身是交702的流程不用顯示相關QC信息
                                 is_qc_dept = dtCard.Rows[j]["next_wp_id"].ToString();
                                 if (is_qc_dept == "702"|| is_qc_dept == "722")

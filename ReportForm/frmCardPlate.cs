@@ -229,6 +229,7 @@ namespace cf01.ReportForm
             gridView1.CloseEditor();
             DataTable dtReport = new DataTable();
             dtReport = dtWordCard.Clone();
+            int base_rate = 0;
             int ii;            
             for (int i = 0; i < dtWordCard.Rows.Count; i++)
             {
@@ -256,7 +257,7 @@ namespace cf01.ReportForm
                     newRow["remark"] = dtWordCard.Rows[i]["remark"].ToString();
                     newRow["name_color"] = dtWordCard.Rows[i]["name_color"].ToString();
                     newRow["do_color"] = dtWordCard.Rows[i]["do_color"].ToString();
-                    newRow["rate"] = dtWordCard.Rows[i]["rate"];
+                    //newRow["rate"] = dtWordCard.Rows[i]["rate"];
                     newRow["mo_barcode"] = dtWordCard.Rows[i]["mo_barcode"].ToString();
                     newRow["next_wp_id"] = dtWordCard.Rows[i]["next_wp_id"].ToString();
                     newRow["name_next_dept"] = dtWordCard.Rows[i]["name_next_dept"].ToString();
@@ -270,6 +271,11 @@ namespace cf01.ReportForm
                     newRow["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
                     newRow["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
                     newRow["is_sample"] = dtWordCard.Rows[i]["is_sample"].ToString();
+                    newRow["basic_unit"] = dtWordCard.Rows[i]["basic_unit"].ToString();
+                    newRow["base_rate"] = dtWordCard.Rows[i]["base_rate"];
+                    base_rate = string.IsNullOrEmpty(dtWordCard.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtWordCard.Rows[i]["base_rate"].ToString());
+                    newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
+                   
 
 
                     //處理有幾包就列印幾張 2016-01-15
@@ -297,7 +303,7 @@ namespace cf01.ReportForm
                             dr["remark"] = dtWordCard.Rows[i]["remark"].ToString();
                             dr["name_color"] = dtWordCard.Rows[i]["name_color"].ToString();
                             dr["do_color"] = dtWordCard.Rows[i]["do_color"].ToString();
-                            dr["rate"] = dtWordCard.Rows[i]["rate"];
+                            //dr["rate"] = dtWordCard.Rows[i]["rate"];
                             dr["mo_barcode"] = dtWordCard.Rows[i]["mo_barcode"].ToString();
                             dr["next_wp_id"] = dtWordCard.Rows[i]["next_wp_id"].ToString();
                             dr["name_next_dept"] = dtWordCard.Rows[i]["name_next_dept"].ToString();
@@ -311,6 +317,11 @@ namespace cf01.ReportForm
                             dr["goods_position"] = dtWordCard.Rows[i]["goods_position"].ToString();
                             dr["id_barcode"] = dtWordCard.Rows[i]["id_barcode"].ToString();
                             dr["is_sample"] = dtWordCard.Rows[i]["is_sample"].ToString();
+                            dr["basic_unit"] = dtWordCard.Rows[i]["basic_unit"].ToString();
+                            dr["base_rate"] = dtWordCard.Rows[i]["base_rate"];
+                            base_rate = string.IsNullOrEmpty(dtWordCard.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtWordCard.Rows[i]["base_rate"].ToString());
+                            dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
+
                             dtReport.Rows.Add(dr);
                         }                        
                        

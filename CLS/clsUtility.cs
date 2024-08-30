@@ -445,7 +445,7 @@ namespace cf01.CLS
         /// <returns></returns>
         public static float FormatNullableFloat(object pInput)
         {
-            if (pInput == DBNull.Value || pInput == null)
+            if (pInput == DBNull.Value || string.IsNullOrEmpty(pInput.ToString()))
             {
                 return 0;
             }
@@ -462,7 +462,8 @@ namespace cf01.CLS
         /// <returns></returns>
         public static Int32 FormatNullableInt32(object pInput)
         {
-            if (pInput == DBNull.Value || pInput == null)
+            //if (pInput == DBNull.Value || pInput == null)
+            if (pInput == DBNull.Value || string.IsNullOrEmpty(pInput.ToString()))
             {
                 return 0;
             }

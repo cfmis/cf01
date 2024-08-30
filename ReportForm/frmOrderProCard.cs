@@ -472,7 +472,7 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("prod_date", typeof(string));
                     dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
                     dtNewWork.Columns.Add("next_next_do_color", typeof(string));
-                    dtNewWork.Columns.Add("qty_remaining", typeof(int));
+                    dtNewWork.Columns.Add("qty_remaining", typeof(int));                   
                     ////2024/03/12
                     //dtNewWork.Columns.Add("qc_dept", typeof(string));
                     //dtNewWork.Columns.Add("qc_name", typeof(string));
@@ -586,7 +586,7 @@ namespace cf01.ReportForm
                             dr["qc_dept"] = txtQc_dept.Text;
                             dr["qc_name"] = txtQc_name.Text;
                             dr["qc_qty"] = txtQc_qty.Text;
-
+                            dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(txtNet_weight.Text.Trim()) * clsUtility.FormatNullableInt32(txtBaseRate.Text), 0);  
                             dtNewWork.Rows.Add(dr);
                         }
                     }
