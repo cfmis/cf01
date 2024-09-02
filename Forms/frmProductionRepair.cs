@@ -230,6 +230,8 @@ namespace cf01.Forms
             DataRow dr = dtMostly.NewRow(); //插一空行
             dtMostly.Rows.InsertAt(dr, 0);
             //txtID.Text =clsMoRepair.GetDocNo();
+            txtID.Properties.ReadOnly = true;
+            txtID.BackColor = Color.White;
             luedepartment_id.EditValue ="501";
             dtorder_date.EditValue = DateTime.Now.Date.ToString("yyyy/MM/dd");
             dtDetails.Clear();
@@ -373,7 +375,7 @@ namespace cf01.Forms
                 Find_doc(mID);
             }
             
-            txtID.Properties.ReadOnly = true;
+            txtID.Properties.ReadOnly = false;
             txtID.BackColor = Color.White;
             dtorder_date.Enabled = true;
             dtorder_date.BackColor = Color.White;
@@ -602,7 +604,7 @@ namespace cf01.Forms
             Set_Grid_Status(false);
             mState = "";
 
-            txtID.Properties.ReadOnly = true;
+            txtID.Properties.ReadOnly = false;
             txtID.BackColor = Color.White;
             dtorder_date.Enabled = true;
             dtorder_date.BackColor = Color.White;
@@ -765,9 +767,23 @@ namespace cf01.Forms
             }
         }
 
-     
+        private void txtID_Leave(object sender, EventArgs e)
+        {
+            if (mState == "")
+            {
+                if (txtID.Text != "")
+                {
+                    Find_doc(txtID.Text);
+                }
+            }
+        }
 
-
-
+        private void txtID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
     }
 }

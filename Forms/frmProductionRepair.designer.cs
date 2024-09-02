@@ -140,7 +140,6 @@
             // txtID
             // 
             this.txtID.EditValue = "";
-            this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(583, 3);
             this.txtID.Name = "txtID";
             this.txtID.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -148,10 +147,11 @@
             this.txtID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Properties.MaxLength = 20;
-            this.txtID.Properties.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(151, 22);
             this.txtID.TabIndex = 2;
             this.txtID.Tag = "1";
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
+            this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
             // 
             // toolStrip1
             // 
@@ -348,6 +348,7 @@
             // 
             // dgvDetails
             // 
+            this.dgvDetails.ActiveFilterEnabled = false;
             this.dgvDetails.ColumnPanelRowHeight = 30;
             this.dgvDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.sequence_id,
@@ -375,6 +376,12 @@
             this.dgvDetails.OptionsCustomization.AllowColumnMoving = false;
             this.dgvDetails.OptionsCustomization.AllowFilter = false;
             this.dgvDetails.OptionsCustomization.AllowSort = false;
+            this.dgvDetails.OptionsFilter.AllowFilterEditor = false;
+            this.dgvDetails.OptionsFilter.AllowFilterIncrementalSearch = false;
+            this.dgvDetails.OptionsFilter.AllowMRUFilterList = false;
+            this.dgvDetails.OptionsFind.AllowFindPanel = false;
+            this.dgvDetails.OptionsFind.ShowFindButton = false;
+            this.dgvDetails.OptionsMenu.EnableColumnMenu = false;
             this.dgvDetails.OptionsView.ColumnAutoWidth = false;
             this.dgvDetails.OptionsView.ShowGroupPanel = false;
             this.dgvDetails.PaintStyleName = "Style3D";
@@ -406,7 +413,6 @@
             this.mo_id.FieldName = "mo_id";
             this.mo_id.Name = "mo_id";
             this.mo_id.OptionsColumn.AllowMove = false;
-            this.mo_id.OptionsColumn.AllowSize = false;
             this.mo_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.mo_id.OptionsFilter.AllowAutoFilter = false;
             this.mo_id.OptionsFilter.AllowFilter = false;
@@ -433,7 +439,6 @@
             this.goods_id.FieldName = "goods_id";
             this.goods_id.Name = "goods_id";
             this.goods_id.OptionsColumn.AllowMove = false;
-            this.goods_id.OptionsColumn.AllowSize = false;
             this.goods_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.goods_id.OptionsFilter.AllowAutoFilter = false;
             this.goods_id.OptionsFilter.AllowFilter = false;
@@ -471,7 +476,6 @@
             this.goods_name.FieldName = "goods_name";
             this.goods_name.Name = "goods_name";
             this.goods_name.OptionsColumn.AllowMove = false;
-            this.goods_name.OptionsColumn.AllowSize = false;
             this.goods_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.goods_name.OptionsColumn.ReadOnly = true;
             this.goods_name.OptionsFilter.AllowAutoFilter = false;
@@ -490,7 +494,6 @@
             this.ref_id.FieldName = "ref_id";
             this.ref_id.Name = "ref_id";
             this.ref_id.OptionsColumn.AllowMove = false;
-            this.ref_id.OptionsColumn.AllowSize = false;
             this.ref_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.ref_id.OptionsColumn.ReadOnly = true;
             this.ref_id.OptionsFilter.AllowAutoFilter = false;
@@ -511,7 +514,6 @@
             this.ref_id_date.FieldName = "ref_id_date";
             this.ref_id_date.Name = "ref_id_date";
             this.ref_id_date.OptionsColumn.AllowMove = false;
-            this.ref_id_date.OptionsColumn.AllowSize = false;
             this.ref_id_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.ref_id_date.OptionsColumn.ReadOnly = true;
             this.ref_id_date.OptionsFilter.AllowAutoFilter = false;
@@ -530,7 +532,6 @@
             this.do_color.FieldName = "do_color";
             this.do_color.Name = "do_color";
             this.do_color.OptionsColumn.AllowMove = false;
-            this.do_color.OptionsColumn.AllowSize = false;
             this.do_color.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.do_color.OptionsColumn.ReadOnly = true;
             this.do_color.OptionsFilter.AllowAutoFilter = false;
@@ -546,7 +547,6 @@
             this.reason_repair.FieldName = "reason_repair";
             this.reason_repair.Name = "reason_repair";
             this.reason_repair.OptionsColumn.AllowMove = false;
-            this.reason_repair.OptionsColumn.AllowSize = false;
             this.reason_repair.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.reason_repair.OptionsFilter.AllowAutoFilter = false;
             this.reason_repair.OptionsFilter.AllowFilter = false;
@@ -578,7 +578,6 @@
             this.sec_qty.FieldName = "sec_qty";
             this.sec_qty.Name = "sec_qty";
             this.sec_qty.OptionsColumn.AllowMove = false;
-            this.sec_qty.OptionsColumn.AllowSize = false;
             this.sec_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.sec_qty.OptionsFilter.AllowAutoFilter = false;
             this.sec_qty.OptionsFilter.AllowFilter = false;
@@ -606,8 +605,8 @@
             this.qty.ColumnEdit = this.clInteger;
             this.qty.FieldName = "qty";
             this.qty.Name = "qty";
+            this.qty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.qty.OptionsColumn.AllowMove = false;
-            this.qty.OptionsColumn.AllowSize = false;
             this.qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.qty.OptionsFilter.AllowAutoFilter = false;
             this.qty.OptionsFilter.AllowFilter = false;
@@ -633,7 +632,6 @@
             this.is_deduct_amount.FieldName = "is_deduct_amount";
             this.is_deduct_amount.Name = "is_deduct_amount";
             this.is_deduct_amount.OptionsColumn.AllowMove = false;
-            this.is_deduct_amount.OptionsColumn.AllowSize = false;
             this.is_deduct_amount.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.is_deduct_amount.OptionsFilter.AllowAutoFilter = false;
             this.is_deduct_amount.OptionsFilter.AllowFilter = false;
@@ -656,7 +654,6 @@
             this.amt_deduction.FieldName = "amt_deduction";
             this.amt_deduction.Name = "amt_deduction";
             this.amt_deduction.OptionsColumn.AllowMove = false;
-            this.amt_deduction.OptionsColumn.AllowSize = false;
             this.amt_deduction.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.amt_deduction.OptionsFilter.AllowAutoFilter = false;
             this.amt_deduction.OptionsFilter.AllowFilter = false;

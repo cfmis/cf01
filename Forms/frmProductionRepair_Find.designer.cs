@@ -70,6 +70,7 @@
             this.sec_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.amt_deduction = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.currency_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.details_remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtId1 = new DevExpress.XtraEditors.TextEdit();
             this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
@@ -97,7 +98,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.dtDate2 = new DevExpress.XtraEditors.DateEdit();
             this.dtDate1 = new DevExpress.XtraEditors.DateEdit();
-            this.currency_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -310,6 +310,7 @@
             this.dgvDetails.PaintStyleName = "Style3D";
             this.dgvDetails.RowHeight = 30;
             this.dgvDetails.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvDetails_MouseDown);
+            this.dgvDetails.DoubleClick += new System.EventHandler(this.dgvDetails_DoubleClick);
             // 
             // id
             // 
@@ -648,6 +649,22 @@
             this.amt_deduction.Visible = true;
             this.amt_deduction.VisibleIndex = 20;
             // 
+            // currency_id
+            // 
+            this.currency_id.Caption = "貨幣";
+            this.currency_id.FieldName = "currency_id";
+            this.currency_id.Name = "currency_id";
+            this.currency_id.OptionsColumn.AllowEdit = false;
+            this.currency_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.currency_id.OptionsColumn.AllowMove = false;
+            this.currency_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.currency_id.OptionsColumn.ReadOnly = true;
+            this.currency_id.OptionsFilter.AllowAutoFilter = false;
+            this.currency_id.OptionsFilter.AllowFilter = false;
+            this.currency_id.Visible = true;
+            this.currency_id.VisibleIndex = 21;
+            this.currency_id.Width = 60;
+            // 
             // details_remark
             // 
             this.details_remark.Caption = "補料備註";
@@ -969,22 +986,6 @@
             this.dtDate1.TabIndex = 4;
             this.dtDate1.Tag = "2";
             this.dtDate1.Leave += new System.EventHandler(this.dtDate1_Leave);
-            // 
-            // currency_id
-            // 
-            this.currency_id.Caption = "貨幣";
-            this.currency_id.FieldName = "currency_id";
-            this.currency_id.Name = "currency_id";
-            this.currency_id.OptionsColumn.AllowEdit = false;
-            this.currency_id.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.currency_id.OptionsColumn.AllowMove = false;
-            this.currency_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.currency_id.OptionsColumn.ReadOnly = true;
-            this.currency_id.OptionsFilter.AllowAutoFilter = false;
-            this.currency_id.OptionsFilter.AllowFilter = false;
-            this.currency_id.Visible = true;
-            this.currency_id.VisibleIndex = 21;
-            this.currency_id.Width = 60;
             // 
             // frmProductionRepair_Find
             // 

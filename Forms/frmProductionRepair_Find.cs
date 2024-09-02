@@ -68,16 +68,16 @@ namespace cf01.Forms
         }
 
         private void btnConf_Click(object sender, EventArgs e)
-        {
-            if (dgvDetails.RowCount == 0)
-            {
-                return;
-            }
+        {           
             ReturnValue();
         }
        
         private void ReturnValue()
         {
+            if (dgvDetails.RowCount == 0)
+            {
+                return;
+            }
             frmProductionRepair.query_id = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "id").ToString();
             clsApp = null;
             Close();
@@ -265,7 +265,9 @@ namespace cf01.Forms
             }
         }
 
-    
-      
+        private void dgvDetails_DoubleClick(object sender, EventArgs e)
+        {
+            ReturnValue();
+        }
     }
 }
