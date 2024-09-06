@@ -120,7 +120,7 @@ namespace cf01.Forms
                         //clr = dtPlate.Rows[i]["clr"].ToString();
                         //unite_qty = int.Parse(dtPlate.Rows[i]["unite_qty"].ToString());
                     }
-                }                
+                }
                 //共用報表
                 DataRow[] drs = dtPlate.Select("id2=''");
                 if (drs.Length > 0)

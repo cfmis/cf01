@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuotationSample));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,11 +52,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNNEW = new System.Windows.Forms.ToolStripButton();
+            this.BTNEDIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
+            this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNDELETE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNFIND = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNPRICE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.txtUpdate_date = new DevExpress.XtraEditors.TextEdit();
             this.txtUpdate_by = new DevExpress.XtraEditors.TextEdit();
@@ -115,6 +123,7 @@
             this.dtSubmission_date = new DevExpress.XtraEditors.DateEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.pnlHead = new System.Windows.Forms.Panel();
+            this.txtSerialNo = new DevExpress.XtraEditors.ButtonEdit();
             this.lueExcelType = new DevExpress.XtraEditors.LookUpEdit();
             this.txtMacy_system = new DevExpress.XtraEditors.TextEdit();
             this.lblmacy_system = new System.Windows.Forms.Label();
@@ -127,6 +136,7 @@
             this.txtBrand_desc = new DevExpress.XtraEditors.TextEdit();
             this.chkFlagCk = new DevExpress.XtraEditors.CheckEdit();
             this.txtStatus = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pic_artwork = new System.Windows.Forms.PictureBox();
             this.txtRow_flag = new DevExpress.XtraEditors.TextEdit();
             this.txtBgColor = new DevExpress.XtraEditors.TextEdit();
             this.txtRow_height = new DevExpress.XtraEditors.TextEdit();
@@ -135,18 +145,6 @@
             this.lblBulk = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.flag_ck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.flag_hidden = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtSerialNo = new DevExpress.XtraEditors.ButtonEdit();
-            this.pic_artwork = new System.Windows.Forms.PictureBox();
-            this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
-            this.BTNNEW = new System.Windows.Forms.ToolStripButton();
-            this.BTNEDIT = new System.Windows.Forms.ToolStripButton();
-            this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
-            this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
-            this.BTNDELETE = new System.Windows.Forms.ToolStripButton();
-            this.BTNFIND = new System.Windows.Forms.ToolStripButton();
-            this.BTNPRICE = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -212,6 +210,8 @@
             this.brand_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bulk_lead_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quality_issue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_ck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.flag_hidden = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.macy_system = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.excel_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -225,6 +225,7 @@
             this.rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.row_height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_by.Properties)).BeginInit();
@@ -256,6 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtSubmission_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSubmission_date.Properties)).BeginInit();
             this.pnlHead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExcelType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMacy_system.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFlagHidden.Properties)).BeginInit();
@@ -263,13 +265,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_desc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFlagCk.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow_flag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBgColor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow_height.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -296,30 +297,114 @@
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // BTNEXIT
+            // 
+            this.BTNEXIT.AutoSize = false;
+            this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
+            this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNEXIT.Name = "BTNEXIT";
+            this.BTNEXIT.Size = new System.Drawing.Size(60, 32);
+            this.BTNEXIT.Text = "退出(&X)";
+            this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
+            // 
+            // BTNNEW
+            // 
+            this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
+            this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNNEW.Name = "BTNNEW";
+            this.BTNNEW.Size = new System.Drawing.Size(49, 32);
+            this.BTNNEW.Text = "新增(&A)";
+            this.BTNNEW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
+            // 
+            // BTNEDIT
+            // 
+            this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
+            this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNEDIT.Name = "BTNEDIT";
+            this.BTNEDIT.Size = new System.Drawing.Size(48, 32);
+            this.BTNEDIT.Text = "編輯(&E)";
+            this.BTNEDIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 35);
             // 
+            // BTNSAVE
+            // 
+            this.BTNSAVE.Enabled = false;
+            this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
+            this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNSAVE.Name = "BTNSAVE";
+            this.BTNSAVE.Size = new System.Drawing.Size(47, 32);
+            this.BTNSAVE.Text = "保存(&S)";
+            this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
+            // 
+            // BTNCANCEL
+            // 
+            this.BTNCANCEL.Enabled = false;
+            this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
+            this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNCANCEL.Name = "BTNCANCEL";
+            this.BTNCANCEL.Size = new System.Drawing.Size(49, 32);
+            this.BTNCANCEL.Text = "取消(&C)";
+            this.BTNCANCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 35);
+            // 
+            // BTNDELETE
+            // 
+            this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
+            this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNDELETE.Name = "BTNDELETE";
+            this.BTNDELETE.Size = new System.Drawing.Size(49, 32);
+            this.BTNDELETE.Text = "刪除(&D)";
+            this.BTNDELETE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 35);
             // 
+            // BTNFIND
+            // 
+            this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
+            this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNFIND.Name = "BTNFIND";
+            this.BTNFIND.Size = new System.Drawing.Size(47, 32);
+            this.BTNFIND.Text = "查詢(&F)";
+            this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 35);
+            // 
+            // BTNPRICE
+            // 
+            this.BTNPRICE.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRICE.Image")));
+            this.BTNPRICE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNPRICE.Name = "BTNPRICE";
+            this.BTNPRICE.Size = new System.Drawing.Size(93, 32);
+            this.BTNPRICE.Text = "查找并更新單價";
+            this.BTNPRICE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNPRICE.ToolTipText = "查找并更新單價";
+            this.BTNPRICE.Click += new System.EventHandler(this.BTNPRICE_Click);
             // 
             // toolStripSeparator6
             // 
@@ -1101,6 +1186,22 @@
             this.pnlHead.Size = new System.Drawing.Size(1040, 316);
             this.pnlHead.TabIndex = 200;
             // 
+            // txtSerialNo
+            // 
+            this.txtSerialNo.EditValue = "";
+            this.txtSerialNo.EnterMoveNextControl = true;
+            this.txtSerialNo.Location = new System.Drawing.Point(109, 292);
+            this.txtSerialNo.Name = "txtSerialNo";
+            this.txtSerialNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.txtSerialNo.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtSerialNo.Properties.MaxLength = 15;
+            this.txtSerialNo.Properties.ReadOnly = true;
+            this.txtSerialNo.Size = new System.Drawing.Size(172, 20);
+            this.txtSerialNo.TabIndex = 229;
+            this.txtSerialNo.Tag = "2";
+            this.txtSerialNo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSerialNo_ButtonClick);
+            // 
             // lueExcelType
             // 
             this.lueExcelType.EditValue = "";
@@ -1267,6 +1368,16 @@
             this.txtStatus.TabIndex = 209;
             this.txtStatus.Tag = "2";
             // 
+            // pic_artwork
+            // 
+            this.pic_artwork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_artwork.Location = new System.Drawing.Point(804, 169);
+            this.pic_artwork.Name = "pic_artwork";
+            this.pic_artwork.Size = new System.Drawing.Size(192, 143);
+            this.pic_artwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_artwork.TabIndex = 200;
+            this.pic_artwork.TabStop = false;
+            // 
             // txtRow_flag
             // 
             this.txtRow_flag.EditValue = "";
@@ -1406,7 +1517,8 @@
             this.bgcolor,
             this.rs,
             this.row_height,
-            this.status});
+            this.status,
+            this.flag_select});
             this.dgvDetails.Location = new System.Drawing.Point(4, 356);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
@@ -1414,130 +1526,6 @@
             this.dgvDetails.TabIndex = 201;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
-            // 
-            // flag_ck
-            // 
-            this.flag_ck.DataPropertyName = "flag_ck";
-            this.flag_ck.HeaderText = "CK";
-            this.flag_ck.Name = "flag_ck";
-            this.flag_ck.ReadOnly = true;
-            // 
-            // flag_hidden
-            // 
-            this.flag_hidden.DataPropertyName = "flag_hidden";
-            this.flag_hidden.HeaderText = "Flag Hidden";
-            this.flag_hidden.Name = "flag_hidden";
-            this.flag_hidden.ReadOnly = true;
-            // 
-            // txtSerialNo
-            // 
-            this.txtSerialNo.EditValue = "";
-            this.txtSerialNo.EnterMoveNextControl = true;
-            this.txtSerialNo.Location = new System.Drawing.Point(109, 292);
-            this.txtSerialNo.Name = "txtSerialNo";
-            this.txtSerialNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-            this.txtSerialNo.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtSerialNo.Properties.MaxLength = 15;
-            this.txtSerialNo.Properties.ReadOnly = true;
-            this.txtSerialNo.Size = new System.Drawing.Size(172, 20);
-            this.txtSerialNo.TabIndex = 229;
-            this.txtSerialNo.Tag = "2";
-            this.txtSerialNo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSerialNo_ButtonClick);
-            // 
-            // pic_artwork
-            // 
-            this.pic_artwork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_artwork.Location = new System.Drawing.Point(804, 169);
-            this.pic_artwork.Name = "pic_artwork";
-            this.pic_artwork.Size = new System.Drawing.Size(192, 143);
-            this.pic_artwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_artwork.TabIndex = 200;
-            this.pic_artwork.TabStop = false;
-            // 
-            // BTNEXIT
-            // 
-            this.BTNEXIT.AutoSize = false;
-            this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
-            this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNEXIT.Name = "BTNEXIT";
-            this.BTNEXIT.Size = new System.Drawing.Size(60, 32);
-            this.BTNEXIT.Text = "退出(&X)";
-            this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
-            // 
-            // BTNNEW
-            // 
-            this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
-            this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNNEW.Name = "BTNNEW";
-            this.BTNNEW.Size = new System.Drawing.Size(49, 32);
-            this.BTNNEW.Text = "新增(&A)";
-            this.BTNNEW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
-            // 
-            // BTNEDIT
-            // 
-            this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
-            this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNEDIT.Name = "BTNEDIT";
-            this.BTNEDIT.Size = new System.Drawing.Size(48, 32);
-            this.BTNEDIT.Text = "編輯(&E)";
-            this.BTNEDIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
-            // 
-            // BTNSAVE
-            // 
-            this.BTNSAVE.Enabled = false;
-            this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
-            this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(47, 32);
-            this.BTNSAVE.Text = "保存(&S)";
-            this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
-            // 
-            // BTNCANCEL
-            // 
-            this.BTNCANCEL.Enabled = false;
-            this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
-            this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(49, 32);
-            this.BTNCANCEL.Text = "取消(&C)";
-            this.BTNCANCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
-            // 
-            // BTNDELETE
-            // 
-            this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
-            this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNDELETE.Name = "BTNDELETE";
-            this.BTNDELETE.Size = new System.Drawing.Size(49, 32);
-            this.BTNDELETE.Text = "刪除(&D)";
-            this.BTNDELETE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
-            // 
-            // BTNFIND
-            // 
-            this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
-            this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(47, 32);
-            this.BTNFIND.Text = "查詢(&F)";
-            this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
-            // 
-            // BTNPRICE
-            // 
-            this.BTNPRICE.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRICE.Image")));
-            this.BTNPRICE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNPRICE.Name = "BTNPRICE";
-            this.BTNPRICE.Size = new System.Drawing.Size(93, 32);
-            this.BTNPRICE.Text = "查找并更新單價";
-            this.BTNPRICE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNPRICE.ToolTipText = "查找并更新單價";
-            this.BTNPRICE.Click += new System.EventHandler(this.BTNPRICE_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2135,6 +2123,20 @@
             this.quality_issue.ReadOnly = true;
             this.quality_issue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // flag_ck
+            // 
+            this.flag_ck.DataPropertyName = "flag_ck";
+            this.flag_ck.HeaderText = "CK";
+            this.flag_ck.Name = "flag_ck";
+            this.flag_ck.ReadOnly = true;
+            // 
+            // flag_hidden
+            // 
+            this.flag_hidden.DataPropertyName = "flag_hidden";
+            this.flag_hidden.HeaderText = "Flag Hidden";
+            this.flag_hidden.Name = "flag_hidden";
+            this.flag_hidden.ReadOnly = true;
+            // 
             // macy_system
             // 
             this.macy_system.DataPropertyName = "macy_system";
@@ -2256,6 +2258,14 @@
             this.status.ReadOnly = true;
             this.status.Visible = false;
             // 
+            // flag_select
+            // 
+            this.flag_select.DataPropertyName = "flag_select";
+            this.flag_select.HeaderText = "Select";
+            this.flag_select.Name = "flag_select";
+            this.flag_select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.flag_select.Visible = false;
+            // 
             // frmQuotationSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2299,6 +2309,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtSubmission_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSubmission_date.Properties)).EndInit();
             this.pnlHead.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExcelType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMacy_system.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFlagHidden.Properties)).EndInit();
@@ -2306,13 +2317,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_desc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFlagCk.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow_flag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBgColor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow_height.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2451,6 +2461,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private DevExpress.XtraEditors.LookUpEdit lueExcelType;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private DevExpress.XtraEditors.ButtonEdit txtSerialNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn input_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn seq_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn season;
@@ -2492,7 +2504,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rs;
         private System.Windows.Forms.DataGridViewTextBoxColumn row_height;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private DevExpress.XtraEditors.ButtonEdit txtSerialNo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn flag_select;
     }
 }

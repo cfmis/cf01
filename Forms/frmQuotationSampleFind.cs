@@ -83,9 +83,34 @@ namespace cf01.Forms
             {
                 MessageBox.Show("未查詢到數據，請重新輸入條件查詢數據!", "提示信息");
             }
+
         }
         private void FindData()
         {
+            //--start 20240906 記錄已打勾的查詢數據以方便添到新的查詢結果中
+            txtSeason.Focus();
+            DataRow[] drs = null;
+            if (chkFind.Checked)
+            {
+                bool blFlag = false;               
+                if (dgvDetails.RowCount > 0)
+                {
+                    for (int i = 0; i < dgvDetails.RowCount; i++)
+                    {
+                        if (dtFindDetail.Rows[i]["flag_select"].ToString() == "True")
+                        {
+                            blFlag = true;
+                            break;
+                        }
+                    }
+                    if (blFlag)
+                    {
+                        drs = dtFindDetail.Select("flag_select=true");
+                    }
+                }
+            }
+            //-- end
+
             mdl.input_date = dtInput_date1.EditValue.ToString();
             mdl.input_date2 = dtInput_date2.EditValue.ToString();
             mdl.season = txtSeason.Text;
@@ -104,13 +129,42 @@ namespace cf01.Forms
             mdl.flag_ck = chkFlag_ck.Checked ? 1 : 0;
             dtsFind = clsQuotationSample.FindDataByMdl(mdl);
             dtFind = dtsFind.Tables[0];//返回的所有數據
-            dtFind = clsQuotationSample.SetGridDataBackgroudColor(dtFind); //設置斑馬線標識  
-            dtFindDetail = dtsFind.Tables[1];//只是滿足查找條件的數據
-            dtFindDetail = clsQuotationSample.SetGridDataBackgroudColor(dtFindDetail); //設置斑馬線標識 
+            dtFindDetail = dtsFind.Tables[1];//只是滿足查找條件的數據            
+            dtFind = clsQuotationSample.SetGridDataBackgroudColor(dtFind);//設置斑馬線標識
 
-            
+            //start導入前一次打勾的查詢結果
+            if (drs != null)
+            {
+                if (drs.Length > 0)
+                {
+                    DataRow[] drs_del;
+                    foreach (DataRow row in drs)
+                    {
+                        drs_del = dtFindDetail.Select(string.Format("id={0}", row["id"]));
+                        foreach (DataRow row_del in drs_del)
+                        {
+                            dtFindDetail.Rows.Remove(row_del);//先移走已存在的行
+                        }
+                    }
+                    drs_del = null;
+                    dtFindDetail.Select();
+                    //將打勾的添加進新查詢的結果中                   
+                    foreach (DataRow dr in drs)
+                    {
+                        dtFindDetail.ImportRow(dr);
+                    }
+                    drs = null;
+                    //處理排序                    
+                    DataView dvw = dtFindDetail.DefaultView;
+                    dvw.Sort = "flag_select DESC";  //按Flag_select列 排序
+                    dtFindDetail = dvw.ToTable();
+                }
+            }
+            //--end
+            dtFindDetail = clsQuotationSample.SetGridDataBackgroudColor(dtFindDetail);//設置斑馬線標識
 
             //處理序號
+            //--start取不重復的序號
             ArrayList nStr = new ArrayList();
             string strSerialNo = "";
             for (int i = 0; i < dtFindDetail.Rows.Count; i++)
@@ -121,7 +175,8 @@ namespace cf01.Forms
                     nStr.Add(strSerialNo);
                 }
             }                
-
+            //--end
+            //--start重新整理序號
             int temp_seq_id = 0;
             string str_temp_seq_id = "";           
             for (int i=0;i<nStr.Count;i++)
@@ -141,7 +196,8 @@ namespace cf01.Forms
                     }
                 }
             }
-           
+            //-- end           
+
             dgvDetails.DataSource = dtFindDetail;
         }
         private void InitFindData(mdlQuotationSample mdl)
