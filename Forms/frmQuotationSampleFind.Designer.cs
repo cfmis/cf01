@@ -75,13 +75,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.chkFlag_ck = new DevExpress.XtraEditors.CheckEdit();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkAll = new DevExpress.XtraEditors.CheckEdit();
-            this.chkCk = new DevExpress.XtraEditors.CheckEdit();
-            this.btnExcelOpen = new System.Windows.Forms.Button();
-            this.btnExcel = new System.Windows.Forms.Button();
-            this.chkFind = new DevExpress.XtraEditors.CheckEdit();
             this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.input_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seq_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,6 +117,14 @@
             this.rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.row_height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.chkFind = new DevExpress.XtraEditors.CheckEdit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkAll = new DevExpress.XtraEditors.CheckEdit();
+            this.chkCk = new DevExpress.XtraEditors.CheckEdit();
+            this.btnExcelOpen = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.btnExpExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).BeginInit();
@@ -148,10 +149,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFind.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCk.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkFind.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInput_date1
@@ -498,7 +499,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClear.Location = new System.Drawing.Point(330, 11);
@@ -513,7 +514,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClose.ForeColor = System.Drawing.Color.Black;
             this.btnClose.Image = global::cf01.Properties.Resources.exit;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -529,7 +530,7 @@
             // 
             // btnSearchByParam
             // 
-            this.btnSearchByParam.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnSearchByParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSearchByParam.Image = global::cf01.Properties.Resources.find;
             this.btnSearchByParam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearchByParam.Location = new System.Drawing.Point(103, 11);
@@ -670,7 +671,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -727,100 +728,6 @@
             this.dgvDetails.TabIndex = 208;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.chkFind);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.BTNSAVESET1);
-            this.panel1.Controls.Add(this.btnSearchByParam);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1278, 58);
-            this.panel1.TabIndex = 209;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.chkAll);
-            this.groupBox1.Controls.Add(this.chkCk);
-            this.groupBox1.Controls.Add(this.btnExcelOpen);
-            this.groupBox1.Controls.Add(this.btnExcel);
-            this.groupBox1.Location = new System.Drawing.Point(641, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(452, 55);
-            this.groupBox1.TabIndex = 211;
-            this.groupBox1.TabStop = false;
-            // 
-            // chkAll
-            // 
-            this.chkAll.Location = new System.Drawing.Point(318, 21);
-            this.chkAll.Name = "chkAll";
-            this.chkAll.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAll.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.chkAll.Properties.Appearance.Options.UseFont = true;
-            this.chkAll.Properties.Appearance.Options.UseForeColor = true;
-            this.chkAll.Properties.Caption = "Complete Data";
-            this.chkAll.Size = new System.Drawing.Size(120, 19);
-            this.chkAll.TabIndex = 218;
-            this.chkAll.Tag = "";
-            this.chkAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkAll_MouseUp);
-            // 
-            // chkCk
-            // 
-            this.chkCk.Location = new System.Drawing.Point(232, 21);
-            this.chkCk.Name = "chkCk";
-            this.chkCk.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCk.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.chkCk.Properties.Appearance.Options.UseFont = true;
-            this.chkCk.Properties.Appearance.Options.UseForeColor = true;
-            this.chkCk.Properties.Caption = "  C K";
-            this.chkCk.Size = new System.Drawing.Size(58, 19);
-            this.chkCk.TabIndex = 217;
-            this.chkCk.Tag = "";
-            // 
-            // btnExcelOpen
-            // 
-            this.btnExcelOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelOpen.Image")));
-            this.btnExcelOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcelOpen.Location = new System.Drawing.Point(117, 11);
-            this.btnExcelOpen.Name = "btnExcelOpen";
-            this.btnExcelOpen.Size = new System.Drawing.Size(100, 39);
-            this.btnExcelOpen.TabIndex = 209;
-            this.btnExcelOpen.Text = "打開ECEL";
-            this.btnExcelOpen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcelOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcelOpen.UseVisualStyleBackColor = false;
-            this.btnExcelOpen.Click += new System.EventHandler(this.btnExcelOpen_Click);
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
-            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcel.Location = new System.Drawing.Point(6, 11);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(102, 39);
-            this.btnExcel.TabIndex = 207;
-            this.btnExcel.Text = "匯出ECEL";
-            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcel.UseVisualStyleBackColor = false;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // chkFind
-            // 
-            this.chkFind.EditValue = true;
-            this.chkFind.Location = new System.Drawing.Point(187, 21);
-            this.chkFind.Name = "chkFind";
-            this.chkFind.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFind.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.chkFind.Properties.Appearance.Options.UseFont = true;
-            this.chkFind.Properties.Appearance.Options.UseForeColor = true;
-            this.chkFind.Properties.Caption = "結果帶至下一次查詢";
-            this.chkFind.Size = new System.Drawing.Size(137, 19);
-            this.chkFind.TabIndex = 218;
-            this.chkFind.Tag = "";
             // 
             // flag_select
             // 
@@ -1191,6 +1098,111 @@
             this.status.ReadOnly = true;
             this.status.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnExpExcel);
+            this.panel1.Controls.Add(this.chkFind);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.BTNSAVESET1);
+            this.panel1.Controls.Add(this.btnSearchByParam);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.btnClear);
+            this.panel1.Location = new System.Drawing.Point(3, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1278, 58);
+            this.panel1.TabIndex = 209;
+            // 
+            // chkFind
+            // 
+            this.chkFind.EditValue = true;
+            this.chkFind.Location = new System.Drawing.Point(187, 21);
+            this.chkFind.Name = "chkFind";
+            this.chkFind.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFind.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.chkFind.Properties.Appearance.Options.UseFont = true;
+            this.chkFind.Properties.Appearance.Options.UseForeColor = true;
+            this.chkFind.Properties.Caption = "結果帶至下一次查詢";
+            this.chkFind.Size = new System.Drawing.Size(137, 19);
+            this.chkFind.TabIndex = 218;
+            this.chkFind.Tag = "";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chkAll);
+            this.groupBox1.Controls.Add(this.chkCk);
+            this.groupBox1.Controls.Add(this.btnExcelOpen);
+            this.groupBox1.Controls.Add(this.btnExcel);
+            this.groupBox1.Location = new System.Drawing.Point(641, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(452, 55);
+            this.groupBox1.TabIndex = 211;
+            this.groupBox1.TabStop = false;
+            // 
+            // chkAll
+            // 
+            this.chkAll.Location = new System.Drawing.Point(318, 21);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAll.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.chkAll.Properties.Appearance.Options.UseFont = true;
+            this.chkAll.Properties.Appearance.Options.UseForeColor = true;
+            this.chkAll.Properties.Caption = "Complete Data";
+            this.chkAll.Size = new System.Drawing.Size(120, 19);
+            this.chkAll.TabIndex = 218;
+            this.chkAll.Tag = "";
+            this.chkAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkAll_MouseUp);
+            // 
+            // chkCk
+            // 
+            this.chkCk.Location = new System.Drawing.Point(232, 21);
+            this.chkCk.Name = "chkCk";
+            this.chkCk.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCk.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.chkCk.Properties.Appearance.Options.UseFont = true;
+            this.chkCk.Properties.Appearance.Options.UseForeColor = true;
+            this.chkCk.Properties.Caption = "  C K";
+            this.chkCk.Size = new System.Drawing.Size(58, 19);
+            this.chkCk.TabIndex = 217;
+            this.chkCk.Tag = "";
+            // 
+            // btnExcelOpen
+            // 
+            this.btnExcelOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelOpen.Image")));
+            this.btnExcelOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcelOpen.Location = new System.Drawing.Point(117, 11);
+            this.btnExcelOpen.Name = "btnExcelOpen";
+            this.btnExcelOpen.Size = new System.Drawing.Size(100, 39);
+            this.btnExcelOpen.TabIndex = 209;
+            this.btnExcelOpen.Text = "打開ECEL";
+            this.btnExcelOpen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcelOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcelOpen.UseVisualStyleBackColor = false;
+            this.btnExcelOpen.Click += new System.EventHandler(this.btnExcelOpen_Click);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Image = global::cf01.Properties.Resources.Excel1;
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcel.Location = new System.Drawing.Point(6, 11);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(102, 39);
+            this.btnExcel.TabIndex = 207;
+            this.btnExcel.Text = "匯出ECEL";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // btnExpExcel
+            // 
+            this.btnExpExcel.Location = new System.Drawing.Point(1123, 17);
+            this.btnExpExcel.Name = "btnExpExcel";
+            this.btnExpExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnExpExcel.TabIndex = 219;
+            this.btnExpExcel.Text = "button1";
+            this.btnExpExcel.UseVisualStyleBackColor = true;
+            this.btnExpExcel.Click += new System.EventHandler(this.btnExpExcel_Click);
+            // 
             // frmQuotationSampleFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1230,10 +1242,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkFlag_ck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkFind.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCk.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkFind.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1327,5 +1339,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rs;
         private System.Windows.Forms.DataGridViewTextBoxColumn row_height;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.Button btnExpExcel;
     }
 }

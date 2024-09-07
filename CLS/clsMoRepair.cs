@@ -14,7 +14,7 @@ namespace cf01.CLS
         /// <returns></returns>
         public static DataTable GetDept()
         {
-            DataTable dt = clsPublicOfCF01.GetDataTable(@"Select '107' as id,'鈕--噴油' as cdesc union Select id,name as cdesc From dgerp2.cferp.dbo.cd_department Where id>='500' and id<'599' and state='0'");
+            DataTable dt = clsPublicOfCF01.GetDataTable(@"Select '107' as id,'鈕--噴油' as cdesc union Select id,name as cdesc From dgerp2.cferp.dbo.cd_department Where id>='500' and state='0'");
             return dt;
         }
 

@@ -2014,7 +2014,7 @@
             this.Name = "frmProductionSelect";
             this.Text = "選貨記錄表";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProductionSelect_FormClosed);
+            //this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProductionSelect_FormClosed);
             this.Load += new System.EventHandler(this.frmProductionSchedule_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             this.panel1.ResumeLayout(false);

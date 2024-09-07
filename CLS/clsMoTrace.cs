@@ -37,7 +37,7 @@ namespace cf01.CLS
                 " Inner Join jo_bill_goods_details b On a.within_code = b.within_code And a.id = b.id And a.ver = b.ver" +
                 " Inner Join it_goods c On b.within_code=c.within_code And b.goods_id=c.id"+
                 " Left Join cd_department d On b.within_code=d.within_code And b.wp_id=d.id"+
-                " Left Join cd_department e On b.within_code=e.within_code And b.wp_id=e.id" +
+                " Left Join cd_department e On b.within_code=e.within_code And b.next_wp_id=e.id" +
                 " Left Join it_vendor f On b.within_code=f.within_code And b.vendor_id=f.id " +
                 " Where a.within_code='" + within_code + "' And a.mo_id='" + mo_id + "'";
             strSql += " Order By b.sequence_id ";

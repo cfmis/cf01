@@ -16,7 +16,7 @@ namespace cf01.Forms
 {
     public partial class frmProductionSelect : Form
     {
-        BardCodeHooK BarCode = new BardCodeHooK();
+        //BardCodeHooK BarCode = new BardCodeHooK();  //取消自動掃描Barcode   ---1
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtPrd_dept = new DataTable();
         DataTable dtMo_item = new DataTable();
@@ -29,7 +29,7 @@ namespace cf01.Forms
         private clsUtility.enumOperationType OperationType;
         private int Result = 0;
         private string _userid = DBUtility._user_id.ToUpper();//"PLA01";
-        private product_records objModel;
+        //private product_records objModel;
         private int record_id = -1;//未完成記錄的ID，若查找到，則說明未完成，在保存時，執行更新操作
         public static string sent_dep = "";
         public static string sent_group = "";
@@ -40,43 +40,60 @@ namespace cf01.Forms
 
             //clsControlInfoHelper controlInfo = new clsControlInfoHelper("frmProductionSchedule", this.Controls);
             //controlInfo.GenerateContorl();
-            BarCode.BarCodeEvent += new BardCodeHooK.BardCodeDeletegate(BarCode_BarCodeEvent);
+
+
+            //BarCode.BarCodeEvent += new BardCodeHooK.BardCodeDeletegate(BarCode_BarCodeEvent);//取消自動掃描Barcode   ---1
+
+
             GetAllComboxData();
         }
 
-        private delegate void ShowInfoDelegate(BardCodeHooK.BarCodes barCode);
+        //private delegate void ShowInfoDelegate(BardCodeHooK.BarCodes barCode);//取消自動掃描Barcode   ---1
 
-        private void ShowInfo(BardCodeHooK.BarCodes barCode)
-        {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(new ShowInfoDelegate(ShowInfo), new object[] { barCode });
-            }
-            else
-            {
-                //textBox1.Text = barCode.KeyName;
-                //textBox2.Text = barCode.VirtKey.ToString();
-                //textBox3.Text = barCode.ScanCode.ToString();
-                //textBox4.Text = barCode.Ascll.ToString();
-                //textBox5.Text = barCode.Chr.ToString();
-                string strBarCode = "";
+        //void BarCode_BarCodeEvent(BardCodeHooK.BarCodes barCode)//取消自動掃描Barcode   ---1
+        //{
 
-                strBarCode = barCode.IsValid ? barCode.BarCode : "";//是否为扫描枪输入，如果为true则是 否则为键盘输入
-                
-                strBarCode = strBarCode.Replace("\r\n", "").Replace("'", "").Replace("\0", "").Replace("\r", "");
-                //textBox7.Text += barCode.KeyName;
-                if (strBarCode.Length > BarCodeMinLength)
-                {
-                    txtBarCode.Text = strBarCode.Trim().ToUpper();
+        //    ShowInfo(barCode);
+        //}
 
-                    //MessageBox.Show(strBarCode);
-                    doBarCode();
-                    txtBarCode.Text = "";
-                    //MessageBox.Show(barCode.IsValid.ToString());
-                }
-                txtBarCode.Focus();
-            }
-        }
+        //////取消自動掃描Barcode   ---1
+        //private void ShowInfo(BardCodeHooK.BarCodes barCode)
+        //{
+        //    if (this.InvokeRequired)
+        //    {
+        //        this.BeginInvoke(new ShowInfoDelegate(ShowInfo), new object[] { barCode });
+        //    }
+        //    else
+        //    {
+        //        //textBox1.Text = barCode.KeyName;
+        //        //textBox2.Text = barCode.VirtKey.ToString();
+        //        //textBox3.Text = barCode.ScanCode.ToString();
+        //        //textBox4.Text = barCode.Ascll.ToString();
+        //        //textBox5.Text = barCode.Chr.ToString();
+        //        string strBarCode = "";
+
+        //        strBarCode = barCode.IsValid ? barCode.BarCode : "";//是否为扫描枪输入，如果为true则是 否则为键盘输入
+
+        //        strBarCode = strBarCode.Replace("\r\n", "").Replace("'", "").Replace("\0", "").Replace("\r", "");
+        //        //textBox7.Text += barCode.KeyName;
+        //        if (strBarCode.Length > BarCodeMinLength)
+        //        {
+        //            txtBarCode.Text = strBarCode.Trim().ToUpper();
+
+        //            //MessageBox.Show(strBarCode);
+        //            doBarCode();
+        //            txtBarCode.Text = "";
+        //            //MessageBox.Show(barCode.IsValid.ToString());
+        //        }
+        //        txtBarCode.Focus();
+        //    }
+        //}
+
+        ////取消自動掃描Barcode   ---1
+        //private void frmProductionSelect_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    BarCode.Stop();
+        //}
 
         private void doBarCode()
         {
@@ -119,11 +136,7 @@ namespace cf01.Forms
             }
         }
 
-        void BarCode_BarCodeEvent(BardCodeHooK.BarCodes barCode)
-        {
 
-            ShowInfo(barCode);
-        }
 
 
         private void frmProductionSchedule_Load(object sender, EventArgs e)
@@ -147,8 +160,9 @@ namespace cf01.Forms
             //dgvDefective.Font = a;
             dgvDetails.AutoGenerateColumns = false;
 
-            BarCode.Start();
-            
+            //BarCode.Start();//取消自動掃描Barcode   ---1
+
+            txtBarCode.Focus();
         }
 
         //獲取生產部門、工作類型
@@ -1738,11 +1752,7 @@ namespace cf01.Forms
                 SendKeys.Send("{tab}");
             }
         }
-
-        private void frmProductionSelect_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            BarCode.Stop();
-        }
+        
 
         private void txtActual_weg_TextChanged(object sender, EventArgs e)
         {
