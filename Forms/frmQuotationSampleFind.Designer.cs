@@ -124,7 +124,6 @@
             this.chkCk = new DevExpress.XtraEditors.CheckEdit();
             this.btnExcelOpen = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.btnExpExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInput_date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeason.Properties)).BeginInit();
@@ -1100,7 +1099,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnExpExcel);
             this.panel1.Controls.Add(this.chkFind);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.BTNSAVESET1);
@@ -1192,16 +1190,6 @@
             this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcel.UseVisualStyleBackColor = false;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // btnExpExcel
-            // 
-            this.btnExpExcel.Location = new System.Drawing.Point(1123, 17);
-            this.btnExpExcel.Name = "btnExpExcel";
-            this.btnExpExcel.Size = new System.Drawing.Size(75, 23);
-            this.btnExpExcel.TabIndex = 219;
-            this.btnExpExcel.Text = "button1";
-            this.btnExpExcel.UseVisualStyleBackColor = true;
-            this.btnExpExcel.Click += new System.EventHandler(this.btnExpExcel_Click);
             // 
             // frmQuotationSampleFind
             // 
@@ -1339,6 +1327,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rs;
         private System.Windows.Forms.DataGridViewTextBoxColumn row_height;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.Button btnExpExcel;
     }
 }
