@@ -32,9 +32,9 @@ namespace cf01.Reports
         private void txtIs_sample_TextChanged(object sender, EventArgs e)
         {
             if (txtIs_sample.Text == "1")
-                pnl_is_sample.Visible = true;
-            else
                 pnl_is_sample.Visible = false;
+            else
+                pnl_is_sample.Visible = true;
         }
     }
 }
