@@ -851,15 +851,12 @@
             this.txtTerm_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtTerm_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtTerm_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTerm_id.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", "id"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 30, "Desc")});
-            this.txtTerm_id.Properties.DropDownRows = 15;
-            this.txtTerm_id.Properties.MaxLength = 2;
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 60, "Desc")});
             this.txtTerm_id.Properties.NullText = "";
             this.txtTerm_id.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.txtTerm_id.Properties.PopupWidth = 50;
+            this.txtTerm_id.Properties.PopupWidth = 80;
             this.txtTerm_id.Properties.ShowHeader = false;
             this.txtTerm_id.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtTerm_id.Size = new System.Drawing.Size(73, 20);
