@@ -510,6 +510,8 @@
             this.txtReportFormat = new DevExpress.XtraEditors.LookUpEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNTOPDF = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTerm_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtim.Properties)).BeginInit();
@@ -624,7 +626,9 @@
             this.toolStripSeparator13,
             this.BTNSAVE_PRICE,
             this.toolStripSeparator7,
-            this.BTNEXCEL_TOMMY});
+            this.BTNEXCEL_TOMMY,
+            this.toolStripSeparator14,
+            this.BTNTOPDF});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1300, 36);
@@ -753,13 +757,12 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(63, 33);
-            this.BTNPRINT.Text = "列印(&P)";
+            this.BTNPRINT.Size = new System.Drawing.Size(52, 33);
+            this.BTNPRINT.Text = "列 印";
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
             // toolStripSeparator11
             // 
-            this.toolStripSeparator11.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 36);
             // 
@@ -768,8 +771,8 @@
             this.BTNNEWVER.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWVER.Image")));
             this.BTNNEWVER.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWVER.Name = "BTNNEWVER";
-            this.BTNNEWVER.Size = new System.Drawing.Size(77, 33);
-            this.BTNNEWVER.Text = "新版本(&V)";
+            this.BTNNEWVER.Size = new System.Drawing.Size(61, 33);
+            this.BTNNEWVER.Text = "新版本";
             this.BTNNEWVER.Click += new System.EventHandler(this.BTNNEWVER_Click);
             // 
             // toolStripSeparator12
@@ -783,8 +786,8 @@
             this.BTNEXCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXCEL.Image")));
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(109, 33);
-            this.BTNEXCEL.Text = "匯出報價單(&X)";
+            this.BTNEXCEL.Size = new System.Drawing.Size(70, 33);
+            this.BTNEXCEL.Text = "匯出(&X)";
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
             // 
             // toolStripSeparator4
@@ -797,13 +800,12 @@
             this.BTNEXCEL2.Image = global::cf01.Properties.Resources.Excel1;
             this.BTNEXCEL2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL2.Name = "BTNEXCEL2";
-            this.BTNEXCEL2.Size = new System.Drawing.Size(129, 33);
-            this.BTNEXCEL2.Text = "匯出報價單(有圖樣)";
+            this.BTNEXCEL2.Size = new System.Drawing.Size(93, 33);
+            this.BTNEXCEL2.Text = "匯出(有圖樣)";
             this.BTNEXCEL2.Click += new System.EventHandler(this.BTNEXCEL2_Click);
             // 
             // toolStripSeparator13
             // 
-            this.toolStripSeparator13.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(6, 36);
             // 
@@ -826,8 +828,8 @@
             this.BTNEXCEL_TOMMY.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXCEL_TOMMY.Image")));
             this.BTNEXCEL_TOMMY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL_TOMMY.Name = "BTNEXCEL_TOMMY";
-            this.BTNEXCEL_TOMMY.Size = new System.Drawing.Size(136, 33);
-            this.BTNEXCEL_TOMMY.Text = "匯出報價單(TOMMY)";
+            this.BTNEXCEL_TOMMY.Size = new System.Drawing.Size(124, 33);
+            this.BTNEXCEL_TOMMY.Text = "匯出(TOMMY)格式";
             this.BTNEXCEL_TOMMY.Click += new System.EventHandler(this.BTNEXCEL_TOMMY_Click);
             // 
             // lblTerm
@@ -5662,6 +5664,20 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "報表格式";
             // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 36);
+            // 
+            // BTNTOPDF
+            // 
+            this.BTNTOPDF.Image = ((System.Drawing.Image)(resources.GetObject("BTNTOPDF.Image")));
+            this.BTNTOPDF.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNTOPDF.Name = "BTNTOPDF";
+            this.BTNTOPDF.Size = new System.Drawing.Size(69, 33);
+            this.BTNTOPDF.Text = "匯出PDF";
+            this.BTNTOPDF.Click += new System.EventHandler(this.BTNTOPDF_Click);
+            // 
             // frmQuotation_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6206,5 +6222,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValidDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark2;
         private System.Windows.Forms.DataGridViewTextBoxColumn temp_code_disc;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripButton BTNTOPDF;
     }
 }

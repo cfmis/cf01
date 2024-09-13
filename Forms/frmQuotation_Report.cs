@@ -40,7 +40,8 @@ namespace cf01.Forms
         string edit_state = ""; //新增或編輯的狀態      
         string image_path = "";
         bool save_flag;
-        string strArea = "";        
+        string strArea = "";
+        string flag_pdf = "";      
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         clsAppPublic clsApp = new clsAppPublic();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
@@ -337,6 +338,12 @@ namespace cf01.Forms
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)
+        {
+            flag_pdf = "";
+            ReportPrint();
+        }
+
+        private void ReportPrint()
         {
             if (edit_state == "" && !string.IsNullOrEmpty(txtID.Text))
             {
@@ -2185,10 +2192,34 @@ namespace cf01.Forms
         }
 
         private void ReportPrint(XtraReport rpt)
-        {            
+        {
             rpt.CreateDocument();
             rpt.PrintingSystem.ShowMarginsWarning = false;
-            rpt.ShowPreviewDialog();            
+
+            if (flag_pdf == "")
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog()
+                {                   
+                    Title = "保存EXECL文件",
+                    Filter = "PDF文件|*.PDF",
+                    FilterIndex = 1
+                };
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string FileName = saveDialog.FileName;
+                    if (File.Exists(FileName))
+                    {
+                        File.Delete(FileName);
+                    }
+                    rpt.ExportToPdf(FileName);
+                    flag_pdf = "";
+                    MessageBox.Show("匯出PDF成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }     
         }
 
         private void txtMoney_id_EditValueChanged(object sender, EventArgs e)
@@ -3587,6 +3618,13 @@ namespace cf01.Forms
             {
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
             }            
+        }
+
+        private void BTNTOPDF_Click(object sender, EventArgs e)
+        {
+            flag_pdf = "PDF";
+            ReportPrint();
+            
         }
 
         //private void clUsd_Leave(object sender, EventArgs e)
