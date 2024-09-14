@@ -548,7 +548,7 @@
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(1977.29F, 647F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(2017.29F, 647F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "[terms]";
@@ -651,7 +651,7 @@
             this.xrLabel57.LocationFloat = new DevExpress.Utils.PointFloat(7.999996F, 792.6786F);
             this.xrLabel57.Name = "xrLabel57";
             this.xrLabel57.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel57.SizeF = new System.Drawing.SizeF(1982.38F, 39.36469F);
+            this.xrLabel57.SizeF = new System.Drawing.SizeF(2009.38F, 39.36469F);
             this.xrLabel57.StylePriority.UseFont = false;
             this.xrLabel57.Text = "[terms_remark]";
             this.xrLabel57.WordWrap = false;

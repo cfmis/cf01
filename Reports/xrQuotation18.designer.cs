@@ -675,7 +675,7 @@
             this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(51.17059F, 460.0625F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(880.2279F, 89.95819F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(883.8914F, 89.95816F);
             this.xrLabel24.StylePriority.UseFont = false;
             this.xrLabel24.StylePriority.UseTextAlignment = false;
             this.xrLabel24.Text = "[remark_h]";
@@ -1422,7 +1422,7 @@
             this.xrCrossBandBox2.BorderWidth = 1F;
             this.xrCrossBandBox2.Dpi = 254F;
             this.xrCrossBandBox2.EndBand = this.GroupHeader1;
-            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(8.514176F, 558.0136F);
+            this.xrCrossBandBox2.EndPointFloat = new DevExpress.Utils.PointFloat(8.514176F, 558.0137F);
             this.xrCrossBandBox2.LocationFloat = new DevExpress.Utils.PointFloat(8.514176F, 166.2755F);
             this.xrCrossBandBox2.LockedInUserDesigner = true;
             this.xrCrossBandBox2.Name = "xrCrossBandBox2";

@@ -630,10 +630,10 @@
             this.xrLabel57.CanGrow = false;
             this.xrLabel57.Dpi = 254F;
             this.xrLabel57.Font = new System.Drawing.Font("SimSun", 8.25F, System.Drawing.FontStyle.Bold);
-            this.xrLabel57.LocationFloat = new DevExpress.Utils.PointFloat(6.54169F, 574.0262F);
+            this.xrLabel57.LocationFloat = new DevExpress.Utils.PointFloat(6.541691F, 574.0262F);
             this.xrLabel57.Name = "xrLabel57";
             this.xrLabel57.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel57.SizeF = new System.Drawing.SizeF(1982.38F, 39.36469F);
+            this.xrLabel57.SizeF = new System.Drawing.SizeF(2088.213F, 39.36469F);
             this.xrLabel57.StylePriority.UseFont = false;
             this.xrLabel57.Text = "[terms_remark]";
             this.xrLabel57.WordWrap = false;
