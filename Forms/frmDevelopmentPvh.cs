@@ -59,7 +59,13 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type"); 
             clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");            
-            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");            
+            clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
+
+            clsDevelopentPvh.SetDropBox(lueMachine_washable, "Wash");
+            clsDevelopentPvh.SetDropBox(lueDry_cleanable, "Bleach");
+            clsDevelopentPvh.SetDropBox(lueDry_clean_only, "DryClean");
+            clsDevelopentPvh.SetDropBox(lueDo_not_dry_clean, "Dryer");
+            clsDevelopentPvh.SetDropBox(lueSuitable_for_tumble_dry, "Ironing");
 
             string strSql = "";
             string strGroup = "V,E";
@@ -198,27 +204,7 @@ namespace cf01.Forms
             lueCert4_type.Properties.DisplayMember = "id";
 
             strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "yes_no");
-            DataTable dtYes = clsPublicOfCF01.GetDataTable(strSql);           
-            lueMachine_washable.Properties.DataSource = dtYes;
-            lueMachine_washable.Properties.ValueMember = "id";
-            lueMachine_washable.Properties.DisplayMember = "id";
-
-            lueDry_cleanable.Properties.DataSource = dtYes;
-            lueDry_cleanable.Properties.ValueMember = "id";
-            lueDry_cleanable.Properties.DisplayMember = "id";
-
-            lueDry_clean_only.Properties.DataSource = dtYes;
-            lueDry_clean_only.Properties.ValueMember = "id";
-            lueDry_clean_only.Properties.DisplayMember = "id";
-
-            lueDo_not_dry_clean.Properties.DataSource = dtYes;
-            lueDo_not_dry_clean.Properties.ValueMember = "id";
-            lueDo_not_dry_clean.Properties.DisplayMember = "id";
-
-            lueSuitable_for_tumble_dry.Properties.DataSource = dtYes;
-            lueSuitable_for_tumble_dry.Properties.ValueMember = "id";
-            lueSuitable_for_tumble_dry.Properties.DisplayMember = "id";
-
+            DataTable dtYes = clsPublicOfCF01.GetDataTable(strSql);
             lueSuitable_for_swimwear.Properties.DataSource = dtYes;
             lueSuitable_for_swimwear.Properties.ValueMember = "id";
             lueSuitable_for_swimwear.Properties.DisplayMember = "id";
@@ -272,7 +258,11 @@ namespace cf01.Forms
                 //string[] aryItems = { "Ching Fung Metal Manufactory(Longnan) Co.,Ltd", "CFAA VN PRODUCTION-TRADING COMPANY LIMITED" };
                 //cbeFactory_name.Properties.Items.AddRange(aryItems);
             }
-
+            DataTable dtWeightUom = clsPublicOfCF01.GetDataTable(string.Format(@"SELECT contents FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "Weight_UOM"));
+            for (int i = 0; i < dtWeightUom.Rows.Count; i++)
+            {
+                txtWeight_uom.Properties.Items.Add(dtWeightUom.Rows[i]["contents"].ToString());               
+            }           
 
             dtDat1.EditValue = DateTime.Now.AddDays(-7).ToString("yyyy/MM/dd").Substring(0, 10);
             dtDat2.EditValue = DateTime.Now.ToString("yyyy/MM/dd").Substring(0, 10);            
@@ -284,6 +274,7 @@ namespace cf01.Forms
             txtProcess.ToolTip = strTip;
             txtDye_type.ToolTip = strTip;
             txtDye_method.ToolTip = strTip;
+            txtMaterial_structure.ToolTip = strTip;
         }
 
         private void SetDataBindings()
@@ -310,6 +301,7 @@ namespace cf01.Forms
             lueSample_type.DataBindings.Add("EditValue", bds1, "sample_type");
             luePrevious_submit_vr.DataBindings.Add("EditValue", bds1, "previous_submit_vr");
             txtWeight.DataBindings.Add("Text", bds1, "weight");
+            txtWeight_base.DataBindings.Add("Text", bds1, "weight_base");
             txtWeight_uom.DataBindings.Add("EditValue", bds1, "weight_uom");
             lueObj_fbx.DataBindings.Add("EditValue", bds1, "obj_fbx");
             lueU3ma.DataBindings.Add("EditValue", bds1, "u3ma");
@@ -412,6 +404,7 @@ namespace cf01.Forms
             //added in 2023/08/23            
             txtDye_type.DataBindings.Add("EditValue", bds1, "dye_type");
             txtDye_method.DataBindings.Add("EditValue", bds1, "dye_method");
+            txtMaterial_structure.DataBindings.Add("EditValue", bds1, "material_structure");
 
         }
 
@@ -506,7 +499,7 @@ namespace cf01.Forms
             bool save_flag = false;
             const string sql_new =
             @"INSERT INTO development_pvh(serial_no,division,handling_office,season,date,requested_by,supplier_ref_no,plm_material_code,pvh_submit_ref,supplier_name,
-            factory_name,material_subtype,size,colour,finish,process,previous_submit_ref,sample_type,previous_submit_vr,weight,weight_uom,obj_fbx,u3ma,raw_mat1_compostion,
+            factory_name,material_subtype,size,colour,finish,process,previous_submit_ref,sample_type,previous_submit_vr,weight,weight_base,weight_uom,obj_fbx,u3ma,raw_mat1_compostion,
             raw_mat1_percent,raw_mat1_l3,raw_mat1_l4,raw_mat1_l5,raw_mat2_compostion,raw_mat2_percent,raw_mat2_l3,raw_mat2_l4,raw_mat2_l5,raw_mat3_compostion,raw_mat3_percent,
             raw_mat3_l3,raw_mat3_l4,raw_mat3_l5,raw_mat4_compostion,raw_mat4_percent,raw_mat4_l3,raw_mat4_l4,raw_mat4_l5,raw_mat5_compostion,raw_mat5_percent,raw_mat5_l3,
             raw_mat5_l4,raw_mat5_l5,currency,price1,price1_unit,price2,price2_unit,price3,price3_unit,price4,price4_unit,price5,price5_unit,price6,price6_unit,surcharge,bulk_moq,
@@ -515,9 +508,9 @@ namespace cf01.Forms
             cert4_mat_finish,cert4_type,cert4_type_other,cert4_scope_no,cert4_expiry_date,cert4_scope_holder,rsl_certificate_type,rsl_certificate_expiry_date,machine_washable,
             dry_cleanable,dry_clean_only,do_not_dry_clean,suitable_for_tumble_dry,suitable_for_swimwear,passes_metal_detection,complies_with_pvh,complies_with_cfr,quality_callouts,
             submit1,submit2,submit3,urgent_bulk_order,for_bulk_feference,for_quality_approval,color_already_approved,size_already_approved,create_by,create_date,mo_id1,mo_id2,mo_id3,
-            dye_type,dye_method) 
+            dye_type,dye_method,material_structure) 
             VALUES(@serial_no,@division,@handling_office,@season,@date,@requested_by,@supplier_ref_no,@plm_material_code,@pvh_submit_ref,@supplier_name,@factory_name,
-            @material_subtype,@size,@colour,@finish,@process,@previous_submit_ref,@sample_type,@previous_submit_vr,@weight,@weight_uom,@obj_fbx,@u3ma,@raw_mat1_compostion,
+            @material_subtype,@size,@colour,@finish,@process,@previous_submit_ref,@sample_type,@previous_submit_vr,@weight,weight_base,@weight_uom,@obj_fbx,@u3ma,@raw_mat1_compostion,
             @raw_mat1_percent,@raw_mat1_l3,@raw_mat1_l4,@raw_mat1_l5,@raw_mat2_compostion,@raw_mat2_percent,@raw_mat2_l3,@raw_mat2_l4,@raw_mat2_l5,@raw_mat3_compostion,@raw_mat3_percent,
             @raw_mat3_l3,@raw_mat3_l4,@raw_mat3_l5,@raw_mat4_compostion,@raw_mat4_percent,@raw_mat4_l3,@raw_mat4_l4,@raw_mat4_l5,@raw_mat5_compostion,@raw_mat5_percent,@raw_mat5_l3,
             @raw_mat5_l4,@raw_mat5_l5,@currency,@price1,@price1_unit,@price2,@price2_unit,@price3,@price3_unit,@price4,@price4_unit,@price5,@price5_unit,@price6,@price6_unit,@surcharge,@bulk_moq,
@@ -527,13 +520,13 @@ namespace cf01.Forms
             CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END ,@machine_washable,
             @dry_cleanable,@dry_clean_only,@do_not_dry_clean,@suitable_for_tumble_dry,@suitable_for_swimwear,@passes_metal_detection,@complies_with_pvh,@complies_with_cfr,@quality_callouts,
             @submit1,@submit2,@submit3,@urgent_bulk_order,@for_bulk_feference,@for_quality_approval,@color_already_approved,@size_already_approved,@user_id,getdate(),@mo_id1,@mo_id2,@mo_id3,
-            @dye_type,@dye_method)";
+            @dye_type,@dye_method,@material_structure)";
 
             const string sql_update =
             @"Update development_pvh 
             SET division=@division,handling_office=@handling_office,season=@season,date=@date,requested_by=@requested_by,supplier_ref_no=@supplier_ref_no,plm_material_code=@plm_material_code,
             pvh_submit_ref=@pvh_submit_ref,supplier_name=@supplier_name,factory_name=@factory_name,material_subtype=@material_subtype,size=@size,colour=@colour,finish=@finish,process=@process,
-            previous_submit_ref=@previous_submit_ref,sample_type=@sample_type,previous_submit_vr=@previous_submit_vr,weight=@weight,weight_uom=@weight_uom,obj_fbx=@obj_fbx,u3ma=@u3ma,
+            previous_submit_ref=@previous_submit_ref,sample_type=@sample_type,previous_submit_vr=@previous_submit_vr,weight=@weight,weight_base=@weight_base,weight_uom=@weight_uom,obj_fbx=@obj_fbx,u3ma=@u3ma,
             raw_mat1_compostion=@raw_mat1_compostion,raw_mat1_percent=@raw_mat1_percent,raw_mat1_l3=@raw_mat1_l3,raw_mat1_l4=@raw_mat1_l4,raw_mat1_l5=@raw_mat1_l5,raw_mat2_compostion=@raw_mat2_compostion,
             raw_mat2_percent=@raw_mat2_percent,raw_mat2_l3=@raw_mat2_l3,raw_mat2_l4=@raw_mat2_l4,raw_mat2_l5=@raw_mat2_l5,raw_mat3_compostion=@raw_mat3_compostion,raw_mat3_percent=@raw_mat3_percent,
             raw_mat3_l3=@raw_mat3_l3,raw_mat3_l4=@raw_mat3_l4,raw_mat3_l5=@raw_mat3_l5,raw_mat4_compostion=@raw_mat4_compostion,raw_mat4_percent=@raw_mat4_percent,raw_mat4_l3=@raw_mat4_l3,
@@ -548,7 +541,7 @@ namespace cf01.Forms
             dry_cleanable=@dry_cleanable,dry_clean_only=@dry_clean_only,do_not_dry_clean=@do_not_dry_clean,suitable_for_tumble_dry=@suitable_for_tumble_dry,suitable_for_swimwear=@suitable_for_swimwear,
             passes_metal_detection=@passes_metal_detection,complies_with_pvh=@complies_with_pvh,complies_with_cfr=@complies_with_cfr,quality_callouts=@quality_callouts,submit1=@submit1,submit2=@submit2,submit3=@submit3,
             urgent_bulk_order=@urgent_bulk_order,for_bulk_feference=@for_bulk_feference,for_quality_approval=@for_quality_approval,color_already_approved=@color_already_approved,size_already_approved=@size_already_approved,
-            update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3, dye_type=@dye_type,dye_method=@dye_method
+            update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3, dye_type=@dye_type,dye_method=@dye_method,material_structure=@material_structure
             WHERE serial_no=@serial_no";
 
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
@@ -604,6 +597,7 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@sample_type", lueSample_type.EditValue);
                     myCommand.Parameters.AddWithValue("@previous_submit_vr", luePrevious_submit_vr.EditValue.ToString());
                     myCommand.Parameters.AddWithValue("@weight", txtWeight.Text);
+                    myCommand.Parameters.AddWithValue("@weight_base", txtWeight_base.Text);
                     myCommand.Parameters.AddWithValue("@weight_uom", txtWeight_uom.Text);
                     myCommand.Parameters.AddWithValue("@obj_fbx", lueObj_fbx.EditValue);
                     myCommand.Parameters.AddWithValue("@u3ma", lueU3ma.EditValue);
@@ -707,6 +701,8 @@ namespace cf01.Forms
                     //added 2023/08/23-------------------------------------------------------------------
                     myCommand.Parameters.AddWithValue("@dye_type", txtDye_type.EditValue);
                     myCommand.Parameters.AddWithValue("@dye_method", txtDye_method.EditValue);
+                    myCommand.Parameters.AddWithValue("@material_structure", txtMaterial_structure.EditValue);
+                    
 
                     myCommand.ExecuteNonQuery();
                     myTrans.Commit(); //數據提交                    
@@ -968,6 +964,7 @@ namespace cf01.Forms
             lueSample_type.EditValue = pdr.Cells["sample_type"].Value.ToString();
             luePrevious_submit_vr.EditValue = pdr.Cells["previous_submit_vr"].Value.ToString();
             txtWeight.Text = pdr.Cells["weight"].Value.ToString();
+            txtWeight_base.Text = pdr.Cells["weight_base"].Value.ToString();
             txtWeight_uom.EditValue = pdr.Cells["weight_uom"].Value.ToString();
             lueObj_fbx.EditValue = pdr.Cells["obj_fbx"].Value.ToString();
             lueU3ma.EditValue = pdr.Cells["u3ma"].Value.ToString();
@@ -1058,6 +1055,7 @@ namespace cf01.Forms
             //added in 2023/08/23----------------------------------------------------------------
             txtDye_type.EditValue = pdr.Cells["dye_type"].Value.ToString();
             txtDye_method.EditValue = pdr.Cells["dye_method"].Value.ToString();
+            txtMaterial_structure.EditValue = pdr.Cells["material_structure"].Value.ToString();
 
             SetCheckBoxStatus(pdr);
         }
@@ -1450,6 +1448,11 @@ namespace cf01.Forms
                 string strSort = grd.SortOrder.ToString();//獲取有排序列的排序方式 Descending
                 sortDirection= (strSort == "Ascending")? ListSortDirection.Ascending: ListSortDirection.Descending;                             
             }
+        }      
+
+        private void txtMaterial_structure_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            CallContents(txtMaterial_structure, "material_structure");
         }
     }
 }

@@ -104,14 +104,14 @@ namespace cf01.Reports
             xrLabel64.Text = DateTime.Parse(GetCurrentColumnValue("date").ToString()).Date.ToString("dd/MM/yyyy");
         }
 
-        private void lblRsl_certificate_expiry_date_TextChanged(object sender, EventArgs e)
-        {
-            string val = GetCurrentColumnValue("rsl_certificate_expiry_date").ToString();
-            if (!string.IsNullOrEmpty(val))
-            {
-                lblRsl_certificate_expiry_date.Text = DateTime.Parse(val).Date.ToString("dd-MM-yy");
-            }
+        //private void lblRsl_certificate_expiry_date_TextChanged(object sender, EventArgs e)
+        //{
+        //    string val = GetCurrentColumnValue("rsl_certificate_expiry_date").ToString();
+        //    if (!string.IsNullOrEmpty(val))
+        //    {
+        //        lblRsl_certificate_expiry_date.Text = DateTime.Parse(val).Date.ToString("dd-MM-yy");
+        //    }
             
-        }
+        //}
     }
 }

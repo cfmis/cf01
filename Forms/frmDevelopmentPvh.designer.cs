@@ -30,15 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,124 +60,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.material_subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.process = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previous_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sample_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previous_submit_vr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obj_fbx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat1_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat2_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat3_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat4_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.raw_mat5_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currency = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price3_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price4_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price5_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price6_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bulk_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moq_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leadtime_sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leadtime_bulk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert1_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert2_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert3_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cert4_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rsl_certificate_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rsl_certificate_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machine_washable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dry_cleanable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dry_clean_only = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.do_not_dry_clean = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suitable_for_tumble_dry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suitable_for_swimwear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passes_metal_detection = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.complies_with_pvh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.complies_with_cfr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quality_callouts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.submit1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.submit2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.submit3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.urgent_bulk_order = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.for_bulk_feference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.for_quality_approval = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dye_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dye_method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.chksubmit3 = new DevExpress.XtraEditors.CheckEdit();
@@ -249,7 +132,7 @@
             this.txtPrevious_submit_ref = new DevExpress.XtraEditors.TextEdit();
             this.lueMaterial_subtype = new DevExpress.XtraEditors.LookUpEdit();
             this.label59 = new System.Windows.Forms.Label();
-            this.txtWeight = new DevExpress.XtraEditors.TextEdit();
+            this.txtWeight_base = new DevExpress.XtraEditors.TextEdit();
             this.label55 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtsupplier_name = new DevExpress.XtraEditors.TextEdit();
@@ -322,7 +205,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lueComplies_with_pvh = new DevExpress.XtraEditors.LookUpEdit();
-            this.label4 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.lueDo_not_dry_clean = new DevExpress.XtraEditors.LookUpEdit();
             this.label40 = new System.Windows.Forms.Label();
@@ -384,6 +266,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtSize1 = new DevExpress.XtraEditors.TextEdit();
+            this.label91 = new System.Windows.Forms.Label();
+            this.txtColour1 = new DevExpress.XtraEditors.TextEdit();
+            this.label90 = new System.Windows.Forms.Label();
             this.txtPlm_material_code1 = new DevExpress.XtraEditors.TextEdit();
             this.label62 = new System.Windows.Forms.Label();
             this.txtMo3 = new DevExpress.XtraEditors.TextEdit();
@@ -397,7 +283,6 @@
             this.txtPvh_submit_ref1 = new DevExpress.XtraEditors.TextEdit();
             this.label81 = new System.Windows.Forms.Label();
             this.dgvFind = new System.Windows.Forms.DataGridView();
-            this.serialno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -408,6 +293,14 @@
             this.dtDat2 = new DevExpress.XtraEditors.DateEdit();
             this.btnSearch = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label92 = new System.Windows.Forms.Label();
+            this.txtMaterial_structure = new DevExpress.XtraEditors.ButtonEdit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtWeight = new DevExpress.XtraEditors.TextEdit();
+            this.submit1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.submit2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.submit3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.urgent_bulk_order = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -523,10 +416,125 @@
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn114 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn115 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtColour1 = new DevExpress.XtraEditors.TextEdit();
-            this.label90 = new System.Windows.Forms.Label();
-            this.txtSize1 = new DevExpress.XtraEditors.TextEdit();
-            this.label91 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn116 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn117 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serial_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.division = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.handing_office = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requests_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plm_material_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_ref_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pvh_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material_subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material_structure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.process = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previous_submit_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previous_submit_vr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight_base = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obj_fbx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat1_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat2_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat3_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat4_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raw_mat5_l5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price3_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price4_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price5_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price6_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bulk_moq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moq_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leadtime_sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leadtime_bulk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert1_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert2_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert3_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_mat_finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_type_other = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_scope_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cert4_scope_holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rsl_certificate_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rsl_certificate_expiry_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machine_washable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dry_cleanable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dry_clean_only = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.do_not_dry_clean = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suitable_for_tumble_dry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suitable_for_swimwear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passes_metal_detection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.complies_with_pvh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.complies_with_cfr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quality_callouts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.for_bulk_feference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.for_quality_approval = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size_already_approved = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dye_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dye_method = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -577,7 +585,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSample_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_base.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).BeginInit();
@@ -659,6 +667,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).BeginInit();
@@ -672,8 +682,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterial_structure.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -721,7 +731,7 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(71, 23);
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.Text = " 新 增(&N)";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
@@ -735,7 +745,7 @@
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(70, 23);
+            this.btnEdit.Size = new System.Drawing.Size(72, 23);
             this.btnEdit.Text = " 修 改(&E)";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -749,7 +759,7 @@
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 23);
+            this.btnDelete.Size = new System.Drawing.Size(68, 23);
             this.btnDelete.Text = "刪除(&D)";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -764,7 +774,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(72, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.Text = " 保  存(&S)";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -779,7 +789,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(68, 23);
+            this.BTNCANCEL.Size = new System.Drawing.Size(71, 23);
             this.BTNCANCEL.Text = "取 消(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -793,7 +803,7 @@
             this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
             this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWCOPY.Name = "BTNNEWCOPY";
-            this.BTNNEWCOPY.Size = new System.Drawing.Size(89, 23);
+            this.BTNNEWCOPY.Size = new System.Drawing.Size(91, 23);
             this.BTNNEWCOPY.Text = "覆制新增(&C)";
             this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
             // 
@@ -807,7 +817,7 @@
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(63, 23);
+            this.btnPrint.Size = new System.Drawing.Size(66, 23);
             this.btnPrint.Text = "列印(&P)";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -859,6 +869,7 @@
             this.supplier_name,
             this.factory_name,
             this.material_subtype,
+            this.material_structure,
             this.size,
             this.colour,
             this.finish,
@@ -867,6 +878,7 @@
             this.sample_type,
             this.previous_submit_vr,
             this.weight,
+            this.weight_base,
             this.weight_uom,
             this.obj_fbx,
             this.raw_mat1_compostion,
@@ -973,842 +985,6 @@
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
             this.dgvDetails.Sorted += new System.EventHandler(this.dgvDetails_Sorted);
-            // 
-            // serial_no
-            // 
-            this.serial_no.DataPropertyName = "serial_no";
-            this.serial_no.HeaderText = "Serial No.";
-            this.serial_no.Name = "serial_no";
-            this.serial_no.Width = 90;
-            // 
-            // division
-            // 
-            this.division.DataPropertyName = "division";
-            this.division.HeaderText = "Division";
-            this.division.Name = "division";
-            // 
-            // handing_office
-            // 
-            this.handing_office.DataPropertyName = "handing_office";
-            this.handing_office.HeaderText = "Handing Office";
-            this.handing_office.Name = "handing_office";
-            this.handing_office.Width = 110;
-            // 
-            // season
-            // 
-            this.season.DataPropertyName = "season";
-            this.season.HeaderText = "Season";
-            this.season.Name = "season";
-            this.season.Width = 60;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            dataGridViewCellStyle5.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle5.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle5;
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            // 
-            // requests_by
-            // 
-            this.requests_by.DataPropertyName = "requests_by";
-            this.requests_by.HeaderText = "Requests by";
-            this.requests_by.Name = "requests_by";
-            this.requests_by.Width = 90;
-            // 
-            // plm_material_code
-            // 
-            this.plm_material_code.DataPropertyName = "plm_material_code";
-            this.plm_material_code.HeaderText = "Plm Material Code";
-            this.plm_material_code.Name = "plm_material_code";
-            // 
-            // supplier_ref_no
-            // 
-            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
-            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
-            this.supplier_ref_no.Name = "supplier_ref_no";
-            // 
-            // pvh_submit_ref
-            // 
-            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
-            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
-            this.pvh_submit_ref.Name = "pvh_submit_ref";
-            // 
-            // supplier_name
-            // 
-            this.supplier_name.DataPropertyName = "supplier_name";
-            this.supplier_name.HeaderText = "Supplier Name";
-            this.supplier_name.Name = "supplier_name";
-            this.supplier_name.ReadOnly = true;
-            // 
-            // factory_name
-            // 
-            this.factory_name.DataPropertyName = "factory_name";
-            this.factory_name.HeaderText = "FactoryNname";
-            this.factory_name.Name = "factory_name";
-            this.factory_name.ReadOnly = true;
-            // 
-            // material_subtype
-            // 
-            this.material_subtype.DataPropertyName = "material_subtype";
-            this.material_subtype.HeaderText = "Material Subtype";
-            this.material_subtype.Name = "material_subtype";
-            this.material_subtype.ReadOnly = true;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "Size";
-            this.size.Name = "size";
-            // 
-            // colour
-            // 
-            this.colour.DataPropertyName = "colour";
-            this.colour.HeaderText = "Colour";
-            this.colour.Name = "colour";
-            this.colour.Visible = false;
-            this.colour.Width = 120;
-            // 
-            // finish
-            // 
-            this.finish.DataPropertyName = "finish";
-            this.finish.HeaderText = "Finish";
-            this.finish.Name = "finish";
-            this.finish.ReadOnly = true;
-            // 
-            // process
-            // 
-            this.process.DataPropertyName = "process";
-            this.process.HeaderText = "Process";
-            this.process.Name = "process";
-            this.process.ReadOnly = true;
-            // 
-            // previous_submit_ref
-            // 
-            this.previous_submit_ref.DataPropertyName = "previous_submit_ref";
-            this.previous_submit_ref.HeaderText = "Previous Submit Ref";
-            this.previous_submit_ref.Name = "previous_submit_ref";
-            this.previous_submit_ref.ReadOnly = true;
-            // 
-            // sample_type
-            // 
-            this.sample_type.DataPropertyName = "sample_type";
-            this.sample_type.HeaderText = "Sample Type";
-            this.sample_type.Name = "sample_type";
-            this.sample_type.ReadOnly = true;
-            // 
-            // previous_submit_vr
-            // 
-            this.previous_submit_vr.DataPropertyName = "previous_submit_vr";
-            this.previous_submit_vr.HeaderText = "Previous Submit VR";
-            this.previous_submit_vr.Name = "previous_submit_vr";
-            this.previous_submit_vr.ReadOnly = true;
-            // 
-            // weight
-            // 
-            this.weight.DataPropertyName = "weight";
-            this.weight.HeaderText = "Weight";
-            this.weight.Name = "weight";
-            this.weight.ReadOnly = true;
-            // 
-            // weight_uom
-            // 
-            this.weight_uom.DataPropertyName = "weight_uom";
-            this.weight_uom.HeaderText = "Weight Uom";
-            this.weight_uom.Name = "weight_uom";
-            this.weight_uom.ReadOnly = true;
-            // 
-            // obj_fbx
-            // 
-            this.obj_fbx.DataPropertyName = "obj_fbx";
-            this.obj_fbx.HeaderText = "obj_fbx";
-            this.obj_fbx.Name = "obj_fbx";
-            this.obj_fbx.ReadOnly = true;
-            // 
-            // raw_mat1_compostion
-            // 
-            this.raw_mat1_compostion.DataPropertyName = "raw_mat1_compostion";
-            this.raw_mat1_compostion.HeaderText = "raw_mat1_compostion";
-            this.raw_mat1_compostion.Name = "raw_mat1_compostion";
-            this.raw_mat1_compostion.ReadOnly = true;
-            // 
-            // raw_mat1_percent
-            // 
-            this.raw_mat1_percent.DataPropertyName = "raw_mat1_percent";
-            this.raw_mat1_percent.HeaderText = "raw_mat1_percent";
-            this.raw_mat1_percent.Name = "raw_mat1_percent";
-            this.raw_mat1_percent.ReadOnly = true;
-            // 
-            // raw_mat1_l3
-            // 
-            this.raw_mat1_l3.DataPropertyName = "raw_mat1_l3";
-            this.raw_mat1_l3.HeaderText = "raw_mat1_l3";
-            this.raw_mat1_l3.Name = "raw_mat1_l3";
-            this.raw_mat1_l3.ReadOnly = true;
-            // 
-            // raw_mat1_l4
-            // 
-            this.raw_mat1_l4.DataPropertyName = "raw_mat1_l4";
-            this.raw_mat1_l4.HeaderText = "raw_mat1_l4";
-            this.raw_mat1_l4.Name = "raw_mat1_l4";
-            this.raw_mat1_l4.ReadOnly = true;
-            // 
-            // raw_mat1_l5
-            // 
-            this.raw_mat1_l5.DataPropertyName = "raw_mat1_l5";
-            this.raw_mat1_l5.HeaderText = "raw_mat1_l5";
-            this.raw_mat1_l5.Name = "raw_mat1_l5";
-            this.raw_mat1_l5.ReadOnly = true;
-            // 
-            // raw_mat2_compostion
-            // 
-            this.raw_mat2_compostion.DataPropertyName = "raw_mat2_compostion";
-            this.raw_mat2_compostion.HeaderText = "raw_mat2_compostion";
-            this.raw_mat2_compostion.Name = "raw_mat2_compostion";
-            this.raw_mat2_compostion.ReadOnly = true;
-            // 
-            // raw_mat2_percent
-            // 
-            this.raw_mat2_percent.DataPropertyName = "raw_mat2_percent";
-            this.raw_mat2_percent.HeaderText = "raw_mat2_percent";
-            this.raw_mat2_percent.Name = "raw_mat2_percent";
-            this.raw_mat2_percent.ReadOnly = true;
-            // 
-            // raw_mat2_l3
-            // 
-            this.raw_mat2_l3.DataPropertyName = "raw_mat2_l3";
-            this.raw_mat2_l3.HeaderText = "raw_mat2_l3";
-            this.raw_mat2_l3.Name = "raw_mat2_l3";
-            this.raw_mat2_l3.ReadOnly = true;
-            // 
-            // raw_mat2_l4
-            // 
-            this.raw_mat2_l4.DataPropertyName = "raw_mat2_l4";
-            this.raw_mat2_l4.HeaderText = "raw_mat2_l4";
-            this.raw_mat2_l4.Name = "raw_mat2_l4";
-            this.raw_mat2_l4.ReadOnly = true;
-            // 
-            // raw_mat2_l5
-            // 
-            this.raw_mat2_l5.DataPropertyName = "raw_mat2_l5";
-            this.raw_mat2_l5.HeaderText = "raw_mat2_l5";
-            this.raw_mat2_l5.Name = "raw_mat2_l5";
-            this.raw_mat2_l5.ReadOnly = true;
-            // 
-            // raw_mat3_compostion
-            // 
-            this.raw_mat3_compostion.DataPropertyName = "raw_mat3_compostion";
-            this.raw_mat3_compostion.HeaderText = "raw_mat3_compostion";
-            this.raw_mat3_compostion.Name = "raw_mat3_compostion";
-            this.raw_mat3_compostion.ReadOnly = true;
-            // 
-            // raw_mat3_percent
-            // 
-            this.raw_mat3_percent.DataPropertyName = "raw_mat3_percent";
-            this.raw_mat3_percent.HeaderText = "raw_mat3_percent";
-            this.raw_mat3_percent.Name = "raw_mat3_percent";
-            this.raw_mat3_percent.ReadOnly = true;
-            // 
-            // raw_mat3_l3
-            // 
-            this.raw_mat3_l3.DataPropertyName = "raw_mat3_l3";
-            this.raw_mat3_l3.HeaderText = "raw_mat3_l3";
-            this.raw_mat3_l3.Name = "raw_mat3_l3";
-            this.raw_mat3_l3.ReadOnly = true;
-            // 
-            // raw_mat3_l4
-            // 
-            this.raw_mat3_l4.DataPropertyName = "raw_mat3_l4";
-            this.raw_mat3_l4.HeaderText = "raw_mat3_l4";
-            this.raw_mat3_l4.Name = "raw_mat3_l4";
-            this.raw_mat3_l4.ReadOnly = true;
-            // 
-            // raw_mat3_l5
-            // 
-            this.raw_mat3_l5.DataPropertyName = "raw_mat3_l5";
-            this.raw_mat3_l5.HeaderText = "raw_mat3_l5";
-            this.raw_mat3_l5.Name = "raw_mat3_l5";
-            this.raw_mat3_l5.ReadOnly = true;
-            // 
-            // raw_mat4_compostion
-            // 
-            this.raw_mat4_compostion.DataPropertyName = "raw_mat4_compostion";
-            this.raw_mat4_compostion.HeaderText = "raw_mat4_compostion";
-            this.raw_mat4_compostion.Name = "raw_mat4_compostion";
-            this.raw_mat4_compostion.ReadOnly = true;
-            // 
-            // raw_mat4_percent
-            // 
-            this.raw_mat4_percent.DataPropertyName = "raw_mat4_percent";
-            this.raw_mat4_percent.HeaderText = "raw_mat4_percent";
-            this.raw_mat4_percent.Name = "raw_mat4_percent";
-            this.raw_mat4_percent.ReadOnly = true;
-            // 
-            // raw_mat4_l3
-            // 
-            this.raw_mat4_l3.DataPropertyName = "raw_mat4_l3";
-            this.raw_mat4_l3.HeaderText = "raw_mat4_l3";
-            this.raw_mat4_l3.Name = "raw_mat4_l3";
-            this.raw_mat4_l3.ReadOnly = true;
-            // 
-            // raw_mat4_l4
-            // 
-            this.raw_mat4_l4.DataPropertyName = "raw_mat4_l4";
-            this.raw_mat4_l4.HeaderText = "raw_mat4_l4";
-            this.raw_mat4_l4.Name = "raw_mat4_l4";
-            this.raw_mat4_l4.ReadOnly = true;
-            // 
-            // raw_mat4_l5
-            // 
-            this.raw_mat4_l5.DataPropertyName = "raw_mat4_l5";
-            this.raw_mat4_l5.HeaderText = "raw_mat4_l5";
-            this.raw_mat4_l5.Name = "raw_mat4_l5";
-            this.raw_mat4_l5.ReadOnly = true;
-            // 
-            // raw_mat5_compostion
-            // 
-            this.raw_mat5_compostion.DataPropertyName = "raw_mat5_compostion";
-            this.raw_mat5_compostion.HeaderText = "raw_mat5_compostion";
-            this.raw_mat5_compostion.Name = "raw_mat5_compostion";
-            this.raw_mat5_compostion.ReadOnly = true;
-            // 
-            // raw_mat5_percent
-            // 
-            this.raw_mat5_percent.DataPropertyName = "raw_mat5_percent";
-            this.raw_mat5_percent.HeaderText = "raw_mat5_percent";
-            this.raw_mat5_percent.Name = "raw_mat5_percent";
-            this.raw_mat5_percent.ReadOnly = true;
-            // 
-            // raw_mat5_l3
-            // 
-            this.raw_mat5_l3.DataPropertyName = "raw_mat5_l3";
-            this.raw_mat5_l3.HeaderText = "raw_mat5_l3";
-            this.raw_mat5_l3.Name = "raw_mat5_l3";
-            this.raw_mat5_l3.ReadOnly = true;
-            // 
-            // raw_mat5_l4
-            // 
-            this.raw_mat5_l4.DataPropertyName = "raw_mat5_l4";
-            this.raw_mat5_l4.HeaderText = "raw_mat5_l4";
-            this.raw_mat5_l4.Name = "raw_mat5_l4";
-            this.raw_mat5_l4.ReadOnly = true;
-            // 
-            // raw_mat5_l5
-            // 
-            this.raw_mat5_l5.DataPropertyName = "raw_mat5_l5";
-            this.raw_mat5_l5.HeaderText = "raw_mat5_l5";
-            this.raw_mat5_l5.Name = "raw_mat5_l5";
-            this.raw_mat5_l5.ReadOnly = true;
-            // 
-            // currency
-            // 
-            this.currency.DataPropertyName = "currency";
-            this.currency.HeaderText = "currency";
-            this.currency.Name = "currency";
-            this.currency.ReadOnly = true;
-            // 
-            // price1
-            // 
-            this.price1.DataPropertyName = "price1";
-            this.price1.HeaderText = "price1";
-            this.price1.Name = "price1";
-            this.price1.ReadOnly = true;
-            // 
-            // price1_unit
-            // 
-            this.price1_unit.DataPropertyName = "price1_unit";
-            this.price1_unit.HeaderText = "price1_unit";
-            this.price1_unit.Name = "price1_unit";
-            this.price1_unit.ReadOnly = true;
-            // 
-            // price2
-            // 
-            this.price2.DataPropertyName = "price2";
-            this.price2.HeaderText = "price2";
-            this.price2.Name = "price2";
-            this.price2.ReadOnly = true;
-            // 
-            // price2_unit
-            // 
-            this.price2_unit.DataPropertyName = "price2_unit";
-            this.price2_unit.HeaderText = "price2_unit";
-            this.price2_unit.Name = "price2_unit";
-            this.price2_unit.ReadOnly = true;
-            // 
-            // price3
-            // 
-            this.price3.DataPropertyName = "price3";
-            this.price3.HeaderText = "price3";
-            this.price3.Name = "price3";
-            this.price3.ReadOnly = true;
-            // 
-            // price3_unit
-            // 
-            this.price3_unit.DataPropertyName = "price3_unit";
-            this.price3_unit.HeaderText = "price3_unit";
-            this.price3_unit.Name = "price3_unit";
-            this.price3_unit.ReadOnly = true;
-            // 
-            // price4
-            // 
-            this.price4.DataPropertyName = "price4";
-            this.price4.HeaderText = "price4";
-            this.price4.Name = "price4";
-            this.price4.ReadOnly = true;
-            // 
-            // price4_unit
-            // 
-            this.price4_unit.DataPropertyName = "price4_unit";
-            this.price4_unit.HeaderText = "price4_unit";
-            this.price4_unit.Name = "price4_unit";
-            this.price4_unit.ReadOnly = true;
-            // 
-            // price5
-            // 
-            this.price5.DataPropertyName = "price5";
-            this.price5.HeaderText = "price5";
-            this.price5.Name = "price5";
-            this.price5.ReadOnly = true;
-            // 
-            // price5_unit
-            // 
-            this.price5_unit.DataPropertyName = "price5_unit";
-            this.price5_unit.HeaderText = "price5_unit";
-            this.price5_unit.Name = "price5_unit";
-            this.price5_unit.ReadOnly = true;
-            // 
-            // price6
-            // 
-            this.price6.DataPropertyName = "price6";
-            this.price6.HeaderText = "price6";
-            this.price6.Name = "price6";
-            this.price6.ReadOnly = true;
-            // 
-            // price6_unit
-            // 
-            this.price6_unit.DataPropertyName = "price6_unit";
-            this.price6_unit.HeaderText = "price6_unit";
-            this.price6_unit.Name = "price6_unit";
-            this.price6_unit.ReadOnly = true;
-            // 
-            // surcharge
-            // 
-            this.surcharge.DataPropertyName = "surcharge";
-            this.surcharge.HeaderText = "surcharge";
-            this.surcharge.Name = "surcharge";
-            this.surcharge.ReadOnly = true;
-            // 
-            // bulk_moq
-            // 
-            this.bulk_moq.DataPropertyName = "bulk_moq";
-            this.bulk_moq.HeaderText = "bulk_moq";
-            this.bulk_moq.Name = "bulk_moq";
-            this.bulk_moq.ReadOnly = true;
-            // 
-            // moq_color
-            // 
-            this.moq_color.DataPropertyName = "moq_color";
-            this.moq_color.HeaderText = "moq_color";
-            this.moq_color.Name = "moq_color";
-            this.moq_color.ReadOnly = true;
-            // 
-            // leadtime_sample
-            // 
-            this.leadtime_sample.DataPropertyName = "leadtime_sample";
-            this.leadtime_sample.HeaderText = "leadtime_sample";
-            this.leadtime_sample.Name = "leadtime_sample";
-            this.leadtime_sample.ReadOnly = true;
-            // 
-            // leadtime_bulk
-            // 
-            this.leadtime_bulk.DataPropertyName = "leadtime_bulk";
-            this.leadtime_bulk.HeaderText = "leadtime_bulk";
-            this.leadtime_bulk.Name = "leadtime_bulk";
-            this.leadtime_bulk.ReadOnly = true;
-            // 
-            // cert1_mat_finish
-            // 
-            this.cert1_mat_finish.DataPropertyName = "cert1_mat_finish";
-            this.cert1_mat_finish.HeaderText = "cert1_mat_finish";
-            this.cert1_mat_finish.Name = "cert1_mat_finish";
-            this.cert1_mat_finish.ReadOnly = true;
-            // 
-            // cert1_type
-            // 
-            this.cert1_type.DataPropertyName = "cert1_type";
-            this.cert1_type.HeaderText = "cert1_type";
-            this.cert1_type.Name = "cert1_type";
-            this.cert1_type.ReadOnly = true;
-            // 
-            // cert1_type_other
-            // 
-            this.cert1_type_other.DataPropertyName = "cert1_type_other";
-            this.cert1_type_other.HeaderText = "cert1_type_other";
-            this.cert1_type_other.Name = "cert1_type_other";
-            this.cert1_type_other.ReadOnly = true;
-            // 
-            // cert1_scope_no
-            // 
-            this.cert1_scope_no.DataPropertyName = "cert1_scope_no";
-            this.cert1_scope_no.HeaderText = "cert1_scope_no";
-            this.cert1_scope_no.Name = "cert1_scope_no";
-            this.cert1_scope_no.ReadOnly = true;
-            // 
-            // cert1_expiry_date
-            // 
-            this.cert1_expiry_date.DataPropertyName = "cert1_expiry_date";
-            this.cert1_expiry_date.HeaderText = "cert1_expiry_date";
-            this.cert1_expiry_date.Name = "cert1_expiry_date";
-            this.cert1_expiry_date.ReadOnly = true;
-            // 
-            // cert1_scope_holder
-            // 
-            this.cert1_scope_holder.DataPropertyName = "cert1_scope_holder";
-            this.cert1_scope_holder.HeaderText = "cert1_scope_holder";
-            this.cert1_scope_holder.Name = "cert1_scope_holder";
-            this.cert1_scope_holder.ReadOnly = true;
-            // 
-            // cert2_mat_finish
-            // 
-            this.cert2_mat_finish.DataPropertyName = "cert2_mat_finish";
-            this.cert2_mat_finish.HeaderText = "cert2_mat_finish";
-            this.cert2_mat_finish.Name = "cert2_mat_finish";
-            this.cert2_mat_finish.ReadOnly = true;
-            // 
-            // cert2_type
-            // 
-            this.cert2_type.DataPropertyName = "cert2_type";
-            this.cert2_type.HeaderText = "cert2_type";
-            this.cert2_type.Name = "cert2_type";
-            this.cert2_type.ReadOnly = true;
-            // 
-            // cert2_type_other
-            // 
-            this.cert2_type_other.DataPropertyName = "cert2_type_other";
-            this.cert2_type_other.HeaderText = "cert2_type_other";
-            this.cert2_type_other.Name = "cert2_type_other";
-            this.cert2_type_other.ReadOnly = true;
-            // 
-            // cert2_scope_no
-            // 
-            this.cert2_scope_no.DataPropertyName = "cert2_scope_no";
-            this.cert2_scope_no.HeaderText = "cert2_scope_no";
-            this.cert2_scope_no.Name = "cert2_scope_no";
-            this.cert2_scope_no.ReadOnly = true;
-            // 
-            // cert2_expiry_date
-            // 
-            this.cert2_expiry_date.DataPropertyName = "cert2_expiry_date";
-            this.cert2_expiry_date.HeaderText = "cert2_expiry_date";
-            this.cert2_expiry_date.Name = "cert2_expiry_date";
-            this.cert2_expiry_date.ReadOnly = true;
-            // 
-            // cert2_scope_holder
-            // 
-            this.cert2_scope_holder.DataPropertyName = "cert2_scope_holder";
-            this.cert2_scope_holder.HeaderText = "cert2_scope_holder";
-            this.cert2_scope_holder.Name = "cert2_scope_holder";
-            this.cert2_scope_holder.ReadOnly = true;
-            // 
-            // cert3_mat_finish
-            // 
-            this.cert3_mat_finish.DataPropertyName = "cert3_mat_finish";
-            this.cert3_mat_finish.HeaderText = "cert3_mat_finish";
-            this.cert3_mat_finish.Name = "cert3_mat_finish";
-            this.cert3_mat_finish.ReadOnly = true;
-            // 
-            // cert3_type
-            // 
-            this.cert3_type.DataPropertyName = "cert3_type";
-            this.cert3_type.HeaderText = "cert3_type";
-            this.cert3_type.Name = "cert3_type";
-            this.cert3_type.ReadOnly = true;
-            // 
-            // cert3_type_other
-            // 
-            this.cert3_type_other.DataPropertyName = "cert3_type_other";
-            this.cert3_type_other.HeaderText = "cert3_type_other";
-            this.cert3_type_other.Name = "cert3_type_other";
-            this.cert3_type_other.ReadOnly = true;
-            // 
-            // cert3_scope_no
-            // 
-            this.cert3_scope_no.DataPropertyName = "cert3_scope_no";
-            this.cert3_scope_no.HeaderText = "cert3_scope_no";
-            this.cert3_scope_no.Name = "cert3_scope_no";
-            this.cert3_scope_no.ReadOnly = true;
-            // 
-            // cert3_expiry_date
-            // 
-            this.cert3_expiry_date.DataPropertyName = "cert3_expiry_date";
-            this.cert3_expiry_date.HeaderText = "cert3_expiry_date";
-            this.cert3_expiry_date.Name = "cert3_expiry_date";
-            this.cert3_expiry_date.ReadOnly = true;
-            // 
-            // cert3_scope_holder
-            // 
-            this.cert3_scope_holder.DataPropertyName = "cert3_scope_holder";
-            this.cert3_scope_holder.HeaderText = "cert3_scope_holder";
-            this.cert3_scope_holder.Name = "cert3_scope_holder";
-            this.cert3_scope_holder.ReadOnly = true;
-            // 
-            // cert4_mat_finish
-            // 
-            this.cert4_mat_finish.DataPropertyName = "cert4_mat_finish";
-            this.cert4_mat_finish.HeaderText = "cert4_mat_finish";
-            this.cert4_mat_finish.Name = "cert4_mat_finish";
-            this.cert4_mat_finish.ReadOnly = true;
-            // 
-            // cert4_type
-            // 
-            this.cert4_type.DataPropertyName = "cert4_type";
-            this.cert4_type.HeaderText = "cert4_type";
-            this.cert4_type.Name = "cert4_type";
-            this.cert4_type.ReadOnly = true;
-            // 
-            // cert4_type_other
-            // 
-            this.cert4_type_other.DataPropertyName = "cert4_type_other";
-            this.cert4_type_other.HeaderText = "cert4_type_other";
-            this.cert4_type_other.Name = "cert4_type_other";
-            this.cert4_type_other.ReadOnly = true;
-            // 
-            // cert4_scope_no
-            // 
-            this.cert4_scope_no.DataPropertyName = "cert4_scope_no";
-            this.cert4_scope_no.HeaderText = "cert4_scope_no";
-            this.cert4_scope_no.Name = "cert4_scope_no";
-            this.cert4_scope_no.ReadOnly = true;
-            // 
-            // cert4_expiry_date
-            // 
-            this.cert4_expiry_date.DataPropertyName = "cert4_expiry_date";
-            this.cert4_expiry_date.HeaderText = "cert4_expiry_date";
-            this.cert4_expiry_date.Name = "cert4_expiry_date";
-            this.cert4_expiry_date.ReadOnly = true;
-            // 
-            // cert4_scope_holder
-            // 
-            this.cert4_scope_holder.DataPropertyName = "cert4_scope_holder";
-            this.cert4_scope_holder.HeaderText = "cert4_scope_holder";
-            this.cert4_scope_holder.Name = "cert4_scope_holder";
-            this.cert4_scope_holder.ReadOnly = true;
-            // 
-            // rsl_certificate_type
-            // 
-            this.rsl_certificate_type.DataPropertyName = "rsl_certificate_type";
-            this.rsl_certificate_type.HeaderText = "rsl_certificate_type";
-            this.rsl_certificate_type.Name = "rsl_certificate_type";
-            this.rsl_certificate_type.ReadOnly = true;
-            // 
-            // rsl_certificate_expiry_date
-            // 
-            this.rsl_certificate_expiry_date.DataPropertyName = "rsl_certificate_expiry_date";
-            this.rsl_certificate_expiry_date.HeaderText = "rsl_certificate_expiry_date";
-            this.rsl_certificate_expiry_date.Name = "rsl_certificate_expiry_date";
-            this.rsl_certificate_expiry_date.ReadOnly = true;
-            // 
-            // machine_washable
-            // 
-            this.machine_washable.DataPropertyName = "machine_washable";
-            this.machine_washable.HeaderText = "machine_washable";
-            this.machine_washable.Name = "machine_washable";
-            this.machine_washable.ReadOnly = true;
-            // 
-            // dry_cleanable
-            // 
-            this.dry_cleanable.DataPropertyName = "dry_cleanable";
-            this.dry_cleanable.HeaderText = "dry_cleanable";
-            this.dry_cleanable.Name = "dry_cleanable";
-            this.dry_cleanable.ReadOnly = true;
-            // 
-            // dry_clean_only
-            // 
-            this.dry_clean_only.DataPropertyName = "dry_clean_only";
-            this.dry_clean_only.HeaderText = "dry_clean_only";
-            this.dry_clean_only.Name = "dry_clean_only";
-            this.dry_clean_only.ReadOnly = true;
-            // 
-            // do_not_dry_clean
-            // 
-            this.do_not_dry_clean.DataPropertyName = "do_not_dry_clean";
-            this.do_not_dry_clean.HeaderText = "do_not_dry_clean";
-            this.do_not_dry_clean.Name = "do_not_dry_clean";
-            this.do_not_dry_clean.ReadOnly = true;
-            // 
-            // suitable_for_tumble_dry
-            // 
-            this.suitable_for_tumble_dry.DataPropertyName = "suitable_for_tumble_dry";
-            this.suitable_for_tumble_dry.HeaderText = "suitable_for_tumble_dry";
-            this.suitable_for_tumble_dry.Name = "suitable_for_tumble_dry";
-            this.suitable_for_tumble_dry.ReadOnly = true;
-            // 
-            // suitable_for_swimwear
-            // 
-            this.suitable_for_swimwear.DataPropertyName = "suitable_for_swimwear";
-            this.suitable_for_swimwear.HeaderText = "suitable_for_swimwear";
-            this.suitable_for_swimwear.Name = "suitable_for_swimwear";
-            this.suitable_for_swimwear.ReadOnly = true;
-            // 
-            // passes_metal_detection
-            // 
-            this.passes_metal_detection.DataPropertyName = "passes_metal_detection";
-            this.passes_metal_detection.HeaderText = "passes_metal_detection";
-            this.passes_metal_detection.Name = "passes_metal_detection";
-            this.passes_metal_detection.ReadOnly = true;
-            // 
-            // complies_with_pvh
-            // 
-            this.complies_with_pvh.DataPropertyName = "complies_with_pvh";
-            this.complies_with_pvh.HeaderText = "complies_with_pvh";
-            this.complies_with_pvh.Name = "complies_with_pvh";
-            this.complies_with_pvh.ReadOnly = true;
-            // 
-            // complies_with_cfr
-            // 
-            this.complies_with_cfr.DataPropertyName = "complies_with_cfr";
-            this.complies_with_cfr.HeaderText = "complies_with_cfr";
-            this.complies_with_cfr.Name = "complies_with_cfr";
-            this.complies_with_cfr.ReadOnly = true;
-            // 
-            // quality_callouts
-            // 
-            this.quality_callouts.DataPropertyName = "quality_callouts";
-            this.quality_callouts.HeaderText = "quality_callouts";
-            this.quality_callouts.Name = "quality_callouts";
-            this.quality_callouts.ReadOnly = true;
-            // 
-            // submit1
-            // 
-            this.submit1.DataPropertyName = "submit1";
-            this.submit1.FalseValue = "False";
-            this.submit1.HeaderText = "Submit1";
-            this.submit1.Name = "submit1";
-            this.submit1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.submit1.TrueValue = "True";
-            // 
-            // submit2
-            // 
-            this.submit2.DataPropertyName = "submit2";
-            this.submit2.FalseValue = "False";
-            this.submit2.HeaderText = "Submit2";
-            this.submit2.Name = "submit2";
-            this.submit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.submit2.TrueValue = "True";
-            // 
-            // submit3
-            // 
-            this.submit3.DataPropertyName = "submit3";
-            this.submit3.FalseValue = "False";
-            this.submit3.HeaderText = "Submit3";
-            this.submit3.Name = "submit3";
-            this.submit3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.submit3.TrueValue = "True";
-            // 
-            // urgent_bulk_order
-            // 
-            this.urgent_bulk_order.DataPropertyName = "urgent_bulk_order";
-            this.urgent_bulk_order.FalseValue = "False";
-            this.urgent_bulk_order.HeaderText = "URGENT BULK";
-            this.urgent_bulk_order.Name = "urgent_bulk_order";
-            this.urgent_bulk_order.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.urgent_bulk_order.TrueValue = "True";
-            // 
-            // for_bulk_feference
-            // 
-            this.for_bulk_feference.DataPropertyName = "for_bulk_feference";
-            this.for_bulk_feference.HeaderText = "for_bulk_feference";
-            this.for_bulk_feference.Name = "for_bulk_feference";
-            this.for_bulk_feference.ReadOnly = true;
-            // 
-            // for_quality_approval
-            // 
-            this.for_quality_approval.DataPropertyName = "for_quality_approval";
-            this.for_quality_approval.HeaderText = "for_quality_approval";
-            this.for_quality_approval.Name = "for_quality_approval";
-            this.for_quality_approval.ReadOnly = true;
-            // 
-            // color_already_approved
-            // 
-            this.color_already_approved.DataPropertyName = "color_already_approved";
-            this.color_already_approved.HeaderText = "color_already_approved";
-            this.color_already_approved.Name = "color_already_approved";
-            this.color_already_approved.ReadOnly = true;
-            // 
-            // size_already_approved
-            // 
-            this.size_already_approved.DataPropertyName = "size_already_approved";
-            this.size_already_approved.HeaderText = "size_already_approved";
-            this.size_already_approved.Name = "size_already_approved";
-            this.size_already_approved.ReadOnly = true;
-            // 
-            // create_by
-            // 
-            this.create_by.DataPropertyName = "create_by";
-            this.create_by.HeaderText = "create_by";
-            this.create_by.Name = "create_by";
-            this.create_by.ReadOnly = true;
-            this.create_by.Visible = false;
-            // 
-            // create_date
-            // 
-            this.create_date.DataPropertyName = "create_date";
-            this.create_date.HeaderText = "create_date";
-            this.create_date.Name = "create_date";
-            this.create_date.ReadOnly = true;
-            this.create_date.Visible = false;
-            // 
-            // update_by
-            // 
-            this.update_by.DataPropertyName = "update_by";
-            this.update_by.HeaderText = "update_by";
-            this.update_by.Name = "update_by";
-            this.update_by.ReadOnly = true;
-            this.update_by.Visible = false;
-            // 
-            // update_date
-            // 
-            this.update_date.DataPropertyName = "update_date";
-            this.update_date.HeaderText = "update_date";
-            this.update_date.Name = "update_date";
-            this.update_date.ReadOnly = true;
-            this.update_date.Visible = false;
-            // 
-            // mo_id1
-            // 
-            this.mo_id1.DataPropertyName = "mo_id1";
-            this.mo_id1.HeaderText = "MO1";
-            this.mo_id1.Name = "mo_id1";
-            this.mo_id1.ReadOnly = true;
-            // 
-            // mo_id2
-            // 
-            this.mo_id2.DataPropertyName = "mo_id2";
-            this.mo_id2.HeaderText = "MO2";
-            this.mo_id2.Name = "mo_id2";
-            this.mo_id2.ReadOnly = true;
-            // 
-            // mo_id3
-            // 
-            this.mo_id3.DataPropertyName = "mo_id3";
-            this.mo_id3.HeaderText = "MO3";
-            this.mo_id3.Name = "mo_id3";
-            this.mo_id3.ReadOnly = true;
-            // 
-            // dye_type
-            // 
-            this.dye_type.DataPropertyName = "dye_type";
-            this.dye_type.HeaderText = "Dye Type";
-            this.dye_type.Name = "dye_type";
-            this.dye_type.ReadOnly = true;
-            // 
-            // dye_method
-            // 
-            this.dye_method.DataPropertyName = "dye_method";
-            this.dye_method.HeaderText = "Dye Method";
-            this.dye_method.Name = "dye_method";
-            this.dye_method.ReadOnly = true;
             // 
             // panel1
             // 
@@ -2013,7 +1189,7 @@
             this.lueSize_already_approved.Properties.ShowHeader = false;
             this.lueSize_already_approved.Properties.Tag = "2";
             this.lueSize_already_approved.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueSize_already_approved.Size = new System.Drawing.Size(71, 22);
+            this.lueSize_already_approved.Size = new System.Drawing.Size(74, 22);
             this.lueSize_already_approved.TabIndex = 3;
             this.lueSize_already_approved.Tag = "2";
             // 
@@ -2121,7 +1297,7 @@
             this.lueFor_quality_approval.Properties.ShowHeader = false;
             this.lueFor_quality_approval.Properties.Tag = "2";
             this.lueFor_quality_approval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueFor_quality_approval.Size = new System.Drawing.Size(71, 22);
+            this.lueFor_quality_approval.Size = new System.Drawing.Size(74, 22);
             this.lueFor_quality_approval.TabIndex = 1;
             this.lueFor_quality_approval.Tag = "2";
             // 
@@ -2130,6 +1306,12 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.txtWeight);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Controls.Add(this.txtWeight_base);
+            this.panel8.Controls.Add(this.txtDye_method);
+            this.panel8.Controls.Add(this.label92);
+            this.panel8.Controls.Add(this.txtMaterial_structure);
             this.panel8.Controls.Add(this.cbeFactory_name);
             this.panel8.Controls.Add(this.label88);
             this.panel8.Controls.Add(this.txtProcess);
@@ -2181,8 +1363,6 @@
             this.panel8.Controls.Add(this.txtPrevious_submit_ref);
             this.panel8.Controls.Add(this.lueMaterial_subtype);
             this.panel8.Controls.Add(this.label59);
-            this.panel8.Controls.Add(this.txtWeight);
-            this.panel8.Controls.Add(this.label55);
             this.panel8.Controls.Add(this.label52);
             this.panel8.Controls.Add(this.txtsupplier_name);
             this.panel8.Controls.Add(this.label12);
@@ -2193,12 +1373,12 @@
             this.panel8.Controls.Add(this.txtColour);
             this.panel8.Controls.Add(this.label64);
             this.panel8.Controls.Add(this.label56);
-            this.panel8.Controls.Add(this.label89);
             this.panel8.Controls.Add(this.txtFinish);
             this.panel8.Controls.Add(this.txtDye_type);
-            this.panel8.Controls.Add(this.txtDye_method);
             this.panel8.Controls.Add(this.label51);
             this.panel8.Controls.Add(this.txtFactory_name);
+            this.panel8.Controls.Add(this.label89);
+            this.panel8.Controls.Add(this.label55);
             this.panel8.Location = new System.Drawing.Point(2, 49);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(995, 208);
@@ -2219,9 +1399,9 @@
             // label88
             // 
             this.label88.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label88.Location = new System.Drawing.Point(5, 105);
+            this.label88.Location = new System.Drawing.Point(716, 107);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(96, 15);
+            this.label88.Size = new System.Drawing.Size(53, 15);
             this.label88.TabIndex = 167;
             this.label88.Text = "Dye Type";
             this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2229,10 +1409,10 @@
             // txtProcess
             // 
             this.txtProcess.EnterMoveNextControl = true;
-            this.txtProcess.Location = new System.Drawing.Point(605, 83);
+            this.txtProcess.Location = new System.Drawing.Point(605, 84);
             this.txtProcess.Name = "txtProcess";
             this.txtProcess.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.txtProcess.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtProcess.Properties.ReadOnly = true;
             this.txtProcess.Size = new System.Drawing.Size(380, 20);
@@ -2247,15 +1427,11 @@
             this.txtWeight_uom.EditValue = "";
             this.txtWeight_uom.Enabled = false;
             this.txtWeight_uom.EnterMoveNextControl = true;
-            this.txtWeight_uom.Location = new System.Drawing.Point(835, 41);
+            this.txtWeight_uom.Location = new System.Drawing.Point(605, 42);
             this.txtWeight_uom.Name = "txtWeight_uom";
             this.txtWeight_uom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtWeight_uom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWeight_uom.Properties.Items.AddRange(new object[] {
-            "",
-            "PCS",
-            "SET"});
             this.txtWeight_uom.Size = new System.Drawing.Size(150, 20);
             this.txtWeight_uom.TabIndex = 163;
             // 
@@ -2263,7 +1439,7 @@
             // 
             this.luePrevious_submit_vr.Enabled = false;
             this.luePrevious_submit_vr.EnterMoveNextControl = true;
-            this.luePrevious_submit_vr.Location = new System.Drawing.Point(835, 21);
+            this.luePrevious_submit_vr.Location = new System.Drawing.Point(835, 1);
             this.luePrevious_submit_vr.Name = "luePrevious_submit_vr";
             this.luePrevious_submit_vr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.luePrevious_submit_vr.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2914,9 +2090,9 @@
             // label66
             // 
             this.label66.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label66.Location = new System.Drawing.Point(707, 63);
+            this.label66.Location = new System.Drawing.Point(672, 64);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(122, 19);
+            this.label66.Size = new System.Drawing.Size(98, 19);
             this.label66.TabIndex = 137;
             this.label66.Text = "U3Ma file available";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2925,7 +2101,7 @@
             // 
             this.lueU3ma.Enabled = false;
             this.lueU3ma.EnterMoveNextControl = true;
-            this.lueU3ma.Location = new System.Drawing.Point(835, 62);
+            this.lueU3ma.Location = new System.Drawing.Point(771, 63);
             this.lueU3ma.Name = "lueU3ma";
             this.lueU3ma.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueU3ma.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2937,7 +2113,7 @@
             this.lueU3ma.Properties.ShowHeader = false;
             this.lueU3ma.Properties.Tag = "2";
             this.lueU3ma.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueU3ma.Size = new System.Drawing.Size(150, 20);
+            this.lueU3ma.Size = new System.Drawing.Size(66, 20);
             this.lueU3ma.TabIndex = 13;
             this.lueU3ma.Tag = "2";
             // 
@@ -2954,7 +2130,7 @@
             // label65
             // 
             this.label65.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label65.Location = new System.Drawing.Point(465, 63);
+            this.label65.Location = new System.Drawing.Point(465, 64);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(136, 15);
             this.label65.TabIndex = 135;
@@ -2965,7 +2141,7 @@
             // 
             this.lueObj_fbx.Enabled = false;
             this.lueObj_fbx.EnterMoveNextControl = true;
-            this.lueObj_fbx.Location = new System.Drawing.Point(605, 62);
+            this.lueObj_fbx.Location = new System.Drawing.Point(605, 63);
             this.lueObj_fbx.Name = "lueObj_fbx";
             this.lueObj_fbx.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueObj_fbx.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2977,14 +2153,14 @@
             this.lueObj_fbx.Properties.ShowHeader = false;
             this.lueObj_fbx.Properties.Tag = "2";
             this.lueObj_fbx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueObj_fbx.Size = new System.Drawing.Size(93, 20);
+            this.lueObj_fbx.Size = new System.Drawing.Size(64, 20);
             this.lueObj_fbx.TabIndex = 12;
             this.lueObj_fbx.Tag = "2";
             // 
             // label63
             // 
             this.label63.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(465, 22);
+            this.label63.Location = new System.Drawing.Point(465, -2);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(136, 18);
             this.label63.TabIndex = 131;
@@ -2995,7 +2171,7 @@
             // 
             this.lueSample_type.Enabled = false;
             this.lueSample_type.EnterMoveNextControl = true;
-            this.lueSample_type.Location = new System.Drawing.Point(605, 21);
+            this.lueSample_type.Location = new System.Drawing.Point(605, 1);
             this.lueSample_type.Name = "lueSample_type";
             this.lueSample_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueSample_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3015,7 +2191,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(465, 1);
+            this.label5.Location = new System.Drawing.Point(465, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 18);
             this.label5.TabIndex = 129;
@@ -3025,7 +2201,7 @@
             // txtPrevious_submit_ref
             // 
             this.txtPrevious_submit_ref.EnterMoveNextControl = true;
-            this.txtPrevious_submit_ref.Location = new System.Drawing.Point(605, 1);
+            this.txtPrevious_submit_ref.Location = new System.Drawing.Point(605, 21);
             this.txtPrevious_submit_ref.Name = "txtPrevious_submit_ref";
             this.txtPrevious_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPrevious_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3059,34 +2235,34 @@
             // label59
             // 
             this.label59.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label59.Location = new System.Drawing.Point(702, 24);
+            this.label59.Location = new System.Drawing.Point(702, 4);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(127, 15);
             this.label59.TabIndex = 126;
             this.label59.Text = "Previous submit VR status";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtWeight
+            // txtWeight_base
             // 
-            this.txtWeight.EnterMoveNextControl = true;
-            this.txtWeight.Location = new System.Drawing.Point(605, 41);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtWeight.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtWeight.Properties.MaxLength = 100;
-            this.txtWeight.Properties.ReadOnly = true;
-            this.txtWeight.Size = new System.Drawing.Size(93, 20);
-            this.txtWeight.TabIndex = 10;
-            this.txtWeight.Tag = "2";
+            this.txtWeight_base.EnterMoveNextControl = true;
+            this.txtWeight_base.Location = new System.Drawing.Point(892, 42);
+            this.txtWeight_base.Name = "txtWeight_base";
+            this.txtWeight_base.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtWeight_base.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtWeight_base.Properties.MaxLength = 100;
+            this.txtWeight_base.Properties.ReadOnly = true;
+            this.txtWeight_base.Size = new System.Drawing.Size(93, 20);
+            this.txtWeight_base.TabIndex = 10;
+            this.txtWeight_base.Tag = "2";
             // 
             // label55
             // 
             this.label55.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label55.Location = new System.Drawing.Point(500, 43);
+            this.label55.Location = new System.Drawing.Point(755, 43);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(101, 16);
+            this.label55.Size = new System.Drawing.Size(139, 16);
             this.label55.TabIndex = 77;
-            this.label55.Text = "Weight";
+            this.label55.Text = "Weight (base weight) in gms";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label52
@@ -3135,7 +2311,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(242, 63);
+            this.label2.Location = new System.Drawing.Point(242, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 72;
@@ -3145,7 +2321,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(3, 63);
+            this.label6.Location = new System.Drawing.Point(3, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 68;
@@ -3179,7 +2355,7 @@
             // label64
             // 
             this.label64.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label64.Location = new System.Drawing.Point(697, 43);
+            this.label64.Location = new System.Drawing.Point(467, 43);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(143, 16);
             this.label64.TabIndex = 132;
@@ -3188,20 +2364,20 @@
             // 
             // label56
             // 
-            this.label56.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.label56.Location = new System.Drawing.Point(463, 84);
+            this.label56.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(463, 85);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(186, 15);
+            this.label56.Size = new System.Drawing.Size(138, 15);
             this.label56.TabIndex = 79;
-            this.label56.Text = "Process (inc Sustainable,if applicable)";
-            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label56.Text = "Process ";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label89
             // 
             this.label89.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label89.Location = new System.Drawing.Point(479, 104);
+            this.label89.Location = new System.Drawing.Point(427, 107);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(122, 19);
+            this.label89.Size = new System.Drawing.Size(70, 15);
             this.label89.TabIndex = 169;
             this.label89.Text = "Dye Method";
             this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3209,18 +2385,18 @@
             // txtFinish
             // 
             this.txtFinish.EnterMoveNextControl = true;
-            this.txtFinish.Location = new System.Drawing.Point(103, 83);
+            this.txtFinish.Location = new System.Drawing.Point(47, 105);
             this.txtFinish.Name = "txtFinish";
             this.txtFinish.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtFinish.Properties.Appearance.Options.UseBackColor = true;
             this.txtFinish.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtFinish.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtFinish.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.txtFinish.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtFinish.Properties.MaxLength = 50;
             this.txtFinish.Properties.ReadOnly = true;
-            this.txtFinish.Size = new System.Drawing.Size(359, 20);
+            this.txtFinish.Size = new System.Drawing.Size(376, 20);
             this.txtFinish.TabIndex = 161;
             this.txtFinish.Tag = "1";
             this.txtFinish.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
@@ -3230,17 +2406,17 @@
             // txtDye_type
             // 
             this.txtDye_type.EnterMoveNextControl = true;
-            this.txtDye_type.Location = new System.Drawing.Point(103, 104);
+            this.txtDye_type.Location = new System.Drawing.Point(770, 105);
             this.txtDye_type.Name = "txtDye_type";
             this.txtDye_type.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtDye_type.Properties.Appearance.Options.UseBackColor = true;
             this.txtDye_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtDye_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtDye_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.txtDye_type.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtDye_type.Properties.ReadOnly = true;
-            this.txtDye_type.Size = new System.Drawing.Size(359, 20);
+            this.txtDye_type.Size = new System.Drawing.Size(215, 20);
             this.txtDye_type.TabIndex = 166;
             this.txtDye_type.Tag = "1";
             this.txtDye_type.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
@@ -3250,17 +2426,17 @@
             // txtDye_method
             // 
             this.txtDye_method.EnterMoveNextControl = true;
-            this.txtDye_method.Location = new System.Drawing.Point(605, 103);
+            this.txtDye_method.Location = new System.Drawing.Point(497, 105);
             this.txtDye_method.Name = "txtDye_method";
             this.txtDye_method.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtDye_method.Properties.Appearance.Options.UseBackColor = true;
             this.txtDye_method.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtDye_method.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtDye_method.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.txtDye_method.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtDye_method.Properties.ReadOnly = true;
-            this.txtDye_method.Size = new System.Drawing.Size(380, 20);
+            this.txtDye_method.Size = new System.Drawing.Size(218, 20);
             this.txtDye_method.TabIndex = 168;
             this.txtDye_method.Tag = "1";
             this.txtDye_method.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
@@ -3270,12 +2446,12 @@
             // label51
             // 
             this.label51.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.label51.Location = new System.Drawing.Point(1, 84);
+            this.label51.Location = new System.Drawing.Point(1, 106);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(180, 15);
+            this.label51.Size = new System.Drawing.Size(42, 15);
             this.label51.TabIndex = 125;
-            this.label51.Text = "Finish (inc Sustainable,if applicable)";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label51.Text = "Finish";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtFactory_name
             // 
@@ -3523,7 +2699,7 @@
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtPvh_submit_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
             this.txtPvh_submit_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPvh_submit_ref.Properties.ReadOnly = true;
             this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
@@ -3594,7 +2770,7 @@
             this.txtprice6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice6.Properties.ReadOnly = true;
             this.txtprice6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtprice6.Size = new System.Drawing.Size(118, 22);
+            this.txtprice6.Size = new System.Drawing.Size(119, 22);
             this.txtprice6.TabIndex = 12;
             this.txtprice6.Tag = "2";
             // 
@@ -3618,7 +2794,7 @@
             this.luePrice6_unit.Properties.ShowHeader = false;
             this.luePrice6_unit.Properties.Tag = "2";
             this.luePrice6_unit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.luePrice6_unit.Size = new System.Drawing.Size(118, 22);
+            this.luePrice6_unit.Size = new System.Drawing.Size(119, 22);
             this.luePrice6_unit.TabIndex = 6;
             this.luePrice6_unit.Tag = "2";
             // 
@@ -3926,7 +3102,7 @@
             this.txtSurcharge.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtSurcharge.Properties.MaxLength = 50;
             this.txtSurcharge.Properties.ReadOnly = true;
-            this.txtSurcharge.Size = new System.Drawing.Size(864, 22);
+            this.txtSurcharge.Size = new System.Drawing.Size(865, 22);
             this.txtSurcharge.TabIndex = 13;
             this.txtSurcharge.Tag = "2";
             // 
@@ -4018,7 +3194,7 @@
             this.txtmoq_color.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtmoq_color.Properties.MaxLength = 50;
             this.txtmoq_color.Properties.ReadOnly = true;
-            this.txtmoq_color.Size = new System.Drawing.Size(298, 22);
+            this.txtmoq_color.Size = new System.Drawing.Size(299, 22);
             this.txtmoq_color.TabIndex = 15;
             this.txtmoq_color.Tag = "2";
             // 
@@ -4034,7 +3210,6 @@
             this.panel5.Controls.Add(this.label44);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.lueComplies_with_pvh);
-            this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.label43);
             this.panel5.Controls.Add(this.lueDo_not_dry_clean);
             this.panel5.Controls.Add(this.label40);
@@ -4068,7 +3243,7 @@
             this.txtQuality_callouts.EnterMoveNextControl = true;
             this.txtQuality_callouts.Location = new System.Drawing.Point(103, 109);
             this.txtQuality_callouts.Name = "txtQuality_callouts";
-            this.txtQuality_callouts.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuality_callouts.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7F);
             this.txtQuality_callouts.Properties.Appearance.Options.UseFont = true;
             this.txtQuality_callouts.Properties.MaxLength = 600;
             this.txtQuality_callouts.Properties.ReadOnly = true;
@@ -4130,7 +3305,7 @@
             this.lueComplies_with_cfr.Properties.ShowHeader = false;
             this.lueComplies_with_cfr.Properties.Tag = "2";
             this.lueComplies_with_cfr.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueComplies_with_cfr.Size = new System.Drawing.Size(88, 22);
+            this.lueComplies_with_cfr.Size = new System.Drawing.Size(89, 22);
             this.lueComplies_with_cfr.TabIndex = 10;
             this.lueComplies_with_cfr.Tag = "2";
             // 
@@ -4141,7 +3316,7 @@
             this.label44.ForeColor = System.Drawing.Color.White;
             this.label44.Location = new System.Drawing.Point(581, 86);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(314, 22);
+            this.label44.Size = new System.Drawing.Size(315, 22);
             this.label44.TabIndex = 205;
             this.label44.Text = "Complies with 16 CFR 1615 Flammability test ";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4151,9 +3326,9 @@
             this.label16.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label16.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(169, 86);
+            this.label16.Location = new System.Drawing.Point(70, 86);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(341, 22);
+            this.label16.Size = new System.Drawing.Size(412, 22);
             this.label16.TabIndex = 204;
             this.label16.Text = "Complies with PVH Europe Children’s Product safety requirements (GQM Chapter 7A)";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4162,7 +3337,7 @@
             // 
             this.lueComplies_with_pvh.Enabled = false;
             this.lueComplies_with_pvh.EnterMoveNextControl = true;
-            this.lueComplies_with_pvh.Location = new System.Drawing.Point(511, 86);
+            this.lueComplies_with_pvh.Location = new System.Drawing.Point(483, 86);
             this.lueComplies_with_pvh.Name = "lueComplies_with_pvh";
             this.lueComplies_with_pvh.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueComplies_with_pvh.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4179,65 +3354,54 @@
             this.lueComplies_with_pvh.Properties.ShowHeader = false;
             this.lueComplies_with_pvh.Properties.Tag = "2";
             this.lueComplies_with_pvh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueComplies_with_pvh.Size = new System.Drawing.Size(69, 22);
+            this.lueComplies_with_pvh.Size = new System.Drawing.Size(97, 22);
             this.lueComplies_with_pvh.TabIndex = 9;
             this.lueComplies_with_pvh.Tag = "2";
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(784, 63);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(201, 21);
-            this.label4.TabIndex = 202;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label43
             // 
             this.label43.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label43.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.Color.White;
-            this.label43.Location = new System.Drawing.Point(784, 39);
+            this.label43.Location = new System.Drawing.Point(70, 63);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(111, 23);
+            this.label43.Size = new System.Drawing.Size(37, 21);
             this.label43.TabIndex = 200;
-            this.label43.Text = "Do not Dry Clean";
+            this.label43.Text = "Dryer";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueDo_not_dry_clean
             // 
             this.lueDo_not_dry_clean.Enabled = false;
             this.lueDo_not_dry_clean.EnterMoveNextControl = true;
-            this.lueDo_not_dry_clean.Location = new System.Drawing.Point(898, 40);
+            this.lueDo_not_dry_clean.Location = new System.Drawing.Point(108, 63);
             this.lueDo_not_dry_clean.Name = "lueDo_not_dry_clean";
             this.lueDo_not_dry_clean.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueDo_not_dry_clean.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueDo_not_dry_clean.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueDo_not_dry_clean.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueDo_not_dry_clean.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueDo_not_dry_clean.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueDo_not_dry_clean.Properties.DropDownRows = 12;
             this.lueDo_not_dry_clean.Properties.NullText = "";
             this.lueDo_not_dry_clean.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueDo_not_dry_clean.Properties.PopupWidth = 50;
+            this.lueDo_not_dry_clean.Properties.PopupWidth = 250;
             this.lueDo_not_dry_clean.Properties.ShowHeader = false;
             this.lueDo_not_dry_clean.Properties.Tag = "2";
             this.lueDo_not_dry_clean.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueDo_not_dry_clean.Size = new System.Drawing.Size(88, 22);
+            this.lueDo_not_dry_clean.Size = new System.Drawing.Size(263, 22);
             this.lueDo_not_dry_clean.TabIndex = 5;
             this.lueDo_not_dry_clean.Tag = "2";
             // 
             // label40
             // 
             this.label40.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label40.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Font = new System.Drawing.Font("Tahoma", 7F);
             this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(581, 63);
+            this.label40.Location = new System.Drawing.Point(825, 63);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(131, 21);
+            this.label40.Size = new System.Drawing.Size(104, 21);
             this.label40.TabIndex = 198;
             this.label40.Text = "Passes Metal Detection";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4246,7 +3410,7 @@
             // 
             this.luePasses_metal_detection.Enabled = false;
             this.luePasses_metal_detection.EnterMoveNextControl = true;
-            this.luePasses_metal_detection.Location = new System.Drawing.Point(714, 63);
+            this.luePasses_metal_detection.Location = new System.Drawing.Point(930, 63);
             this.luePasses_metal_detection.Name = "luePasses_metal_detection";
             this.luePasses_metal_detection.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.luePasses_metal_detection.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4262,7 +3426,7 @@
             this.luePasses_metal_detection.Properties.ShowHeader = false;
             this.luePasses_metal_detection.Properties.Tag = "2";
             this.luePasses_metal_detection.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.luePasses_metal_detection.Size = new System.Drawing.Size(69, 22);
+            this.luePasses_metal_detection.Size = new System.Drawing.Size(57, 22);
             this.luePasses_metal_detection.TabIndex = 8;
             this.luePasses_metal_detection.Tag = "2";
             // 
@@ -4271,45 +3435,45 @@
             this.label42.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label42.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(581, 39);
+            this.label42.Location = new System.Drawing.Point(663, 40);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(131, 23);
+            this.label42.Size = new System.Drawing.Size(54, 22);
             this.label42.TabIndex = 196;
-            this.label42.Text = "Dry Clean only";
+            this.label42.Text = "DryClean";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueDry_clean_only
             // 
             this.lueDry_clean_only.Enabled = false;
             this.lueDry_clean_only.EnterMoveNextControl = true;
-            this.lueDry_clean_only.Location = new System.Drawing.Point(714, 40);
+            this.lueDry_clean_only.Location = new System.Drawing.Point(718, 40);
             this.lueDry_clean_only.Name = "lueDry_clean_only";
             this.lueDry_clean_only.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueDry_clean_only.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueDry_clean_only.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueDry_clean_only.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueDry_clean_only.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueDry_clean_only.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueDry_clean_only.Properties.DropDownRows = 12;
             this.lueDry_clean_only.Properties.NullText = "";
             this.lueDry_clean_only.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueDry_clean_only.Properties.PopupWidth = 50;
+            this.lueDry_clean_only.Properties.PopupWidth = 250;
             this.lueDry_clean_only.Properties.ShowHeader = false;
             this.lueDry_clean_only.Properties.Tag = "2";
             this.lueDry_clean_only.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueDry_clean_only.Size = new System.Drawing.Size(69, 22);
+            this.lueDry_clean_only.Size = new System.Drawing.Size(269, 22);
             this.lueDry_clean_only.TabIndex = 4;
             this.lueDry_clean_only.Tag = "2";
             // 
             // lblSuitable_for_swimwear
             // 
             this.lblSuitable_for_swimwear.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblSuitable_for_swimwear.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuitable_for_swimwear.Font = new System.Drawing.Font("Tahoma", 7F);
             this.lblSuitable_for_swimwear.ForeColor = System.Drawing.Color.White;
-            this.lblSuitable_for_swimwear.Location = new System.Drawing.Point(379, 63);
+            this.lblSuitable_for_swimwear.Location = new System.Drawing.Point(663, 63);
             this.lblSuitable_for_swimwear.Name = "lblSuitable_for_swimwear";
-            this.lblSuitable_for_swimwear.Size = new System.Drawing.Size(131, 21);
+            this.lblSuitable_for_swimwear.Size = new System.Drawing.Size(105, 21);
             this.lblSuitable_for_swimwear.TabIndex = 194;
             this.lblSuitable_for_swimwear.Text = "Suitable for Swimwear";
             this.lblSuitable_for_swimwear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4318,7 +3482,7 @@
             // 
             this.lueSuitable_for_swimwear.Enabled = false;
             this.lueSuitable_for_swimwear.EnterMoveNextControl = true;
-            this.lueSuitable_for_swimwear.Location = new System.Drawing.Point(512, 63);
+            this.lueSuitable_for_swimwear.Location = new System.Drawing.Point(769, 63);
             this.lueSuitable_for_swimwear.Name = "lueSuitable_for_swimwear";
             this.lueSuitable_for_swimwear.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueSuitable_for_swimwear.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4334,7 +3498,7 @@
             this.lueSuitable_for_swimwear.Properties.ShowHeader = false;
             this.lueSuitable_for_swimwear.Properties.Tag = "2";
             this.lueSuitable_for_swimwear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueSuitable_for_swimwear.Size = new System.Drawing.Size(68, 22);
+            this.lueSuitable_for_swimwear.Size = new System.Drawing.Size(56, 22);
             this.lueSuitable_for_swimwear.TabIndex = 7;
             this.lueSuitable_for_swimwear.Tag = "2";
             // 
@@ -4343,34 +3507,33 @@
             this.label14.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(379, 39);
+            this.label14.Location = new System.Drawing.Point(371, 40);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 23);
+            this.label14.Size = new System.Drawing.Size(46, 22);
             this.label14.TabIndex = 192;
-            this.label14.Text = "Drycleanable";
+            this.label14.Text = "Breach";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueDry_cleanable
             // 
             this.lueDry_cleanable.Enabled = false;
             this.lueDry_cleanable.EnterMoveNextControl = true;
-            this.lueDry_cleanable.Location = new System.Drawing.Point(512, 40);
+            this.lueDry_cleanable.Location = new System.Drawing.Point(418, 40);
             this.lueDry_cleanable.Name = "lueDry_cleanable";
             this.lueDry_cleanable.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueDry_cleanable.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueDry_cleanable.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueDry_cleanable.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueDry_cleanable.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueDry_cleanable.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
             this.lueDry_cleanable.Properties.NullText = "";
             this.lueDry_cleanable.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueDry_cleanable.Properties.PopupWidth = 50;
+            this.lueDry_cleanable.Properties.PopupWidth = 250;
             this.lueDry_cleanable.Properties.ShowHeader = false;
             this.lueDry_cleanable.Properties.Tag = "2";
             this.lueDry_cleanable.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueDry_cleanable.Size = new System.Drawing.Size(68, 22);
+            this.lueDry_cleanable.Size = new System.Drawing.Size(245, 22);
             this.lueDry_cleanable.TabIndex = 3;
             this.lueDry_cleanable.Tag = "2";
             // 
@@ -4379,34 +3542,34 @@
             this.label39.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label39.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(169, 63);
+            this.label39.Location = new System.Drawing.Point(371, 63);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(151, 22);
+            this.label39.Size = new System.Drawing.Size(46, 21);
             this.label39.TabIndex = 190;
-            this.label39.Text = "Suitable for Tumble Dry";
+            this.label39.Text = "Ironing";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueSuitable_for_tumble_dry
             // 
             this.lueSuitable_for_tumble_dry.Enabled = false;
             this.lueSuitable_for_tumble_dry.EnterMoveNextControl = true;
-            this.lueSuitable_for_tumble_dry.Location = new System.Drawing.Point(321, 63);
+            this.lueSuitable_for_tumble_dry.Location = new System.Drawing.Point(418, 63);
             this.lueSuitable_for_tumble_dry.Name = "lueSuitable_for_tumble_dry";
             this.lueSuitable_for_tumble_dry.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueSuitable_for_tumble_dry.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueSuitable_for_tumble_dry.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueSuitable_for_tumble_dry.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueSuitable_for_tumble_dry.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueSuitable_for_tumble_dry.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueSuitable_for_tumble_dry.Properties.DropDownRows = 13;
             this.lueSuitable_for_tumble_dry.Properties.NullText = "";
             this.lueSuitable_for_tumble_dry.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueSuitable_for_tumble_dry.Properties.PopupWidth = 50;
+            this.lueSuitable_for_tumble_dry.Properties.PopupWidth = 250;
             this.lueSuitable_for_tumble_dry.Properties.ShowHeader = false;
             this.lueSuitable_for_tumble_dry.Properties.Tag = "2";
             this.lueSuitable_for_tumble_dry.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueSuitable_for_tumble_dry.Size = new System.Drawing.Size(57, 22);
+            this.lueSuitable_for_tumble_dry.Size = new System.Drawing.Size(245, 22);
             this.lueSuitable_for_tumble_dry.TabIndex = 6;
             this.lueSuitable_for_tumble_dry.Tag = "2";
             // 
@@ -4415,34 +3578,34 @@
             this.label38.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label38.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(169, 39);
+            this.label38.Location = new System.Drawing.Point(70, 40);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(151, 23);
+            this.label38.Size = new System.Drawing.Size(37, 22);
             this.label38.TabIndex = 188;
-            this.label38.Text = "Machine Washable @ 30\'C";
+            this.label38.Text = "Wash";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueMachine_washable
             // 
             this.lueMachine_washable.Enabled = false;
             this.lueMachine_washable.EnterMoveNextControl = true;
-            this.lueMachine_washable.Location = new System.Drawing.Point(321, 40);
+            this.lueMachine_washable.Location = new System.Drawing.Point(108, 40);
             this.lueMachine_washable.Name = "lueMachine_washable";
             this.lueMachine_washable.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueMachine_washable.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueMachine_washable.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueMachine_washable.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueMachine_washable.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueMachine_washable.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueMachine_washable.Properties.DropDownRows = 14;
             this.lueMachine_washable.Properties.NullText = "";
             this.lueMachine_washable.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueMachine_washable.Properties.PopupWidth = 50;
+            this.lueMachine_washable.Properties.PopupWidth = 250;
             this.lueMachine_washable.Properties.ShowHeader = false;
             this.lueMachine_washable.Properties.Tag = "2";
             this.lueMachine_washable.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueMachine_washable.Size = new System.Drawing.Size(57, 22);
+            this.lueMachine_washable.Size = new System.Drawing.Size(263, 22);
             this.lueMachine_washable.TabIndex = 2;
             this.lueMachine_washable.Tag = "2";
             // 
@@ -4524,10 +3687,10 @@
             this.label57.ForeColor = System.Drawing.Color.White;
             this.label57.Location = new System.Drawing.Point(0, 39);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(167, 69);
+            this.label57.Size = new System.Drawing.Size(69, 69);
             this.label57.TabIndex = 99;
             this.label57.Text = "Suggested care instruction";
-            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label31
             // 
@@ -4546,7 +3709,7 @@
             this.lueCheck.EditValue = "";
             this.lueCheck.Enabled = false;
             this.lueCheck.EnterMoveNextControl = true;
-            this.lueCheck.Location = new System.Drawing.Point(898, 111);
+            this.lueCheck.Location = new System.Drawing.Point(897, 111);
             this.lueCheck.Name = "lueCheck";
             this.lueCheck.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lueCheck.Properties.Appearance.Options.UseForeColor = true;
@@ -5222,6 +4385,46 @@
             this.tabPage2.Text = "數據查找";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // txtSize1
+            // 
+            this.txtSize1.EnterMoveNextControl = true;
+            this.txtSize1.Location = new System.Drawing.Point(135, 139);
+            this.txtSize1.Name = "txtSize1";
+            this.txtSize1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtSize1.Properties.MaxLength = 100;
+            this.txtSize1.Size = new System.Drawing.Size(302, 22);
+            this.txtSize1.TabIndex = 181;
+            // 
+            // label91
+            // 
+            this.label91.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label91.Location = new System.Drawing.Point(14, 143);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(113, 15);
+            this.label91.TabIndex = 182;
+            this.label91.Text = "Size：";
+            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtColour1
+            // 
+            this.txtColour1.EnterMoveNextControl = true;
+            this.txtColour1.Location = new System.Drawing.Point(135, 114);
+            this.txtColour1.Name = "txtColour1";
+            this.txtColour1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtColour1.Properties.MaxLength = 100;
+            this.txtColour1.Size = new System.Drawing.Size(302, 22);
+            this.txtColour1.TabIndex = 179;
+            // 
+            // label90
+            // 
+            this.label90.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label90.Location = new System.Drawing.Point(14, 118);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(113, 15);
+            this.label90.TabIndex = 180;
+            this.label90.Text = "Colour：";
+            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txtPlm_material_code1
             // 
             this.txtPlm_material_code1.EnterMoveNextControl = true;
@@ -5367,14 +4570,6 @@
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
             this.dgvFind.Sorted += new System.EventHandler(this.dgvFind_Sorted);
             // 
-            // serialno
-            // 
-            this.serialno.DataPropertyName = "serial_no";
-            this.serialno.HeaderText = "Serial No.";
-            this.serialno.Name = "serialno";
-            this.serialno.ReadOnly = true;
-            this.serialno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // label36
             // 
             this.label36.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -5496,6 +4691,95 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "tb_query.png");
             // 
+            // label92
+            // 
+            this.label92.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label92.Location = new System.Drawing.Point(8, 82);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(92, 19);
+            this.label92.TabIndex = 172;
+            this.label92.Text = "Material Structure";
+            this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtMaterial_structure
+            // 
+            this.txtMaterial_structure.EnterMoveNextControl = true;
+            this.txtMaterial_structure.Location = new System.Drawing.Point(103, 83);
+            this.txtMaterial_structure.Name = "txtMaterial_structure";
+            this.txtMaterial_structure.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.txtMaterial_structure.Properties.Appearance.Options.UseBackColor = true;
+            this.txtMaterial_structure.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtMaterial_structure.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtMaterial_structure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.txtMaterial_structure.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtMaterial_structure.Properties.MaxLength = 150;
+            this.txtMaterial_structure.Properties.ReadOnly = true;
+            this.txtMaterial_structure.Size = new System.Drawing.Size(359, 20);
+            this.txtMaterial_structure.TabIndex = 171;
+            this.txtMaterial_structure.Tag = "1";
+            this.txtMaterial_structure.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.txtMaterial_structure.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtMaterial_structure_ButtonClick);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(840, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 19);
+            this.label4.TabIndex = 173;
+            this.label4.Text = "Weight";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.EnterMoveNextControl = true;
+            this.txtWeight.Location = new System.Drawing.Point(892, 63);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtWeight.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtWeight.Properties.MaxLength = 100;
+            this.txtWeight.Properties.ReadOnly = true;
+            this.txtWeight.Size = new System.Drawing.Size(93, 20);
+            this.txtWeight.TabIndex = 174;
+            this.txtWeight.Tag = "2";
+            // 
+            // submit1
+            // 
+            this.submit1.DataPropertyName = "submit1";
+            this.submit1.FalseValue = "False";
+            this.submit1.HeaderText = "Submit1";
+            this.submit1.Name = "submit1";
+            this.submit1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.submit1.TrueValue = "True";
+            // 
+            // submit2
+            // 
+            this.submit2.DataPropertyName = "submit2";
+            this.submit2.FalseValue = "False";
+            this.submit2.HeaderText = "Submit2";
+            this.submit2.Name = "submit2";
+            this.submit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.submit2.TrueValue = "True";
+            // 
+            // submit3
+            // 
+            this.submit3.DataPropertyName = "submit3";
+            this.submit3.FalseValue = "False";
+            this.submit3.HeaderText = "Submit3";
+            this.submit3.Name = "submit3";
+            this.submit3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.submit3.TrueValue = "True";
+            // 
+            // urgent_bulk_order
+            // 
+            this.urgent_bulk_order.DataPropertyName = "urgent_bulk_order";
+            this.urgent_bulk_order.FalseValue = "False";
+            this.urgent_bulk_order.HeaderText = "URGENT BULK";
+            this.urgent_bulk_order.Name = "urgent_bulk_order";
+            this.urgent_bulk_order.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.urgent_bulk_order.TrueValue = "True";
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -5515,9 +4799,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle6.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5534,9 +4818,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle7.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5625,6 +4909,7 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Currency1";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
             this.dataGridViewTextBoxColumn15.Width = 60;
             // 
             // dataGridViewTextBoxColumn16
@@ -5663,8 +4948,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle8.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -6304,6 +5589,7 @@
             this.dataGridViewTextBoxColumn110.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn110.Name = "dataGridViewTextBoxColumn110";
             this.dataGridViewTextBoxColumn110.ReadOnly = true;
+            this.dataGridViewTextBoxColumn110.Visible = false;
             // 
             // dataGridViewTextBoxColumn111
             // 
@@ -6311,6 +5597,7 @@
             this.dataGridViewTextBoxColumn111.HeaderText = "MO2";
             this.dataGridViewTextBoxColumn111.Name = "dataGridViewTextBoxColumn111";
             this.dataGridViewTextBoxColumn111.ReadOnly = true;
+            this.dataGridViewTextBoxColumn111.Visible = false;
             // 
             // dataGridViewTextBoxColumn112
             // 
@@ -6338,46 +5625,843 @@
             this.dataGridViewTextBoxColumn115.DataPropertyName = "serial_no";
             this.dataGridViewTextBoxColumn115.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn115.Name = "dataGridViewTextBoxColumn115";
+            this.dataGridViewTextBoxColumn115.ReadOnly = true;
             // 
-            // txtColour1
+            // dataGridViewTextBoxColumn116
             // 
-            this.txtColour1.EnterMoveNextControl = true;
-            this.txtColour1.Location = new System.Drawing.Point(135, 114);
-            this.txtColour1.Name = "txtColour1";
-            this.txtColour1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtColour1.Properties.MaxLength = 100;
-            this.txtColour1.Size = new System.Drawing.Size(302, 22);
-            this.txtColour1.TabIndex = 179;
+            this.dataGridViewTextBoxColumn116.DataPropertyName = "dye_method";
+            this.dataGridViewTextBoxColumn116.HeaderText = "Dye Method";
+            this.dataGridViewTextBoxColumn116.Name = "dataGridViewTextBoxColumn116";
+            this.dataGridViewTextBoxColumn116.ReadOnly = true;
             // 
-            // label90
+            // dataGridViewTextBoxColumn117
             // 
-            this.label90.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label90.Location = new System.Drawing.Point(14, 118);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(113, 15);
-            this.label90.TabIndex = 180;
-            this.label90.Text = "Colour：";
-            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn117.DataPropertyName = "serial_no";
+            this.dataGridViewTextBoxColumn117.HeaderText = "Serial No.";
+            this.dataGridViewTextBoxColumn117.Name = "dataGridViewTextBoxColumn117";
+            this.dataGridViewTextBoxColumn117.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // txtSize1
+            // serial_no
             // 
-            this.txtSize1.EnterMoveNextControl = true;
-            this.txtSize1.Location = new System.Drawing.Point(135, 139);
-            this.txtSize1.Name = "txtSize1";
-            this.txtSize1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtSize1.Properties.MaxLength = 100;
-            this.txtSize1.Size = new System.Drawing.Size(302, 22);
-            this.txtSize1.TabIndex = 181;
+            this.serial_no.DataPropertyName = "serial_no";
+            this.serial_no.HeaderText = "Serial No.";
+            this.serial_no.Name = "serial_no";
+            this.serial_no.Width = 90;
             // 
-            // label91
+            // division
             // 
-            this.label91.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label91.Location = new System.Drawing.Point(14, 143);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(113, 15);
-            this.label91.TabIndex = 182;
-            this.label91.Text = "Size：";
-            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.division.DataPropertyName = "division";
+            this.division.HeaderText = "Division";
+            this.division.Name = "division";
+            // 
+            // handing_office
+            // 
+            this.handing_office.DataPropertyName = "handing_office";
+            this.handing_office.HeaderText = "Handing Office";
+            this.handing_office.Name = "handing_office";
+            this.handing_office.Width = 110;
+            // 
+            // season
+            // 
+            this.season.DataPropertyName = "season";
+            this.season.HeaderText = "Season";
+            this.season.Name = "season";
+            this.season.Width = 60;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle1;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            // 
+            // requests_by
+            // 
+            this.requests_by.DataPropertyName = "requests_by";
+            this.requests_by.HeaderText = "Requests by";
+            this.requests_by.Name = "requests_by";
+            this.requests_by.Width = 90;
+            // 
+            // plm_material_code
+            // 
+            this.plm_material_code.DataPropertyName = "plm_material_code";
+            this.plm_material_code.HeaderText = "Plm Material Code";
+            this.plm_material_code.Name = "plm_material_code";
+            // 
+            // supplier_ref_no
+            // 
+            this.supplier_ref_no.DataPropertyName = "supplier_ref_no";
+            this.supplier_ref_no.HeaderText = "Supplier Ref No.";
+            this.supplier_ref_no.Name = "supplier_ref_no";
+            // 
+            // pvh_submit_ref
+            // 
+            this.pvh_submit_ref.DataPropertyName = "pvh_submit_ref";
+            this.pvh_submit_ref.HeaderText = "PVH Submit REF#";
+            this.pvh_submit_ref.Name = "pvh_submit_ref";
+            // 
+            // supplier_name
+            // 
+            this.supplier_name.DataPropertyName = "supplier_name";
+            this.supplier_name.HeaderText = "Supplier Name";
+            this.supplier_name.Name = "supplier_name";
+            this.supplier_name.ReadOnly = true;
+            // 
+            // factory_name
+            // 
+            this.factory_name.DataPropertyName = "factory_name";
+            this.factory_name.HeaderText = "FactoryNname";
+            this.factory_name.Name = "factory_name";
+            this.factory_name.ReadOnly = true;
+            // 
+            // material_subtype
+            // 
+            this.material_subtype.DataPropertyName = "material_subtype";
+            this.material_subtype.HeaderText = "Material Subtype";
+            this.material_subtype.Name = "material_subtype";
+            this.material_subtype.ReadOnly = true;
+            // 
+            // material_structure
+            // 
+            this.material_structure.DataPropertyName = "material_structure";
+            this.material_structure.HeaderText = "Material Structure";
+            this.material_structure.Name = "material_structure";
+            this.material_structure.ReadOnly = true;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            // 
+            // colour
+            // 
+            this.colour.DataPropertyName = "colour";
+            this.colour.HeaderText = "Colour";
+            this.colour.Name = "colour";
+            this.colour.Visible = false;
+            this.colour.Width = 120;
+            // 
+            // finish
+            // 
+            this.finish.DataPropertyName = "finish";
+            this.finish.HeaderText = "Finish";
+            this.finish.Name = "finish";
+            this.finish.ReadOnly = true;
+            // 
+            // process
+            // 
+            this.process.DataPropertyName = "process";
+            this.process.HeaderText = "Process";
+            this.process.Name = "process";
+            this.process.ReadOnly = true;
+            // 
+            // previous_submit_ref
+            // 
+            this.previous_submit_ref.DataPropertyName = "previous_submit_ref";
+            this.previous_submit_ref.HeaderText = "Previous Submit Ref";
+            this.previous_submit_ref.Name = "previous_submit_ref";
+            this.previous_submit_ref.ReadOnly = true;
+            // 
+            // sample_type
+            // 
+            this.sample_type.DataPropertyName = "sample_type";
+            this.sample_type.HeaderText = "Sample Type";
+            this.sample_type.Name = "sample_type";
+            this.sample_type.ReadOnly = true;
+            // 
+            // previous_submit_vr
+            // 
+            this.previous_submit_vr.DataPropertyName = "previous_submit_vr";
+            this.previous_submit_vr.HeaderText = "Previous Submit VR";
+            this.previous_submit_vr.Name = "previous_submit_vr";
+            this.previous_submit_vr.ReadOnly = true;
+            // 
+            // weight
+            // 
+            this.weight.DataPropertyName = "weight";
+            this.weight.HeaderText = "Weight";
+            this.weight.Name = "weight";
+            this.weight.ReadOnly = true;
+            // 
+            // weight_base
+            // 
+            this.weight_base.DataPropertyName = "weight_base";
+            this.weight_base.HeaderText = "Weight Base";
+            this.weight_base.Name = "weight_base";
+            this.weight_base.ReadOnly = true;
+            // 
+            // weight_uom
+            // 
+            this.weight_uom.DataPropertyName = "weight_uom";
+            this.weight_uom.HeaderText = "Weight Uom";
+            this.weight_uom.Name = "weight_uom";
+            this.weight_uom.ReadOnly = true;
+            // 
+            // obj_fbx
+            // 
+            this.obj_fbx.DataPropertyName = "obj_fbx";
+            this.obj_fbx.HeaderText = "obj_fbx";
+            this.obj_fbx.Name = "obj_fbx";
+            this.obj_fbx.ReadOnly = true;
+            // 
+            // raw_mat1_compostion
+            // 
+            this.raw_mat1_compostion.DataPropertyName = "raw_mat1_compostion";
+            this.raw_mat1_compostion.HeaderText = "raw_mat1_compostion";
+            this.raw_mat1_compostion.Name = "raw_mat1_compostion";
+            this.raw_mat1_compostion.ReadOnly = true;
+            // 
+            // raw_mat1_percent
+            // 
+            this.raw_mat1_percent.DataPropertyName = "raw_mat1_percent";
+            this.raw_mat1_percent.HeaderText = "raw_mat1_percent";
+            this.raw_mat1_percent.Name = "raw_mat1_percent";
+            this.raw_mat1_percent.ReadOnly = true;
+            // 
+            // raw_mat1_l3
+            // 
+            this.raw_mat1_l3.DataPropertyName = "raw_mat1_l3";
+            this.raw_mat1_l3.HeaderText = "raw_mat1_l3";
+            this.raw_mat1_l3.Name = "raw_mat1_l3";
+            this.raw_mat1_l3.ReadOnly = true;
+            // 
+            // raw_mat1_l4
+            // 
+            this.raw_mat1_l4.DataPropertyName = "raw_mat1_l4";
+            this.raw_mat1_l4.HeaderText = "raw_mat1_l4";
+            this.raw_mat1_l4.Name = "raw_mat1_l4";
+            this.raw_mat1_l4.ReadOnly = true;
+            // 
+            // raw_mat1_l5
+            // 
+            this.raw_mat1_l5.DataPropertyName = "raw_mat1_l5";
+            this.raw_mat1_l5.HeaderText = "raw_mat1_l5";
+            this.raw_mat1_l5.Name = "raw_mat1_l5";
+            this.raw_mat1_l5.ReadOnly = true;
+            // 
+            // raw_mat2_compostion
+            // 
+            this.raw_mat2_compostion.DataPropertyName = "raw_mat2_compostion";
+            this.raw_mat2_compostion.HeaderText = "raw_mat2_compostion";
+            this.raw_mat2_compostion.Name = "raw_mat2_compostion";
+            this.raw_mat2_compostion.ReadOnly = true;
+            // 
+            // raw_mat2_percent
+            // 
+            this.raw_mat2_percent.DataPropertyName = "raw_mat2_percent";
+            this.raw_mat2_percent.HeaderText = "raw_mat2_percent";
+            this.raw_mat2_percent.Name = "raw_mat2_percent";
+            this.raw_mat2_percent.ReadOnly = true;
+            // 
+            // raw_mat2_l3
+            // 
+            this.raw_mat2_l3.DataPropertyName = "raw_mat2_l3";
+            this.raw_mat2_l3.HeaderText = "raw_mat2_l3";
+            this.raw_mat2_l3.Name = "raw_mat2_l3";
+            this.raw_mat2_l3.ReadOnly = true;
+            // 
+            // raw_mat2_l4
+            // 
+            this.raw_mat2_l4.DataPropertyName = "raw_mat2_l4";
+            this.raw_mat2_l4.HeaderText = "raw_mat2_l4";
+            this.raw_mat2_l4.Name = "raw_mat2_l4";
+            this.raw_mat2_l4.ReadOnly = true;
+            // 
+            // raw_mat2_l5
+            // 
+            this.raw_mat2_l5.DataPropertyName = "raw_mat2_l5";
+            this.raw_mat2_l5.HeaderText = "raw_mat2_l5";
+            this.raw_mat2_l5.Name = "raw_mat2_l5";
+            this.raw_mat2_l5.ReadOnly = true;
+            // 
+            // raw_mat3_compostion
+            // 
+            this.raw_mat3_compostion.DataPropertyName = "raw_mat3_compostion";
+            this.raw_mat3_compostion.HeaderText = "raw_mat3_compostion";
+            this.raw_mat3_compostion.Name = "raw_mat3_compostion";
+            this.raw_mat3_compostion.ReadOnly = true;
+            // 
+            // raw_mat3_percent
+            // 
+            this.raw_mat3_percent.DataPropertyName = "raw_mat3_percent";
+            this.raw_mat3_percent.HeaderText = "raw_mat3_percent";
+            this.raw_mat3_percent.Name = "raw_mat3_percent";
+            this.raw_mat3_percent.ReadOnly = true;
+            // 
+            // raw_mat3_l3
+            // 
+            this.raw_mat3_l3.DataPropertyName = "raw_mat3_l3";
+            this.raw_mat3_l3.HeaderText = "raw_mat3_l3";
+            this.raw_mat3_l3.Name = "raw_mat3_l3";
+            this.raw_mat3_l3.ReadOnly = true;
+            // 
+            // raw_mat3_l4
+            // 
+            this.raw_mat3_l4.DataPropertyName = "raw_mat3_l4";
+            this.raw_mat3_l4.HeaderText = "raw_mat3_l4";
+            this.raw_mat3_l4.Name = "raw_mat3_l4";
+            this.raw_mat3_l4.ReadOnly = true;
+            // 
+            // raw_mat3_l5
+            // 
+            this.raw_mat3_l5.DataPropertyName = "raw_mat3_l5";
+            this.raw_mat3_l5.HeaderText = "raw_mat3_l5";
+            this.raw_mat3_l5.Name = "raw_mat3_l5";
+            this.raw_mat3_l5.ReadOnly = true;
+            // 
+            // raw_mat4_compostion
+            // 
+            this.raw_mat4_compostion.DataPropertyName = "raw_mat4_compostion";
+            this.raw_mat4_compostion.HeaderText = "raw_mat4_compostion";
+            this.raw_mat4_compostion.Name = "raw_mat4_compostion";
+            this.raw_mat4_compostion.ReadOnly = true;
+            // 
+            // raw_mat4_percent
+            // 
+            this.raw_mat4_percent.DataPropertyName = "raw_mat4_percent";
+            this.raw_mat4_percent.HeaderText = "raw_mat4_percent";
+            this.raw_mat4_percent.Name = "raw_mat4_percent";
+            this.raw_mat4_percent.ReadOnly = true;
+            // 
+            // raw_mat4_l3
+            // 
+            this.raw_mat4_l3.DataPropertyName = "raw_mat4_l3";
+            this.raw_mat4_l3.HeaderText = "raw_mat4_l3";
+            this.raw_mat4_l3.Name = "raw_mat4_l3";
+            this.raw_mat4_l3.ReadOnly = true;
+            // 
+            // raw_mat4_l4
+            // 
+            this.raw_mat4_l4.DataPropertyName = "raw_mat4_l4";
+            this.raw_mat4_l4.HeaderText = "raw_mat4_l4";
+            this.raw_mat4_l4.Name = "raw_mat4_l4";
+            this.raw_mat4_l4.ReadOnly = true;
+            // 
+            // raw_mat4_l5
+            // 
+            this.raw_mat4_l5.DataPropertyName = "raw_mat4_l5";
+            this.raw_mat4_l5.HeaderText = "raw_mat4_l5";
+            this.raw_mat4_l5.Name = "raw_mat4_l5";
+            this.raw_mat4_l5.ReadOnly = true;
+            // 
+            // raw_mat5_compostion
+            // 
+            this.raw_mat5_compostion.DataPropertyName = "raw_mat5_compostion";
+            this.raw_mat5_compostion.HeaderText = "raw_mat5_compostion";
+            this.raw_mat5_compostion.Name = "raw_mat5_compostion";
+            this.raw_mat5_compostion.ReadOnly = true;
+            // 
+            // raw_mat5_percent
+            // 
+            this.raw_mat5_percent.DataPropertyName = "raw_mat5_percent";
+            this.raw_mat5_percent.HeaderText = "raw_mat5_percent";
+            this.raw_mat5_percent.Name = "raw_mat5_percent";
+            this.raw_mat5_percent.ReadOnly = true;
+            // 
+            // raw_mat5_l3
+            // 
+            this.raw_mat5_l3.DataPropertyName = "raw_mat5_l3";
+            this.raw_mat5_l3.HeaderText = "raw_mat5_l3";
+            this.raw_mat5_l3.Name = "raw_mat5_l3";
+            this.raw_mat5_l3.ReadOnly = true;
+            // 
+            // raw_mat5_l4
+            // 
+            this.raw_mat5_l4.DataPropertyName = "raw_mat5_l4";
+            this.raw_mat5_l4.HeaderText = "raw_mat5_l4";
+            this.raw_mat5_l4.Name = "raw_mat5_l4";
+            this.raw_mat5_l4.ReadOnly = true;
+            // 
+            // raw_mat5_l5
+            // 
+            this.raw_mat5_l5.DataPropertyName = "raw_mat5_l5";
+            this.raw_mat5_l5.HeaderText = "raw_mat5_l5";
+            this.raw_mat5_l5.Name = "raw_mat5_l5";
+            this.raw_mat5_l5.ReadOnly = true;
+            // 
+            // currency
+            // 
+            this.currency.DataPropertyName = "currency";
+            this.currency.HeaderText = "currency";
+            this.currency.Name = "currency";
+            this.currency.ReadOnly = true;
+            // 
+            // price1
+            // 
+            this.price1.DataPropertyName = "price1";
+            this.price1.HeaderText = "price1";
+            this.price1.Name = "price1";
+            this.price1.ReadOnly = true;
+            // 
+            // price1_unit
+            // 
+            this.price1_unit.DataPropertyName = "price1_unit";
+            this.price1_unit.HeaderText = "price1_unit";
+            this.price1_unit.Name = "price1_unit";
+            this.price1_unit.ReadOnly = true;
+            // 
+            // price2
+            // 
+            this.price2.DataPropertyName = "price2";
+            this.price2.HeaderText = "price2";
+            this.price2.Name = "price2";
+            this.price2.ReadOnly = true;
+            // 
+            // price2_unit
+            // 
+            this.price2_unit.DataPropertyName = "price2_unit";
+            this.price2_unit.HeaderText = "price2_unit";
+            this.price2_unit.Name = "price2_unit";
+            this.price2_unit.ReadOnly = true;
+            // 
+            // price3
+            // 
+            this.price3.DataPropertyName = "price3";
+            this.price3.HeaderText = "price3";
+            this.price3.Name = "price3";
+            this.price3.ReadOnly = true;
+            // 
+            // price3_unit
+            // 
+            this.price3_unit.DataPropertyName = "price3_unit";
+            this.price3_unit.HeaderText = "price3_unit";
+            this.price3_unit.Name = "price3_unit";
+            this.price3_unit.ReadOnly = true;
+            // 
+            // price4
+            // 
+            this.price4.DataPropertyName = "price4";
+            this.price4.HeaderText = "price4";
+            this.price4.Name = "price4";
+            this.price4.ReadOnly = true;
+            // 
+            // price4_unit
+            // 
+            this.price4_unit.DataPropertyName = "price4_unit";
+            this.price4_unit.HeaderText = "price4_unit";
+            this.price4_unit.Name = "price4_unit";
+            this.price4_unit.ReadOnly = true;
+            // 
+            // price5
+            // 
+            this.price5.DataPropertyName = "price5";
+            this.price5.HeaderText = "price5";
+            this.price5.Name = "price5";
+            this.price5.ReadOnly = true;
+            // 
+            // price5_unit
+            // 
+            this.price5_unit.DataPropertyName = "price5_unit";
+            this.price5_unit.HeaderText = "price5_unit";
+            this.price5_unit.Name = "price5_unit";
+            this.price5_unit.ReadOnly = true;
+            // 
+            // price6
+            // 
+            this.price6.DataPropertyName = "price6";
+            this.price6.HeaderText = "price6";
+            this.price6.Name = "price6";
+            this.price6.ReadOnly = true;
+            // 
+            // price6_unit
+            // 
+            this.price6_unit.DataPropertyName = "price6_unit";
+            this.price6_unit.HeaderText = "price6_unit";
+            this.price6_unit.Name = "price6_unit";
+            this.price6_unit.ReadOnly = true;
+            // 
+            // surcharge
+            // 
+            this.surcharge.DataPropertyName = "surcharge";
+            this.surcharge.HeaderText = "surcharge";
+            this.surcharge.Name = "surcharge";
+            this.surcharge.ReadOnly = true;
+            // 
+            // bulk_moq
+            // 
+            this.bulk_moq.DataPropertyName = "bulk_moq";
+            this.bulk_moq.HeaderText = "bulk_moq";
+            this.bulk_moq.Name = "bulk_moq";
+            this.bulk_moq.ReadOnly = true;
+            // 
+            // moq_color
+            // 
+            this.moq_color.DataPropertyName = "moq_color";
+            this.moq_color.HeaderText = "moq_color";
+            this.moq_color.Name = "moq_color";
+            this.moq_color.ReadOnly = true;
+            // 
+            // leadtime_sample
+            // 
+            this.leadtime_sample.DataPropertyName = "leadtime_sample";
+            this.leadtime_sample.HeaderText = "leadtime_sample";
+            this.leadtime_sample.Name = "leadtime_sample";
+            this.leadtime_sample.ReadOnly = true;
+            // 
+            // leadtime_bulk
+            // 
+            this.leadtime_bulk.DataPropertyName = "leadtime_bulk";
+            this.leadtime_bulk.HeaderText = "leadtime_bulk";
+            this.leadtime_bulk.Name = "leadtime_bulk";
+            this.leadtime_bulk.ReadOnly = true;
+            // 
+            // cert1_mat_finish
+            // 
+            this.cert1_mat_finish.DataPropertyName = "cert1_mat_finish";
+            this.cert1_mat_finish.HeaderText = "cert1_mat_finish";
+            this.cert1_mat_finish.Name = "cert1_mat_finish";
+            this.cert1_mat_finish.ReadOnly = true;
+            // 
+            // cert1_type
+            // 
+            this.cert1_type.DataPropertyName = "cert1_type";
+            this.cert1_type.HeaderText = "cert1_type";
+            this.cert1_type.Name = "cert1_type";
+            this.cert1_type.ReadOnly = true;
+            // 
+            // cert1_type_other
+            // 
+            this.cert1_type_other.DataPropertyName = "cert1_type_other";
+            this.cert1_type_other.HeaderText = "cert1_type_other";
+            this.cert1_type_other.Name = "cert1_type_other";
+            this.cert1_type_other.ReadOnly = true;
+            // 
+            // cert1_scope_no
+            // 
+            this.cert1_scope_no.DataPropertyName = "cert1_scope_no";
+            this.cert1_scope_no.HeaderText = "cert1_scope_no";
+            this.cert1_scope_no.Name = "cert1_scope_no";
+            this.cert1_scope_no.ReadOnly = true;
+            // 
+            // cert1_expiry_date
+            // 
+            this.cert1_expiry_date.DataPropertyName = "cert1_expiry_date";
+            this.cert1_expiry_date.HeaderText = "cert1_expiry_date";
+            this.cert1_expiry_date.Name = "cert1_expiry_date";
+            this.cert1_expiry_date.ReadOnly = true;
+            // 
+            // cert1_scope_holder
+            // 
+            this.cert1_scope_holder.DataPropertyName = "cert1_scope_holder";
+            this.cert1_scope_holder.HeaderText = "cert1_scope_holder";
+            this.cert1_scope_holder.Name = "cert1_scope_holder";
+            this.cert1_scope_holder.ReadOnly = true;
+            // 
+            // cert2_mat_finish
+            // 
+            this.cert2_mat_finish.DataPropertyName = "cert2_mat_finish";
+            this.cert2_mat_finish.HeaderText = "cert2_mat_finish";
+            this.cert2_mat_finish.Name = "cert2_mat_finish";
+            this.cert2_mat_finish.ReadOnly = true;
+            // 
+            // cert2_type
+            // 
+            this.cert2_type.DataPropertyName = "cert2_type";
+            this.cert2_type.HeaderText = "cert2_type";
+            this.cert2_type.Name = "cert2_type";
+            this.cert2_type.ReadOnly = true;
+            // 
+            // cert2_type_other
+            // 
+            this.cert2_type_other.DataPropertyName = "cert2_type_other";
+            this.cert2_type_other.HeaderText = "cert2_type_other";
+            this.cert2_type_other.Name = "cert2_type_other";
+            this.cert2_type_other.ReadOnly = true;
+            // 
+            // cert2_scope_no
+            // 
+            this.cert2_scope_no.DataPropertyName = "cert2_scope_no";
+            this.cert2_scope_no.HeaderText = "cert2_scope_no";
+            this.cert2_scope_no.Name = "cert2_scope_no";
+            this.cert2_scope_no.ReadOnly = true;
+            // 
+            // cert2_expiry_date
+            // 
+            this.cert2_expiry_date.DataPropertyName = "cert2_expiry_date";
+            this.cert2_expiry_date.HeaderText = "cert2_expiry_date";
+            this.cert2_expiry_date.Name = "cert2_expiry_date";
+            this.cert2_expiry_date.ReadOnly = true;
+            // 
+            // cert2_scope_holder
+            // 
+            this.cert2_scope_holder.DataPropertyName = "cert2_scope_holder";
+            this.cert2_scope_holder.HeaderText = "cert2_scope_holder";
+            this.cert2_scope_holder.Name = "cert2_scope_holder";
+            this.cert2_scope_holder.ReadOnly = true;
+            // 
+            // cert3_mat_finish
+            // 
+            this.cert3_mat_finish.DataPropertyName = "cert3_mat_finish";
+            this.cert3_mat_finish.HeaderText = "cert3_mat_finish";
+            this.cert3_mat_finish.Name = "cert3_mat_finish";
+            this.cert3_mat_finish.ReadOnly = true;
+            // 
+            // cert3_type
+            // 
+            this.cert3_type.DataPropertyName = "cert3_type";
+            this.cert3_type.HeaderText = "cert3_type";
+            this.cert3_type.Name = "cert3_type";
+            this.cert3_type.ReadOnly = true;
+            // 
+            // cert3_type_other
+            // 
+            this.cert3_type_other.DataPropertyName = "cert3_type_other";
+            this.cert3_type_other.HeaderText = "cert3_type_other";
+            this.cert3_type_other.Name = "cert3_type_other";
+            this.cert3_type_other.ReadOnly = true;
+            // 
+            // cert3_scope_no
+            // 
+            this.cert3_scope_no.DataPropertyName = "cert3_scope_no";
+            this.cert3_scope_no.HeaderText = "cert3_scope_no";
+            this.cert3_scope_no.Name = "cert3_scope_no";
+            this.cert3_scope_no.ReadOnly = true;
+            // 
+            // cert3_expiry_date
+            // 
+            this.cert3_expiry_date.DataPropertyName = "cert3_expiry_date";
+            this.cert3_expiry_date.HeaderText = "cert3_expiry_date";
+            this.cert3_expiry_date.Name = "cert3_expiry_date";
+            this.cert3_expiry_date.ReadOnly = true;
+            // 
+            // cert3_scope_holder
+            // 
+            this.cert3_scope_holder.DataPropertyName = "cert3_scope_holder";
+            this.cert3_scope_holder.HeaderText = "cert3_scope_holder";
+            this.cert3_scope_holder.Name = "cert3_scope_holder";
+            this.cert3_scope_holder.ReadOnly = true;
+            // 
+            // cert4_mat_finish
+            // 
+            this.cert4_mat_finish.DataPropertyName = "cert4_mat_finish";
+            this.cert4_mat_finish.HeaderText = "cert4_mat_finish";
+            this.cert4_mat_finish.Name = "cert4_mat_finish";
+            this.cert4_mat_finish.ReadOnly = true;
+            // 
+            // cert4_type
+            // 
+            this.cert4_type.DataPropertyName = "cert4_type";
+            this.cert4_type.HeaderText = "cert4_type";
+            this.cert4_type.Name = "cert4_type";
+            this.cert4_type.ReadOnly = true;
+            // 
+            // cert4_type_other
+            // 
+            this.cert4_type_other.DataPropertyName = "cert4_type_other";
+            this.cert4_type_other.HeaderText = "cert4_type_other";
+            this.cert4_type_other.Name = "cert4_type_other";
+            this.cert4_type_other.ReadOnly = true;
+            // 
+            // cert4_scope_no
+            // 
+            this.cert4_scope_no.DataPropertyName = "cert4_scope_no";
+            this.cert4_scope_no.HeaderText = "cert4_scope_no";
+            this.cert4_scope_no.Name = "cert4_scope_no";
+            this.cert4_scope_no.ReadOnly = true;
+            // 
+            // cert4_expiry_date
+            // 
+            this.cert4_expiry_date.DataPropertyName = "cert4_expiry_date";
+            this.cert4_expiry_date.HeaderText = "cert4_expiry_date";
+            this.cert4_expiry_date.Name = "cert4_expiry_date";
+            this.cert4_expiry_date.ReadOnly = true;
+            // 
+            // cert4_scope_holder
+            // 
+            this.cert4_scope_holder.DataPropertyName = "cert4_scope_holder";
+            this.cert4_scope_holder.HeaderText = "cert4_scope_holder";
+            this.cert4_scope_holder.Name = "cert4_scope_holder";
+            this.cert4_scope_holder.ReadOnly = true;
+            // 
+            // rsl_certificate_type
+            // 
+            this.rsl_certificate_type.DataPropertyName = "rsl_certificate_type";
+            this.rsl_certificate_type.HeaderText = "rsl_certificate_type";
+            this.rsl_certificate_type.Name = "rsl_certificate_type";
+            this.rsl_certificate_type.ReadOnly = true;
+            // 
+            // rsl_certificate_expiry_date
+            // 
+            this.rsl_certificate_expiry_date.DataPropertyName = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.HeaderText = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.Name = "rsl_certificate_expiry_date";
+            this.rsl_certificate_expiry_date.ReadOnly = true;
+            // 
+            // machine_washable
+            // 
+            this.machine_washable.DataPropertyName = "machine_washable";
+            this.machine_washable.HeaderText = "Wash";
+            this.machine_washable.Name = "machine_washable";
+            this.machine_washable.ReadOnly = true;
+            // 
+            // dry_cleanable
+            // 
+            this.dry_cleanable.DataPropertyName = "dry_cleanable";
+            this.dry_cleanable.HeaderText = "Breach";
+            this.dry_cleanable.Name = "dry_cleanable";
+            this.dry_cleanable.ReadOnly = true;
+            // 
+            // dry_clean_only
+            // 
+            this.dry_clean_only.DataPropertyName = "dry_clean_only";
+            this.dry_clean_only.HeaderText = "Dryclean";
+            this.dry_clean_only.Name = "dry_clean_only";
+            this.dry_clean_only.ReadOnly = true;
+            // 
+            // do_not_dry_clean
+            // 
+            this.do_not_dry_clean.DataPropertyName = "do_not_dry_clean";
+            this.do_not_dry_clean.HeaderText = "Dryer";
+            this.do_not_dry_clean.Name = "do_not_dry_clean";
+            this.do_not_dry_clean.ReadOnly = true;
+            // 
+            // suitable_for_tumble_dry
+            // 
+            this.suitable_for_tumble_dry.DataPropertyName = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.HeaderText = "Ironing";
+            this.suitable_for_tumble_dry.Name = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.ReadOnly = true;
+            // 
+            // suitable_for_swimwear
+            // 
+            this.suitable_for_swimwear.DataPropertyName = "suitable_for_swimwear";
+            this.suitable_for_swimwear.HeaderText = "suitable_for_swimwear";
+            this.suitable_for_swimwear.Name = "suitable_for_swimwear";
+            this.suitable_for_swimwear.ReadOnly = true;
+            // 
+            // passes_metal_detection
+            // 
+            this.passes_metal_detection.DataPropertyName = "passes_metal_detection";
+            this.passes_metal_detection.HeaderText = "passes_metal_detection";
+            this.passes_metal_detection.Name = "passes_metal_detection";
+            this.passes_metal_detection.ReadOnly = true;
+            // 
+            // complies_with_pvh
+            // 
+            this.complies_with_pvh.DataPropertyName = "complies_with_pvh";
+            this.complies_with_pvh.HeaderText = "complies_with_pvh";
+            this.complies_with_pvh.Name = "complies_with_pvh";
+            this.complies_with_pvh.ReadOnly = true;
+            // 
+            // complies_with_cfr
+            // 
+            this.complies_with_cfr.DataPropertyName = "complies_with_cfr";
+            this.complies_with_cfr.HeaderText = "complies_with_cfr";
+            this.complies_with_cfr.Name = "complies_with_cfr";
+            this.complies_with_cfr.ReadOnly = true;
+            // 
+            // quality_callouts
+            // 
+            this.quality_callouts.DataPropertyName = "quality_callouts";
+            this.quality_callouts.HeaderText = "quality_callouts";
+            this.quality_callouts.Name = "quality_callouts";
+            this.quality_callouts.ReadOnly = true;
+            // 
+            // for_bulk_feference
+            // 
+            this.for_bulk_feference.DataPropertyName = "for_bulk_feference";
+            this.for_bulk_feference.HeaderText = "for_bulk_feference";
+            this.for_bulk_feference.Name = "for_bulk_feference";
+            this.for_bulk_feference.ReadOnly = true;
+            // 
+            // for_quality_approval
+            // 
+            this.for_quality_approval.DataPropertyName = "for_quality_approval";
+            this.for_quality_approval.HeaderText = "for_quality_approval";
+            this.for_quality_approval.Name = "for_quality_approval";
+            this.for_quality_approval.ReadOnly = true;
+            // 
+            // color_already_approved
+            // 
+            this.color_already_approved.DataPropertyName = "color_already_approved";
+            this.color_already_approved.HeaderText = "color_already_approved";
+            this.color_already_approved.Name = "color_already_approved";
+            this.color_already_approved.ReadOnly = true;
+            // 
+            // size_already_approved
+            // 
+            this.size_already_approved.DataPropertyName = "size_already_approved";
+            this.size_already_approved.HeaderText = "size_already_approved";
+            this.size_already_approved.Name = "size_already_approved";
+            this.size_already_approved.ReadOnly = true;
+            // 
+            // create_by
+            // 
+            this.create_by.DataPropertyName = "create_by";
+            this.create_by.HeaderText = "create_by";
+            this.create_by.Name = "create_by";
+            this.create_by.ReadOnly = true;
+            this.create_by.Visible = false;
+            // 
+            // create_date
+            // 
+            this.create_date.DataPropertyName = "create_date";
+            this.create_date.HeaderText = "create_date";
+            this.create_date.Name = "create_date";
+            this.create_date.ReadOnly = true;
+            this.create_date.Visible = false;
+            // 
+            // update_by
+            // 
+            this.update_by.DataPropertyName = "update_by";
+            this.update_by.HeaderText = "update_by";
+            this.update_by.Name = "update_by";
+            this.update_by.ReadOnly = true;
+            this.update_by.Visible = false;
+            // 
+            // update_date
+            // 
+            this.update_date.DataPropertyName = "update_date";
+            this.update_date.HeaderText = "update_date";
+            this.update_date.Name = "update_date";
+            this.update_date.ReadOnly = true;
+            this.update_date.Visible = false;
+            // 
+            // mo_id1
+            // 
+            this.mo_id1.DataPropertyName = "mo_id1";
+            this.mo_id1.HeaderText = "MO1";
+            this.mo_id1.Name = "mo_id1";
+            this.mo_id1.ReadOnly = true;
+            // 
+            // mo_id2
+            // 
+            this.mo_id2.DataPropertyName = "mo_id2";
+            this.mo_id2.HeaderText = "MO2";
+            this.mo_id2.Name = "mo_id2";
+            this.mo_id2.ReadOnly = true;
+            // 
+            // mo_id3
+            // 
+            this.mo_id3.DataPropertyName = "mo_id3";
+            this.mo_id3.HeaderText = "MO3";
+            this.mo_id3.Name = "mo_id3";
+            this.mo_id3.ReadOnly = true;
+            // 
+            // dye_type
+            // 
+            this.dye_type.DataPropertyName = "dye_type";
+            this.dye_type.HeaderText = "Dye Type";
+            this.dye_type.Name = "dye_type";
+            this.dye_type.ReadOnly = true;
+            // 
+            // dye_method
+            // 
+            this.dye_method.DataPropertyName = "dye_method";
+            this.dye_method.HeaderText = "Dye Method";
+            this.dye_method.Name = "dye_method";
+            this.dye_method.ReadOnly = true;
+            // 
+            // serialno
+            // 
+            this.serialno.DataPropertyName = "serial_no";
+            this.serialno.HeaderText = "Serial No.";
+            this.serialno.Name = "serialno";
+            this.serialno.ReadOnly = true;
+            this.serialno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmDevelopmentPvh
             // 
@@ -6443,7 +6527,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSample_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_base.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).EndInit();
@@ -6525,6 +6609,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).EndInit();
@@ -6538,8 +6624,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterial_structure.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6653,7 +6739,7 @@
         private DevExpress.XtraEditors.DateEdit txtDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.Label label56;
-        private DevExpress.XtraEditors.TextEdit txtWeight;
+        private DevExpress.XtraEditors.TextEdit txtWeight_base;
         private System.Windows.Forms.Label label55;
         private DevExpress.XtraEditors.TextEdit txtFactory_name;
         private System.Windows.Forms.Label label52;
@@ -6768,7 +6854,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label16;
         private DevExpress.XtraEditors.LookUpEdit lueComplies_with_pvh;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label43;
         private DevExpress.XtraEditors.LookUpEdit lueDo_not_dry_clean;
         private System.Windows.Forms.Label label45;
@@ -6906,6 +6991,21 @@
         private DevExpress.XtraEditors.ButtonEdit txtPvh_submit_ref;
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn114;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn115;
+        private DevExpress.XtraEditors.ButtonEdit txtFinish;
+        private DevExpress.XtraEditors.ButtonEdit txtDye_type;
+        private DevExpress.XtraEditors.ButtonEdit txtDye_method;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
+        private DevExpress.XtraEditors.ComboBoxEdit cbeFactory_name;
+        private DevExpress.XtraEditors.TextEdit txtSize1;
+        private System.Windows.Forms.Label label91;
+        private DevExpress.XtraEditors.TextEdit txtColour1;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label92;
+        private DevExpress.XtraEditors.ButtonEdit txtMaterial_structure;
+        private DevExpress.XtraEditors.TextEdit txtWeight;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn serial_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn division;
         private System.Windows.Forms.DataGridViewTextBoxColumn handing_office;
@@ -6918,6 +7018,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn factory_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn material_subtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn material_structure;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn colour;
         private System.Windows.Forms.DataGridViewTextBoxColumn finish;
@@ -6926,6 +7027,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sample_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn previous_submit_vr;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weight_base;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight_uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn obj_fbx;
         private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat1_compostion;
@@ -7024,16 +7126,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dye_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn dye_method;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn114;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn115;
-        private DevExpress.XtraEditors.ButtonEdit txtFinish;
-        private DevExpress.XtraEditors.ButtonEdit txtDye_type;
-        private DevExpress.XtraEditors.ButtonEdit txtDye_method;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
-        private DevExpress.XtraEditors.ComboBoxEdit cbeFactory_name;
-        private DevExpress.XtraEditors.TextEdit txtSize1;
-        private System.Windows.Forms.Label label91;
-        private DevExpress.XtraEditors.TextEdit txtColour1;
-        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn116;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn117;
     }
 }

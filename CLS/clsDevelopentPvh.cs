@@ -204,5 +204,13 @@ namespace cf01.CLS
                 obyHolder.Text = dt.Rows[0]["remark3"].ToString();
             }           
         }
+
+
+        /* strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "material_finish"); 
+            DataTable dtMatFinish = clsPublicOfCF01.GetDataTable(strSql);
+            lueCert1_mat_finish.Properties.DataSource = dtMatFinish;
+            lueCert1_mat_finish.Properties.ValueMember = "id";
+            lueCert1_mat_finish.Properties.DisplayMember = "id";*/
+
     }
 }

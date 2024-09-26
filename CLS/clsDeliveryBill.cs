@@ -142,5 +142,42 @@ namespace cf01.CLS
                 flag = false;
             return flag;
         }
+
+        //For vat
+        public static DataTable GetVatReportDataById(string id)
+        {
+            string strsql =string.Format(
+            @"Select a.within_code,	a.id,a.name,a.issues_date As oi_date,isnull(a.packinglistno,'') As packinglistno,
+	        a.state,b.mo_id,b.contract_cid,b.goods_name,Convert(int,b.issues_qty) As issues_qty,cd_units.name as goods_unit,ROUND(Convert(float,b.sec_qty),2) AS sec_qty,
+	        Convert(int,isnull(b.piece_num,0)) As package_num,isnull(b.package_no,'') As box_no,c.add_remark as remark,Isnull(c.table_head,'') As table_head,
+	        isnull(b.customer_goods,'') As customer_goods
+            From so_issues_mostly a with(nolock)
+            Inner Join so_issues_details b with(nolock) On a.within_code = b.within_code  And a.id = b.id 
+            Inner join so_order_details c with(nolock) on b.within_code=c.within_code and b.mo_id=c.mo_id
+            Left Outer Join it_goods On b.within_code = it_goods.within_code And b.goods_id = it_goods.id			
+            Left Outer Join cd_units On b.within_code = cd_units.within_code And b.issues_unit = cd_units.id
+            WHERE a.within_code='0000' And a.id='{0}' And a.state NOT IN('2','V')", id);
+            DataTable dt = clsConErp.GetDataTable(strsql);
+            return dt;
+        }
+
+        public static DataTable GetVatReportDataByBoxNo(string box_no)
+        {
+            string strsql = string.Format(
+            @"Select a.within_code,a.id,a.name,Convert(varchar(10),a.issues_date,111) As oi_date,isnull(a.packinglistno,'') As packinglistno,
+	        a.state,b.mo_id,b.contract_cid,b.goods_name,Convert(int,b.issues_qty) As issues_qty,cd_units.name As goods_unit,
+            ROUND(Convert(float,b.sec_qty),2) AS sec_qty,Convert(int,isnull(b.piece_num,0)) As package_num,
+	        isnull(b.package_no,'') As box_no,c.add_remark as remark,Isnull(c.table_head,'') As table_head
+            From so_issues_mostly a with(nolock) 
+            Inner Join so_issues_details b with(nolock) On a.within_code = b.within_code  And a.id = b.id  
+            Inner join so_order_details c on b.within_code=c.within_code and b.mo_id=c.mo_id
+            Left Outer Join it_goods On b.within_code = it_goods.within_code And b.goods_id = it_goods.id			
+            Left Outer Join cd_units On b.within_code = cd_units.within_code And b.issues_unit = cd_units.id
+            WHERE a.within_code='0000' And a.packinglistno='{0}' And a.state NOT IN('2','V')
+            ORDER BY a.packinglistno,b.package_no,a.id,b.sequence_id", box_no);
+            DataTable dt = clsConErp.GetDataTable(strsql);
+            return dt;
+        }
+      
     }
 }

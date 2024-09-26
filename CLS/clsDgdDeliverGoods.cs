@@ -299,9 +299,9 @@ namespace cf01.CLS
             string strSql = "";
             strSql = "Select location_id,name From cd_carton_code Where within_code='" + within_code + "' And location_id=id ";
             if (sales_group == "L")
-                strSql += " And location_id>'Y' And location_id<='YZZ'";
+                strSql += " And location_id>'Y' And location_id<='YZZ' And id<>'ZZZ'";
             else
-                strSql += " And location_id>'D00' And location_id<='DZZ'";
+                strSql += " And ((location_id>'D00' And location_id<='DZZ' And id<>'ZZZ') OR (location_id>'JX0' And location_id<='JXZ' And id<>'ZZZ') )";
             strSql += " ORDER BY id";
             dtLocNo = clsConnGeo.GetDataTable(strSql);
             return dtLocNo;
@@ -587,7 +587,7 @@ namespace cf01.CLS
             string strID; 
             if (ntype == 0)
             {
-                strID = " NOT Like 'L-%'";//C組東莞D
+                strID = " NOT Like 'L-%' AND b.it_customer<>'DD-G0245''";//C組東莞D
             }
             else
             {
