@@ -868,8 +868,8 @@ namespace cf01.Forms
             dtDetail.Clear();
             string date1 = dtDat1.Text != "" ? clsApp.Return_String_Date(dtDat1.Text) : "";
             string date2 = dtDat2.Text != "" ? clsApp.Return_String_Date(dtDat2.Text) : "";
-            dtDetail = clsDevelopentPvh.Find_Data(txtId1.Text, txtId2.Text, txtPvh_submit_ref1.Text, txtPvh_submit_ref2.Text
-                , date1, date2 , txtPlm_material_code1.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text,txtColour1.Text,txtSize1.Text);
+            dtDetail = clsDevelopentPvh.Find_Data(txtId1.Text, txtId2.Text, txtPvh_submit_ref1.Text,date1, date2 , 
+                txtPlm_material_code1.Text, txtMo_id1.Text, txtMo_id2.Text, txtMo_id3.Text,txtColour1.Text,txtSize1.Text);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
             dgvFind.DataSource = bds1;// dtDetail;  
@@ -1035,8 +1035,8 @@ namespace cf01.Forms
             txtCert4_expiry_date.Text = pdr.Cells["cert4_expiry_date"].Value.ToString();
             txtCert4_scope_holder.Text = pdr.Cells["cert4_scope_holder"].Value.ToString();
             //-----------------------------------------------------------------------------------
-            lueRsl_certificate_type.EditValue = pdr.Cells["rsl_certificate_type"].Value.ToString();
-            dtRsl_certificate_expiry_date.EditValue = pdr.Cells["rsl_certificate_expiry_date"].Value.ToString();
+            //lueRsl_certificate_type.EditValue = pdr.Cells["rsl_certificate_type"].Value.ToString();
+            //dtRsl_certificate_expiry_date.EditValue = pdr.Cells["rsl_certificate_expiry_date"].Value.ToString();
             lueMachine_washable.EditValue = pdr.Cells["machine_washable"].Value.ToString();
             lueDry_cleanable.EditValue = pdr.Cells["dry_cleanable"].Value.ToString();
             lueDry_clean_only.EditValue = pdr.Cells["dry_clean_only"].Value.ToString();
@@ -1201,11 +1201,6 @@ namespace cf01.Forms
             {
                 dgvDetails.CurrentRow.Cells[SubmitName].Value = false;
             }
-        }
-
-        private void txtPvh_submit_ref1_Leave(object sender, EventArgs e)
-        {
-            txtPvh_submit_ref2.Text = txtPvh_submit_ref1.Text;
         }
 
         private void dgvFind_SelectionChanged(object sender, EventArgs e)
@@ -1453,6 +1448,11 @@ namespace cf01.Forms
         private void txtMaterial_structure_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             CallContents(txtMaterial_structure, "material_structure");
+        }
+
+        private void dtDat1_Leave_1(object sender, EventArgs e)
+        {
+            dtDat2.EditValue = dtDat1.EditValue;
         }
     }
 }
