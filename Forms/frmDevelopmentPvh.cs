@@ -58,7 +58,7 @@ namespace cf01.Forms
             clsDevelopentPvh.SetDropBox(lueHandling_office, "hand_office");
             clsDevelopentPvh.SetDropBox(lueMaterial_subtype, "material_subtype");
             clsDevelopentPvh.SetDropBox(lueSample_type, "sample_type"); 
-            clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");            
+            //clsDevelopentPvh.SetDropBox(lueRsl_certificate_type, "rsl_compliance");            
             clsDevelopentPvh.SetDropBox(luePrevious_submit_vr, "vr_status");
 
             clsDevelopentPvh.SetDropBox(lueMachine_washable, "Wash");
@@ -376,8 +376,8 @@ namespace cf01.Forms
             txtCert4_expiry_date.DataBindings.Add("Text", bds1, "cert4_expiry_date");
             txtCert4_scope_holder.DataBindings.Add("Text", bds1, "cert4_scope_holder");
             //-----------------------------------------------------------------------------------      
-            lueRsl_certificate_type.DataBindings.Add("EditValue", bds1, "rsl_certificate_type");
-            dtRsl_certificate_expiry_date.DataBindings.Add("EditValue", bds1, "rsl_certificate_expiry_date");
+            //lueRsl_certificate_type.DataBindings.Add("EditValue", bds1, "rsl_certificate_type");
+            //dtRsl_certificate_expiry_date.DataBindings.Add("EditValue", bds1, "rsl_certificate_expiry_date");
             lueMachine_washable.DataBindings.Add("EditValue", bds1, "machine_washable");
             lueDry_cleanable.DataBindings.Add("EditValue", bds1, "dry_cleanable");
             lueDry_clean_only.DataBindings.Add("EditValue", bds1, "dry_clean_only");
@@ -505,23 +505,23 @@ namespace cf01.Forms
             raw_mat5_l4,raw_mat5_l5,currency,price1,price1_unit,price2,price2_unit,price3,price3_unit,price4,price4_unit,price5,price5_unit,price6,price6_unit,surcharge,bulk_moq,
             moq_color,leadtime_sample,leadtime_bulk,cert1_mat_finish,cert1_type,cert1_type_other,cert1_scope_no,cert1_expiry_date,cert1_scope_holder,cert2_mat_finish,cert2_type,
             cert2_type_other,cert2_scope_no,cert2_expiry_date,cert2_scope_holder,cert3_mat_finish,cert3_type,cert3_type_other,cert3_scope_no,cert3_expiry_date,cert3_scope_holder,
-            cert4_mat_finish,cert4_type,cert4_type_other,cert4_scope_no,cert4_expiry_date,cert4_scope_holder,rsl_certificate_type,rsl_certificate_expiry_date,machine_washable,
+            cert4_mat_finish,cert4_type,cert4_type_other,cert4_scope_no,cert4_expiry_date,cert4_scope_holder,machine_washable,
             dry_cleanable,dry_clean_only,do_not_dry_clean,suitable_for_tumble_dry,suitable_for_swimwear,passes_metal_detection,complies_with_pvh,complies_with_cfr,quality_callouts,
             submit1,submit2,submit3,urgent_bulk_order,for_bulk_feference,for_quality_approval,color_already_approved,size_already_approved,create_by,create_date,mo_id1,mo_id2,mo_id3,
             dye_type,dye_method,material_structure) 
             VALUES(@serial_no,@division,@handling_office,@season,@date,@requested_by,@supplier_ref_no,@plm_material_code,@pvh_submit_ref,@supplier_name,@factory_name,
-            @material_subtype,@size,@colour,@finish,@process,@previous_submit_ref,@sample_type,@previous_submit_vr,@weight,weight_base,@weight_uom,@obj_fbx,@u3ma,@raw_mat1_compostion,
+            @material_subtype,@size,@colour,@finish,@process,@previous_submit_ref,@sample_type,@previous_submit_vr,@weight,@weight_base,@weight_uom,@obj_fbx,@u3ma,@raw_mat1_compostion,
             @raw_mat1_percent,@raw_mat1_l3,@raw_mat1_l4,@raw_mat1_l5,@raw_mat2_compostion,@raw_mat2_percent,@raw_mat2_l3,@raw_mat2_l4,@raw_mat2_l5,@raw_mat3_compostion,@raw_mat3_percent,
             @raw_mat3_l3,@raw_mat3_l4,@raw_mat3_l5,@raw_mat4_compostion,@raw_mat4_percent,@raw_mat4_l3,@raw_mat4_l4,@raw_mat4_l5,@raw_mat5_compostion,@raw_mat5_percent,@raw_mat5_l3,
             @raw_mat5_l4,@raw_mat5_l5,@currency,@price1,@price1_unit,@price2,@price2_unit,@price3,@price3_unit,@price4,@price4_unit,@price5,@price5_unit,@price6,@price6_unit,@surcharge,@bulk_moq,
             @moq_color,@leadtime_sample,@leadtime_bulk,@cert1_mat_finish,@cert1_type,@cert1_type_other,@cert1_scope_no,@cert1_expiry_date,@cert1_scope_holder,@cert2_mat_finish,@cert2_type,
             @cert2_type_other,@cert2_scope_no,@cert2_expiry_date,@cert2_scope_holder,@cert3_mat_finish,@cert3_type,@cert3_type_other,@cert3_scope_no,@cert3_expiry_date,@cert3_scope_holder,
-            @cert4_mat_finish,@cert4_type,@cert4_type_other,@cert4_scope_no,@cert4_expiry_date,@cert4_scope_holder,@rsl_certificate_type,
-            CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END ,@machine_washable,
+            @cert4_mat_finish,@cert4_type,@cert4_type_other,@cert4_scope_no,@cert4_expiry_date,@cert4_scope_holder,@machine_washable,
             @dry_cleanable,@dry_clean_only,@do_not_dry_clean,@suitable_for_tumble_dry,@suitable_for_swimwear,@passes_metal_detection,@complies_with_pvh,@complies_with_cfr,@quality_callouts,
             @submit1,@submit2,@submit3,@urgent_bulk_order,@for_bulk_feference,@for_quality_approval,@color_already_approved,@size_already_approved,@user_id,getdate(),@mo_id1,@mo_id2,@mo_id3,
             @dye_type,@dye_method,@material_structure)";
-
+            //rsl_certificate_type,rsl_certificate_expiry_date,
+            //@rsl_certificate_type,CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END ,
             const string sql_update =
             @"Update development_pvh 
             SET division=@division,handling_office=@handling_office,season=@season,date=@date,requested_by=@requested_by,supplier_ref_no=@supplier_ref_no,plm_material_code=@plm_material_code,
@@ -537,13 +537,12 @@ namespace cf01.Forms
             cert2_mat_finish=@cert2_mat_finish,cert2_type=@cert2_type,cert2_type_other=@cert2_type_other,cert2_scope_no=@cert2_scope_no,cert2_expiry_date=@cert2_expiry_date,cert2_scope_holder=@cert2_scope_holder,
             cert3_mat_finish=@cert3_mat_finish,cert3_type=@cert3_type,cert3_type_other=@cert3_type_other,cert3_scope_no=@cert3_scope_no,cert3_expiry_date=@cert3_expiry_date,cert3_scope_holder=@cert3_scope_holder,
             cert4_mat_finish=@cert4_mat_finish,cert4_type=@cert4_type,cert4_type_other=@cert4_type_other,cert4_scope_no=@cert4_scope_no,cert4_expiry_date=@cert4_expiry_date,cert4_scope_holder=@cert4_scope_holder,
-            rsl_certificate_type=@rsl_certificate_type,rsl_certificate_expiry_date=CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END,machine_washable=@machine_washable,
-            dry_cleanable=@dry_cleanable,dry_clean_only=@dry_clean_only,do_not_dry_clean=@do_not_dry_clean,suitable_for_tumble_dry=@suitable_for_tumble_dry,suitable_for_swimwear=@suitable_for_swimwear,
+            machine_washable=@machine_washable,dry_cleanable=@dry_cleanable,dry_clean_only=@dry_clean_only,do_not_dry_clean=@do_not_dry_clean,suitable_for_tumble_dry=@suitable_for_tumble_dry,suitable_for_swimwear=@suitable_for_swimwear,
             passes_metal_detection=@passes_metal_detection,complies_with_pvh=@complies_with_pvh,complies_with_cfr=@complies_with_cfr,quality_callouts=@quality_callouts,submit1=@submit1,submit2=@submit2,submit3=@submit3,
             urgent_bulk_order=@urgent_bulk_order,for_bulk_feference=@for_bulk_feference,for_quality_approval=@for_quality_approval,color_already_approved=@color_already_approved,size_already_approved=@size_already_approved,
             update_by=@user_id,update_date=getdate(),mo_id1=@mo_id1,mo_id2=@mo_id2,mo_id3=@mo_id3, dye_type=@dye_type,dye_method=@dye_method,material_structure=@material_structure
             WHERE serial_no=@serial_no";
-
+            // rsl_certificate_type=@rsl_certificate_type,rsl_certificate_expiry_date=CASE LEN(@rsl_certificate_expiry_date) WHEN 0 THEN null ELSE @rsl_certificate_expiry_date END,
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             string strSerial_no;
             myCon.Open();
@@ -672,9 +671,9 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@cert4_expiry_date", txtCert4_expiry_date.Text);
                     myCommand.Parameters.AddWithValue("@cert4_scope_holder", txtCert4_scope_holder.Text);
                     //-----------------------------------------------------------------------------------                
-                    myCommand.Parameters.AddWithValue("@rsl_certificate_type", lueRsl_certificate_type.EditValue);
-                    string strDate = dtRsl_certificate_expiry_date.EditValue.ToString();
-                    myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", clsApp.Return_String_Date(strDate));
+                    //myCommand.Parameters.AddWithValue("@rsl_certificate_type", lueRsl_certificate_type.EditValue);
+                    //string strDate = dtRsl_certificate_expiry_date.EditValue.ToString();
+                    //myCommand.Parameters.AddWithValue("@rsl_certificate_expiry_date", clsApp.Return_String_Date(strDate));
                     myCommand.Parameters.AddWithValue("@machine_washable", lueMachine_washable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_cleanable", lueDry_cleanable.EditValue);
                     myCommand.Parameters.AddWithValue("@dry_clean_only", lueDry_clean_only.EditValue);
@@ -1037,6 +1036,7 @@ namespace cf01.Forms
             //-----------------------------------------------------------------------------------
             //lueRsl_certificate_type.EditValue = pdr.Cells["rsl_certificate_type"].Value.ToString();
             //dtRsl_certificate_expiry_date.EditValue = pdr.Cells["rsl_certificate_expiry_date"].Value.ToString();
+
             lueMachine_washable.EditValue = pdr.Cells["machine_washable"].Value.ToString();
             lueDry_cleanable.EditValue = pdr.Cells["dry_cleanable"].Value.ToString();
             lueDry_clean_only.EditValue = pdr.Cells["dry_clean_only"].Value.ToString();
