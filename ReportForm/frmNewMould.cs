@@ -106,6 +106,8 @@ namespace cf01.ReportForm
             deCheck_Date2.EditValue = DateTime.Now;
             deCheck_Date1.EditValue = DateTime.Now.AddDays(-6);
 
+            txtDept1.EditValue = "P20";
+            txtDept2.EditValue = "P20";
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -138,8 +140,8 @@ namespace cf01.ReportForm
 
         private void Load_data()
         {
-            string sql = "SELECT DISTINCT A.id, A.mould_no,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,C.name,MD.brand_no,(cc.picture_path+'\\'+AT.picture_name) AS picture_name " +
-             " FROM (select within_code,id,mould_no,MAX(check_date) as check_date,MAX(ver)as ver from dbo.so_mould_notice_mostly with(nolock) Where state='1' group by within_code,id,mould_no) A " +
+            string sql = "SELECT DISTINCT A.id, A.mould_no,A.draw_ver,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,C.name,MD.brand_no,(cc.picture_path+'\\'+AT.picture_name) AS picture_name " +
+             " FROM (select within_code,id,mould_no,MAX(check_date) as check_date,MAX(ver) as ver,MAX(draw_ver) AS draw_ver from dbo.so_mould_notice_mostly with(nolock) Where state='1' group by within_code,id,mould_no) A " +
              " INNER JOIN dbo.so_mould_notice_details B with(nolock) on A.within_code =B.within_code AND A.id=B.id AND A.ver =B.ver" +
              " INNER JOIN dbo.cd_department C ON B.within_code =C.within_code AND B.dept_id =C.id AND C.dept_type='M' " +
              " INNER JOIN (select within_code,id,max(ver) AS ver,max(brand_no) as brand_no from dbo.so_draw_master with(nolock) where state ='1' group by within_code,id ) MD " +
