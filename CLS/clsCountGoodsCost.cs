@@ -59,11 +59,12 @@ namespace cf01.CLS
             string strSql = "";
             strSql += " Select aa.* From ( ";
             strSql += " Select "+"'M' As MFlag"+",a.ID,a.Ver,a.ProductID,a.ProductName,a.ArtWork,a.ArtWorkName,a.ProductType,a.ProductTypeName" +
-                ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName,a.DoColor" +
+                ",a.ProductSize,a.ProductSizeName,a.ProductColor,a.ProductColorName,b.do_color AS DoColor" +
                 ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
                 ",1 AS MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
+                " Left Join geo_it_goods b On a.ProductID=b.id "+
                 " Where a.Status<>'D'";
             if (productID != "")
                 strSql += " And a.ProductID Like '%" + productID + "%'";
@@ -79,12 +80,13 @@ namespace cf01.CLS
             {
                 strSql += " Union ";
                 strSql += " Select " + "' ' As MFlag" + ",a.ID,a.Ver,b.ProductID,b.ProductName,b.ArtWork,b.ArtWorkName,b.ProductType,b.ProductTypeName" +
-                ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName,b.DoColor" +
+                ",b.ProductSize,b.ProductSizeName,b.ProductColor,b.ProductColorName,c.do_color AS DoColor" +
                 ",a.PrdMo,a.MdNo,a.MoGroup,a.CustColor,a.FactAddWasteRate,a.CompProfitRate" +
                 ",b.MultRate,a.Remark,a.CreateUser,Convert(Varchar(50),a.CreateTime,20) AS CreateTime" +
                 ",a.AmendUser,Convert(Varchar(50),a.AmendTime,20) AS AmendTime,a.SN" +
                 " From mm_product_cost_head a" +
                 " Inner Join mm_product_cost_part b On a.SN=b.UpperSN" +
+                " Left Join geo_it_goods c On a.ProductID=c.id " +
                 " Where a.Status<>'D' And b.Status<>'D' ";
                 if (productID != "")
                     strSql += " And b.ProductID Like '%" + productID + "%'";

@@ -187,16 +187,5 @@ namespace cf01.ReportForm
 
         }
 
-        private void btnExcel_Click(object sender, EventArgs e)
-        {
-            // 创建Excel应用程序的新实例
-            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-
-            // 如果需要可见地打开Excel，可以设置以下属性
-            excelApp.Visible = true;
-
-            // 打开一个Excel工作簿
-            //Microsoft.Office.Interop.Excel.Workbook workbook = excelApp.Workbooks.Open(@"C:\install\MICH.xls");
-        }
     }
 }
