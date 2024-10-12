@@ -30,15 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevelopmentPvh));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -71,6 +72,7 @@
             this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.material_subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material_structure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +81,7 @@
             this.sample_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.previous_submit_vr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight_base = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.obj_fbx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.raw_mat1_compostion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -198,6 +201,13 @@
             this.label47 = new System.Windows.Forms.Label();
             this.lueFor_quality_approval = new DevExpress.XtraEditors.LookUpEdit();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtColour = new System.Windows.Forms.RichTextBox();
+            this.txtWeight = new DevExpress.XtraEditors.TextEdit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtWeight_base = new DevExpress.XtraEditors.TextEdit();
+            this.txtDye_method = new DevExpress.XtraEditors.ButtonEdit();
+            this.label92 = new System.Windows.Forms.Label();
+            this.txtMaterial_structure = new DevExpress.XtraEditors.ButtonEdit();
             this.cbeFactory_name = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label88 = new System.Windows.Forms.Label();
             this.txtProcess = new DevExpress.XtraEditors.ButtonEdit();
@@ -249,8 +259,6 @@
             this.txtPrevious_submit_ref = new DevExpress.XtraEditors.TextEdit();
             this.lueMaterial_subtype = new DevExpress.XtraEditors.LookUpEdit();
             this.label59 = new System.Windows.Forms.Label();
-            this.txtWeight = new DevExpress.XtraEditors.TextEdit();
-            this.label55 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtsupplier_name = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
@@ -258,15 +266,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSize = new DevExpress.XtraEditors.TextEdit();
-            this.txtColour = new DevExpress.XtraEditors.TextEdit();
             this.label64 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
             this.txtFinish = new DevExpress.XtraEditors.ButtonEdit();
             this.txtDye_type = new DevExpress.XtraEditors.ButtonEdit();
-            this.txtDye_method = new DevExpress.XtraEditors.ButtonEdit();
             this.label51 = new System.Windows.Forms.Label();
             this.txtFactory_name = new DevExpress.XtraEditors.TextEdit();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lueHandling_office = new DevExpress.XtraEditors.LookUpEdit();
             this.txtPlm_material_code = new DevExpress.XtraEditors.TextEdit();
@@ -316,13 +323,11 @@
             this.txtmoq_color = new DevExpress.XtraEditors.TextEdit();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtQuality_callouts = new DevExpress.XtraEditors.MemoEdit();
-            this.dtRsl_certificate_expiry_date = new DevExpress.XtraEditors.DateEdit();
             this.label45 = new System.Windows.Forms.Label();
             this.lueComplies_with_cfr = new DevExpress.XtraEditors.LookUpEdit();
             this.label44 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lueComplies_with_pvh = new DevExpress.XtraEditors.LookUpEdit();
-            this.label4 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.lueDo_not_dry_clean = new DevExpress.XtraEditors.LookUpEdit();
             this.label40 = new System.Windows.Forms.Label();
@@ -337,14 +342,13 @@
             this.lueSuitable_for_tumble_dry = new DevExpress.XtraEditors.LookUpEdit();
             this.label38 = new System.Windows.Forms.Label();
             this.lueMachine_washable = new DevExpress.XtraEditors.LookUpEdit();
-            this.label34 = new System.Windows.Forms.Label();
-            this.lueRsl_certificate_type = new DevExpress.XtraEditors.LookUpEdit();
-            this.label11 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.lueCheck = new DevExpress.XtraEditors.LookUpEdit();
+            this.dtRsl_certificate_expiry_date = new DevExpress.XtraEditors.DateEdit();
+            this.lueRsl_certificate_type = new DevExpress.XtraEditors.LookUpEdit();
+            this.label31 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lueCert4_type = new DevExpress.XtraEditors.LookUpEdit();
             this.lueCert3_type = new DevExpress.XtraEditors.LookUpEdit();
@@ -384,6 +388,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtSize1 = new DevExpress.XtraEditors.TextEdit();
+            this.label91 = new System.Windows.Forms.Label();
+            this.txtColour1 = new DevExpress.XtraEditors.TextEdit();
+            this.label90 = new System.Windows.Forms.Label();
             this.txtPlm_material_code1 = new DevExpress.XtraEditors.TextEdit();
             this.label62 = new System.Windows.Forms.Label();
             this.txtMo3 = new DevExpress.XtraEditors.TextEdit();
@@ -392,8 +400,6 @@
             this.label86 = new System.Windows.Forms.Label();
             this.txtMo1 = new DevExpress.XtraEditors.TextEdit();
             this.label85 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.txtPvh_submit_ref2 = new DevExpress.XtraEditors.TextEdit();
             this.txtPvh_submit_ref1 = new DevExpress.XtraEditors.TextEdit();
             this.label81 = new System.Windows.Forms.Label();
             this.dgvFind = new System.Windows.Forms.DataGridView();
@@ -523,10 +529,8 @@
             this.dataGridViewTextBoxColumn113 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn114 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn115 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtColour1 = new DevExpress.XtraEditors.TextEdit();
-            this.label90 = new System.Windows.Forms.Label();
-            this.txtSize1 = new DevExpress.XtraEditors.TextEdit();
-            this.label91 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn116 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn117 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -543,6 +547,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_already_approved.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueFor_quality_approval.Properties)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_base.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterial_structure.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcess.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).BeginInit();
@@ -577,13 +585,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSample_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFinish.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).BeginInit();
@@ -618,8 +623,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_color.Properties)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_cfr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_pvh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDo_not_dry_clean.Properties)).BeginInit();
@@ -629,8 +632,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueDry_cleanable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueSuitable_for_tumble_dry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMachine_washable.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCheck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert4_type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert3_type.Properties)).BeginInit();
@@ -659,11 +664,12 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).BeginInit();
@@ -672,8 +678,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -721,7 +725,7 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(71, 23);
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.Text = " 新 增(&N)";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
@@ -735,7 +739,7 @@
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(70, 23);
+            this.btnEdit.Size = new System.Drawing.Size(72, 23);
             this.btnEdit.Text = " 修 改(&E)";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -749,7 +753,7 @@
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 23);
+            this.btnDelete.Size = new System.Drawing.Size(68, 23);
             this.btnDelete.Text = "刪除(&D)";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -764,7 +768,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(72, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.Text = " 保  存(&S)";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -779,7 +783,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(68, 23);
+            this.BTNCANCEL.Size = new System.Drawing.Size(71, 23);
             this.BTNCANCEL.Text = "取 消(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -793,7 +797,7 @@
             this.BTNNEWCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEWCOPY.Image")));
             this.BTNNEWCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEWCOPY.Name = "BTNNEWCOPY";
-            this.BTNNEWCOPY.Size = new System.Drawing.Size(89, 23);
+            this.BTNNEWCOPY.Size = new System.Drawing.Size(91, 23);
             this.BTNNEWCOPY.Text = "覆制新增(&C)";
             this.BTNNEWCOPY.Click += new System.EventHandler(this.BTNNEWCOPY_Click);
             // 
@@ -807,7 +811,7 @@
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(63, 23);
+            this.btnPrint.Size = new System.Drawing.Size(66, 23);
             this.btnPrint.Text = "列印(&P)";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -859,6 +863,7 @@
             this.supplier_name,
             this.factory_name,
             this.material_subtype,
+            this.material_structure,
             this.size,
             this.colour,
             this.finish,
@@ -867,6 +872,7 @@
             this.sample_type,
             this.previous_submit_vr,
             this.weight,
+            this.weight_base,
             this.weight_uom,
             this.obj_fbx,
             this.raw_mat1_compostion,
@@ -965,10 +971,10 @@
             this.mo_id3,
             this.dye_type,
             this.dye_method});
-            this.dgvDetails.Location = new System.Drawing.Point(2, 656);
+            this.dgvDetails.Location = new System.Drawing.Point(2, 634);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(997, 157);
+            this.dgvDetails.Size = new System.Drawing.Size(997, 176);
             this.dgvDetails.TabIndex = 50;
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.SelectionChanged += new System.EventHandler(this.dgvDetails_SelectionChanged);
@@ -1004,9 +1010,9 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle5.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle5.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle1.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle1;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
             // 
@@ -1055,6 +1061,13 @@
             this.material_subtype.HeaderText = "Material Subtype";
             this.material_subtype.Name = "material_subtype";
             this.material_subtype.ReadOnly = true;
+            // 
+            // material_structure
+            // 
+            this.material_structure.DataPropertyName = "material_structure";
+            this.material_structure.HeaderText = "Material Structure";
+            this.material_structure.Name = "material_structure";
+            this.material_structure.ReadOnly = true;
             // 
             // size
             // 
@@ -1111,6 +1124,13 @@
             this.weight.HeaderText = "Weight";
             this.weight.Name = "weight";
             this.weight.ReadOnly = true;
+            // 
+            // weight_base
+            // 
+            this.weight_base.DataPropertyName = "weight_base";
+            this.weight_base.HeaderText = "Weight Base";
+            this.weight_base.Name = "weight_base";
+            this.weight_base.ReadOnly = true;
             // 
             // weight_uom
             // 
@@ -1601,6 +1621,7 @@
             this.rsl_certificate_type.HeaderText = "rsl_certificate_type";
             this.rsl_certificate_type.Name = "rsl_certificate_type";
             this.rsl_certificate_type.ReadOnly = true;
+            this.rsl_certificate_type.Visible = false;
             // 
             // rsl_certificate_expiry_date
             // 
@@ -1608,39 +1629,40 @@
             this.rsl_certificate_expiry_date.HeaderText = "rsl_certificate_expiry_date";
             this.rsl_certificate_expiry_date.Name = "rsl_certificate_expiry_date";
             this.rsl_certificate_expiry_date.ReadOnly = true;
+            this.rsl_certificate_expiry_date.Visible = false;
             // 
             // machine_washable
             // 
             this.machine_washable.DataPropertyName = "machine_washable";
-            this.machine_washable.HeaderText = "machine_washable";
+            this.machine_washable.HeaderText = "Wash";
             this.machine_washable.Name = "machine_washable";
             this.machine_washable.ReadOnly = true;
             // 
             // dry_cleanable
             // 
             this.dry_cleanable.DataPropertyName = "dry_cleanable";
-            this.dry_cleanable.HeaderText = "dry_cleanable";
+            this.dry_cleanable.HeaderText = "Breach";
             this.dry_cleanable.Name = "dry_cleanable";
             this.dry_cleanable.ReadOnly = true;
             // 
             // dry_clean_only
             // 
             this.dry_clean_only.DataPropertyName = "dry_clean_only";
-            this.dry_clean_only.HeaderText = "dry_clean_only";
+            this.dry_clean_only.HeaderText = "Dryclean";
             this.dry_clean_only.Name = "dry_clean_only";
             this.dry_clean_only.ReadOnly = true;
             // 
             // do_not_dry_clean
             // 
             this.do_not_dry_clean.DataPropertyName = "do_not_dry_clean";
-            this.do_not_dry_clean.HeaderText = "do_not_dry_clean";
+            this.do_not_dry_clean.HeaderText = "Dryer";
             this.do_not_dry_clean.Name = "do_not_dry_clean";
             this.do_not_dry_clean.ReadOnly = true;
             // 
             // suitable_for_tumble_dry
             // 
             this.suitable_for_tumble_dry.DataPropertyName = "suitable_for_tumble_dry";
-            this.suitable_for_tumble_dry.HeaderText = "suitable_for_tumble_dry";
+            this.suitable_for_tumble_dry.HeaderText = "Ironing";
             this.suitable_for_tumble_dry.Name = "suitable_for_tumble_dry";
             this.suitable_for_tumble_dry.ReadOnly = true;
             // 
@@ -1850,7 +1872,7 @@
             this.panel2.Controls.Add(this.lueColor_already_approved);
             this.panel2.Controls.Add(this.label47);
             this.panel2.Controls.Add(this.lueFor_quality_approval);
-            this.panel2.Location = new System.Drawing.Point(1, 606);
+            this.panel2.Location = new System.Drawing.Point(1, 585);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(996, 49);
             this.panel2.TabIndex = 203;
@@ -1858,7 +1880,7 @@
             // chksubmit3
             // 
             this.chksubmit3.Enabled = false;
-            this.chksubmit3.Location = new System.Drawing.Point(144, 2);
+            this.chksubmit3.Location = new System.Drawing.Point(144, 1);
             this.chksubmit3.Name = "chksubmit3";
             this.chksubmit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksubmit3.Properties.Appearance.Options.UseFont = true;
@@ -1873,7 +1895,7 @@
             // 
             // txtMo_id3
             // 
-            this.txtMo_id3.Location = new System.Drawing.Point(318, 26);
+            this.txtMo_id3.Location = new System.Drawing.Point(318, 25);
             this.txtMo_id3.Name = "txtMo_id3";
             this.txtMo_id3.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMo_id3.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1887,7 +1909,7 @@
             // label82
             // 
             this.label82.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label82.Location = new System.Drawing.Point(3, 28);
+            this.label82.Location = new System.Drawing.Point(3, 27);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(32, 18);
             this.label82.TabIndex = 198;
@@ -1897,7 +1919,7 @@
             // label84
             // 
             this.label84.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label84.Location = new System.Drawing.Point(287, 28);
+            this.label84.Location = new System.Drawing.Point(287, 27);
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(32, 18);
             this.label84.TabIndex = 202;
@@ -1916,7 +1938,7 @@
             // 
             // txtMo_id2
             // 
-            this.txtMo_id2.Location = new System.Drawing.Point(173, 26);
+            this.txtMo_id2.Location = new System.Drawing.Point(173, 25);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMo_id2.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1941,7 +1963,7 @@
             // label83
             // 
             this.label83.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(142, 28);
+            this.label83.Location = new System.Drawing.Point(142, 27);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(32, 18);
             this.label83.TabIndex = 200;
@@ -1951,7 +1973,7 @@
             // chkurgent_bulk_order
             // 
             this.chkurgent_bulk_order.Enabled = false;
-            this.chkurgent_bulk_order.Location = new System.Drawing.Point(218, 2);
+            this.chkurgent_bulk_order.Location = new System.Drawing.Point(218, 1);
             this.chkurgent_bulk_order.Name = "chkurgent_bulk_order";
             this.chkurgent_bulk_order.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkurgent_bulk_order.Properties.Appearance.Options.UseFont = true;
@@ -1966,7 +1988,7 @@
             // 
             // txtMo_id1
             // 
-            this.txtMo_id1.Location = new System.Drawing.Point(34, 26);
+            this.txtMo_id1.Location = new System.Drawing.Point(34, 25);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtMo_id1.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -1980,7 +2002,7 @@
             // chksubmit2
             // 
             this.chksubmit2.Enabled = false;
-            this.chksubmit2.Location = new System.Drawing.Point(71, 2);
+            this.chksubmit2.Location = new System.Drawing.Point(71, 1);
             this.chksubmit2.Name = "chksubmit2";
             this.chksubmit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksubmit2.Properties.Appearance.Options.UseFont = true;
@@ -2013,14 +2035,14 @@
             this.lueSize_already_approved.Properties.ShowHeader = false;
             this.lueSize_already_approved.Properties.Tag = "2";
             this.lueSize_already_approved.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueSize_already_approved.Size = new System.Drawing.Size(71, 22);
+            this.lueSize_already_approved.Size = new System.Drawing.Size(74, 22);
             this.lueSize_already_approved.TabIndex = 3;
             this.lueSize_already_approved.Tag = "2";
             // 
             // chksubmit1
             // 
             this.chksubmit1.Enabled = false;
-            this.chksubmit1.Location = new System.Drawing.Point(-1, 2);
+            this.chksubmit1.Location = new System.Drawing.Point(-1, 1);
             this.chksubmit1.Name = "chksubmit1";
             this.chksubmit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chksubmit1.Properties.Appearance.Options.UseFont = true;
@@ -2121,7 +2143,7 @@
             this.lueFor_quality_approval.Properties.ShowHeader = false;
             this.lueFor_quality_approval.Properties.Tag = "2";
             this.lueFor_quality_approval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueFor_quality_approval.Size = new System.Drawing.Size(71, 22);
+            this.lueFor_quality_approval.Size = new System.Drawing.Size(74, 22);
             this.lueFor_quality_approval.TabIndex = 1;
             this.lueFor_quality_approval.Tag = "2";
             // 
@@ -2130,6 +2152,12 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.txtColour);
+            this.panel8.Controls.Add(this.txtWeight);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Controls.Add(this.txtWeight_base);
+            this.panel8.Controls.Add(this.txtDye_method);
+            this.panel8.Controls.Add(this.txtMaterial_structure);
             this.panel8.Controls.Add(this.cbeFactory_name);
             this.panel8.Controls.Add(this.label88);
             this.panel8.Controls.Add(this.txtProcess);
@@ -2181,28 +2209,128 @@
             this.panel8.Controls.Add(this.txtPrevious_submit_ref);
             this.panel8.Controls.Add(this.lueMaterial_subtype);
             this.panel8.Controls.Add(this.label59);
-            this.panel8.Controls.Add(this.txtWeight);
-            this.panel8.Controls.Add(this.label55);
             this.panel8.Controls.Add(this.label52);
             this.panel8.Controls.Add(this.txtsupplier_name);
             this.panel8.Controls.Add(this.label12);
             this.panel8.Controls.Add(this.label17);
-            this.panel8.Controls.Add(this.label2);
             this.panel8.Controls.Add(this.label6);
             this.panel8.Controls.Add(this.txtSize);
-            this.panel8.Controls.Add(this.txtColour);
             this.panel8.Controls.Add(this.label64);
             this.panel8.Controls.Add(this.label56);
-            this.panel8.Controls.Add(this.label89);
             this.panel8.Controls.Add(this.txtFinish);
             this.panel8.Controls.Add(this.txtDye_type);
-            this.panel8.Controls.Add(this.txtDye_method);
             this.panel8.Controls.Add(this.label51);
             this.panel8.Controls.Add(this.txtFactory_name);
+            this.panel8.Controls.Add(this.label89);
+            this.panel8.Controls.Add(this.label55);
+            this.panel8.Controls.Add(this.label92);
+            this.panel8.Controls.Add(this.label2);
             this.panel8.Location = new System.Drawing.Point(2, 49);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(995, 208);
             this.panel8.TabIndex = 80;
+            // 
+            // txtColour
+            // 
+            this.txtColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtColour.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.txtColour.Location = new System.Drawing.Point(231, 41);
+            this.txtColour.MaxLength = 250;
+            this.txtColour.Name = "txtColour";
+            this.txtColour.ReadOnly = true;
+            this.txtColour.Size = new System.Drawing.Size(232, 62);
+            this.txtColour.TabIndex = 175;
+            this.txtColour.Tag = "2";
+            this.txtColour.Text = "";
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.EnterMoveNextControl = true;
+            this.txtWeight.Location = new System.Drawing.Point(892, 62);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtWeight.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtWeight.Properties.MaxLength = 100;
+            this.txtWeight.Properties.ReadOnly = true;
+            this.txtWeight.Size = new System.Drawing.Size(93, 20);
+            this.txtWeight.TabIndex = 174;
+            this.txtWeight.Tag = "2";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(840, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 19);
+            this.label4.TabIndex = 173;
+            this.label4.Text = "Weight";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtWeight_base
+            // 
+            this.txtWeight_base.EnterMoveNextControl = true;
+            this.txtWeight_base.Location = new System.Drawing.Point(892, 41);
+            this.txtWeight_base.Name = "txtWeight_base";
+            this.txtWeight_base.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtWeight_base.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtWeight_base.Properties.MaxLength = 100;
+            this.txtWeight_base.Properties.ReadOnly = true;
+            this.txtWeight_base.Size = new System.Drawing.Size(93, 20);
+            this.txtWeight_base.TabIndex = 10;
+            this.txtWeight_base.Tag = "2";
+            // 
+            // txtDye_method
+            // 
+            this.txtDye_method.EnterMoveNextControl = true;
+            this.txtDye_method.Location = new System.Drawing.Point(497, 104);
+            this.txtDye_method.Name = "txtDye_method";
+            this.txtDye_method.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.txtDye_method.Properties.Appearance.Options.UseBackColor = true;
+            this.txtDye_method.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtDye_method.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtDye_method.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.txtDye_method.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtDye_method.Properties.MaxLength = 150;
+            this.txtDye_method.Properties.ReadOnly = true;
+            this.txtDye_method.Size = new System.Drawing.Size(218, 20);
+            this.txtDye_method.TabIndex = 168;
+            this.txtDye_method.Tag = "1";
+            this.txtDye_method.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.txtDye_method.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtDye_method_ButtonClick);
+            this.txtDye_method.DoubleClick += new System.EventHandler(this.txtDye_method_DoubleClick);
+            // 
+            // label92
+            // 
+            this.label92.Font = new System.Drawing.Font("Tahoma", 6.5F);
+            this.label92.Location = new System.Drawing.Point(3, 81);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(42, 24);
+            this.label92.TabIndex = 172;
+            this.label92.Text = "Material Structure";
+            this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtMaterial_structure
+            // 
+            this.txtMaterial_structure.EnterMoveNextControl = true;
+            this.txtMaterial_structure.Location = new System.Drawing.Point(45, 83);
+            this.txtMaterial_structure.Name = "txtMaterial_structure";
+            this.txtMaterial_structure.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.txtMaterial_structure.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.txtMaterial_structure.Properties.Appearance.Options.UseBackColor = true;
+            this.txtMaterial_structure.Properties.Appearance.Options.UseFont = true;
+            this.txtMaterial_structure.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtMaterial_structure.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtMaterial_structure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.txtMaterial_structure.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtMaterial_structure.Properties.MaxLength = 150;
+            this.txtMaterial_structure.Properties.ReadOnly = true;
+            this.txtMaterial_structure.Size = new System.Drawing.Size(185, 20);
+            this.txtMaterial_structure.TabIndex = 171;
+            this.txtMaterial_structure.Tag = "1";
+            this.txtMaterial_structure.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.txtMaterial_structure.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtMaterial_structure_ButtonClick);
             // 
             // cbeFactory_name
             // 
@@ -2219,9 +2347,9 @@
             // label88
             // 
             this.label88.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label88.Location = new System.Drawing.Point(5, 105);
+            this.label88.Location = new System.Drawing.Point(716, 107);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(96, 15);
+            this.label88.Size = new System.Drawing.Size(53, 15);
             this.label88.TabIndex = 167;
             this.label88.Text = "Dye Type";
             this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2232,8 +2360,9 @@
             this.txtProcess.Location = new System.Drawing.Point(605, 83);
             this.txtProcess.Name = "txtProcess";
             this.txtProcess.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.txtProcess.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtProcess.Properties.MaxLength = 150;
             this.txtProcess.Properties.ReadOnly = true;
             this.txtProcess.Size = new System.Drawing.Size(380, 20);
             this.txtProcess.TabIndex = 165;
@@ -2247,15 +2376,11 @@
             this.txtWeight_uom.EditValue = "";
             this.txtWeight_uom.Enabled = false;
             this.txtWeight_uom.EnterMoveNextControl = true;
-            this.txtWeight_uom.Location = new System.Drawing.Point(835, 41);
+            this.txtWeight_uom.Location = new System.Drawing.Point(605, 41);
             this.txtWeight_uom.Name = "txtWeight_uom";
             this.txtWeight_uom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtWeight_uom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWeight_uom.Properties.Items.AddRange(new object[] {
-            "",
-            "PCS",
-            "SET"});
             this.txtWeight_uom.Size = new System.Drawing.Size(150, 20);
             this.txtWeight_uom.TabIndex = 163;
             // 
@@ -2263,7 +2388,7 @@
             // 
             this.luePrevious_submit_vr.Enabled = false;
             this.luePrevious_submit_vr.EnterMoveNextControl = true;
-            this.luePrevious_submit_vr.Location = new System.Drawing.Point(835, 21);
+            this.luePrevious_submit_vr.Location = new System.Drawing.Point(835, 1);
             this.luePrevious_submit_vr.Name = "luePrevious_submit_vr";
             this.luePrevious_submit_vr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.luePrevious_submit_vr.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2914,9 +3039,9 @@
             // label66
             // 
             this.label66.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label66.Location = new System.Drawing.Point(707, 63);
+            this.label66.Location = new System.Drawing.Point(672, 64);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(122, 19);
+            this.label66.Size = new System.Drawing.Size(98, 19);
             this.label66.TabIndex = 137;
             this.label66.Text = "U3Ma file available";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2925,7 +3050,7 @@
             // 
             this.lueU3ma.Enabled = false;
             this.lueU3ma.EnterMoveNextControl = true;
-            this.lueU3ma.Location = new System.Drawing.Point(835, 62);
+            this.lueU3ma.Location = new System.Drawing.Point(771, 62);
             this.lueU3ma.Name = "lueU3ma";
             this.lueU3ma.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueU3ma.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2937,7 +3062,7 @@
             this.lueU3ma.Properties.ShowHeader = false;
             this.lueU3ma.Properties.Tag = "2";
             this.lueU3ma.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueU3ma.Size = new System.Drawing.Size(150, 20);
+            this.lueU3ma.Size = new System.Drawing.Size(66, 20);
             this.lueU3ma.TabIndex = 13;
             this.lueU3ma.Tag = "2";
             // 
@@ -2954,7 +3079,7 @@
             // label65
             // 
             this.label65.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label65.Location = new System.Drawing.Point(465, 63);
+            this.label65.Location = new System.Drawing.Point(465, 64);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(136, 15);
             this.label65.TabIndex = 135;
@@ -2977,14 +3102,14 @@
             this.lueObj_fbx.Properties.ShowHeader = false;
             this.lueObj_fbx.Properties.Tag = "2";
             this.lueObj_fbx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueObj_fbx.Size = new System.Drawing.Size(93, 20);
+            this.lueObj_fbx.Size = new System.Drawing.Size(64, 20);
             this.lueObj_fbx.TabIndex = 12;
             this.lueObj_fbx.Tag = "2";
             // 
             // label63
             // 
             this.label63.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(465, 22);
+            this.label63.Location = new System.Drawing.Point(465, -2);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(136, 18);
             this.label63.TabIndex = 131;
@@ -2995,7 +3120,7 @@
             // 
             this.lueSample_type.Enabled = false;
             this.lueSample_type.EnterMoveNextControl = true;
-            this.lueSample_type.Location = new System.Drawing.Point(605, 21);
+            this.lueSample_type.Location = new System.Drawing.Point(605, 1);
             this.lueSample_type.Name = "lueSample_type";
             this.lueSample_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueSample_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3015,7 +3140,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(465, 1);
+            this.label5.Location = new System.Drawing.Point(465, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 18);
             this.label5.TabIndex = 129;
@@ -3025,7 +3150,7 @@
             // txtPrevious_submit_ref
             // 
             this.txtPrevious_submit_ref.EnterMoveNextControl = true;
-            this.txtPrevious_submit_ref.Location = new System.Drawing.Point(605, 1);
+            this.txtPrevious_submit_ref.Location = new System.Drawing.Point(605, 21);
             this.txtPrevious_submit_ref.Name = "txtPrevious_submit_ref";
             this.txtPrevious_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPrevious_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3039,7 +3164,7 @@
             // 
             this.lueMaterial_subtype.Enabled = false;
             this.lueMaterial_subtype.EnterMoveNextControl = true;
-            this.lueMaterial_subtype.Location = new System.Drawing.Point(103, 41);
+            this.lueMaterial_subtype.Location = new System.Drawing.Point(82, 41);
             this.lueMaterial_subtype.Name = "lueMaterial_subtype";
             this.lueMaterial_subtype.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueMaterial_subtype.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3052,42 +3177,19 @@
             this.lueMaterial_subtype.Properties.ShowHeader = false;
             this.lueMaterial_subtype.Properties.Tag = "2";
             this.lueMaterial_subtype.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueMaterial_subtype.Size = new System.Drawing.Size(359, 20);
+            this.lueMaterial_subtype.Size = new System.Drawing.Size(112, 20);
             this.lueMaterial_subtype.TabIndex = 2;
             this.lueMaterial_subtype.Tag = "2";
             // 
             // label59
             // 
             this.label59.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label59.Location = new System.Drawing.Point(702, 24);
+            this.label59.Location = new System.Drawing.Point(702, 4);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(127, 15);
             this.label59.TabIndex = 126;
             this.label59.Text = "Previous submit VR status";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtWeight
-            // 
-            this.txtWeight.EnterMoveNextControl = true;
-            this.txtWeight.Location = new System.Drawing.Point(605, 41);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtWeight.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtWeight.Properties.MaxLength = 100;
-            this.txtWeight.Properties.ReadOnly = true;
-            this.txtWeight.Size = new System.Drawing.Size(93, 20);
-            this.txtWeight.TabIndex = 10;
-            this.txtWeight.Tag = "2";
-            // 
-            // label55
-            // 
-            this.label55.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label55.Location = new System.Drawing.Point(500, 43);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(101, 16);
-            this.label55.TabIndex = 77;
-            this.label55.Text = "Weight";
-            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label52
             // 
@@ -3114,13 +3216,13 @@
             // 
             // label12
             // 
-            this.label12.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label12.Font = new System.Drawing.Font("PMingLiU", 8F);
             this.label12.Location = new System.Drawing.Point(3, 42);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 15);
+            this.label12.Size = new System.Drawing.Size(78, 15);
             this.label12.TabIndex = 66;
             this.label12.Text = "Material Subtype";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label17
             // 
@@ -3134,10 +3236,10 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(242, 63);
+            this.label2.Font = new System.Drawing.Font("PMingLiU", 8F);
+            this.label2.Location = new System.Drawing.Point(192, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.Size = new System.Drawing.Size(38, 14);
             this.label2.TabIndex = 72;
             this.label2.Text = "Colour";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3145,7 +3247,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(3, 63);
+            this.label6.Location = new System.Drawing.Point(3, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 68;
@@ -3154,32 +3256,22 @@
             // 
             // txtSize
             // 
-            this.txtSize.Location = new System.Drawing.Point(47, 62);
+            this.txtSize.Location = new System.Drawing.Point(45, 62);
             this.txtSize.Name = "txtSize";
+            this.txtSize.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.txtSize.Properties.Appearance.Options.UseFont = true;
             this.txtSize.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtSize.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtSize.Properties.MaxLength = 50;
             this.txtSize.Properties.ReadOnly = true;
-            this.txtSize.Size = new System.Drawing.Size(180, 20);
+            this.txtSize.Size = new System.Drawing.Size(185, 20);
             this.txtSize.TabIndex = 3;
             this.txtSize.Tag = "2";
-            // 
-            // txtColour
-            // 
-            this.txtColour.Location = new System.Drawing.Point(282, 62);
-            this.txtColour.Name = "txtColour";
-            this.txtColour.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtColour.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtColour.Properties.MaxLength = 50;
-            this.txtColour.Properties.ReadOnly = true;
-            this.txtColour.Size = new System.Drawing.Size(180, 20);
-            this.txtColour.TabIndex = 4;
-            this.txtColour.Tag = "2";
             // 
             // label64
             // 
             this.label64.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label64.Location = new System.Drawing.Point(697, 43);
+            this.label64.Location = new System.Drawing.Point(467, 43);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(143, 16);
             this.label64.TabIndex = 132;
@@ -3188,39 +3280,29 @@
             // 
             // label56
             // 
-            this.label56.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.label56.Location = new System.Drawing.Point(463, 84);
+            this.label56.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(463, 85);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(186, 15);
+            this.label56.Size = new System.Drawing.Size(138, 15);
             this.label56.TabIndex = 79;
-            this.label56.Text = "Process (inc Sustainable,if applicable)";
-            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label89
-            // 
-            this.label89.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label89.Location = new System.Drawing.Point(479, 104);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(122, 19);
-            this.label89.TabIndex = 169;
-            this.label89.Text = "Dye Method";
-            this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label56.Text = "Process ";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtFinish
             // 
             this.txtFinish.EnterMoveNextControl = true;
-            this.txtFinish.Location = new System.Drawing.Point(103, 83);
+            this.txtFinish.Location = new System.Drawing.Point(45, 104);
             this.txtFinish.Name = "txtFinish";
             this.txtFinish.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtFinish.Properties.Appearance.Options.UseBackColor = true;
             this.txtFinish.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtFinish.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtFinish.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.txtFinish.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtFinish.Properties.MaxLength = 50;
+            this.txtFinish.Properties.MaxLength = 150;
             this.txtFinish.Properties.ReadOnly = true;
-            this.txtFinish.Size = new System.Drawing.Size(359, 20);
+            this.txtFinish.Size = new System.Drawing.Size(378, 20);
             this.txtFinish.TabIndex = 161;
             this.txtFinish.Tag = "1";
             this.txtFinish.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
@@ -3230,52 +3312,33 @@
             // txtDye_type
             // 
             this.txtDye_type.EnterMoveNextControl = true;
-            this.txtDye_type.Location = new System.Drawing.Point(103, 104);
+            this.txtDye_type.Location = new System.Drawing.Point(770, 104);
             this.txtDye_type.Name = "txtDye_type";
             this.txtDye_type.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtDye_type.Properties.Appearance.Options.UseBackColor = true;
             this.txtDye_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtDye_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtDye_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.txtDye_type.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.txtDye_type.Properties.MaxLength = 150;
             this.txtDye_type.Properties.ReadOnly = true;
-            this.txtDye_type.Size = new System.Drawing.Size(359, 20);
+            this.txtDye_type.Size = new System.Drawing.Size(215, 20);
             this.txtDye_type.TabIndex = 166;
             this.txtDye_type.Tag = "1";
             this.txtDye_type.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.txtDye_type.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtDye_type_ButtonClick);
             this.txtDye_type.DoubleClick += new System.EventHandler(this.txtDye_type_DoubleClick);
             // 
-            // txtDye_method
-            // 
-            this.txtDye_method.EnterMoveNextControl = true;
-            this.txtDye_method.Location = new System.Drawing.Point(605, 103);
-            this.txtDye_method.Name = "txtDye_method";
-            this.txtDye_method.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtDye_method.Properties.Appearance.Options.UseBackColor = true;
-            this.txtDye_method.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtDye_method.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtDye_method.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
-            this.txtDye_method.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtDye_method.Properties.ReadOnly = true;
-            this.txtDye_method.Size = new System.Drawing.Size(380, 20);
-            this.txtDye_method.TabIndex = 168;
-            this.txtDye_method.Tag = "1";
-            this.txtDye_method.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
-            this.txtDye_method.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtDye_method_ButtonClick);
-            this.txtDye_method.DoubleClick += new System.EventHandler(this.txtDye_method_DoubleClick);
-            // 
             // label51
             // 
             this.label51.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.label51.Location = new System.Drawing.Point(1, 84);
+            this.label51.Location = new System.Drawing.Point(0, 108);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(180, 15);
+            this.label51.Size = new System.Drawing.Size(42, 15);
             this.label51.TabIndex = 125;
-            this.label51.Text = "Finish (inc Sustainable,if applicable)";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label51.Text = "Finish";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtFactory_name
             // 
@@ -3289,6 +3352,26 @@
             this.txtFactory_name.Size = new System.Drawing.Size(38, 20);
             this.txtFactory_name.TabIndex = 1;
             this.txtFactory_name.Tag = "2";
+            // 
+            // label89
+            // 
+            this.label89.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label89.Location = new System.Drawing.Point(427, 107);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(70, 15);
+            this.label89.TabIndex = 169;
+            this.label89.Text = "Dye Method";
+            this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label55
+            // 
+            this.label55.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label55.Location = new System.Drawing.Point(755, 43);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(139, 16);
+            this.label55.TabIndex = 77;
+            this.label55.Text = "Weight (base weight) in gms";
+            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel7
             // 
@@ -3523,7 +3606,7 @@
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtPvh_submit_ref.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtPvh_submit_ref.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
             this.txtPvh_submit_ref.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtPvh_submit_ref.Properties.ReadOnly = true;
             this.txtPvh_submit_ref.Size = new System.Drawing.Size(189, 20);
@@ -3594,7 +3677,7 @@
             this.txtprice6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice6.Properties.ReadOnly = true;
             this.txtprice6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtprice6.Size = new System.Drawing.Size(118, 22);
+            this.txtprice6.Size = new System.Drawing.Size(119, 22);
             this.txtprice6.TabIndex = 12;
             this.txtprice6.Tag = "2";
             // 
@@ -3618,7 +3701,7 @@
             this.luePrice6_unit.Properties.ShowHeader = false;
             this.luePrice6_unit.Properties.Tag = "2";
             this.luePrice6_unit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.luePrice6_unit.Size = new System.Drawing.Size(118, 22);
+            this.luePrice6_unit.Size = new System.Drawing.Size(119, 22);
             this.luePrice6_unit.TabIndex = 6;
             this.luePrice6_unit.Tag = "2";
             // 
@@ -3634,7 +3717,7 @@
             this.txtprice5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice5.Properties.ReadOnly = true;
             this.txtprice5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtprice5.Size = new System.Drawing.Size(118, 22);
+            this.txtprice5.Size = new System.Drawing.Size(119, 22);
             this.txtprice5.TabIndex = 11;
             this.txtprice5.Tag = "2";
             this.txtprice5.Click += new System.EventHandler(this.txtprice5_Click);
@@ -3659,14 +3742,14 @@
             this.luePrice5_unit.Properties.ShowHeader = false;
             this.luePrice5_unit.Properties.Tag = "2";
             this.luePrice5_unit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.luePrice5_unit.Size = new System.Drawing.Size(118, 22);
+            this.luePrice5_unit.Size = new System.Drawing.Size(119, 22);
             this.luePrice5_unit.TabIndex = 5;
             this.luePrice5_unit.Tag = "2";
             // 
             // txtprice4
             // 
             this.txtprice4.EnterMoveNextControl = true;
-            this.txtprice4.Location = new System.Drawing.Point(627, 24);
+            this.txtprice4.Location = new System.Drawing.Point(625, 24);
             this.txtprice4.Name = "txtprice4";
             this.txtprice4.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice4.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3675,7 +3758,7 @@
             this.txtprice4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice4.Properties.ReadOnly = true;
             this.txtprice4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtprice4.Size = new System.Drawing.Size(117, 22);
+            this.txtprice4.Size = new System.Drawing.Size(121, 22);
             this.txtprice4.TabIndex = 10;
             this.txtprice4.Tag = "2";
             this.txtprice4.Click += new System.EventHandler(this.txtprice4_Click);
@@ -3684,7 +3767,7 @@
             // 
             this.luePrice4_unit.Enabled = false;
             this.luePrice4_unit.EnterMoveNextControl = true;
-            this.luePrice4_unit.Location = new System.Drawing.Point(627, 1);
+            this.luePrice4_unit.Location = new System.Drawing.Point(625, 1);
             this.luePrice4_unit.Name = "luePrice4_unit";
             this.luePrice4_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.luePrice4_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3700,14 +3783,14 @@
             this.luePrice4_unit.Properties.ShowHeader = false;
             this.luePrice4_unit.Properties.Tag = "2";
             this.luePrice4_unit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.luePrice4_unit.Size = new System.Drawing.Size(118, 22);
+            this.luePrice4_unit.Size = new System.Drawing.Size(121, 22);
             this.luePrice4_unit.TabIndex = 4;
             this.luePrice4_unit.Tag = "2";
             // 
             // txtprice3
             // 
             this.txtprice3.EnterMoveNextControl = true;
-            this.txtprice3.Location = new System.Drawing.Point(508, 24);
+            this.txtprice3.Location = new System.Drawing.Point(506, 24);
             this.txtprice3.Name = "txtprice3";
             this.txtprice3.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice3.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3716,7 +3799,7 @@
             this.txtprice3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice3.Properties.ReadOnly = true;
             this.txtprice3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtprice3.Size = new System.Drawing.Size(117, 22);
+            this.txtprice3.Size = new System.Drawing.Size(118, 22);
             this.txtprice3.TabIndex = 9;
             this.txtprice3.Tag = "2";
             this.txtprice3.Click += new System.EventHandler(this.txtprice3_Click);
@@ -3724,7 +3807,7 @@
             // txtprice2
             // 
             this.txtprice2.EnterMoveNextControl = true;
-            this.txtprice2.Location = new System.Drawing.Point(388, 24);
+            this.txtprice2.Location = new System.Drawing.Point(387, 24);
             this.txtprice2.Name = "txtprice2";
             this.txtprice2.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtprice2.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3733,7 +3816,7 @@
             this.txtprice2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtprice2.Properties.ReadOnly = true;
             this.txtprice2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtprice2.Size = new System.Drawing.Size(119, 22);
+            this.txtprice2.Size = new System.Drawing.Size(118, 22);
             this.txtprice2.TabIndex = 8;
             this.txtprice2.Tag = "2";
             this.txtprice2.Click += new System.EventHandler(this.txtprice2_Click);
@@ -3761,7 +3844,7 @@
             // 
             this.luePrice3_unit.Enabled = false;
             this.luePrice3_unit.EnterMoveNextControl = true;
-            this.luePrice3_unit.Location = new System.Drawing.Point(507, 1);
+            this.luePrice3_unit.Location = new System.Drawing.Point(506, 1);
             this.luePrice3_unit.Name = "luePrice3_unit";
             this.luePrice3_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.luePrice3_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -3905,14 +3988,14 @@
             // txtleadtime_bulk
             // 
             this.txtleadtime_bulk.EnterMoveNextControl = true;
-            this.txtleadtime_bulk.Location = new System.Drawing.Point(687, 90);
+            this.txtleadtime_bulk.Location = new System.Drawing.Point(688, 90);
             this.txtleadtime_bulk.Name = "txtleadtime_bulk";
             this.txtleadtime_bulk.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtleadtime_bulk.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtleadtime_bulk.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtleadtime_bulk.Properties.MaxLength = 50;
             this.txtleadtime_bulk.Properties.ReadOnly = true;
-            this.txtleadtime_bulk.Size = new System.Drawing.Size(299, 22);
+            this.txtleadtime_bulk.Size = new System.Drawing.Size(298, 22);
             this.txtleadtime_bulk.TabIndex = 25;
             this.txtleadtime_bulk.Tag = "2";
             // 
@@ -3926,7 +4009,7 @@
             this.txtSurcharge.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtSurcharge.Properties.MaxLength = 50;
             this.txtSurcharge.Properties.ReadOnly = true;
-            this.txtSurcharge.Size = new System.Drawing.Size(864, 22);
+            this.txtSurcharge.Size = new System.Drawing.Size(865, 22);
             this.txtSurcharge.TabIndex = 13;
             this.txtSurcharge.Tag = "2";
             // 
@@ -4011,7 +4094,7 @@
             // txtmoq_color
             // 
             this.txtmoq_color.EnterMoveNextControl = true;
-            this.txtmoq_color.Location = new System.Drawing.Point(687, 68);
+            this.txtmoq_color.Location = new System.Drawing.Point(688, 68);
             this.txtmoq_color.Name = "txtmoq_color";
             this.txtmoq_color.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtmoq_color.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4028,13 +4111,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.txtQuality_callouts);
-            this.panel5.Controls.Add(this.dtRsl_certificate_expiry_date);
             this.panel5.Controls.Add(this.label45);
             this.panel5.Controls.Add(this.lueComplies_with_cfr);
             this.panel5.Controls.Add(this.label44);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.lueComplies_with_pvh);
-            this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.label43);
             this.panel5.Controls.Add(this.lueDo_not_dry_clean);
             this.panel5.Controls.Add(this.label40);
@@ -4049,61 +4130,38 @@
             this.panel5.Controls.Add(this.lueSuitable_for_tumble_dry);
             this.panel5.Controls.Add(this.label38);
             this.panel5.Controls.Add(this.lueMachine_washable);
-            this.panel5.Controls.Add(this.label34);
-            this.panel5.Controls.Add(this.lueRsl_certificate_type);
-            this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label29);
             this.panel5.Controls.Add(this.label57);
-            this.panel5.Controls.Add(this.label31);
             this.panel5.Controls.Add(this.lueCheck);
+            this.panel5.Controls.Add(this.dtRsl_certificate_expiry_date);
+            this.panel5.Controls.Add(this.lueRsl_certificate_type);
+            this.panel5.Controls.Add(this.label31);
             this.panel5.Location = new System.Drawing.Point(2, 457);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(995, 149);
+            this.panel5.Size = new System.Drawing.Size(995, 127);
             this.panel5.TabIndex = 77;
             // 
             // txtQuality_callouts
             // 
             this.txtQuality_callouts.EditValue = "";
             this.txtQuality_callouts.EnterMoveNextControl = true;
-            this.txtQuality_callouts.Location = new System.Drawing.Point(103, 109);
+            this.txtQuality_callouts.Location = new System.Drawing.Point(103, 86);
             this.txtQuality_callouts.Name = "txtQuality_callouts";
-            this.txtQuality_callouts.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuality_callouts.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 7F);
             this.txtQuality_callouts.Properties.Appearance.Options.UseFont = true;
             this.txtQuality_callouts.Properties.MaxLength = 600;
             this.txtQuality_callouts.Properties.ReadOnly = true;
-            this.txtQuality_callouts.Size = new System.Drawing.Size(792, 37);
+            this.txtQuality_callouts.Size = new System.Drawing.Size(792, 38);
             this.txtQuality_callouts.TabIndex = 209;
             this.txtQuality_callouts.Tag = "2";
-            // 
-            // dtRsl_certificate_expiry_date
-            // 
-            this.dtRsl_certificate_expiry_date.EditValue = "";
-            this.dtRsl_certificate_expiry_date.Enabled = false;
-            this.dtRsl_certificate_expiry_date.EnterMoveNextControl = true;
-            this.dtRsl_certificate_expiry_date.Location = new System.Drawing.Point(843, 17);
-            this.dtRsl_certificate_expiry_date.Name = "dtRsl_certificate_expiry_date";
-            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.dtRsl_certificate_expiry_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtRsl_certificate_expiry_date.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.dtRsl_certificate_expiry_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.dtRsl_certificate_expiry_date.Properties.MaxLength = 10;
-            this.dtRsl_certificate_expiry_date.Size = new System.Drawing.Size(143, 20);
-            this.dtRsl_certificate_expiry_date.TabIndex = 208;
-            this.dtRsl_certificate_expiry_date.Tag = "2";
             // 
             // label45
             // 
             this.label45.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label45.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.ForeColor = System.Drawing.Color.White;
-            this.label45.Location = new System.Drawing.Point(-2, 109);
+            this.label45.Location = new System.Drawing.Point(-2, 86);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(107, 38);
             this.label45.TabIndex = 207;
@@ -4114,7 +4172,7 @@
             // 
             this.lueComplies_with_cfr.Enabled = false;
             this.lueComplies_with_cfr.EnterMoveNextControl = true;
-            this.lueComplies_with_cfr.Location = new System.Drawing.Point(898, 86);
+            this.lueComplies_with_cfr.Location = new System.Drawing.Point(898, 63);
             this.lueComplies_with_cfr.Name = "lueComplies_with_cfr";
             this.lueComplies_with_cfr.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueComplies_with_cfr.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4130,7 +4188,7 @@
             this.lueComplies_with_cfr.Properties.ShowHeader = false;
             this.lueComplies_with_cfr.Properties.Tag = "2";
             this.lueComplies_with_cfr.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueComplies_with_cfr.Size = new System.Drawing.Size(88, 22);
+            this.lueComplies_with_cfr.Size = new System.Drawing.Size(89, 22);
             this.lueComplies_with_cfr.TabIndex = 10;
             this.lueComplies_with_cfr.Tag = "2";
             // 
@@ -4139,9 +4197,9 @@
             this.label44.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label44.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.White;
-            this.label44.Location = new System.Drawing.Point(581, 86);
+            this.label44.Location = new System.Drawing.Point(581, 63);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(314, 22);
+            this.label44.Size = new System.Drawing.Size(315, 22);
             this.label44.TabIndex = 205;
             this.label44.Text = "Complies with 16 CFR 1615 Flammability test ";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4151,9 +4209,9 @@
             this.label16.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label16.Font = new System.Drawing.Font("PMingLiU", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(169, 86);
+            this.label16.Location = new System.Drawing.Point(70, 63);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(341, 22);
+            this.label16.Size = new System.Drawing.Size(412, 22);
             this.label16.TabIndex = 204;
             this.label16.Text = "Complies with PVH Europe Children’s Product safety requirements (GQM Chapter 7A)";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4162,7 +4220,7 @@
             // 
             this.lueComplies_with_pvh.Enabled = false;
             this.lueComplies_with_pvh.EnterMoveNextControl = true;
-            this.lueComplies_with_pvh.Location = new System.Drawing.Point(511, 86);
+            this.lueComplies_with_pvh.Location = new System.Drawing.Point(483, 63);
             this.lueComplies_with_pvh.Name = "lueComplies_with_pvh";
             this.lueComplies_with_pvh.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueComplies_with_pvh.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4179,65 +4237,55 @@
             this.lueComplies_with_pvh.Properties.ShowHeader = false;
             this.lueComplies_with_pvh.Properties.Tag = "2";
             this.lueComplies_with_pvh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueComplies_with_pvh.Size = new System.Drawing.Size(69, 22);
+            this.lueComplies_with_pvh.Size = new System.Drawing.Size(97, 22);
             this.lueComplies_with_pvh.TabIndex = 9;
             this.lueComplies_with_pvh.Tag = "2";
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(784, 63);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(201, 21);
-            this.label4.TabIndex = 202;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label43
             // 
             this.label43.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label43.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.Color.White;
-            this.label43.Location = new System.Drawing.Point(784, 39);
+            this.label43.Location = new System.Drawing.Point(70, 40);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(111, 23);
+            this.label43.Size = new System.Drawing.Size(37, 21);
             this.label43.TabIndex = 200;
-            this.label43.Text = "Do not Dry Clean";
+            this.label43.Text = "Dryer";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueDo_not_dry_clean
             // 
             this.lueDo_not_dry_clean.Enabled = false;
             this.lueDo_not_dry_clean.EnterMoveNextControl = true;
-            this.lueDo_not_dry_clean.Location = new System.Drawing.Point(898, 40);
+            this.lueDo_not_dry_clean.Location = new System.Drawing.Point(108, 40);
             this.lueDo_not_dry_clean.Name = "lueDo_not_dry_clean";
             this.lueDo_not_dry_clean.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueDo_not_dry_clean.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueDo_not_dry_clean.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueDo_not_dry_clean.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueDo_not_dry_clean.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueDo_not_dry_clean.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueDo_not_dry_clean.Properties.DropDownRows = 12;
+            this.lueDo_not_dry_clean.Properties.MaxLength = 150;
             this.lueDo_not_dry_clean.Properties.NullText = "";
             this.lueDo_not_dry_clean.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueDo_not_dry_clean.Properties.PopupWidth = 50;
+            this.lueDo_not_dry_clean.Properties.PopupWidth = 250;
             this.lueDo_not_dry_clean.Properties.ShowHeader = false;
             this.lueDo_not_dry_clean.Properties.Tag = "2";
             this.lueDo_not_dry_clean.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueDo_not_dry_clean.Size = new System.Drawing.Size(88, 22);
+            this.lueDo_not_dry_clean.Size = new System.Drawing.Size(263, 22);
             this.lueDo_not_dry_clean.TabIndex = 5;
             this.lueDo_not_dry_clean.Tag = "2";
             // 
             // label40
             // 
             this.label40.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label40.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Font = new System.Drawing.Font("Tahoma", 7F);
             this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(581, 63);
+            this.label40.Location = new System.Drawing.Point(825, 40);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(131, 21);
+            this.label40.Size = new System.Drawing.Size(104, 21);
             this.label40.TabIndex = 198;
             this.label40.Text = "Passes Metal Detection";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4246,7 +4294,7 @@
             // 
             this.luePasses_metal_detection.Enabled = false;
             this.luePasses_metal_detection.EnterMoveNextControl = true;
-            this.luePasses_metal_detection.Location = new System.Drawing.Point(714, 63);
+            this.luePasses_metal_detection.Location = new System.Drawing.Point(930, 40);
             this.luePasses_metal_detection.Name = "luePasses_metal_detection";
             this.luePasses_metal_detection.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.luePasses_metal_detection.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4262,7 +4310,7 @@
             this.luePasses_metal_detection.Properties.ShowHeader = false;
             this.luePasses_metal_detection.Properties.Tag = "2";
             this.luePasses_metal_detection.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.luePasses_metal_detection.Size = new System.Drawing.Size(69, 22);
+            this.luePasses_metal_detection.Size = new System.Drawing.Size(57, 22);
             this.luePasses_metal_detection.TabIndex = 8;
             this.luePasses_metal_detection.Tag = "2";
             // 
@@ -4271,45 +4319,46 @@
             this.label42.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label42.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(581, 39);
+            this.label42.Location = new System.Drawing.Point(663, 17);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(131, 23);
+            this.label42.Size = new System.Drawing.Size(54, 22);
             this.label42.TabIndex = 196;
-            this.label42.Text = "Dry Clean only";
+            this.label42.Text = "DryClean";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueDry_clean_only
             // 
             this.lueDry_clean_only.Enabled = false;
             this.lueDry_clean_only.EnterMoveNextControl = true;
-            this.lueDry_clean_only.Location = new System.Drawing.Point(714, 40);
+            this.lueDry_clean_only.Location = new System.Drawing.Point(718, 17);
             this.lueDry_clean_only.Name = "lueDry_clean_only";
             this.lueDry_clean_only.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueDry_clean_only.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueDry_clean_only.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueDry_clean_only.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueDry_clean_only.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueDry_clean_only.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueDry_clean_only.Properties.DropDownRows = 12;
+            this.lueDry_clean_only.Properties.MaxLength = 150;
             this.lueDry_clean_only.Properties.NullText = "";
             this.lueDry_clean_only.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueDry_clean_only.Properties.PopupWidth = 50;
+            this.lueDry_clean_only.Properties.PopupWidth = 250;
             this.lueDry_clean_only.Properties.ShowHeader = false;
             this.lueDry_clean_only.Properties.Tag = "2";
             this.lueDry_clean_only.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueDry_clean_only.Size = new System.Drawing.Size(69, 22);
+            this.lueDry_clean_only.Size = new System.Drawing.Size(269, 22);
             this.lueDry_clean_only.TabIndex = 4;
             this.lueDry_clean_only.Tag = "2";
             // 
             // lblSuitable_for_swimwear
             // 
             this.lblSuitable_for_swimwear.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblSuitable_for_swimwear.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuitable_for_swimwear.Font = new System.Drawing.Font("Tahoma", 7F);
             this.lblSuitable_for_swimwear.ForeColor = System.Drawing.Color.White;
-            this.lblSuitable_for_swimwear.Location = new System.Drawing.Point(379, 63);
+            this.lblSuitable_for_swimwear.Location = new System.Drawing.Point(663, 40);
             this.lblSuitable_for_swimwear.Name = "lblSuitable_for_swimwear";
-            this.lblSuitable_for_swimwear.Size = new System.Drawing.Size(131, 21);
+            this.lblSuitable_for_swimwear.Size = new System.Drawing.Size(105, 21);
             this.lblSuitable_for_swimwear.TabIndex = 194;
             this.lblSuitable_for_swimwear.Text = "Suitable for Swimwear";
             this.lblSuitable_for_swimwear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4318,7 +4367,7 @@
             // 
             this.lueSuitable_for_swimwear.Enabled = false;
             this.lueSuitable_for_swimwear.EnterMoveNextControl = true;
-            this.lueSuitable_for_swimwear.Location = new System.Drawing.Point(512, 63);
+            this.lueSuitable_for_swimwear.Location = new System.Drawing.Point(769, 40);
             this.lueSuitable_for_swimwear.Name = "lueSuitable_for_swimwear";
             this.lueSuitable_for_swimwear.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueSuitable_for_swimwear.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -4334,7 +4383,7 @@
             this.lueSuitable_for_swimwear.Properties.ShowHeader = false;
             this.lueSuitable_for_swimwear.Properties.Tag = "2";
             this.lueSuitable_for_swimwear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueSuitable_for_swimwear.Size = new System.Drawing.Size(68, 22);
+            this.lueSuitable_for_swimwear.Size = new System.Drawing.Size(56, 22);
             this.lueSuitable_for_swimwear.TabIndex = 7;
             this.lueSuitable_for_swimwear.Tag = "2";
             // 
@@ -4343,34 +4392,34 @@
             this.label14.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(379, 39);
+            this.label14.Location = new System.Drawing.Point(371, 17);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 23);
+            this.label14.Size = new System.Drawing.Size(46, 22);
             this.label14.TabIndex = 192;
-            this.label14.Text = "Drycleanable";
+            this.label14.Text = "Breach";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueDry_cleanable
             // 
             this.lueDry_cleanable.Enabled = false;
             this.lueDry_cleanable.EnterMoveNextControl = true;
-            this.lueDry_cleanable.Location = new System.Drawing.Point(512, 40);
+            this.lueDry_cleanable.Location = new System.Drawing.Point(418, 17);
             this.lueDry_cleanable.Name = "lueDry_cleanable";
             this.lueDry_cleanable.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueDry_cleanable.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueDry_cleanable.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueDry_cleanable.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueDry_cleanable.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueDry_cleanable.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueDry_cleanable.Properties.MaxLength = 150;
             this.lueDry_cleanable.Properties.NullText = "";
             this.lueDry_cleanable.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueDry_cleanable.Properties.PopupWidth = 50;
+            this.lueDry_cleanable.Properties.PopupWidth = 250;
             this.lueDry_cleanable.Properties.ShowHeader = false;
             this.lueDry_cleanable.Properties.Tag = "2";
             this.lueDry_cleanable.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueDry_cleanable.Size = new System.Drawing.Size(68, 22);
+            this.lueDry_cleanable.Size = new System.Drawing.Size(245, 22);
             this.lueDry_cleanable.TabIndex = 3;
             this.lueDry_cleanable.Tag = "2";
             // 
@@ -4379,34 +4428,35 @@
             this.label39.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label39.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(169, 63);
+            this.label39.Location = new System.Drawing.Point(371, 40);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(151, 22);
+            this.label39.Size = new System.Drawing.Size(46, 21);
             this.label39.TabIndex = 190;
-            this.label39.Text = "Suitable for Tumble Dry";
+            this.label39.Text = "Ironing";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueSuitable_for_tumble_dry
             // 
             this.lueSuitable_for_tumble_dry.Enabled = false;
             this.lueSuitable_for_tumble_dry.EnterMoveNextControl = true;
-            this.lueSuitable_for_tumble_dry.Location = new System.Drawing.Point(321, 63);
+            this.lueSuitable_for_tumble_dry.Location = new System.Drawing.Point(418, 40);
             this.lueSuitable_for_tumble_dry.Name = "lueSuitable_for_tumble_dry";
             this.lueSuitable_for_tumble_dry.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueSuitable_for_tumble_dry.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueSuitable_for_tumble_dry.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueSuitable_for_tumble_dry.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueSuitable_for_tumble_dry.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueSuitable_for_tumble_dry.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueSuitable_for_tumble_dry.Properties.DropDownRows = 13;
+            this.lueSuitable_for_tumble_dry.Properties.MaxLength = 150;
             this.lueSuitable_for_tumble_dry.Properties.NullText = "";
             this.lueSuitable_for_tumble_dry.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueSuitable_for_tumble_dry.Properties.PopupWidth = 50;
+            this.lueSuitable_for_tumble_dry.Properties.PopupWidth = 250;
             this.lueSuitable_for_tumble_dry.Properties.ShowHeader = false;
             this.lueSuitable_for_tumble_dry.Properties.Tag = "2";
             this.lueSuitable_for_tumble_dry.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueSuitable_for_tumble_dry.Size = new System.Drawing.Size(57, 22);
+            this.lueSuitable_for_tumble_dry.Size = new System.Drawing.Size(245, 22);
             this.lueSuitable_for_tumble_dry.TabIndex = 6;
             this.lueSuitable_for_tumble_dry.Tag = "2";
             // 
@@ -4415,90 +4465,44 @@
             this.label38.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label38.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(169, 39);
+            this.label38.Location = new System.Drawing.Point(70, 17);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(151, 23);
+            this.label38.Size = new System.Drawing.Size(37, 22);
             this.label38.TabIndex = 188;
-            this.label38.Text = "Machine Washable @ 30\'C";
+            this.label38.Text = "Wash";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lueMachine_washable
             // 
             this.lueMachine_washable.Enabled = false;
             this.lueMachine_washable.EnterMoveNextControl = true;
-            this.lueMachine_washable.Location = new System.Drawing.Point(321, 40);
+            this.lueMachine_washable.Location = new System.Drawing.Point(108, 17);
             this.lueMachine_washable.Name = "lueMachine_washable";
             this.lueMachine_washable.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueMachine_washable.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.lueMachine_washable.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.lueMachine_washable.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueMachine_washable.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lueMachine_washable.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 250, "id")});
+            this.lueMachine_washable.Properties.DropDownRows = 14;
+            this.lueMachine_washable.Properties.MaxLength = 150;
             this.lueMachine_washable.Properties.NullText = "";
             this.lueMachine_washable.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueMachine_washable.Properties.PopupWidth = 50;
+            this.lueMachine_washable.Properties.PopupWidth = 250;
             this.lueMachine_washable.Properties.ShowHeader = false;
             this.lueMachine_washable.Properties.Tag = "2";
             this.lueMachine_washable.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueMachine_washable.Size = new System.Drawing.Size(57, 22);
+            this.lueMachine_washable.Size = new System.Drawing.Size(263, 22);
             this.lueMachine_washable.TabIndex = 2;
             this.lueMachine_washable.Tag = "2";
-            // 
-            // label34
-            // 
-            this.label34.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label34.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(847, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(130, 13);
-            this.label34.TabIndex = 186;
-            this.label34.Text = "Certificate Expiry Date";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lueRsl_certificate_type
-            // 
-            this.lueRsl_certificate_type.Enabled = false;
-            this.lueRsl_certificate_type.EnterMoveNextControl = true;
-            this.lueRsl_certificate_type.Location = new System.Drawing.Point(169, 17);
-            this.lueRsl_certificate_type.Name = "lueRsl_certificate_type";
-            this.lueRsl_certificate_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.lueRsl_certificate_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lueRsl_certificate_type.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.lueRsl_certificate_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueRsl_certificate_type.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
-            this.lueRsl_certificate_type.Properties.DropDownRows = 15;
-            this.lueRsl_certificate_type.Properties.NullText = "";
-            this.lueRsl_certificate_type.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lueRsl_certificate_type.Properties.ShowHeader = false;
-            this.lueRsl_certificate_type.Properties.Tag = "2";
-            this.lueRsl_certificate_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueRsl_certificate_type.Size = new System.Drawing.Size(671, 22);
-            this.lueRsl_certificate_type.TabIndex = 0;
-            this.lueRsl_certificate_type.Tag = "2";
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(232, -1);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 16);
-            this.label11.TabIndex = 166;
-            this.label11.Text = "Certificate type";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
             // 
             this.label21.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label21.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(3, -1);
+            this.label21.Location = new System.Drawing.Point(4, -1);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(160, 16);
             this.label21.TabIndex = 165;
@@ -4522,31 +4526,19 @@
             this.label57.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label57.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.ForeColor = System.Drawing.Color.White;
-            this.label57.Location = new System.Drawing.Point(0, 39);
+            this.label57.Location = new System.Drawing.Point(0, 17);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(167, 69);
+            this.label57.Size = new System.Drawing.Size(69, 68);
             this.label57.TabIndex = 99;
             this.label57.Text = "Suggested care instruction";
-            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label31
-            // 
-            this.label31.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label31.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(-2, 17);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(169, 21);
-            this.label31.TabIndex = 66;
-            this.label31.Text = "RSL Compliance Certification ";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lueCheck
             // 
             this.lueCheck.EditValue = "";
             this.lueCheck.Enabled = false;
             this.lueCheck.EnterMoveNextControl = true;
-            this.lueCheck.Location = new System.Drawing.Point(898, 111);
+            this.lueCheck.Location = new System.Drawing.Point(898, 88);
             this.lueCheck.Name = "lueCheck";
             this.lueCheck.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lueCheck.Properties.Appearance.Options.UseForeColor = true;
@@ -4560,10 +4552,70 @@
             this.lueCheck.Properties.PopupSizeable = false;
             this.lueCheck.Properties.PopupWidth = 90;
             this.lueCheck.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lueCheck.Size = new System.Drawing.Size(90, 20);
+            this.lueCheck.Size = new System.Drawing.Size(89, 20);
             this.lueCheck.TabIndex = 210;
             this.lueCheck.Tag = "2";
             this.lueCheck.EditValueChanged += new System.EventHandler(this.lueCheck_EditValueChanged);
+            // 
+            // dtRsl_certificate_expiry_date
+            // 
+            this.dtRsl_certificate_expiry_date.EditValue = "";
+            this.dtRsl_certificate_expiry_date.Enabled = false;
+            this.dtRsl_certificate_expiry_date.EnterMoveNextControl = true;
+            this.dtRsl_certificate_expiry_date.Location = new System.Drawing.Point(70, 17);
+            this.dtRsl_certificate_expiry_date.Name = "dtRsl_certificate_expiry_date";
+            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.dtRsl_certificate_expiry_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.dtRsl_certificate_expiry_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dtRsl_certificate_expiry_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtRsl_certificate_expiry_date.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dtRsl_certificate_expiry_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.dtRsl_certificate_expiry_date.Properties.MaxLength = 10;
+            this.dtRsl_certificate_expiry_date.Size = new System.Drawing.Size(40, 20);
+            this.dtRsl_certificate_expiry_date.TabIndex = 208;
+            this.dtRsl_certificate_expiry_date.Tag = "2";
+            this.dtRsl_certificate_expiry_date.Visible = false;
+            // 
+            // lueRsl_certificate_type
+            // 
+            this.lueRsl_certificate_type.Enabled = false;
+            this.lueRsl_certificate_type.EnterMoveNextControl = true;
+            this.lueRsl_certificate_type.Location = new System.Drawing.Point(45, 17);
+            this.lueRsl_certificate_type.Name = "lueRsl_certificate_type";
+            this.lueRsl_certificate_type.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lueRsl_certificate_type.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lueRsl_certificate_type.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.lueRsl_certificate_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueRsl_certificate_type.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id")});
+            this.lueRsl_certificate_type.Properties.DropDownRows = 15;
+            this.lueRsl_certificate_type.Properties.NullText = "";
+            this.lueRsl_certificate_type.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
+            this.lueRsl_certificate_type.Properties.ShowHeader = false;
+            this.lueRsl_certificate_type.Properties.Tag = "2";
+            this.lueRsl_certificate_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueRsl_certificate_type.Size = new System.Drawing.Size(25, 22);
+            this.lueRsl_certificate_type.TabIndex = 0;
+            this.lueRsl_certificate_type.Tag = "2";
+            this.lueRsl_certificate_type.Visible = false;
+            // 
+            // label31
+            // 
+            this.label31.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label31.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(-2, 17);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(45, 21);
+            this.label31.TabIndex = 66;
+            this.label31.Text = "RSL Compliance Certification ";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label31.Visible = false;
             // 
             // panel3
             // 
@@ -5197,8 +5249,6 @@
             this.tabPage2.Controls.Add(this.label86);
             this.tabPage2.Controls.Add(this.txtMo1);
             this.tabPage2.Controls.Add(this.label85);
-            this.tabPage2.Controls.Add(this.label80);
-            this.tabPage2.Controls.Add(this.txtPvh_submit_ref2);
             this.tabPage2.Controls.Add(this.txtPvh_submit_ref1);
             this.tabPage2.Controls.Add(this.label81);
             this.tabPage2.Controls.Add(this.dgvFind);
@@ -5221,6 +5271,46 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "數據查找";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtSize1
+            // 
+            this.txtSize1.EnterMoveNextControl = true;
+            this.txtSize1.Location = new System.Drawing.Point(135, 139);
+            this.txtSize1.Name = "txtSize1";
+            this.txtSize1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtSize1.Properties.MaxLength = 100;
+            this.txtSize1.Size = new System.Drawing.Size(302, 22);
+            this.txtSize1.TabIndex = 181;
+            // 
+            // label91
+            // 
+            this.label91.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label91.Location = new System.Drawing.Point(14, 143);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(113, 15);
+            this.label91.TabIndex = 182;
+            this.label91.Text = "Size：";
+            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtColour1
+            // 
+            this.txtColour1.EnterMoveNextControl = true;
+            this.txtColour1.Location = new System.Drawing.Point(135, 114);
+            this.txtColour1.Name = "txtColour1";
+            this.txtColour1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtColour1.Properties.MaxLength = 100;
+            this.txtColour1.Size = new System.Drawing.Size(302, 22);
+            this.txtColour1.TabIndex = 179;
+            // 
+            // label90
+            // 
+            this.label90.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label90.Location = new System.Drawing.Point(14, 118);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(113, 15);
+            this.label90.TabIndex = 180;
+            this.label90.Text = "Colour：";
+            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPlm_material_code1
             // 
@@ -5306,26 +5396,6 @@
             this.label85.Text = "MO1：";
             this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label80
-            // 
-            this.label80.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label80.Location = new System.Drawing.Point(275, 40);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(25, 17);
-            this.label80.TabIndex = 170;
-            this.label80.Text = "~";
-            this.label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtPvh_submit_ref2
-            // 
-            this.txtPvh_submit_ref2.EnterMoveNextControl = true;
-            this.txtPvh_submit_ref2.Location = new System.Drawing.Point(300, 39);
-            this.txtPvh_submit_ref2.Name = "txtPvh_submit_ref2";
-            this.txtPvh_submit_ref2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtPvh_submit_ref2.Properties.MaxLength = 20;
-            this.txtPvh_submit_ref2.Size = new System.Drawing.Size(137, 22);
-            this.txtPvh_submit_ref2.TabIndex = 3;
-            // 
             // txtPvh_submit_ref1
             // 
             this.txtPvh_submit_ref1.EnterMoveNextControl = true;
@@ -5335,7 +5405,6 @@
             this.txtPvh_submit_ref1.Properties.MaxLength = 20;
             this.txtPvh_submit_ref1.Size = new System.Drawing.Size(137, 22);
             this.txtPvh_submit_ref1.TabIndex = 2;
-            this.txtPvh_submit_ref1.Leave += new System.EventHandler(this.txtPvh_submit_ref1_Leave);
             // 
             // label81
             // 
@@ -5455,6 +5524,7 @@
             this.dtDat1.Properties.MaxLength = 10;
             this.dtDat1.Size = new System.Drawing.Size(137, 22);
             this.dtDat1.TabIndex = 4;
+            this.dtDat1.Leave += new System.EventHandler(this.dtDat1_Leave_1);
             // 
             // dtDat2
             // 
@@ -5481,7 +5551,7 @@
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(470, 29);
+            this.btnSearch.Location = new System.Drawing.Point(473, 74);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(78, 37);
             this.btnSearch.TabIndex = 157;
@@ -5515,9 +5585,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            dataGridViewCellStyle6.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -5534,9 +5604,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "requests_by";
-            dataGridViewCellStyle7.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.HeaderText = "Requests by";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -5625,6 +5695,7 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Currency1";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
             this.dataGridViewTextBoxColumn15.Width = 60;
             // 
             // dataGridViewTextBoxColumn16
@@ -5663,8 +5734,8 @@
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "date";
-            dataGridViewCellStyle8.Format = "yyyy/MM/dd";
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd";
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn20.HeaderText = "Date";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -6304,6 +6375,7 @@
             this.dataGridViewTextBoxColumn110.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn110.Name = "dataGridViewTextBoxColumn110";
             this.dataGridViewTextBoxColumn110.ReadOnly = true;
+            this.dataGridViewTextBoxColumn110.Visible = false;
             // 
             // dataGridViewTextBoxColumn111
             // 
@@ -6311,6 +6383,7 @@
             this.dataGridViewTextBoxColumn111.HeaderText = "MO2";
             this.dataGridViewTextBoxColumn111.Name = "dataGridViewTextBoxColumn111";
             this.dataGridViewTextBoxColumn111.ReadOnly = true;
+            this.dataGridViewTextBoxColumn111.Visible = false;
             // 
             // dataGridViewTextBoxColumn112
             // 
@@ -6338,46 +6411,21 @@
             this.dataGridViewTextBoxColumn115.DataPropertyName = "serial_no";
             this.dataGridViewTextBoxColumn115.HeaderText = "Serial No.";
             this.dataGridViewTextBoxColumn115.Name = "dataGridViewTextBoxColumn115";
+            this.dataGridViewTextBoxColumn115.ReadOnly = true;
             // 
-            // txtColour1
+            // dataGridViewTextBoxColumn116
             // 
-            this.txtColour1.EnterMoveNextControl = true;
-            this.txtColour1.Location = new System.Drawing.Point(135, 114);
-            this.txtColour1.Name = "txtColour1";
-            this.txtColour1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtColour1.Properties.MaxLength = 100;
-            this.txtColour1.Size = new System.Drawing.Size(302, 22);
-            this.txtColour1.TabIndex = 179;
+            this.dataGridViewTextBoxColumn116.DataPropertyName = "dye_method";
+            this.dataGridViewTextBoxColumn116.HeaderText = "Dye Method";
+            this.dataGridViewTextBoxColumn116.Name = "dataGridViewTextBoxColumn116";
+            this.dataGridViewTextBoxColumn116.ReadOnly = true;
             // 
-            // label90
+            // dataGridViewTextBoxColumn117
             // 
-            this.label90.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label90.Location = new System.Drawing.Point(14, 118);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(113, 15);
-            this.label90.TabIndex = 180;
-            this.label90.Text = "Colour：";
-            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtSize1
-            // 
-            this.txtSize1.EnterMoveNextControl = true;
-            this.txtSize1.Location = new System.Drawing.Point(135, 139);
-            this.txtSize1.Name = "txtSize1";
-            this.txtSize1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtSize1.Properties.MaxLength = 100;
-            this.txtSize1.Size = new System.Drawing.Size(302, 22);
-            this.txtSize1.TabIndex = 181;
-            // 
-            // label91
-            // 
-            this.label91.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label91.Location = new System.Drawing.Point(14, 143);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(113, 15);
-            this.label91.TabIndex = 182;
-            this.label91.Text = "Size：";
-            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn117.DataPropertyName = "serial_no";
+            this.dataGridViewTextBoxColumn117.HeaderText = "Serial No.";
+            this.dataGridViewTextBoxColumn117.Name = "dataGridViewTextBoxColumn117";
+            this.dataGridViewTextBoxColumn117.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmDevelopmentPvh
             // 
@@ -6409,6 +6457,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueColor_already_approved.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueFor_quality_approval.Properties)).EndInit();
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight_base.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterial_structure.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbeFactory_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcess.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight_uom.Properties)).EndInit();
@@ -6443,13 +6495,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSample_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrevious_submit_ref.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMaterial_subtype.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsupplier_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColour.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFinish.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDye_type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDye_method.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory_name.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueHandling_office.Properties)).EndInit();
@@ -6484,8 +6533,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtmoq_color.Properties)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtQuality_callouts.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_cfr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueComplies_with_pvh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDo_not_dry_clean.Properties)).EndInit();
@@ -6495,8 +6542,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueDry_cleanable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueSuitable_for_tumble_dry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMachine_washable.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCheck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRsl_certificate_expiry_date.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueRsl_certificate_type.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueCert4_type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCert3_type.Properties)).EndInit();
@@ -6525,11 +6574,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlm_material_code1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPvh_submit_ref1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).EndInit();
@@ -6538,8 +6588,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColour1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSize1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6653,7 +6701,7 @@
         private DevExpress.XtraEditors.DateEdit txtDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.Label label56;
-        private DevExpress.XtraEditors.TextEdit txtWeight;
+        private DevExpress.XtraEditors.TextEdit txtWeight_base;
         private System.Windows.Forms.Label label55;
         private DevExpress.XtraEditors.TextEdit txtFactory_name;
         private System.Windows.Forms.Label label52;
@@ -6679,7 +6727,6 @@
         private DevExpress.XtraEditors.LookUpEdit lueRaw_mat1_compostion;
         private System.Windows.Forms.Label label67;
         private DevExpress.XtraEditors.TextEdit txtSize;
-        private DevExpress.XtraEditors.TextEdit txtColour;
         private System.Windows.Forms.Label label68;
         private DevExpress.XtraEditors.LookUpEdit lueRaw_mat5_l5;
         private DevExpress.XtraEditors.LookUpEdit lueRaw_mat5_l4;
@@ -6747,10 +6794,8 @@
         private DevExpress.XtraEditors.TextEdit txtCert3_scope_no;
         private DevExpress.XtraEditors.TextEdit txtCert2_expiry_date;
         private DevExpress.XtraEditors.TextEdit txtCert2_scope_holder;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label34;
         private DevExpress.XtraEditors.LookUpEdit lueRsl_certificate_type;
         private System.Windows.Forms.Label label40;
         private DevExpress.XtraEditors.LookUpEdit luePasses_metal_detection;
@@ -6768,7 +6813,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label16;
         private DevExpress.XtraEditors.LookUpEdit lueComplies_with_pvh;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label43;
         private DevExpress.XtraEditors.LookUpEdit lueDo_not_dry_clean;
         private System.Windows.Forms.Label label45;
@@ -6876,8 +6920,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn108;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn109;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn110;
-        private System.Windows.Forms.Label label80;
-        private DevExpress.XtraEditors.TextEdit txtPvh_submit_ref2;
         private DevExpress.XtraEditors.TextEdit txtPvh_submit_ref1;
         private System.Windows.Forms.Label label81;
         private DevExpress.XtraEditors.TextEdit txtMo_id3;
@@ -6906,6 +6948,23 @@
         private DevExpress.XtraEditors.ButtonEdit txtPvh_submit_ref;
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn114;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn115;
+        private DevExpress.XtraEditors.ButtonEdit txtFinish;
+        private DevExpress.XtraEditors.ButtonEdit txtDye_type;
+        private DevExpress.XtraEditors.ButtonEdit txtDye_method;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
+        private DevExpress.XtraEditors.ComboBoxEdit cbeFactory_name;
+        private DevExpress.XtraEditors.TextEdit txtSize1;
+        private System.Windows.Forms.Label label91;
+        private DevExpress.XtraEditors.TextEdit txtColour1;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label92;
+        private DevExpress.XtraEditors.ButtonEdit txtMaterial_structure;
+        private DevExpress.XtraEditors.TextEdit txtWeight;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn116;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn117;
         private System.Windows.Forms.DataGridViewTextBoxColumn serial_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn division;
         private System.Windows.Forms.DataGridViewTextBoxColumn handing_office;
@@ -6918,6 +6977,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn factory_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn material_subtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn material_structure;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn colour;
         private System.Windows.Forms.DataGridViewTextBoxColumn finish;
@@ -6926,6 +6986,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sample_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn previous_submit_vr;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weight_base;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight_uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn obj_fbx;
         private System.Windows.Forms.DataGridViewTextBoxColumn raw_mat1_compostion;
@@ -7024,16 +7085,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dye_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn dye_method;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn114;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn115;
-        private DevExpress.XtraEditors.ButtonEdit txtFinish;
-        private DevExpress.XtraEditors.ButtonEdit txtDye_type;
-        private DevExpress.XtraEditors.ButtonEdit txtDye_method;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serialno;
-        private DevExpress.XtraEditors.ComboBoxEdit cbeFactory_name;
-        private DevExpress.XtraEditors.TextEdit txtSize1;
-        private System.Windows.Forms.Label label91;
-        private DevExpress.XtraEditors.TextEdit txtColour1;
-        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.RichTextBox txtColour;
     }
 }

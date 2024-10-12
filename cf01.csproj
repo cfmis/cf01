@@ -409,6 +409,12 @@
     <Compile Include="Forms\frmButtonWork.designer.cs">
       <DependentUpon>frmButtonWork.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDeliveryBillVat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeliveryBillVat.designer.cs">
+      <DependentUpon>frmDeliveryBillVat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDevelopmentPvhUs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1647,6 +1653,12 @@
     <Compile Include="ReportForm\frmDeliveryCost.designer.cs">
       <DependentUpon>frmDeliveryCost.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmDeliveryPlate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmDeliveryPlate.designer.cs">
+      <DependentUpon>frmDeliveryPlate.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmDeliveryPrepare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2145,6 +2157,12 @@
     <Compile Include="ReportForm\frmShowSt.Designer.cs">
       <DependentUpon>frmShowSt.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmSop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmSop.Designer.cs">
+      <DependentUpon>frmSop.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2290,6 +2308,18 @@
     </Compile>
     <Compile Include="Reports\xrDevelopmentPvhUs.designer.cs">
       <DependentUpon>xrDevelopmentPvhUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrDgDelivery.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrDgDelivery.designer.cs">
+      <DependentUpon>xrDgDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrDgDelivery2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrDgDelivery2.designer.cs">
+      <DependentUpon>xrDgDelivery2.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrhg_plate.cs">
       <SubType>Component</SubType>
@@ -2906,6 +2936,9 @@
     <EmbeddedResource Include="Forms\frmButtonWork.resx">
       <DependentUpon>frmButtonWork.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeliveryBillVat.resx">
+      <DependentUpon>frmDeliveryBillVat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDevelopmentPvhUs.resx">
       <DependentUpon>frmDevelopmentPvhUs.cs</DependentUpon>
     </EmbeddedResource>
@@ -3510,6 +3543,9 @@
     <EmbeddedResource Include="ReportForm\frmDeliveryCost.resx">
       <DependentUpon>frmDeliveryCost.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmDeliveryPlate.resx">
+      <DependentUpon>frmDeliveryPlate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmDeliveryPrepare.resx">
       <DependentUpon>frmDeliveryPrepare.cs</DependentUpon>
     </EmbeddedResource>
@@ -3759,6 +3795,9 @@
     <EmbeddedResource Include="ReportForm\frmShowSt.resx">
       <DependentUpon>frmShowSt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmSop.resx">
+      <DependentUpon>frmSop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -3860,6 +3899,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrDevelopmentPvhUs.resx">
       <DependentUpon>xrDevelopmentPvhUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrDgDelivery.resx">
+      <DependentUpon>xrDgDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrDgDelivery2.resx">
+      <DependentUpon>xrDgDelivery2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrhg_plate.resx">
       <DependentUpon>xrhg_plate.cs</DependentUpon>

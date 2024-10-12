@@ -127,13 +127,12 @@ namespace cf01.CLS
             //}
         }
 
-        public static DataTable Find_Data(string id1,string id2, string pvh_submit_ref1,string pvh_submit_ref2,
-            string date1,string date2,string plm_material_code1,string mo_id1,string mo_id2,string mo_id3,string colour1,string size1)
+        public static DataTable Find_Data(string id1,string id2, string pvh_submit_ref1,string date1,string date2,
+            string plm_material_code1,string mo_id1,string mo_id2,string mo_id3,string colour1,string size1)
         {
             string sql = @"SELECT * FROM development_pvh with(nolock) WHERE 1=1 ";
-            if (id1 != "" || id2 != "" || pvh_submit_ref1 !=""|| pvh_submit_ref2!="" 
-                || date1 !="" || date2 != "" || plm_material_code1 != "" || mo_id1!="" || mo_id2 !="" || mo_id3 !="" ||
-                colour1!="" || size1!="")
+            if (id1 != "" || id2 != "" || pvh_submit_ref1 !=""||  date1 !="" || date2 != "" || plm_material_code1 != "" 
+               || mo_id1 !="" || mo_id2 !="" || mo_id3 !="" || colour1!="" || size1!="")
             {
                 if (id1 != "")
                 {
@@ -145,12 +144,8 @@ namespace cf01.CLS
                 }
                 if (pvh_submit_ref1 != "")
                 {
-                    sql += string.Format(" and pvh_submit_ref>='{0}'", pvh_submit_ref1);
-                }
-                if (pvh_submit_ref2 != "")
-                {
-                    sql += string.Format(" and pvh_submit_ref<='{0}'", pvh_submit_ref2);
-                }
+                    sql += string.Format(" and pvh_submit_ref Like '%{0}%'", pvh_submit_ref1);
+                }                
                 if (date1 != "")
                 {
                     sql += string.Format(" and date>='{0}'", date1);
@@ -184,7 +179,6 @@ namespace cf01.CLS
                     sql += string.Format(" and size like '%{0}%'", size1);
                 }
             }
-
             DataTable dt = clsPublicOfCF01.GetDataTable(sql);
             return dt;
         }
@@ -204,5 +198,13 @@ namespace cf01.CLS
                 obyHolder.Text = dt.Rows[0]["remark3"].ToString();
             }           
         }
+
+
+        /* strSql = string.Format(@"SELECT contents AS id FROM development_pvh_type WHERE type='{0}' ORDER BY sort", "material_finish"); 
+            DataTable dtMatFinish = clsPublicOfCF01.GetDataTable(strSql);
+            lueCert1_mat_finish.Properties.DataSource = dtMatFinish;
+            lueCert1_mat_finish.Properties.ValueMember = "id";
+            lueCert1_mat_finish.Properties.DisplayMember = "id";*/
+
     }
 }

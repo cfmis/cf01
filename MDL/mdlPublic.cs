@@ -209,6 +209,7 @@ namespace cf01.MDL
         public string contract_cid;
         public string spec;
         public string is_print;
+        public string lot_no;
     }
     public class so_zipper_order_head
     {

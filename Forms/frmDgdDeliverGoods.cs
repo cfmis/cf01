@@ -377,7 +377,7 @@ namespace cf01.Forms
                 if (txtSales_Group.Text == "L")
                     txtLinkman.Text = "";
                 else
-                    txtLinkman.Text = "朱生";
+                    txtLinkman.Text = "朱生";                
             }
             else
             {
@@ -389,7 +389,7 @@ namespace cf01.Forms
                 txtEmail.Text = "";
                 txtLinkman.Text = "";
                 txtL_phone.Text = "";
-                txtExchange_rate.Text = "0";
+                txtExchange_rate.Text = "0";                
             }
         }
 
@@ -548,7 +548,23 @@ namespace cf01.Forms
                 if (txtSales_Group.Text == "L")
                     lueLocation_id.EditValue = "Y10";
                 else
-                    lueLocation_id.EditValue = "D03";
+                {                   
+                    if(!string.IsNullOrEmpty(txtIt_Customer.Text))
+                    {
+                        string strCust = txtIt_Customer.EditValue.ToString();
+                        if (strCust.Substring(0, 2) == "DL")
+                        {
+                            lueLocation_id.EditValue = "D03";
+                        }
+                        if (strCust.Substring(0, 2) == "DD")
+                        {
+                            lueLocation_id.EditValue = "JX1";
+                        }
+                    }
+                    else 
+                        lueLocation_id.EditValue = "";
+                }
+                    
                 chkIs_print.Checked = true;
             }
         }

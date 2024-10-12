@@ -44,9 +44,9 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDept1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDept2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +128,7 @@
             // 
             // lblDept
             // 
-            this.lblDept.Location = new System.Drawing.Point(40, 53);
+            this.lblDept.Location = new System.Drawing.Point(40, 55);
             this.lblDept.Name = "lblDept";
             this.lblDept.Size = new System.Drawing.Size(70, 17);
             this.lblDept.TabIndex = 13;
@@ -152,11 +152,11 @@
             this.deCheck_Date1.Name = "deCheck_Date1";
             this.deCheck_Date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deCheck_Date1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deCheck_Date1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.deCheck_Date1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.deCheck_Date1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.deCheck_Date1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deCheck_Date1.Size = new System.Drawing.Size(96, 20);
             this.deCheck_Date1.TabIndex = 30;
             this.deCheck_Date1.Leave += new System.EventHandler(this.deCheck_Date1_Leave);
@@ -169,11 +169,11 @@
             this.deCheck_Date2.Name = "deCheck_Date2";
             this.deCheck_Date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deCheck_Date2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deCheck_Date2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.deCheck_Date2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.deCheck_Date2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.deCheck_Date2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.deCheck_Date2.Size = new System.Drawing.Size(96, 20);
             this.deCheck_Date2.TabIndex = 31;
             this.deCheck_Date2.Leave += new System.EventHandler(this.deCheck_Date2_Leave);
@@ -219,9 +219,9 @@
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDept1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDept2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deCheck_Date2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

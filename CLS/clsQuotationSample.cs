@@ -163,7 +163,7 @@ namespace cf01.CLS
                 }
                 string version = xlApp.Version;//獲取當前使用excel版本號 
                 //FormatNum=-4143--You use Excel 97-2003; FormatNum=56--you use excel 2007 or later
-                int FormatNum = Convert.ToDouble(version) < 12 ? -4143 : 56; //保存excel文件的格式
+                int FormatNum = Convert.ToDouble(version) < 12 ? -4143 : 56; //保存excel文件的格式               
                 Microsoft.Office.Interop.Excel.Workbook workbook = xlApp.Workbooks.Add(true);
                 Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
 

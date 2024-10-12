@@ -40,7 +40,8 @@ namespace cf01.Forms
         string edit_state = ""; //新增或編輯的狀態      
         string image_path = "";
         bool save_flag;
-        string strArea = "";        
+        string strArea = "";
+        string flag_pdf = "";      
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         clsAppPublic clsApp = new clsAppPublic();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
@@ -133,10 +134,16 @@ namespace cf01.Forms
             txtAddress_id.Properties.DisplayMember = "cdesc";
 
             DataTable dtTerm = new DataTable();
-            dtTerm = clsPublicOfCF01.GetDataTable("SELECT id FROM dbo.quotation_term GROUP BY id ORDER BY id");
+            dtTerm = clsPublicOfCF01.GetDataTable(
+            @"SELECT id,case id 
+            WHEN '0' THEN '英文條款'
+            WHEN '1' THEN '中文條款'
+            ELSE '英文條款' 
+            END As cdesc
+            FROM dbo.quotation_term GROUP BY id ORDER BY id");
             txtTerm_id.Properties.DataSource = dtTerm;
             txtTerm_id.Properties.ValueMember = "id";
-            txtTerm_id.Properties.DisplayMember = "id";
+            txtTerm_id.Properties.DisplayMember = "cdesc";
 
             //tabPage3.Parent = null;
             tabControl1.SelectTab(2);
@@ -331,6 +338,12 @@ namespace cf01.Forms
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)
+        {
+            flag_pdf = "";
+            ReportPrint();
+        }
+
+        private void ReportPrint()
         {
             if (edit_state == "" && !string.IsNullOrEmpty(txtID.Text))
             {
@@ -2179,10 +2192,34 @@ namespace cf01.Forms
         }
 
         private void ReportPrint(XtraReport rpt)
-        {            
+        {
             rpt.CreateDocument();
             rpt.PrintingSystem.ShowMarginsWarning = false;
-            rpt.ShowPreviewDialog();            
+
+            if (flag_pdf == "")
+            {
+                rpt.ShowPreviewDialog();
+            }
+            else
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog()
+                {                   
+                    Title = "保存EXECL文件",
+                    Filter = "PDF文件|*.PDF",
+                    FilterIndex = 1
+                };
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string FileName = saveDialog.FileName;
+                    if (File.Exists(FileName))
+                    {
+                        File.Delete(FileName);
+                    }
+                    rpt.ExportToPdf(FileName);
+                    flag_pdf = "";
+                    MessageBox.Show("匯出PDF成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }     
         }
 
         private void txtMoney_id_EditValueChanged(object sender, EventArgs e)
@@ -2660,13 +2697,13 @@ namespace cf01.Forms
             B.discount,B.disc_price_usd,B.disc_price_hkd,B.disc_price_rmb,B.disc_price_vnd,B.disc_hkd_ex_fty,B.actual_price,B.actual_price_type,B.die_mould_usd,
             B.die_mould_cny, CASE WHEN Isnull(D.polo_care,'')='' THEN '' ELSE dbo.fn_getPoloCare(D.polo_care) END AS polo_care,ISNULL(D.moq_desc,'') AS moqdesc,
             dbo.fn_get_picture_name_of_artwork('0000',Substring(Isnull(B.cf_code,''),1,7),'OUT') AS picture_name,Isnull(B.cust_artwork,'') AS cust_artwork,D.termremark,
-            B.price_vnd_usd,B.price_vnd,B.price_vnd_grs,B.price_vnd_pcs,terms_remark, D.md_charge_vn,D.die_mould_usd_vn
+            B.price_vnd_usd,B.price_vnd,B.price_vnd_grs,B.price_vnd_pcs,E.terms_remark, D.md_charge_vn,D.die_mould_usd_vn
             FROM dbo.quotation_mostly A with(nolock)
                 INNER JOIN dbo.quotation_details B with(nolock) ON A.id=B.id And A.version=B.version
                 LEFT JOIN dbo.quotation D with(nolock) ON B.temp_code=D.temp_code
                 LEFT JOIN {0}it_customer C with(nolock) ON C.within_code='0000' and A.customer_id=C.id COLLATE Chinese_Taiwan_Stroke_CI_AS
                 LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS    
-                LEFT JOIN dbo.quotation_term_public ON 1=1             
+                LEFT JOIN dbo.quotation_term_public E ON A.term_id=E.id            
             WHERE A.id='{1}' ORDER BY A.id,B.seq_id ", DBUtility.remote_db, txtID.Text);
           DataTable dtPrint = clsPublicOfCF01.GetDataTable(strsql);
           if (dtPrint.Rows.Count > 0)
@@ -3581,6 +3618,13 @@ namespace cf01.Forms
             {
                 grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
             }            
+        }
+
+        private void BTNTOPDF_Click(object sender, EventArgs e)
+        {
+            flag_pdf = "PDF";
+            ReportPrint();
+            
         }
 
         //private void clUsd_Leave(object sender, EventArgs e)
