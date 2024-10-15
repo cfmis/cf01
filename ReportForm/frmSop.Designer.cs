@@ -101,7 +101,7 @@
             this.txtStyle2.Location = new System.Drawing.Point(212, 100);
             this.txtStyle2.MaxLength = 20;
             this.txtStyle2.Name = "txtStyle2";
-            this.txtStyle2.Size = new System.Drawing.Size(109, 22);
+            this.txtStyle2.Size = new System.Drawing.Size(110, 22);
             this.txtStyle2.TabIndex = 175;
             // 
             // label4
@@ -140,7 +140,7 @@
             this.txtId2.Location = new System.Drawing.Point(212, 72);
             this.txtId2.MaxLength = 12;
             this.txtId2.Name = "txtId2";
-            this.txtId2.Size = new System.Drawing.Size(109, 22);
+            this.txtId2.Size = new System.Drawing.Size(110, 22);
             this.txtId2.TabIndex = 171;
             // 
             // label3
@@ -213,7 +213,7 @@
             this.dtDat2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDat2.Properties.MaxLength = 10;
-            this.dtDat2.Size = new System.Drawing.Size(109, 22);
+            this.dtDat2.Size = new System.Drawing.Size(110, 22);
             this.dtDat2.TabIndex = 167;
             // 
             // btnExport

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace cf01.ReportForm
 {
     public partial class frmSop : Form
