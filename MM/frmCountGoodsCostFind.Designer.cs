@@ -92,6 +92,7 @@
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -699,6 +700,7 @@
             this.colID,
             this.Column1,
             this.Column2,
+            this.Column7,
             this.Column6,
             this.Column3,
             this.Column4,
@@ -734,6 +736,13 @@
             this.Column2.HeaderText = "產品描述";
             this.Column2.Name = "Column2";
             this.Column2.Width = 260;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "DoColor";
+            this.Column7.HeaderText = "顏色做法";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 180;
             // 
             // Column6
             // 
@@ -871,6 +880,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

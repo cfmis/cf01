@@ -308,6 +308,20 @@ namespace cf01.Forms
             else
                 pic_artwork.Image = null;
         }
+<<<<<<< HEAD
+
+        private void btnExpExcel_Click(object sender, EventArgs e)
+        {
+            //// 创建Excel应用程序的新实例
+            //Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+
+            //// 如果需要可见地打开Excel，可以设置以下属性
+            //excelApp.Visible = true;
+
+            //System.Diagnostics.Process.Start("c://test.xls");
+        }
+=======
        
+>>>>>>> eb5892556bb91191a8681520a1019eaa315c052b
     }
 }

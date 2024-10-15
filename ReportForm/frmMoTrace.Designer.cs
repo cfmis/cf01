@@ -166,7 +166,6 @@
             this.txtTr_Wip = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnExcel = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -227,7 +226,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnExcel);
             this.panel1.Controls.Add(this.btnSetPlanVisible);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtOcQty);
@@ -1323,16 +1321,6 @@
             this.tabPage2.Text = "其它記錄";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnExcel
-            // 
-            this.btnExcel.Location = new System.Drawing.Point(766, 5);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(75, 23);
-            this.btnExcel.TabIndex = 8;
-            this.btnExcel.Text = "button1";
-            this.btnExcel.UseVisualStyleBackColor = true;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
             // frmMoTrace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1506,6 +1494,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.Button btnExcel;
     }
 }
