@@ -27,6 +27,7 @@ namespace cf01.ReportForm
             dtFind = clsConErp.GetDataTable(sql);
             dgvDetails.DataSource = dtFind;
         }
+
         private void btnFind_Click(object sender, EventArgs e)
         {
             string sql = @"SELECT convert(bit,0) as flag_select,sop1no,sop1dat,sop1style,sop1cname FROM sop01 Where 1>0 ";
