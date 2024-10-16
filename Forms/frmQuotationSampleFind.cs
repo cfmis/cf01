@@ -84,6 +84,7 @@ namespace cf01.Forms
                 MessageBox.Show("未查詢到數據，請重新輸入條件查詢數據!", "提示信息");
             }
 
+
         }
         private void FindData()
         {

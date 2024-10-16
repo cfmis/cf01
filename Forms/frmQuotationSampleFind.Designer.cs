@@ -1152,7 +1152,7 @@
             // 
             // chkCk
             // 
-            this.chkCk.Location = new System.Drawing.Point(232, 21);
+            this.chkCk.Location = new System.Drawing.Point(233, 21);
             this.chkCk.Name = "chkCk";
             this.chkCk.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkCk.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
