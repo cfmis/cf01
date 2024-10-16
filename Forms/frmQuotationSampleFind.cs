@@ -308,7 +308,7 @@ namespace cf01.Forms
             else
                 pic_artwork.Image = null;
         }
-<<<<<<< HEAD
+
 
         private void btnExpExcel_Click(object sender, EventArgs e)
         {
@@ -320,8 +320,6 @@ namespace cf01.Forms
 
             //System.Diagnostics.Process.Start("c://test.xls");
         }
-=======
-       
->>>>>>> eb5892556bb91191a8681520a1019eaa315c052b
+
     }
 }
