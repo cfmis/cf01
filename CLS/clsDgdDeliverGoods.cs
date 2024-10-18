@@ -587,15 +587,14 @@ namespace cf01.CLS
             string strID; 
             if (ntype == 0)
             {
-                strID = " NOT Like 'L-%' AND b.it_customer<>'DD-G0245''";//C組東莞D
+                strID = " NOT Like 'L-%' AND b.it_customer<>'DD-G0245'";//C組東莞D
             }
             else
             {
                 strID = " Like 'L-%'";//L組發票格式
             }
-
-            string strSql = "";
-            strSql = String.Format(
+            string strSql = string.Empty;
+            strSql = string.Format(
                @"Select Convert(int,SUBSTRING(sequence_id,1,4)) as seq,a.id,Convert(Varchar(20),b.ship_date,111) AS ship_date,a.sequence_id,a.mo_id,a.goods_id,a.goods_name,
                 Convert(INT,a.u_invoice_qty) As u_invoice_qty,Convert(INT,a.u_invoice_qty_pcs) As u_invoice_qty_pcs,a.goods_unit,
                 Convert(Decimal(18,2),a.sec_qty) As sec_qty,a.sec_unit,a.location_id,a.customer_goods,a.customer_color_id,a.order_id,
@@ -604,11 +603,11 @@ namespace cf01.CLS
                 From so_invoice_details a Inner Join so_invoice_mostly b On a.within_code=b.within_code And a.id=b.id 
                 Where a.within_code='{0}' And a.id {1} And a.state='0'", within_code, strID);
             if (ocno != "")
-                strSql += String.Format(" And a.order_id='{0}'", ocno);
+                strSql += string.Format(" And a.order_id='{0}'", ocno);
             if(id!="")
-                strSql += String.Format(" And a.id='{0}'", id);
+                strSql += string.Format(" And a.id='{0}'", id);
             if (mo_id != "")
-                strSql += String.Format(" And a.mo_id='{0}'", mo_id);
+                strSql += string.Format(" And a.mo_id='{0}'", mo_id);
             strSql += " ORDER BY a.order_id,a.so_sequence_id";
             dtSo = clsPublicOfCF01.GetDataTable(strSql);
             dtSo.Columns.Add("is_select", System.Type.GetType("System.Boolean"));
