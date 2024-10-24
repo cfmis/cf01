@@ -399,6 +399,46 @@ namespace cf01.CLS
             strSql += " Order By FrontPart Desc,Seq";
             DataTable dtGoodsPart = clsPublicOfCF01.GetDataTable(strSql);
             dtGoodsPart.Columns.Add("SelectFlag", typeof(bool));
+            decimal MatWegX = 0, MatUseX = 0, MatCostX = 0, ProcessCostTotalX = 0, PlateCostX = 0, PackCostX = 0
+                , CostPcsX = 0, CostGrsX = 0, CostKX = 0, FactoryFeeX = 0, FactoryCostPcsX = 0, FactoryCostGrsX = 0, FactoryCostKX = 0;
+            if (dtGoodsPart.Rows.Count > 0)
+            {
+                for (int i = 0; i < dtGoodsPart.Rows.Count; i++)
+                {
+                    DataRow dr = dtGoodsPart.Rows[i];
+                    MatWegX = MatWegX + Convert.ToDecimal(dr["MatWeg"]);
+                    MatUseX = MatUseX + Convert.ToDecimal(dr["MatUse"]);
+                    MatCostX = MatCostX + Convert.ToDecimal(dr["MatCost"]);
+                    ProcessCostTotalX = ProcessCostTotalX + Convert.ToDecimal(dr["ProcessCostTotal"]);
+                    PlateCostX = PlateCostX + Convert.ToDecimal(dr["PlateCost"]);
+                    PackCostX = PackCostX + Convert.ToDecimal(dr["PackCost"]);
+                    CostPcsX = CostPcsX + Convert.ToDecimal(dr["CostPcs"]);
+                    CostGrsX = CostGrsX + Convert.ToDecimal(dr["CostGrs"]);
+                    CostKX = CostKX + Convert.ToDecimal(dr["CostK"]);
+                    FactoryFeeX = FactoryFeeX + Convert.ToDecimal(dr["FactoryFee"]);
+                    FactoryCostPcsX = FactoryCostPcsX + Convert.ToDecimal(dr["FactoryCostPcs"]);
+                    FactoryCostGrsX = FactoryCostGrsX + Convert.ToDecimal(dr["FactoryCostGrs"]);
+                    FactoryCostKX = FactoryCostKX + Convert.ToDecimal(dr["FactoryCostK"]);
+                }
+
+                DataRow drNew = dtGoodsPart.NewRow();
+                drNew["Seq"] = "ZZ";
+                drNew["ProductName"] = "合計";
+                drNew["MatWeg"] = MatWegX;
+                drNew["MatUse"] = MatUseX;
+                drNew["MatCost"] = MatCostX;
+                drNew["ProcessCostTotal"] = ProcessCostTotalX;
+                drNew["PlateCost"] = PlateCostX;
+                drNew["PackCost"] = PackCostX;
+                drNew["CostPcs"] = CostPcsX;
+                drNew["CostGrs"] = CostGrsX;
+                drNew["CostK"] = CostKX;
+                drNew["FactoryFee"] = FactoryFeeX;
+                drNew["FactoryCostPcs"] = FactoryCostPcsX;
+                drNew["FactoryCostGrs"] = FactoryCostGrsX;
+                drNew["FactoryCostK"] = FactoryCostKX;
+                dtGoodsPart.Rows.Add(drNew);
+            }
             return dtGoodsPart;
         }
         public static DataTable LoadProductCostMat(int upperSN)

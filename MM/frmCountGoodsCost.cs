@@ -419,17 +419,17 @@ namespace cf01.MM
         /// </summary>
         private void ShowProductCost()
         {
-            float costPCS = 0;
-            float costGRS = 0;
-            float costK = 0;
-            float multRate = 0;
+            decimal costPCS = 0;
+            decimal costGRS = 0;
+            decimal costK = 0;
+            decimal multRate = 0;
             for (int i = 0; i < dtGoodsPartDetails.Rows.Count; i++)
             {
                 DataRow dr = dtGoodsPartDetails.Rows[i];
-                multRate= clsValidRule.ConvertStrToSingle(dr["MultRate"].ToString());
-                costPCS += clsValidRule.ConvertStrToSingle(dr["FactoryCostPcs"].ToString()) * multRate;
-                costGRS += clsValidRule.ConvertStrToSingle(dr["FactoryCostGrs"].ToString()) * multRate;
-                costK += clsValidRule.ConvertStrToSingle(dr["FactoryCostK"].ToString()) * multRate;
+                multRate= clsValidRule.ConvertStrToDecimal(dr["MultRate"].ToString());
+                costPCS += clsValidRule.ConvertStrToDecimal(dr["FactoryCostPcs"].ToString()) * multRate;
+                costGRS += clsValidRule.ConvertStrToDecimal(dr["FactoryCostGrs"].ToString()) * multRate;
+                costK += clsValidRule.ConvertStrToDecimal(dr["FactoryCostK"].ToString()) * multRate;
             }
             txtProductCostPcs.Text = costPCS.ToString();
             txtProductCostGrs.Text = costGRS.ToString();
@@ -1023,6 +1023,8 @@ namespace cf01.MM
             if (gvGoodsPartDetails.RowCount > 0)
             {
                 DataRow Row = gvGoodsPartDetails.GetFocusedDataRow();
+                if (Row["Seq"].ToString().Trim() == "ZZ")//點擊合計行的時候，不用賦值
+                    return;
                 //DataRow Row = dtGoodsPartDetails.Rows[0];
                 txtProductIdPart.Text = Row["ProductID"].ToString();
                 txtProductNamePart.Text = Row["ProductName"].ToString();
@@ -2323,7 +2325,7 @@ namespace cf01.MM
             DataTable dtGoodsPartCopy = new DataTable();
             dtGoodsPartCopy.Columns.Add("OldSN", typeof(int));
             dtGoodsPartCopy.Columns.Add("NewSN", typeof(int));
-            for (int i=0;i< gvGoodsPartDetails.DataRowCount;i++)
+            for (int i=0;i< gvGoodsPartDetails.DataRowCount - 1;i++)//最後一行為合計，不用複製
             {
                 DataRow Row = gvGoodsPartDetails.GetDataRow(i);
                 //如果是整單複製的，因為NewSeq 是不為空的，以下也要執行
@@ -2550,7 +2552,7 @@ namespace cf01.MM
             rowIndex++;
             decimal factoryAmtPcs = 0, factoryAmtGrs = 0, factoryAmtK = 0;
             decimal multRate = 0;
-            for (int i = 0; i < gvGoodsPartDetails.DataRowCount; i++)
+            for (int i = 0; i < gvGoodsPartDetails.DataRowCount -1 ; i++) //最後一行為合計，不用複製
             {
                 DataRow dr = gvGoodsPartDetails.GetDataRow(i);
                 wSheet.Cells[rowIndex, 1] = dr["Seq"].ToString();
