@@ -290,6 +290,7 @@
             // 
             // xrPanel1
             // 
+            this.xrPanel1.CanGrow = false;
             this.xrPanel1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel11});
             this.xrPanel1.Dpi = 254F;
@@ -303,13 +304,13 @@
             this.xrLabel11.CanGrow = false;
             this.xrLabel11.Dpi = 254F;
             this.xrLabel11.Font = new System.Drawing.Font("SimSun", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(4.620823F, 2.158203F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(4.620819F, 2.158203F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(1051.758F, 163.9198F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(1051.758F, 163.9197F);
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "備註:[production_remark]/[plan_remark]/[plate_remark]";
+            this.xrLabel11.Text = "備註:[production_remark]/[plan_remark]/[plate_remark]/[qc_test]";
             // 
             // xrLabel15
             // 

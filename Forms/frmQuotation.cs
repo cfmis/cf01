@@ -251,7 +251,8 @@ namespace cf01.Forms
             }
             //數據綁定
             SetDataBindings();
-            //當PDD備註隱藏時重新調整表格位置以顯示更多內容
+            //當PDD備註隱藏時重新調整表格位置以顯示更多內容          
+            /*cancel old code 2024/10/28
             if (!is_group_pdd)
             {
                 pnlHead.Height = 400;
@@ -262,9 +263,13 @@ namespace cf01.Forms
                 this.pnlHead.Width = screen_width - 10;
                 this.tabControl1.Width = screen_width - 2;
                 this.tabControl1.Height = screen_height - (pnlHead.Height + toolStrip1.Height + 115);
-            }
+            }*/
         }
-
+        private void SetResize()
+        {
+            pnlHead.Height = (!is_group_pdd) ? 410 : 457;            
+            splitContainer1.SplitterDistance = pnlHead.Height + 10;            
+        }
         private void SetDataBindings()
         {            
             txtID.DataBindings.Add("Text", bds1, "id");
@@ -3776,8 +3781,17 @@ namespace cf01.Forms
             //{
             //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
             //}            
-        }
+        }      
 
+        private void frmQuotation_SizeChanged(object sender, EventArgs e)
+        {
+            SetResize();
+        }       
+
+        private void splitContainer1_SizeChanged(object sender, EventArgs e)
+        {
+            SetResize();
+        }
 
         //private void dgvDetails_CurrentCellChanged(object sender, EventArgs e)
         //{

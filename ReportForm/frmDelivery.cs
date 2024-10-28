@@ -442,7 +442,8 @@ namespace cf01.ReportForm
                     newRow["base_qty"] = dtDelivery.Rows[i]["base_qty"];
                     newRow["unit_code"] = dtDelivery.Rows[i]["unit_code"].ToString();
                     newRow["base_rate"] = dtDelivery.Rows[i]["base_rate"]; 
-                    newRow["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();                 
+                    newRow["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();
+                    newRow["qc_test"] = dtDelivery.Rows[i]["qc_test"].ToString();
                     base_rate = string.IsNullOrEmpty(dtDelivery.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtDelivery.Rows[i]["base_rate"].ToString());                    
                     newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtDelivery.Rows[i]["sec_qty"].ToString()) * base_rate, 0); 
 
@@ -494,6 +495,7 @@ namespace cf01.ReportForm
                                 dr["base_rate"] = dtDelivery.Rows[i]["base_rate"];
                                 dr["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();
                                 dr["stantard_qty"] = dtDelivery.Rows[i]["stantard_qty"];
+                                dr["qc_test"] = dtDelivery.Rows[i]["qc_test"];
                                 dtReport.Rows.Add(dr);
                             }
                         }
