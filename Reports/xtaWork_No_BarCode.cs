@@ -1,10 +1,6 @@
 ﻿using System;
 using System.IO;
 using cf01.CLS;
-//using System.Drawing;
-//using System.Collections;
-//using System.ComponentModel;
-//using DevExpress.XtraReports.UI;
 
 namespace cf01.Reports
 {
@@ -51,14 +47,7 @@ namespace cf01.Reports
 
         private void lblnet_weight_TextChanged(object sender, EventArgs e)
         {
-            if (lblnet_weight.Text == "0.0")
-            {
-                lblnet_weight.Visible = false;
-            }
-            else
-            {
-                lblnet_weight.Visible = true;
-            }
+            lblnet_weight.Visible = (lblnet_weight.Text == "0.0") ? false : true;           
         }
 
         private void xrLabel25_TextChanged(object sender, EventArgs e)
@@ -80,13 +69,7 @@ namespace cf01.Reports
 
         private void txtQc_dept_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString())){
-                txtQc_dept.Visible = false;
-            }
-            else
-            {
-                txtQc_dept.Visible = true;
-            }
+            txtQc_dept.Visible = (string.IsNullOrEmpty(GetCurrentColumnValue("qc_dept").ToString())) ? false : true;            
         }
     }
 }

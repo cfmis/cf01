@@ -685,7 +685,7 @@ namespace cf01.ReportForm
                 wForm.ShowDialog();
             }).Start();
 
-            string dep="", mo="", item="", Request_date="", Remark="",next_goods_id="";
+            string dep="", mo="", item="", Remark="",next_goods_id="";
 
             ////建立工序卡臨時表
             DataTable dtNewWork = CreateNewWork();
@@ -700,13 +700,15 @@ namespace cf01.ReportForm
             DataTable dtNextNextItem = new DataTable();
             DataTable dtCurrentWipItem = new DataTable();
             DataTable dtNextItem = new DataTable();
+            DataGridViewRow dgr = new DataGridViewRow();
             string do_color_next_dep = "";
             string next_dep_id = "";
             for (int j = 0; j < dgvDetails.RowCount; j++)
             {
                 if ((bool)dgvDetails.Rows[j].Cells["CheckBox"].EditedFormattedValue)
                 {
-                    DataGridViewRow dgr = dgvDetails.Rows[j];
+                    //DataGridViewRow dgr = dgvDetails.Rows[j];
+                    dgr = dgvDetails.Rows[j];
                     Remark = "";
                     mo = dgr.Cells["mo_id"].Value.ToString().Trim();
                     if (rpt_type == 1)//列印當前部門的工序卡
@@ -741,7 +743,6 @@ namespace cf01.ReportForm
                             //next_dep_id = "";
                         }
                         dtCurrentWipItem = clsMo_for_jx.GetCurrentWipData(dep,mo, item);
-
                     }
                     
                     if (dep != "" && mo != "" && item != "")
@@ -751,16 +752,14 @@ namespace cf01.ReportForm
                         dtPosition = clsMo_for_jx.GetPosition(item);
                         dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
                         dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
-                        //////通過下部門貨品再找下下部門的貨品資料
+                        //通過下部門貨品再找下下部門的貨品資料
                         dtNextNextItem = clsMo_for_jx.GetNextNextItem(mo, next_goods_id);
                         //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
-                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);
-                        
+                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);                       
 
                         order_unit = "";
                         order_qty = 0;
                         order_qty_pcs = 0;
-
                         if (dtQty.Rows.Count > 0)
                         {
                             order_unit = dtQty.Rows[0]["goods_unit"].ToString();
@@ -831,10 +830,7 @@ namespace cf01.ReportForm
                                 {
                                     dr["next_wp_id"] = "702"; //當有測式工序卡時部門名稱與描述不一致的情況.2023/09/14改為手動賦值.
                                 }
-                                if (drDept.Length > 0)
-                                    dr["next_dep_name"] = drDept[0]["next_wp_name"].ToString();
-                                else
-                                    dr["next_dep_name"] = "";
+                                dr["next_dep_name"] = (drDept.Length > 0) ? drDept[0]["next_wp_name"].ToString() : "";                                
                                 dr["customer_id"] = drDtWk["customer_id"].ToString();
                                 dr["brand_id"] = drDtWk["brand_id"].ToString();
                                 dr["get_color_sample"] = drDtWk["get_color_sample"].ToString();
@@ -853,7 +849,6 @@ namespace cf01.ReportForm
                                 //{
                                 //    dr["plate_remark"] = dtQty.Rows[0]["plate_remark"];
                                 //}
-
                                 //if (dtArt.Rows.Count > 0)
                                 //{
                                 dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
@@ -902,25 +897,8 @@ namespace cf01.ReportForm
                                 //--end 2024/03/13 add by allen
 
                                 if (i == NumPage && Per_qty != 0)
-                                {
-                                    /* 2024/01/30 CANCEL ALLEN
-                                    //if (Total_qty % Per_qty > 0)
-                                    //{
-                                    //    dr["per_qty"] = clsUtility.NumberConvert(Total_qty % Per_qty);
-                                    //}
-                                    //else
-                                    //{
-                                    //    dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
-                                    //}
-                                    */
-                                    if (qty_remaining > 0)
-                                    {
-                                        dr["per_qty"] = clsUtility.NumberConvert(qty_remaining);
-                                    }
-                                    else
-                                    {
-                                        dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
-                                    }
+                                {                                   
+                                    dr["per_qty"] = (qty_remaining>0)? clsUtility.NumberConvert(qty_remaining): clsUtility.NumberConvert(Per_qty);                                    
                                 }
                                 else
                                 {
@@ -943,7 +921,6 @@ namespace cf01.ReportForm
                                     dr["next_do_color"] = dgr.Cells["next_do_color"].Value.ToString();
                                     dr["next_vendor_id"] = dgr.Cells["next_vendor_id"].Value.ToString();
                                     dr["next_goods_name"] = dgr.Cells["next_goods_name"].Value.ToString();
-
                                     dr["next_next_wp_id"] = dgr.Cells["next_next_wp_id"].Value.ToString();
                                     dr["next_next_dep_name"] = dgr.Cells["next_next_dep_name"].Value.ToString();
                                 }
@@ -975,6 +952,7 @@ namespace cf01.ReportForm
                                 }
                                 dr["qty_remaining"] = qty_remaining; //2024/01/31 ADD ALLEN
                                 dr["stantard_qty"] = "";//clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
+                                dr["qc_test"] = drDtWk["qc_test"].ToString();
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
@@ -983,19 +961,8 @@ namespace cf01.ReportForm
             }
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
-            //if (dtNewWork.Rows.Count > 0)
-            //{
-            //    xtaWorkjx xr = new xtaWorkjx();
-            //    xr.DataSource = dtNewWork;
-            //    xr.ShowPreviewDialog();
-            //}
-
             if (dtNewWork.Rows.Count > 0)
-            {
-                //xtaWork_jx xr = new xtaWork_jx();舊報表注釋于2016-03-04
-                //xr.DataSource = dtNewWork;
-                //xr.ShowPreviewDialog();
-
+            {             
                 if (txtDep.Text == "302" || txtDep.Text == "322")
                 {
                     xtaWork_jx xr = new xtaWork_jx() { DataSource = dtNewWork };
@@ -1004,8 +971,7 @@ namespace cf01.ReportForm
                     xr.ShowPreviewDialog();
                 }
                 else
-                {
-                    //xtaWorkjx xr = new xtaWorkjx() { DataSource = dtNewWork };
+                {                   
                     xtaWork_No_BarCode xr = new xtaWork_No_BarCode() { DataSource = dtNewWork };
                     xr.CreateDocument();
                     xr.PrintingSystem.ShowMarginsWarning = false;
@@ -1091,6 +1057,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_name", typeof(string));
             dtNewWork.Columns.Add("qc_qty", typeof(string));
             dtNewWork.Columns.Add("stantard_qty", typeof(string));
+            dtNewWork.Columns.Add("qc_test", typeof(string));
             return dtNewWork;
         }
         /// <summary>

@@ -330,34 +330,46 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_dept", typeof(string));
             dtNewWork.Columns.Add("qc_name", typeof(string));
             dtNewWork.Columns.Add("qc_qty", typeof(string));
-
+            dtNewWork.Columns.Add("qc_test", typeof(string));
 
             DataRow dr = null;
             string order_unit;
             int order_qty, order_qty_pcs, qty_remaining;
             string plate_remark = "";
+            string do_color_next_dep = "";
+            DataGridViewRow dgr=new DataGridViewRow();
+            DataTable dt_wk = new DataTable();
+            DataTable dtArt = new DataTable();
+            DataTable dtPosition = new DataTable();
+            DataTable dtQty = new DataTable();
+            DataTable dtPs = new DataTable();
+            //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo_id, item);
+            //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo_id);
+            DataTable dtNextDep = new DataTable();
+            DataRow drDtWk;
+
             for (int j = 0; j < dgvDetails.RowCount; j++)
             {
                 if ((bool)dgvDetails.Rows[j].Cells["colSelectFlag"].EditedFormattedValue)
                 {
-                    DataGridViewRow dgr = dgvDetails.Rows[j];
+                    //DataGridViewRow dgr = dgvDetails.Rows[j];
+                    dgr = dgvDetails.Rows[j];
                     Remark = "";
                     Request_date = dgr.Cells["colRequestReturnDate"].Value.ToString().Trim();
                     dep = dgr.Cells["colDepId"].Value.ToString().Trim();
                     mo_id = dgr.Cells["colMoId"].Value.ToString().Trim();
                     item = dgr.Cells["colGoodsId"].Value.ToString().Trim();
                     if (dep != "" && mo_id != "" && item != "")
-                    {
-                        DataTable dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);//提取工序卡大部份的數據
-                        DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
-                        DataTable dtPosition = clsMo_for_jx.GetPosition(item);
-                        DataTable dtQty = clsMo_for_jx.GetOrderQty(mo_id);//獲取訂單數量
-                        DataTable dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
-                        //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo_id, item);
-                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo_id);
-                        DataTable dtNextDep = clsMo_for_jx.getNextDepItem(mo_id, dep, item);
+                    {                        
+                        dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo_id, item);//提取工序卡大部份的數據
+                        dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
+                        dtPosition = clsMo_for_jx.GetPosition(item);
+                        dtQty = clsMo_for_jx.GetOrderQty(mo_id);//獲取訂單數量
+                        dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
+                        dtNextDep = clsMo_for_jx.getNextDepItem(mo_id, dep, item);
+
                         //當前貨品的下部門顏色做法
-                        string do_color_next_dep = dgr.Cells["colDoColor"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo_id, item, dep);
+                        do_color_next_dep = dgr.Cells["colDoColor"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo_id, item, dep);
 
                         order_unit = "";
                         order_qty = 0;
@@ -370,8 +382,8 @@ namespace cf01.ReportForm
                             plate_remark = dtQty.Rows[0]["plate_remark"].ToString();
                         }
                         if (dt_wk.Rows.Count > 0)
-                        {
-                            DataRow drDtWk = dt_wk.Rows[0];
+                        {                           
+                            drDtWk = dt_wk.Rows[0];
                             //默認這里每次生產數量與生產總量是一樣的,所以只列印一頁,考慮到報表的通用性,所以分頁也要進行以下處理
                             int Per_qty = Convert.ToInt32(dgr.Cells["colProdQty"].Value);  //每次生產數量
                             int Total_qty = Convert.ToInt32(dgr.Cells["colProdQty"].Value);    //生產總量
@@ -385,8 +397,7 @@ namespace cf01.ReportForm
                                     total_page = (Total_qty / Per_qty);                                
                             }
                             else
-                                total_page = 1;                            
-
+                                total_page = 1;
                             for (int i = 1; i <= total_page; i++)
                             {
                                 dr = dtNewWork.NewRow();
@@ -520,6 +531,7 @@ namespace cf01.ReportForm
                                     dr["qc_qty"] = "";
                                 }
                                 //--end 2024/3/14 add qc info allen
+                                dr["qc_test"] = drDtWk["qc_test"].ToString();
 
                                 dtNewWork.Rows.Add(dr);
                             }

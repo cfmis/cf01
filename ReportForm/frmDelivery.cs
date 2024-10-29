@@ -591,6 +591,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_name", typeof(string));
             dtNewWork.Columns.Add("qc_qty", typeof(string));
             dtNewWork.Columns.Add("stantard_qty", typeof(string));
+            dtNewWork.Columns.Add("qc_test", typeof(string));
 
             DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drw.Length > 0)
@@ -746,7 +747,8 @@ namespace cf01.ReportForm
                                     dr["qc_dept"] = "";
                                     dr["qc_name"] = "";
                                     dr["qc_qty"] = "";
-                                }                                
+                                }
+                                dr["qc_test"] = dtCard.Rows[j]["qc_test"].ToString();
                                 dtNewWork.Rows.Add(dr);
                             }
                         }

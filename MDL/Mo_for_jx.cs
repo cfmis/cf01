@@ -59,6 +59,7 @@ namespace cf01.MDL
         public string qc_dept;
         public string qc_name;
         public string qc_qty;
+        public string qc_test;
 
 
     }

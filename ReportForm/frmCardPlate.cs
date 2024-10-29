@@ -275,13 +275,11 @@ namespace cf01.ReportForm
                     newRow["base_rate"] = dtWordCard.Rows[i]["base_rate"];
                     base_rate = string.IsNullOrEmpty(dtWordCard.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtWordCard.Rows[i]["base_rate"].ToString());
                     newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
-                   
-
+                    newRow["qc_test"] = dtWordCard.Rows[i]["qc_test"];
 
                     //處理有幾包就列印幾張 2016-01-15
-                    if (dtWordCard.Rows[i]["prints"].ToString()!="1")
-                    {
-                       
+                    if (dtWordCard.Rows[i]["prints"].ToString() !="1")
+                    {                       
                         ii = Convert.ToInt32(dtWordCard.Rows[i]["prints"].ToString());//要列印的總張數
                         for (int j = 0; j < ii; j++)
                         {
@@ -321,10 +319,9 @@ namespace cf01.ReportForm
                             dr["base_rate"] = dtWordCard.Rows[i]["base_rate"];
                             base_rate = string.IsNullOrEmpty(dtWordCard.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtWordCard.Rows[i]["base_rate"].ToString());
                             dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
-
+                            dr["qc_test"] = dtWordCard.Rows[i]["qc_test"].ToString();
                             dtReport.Rows.Add(dr);
-                        }                        
-                       
+                        }
                     }
                     else
                          dtReport.Rows.Add(newRow);

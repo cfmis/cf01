@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlanWithPrintCard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrintNextWp = new System.Windows.Forms.Button();
+            this.txtNextWip = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rdbZeroVer = new System.Windows.Forms.RadioButton();
             this.rdbNoZeroVer = new System.Windows.Forms.RadioButton();
@@ -46,6 +48,7 @@
             this.mkPlanDat2 = new System.Windows.Forms.MaskedTextBox();
             this.txtDep = new System.Windows.Forms.TextBox();
             this.mkPlanDat1 = new System.Windows.Forms.MaskedTextBox();
+            this.lblNextWp = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrd_item1 = new System.Windows.Forms.TextBox();
             this.txtMo1 = new System.Windows.Forms.TextBox();
@@ -83,9 +86,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtNextWip = new System.Windows.Forms.TextBox();
-            this.lblNextWp = new System.Windows.Forms.Label();
-            this.btnPrintNextWp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -127,6 +127,23 @@
             this.panel1.Size = new System.Drawing.Size(1227, 123);
             this.panel1.TabIndex = 2;
             // 
+            // btnPrintNextWp
+            // 
+            this.btnPrintNextWp.Location = new System.Drawing.Point(255, 87);
+            this.btnPrintNextWp.Name = "btnPrintNextWp";
+            this.btnPrintNextWp.Size = new System.Drawing.Size(75, 30);
+            this.btnPrintNextWp.TabIndex = 25;
+            this.btnPrintNextWp.Text = "列印";
+            this.btnPrintNextWp.UseVisualStyleBackColor = true;
+            this.btnPrintNextWp.Click += new System.EventHandler(this.btnPrintNextWp_Click);
+            // 
+            // txtNextWip
+            // 
+            this.txtNextWip.Location = new System.Drawing.Point(181, 90);
+            this.txtNextWip.Name = "txtNextWip";
+            this.txtNextWip.Size = new System.Drawing.Size(68, 22);
+            this.txtNextWip.TabIndex = 23;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -153,7 +170,7 @@
             // rdbNoZeroVer
             // 
             this.rdbNoZeroVer.AutoSize = true;
-            this.rdbNoZeroVer.Location = new System.Drawing.Point(171, 5);
+            this.rdbNoZeroVer.Location = new System.Drawing.Point(175, 5);
             this.rdbNoZeroVer.Name = "rdbNoZeroVer";
             this.rdbNoZeroVer.Size = new System.Drawing.Size(169, 16);
             this.rdbNoZeroVer.TabIndex = 17;
@@ -163,7 +180,7 @@
             // rdbAllVer
             // 
             this.rdbAllVer.AutoSize = true;
-            this.rdbAllVer.Location = new System.Drawing.Point(343, 5);
+            this.rdbAllVer.Location = new System.Drawing.Point(348, 5);
             this.rdbAllVer.Name = "rdbAllVer";
             this.rdbAllVer.Size = new System.Drawing.Size(143, 16);
             this.rdbAllVer.TabIndex = 17;
@@ -292,6 +309,15 @@
             this.mkPlanDat1.TabIndex = 3;
             this.mkPlanDat1.ValidatingType = typeof(System.DateTime);
             this.mkPlanDat1.Leave += new System.EventHandler(this.mkPlanDat1_Leave);
+            // 
+            // lblNextWp
+            // 
+            this.lblNextWp.AutoSize = true;
+            this.lblNextWp.Location = new System.Drawing.Point(68, 96);
+            this.lblNextWp.Name = "lblNextWp";
+            this.lblNextWp.Size = new System.Drawing.Size(116, 12);
+            this.lblNextWp.TabIndex = 1;
+            this.lblNextWp.Text = "列印下部門的工序卡:";
             // 
             // label2
             // 
@@ -641,32 +667,6 @@
             this.CheckBox.HeaderText = "";
             this.CheckBox.Name = "CheckBox";
             this.CheckBox.Width = 30;
-            // 
-            // txtNextWip
-            // 
-            this.txtNextWip.Location = new System.Drawing.Point(181, 90);
-            this.txtNextWip.Name = "txtNextWip";
-            this.txtNextWip.Size = new System.Drawing.Size(68, 22);
-            this.txtNextWip.TabIndex = 23;
-            // 
-            // lblNextWp
-            // 
-            this.lblNextWp.AutoSize = true;
-            this.lblNextWp.Location = new System.Drawing.Point(68, 96);
-            this.lblNextWp.Name = "lblNextWp";
-            this.lblNextWp.Size = new System.Drawing.Size(116, 12);
-            this.lblNextWp.TabIndex = 1;
-            this.lblNextWp.Text = "列印下部門的工序卡:";
-            // 
-            // btnPrintNextWp
-            // 
-            this.btnPrintNextWp.Location = new System.Drawing.Point(255, 87);
-            this.btnPrintNextWp.Name = "btnPrintNextWp";
-            this.btnPrintNextWp.Size = new System.Drawing.Size(75, 30);
-            this.btnPrintNextWp.TabIndex = 25;
-            this.btnPrintNextWp.Text = "列印";
-            this.btnPrintNextWp.UseVisualStyleBackColor = true;
-            this.btnPrintNextWp.Click += new System.EventHandler(this.btnPrintNextWp_Click);
             // 
             // frmPlanWithPrintCard
             // 

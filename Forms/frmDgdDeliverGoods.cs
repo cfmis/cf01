@@ -10,6 +10,8 @@ using cf01.CLS;
 using cf01.MDL;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraReports.UI;
+using System.IO;
+using System.Threading;
 
 namespace cf01.Forms
 {
@@ -972,9 +974,10 @@ namespace cf01.Forms
         private void btnExcel_Click(object sender, EventArgs e)
         {
             if (dgvExcel.RowCount > 0)
-            {                
-                ExpToExcel oxls = new ExpToExcel();
-                oxls.ExportExcel(dgvExcel);
+            {
+                this.ExportExcel(dgvExcel);
+                //ExpToExcel oxls = new ExpToExcel();
+                //oxls.ExportExcel(dgvExcel);
             }
             else
                 MessageBox.Show("沒有要匯出的數據!", "提示信息");
@@ -1079,6 +1082,122 @@ namespace cf01.Forms
         private void lueGoods_id_EditValueChanged(object sender, EventArgs e)
         {
             change_flag = true;
+        }
+
+        /// <summary>
+        /// 參數為DataGridView格式
+        /// </summary>
+        /// <param name="myDGV"></param>
+        private void ExportExcel(DataGridView myDGV)
+        {
+            if (myDGV.Rows.Count > 0)
+            {
+                //bool fileSaved = false; 
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.DefaultExt = "xls";
+                saveDialog.Title = "保存EXECL文件";
+                saveDialog.Filter = "EXECL文件|*.xls";
+                saveDialog.FilterIndex = 1;
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string FileName = saveDialog.FileName;
+                    if (File.Exists(FileName))
+                    {
+                        File.Delete(FileName);
+                    }
+                    int FormatNum;//保存excel文件的格式
+                    string Version;//excel版本號
+
+                    Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                    if (xlApp == null)
+                    {
+                        MessageBox.Show("無法創建Excel對象,可能當前操作系統上未安裝有Excel");
+                        return;
+                    }
+                    Version = xlApp.Version;//獲取當前使用excel版本號
+                    if (Convert.ToDouble(Version) < 12)//You use Excel 97-2003
+                    {
+                        FormatNum = -4143;
+                    }
+                    else //you use excel 2007 or later
+                    {
+                        FormatNum = 56;
+                    }
+
+                    Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;
+                    Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+                    Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1  
+
+                    cf01.Forms.frmProgress wForm = new cf01.Forms.frmProgress();
+                    new Thread((ThreadStart)delegate
+                    {
+                        wForm.TopMost = true;
+                        wForm.ShowDialog();
+                    }).Start();
+
+                    //寫入標題  
+                    for (int i = 0; i < myDGV.ColumnCount; i++)
+                    {
+                        worksheet.Cells[1, i + 1] = myDGV.Columns[i].HeaderText;
+                    }
+                    //寫入數值   
+                    string tableHead = "";
+                    for (int r = 0; r < myDGV.Rows.Count; r++)
+                    {
+                        for (int i = 0; i < myDGV.ColumnCount; i++)
+                        {
+                            if (myDGV.Columns[i].Name.ToString()=="table_head")
+                            {
+                                //處理款號前面是0是轉EXCEL自動消失問題
+                                tableHead = myDGV.Rows[r].Cells[i].Value.ToString();
+                                if (string.IsNullOrEmpty(tableHead))
+                                {
+                                    tableHead = " ";
+                                }
+                                if(tableHead.Substring(0,1)=="0")
+                                {
+                                    tableHead = "'" + tableHead;
+                                }                                 
+                                worksheet.Cells[r + 2, i + 1] = tableHead;
+                            }
+                            else
+                            {
+                                worksheet.Cells[r + 2, i + 1] = myDGV.Rows[r].Cells[i].Value;
+                            }
+                           
+                        }
+                        System.Windows.Forms.Application.DoEvents();
+                    }
+                    worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
+
+                    wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+                    if (FileName != "")
+                    {
+                        try
+                        {
+                            workbook.Saved = true;
+                            //workbook.SaveCopyAs(saveFileName);
+                            workbook.SaveAs(FileName, FormatNum);
+                            //fileSaved = true;  
+                        }
+                        catch (Exception ex)
+                        {
+                            //fileSaved = false;  
+                            MessageBox.Show("導出文件出錯或者文件可能已被打開!\n" + ex.Message);
+                        }
+                    }
+                    xlApp.Quit();
+                    GC.Collect();//强行销毁
+                    // if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL  
+                    clsUtility.myMessageBox("匯出EXCEL成功!", "提示信息");
+                    //MessageBox.Show("匯出EXCEL成功!", "系統提示", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("無要匯出EXCEL之數據!", "提示信息", MessageBoxButtons.OK);
+            }
         }
 
 

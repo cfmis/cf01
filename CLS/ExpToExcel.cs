@@ -528,11 +528,17 @@ namespace cf01.CLS
                     {
                         worksheet.Cells[1, i + 1] = myDGV.Columns[i].HeaderText;
                     }
-                    //寫入數值                      
+                    //寫入數值   
+                    string test = "";
                     for (int r = 0; r < myDGV.Rows.Count; r++)
                     {
                         for (int i = 0; i < myDGV.ColumnCount; i++)
                         {
+                            if (i == 6)
+                            {
+                                test = myDGV.Rows[r].Cells[i].Value.ToString();
+                                test = myDGV.Columns[i].Name.ToString();
+                            }
                             worksheet.Cells[r + 2, i + 1] = myDGV.Rows[r].Cells[i].Value;                           
                         }
                         System.Windows.Forms.Application.DoEvents();

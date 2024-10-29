@@ -167,6 +167,7 @@ namespace cf01.ReportForm
                     txtQc_dept.Text = lsModel[i].qc_dept;
                     txtQc_name.Text = lsModel[i].qc_name;
                     txtQc_qty.Text = lsModel[i].qc_qty;
+                    txtQc_test.Text = lsModel[i].qc_test;
                     if (lsModel[i].next_wp_id == "702" || lsModel[i].next_wp_id == "722")
                     {
                         txtQc_dept.Text = "";
@@ -341,6 +342,7 @@ namespace cf01.ReportForm
                         qc_dept = dtGoodsInfo.Rows[i]["qc_dept"].ToString(),
                         qc_name = dtGoodsInfo.Rows[i]["qc_name"].ToString(),
                         qc_qty = dtGoodsInfo.Rows[i]["qc_qty"].ToString(),
+                        qc_test = dtGoodsInfo.Rows[i]["qc_test"].ToString(),
                     };
                     lsModel.Add(objModel);
                 }
@@ -415,7 +417,9 @@ namespace cf01.ReportForm
         private void print_workcard()
         {
             if (!ValidateWeight())
+            {
                 return;
+            }
             string dep, mo;
             dep = txtDept1.Text.Trim();
             mo = txtMoId.Text.Trim();
@@ -472,7 +476,8 @@ namespace cf01.ReportForm
                     dtNewWork.Columns.Add("prod_date", typeof(string));
                     dtNewWork.Columns.Add("next_next_goods_id", typeof(string));
                     dtNewWork.Columns.Add("next_next_do_color", typeof(string));
-                    dtNewWork.Columns.Add("qty_remaining", typeof(int));                   
+                    dtNewWork.Columns.Add("qty_remaining", typeof(int));
+                    //dtNewWork.Columns.Add("qc_test", typeof(string));
                     ////2024/03/12
                     //dtNewWork.Columns.Add("qc_dept", typeof(string));
                     //dtNewWork.Columns.Add("qc_name", typeof(string));
@@ -586,7 +591,9 @@ namespace cf01.ReportForm
                             dr["qc_dept"] = txtQc_dept.Text;
                             dr["qc_name"] = txtQc_name.Text;
                             dr["qc_qty"] = txtQc_qty.Text;
-                            dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(txtNet_weight.Text.Trim()) * clsUtility.FormatNullableInt32(txtBaseRate.Text), 0);  
+                            dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(txtNet_weight.Text.Trim()) * clsUtility.FormatNullableInt32(txtBaseRate.Text), 0);
+                            dr["qc_test"]= txtQc_test.Text;
+
                             dtNewWork.Rows.Add(dr);
                         }
                     }

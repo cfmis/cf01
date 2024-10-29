@@ -122,8 +122,12 @@
             this.txtProd_date = new DevExpress.XtraEditors.DateEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtQc_qty = new System.Windows.Forms.TextBox();
+            this.txtQc_name = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtQc_dept = new System.Windows.Forms.TextBox();
             this.next_next_goods_id = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.next_next_do_color = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -164,10 +168,8 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtQc_name = new System.Windows.Forms.TextBox();
-            this.txtQc_dept = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtQc_qty = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtQc_test = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -884,7 +886,7 @@
             this.btnInsPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnInsPrint.Image")));
             this.btnInsPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInsPrint.Name = "btnInsPrint";
-            this.btnInsPrint.Size = new System.Drawing.Size(69, 34);
+            this.btnInsPrint.Size = new System.Drawing.Size(71, 34);
             this.btnInsPrint.Text = "列印巡檢表";
             this.btnInsPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnInsPrint.Click += new System.EventHandler(this.btnInsPrint_Click);
@@ -988,6 +990,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.txtQc_test);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.txtPlate_remark);
             this.panel1.Controls.Add(this.txtArrive_date);
@@ -1182,6 +1186,22 @@
             this.panel2.TabIndex = 94;
             this.panel2.Visible = false;
             // 
+            // txtQc_qty
+            // 
+            this.txtQc_qty.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQc_qty.Location = new System.Drawing.Point(269, 203);
+            this.txtQc_qty.Name = "txtQc_qty";
+            this.txtQc_qty.Size = new System.Drawing.Size(118, 22);
+            this.txtQc_qty.TabIndex = 105;
+            // 
+            // txtQc_name
+            // 
+            this.txtQc_name.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQc_name.Location = new System.Drawing.Point(157, 203);
+            this.txtQc_name.Name = "txtQc_name";
+            this.txtQc_name.Size = new System.Drawing.Size(118, 22);
+            this.txtQc_name.TabIndex = 104;
+            // 
             // label15
             // 
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -1192,6 +1212,14 @@
             this.label15.Text = "下部門貨品再交下部門貨品編號";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // txtQc_dept
+            // 
+            this.txtQc_dept.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQc_dept.Location = new System.Drawing.Point(84, 203);
+            this.txtQc_dept.Name = "txtQc_dept";
+            this.txtQc_dept.Size = new System.Drawing.Size(71, 22);
+            this.txtQc_dept.TabIndex = 102;
+            // 
             // next_next_goods_id
             // 
             this.next_next_goods_id.BackColor = System.Drawing.SystemColors.Control;
@@ -1199,6 +1227,16 @@
             this.next_next_goods_id.Name = "next_next_goods_id";
             this.next_next_goods_id.Size = new System.Drawing.Size(175, 22);
             this.next_next_goods_id.TabIndex = 100;
+            // 
+            // label16
+            // 
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label16.Location = new System.Drawing.Point(21, 209);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 13);
+            this.label16.TabIndex = 103;
+            this.label16.Text = "QC部門";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label14
             // 
@@ -1545,39 +1583,24 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // txtQc_name
+            // label17
             // 
-            this.txtQc_name.BackColor = System.Drawing.SystemColors.Control;
-            this.txtQc_name.Location = new System.Drawing.Point(157, 203);
-            this.txtQc_name.Name = "txtQc_name";
-            this.txtQc_name.Size = new System.Drawing.Size(118, 22);
-            this.txtQc_name.TabIndex = 104;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(23, 611);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 12);
+            this.label17.TabIndex = 103;
+            this.label17.Text = "QC測試:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtQc_dept
+            // txtQc_test
             // 
-            this.txtQc_dept.BackColor = System.Drawing.SystemColors.Control;
-            this.txtQc_dept.Location = new System.Drawing.Point(84, 203);
-            this.txtQc_dept.Name = "txtQc_dept";
-            this.txtQc_dept.Size = new System.Drawing.Size(71, 22);
-            this.txtQc_dept.TabIndex = 102;
-            // 
-            // label16
-            // 
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(21, 209);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(61, 13);
-            this.label16.TabIndex = 103;
-            this.label16.Text = "QC部門";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtQc_qty
-            // 
-            this.txtQc_qty.BackColor = System.Drawing.SystemColors.Control;
-            this.txtQc_qty.Location = new System.Drawing.Point(269, 203);
-            this.txtQc_qty.Name = "txtQc_qty";
-            this.txtQc_qty.Size = new System.Drawing.Size(118, 22);
-            this.txtQc_qty.TabIndex = 105;
+            this.txtQc_test.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtQc_test.Location = new System.Drawing.Point(85, 609);
+            this.txtQc_test.Name = "txtQc_test";
+            this.txtQc_test.ReadOnly = true;
+            this.txtQc_test.Size = new System.Drawing.Size(511, 23);
+            this.txtQc_test.TabIndex = 102;
             // 
             // frmOrderProCard
             // 
@@ -1744,5 +1767,7 @@
         private System.Windows.Forms.TextBox txtQc_name;
         private System.Windows.Forms.TextBox txtQc_dept;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtQc_test;
     }
 }
