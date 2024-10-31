@@ -21,6 +21,7 @@ namespace cf01.Forms
        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
        private DataTable dtPlate = new DataTable();
        private DataTable dtMo_Data = new DataTable();
+
         public frmOut_Process()
         {
             InitializeComponent();
@@ -44,8 +45,7 @@ namespace cf01.Forms
             txtVendor.Properties.DisplayMember = "cdesc";
 
             txtIssue_date.EditValue = DateTime.Now;
-            //txtIssue_date.EditValue = DateTime.Now.AddDays(-1);            
-            
+            //txtIssue_date.EditValue = DateTime.Now.AddDays(-1);
         }
      
         //private void BTNFIND_Click(object sender, EventArgs e)

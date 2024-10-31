@@ -147,10 +147,10 @@
   </data>
   <data name="btnMo_Find.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAABnSURBVDhPvYwLCsAgDEO9/8F6rW0dpKSfgODYg6AmD9fX
-        XBRG9Q0I0wd8SlxAGNUnWGJZ9Q0MVVR9gsfdBFyEYGZxf+Lwm/v0iPH4gxJH9eOAOFOPvODShoL05FCQ
-        HhdpKOx6v7LWDcl9gidmtayCAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAGdJREFUOE+9jAsKwCAMQ73/wXqtbR2kpJ+A4NiDoCYP19dcFEb1DQjTB3xKXEAY
+        1SdYYln1DQxVVH2Cx90EXIRgZnF/4vCb+/SI8fiDEkf144A4U4+84NKGgvTkUJAeF2ko7Hq/stYNyX2C
+        J2a1rIIAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -193,6 +193,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>38</value>
   </metadata>
 </root>

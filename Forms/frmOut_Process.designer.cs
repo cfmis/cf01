@@ -256,7 +256,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(65, 25);
+            this.BTNCANCEL.Size = new System.Drawing.Size(68, 25);
             this.BTNCANCEL.Text = "重置(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -270,7 +270,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(63, 25);
+            this.BTNPRINT.Size = new System.Drawing.Size(66, 25);
             this.BTNPRINT.Text = "列印(&P)";
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
