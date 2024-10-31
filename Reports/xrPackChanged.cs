@@ -29,14 +29,11 @@ namespace cf01.Reports
         {
             //因涉及到修改DataSet的内部属性，建议创建副本进行操作。
             DataSet ds = reportData.Copy();//创建副本
-            
-
 
             //重要！！！给组(GroupHeader)绑定要分組的字段            
             //GroupField gf = new GroupField("pkey", XRColumnSortOrder.Ascending);           
             GroupField gf = new GroupField("id_seq", XRColumnSortOrder.Ascending); //排序的問題20170517更改
-            GroupHeader1.GroupFields.Add(gf);
-           
+            GroupHeader1.GroupFields.Add(gf);           
           
 
             //给数据集建立主外键关系
@@ -170,6 +167,25 @@ namespace cf01.Reports
                 return;
             }
             xrLabel10.Text = DateTime.Parse(strdate).Date.ToString("yyyy/MM/dd");
+        }
+
+        private void txtBrand_id_TextChanged(object sender, EventArgs e)
+        {
+            string flag_report = GetCurrentColumnValue("flag_report").ToString();           
+            if (flag_report != "1")
+            {
+                pnlCheckReport.Visible = false;
+            }
+            else
+            {
+                pnlCheckReport.Visible = true;                
+            }                  
+        }
+
+        private void txtQcResult_TextChanged(object sender, EventArgs e)
+        {
+            string qc_result = GetCurrentColumnValue("qc_result").ToString();
+            txtQcResult.Text = (qc_result == "True") ? "OK" : "NOT OK";
         }
     }
 }

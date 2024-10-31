@@ -412,12 +412,12 @@ namespace cf01.ReportForm
                 txtID.Text = "";
                 cmbItems.Items.Clear();
                 string strsql = string.Format(
-                       @"SELECT C.goods_id,C.primary_key 
-                        FROM so_order_manage A with(nolock) 
-	                        INNER JOIN so_order_details B with(nolock) ON A.within_code=B.within_code and A.id=B.id AND A.ver =B.ver
-	                        INNER JOIN so_order_bom C with(nolock) 
-	                          ON B.within_code=C.within_code and B.id=C.id AND B.ver =C.ver AND B.sequence_id =C.upper_sequence 
-                        WHERE A.within_code='0000' AND A.state not in ('2','V') AND B.mo_id='{0}' ORDER BY C.primary_key DESC,C.goods_id", txtMO.Text);
+                @"SELECT C.goods_id,C.primary_key 
+                FROM so_order_manage A with(nolock) 
+	                INNER JOIN so_order_details B with(nolock) ON A.within_code=B.within_code and A.id=B.id AND A.ver =B.ver
+	                INNER JOIN so_order_bom C with(nolock) 
+	                    ON B.within_code=C.within_code and B.id=C.id AND B.ver =C.ver AND B.sequence_id =C.upper_sequence 
+                WHERE A.within_code='0000' AND A.state not in ('2','V') AND B.mo_id='{0}' ORDER BY C.primary_key DESC,C.goods_id", txtMO.Text);
                 DataTable dtItems = new DataTable();
                 dtItems = clsConErp.GetDataTable(strsql);
                 if (dtItems.Rows.Count == 0)
