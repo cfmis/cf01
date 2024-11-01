@@ -43,7 +43,6 @@ namespace cf01.Forms
             txtVendor.Properties.DataSource = dtVendor;
             txtVendor.Properties.ValueMember = "id";
             txtVendor.Properties.DisplayMember = "cdesc";
-
             txtIssue_date.EditValue = DateTime.Now;
             //txtIssue_date.EditValue = DateTime.Now.AddDays(-1);
         }
