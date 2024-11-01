@@ -2225,7 +2225,7 @@ namespace cf01.MM
             {
                 if(Row["Seq"].ToString().Trim()=="ZZ")
                 {
-                    MessageBox.Show("該行為小計，不能刪除!");
+                    MessageBox.Show("該行為小計，不能刪除！");
                     return;
                 }
             }
