@@ -818,6 +818,10 @@ namespace cf01.CLS
         {
             string Seq = "";
             string MaxSeq = "000";
+            //int rows = dtSeq.Rows.Count;
+            //string LastSeq = dtSeq.Rows[rows - 1]["Seq"].ToString().Trim();
+            //if (dtSeq.Rows[rows - 1]["Seq"].ToString().Trim() == "ZZ")
+            //    rows = rows - 1;
             for (int i = 0; i < dtSeq.Rows.Count; i++)
             {
                 Seq = dtSeq.Rows[i]["Seq"].ToString().Trim();
