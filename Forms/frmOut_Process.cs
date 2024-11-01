@@ -21,6 +21,7 @@ namespace cf01.Forms
        private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
        private DataTable dtPlate = new DataTable();
        private DataTable dtMo_Data = new DataTable();
+
         public frmOut_Process()
         {
             InitializeComponent();
@@ -44,8 +45,7 @@ namespace cf01.Forms
             txtVendor.Properties.DisplayMember = "cdesc";
 
             txtIssue_date.EditValue = DateTime.Now;
-            //txtIssue_date.EditValue = DateTime.Now.AddDays(-1);            
-            
+            //txtIssue_date.EditValue = DateTime.Now.AddDays(-1);
         }
      
         //private void BTNFIND_Click(object sender, EventArgs e)
@@ -88,20 +88,30 @@ namespace cf01.Forms
             if (dtPlate.Rows.Count > 0)
             {
                 //最低消費頁數重復的處理
-                string temp_mo_id2 = dtPlate.Rows[0]["mo_id2"].ToString();                         
+                string temp_mo_id2 = dtPlate.Rows[0]["mo_id2"].ToString();
+                string temp_id = dtPlate.Rows[0]["id"].ToString();
                 for (int i = 0; i < dtPlate.Rows.Count; i++)
                 {
                     if (i > 0)
                     {
                         if (dtPlate.Rows[i]["fl_by"].ToString() == "501") //領料人輸入為501
                         {                           
-                            if (dtPlate.Rows[i]["mo_id2"].ToString() == temp_mo_id2)
+                            if (dtPlate.Rows[i]["id"].ToString() == temp_id)
                             {                                                       
                                 //temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();//臨時值
-                                dtPlate.Rows[i]["mo_id2"] = "";
+                                if(dtPlate.Rows[i]["mo_id2"].ToString() == temp_mo_id2)
+                                {
+                                    dtPlate.Rows[i]["mo_id2"] = "";
+                                }
+                                else
+                                {
+                                    temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();
+                                }                                
                             }
                             else
-                            {                                                           
+                            {
+                                //temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();
+                                temp_id = dtPlate.Rows[i]["id"].ToString();
                                 temp_mo_id2 = dtPlate.Rows[i]["mo_id2"].ToString();
                             }
                         }
