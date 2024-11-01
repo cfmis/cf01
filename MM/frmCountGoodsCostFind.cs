@@ -71,14 +71,25 @@ namespace cf01.MM
             //    frmCountGoodsCost.dtGoodsPartDetails = clsCountGoodsCost.LoadProductCostPart(-999, "");
             //}
             bool selectFlag = false;
-            for (int i=0;i<gvGoodsCostDetails.DataRowCount;i++)
+            //////配件表中，如果最後一行為小計(Seq=="ZZ")，則先移除這行
+            DataTable dtGoodsPartDetails = frmCountGoodsCost.dtGoodsPartDetails;
+            if(dtGoodsPartDetails.Rows.Count>0)
+            {
+                int LastRows = dtGoodsPartDetails.Rows.Count - 1;
+                if(dtGoodsPartDetails.Rows[LastRows]["Seq"].ToString()=="ZZ")
+                {
+                    dtGoodsPartDetails.Rows.RemoveAt(LastRows);
+                }
+            }
+            
+            for (int i=0;i<gvGoodsCostDetails.DataRowCount-1;i++)
             {
                 DataRow Row = gvGoodsCostDetails.GetDataRow(i);
                 if (Row["SelectFlag"].ToString()==""?false:Convert.ToBoolean(Row["SelectFlag"].ToString())==true)
                 {
-                    DataRow dr =frmCountGoodsCost.dtGoodsPartDetails.NewRow();
+                    DataRow dr =dtGoodsPartDetails.NewRow();
                     dr["SN"] = Row["SN"];
-                    dr["Seq"] = clsCountGoodsCost.GenSeqNo(frmCountGoodsCost.dtGoodsPartDetails);
+                    dr["Seq"] = clsCountGoodsCost.GenSeqNo(dtGoodsPartDetails);
                     dr["ProductID"] = Row["ProductID"].ToString();
                     dr["ProductName"] = Row["ProductName"].ToString();
                     dr["ArtWork"] = Row["ArtWork"].ToString();

@@ -591,7 +591,15 @@ namespace cf01.MM
         {
             string Seq = "";
             string MaxSeq = "000";
-            for (int i = 0; i < gv.DataRowCount; i++)
+            //////如果這個表最後一行為小計的，就不要這行
+            int rows = gv.DataRowCount;
+            if(rows>0)
+            {
+                string LastSeq = gv.GetDataRow(rows - 1)[fName].ToString().Trim();
+                if (LastSeq == "ZZ")
+                    rows = rows - 1;
+            }
+            for (int i = 0; i < rows; i++)
             {
                 Seq = gv.GetDataRow(i)[fName].ToString().Trim();
                 MaxSeq = string.Compare(MaxSeq, Seq) >= 0 ? MaxSeq : Seq;
@@ -2213,6 +2221,14 @@ namespace cf01.MM
                 MessageBox.Show("配件的記錄編號不存在,刪除無效!");
                 return;
             }
+            else
+            {
+                if(Row["Seq"].ToString().Trim()=="ZZ")
+                {
+                    MessageBox.Show("該行為小計，不能刪除!");
+                    return;
+                }
+            }
             var dls = MessageBox.Show("確認刪除此配件嗎?", "系統信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dls == DialogResult.No)
                 return;
@@ -2325,24 +2341,28 @@ namespace cf01.MM
             DataTable dtGoodsPartCopy = new DataTable();
             dtGoodsPartCopy.Columns.Add("OldSN", typeof(int));
             dtGoodsPartCopy.Columns.Add("NewSN", typeof(int));
-            for (int i=0;i< gvGoodsPartDetails.DataRowCount - 1;i++)//最後一行為合計，不用複製
+            for (int i = 0; i < gvGoodsPartDetails.DataRowCount; i++)
             {
                 DataRow Row = gvGoodsPartDetails.GetDataRow(i);
-                //如果是整單複製的，因為NewSeq 是不為空的，以下也要執行
-                //如果是單獨複製配件的，則NewSeq 是為空的，所以也執行
-                if (Row["NewSeq"].ToString().Trim() == "" || newMode==4)
+                if (Row["Seq"].ToString().Trim() != "ZZ")//最後一行為合計，不用複製
                 {
-                    mdlCountGoodsCostPart mdlGoodsPpart = new mdlCountGoodsCostPart();
-                    mdlGoodsPpart = FillGoodsPartValue(Row);
-                    mdlGoodsPpart.UpperSN = mdlCopyID.SN;
+                    //如果是整單複製的，因為NewSeq 是不為空的，以下也要執行
+                    //如果是單獨複製配件的，則NewSeq 是為空的，所以也執行
+                    if (Row["NewSeq"].ToString().Trim() == "" || newMode == 4)
+                    {
+                        mdlCountGoodsCostPart mdlGoodsPpart = new mdlCountGoodsCostPart();
+                        mdlGoodsPpart = FillGoodsPartValue(Row);
+                        mdlGoodsPpart.UpperSN = mdlCopyID.SN;
 
-                    string result = clsCountGoodsCost.SaveGoodsPart(mdlGoodsPpart);
-                    DataTable dtPartCopy = clsCountGoodsCost.LoadProductCostPart(mdlGoodsPpart.UpperSN, mdlGoodsPpart.Seq);
-                    DataRow dr = dtGoodsPartCopy.NewRow();
-                    dr["OldSN"] = Row["SN"];
-                    dr["NewSN"] = dtPartCopy.Rows[0]["SN"];
-                    dtGoodsPartCopy.Rows.Add(dr);
+                        string result = clsCountGoodsCost.SaveGoodsPart(mdlGoodsPpart);
+                        DataTable dtPartCopy = clsCountGoodsCost.LoadProductCostPart(mdlGoodsPpart.UpperSN, mdlGoodsPpart.Seq);
+                        DataRow dr = dtGoodsPartCopy.NewRow();
+                        dr["OldSN"] = Row["SN"];
+                        dr["NewSN"] = dtPartCopy.Rows[0]["SN"];
+                        dtGoodsPartCopy.Rows.Add(dr);
+                    }
                 }
+
             }
             return dtGoodsPartCopy;
         }
@@ -2552,33 +2572,36 @@ namespace cf01.MM
             rowIndex++;
             decimal factoryAmtPcs = 0, factoryAmtGrs = 0, factoryAmtK = 0;
             decimal multRate = 0;
-            for (int i = 0; i < gvGoodsPartDetails.DataRowCount -1 ; i++) //最後一行為合計，不用複製
+            for (int i = 0; i < gvGoodsPartDetails.DataRowCount ; i++)
             {
                 DataRow dr = gvGoodsPartDetails.GetDataRow(i);
-                wSheet.Cells[rowIndex, 1] = dr["Seq"].ToString();
-                wSheet.Cells[rowIndex, 2] = dr["ProductID"].ToString();
-                wSheet.Cells[rowIndex, 3] = dr["ProductName"].ToString();
-                wSheet.Cells[rowIndex, 4] = dr["MultRate"].ToString();
-                wSheet.Cells[rowIndex, 5] = dr["FactoryCostPcs"].ToString();
-                wSheet.Cells[rowIndex, 6] = dr["FactoryCostGrs"].ToString();
-                wSheet.Cells[rowIndex, 7] = dr["FactoryCostK"].ToString();
-                wSheet.Cells[rowIndex, 8] = dr["MatWeg"].ToString();
-                wSheet.Cells[rowIndex, 9] = dr["MatUse"].ToString();
-                wSheet.Cells[rowIndex, 10] = dr["MatCost"].ToString();
-                wSheet.Cells[rowIndex, 11] = dr["ProcessCostTotal"].ToString();
-                wSheet.Cells[rowIndex, 12] = dr["PlateCost"].ToString();
-                wSheet.Cells[rowIndex, 13] = dr["PackCost"].ToString();
-                wSheet.Cells[rowIndex, 14] = dr["CostPcs"].ToString();
-                wSheet.Cells[rowIndex, 15] = dr["CostGrs"].ToString();
-                wSheet.Cells[rowIndex, 16] = dr["CostK"].ToString();
-                wSheet.Cells[rowIndex, 17] = dr["FactoryFee"].ToString();
-                wSheet.Cells[rowIndex, 18] = dr["FrontPart"].ToString();
+                if (dr["Seq"].ToString().Trim() != "ZZ")//最後一行為合計，不用複製
+                {
+                    wSheet.Cells[rowIndex, 1] = dr["Seq"].ToString();
+                    wSheet.Cells[rowIndex, 2] = dr["ProductID"].ToString();
+                    wSheet.Cells[rowIndex, 3] = dr["ProductName"].ToString();
+                    wSheet.Cells[rowIndex, 4] = dr["MultRate"].ToString();
+                    wSheet.Cells[rowIndex, 5] = dr["FactoryCostPcs"].ToString();
+                    wSheet.Cells[rowIndex, 6] = dr["FactoryCostGrs"].ToString();
+                    wSheet.Cells[rowIndex, 7] = dr["FactoryCostK"].ToString();
+                    wSheet.Cells[rowIndex, 8] = dr["MatWeg"].ToString();
+                    wSheet.Cells[rowIndex, 9] = dr["MatUse"].ToString();
+                    wSheet.Cells[rowIndex, 10] = dr["MatCost"].ToString();
+                    wSheet.Cells[rowIndex, 11] = dr["ProcessCostTotal"].ToString();
+                    wSheet.Cells[rowIndex, 12] = dr["PlateCost"].ToString();
+                    wSheet.Cells[rowIndex, 13] = dr["PackCost"].ToString();
+                    wSheet.Cells[rowIndex, 14] = dr["CostPcs"].ToString();
+                    wSheet.Cells[rowIndex, 15] = dr["CostGrs"].ToString();
+                    wSheet.Cells[rowIndex, 16] = dr["CostK"].ToString();
+                    wSheet.Cells[rowIndex, 17] = dr["FactoryFee"].ToString();
+                    wSheet.Cells[rowIndex, 18] = dr["FrontPart"].ToString();
 
-                multRate= clsValidRule.ConvertStrToDecimal(dr["MultRate"].ToString());
-                factoryAmtPcs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostPcs"].ToString()) * multRate;
-                factoryAmtGrs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostGrs"].ToString()) * multRate;
-                factoryAmtK += clsValidRule.ConvertStrToDecimal(dr["FactoryCostK"].ToString()) * multRate;
-                rowIndex++;
+                    multRate = clsValidRule.ConvertStrToDecimal(dr["MultRate"].ToString());
+                    factoryAmtPcs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostPcs"].ToString()) * multRate;
+                    factoryAmtGrs += clsValidRule.ConvertStrToDecimal(dr["FactoryCostGrs"].ToString()) * multRate;
+                    factoryAmtK += clsValidRule.ConvertStrToDecimal(dr["FactoryCostK"].ToString()) * multRate;
+                    rowIndex++;
+                }
             }
             wSheet.Cells[rowIndex, 3] = "產品合計成本(累加:配件成本 * 用量倍數)";
             wSheet.Cells[rowIndex, 5] = factoryAmtPcs;
