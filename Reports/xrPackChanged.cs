@@ -168,24 +168,28 @@ namespace cf01.Reports
             }
             xrLabel10.Text = DateTime.Parse(strdate).Date.ToString("yyyy/MM/dd");
         }
-
-        private void txtBrand_id_TextChanged(object sender, EventArgs e)
-        {
-            string flag_report = GetCurrentColumnValue("flag_report").ToString();           
-            if (flag_report != "1")
-            {
-                pnlCheckReport.Visible = false;
-            }
-            else
-            {
-                pnlCheckReport.Visible = true;                
-            }                  
-        }
-
+       
         private void txtQcResult_TextChanged(object sender, EventArgs e)
         {
             string qc_result = GetCurrentColumnValue("qc_result").ToString();
+           
             txtQcResult.Text = (qc_result == "True") ? "OK" : "NOT OK";
         }
+
+        private void lblPrimary_TextChanged(object sender, EventArgs e)
+        {
+            string primary_key = GetCurrentColumnValue("primary_key").ToString();
+            if(primary_key == "主件")
+            {
+                string flag_report = GetCurrentColumnValue("flag_report").ToString();                            
+                pnlCheckReport.Visible = (flag_report != "1")?false:true; 
+            }
+            else
+            {
+                pnlCheckReport.Visible = false;
+            }            
+        }
+
+       
     }
 }

@@ -229,7 +229,7 @@ namespace cf01.ReportForm
             };
             dsPackChange = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_pack_changed", paras, null);
             dsPackChange.Tables[0].TableName = "pack_h";//master table            
-            dsPackChange.Tables[1].TableName = "pack_d";//details ttable     
+            dsPackChange.Tables[1].TableName = "pack_d";//details table     
             dsPackChange.Tables[2].TableName = "temp_list";
             
             //處理Sales BOM,建立與主表的關聯
@@ -239,7 +239,7 @@ namespace cf01.ReportForm
             {
                 strMo_id = dsPackChange.Tables["pack_h"].Rows[i]["mo_id"].ToString();
                 strKey = dsPackChange.Tables["pack_h"].Rows[i]["pkey"].ToString();
-                DataRow[] drs = dsPackChange.Tables["pack_d"].Select(String.Format("mo_id='{0}'", strMo_id));
+                DataRow[] drs = dsPackChange.Tables["pack_d"].Select(string.Format("mo_id='{0}'", strMo_id));
                 
                 foreach (DataRow dr in drs)
                 {
@@ -297,6 +297,7 @@ namespace cf01.ReportForm
                 {
                     using (xrPackChanged mMyReport = new xrPackChanged(dsPackChange, dtDetails))
                     {
+                        //mMyReport.PageHeight = 3400;
                         Print_Custom(mMyReport, print_type);
                     }
                 }

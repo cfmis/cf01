@@ -2433,6 +2433,7 @@
             this.lblPrimary.Text = "[primary_key]";
             this.lblPrimary.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.lblPrimary.WordWrap = false;
+            this.lblPrimary.TextChanged += new System.EventHandler(this.lblPrimary_TextChanged);
             // 
             // xrLine2
             // 
@@ -3831,7 +3832,6 @@
             this.txtBrand_id.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.txtBrand_id.Visible = false;
             this.txtBrand_id.WordWrap = false;
-            this.txtBrand_id.TextChanged += new System.EventHandler(this.txtBrand_id_TextChanged);
             // 
             // xrPackChanged
             // 
