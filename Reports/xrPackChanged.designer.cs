@@ -1917,10 +1917,10 @@
             this.xrLabel96.CanGrow = false;
             this.xrLabel96.Dpi = 254F;
             this.xrLabel96.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.xrLabel96.LocationFloat = new DevExpress.Utils.PointFloat(466.3205F, 150.8541F);
+            this.xrLabel96.LocationFloat = new DevExpress.Utils.PointFloat(466.3205F, 150.854F);
             this.xrLabel96.Name = "xrLabel96";
             this.xrLabel96.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel96.SizeF = new System.Drawing.SizeF(198.8222F, 43.48242F);
+            this.xrLabel96.SizeF = new System.Drawing.SizeF(198.8222F, 44.48242F);
             this.xrLabel96.StylePriority.UseFont = false;
             this.xrLabel96.StylePriority.UseTextAlignment = false;
             this.xrLabel96.Text = "[w_mo_id]";
