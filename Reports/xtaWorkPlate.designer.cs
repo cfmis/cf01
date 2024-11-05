@@ -609,7 +609,6 @@
             this.xrLabel55.StylePriority.UseTextAlignment = false;
             this.xrLabel55.Text = "[ir_date]";
             this.xrLabel55.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel55.Visible = false;
             this.xrLabel55.WordWrap = false;
             // 
             // xrLine19
@@ -1010,7 +1009,6 @@
             this.xrLabel23.StylePriority.UseTextAlignment = false;
             this.xrLabel23.Text = "生產日期:";
             this.xrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrLabel23.Visible = false;
             // 
             // xrLabel20
             // 
