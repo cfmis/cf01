@@ -31,8 +31,8 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle1 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
             DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle2 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
-            DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle3 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xrPackChanged));
+            DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle3 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
@@ -200,6 +200,7 @@
             this.lblColor = new DevExpress.XtraReports.UI.XRLabel();
             this.lblgoods_name = new DevExpress.XtraReports.UI.XRLabel();
             this.txtGoods_name = new DevExpress.XtraReports.UI.XRLabel();
+            this.p_cf_logo = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel76 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel75 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel74 = new DevExpress.XtraReports.UI.XRLabel();
@@ -251,7 +252,6 @@
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
             this.txtBrand_id = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.p_cf_logo = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -2596,6 +2596,15 @@
             this.txtGoods_name.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.txtGoods_name.WordWrap = false;
             // 
+            // p_cf_logo
+            // 
+            this.p_cf_logo.Dpi = 254F;
+            this.p_cf_logo.Image = ((System.Drawing.Image)(resources.GetObject("p_cf_logo.Image")));
+            this.p_cf_logo.LocationFloat = new DevExpress.Utils.PointFloat(38.02075F, 259.8465F);
+            this.p_cf_logo.Name = "p_cf_logo";
+            this.p_cf_logo.SizeF = new System.Drawing.SizeF(120F, 123.1042F);
+            this.p_cf_logo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            // 
             // xrLabel76
             // 
             this.xrLabel76.Dpi = 254F;
@@ -3232,15 +3241,6 @@
             this.GroupFooter2.Level = 1;
             this.GroupFooter2.Name = "GroupFooter2";
             // 
-            // p_cf_logo
-            // 
-            this.p_cf_logo.Dpi = 254F;
-            this.p_cf_logo.Image = ((System.Drawing.Image)(resources.GetObject("p_cf_logo.Image")));
-            this.p_cf_logo.LocationFloat = new DevExpress.Utils.PointFloat(38.02075F, 259.8465F);
-            this.p_cf_logo.Name = "p_cf_logo";
-            this.p_cf_logo.SizeF = new System.Drawing.SizeF(120F, 123.1042F);
-            this.p_cf_logo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            // 
             // xrPackChanged
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -3255,7 +3255,7 @@
             this.GroupFooter2});
             this.Dpi = 254F;
             this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 1);
-            this.PageHeight = 2700;
+            this.PageHeight = 2800;
             this.PageWidth = 1150;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "12x28";
