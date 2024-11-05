@@ -21,21 +21,46 @@ namespace cf01.ReportForm
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataSet dsPackChange = new DataSet();
         DataTable dtDetails = new DataTable();
+        DataTable dtFullCheck = new DataTable();
         public frmPackChanged()
         {
             InitializeComponent();
-
-            dtDetails.Columns.Add("pkey", typeof(String));
-            dtDetails.Columns.Add("goods_id", typeof(String));
-            dtDetails.Columns.Add("name", typeof(String));
-            dtDetails.Columns.Add("order_qty", typeof(Int32));
-            dtDetails.Columns.Add("department", typeof(String));                     
+            TatableInit();
         }
 
         private void frmPackChanged_Load(object sender, EventArgs e)
         {
             txtBarCode.Focus();
-            cmbReport.Text = "包裝轉交單";     
+            cmbReport.Text = "包裝轉交單";
+
+           
+
+
+
+        }
+
+        private void TatableInit()
+        {
+            dtDetails.Columns.Add("pkey", typeof(string));
+            dtDetails.Columns.Add("goods_id", typeof(string));
+            dtDetails.Columns.Add("name", typeof(string));
+            dtDetails.Columns.Add("order_qty", typeof(Int32));
+            dtDetails.Columns.Add("department", typeof(string));
+
+            dtFullCheck.Columns.Add("id", typeof(string));
+            dtFullCheck.Columns.Add("mo_id", typeof(string));
+            dtFullCheck.Columns.Add("w_mo_id", typeof(string));
+            dtFullCheck.Columns.Add("contract_cid", typeof(string));
+            dtFullCheck.Columns.Add("table_head", typeof(string));
+            dtFullCheck.Columns.Add("customer_name_eng", typeof(string));
+            dtFullCheck.Columns.Add("customer_goods", typeof(string));
+            dtFullCheck.Columns.Add("customer_color_id", typeof(string));
+            dtFullCheck.Columns.Add("brand_desc", typeof(string));
+            dtFullCheck.Columns.Add("order_qty1", typeof(Int32));
+            dtFullCheck.Columns.Add("goods_unit", typeof(string));
+            dtFullCheck.Columns.Add("f_goods_id", typeof(string));
+            dtFullCheck.Columns.Add("f_goods_name", typeof(string));
+            dtFullCheck.Columns.Add("qc_result", typeof(string));
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -295,24 +320,56 @@ namespace cf01.ReportForm
                 //xrPackChanged oRepot = new xrPackChanged() { DataSource = dsPackChange.Tables[0]};
                 if (cmbReport.Text == "包裝轉交單")
                 {
-                    using (xrPackChanged mMyReport = new xrPackChanged(dsPackChange, dtDetails))
+                    dtFullCheck.Clear();
+                    string flagReport = "";
+                    for (int i = 0; i < dsPackChange.Tables["pack_h"].Rows.Count; i++)
                     {
-                        //mMyReport.PageHeight = 3400;
-                        Print_Custom(mMyReport, print_type);
+                        flagReport = dsPackChange.Tables["pack_h"].Rows[i]["flag_report"].ToString();
+                        if (flagReport == "1")
+                        {
+                            DataRow rs = dtFullCheck.NewRow();
+                            rs["id"] = dsPackChange.Tables["pack_h"].Rows[i]["id"].ToString();
+                            rs["mo_id"] = dsPackChange.Tables["pack_h"].Rows[i]["mo_id"].ToString();
+                            rs["w_mo_id"] = dsPackChange.Tables["pack_h"].Rows[i]["w_mo_id"].ToString();
+                            rs["contract_cid"] = dsPackChange.Tables["pack_h"].Rows[i]["contract_cid"].ToString();
+                            rs["table_head"] = dsPackChange.Tables["pack_h"].Rows[i]["table_head"].ToString();
+                            rs["customer_name_eng"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_name_eng"].ToString();
+                            rs["customer_goods"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_goods"].ToString();
+                            rs["customer_color_id"] = dsPackChange.Tables["pack_h"].Rows[i]["customer_color_id"].ToString();
+                            rs["brand_desc"] = dsPackChange.Tables["pack_h"].Rows[i]["brand_desc"].ToString();
+                            rs["order_qty1"] = Int32.Parse(dsPackChange.Tables["pack_h"].Rows[i]["order_qty1"].ToString());
+                            rs["goods_unit"] = dsPackChange.Tables["pack_h"].Rows[i]["goods_unit"].ToString();
+                            rs["f_goods_id"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_id"].ToString();
+                            rs["f_goods_name"] = dsPackChange.Tables["pack_h"].Rows[i]["f_goods_name"].ToString();
+                            rs["qc_result"] = dsPackChange.Tables["pack_h"].Rows[i]["qc_result"].ToString() == "True" ? "OK" : "NOT OK";
+                            dtFullCheck.Rows.Add(rs);
+                        }
+                    }
+                    using (xrPackChanged mMyReport = new xrPackChanged(dsPackChange, dtDetails))
+                    {                        
+                        PrintCustom(mMyReport, print_type);
+                    }
+                    //列印全檢標簽
+                    if (dtFullCheck.Rows.Count > 0)
+                    {
+                        using (xrFullCheck mMyReport = new xrFullCheck() { DataSource = dtFullCheck })
+                        {
+                            PrintCustom(mMyReport, print_type);
+                        }
                     }
                 }
                 if (cmbReport.Text == "客人標簽")
                 {                    
                     using (xrPackChanged_Cust mMyReport = new xrPackChanged_Cust(){DataSource = dsPackChange.Tables[0]})
                     {
-                        Print_Custom(mMyReport, print_type);                        
+                        PrintCustom(mMyReport, print_type);                        
                     }
                 }
                 if (cmbReport.Text == "成品標識卡")
                 {                  
                     using (xrPackChanged_st mMyReport = new xrPackChanged_st() { DataSource = dsPackChange.Tables[0] })
                     {
-                        Print_Custom(mMyReport, print_type);                        
+                        PrintCustom(mMyReport, print_type);                        
                     }
                 }
             }
@@ -322,7 +379,7 @@ namespace cf01.ReportForm
             }
         }
 
-        private void Print_Custom(DevExpress.XtraReports.UI.XtraReport oReport,string print_type)
+        private void PrintCustom(DevExpress.XtraReports.UI.XtraReport oReport,string print_type)
         {
             oReport.CreateDocument();
             oReport.PrintingSystem.ShowMarginsWarning = false;
