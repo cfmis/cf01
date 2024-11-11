@@ -30,7 +30,9 @@ namespace cf01.ReportForm
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            string sql = @"SELECT convert(bit,0) as flag_select,sop1no,sop1dat,sop1style,sop1cname FROM sop01 Where 1>0 ";
+            string sql = 
+            @"SELECT convert(bit,0) as flag_select,sop1no,sop1dat,RTRIM(ISNULL(sop1style,'')) AS sop1style,
+            RTRIM(sop1cname) AS sop1cname FROM sop01 Where 1>0 ";
             if(dtDat1.EditValue.ToString()!="")
             {
                 string dat1 = DateTime.Parse(dtDat1.EditValue.ToString()).Date.ToString("yyyy/MM/dd");
