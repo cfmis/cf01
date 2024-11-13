@@ -113,8 +113,8 @@ namespace cf01.Forms
                 {
                     goods_id = dtBarCode.Rows[0]["goods_id"].ToString();
                     txtmo_id.Text = dtBarCode.Rows[0]["mo_id"].ToString();
-                    cmbProductDept.Text = dtBarCode.Rows[0]["wp_id"].ToString();
-                    cmbOwnDep.Text = cmbProductDept.Text;
+                    //cmbProductDept.Text = dtBarCode.Rows[0]["wp_id"].ToString();
+                    cmbOwnDep.Text = dtBarCode.Rows[0]["wp_id"].ToString();
                     InitComBoxGroup();
                 }
                 else
@@ -186,22 +186,20 @@ namespace cf01.Forms
 
             if (_userid.Substring(0, 3) == "ALY")
                 cmbProductDept.Text = "302";
-            else
-                if (_userid.Substring(0, 3) == "BUT")
+            else if (_userid.Substring(0, 3) == "BUT")
                 cmbProductDept.Text = "102";
-            else
-                    if (_userid.Substring(0, 3) == "BUK")
+            else if (_userid.Substring(0, 3) == "BUK")
                 cmbProductDept.Text = "202";
-            else
-                        if (_userid.Substring(0, 3) == "PLA")
+            else if (_userid.Substring(0, 3) == "PLA")
             {
                 cmbProductDept.SelectedValue = "501";
                 cmbOwnDep.SelectedValue = "501";
             }
 
-            else
-                            if (_userid.Substring(0, 3) == "BLK")
+            else if (_userid.Substring(0, 3) == "BLK")
                 cmbProductDept.Text = "105";
+            else if (_userid.Length>=7 && _userid.Substring(0, 7) == "DG_PACK")
+                cmbProductDept.Text = "601";
 
             //初始化工作類型
             cmbWorkType.DataSource = dtWork_type;
@@ -216,7 +214,7 @@ namespace cf01.Forms
             cmbOrder_class.Text = "白班";
             dteProdcutDate.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
 
-            
+
 
         }
         private void InitComBoxGroup()
@@ -316,7 +314,7 @@ namespace cf01.Forms
         {
             cmbGoods_id.SelectedValue = "";
             txtgoods_desc.Text = "";
-            if (txtmo_id.Text != "" && cmbProductDept.Text != "")
+            if (txtmo_id.Text != "" && cmbOwnDep.Text != "")
             {
                 GetMo_itme("");
                 //設定第一個為默認的
@@ -332,16 +330,18 @@ namespace cf01.Forms
         {
             //cmbGoods_id.Items.Clear();
             string fdep, tdep;
-            if (cmbProductDept.Text.Trim() == cmbOwnDep.Text.Trim())
-            {
-                fdep = cmbProductDept.Text.Trim();
-                tdep = "";
-            }
-            else
-            {
-                fdep = "";
-                tdep = cmbOwnDep.Text.Trim();
-            }
+            //if (cmbProductDept.Text.Trim() == cmbOwnDep.Text.Trim())
+            //{
+            //    fdep = cmbProductDept.Text.Trim();
+            //    tdep = "";
+            //}
+            //else
+            //{
+            //    fdep = "";
+            //    tdep = cmbOwnDep.Text.Trim();
+            //}
+            fdep = cmbOwnDep.Text.Trim();
+            tdep = "";
             dtMo_item = clsProductionSchedule.GetMo_dataById(txtmo_id.Text.Trim(), fdep, tdep, goods_id);
             //for (int i = 0; i < dtMo_item.Rows.Count; i++)
             //{
