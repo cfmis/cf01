@@ -336,7 +336,7 @@
             // txtper_Standrad_qty
             // 
             this.txtper_Standrad_qty.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtper_Standrad_qty.Location = new System.Drawing.Point(336, 10);
+            this.txtper_Standrad_qty.Location = new System.Drawing.Point(579, 635);
             this.txtper_Standrad_qty.Name = "txtper_Standrad_qty";
             this.txtper_Standrad_qty.Size = new System.Drawing.Size(146, 27);
             this.txtper_Standrad_qty.TabIndex = 3;
@@ -885,6 +885,7 @@
             this.tabPage1.Controls.Add(this.lblWork_type);
             this.tabPage1.Controls.Add(this.lblOrder_Class);
             this.tabPage1.Controls.Add(this.cmbWorkType);
+            this.tabPage1.Controls.Add(this.txtper_Standrad_qty);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPage1.Location = new System.Drawing.Point(4, 94);
@@ -1248,14 +1249,13 @@
             this.panel11.Controls.Add(this.btnDeleteMember);
             this.panel11.Controls.Add(this.lblWorker);
             this.panel11.Controls.Add(this.lblGroup);
-            this.panel11.Controls.Add(this.cmbGroup);
             this.panel11.Controls.Add(this.txtWorker);
             this.panel11.Controls.Add(this.lblPer_hour_std_qty);
             this.panel11.Controls.Add(this.txtPer_hour_std_qty);
             this.panel11.Controls.Add(this.lblTotMember);
             this.panel11.Controls.Add(this.lblStandard_per_qty);
-            this.panel11.Controls.Add(this.txtper_Standrad_qty);
             this.panel11.Controls.Add(this.txtTotMember);
+            this.panel11.Controls.Add(this.cmbGroup);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";

@@ -128,10 +128,10 @@ namespace cf01.Forms
                 int ArrangeResult = clsPublicOfPad.ExecuteNonQuery(strSql, paras2, false);
                 if (ArrangeResult > 0)
                 {
-                    MessageBox.Show("儲存記錄成功!");
+                    //MessageBox.Show("儲存記錄成功!");
                     txtMember.Focus();
                     loadPrdGroupMember();
-                    
+                    txtMember.Text = "";
                 }
                 else
                     MessageBox.Show("儲存記錄失敗!");
