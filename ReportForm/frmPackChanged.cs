@@ -22,6 +22,8 @@ namespace cf01.ReportForm
         DataSet dsPackChange = new DataSet();
         DataTable dtDetails = new DataTable();
         DataTable dtFullCheck = new DataTable();
+
+       
         public frmPackChanged()
         {
             InitializeComponent();
@@ -220,7 +222,6 @@ namespace cf01.ReportForm
                          Load_Data(is_by_mo,"", id_type, txtID.Text, txtMO.Text, cmbItems.Text);
 
                     txtBarCode.Text = "";
-
 
                     if (dsPackChange.Tables[0].Rows.Count > 0)
                     {
@@ -456,8 +457,14 @@ namespace cf01.ReportForm
                     return;
                 }
 
-                Load_Data("N","",id_type, txtID.Text, txtMO.Text, cmbItems.Text);
-
+                frmProgress wForm = new frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();
+                Load_Data("N", "", id_type, txtID.Text, txtMO.Text, cmbItems.Text);
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
                 txtBarCode.Focus();
             }
         }
@@ -473,20 +480,29 @@ namespace cf01.ReportForm
                 @"SELECT C.goods_id,C.primary_key 
                 FROM so_order_manage A with(nolock) 
 	                INNER JOIN so_order_details B with(nolock) ON A.within_code=B.within_code and A.id=B.id AND A.ver =B.ver
-	                INNER JOIN so_order_bom C with(nolock) 
-	                    ON B.within_code=C.within_code and B.id=C.id AND B.ver =C.ver AND B.sequence_id =C.upper_sequence 
-                WHERE A.within_code='0000' AND A.state not in ('2','V') AND B.mo_id='{0}' ORDER BY C.primary_key DESC,C.goods_id", txtMO.Text);
+	                INNER JOIN so_order_bom C with(nolock) ON B.within_code=C.within_code and B.id=C.id AND B.ver=C.ver AND B.sequence_id=C.upper_sequence 
+                WHERE B.within_code='0000' AND B.mo_id='{0}' AND A.state not in ('2','V') ORDER BY C.primary_key DESC,C.goods_id", txtMO.Text);
                 DataTable dtItems = new DataTable();
                 dtItems = clsConErp.GetDataTable(strsql);
                 if (dtItems.Rows.Count == 0)
+                {
                     return;
-
+                }
                 Fill_Combox(dtItems);
 
                 string print_by_set = "Y";
                 chkmo_print_by_set.Checked = true;
 
+                frmProgress wForm = new frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();
+
                 Load_Data("Y", print_by_set, "", txtID.Text, txtMO.Text, cmbItems.Text);
+
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });                
 
                 //2017-08-18一個頁數默認只列印一張客人標識卡加入此代碼默認面件
                 if (cmbReport.SelectedIndex == 1)
