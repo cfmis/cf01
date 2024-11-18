@@ -37,7 +37,7 @@ namespace cf01.CLS
         public static DataTable LoadProductCostHead(string ID)
         {
             string strSql = "";
-            strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+            strSql = "Select ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,CustCode,Brand,ProductType,ProductTypeName" +
                 ",ProductSize,ProductSizeName,ProductColor,ProductColorName,DoColor,CustColor" +
                 ",PrdMo,MdNo,MoGroup,FactAddWasteRate,CompProfitRate" +
                 ",Remark,CreateUser,Convert(Varchar(50),CreateTime,20) AS CreateTime" +
@@ -160,24 +160,25 @@ namespace cf01.CLS
             {
                 Ver = 0;
                 strUpd = @" Insert Into mm_product_cost_head " +
-                    " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,ProductType,ProductTypeName" +
+                    " ( ID,Ver,ProductID,ProductName,ArtWork,ArtWorkName,CustCode,Brand,ProductType,ProductTypeName" +
                     ",ProductSize,ProductSizeName,ProductColor,ProductColorName,DoColor,CustColor" +
                     ",PrdMo,MdNo,MoGroup,FactAddWasteRate,CompProfitRate" +
                     ",Remark,CreateUser,CreateTime,AmendUser,AmendTime )" +
                     " Values ( " +
                     " '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'" +
-                    ",'{13}','{14}','{15}','{16}','{17}','{18}','{19}'" +
-                    ",'{20}',GETDATE(),'{20}',GETDATE() )";
+                    ",'{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}'" +
+                    ",'{22}',GETDATE(),'{22}',GETDATE() )";
             }
             else
                 strUpd = @" Update mm_product_cost_head Set ProductID='{2}',ProductName='{3}',ArtWork='{4}',ArtWorkName='{5}'" +
-                    ",ProductType='{6}',ProductTypeName='{7}'" +
-                    ",ProductSize='{8}',ProductSizeName='{9}',ProductColor='{10}',ProductColorName='{11}',DoColor='{12}',CustColor='{13}'" +
-                    ",PrdMo='{14}',MdNo='{15}',MoGroup='{16}',FactAddWasteRate='{17}',CompProfitRate='{18}'" +
-                    ",Remark='{19}',AmendUser='{20}',AmendTime=GETDATE() " +
+                    ",CustCode='{6}',Brand='{7}',ProductType='{8}',ProductTypeName='{9}',ProductSize='{10}',ProductSizeName='{11}'" +
+                    ",ProductColor='{12}',ProductColorName='{13}',DoColor='{14}',CustColor='{15}'" +
+                    ",PrdMo='{16}',MdNo='{17}',MoGroup='{18}',FactAddWasteRate='{19}',CompProfitRate='{20}'" +
+                    ",Remark='{21}',AmendUser='{22}',AmendTime=GETDATE() " +
                     " Where ID='{0}' And Ver='{1}'";
             strSql += string.Format(strUpd
                     , ID, Ver, mdlGoods.ProductID, mdlGoods.ProductName, mdlGoods.ArtWork, mdlGoods.ArtWorkName
+                    , mdlGoods.CustCode, mdlGoods.Brand
                     , mdlGoods.ProductType, mdlGoods.ProductTypeName, mdlGoods.ProductSize, mdlGoods.ProductSizeName
                     , mdlGoods.ProductColor, mdlGoods.ProductColorName, mdlGoods.DoColor, mdlGoods.CustColor
                     , mdlGoods.PrdMo, mdlGoods.MdNo, mdlGoods.MoGroup, mdlGoods.FactAddWasteRate, mdlGoods.CompProfitRate

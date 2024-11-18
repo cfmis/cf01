@@ -146,7 +146,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("group_desc", 80, "組別描述")});
             this.lueMoGroup.Properties.NullText = "";
             this.lueMoGroup.Size = new System.Drawing.Size(95, 20);
-            this.lueMoGroup.TabIndex = 18;
+            this.lueMoGroup.TabIndex = 4;
             // 
             // lblMoGroup
             // 
@@ -162,7 +162,7 @@
             this.txtCustColor.Name = "txtCustColor";
             this.txtCustColor.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCustColor.Size = new System.Drawing.Size(177, 20);
-            this.txtCustColor.TabIndex = 1;
+            this.txtCustColor.TabIndex = 3;
             // 
             // txtProcessName
             // 
@@ -210,7 +210,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Size = new System.Drawing.Size(177, 20);
-            this.txtID.TabIndex = 1;
+            this.txtID.TabIndex = 2;
             // 
             // txtProcesslId
             // 
@@ -218,7 +218,7 @@
             this.txtProcesslId.Name = "txtProcesslId";
             this.txtProcesslId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProcesslId.Size = new System.Drawing.Size(177, 20);
-            this.txtProcesslId.TabIndex = 1;
+            this.txtProcesslId.TabIndex = 0;
             // 
             // toolStrip1
             // 

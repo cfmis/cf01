@@ -109,6 +109,8 @@ namespace cf01.MM
                 txtProductName.Text= dr["ProductName"].ToString();
                 txtArtWork.Text = dr["ArtWork"].ToString();
                 txtArtWorkName.Text = dr["ArtWorkName"].ToString();
+                txtCust.Text = dr["CustCode"].ToString();
+                txtBrand.Text = dr["Brand"].ToString();
                 txtProductType.Text = dr["ProductType"].ToString();
                 txtProductTypeName.Text = dr["ProductTypeName"].ToString();
                 txtSize.Text = dr["ProductSize"].ToString();
@@ -136,6 +138,8 @@ namespace cf01.MM
                 txtProductName.Text = "";
                 txtArtWork.Text = "";
                 txtArtWorkName.Text = "";
+                txtCust.Text = "";
+                txtBrand.Text = "";
                 txtProductType.Text = "";
                 txtProductTypeName.Text = "";
                 txtDoColor.Text = "";
@@ -225,6 +229,8 @@ namespace cf01.MM
                 mdlGoods.ID = mdlCopyID.ID;
                 mdlGoods.Ver = mdlCopyID.Ver;
             }
+            mdlGoods.CustCode = txtCust.Text;
+            mdlGoods.Brand = txtBrand.Text;
             mdlGoods.ProductID = txtProductId.Text;
             mdlGoods.ProductName = txtProductName.Text;
             mdlGoods.ArtWork = txtArtWork.Text;
@@ -2546,8 +2552,22 @@ namespace cf01.MM
             excelRange.MergeCells = true;//合併單元格
             wSheet.Cells[rowIndex, 13]= "備註";
             wSheet.Cells[rowIndex, 14]= txtRemark;
-            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 14], wSheet.Cells[rowIndex, 17]];
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 14], wSheet.Cells[rowIndex, 18]];
             excelRange.MergeCells = true;//合併單元格
+            rowIndex++;
+            wSheet.Cells[rowIndex, 1] = "客戶編號";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 1], wSheet.Cells[rowIndex, 2]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 3] = txtCust.Text;
+            wSheet.Cells[rowIndex, 4] = "牌子編號";
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 4], wSheet.Cells[rowIndex, 5]];
+            excelRange.MergeCells = true;//合併單元格
+            excelRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //水平居中
+            wSheet.Cells[rowIndex, 6] = txtBrand.Text;
+            excelRange = wSheet.Range[wSheet.Cells[rowIndex, 6], wSheet.Cells[rowIndex, 7]];
+            excelRange.MergeCells = true;//合併單元格
+
             //顯示表格
             rowIndex++;
             wSheet.Cells[rowIndex, 1] = "序號";
@@ -2829,6 +2849,22 @@ namespace cf01.MM
                     txtDoColor.Text= dtColor.Rows[0]["do_color"].ToString().Trim();
                 }
             }
+        }
+
+        private void txtBrand_Leave(object sender, EventArgs e)
+        {
+            if (txtBrand.Text.Trim() == "")
+                txtFactAddWasteRate.Text = factAddWasteRate;
+            else
+            {
+                string Brand = txtBrand.Text.Trim();
+                DataTable dtRate = clsBaseData.LoadProcessType("CP_PROFIT1", Brand);
+                if (dtRate.Rows.Count == 0)
+                    txtFactAddWasteRate.Text = factAddWasteRate;
+                else
+                    txtFactAddWasteRate.Text = dtRate.Rows[0]["use_weg"].ToString();
+            }
+            CountTestCost();
         }
     }
 }
