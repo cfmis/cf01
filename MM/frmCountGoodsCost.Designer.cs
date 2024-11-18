@@ -413,6 +413,10 @@
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.btnAddPart = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
+            this.txtCust = new DevExpress.XtraEditors.TextEdit();
+            this.txtBrand = new DevExpress.XtraEditors.TextEdit();
+            this.lblCust = new DevExpress.XtraEditors.LabelControl();
+            this.lblBrand = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -605,6 +609,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -780,6 +786,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtBrand);
+            this.panelControl1.Controls.Add(this.txtCust);
             this.panelControl1.Controls.Add(this.lueMoGroup);
             this.panelControl1.Controls.Add(this.btnFindProduct);
             this.panelControl1.Controls.Add(this.txtMdNo);
@@ -788,6 +796,7 @@
             this.panelControl1.Controls.Add(this.lblColor);
             this.panelControl1.Controls.Add(this.lblSize);
             this.panelControl1.Controls.Add(this.lblMoGroup);
+            this.panelControl1.Controls.Add(this.lblBrand);
             this.panelControl1.Controls.Add(this.lblMdNo);
             this.panelControl1.Controls.Add(this.lblProductName);
             this.panelControl1.Controls.Add(this.lblArtWorkName);
@@ -818,6 +827,7 @@
             this.panelControl1.Controls.Add(this.lblCustColor);
             this.panelControl1.Controls.Add(this.txtPrdMo);
             this.panelControl1.Controls.Add(this.lblPrdType);
+            this.panelControl1.Controls.Add(this.lblCust);
             this.panelControl1.Controls.Add(this.lblPrdMo);
             this.panelControl1.Controls.Add(this.txtArtWork);
             this.panelControl1.Controls.Add(this.lblArtWork);
@@ -826,7 +836,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1537, 142);
+            this.panelControl1.Size = new System.Drawing.Size(1537, 136);
             this.panelControl1.TabIndex = 2;
             // 
             // lueMoGroup
@@ -942,7 +952,7 @@
             this.txtDoColor.Location = new System.Drawing.Point(888, 60);
             this.txtDoColor.Name = "txtDoColor";
             this.txtDoColor.Size = new System.Drawing.Size(222, 20);
-            this.txtDoColor.TabIndex = 10;
+            this.txtDoColor.TabIndex = 15;
             // 
             // txtColorName
             // 
@@ -1009,7 +1019,7 @@
             this.txtRemark.Location = new System.Drawing.Point(541, 83);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(569, 20);
-            this.txtRemark.TabIndex = 15;
+            this.txtRemark.TabIndex = 18;
             // 
             // txtSN
             // 
@@ -1021,19 +1031,19 @@
             // 
             // txtAmendTime
             // 
-            this.txtAmendTime.Location = new System.Drawing.Point(267, 109);
+            this.txtAmendTime.Location = new System.Drawing.Point(888, 107);
             this.txtAmendTime.Name = "txtAmendTime";
             this.txtAmendTime.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtAmendTime.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.txtAmendTime.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtAmendTime.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAmendTime.Properties.ReadOnly = true;
-            this.txtAmendTime.Size = new System.Drawing.Size(161, 20);
-            this.txtAmendTime.TabIndex = 15;
+            this.txtAmendTime.Size = new System.Drawing.Size(222, 20);
+            this.txtAmendTime.TabIndex = 22;
             // 
             // txtCreateTime
             // 
-            this.txtCreateTime.Location = new System.Drawing.Point(267, 83);
+            this.txtCreateTime.Location = new System.Drawing.Point(267, 107);
             this.txtCreateTime.Name = "txtCreateTime";
             this.txtCreateTime.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtCreateTime.Properties.AppearanceDisabled.Options.UseBackColor = true;
@@ -1041,11 +1051,11 @@
             this.txtCreateTime.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtCreateTime.Properties.ReadOnly = true;
             this.txtCreateTime.Size = new System.Drawing.Size(161, 20);
-            this.txtCreateTime.TabIndex = 13;
+            this.txtCreateTime.TabIndex = 20;
             // 
             // lblAmendTime
             // 
-            this.lblAmendTime.Location = new System.Drawing.Point(212, 112);
+            this.lblAmendTime.Location = new System.Drawing.Point(833, 110);
             this.lblAmendTime.Name = "lblAmendTime";
             this.lblAmendTime.Size = new System.Drawing.Size(52, 14);
             this.lblAmendTime.TabIndex = 0;
@@ -1053,7 +1063,7 @@
             // 
             // lblCreateTime
             // 
-            this.lblCreateTime.Location = new System.Drawing.Point(212, 86);
+            this.lblCreateTime.Location = new System.Drawing.Point(212, 110);
             this.lblCreateTime.Name = "lblCreateTime";
             this.lblCreateTime.Size = new System.Drawing.Size(52, 14);
             this.lblCreateTime.TabIndex = 0;
@@ -1061,19 +1071,19 @@
             // 
             // txtAmendUser
             // 
-            this.txtAmendUser.Location = new System.Drawing.Point(84, 109);
+            this.txtAmendUser.Location = new System.Drawing.Point(541, 107);
             this.txtAmendUser.Name = "txtAmendUser";
             this.txtAmendUser.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtAmendUser.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.txtAmendUser.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtAmendUser.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAmendUser.Properties.ReadOnly = true;
-            this.txtAmendUser.Size = new System.Drawing.Size(122, 20);
-            this.txtAmendUser.TabIndex = 14;
+            this.txtAmendUser.Size = new System.Drawing.Size(279, 20);
+            this.txtAmendUser.TabIndex = 21;
             // 
             // lblAmendUser
             // 
-            this.lblAmendUser.Location = new System.Drawing.Point(36, 112);
+            this.lblAmendUser.Location = new System.Drawing.Point(498, 110);
             this.lblAmendUser.Name = "lblAmendUser";
             this.lblAmendUser.Size = new System.Drawing.Size(40, 14);
             this.lblAmendUser.TabIndex = 0;
@@ -1081,7 +1091,7 @@
             // 
             // txtCreateUser
             // 
-            this.txtCreateUser.Location = new System.Drawing.Point(84, 83);
+            this.txtCreateUser.Location = new System.Drawing.Point(84, 107);
             this.txtCreateUser.Name = "txtCreateUser";
             this.txtCreateUser.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Silver;
             this.txtCreateUser.Properties.AppearanceDisabled.Options.UseBackColor = true;
@@ -1089,11 +1099,11 @@
             this.txtCreateUser.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtCreateUser.Properties.ReadOnly = true;
             this.txtCreateUser.Size = new System.Drawing.Size(122, 20);
-            this.txtCreateUser.TabIndex = 12;
+            this.txtCreateUser.TabIndex = 19;
             // 
             // lblCreateUser
             // 
-            this.lblCreateUser.Location = new System.Drawing.Point(36, 86);
+            this.lblCreateUser.Location = new System.Drawing.Point(36, 110);
             this.lblCreateUser.Name = "lblCreateUser";
             this.lblCreateUser.Size = new System.Drawing.Size(40, 14);
             this.lblCreateUser.TabIndex = 0;
@@ -1211,7 +1221,7 @@
             this.panelControl2.Controls.Add(this.gcGoodsPartDetails);
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 142);
+            this.panelControl2.Location = new System.Drawing.Point(0, 136);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1537, 236);
             this.panelControl2.TabIndex = 3;
@@ -1604,7 +1614,7 @@
             // 
             this.plcPurPrice.Controls.Add(this.gcPurPriceDetails);
             this.plcPurPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcPurPrice.Location = new System.Drawing.Point(0, 570);
+            this.plcPurPrice.Location = new System.Drawing.Point(0, 564);
             this.plcPurPrice.Name = "plcPurPrice";
             this.plcPurPrice.Size = new System.Drawing.Size(1537, 146);
             this.plcPurPrice.TabIndex = 5;
@@ -1819,7 +1829,7 @@
             this.panelControl15.Controls.Add(this.btnAddPur);
             this.panelControl15.Controls.Add(this.labelControl38);
             this.panelControl15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl15.Location = new System.Drawing.Point(0, 538);
+            this.panelControl15.Location = new System.Drawing.Point(0, 532);
             this.panelControl15.Name = "panelControl15";
             this.panelControl15.Size = new System.Drawing.Size(1537, 32);
             this.panelControl15.TabIndex = 6;
@@ -1905,7 +1915,7 @@
             this.plcProfit.Controls.Add(this.lblTestQty);
             this.plcProfit.Controls.Add(this.lblSalePricePcs);
             this.plcProfit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plcProfit.Location = new System.Drawing.Point(0, 410);
+            this.plcProfit.Location = new System.Drawing.Point(0, 404);
             this.plcProfit.Name = "plcProfit";
             this.plcProfit.Size = new System.Drawing.Size(1537, 128);
             this.plcProfit.TabIndex = 4;
@@ -2203,7 +2213,7 @@
             this.panelControl16.Controls.Add(this.lblProductCostK);
             this.panelControl16.Controls.Add(this.txtProductCostGrs);
             this.panelControl16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl16.Location = new System.Drawing.Point(0, 378);
+            this.panelControl16.Location = new System.Drawing.Point(0, 372);
             this.panelControl16.Name = "panelControl16";
             this.panelControl16.Size = new System.Drawing.Size(1537, 32);
             this.panelControl16.TabIndex = 7;
@@ -4409,6 +4419,39 @@
             this.textEdit10.TabIndex = 2;
             this.textEdit10.Visible = false;
             // 
+            // txtCust
+            // 
+            this.txtCust.Location = new System.Drawing.Point(84, 83);
+            this.txtCust.Name = "txtCust";
+            this.txtCust.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCust.Size = new System.Drawing.Size(122, 20);
+            this.txtCust.TabIndex = 16;
+            // 
+            // txtBrand
+            // 
+            this.txtBrand.Location = new System.Drawing.Point(267, 83);
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBrand.Size = new System.Drawing.Size(161, 20);
+            this.txtBrand.TabIndex = 17;
+            this.txtBrand.Leave += new System.EventHandler(this.txtBrand_Leave);
+            // 
+            // lblCust
+            // 
+            this.lblCust.Location = new System.Drawing.Point(24, 84);
+            this.lblCust.Name = "lblCust";
+            this.lblCust.Size = new System.Drawing.Size(52, 14);
+            this.lblCust.TabIndex = 0;
+            this.lblCust.Text = "客戶編號:";
+            // 
+            // lblBrand
+            // 
+            this.lblBrand.Location = new System.Drawing.Point(212, 84);
+            this.lblBrand.Name = "lblBrand";
+            this.lblBrand.Size = new System.Drawing.Size(52, 14);
+            this.lblBrand.TabIndex = 6;
+            this.lblBrand.Text = "牌子編號:";
+            // 
             // frmCountGoodsCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -4627,6 +4670,8 @@
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5018,5 +5063,9 @@
         private DevExpress.XtraEditors.TextEdit txtDoColorPart;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
         private DevExpress.XtraEditors.LabelControl labelControl43;
+        private DevExpress.XtraEditors.TextEdit txtBrand;
+        private DevExpress.XtraEditors.TextEdit txtCust;
+        private DevExpress.XtraEditors.LabelControl lblBrand;
+        private DevExpress.XtraEditors.LabelControl lblCust;
     }
 }
