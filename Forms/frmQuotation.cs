@@ -56,8 +56,7 @@ namespace cf01.Forms
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         DataGridViewRow dgvrow = new DataGridViewRow();
         public static string sent_quotation = "";
-        BindingSource bds1 = new BindingSource();
-       
+        BindingSource bds1 = new BindingSource();       
 
         bool is_group_pdd { set; get; }
         //bool flag_import;
@@ -181,7 +180,6 @@ namespace cf01.Forms
             lueCf_color_id.Properties.ValueMember = "id";
             lueCf_color_id.Properties.DisplayMember = "id";
 
-
             gridView1.IndicatorWidth = 50;
             tabPage2.Parent = null;
 
@@ -267,11 +265,20 @@ namespace cf01.Forms
         }
         private void SetResize()
         {
-            pnlHead.Height = (!is_group_pdd) ? 410 : 457;            
-            splitContainer1.SplitterDistance = pnlHead.Height + 10;            
+            //pnlHead.Height = (!is_group_pdd) ? 410 : 457;            
+            //splitContainer1.SplitterDistance = pnlHead.Height + 10;    
+            if (!is_group_pdd)
+                //splitContainer1.SplitterDistance = 410 + 40 + 35 + 10;
+                splitContainer1.SplitterDistance = (466 + 35 + 10);
+            else
+            {
+                //splitContainer1.SplitterDistance = 457 + 58 + 40 + 35 + 10;
+                splitContainer1.SplitterDistance = (466 + 70 + 35 + 10);
+            }
+            pnlHead.Height = splitContainer1.SplitterDistance;
         }
         private void SetDataBindings()
-        {            
+        {
             txtID.DataBindings.Add("Text", bds1, "id");
             txtSales_group.DataBindings.Add("EditValue", bds1, "sales_group");          
             txtDate.DataBindings.Add("EditValue", bds1, "date");            
@@ -3786,27 +3793,13 @@ namespace cf01.Forms
         private void frmQuotation_SizeChanged(object sender, EventArgs e)
         {
             SetResize();
-        }       
+        }
 
         private void splitContainer1_SizeChanged(object sender, EventArgs e)
         {
             SetResize();
         }
 
-        //private void dgvDetails_CurrentCellChanged(object sender, EventArgs e)
-        //{
-        //    //if (dgvDetails.CurrentCellAddress.Y >= 0)
-        //    //{
-        //    //    if (dgvDetails.Rows[dgvDetails.CurrentCellAddress.Y].DataBoundItem != null)
-        //    //    {
-        //    //        //DataBoundItem 相當DataRowView   
-        //    //        //this.dtGVAction.DataBindings.Clear();
-        //    //        //this.tBoxExpression.DataBindings.Clear();
-        //    //        //SetdtGVAction((BM.Class.Phase.State.Step)dtGVStep.Rows[dtGVStep.CurrentCellAddress.Y].DataBoundItem);
-        //    //        //dtGVAction.ReadOnly = false;
-        //    //    }
-        //    //}
-        //}
     }
     
 }

@@ -444,19 +444,33 @@ namespace cf01.Forms
             bool check_details_flag = true;                       
             for (int i = 0; i < dgvDetails.RowCount; i++)
             {
-                if (dgvDetails.GetRowCellValue(i, "mo_id").ToString() == "" || dgvDetails.GetRowCellValue(i, "ref_id").ToString() == "")
+                if (dgvDetails.GetRowCellValue(i, "mo_id").ToString() == "")
                 {
                     check_details_flag = false;
-                    MessageBox.Show("明細資料中的頁數或外發加工單編號不可為空!", "提示信息"); ;
+                    MessageBox.Show("明細資料中的頁數不可為空!", "提示信息"); ;
                     dgvDetails.Focus();
                     break;
                 }
+                if (dgvDetails.GetRowCellValue(i, "ref_id").ToString() == "")
+                {
+                    check_details_flag = false;
+                    MessageBox.Show("明細資料中的外發加工單編號不可為空!", "提示信息"); ;
+                    dgvDetails.Focus();
+                    break;
+                }
+                if (dgvDetails.GetRowCellValue(i, "reason_repair").ToString() == "")
+                {
+                    check_details_flag = false;
+                    MessageBox.Show("明細資料中的補料原因不可為空!", "提示信息"); ;
+                    dgvDetails.Focus();
+                    break;
+                }
+
             }
             if (!check_details_flag)
             {
                 return;
             }
-
             save_flag = false;
             //新增主表
             const string sql_insert =
@@ -530,7 +544,7 @@ namespace cf01.Forms
                     //保存或新增明細資料
                     if (dgvDetails.RowCount > 0)
                     {
-                        string strSeq_id = "",rowStatus;
+                        string strSeq_id = "", rowStatus = "";
                         bool is_deduct_amount, is_ac_deduct;
                         //dgvDetails.CloseEditor();
                         bdsDetail.EndEdit();
@@ -540,18 +554,9 @@ namespace cf01.Forms
                             if (rowStatus == "Added" || rowStatus == "Modified")
                             {
                                 myCommand.Parameters.Clear();
-                                if (rowStatus == "Added")
-                                {
-                                    myCommand.CommandText = sql_detail_insert;
-                                    //strSeq_id = Get_Details_Seq(txtID.Text.Trim()); //新增狀態重新取最大序號                           
-                                }
-                                if (rowStatus == "Modified")
-                                {
-                                    myCommand.CommandText = sql_detail_update;
-                                    //strSeq_id = dtDetails.Rows[i]["sequence_id"].ToString();//編輯狀態原序號保持不變
-                                }                                
+                                myCommand.CommandText = (rowStatus == "Added") ? sql_detail_insert : sql_detail_update;                                                           
                                 myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());
-                                strSeq_id=dtDetails.Rows[i]["sequence_id"].ToString();
+                                strSeq_id = dtDetails.Rows[i]["sequence_id"].ToString();
                                 myCommand.Parameters.AddWithValue("@sequence_id", dtDetails.Rows[i]["sequence_id"].ToString());
                                 myCommand.Parameters.AddWithValue("@mo_id", dtDetails.Rows[i]["mo_id"].ToString());
                                 myCommand.Parameters.AddWithValue("@ref_id", dtDetails.Rows[i]["ref_id"].ToString());
@@ -564,17 +569,10 @@ namespace cf01.Forms
                                 myCommand.Parameters.AddWithValue("@currency_id", dtDetails.Rows[i]["currency_id"].ToString());                                
                                 myCommand.Parameters.AddWithValue("@reason_repair", dtDetails.Rows[i]["reason_repair"].ToString());
                                 myCommand.Parameters.AddWithValue("@details_remark", dtDetails.Rows[i]["details_remark"].ToString());
-                               
-                                if (dtDetails.Rows[i]["is_deduct_amount"].ToString() == "True")
-                                    is_deduct_amount = true;
-                                else
-                                    is_deduct_amount = false;
+                                is_deduct_amount = (dtDetails.Rows[i]["is_deduct_amount"].ToString() == "True") ? true : false;                                
                                 myCommand.Parameters.AddWithValue("@is_deduct_amount", is_deduct_amount);
-                                //會計部是否已購款
-                                if (dtDetails.Rows[i]["is_ac_deduct"].ToString() == "True")
-                                    is_ac_deduct = true;
-                                else
-                                    is_ac_deduct = false;
+                                //會計部是否已扣款
+                                is_ac_deduct = (dtDetails.Rows[i]["is_ac_deduct"].ToString() == "True") ? true : false;                               
                                 myCommand.Parameters.AddWithValue("@is_ac_deduct", is_ac_deduct);
                                 myCommand.Parameters.AddWithValue("@ac_bill_id", dtDetails.Rows[i]["ac_bill_id"].ToString());
                                                                
@@ -636,7 +634,7 @@ namespace cf01.Forms
             dev_view.Focus();
             dev_view.FocusedRowHandle = rowHandle;
             dev_view.FocusedColumn = dev_view.Columns[columnName];
-            dev_view.ShowEditor();            
+            dev_view.ShowEditor();
         }
 
         private void dgvDetails_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -667,11 +665,11 @@ namespace cf01.Forms
                     string ls_sql = string.Format(
                     @"SELECT A.id,convert(varchar(10),A.issue_date,120) as issue_date,B.goods_id,convert(int,B.prod_qty) as prod_qty,B.sec_qty,
                     Round(convert(float,B.total_prices),2) as total_prices,C.name as goods_name,C.do_color                    
-                    FROM dgerp2.cferp.dbo.op_outpro_out_mostly A with(nolock) 
-	                    INNER JOIN dgerp2.cferp.dbo.op_outpro_out_displace B with(nolock) ON A.within_code=B.within_code And A.id=B.id
-	                    INNER JOIN dgerp2.cferp.dbo.it_goods C with(nolock) ON B.within_code=C.within_code and B.goods_id=C.id
+                    FROM {2}op_outpro_out_mostly A with(nolock) 
+	                    INNER JOIN {2}op_outpro_out_displace B with(nolock) ON A.within_code=B.within_code And A.id=B.id
+	                    INNER JOIN {2}it_goods C with(nolock) ON B.within_code=C.within_code and B.goods_id=C.id
                     WHERE A.vendor_id='{0}' and A.state NOT IN ('0','2') and B.mo_id='{1}'
-                    Order by A.issue_date,A.id", ls_vendor_id,ls_mo_id);
+                    Order by A.issue_date,A.id", ls_vendor_id,ls_mo_id, DBUtility.remote_db);
                     DataTable dtOutpro_out = clsPublicOfCF01.GetDataTable(ls_sql);
                     clGoods_id.DataSource = dtOutpro_out;
                     clGoods_id.DisplayMember = "goods_id";
@@ -745,9 +743,6 @@ namespace cf01.Forms
             dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "ref_id", ls_id);
             dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "goods_name", ls_goods_name);
             dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "do_color", ls_do_color);
-
-
-            
         }
 
         private void toolStrip1_Click(object sender, EventArgs e)

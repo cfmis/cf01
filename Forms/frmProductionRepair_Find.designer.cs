@@ -201,7 +201,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(97, 35);
+            this.BTNSAVESET.Size = new System.Drawing.Size(99, 35);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.Click += new System.EventHandler(this.BTNSAVESET_Click);
             // 
@@ -215,7 +215,7 @@
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(109, 35);
+            this.btnPrint.Size = new System.Drawing.Size(111, 35);
             this.btnPrint.Text = "扣數通知單列印";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -229,7 +229,7 @@
             this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(86, 35);
+            this.BTNEXCEL.Size = new System.Drawing.Size(87, 35);
             this.BTNEXCEL.Text = "匯出EXCEL";
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
             // 
@@ -249,7 +249,7 @@
             this.BTNACSETTING.Image = ((System.Drawing.Image)(resources.GetObject("BTNACSETTING.Image")));
             this.BTNACSETTING.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNACSETTING.Name = "BTNACSETTING";
-            this.BTNACSETTING.Size = new System.Drawing.Size(127, 35);
+            this.BTNACSETTING.Size = new System.Drawing.Size(129, 35);
             this.BTNACSETTING.Text = " 財務扣款狀態設置 ";
             this.BTNACSETTING.Click += new System.EventHandler(this.BTNACSETTING_Click);
             // 
@@ -792,14 +792,14 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("PMingLiU", 9F);
             this.label7.ForeColor = System.Drawing.Color.Maroon;
-            this.label7.Location = new System.Drawing.Point(360, 98);
+            this.label7.Location = new System.Drawing.Point(352, 98);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 12);
+            this.label7.Size = new System.Drawing.Size(90, 12);
             this.label7.TabIndex = 216;
             this.label7.Text = "財務扣款狀態:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // radioGroup2
             // 
@@ -816,13 +816,13 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("PMingLiU", 9F);
-            this.label6.Location = new System.Drawing.Point(360, 70);
+            this.label6.Location = new System.Drawing.Point(352, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 12);
+            this.label6.Size = new System.Drawing.Size(90, 12);
             this.label6.TabIndex = 214;
             this.label6.Text = "扣除金額狀態:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // radioGroup1
             // 
@@ -837,12 +837,12 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 14);
+            this.label5.Location = new System.Drawing.Point(5, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 14);
+            this.label5.Size = new System.Drawing.Size(80, 14);
             this.label5.TabIndex = 211;
             this.label5.Text = "部門編號:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelControl4
             // 
@@ -877,39 +877,39 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 14);
+            this.label4.Location = new System.Drawing.Point(352, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 14);
+            this.label4.Size = new System.Drawing.Size(90, 14);
             this.label4.TabIndex = 207;
             this.label4.Text = "申請日期:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 70);
+            this.label3.Location = new System.Drawing.Point(5, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 14);
+            this.label3.Size = new System.Drawing.Size(80, 14);
             this.label3.TabIndex = 206;
             this.label3.Text = "單據編號:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 39);
+            this.label2.Location = new System.Drawing.Point(352, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 14);
+            this.label2.Size = new System.Drawing.Size(90, 14);
             this.label2.TabIndex = 205;
             this.label2.Text = "制單編號:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 39);
+            this.label1.Location = new System.Drawing.Point(5, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 14);
+            this.label1.Size = new System.Drawing.Size(80, 14);
             this.label1.TabIndex = 204;
             this.label1.Text = "供應商編號:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelControl5
             // 

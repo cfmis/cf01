@@ -203,7 +203,7 @@
             this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
             this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEW.Name = "BTNNEW";
-            this.BTNNEW.Size = new System.Drawing.Size(65, 25);
+            this.BTNNEW.Size = new System.Drawing.Size(69, 25);
             this.BTNNEW.Text = "新增(&N)";
             this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
             // 
@@ -217,7 +217,7 @@
             this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
             this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEDIT.Name = "BTNEDIT";
-            this.BTNEDIT.Size = new System.Drawing.Size(64, 25);
+            this.BTNEDIT.Size = new System.Drawing.Size(66, 25);
             this.BTNEDIT.Text = "編輯(&E)";
             this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
             // 
@@ -231,7 +231,7 @@
             this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
             this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNDELETE.Name = "BTNDELETE";
-            this.BTNDELETE.Size = new System.Drawing.Size(65, 25);
+            this.BTNDELETE.Size = new System.Drawing.Size(68, 25);
             this.BTNDELETE.Text = "刪除(&D)";
             this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
             // 
@@ -246,7 +246,7 @@
             this.BTNITEMADD.Image = ((System.Drawing.Image)(resources.GetObject("BTNITEMADD.Image")));
             this.BTNITEMADD.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNITEMADD.Name = "BTNITEMADD";
-            this.BTNITEMADD.Size = new System.Drawing.Size(89, 25);
+            this.BTNITEMADD.Size = new System.Drawing.Size(91, 25);
             this.BTNITEMADD.Text = "項目增加(&A)";
             this.BTNITEMADD.Click += new System.EventHandler(this.BTNITEMADD_Click);
             // 
@@ -261,7 +261,7 @@
             this.BTNITEMDEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNITEMDEL.Image")));
             this.BTNITEMDEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNITEMDEL.Name = "BTNITEMDEL";
-            this.BTNITEMDEL.Size = new System.Drawing.Size(88, 25);
+            this.BTNITEMDEL.Size = new System.Drawing.Size(89, 25);
             this.BTNITEMDEL.Text = "項目刪除(&L)";
             this.BTNITEMDEL.Click += new System.EventHandler(this.BTNITEMDEL_Click);
             // 
@@ -271,7 +271,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(63, 25);
+            this.BTNSAVE.Size = new System.Drawing.Size(66, 25);
             this.BTNSAVE.Text = "保存(&S)";
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
             // 
@@ -286,7 +286,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(65, 25);
+            this.BTNCANCEL.Size = new System.Drawing.Size(68, 25);
             this.BTNCANCEL.Text = "取消(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -301,7 +301,7 @@
             this.BTNFIND.Image = global::cf01.Properties.Resources.find;
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(63, 25);
+            this.BTNFIND.Size = new System.Drawing.Size(65, 25);
             this.BTNFIND.Text = "查詢(&F)";
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
             // 
@@ -315,7 +315,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(123, 25);
+            this.BTNPRINT.Size = new System.Drawing.Size(126, 25);
             this.BTNPRINT.Text = "補料申請單列印(&P)";
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
@@ -762,9 +762,9 @@
             // lblorder_date
             // 
             this.lblorder_date.ForeColor = System.Drawing.Color.Blue;
-            this.lblorder_date.Location = new System.Drawing.Point(29, 30);
+            this.lblorder_date.Location = new System.Drawing.Point(23, 30);
             this.lblorder_date.Name = "lblorder_date";
-            this.lblorder_date.Size = new System.Drawing.Size(60, 13);
+            this.lblorder_date.Size = new System.Drawing.Size(66, 13);
             this.lblorder_date.TabIndex = 120;
             this.lblorder_date.Text = "申請日期";
             this.lblorder_date.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -828,9 +828,9 @@
             // lbldepartment_id
             // 
             this.lbldepartment_id.ForeColor = System.Drawing.Color.Blue;
-            this.lbldepartment_id.Location = new System.Drawing.Point(29, 5);
+            this.lbldepartment_id.Location = new System.Drawing.Point(23, 5);
             this.lbldepartment_id.Name = "lbldepartment_id";
-            this.lbldepartment_id.Size = new System.Drawing.Size(60, 13);
+            this.lbldepartment_id.Size = new System.Drawing.Size(66, 13);
             this.lbldepartment_id.TabIndex = 180;
             this.lbldepartment_id.Text = "申請部門";
             this.lbldepartment_id.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -838,9 +838,9 @@
             // label24
             // 
             this.label24.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(29, 51);
+            this.label24.Location = new System.Drawing.Point(23, 51);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(60, 13);
+            this.label24.Size = new System.Drawing.Size(66, 13);
             this.label24.TabIndex = 199;
             this.label24.Text = "備 註";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1017,9 +1017,9 @@
             // 
             // lblCrusr
             // 
-            this.lblCrusr.Location = new System.Drawing.Point(29, 110);
+            this.lblCrusr.Location = new System.Drawing.Point(23, 110);
             this.lblCrusr.Name = "lblCrusr";
-            this.lblCrusr.Size = new System.Drawing.Size(60, 13);
+            this.lblCrusr.Size = new System.Drawing.Size(66, 13);
             this.lblCrusr.TabIndex = 204;
             this.lblCrusr.Text = "建檔人";
             this.lblCrusr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
