@@ -25,11 +25,12 @@ namespace cf01.ReportForm
         DataTable dtMO = new DataTable();
         DataTable dtItems = new DataTable();
         string strMo, strSeq, id_type, strGoods_id;
+       
 
         public frmPackChanged()
         {
             InitializeComponent();
-            TatableInit();
+            TatableInit();           
         }
 
         private void frmPackChanged_Load(object sender, EventArgs e)
@@ -105,9 +106,9 @@ namespace cf01.ReportForm
                         }
                         else
                         {
+                            //start 2024/11/19 allen
                             if (txtBarCode.Text.Trim().Length == 13)
                             {
-                                //start 2024/11/19 allen
                                 //工序卡的條碼
                                 chkByCard.Checked = true;
                                 chkIsDisplayKey.Checked = false;
@@ -251,8 +252,8 @@ namespace cf01.ReportForm
                         {
                             wForm.TopMost = true;
                             wForm.ShowDialog();
-                        }).Start();
-                        Load_Data(is_by_mo, "",id_type, txtID.Text, txtMO.Text, cmbItems.Text);
+                        }).Start();//window xp系統會有影響
+                        Load_Data(is_by_mo, "", id_type, txtID.Text, txtMO.Text, cmbItems.Text);
                         wForm.Invoke((EventHandler)delegate { wForm.Close(); });
                     }
                     else
@@ -280,15 +281,15 @@ namespace cf01.ReportForm
             }
         }
 
-        private void Load_Data(string pIs_by_mo,string pPrint_Set, string pId_type, string pID, string pMO, string pGoods_id)
+        private void Load_Data(string is_by_mo,string print_set, string id_type, string id, string mo_id, string goods_id)
         {
             SqlParameter[] paras = new SqlParameter[] {
-                new SqlParameter("@is_by_mo", pIs_by_mo),
-                new SqlParameter("@is_set_print", pPrint_Set),
-                new SqlParameter("@id_type", pId_type),
-                new SqlParameter("@id", pID),
-                new SqlParameter("@mo_id",pMO),
-                new SqlParameter("@goods_id", pGoods_id),
+                new SqlParameter("@is_by_mo", is_by_mo),
+                new SqlParameter("@is_set_print", print_set),
+                new SqlParameter("@id_type", id_type),
+                new SqlParameter("@id", id),
+                new SqlParameter("@mo_id",mo_id),
+                new SqlParameter("@goods_id", goods_id),
             };
             dsPackChange = clsConErp.ExecuteProcedureReturnDataSet("z_rpt_pack_changed", paras, null);
             dsPackChange.Tables[0].TableName = "pack_h";//master table            
@@ -297,12 +298,12 @@ namespace cf01.ReportForm
             
             //處理Sales BOM,建立與主表的關聯
             dtDetails.Clear();
-            string strMo_id, strKey;
+            string strMoId, strKey;
             for (int i = 0; i < dsPackChange.Tables["pack_h"].Rows.Count; i++)
             {
-                strMo_id = dsPackChange.Tables["pack_h"].Rows[i]["mo_id"].ToString();
+                strMoId = dsPackChange.Tables["pack_h"].Rows[i]["mo_id"].ToString();
                 strKey = dsPackChange.Tables["pack_h"].Rows[i]["pkey"].ToString();
-                DataRow[] drs = dsPackChange.Tables["pack_d"].Select(string.Format("mo_id='{0}'", strMo_id));                
+                DataRow[] drs = dsPackChange.Tables["pack_d"].Select(string.Format("mo_id='{0}'", strMoId));                
                 foreach (DataRow dr in drs)
                 {
                     DataRow rs = dtDetails.NewRow();
@@ -460,7 +461,6 @@ namespace cf01.ReportForm
         {
             txtBarCode.Focus();
         }
-
     
         private void txtID_Leave(object sender, EventArgs e)
         {
@@ -487,7 +487,6 @@ namespace cf01.ReportForm
                     txtBarCode.Focus();
                     return;
                 }
-
                 frmProgress wForm = new frmProgress();
                 new Thread((ThreadStart)delegate
                 {
@@ -524,14 +523,16 @@ namespace cf01.ReportForm
                 string print_by_set = "Y";
                 chkmo_print_by_set.Checked = true;
 
-                frmProgress wForm = new frmProgress();
-                new Thread((ThreadStart)delegate
-                {
-                    wForm.TopMost = true;
-                    wForm.ShowDialog();
-                }).Start();
+                //frmProgress wForm = new frmProgress();
+                //new Thread((ThreadStart)delegate
+                //{
+                //    wForm.TopMost = true;
+                //    wForm.ShowDialog();
+                //}).Start(); //windows xp會列機，不支持此多線程動畫效果？
                 Load_Data("Y", print_by_set, "", txtID.Text, txtMO.Text, cmbItems.Text);
-                wForm.Invoke((EventHandler)delegate { wForm.Close(); });                
+               
+                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });   
+
 
                 //2017-08-18一個頁數默認只列印一張客人標識卡加入此代碼默認面件
                 if (cmbReport.SelectedIndex == 1)
@@ -607,7 +608,6 @@ namespace cf01.ReportForm
         {
             e.Row.HeaderCell.Value = string.Format("{0}", e.Row.Index + 1);
         }
-        
-       
+
     }
 }
