@@ -49,6 +49,8 @@
             this.btnOrderHistory = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtBrand = new DevExpress.XtraEditors.TextEdit();
+            this.txtCust = new DevExpress.XtraEditors.TextEdit();
             this.lueMoGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.btnFindProduct = new DevExpress.XtraEditors.SimpleButton();
             this.txtMdNo = new DevExpress.XtraEditors.TextEdit();
@@ -57,6 +59,7 @@
             this.lblColor = new DevExpress.XtraEditors.LabelControl();
             this.lblSize = new DevExpress.XtraEditors.LabelControl();
             this.lblMoGroup = new DevExpress.XtraEditors.LabelControl();
+            this.lblBrand = new DevExpress.XtraEditors.LabelControl();
             this.lblMdNo = new DevExpress.XtraEditors.LabelControl();
             this.lblProductName = new DevExpress.XtraEditors.LabelControl();
             this.lblArtWorkName = new DevExpress.XtraEditors.LabelControl();
@@ -87,6 +90,7 @@
             this.lblCustColor = new DevExpress.XtraEditors.LabelControl();
             this.txtPrdMo = new DevExpress.XtraEditors.TextEdit();
             this.lblPrdType = new DevExpress.XtraEditors.LabelControl();
+            this.lblCust = new DevExpress.XtraEditors.LabelControl();
             this.lblPrdMo = new DevExpress.XtraEditors.LabelControl();
             this.txtArtWork = new DevExpress.XtraEditors.TextEdit();
             this.lblArtWork = new DevExpress.XtraEditors.LabelControl();
@@ -413,13 +417,13 @@
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.btnAddPart = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
-            this.txtCust = new DevExpress.XtraEditors.TextEdit();
-            this.txtBrand = new DevExpress.XtraEditors.TextEdit();
-            this.lblCust = new DevExpress.XtraEditors.LabelControl();
-            this.lblBrand = new DevExpress.XtraEditors.LabelControl();
+            this.btnSetRate = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMoGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMdNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWorkName.Properties)).BeginInit();
@@ -609,8 +613,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -633,7 +635,9 @@
             this.btnExcel,
             this.toolStripSeparator6,
             this.btnOrderHistory,
-            this.toolStripSeparator9});
+            this.toolStripSeparator9,
+            this.btnSetRate,
+            this.toolStripSeparator10});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1543, 39);
@@ -839,6 +843,23 @@
             this.panelControl1.Size = new System.Drawing.Size(1537, 136);
             this.panelControl1.TabIndex = 2;
             // 
+            // txtBrand
+            // 
+            this.txtBrand.Location = new System.Drawing.Point(267, 83);
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBrand.Size = new System.Drawing.Size(161, 20);
+            this.txtBrand.TabIndex = 17;
+            this.txtBrand.Leave += new System.EventHandler(this.txtBrand_Leave);
+            // 
+            // txtCust
+            // 
+            this.txtCust.Location = new System.Drawing.Point(84, 83);
+            this.txtCust.Name = "txtCust";
+            this.txtCust.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCust.Size = new System.Drawing.Size(122, 20);
+            this.txtCust.TabIndex = 16;
+            // 
             // lueMoGroup
             // 
             this.lueMoGroup.Location = new System.Drawing.Point(1172, 37);
@@ -907,6 +928,14 @@
             this.lblMoGroup.Size = new System.Drawing.Size(28, 14);
             this.lblMoGroup.TabIndex = 6;
             this.lblMoGroup.Text = "組別:";
+            // 
+            // lblBrand
+            // 
+            this.lblBrand.Location = new System.Drawing.Point(212, 84);
+            this.lblBrand.Name = "lblBrand";
+            this.lblBrand.Size = new System.Drawing.Size(52, 14);
+            this.lblBrand.TabIndex = 6;
+            this.lblBrand.Text = "牌子編號:";
             // 
             // lblMdNo
             // 
@@ -1169,6 +1198,14 @@
             this.lblPrdType.Size = new System.Drawing.Size(52, 14);
             this.lblPrdType.TabIndex = 0;
             this.lblPrdType.Text = "產品類型:";
+            // 
+            // lblCust
+            // 
+            this.lblCust.Location = new System.Drawing.Point(24, 84);
+            this.lblCust.Name = "lblCust";
+            this.lblCust.Size = new System.Drawing.Size(52, 14);
+            this.lblCust.TabIndex = 0;
+            this.lblCust.Text = "客戶編號:";
             // 
             // lblPrdMo
             // 
@@ -4419,38 +4456,20 @@
             this.textEdit10.TabIndex = 2;
             this.textEdit10.Visible = false;
             // 
-            // txtCust
+            // btnSetRate
             // 
-            this.txtCust.Location = new System.Drawing.Point(84, 83);
-            this.txtCust.Name = "txtCust";
-            this.txtCust.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCust.Size = new System.Drawing.Size(122, 20);
-            this.txtCust.TabIndex = 16;
+            this.btnSetRate.Image = ((System.Drawing.Image)(resources.GetObject("btnSetRate.Image")));
+            this.btnSetRate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSetRate.Name = "btnSetRate";
+            this.btnSetRate.Size = new System.Drawing.Size(96, 36);
+            this.btnSetRate.Text = "附加損耗率設定";
+            this.btnSetRate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSetRate.Click += new System.EventHandler(this.btnSetRate_Click);
             // 
-            // txtBrand
+            // toolStripSeparator10
             // 
-            this.txtBrand.Location = new System.Drawing.Point(267, 83);
-            this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBrand.Size = new System.Drawing.Size(161, 20);
-            this.txtBrand.TabIndex = 17;
-            this.txtBrand.Leave += new System.EventHandler(this.txtBrand_Leave);
-            // 
-            // lblCust
-            // 
-            this.lblCust.Location = new System.Drawing.Point(24, 84);
-            this.lblCust.Name = "lblCust";
-            this.lblCust.Size = new System.Drawing.Size(52, 14);
-            this.lblCust.TabIndex = 0;
-            this.lblCust.Text = "客戶編號:";
-            // 
-            // lblBrand
-            // 
-            this.lblBrand.Location = new System.Drawing.Point(212, 84);
-            this.lblBrand.Name = "lblBrand";
-            this.lblBrand.Size = new System.Drawing.Size(52, 14);
-            this.lblBrand.TabIndex = 6;
-            this.lblBrand.Text = "牌子編號:";
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 39);
             // 
             // frmCountGoodsCost
             // 
@@ -4468,6 +4487,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueMoGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMdNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArtWorkName.Properties)).EndInit();
@@ -4670,8 +4691,6 @@
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCust.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5067,5 +5086,7 @@
         private DevExpress.XtraEditors.TextEdit txtCust;
         private DevExpress.XtraEditors.LabelControl lblBrand;
         private DevExpress.XtraEditors.LabelControl lblCust;
+        private System.Windows.Forms.ToolStripButton btnSetRate;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
     }
 }

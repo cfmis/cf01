@@ -1425,6 +1425,12 @@
     <Compile Include="MM\frmCountGoodsCost.Designer.cs">
       <DependentUpon>frmCountGoodsCost.cs</DependentUpon>
     </Compile>
+    <Compile Include="MM\frmCountGoodsCostBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM\frmCountGoodsCostBrand.Designer.cs">
+      <DependentUpon>frmCountGoodsCostBrand.cs</DependentUpon>
+    </Compile>
     <Compile Include="MM\frmCountGoodsCostFind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3439,6 +3445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmCountGoodsCost.resx">
       <DependentUpon>frmCountGoodsCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM\frmCountGoodsCostBrand.resx">
+      <DependentUpon>frmCountGoodsCostBrand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MM\frmCountGoodsCostFind.resx">
       <DependentUpon>frmCountGoodsCostFind.cs</DependentUpon>

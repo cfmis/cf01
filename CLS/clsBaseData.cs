@@ -159,6 +159,35 @@ namespace cf01.CLS
             return dtType;
         }
 
+        public static string UpdateProcessType(string prdDep, string processID, decimal use_weg)
+        {
+            string result = "";
+            string strSql = @" SELECT rtrim(process_id) As process_id,rtrim(process_name) As process_name" +
+                ",cost_price,cost_price As PriceHKD,product_qty,use_weg,waste_rate" +
+                " FROM jo_dept_product_cost " +
+                " Where dept_id='" + prdDep + "' And process_id='" + processID + "'";
+
+            DataTable dtType = clsPublicOfCF01.GetDataTable(strSql);
+            string strUpd = "";
+            if (dtType.Rows.Count > 0)//如果是包裝費用，轉換成港幣
+                strUpd = @" Update jo_dept_product_cost Set use_weg='{2}' " +
+                    " Where dept_id='{0}' And process_id='{1}'";
+            else
+                strUpd = @" Insert Into jo_dept_product_cost (dept_id,process_id,use_weg )" +
+                    " Values ( '{0}','{1}','{2}' ) ";
+            strSql = string.Format(strUpd, prdDep, processID, use_weg);
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+        public static string DeleteProcessType(string prdDep, string processID)
+        {
+            string result = "";
+            string strSql = "";
+            strSql = @" Delete From jo_dept_product_cost Where dept_id='" + prdDep + "' And process_id='" + processID + "'";
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
+
         //////提取制單組別
         public static DataTable LoadMoGroup(string moGroup)
         {

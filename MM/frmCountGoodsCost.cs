@@ -30,6 +30,7 @@ namespace cf01.MM
         private frmCountGoodsCostFind frmCountGoodsCostFind;
         private frmOrderHistory frmOrderHistory;
         frmCountGoodsCostFindGoods frmCountGoodsCostFindGoods;
+        frmCountGoodsCostBrand frmCountGoodsCostBrand;
         private mdlCountGoodsCostBase mdlCopyID = new mdlCountGoodsCostBase();
         public static int newMode = 0;
         private int newPartMode = 0;
@@ -2865,6 +2866,16 @@ namespace cf01.MM
                     txtFactAddWasteRate.Text = dtRate.Rows[0]["use_weg"].ToString();
             }
             CountTestCost();
+        }
+
+        private void btnSetRate_Click(object sender, EventArgs e)
+        {
+            if (frmCountGoodsCostBrand == null)
+            {
+                frmCountGoodsCostBrand = new frmCountGoodsCostBrand();
+            }
+
+            frmCountGoodsCostBrand.ShowDialog();
         }
     }
 }
