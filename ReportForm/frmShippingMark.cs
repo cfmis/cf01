@@ -95,7 +95,9 @@ namespace cf01.ReportForm
                 if (txtPictrue_name.Text.Trim() != "")
                 {
                     if (File.Exists(txtPictrue_name.Text.Trim()))
+                    {
                         pictureBox1.Image = Image.FromFile(txtPictrue_name.Text.Trim());
+                    }
                 }
             }
             else
@@ -123,7 +125,9 @@ namespace cf01.ReportForm
             if (txtPictrue_name.Text.Trim() != "")
             {
                 if (File.Exists(txtPictrue_name.Text.Trim()))
+                {
                     pictureBox1.Image = Image.FromFile(txtPictrue_name.Text.Trim());
+                }                    
             }
         }
 
@@ -157,18 +161,19 @@ namespace cf01.ReportForm
             dr["remark"] = txtRemark.Text;
             dr["picture_name"] = txtPictrue_name.Text;
             dtReport.Rows.Add(dr);
-            using (xrShippingMark oRepot = new xrShippingMark() { DataSource = dtReport })
-            {
-                oRepot.CreateDocument();
-                oRepot.PrintingSystem.ShowMarginsWarning = false;
-                if (pType == "P")
-                    oRepot.Print();
-                else
-                    oRepot.ShowPreviewDialog();
-            }
+            XtraReport rpt = new XtraReport();
+            if (chkLabel.Checked)
+                rpt = new xrShippingMark() { DataSource = dtReport };
+            else            
+                rpt = new xrShippingMark1() { DataSource = dtReport };
+            rpt.CreateDocument();
+            rpt.PrintingSystem.ShowMarginsWarning = false;
+            if (pType == "P")
+                rpt.Print();
+            else
+                rpt.ShowPreviewDialog();
+            rpt = null;
         }
-
-       
 
         private void txtMo_id_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -184,9 +189,6 @@ namespace cf01.ReportForm
             dtReport = null;
             clsGEO = null; 
         }
-
-     
-
         
     }
 }

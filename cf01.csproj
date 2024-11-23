@@ -2789,6 +2789,12 @@
     <Compile Include="Reports\xrShippingMark.designer.cs">
       <DependentUpon>xrShippingMark.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrShippingMark1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrShippingMark1.designer.cs">
+      <DependentUpon>xrShippingMark1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrShippingRemark.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4162,6 +4168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrShippingMark.resx">
       <DependentUpon>xrShippingMark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrShippingMark1.resx">
+      <DependentUpon>xrShippingMark1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrShippingRemark.resx">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>

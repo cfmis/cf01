@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.chkByCard = new System.Windows.Forms.CheckBox();
-            this.chkmo_print_by_set = new System.Windows.Forms.CheckBox();
+            this.chkByMoPrintSet = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbReport = new System.Windows.Forms.ComboBox();
             this.chkByMo = new System.Windows.Forms.CheckBox();
@@ -92,7 +92,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.chkByCard);
-            this.panel1.Controls.Add(this.chkmo_print_by_set);
+            this.panel1.Controls.Add(this.chkByMoPrintSet);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbReport);
             this.panel1.Controls.Add(this.chkByMo);
@@ -135,9 +135,9 @@
             this.chkByCard.UseVisualStyleBackColor = true;
             this.chkByCard.Click += new System.EventHandler(this.chByCard_Click);
             // 
-            // chkmo_print_by_set
+            // chkByMoPrintSet
             // 
-            this.chkmo_print_by_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkmo_print_by_set.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkmo_print_by_set.Location = new System.Drawing.Point(594, 39);
             this.chkmo_print_by_set.Name = "chkmo_print_by_set";
             this.chkmo_print_by_set.Size = new System.Drawing.Size(244, 27);
@@ -484,9 +484,9 @@
             // order_qty_pcs1
             // 
             this.order_qty_pcs1.DataPropertyName = "order_qty_pcs1";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle37.Format = "N0";
+            dataGridViewCellStyle37.NullValue = null;
+            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle37;
             this.order_qty_pcs1.HeaderText = "訂單數";
             this.order_qty_pcs1.Name = "order_qty_pcs1";
             this.order_qty_pcs1.ReadOnly = true;
@@ -601,9 +601,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "order_qty";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle38.Format = "N0";
+            dataGridViewCellStyle38.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridViewTextBoxColumn14.HeaderText = "訂單數";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -679,7 +679,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn do_color;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_qty_pcs1;
-        private System.Windows.Forms.CheckBox chkmo_print_by_set;
+        private System.Windows.Forms.CheckBox chkByMoPrintSet;
         private System.Windows.Forms.CheckBox chkByCard;
         private System.Windows.Forms.Label label2;
     }

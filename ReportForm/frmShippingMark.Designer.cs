@@ -35,18 +35,14 @@
             this.cmbGoods_id = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNFIND = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtLinkman = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtPictrue_name = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtcustomer_color_id = new System.Windows.Forms.TextBox();
@@ -64,6 +60,11 @@
             this.txtMo_id1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.chkLabel = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
+            this.BTNFIND = new System.Windows.Forms.ToolStripButton();
+            this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
             this.btnView = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -75,7 +76,7 @@
             // 
             this.txtMo_id.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMo_id.Location = new System.Drawing.Point(111, 16);
+            this.txtMo_id.Location = new System.Drawing.Point(81, 21);
             this.txtMo_id.MaxLength = 9;
             this.txtMo_id.Name = "txtMo_id";
             this.txtMo_id.Size = new System.Drawing.Size(141, 25);
@@ -85,8 +86,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.chkLabel);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbGoods_id);
             this.groupBox1.Controls.Add(this.label1);
@@ -101,7 +103,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(305, 21);
+            this.label2.Location = new System.Drawing.Point(248, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -112,7 +114,7 @@
             this.cmbGoods_id.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGoods_id.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cmbGoods_id.FormattingEnabled = true;
-            this.cmbGoods_id.Location = new System.Drawing.Point(362, 16);
+            this.cmbGoods_id.Location = new System.Drawing.Point(305, 21);
             this.cmbGoods_id.Name = "cmbGoods_id";
             this.cmbGoods_id.Size = new System.Drawing.Size(243, 23);
             this.cmbGoods_id.TabIndex = 2;
@@ -121,7 +123,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 22);
+            this.label1.Location = new System.Drawing.Point(48, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 1;
@@ -144,46 +146,15 @@
             this.toolStrip1.TabIndex = 153;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // BTNEXIT
-            // 
-            this.BTNEXIT.AutoSize = false;
-            this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
-            this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNEXIT.Name = "BTNEXIT";
-            this.BTNEXIT.Size = new System.Drawing.Size(65, 35);
-            this.BTNEXIT.Text = "退出(&X)";
-            this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
-            // BTNFIND
-            // 
-            this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
-            this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(47, 35);
-            this.BTNFIND.Text = "查找(&F)";
-            this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
-            // 
-            // BTNPRINT
-            // 
-            this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
-            this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(50, 35);
-            this.BTNPRINT.Text = "列 印(&P)";
-            this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
             // toolStripSeparator6
             // 
@@ -192,9 +163,9 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.txtLinkman);
@@ -227,7 +198,7 @@
             // txtLinkman
             // 
             this.txtLinkman.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLinkman.Location = new System.Drawing.Point(111, 168);
+            this.txtLinkman.Location = new System.Drawing.Point(111, 152);
             this.txtLinkman.Name = "txtLinkman";
             this.txtLinkman.ReadOnly = true;
             this.txtLinkman.Size = new System.Drawing.Size(374, 22);
@@ -235,7 +206,7 @@
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(19, 172);
+            this.label13.Location = new System.Drawing.Point(19, 156);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 12);
             this.label13.TabIndex = 23;
@@ -245,7 +216,7 @@
             // txtPictrue_name
             // 
             this.txtPictrue_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPictrue_name.Location = new System.Drawing.Point(111, 309);
+            this.txtPictrue_name.Location = new System.Drawing.Point(111, 272);
             this.txtPictrue_name.Name = "txtPictrue_name";
             this.txtPictrue_name.ReadOnly = true;
             this.txtPictrue_name.Size = new System.Drawing.Size(374, 22);
@@ -253,27 +224,17 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(19, 313);
+            this.label12.Location = new System.Drawing.Point(19, 276);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 12);
             this.label12.TabIndex = 21;
             this.label12.Text = "圖樣路徑";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(504, 85);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(186, 190);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtRemark
             // 
             this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRemark.Location = new System.Drawing.Point(111, 281);
+            this.txtRemark.Location = new System.Drawing.Point(111, 248);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.ReadOnly = true;
             this.txtRemark.Size = new System.Drawing.Size(374, 22);
@@ -281,7 +242,7 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(19, 283);
+            this.label11.Location = new System.Drawing.Point(19, 250);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 12);
             this.label11.TabIndex = 18;
@@ -291,7 +252,7 @@
             // txtcustomer_color_id
             // 
             this.txtcustomer_color_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcustomer_color_id.Location = new System.Drawing.Point(111, 253);
+            this.txtcustomer_color_id.Location = new System.Drawing.Point(111, 224);
             this.txtcustomer_color_id.Name = "txtcustomer_color_id";
             this.txtcustomer_color_id.ReadOnly = true;
             this.txtcustomer_color_id.Size = new System.Drawing.Size(374, 22);
@@ -299,7 +260,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(19, 257);
+            this.label10.Location = new System.Drawing.Point(19, 228);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 12);
             this.label10.TabIndex = 16;
@@ -309,7 +270,7 @@
             // txtcustomer_goods
             // 
             this.txtcustomer_goods.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcustomer_goods.Location = new System.Drawing.Point(111, 225);
+            this.txtcustomer_goods.Location = new System.Drawing.Point(111, 200);
             this.txtcustomer_goods.Name = "txtcustomer_goods";
             this.txtcustomer_goods.ReadOnly = true;
             this.txtcustomer_goods.Size = new System.Drawing.Size(374, 22);
@@ -317,7 +278,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(19, 229);
+            this.label9.Location = new System.Drawing.Point(19, 204);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 12);
             this.label9.TabIndex = 14;
@@ -327,7 +288,7 @@
             // txtContract_cid
             // 
             this.txtContract_cid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContract_cid.Location = new System.Drawing.Point(111, 197);
+            this.txtContract_cid.Location = new System.Drawing.Point(111, 176);
             this.txtContract_cid.Name = "txtContract_cid";
             this.txtContract_cid.ReadOnly = true;
             this.txtContract_cid.Size = new System.Drawing.Size(374, 22);
@@ -335,7 +296,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(19, 201);
+            this.label8.Location = new System.Drawing.Point(19, 180);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 12);
             this.label8.TabIndex = 12;
@@ -345,7 +306,7 @@
             // txtCustomer_name
             // 
             this.txtCustomer_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCustomer_name.Location = new System.Drawing.Point(111, 140);
+            this.txtCustomer_name.Location = new System.Drawing.Point(111, 128);
             this.txtCustomer_name.Name = "txtCustomer_name";
             this.txtCustomer_name.ReadOnly = true;
             this.txtCustomer_name.Size = new System.Drawing.Size(374, 22);
@@ -353,7 +314,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(19, 144);
+            this.label7.Location = new System.Drawing.Point(19, 132);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 12);
             this.label7.TabIndex = 10;
@@ -363,7 +324,7 @@
             // txtColor
             // 
             this.txtColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtColor.Location = new System.Drawing.Point(111, 112);
+            this.txtColor.Location = new System.Drawing.Point(111, 104);
             this.txtColor.Name = "txtColor";
             this.txtColor.ReadOnly = true;
             this.txtColor.Size = new System.Drawing.Size(374, 22);
@@ -371,7 +332,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(19, 116);
+            this.label6.Location = new System.Drawing.Point(19, 108);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 12);
             this.label6.TabIndex = 8;
@@ -381,7 +342,7 @@
             // txtGoods_name
             // 
             this.txtGoods_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGoods_name.Location = new System.Drawing.Point(111, 84);
+            this.txtGoods_name.Location = new System.Drawing.Point(111, 80);
             this.txtGoods_name.Name = "txtGoods_name";
             this.txtGoods_name.ReadOnly = true;
             this.txtGoods_name.Size = new System.Drawing.Size(374, 22);
@@ -389,7 +350,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(19, 88);
+            this.label5.Location = new System.Drawing.Point(19, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 12);
             this.label5.TabIndex = 6;
@@ -424,12 +385,64 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "船頭版";
             // 
+            // chkLabel
+            // 
+            this.chkLabel.AutoSize = true;
+            this.chkLabel.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkLabel.Location = new System.Drawing.Point(572, 24);
+            this.chkLabel.Name = "chkLabel";
+            this.chkLabel.Size = new System.Drawing.Size(123, 20);
+            this.chkLabel.TabIndex = 4;
+            this.chkLabel.Text = "標簽貼紙格式";
+            this.chkLabel.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(490, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(203, 214);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BTNEXIT
+            // 
+            this.BTNEXIT.AutoSize = false;
+            this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
+            this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNEXIT.Name = "BTNEXIT";
+            this.BTNEXIT.Size = new System.Drawing.Size(65, 35);
+            this.BTNEXIT.Text = "退出(&X)";
+            this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
+            // 
+            // BTNFIND
+            // 
+            this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
+            this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNFIND.Name = "BTNFIND";
+            this.BTNFIND.Size = new System.Drawing.Size(49, 35);
+            this.BTNFIND.Text = "查找(&F)";
+            this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
+            // 
+            // BTNPRINT
+            // 
+            this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
+            this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNPRINT.Name = "BTNPRINT";
+            this.BTNPRINT.Size = new System.Drawing.Size(53, 35);
+            this.BTNPRINT.Text = "列 印(&P)";
+            this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
+            // 
             // btnView
             // 
             this.btnView.Image = ((System.Drawing.Image)(resources.GetObject("btnView.Image")));
             this.btnView.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(49, 35);
+            this.btnView.Size = new System.Drawing.Size(51, 35);
             this.btnView.Text = "預覽(&V)";
             this.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
@@ -495,5 +508,6 @@
         private System.Windows.Forms.TextBox txtLinkman;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ToolStripButton btnView;
+        private System.Windows.Forms.CheckBox chkLabel;
     }
 }

@@ -77,28 +77,47 @@ namespace cf01.ReportForm
                     {
                         return;
                     }
-                    string str = txtBarCode.Text;                  
-                    string is_by_mo,str1, str2, strId;                    
+                    string strBarCode = txtBarCode.Text;                  
+                    string flagByMo, str1, str2, strId;                    
                     id_type = "";
                     strMo = "";
-                    str1 = str.Substring(0, 2); //移交單號DT,LT開頭
-                    str2 = str.Substring(0,3);
-                    bool isbymo = chkByMo.Checked;
-                    if (chkByCard.Checked)//如果是按工序卡掃描，則當作按頁數逐個掃描看待，重設isbymo的值
+                    str1 = strBarCode.Substring(0, 2); //移交單號DT,LT開頭
+                    str2 = strBarCode.Substring(0,3);
+                    if (txtBarCode.Text.Trim().Length == 13)
                     {
-                        isbymo = true;
+                        //工序卡條碼
+                        //strMo = str.Substring(0, 9);
+                        chkByMo.Checked = false;
+                        chkByMoPrintSet.Checked = false;
+                        chkByCard.Checked = true;
+                    }
+                    if (txtBarCode.Text.Trim().Length == 9)
+                    {
+                        //相當于手動輸入頁數
+                        txtMO.Text = txtBarCode.Text.Trim();
+                        chkByMo.Checked = false;
+                        chkByCard.Checked = false;
+                        chkByMoPrintSet.Checked = true;
+                        ManualInputMo();
+                        return;
+                    }
+
+                    bool isByMo = chkByMo.Checked;
+                    if (chkByCard.Checked)//如果是按工序卡掃描，則當作按頁數逐個掃描看待，重設isByMo的值
+                    {
+                        isByMo = true;
                     }
                     //======================================
-                    if (!isbymo)
+                    if (!isByMo)
                     {
                         //按整張單據掃描
-                        is_by_mo = "N";
+                        flagByMo = "N";
                         if (str1 == "DT" || str1 == "LT" || str2 == "DAA")
                         {
                             //T:移交單;D:倉庫發料
                             id_type = (str1 == "T") ? "T" : "D";
-                            str = txtBarCode.Text;
-                            txtID.Text = str.Substring(0, str.Length - 4);
+                            strBarCode = txtBarCode.Text;
+                            txtID.Text = strBarCode.Substring(0, strBarCode.Length - 4);
                             txtBarCode.Text = "";
                             txtMO.Text = "";
                             cmbItems.Items.Clear();
@@ -106,65 +125,20 @@ namespace cf01.ReportForm
                         }
                         else
                         {
-                            //start 2024/11/19 allen
-                            if (txtBarCode.Text.Trim().Length == 13)
-                            {
-                                //工序卡的條碼
-                                chkByCard.Checked = true;
-                                chkIsDisplayKey.Checked = false;
-                                is_by_mo = "Y";
-                                txtID.Text = "";
-                                id_type = "";  //沒有移交單或倉庫發料
-                                //從生產計劃中找頁數資料
-                                strMo = str.Substring(0, 9);
-                                strSeq = string.Format("00{0}h", str.Substring(11, 2));
-                                string strSql_f1 = string.Format(
-                                @"SELECT A.mo_id,B.goods_id
-                                FROM jo_bill_mostly A with(nolock) 
-	                            INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code =B.within_code AND A.id=B.id AND A.ver=B.ver
-                                WHERE A.within_code='0000' AND A.mo_id='{0}' AND A.state<>'2' AND B.sequence_id='{1}'", strMo, strSeq);                                
-                                dtMO = clsConErp.GetDataTable(strSql_f1);
-                                if (dtMO.Rows.Count == 0)
-                                {
-                                    dgvDetails.DataSource = null;
-                                    txtBarCode.Text = "";
-                                    return;
-                                }
-                                strMo = dtMO.Rows[0]["mo_id"].ToString();
-                                strGoods_id = dtMO.Rows[0]["goods_id"].ToString();
-                                //訂單中找Sales BOM
-                                string strSql_f3 = string.Format(
-                                @"SELECT C.goods_id,C.primary_key 
-                                FROM so_order_manage A with(nolock) 
-	                            INNER JOIN so_order_details B with(nolock) ON A.within_code=B.within_code And A.id=B.id And A.ver=B.ver
-	                            INNER JOIN so_order_bom C with(nolock) 
-	                                ON B.within_code=C.within_code And B.id=C.id And B.ver =C.ver And B.sequence_id =C.upper_sequence 
-                                WHERE A.within_code='0000' And A.state Not IN('2','V') And B.mo_id='{0}' ORDER BY C.primary_key DESC,C.goods_id", strMo);
-                                dtItems = clsConErp.GetDataTable(strSql_f3);
-                                Fill_Combox(dtItems);
-                                if (!chkIsDisplayKey.Checked)
-                                {
-                                    cmbItems.Text = strGoods_id; //如果不默認顯示主件為False,則顯示條碼中對應的貨品
-                                }
-                                //--end 2024/11/19
-                            }
-                            else
-                            {
-                                MessageBox.Show("單據編號不正確！請返回檢查");
-                                return;
-                            }                                                      
+                            MessageBox.Show("無效的單據類型不正確（只能限于移交單、倉庫發料單、工序卡）！,請返回檢查");
+                            return;
                         }
                     }
                     else
                     {
                         //按頁數掃描
-                        is_by_mo = "Y";
-                        str = txtBarCode.Text;
+                        flagByMo = "Y";
+                        strBarCode = txtBarCode.Text;
                         txtID.Text = "";
                         if (!chkByCard.Checked) //非工序卡,即按移交單或轉發料單上的頁數逐行掃描
                         {                           
-                            strId = str.Substring(0, str.Length - 4);
-                            strSeq = str.Substring(str.Length - 4, 4) + "h";
+                            strId = strBarCode.Substring(0, strBarCode.Length - 4);
+                            strSeq = strBarCode.Substring(strBarCode.Length - 4, 4) + "h";
                             txtMO.Text = "";
                             //移交單中找頁數資料
                             string strSql_f1 = string.Format(
@@ -179,7 +153,7 @@ namespace cf01.ReportForm
 	                            INNER JOIN st_i_subordination B with(nolock) ON A.within_code =B.within_code AND A.id=B.id
                             WHERE A.within_code='0000' AND A.id='{0}' AND A.state<>'2' AND B.sequence_id='{1}'", strId, strSeq);
                            
-                            if ((str1 == "DT"|| str1=="LT") && str.Substring(0, 2) != "TW")
+                            if ((str1 == "DT"|| str1=="LT") && strBarCode.Substring(0, 2) != "TW")
                             {
                                 //移交單
                                 id_type = "T";  //移交單
@@ -207,8 +181,8 @@ namespace cf01.ReportForm
                             //按工序卡上的條碼掃描
                             //從生產計劃中找頁數資料
                             id_type = "";  //沒有移交單或倉庫發料
-                            strMo = str.Substring(0, 9);
-                            strSeq = string.Format("00{0}h", str.Substring(11, 2));
+                            strMo = strBarCode.Substring(0, 9);
+                            strSeq = string.Format("00{0}h", strBarCode.Substring(11, 2));
                             string strSql_f1 = string.Format(
                             @"SELECT A.mo_id,B.goods_id
                             FROM jo_bill_mostly A with(nolock) 
@@ -243,9 +217,9 @@ namespace cf01.ReportForm
                     //=====================================
 
                     txtMO.Text = strMo;
-                    chkmo_print_by_set.Checked = false;
+                    chkByMoPrintSet.Checked = false;
 
-                    if (is_by_mo == "N")
+                    if (flagByMo == "N")
                     {
                         frmProgress wForm = new frmProgress();
                         new Thread((ThreadStart)delegate
@@ -253,12 +227,14 @@ namespace cf01.ReportForm
                             wForm.TopMost = true;
                             wForm.ShowDialog();
                         }).Start();//window xp系統會有影響
-                        Load_Data(is_by_mo, "", id_type, txtID.Text, txtMO.Text, cmbItems.Text);
+
+                        Load_Data(flagByMo, "", id_type, txtID.Text, txtMO.Text, cmbItems.Text);//整張單移交單或發料單
+
                         wForm.Invoke((EventHandler)delegate { wForm.Close(); });
                     }
                     else
                     {
-                        Load_Data(is_by_mo, "", id_type, txtID.Text, txtMO.Text, cmbItems.Text);
+                        Load_Data(flagByMo, "", id_type, txtID.Text, txtMO.Text, cmbItems.Text);
                     }
                     txtBarCode.Text = "";
                     if (dsPackChange.Tables[0].Rows.Count > 0)
@@ -281,10 +257,10 @@ namespace cf01.ReportForm
             }
         }
 
-        private void Load_Data(string is_by_mo,string print_set, string id_type, string id, string mo_id, string goods_id)
+        private void Load_Data(string flagByMo, string print_set, string id_type, string id, string mo_id, string goods_id)
         {
             SqlParameter[] paras = new SqlParameter[] {
-                new SqlParameter("@is_by_mo", is_by_mo),
+                new SqlParameter("@is_by_mo", flagByMo),
                 new SqlParameter("@is_set_print", print_set),
                 new SqlParameter("@id_type", id_type),
                 new SqlParameter("@id", id),
@@ -438,12 +414,12 @@ namespace cf01.ReportForm
 
         private void chkByMo_Click(object sender, EventArgs e)
         {
-            chkmo_print_by_set.Checked = false;
+            chkByMoPrintSet.Checked = false;
             chkByCard.Checked = false;
             txtBarCode.Focus();
         }
 
-        private void chkmo_print_by_set_Click(object sender, EventArgs e)
+        private void chkByMoPrintSet_Click(object sender, EventArgs e)
         {
             chkByMo.Checked = false;
             chkByCard.Checked = false;
@@ -453,7 +429,7 @@ namespace cf01.ReportForm
         private void chByCard_Click(object sender, EventArgs e)
         {
             chkByMo.Checked = false;
-            chkmo_print_by_set.Checked = false;
+            chkByMoPrintSet.Checked = false;
             txtBarCode.Focus();
         }
 
@@ -475,6 +451,9 @@ namespace cf01.ReportForm
                 txtMO.Text = "";
                 cmbItems.Items.Clear();
                 cmbItems.Text = "";
+                chkByMo.Checked = false;
+                chkByCard.Checked = false;
+                chkByMoPrintSet.Checked = false;
                 if (str1 == "DT" || str1 == "LT" || str2 == "DAA")
                 {
                     //T:移交單;D:倉庫發料 
@@ -482,7 +461,7 @@ namespace cf01.ReportForm
                 }
                 else
                 {
-                    MessageBox.Show("單據編號不正確(只限于正常的移交單,倉庫發料)！請返回檢查","提示信息");
+                    MessageBox.Show("單據類型不正確(只限于正常的移交單,倉庫發料單)！請返回檢查","提示信息");
                     txtID.Text = "";
                     txtBarCode.Focus();
                     return;
@@ -500,6 +479,11 @@ namespace cf01.ReportForm
         }
 
         private void txtMO_Leave(object sender, EventArgs e)
+        {
+            ManualInputMo();
+        }
+
+        private void ManualInputMo()
         {
             if (txtMO.Text != "")
             {
@@ -521,7 +505,7 @@ namespace cf01.ReportForm
                 Fill_Combox(dtItems);
 
                 string print_by_set = "Y";
-                chkmo_print_by_set.Checked = true;
+                chkByMoPrintSet.Checked = true;
 
                 //frmProgress wForm = new frmProgress();
                 //new Thread((ThreadStart)delegate
@@ -530,18 +514,16 @@ namespace cf01.ReportForm
                 //    wForm.ShowDialog();
                 //}).Start(); //windows xp會列機，不支持此多線程動畫效果？
                 Load_Data("Y", print_by_set, "", txtID.Text, txtMO.Text, cmbItems.Text);
-               
-                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });   
 
+                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
                 //2017-08-18一個頁數默認只列印一張客人標識卡加入此代碼默認面件
                 if (cmbReport.SelectedIndex == 1)
-                {                    
+                {
                     Select_goods_item();
                     chkIsDisplayKey.Checked = true;
                 }
-                //------------
-
+               
                 if (dsPackChange.Tables[0].Rows.Count > 0)
                 {
                     if (chkAutoPrint.Checked)
@@ -560,17 +542,17 @@ namespace cf01.ReportForm
 
         private void Select_goods_item()
         {
-            chkmo_print_by_set.Checked = false;
+            chkByMoPrintSet.Checked = false;
             if (txtMO.Text != "" && cmbItems.Text != "")
             {
                 Load_Data("Y", "", "", txtID.Text, txtMO.Text, cmbItems.Text);
-                if (dsPackChange.Tables[0].Rows.Count > 0)
-                {
-                    if (chkAutoPrint.Checked)
-                    {
-                        //Print("P");
-                    }
-                }
+                //if (dsPackChange.Tables[0].Rows.Count > 0)
+                //{
+                //    if (chkAutoPrint.Checked)
+                //    {
+                //        //Print("P");
+                //    }
+                //}
             }
             txtBarCode.Focus();
         }
