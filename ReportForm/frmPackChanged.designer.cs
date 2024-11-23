@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.chkByCard = new System.Windows.Forms.CheckBox();
@@ -116,20 +116,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.Location = new System.Drawing.Point(44, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 16);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 54;
             this.label2.Text = "(倉庫發料)";
             // 
             // chkByCard
             // 
             this.chkByCard.AutoSize = true;
-            this.chkByCard.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkByCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkByCard.Location = new System.Drawing.Point(594, 74);
             this.chkByCard.Name = "chkByCard";
-            this.chkByCard.Size = new System.Drawing.Size(197, 25);
+            this.chkByCard.Size = new System.Drawing.Size(199, 29);
             this.chkByCard.TabIndex = 53;
             this.chkByCard.Text = "按工序卡掃描列印";
             this.chkByCard.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             // 
             // chkmo_print_by_set
             // 
-            this.chkmo_print_by_set.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkmo_print_by_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkmo_print_by_set.Location = new System.Drawing.Point(594, 39);
             this.chkmo_print_by_set.Name = "chkmo_print_by_set";
             this.chkmo_print_by_set.Size = new System.Drawing.Size(244, 27);
@@ -149,10 +149,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(628, 119);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 51;
             this.label1.Text = "報表格式";
             // 
@@ -160,7 +160,7 @@
             // 
             this.cmbReport.BackColor = System.Drawing.Color.GhostWhite;
             this.cmbReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbReport.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cmbReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cmbReport.FormattingEnabled = true;
             this.cmbReport.Items.AddRange(new object[] {
             "包裝轉交單",
@@ -169,16 +169,16 @@
             this.cmbReport.Location = new System.Drawing.Point(704, 117);
             this.cmbReport.MaxLength = 18;
             this.cmbReport.Name = "cmbReport";
-            this.cmbReport.Size = new System.Drawing.Size(124, 24);
+            this.cmbReport.Size = new System.Drawing.Size(124, 28);
             this.cmbReport.TabIndex = 5;
             // 
             // chkByMo
             // 
             this.chkByMo.AutoSize = true;
-            this.chkByMo.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkByMo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkByMo.Location = new System.Drawing.Point(594, 8);
             this.chkByMo.Name = "chkByMo";
-            this.chkByMo.Size = new System.Drawing.Size(218, 25);
+            this.chkByMo.Size = new System.Drawing.Size(220, 29);
             this.chkByMo.TabIndex = 49;
             this.chkByMo.Text = "按頁數逐個掃描列印";
             this.chkByMo.UseVisualStyleBackColor = true;
@@ -186,7 +186,7 @@
             // 
             // chkIsDisplayKey
             // 
-            this.chkIsDisplayKey.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkIsDisplayKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkIsDisplayKey.Location = new System.Drawing.Point(697, 185);
             this.chkIsDisplayKey.Name = "chkIsDisplayKey";
             this.chkIsDisplayKey.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -199,21 +199,21 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label10.Location = new System.Drawing.Point(310, 162);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 16);
+            this.label10.Size = new System.Drawing.Size(73, 20);
             this.label10.TabIndex = 46;
             this.label10.Text = "制單頁數";
             // 
             // txtMO
             // 
             this.txtMO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMO.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtMO.Location = new System.Drawing.Point(386, 158);
             this.txtMO.MaxLength = 9;
             this.txtMO.Name = "txtMO";
-            this.txtMO.Size = new System.Drawing.Size(129, 27);
+            this.txtMO.Size = new System.Drawing.Size(129, 26);
             this.txtMO.TabIndex = 2;
             this.txtMO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMO_KeyPress);
             this.txtMO.Leave += new System.EventHandler(this.txtMO_Leave);
@@ -221,31 +221,31 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label9.Location = new System.Drawing.Point(523, 162);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 16);
+            this.label9.Size = new System.Drawing.Size(73, 20);
             this.label9.TabIndex = 45;
             this.label9.Text = "貨品編號";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label8.Location = new System.Drawing.Point(41, 162);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 16);
+            this.label8.Size = new System.Drawing.Size(89, 20);
             this.label8.TabIndex = 1;
             this.label8.Text = "交接單編號";
             // 
             // txtID
             // 
             this.txtID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtID.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtID.Location = new System.Drawing.Point(138, 158);
             this.txtID.MaxLength = 20;
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(164, 27);
+            this.txtID.Size = new System.Drawing.Size(164, 26);
             this.txtID.TabIndex = 1;
             this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
@@ -255,10 +255,10 @@
             this.chkAutoPrint.AutoSize = true;
             this.chkAutoPrint.Checked = true;
             this.chkAutoPrint.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAutoPrint.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkAutoPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.chkAutoPrint.Location = new System.Drawing.Point(412, 32);
             this.chkAutoPrint.Name = "chkAutoPrint";
-            this.chkAutoPrint.Size = new System.Drawing.Size(113, 25);
+            this.chkAutoPrint.Size = new System.Drawing.Size(115, 29);
             this.chkAutoPrint.TabIndex = 28;
             this.chkAutoPrint.Text = "自動列印";
             this.chkAutoPrint.UseVisualStyleBackColor = true;
@@ -266,7 +266,7 @@
             // 
             // btnPrintView
             // 
-            this.btnPrintView.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnPrintView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnPrintView.Location = new System.Drawing.Point(273, 3);
             this.btnPrintView.Name = "btnPrintView";
             this.btnPrintView.Size = new System.Drawing.Size(122, 80);
@@ -277,7 +277,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnPrint.Location = new System.Drawing.Point(139, 3);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(122, 80);
@@ -288,7 +288,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnExit.ForeColor = System.Drawing.Color.Red;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(5, 3);
@@ -303,12 +303,12 @@
             // 
             this.cmbItems.BackColor = System.Drawing.Color.GhostWhite;
             this.cmbItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbItems.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cmbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cmbItems.FormattingEnabled = true;
             this.cmbItems.Location = new System.Drawing.Point(601, 158);
             this.cmbItems.MaxLength = 18;
             this.cmbItems.Name = "cmbItems";
-            this.cmbItems.Size = new System.Drawing.Size(227, 24);
+            this.cmbItems.Size = new System.Drawing.Size(227, 28);
             this.cmbItems.TabIndex = 3;
             this.cmbItems.SelectedIndexChanged += new System.EventHandler(this.cmbItems_SelectedIndexChanged);
             this.cmbItems.Leave += new System.EventHandler(this.cmbItems_Leave);
@@ -325,11 +325,11 @@
             // lblBarcode
             // 
             this.lblBarcode.AutoSize = true;
-            this.lblBarcode.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblBarcode.ForeColor = System.Drawing.Color.DarkViolet;
             this.lblBarcode.Location = new System.Drawing.Point(2, 14);
             this.lblBarcode.Name = "lblBarcode";
-            this.lblBarcode.Size = new System.Drawing.Size(130, 24);
+            this.lblBarcode.Size = new System.Drawing.Size(133, 29);
             this.lblBarcode.TabIndex = 0;
             this.lblBarcode.Text = "條碼掃描區";
             // 
@@ -337,10 +337,10 @@
             // 
             this.txtBarCode.BackColor = System.Drawing.Color.Plum;
             this.txtBarCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBarCode.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtBarCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtBarCode.Location = new System.Drawing.Point(135, 3);
             this.txtBarCode.Name = "txtBarCode";
-            this.txtBarCode.Size = new System.Drawing.Size(377, 49);
+            this.txtBarCode.Size = new System.Drawing.Size(377, 47);
             this.txtBarCode.TabIndex = 0;
             this.txtBarCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarCode_KeyDown);
             // 
@@ -372,7 +372,7 @@
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowHeadersWidth = 60;
-            this.dgvDetails.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvDetails.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvDetails.RowTemplate.Height = 24;
             this.dgvDetails.Size = new System.Drawing.Size(968, 659);
             this.dgvDetails.TabIndex = 4;
@@ -484,9 +484,9 @@
             // order_qty_pcs1
             // 
             this.order_qty_pcs1.DataPropertyName = "order_qty_pcs1";
-            dataGridViewCellStyle37.Format = "N0";
-            dataGridViewCellStyle37.NullValue = null;
-            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle1;
             this.order_qty_pcs1.HeaderText = "訂單數";
             this.order_qty_pcs1.Name = "order_qty_pcs1";
             this.order_qty_pcs1.ReadOnly = true;
@@ -601,9 +601,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "order_qty";
-            dataGridViewCellStyle38.Format = "N0";
-            dataGridViewCellStyle38.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn14.HeaderText = "訂單數";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -616,6 +616,7 @@
             this.Controls.Add(this.dgvDetails);
             this.Controls.Add(this.panel1);
             this.Name = "frmPackChanged";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPackChanged";
             this.Activated += new System.EventHandler(this.frmPackChanged_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPackChanged_FormClosed);
