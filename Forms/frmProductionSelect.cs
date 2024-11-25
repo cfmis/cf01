@@ -11,6 +11,7 @@ using RUI.PC;
 using CFPublic;
 using cf01.MDL;
 using cf01.CLS;
+using System.Data.SqlClient;
 
 namespace cf01.Forms
 {
@@ -221,8 +222,6 @@ namespace cf01.Forms
         {
             string dep = cmbProductDept.SelectedValue.ToString().Trim();
             string group_type = "2";
-            if (dep=="203")
-                group_type = "1";
             txtWork_code.Visible = true;
             lueJobType.Visible = false;
             lblWork_class.Visible = false;
@@ -232,26 +231,23 @@ namespace cf01.Forms
             txtmWeg2.Text = "0";
             
             DataTable dtGroup = clsProductionSelect.GetDepGroup(dep, group_type);
-            if (dtGroup.Rows.Count > 0)
-            {
-                cmbGroup.DataSource = dtGroup;
-                cmbGroup.DisplayMember = "work_group";
-                cmbGroup.ValueMember = "work_group";
-            }
-            if (cmbProductDept.Text == "102")
+            cmbGroup.DataSource = dtGroup;
+            cmbGroup.DisplayMember = "work_group";
+            cmbGroup.ValueMember = "work_group";
+            if (dep == "102")
             {
                 cmbGroup.SelectedValue = "BA01";
             }
             else
             {
-                if (cmbProductDept.Text == "302")
+                if (dep == "302")
                 {
                     txtmWeg1.Text = "1.4";//去皮
                     txtmWeg2.Text = "0";
                 }
                 else
                 {
-                    if (dep.Substring(0,1)=="5")
+                    if (dep.Substring(0,1)=="5" || dep.Substring(0, 1) == "6")
                     {
                         txtmWeg1.Text = "0";//去皮
                         txtmWeg2.Text = "0";
@@ -259,6 +255,7 @@ namespace cf01.Forms
                         txtWork_code.Visible = false;
                         lueJobType.Visible = true;
                         panel5.Visible = true;
+                        dep = "501";
                     }
                     else
                     {
@@ -286,6 +283,7 @@ namespace cf01.Forms
                                 {
                                     lblWork_class.Visible = true;
                                     txtWork_class.Visible = true;
+                                    group_type = "1";
                                 }
                             }
                         }
@@ -295,7 +293,7 @@ namespace cf01.Forms
 
             loadDefective();
             //////工種類型
-            DataTable dtJobType = clsProductionSelect.GetJobType(cmbProductDept.Text.Trim());
+            DataTable dtJobType = clsProductionSelect.GetJobType(dep);
             //unitRate = clsBaseData.GetUnitRate(lueTestUnit.EditValue != null ? lueTestUnit.EditValue.ToString().Trim() : "");
             lueJobType.Properties.DataSource = dtJobType;
             lueJobType.Properties.ValueMember = "job_type";
@@ -1334,12 +1332,14 @@ namespace cf01.Forms
         private void add_prd_qty()
         {
             if (!clsValidRule.IsNumeric(txtOk_qty.Text) || !clsValidRule.IsNumeric(txtNook_qty.Text))
-                return;
-            //if (txtPrd_qty.Text == "" || txtPrd_qty.Text == "0")
+                txtPrd_qty.Text = "";
+            else
+                //if (txtPrd_qty.Text == "" || txtPrd_qty.Text == "0")
                 txtPrd_qty.Text = ((txtOk_qty.Text != "" ? Convert.ToInt32(txtOk_qty.Text) : 0) + (txtNook_qty.Text != "" ? Convert.ToInt32(txtNook_qty.Text) : 0)).ToString();
             if (!clsValidRule.IsNumeric(txtOk_weg.Text) || !clsValidRule.IsNumeric(txtNook_weg.Text))
-                return;
-            //if (txtprd_weg.Text == "" || txtprd_weg.Text == "0")
+                txtprd_weg.Text = "";
+            else
+                //if (txtprd_weg.Text == "" || txtprd_weg.Text == "0")
                 txtprd_weg.Text = ((txtOk_weg.Text != "" ? Convert.ToSingle(txtOk_weg.Text) : 0) + (txtNook_weg.Text != "" ? Convert.ToSingle(txtNook_weg.Text) : 0)).ToString();
             count_hour_std_qty();//計算每人每小時標準數
         }
@@ -1377,15 +1377,22 @@ namespace cf01.Forms
         //計算每人每小時標準數
         private void count_hour_std_qty()
         {
-            int qty=(txtPrd_qty.Text !="" ? Convert.ToInt32(txtPrd_qty.Text):0);
-            int rs=(txtTotMember.Text !="" ? Convert.ToInt32(txtTotMember.Text):1);
-            float tt=(txtNormal_work.Text !="" ? Convert.ToSingle(txtNormal_work.Text):0)+(txtAdd_work.Text !="" ? Convert.ToSingle(txtAdd_work.Text):0);
-            txtper_Standrad_qty.Text = "";
-            txtPer_hour_std_qty.Text = "";
-            if (txtNormal_work.Text != "" || txtAdd_work.Text != "")
+            try
             {
-                txtper_Standrad_qty.Text = Math.Round(qty / rs / tt, 0).ToString();
-                txtPer_hour_std_qty.Text = txtper_Standrad_qty.Text;
+                int qty = (txtPrd_qty.Text != "" ? Convert.ToInt32(txtPrd_qty.Text) : 0);
+                int rs = (txtTotMember.Text != "" ? Convert.ToInt32(txtTotMember.Text) : 1);
+                float tt = (txtNormal_work.Text != "" ? Convert.ToSingle(txtNormal_work.Text) : 0) + (txtAdd_work.Text != "" ? Convert.ToSingle(txtAdd_work.Text) : 0);
+                txtper_Standrad_qty.Text = "";
+                txtPer_hour_std_qty.Text = "";
+                if (txtNormal_work.Text != "" || txtAdd_work.Text != "")
+                {
+                    txtper_Standrad_qty.Text = Math.Round(qty / rs / tt, 0).ToString();
+                    txtPer_hour_std_qty.Text = txtper_Standrad_qty.Text;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             //count_req_time();//預計完成時間
         }
@@ -1747,10 +1754,10 @@ namespace cf01.Forms
 
         private void txtmo_id_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                SendKeys.Send("{tab}");
-            }
+            //if (e.KeyChar == (char)Keys.Enter)
+            //{
+            //    SendKeys.Send("{tab}");
+            //}
         }
         
 
@@ -1764,5 +1771,17 @@ namespace cf01.Forms
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string mo_id = txtmo_id.Text;
+            //string strSql = @" Select * from mo_batchprint where mo_id='" + mo_id + "'";
+            string strSql = @" Select * from mo_batchprint
+                               Where mo_id=@mo_id ";
+            SqlParameter[] paras = new SqlParameter[] {
+                    new SqlParameter("@mo_id",mo_id)
+                };
+            var dtMo = clsPublicOfCF01.ExecuteProcedure(strSql, paras);
+            string prd_item = "";
+        }
     }
 }
