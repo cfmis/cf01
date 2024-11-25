@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.chkByCard = new System.Windows.Forms.CheckBox();
@@ -150,7 +150,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(628, 119);
+            this.label1.Location = new System.Drawing.Point(614, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 51;
@@ -166,10 +166,10 @@
             "包裝轉交單",
             "客人標簽",
             "成品標識卡"});
-            this.cmbReport.Location = new System.Drawing.Point(704, 117);
+            this.cmbReport.Location = new System.Drawing.Point(692, 117);
             this.cmbReport.MaxLength = 18;
             this.cmbReport.Name = "cmbReport";
-            this.cmbReport.Size = new System.Drawing.Size(124, 24);
+            this.cmbReport.Size = new System.Drawing.Size(136, 24);
             this.cmbReport.TabIndex = 5;
             // 
             // chkByMo
@@ -187,7 +187,7 @@
             // chkIsDisplayKey
             // 
             this.chkIsDisplayKey.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkIsDisplayKey.Location = new System.Drawing.Point(697, 185);
+            this.chkIsDisplayKey.Location = new System.Drawing.Point(697, 186);
             this.chkIsDisplayKey.Name = "chkIsDisplayKey";
             this.chkIsDisplayKey.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chkIsDisplayKey.Size = new System.Drawing.Size(130, 27);
@@ -484,9 +484,9 @@
             // order_qty_pcs1
             // 
             this.order_qty_pcs1.DataPropertyName = "order_qty_pcs1";
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.order_qty_pcs1.DefaultCellStyle = dataGridViewCellStyle1;
             this.order_qty_pcs1.HeaderText = "訂單數";
             this.order_qty_pcs1.Name = "order_qty_pcs1";
             this.order_qty_pcs1.ReadOnly = true;
@@ -601,9 +601,9 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "order_qty";
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn14.HeaderText = "訂單數";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
