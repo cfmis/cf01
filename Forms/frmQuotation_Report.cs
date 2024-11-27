@@ -39,36 +39,32 @@ namespace cf01.Forms
         string temp_state = "";
         string edit_state = ""; //新增或編輯的狀態      
         string image_path = "";
-        bool save_flag;
+        bool flagSave;
         string strArea = "";
-        string flag_pdf = "";      
+        string flagPDF = "";      
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         clsAppPublic clsApp = new clsAppPublic();
         clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-        DataTable dtQuotation_mostly = new DataTable();
-        DataTable dtQuotation_details = new DataTable();
+        DataTable dtMostly = new DataTable();
+        DataTable dtDetails = new DataTable();
         DataTable dtTempDel = new DataTable();
         DataTable dtTerm1 = new DataTable();
         DataTable dtAddress1 = new DataTable();
         DataTable dtFind = new DataTable();
         DataTable dtReport = new DataTable();
         DataTable dtPriceDisc = new DataTable();
-        //public static DataSet dsCopy = new DataSet();
         public List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
         List<mdlDiscountPrice> mdlList = new List<mdlDiscountPrice>();
+
         [DllImport("user32.dll")]
         public static extern int MessageBoxTimeout(IntPtr hWnd, string msg, string Caps, int type, int Id, int time);
 
 
         public frmQuotation_Report()
         {
-            InitializeComponent();
-            //clsControlInfoHelper control = new clsControlInfoHelper(this.Name, this.Controls);
-            //control.GenerateContorl();
-            //clsApp.SetToolBarEnable(this.Name, this.Controls);
+            InitializeComponent();           
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
-
 
             clsApp.Initialize_find_value(this.Name, panel1.Controls);//定價查找頁面條件初始化
             clsApp.Initialize_find_value("frmQuotation_Report_browse", tabControl1.TabPages[1].Controls);//報價資料查找頁面條件初始化
@@ -97,14 +93,8 @@ namespace cf01.Forms
             {
                 image_path = @"\\192.168.18.24\cf_artwork";
             }
-
-            //單據前綴
-            //strArea = clsPublicOfCF01.ExecuteSqlReturnObject("SELECT @@SERVERNAME");
-            //strArea = strArea.Substring(0, 2);
-            //strArea = (strArea == "DG") ? "QD" : "QH";//QD--DG輸入;QH--HK輸入
+            //單據前綴          
             strArea = (chkIsvn.Checked == false) ? "QD" : "QV";
-
-
             //客戶資料           
             string strSql = string.Format(
             @"SELECT '' AS id,'' AS cdesc,'' AS desc_e,'' as money_id,'' AS contact,'' AS tel,'' AS fax,'' AS email,'' AS address
@@ -121,11 +111,11 @@ namespace cf01.Forms
             txtCustomer_id.Properties.DisplayMember = "id";
 
             //生成gridview1明細表結構
-            dtQuotation_details = clsPublicOfCF01.GetDataTable(@"SELECT a.*,b.name as name_brand FROM quotation_details a,v_brand_customer b  WHERE 1=0");
-            gridControl1.DataSource = dtQuotation_details;
+            dtDetails = clsPublicOfCF01.GetDataTable(@"SELECT a.*,b.name as name_brand FROM quotation_details a,v_brand_customer b  WHERE 1=0");
+            gridControl1.DataSource = dtDetails;
 
             //臨時項目刪除表結構
-            dtTempDel = dtQuotation_details.Clone();
+            dtTempDel = dtDetails.Clone();
 
             DataTable dtAddress = new DataTable();
             dtAddress = clsPublicOfCF01.GetDataTable("SELECT id,Convert(varchar(5),id)+'['+area+']' as cdesc FROM dbo.quotation_address GROUP BY id,area ORDER BY id,area");
@@ -145,10 +135,8 @@ namespace cf01.Forms
             txtTerm_id.Properties.ValueMember = "id";
             txtTerm_id.Properties.DisplayMember = "cdesc";
 
-            //tabPage3.Parent = null;
             tabControl1.SelectTab(2);
             chkSelectAll.Checked = false;
-
             for (int i = 1; i < dgvDetails.ColumnCount; i++)
             {
                 dgvDetails.Columns[i].ReadOnly = true;
@@ -165,18 +153,14 @@ namespace cf01.Forms
                 dgvDetails.Columns[25].ReadOnly = true;
                 dgvDetails.Columns[26].ReadOnly = true;
             }
-
             //BTNSAVE_PRICE.Enabled;// false;//設置Price_salesperson為可編輯
-
             using (DataTable dtSales_Group = clsPublicOfCF01.GetDataTable(@"Select typ_code AS id From bs_type Where typ_group='3'"))
             {
                 for (int i = 0; i < dtSales_Group.Rows.Count; i++)
                 {
                     txtSales_group.Items.Add(dtSales_Group.Rows[i][0].ToString());
                 }
-
             }
-
             System.Data.DataTable dtUnit = new System.Data.DataTable();
             dtUnit = clsPublicOfCF01.GetDataTable(@"SELECT '' AS id Union SELECT unit_id as id FROM dbo.bs_unit Where unit_id<>'000'");
             clPrice_unit.DataSource = dtUnit;
@@ -250,7 +234,6 @@ namespace cf01.Forms
 
             dgvDetails.AutoGenerateColumns = false;
             chkHidenCancel.Checked = true;
-
         }
 
 
@@ -339,7 +322,7 @@ namespace cf01.Forms
 
         private void BTNPRINT_Click(object sender, EventArgs e)
         {
-            flag_pdf = "";
+            flagPDF = "";
             ReportPrint();
         }
 
@@ -369,7 +352,6 @@ namespace cf01.Forms
             SetObjValue.SetEditBackColor(tabControl1.TabPages[0].Controls, true);
             SetObjValue.ClearObjValue(tabControl1.TabPages[0].Controls, "1");
             Set_Grid_Status(true);
-
             btnCopy.Enabled = true;
             GetDocNo();
             txtVersion.Text = "0";
@@ -379,17 +361,15 @@ namespace cf01.Forms
             memRemark.Text = GetRemark(dtAddress1, "1");
             txtTerm_id.EditValue = 0;
             txtMoney_id.EditValue = "HKD";
-
             txtID.Properties.ReadOnly = true;
-
             memRemark.Properties.ReadOnly = true;
             memRemark.BackColor = Color.LightGray;
 
-            DataRow dr = dtQuotation_mostly.NewRow(); //插一空行
-            dtQuotation_mostly.Rows.InsertAt(dr, 0);
+            DataRow dr = dtMostly.NewRow(); //插一空行
+            dtMostly.Rows.InsertAt(dr, 0);
 
-            dtQuotation_details.Clear();
-            gridControl1.DataSource = dtQuotation_details;
+            dtDetails.Clear();
+            gridControl1.DataSource = dtDetails;
 
         }
 
@@ -583,7 +563,7 @@ namespace cf01.Forms
                         myTrans.Commit(); //數據提交           
                         MessageBox.Show(myMsg.msgSave_ok, myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         SetObjValue.ClearObjValue(this.Controls, "1");
-                        dtQuotation_details.Clear();
+                        dtDetails.Clear();
                     }
                     catch (Exception E)
                     {
@@ -659,8 +639,8 @@ namespace cf01.Forms
             Set_Grid_Status(false);
 
             dtTempDel.Clear();
-            dtQuotation_details.Clear();
-            gridControl1.DataSource = dtQuotation_details;
+            dtDetails.Clear();
+            gridControl1.DataSource = dtDetails;
 
             edit_state = "";
             if (!String.IsNullOrEmpty(tempID))
@@ -694,10 +674,10 @@ namespace cf01.Forms
                 LEFT JOIN v_brand_customer B ON A.brand=B.id COLLATE Chinese_Taiwan_Stroke_CI_AS
                 WHERE A.id='{0}' And A.version='{1}'", temp_id, pVer);
 
-                dtQuotation_mostly = clsPublicOfCF01.GetDataTable(sql_h);
-                if (dtQuotation_mostly.Rows.Count > 0)
+                dtMostly = clsPublicOfCF01.GetDataTable(sql_h);
+                if (dtMostly.Rows.Count > 0)
                 {
-                    Set_Master_Data(dtQuotation_mostly);
+                    Set_Master_Data(dtMostly);
                 }
                 else
                 {
@@ -705,9 +685,9 @@ namespace cf01.Forms
                     dtReport.Clear();
                     return;
                 }
-                dtQuotation_details.Clear();
-                dtQuotation_details = clsPublicOfCF01.GetDataTable(sql_d);
-                gridControl1.DataSource = dtQuotation_details;
+                dtDetails.Clear();
+                dtDetails = clsPublicOfCF01.GetDataTable(sql_d);
+                gridControl1.DataSource = dtDetails;
 
                 tempID = txtID.Text; //保存臨時的ID
                 temp_version = txtVersion.Text; //保存臨時的version
@@ -726,7 +706,7 @@ namespace cf01.Forms
                 MessageBox.Show("明細資料不可為空", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            save_flag = false;
+            flagSave = false;
             //新增主表
             const string sql_insert =
                 @"INSERT INTO dbo.quotation_mostly(id,version,quota_date,customer_id,term_id,address_id,remark,remark_other,crusr,crtim,id_referred,
@@ -839,9 +819,9 @@ namespace cf01.Forms
                     {
                         string strSeq_id = "";
                         string rowStatus;
-                        for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
+                        for (int i = 0; i < dtDetails.Rows.Count; i++)
                         {
-                            rowStatus = dtQuotation_details.Rows[i].RowState.ToString();
+                            rowStatus = dtDetails.Rows[i].RowState.ToString();
                             if (rowStatus == "Added" || rowStatus == "Modified")
                             {
                                 myCommand.Parameters.Clear();
@@ -854,76 +834,76 @@ namespace cf01.Forms
                                 if (rowStatus == "Modified")
                                 {
                                     myCommand.CommandText = sql_detail_update;
-                                    strSeq_id = dtQuotation_details.Rows[i]["seq_id"].ToString();//編輯狀態原序號保持不變
+                                    strSeq_id = dtDetails.Rows[i]["seq_id"].ToString();//編輯狀態原序號保持不變
                                 }
                                 myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());
                                 myCommand.Parameters.AddWithValue("@version", txtVersion.Text.Trim());
                                 myCommand.Parameters.AddWithValue("@seq_id", strSeq_id);
-                                myCommand.Parameters.AddWithValue("@brand", dtQuotation_details.Rows[i]["brand"].ToString());
-                                myCommand.Parameters.AddWithValue("@division", dtQuotation_details.Rows[i]["division"].ToString());
-                                myCommand.Parameters.AddWithValue("@contact", dtQuotation_details.Rows[i]["contact"].ToString());
-                                myCommand.Parameters.AddWithValue("@material", dtQuotation_details.Rows[i]["material"].ToString());
-                                myCommand.Parameters.AddWithValue("@size", dtQuotation_details.Rows[i]["size"]);
-                                myCommand.Parameters.AddWithValue("@product_desc", dtQuotation_details.Rows[i]["product_desc"].ToString());
-                                myCommand.Parameters.AddWithValue("@cust_code", dtQuotation_details.Rows[i]["cust_code"].ToString());
-                                myCommand.Parameters.AddWithValue("@cf_code", dtQuotation_details.Rows[i]["cf_code"].ToString());
-                                myCommand.Parameters.AddWithValue("@cust_color", dtQuotation_details.Rows[i]["cust_color"].ToString());
-                                myCommand.Parameters.AddWithValue("@cf_color", dtQuotation_details.Rows[i]["cf_color"].ToString());
+                                myCommand.Parameters.AddWithValue("@brand", dtDetails.Rows[i]["brand"].ToString());
+                                myCommand.Parameters.AddWithValue("@division", dtDetails.Rows[i]["division"].ToString());
+                                myCommand.Parameters.AddWithValue("@contact", dtDetails.Rows[i]["contact"].ToString());
+                                myCommand.Parameters.AddWithValue("@material", dtDetails.Rows[i]["material"].ToString());
+                                myCommand.Parameters.AddWithValue("@size", dtDetails.Rows[i]["size"]);
+                                myCommand.Parameters.AddWithValue("@product_desc", dtDetails.Rows[i]["product_desc"].ToString());
+                                myCommand.Parameters.AddWithValue("@cust_code", dtDetails.Rows[i]["cust_code"].ToString());
+                                myCommand.Parameters.AddWithValue("@cf_code", dtDetails.Rows[i]["cf_code"].ToString());
+                                myCommand.Parameters.AddWithValue("@cust_color", dtDetails.Rows[i]["cust_color"].ToString());
+                                myCommand.Parameters.AddWithValue("@cf_color", dtDetails.Rows[i]["cf_color"].ToString());
 
-                                myCommand.Parameters.AddWithValue("@price_usd", Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_hkd", Return_Float_Value(dtQuotation_details.Rows[i]["price_hkd"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_rmb", Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_usd", Return_Float_Value(dtDetails.Rows[i]["price_usd"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_hkd", Return_Float_Value(dtDetails.Rows[i]["price_hkd"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_rmb", Return_Float_Value(dtDetails.Rows[i]["price_rmb"].ToString()));
 
-                                myCommand.Parameters.AddWithValue("@moq", dtQuotation_details.Rows[i]["moq"]);
-                                myCommand.Parameters.AddWithValue("@price_unit", dtQuotation_details.Rows[i]["price_unit"].ToString());
-                                myCommand.Parameters.AddWithValue("@remark", dtQuotation_details.Rows[i]["remark"].ToString());
-                                myCommand.Parameters.AddWithValue("@temp_code", dtQuotation_details.Rows[i]["temp_code"].ToString());
-                                myCommand.Parameters.AddWithValue("@ver", dtQuotation_details.Rows[i]["ver"]);
+                                myCommand.Parameters.AddWithValue("@moq", dtDetails.Rows[i]["moq"]);
+                                myCommand.Parameters.AddWithValue("@price_unit", dtDetails.Rows[i]["price_unit"].ToString());
+                                myCommand.Parameters.AddWithValue("@remark", dtDetails.Rows[i]["remark"].ToString());
+                                myCommand.Parameters.AddWithValue("@temp_code", dtDetails.Rows[i]["temp_code"].ToString());
+                                myCommand.Parameters.AddWithValue("@ver", dtDetails.Rows[i]["ver"]);
 
                                 //--Katie報表格式新加的字段
-                                myCommand.Parameters.AddWithValue("@moq_desc", dtQuotation_details.Rows[i]["moq_desc"].ToString());
-                                myCommand.Parameters.AddWithValue("@moq_unit", dtQuotation_details.Rows[i]["moq_unit"].ToString());
-                                myCommand.Parameters.AddWithValue("@season", dtQuotation_details.Rows[i]["season"].ToString());
-                                myCommand.Parameters.AddWithValue("@salesman", dtQuotation_details.Rows[i]["salesman"].ToString());
-                                myCommand.Parameters.AddWithValue("@mwq", dtQuotation_details.Rows[i]["mwq"]);
-                                myCommand.Parameters.AddWithValue("@lead_time_min", dtQuotation_details.Rows[i]["lead_time_min"]);
-                                myCommand.Parameters.AddWithValue("@lead_time_max", dtQuotation_details.Rows[i]["lead_time_max"]);
-                                myCommand.Parameters.AddWithValue("@lead_time_unit", dtQuotation_details.Rows[i]["lead_time_unit"].ToString());
-                                myCommand.Parameters.AddWithValue("@md_charge", dtQuotation_details.Rows[i]["md_charge"]);
-                                myCommand.Parameters.AddWithValue("@md_charge_cny", dtQuotation_details.Rows[i]["md_charge_cny"].ToString());
-                                myCommand.Parameters.AddWithValue("@moq_for_test", dtQuotation_details.Rows[i]["moq_for_test"]);
-                                myCommand.Parameters.AddWithValue("@number_enter", dtQuotation_details.Rows[i]["number_enter"]);
-                                myCommand.Parameters.AddWithValue("@hkd_ex_fty", dtQuotation_details.Rows[i]["hkd_ex_fty"]);
-                                myCommand.Parameters.AddWithValue("@usd_ex_fty", dtQuotation_details.Rows[i]["usd_ex_fty"]);
-                                myCommand.Parameters.AddWithValue("@sales_group", dtQuotation_details.Rows[i]["sales_group"]);
-                                myCommand.Parameters.AddWithValue("@usd_dap", dtQuotation_details.Rows[i]["usd_dap"]);
-                                myCommand.Parameters.AddWithValue("@usd_lab_test_prx", dtQuotation_details.Rows[i]["usd_lab_test_prx"]);
-                                myCommand.Parameters.AddWithValue("@ex_fty_hkd", dtQuotation_details.Rows[i]["ex_fty_hkd"]);
-                                myCommand.Parameters.AddWithValue("@ex_fty_usd", dtQuotation_details.Rows[i]["ex_fty_usd"]);
+                                myCommand.Parameters.AddWithValue("@moq_desc", dtDetails.Rows[i]["moq_desc"].ToString());
+                                myCommand.Parameters.AddWithValue("@moq_unit", dtDetails.Rows[i]["moq_unit"].ToString());
+                                myCommand.Parameters.AddWithValue("@season", dtDetails.Rows[i]["season"].ToString());
+                                myCommand.Parameters.AddWithValue("@salesman", dtDetails.Rows[i]["salesman"].ToString());
+                                myCommand.Parameters.AddWithValue("@mwq", dtDetails.Rows[i]["mwq"]);
+                                myCommand.Parameters.AddWithValue("@lead_time_min", dtDetails.Rows[i]["lead_time_min"]);
+                                myCommand.Parameters.AddWithValue("@lead_time_max", dtDetails.Rows[i]["lead_time_max"]);
+                                myCommand.Parameters.AddWithValue("@lead_time_unit", dtDetails.Rows[i]["lead_time_unit"].ToString());
+                                myCommand.Parameters.AddWithValue("@md_charge", dtDetails.Rows[i]["md_charge"]);
+                                myCommand.Parameters.AddWithValue("@md_charge_cny", dtDetails.Rows[i]["md_charge_cny"].ToString());
+                                myCommand.Parameters.AddWithValue("@moq_for_test", dtDetails.Rows[i]["moq_for_test"]);
+                                myCommand.Parameters.AddWithValue("@number_enter", dtDetails.Rows[i]["number_enter"]);
+                                myCommand.Parameters.AddWithValue("@hkd_ex_fty", dtDetails.Rows[i]["hkd_ex_fty"]);
+                                myCommand.Parameters.AddWithValue("@usd_ex_fty", dtDetails.Rows[i]["usd_ex_fty"]);
+                                myCommand.Parameters.AddWithValue("@sales_group", dtDetails.Rows[i]["sales_group"]);
+                                myCommand.Parameters.AddWithValue("@usd_dap", dtDetails.Rows[i]["usd_dap"]);
+                                myCommand.Parameters.AddWithValue("@usd_lab_test_prx", dtDetails.Rows[i]["usd_lab_test_prx"]);
+                                myCommand.Parameters.AddWithValue("@ex_fty_hkd", dtDetails.Rows[i]["ex_fty_hkd"]);
+                                myCommand.Parameters.AddWithValue("@ex_fty_usd", dtDetails.Rows[i]["ex_fty_usd"]);
                                 //折扣后
-                                myCommand.Parameters.AddWithValue("@discount", dtQuotation_details.Rows[i]["discount"]);
-                                myCommand.Parameters.AddWithValue("@disc_price_usd", dtQuotation_details.Rows[i]["disc_price_usd"]);
-                                myCommand.Parameters.AddWithValue("@disc_price_hkd", dtQuotation_details.Rows[i]["disc_price_hkd"]);
-                                myCommand.Parameters.AddWithValue("@disc_price_rmb", dtQuotation_details.Rows[i]["disc_price_rmb"]);
-                                myCommand.Parameters.AddWithValue("@disc_price_vnd", dtQuotation_details.Rows[i]["disc_price_vnd"]);
-                                myCommand.Parameters.AddWithValue("@disc_hkd_ex_fty", dtQuotation_details.Rows[i]["disc_hkd_ex_fty"]);
+                                myCommand.Parameters.AddWithValue("@discount", dtDetails.Rows[i]["discount"]);
+                                myCommand.Parameters.AddWithValue("@disc_price_usd", dtDetails.Rows[i]["disc_price_usd"]);
+                                myCommand.Parameters.AddWithValue("@disc_price_hkd", dtDetails.Rows[i]["disc_price_hkd"]);
+                                myCommand.Parameters.AddWithValue("@disc_price_rmb", dtDetails.Rows[i]["disc_price_rmb"]);
+                                myCommand.Parameters.AddWithValue("@disc_price_vnd", dtDetails.Rows[i]["disc_price_vnd"]);
+                                myCommand.Parameters.AddWithValue("@disc_hkd_ex_fty", dtDetails.Rows[i]["disc_hkd_ex_fty"]);
                                 //實際報價
-                                myCommand.Parameters.AddWithValue("@actual_price", dtQuotation_details.Rows[i]["actual_price"]);
-                                myCommand.Parameters.AddWithValue("@actual_price_type", dtQuotation_details.Rows[i]["actual_price_type"].ToString());
+                                myCommand.Parameters.AddWithValue("@actual_price", dtDetails.Rows[i]["actual_price"]);
+                                myCommand.Parameters.AddWithValue("@actual_price_type", dtDetails.Rows[i]["actual_price_type"].ToString());
                                 //打模費
-                                myCommand.Parameters.AddWithValue("@die_mould_usd", dtQuotation_details.Rows[i]["die_mould_usd"]);
-                                myCommand.Parameters.AddWithValue("@die_mould_cny", dtQuotation_details.Rows[i]["die_mould_cny"].ToString());
-                                myCommand.Parameters.AddWithValue("@rmb_remark", dtQuotation_details.Rows[i]["rmb_remark"].ToString());
-                                myCommand.Parameters.AddWithValue("@cust_artwork", dtQuotation_details.Rows[i]["cust_artwork"].ToString());
+                                myCommand.Parameters.AddWithValue("@die_mould_usd", dtDetails.Rows[i]["die_mould_usd"]);
+                                myCommand.Parameters.AddWithValue("@die_mould_cny", dtDetails.Rows[i]["die_mould_cny"].ToString());
+                                myCommand.Parameters.AddWithValue("@rmb_remark", dtDetails.Rows[i]["rmb_remark"].ToString());
+                                myCommand.Parameters.AddWithValue("@cust_artwork", dtDetails.Rows[i]["cust_artwork"].ToString());
                                 //越南單價2023/02/13
-                                myCommand.Parameters.AddWithValue("@price_vnd_usd", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_usd"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_vnd", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_vnd_grs", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_grs"].ToString()));
-                                myCommand.Parameters.AddWithValue("@price_vnd_pcs", Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_pcs"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd_usd", Return_Float_Value(dtDetails.Rows[i]["price_vnd_usd"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd", Return_Float_Value(dtDetails.Rows[i]["price_vnd"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd_grs", Return_Float_Value(dtDetails.Rows[i]["price_vnd_grs"].ToString()));
+                                myCommand.Parameters.AddWithValue("@price_vnd_pcs", Return_Float_Value(dtDetails.Rows[i]["price_vnd_pcs"].ToString()));
 
-                                myCommand.Parameters.AddWithValue("@cf_color_id", dtQuotation_details.Rows[i]["cf_color_id"].ToString());
-                                myCommand.Parameters.AddWithValue("@material_type", dtQuotation_details.Rows[i]["material_type"].ToString());
-                                myCommand.Parameters.AddWithValue("@product_type", dtQuotation_details.Rows[i]["product_type"].ToString());
+                                myCommand.Parameters.AddWithValue("@cf_color_id", dtDetails.Rows[i]["cf_color_id"].ToString());
+                                myCommand.Parameters.AddWithValue("@material_type", dtDetails.Rows[i]["material_type"].ToString());
+                                myCommand.Parameters.AddWithValue("@product_type", dtDetails.Rows[i]["product_type"].ToString());
 
                                 myCommand.ExecuteNonQuery();
                             }
@@ -931,12 +911,12 @@ namespace cf01.Forms
                     }
 
                     myTrans.Commit(); //數據提交
-                    save_flag = true;
+                    flagSave = true;
                 }
                 catch (Exception E)
                 {
                     myTrans.Rollback(); //數據回滾
-                    save_flag = false;
+                    flagSave = false;
                     throw new Exception(E.Message);
                 }
                 finally
@@ -963,14 +943,14 @@ namespace cf01.Forms
             txtCustomer_id.Enabled = false;
             dtTempDel.Clear();
             mList.Clear();
-            if (save_flag)
+            if (flagSave)
             {
                 Find_doc(txtID.Text, txtVersion.Text);
                 //MessageBox.Show(myMsg.msgSave_ok, myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBoxTimeout((IntPtr)0, myMsg.msgSave_ok, myMsg.msgTitle, 0, 0, 1000); //提示窗體1秒后自動關閉    
                 if (temp_state == "EDIT" || temp_state == "NEW")
                 {
-                    ReSet_Datagrid_Value();//將值更新回查詢頁面
+                    ReSetDatagridValue();//將值更新回查詢頁面
                     if (temp_state == "NEW" && dgvFind.Rows.Count > 0)
                     {
                         //新增時將光標定位到最后一行
@@ -1010,19 +990,19 @@ namespace cf01.Forms
                 float price_vnd, price_vnd_usd, price_vnd_grs, price_vnd_pcs;
                 float price_vnd_usd_pdd, price_vnd_pdd, price_vnd_grs_pdd, price_vnd_pcs_pdd;
                 strWrning = "";
-                for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
+                for (int i = 0; i < dtDetails.Rows.Count; i++)
                 {                    
-                    price_vnd_usd = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_usd"].ToString());
-                    price_vnd = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString());
-                    price_vnd_grs = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_grs"].ToString());
-                    price_vnd_pcs = Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd_pcs"].ToString());
-                    if (Return_Float_Value(dtQuotation_details.Rows[i]["price_vnd"].ToString()) <= 0)
+                    price_vnd_usd = Return_Float_Value(dtDetails.Rows[i]["price_vnd_usd"].ToString());
+                    price_vnd = Return_Float_Value(dtDetails.Rows[i]["price_vnd"].ToString());
+                    price_vnd_grs = Return_Float_Value(dtDetails.Rows[i]["price_vnd_grs"].ToString());
+                    price_vnd_pcs = Return_Float_Value(dtDetails.Rows[i]["price_vnd_pcs"].ToString());
+                    if (Return_Float_Value(dtDetails.Rows[i]["price_vnd"].ToString()) <= 0)
                     {
                         MessageBox.Show("注意:此單為越南報價單,明細中的越南單價必須大于零!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = false;
                         break;
                     }
-                    tempCode = dtQuotation_details.Rows[i]["temp_code"].ToString();
+                    tempCode = dtDetails.Rows[i]["temp_code"].ToString();
                     sql = string.Format(@"Select price_vnd_usd,price_vnd,price_vnd_grs,price_vnd_pcs From quotation Where temp_code='{0}'", tempCode);
                     dt = clsPublicOfCF01.GetDataTable(sql);
                     price_vnd_usd_pdd = Return_Float_Value(dt.Rows[0]["price_vnd_usd"].ToString());
@@ -1032,30 +1012,22 @@ namespace cf01.Forms
                     if (price_vnd_usd_pdd > price_vnd_usd)
                     {
                         strWrning += string.Format("注意:{0} 單價VND(USD)'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd_usd, price_vnd_usd_pdd) + "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價VND(USD)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_usd, price_vnd_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = true;
-                        //break;
                     }
                     if (price_vnd_pdd > price_vnd)
                     {
                         strWrning += string.Format("注意:{0} 單價VND'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd, price_vnd_pdd) + "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價VND'{0}'不可小于HK PDD'{1}'報價!", price_vnd, price_vnd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = true;
-                        //break;
                     }
                     if (price_vnd_grs_pdd > price_vnd_grs)
                     {
                         strWrning += string.Format("注意:{0} 單價VND(GRS)'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd_grs, price_vnd_grs_pdd) + "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價VND(GRS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_grs, price_vnd_grs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = true;
-                        //break;
                     }
                     if (price_vnd_pcs_pdd > price_vnd_pcs)
                     {
                         strWrning += string.Format("注意:{0} 單價VND(PCS)'{1}'小于HK PDD'{2}'報價!", tempCode, price_vnd_pcs, price_vnd_pcs_pdd)+ "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價VND(PCS)'{0}'不可小于HK PDD'{1}'報價!", price_vnd_pcs, price_vnd_pcs_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = true;
-                        //break;
                     }
                 }
             }
@@ -1064,14 +1036,14 @@ namespace cf01.Forms
                 float price_usd, price_hkd, price_rmb, hkd_ex_fty, usd_ex_fty;
                 float price_usd_pdd, price_hkd_pdd, price_rmb_pdd, hkd_ex_fty_pdd, usd_ex_fty_pdd;
                 strWrning = "";
-                for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
+                for (int i = 0; i < dtDetails.Rows.Count; i++)
                 {                    
-                    price_usd = Return_Float_Value(dtQuotation_details.Rows[i]["price_usd"].ToString());
-                    price_hkd = Return_Float_Value(dtQuotation_details.Rows[i]["price_hkd"].ToString());
-                    price_rmb = Return_Float_Value(dtQuotation_details.Rows[i]["price_rmb"].ToString());
-                    hkd_ex_fty = Return_Float_Value(dtQuotation_details.Rows[i]["hkd_ex_fty"].ToString());
-                    usd_ex_fty = Return_Float_Value(dtQuotation_details.Rows[i]["usd_ex_fty"].ToString());
-                    tempCode = dtQuotation_details.Rows[i]["temp_code"].ToString();
+                    price_usd = Return_Float_Value(dtDetails.Rows[i]["price_usd"].ToString());
+                    price_hkd = Return_Float_Value(dtDetails.Rows[i]["price_hkd"].ToString());
+                    price_rmb = Return_Float_Value(dtDetails.Rows[i]["price_rmb"].ToString());
+                    hkd_ex_fty = Return_Float_Value(dtDetails.Rows[i]["hkd_ex_fty"].ToString());
+                    usd_ex_fty = Return_Float_Value(dtDetails.Rows[i]["usd_ex_fty"].ToString());
+                    tempCode = dtDetails.Rows[i]["temp_code"].ToString();
                     sql = string.Format(@"Select price_usd, price_hkd, price_rmb, hkd_ex_fty, usd_ex_fty From quotation Where temp_code='{0}'", tempCode);
                     dt = clsPublicOfCF01.GetDataTable(sql);
                     price_usd_pdd = Return_Float_Value(dt.Rows[0]["price_usd"].ToString());
@@ -1079,41 +1051,30 @@ namespace cf01.Forms
                     price_rmb_pdd = Return_Float_Value(dt.Rows[0]["price_rmb"].ToString());
                     hkd_ex_fty_pdd = Return_Float_Value(dt.Rows[0]["hkd_ex_fty"].ToString());
                     usd_ex_fty_pdd = Return_Float_Value(dt.Rows[0]["usd_ex_fty"].ToString());
-
                     if (price_usd_pdd > 0 && (price_usd < price_usd_pdd))
                     {
                         strWrning += string.Format("注意:{0} 單價USD'{1}'小于HK PDD'{2}'報價!", tempCode, price_usd, price_usd_pdd) + "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價USD'{0}'已小于HK PDD'{1}'報價!", price_usd, price_usd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = true;
-                        //break;
                     }
                     if (price_hkd_pdd > 0 && (price_hkd_pdd > price_hkd))
                     {
                         strWrning += string.Format("注意:{0} 單價HKD'{1}'小于HK PDD'{2}'報價!", tempCode, price_hkd, price_hkd_pdd)+"\n\r" ;
-                       //MessageBox.Show(string.Format("注意:單價HKD'{0}'已小于HK PDD'{1}'報價!", price_hkd, price_hkd_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                       rtn = true;
-                        //break;
+                        rtn = true;
                     }
                     if (price_rmb_pdd > 0 && (price_rmb_pdd > price_rmb))
                     {
                         strWrning += string.Format("注意:{0} 單價RMB'{1}'小于HK PDD'{2}'報價!", tempCode, price_rmb, price_rmb_pdd) + "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價RMB'{0}'已小于HK PDD'{1}'報價!", price_rmb, price_rmb_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         rtn = true;
-                        //break;
                     }
                     if (hkd_ex_fty_pdd > 0 && (hkd_ex_fty_pdd > hkd_ex_fty))
                     {
-                        strWrning += string.Format("注意:{0} 單價HKD-EX-FTY'{1}'小于HK PDD'{2}'報價!", tempCode, hkd_ex_fty, hkd_ex_fty_pdd) + "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價HKD-EX-FTY'{0}'已小于HK PDD'{1}'報價!", hkd_ex_fty, hkd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        strWrning += string.Format("注意:{0} 單價HKD-EX-FTY'{1}'小于HK PDD'{2}'報價!", tempCode, hkd_ex_fty, hkd_ex_fty_pdd) + "\n\r";                        
                         rtn = true;
-                        //break;
                     }
                     if (usd_ex_fty_pdd > 0 && (usd_ex_fty_pdd > usd_ex_fty))
                     {
-                        strWrning += string.Format("注意:{0} 單價USD-EX-FTY'{1}'小于HK PDD'{2}'報價!", tempCode, usd_ex_fty, usd_ex_fty_pdd) + "\n\r";
-                        //MessageBox.Show(string.Format("注意:單價USD-EX-FTY'{0}'已小于HK PDD'{1}'報價!", usd_ex_fty, usd_ex_fty_pdd), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        strWrning += string.Format("注意:{0} 單價USD-EX-FTY'{1}'小于HK PDD'{2}'報價!", tempCode, usd_ex_fty, usd_ex_fty_pdd) + "\n\r";                       
                         rtn = true;
-                       // break;
                     }
                 }
             }
@@ -1126,19 +1087,15 @@ namespace cf01.Forms
 
         private bool Valid_Doc() //主建是否已存在
         {
-            bool flag;
+            bool flag = false;
             string doc = txtID.Text.Trim();
-            string strSql = String.Format("Select '1' FROM dbo.quotation_mostly WHERE id='{0}' AND version='{1}'", txtID.Text.Trim(), txtVersion.Text.Trim());
+            string strSql = string.Format("Select '1' FROM dbo.quotation_mostly WHERE id='{0}' AND version='{1}'", txtID.Text.Trim(), txtVersion.Text.Trim());
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             if (dt.Rows.Count > 0)
             {
-                MessageBox.Show(myMsg.msgIsExists + String.Format("【{0}】", doc), myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(myMsg.msgIsExists + string.Format("【{0}】", doc), myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 flag = true;
-            }
-            else
-            {
-                flag = false;
-            }
+            }           
             dt.Dispose();
             return flag;
         }
@@ -1146,10 +1103,9 @@ namespace cf01.Forms
         private string Get_Details_Seq(string pID, string pVer) //取明細的序號
         {
             DataTable dtMaxseq = new DataTable();
-            dtMaxseq = clsPublicOfCF01.GetDataTable(String.Format("SELECT MAX(seq_id) as seq_id FROM dbo.quotation_details with(nolock) WHERE id ='{0}' and version='{1}'", pID, pVer));
-
+            dtMaxseq = clsPublicOfCF01.GetDataTable(string.Format("SELECT MAX(seq_id) as seq_id FROM dbo.quotation_details with(nolock) WHERE id ='{0}' and version='{1}'", pID, pVer));
             string strSeq;
-            if (String.IsNullOrEmpty(dtMaxseq.Rows[0]["seq_id"].ToString()))
+            if (string.IsNullOrEmpty(dtMaxseq.Rows[0]["seq_id"].ToString()))
             {
                 strSeq = "0001";
             }
@@ -1268,7 +1224,6 @@ namespace cf01.Forms
             }
         }
 
-
         /// <summary>
         /// 反回三位小數的浮點數
         /// </summary>
@@ -1325,34 +1280,34 @@ namespace cf01.Forms
             strCrtim1 = !string.IsNullOrEmpty(txtCrtim1.Text) ? DateTime.Parse(txtCrtim1.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
             strCrtim2 = !string.IsNullOrEmpty(txtCrtim2.Text) ? DateTime.Parse(txtCrtim2.EditValue.ToString()).Date.ToString("yyyy/MM/dd") : "";
             SqlParameter[] paras = new SqlParameter[] {
-                       new SqlParameter("@user_id",DBUtility._user_id),
-                       new SqlParameter("@sales_group",txtSales_group.Text),
-                       new SqlParameter("@brand",txtBrand.Text),
-                       new SqlParameter("@material",txtMaterial.Text),
-                       new SqlParameter("@cust_code",txtCust_code.Text),
-                       new SqlParameter("@cust_color",txtCust_color.Text),
-                       new SqlParameter("@cf_code",txtCf_code.Text),
-                       new SqlParameter("@cf_color",txtCf_color.Text),
-                       new SqlParameter("@season",txtSeason.Text),
-                       new SqlParameter("@temp_code",txtTemp_code.Text),
-                       new SqlParameter("@size",txtSize.Text),
-                       new SqlParameter("@dat1",strDat1),
-                       new SqlParameter("@dat2",strDat2),
-                       new SqlParameter("@mo_id",txtMo_id.Text),
-                       new SqlParameter("@sub_mo_id",txtSub.Text),
-                       new SqlParameter("@plm_code",txtPlm_Code.Text),
-                       new SqlParameter("@product_desc",txtProductDesc.Text),
-                       new SqlParameter("@remark",""),
-                       new SqlParameter("@other_remark",""),
-                       new SqlParameter("@remark_for_pdd",""),
-                       new SqlParameter("@reason_edit",""),
-                       new SqlParameter("@crtim_s",strCrtim1),
-                       new SqlParameter("@crtim_e",strCrtim2),
-                       new SqlParameter("@include_mat","1"),
-                       new SqlParameter("@include_brand","1"),
-                       new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
-                       new SqlParameter("@account_code",txtAccount_Code.Text),
-                       new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0"),
+                new SqlParameter("@user_id",DBUtility._user_id),
+                new SqlParameter("@sales_group",txtSales_group.Text),
+                new SqlParameter("@brand",txtBrand.Text),
+                new SqlParameter("@material",txtMaterial.Text),
+                new SqlParameter("@cust_code",txtCust_code.Text),
+                new SqlParameter("@cust_color",txtCust_color.Text),
+                new SqlParameter("@cf_code",txtCf_code.Text),
+                new SqlParameter("@cf_color",txtCf_color.Text),
+                new SqlParameter("@season",txtSeason.Text),
+                new SqlParameter("@temp_code",txtTemp_code.Text),
+                new SqlParameter("@size",txtSize.Text),
+                new SqlParameter("@dat1",strDat1),
+                new SqlParameter("@dat2",strDat2),
+                new SqlParameter("@mo_id",txtMo_id.Text),
+                new SqlParameter("@sub_mo_id",txtSub.Text),
+                new SqlParameter("@plm_code",txtPlm_Code.Text),
+                new SqlParameter("@product_desc",txtProductDesc.Text),
+                new SqlParameter("@remark",""),
+                new SqlParameter("@other_remark",""),
+                new SqlParameter("@remark_for_pdd",""),
+                new SqlParameter("@reason_edit",""),
+                new SqlParameter("@crtim_s",strCrtim1),
+                new SqlParameter("@crtim_e",strCrtim2),
+                new SqlParameter("@include_mat","1"),
+                new SqlParameter("@include_brand","1"),
+                new SqlParameter("@is_hiden_cancel_data",chkHidenCancel.Checked?"1":"0"),
+                new SqlParameter("@account_code",txtAccount_Code.Text),
+                new SqlParameter("@is_vnd",chkVnd.Checked?"1":"0"),
             };
 
             frmProgress wForm = new frmProgress();
@@ -1366,7 +1321,6 @@ namespace cf01.Forms
             dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
 
             //------------ 
             //導入前一次打勾的記錄
@@ -1391,18 +1345,14 @@ namespace cf01.Forms
                     }
                 }
             }
-
             DataView dv = dtFind.DefaultView;
             dv.Sort = "flag_select DESC";  //按Flag_select列 排序            
             dtFind = dv.ToTable();
             //------------
-
-
-            //dtFind.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));           
+                    
             dgvDetails.DataSource = dtFind;
-            dtPriceDisc.Clear(); 
+            dtPriceDisc.Clear();
             dgvPriceDisc.DataSource = dtPriceDisc;
-            //dgvDetails.Columns["season"].Frozen = true;
         }
 
         private void BTNADD_BATCH1_Click(object sender, EventArgs e)
@@ -1561,8 +1511,7 @@ namespace cf01.Forms
                 }
                 //--end 2024/11/27
 
-                /* old code cancel in 2024/11/27
-                //--start2024/06/04 add
+                /*//--start2024/06/04 add   old code cancel in 2024/11/27
                 string temp_code_disc = "";
                 for (int j = 0; j < dgvPriceDisc.RowCount; j++)
                 {
@@ -1587,105 +1536,8 @@ namespace cf01.Forms
                         break;//只更新選中的第一條
                     }
                 }
-                //--end 2024/06/04
-                */
-
-            }
-
-
-            //插入數據后順序錯亂的問題:1.將datagridview排序后轉成Datatble;2.直接引用將排序好的datagridview
-            //DataTable dtTempAdd = clsQuotation.GetSortDataTable(dgvDetails);//按用戶的排序先后順序插入表格,
-            //int cur_row = 0;
-            //for (int i = 0; i < dtTempAdd.Rows.Count; i++)
-            //{
-            //    if (dtTempAdd.Rows[i]["flag_select"].ToString() == "True")
-            //    {
-            //        gridView1.AddNewRow();//新增
-            //        cur_row = gridView1.FocusedRowHandle;
-            //        gridView1.SetRowCellValue(cur_row, "brand", dtTempAdd.Rows[i]["brand"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "division", dtTempAdd.Rows[i]["division"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "contact", dtTempAdd.Rows[i]["contact"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "material", dtTempAdd.Rows[i]["material"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "size", dtTempAdd.Rows[i]["size"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "product_desc", dtTempAdd.Rows[i]["product_desc"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "cust_code", dtTempAdd.Rows[i]["cust_code"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "cf_code", dtTempAdd.Rows[i]["cf_code"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "cust_color", dtTempAdd.Rows[i]["cust_color"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "cf_color", dtTempAdd.Rows[i]["cf_color"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "price_usd", dtTempAdd.Rows[i]["price_usd"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "price_hkd", dtTempAdd.Rows[i]["price_hkd"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "price_rmb", dtTempAdd.Rows[i]["price_rmb"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "moq", dtTempAdd.Rows[i]["moq"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "price_unit", dtTempAdd.Rows[i]["price_unit"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "remark", dtTempAdd.Rows[i]["remark"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "temp_code", dtTempAdd.Rows[i]["temp_code"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "ver", dtTempAdd.Rows[i]["ver"].ToString());
-
-            //        gridView1.SetRowCellValue(cur_row, "moq_desc", dtTempAdd.Rows[i]["moq_desc"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "moq_unit", dtTempAdd.Rows[i]["moq_unit"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "season", dtTempAdd.Rows[i]["season"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "salesman", dtTempAdd.Rows[i]["salesman"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "mwq", dtTempAdd.Rows[i]["mwq"]);
-            //        gridView1.SetRowCellValue(cur_row, "lead_time_min", dtTempAdd.Rows[i]["lead_time_min"]);
-            //        gridView1.SetRowCellValue(cur_row, "lead_time_max", dtTempAdd.Rows[i]["lead_time_max"]);
-            //        gridView1.SetRowCellValue(cur_row, "lead_time_unit", dtTempAdd.Rows[i]["lead_time_unit"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "md_charge", dtTempAdd.Rows[i]["md_charge"]);
-            //        gridView1.SetRowCellValue(cur_row, "md_charge_cny", dtTempAdd.Rows[i]["md_charge_cny"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "number_enter", dtTempAdd.Rows[i]["number_enter"]);
-            //        gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", dtTempAdd.Rows[i]["hkd_ex_fty"]);
-            //        gridView1.SetRowCellValue(cur_row, "usd_ex_fty", dtTempAdd.Rows[i]["usd_ex_fty"]);
-            //        gridView1.SetRowCellValue(cur_row, "sales_group", dtTempAdd.Rows[i]["sales_group"]);
-            //        gridView1.SetRowCellValue(cur_row, "moq_for_test", dtTempAdd.Rows[i]["moq_for_test"]);
-            //        gridView1.SetRowCellValue(cur_row, "usd_dap", dtTempAdd.Rows[i]["usd_dap"]);
-            //        gridView1.SetRowCellValue(cur_row, "usd_lab_test_prx", dtTempAdd.Rows[i]["usd_lab_test_prx"]);
-            //        gridView1.SetRowCellValue(cur_row, "ex_fty_hkd", dtTempAdd.Rows[i]["ex_fty_hkd"]);
-            //        gridView1.SetRowCellValue(cur_row, "ex_fty_usd", dtTempAdd.Rows[i]["ex_fty_usd"]);
-
-            //        gridView1.SetRowCellValue(cur_row, "discount", dtTempAdd.Rows[i]["discount"]);
-            //        gridView1.SetRowCellValue(cur_row, "disc_price_usd", dtTempAdd.Rows[i]["disc_price_usd"]);
-            //        gridView1.SetRowCellValue(cur_row, "disc_price_hkd", dtTempAdd.Rows[i]["disc_price_hkd"]);
-            //        gridView1.SetRowCellValue(cur_row, "disc_price_rmb", dtTempAdd.Rows[i]["disc_price_rmb"]);
-            //        gridView1.SetRowCellValue(cur_row, "disc_hkd_ex_fty", dtTempAdd.Rows[i]["disc_hkd_ex_fty"]);
-            //        gridView1.SetRowCellValue(cur_row, "die_mould_usd", dtTempAdd.Rows[i]["die_mould_usd"]);
-            //        gridView1.SetRowCellValue(cur_row, "die_mould_cny", dtTempAdd.Rows[i]["die_mould_cny"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "actual_price", dtTempAdd.Rows[i]["price_salesperson"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "rmb_remark", dtTempAdd.Rows[i]["rmb_remark"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "cust_artwork", dtTempAdd.Rows[i]["cust_artwork"].ToString());
-            //        //vnd 2023/02/13
-            //        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", dtTempAdd.Rows[i]["price_vnd_usd"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "price_vnd", dtTempAdd.Rows[i]["price_vnd"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", dtTempAdd.Rows[i]["price_vnd_grs"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", dtTempAdd.Rows[i]["price_vnd_pcs"].ToString());
-            //        //2023/03/01
-            //        gridView1.SetRowCellValue(cur_row, "cf_color_id", dtTempAdd.Rows[i]["cf_color_id"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "material_type", dtTempAdd.Rows[i]["material_type"].ToString());
-            //        gridView1.SetRowCellValue(cur_row, "product_type", dtTempAdd.Rows[i]["product_type"].ToString());
-
-            //        //--start2024/06/04 add
-            //        for (int j = 0; j < dgvPriceDisc.RowCount; j++)
-            //        {
-            //            if(dtPriceDisc.Rows[j]["FlagSelect"].ToString() == "True")
-            //            {
-            //                //折扣后的單價
-            //                gridView1.SetRowCellValue(cur_row, "number_enter", dtPriceDisc.Rows[j]["number_enter"]);
-            //                gridView1.SetRowCellValue(cur_row, "price_usd", dtPriceDisc.Rows[j]["price_usd"].ToString());
-            //                gridView1.SetRowCellValue(cur_row, "price_hkd", dtPriceDisc.Rows[j]["price_hkd"].ToString());
-            //                gridView1.SetRowCellValue(cur_row, "price_rmb", dtPriceDisc.Rows[j]["price_rmb"].ToString());
-            //                gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", dtPriceDisc.Rows[j]["hkd_ex_fty"]);
-            //                gridView1.SetRowCellValue(cur_row, "usd_ex_fty", dtPriceDisc.Rows[j]["usd_ex_fty"]);
-            //                gridView1.SetRowCellValue(cur_row, "price_unit", dtPriceDisc.Rows[j]["price_unit"].ToString());
-            //                gridView1.SetRowCellValue(cur_row, "vnd_bp", dtPriceDisc.Rows[j]["vnd_bp"]);                           
-            //                gridView1.SetRowCellValue(cur_row, "price_vnd_usd", dtPriceDisc.Rows[j]["price_vnd_usd"].ToString());
-            //                gridView1.SetRowCellValue(cur_row, "price_vnd", dtPriceDisc.Rows[j]["price_vnd"].ToString());
-            //                gridView1.SetRowCellValue(cur_row, "price_vnd_grs", dtPriceDisc.Rows[j]["price_vnd_grs"].ToString());
-            //                gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", dtPriceDisc.Rows[j]["price_vnd_pcs"].ToString());
-            //                break;//只更新選中的第一條
-            //            }               
-            //        }
-            //        //--end 2024/06/04
-            //    }
-            //}
-
+                //--end 2024/06/04 */
+            }            
             //將查詢表格中選中的記錄取消,避免重復插入
             for (int i = 0; i < dtFind.Rows.Count; i++)
             {
@@ -1712,7 +1564,6 @@ namespace cf01.Forms
                  e.RowBounds.Location.Y,
                  dgvDetails.RowHeadersWidth - 4,
                  e.RowBounds.Height);
-
             TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
                 dgvDetails.RowHeadersDefaultCellStyle.Font,
                 rectangle,
@@ -1761,7 +1612,6 @@ namespace cf01.Forms
 
         private void BTNSAVESET_Click(object sender, EventArgs e)
         {
-
             if (clsApp.set_find_Value(Name, panel1.Controls) > 0)
                 MessageBox.Show("當前查詢條件保存成功!", "提示信息");
             else
@@ -1781,7 +1631,7 @@ namespace cf01.Forms
                 Cancel();
                 tabControl1.SelectTab(1);
             }
-            StringBuilder sb = new StringBuilder(Get_Str_Find());
+            StringBuilder sb = new StringBuilder(GetStringFind());
             if (txtQuotation1.Text != "")
                 sb.Append(string.Format(" AND A.id>='{0}'", txtQuotation1.Text));
             if (txtQuotation2.Text != "")
@@ -1827,16 +1677,16 @@ namespace cf01.Forms
                 Cancel();
                 tabControl1.SelectTab(1);
             }
-            StringBuilder sb = new StringBuilder(Get_Str_Find());
+            StringBuilder sb = new StringBuilder(GetStringFind());
             sb.Append(string.Format(" and A.id='{0}' ORDER BY A.id,B.seq_id", txtID.Text));
             dtReport = clsPublicOfCF01.GetDataTable(sb.ToString());
             dgvFind.DataSource = dtReport;
         }
 
-        private string Get_Str_Find()
+        private string GetStringFind()
         {
             string strsql = string.Format(
-           @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
+            @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
             '' as terms,'' as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,A.contact as contact_h,A.tel,A.fax,A.email,
             A.isusd,A.ishkd,A.isrmb,A.isvn,A.position,A.address,B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,B.product_desc,B.cust_code,
             B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,B.remark,ISNULL(C.name,'') AS name_customer,
@@ -1850,10 +1700,8 @@ namespace cf01.Forms
                 LEFT JOIN {0}it_customer C with(nolock) ON C.within_code='0000' and A.customer_id=C.id COLLATE Chinese_Taiwan_Stroke_CI_AS
                 LEFT JOIN v_brand_customer SS ON ISNULL(B.brand,'')=SS.id COLLATE Chinese_Taiwan_Stroke_CI_AS
             WHERE 1>0 ", DBUtility.remote_db);
-
             return strsql;
         }
-
 
         private void txtQuotation1_Leave(object sender, EventArgs e)
         {
@@ -1918,7 +1766,6 @@ namespace cf01.Forms
                 {
                     return;
                 }
-
                 if (ofrmCopy.dr_copy.Length > 0)
                 {
                     int cur_row;
@@ -2015,10 +1862,8 @@ namespace cf01.Forms
                     ofrmCopy.dr_copy = null;
                     //奇怪焦點需設置跳轉到另一列的單元格才行，不然保存會少一行
                     Set_Cell_Focus(gridView1);
-
                 }
             }
-
         }
 
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
@@ -2086,12 +1931,8 @@ namespace cf01.Forms
 
         private void btnPrints_Click(object sender, EventArgs e)
         {
-            if (dgvFind.RowCount > 0)
-            {
-                // Print();
-            }
-            else
-            {
+            if (dgvFind.RowCount == 0)
+            {               
                 MessageBox.Show("請先查詢出要列印的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -2227,8 +2068,7 @@ namespace cf01.Forms
         {
             rpt.CreateDocument();
             rpt.PrintingSystem.ShowMarginsWarning = false;
-
-            if (flag_pdf == "")
+            if (flagPDF == "")
             {
                 rpt.ShowPreviewDialog();
             }
@@ -2248,7 +2088,7 @@ namespace cf01.Forms
                         File.Delete(FileName);
                     }
                     rpt.ExportToPdf(FileName);
-                    flag_pdf = "";
+                    flagPDF = "";
                     MessageBox.Show("匯出PDF成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }     
@@ -2267,7 +2107,7 @@ namespace cf01.Forms
             }
         }
 
-        private void ReSet_Datagrid_Value()
+        private void ReSetDatagridValue()
         {
             string strSql = string.Format(@"Select dbo.fn_getAddress('{0}') as address", txtAddress_id.EditValue);
             string strAddress = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
@@ -2275,17 +2115,17 @@ namespace cf01.Forms
             string strTerms = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
             string strName_brand = "";
             bool flag_update;
-            for (int i = 0; i < dtQuotation_details.Rows.Count; i++)
+            for (int i = 0; i < dtDetails.Rows.Count; i++)
             {
                 strSql = string.Format("Select SS.name AS name_brand FROM (select id,name from {0}cd_brand with(nolock) Union all select id,name from {0}it_customer with(nolock)) SS Where SS.id='{1}'",
-                            DBUtility.remote_db, dtQuotation_details.Rows[i]["brand"]);
+                            DBUtility.remote_db, dtDetails.Rows[i]["brand"]);
                 strName_brand = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
                 flag_update = false;
                 //更新舊值
                 for (int ii = 0; ii < dgvFind.RowCount; ii++)
                 {
                     if (dtReport.Rows[ii]["id_h"].ToString() == txtID.Text && dtReport.Rows[ii]["version"].ToString() == txtVersion.Text &&
-                        dtReport.Rows[ii]["seq_id"].ToString() == dtQuotation_details.Rows[i]["seq_id"].ToString())
+                        dtReport.Rows[ii]["seq_id"].ToString() == dtDetails.Rows[i]["seq_id"].ToString())
                     {
                         dtReport.Rows[ii]["quota_date_h"] = txtDate.Text;
                         dtReport.Rows[ii]["customer_id"] = txtCustomer_id.EditValue;
@@ -2301,68 +2141,59 @@ namespace cf01.Forms
                         dtReport.Rows[ii]["tel"] = txtTel.Text;
                         dtReport.Rows[ii]["fax"] = txtFax.Text;
                         dtReport.Rows[ii]["email"] = txtEmail.Text;
-                        if (chkUsd.Checked)
-                            dtReport.Rows[ii]["isusd"] = true;
-                        else
-                            dtReport.Rows[ii]["isusd"] = false;
-                        if (chkHkd.Checked)
-                            dtReport.Rows[ii]["ishkd"] = true;
-                        else
-                            dtReport.Rows[ii]["ishkd"] = false;
-                        if (chkRmb.Checked)
-                            dtReport.Rows[ii]["isrmb"] = true;
-                        else
-                            dtReport.Rows[ii]["isrmb"] = false;
-                        dtReport.Rows[ii]["seq_id"] = dtQuotation_details.Rows[i]["seq_id"].ToString();
-                        dtReport.Rows[ii]["brand"] = dtQuotation_details.Rows[i]["brand"].ToString();
-                        dtReport.Rows[ii]["division"] = dtQuotation_details.Rows[i]["division"].ToString();
-                        dtReport.Rows[ii]["contact"] = dtQuotation_details.Rows[i]["contact"].ToString();
-                        dtReport.Rows[ii]["material"] = dtQuotation_details.Rows[i]["material"].ToString();
-                        dtReport.Rows[ii]["size"] = dtQuotation_details.Rows[i]["size"].ToString();
-                        dtReport.Rows[ii]["product_desc"] = dtQuotation_details.Rows[i]["product_desc"].ToString();
-                        dtReport.Rows[ii]["cust_code"] = dtQuotation_details.Rows[i]["cust_code"].ToString();
-                        dtReport.Rows[ii]["cf_code"] = dtQuotation_details.Rows[i]["cf_code"].ToString();
-                        dtReport.Rows[ii]["cust_color"] = dtQuotation_details.Rows[i]["cust_color"].ToString();
-                        dtReport.Rows[ii]["cf_color"] = dtQuotation_details.Rows[i]["cf_color"].ToString();
-                        dtReport.Rows[ii]["price_usd"] = dtQuotation_details.Rows[i]["price_usd"];
-                        dtReport.Rows[ii]["price_hkd"] = dtQuotation_details.Rows[i]["price_hkd"];
-                        dtReport.Rows[ii]["price_rmb"] = dtQuotation_details.Rows[i]["price_rmb"];
-                        dtReport.Rows[ii]["price_vnd"] = dtQuotation_details.Rows[i]["price_vnd"];
-                        dtReport.Rows[ii]["moq"] = dtQuotation_details.Rows[i]["moq"];
-                        dtReport.Rows[ii]["price_unit"] = dtQuotation_details.Rows[i]["price_unit"].ToString();
+                        dtReport.Rows[ii]["isusd"] = (chkUsd.Checked) ? true : false;
+                        dtReport.Rows[ii]["ishkd"] = (chkHkd.Checked) ? true : false;
+                        dtReport.Rows[ii]["isrmb"] = (chkRmb.Checked) ? true : false;                         
+                        dtReport.Rows[ii]["seq_id"] = dtDetails.Rows[i]["seq_id"].ToString();
+                        dtReport.Rows[ii]["brand"] = dtDetails.Rows[i]["brand"].ToString();
+                        dtReport.Rows[ii]["division"] = dtDetails.Rows[i]["division"].ToString();
+                        dtReport.Rows[ii]["contact"] = dtDetails.Rows[i]["contact"].ToString();
+                        dtReport.Rows[ii]["material"] = dtDetails.Rows[i]["material"].ToString();
+                        dtReport.Rows[ii]["size"] = dtDetails.Rows[i]["size"].ToString();
+                        dtReport.Rows[ii]["product_desc"] = dtDetails.Rows[i]["product_desc"].ToString();
+                        dtReport.Rows[ii]["cust_code"] = dtDetails.Rows[i]["cust_code"].ToString();
+                        dtReport.Rows[ii]["cf_code"] = dtDetails.Rows[i]["cf_code"].ToString();
+                        dtReport.Rows[ii]["cust_color"] = dtDetails.Rows[i]["cust_color"].ToString();
+                        dtReport.Rows[ii]["cf_color"] = dtDetails.Rows[i]["cf_color"].ToString();
+                        dtReport.Rows[ii]["price_usd"] = dtDetails.Rows[i]["price_usd"];
+                        dtReport.Rows[ii]["price_hkd"] = dtDetails.Rows[i]["price_hkd"];
+                        dtReport.Rows[ii]["price_rmb"] = dtDetails.Rows[i]["price_rmb"];
+                        dtReport.Rows[ii]["price_vnd"] = dtDetails.Rows[i]["price_vnd"];
+                        dtReport.Rows[ii]["moq"] = dtDetails.Rows[i]["moq"];
+                        dtReport.Rows[ii]["price_unit"] = dtDetails.Rows[i]["price_unit"].ToString();
                         dtReport.Rows[ii]["remark_h"] = txtRemark.Text;
                         dtReport.Rows[ii]["name_brand"] = strName_brand;
 
-                        dtReport.Rows[ii]["moq_unit"] = dtQuotation_details.Rows[i]["moq_unit"].ToString();
-                        dtReport.Rows[ii]["season"] = dtQuotation_details.Rows[i]["season"].ToString();
-                        dtReport.Rows[ii]["salesman"] = dtQuotation_details.Rows[i]["salesman"].ToString();
-                        dtReport.Rows[ii]["mwq"] = dtQuotation_details.Rows[i]["mwq"];
-                        dtReport.Rows[ii]["lead_time_min"] = dtQuotation_details.Rows[i]["lead_time_min"];
-                        dtReport.Rows[ii]["lead_time_max"] = dtQuotation_details.Rows[i]["lead_time_max"];
-                        dtReport.Rows[ii]["lead_time_unit"] = dtQuotation_details.Rows[i]["lead_time_unit"].ToString();
-                        dtReport.Rows[ii]["md_charge"] = dtQuotation_details.Rows[i]["md_charge"];
-                        dtReport.Rows[ii]["md_charge_cny"] = dtQuotation_details.Rows[i]["md_charge_cny"].ToString();
-                        dtReport.Rows[ii]["moq_for_test"] = dtQuotation_details.Rows[i]["moq_for_test"];
-                        dtReport.Rows[ii]["number_enter"] = dtQuotation_details.Rows[i]["number_enter"];
-                        dtReport.Rows[ii]["hkd_ex_fty"] = dtQuotation_details.Rows[i]["hkd_ex_fty"];
-                        dtReport.Rows[ii]["usd_ex_fty"] = dtQuotation_details.Rows[i]["usd_ex_fty"];
-                        dtReport.Rows[ii]["sales_group"] = dtQuotation_details.Rows[i]["sales_group"];
+                        dtReport.Rows[ii]["moq_unit"] = dtDetails.Rows[i]["moq_unit"].ToString();
+                        dtReport.Rows[ii]["season"] = dtDetails.Rows[i]["season"].ToString();
+                        dtReport.Rows[ii]["salesman"] = dtDetails.Rows[i]["salesman"].ToString();
+                        dtReport.Rows[ii]["mwq"] = dtDetails.Rows[i]["mwq"];
+                        dtReport.Rows[ii]["lead_time_min"] = dtDetails.Rows[i]["lead_time_min"];
+                        dtReport.Rows[ii]["lead_time_max"] = dtDetails.Rows[i]["lead_time_max"];
+                        dtReport.Rows[ii]["lead_time_unit"] = dtDetails.Rows[i]["lead_time_unit"].ToString();
+                        dtReport.Rows[ii]["md_charge"] = dtDetails.Rows[i]["md_charge"];
+                        dtReport.Rows[ii]["md_charge_cny"] = dtDetails.Rows[i]["md_charge_cny"].ToString();
+                        dtReport.Rows[ii]["moq_for_test"] = dtDetails.Rows[i]["moq_for_test"];
+                        dtReport.Rows[ii]["number_enter"] = dtDetails.Rows[i]["number_enter"];
+                        dtReport.Rows[ii]["hkd_ex_fty"] = dtDetails.Rows[i]["hkd_ex_fty"];
+                        dtReport.Rows[ii]["usd_ex_fty"] = dtDetails.Rows[i]["usd_ex_fty"];
+                        dtReport.Rows[ii]["sales_group"] = dtDetails.Rows[i]["sales_group"];
 
-                        dtReport.Rows[ii]["usd_dap"] = dtQuotation_details.Rows[i]["usd_dap"];
-                        dtReport.Rows[ii]["usd_lab_test_prx"] = dtQuotation_details.Rows[i]["usd_lab_test_prx"];
-                        dtReport.Rows[ii]["ex_fty_hkd"] = dtQuotation_details.Rows[i]["ex_fty_hkd"];
-                        dtReport.Rows[ii]["ex_fty_usd"] = dtQuotation_details.Rows[i]["ex_fty_usd"];
+                        dtReport.Rows[ii]["usd_dap"] = dtDetails.Rows[i]["usd_dap"];
+                        dtReport.Rows[ii]["usd_lab_test_prx"] = dtDetails.Rows[i]["usd_lab_test_prx"];
+                        dtReport.Rows[ii]["ex_fty_hkd"] = dtDetails.Rows[i]["ex_fty_hkd"];
+                        dtReport.Rows[ii]["ex_fty_usd"] = dtDetails.Rows[i]["ex_fty_usd"];
 
-                        dtReport.Rows[ii]["discount"] = dtQuotation_details.Rows[i]["discount"];
-                        dtReport.Rows[ii]["disc_price_usd"] = dtQuotation_details.Rows[i]["disc_price_usd"];
-                        dtReport.Rows[ii]["disc_price_hkd"] = dtQuotation_details.Rows[i]["disc_price_hkd"];
-                        dtReport.Rows[ii]["disc_price_rmb"] = dtQuotation_details.Rows[i]["disc_price_rmb"];
-                        dtReport.Rows[ii]["disc_price_vnd"] = dtQuotation_details.Rows[i]["disc_price_vnd"];
-                        dtReport.Rows[ii]["disc_hkd_ex_fty"] = dtQuotation_details.Rows[i]["disc_hkd_ex_fty"];
-                        dtReport.Rows[ii]["actual_price"] = dtQuotation_details.Rows[i]["actual_price"];
-                        dtReport.Rows[ii]["actual_price_type"] = dtQuotation_details.Rows[i]["actual_price_type"].ToString();
-                        dtReport.Rows[ii]["die_mould_usd"] = dtQuotation_details.Rows[i]["die_mould_usd"];
-                        dtReport.Rows[ii]["die_mould_cny"] = dtQuotation_details.Rows[i]["die_mould_cny"].ToString();
+                        dtReport.Rows[ii]["discount"] = dtDetails.Rows[i]["discount"];
+                        dtReport.Rows[ii]["disc_price_usd"] = dtDetails.Rows[i]["disc_price_usd"];
+                        dtReport.Rows[ii]["disc_price_hkd"] = dtDetails.Rows[i]["disc_price_hkd"];
+                        dtReport.Rows[ii]["disc_price_rmb"] = dtDetails.Rows[i]["disc_price_rmb"];
+                        dtReport.Rows[ii]["disc_price_vnd"] = dtDetails.Rows[i]["disc_price_vnd"];
+                        dtReport.Rows[ii]["disc_hkd_ex_fty"] = dtDetails.Rows[i]["disc_hkd_ex_fty"];
+                        dtReport.Rows[ii]["actual_price"] = dtDetails.Rows[i]["actual_price"];
+                        dtReport.Rows[ii]["actual_price_type"] = dtDetails.Rows[i]["actual_price_type"].ToString();
+                        dtReport.Rows[ii]["die_mould_usd"] = dtDetails.Rows[i]["die_mould_usd"];
+                        dtReport.Rows[ii]["die_mould_cny"] = dtDetails.Rows[i]["die_mould_cny"].ToString();
                         flag_update = true;
                     }
                 }
@@ -2373,7 +2204,7 @@ namespace cf01.Forms
                     DataRow dr = dtReport.NewRow();
                     dr["id_h"] = txtID.Text;
                     dr["version"] = txtVersion.Text;
-                    dr["seq_id"] = dtQuotation_details.Rows[i]["seq_id"].ToString();
+                    dr["seq_id"] = dtDetails.Rows[i]["seq_id"].ToString();
                     dr["quota_date_h"] = txtDate.Text;
                     dr["customer_id"] = txtCustomer_id.EditValue;
                     dr["name_customer"] = txtCust_desc.Text;
@@ -2387,68 +2218,59 @@ namespace cf01.Forms
                     dr["tel"] = txtTel.Text;
                     dr["fax"] = txtFax.Text;
                     dr["email"] = txtEmail.Text;
-                    if (chkUsd.Checked)
-                        dr["isusd"] = true;
-                    else
-                        dr["isusd"] = false;
-                    if (chkHkd.Checked)
-                        dr["ishkd"] = true;
-                    else
-                        dr["ishkd"] = false;
-                    if (chkRmb.Checked)
-                        dr["isrmb"] = true;
-                    else
-                        dr["isrmb"] = false;
-                    dr["seq_id"] = dtQuotation_details.Rows[i]["seq_id"].ToString();
-                    dr["brand"] = dtQuotation_details.Rows[i]["brand"].ToString();
-                    dr["division"] = dtQuotation_details.Rows[i]["division"].ToString();
-                    dr["contact"] = dtQuotation_details.Rows[i]["contact"].ToString();
-                    dr["material"] = dtQuotation_details.Rows[i]["material"].ToString();
-                    dr["size"] = dtQuotation_details.Rows[i]["size"].ToString();
-                    dr["product_desc"] = dtQuotation_details.Rows[i]["product_desc"].ToString();
-                    dr["cust_code"] = dtQuotation_details.Rows[i]["cust_code"].ToString();
-                    dr["cf_code"] = dtQuotation_details.Rows[i]["cf_code"].ToString();
-                    dr["cust_color"] = dtQuotation_details.Rows[i]["cust_color"].ToString();
-                    dr["cf_color"] = dtQuotation_details.Rows[i]["cf_color"].ToString();
-                    dr["price_usd"] = dtQuotation_details.Rows[i]["price_usd"];
-                    dr["price_hkd"] = dtQuotation_details.Rows[i]["price_hkd"];
-                    dr["price_rmb"] = dtQuotation_details.Rows[i]["price_rmb"];
-                    dr["price_vnd"] = dtQuotation_details.Rows[i]["price_vnd"];
-                    dr["moq"] = dtQuotation_details.Rows[i]["moq"];
-                    dr["price_unit"] = dtQuotation_details.Rows[i]["price_unit"].ToString();
+                    dr["isusd"] = (chkUsd.Checked) ? true : false;
+                    dr["ishkd"] = (chkHkd.Checked) ? true : false;
+                    dr["isrmb"] = (chkRmb.Checked) ? true : false;
+                    dr["seq_id"] = dtDetails.Rows[i]["seq_id"].ToString();
+                    dr["brand"] = dtDetails.Rows[i]["brand"].ToString();
+                    dr["division"] = dtDetails.Rows[i]["division"].ToString();
+                    dr["contact"] = dtDetails.Rows[i]["contact"].ToString();
+                    dr["material"] = dtDetails.Rows[i]["material"].ToString();
+                    dr["size"] = dtDetails.Rows[i]["size"].ToString();
+                    dr["product_desc"] = dtDetails.Rows[i]["product_desc"].ToString();
+                    dr["cust_code"] = dtDetails.Rows[i]["cust_code"].ToString();
+                    dr["cf_code"] = dtDetails.Rows[i]["cf_code"].ToString();
+                    dr["cust_color"] = dtDetails.Rows[i]["cust_color"].ToString();
+                    dr["cf_color"] = dtDetails.Rows[i]["cf_color"].ToString();
+                    dr["price_usd"] = dtDetails.Rows[i]["price_usd"];
+                    dr["price_hkd"] = dtDetails.Rows[i]["price_hkd"];
+                    dr["price_rmb"] = dtDetails.Rows[i]["price_rmb"];
+                    dr["price_vnd"] = dtDetails.Rows[i]["price_vnd"];
+                    dr["moq"] = dtDetails.Rows[i]["moq"];
+                    dr["price_unit"] = dtDetails.Rows[i]["price_unit"].ToString();
                     dr["remark_h"] = txtRemark.Text;
                     dr["name_brand"] = strName_brand;
 
-                    dr["moq_unit"] = dtQuotation_details.Rows[i]["moq_unit"].ToString();
-                    dr["season"] = dtQuotation_details.Rows[i]["season"].ToString();
-                    dr["salesman"] = dtQuotation_details.Rows[i]["salesman"].ToString();
-                    dr["mwq"] = dtQuotation_details.Rows[i]["mwq"];
-                    dr["lead_time_min"] = dtQuotation_details.Rows[i]["lead_time_min"];
-                    dr["lead_time_max"] = dtQuotation_details.Rows[i]["lead_time_max"];
-                    dr["lead_time_unit"] = dtQuotation_details.Rows[i]["lead_time_unit"].ToString();
-                    dr["md_charge"] = dtQuotation_details.Rows[i]["md_charge"];
-                    dr["md_charge_cny"] = dtQuotation_details.Rows[i]["md_charge_cny"].ToString();
-                    dr["moq_for_test"] = dtQuotation_details.Rows[i]["moq_for_test"];
-                    dr["number_enter"] = dtQuotation_details.Rows[i]["number_enter"];
-                    dr["hkd_ex_fty"] = dtQuotation_details.Rows[i]["hkd_ex_fty"];
-                    dr["usd_ex_fty"] = dtQuotation_details.Rows[i]["usd_ex_fty"];
-                    dr["sales_group"] = dtQuotation_details.Rows[i]["sales_group"].ToString();
+                    dr["moq_unit"] = dtDetails.Rows[i]["moq_unit"].ToString();
+                    dr["season"] = dtDetails.Rows[i]["season"].ToString();
+                    dr["salesman"] = dtDetails.Rows[i]["salesman"].ToString();
+                    dr["mwq"] = dtDetails.Rows[i]["mwq"];
+                    dr["lead_time_min"] = dtDetails.Rows[i]["lead_time_min"];
+                    dr["lead_time_max"] = dtDetails.Rows[i]["lead_time_max"];
+                    dr["lead_time_unit"] = dtDetails.Rows[i]["lead_time_unit"].ToString();
+                    dr["md_charge"] = dtDetails.Rows[i]["md_charge"];
+                    dr["md_charge_cny"] = dtDetails.Rows[i]["md_charge_cny"].ToString();
+                    dr["moq_for_test"] = dtDetails.Rows[i]["moq_for_test"];
+                    dr["number_enter"] = dtDetails.Rows[i]["number_enter"];
+                    dr["hkd_ex_fty"] = dtDetails.Rows[i]["hkd_ex_fty"];
+                    dr["usd_ex_fty"] = dtDetails.Rows[i]["usd_ex_fty"];
+                    dr["sales_group"] = dtDetails.Rows[i]["sales_group"].ToString();
 
-                    dr["usd_dap"] = dtQuotation_details.Rows[i]["usd_dap"];
-                    dr["usd_lab_test_prx"] = dtQuotation_details.Rows[i]["usd_lab_test_prx"];
-                    dr["ex_fty_hkd"] = dtQuotation_details.Rows[i]["ex_fty_hkd"];
-                    dr["ex_fty_usd"] = dtQuotation_details.Rows[i]["ex_fty_usd"];
+                    dr["usd_dap"] = dtDetails.Rows[i]["usd_dap"];
+                    dr["usd_lab_test_prx"] = dtDetails.Rows[i]["usd_lab_test_prx"];
+                    dr["ex_fty_hkd"] = dtDetails.Rows[i]["ex_fty_hkd"];
+                    dr["ex_fty_usd"] = dtDetails.Rows[i]["ex_fty_usd"];
 
-                    dr["discount"] = dtQuotation_details.Rows[i]["discount"];
-                    dr["disc_price_usd"] = dtQuotation_details.Rows[i]["disc_price_usd"];
-                    dr["disc_price_hkd"] = dtQuotation_details.Rows[i]["disc_price_hkd"];
-                    dr["disc_price_rmb"] = dtQuotation_details.Rows[i]["disc_price_rmb"];
-                    dr["disc_price_vnd"] = dtQuotation_details.Rows[i]["disc_price_vnd"];
-                    dr["disc_hkd_ex_fty"] = dtQuotation_details.Rows[i]["disc_hkd_ex_fty"];
-                    dr["actual_price"] = dtQuotation_details.Rows[i]["actual_price"];
-                    dr["actual_price_type"] = dtQuotation_details.Rows[i]["actual_price_type"].ToString();
-                    dr["die_mould_usd"] = dtQuotation_details.Rows[i]["die_mould_usd"];
-                    dr["die_mould_cny"] = dtQuotation_details.Rows[i]["die_mould_cny"].ToString();
+                    dr["discount"] = dtDetails.Rows[i]["discount"];
+                    dr["disc_price_usd"] = dtDetails.Rows[i]["disc_price_usd"];
+                    dr["disc_price_hkd"] = dtDetails.Rows[i]["disc_price_hkd"];
+                    dr["disc_price_rmb"] = dtDetails.Rows[i]["disc_price_rmb"];
+                    dr["disc_price_vnd"] = dtDetails.Rows[i]["disc_price_vnd"];
+                    dr["disc_hkd_ex_fty"] = dtDetails.Rows[i]["disc_hkd_ex_fty"];
+                    dr["actual_price"] = dtDetails.Rows[i]["actual_price"];
+                    dr["actual_price_type"] = dtDetails.Rows[i]["actual_price_type"].ToString();
+                    dr["die_mould_usd"] = dtDetails.Rows[i]["die_mould_usd"];
+                    dr["die_mould_cny"] = dtDetails.Rows[i]["die_mould_cny"].ToString();
                     dtReport.Rows.Add(dr);
                 }
             }
@@ -2515,10 +2337,8 @@ namespace cf01.Forms
                         new SqlParameter("@new_version",strNew_version),
                         new SqlParameter("@user_id",DBUtility._user_id),
                     };
-
-                    string strSql, strResult;
-                    strSql = string.Format(@"Select '1' From dbo.quotation_mostly with(nolock) Where id='{0}' and version='{1}'", txtID.Text, strNew_version);
-                    strResult = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
+                    string strSql = string.Format(@"Select '1' From dbo.quotation_mostly with(nolock) Where id='{0}' and version='{1}'", txtID.Text, strNew_version);
+                    string strResult = clsPublicOfCF01.ExecuteSqlReturnObject(strSql);
                     if (strResult != "")
                     {
                         MessageBox.Show("另一用戶已對此報價單做了新版本，請返回查詢!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -2705,7 +2525,7 @@ namespace cf01.Forms
 
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
-                    gridView1.SetRowCellValue(i, "actual_price", dtQuotation_details.Rows[i][field_name]);
+                    gridView1.SetRowCellValue(i, "actual_price", dtDetails.Rows[i][field_name]);
                     gridView1.SetRowCellValue(i, "actual_price_type", strSelect);
                 }
             }
@@ -2719,7 +2539,7 @@ namespace cf01.Forms
             */
             /*dbo.fn_getAddress(A.address_id) as address改為 'QUOTATION' AS address*/
             string strsql = string.Format(
-          @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
+            @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
             dbo.fn_getTermRemark(A.term_id,A.quota_date,'0') as terms,dbo.fn_getTermRemark(A.term_id,A.quota_date,'1') as terms_other,
             'QUOTATION' as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,
             A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,A.position,A.address as address1, B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
@@ -2788,15 +2608,15 @@ namespace cf01.Forms
         {
              clsApp = null;
              clsConErp = null;
-             dtQuotation_mostly = null;
-             dtQuotation_details = null;
+             dtMostly = null;
+             dtDetails = null;
              dtTempDel = null;
              dtTerm1 = null;
              dtAddress1 = null;
              dtFind = null;
-             dtReport = null;
-             //dsCopy = null ;
+             dtReport = null;            
              mList = null;
+             mdlList = null;
         }
 
         public DataGridViewTextBoxEditingControl CellEdit = null;
@@ -2963,9 +2783,7 @@ namespace cf01.Forms
                     gridView1.SetRowCellValue(curRow, "cust_artwork", strFile);
                 }
             }
-        }
-
-       
+        }       
 
         private void BTNEXCEL_TOMMY_Click(object sender, EventArgs e)
         {
@@ -3585,7 +3403,7 @@ namespace cf01.Forms
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvDetails.CurrentRow==null || dgvDetails.Rows.Count==0)
+            if(dgvDetails.CurrentRow == null || dgvDetails.Rows.Count==0)
             {
                 return;
             }
@@ -3617,7 +3435,7 @@ namespace cf01.Forms
 
         private void dgvPriceDisc_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            clsQuotation.SetGridViewHighLight(dgvPriceDisc, e);
+            //clsQuotation.SetGridViewHighLight(dgvPriceDisc, e);
         }
 
         private void dgvPriceDisc_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
@@ -3716,9 +3534,8 @@ namespace cf01.Forms
 
         private void BTNTOPDF_Click(object sender, EventArgs e)
         {
-            flag_pdf = "PDF";
+            flagPDF = "PDF";
             ReportPrint();
-            
         }
 
         private void dgvDetails_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
