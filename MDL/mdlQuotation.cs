@@ -145,4 +145,43 @@ namespace cf01.MDL
         public int flag_ck;
         public string excel_type;
     }
+
+    public class mdlDiscountPrice
+    {
+        public string temp_code;
+        public string seq_id;
+        public float number_enter;
+        public float price_usd;
+        public float price_hkd;
+        public float price_rmb;
+        public float hkd_ex_fty;
+        public float usd_ex_fty;
+        public string price_unit;
+        public float vnd_bp;
+        public float price_vnd_usd;
+        public float price_vnd;
+        public float price_vnd_grs;
+        public float price_vnd_pcs;
+        public float moq_qty;
+        public string moq_unit;
+        public string valid_date;
+        public string remark;
+    }
+
+    /*
+     gridView1.SetRowCellValue(cur_row, "", dtPriceDisc.Rows[j]["number_enter"]);
+    gridView1.SetRowCellValue(cur_row, "price_usd", dtPriceDisc.Rows[j]["price_usd"].ToString());
+    gridView1.SetRowCellValue(cur_row, "price_hkd", dtPriceDisc.Rows[j]["price_hkd"].ToString());
+    gridView1.SetRowCellValue(cur_row, "price_rmb", dtPriceDisc.Rows[j]["price_rmb"].ToString());
+    gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", dtPriceDisc.Rows[j]["hkd_ex_fty"]);
+    gridView1.SetRowCellValue(cur_row, "usd_ex_fty", dtPriceDisc.Rows[j]["usd_ex_fty"]);
+    gridView1.SetRowCellValue(cur_row, "price_unit", dtPriceDisc.Rows[j][""].ToString());
+    gridView1.SetRowCellValue(cur_row, "vnd_bp", dtPriceDisc.Rows[j][""]);
+    gridView1.SetRowCellValue(cur_row, "price_vnd_usd", dtPriceDisc.Rows[j][""].ToString());
+    gridView1.SetRowCellValue(cur_row, "price_vnd", dtPriceDisc.Rows[j][""].ToString());
+    gridView1.SetRowCellValue(cur_row, "price_vnd_grs", dtPriceDisc.Rows[j][""].ToString());
+    gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", dtPriceDisc.Rows[j][""].ToString());
+    gridView1.SetRowCellValue(cur_row, "moq", dtPriceDisc.Rows[j][""].ToString());
+    gridView1.SetRowCellValue(cur_row, "", "PCS");
+    */
 }

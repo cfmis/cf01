@@ -55,7 +55,7 @@ namespace cf01.Forms
         DataTable dtPriceDisc = new DataTable();
         //public static DataSet dsCopy = new DataSet();
         public List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
-
+        List<mdlDiscountPrice> mdlList = new List<mdlDiscountPrice>();
         [DllImport("user32.dll")]
         public static extern int MessageBoxTimeout(IntPtr hWnd, string msg, string Caps, int type, int Id, int time);
 
@@ -1300,6 +1300,7 @@ namespace cf01.Forms
 
         private void BTNFIND3_Click(object sender, EventArgs e)
         {
+            mdlList.Clear();//每次重新查找時清除優惠單臨時數據集中的數據
             DataRow[] drs = null;
             if (dgvDetails.RowCount > 0)
             {
@@ -1420,14 +1421,12 @@ namespace cf01.Forms
             {
                 select_flag = true;
             }
-                       
             if (!select_flag)
             {
                 MessageBox.Show("請選擇要添加的記錄!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            bool flag_vn = true;            
-           
+            bool flag_vn = true;           
             if (chkIsvn.Checked)
             {
                 //越南報價單只可以添加越南報價單大于零的記錄
@@ -1531,6 +1530,36 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(cur_row, "material_type", aryRows[i]["material_type"].ToString());
                 gridView1.SetRowCellValue(cur_row, "product_type", aryRows[i]["product_type"].ToString());
 
+                //start 2024/11/27 更改為一次可添加多筆優惠價
+                if(mdlList.Count==0)
+                {
+                    return;
+                }
+                foreach (mdlDiscountPrice item in mdlList)
+                {
+                    if (item.temp_code == temp_code)
+                    {
+                        //有勾選優惠價,則以優惠價替未優惠價的值
+                        gridView1.SetRowCellValue(cur_row, "number_enter", item.number_enter);
+                        gridView1.SetRowCellValue(cur_row, "price_usd", item.price_usd);
+                        gridView1.SetRowCellValue(cur_row, "price_hkd", item.price_hkd);
+                        gridView1.SetRowCellValue(cur_row, "price_rmb", item.price_rmb);
+                        gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", item.hkd_ex_fty);
+                        gridView1.SetRowCellValue(cur_row, "usd_ex_fty", item.usd_ex_fty);
+                        gridView1.SetRowCellValue(cur_row, "price_unit", item.price_unit);
+                        gridView1.SetRowCellValue(cur_row, "vnd_bp",item.vnd_bp);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", item.price_vnd_usd);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd", item.price_vnd);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd_grs",item.price_vnd_grs);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", item.price_vnd_pcs);
+                        gridView1.SetRowCellValue(cur_row, "moq", item.moq_qty);
+                        gridView1.SetRowCellValue(cur_row, "moq_unit",item.moq_unit);
+                        break;
+                    }
+                }
+                //--end 2024/11/27
+
+                /* old code cancel in 2024/11/27
                 //--start2024/06/04 add
                 string temp_code_disc = "";
                 for (int j = 0; j < dgvPriceDisc.RowCount; j++)
@@ -1557,10 +1586,11 @@ namespace cf01.Forms
                     }
                 }
                 //--end 2024/06/04
+                */
 
-            }           
+            }
 
-            
+
             //插入數據后順序錯亂的問題:1.將datagridview排序后轉成Datatble;2.直接引用將排序好的datagridview
             //DataTable dtTempAdd = clsQuotation.GetSortDataTable(dgvDetails);//按用戶的排序先后順序插入表格,
             //int cur_row = 0;
@@ -1653,7 +1683,7 @@ namespace cf01.Forms
             //        //--end 2024/06/04
             //    }
             //}
-            
+
             //將查詢表格中選中的記錄取消,避免重復插入
             for (int i = 0; i < dtFind.Rows.Count; i++)
             {
@@ -1669,7 +1699,7 @@ namespace cf01.Forms
                     dtPriceDisc.Rows[i]["FlagSelect"] = false;
                 }
             }
-            
+            mdlList.Clear();
             tabControl1.SelectTab(0);
         }
 
@@ -3530,9 +3560,9 @@ namespace cf01.Forms
                 string ls_cust_color = dtFind.Rows[li_currentRow]["cust_color"].ToString();
                 ls_cust_color = ls_cust_color.Replace("'", " ");//處理條件中因包含單引號'引起異常情況,等式兩邊都要處理.2024/07/17
                 string ls_sql = string.Format(
-                    @"Select Top 1 Isnull(test_report_path,'') as test_report_path 
+                @"Select Top 1 Isnull(test_report_path,'') as test_report_path 
                 From dbo.bs_test_excel with(nolock) 
-                Where trim_code='{0}' and REPLACE(ISNULL(finish_name,''),'''',' ')='{1}'", ls_cust_code, ls_cust_color);
+                Where trim_code='{0}' And REPLACE(ISNULL(finish_name,''),'''',' ')='{1}'", ls_cust_code, ls_cust_color);
                 lblTestReportPath.Text = clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql);
             }
         }
@@ -3560,6 +3590,27 @@ namespace cf01.Forms
             string temp_code = dgvDetails.CurrentRow.Cells["temp_code1"].Value.ToString();
             dtPriceDisc = clsQuotation.GetPriceDiscount(temp_code);
             dgvPriceDisc.DataSource = dtPriceDisc;
+
+            //重新勾選之前添加對應的行
+            if(dtPriceDisc.Rows.Count==0)
+            {
+                return;
+            }
+            if(mdlList.Count==0)
+            {
+                return;
+            }
+            foreach (mdlDiscountPrice item in mdlList)
+            {                
+                for(int i=0;i< dtPriceDisc.Rows.Count;i++)
+                {
+                    if (dtPriceDisc.Rows[i]["temp_code"].ToString() == item.temp_code && dtPriceDisc.Rows[i]["seq_id"].ToString() == item.seq_id)
+                    {
+                        dtPriceDisc.Rows[i]["FlagSelect"] = true;
+                        break;
+                    }
+                }
+            }
         }
 
         private void dgvPriceDisc_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -3572,23 +3623,64 @@ namespace cf01.Forms
             if (dgvPriceDisc.CurrentRow == null)
             {
                 return;
-            }
-           
+            }           
             if (dgvPriceDisc.Columns[e.ColumnIndex].Name == "FlagSelect")
             {
-                int cur_index = dgvPriceDisc.CurrentRow.Index;
+                int curIndex = dgvPriceDisc.CurrentRow.Index;
                 this.txtBrand.Focus();//跳轉后表格中的更改的值才有效
-                if (dgvPriceDisc.Rows[e.RowIndex].Cells["FlagSelect"].Value.ToString()=="True")
+                mdlDiscountPrice mdl = new mdlDiscountPrice();
+                mdl.temp_code = dgvPriceDisc.Rows[curIndex].Cells["temp_code_disc"].Value.ToString();
+                mdl.seq_id = dgvPriceDisc.Rows[curIndex].Cells["SeqId"].Value.ToString();
+                if (dgvPriceDisc.Rows[curIndex].Cells["FlagSelect"].Value.ToString() == "True")
                 {
-                    for(int i=0;i< dgvPriceDisc.RowCount; i++)
+                    //1.選中的行添加到臨時LIST中，先移除后添加
+                    RemoveItem(mdl.temp_code);                    
+                    mdl.number_enter = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["NumberEnter"].Value.ToString());
+                    mdl.price_usd = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["PriceUsd"].Value.ToString());
+                    mdl.price_hkd = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["PriceHkd"].Value.ToString());
+                    mdl.price_rmb = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["PriceRmb"].Value.ToString());
+                    mdl.hkd_ex_fty = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["HkdExFty"].Value.ToString());
+                    mdl.usd_ex_fty = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["UsdExFty"].Value.ToString());
+                    mdl.price_unit = dgvPriceDisc.Rows[curIndex].Cells["PriceUnit"].Value.ToString();
+                    mdl.vnd_bp = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["VndBp"].Value.ToString());
+                    mdl.price_vnd_usd = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["PriceVndUsd"].Value.ToString());
+                    mdl.price_vnd = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["PriceVnd"].Value.ToString());
+                    mdl.price_vnd_grs = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["PriceVndGrs"].Value.ToString());
+                    mdl.price_vnd_pcs = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["PriceVndPcs"].Value.ToString());
+                    mdl.moq_qty = float.Parse(dgvPriceDisc.Rows[curIndex].Cells["MoqQty"].Value.ToString());
+                    mdl.moq_unit = "PCS";
+                    mdl.valid_date = dgvPriceDisc.Rows[curIndex].Cells["ValidDate"].Value.ToString();
+                    mdl.remark = dgvPriceDisc.Rows[curIndex].Cells["remark2"].Value.ToString();
+                    mdlList.Add(mdl);               
+                    //2.表一中的行自動打勾
+                    int index = dgvDetails.CurrentRow.Index;
+                    dgvDetails.Rows[index].Cells["flag_select"].Value = true;
+                    //非當前行不勾選
+                    for (int i=0;i< dgvPriceDisc.RowCount; i++)
                     {
-                        if(i != cur_index)
+                        if(i != curIndex)
                         {
                             dgvPriceDisc.Rows[i].Cells["FlagSelect"].Value = false;
                         }
                     }
                 }
-               
+                else
+                {
+                    //優惠單價行去掉勾選時,將之前添加的行從臨時列表中移除
+                    RemoveItem(mdl.temp_code);
+                }
+            }
+        }
+
+        private void RemoveItem(string temp_code)
+        {
+            foreach (mdlDiscountPrice item in mdlList)
+            {
+                if (item.temp_code == temp_code)
+                {
+                    mdlList.Remove(item);
+                    break;
+                }
             }
         }
 
@@ -3627,11 +3719,36 @@ namespace cf01.Forms
             
         }
 
+        private void dgvDetails_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvDetails.CurrentRow == null)
+            {
+                return;
+            }
+            if (dgvDetails.Columns[e.ColumnIndex].Name == "flag_select")
+            {
+                this.txtBrand.Focus();//跳轉后表格中的更改的值才有效
+                if (dgvDetails.Rows[e.RowIndex].Cells["flag_select"].Value.ToString() == "False")
+                {
+                    if(dgvPriceDisc.RowCount==0)
+                    {
+                        return;
+                    }
+                    for (int i = 0; i < dgvPriceDisc.RowCount; i++)
+                    {
+                        dgvPriceDisc.Rows[i].Cells["FlagSelect"].Value = false;
+                    }
+                }
+                //勾選或去掉勾選都要將之前添加的對應行移除
+                string temp_code = dgvDetails.Rows[e.RowIndex].Cells["temp_code1"].Value.ToString();
+                RemoveItem(temp_code);
+            }
+        }
+
         //private void clUsd_Leave(object sender, EventArgs e)
         //{  
         //    ReSetPrice("price_usd");
-        //}        
-
+        //}
 
         /*
         private void ReSetPrice(string price_type)
