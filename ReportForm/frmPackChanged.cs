@@ -85,7 +85,7 @@ namespace cf01.ReportForm
                     str2 = strBarCode.Substring(0,3);
                     if (txtBarCode.Text.Trim().Length == 13)
                     {
-                        //工序卡條碼
+                        //工序卡條碼條形碼
                         //strMo = str.Substring(0, 9);
                         chkByMo.Checked = false;
                         chkByMoPrintSet.Checked = false;

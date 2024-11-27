@@ -138,8 +138,8 @@
             // chkByMoPrintSet
             // 
             this.chkByMoPrintSet.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkByMoPrintSet.Location = new System.Drawing.Point(594, 41);
-            this.chkByMoPrintSet.Name = "chkByMoPrintSet";
+            this.chkByMoPrintSet.Location = new System.Drawing.Point(594, 39);
+            this.chkByMoPrintSet.Name = "chkmo_print_by_set";
             this.chkByMoPrintSet.Size = new System.Drawing.Size(244, 27);
             this.chkByMoPrintSet.TabIndex = 52;
             this.chkByMoPrintSet.Text = "手動輸入頁數套件列印";
