@@ -1400,6 +1400,8 @@ namespace cf01.Forms
 
             //dtFind.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));           
             dgvDetails.DataSource = dtFind;
+            dtPriceDisc.Clear(); 
+            dgvPriceDisc.DataSource = dtPriceDisc;
             //dgvDetails.Columns["season"].Frozen = true;
         }
 
