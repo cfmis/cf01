@@ -2427,7 +2427,7 @@ namespace cf01.MM
             //saveFile.FilterIndex = 0;
             //saveFile.RestoreDirectory = true;
             ////saveFile.CreatePrompt = true;
-            //saveFile.Title = "导出Excel文件到";
+            //saveFile.Title = "导出Excel文件到";文件到
             string folderPath = saveFile.SelectedPath.Trim();
 
             string fileName = folderPath + "\\" + txtID.Text.ToString().Trim() + ".xls";// saveFile.FileName;
