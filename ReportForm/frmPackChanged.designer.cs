@@ -137,14 +137,14 @@
             // 
             // chkByMoPrintSet
             // 
-            this.chkByMoPrintSet.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkByMoPrintSet.Location = new System.Drawing.Point(594, 39);
-            this.chkByMoPrintSet.Name = "chkmo_print_by_set";
-            this.chkByMoPrintSet.Size = new System.Drawing.Size(244, 27);
-            this.chkByMoPrintSet.TabIndex = 52;
-            this.chkByMoPrintSet.Text = "手動輸入頁數套件列印";
-            this.chkByMoPrintSet.UseVisualStyleBackColor = true;
-            this.chkByMoPrintSet.Click += new System.EventHandler(this.chkByMoPrintSet_Click);
+            this.chkmo_print_by_set.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkmo_print_by_set.Location = new System.Drawing.Point(594, 39);
+            this.chkmo_print_by_set.Name = "chkmo_print_by_set";
+            this.chkmo_print_by_set.Size = new System.Drawing.Size(244, 27);
+            this.chkmo_print_by_set.TabIndex = 52;
+            this.chkmo_print_by_set.Text = "手動輸入頁數套件列印";
+            this.chkmo_print_by_set.UseVisualStyleBackColor = true;
+            this.chkmo_print_by_set.Click += new System.EventHandler(this.chkmo_print_by_set_Click);
             // 
             // label1
             // 
