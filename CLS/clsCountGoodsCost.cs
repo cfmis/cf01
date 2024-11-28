@@ -98,6 +98,7 @@ namespace cf01.CLS
             strSql += " ) aa ";
             strSql += " Order By aa.ID Desc,aa.MFlag Desc ";
             DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
+            dtPrd.Columns.Add("selectFlag", typeof(bool));
             return dtPrd;
         }
         /// <summary>
