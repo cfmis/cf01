@@ -45,7 +45,8 @@ namespace cf01.Forms
         int rowReset = 0;
         string strTempCode = "";
         string cur_temp_code = "";
-        string lange = DBUtility._language;//保存當前登彔的語言        
+        string lange = DBUtility._language;//保存當前登彔的語言
+        string computerName = Environment.MachineName;
         System.Data.DataTable dtDetail = new System.Data.DataTable();
         public System.Data.DataTable dtReSet = new System.Data.DataTable();
         System.Data.DataTable dtVersion = new System.Data.DataTable();
@@ -264,18 +265,16 @@ namespace cf01.Forms
             }*/
         }
         private void SetResize()
-        {
-            //pnlHead.Height = (!is_group_pdd) ? 410 : 457;            
-            //splitContainer1.SplitterDistance = pnlHead.Height + 10;    
-            if (!is_group_pdd)
-                //splitContainer1.SplitterDistance = 410 + 40 + 35 + 10;
-                splitContainer1.SplitterDistance = (466 + 35 + 10);
+        {          
+            int height = 415;
+            if (!is_group_pdd)               
+                height = (computerName != "DGPC-388") ? 415 : 510;
             else
             {
-                //splitContainer1.SplitterDistance = 457 + 58 + 40 + 35 + 10;
-                splitContainer1.SplitterDistance = (466 + 70 + 35 + 10);
+                height = (computerName != "DGPC-388") ? 460 : 580;
             }
-            pnlHead.Height = splitContainer1.SplitterDistance;
+            splitContainer1.SplitterDistance = height;
+            pnlHead.Height = height;
         }
         private void SetDataBindings()
         {
