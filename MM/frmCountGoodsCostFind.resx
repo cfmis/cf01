@@ -137,6 +137,17 @@
         HhdpKOx6v7LWDcl9gidmtayCAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB3SURBVDhPrZALCsAgDEN7dG/eLZY4dfGz4YMgpk0Q7QQu
+        pBjueQ+8GBUcW426HbeUyhBkLwgf81sJZxcmugTnRpjoks0w0SWbYRDLumRJhPjc8UuohidMwVMlnFW8
+        w9SopCL/8EzYmZXwshZKaoX/ibbwR8FpzC7IVBal53DncgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="colSelectFlag.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

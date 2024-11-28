@@ -45,6 +45,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +91,7 @@
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.dgvGoodsCostHead = new System.Windows.Forms.DataGridView();
+            this.colSelectFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,6 +101,8 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCompProfitRate = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueMoGroup.Properties)).BeginInit();
@@ -115,10 +120,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGoodsCostHead)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCompProfitRate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.labelControl34);
+            this.panelControl2.Controls.Add(this.txtCompProfitRate);
             this.panelControl2.Controls.Add(this.lueMoGroup);
             this.panelControl2.Controls.Add(this.lblMoGroup);
             this.panelControl2.Controls.Add(this.txtCustColor);
@@ -227,7 +235,9 @@
             this.btnExit,
             this.toolStripSeparator1,
             this.btnFind,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.btnExcel,
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1214, 38);
@@ -265,6 +275,21 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(77, 35);
+            this.btnExcel.Text = "匯出到Excel";
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -697,6 +722,7 @@
             this.dgvGoodsCostHead.ColumnHeadersHeight = 25;
             this.dgvGoodsCostHead.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvGoodsCostHead.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSelectFlag,
             this.colID,
             this.Column1,
             this.Column2,
@@ -715,6 +741,15 @@
             this.dgvGoodsCostHead.TabIndex = 41;
             this.dgvGoodsCostHead.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGoodsCostHead_CellDoubleClick);
             this.dgvGoodsCostHead.SelectionChanged += new System.EventHandler(this.dgvGoodsCostHead_SelectionChanged);
+            // 
+            // colSelectFlag
+            // 
+            this.colSelectFlag.DataPropertyName = "selectFlag";
+            this.colSelectFlag.HeaderText = "選取";
+            this.colSelectFlag.Name = "colSelectFlag";
+            this.colSelectFlag.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelectFlag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelectFlag.Width = 40;
             // 
             // colID
             // 
@@ -779,6 +814,25 @@
             this.colSN.Name = "colSN";
             this.colSN.Visible = false;
             // 
+            // labelControl34
+            // 
+            this.labelControl34.Enabled = false;
+            this.labelControl34.Location = new System.Drawing.Point(959, 18);
+            this.labelControl34.Name = "labelControl34";
+            this.labelControl34.Size = new System.Drawing.Size(74, 14);
+            this.labelControl34.TabIndex = 19;
+            this.labelControl34.Text = "公司利潤(%):";
+            this.labelControl34.Visible = false;
+            // 
+            // txtCompProfitRate
+            // 
+            this.txtCompProfitRate.Enabled = false;
+            this.txtCompProfitRate.Location = new System.Drawing.Point(1042, 17);
+            this.txtCompProfitRate.Name = "txtCompProfitRate";
+            this.txtCompProfitRate.Size = new System.Drawing.Size(100, 20);
+            this.txtCompProfitRate.TabIndex = 18;
+            this.txtCompProfitRate.Visible = false;
+            // 
             // frmCountGoodsCostFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -812,6 +866,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGoodsCostHead)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCompProfitRate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -877,6 +932,9 @@
         private DevExpress.XtraEditors.LookUpEdit lueMoGroup;
         private DevExpress.XtraEditors.LabelControl lblMoGroup;
         private System.Windows.Forms.DataGridView dgvGoodsCostHead;
+        private System.Windows.Forms.ToolStripButton btnExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelectFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -886,5 +944,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSN;
+        private DevExpress.XtraEditors.LabelControl labelControl34;
+        private DevExpress.XtraEditors.TextEdit txtCompProfitRate;
     }
 }
