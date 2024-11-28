@@ -3798,7 +3798,7 @@ namespace cf01.Forms
         {
             SetResize();
         }
-
+        
     }
     
 }
