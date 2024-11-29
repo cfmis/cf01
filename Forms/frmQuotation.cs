@@ -41,12 +41,11 @@ namespace cf01.Forms
         string imagePath = "";
         string strLanguage = "0";
         string msgCustom;
-        int cur_row_index; 
+        int cur_row_index;
         int rowReset = 0;
         string strTempCode = "";
         string cur_temp_code = "";
         string lange = DBUtility._language;//保存當前登彔的語言
-        string computerName = Environment.MachineName;
         System.Data.DataTable dtDetail = new System.Data.DataTable();
         public System.Data.DataTable dtReSet = new System.Data.DataTable();
         System.Data.DataTable dtVersion = new System.Data.DataTable();
@@ -57,8 +56,7 @@ namespace cf01.Forms
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示
         DataGridViewRow dgvrow = new DataGridViewRow();
         public static string sent_quotation = "";
-        BindingSource bds1 = new BindingSource();       
-
+        BindingSource bds1 = new BindingSource();
         bool is_group_pdd { set; get; }
         //bool flag_import;
         string strFileExcel = "";
@@ -88,7 +86,6 @@ namespace cf01.Forms
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;// dtDetail;
             dtPermiss = clsQuotation.GetPermissions(DBUtility._user_id);//暫存折扣單價表權限
-            
         }
 
         private void frmQuotation_Load(object sender, EventArgs e)
@@ -264,18 +261,7 @@ namespace cf01.Forms
                 this.tabControl1.Height = screen_height - (pnlHead.Height + toolStrip1.Height + 115);
             }*/
         }
-        private void SetResize()
-        {          
-            int height = 415;
-            if (!is_group_pdd)               
-                height = (computerName != "DGPC-388") ? 415 : 510;
-            else
-            {
-                height = (computerName != "DGPC-388") ? 460 : 580;
-            }
-            splitContainer1.SplitterDistance = height;
-            pnlHead.Height = height;
-        }
+       
         private void SetDataBindings()
         {
             txtID.DataBindings.Add("Text", bds1, "id");
@@ -2172,13 +2158,7 @@ namespace cf01.Forms
             {
                 return;
             }
-            gridView1.CloseEditor();
-            //DataRow[] dr = dtDetail.Select("flag_select=true");
-            //if (dr.Length == 0)
-            //{
-            //    MessageBox.Show("請首先選擇出需要做新版本的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
+            gridView1.CloseEditor();          
             bool isSelect=false ;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
@@ -3613,8 +3593,7 @@ namespace cf01.Forms
 
         private void dgvDetails_Sorted(object sender, EventArgs e)
         {
-            SaveSortInfo();
-            //this.dgvDetails.FirstDisplayedScrollingRowIndex = 0;// this.dgvDetails.Rows.Count - 1;
+            SaveSortInfo();            
         }
 
         private void txtPrice_unit_EditValueChanged(object sender, EventArgs e)
@@ -3790,7 +3769,7 @@ namespace cf01.Forms
         }      
 
         private void frmQuotation_SizeChanged(object sender, EventArgs e)
-        {
+        {           
             SetResize();
         }
 
@@ -3798,7 +3777,37 @@ namespace cf01.Forms
         {
             SetResize();
         }
-        
+
+        private void SetResize()
+        {
+            //此代碼默認屏幕字體大小為100%顯示沒問題，
+            //部分電腦因字體大小調整為125%或更高，引起顯示上的偏差，浪費幾天時間調試，查不清原因（踩坑）
+            int height = 415; //不顯示PDD Remark的最小高度
+            try
+            {               
+                height = (!is_group_pdd) ? 415 : 460;
+                splitContainer1.SplitterDistance = height;
+                pnlHead.Height = height;
+            }
+            catch
+            {
+                height = this.Height - 40;
+                splitContainer1.Height = height;
+                if (height <= 30)
+                {
+                    return;
+                }
+                splitContainer1.SplitterDistance = Convert.ToInt32(height / 2);
+                pnlHead.Height = Convert.ToInt32(height / 2);               
+            }
+            this.pnlHead.Width = this.Width;
+            tabControl1.Width = splitContainer1.Width;
+            tabControl1.Height = splitContainer1.Panel2.Height;
+            pnlRemarkPDD_dg.Width = pnlHead.Width - pnlRemarkPDD.Width - 10;
+            dgvSub.Width = pnlHead.Width - pnlRemarkPDD.Width - 267 - 10;
+            dgvPriceDisc.Width = dgvSub.Width;
+        }
+
     }
     
 }
