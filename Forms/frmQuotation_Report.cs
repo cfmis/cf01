@@ -1482,11 +1482,8 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(cur_row, "material_type", aryRows[i]["material_type"].ToString());
                 gridView1.SetRowCellValue(cur_row, "product_type", aryRows[i]["product_type"].ToString());
 
-                //start 2024/11/27 更改為一次可添加多筆優惠價
-                if(mdlList.Count==0)
-                {
-                    return;
-                }
+                //start 2024/11/27 更改為一次可添加多筆優惠價  
+                //var discountPrice = from item in mdlList where item.temp_code == temp_code select item;
                 foreach (mdlDiscountPrice item in mdlList)
                 {
                     if (item.temp_code == temp_code)
@@ -1499,17 +1496,18 @@ namespace cf01.Forms
                         gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", item.hkd_ex_fty);
                         gridView1.SetRowCellValue(cur_row, "usd_ex_fty", item.usd_ex_fty);
                         gridView1.SetRowCellValue(cur_row, "price_unit", item.price_unit);
-                        gridView1.SetRowCellValue(cur_row, "vnd_bp",item.vnd_bp);
+                        gridView1.SetRowCellValue(cur_row, "vnd_bp", item.vnd_bp);
                         gridView1.SetRowCellValue(cur_row, "price_vnd_usd", item.price_vnd_usd);
                         gridView1.SetRowCellValue(cur_row, "price_vnd", item.price_vnd);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_grs",item.price_vnd_grs);
+                        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", item.price_vnd_grs);
                         gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", item.price_vnd_pcs);
                         gridView1.SetRowCellValue(cur_row, "moq", item.moq_qty);
-                        gridView1.SetRowCellValue(cur_row, "moq_unit",item.moq_unit);
+                        gridView1.SetRowCellValue(cur_row, "moq_unit", item.moq_unit);
                         break;
                     }
                 }
-                //--end 2024/11/27
+                
+                //--end 2024/11/27 更改為一次可添加多筆優惠價
 
                 /*//--start2024/06/04 add   old code cancel in 2024/11/27
                 string temp_code_disc = "";
@@ -1537,7 +1535,7 @@ namespace cf01.Forms
                     }
                 }
                 //--end 2024/06/04 */
-            }            
+            } //--end for            
             //將查詢表格中選中的記錄取消,避免重復插入
             for (int i = 0; i < dtFind.Rows.Count; i++)
             {
