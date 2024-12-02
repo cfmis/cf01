@@ -1483,58 +1483,48 @@ namespace cf01.Forms
                 gridView1.SetRowCellValue(cur_row, "product_type", aryRows[i]["product_type"].ToString());
 
                 //start 2024/11/27 更改為一次可添加多筆優惠價  
-                //var discountPrice = from item in mdlList where item.temp_code == temp_code select item;
-                foreach (mdlDiscountPrice item in mdlList)
+                //var discList = from item in mdlList where item.temp_code == temp_code select item;
+                var discList = mdlList.Where(p =>p.temp_code == temp_code).ToList(); //只篩選出一條記錄
+                foreach (mdlDiscountPrice item in discList)
                 {
-                    if (item.temp_code == temp_code)
-                    {
-                        //有勾選優惠價,則以優惠價替未優惠價的值
-                        gridView1.SetRowCellValue(cur_row, "number_enter", item.number_enter);
-                        gridView1.SetRowCellValue(cur_row, "price_usd", item.price_usd);
-                        gridView1.SetRowCellValue(cur_row, "price_hkd", item.price_hkd);
-                        gridView1.SetRowCellValue(cur_row, "price_rmb", item.price_rmb);
-                        gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", item.hkd_ex_fty);
-                        gridView1.SetRowCellValue(cur_row, "usd_ex_fty", item.usd_ex_fty);
-                        gridView1.SetRowCellValue(cur_row, "price_unit", item.price_unit);
-                        gridView1.SetRowCellValue(cur_row, "vnd_bp", item.vnd_bp);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", item.price_vnd_usd);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd", item.price_vnd);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", item.price_vnd_grs);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", item.price_vnd_pcs);
-                        gridView1.SetRowCellValue(cur_row, "moq", item.moq_qty);
-                        gridView1.SetRowCellValue(cur_row, "moq_unit", item.moq_unit);
-                        break;
-                    }
-                }
-                
-                //--end 2024/11/27 更改為一次可添加多筆優惠價
-
-                /*//--start2024/06/04 add   old code cancel in 2024/11/27
-                string temp_code_disc = "";
-                for (int j = 0; j < dgvPriceDisc.RowCount; j++)
-                {
-                    temp_code_disc = dtPriceDisc.Rows[j]["temp_code"].ToString();
-                    if (dtPriceDisc.Rows[j]["FlagSelect"].ToString() == "True" && temp_code== temp_code_disc)
-                    {
-                        //折扣后的單價
-                        gridView1.SetRowCellValue(cur_row, "number_enter", dtPriceDisc.Rows[j]["number_enter"]);
-                        gridView1.SetRowCellValue(cur_row, "price_usd", dtPriceDisc.Rows[j]["price_usd"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "price_hkd", dtPriceDisc.Rows[j]["price_hkd"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "price_rmb", dtPriceDisc.Rows[j]["price_rmb"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", dtPriceDisc.Rows[j]["hkd_ex_fty"]);
-                        gridView1.SetRowCellValue(cur_row, "usd_ex_fty", dtPriceDisc.Rows[j]["usd_ex_fty"]);
-                        gridView1.SetRowCellValue(cur_row, "price_unit", dtPriceDisc.Rows[j]["price_unit"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "vnd_bp", dtPriceDisc.Rows[j]["vnd_bp"]);
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", dtPriceDisc.Rows[j]["price_vnd_usd"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "price_vnd", dtPriceDisc.Rows[j]["price_vnd"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", dtPriceDisc.Rows[j]["price_vnd_grs"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", dtPriceDisc.Rows[j]["price_vnd_pcs"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "moq", dtPriceDisc.Rows[j]["moq_qty"].ToString());
-                        gridView1.SetRowCellValue(cur_row, "moq_unit", "PCS");
-                        break;//只更新選中的第一條
-                    }
-                }
-                //--end 2024/06/04 */
+                    gridView1.SetRowCellValue(cur_row, "number_enter", item.number_enter);
+                    gridView1.SetRowCellValue(cur_row, "price_usd", item.price_usd);
+                    gridView1.SetRowCellValue(cur_row, "price_hkd", item.price_hkd);
+                    gridView1.SetRowCellValue(cur_row, "price_rmb", item.price_rmb);
+                    gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", item.hkd_ex_fty);
+                    gridView1.SetRowCellValue(cur_row, "usd_ex_fty", item.usd_ex_fty);
+                    gridView1.SetRowCellValue(cur_row, "price_unit", item.price_unit);
+                    gridView1.SetRowCellValue(cur_row, "vnd_bp", item.vnd_bp);
+                    gridView1.SetRowCellValue(cur_row, "price_vnd_usd", item.price_vnd_usd);
+                    gridView1.SetRowCellValue(cur_row, "price_vnd", item.price_vnd);
+                    gridView1.SetRowCellValue(cur_row, "price_vnd_grs", item.price_vnd_grs);
+                    gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", item.price_vnd_pcs);
+                    gridView1.SetRowCellValue(cur_row, "moq", item.moq_qty);
+                    gridView1.SetRowCellValue(cur_row, "moq_unit", item.moq_unit);
+                }                
+                //foreach (mdlDiscountPrice item in mdlList)
+                //{
+                //    if (item.temp_code == temp_code)
+                //    {
+                //        //有勾選優惠價,則以優惠價替未優惠價的值
+                //        gridView1.SetRowCellValue(cur_row, "number_enter", item.number_enter);
+                //        gridView1.SetRowCellValue(cur_row, "price_usd", item.price_usd);
+                //        gridView1.SetRowCellValue(cur_row, "price_hkd", item.price_hkd);
+                //        gridView1.SetRowCellValue(cur_row, "price_rmb", item.price_rmb);
+                //        gridView1.SetRowCellValue(cur_row, "hkd_ex_fty", item.hkd_ex_fty);
+                //        gridView1.SetRowCellValue(cur_row, "usd_ex_fty", item.usd_ex_fty);
+                //        gridView1.SetRowCellValue(cur_row, "price_unit", item.price_unit);
+                //        gridView1.SetRowCellValue(cur_row, "vnd_bp", item.vnd_bp);
+                //        gridView1.SetRowCellValue(cur_row, "price_vnd_usd", item.price_vnd_usd);
+                //        gridView1.SetRowCellValue(cur_row, "price_vnd", item.price_vnd);
+                //        gridView1.SetRowCellValue(cur_row, "price_vnd_grs", item.price_vnd_grs);
+                //        gridView1.SetRowCellValue(cur_row, "price_vnd_pcs", item.price_vnd_pcs);
+                //        gridView1.SetRowCellValue(cur_row, "moq", item.moq_qty);
+                //        gridView1.SetRowCellValue(cur_row, "moq_unit", item.moq_unit);
+                //        break;
+                //    }
+                //}                
+                //--end 2024/11/27 更改為一次可添加多筆優惠價                
             } //--end for            
             //將查詢表格中選中的記錄取消,避免重復插入
             for (int i = 0; i < dtFind.Rows.Count; i++)
