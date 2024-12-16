@@ -360,6 +360,7 @@
             // 
             // txtGoods_name
             // 
+            this.txtGoods_name.Enabled = false;
             this.txtGoods_name.EnterMoveNextControl = true;
             this.txtGoods_name.Location = new System.Drawing.Point(89, 49);
             this.txtGoods_name.Name = "txtGoods_name";

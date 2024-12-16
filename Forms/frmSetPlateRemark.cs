@@ -221,10 +221,11 @@ namespace cf01.Forms
         private void AddNew()
         {
             mState = "NEW";
-            txtID.Focus();
+            txtID.Focus();            
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(this.Controls, true);
             SetObjValue.ClearObjValue(this.Controls, "1");
+            txtMo_group.Text = "S";
         }
 
         private void Edit()
