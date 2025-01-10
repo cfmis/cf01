@@ -29,10 +29,11 @@ namespace cf01.Forms
 
         public frmMouldPosition()
         {
-            InitializeComponent();
+            InitializeComponent();           
             dtDetail = clsMouldPosition.GetEmptyStrutre();
             bds1.DataSource = dtDetail;
-            dgvDetails.DataSource = bds1;            
+            dgvDetails.DataSource = bds1;
+            //SetDataBindings();
         }
 
         private void frmMouldPosition_Load(object sender, EventArgs e)
@@ -64,9 +65,9 @@ namespace cf01.Forms
             lueMould_type.Properties.DataSource = dtMouldType;
             lueMould_type.Properties.ValueMember = "id";
             lueMould_type.Properties.DisplayMember = "id";
-
-
             SetDataBindings();
+
+
         }
 
         private void BTNEXIT_Click(object sender, EventArgs e)
@@ -92,8 +93,8 @@ namespace cf01.Forms
         private void BTNCANCEL_Click(object sender, EventArgs e)
         {
             bds1.CancelEdit();
-            dtDetail = dtTemp.Copy();
-            bds1.DataSource = dtDetail;
+            //dtDetail = dtTemp.Copy();
+            //bds1.DataSource = dtDetail;
             SetButtonSatus(true);
             SetObjValue.SetEditBackColor(pnlHead.Controls, false);
             this.SetObjReadOnly();
@@ -145,12 +146,12 @@ namespace cf01.Forms
             SetButtonSatus(false);
             SetObjValue.SetEditBackColor(pnlHead.Controls, true);
             SetObjValue.ClearObjValue(pnlHead.Controls, "1");
-            this.SetObjReadOnly();
+            //this.SetObjReadOnly();
             dgvDetails.Enabled = false;
             dteMould_production_date.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);            
             txtCreate_by.Text = DBUtility._user_id;
             txtCreate_date.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ms").Substring(0, 19);
-            lueDept_id.EditValue = "106";
+            lueDept_id.EditValue = "102";
         }
 
         private void Edit()  //編號
