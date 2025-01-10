@@ -235,6 +235,14 @@ namespace cf01.CLS
             DataTable dtPrdType = clsPublicOfGEO.GetDataTable(strSql);
             return dtPrdType;
         }
+
+        public static DataTable GetProductType()
+        {
+            string strSql =@"Select id,name From cd_goods_class Where state<>'2' ORDER BY id";           
+            DataTable dtPrdType = clsPublicOfGEO.GetDataTable(strSql);
+            return dtPrdType;
+        }
+       
         public static DataTable GetArtwork(string art_code)
         {
             string strSql = "Select a.id,a.name,b.picture_name " +
@@ -251,6 +259,12 @@ namespace cf01.CLS
             DataTable dtArtwork = clsPublicOfGEO.GetDataTable(strSql);
             return dtArtwork;
         }
+        public static DataTable GetSize()
+        {
+            string strSql =string.Format(@"Select id,name From cd_size a Where within_code='{0}' and state<>'2' order by id",within_code);
+            DataTable dtSize = clsPublicOfGEO.GetDataTable(strSql);
+            return dtSize;
+        }
         public static DataTable GetColor(string color_id)
         {
             string strSql = "Select id,name,do_color From cd_color a " +
@@ -258,6 +272,15 @@ namespace cf01.CLS
             DataTable dtArtwork = clsPublicOfGEO.GetDataTable(strSql);
             return dtArtwork;
         }
+
+        public static DataTable GetMouldType()
+        {
+            string strSql =string.Format(
+                @"Select '' as id,'' as name Union Select id,name From cd_mo_type Where within_code='{0}' and mo_type='P' and state<>'2' order by id",within_code);
+            DataTable dtMould = clsPublicOfGEO.GetDataTable(strSql);
+            return dtMould;
+        }
+        //
         public static void NAR(object o)
         {
             try

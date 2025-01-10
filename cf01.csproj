@@ -263,6 +263,7 @@
     <Compile Include="CLS\clsMoRepair.cs" />
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMoTrace.cs" />
+    <Compile Include="CLS\clsMouldPosition.cs" />
     <Compile Include="CLS\clsMo_for_jx.cs" />
     <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsOrderHistory.cs" />
@@ -420,6 +421,18 @@
     </Compile>
     <Compile Include="Forms\frmDevelopmentPvhUs.designer.cs">
       <DependentUpon>frmDevelopmentPvhUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMouldPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMouldPosition.Designer.cs">
+      <DependentUpon>frmMouldPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMouldPositionEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMouldPositionEdit.Designer.cs">
+      <DependentUpon>frmMouldPositionEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmPvhProcess.cs">
       <SubType>Form</SubType>
@@ -2965,6 +2978,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDevelopmentPvhUs.resx">
       <DependentUpon>frmDevelopmentPvhUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMouldPosition.resx">
+      <DependentUpon>frmMouldPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMouldPositionEdit.resx">
+      <DependentUpon>frmMouldPositionEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPvhProcess.resx">
       <DependentUpon>frmPvhProcess.cs</DependentUpon>
