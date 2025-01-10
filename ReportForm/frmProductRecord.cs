@@ -63,6 +63,7 @@ namespace cf01.ReportForm
         }
         private void BTNFIND_Click(object sender, EventArgs e)
         {
+            txtMac2.Focus();
             if (!validData())
                 return;
             frmProgress wForm = new frmProgress();
@@ -101,26 +102,28 @@ namespace cf01.ReportForm
                 complete_state = 0;
             else if (rdbAll.Checked == true)//全部
                 complete_state = 2;
-            if (source_type == "DG")
-            {
-                dtPrd = commUse.getDataProcedure("usp_LoadProductionRecords",
-                    new object[] { rpt_type,source_type, date_from,date_to,dep_from, dep_to, mo_from, mo_to
-                    , mac_from, mac_to, work_from, work_to, group_from,group_to, complete_state
-                        });
-            }else
-            {
+            //if (source_type == "DG")
+            //{
+            //    dtPrd = commUse.getDataProcedure("usp_LoadProductionRecords",
+            //        new object[] { rpt_type,source_type, date_from,date_to,dep_from, dep_to, mo_from, mo_to
+            //        , mac_from, mac_to, work_from, work_to, group_from,group_to, complete_state
+            //            });
+            //}
+            //else
+            //{
                 SqlParameter[] parameters = { new SqlParameter("@rpt_type", rpt_type)
-                                        ,new SqlParameter("@date_from", date_from),new SqlParameter("@date_to", date_to)
-                                        ,new SqlParameter("@dep_from", dep_from),new SqlParameter("@dep_to", dep_to)
-                                        ,new SqlParameter("@mo_from", mo_from), new SqlParameter("@mo_to", mo_to)
-                                        , new SqlParameter("@mac_from", mac_from), new SqlParameter("@mac_to", mac_to)
-                                        , new SqlParameter("@work_from", work_from), new SqlParameter("@work_to", work_to)
-                                        , new SqlParameter("@group_from", group_from), new SqlParameter("@group_to", group_to)
-                                        , new SqlParameter("@complete_state", complete_state)
+                        ,new SqlParameter("@source_type", source_type)
+                        ,new SqlParameter("@date_from", date_from),new SqlParameter("@date_to", date_to)
+                        ,new SqlParameter("@dep_from", dep_from),new SqlParameter("@dep_to", dep_to)
+                        ,new SqlParameter("@mo_from", mo_from), new SqlParameter("@mo_to", mo_to)
+                        , new SqlParameter("@mac_from", mac_from), new SqlParameter("@mac_to", mac_to)
+                        , new SqlParameter("@work_from", work_from), new SqlParameter("@work_to", work_to)
+                        , new SqlParameter("@group_from", group_from), new SqlParameter("@group_to", group_to)
+                        , new SqlParameter("@complete_state", complete_state)
                 };
                 clsPublicOfPad clsConPad = new clsPublicOfPad();
                 dtPrd = clsConPad.ExecuteProcedureReturnTableConn("usp_LoadProductionRecords", parameters);
-            }
+            //}
             if (rpt_type==0)
                 dgvDetails.DataSource = dtPrd;
             else if (rpt_type==1)
@@ -131,6 +134,19 @@ namespace cf01.ReportForm
         private void textBox1_Leave(object sender, EventArgs e)
         {
             txtTdep.Text = txtFdep.Text;
+            string fDep = txtFdep.Text;
+            if (fDep == "122" || fDep == "124" || fDep == "322"
+                || fDep == "J07" || fDep == "104" || fDep == "J01" || fDep == "J03" || fDep == "128" || fDep == "J05" || fDep == "127")
+            {
+                rdbJX.Checked = true;
+                rdbDG.Checked = false;
+            }
+            else
+            {
+                rdbDG.Checked = true;
+                rdbJX.Checked = false;
+            }
+                
         }
 
         private void dateEdit1_Leave(object sender, EventArgs e)
