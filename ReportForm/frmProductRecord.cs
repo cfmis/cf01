@@ -102,16 +102,8 @@ namespace cf01.ReportForm
                 complete_state = 0;
             else if (rdbAll.Checked == true)//全部
                 complete_state = 2;
-            //if (source_type == "DG")
-            //{
-            //    dtPrd = commUse.getDataProcedure("usp_LoadProductionRecords",
-            //        new object[] { rpt_type,source_type, date_from,date_to,dep_from, dep_to, mo_from, mo_to
-            //        , mac_from, mac_to, work_from, work_to, group_from,group_to, complete_state
-            //            });
-            //}
-            //else
-            //{
-                SqlParameter[] parameters = { new SqlParameter("@rpt_type", rpt_type)
+            
+            SqlParameter[] parameters = { new SqlParameter("@rpt_type", rpt_type)
                         ,new SqlParameter("@source_type", source_type)
                         ,new SqlParameter("@date_from", date_from),new SqlParameter("@date_to", date_to)
                         ,new SqlParameter("@dep_from", dep_from),new SqlParameter("@dep_to", dep_to)
@@ -121,12 +113,13 @@ namespace cf01.ReportForm
                         , new SqlParameter("@group_from", group_from), new SqlParameter("@group_to", group_to)
                         , new SqlParameter("@complete_state", complete_state)
                 };
-                clsPublicOfPad clsConPad = new clsPublicOfPad();
-                dtPrd = clsConPad.ExecuteProcedureReturnTableConn("usp_LoadProductionRecords", parameters);
-            //}
-            if (rpt_type==0)
+            clsPublicOfPad clsConPad = new clsPublicOfPad();
+            //////儲存過程  usp_LoadProductionRecords 在 dgsql2.dgcf_pad  和 lnsql1.dgcf_pad 中都有的，要同時修改兩邊的
+            dtPrd = clsConPad.ExecuteProcedureReturnTableConn("usp_LoadProductionRecords", parameters);
+
+            if (rpt_type == 0)
                 dgvDetails.DataSource = dtPrd;
-            else if (rpt_type==1)
+            else if (rpt_type == 1)
                 dgvSummary.DataSource = dtPrd;
             else
                 dgvPrdWorker.DataSource = dtPrd;
