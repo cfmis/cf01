@@ -42,9 +42,8 @@
             this.lblMo = new System.Windows.Forms.Label();
             this.txtMo = new System.Windows.Forms.TextBox();
             this.txtAddInfo = new System.Windows.Forms.RichTextBox();
-            this.btnCopy = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.lblRemark = new System.Windows.Forms.Label();
+            this.btnGetDetault = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,9 +57,7 @@
             this.btnFind,
             this.toolStripSeparator2,
             this.btnSave,
-            this.toolStripSeparator3,
-            this.btnCopy,
-            this.toolStripSeparator4});
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(716, 38);
@@ -117,6 +114,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnGetDetault);
             this.panel1.Controls.Add(this.txtAddInfo);
             this.panel1.Controls.Add(this.txtMo);
             this.panel1.Controls.Add(this.lblMo);
@@ -175,21 +173,6 @@
             this.txtAddInfo.TabIndex = 2;
             this.txtAddInfo.Text = "";
             // 
-            // btnCopy
-            // 
-            this.btnCopy.AutoSize = false;
-            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
-            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(65, 35);
-            this.btnCopy.Text = "複製(&C)";
-            this.btnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
-            // 
             // lblRemark
             // 
             this.lblRemark.AutoSize = true;
@@ -199,6 +182,16 @@
             this.lblRemark.TabIndex = 0;
             this.lblRemark.Text = "附加信息:";
             // 
+            // btnGetDetault
+            // 
+            this.btnGetDetault.Location = new System.Drawing.Point(539, 43);
+            this.btnGetDetault.Name = "btnGetDetault";
+            this.btnGetDetault.Size = new System.Drawing.Size(75, 23);
+            this.btnGetDetault.TabIndex = 3;
+            this.btnGetDetault.Text = "獲取預設值";
+            this.btnGetDetault.UseVisualStyleBackColor = true;
+            this.btnGetDetault.Click += new System.EventHandler(this.btnGetDetault_Click);
+            // 
             // frmOcAdditionalInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -207,7 +200,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmOcAdditionalInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOcAdditionalInfo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -231,8 +226,7 @@
         private System.Windows.Forms.TextBox txtMo;
         private System.Windows.Forms.Label lblMo;
         private System.Windows.Forms.RichTextBox txtAddInfo;
-        private System.Windows.Forms.ToolStripButton btnCopy;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.Label lblRemark;
+        private System.Windows.Forms.Button btnGetDetault;
     }
 }
