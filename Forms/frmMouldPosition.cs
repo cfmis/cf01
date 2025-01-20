@@ -27,6 +27,7 @@ namespace cf01.Forms
         string image_path = DBUtility.imagePath;
         string artwork_path = "";
 
+
         public frmMouldPosition()
         {
             InitializeComponent();           
