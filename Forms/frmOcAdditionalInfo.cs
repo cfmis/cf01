@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -80,15 +81,25 @@ namespace cf01.Forms
             string update_date = System.DateTime.Now.ToString("yyyy/MM/dd HH:dd:ss");
             string strSql = "Select id From z_so_order_info Where within_code='" + within_code + "' And id='" + id + "'";
             DataTable dtOcInfo = clsGeo.GetDataTable(strSql);
-            if (dtOcInfo.Rows.Count > 0)
-                strSql = " Update z_so_order_info Set " +
-                    " add_info='" + add_info + "',update_by='" + update_by + "',update_date='" + update_date + "'" +
-                    " Where within_code='" + within_code + "' And id='" + id + "' And doc_type='" + doc_type + "'";
-            else
-                strSql = " Insert Into z_so_order_info (within_code,id,doc_type,add_info,update_by,update_date)" +
+
+            if (dtOcInfo.Rows.Count == 0)
+                strSql = @" Insert Into z_so_order_info (within_code,id,doc_type,add_info,update_by,update_date )" +
                     " Values (" +
-                    "'" + within_code + "','" + id + "','" + doc_type + "','" + add_info + "','" + update_by + "','" + update_date + "')";
-            int result = clsGeo.ExecuteSqlUpdate(strSql);
+                    "@within_code,@id,@doc_type,@add_info,@update_by,GETDATE()"+
+                    " )";
+            else
+                strSql = @"Update z_so_order_info Set add_info=@add_info,update_by=@update_by,update_date=GETDATE()" +
+                " Where within_code=@within_code And id=@id And doc_type=@doc_type";
+            SqlParameter[] paras = new SqlParameter[]{
+                        new SqlParameter("@within_code",within_code),
+                        new SqlParameter("@id",id),
+                        new SqlParameter("@doc_type",doc_type),
+                        new SqlParameter("@add_info",add_info),
+                        new SqlParameter("@update_by",update_by),
+                        new SqlParameter("@update_date",update_date)
+                    };
+            //int result = clsGeo.ExecuteSqlUpdate(strSql);
+            int result = clsGeo.ExecuteNonQuery(strSql, paras, false);
             if (result == 1)
                 MessageBox.Show("儲存OC附加信息成功!");
             else
@@ -103,6 +114,18 @@ namespace cf01.Forms
         private void txtMo_Leave(object sender, EventArgs e)
         {
             findData();
+        }
+
+        private void btnGetDetault_Click(object sender, EventArgs e)
+        {
+            string strSql = " Select a.add_info " +
+                " From z_so_order_info a " +
+                " Where a.within_code='" + within_code + "' And a.id='" + "ZZZZZZZZ" + "' And a.doc_type='" + "DEFAULT" + "'";
+
+
+            DataTable dtInfo = clsGeo.GetDataTable(strSql);
+            if (dtInfo.Rows.Count > 0)
+                txtAddInfo.Text = dtInfo.Rows[0]["add_info"].ToString().Trim();
         }
     }
 }
