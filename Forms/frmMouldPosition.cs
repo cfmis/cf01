@@ -410,6 +410,7 @@ namespace cf01.Forms
             string id = dgvDetails.CurrentRow.Cells["id"].Value.ToString();
             string dept_id = dgvDetails.CurrentRow.Cells["dept_id"].Value.ToString();
             string mould_no = dgvDetails.CurrentRow.Cells["mould_no"].Value.ToString();
+
             using (frmMouldPositionEdit frm = new frmMouldPositionEdit(id, dept_id, mould_no))
             {
                 frm.ShowDialog();

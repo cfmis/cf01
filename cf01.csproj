@@ -428,6 +428,12 @@
     <Compile Include="Forms\frmMouldPosition.Designer.cs">
       <DependentUpon>frmMouldPosition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMouldPositionEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMouldPositionEdit.Designer.cs">
+      <DependentUpon>frmMouldPositionEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmOcAdditionalInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2981,6 +2987,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMouldPosition.resx">
       <DependentUpon>frmMouldPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMouldPositionEdit.resx">
+      <DependentUpon>frmMouldPositionEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOcAdditionalInfo.resx">
       <DependentUpon>frmOcAdditionalInfo.cs</DependentUpon>
