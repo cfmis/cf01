@@ -752,6 +752,7 @@ namespace cf01.Forms
             lueGoods_id.Visible = false;
             txtGoods_id.Visible = true;
             change_flag = false;
+            txtState.Text = dgvDetails.GetRowCellValue(row, "state").ToString();
             //dgvDetails.SetRowCellValue(row, "goods_name", txtMo_id.Text);
         }
 

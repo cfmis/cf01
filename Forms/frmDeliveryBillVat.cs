@@ -1150,17 +1150,18 @@ namespace cf01.Forms
 
         //手寫單頁面代碼 DGSQL2 =============BEGIN =============
         private void btnQuery_Click(object sender, EventArgs e)
-        {
-            //DataTable dtIdFind = clsDgdDeliverGoods.loadDgdDetails(txtFindOc_no.Text.Trim(), txtFindId.Text.Trim(), txtFindMo_id.Text.Trim(),0);
-            string strID = " NOT Like 'L-%' And it_customer='DD-G0245'";//C組VAT
+        {            
+            string strID = " NOT Like 'L-%'";//C組VAT
             string strSql = string.Format(
-            @"Select Convert(bit,0) as is_select,Convert(int,SUBSTRING(sequence_id,1,4)) As seq,a.id,Convert(Varchar(20),b.ship_date,111) AS ship_date,
+            @"SELECT Convert(bit,0) as is_select,Convert(int,SUBSTRING(sequence_id,1,4)) As seq,a.id,Convert(Varchar(20),b.ship_date,111) AS ship_date,
             a.sequence_id,a.mo_id,a.goods_id,a.goods_name,Convert(INT,a.u_invoice_qty) As u_invoice_qty,Convert(INT,a.u_invoice_qty_pcs) As u_invoice_qty_pcs,
             a.goods_unit,Convert(Decimal(18,2),a.sec_qty) As sec_qty,a.sec_unit,a.location_id,a.customer_goods,a.customer_color_id,a.order_id,
             a.so_ver,a.so_sequence_id,a.table_head,a.customer_goods,a.customer_color_id,a.contract_cid,Convert(INT,a.package_num) As package_num,
-            a.box_no,a.remark,a.is_print,a.shipment_suit 
-            From so_invoice_details a with(nolock),so_invoice_mostly b with(nolock)
-            Where a.within_code=b.within_code And a.id=b.id And a.within_code='{0}' And a.id {1} And a.state='0'", "0000", strID);
+            a.box_no,a.remark,a.is_print,a.shipment_suit
+            FROM so_invoice_details a with(nolock)
+            INNER JOIN so_invoice_mostly b with(nolock) ON a.within_code=b.within_code And a.id=b.id AND a.ver=b.ver
+            INNER JOIN so_invoice_mostly_vat c ON b.it_customer=c.it_customer
+            WHERE a.within_code='{0}' And a.id {1} And a.state='0'", "0000", strID);
             if (txtFindOc_no.Text != "")
                 strSql += string.Format(" And a.order_id='{0}'", txtFindOc_no.Text);
             if (txtFindId.Text != "")
@@ -1168,8 +1169,7 @@ namespace cf01.Forms
             if (txtFindMo_id.Text != "")
                 strSql += string.Format(" And a.mo_id='{0}'", txtFindMo_id.Text);
             strSql += " ORDER BY a.order_id,a.so_sequence_id";
-            DataTable dtIdFind = clsPublicOfCF01.GetDataTable(strSql);
-            //dtIdFind.Columns.Add("is_select", System.Type.GetType("System.Boolean"));
+            DataTable dtIdFind = clsPublicOfCF01.GetDataTable(strSql);            
             gcIdDetails.DataSource = dtIdFind;
             if (dtIdFind.Rows.Count == 0)
             {
@@ -1209,7 +1209,7 @@ namespace cf01.Forms
             {               
                 return;
             }
-            string sql_f = "",lot_no=""; 
+            string sql_f = "",lot_no="",strMoId=""; 
             lsModel.Clear();
             for (int i = 0; i < dgvIdDetails.RowCount; i++)
             {
@@ -1219,6 +1219,15 @@ namespace cf01.Forms
                     objModel.ship_date = dgvIdDetails.GetDataRow(i)["ship_date"].ToString();
                     objModel.id = dgvIdDetails.GetDataRow(i)["id"].ToString().Trim();
                     objModel.mo_id = dgvIdDetails.GetDataRow(i)["mo_id"].ToString().Trim();
+                    sql_f = string.Format(
+                    @"Select B.mo_id FROM so_issues_mostly A,so_issues_details B 
+                    WHERE A.within_code=B.within_code and A.id=B.id and A.type IN('VDI','VDJ') and a.state<>'2' And B.within_code='{0}' And B.mo_id='{1}'", "0000",objModel.mo_id);
+                    strMoId = clsConErp.ExecuteSqlReturnObject(sql_f);
+                    if (strMoId != "")
+                    {
+                        //檢查是否開過VAT送貨單
+                        break;
+                    }
                     objModel.goods_id = dgvIdDetails.GetDataRow(i)["goods_id"].ToString().Trim();
                     objModel.goods_name = dgvIdDetails.GetDataRow(i)["goods_name"].ToString().Trim();
                     objModel.sequence_id = dgvIdDetails.GetDataRow(i)["sequence_id"].ToString().Trim();
@@ -1249,7 +1258,12 @@ namespace cf01.Forms
                     objModel.lot_no = lot_no;
                     lsModel.Add(objModel);
                 }
-            }            
+            }
+            if (strMoId != "")
+            {
+                MessageBox.Show(string.Format("注意，頁數：「{0}」已開過VAT送貨單!" + "\n\r\n\r 請返回檢查！", strMoId), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             tabControl1.SelectTab(0);//跳至第一頁
             if (mState == "NEW" || mState == "EDIT")//已點擊新增或編號

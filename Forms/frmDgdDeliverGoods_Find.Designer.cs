@@ -46,6 +46,9 @@
             this.colGoods_unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSec_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBox_no = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.order_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pono = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colState = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblId = new DevExpress.XtraEditors.LabelControl();
             this.lblDate = new DevExpress.XtraEditors.LabelControl();
             this.lblMo_id = new DevExpress.XtraEditors.LabelControl();
@@ -63,8 +66,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.dtDate2 = new DevExpress.XtraEditors.DateEdit();
             this.dtDate1 = new DevExpress.XtraEditors.DateEdit();
-            this.order_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pono = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -76,9 +77,9 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPono.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOcno.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,7 +165,8 @@
             this.colSec_qty,
             this.colBox_no,
             this.order_id,
-            this.pono});
+            this.pono,
+            this.colState});
             this.dgvDetails.GridControl = this.gcDetails;
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.OptionsSelection.MultiSelect = true;
@@ -182,7 +184,7 @@
             this.colId.OptionsColumn.ReadOnly = true;
             this.colId.Visible = true;
             this.colId.VisibleIndex = 0;
-            this.colId.Width = 100;
+            this.colId.Width = 99;
             // 
             // colShip_date
             // 
@@ -204,7 +206,7 @@
             this.colSequence_id.OptionsColumn.ReadOnly = true;
             this.colSequence_id.Visible = true;
             this.colSequence_id.VisibleIndex = 2;
-            this.colSequence_id.Width = 60;
+            this.colSequence_id.Width = 58;
             // 
             // colMo_id
             // 
@@ -258,6 +260,7 @@
             this.colSec_qty.OptionsColumn.ReadOnly = true;
             this.colSec_qty.Visible = true;
             this.colSec_qty.VisibleIndex = 7;
+            this.colSec_qty.Width = 61;
             // 
             // colBox_no
             // 
@@ -269,6 +272,40 @@
             this.colBox_no.OptionsColumn.ReadOnly = true;
             this.colBox_no.Visible = true;
             this.colBox_no.VisibleIndex = 8;
+            this.colBox_no.Width = 63;
+            // 
+            // order_id
+            // 
+            this.order_id.Caption = "OC No.";
+            this.order_id.FieldName = "order_id";
+            this.order_id.Name = "order_id";
+            this.order_id.OptionsColumn.AllowEdit = false;
+            this.order_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.order_id.OptionsColumn.ReadOnly = true;
+            this.order_id.Visible = true;
+            this.order_id.VisibleIndex = 9;
+            this.order_id.Width = 125;
+            // 
+            // pono
+            // 
+            this.pono.Caption = "PO No.";
+            this.pono.FieldName = "pono";
+            this.pono.Name = "pono";
+            this.pono.OptionsColumn.AllowEdit = false;
+            this.pono.OptionsColumn.AllowMove = false;
+            this.pono.OptionsColumn.ReadOnly = true;
+            this.pono.Visible = true;
+            this.pono.VisibleIndex = 10;
+            this.pono.Width = 121;
+            // 
+            // colState
+            // 
+            this.colState.Caption = "過帳狀態";
+            this.colState.FieldName = "state";
+            this.colState.Name = "colState";
+            this.colState.OptionsColumn.ReadOnly = true;
+            this.colState.Visible = true;
+            this.colState.VisibleIndex = 11;
             // 
             // lblId
             // 
@@ -429,12 +466,12 @@
             this.dtDate2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.dtDate2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDate2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate2.Properties.Mask.BeepOnError = true;
             this.dtDate2.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDate2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDate2.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtDate2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate2.Size = new System.Drawing.Size(141, 22);
             this.dtDate2.TabIndex = 196;
             this.dtDate2.Tag = "2";
@@ -448,40 +485,16 @@
             this.dtDate1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.dtDate1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDate1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate1.Properties.Mask.BeepOnError = true;
             this.dtDate1.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtDate1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtDate1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dtDate1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtDate1.Size = new System.Drawing.Size(142, 22);
             this.dtDate1.TabIndex = 195;
             this.dtDate1.Tag = "2";
             this.dtDate1.Leave += new System.EventHandler(this.dtDate1_Leave);
-            // 
-            // order_id
-            // 
-            this.order_id.Caption = "OC No.";
-            this.order_id.FieldName = "order_id";
-            this.order_id.Name = "order_id";
-            this.order_id.OptionsColumn.AllowEdit = false;
-            this.order_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.order_id.OptionsColumn.ReadOnly = true;
-            this.order_id.Visible = true;
-            this.order_id.VisibleIndex = 9;
-            this.order_id.Width = 150;
-            // 
-            // pono
-            // 
-            this.pono.Caption = "PO No.";
-            this.pono.FieldName = "pono";
-            this.pono.Name = "pono";
-            this.pono.OptionsColumn.AllowEdit = false;
-            this.pono.OptionsColumn.AllowMove = false;
-            this.pono.OptionsColumn.ReadOnly = true;
-            this.pono.Visible = true;
-            this.pono.VisibleIndex = 10;
-            this.pono.Width = 131;
             // 
             // frmDgdDeliverGoods_Find
             // 
@@ -507,9 +520,9 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPono.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOcno.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDate1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -554,5 +567,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraGrid.Columns.GridColumn order_id;
         private DevExpress.XtraGrid.Columns.GridColumn pono;
+        private DevExpress.XtraGrid.Columns.GridColumn colState;
     }
 }

@@ -331,7 +331,7 @@ namespace cf01.CLS
             strSql = "Select a.sequence_id,a.mo_id,a.goods_id,a.goods_name,Convert(INT,a.u_invoice_qty) As u_invoice_qty,Convert(INT,a.u_invoice_qty_pcs) As u_invoice_qty_pcs" +
                 ",a.goods_unit,Convert(Decimal(18,2),a.sec_qty) As sec_qty,a.sec_unit" +
                 ",a.location_id,a.customer_goods,a.customer_color_id,a.order_id,a.so_ver,a.so_sequence_id,a.table_head,a.customer_goods,a.customer_color_id,a.contract_cid" +
-                ",Convert(INT,a.package_num) As package_num,a.box_no,a.remark,a.is_print,a.shipment_suit" +
+                ",Convert(INT,a.package_num) As package_num,a.box_no,a.remark,a.is_print,a.shipment_suit,CASE WHEN isnull(a.state,'0')='0' Then '未過帳' ELSE '已過帳' END AS state" +
                 " From so_invoice_details a Where a.within_code='" + within_code + "' And a.id='" + id + "'";
             strSql += " ORDER BY a.id,a.sequence_id desc";
             dtSo = clsPublicOfCF01.GetDataTable(strSql);
@@ -642,7 +642,7 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql = "Select a.id,Convert(Varchar(20),a.ship_date,111) As ship_date,b.sequence_id,b.mo_id,b.goods_id,Convert(INT,b.u_invoice_qty) As u_invoice_qty"+
-                ",b.goods_unit,Convert(Decimal(18,2),b.sec_qty) As sec_qty,b.box_no,b.order_id,contract_cid as pono" +
+                ",b.goods_unit,Convert(Decimal(18,2),b.sec_qty) As sec_qty,b.box_no,b.order_id,contract_cid as pono,CASE WHEN Isnull(b.state,'0')='0' Then '未過賬' ELSE '已過帳' END As state" +
                 " From so_invoice_mostly a " +
                 " Inner Join so_invoice_details b On a.within_code=b.within_code And a.id=b.id";
             strSql += String.Format(" Where a.within_code='{0}'", within_code);

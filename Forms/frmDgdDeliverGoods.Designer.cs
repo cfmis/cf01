@@ -219,6 +219,9 @@
             this.treams_info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poitem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radGrp1 = new DevExpress.XtraEditors.RadioGroup();
+            this.colState = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtState = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIt_Customer.Properties)).BeginInit();
@@ -286,6 +289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -396,7 +400,7 @@
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Margin = new System.Windows.Forms.Padding(0, 1, 190, 2);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(47, 35);
+            this.btnPrint.Size = new System.Drawing.Size(50, 35);
             this.btnPrint.Text = "列印(&P)";
             this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -885,7 +889,8 @@
             this.colSo_sequence_id,
             this.colSo_ver,
             this.colShipment_suit,
-            this.colU_invoice_qty_pcs});
+            this.colU_invoice_qty_pcs,
+            this.colState});
             this.dgvDetails.GridControl = this.gridControl1;
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.OptionsBehavior.ReadOnly = true;
@@ -1142,6 +1147,8 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.panelControl1.Controls.Add(this.txtState);
+            this.panelControl1.Controls.Add(this.labelControl7);
             this.panelControl1.Controls.Add(this.txtQty_pcs);
             this.panelControl1.Controls.Add(this.lblQty_pcs);
             this.panelControl1.Controls.Add(this.lblGoods_name);
@@ -2228,6 +2235,33 @@
             this.radGrp1.Size = new System.Drawing.Size(187, 28);
             this.radGrp1.TabIndex = 24;
             // 
+            // colState
+            // 
+            this.colState.Caption = "過帳狀態";
+            this.colState.FieldName = "state";
+            this.colState.Name = "colState";
+            this.colState.OptionsColumn.ReadOnly = true;
+            this.colState.Visible = true;
+            this.colState.VisibleIndex = 24;
+            this.colState.Width = 70;
+            // 
+            // txtState
+            // 
+            this.txtState.EnterMoveNextControl = true;
+            this.txtState.Location = new System.Drawing.Point(764, 200);
+            this.txtState.Name = "txtState";
+            this.txtState.Properties.ReadOnly = true;
+            this.txtState.Size = new System.Drawing.Size(115, 20);
+            this.txtState.TabIndex = 31;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(706, 201);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(52, 14);
+            this.labelControl7.TabIndex = 32;
+            this.labelControl7.Text = "過帳狀態:";
+            // 
             // frmDgdDeliverGoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2310,6 +2344,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2506,5 +2541,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn poitem;
         private DevExpress.XtraEditors.TextEdit txtGroup;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraGrid.Columns.GridColumn colState;
+        private DevExpress.XtraEditors.TextEdit txtState;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }
