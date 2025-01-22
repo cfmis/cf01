@@ -3570,7 +3570,6 @@
     <EmbeddedResource Include="ModuleForm\PrintOptions.resx">
       <DependentUpon>PrintOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="ReportForm\frmArtworkFind.resx">
       <DependentUpon>frmArtworkFind.cs</DependentUpon>
     </EmbeddedResource>
