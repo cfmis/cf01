@@ -2104,7 +2104,7 @@
             this.xrPageInfo1.Dpi = 254F;
             this.xrPageInfo1.Font = new System.Drawing.Font("Arial", 9F);
             this.xrPageInfo1.Format = "{0:yyyy/MM/dd}";
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(860.7706F, 1074.345F);
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(896.7706F, 1074.345F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
@@ -2117,7 +2117,7 @@
             this.xrLabel105.CanGrow = false;
             this.xrLabel105.Dpi = 254F;
             this.xrLabel105.Font = new System.Drawing.Font("Arial", 8.5F);
-            this.xrLabel105.LocationFloat = new DevExpress.Utils.PointFloat(698.7914F, 1074.345F);
+            this.xrLabel105.LocationFloat = new DevExpress.Utils.PointFloat(734.7914F, 1074.345F);
             this.xrLabel105.Name = "xrLabel105";
             this.xrLabel105.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel105.SizeF = new System.Drawing.SizeF(159.9792F, 39.89923F);
@@ -2935,11 +2935,11 @@
             // 
             this.xrLabel101.CanGrow = false;
             this.xrLabel101.Dpi = 254F;
-            this.xrLabel101.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold);
-            this.xrLabel101.LocationFloat = new DevExpress.Utils.PointFloat(34.66655F, 1024.553F);
+            this.xrLabel101.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold);
+            this.xrLabel101.LocationFloat = new DevExpress.Utils.PointFloat(448.8958F, 1054.615F);
             this.xrLabel101.Name = "xrLabel101";
             this.xrLabel101.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel101.SizeF = new System.Drawing.SizeF(1063.313F, 48.79163F);
+            this.xrLabel101.SizeF = new System.Drawing.SizeF(318.8334F, 56.72937F);
             this.xrLabel101.StylePriority.UseFont = false;
             this.xrLabel101.StylePriority.UseTextAlignment = false;
             this.xrLabel101.Text = "成 品 標 識 卡";
