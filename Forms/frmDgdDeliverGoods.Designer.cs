@@ -1216,7 +1216,7 @@
             // 
             this.btnImport.Location = new System.Drawing.Point(570, 16);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(144, 32);
+            this.btnImport.Size = new System.Drawing.Size(140, 32);
             this.btnImport.TabIndex = 33;
             this.btnImport.Text = "從包裝部掃數據中導入";
             this.btnImport.UseVisualStyleBackColor = true;
