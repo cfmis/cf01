@@ -455,4 +455,12 @@ namespace cf01.MDL
         public string mo_id2;
 
     }
+
+    public class packing_mo_records
+    {
+        public int prd_id;
+        public string mo_id;
+        public decimal qty;
+        public decimal weg;
+    }
 }

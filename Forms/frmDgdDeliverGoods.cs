@@ -69,7 +69,6 @@ namespace cf01.Forms
                         return;
                     }
                 }
-
                 saveDetails();
             }
         }
@@ -257,7 +256,7 @@ namespace cf01.Forms
                     //-------------------------------------------------------
                     //代碼有問題，因分批走貨有問題增加以下取訂單數的判斷
                     //如果數量不超訂單數時不進行判斷
-                    string sql = string.Format("select dbo.fn_z_Get_pcs_qty(order_qty,goods_unit) AS order_qty from dbo.so_order_details with(nolock) where mo_id='{0}'", txtMo_id.Text);                    
+                    string sql = string.Format("select dbo.fn_z_Get_pcs_qty(order_qty,goods_unit) AS order_qty From dbo.so_order_details with(nolock) Where within_code='0000' and mo_id='{0}'", txtMo_id.Text);                    
                     DataTable dtOrder = clsGEO.GetDataTable(sql);
                     Int32 order_qty= Int32.Parse(dtOrder.Rows[0]["order_qty"].ToString());
                     //-------------------------------------------------------
@@ -311,10 +310,11 @@ namespace cf01.Forms
                     dtIdSeq = clsDgdDeliverGoods.checkExistIdDetailsByMoSaveDelete("", txtMo_id.Text.Trim());
                     if (dtIdSeq.Rows.Count > 0)
                     {
-                        string qstring = MessageBox.Show(String.Format("該制單已存在發貨單號:{0}序號:{1}", dtIdSeq.Rows[0]["id"], dtIdSeq.Rows[0]["sequence_id"]), "提示信息", MessageBoxButtons.YesNo).ToString();
+                        string qstring = MessageBox.Show(string.Format("該制單已存在發貨單號:{0}序號:{1}", dtIdSeq.Rows[0]["id"], dtIdSeq.Rows[0]["sequence_id"]), "提示信息", MessageBoxButtons.YesNo).ToString();
                         if (qstring == "No")
+                        {
                             return false;
-                        
+                        }                        
                     }
                 }
             }
@@ -353,7 +353,7 @@ namespace cf01.Forms
                 txtMo_id.Focus();
             }
             //addDetailsValue();
-            cleanTextBoxDetails();           
+            cleanTextBoxDetails();
         }
         
 
@@ -657,17 +657,14 @@ namespace cf01.Forms
                     txtSpec.Text = "";
                     chkIs_print.Checked = false;
                 }
-                if (lueGoods_id.EditValue.ToString().Substring(0, 2) == "F0")
-                    chkShipment_suit.Checked = true;
-                else
-                    chkShipment_suit.Checked = false;
+                chkShipment_suit.Checked = (lueGoods_id.EditValue.ToString().Substring(0, 2) == "F0") ? true : false;                
             }
         }
         private void countWeg()
         {
             txtSec_qty.Text = "0.00";
             txtQty_pcs.Text = "0";
-            if (txtU_invoice_qty.Text.Trim() != "" && txtGoods_id.Text.Trim() != "" && lueGoods_unit.EditValue != null && lueGoods_unit.EditValue.ToString()!="")
+            if (txtU_invoice_qty.Text.Trim() != "" && txtGoods_id.Text.Trim() != "" && lueGoods_unit.EditValue != null && lueGoods_unit.EditValue.ToString() !="")
             {
                 DataTable dtUnitRate = clsDgdDeliverGoods.getUnitRate(lueGoods_unit.EditValue.ToString());
                 float unit_rate = Convert.ToSingle(dtUnitRate.Rows[0]["rate"].ToString());
@@ -691,11 +688,7 @@ namespace cf01.Forms
                     }
                     if (st_qty_pcs != 0 && st_weg_pcs != 0)
                     {
-
-                        if (i_qty_pcs == st_qty_pcs)
-                            txtSec_qty.Text = st_weg_pcs.ToString();
-                        else
-                            txtSec_qty.Text = Math.Round(i_qty_pcs * (st_weg_pcs / st_qty_pcs), 2).ToString();
+                        txtSec_qty.Text= (i_qty_pcs == st_qty_pcs)? st_weg_pcs.ToString(): Math.Round(i_qty_pcs * (st_weg_pcs / st_qty_pcs), 2).ToString();                        
                     }
                 }
             }
@@ -1201,6 +1194,147 @@ namespace cf01.Forms
             }
         }
 
-
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            if (!change_flag)
+            {
+                MessageBox.Show("非編輯狀態，當前操作無效!", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtId.Text.Substring(0, 1) != "C")
+            {
+                MessageBox.Show("當前用戶對應組別不是C組，當前操作無效!", "提示信息", MessageBoxButtons.OK);
+                return;
+            }            
+            if (lueLocation_id.Text=="")
+            {
+                MessageBox.Show("倉庫編號不可為空，當前操作無效!", "提示信息", MessageBoxButtons.OK);
+                return;
+            }
+            frmDgdDeliverGoods_Find2 frm = new frmDgdDeliverGoods_Find2();
+            frm.ShowDialog();
+            if (frm.lstMo.Count > 0)
+            {
+                int prdId = 0;
+                string moId = "";
+                decimal qty = 0;
+                decimal weg = 0;
+                DataTable dtMoOc = new DataTable();
+                string result = "";
+                int update_flag = 0;
+                for (int i=0;i< frm.lstMo.Count; i++)
+                {
+                    prdId = frm.lstMo[i].prd_id;
+                    moId = frm.lstMo[i].mo_id;
+                    qty = frm.lstMo[i].qty;
+                    weg = frm.lstMo[i].weg;
+                    txtMo_id.Text = moId;
+                    if (txtMo_id.Text.Trim() != "")
+                    {
+                        //getMoStore();** 替換為以下代碼
+                        string loc = lueLocation_id.EditValue.ToString();
+                        dtMoStore = clsDgdDeliverGoods.getMoStore(loc, txtMo_id.Text.Trim(), txtSales_Group.Text.Trim().ToUpper(), "");
+                        lueGoods_id.Properties.DataSource = dtMoStore;
+                        lueGoods_id.Properties.ValueMember = "goods_id";
+                        lueGoods_id.Properties.DisplayMember = "goods_id";
+                        if (dtMoStore.Rows.Count > 0)
+                        {
+                            lueGoods_id.EditValue = dtMoStore.Rows[0]["goods_id"].ToString();
+                            txtGoods_id.Text = dtMoStore.Rows[0]["goods_id"].ToString();
+                            txtGoods_name.Text = dtMoStore.Rows[0]["goods_name"].ToString();
+                            //fillTextControlsFromStore();//** 替換為以下代碼
+                            dtMoOc = clsDgdDeliverGoods.getMoOc(txtMo_id.Text.Trim());
+                            if (dtMoOc.Rows.Count > 0)
+                            {
+                                DataRow row = dtMoOc.Rows[0];
+                                txtU_invoice_qty.Text = row["order_qty"].ToString();
+                                lueGoods_unit.EditValue = row["goods_unit"].ToString();
+                                txtOrder_id.Text = row["id"].ToString();
+                                txtCustomer_goods.Text = row["customer_goods"].ToString();
+                                txtCustomer_color_id.Text = row["customer_color_id"].ToString();
+                                txtContract_cid.Text = row["contract_id"].ToString();
+                                txtRemark.Text = row["add_remark"].ToString();
+                                txtTable_head.Text = row["table_head"].ToString();
+                                txtOrder_Seq.Text = row["sequence_id"].ToString();
+                                txtOc_Ver.Text = row["ver"].ToString();
+                                txtSpec.Text = "";
+                                chkIs_print.Checked = true;
+                                countWeg();
+                            }
+                            else
+                            {
+                                txtGoods_id.Text = "";
+                                txtGoods_name.Text = "";
+                                txtU_invoice_qty.Text = "";
+                                txtQty_pcs.Text = "";
+                                txtSec_qty.Text = "";
+                                lueGoods_unit.EditValue = "";
+                                txtOrder_id.Text = "";
+                                txtCustomer_goods.Text = "";
+                                txtCustomer_color_id.Text = "";
+                                txtContract_cid.Text = "";
+                                txtRemark.Text = "";
+                                txtTable_head.Text = "";
+                                txtOrder_Seq.Text = "";
+                                txtOc_Ver.Text = "";
+                                txtSpec.Text = "";
+                                chkIs_print.Checked = false;
+                            }
+                            chkShipment_suit.Checked = (lueGoods_id.EditValue.ToString().Substring(0, 2) == "F0") ? true : false;
+                            //save ** 替換為以下代碼
+                            if (!validDetails())
+                            {
+                                MessageBox.Show(string.Format(@"當前頁數【{0}】數據有問題，請返回檢查!",moId), "提示信息", MessageBoxButtons.OK);
+                                return;
+                            }
+                            //string old_sequence_id = txtSequence_id.Text.Trim();
+                            //int old_record = dgvDetails.FocusedRowHandle;
+                            soinvoice_details objModel = new soinvoice_details();
+                            objModel.id = txtId.Text.Trim();
+                            objModel.ver = id_ver;
+                            objModel.sequence_id = "";  //txtSequence_id.Text.Trim();
+                            objModel.mo_id = txtMo_id.Text.Trim();
+                            objModel.goods_id = txtGoods_id.Text.Trim();
+                            objModel.goods_name = txtGoods_name.Text.Trim();
+                            objModel.u_invoice_qty = Convert.ToDecimal(txtU_invoice_qty.Text);
+                            objModel.u_invoice_qty_pcs = Convert.ToDecimal(txtQty_pcs.Text);
+                            objModel.goods_unit = lueGoods_unit.EditValue.ToString();
+                            objModel.sec_qty = Convert.ToDecimal(txtSec_qty.Text);
+                            objModel.sec_unit = "KG";
+                            objModel.location_id = lueLocation_id.EditValue.ToString();
+                            objModel.carton_code = objModel.location_id;
+                            objModel.shipment_suit = (chkShipment_suit.Checked == false)?"0":"1";                            
+                            objModel.remark = txtRemark.Text.Trim();
+                            objModel.package_num = (txtPackage_num.Text != "" ? Convert.ToInt32(txtPackage_num.Text) : 0);
+                            objModel.box_no = txtBox_no.Text.Trim();
+                            objModel.order_id = txtOrder_id.Text.Trim();
+                            objModel.so_ver = Convert.ToInt32(txtOc_Ver.Text);
+                            objModel.so_sequence_id = txtOrder_Seq.Text.Trim();
+                            objModel.table_head = txtTable_head.Text.Trim();
+                            objModel.contract_cid = txtContract_cid.Text.Trim();
+                            objModel.customer_goods = txtCustomer_goods.Text.Trim();
+                            objModel.customer_color_id = txtCustomer_color_id.Text.Trim();
+                            objModel.spec = txtSpec.Text.Trim();                            
+                            objModel.state = "0";
+                            objModel.is_print = (chkIs_print.Checked == false)?"N":"Y";                            
+                            result = clsDgdDeliverGoods.AddSoInvoiceDetails(objModel);
+                            if (result != "")
+                            {
+                                //更新成功！
+                                update_flag = clsDgdDeliverGoods.UpdatePackingMoRecordState(prdId); //更新包裝部頁數掃描數據中已匯入的狀態                                
+                            }
+                        } //--end of if (dtMoStore.Rows.Count > 0)
+                    } //--end of if (txtMo_id.Text.Trim() != "")
+                }//end of for() ...loop
+                if (update_flag > 0)
+                {
+                    change_flag = false;
+                    append_mode = false;                                                       
+                    clsUtility.myMessageBox("數據導入保存成功！", "提示信息");                    
+                    loadSoInvoiceDetails();//重新刷新數據
+                }
+            } //end of if(frm.lstMo.Count > 0)
+            frm.Dispose();
+        }
     }
 }

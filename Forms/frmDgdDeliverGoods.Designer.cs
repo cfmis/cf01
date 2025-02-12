@@ -112,8 +112,12 @@
             this.colSo_ver = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colShipment_suit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colU_invoice_qty_pcs = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colState = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLueGoods_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.txtState = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtQty_pcs = new DevExpress.XtraEditors.TextEdit();
             this.lblQty_pcs = new DevExpress.XtraEditors.LabelControl();
             this.lblGoods_name = new DevExpress.XtraEditors.LabelControl();
@@ -219,9 +223,6 @@
             this.treams_info = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poitem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radGrp1 = new DevExpress.XtraEditors.RadioGroup();
-            this.colState = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtState = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIt_Customer.Properties)).BeginInit();
@@ -253,6 +254,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.colLueGoods_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQty_pcs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGoods_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIs_print.Properties)).BeginInit();
@@ -289,7 +291,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -1136,6 +1137,16 @@
             this.colU_invoice_qty_pcs.VisibleIndex = 23;
             this.colU_invoice_qty_pcs.Width = 80;
             // 
+            // colState
+            // 
+            this.colState.Caption = "過帳狀態";
+            this.colState.FieldName = "state";
+            this.colState.Name = "colState";
+            this.colState.OptionsColumn.ReadOnly = true;
+            this.colState.Visible = true;
+            this.colState.VisibleIndex = 24;
+            this.colState.Width = 70;
+            // 
             // colLueGoods_id
             // 
             this.colLueGoods_id.AutoHeight = false;
@@ -1147,6 +1158,7 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.panelControl1.Controls.Add(this.btnImport);
             this.panelControl1.Controls.Add(this.txtState);
             this.panelControl1.Controls.Add(this.labelControl7);
             this.panelControl1.Controls.Add(this.txtQty_pcs);
@@ -1199,6 +1211,33 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1302, 232);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(570, 16);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(144, 32);
+            this.btnImport.TabIndex = 33;
+            this.btnImport.Text = "從包裝部掃數據中導入";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // txtState
+            // 
+            this.txtState.EnterMoveNextControl = true;
+            this.txtState.Location = new System.Drawing.Point(764, 200);
+            this.txtState.Name = "txtState";
+            this.txtState.Properties.ReadOnly = true;
+            this.txtState.Size = new System.Drawing.Size(115, 20);
+            this.txtState.TabIndex = 31;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(706, 201);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(52, 14);
+            this.labelControl7.TabIndex = 32;
+            this.labelControl7.Text = "過帳狀態:";
             // 
             // txtQty_pcs
             // 
@@ -1460,7 +1499,7 @@
             // 
             // chkShipment_suit
             // 
-            this.chkShipment_suit.Location = new System.Drawing.Point(568, 33);
+            this.chkShipment_suit.Location = new System.Drawing.Point(568, 54);
             this.chkShipment_suit.Name = "chkShipment_suit";
             this.chkShipment_suit.Properties.Caption = "套件出貨";
             this.chkShipment_suit.Size = new System.Drawing.Size(75, 19);
@@ -2235,33 +2274,6 @@
             this.radGrp1.Size = new System.Drawing.Size(187, 28);
             this.radGrp1.TabIndex = 24;
             // 
-            // colState
-            // 
-            this.colState.Caption = "過帳狀態";
-            this.colState.FieldName = "state";
-            this.colState.Name = "colState";
-            this.colState.OptionsColumn.ReadOnly = true;
-            this.colState.Visible = true;
-            this.colState.VisibleIndex = 24;
-            this.colState.Width = 70;
-            // 
-            // txtState
-            // 
-            this.txtState.EnterMoveNextControl = true;
-            this.txtState.Location = new System.Drawing.Point(764, 200);
-            this.txtState.Name = "txtState";
-            this.txtState.Properties.ReadOnly = true;
-            this.txtState.Size = new System.Drawing.Size(115, 20);
-            this.txtState.TabIndex = 31;
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(706, 201);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(52, 14);
-            this.labelControl7.TabIndex = 32;
-            this.labelControl7.Text = "過帳狀態:";
-            // 
             // frmDgdDeliverGoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2307,6 +2319,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQty_pcs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGoods_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIs_print.Properties)).EndInit();
@@ -2344,7 +2357,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGrp1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtState.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2544,5 +2556,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colState;
         private DevExpress.XtraEditors.TextEdit txtState;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private System.Windows.Forms.Button btnImport;
     }
 }

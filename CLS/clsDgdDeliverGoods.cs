@@ -1171,7 +1171,13 @@ namespace cf01.CLS
             return dtAddres;
         }
 
-
+        public static int UpdatePackingMoRecordState(int prdId)
+        {
+            int result = 0;
+            string sql_u =string.Format(@"Update packing_mo_records Set upd_flag='1' WHERE prd_id={0}",prdId);
+            result = clsPublicOfPad.ExecuteSqlUpdate(sql_u);
+            return result;
+        }
 
     }
 }
