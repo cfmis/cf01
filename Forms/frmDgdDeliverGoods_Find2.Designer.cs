@@ -34,13 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDgdDeliverGoods_Find2));
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.upd_flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prd_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -73,16 +73,6 @@
             this.dgvDetails.RowTemplate.Height = 24;
             this.dgvDetails.Size = new System.Drawing.Size(582, 363);
             this.dgvDetails.TabIndex = 22;
-            // 
-            // chkSelectAll
-            // 
-            this.chkSelectAll.Location = new System.Drawing.Point(76, 9);
-            this.chkSelectAll.Name = "chkSelectAll";
-            this.chkSelectAll.Properties.Caption = " 全選";
-            this.chkSelectAll.Size = new System.Drawing.Size(63, 19);
-            this.chkSelectAll.TabIndex = 148;
-            this.chkSelectAll.ToolTip = "Select All";
-            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
             // 
             // flag_select
             // 
@@ -143,12 +133,22 @@
             this.prd_id.ReadOnly = true;
             this.prd_id.Visible = false;
             // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.Location = new System.Drawing.Point(77, 9);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Properties.Caption = " 全選";
+            this.chkSelectAll.Size = new System.Drawing.Size(63, 19);
+            this.chkSelectAll.TabIndex = 148;
+            this.chkSelectAll.ToolTip = "Select All";
+            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
+            // 
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(235, 7);
+            this.btnOK.Location = new System.Drawing.Point(237, 7);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 27);
             this.btnOK.TabIndex = 149;

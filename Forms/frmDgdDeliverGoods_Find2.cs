@@ -16,6 +16,7 @@ namespace cf01.Forms
         DataTable dtFind = new DataTable();
         public List<packing_mo_records> lstMo = new List<packing_mo_records>();
 
+
         public frmDgdDeliverGoods_Find2()
         {
             InitializeComponent();
