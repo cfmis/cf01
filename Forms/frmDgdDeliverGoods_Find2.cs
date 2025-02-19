@@ -22,6 +22,7 @@ namespace cf01.Forms
             InitializeComponent();
         }
 
+
         private void chkSelectAll_CheckedChanged(object sender, EventArgs e)
         {
             if (chkSelectAll.Checked)
