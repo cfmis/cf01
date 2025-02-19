@@ -64,6 +64,7 @@ namespace cf01.Forms
             {
                 return;
             }
+
             lstMo.Clear();
             bool select_flag = false;
             DataRow[] aryRows = dtFind.Select("flag_select=true");
