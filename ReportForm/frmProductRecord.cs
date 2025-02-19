@@ -83,7 +83,7 @@ namespace cf01.ReportForm
 
             int rpt_type = tc1.SelectedIndex;//報表類型
             string source_type = "DG";
-            if (rdbJX.Checked == true)
+            if (rdbJX.Checked == true) 
                 source_type = "JX";
             string date_from = detDate1.Text.ToString();
             string date_to = detDate2.Text.ToString();
