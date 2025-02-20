@@ -511,10 +511,16 @@ namespace cf01.Forms
         private void loadSoInvoiceDetails()
         {
             dtDetails=clsDgdDeliverGoods.loadSoInvoiceDetails(txtId.Text.Trim());
-            gridControl1.DataSource=dtDetails;
-            change_flag = false;
+            gridControl1.DataSource = dtDetails;
             if (dtDetails.Rows.Count > 0)
+            {
+                change_flag = false;
                 fillDetailsControls(0);
+            }
+            else
+            {
+                change_flag = true;
+            }
         }
         private void cleanTextBoxDetails()
         {
@@ -561,12 +567,11 @@ namespace cf01.Forms
                         if (strCust.Substring(0, 2) == "DD")
                         {
                             lueLocation_id.EditValue = "JX1";
-                        }
+                        }                        
                     }
                     else 
                         lueLocation_id.EditValue = "";
-                }
-                    
+                }                    
                 chkIs_print.Checked = true;
             }
         }
@@ -836,7 +841,7 @@ namespace cf01.Forms
             {
                 btnNew.Text = "新記錄";
                 cleanTextBoxDetails();
-                loadSoInvoiceDetails();                
+                loadSoInvoiceDetails();
             }
         }
 
@@ -1201,11 +1206,15 @@ namespace cf01.Forms
                 MessageBox.Show("非編輯狀態，當前操作無效!", "提示信息", MessageBoxButtons.OK);
                 return;
             }
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                return;
+            }
             if (txtId.Text.Substring(0, 1) != "C")
             {
                 MessageBox.Show("當前用戶對應組別不是C組，當前操作無效!", "提示信息", MessageBoxButtons.OK);
                 return;
-            }            
+            }
             if (lueLocation_id.Text=="")
             {
                 MessageBox.Show("倉庫編號不可為空，當前操作無效!", "提示信息", MessageBoxButtons.OK);
