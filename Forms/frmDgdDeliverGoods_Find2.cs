@@ -48,7 +48,9 @@ namespace cf01.Forms
 
         private void frmDgdDeliverGoods_Find2_Load(object sender, EventArgs e)
         {
-            string strSql = @"Select CONVERT(bit,0) as flag_select,mo_id,qty,weg,prd_id,upd_flag From packing_mo_records Where isnull(upd_flag,'0')='0'";
+            string strSql =
+            @"Select CONVERT(bit,0) as flag_select,mo_id,qty,weg,box_no,prd_id,upd_flag 
+            From packing_mo_records Where isnull(upd_flag,'0')='0' ORDER BY box_no,prd_id";
             dtFind = clsPublicOfPad.ExecuteSqlReturnDataTable(strSql);
             dgvDetails.DataSource = dtFind;
         }
@@ -86,6 +88,7 @@ namespace cf01.Forms
                 mdl.mo_id = aryRows[i]["mo_id"].ToString();
                 mdl.qty = decimal.Parse(aryRows[i]["qty"].ToString());
                 mdl.weg = decimal.Parse(aryRows[i]["weg"].ToString());
+                mdl.box_no = aryRows[i]["box_no"].ToString();
                 lstMo.Add(mdl);
             }
             this.Close();

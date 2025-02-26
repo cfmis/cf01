@@ -1226,6 +1226,7 @@ namespace cf01.Forms
             {
                 int prdId = 0;
                 string moId = "";
+                string boxNo = "";
                 decimal qty = 0;
                 decimal weg = 0;
                 DataTable dtMoOc = new DataTable();
@@ -1237,6 +1238,8 @@ namespace cf01.Forms
                     moId = frm.lstMo[i].mo_id;
                     qty = frm.lstMo[i].qty;
                     weg = frm.lstMo[i].weg;
+                    boxNo = frm.lstMo[i].box_no;
+
                     txtMo_id.Text = moId;
                     if (txtMo_id.Text.Trim() != "")
                     {
@@ -1256,7 +1259,9 @@ namespace cf01.Forms
                             if (dtMoOc.Rows.Count > 0)
                             {
                                 DataRow row = dtMoOc.Rows[0];
-                                txtU_invoice_qty.Text = row["order_qty"].ToString();
+                                txtU_invoice_qty.Text = qty.ToString();// row["order_qty"].ToString();//2025/02/26
+                                txtSec_qty.Text = weg.ToString(); //2025/02/26 新加
+                                txtBox_no.Text = boxNo;  //2025/02/26 新加
                                 lueGoods_unit.EditValue = row["goods_unit"].ToString();
                                 txtOrder_id.Text = row["id"].ToString();
                                 txtCustomer_goods.Text = row["customer_goods"].ToString();

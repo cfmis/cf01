@@ -462,5 +462,6 @@ namespace cf01.MDL
         public string mo_id;
         public decimal qty;
         public decimal weg;
+        public string box_no;
     }
 }

@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDgdDeliverGoods_Find2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDgdDeliverGoods_Find2));
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.flag_select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.box_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.upd_flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prd_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             this.mo_id,
             this.qty,
             this.weg,
+            this.box_no,
             this.upd_flag,
             this.prd_id});
             this.dgvDetails.Location = new System.Drawing.Point(10, 39);
@@ -73,6 +75,44 @@
             this.dgvDetails.RowTemplate.Height = 24;
             this.dgvDetails.Size = new System.Drawing.Size(582, 363);
             this.dgvDetails.TabIndex = 22;
+            // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.Location = new System.Drawing.Point(77, 9);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Properties.Caption = " 全選";
+            this.chkSelectAll.Size = new System.Drawing.Size(63, 19);
+            this.chkSelectAll.TabIndex = 148;
+            this.chkSelectAll.ToolTip = "Select All";
+            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(236, 7);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 27);
+            this.btnOK.TabIndex = 149;
+            this.btnOK.Text = "確定";
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnExit.Image = global::cf01.Properties.Resources.exit;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(352, 7);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 27);
+            this.btnExit.TabIndex = 150;
+            this.btnExit.Text = "退出";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // flag_select
             // 
@@ -115,6 +155,13 @@
             this.weg.Name = "weg";
             this.weg.ReadOnly = true;
             // 
+            // box_no
+            // 
+            this.box_no.DataPropertyName = "box_no";
+            this.box_no.HeaderText = " 箱號";
+            this.box_no.Name = "box_no";
+            this.box_no.ReadOnly = true;
+            // 
             // upd_flag
             // 
             this.upd_flag.DataPropertyName = "upd_flag";
@@ -132,44 +179,6 @@
             this.prd_id.Name = "prd_id";
             this.prd_id.ReadOnly = true;
             this.prd_id.Visible = false;
-            // 
-            // chkSelectAll
-            // 
-            this.chkSelectAll.Location = new System.Drawing.Point(77, 9);
-            this.chkSelectAll.Name = "chkSelectAll";
-            this.chkSelectAll.Properties.Caption = " 全選";
-            this.chkSelectAll.Size = new System.Drawing.Size(63, 19);
-            this.chkSelectAll.TabIndex = 148;
-            this.chkSelectAll.ToolTip = "Select All";
-            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
-            // 
-            // btnOK
-            // 
-            this.btnOK.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(236, 7);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 27);
-            this.btnOK.TabIndex = 149;
-            this.btnOK.Text = "確定";
-            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnExit.Image = global::cf01.Properties.Resources.exit;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(352, 7);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 27);
-            this.btnExit.TabIndex = 150;
-            this.btnExit.Text = "退出";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmDgdDeliverGoods_Find2
             // 
@@ -197,13 +206,14 @@
 
         private System.Windows.Forms.DataGridView dgvDetails;
         private DevExpress.XtraEditors.CheckEdit chkSelectAll;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flag_select;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn weg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn box_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn upd_flag;
         private System.Windows.Forms.DataGridViewTextBoxColumn prd_id;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnExit;
     }
 }
