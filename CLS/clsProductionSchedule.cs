@@ -116,14 +116,21 @@ namespace cf01.CLS
             DataTable dtmo_data = new DataTable();
             try
             {
+                //string strSql = @" SELECT DISTINCT b.goods_id,c.name as name,b.prod_qty,b.next_wp_id
+                //       ,d.materiel_id AS mat_item,e.name AS mat_item_desc,b.sequence_id,b.ver
+                //       ,(b.goods_id+'--'+c.name) As goods_cname
+                //       from jo_bill_mostly a 
+                //       INNER join jo_bill_goods_details b on a.within_code=b.within_code and a.id=b.id  and a.ver=b.ver
+                //       INNER JOIN it_goods c on b.within_code=c.within_code and b.goods_id=c.id 
+                //       INNER JOIN jo_bill_materiel_details d ON b.within_code=d.within_code and b.id=d.id and b.ver=d.ver and b.sequence_id=d.upper_sequence
+                //       INNER JOIN it_goods e ON d.within_code=e.within_code and d.materiel_id=e.id
+                //       WHERE a.within_code='0000'  And a.mo_id = '" + mo_id + "'";
                 string strSql = @" SELECT DISTINCT b.goods_id,c.name as name,b.prod_qty,b.next_wp_id
-                       ,d.materiel_id AS mat_item,e.name AS mat_item_desc,b.sequence_id,b.ver
+                       ,b.sequence_id,b.ver
                        ,(b.goods_id+'--'+c.name) As goods_cname
                        from jo_bill_mostly a 
                        INNER join jo_bill_goods_details b on a.within_code=b.within_code and a.id=b.id  and a.ver=b.ver
                        INNER JOIN it_goods c on b.within_code=c.within_code and b.goods_id=c.id 
-                       INNER JOIN jo_bill_materiel_details d ON b.within_code=d.within_code and b.id=d.id and b.ver=d.ver and b.sequence_id=d.upper_sequence
-                       INNER JOIN it_goods e ON d.within_code=e.within_code and d.materiel_id=e.id
                        WHERE a.within_code='0000'  And a.mo_id = '" + mo_id + "'";
                 if (fdep != "")
                     strSql += " And b.wp_id = '" + fdep + "' ";

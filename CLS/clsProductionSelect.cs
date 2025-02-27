@@ -117,11 +117,11 @@ namespace cf01.CLS
         {
             //獲取制單編號資料
             string sql = "";
-            sql += " Select a.*,rtrim(b.work_type_desc) as work_type_desc ";
+            sql += " Select a.*,rtrim(b.work_type_desc) as work_type_desc,dbo.Fn_joinProductWorker(a.prd_id) AS prd_worker_d ";
             sql += " From product_records a with(nolock) ";
             sql += " Left outer join work_type b on a.prd_work_type=b.work_type_id ";
             sql += " Where a.prd_dep = " + "'" + prd_dep + "'";
-            sql += " And a.prd_work_type = " + "'" + "A03" + "'";
+            sql += " And a.prd_work_type = " + "'" + "A03" + "' And a.prd_date='" + prd_date + "'";
             if (con_type == 1)//是否查找當日未完成標識
             {
                 sql += " And a.prd_mo = '" + mo_id + "'";

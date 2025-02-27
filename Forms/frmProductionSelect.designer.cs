@@ -70,16 +70,6 @@
             this.BTNNOSTART = new System.Windows.Forms.Button();
             this.BTNNOCOMP = new System.Windows.Forms.Button();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrd_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblDept = new System.Windows.Forms.Label();
             this.txtPrd_id = new System.Windows.Forms.TextBox();
@@ -132,9 +122,7 @@
             this.txtTotMember = new System.Windows.Forms.TextBox();
             this.lblMemo = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lueJobType = new DevExpress.XtraEditors.LookUpEdit();
             this.lblActual_qty = new System.Windows.Forms.Label();
-            this.txtPack_num = new System.Windows.Forms.TextBox();
             this.txtActual_qty = new System.Windows.Forms.TextBox();
             this.lblOk_weg = new System.Windows.Forms.Label();
             this.lblActual_weg = new System.Windows.Forms.Label();
@@ -148,7 +136,6 @@
             this.lblWork_class = new System.Windows.Forms.Label();
             this.lblchkcont_work = new System.Windows.Forms.Label();
             this.lblWork_code = new System.Windows.Forms.Label();
-            this.txtWork_code = new System.Windows.Forms.TextBox();
             this.txtNook_weg = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotalQty = new System.Windows.Forms.TextBox();
@@ -156,6 +143,9 @@
             this.txtOk_weg = new System.Windows.Forms.TextBox();
             this.lblOk_qty = new System.Windows.Forms.Label();
             this.lblgoods_desc = new System.Windows.Forms.Label();
+            this.txtWork_code = new System.Windows.Forms.TextBox();
+            this.lueJobType = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtPack_num = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -191,7 +181,18 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtKeyClick = new System.Windows.Forms.TextBox();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrd_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -205,8 +206,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.panel11.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -224,7 +225,6 @@
             this.chkcont_work1.Text = "中午";
             this.chkcont_work1.UseVisualStyleBackColor = true;
             this.chkcont_work1.Click += new System.EventHandler(this.chkcont_wrok1_Click);
-            this.chkcont_work1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // dteProdcutDate
             // 
@@ -236,7 +236,6 @@
             this.dteProdcutDate.Size = new System.Drawing.Size(165, 28);
             this.dteProdcutDate.TabIndex = 4;
             this.dteProdcutDate.Value = new System.DateTime(2014, 9, 15, 0, 0, 0, 0);
-            this.dteProdcutDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // label1
             // 
@@ -255,7 +254,7 @@
             this.txtBarCode.Font = new System.Drawing.Font("細明體", 12F);
             this.txtBarCode.Location = new System.Drawing.Point(615, 6);
             this.txtBarCode.Name = "txtBarCode";
-            this.txtBarCode.Size = new System.Drawing.Size(419, 27);
+            this.txtBarCode.Size = new System.Drawing.Size(494, 27);
             this.txtBarCode.TabIndex = 0;
             this.txtBarCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarCode_KeyDown);
             // 
@@ -268,7 +267,6 @@
             this.cmbGroup.Name = "cmbGroup";
             this.cmbGroup.Size = new System.Drawing.Size(157, 27);
             this.cmbGroup.TabIndex = 1;
-            this.cmbGroup.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.cmbGroup.Leave += new System.EventHandler(this.cmbGroup_Leave);
             // 
             // cmbGoods_id
@@ -283,7 +281,7 @@
             this.cmbGoods_id.Size = new System.Drawing.Size(418, 27);
             this.cmbGoods_id.TabIndex = 2;
             this.cmbGoods_id.TextChanged += new System.EventHandler(this.cmbGoods_id_TextChanged);
-            this.cmbGoods_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.cmbGoods_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.cmbGoods_id.Leave += new System.EventHandler(this.cmbGoods_id_Leave);
             // 
             // cmbOrder_class
@@ -297,7 +295,6 @@
             this.cmbOrder_class.Size = new System.Drawing.Size(153, 27);
             this.cmbOrder_class.TabIndex = 3;
             this.cmbOrder_class.Visible = false;
-            this.cmbOrder_class.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // cmbWorkType
             // 
@@ -311,7 +308,6 @@
             this.cmbWorkType.TabIndex = 16;
             this.cmbWorkType.TabStop = false;
             this.cmbWorkType.Visible = false;
-            this.cmbWorkType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // lblGroup
             // 
@@ -344,7 +340,6 @@
             this.txtper_Standrad_qty.Size = new System.Drawing.Size(146, 27);
             this.txtper_Standrad_qty.TabIndex = 3;
             this.txtper_Standrad_qty.Visible = false;
-            this.txtper_Standrad_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.txtper_Standrad_qty.Leave += new System.EventHandler(this.txtper_Standrad_qty_Leave);
             // 
             // lblProductDate
@@ -367,7 +362,6 @@
             this.cmbProductDept.Name = "cmbProductDept";
             this.cmbProductDept.Size = new System.Drawing.Size(165, 27);
             this.cmbProductDept.TabIndex = 1;
-            this.cmbProductDept.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             this.cmbProductDept.Leave += new System.EventHandler(this.cmbProductDept_Leave);
             // 
             // chkcont_work2
@@ -382,7 +376,6 @@
             this.chkcont_work2.Text = "下午";
             this.chkcont_work2.UseVisualStyleBackColor = true;
             this.chkcont_work2.Click += new System.EventHandler(this.chkcont_work2_Click);
-            this.chkcont_work2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
             // 
             // lblBarcode
             // 
@@ -414,7 +407,7 @@
             this.txtprd_weg.Name = "txtprd_weg";
             this.txtprd_weg.Size = new System.Drawing.Size(189, 27);
             this.txtprd_weg.TabIndex = 15;
-            this.txtprd_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtprd_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtprd_weg.Leave += new System.EventHandler(this.txtprd_weg_Leave);
             // 
             // txtPrd_qty
@@ -424,7 +417,7 @@
             this.txtPrd_qty.Name = "txtPrd_qty";
             this.txtPrd_qty.Size = new System.Drawing.Size(189, 27);
             this.txtPrd_qty.TabIndex = 16;
-            this.txtPrd_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtPrd_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtPrd_qty.Leave += new System.EventHandler(this.txtPrd_qty_Leave);
             // 
             // dtpReqEnd
@@ -453,7 +446,7 @@
             this.dtpEnd.Size = new System.Drawing.Size(157, 27);
             this.dtpEnd.TabIndex = 8;
             this.dtpEnd.Value = new System.DateTime(2014, 8, 19, 0, 0, 0, 0);
-            this.dtpEnd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.dtpEnd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.dtpEnd.Leave += new System.EventHandler(this.dtpEnd_Leave);
             this.dtpEnd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtpEnd_MouseDown);
             // 
@@ -478,7 +471,7 @@
             this.dtpStart.Size = new System.Drawing.Size(165, 27);
             this.dtpStart.TabIndex = 7;
             this.dtpStart.Value = new System.DateTime(2014, 8, 19, 0, 0, 0, 0);
-            this.dtpStart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.dtpStart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.dtpStart.Leave += new System.EventHandler(this.dtpStart_Leave);
             this.dtpStart.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtpStart_MouseDown);
             // 
@@ -500,7 +493,7 @@
             this.txtAdd_work.Name = "txtAdd_work";
             this.txtAdd_work.Size = new System.Drawing.Size(189, 27);
             this.txtAdd_work.TabIndex = 10;
-            this.txtAdd_work.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtAdd_work.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtAdd_work.Leave += new System.EventHandler(this.txtAdd_work_Leave);
             // 
             // txtgoods_desc
@@ -513,7 +506,7 @@
             this.txtgoods_desc.Size = new System.Drawing.Size(498, 27);
             this.txtgoods_desc.TabIndex = 17;
             this.txtgoods_desc.TabStop = false;
-            this.txtgoods_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtgoods_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             // 
             // txtNormal_work
             // 
@@ -522,7 +515,7 @@
             this.txtNormal_work.Name = "txtNormal_work";
             this.txtNormal_work.Size = new System.Drawing.Size(189, 27);
             this.txtNormal_work.TabIndex = 9;
-            this.txtNormal_work.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtNormal_work.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtNormal_work.Leave += new System.EventHandler(this.txtNormal_work_Leave);
             // 
             // lblMtItem
@@ -557,7 +550,7 @@
             this.txtmo_id.Name = "txtmo_id";
             this.txtmo_id.Size = new System.Drawing.Size(164, 27);
             this.txtmo_id.TabIndex = 0;
-            this.txtmo_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtmo_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtmo_id.Leave += new System.EventHandler(this.txtmo_id_Leave);
             // 
             // lblmo_id
@@ -670,7 +663,7 @@
             this.BTNNOSTART.Name = "BTNNOSTART";
             this.BTNNOSTART.Size = new System.Drawing.Size(99, 35);
             this.BTNNOSTART.TabIndex = 26;
-            this.BTNNOSTART.Text = "未開始記錄";
+            this.BTNNOSTART.Text = "當日未開始記錄";
             this.BTNNOSTART.UseVisualStyleBackColor = false;
             this.BTNNOSTART.Click += new System.EventHandler(this.BTNNOSTART_Click);
             // 
@@ -682,7 +675,7 @@
             this.BTNNOCOMP.Name = "BTNNOCOMP";
             this.BTNNOCOMP.Size = new System.Drawing.Size(99, 35);
             this.BTNNOCOMP.TabIndex = 26;
-            this.BTNNOCOMP.Text = "未完成記錄";
+            this.BTNNOCOMP.Text = "當日未完成記錄";
             this.BTNNOCOMP.UseVisualStyleBackColor = false;
             this.BTNNOCOMP.Click += new System.EventHandler(this.BTNNOCOMP_Click);
             // 
@@ -697,16 +690,17 @@
             this.dgvDetails.ColumnHeadersHeight = 30;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.Column11,
             this.Column2,
-            this.Column3,
-            this.Column4,
+            this.Column1,
             this.Column5,
             this.Column6,
             this.Column7,
             this.Column8,
             this.Column9,
-            this.colPrd_Id});
+            this.colPrd_Id,
+            this.Column3,
+            this.Column4});
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetails.Location = new System.Drawing.Point(3, 48);
             this.dgvDetails.Name = "dgvDetails";
@@ -719,79 +713,10 @@
             this.dgvDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDetails_RowPostPaint);
             this.dgvDetails.Leave += new System.EventHandler(this.dgvDetails_Leave);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "prd_end_time";
-            this.Column1.HeaderText = "結束時間";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "prd_start_time";
-            this.Column2.HeaderText = "開始時間";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 80;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "work_type_desc";
-            this.Column3.HeaderText = "工作類型";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 80;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "prd_group";
-            this.Column4.HeaderText = "組別";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "prd_qty";
-            this.Column5.HeaderText = "生產數量";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "prd_weg";
-            this.Column6.HeaderText = "生產重量";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "prd_mo";
-            this.Column7.HeaderText = "制單編號";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 120;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "prd_item";
-            this.Column8.HeaderText = "物料編號";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 240;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "prd_date";
-            this.Column9.HeaderText = "生產日期";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 120;
-            // 
-            // colPrd_Id
-            // 
-            this.colPrd_Id.DataPropertyName = "prd_id";
-            this.colPrd_Id.HeaderText = "記錄號";
-            this.colPrd_Id.Name = "colPrd_Id";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtBarCode);
             this.panel1.Controls.Add(this.cmbProductDept);
             this.panel1.Controls.Add(this.dteProdcutDate);
@@ -855,7 +780,8 @@
             this.cmbOwnDep.Name = "cmbOwnDep";
             this.cmbOwnDep.Size = new System.Drawing.Size(157, 27);
             this.cmbOwnDep.TabIndex = 1;
-            this.cmbOwnDep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.cmbOwnDep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
+            this.cmbOwnDep.Leave += new System.EventHandler(this.cmbOwnDep_Leave);
             // 
             // lblOwnDep
             // 
@@ -1171,6 +1097,7 @@
             this.cmbDefective_id.Name = "cmbDefective_id";
             this.cmbDefective_id.Size = new System.Drawing.Size(189, 27);
             this.cmbDefective_id.TabIndex = 0;
+            this.cmbDefective_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             // 
             // lblDefective
             // 
@@ -1189,6 +1116,7 @@
             this.txtOth_Defective.Name = "txtOth_Defective";
             this.txtOth_Defective.Size = new System.Drawing.Size(189, 27);
             this.txtOth_Defective.TabIndex = 2;
+            this.txtOth_Defective.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             // 
             // btnDelDefective
             // 
@@ -1437,30 +1365,6 @@
             this.panel4.Size = new System.Drawing.Size(1166, 168);
             this.panel4.TabIndex = 56;
             // 
-            // lueJobType
-            // 
-            this.lueJobType.Location = new System.Drawing.Point(353, 132);
-            this.lueJobType.Name = "lueJobType";
-            this.lueJobType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lueJobType.Properties.Appearance.Options.UseFont = true;
-            this.lueJobType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.lueJobType.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lueJobType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.lueJobType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
-            this.lueJobType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueJobType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lueJobType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_type", 60, "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("remark", 260, "描述"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_desc", 200, "種類")});
-            this.lueJobType.Properties.NullText = "";
-            this.lueJobType.Properties.PopupFormMinSize = new System.Drawing.Size(500, 30);
-            this.lueJobType.Size = new System.Drawing.Size(157, 30);
-            this.lueJobType.TabIndex = 13;
-            this.lueJobType.Visible = false;
-            this.lueJobType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
-            // 
             // lblActual_qty
             // 
             this.lblActual_qty.AutoSize = true;
@@ -1472,16 +1376,6 @@
             this.lblActual_qty.Text = "移交總數:";
             this.lblActual_qty.Visible = false;
             // 
-            // txtPack_num
-            // 
-            this.txtPack_num.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPack_num.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtPack_num.Location = new System.Drawing.Point(92, 132);
-            this.txtPack_num.Name = "txtPack_num";
-            this.txtPack_num.Size = new System.Drawing.Size(165, 27);
-            this.txtPack_num.TabIndex = 11;
-            this.txtPack_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
-            // 
             // txtActual_qty
             // 
             this.txtActual_qty.Location = new System.Drawing.Point(913, 132);
@@ -1489,7 +1383,7 @@
             this.txtActual_qty.Size = new System.Drawing.Size(189, 32);
             this.txtActual_qty.TabIndex = 19;
             this.txtActual_qty.Visible = false;
-            this.txtActual_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtActual_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             // 
             // lblOk_weg
             // 
@@ -1584,7 +1478,7 @@
             this.txtOk_qty.Name = "txtOk_qty";
             this.txtOk_qty.Size = new System.Drawing.Size(157, 27);
             this.txtOk_qty.TabIndex = 4;
-            this.txtOk_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtOk_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtOk_qty.Leave += new System.EventHandler(this.txtOk_qty_Leave);
             // 
             // lblWork_class
@@ -1620,16 +1514,6 @@
             this.lblWork_code.TabIndex = 0;
             this.lblWork_code.Text = "標準編碼:";
             // 
-            // txtWork_code
-            // 
-            this.txtWork_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWork_code.Font = new System.Drawing.Font("細明體", 12F);
-            this.txtWork_code.Location = new System.Drawing.Point(353, 132);
-            this.txtWork_code.Name = "txtWork_code";
-            this.txtWork_code.Size = new System.Drawing.Size(157, 27);
-            this.txtWork_code.TabIndex = 13;
-            this.txtWork_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
-            // 
             // txtNook_weg
             // 
             this.txtNook_weg.Font = new System.Drawing.Font("細明體", 12F);
@@ -1637,7 +1521,7 @@
             this.txtNook_weg.Name = "txtNook_weg";
             this.txtNook_weg.Size = new System.Drawing.Size(189, 27);
             this.txtNook_weg.TabIndex = 5;
-            this.txtNook_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtNook_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtNook_weg.Leave += new System.EventHandler(this.txtNook_weg_Leave);
             // 
             // label3
@@ -1670,7 +1554,7 @@
             this.txtNook_qty.Name = "txtNook_qty";
             this.txtNook_qty.Size = new System.Drawing.Size(189, 27);
             this.txtNook_qty.TabIndex = 6;
-            this.txtNook_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtNook_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtNook_qty.Leave += new System.EventHandler(this.txtNook_qty_Leave);
             // 
             // txtOk_weg
@@ -1680,7 +1564,7 @@
             this.txtOk_weg.Name = "txtOk_weg";
             this.txtOk_weg.Size = new System.Drawing.Size(165, 27);
             this.txtOk_weg.TabIndex = 3;
-            this.txtOk_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            this.txtOk_weg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             this.txtOk_weg.Leave += new System.EventHandler(this.txtOk_weg_Leave);
             // 
             // lblOk_qty
@@ -1703,6 +1587,50 @@
             this.lblgoods_desc.Size = new System.Drawing.Size(80, 16);
             this.lblgoods_desc.TabIndex = 42;
             this.lblgoods_desc.Text = "物料描述:";
+            // 
+            // txtWork_code
+            // 
+            this.txtWork_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtWork_code.Font = new System.Drawing.Font("細明體", 12F);
+            this.txtWork_code.Location = new System.Drawing.Point(353, 132);
+            this.txtWork_code.Name = "txtWork_code";
+            this.txtWork_code.Size = new System.Drawing.Size(157, 27);
+            this.txtWork_code.TabIndex = 13;
+            this.txtWork_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
+            // 
+            // lueJobType
+            // 
+            this.lueJobType.Location = new System.Drawing.Point(353, 132);
+            this.lueJobType.Name = "lueJobType";
+            this.lueJobType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lueJobType.Properties.Appearance.Options.UseFont = true;
+            this.lueJobType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lueJobType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueJobType.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lueJobType.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.lueJobType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueJobType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueJobType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_type", 60, "代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("remark", 260, "描述"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("job_desc", 200, "種類")});
+            this.lueJobType.Properties.NullText = "";
+            this.lueJobType.Properties.PopupFormMinSize = new System.Drawing.Size(500, 30);
+            this.lueJobType.Size = new System.Drawing.Size(157, 30);
+            this.lueJobType.TabIndex = 13;
+            this.lueJobType.Visible = false;
+            this.lueJobType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmo_id_KeyPress);
+            // 
+            // txtPack_num
+            // 
+            this.txtPack_num.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPack_num.Font = new System.Drawing.Font("細明體", 12F);
+            this.txtPack_num.Location = new System.Drawing.Point(92, 132);
+            this.txtPack_num.Name = "txtPack_num";
+            this.txtPack_num.Size = new System.Drawing.Size(165, 27);
+            this.txtPack_num.TabIndex = 11;
+            this.txtPack_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
             // 
             // tabPage2
             // 
@@ -1816,9 +1744,9 @@
             this.btnRedo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRedo.Name = "btnRedo";
             this.btnRedo.Size = new System.Drawing.Size(85, 35);
-            this.btnRedo.Text = "繼續選貨";
+            this.btnRedo.Text = "新增(&A)";
             this.btnRedo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnRedo.ToolTipText = "繼續選貨";
+            this.btnRedo.ToolTipText = "新增(&A)";
             this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
             // toolStripSeparator4
@@ -1999,21 +1927,95 @@
             this.dataGridViewTextBoxColumn16.HeaderText = "記錄號";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             // 
-            // button1
+            // txtKeyClick
             // 
-            this.button1.Location = new System.Drawing.Point(1068, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 31);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.txtKeyClick.Location = new System.Drawing.Point(728, 22);
+            this.txtKeyClick.Name = "txtKeyClick";
+            this.txtKeyClick.Size = new System.Drawing.Size(100, 22);
+            this.txtKeyClick.TabIndex = 3;
+            this.txtKeyClick.Visible = false;
+            this.txtKeyClick.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "prd_worker_d";
+            this.Column11.HeaderText = "生產工號";
+            this.Column11.Name = "Column11";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "prd_start_time";
+            this.Column2.HeaderText = "開始時間";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 80;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "prd_end_time";
+            this.Column1.HeaderText = "結束時間";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "prd_qty";
+            this.Column5.HeaderText = "生產數量";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "prd_weg";
+            this.Column6.HeaderText = "生產重量";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "prd_mo";
+            this.Column7.HeaderText = "制單編號";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 120;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "prd_item";
+            this.Column8.HeaderText = "物料編號";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 240;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "prd_date";
+            this.Column9.HeaderText = "生產日期";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 120;
+            // 
+            // colPrd_Id
+            // 
+            this.colPrd_Id.DataPropertyName = "prd_id";
+            this.colPrd_Id.HeaderText = "記錄號";
+            this.colPrd_Id.Name = "colPrd_Id";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "work_type_desc";
+            this.Column3.HeaderText = "工作類型";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "prd_group";
+            this.Column4.HeaderText = "組別";
+            this.Column4.Name = "Column4";
             // 
             // frmProductionSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 859);
+            this.Controls.Add(this.txtKeyClick);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
@@ -2041,15 +2043,16 @@
             this.panel11.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueJobType.Properties)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2166,16 +2169,6 @@
         private System.Windows.Forms.Label lblOth_Defective;
         private System.Windows.Forms.Label lblchkcont_work;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_Id;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
@@ -2217,6 +2210,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDefective_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDefective_cdesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOth_defective;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtKeyClick;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
