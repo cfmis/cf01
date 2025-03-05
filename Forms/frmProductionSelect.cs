@@ -1394,10 +1394,12 @@ namespace cf01.Forms
             //}
 
             dtWorker.Clear();
+            string mbGroup = "";
+            mbGroup = cmbGroup.SelectedValue == null ? "" : cmbGroup.SelectedValue.ToString();
             sql += " Select a.prd_worker,b.hrm1name From product_group_member a " +
                 " Left Join dgsql1.dghr.dbo.hrm01 b on a.prd_worker=b.hrm1wid  COLLATE Chinese_PRC_CI_AS " +
                 " Where a.prd_dep = " + "'" + cmbProductDept.SelectedValue.ToString() + "'" +
-                " And a.prd_group = " + "'" + cmbGroup.SelectedValue.ToString() + "'";
+                " And a.prd_group = " + "'" + mbGroup + "'";
             dtMember = clsPublicOfPad.GetDataTable(sql);
             for (int i = 0; i < dtMember.Rows.Count; i++)
             {

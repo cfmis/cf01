@@ -96,10 +96,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.dgvDefective = new System.Windows.Forms.DataGridView();
-            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDefective_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDefective_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOth_defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel12 = new System.Windows.Forms.Panel();
             this.cmbDefective_id = new System.Windows.Forms.ComboBox();
             this.lblDefective = new System.Windows.Forms.Label();
@@ -109,8 +105,6 @@
             this.btnAddDefective = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvWorker = new System.Windows.Forms.DataGridView();
-            this.prd_worker = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnDeleteMember = new System.Windows.Forms.Button();
             this.lblWorker = new System.Windows.Forms.Label();
@@ -165,6 +159,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDefective = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtKeyClick = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -181,7 +176,11 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtKeyClick = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDefective_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDefective_cdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOth_defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,6 +192,8 @@
             this.colPrd_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prd_worker = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -1046,33 +1047,6 @@
             this.dgvDefective.Size = new System.Drawing.Size(643, 240);
             this.dgvDefective.TabIndex = 45;
             // 
-            // colSeq
-            // 
-            this.colSeq.DataPropertyName = "seq";
-            this.colSeq.HeaderText = "序號";
-            this.colSeq.Name = "colSeq";
-            this.colSeq.Width = 80;
-            // 
-            // colDefective_id
-            // 
-            this.colDefective_id.DataPropertyName = "defective_id";
-            this.colDefective_id.HeaderText = "次品種類";
-            this.colDefective_id.Name = "colDefective_id";
-            // 
-            // colDefective_cdesc
-            // 
-            this.colDefective_cdesc.DataPropertyName = "defective_cdesc";
-            this.colDefective_cdesc.HeaderText = "種類描述";
-            this.colDefective_cdesc.Name = "colDefective_cdesc";
-            this.colDefective_cdesc.Width = 120;
-            // 
-            // colOth_defective
-            // 
-            this.colOth_defective.DataPropertyName = "oth_defective";
-            this.colOth_defective.HeaderText = "其它描述";
-            this.colOth_defective.Name = "colOth_defective";
-            this.colOth_defective.Width = 120;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.SystemColors.Control;
@@ -1176,20 +1150,6 @@
             this.dgvWorker.Size = new System.Drawing.Size(515, 240);
             this.dgvWorker.TabIndex = 41;
             this.dgvWorker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvWorker_KeyPress);
-            // 
-            // prd_worker
-            // 
-            this.prd_worker.DataPropertyName = "prd_worker";
-            this.prd_worker.HeaderText = "工號";
-            this.prd_worker.Name = "prd_worker";
-            this.prd_worker.Width = 120;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "hrm1name";
-            this.Column10.HeaderText = "姓名";
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 160;
             // 
             // panel11
             // 
@@ -1816,6 +1776,15 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 50);
             // 
+            // txtKeyClick
+            // 
+            this.txtKeyClick.Location = new System.Drawing.Point(728, 22);
+            this.txtKeyClick.Name = "txtKeyClick";
+            this.txtKeyClick.Size = new System.Drawing.Size(100, 22);
+            this.txtKeyClick.TabIndex = 3;
+            this.txtKeyClick.Visible = false;
+            this.txtKeyClick.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "end_time";
@@ -1926,15 +1895,40 @@
             this.dataGridViewTextBoxColumn16.DataPropertyName = "prd_id";
             this.dataGridViewTextBoxColumn16.HeaderText = "記錄號";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 80;
             // 
-            // txtKeyClick
+            // dataGridViewTextBoxColumn17
             // 
-            this.txtKeyClick.Location = new System.Drawing.Point(728, 22);
-            this.txtKeyClick.Name = "txtKeyClick";
-            this.txtKeyClick.Size = new System.Drawing.Size(100, 22);
-            this.txtKeyClick.TabIndex = 3;
-            this.txtKeyClick.Visible = false;
-            this.txtKeyClick.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyClick_KeyPress);
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "prd_group";
+            this.dataGridViewTextBoxColumn17.HeaderText = "組別";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // colSeq
+            // 
+            this.colSeq.DataPropertyName = "seq";
+            this.colSeq.HeaderText = "序號";
+            this.colSeq.Name = "colSeq";
+            this.colSeq.Width = 80;
+            // 
+            // colDefective_id
+            // 
+            this.colDefective_id.DataPropertyName = "defective_id";
+            this.colDefective_id.HeaderText = "次品種類";
+            this.colDefective_id.Name = "colDefective_id";
+            // 
+            // colDefective_cdesc
+            // 
+            this.colDefective_cdesc.DataPropertyName = "defective_cdesc";
+            this.colDefective_cdesc.HeaderText = "種類描述";
+            this.colDefective_cdesc.Name = "colDefective_cdesc";
+            this.colDefective_cdesc.Width = 120;
+            // 
+            // colOth_defective
+            // 
+            this.colOth_defective.DataPropertyName = "oth_defective";
+            this.colOth_defective.HeaderText = "其它描述";
+            this.colOth_defective.Name = "colOth_defective";
+            this.colOth_defective.Width = 120;
             // 
             // Column11
             // 
@@ -2009,6 +2003,20 @@
             this.Column4.DataPropertyName = "prd_group";
             this.Column4.HeaderText = "組別";
             this.Column4.Name = "Column4";
+            // 
+            // prd_worker
+            // 
+            this.prd_worker.DataPropertyName = "prd_worker";
+            this.prd_worker.HeaderText = "工號";
+            this.prd_worker.Name = "prd_worker";
+            this.prd_worker.Width = 200;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "hrm1name";
+            this.Column10.HeaderText = "姓名";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 160;
             // 
             // frmProductionSelect
             // 
@@ -2196,8 +2204,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prd_worker;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.Label lblActual_qty;
@@ -2222,5 +2228,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrd_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prd_worker;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }
