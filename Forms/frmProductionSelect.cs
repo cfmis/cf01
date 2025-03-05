@@ -209,10 +209,7 @@ namespace cf01.Forms
             //cmbWorkType.Text = "選貨";
             cmbWorkType.SelectedValue = "A03";
             InitComBoxGroup();
-            //初始化班次、組別
-            cmbOrder_class.Items.Add("白班");
-            cmbOrder_class.Items.Add("夜班");
-            cmbOrder_class.Text = "白班";
+            
             dteProdcutDate.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
 
 
@@ -299,6 +296,11 @@ namespace cf01.Forms
             lueJobType.Properties.ValueMember = "job_type";
             lueJobType.Properties.DisplayMember = "job_type";
 
+            //初始化班次、組別
+            cmbOrder_class.Items.Add("白班");
+            cmbOrder_class.Items.Add("夜班");
+            cmbOrder_class.Text = "白班";
+
         }
 
         private void loadDefective()
@@ -310,19 +312,34 @@ namespace cf01.Forms
         }
         private void txtmo_id_Leave(object sender, EventArgs e)
         {
+            GetWipData();
+        }
+        private void cmbOwnDep_Leave(object sender, EventArgs e)
+        {
+            GetWipData();
+        }
+        private void GetWipData()
+        {
+            if(record_id!=-1)
+            {
+                return;
+            }
             cmbGoods_id.SelectedValue = "";
             txtgoods_desc.Text = "";
             if (txtmo_id.Text != "" && cmbOwnDep.Text != "")
             {
                 GetMo_itme("");
                 //設定第一個為默認的
-                if (cmbGoods_id.SelectedIndex > 0)
+                if (cmbGoods_id.Items.Count > 0)
+                {
                     cmbGoods_id.SelectedIndex = 0;
-                get_data_details();
+                    SetPrdData();
+                }
+                    
+                //get_data_details();
                 txtOk_qty.Focus();
             }
         }
-
         //獲取制單編號資料，并綁定物料編號
         private void GetMo_itme(string goods_id)
         {
@@ -350,7 +367,17 @@ namespace cf01.Forms
             cmbGoods_id.ValueMember = "goods_id";
 
         }
-
+        private void SetPrdData()
+        {
+            //ClearPartOfText(); //清空文本框內容
+            fill_plan_value();//首先將計劃單帶出數量、描述
+            fill_txt_kg_pcs();//提取物料每公斤對應數量
+            count_kg_pcs();//換算重量
+            ////如果是外发部门，则提取外发收货的数量当作选货数
+            //if (string.Compare(cmbOwnDep.Text, "5") > 0 && string.Compare(cmbOwnDep.Text, "599") < 0)
+            //    get_plate_qty();
+            get_total_prd_qty();//獲取總完成數量
+        }
         //查詢未完成的記錄，並重新賦值，便於重新輸入完整資料
         private void get_prd_records(int con_type)
         {
@@ -561,7 +588,7 @@ namespace cf01.Forms
         //清空所有輸入值
         private void ClearAllText()
         {
-            cmbOrder_class.Text = "";
+            //cmbOrder_class.Text = "";
             cmbGroup.SelectedValue= "";
             txtmo_id.Text = "";
             cmbGoods_id.SelectedValue = "";
@@ -634,13 +661,13 @@ namespace cf01.Forms
                 cmbProductDept.SelectAll();
                 return false;
             }
-            if (cmbOrder_class.Text == "")
-            {
-                MessageBox.Show("班次不能為空,請重新輸入!");
-                cmbOrder_class.Focus();
-                cmbOrder_class.SelectAll();
-                return false;
-            }
+            //if (cmbOrder_class.Text == "")
+            //{
+            //    MessageBox.Show("班次不能為空,請重新輸入!");
+            //    cmbOrder_class.Focus();
+            //    cmbOrder_class.SelectAll();
+            //    return false;
+            //}
             //if (cmbGroup.Text == "")
             //{
             //    MessageBox.Show("組別不能為空,請重新輸入!");
@@ -1230,7 +1257,10 @@ namespace cf01.Forms
             edit_type = "N";
             InitComBoxGroup();//初始化組別
             ClearAllText();
-            cmbOwnDep.Text = cmbProductDept.Text;
+            if (cmbProductDept.SelectedValue.ToString().Trim() == "601")
+                cmbOwnDep.Text = "501";
+            else
+                cmbOwnDep.Text = cmbProductDept.Text;
         }
 
         private void dtpEnd_MouseDown(object sender, MouseEventArgs e)
@@ -1264,6 +1294,7 @@ namespace cf01.Forms
                     dgvWorker.DataSource = dtWorker;
                 }
             }
+            setTabClick(e);
             //txtmo_id_KeyPress(sender, e);
         }
         //加入生產工號
@@ -1363,10 +1394,12 @@ namespace cf01.Forms
             //}
 
             dtWorker.Clear();
+            string mbGroup = "";
+            mbGroup = cmbGroup.SelectedValue == null ? "" : cmbGroup.SelectedValue.ToString();
             sql += " Select a.prd_worker,b.hrm1name From product_group_member a " +
                 " Left Join dgsql1.dghr.dbo.hrm01 b on a.prd_worker=b.hrm1wid  COLLATE Chinese_PRC_CI_AS " +
                 " Where a.prd_dep = " + "'" + cmbProductDept.SelectedValue.ToString() + "'" +
-                " And a.prd_group = " + "'" + cmbGroup.SelectedValue.ToString() + "'";
+                " And a.prd_group = " + "'" + mbGroup + "'";
             dtMember = clsPublicOfPad.GetDataTable(sql);
             for (int i = 0; i < dtMember.Rows.Count; i++)
             {
@@ -1533,10 +1566,9 @@ namespace cf01.Forms
 
         private void cmbGoods_id_Leave(object sender, EventArgs e)
         {
-            get_data_details();
-            //txtOk_qty.Focus();
+            SetPrdData();
         }
-
+        
         private void txtprd_weg_Leave(object sender, EventArgs e)
         {
             if (cmbProductDept.SelectedValue.ToString() == "203")
@@ -1689,12 +1721,13 @@ namespace cf01.Forms
 
         private void btnRedo_Click(object sender, EventArgs e)
         {
-            if (record_id == -1)
-            {
-                MessageBox.Show("原單記錄不存在!");
-                return;
-            }
-            txtPrd_id_ref.Text = record_id.ToString();
+            //if (record_id == -1)
+            //{
+            //    MessageBox.Show("原單記錄不存在!");
+            //    return;
+            //}
+            edit_type = "N";
+            txtPrd_id_ref.Text = "";// record_id.ToString();
             record_id = -1;//重新設定為新單狀態
             txtPrd_id.Text = record_id.ToString();
             txtPrd_qty.Text = "";
@@ -1709,10 +1742,10 @@ namespace cf01.Forms
             txtNook_weg.Text = "";
             txtOk_qty.Text = "";
             txtNook_qty.Text = "";
-            dteProdcutDate.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
-            get_last_prd_end_time();//查詢組別當日最後的完成時間，作為開始時間
+            //dteProdcutDate.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
+            //get_last_prd_end_time();//查詢組別當日最後的完成時間，作為開始時間
             get_group_member();//獲取組別的成員
-            get_total_prd_qty();//顯示單的總完成數量
+            //get_total_prd_qty();//顯示單的總完成數量
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -1754,12 +1787,15 @@ namespace cf01.Forms
 
         private void txtmo_id_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (e.KeyChar == (char)Keys.Enter)
-            //{
-            //    SendKeys.Send("{tab}");
-            //}
+            setTabClick(e);
         }
-        
+        private void setTabClick(KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SendKeys.Send("{tab}");
+            }
+        }
 
         private void txtActual_weg_TextChanged(object sender, EventArgs e)
         {
@@ -1771,17 +1807,11 @@ namespace cf01.Forms
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void txtKeyClick_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string mo_id = txtmo_id.Text;
-            //string strSql = @" Select * from mo_batchprint where mo_id='" + mo_id + "'";
-            string strSql = @" Select * from mo_batchprint
-                               Where mo_id=@mo_id ";
-            SqlParameter[] paras = new SqlParameter[] {
-                    new SqlParameter("@mo_id",mo_id)
-                };
-            var dtMo = clsPublicOfCF01.ExecuteProcedure(strSql, paras);
-            string prd_item = "";
+            setTabClick(e);
         }
+
+        
     }
 }

@@ -34,6 +34,8 @@ namespace cf01.ReportForm
             //forminit.GenerateContorl();
             dgvDetails.AutoGenerateColumns = false;
             dgvSummary.AutoGenerateColumns = false;
+            dgvPrdWorker.AutoGenerateColumns = false;
+            dgvPrd.AutoGenerateColumns = false;
             detDate1.Text = System.DateTime.Now.ToString("yyyy/MM/dd");
             detDate2.Text = detDate1.Text;
             string localIp = clsAppPublic.GetLocalIP();
@@ -121,8 +123,11 @@ namespace cf01.ReportForm
                 dgvDetails.DataSource = dtPrd;
             else if (rpt_type == 1)
                 dgvSummary.DataSource = dtPrd;
-            else
+            else if (rpt_type == 2)
                 dgvPrdWorker.DataSource = dtPrd;
+            else
+                dgvPrd.DataSource = dtPrd;
+
         }
         private void textBox1_Leave(object sender, EventArgs e)
         {
@@ -208,10 +213,12 @@ namespace cf01.ReportForm
                 }else//匯總表
                 {
                     DataGridView dgvObj = new DataGridView();
-                    if (rpt_type==1)//按工作類型匯總
+                    if (rpt_type == 1)//按工作類型匯總
                         dgvObj = dgvSummary;
-                    else
+                    else if (rpt_type == 2)//按工號統計
                         dgvObj = dgvPrdWorker;
+                    else
+                        dgvObj = dgvPrd;
                     //写标题
                     for (int i = 0; i < dgvObj.ColumnCount; i++)
                     {
