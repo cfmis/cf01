@@ -463,5 +463,6 @@ namespace cf01.MDL
         public decimal qty;
         public decimal weg;
         public string box_no;
+        public int package_num;
     }
 }

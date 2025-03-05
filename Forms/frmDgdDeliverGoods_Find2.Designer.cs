@@ -42,6 +42,7 @@
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.box_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.package_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.upd_flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prd_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -63,6 +64,7 @@
             this.qty,
             this.weg,
             this.box_no,
+            this.package_num,
             this.upd_flag,
             this.prd_id});
             this.dgvDetails.Location = new System.Drawing.Point(10, 39);
@@ -154,6 +156,7 @@
             this.weg.MaxInputLength = 20;
             this.weg.Name = "weg";
             this.weg.ReadOnly = true;
+            this.weg.Width = 90;
             // 
             // box_no
             // 
@@ -161,6 +164,15 @@
             this.box_no.HeaderText = " 箱號";
             this.box_no.Name = "box_no";
             this.box_no.ReadOnly = true;
+            this.box_no.Width = 90;
+            // 
+            // package_num
+            // 
+            this.package_num.DataPropertyName = "package_num";
+            this.package_num.HeaderText = "件數";
+            this.package_num.Name = "package_num";
+            this.package_num.ReadOnly = true;
+            this.package_num.Width = 90;
             // 
             // upd_flag
             // 
@@ -213,6 +225,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn weg;
         private System.Windows.Forms.DataGridViewTextBoxColumn box_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn package_num;
         private System.Windows.Forms.DataGridViewTextBoxColumn upd_flag;
         private System.Windows.Forms.DataGridViewTextBoxColumn prd_id;
     }

@@ -1229,6 +1229,7 @@ namespace cf01.Forms
                 string boxNo = "";
                 decimal qty = 0;
                 decimal weg = 0;
+                decimal package_num = 0;
                 DataTable dtMoOc = new DataTable();
                 string result = "";
                 int update_flag = 0;
@@ -1238,6 +1239,7 @@ namespace cf01.Forms
                     moId = frm.lstMo[i].mo_id;
                     qty = frm.lstMo[i].qty;
                     weg = frm.lstMo[i].weg;
+                    package_num = frm.lstMo[i].package_num;
                     boxNo = frm.lstMo[i].box_no;
 
                     txtMo_id.Text = moId;
@@ -1262,6 +1264,7 @@ namespace cf01.Forms
                                 txtU_invoice_qty.Text = qty.ToString();// row["order_qty"].ToString();//2025/02/26
                                 txtSec_qty.Text = weg.ToString(); //2025/02/26 新加
                                 txtBox_no.Text = boxNo;  //2025/02/26 新加
+                                txtPackage_num.Text = package_num.ToString();
                                 lueGoods_unit.EditValue = row["goods_unit"].ToString();
                                 txtOrder_id.Text = row["id"].ToString();
                                 txtCustomer_goods.Text = row["customer_goods"].ToString();
