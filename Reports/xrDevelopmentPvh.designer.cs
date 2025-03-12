@@ -1324,7 +1324,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel193.CanGrow = false;
             this.xrLabel193.Dpi = 254F;
-            this.xrLabel193.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel193.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel193.LocationFloat = new DevExpress.Utils.PointFloat(220.3806F, 1532.951F);
             this.xrLabel193.Multiline = true;
             this.xrLabel193.Name = "xrLabel193";
