@@ -50,7 +50,7 @@ namespace cf01.ModuleClass
                 }
             }           
 
-            //輸入入的值長度達到最大長度後焦點跳轉到下一控件            
+            //輸入的值長度達到最大長度後焦點跳轉到下一控件            
             switch (frm.ActiveControl.GetType().Name)
             {
                 case "TextBox":

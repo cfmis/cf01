@@ -1232,6 +1232,12 @@
     <Compile Include="Forms\frmTransferLoc.Designer.cs">
       <DependentUpon>frmTransferLoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmTransferout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTransferout.designer.cs">
+      <DependentUpon>frmTransferout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmTrimsSheet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3395,6 +3401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTransferLoc.resx">
       <DependentUpon>frmTransferLoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTransferout.resx">
+      <DependentUpon>frmTransferout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTrimsSheet.resx">
       <DependentUpon>frmTrimsSheet.cs</DependentUpon>

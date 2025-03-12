@@ -105,6 +105,10 @@ namespace cf01.Forms
                 btn_save.Visible = false;
 
                 string sqlstring = DBUtility.GetAppConfig("conn_string_dgsql1");
+                if(string.IsNullOrEmpty(sqlstring))
+                {
+                    return;
+                }
                 sqlstring = DBUtility.Decrypt(sqlstring);               
                 sqlstring = sqlstring.Replace(" ", "");//去掉空格
                 sqlstring = sqlstring.ToUpper();
