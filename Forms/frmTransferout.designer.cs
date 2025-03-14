@@ -57,19 +57,23 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNAPPROVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNFIND = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCheck_by = new DevExpress.XtraEditors.TextEdit();
             this.lkeSate = new DevExpress.XtraEditors.LookUpEdit();
-            this.lkeSeparate = new DevExpress.XtraEditors.LookUpEdit();
+            this.lkeGroupNo = new DevExpress.XtraEditors.LookUpEdit();
             this.txtCheck_date = new DevExpress.XtraEditors.TextEdit();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.txtRemark2 = new DevExpress.XtraEditors.MemoEdit();
+            this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.label12 = new System.Windows.Forms.Label();
             this.lkeBill_type_no = new DevExpress.XtraEditors.LookUpEdit();
             this.txtUpdate_count = new DevExpress.XtraEditors.TextEdit();
@@ -77,9 +81,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.dtOi_date = new DevExpress.XtraEditors.DateEdit();
+            this.dtTransfer_date = new DevExpress.XtraEditors.DateEdit();
             this.lblSales_group = new System.Windows.Forms.Label();
-            this.lkeIt_customer = new DevExpress.XtraEditors.LookUpEdit();
+            this.lkeDepartment_id = new DevExpress.XtraEditors.LookUpEdit();
             this.lblAmtim = new System.Windows.Forms.Label();
             this.lblAmusr = new System.Windows.Forms.Label();
             this.lblCrtim = new System.Windows.Forms.Label();
@@ -92,84 +96,70 @@
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.dgvFare = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dgvPart = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clAc = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clAc_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clAc_price = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clAc_amt = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clAc_Chk_isFree = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dgvDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clChk_Set = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clMo_id = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clSend_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clSend_qty_unit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clPrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clPrice_unit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clTotal_sum = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clLocation_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clAc_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.location = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clIs_print = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clDisc_rate = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.remark = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clAc = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.clAc_price = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.clAc_amt = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.clAc_Chk_isFree = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.dgvDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clMo_id = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clChk_Set = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clSend_qty_unit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clSend_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clLocation_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clChk_is_free = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clm_rate = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn55 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clTotal_sum = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -249,10 +239,6 @@
             this.lblFindOc_no = new DevExpress.XtraEditors.LabelControl();
             this.txtFindMo_id = new DevExpress.XtraEditors.TextEdit();
             this.lblFindMo_id = new DevExpress.XtraEditors.LabelControl();
-            this.BTNAPPROVE = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCheck_by = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.clTest_item_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clType_conditon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clButFindReport)).BeginInit();
@@ -262,44 +248,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.clRef_mo)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeSate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeSeparate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeGroupNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeBill_type_no.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_count.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHandler.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeIt_customer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeDepartment_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFare)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clAc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_amt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_Chk_isFree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clChk_Set)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clMo_id)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clChk_Set)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSend_qty_unit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSec_qty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clPrice_unit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clTotal_sum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clQty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clIs_print)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clDisc_rate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clChk_is_free)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clm_rate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clTotal_sum)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -327,7 +308,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFindOc_no.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFindId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFindMo_id.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_by.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // clTest_item_id
@@ -535,6 +515,19 @@
             this.BTNCANCEL.Text = "取消(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 28);
+            // 
+            // BTNAPPROVE
+            // 
+            this.BTNAPPROVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNAPPROVE.Image")));
+            this.BTNAPPROVE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNAPPROVE.Name = "BTNAPPROVE";
+            this.BTNAPPROVE.Size = new System.Drawing.Size(54, 25);
+            this.BTNAPPROVE.Text = "批 準";
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
@@ -574,12 +567,12 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtCheck_by);
             this.panel1.Controls.Add(this.lkeSate);
-            this.panel1.Controls.Add(this.lkeSeparate);
+            this.panel1.Controls.Add(this.lkeGroupNo);
             this.panel1.Controls.Add(this.txtCheck_date);
             this.panel1.Controls.Add(this.label44);
             this.panel1.Controls.Add(this.label43);
             this.panel1.Controls.Add(this.label41);
-            this.panel1.Controls.Add(this.txtRemark2);
+            this.panel1.Controls.Add(this.txtRemark);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.lkeBill_type_no);
             this.panel1.Controls.Add(this.txtUpdate_count);
@@ -587,9 +580,9 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.dtOi_date);
+            this.panel1.Controls.Add(this.dtTransfer_date);
             this.panel1.Controls.Add(this.lblSales_group);
-            this.panel1.Controls.Add(this.lkeIt_customer);
+            this.panel1.Controls.Add(this.lkeDepartment_id);
             this.panel1.Controls.Add(this.lblAmtim);
             this.panel1.Controls.Add(this.lblAmusr);
             this.panel1.Controls.Add(this.lblCrtim);
@@ -607,6 +600,28 @@
             this.panel1.Size = new System.Drawing.Size(1227, 127);
             this.panel1.TabIndex = 10;
             this.panel1.Tag = "2";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(719, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 224;
+            this.label3.Text = "批準人";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtCheck_by
+            // 
+            this.txtCheck_by.Enabled = false;
+            this.txtCheck_by.Location = new System.Drawing.Point(778, 75);
+            this.txtCheck_by.Name = "txtCheck_by";
+            this.txtCheck_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtCheck_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtCheck_by.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtCheck_by.Properties.ReadOnly = true;
+            this.txtCheck_by.Size = new System.Drawing.Size(146, 22);
+            this.txtCheck_by.TabIndex = 222;
+            this.txtCheck_by.Tag = "2";
             // 
             // lkeSate
             // 
@@ -634,30 +649,31 @@
             this.lkeSate.TabIndex = 221;
             this.lkeSate.Tag = "2";
             // 
-            // lkeSeparate
+            // lkeGroupNo
             // 
-            this.lkeSeparate.EditValue = "";
-            this.lkeSeparate.Enabled = false;
-            this.lkeSeparate.EnterMoveNextControl = true;
-            this.lkeSeparate.Location = new System.Drawing.Point(778, 4);
-            this.lkeSeparate.Name = "lkeSeparate";
-            this.lkeSeparate.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.lkeSeparate.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lkeSeparate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.lkeSeparate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lkeGroupNo.EditValue = "";
+            this.lkeGroupNo.Enabled = false;
+            this.lkeGroupNo.EnterMoveNextControl = true;
+            this.lkeGroupNo.Location = new System.Drawing.Point(778, 4);
+            this.lkeGroupNo.Name = "lkeGroupNo";
+            this.lkeGroupNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lkeGroupNo.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lkeGroupNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.lkeGroupNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkeSeparate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lkeSeparate.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.lkeGroupNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lkeGroupNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 120, "cdesc")});
-            this.lkeSeparate.Properties.NullText = "";
-            this.lkeSeparate.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
-            this.lkeSeparate.Properties.PopupWidth = 150;
-            this.lkeSeparate.Properties.ShowHeader = false;
-            this.lkeSeparate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lkeSeparate.Size = new System.Drawing.Size(146, 22);
-            this.lkeSeparate.TabIndex = 30;
-            this.lkeSeparate.Tag = "2";
+            this.lkeGroupNo.Properties.NullText = "";
+            this.lkeGroupNo.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
+            this.lkeGroupNo.Properties.PopupWidth = 150;
+            this.lkeGroupNo.Properties.ShowHeader = false;
+            this.lkeGroupNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lkeGroupNo.Size = new System.Drawing.Size(146, 22);
+            this.lkeGroupNo.TabIndex = 30;
+            this.lkeGroupNo.Tag = "2";
+            this.lkeGroupNo.Leave += new System.EventHandler(this.lkeGroupNo_Leave);
             // 
             // txtCheck_date
             // 
@@ -678,7 +694,7 @@
             // 
             // label44
             // 
-            this.label44.Location = new System.Drawing.Point(724, 104);
+            this.label44.Location = new System.Drawing.Point(722, 104);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(54, 13);
             this.label44.TabIndex = 219;
@@ -687,7 +703,7 @@
             // 
             // label43
             // 
-            this.label43.Location = new System.Drawing.Point(741, 31);
+            this.label43.Location = new System.Drawing.Point(739, 31);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(37, 13);
             this.label43.TabIndex = 217;
@@ -696,22 +712,22 @@
             // 
             // label41
             // 
-            this.label41.Location = new System.Drawing.Point(718, 54);
+            this.label41.Location = new System.Drawing.Point(716, 54);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(60, 13);
             this.label41.TabIndex = 205;
             this.label41.Text = "修改次數";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtRemark2
+            // txtRemark
             // 
-            this.txtRemark2.EditValue = "";
-            this.txtRemark2.EnterMoveNextControl = true;
-            this.txtRemark2.Location = new System.Drawing.Point(69, 75);
-            this.txtRemark2.Name = "txtRemark2";
-            this.txtRemark2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtRemark2.Size = new System.Drawing.Size(633, 47);
-            this.txtRemark2.TabIndex = 45;
+            this.txtRemark.EditValue = "";
+            this.txtRemark.EnterMoveNextControl = true;
+            this.txtRemark.Location = new System.Drawing.Point(69, 75);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtRemark.Size = new System.Drawing.Size(633, 47);
+            this.txtRemark.TabIndex = 45;
             // 
             // label12
             // 
@@ -777,7 +793,7 @@
             this.txtHandler.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtHandler.Properties.MaxLength = 120;
             this.txtHandler.Properties.ReadOnly = true;
-            this.txtHandler.Size = new System.Drawing.Size(151, 22);
+            this.txtHandler.Size = new System.Drawing.Size(152, 22);
             this.txtHandler.TabIndex = 32;
             this.txtHandler.Tag = "2";
             // 
@@ -793,50 +809,50 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(737, 9);
+            this.label1.Location = new System.Drawing.Point(707, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 120;
-            this.label1.Text = "組別";
+            this.label1.Text = "組別編號";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblDate
             // 
+            this.lblDate.ForeColor = System.Drawing.Color.Blue;
             this.lblDate.Location = new System.Drawing.Point(248, 9);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(60, 13);
             this.lblDate.TabIndex = 118;
-            this.lblDate.Text = "發票日期";
+            this.lblDate.Text = "轉出日期";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // dtOi_date
+            // dtTransfer_date
             // 
-            this.dtOi_date.EditValue = "";
-            this.dtOi_date.Enabled = false;
-            this.dtOi_date.EnterMoveNextControl = true;
-            this.dtOi_date.Location = new System.Drawing.Point(311, 4);
-            this.dtOi_date.Name = "dtOi_date";
-            this.dtOi_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.dtOi_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.dtOi_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.dtOi_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtTransfer_date.EditValue = "";
+            this.dtTransfer_date.Enabled = false;
+            this.dtTransfer_date.EnterMoveNextControl = true;
+            this.dtTransfer_date.Location = new System.Drawing.Point(311, 4);
+            this.dtTransfer_date.Name = "dtTransfer_date";
+            this.dtTransfer_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.dtTransfer_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.dtTransfer_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.dtTransfer_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtOi_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtTransfer_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtOi_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.dtOi_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtOi_date.Properties.Mask.BeepOnError = true;
-            this.dtOi_date.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.dtOi_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.dtOi_date.Properties.MaxLength = 10;
-            this.dtOi_date.Properties.NullDate = "";
-            this.dtOi_date.Size = new System.Drawing.Size(152, 22);
-            this.dtOi_date.TabIndex = 1;
-            this.dtOi_date.Tag = "2";
+            this.dtTransfer_date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dtTransfer_date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtTransfer_date.Properties.Mask.BeepOnError = true;
+            this.dtTransfer_date.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dtTransfer_date.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.dtTransfer_date.Properties.MaxLength = 10;
+            this.dtTransfer_date.Properties.NullDate = "";
+            this.dtTransfer_date.Size = new System.Drawing.Size(152, 22);
+            this.dtTransfer_date.TabIndex = 1;
+            this.dtTransfer_date.Tag = "2";
             // 
             // lblSales_group
             // 
-            this.lblSales_group.ForeColor = System.Drawing.Color.Blue;
             this.lblSales_group.Location = new System.Drawing.Point(8, 29);
             this.lblSales_group.Name = "lblSales_group";
             this.lblSales_group.Size = new System.Drawing.Size(59, 13);
@@ -844,32 +860,32 @@
             this.lblSales_group.Text = "部門";
             this.lblSales_group.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lkeIt_customer
+            // lkeDepartment_id
             // 
-            this.lkeIt_customer.EditValue = "";
-            this.lkeIt_customer.Enabled = false;
-            this.lkeIt_customer.EnterMoveNextControl = true;
-            this.lkeIt_customer.Location = new System.Drawing.Point(69, 27);
-            this.lkeIt_customer.Name = "lkeIt_customer";
-            this.lkeIt_customer.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.lkeIt_customer.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.lkeIt_customer.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.lkeIt_customer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lkeDepartment_id.EditValue = "";
+            this.lkeDepartment_id.Enabled = false;
+            this.lkeDepartment_id.EnterMoveNextControl = true;
+            this.lkeDepartment_id.Location = new System.Drawing.Point(69, 27);
+            this.lkeDepartment_id.Name = "lkeDepartment_id";
+            this.lkeDepartment_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lkeDepartment_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lkeDepartment_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.lkeDepartment_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkeIt_customer.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lkeIt_customer.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.lkeDepartment_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lkeDepartment_id.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 80, "id"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 200, "cdesc")});
-            this.lkeIt_customer.Properties.DropDownRows = 15;
-            this.lkeIt_customer.Properties.NullText = "";
-            this.lkeIt_customer.Properties.PopupFormMinSize = new System.Drawing.Size(200, 0);
-            this.lkeIt_customer.Properties.PopupWidth = 280;
-            this.lkeIt_customer.Properties.ShowHeader = false;
-            this.lkeIt_customer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lkeIt_customer.Size = new System.Drawing.Size(141, 22);
-            this.lkeIt_customer.TabIndex = 2;
-            this.lkeIt_customer.Tag = "2";
-            this.lkeIt_customer.EditValueChanged += new System.EventHandler(this.lkeIt_customer_EditValueChanged);
+            this.lkeDepartment_id.Properties.DropDownRows = 15;
+            this.lkeDepartment_id.Properties.NullText = "";
+            this.lkeDepartment_id.Properties.PopupFormMinSize = new System.Drawing.Size(200, 0);
+            this.lkeDepartment_id.Properties.PopupWidth = 280;
+            this.lkeDepartment_id.Properties.ShowHeader = false;
+            this.lkeDepartment_id.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lkeDepartment_id.Size = new System.Drawing.Size(141, 22);
+            this.lkeDepartment_id.TabIndex = 2;
+            this.lkeDepartment_id.Tag = "2";
+            this.lkeDepartment_id.EditValueChanged += new System.EventHandler(this.lkeIt_customer_EditValueChanged);
             // 
             // lblAmtim
             // 
@@ -938,7 +954,7 @@
             // txtCreate_date
             // 
             this.txtCreate_date.Enabled = false;
-            this.txtCreate_date.Location = new System.Drawing.Point(310, 51);
+            this.txtCreate_date.Location = new System.Drawing.Point(311, 51);
             this.txtCreate_date.Name = "txtCreate_date";
             this.txtCreate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCreate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -990,7 +1006,7 @@
             this.txtID.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtID.Properties.MaxLength = 10;
+            this.txtID.Properties.MaxLength = 12;
             this.txtID.Size = new System.Drawing.Size(141, 22);
             this.txtID.TabIndex = 0;
             this.txtID.Tag = "1";
@@ -1002,7 +1018,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl2.Location = new System.Drawing.Point(3, 611);
-            this.gridControl2.MainView = this.dgvFare;
+            this.gridControl2.MainView = this.dgvPart;
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clAc,
@@ -1013,33 +1029,45 @@
             this.gridControl2.Size = new System.Drawing.Size(1225, 166);
             this.gridControl2.TabIndex = 11;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvFare});
+            this.dgvPart});
             // 
-            // dgvFare
+            // dgvPart
             // 
-            this.dgvFare.ColumnPanelRowHeight = 30;
-            this.dgvFare.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dgvPart.ColumnPanelRowHeight = 30;
+            this.dgvPart.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7,
-            this.gridColumn9,
-            this.gridColumn10,
             this.gridColumn11,
-            this.gridColumn12,
             this.gridColumn23,
-            this.gridColumn37});
-            this.dgvFare.GridControl = this.gridControl2;
-            this.dgvFare.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
-            this.dgvFare.Name = "dgvFare";
-            this.dgvFare.OptionsBehavior.Editable = false;
-            this.dgvFare.OptionsView.ShowGroupPanel = false;
-            this.dgvFare.PaintStyleName = "Style3D";
-            this.dgvFare.RowHeight = 22;
-            this.dgvFare.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridColumn22,
+            this.gridColumn3,
+            this.gridColumn7,
+            this.gridColumn34,
+            this.gridColumn6,
+            this.location,
+            this.gridColumn4,
+            this.gridColumn35,
+            this.gridColumn5,
+            this.gridColumn39,
+            this.gridColumn9,
+            this.gridColumn36,
+            this.gridColumn38,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn10,
+            this.gridColumn37,
+            this.gridColumn12,
+            this.gridColumn42,
+            this.gridColumn45});
+            this.dgvPart.GridControl = this.gridControl2;
+            this.dgvPart.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.dgvPart.Name = "dgvPart";
+            this.dgvPart.OptionsBehavior.Editable = false;
+            this.dgvPart.OptionsView.ColumnAutoWidth = false;
+            this.dgvPart.OptionsView.ShowGroupPanel = false;
+            this.dgvPart.PaintStyleName = "Style3D";
+            this.dgvPart.RowHeight = 22;
+            this.dgvPart.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             // 
             // gridColumn1
             // 
@@ -1047,19 +1075,397 @@
             this.gridColumn1.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn1.Caption = "附加費用編號";
-            this.gridColumn1.ColumnEdit = this.clAc;
-            this.gridColumn1.FieldName = "fare_id";
+            this.gridColumn1.Caption = "頁數";
+            this.gridColumn1.FieldName = "mo_id";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn1.OptionsColumn.AllowMove = false;
-            this.gridColumn1.OptionsColumn.AllowSize = false;
+            this.gridColumn1.OptionsColumn.AllowShowHide = false;
             this.gridColumn1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn1.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn1.OptionsFilter.AllowFilter = false;
             this.gridColumn1.Tag = "2";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 111;
+            this.gridColumn1.Width = 100;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn2.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.Caption = "貨品編碼";
+            this.gridColumn2.FieldName = "goods_id";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn2.OptionsColumn.AllowMove = false;
+            this.gridColumn2.OptionsColumn.AllowShowHide = false;
+            this.gridColumn2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
+            this.gridColumn2.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn2.OptionsFilter.AllowFilter = false;
+            this.gridColumn2.Tag = "2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 167;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "貨品名稱";
+            this.gridColumn11.FieldName = "name";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn11.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn11.OptionsColumn.AllowMove = false;
+            this.gridColumn11.OptionsColumn.AllowShowHide = false;
+            this.gridColumn11.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn11.OptionsColumn.ReadOnly = true;
+            this.gridColumn11.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn11.OptionsFilter.AllowFilter = false;
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 2;
+            this.gridColumn11.Width = 198;
+            // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "庫存數量";
+            this.gridColumn23.ColumnEdit = this.clAc_qty;
+            this.gridColumn23.FieldName = "inventory_qty";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn23.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn23.OptionsColumn.AllowMove = false;
+            this.gridColumn23.OptionsColumn.AllowShowHide = false;
+            this.gridColumn23.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn23.OptionsColumn.ReadOnly = true;
+            this.gridColumn23.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn23.OptionsFilter.AllowFilter = false;
+            this.gridColumn23.Visible = true;
+            this.gridColumn23.VisibleIndex = 3;
+            this.gridColumn23.Width = 80;
+            // 
+            // clAc_qty
+            // 
+            this.clAc_qty.AutoHeight = false;
+            this.clAc_qty.DisplayFormat.FormatString = "n0";
+            this.clAc_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clAc_qty.EditFormat.FormatString = "n0";
+            this.clAc_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clAc_qty.Mask.EditMask = "n0";
+            this.clAc_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clAc_qty.Name = "clAc_qty";
+            this.clAc_qty.Leave += new System.EventHandler(this.clAc_qty_Leave);
+            // 
+            // gridColumn22
+            // 
+            this.gridColumn22.Caption = "庫存重量";
+            this.gridColumn22.FieldName = "inventory_sec_qty";
+            this.gridColumn22.Name = "gridColumn22";
+            this.gridColumn22.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn22.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn22.OptionsColumn.AllowMove = false;
+            this.gridColumn22.OptionsColumn.AllowShowHide = false;
+            this.gridColumn22.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn22.OptionsColumn.ReadOnly = true;
+            this.gridColumn22.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn22.OptionsFilter.AllowFilter = false;
+            this.gridColumn22.Visible = true;
+            this.gridColumn22.VisibleIndex = 4;
+            this.gridColumn22.Width = 80;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.Caption = "數量";
+            this.gridColumn3.ColumnEdit = this.clAc_qty;
+            this.gridColumn3.FieldName = "con_qty";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn3.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn3.OptionsColumn.AllowMove = false;
+            this.gridColumn3.OptionsColumn.AllowShowHide = false;
+            this.gridColumn3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
+            this.gridColumn3.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn3.OptionsFilter.AllowFilter = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 5;
+            this.gridColumn3.Width = 85;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn7.Caption = "單位";
+            this.gridColumn7.FieldName = "goods_unit";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn7.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn7.OptionsColumn.AllowMove = false;
+            this.gridColumn7.OptionsColumn.AllowShowHide = false;
+            this.gridColumn7.OptionsColumn.AllowSize = false;
+            this.gridColumn7.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn7.OptionsColumn.ReadOnly = true;
+            this.gridColumn7.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn7.OptionsFilter.AllowFilter = false;
+            this.gridColumn7.Tag = "2";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.Width = 48;
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn34.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn34.Caption = "重量";
+            this.gridColumn34.FieldName = "sec_qty";
+            this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn34.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn34.OptionsColumn.AllowMove = false;
+            this.gridColumn34.OptionsColumn.AllowShowHide = false;
+            this.gridColumn34.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn34.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn34.OptionsFilter.AllowFilter = false;
+            this.gridColumn34.Visible = true;
+            this.gridColumn34.VisibleIndex = 7;
+            this.gridColumn34.Width = 80;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gridColumn6.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn6.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn6.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.Caption = "單位";
+            this.gridColumn6.FieldName = "sec_unit";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn6.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn6.OptionsColumn.AllowMove = false;
+            this.gridColumn6.OptionsColumn.AllowShowHide = false;
+            this.gridColumn6.OptionsColumn.AllowSize = false;
+            this.gridColumn6.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
+            this.gridColumn6.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn6.OptionsFilter.AllowFilter = false;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 8;
+            this.gridColumn6.Width = 48;
+            // 
+            // location
+            // 
+            this.location.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.location.AppearanceHeader.Options.UseForeColor = true;
+            this.location.Caption = "倉庫";
+            this.location.FieldName = "location";
+            this.location.Name = "location";
+            this.location.OptionsColumn.AllowIncrementalSearch = false;
+            this.location.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.location.OptionsColumn.AllowMove = false;
+            this.location.OptionsColumn.AllowShowHide = false;
+            this.location.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.location.OptionsFilter.AllowAutoFilter = false;
+            this.location.OptionsFilter.AllowFilter = false;
+            this.location.Visible = true;
+            this.location.VisibleIndex = 9;
+            this.location.Width = 80;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.Caption = "訂單數量";
+            this.gridColumn4.FieldName = "order_qty";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn4.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn4.OptionsColumn.AllowMove = false;
+            this.gridColumn4.OptionsColumn.AllowShowHide = false;
+            this.gridColumn4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn4.OptionsColumn.ReadOnly = true;
+            this.gridColumn4.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn4.OptionsFilter.AllowFilter = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 10;
+            this.gridColumn4.Width = 88;
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "轉倉數量";
+            this.gridColumn35.FieldName = "transfer_amount";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn35.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn35.OptionsColumn.AllowMove = false;
+            this.gridColumn35.OptionsColumn.AllowShowHide = false;
+            this.gridColumn35.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn35.OptionsColumn.ReadOnly = true;
+            this.gridColumn35.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn35.OptionsFilter.AllowFilter = false;
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 11;
+            this.gridColumn35.Width = 80;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gridColumn5.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn5.Caption = "剩余數量";
+            this.gridColumn5.FieldName = "nostorage_qty";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn5.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn5.OptionsColumn.AllowMove = false;
+            this.gridColumn5.OptionsColumn.AllowShowHide = false;
+            this.gridColumn5.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn5.OptionsColumn.ReadOnly = true;
+            this.gridColumn5.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn5.OptionsFilter.AllowFilter = false;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 12;
+            this.gridColumn5.Width = 80;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "批號";
+            this.gridColumn39.FieldName = "lot_no";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn39.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn39.OptionsColumn.AllowMove = false;
+            this.gridColumn39.OptionsColumn.AllowShowHide = false;
+            this.gridColumn39.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn39.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn39.OptionsFilter.AllowFilter = false;
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 13;
+            this.gridColumn39.Width = 80;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.Caption = "備注";
+            this.gridColumn9.FieldName = "remark";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
+            this.gridColumn9.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn9.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn9.OptionsColumn.AllowMove = false;
+            this.gridColumn9.OptionsColumn.AllowShowHide = false;
+            this.gridColumn9.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn9.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn9.OptionsFilter.AllowFilter = false;
+            this.gridColumn9.Tag = "2";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 14;
+            this.gridColumn9.Width = 100;
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "Mrp Id";
+            this.gridColumn36.FieldName = "mrp_id";
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn36.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn36.OptionsColumn.AllowMove = false;
+            this.gridColumn36.OptionsColumn.AllowShowHide = false;
+            this.gridColumn36.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn36.OptionsColumn.ReadOnly = true;
+            this.gridColumn36.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn36.OptionsFilter.AllowFilter = false;
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 15;
+            this.gridColumn36.Width = 60;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.Caption = "重量單位";
+            this.gridColumn38.FieldName = "unit_code";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn38.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn38.OptionsColumn.AllowMove = false;
+            this.gridColumn38.OptionsColumn.AllowShowHide = false;
+            this.gridColumn38.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
+            this.gridColumn38.OptionsColumn.ReadOnly = true;
+            this.gridColumn38.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn38.OptionsFilter.AllowFilter = false;
+            this.gridColumn38.Visible = true;
+            this.gridColumn38.VisibleIndex = 16;
+            this.gridColumn38.Width = 50;
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.Caption = "預留數量";
+            this.gridColumn40.FieldName = "obligate_qty";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.OptionsColumn.AllowEdit = false;
+            this.gridColumn40.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn40.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+            this.gridColumn40.OptionsColumn.AllowMove = false;
+            this.gridColumn40.OptionsColumn.AllowShowHide = false;
+            this.gridColumn40.OptionsColumn.ReadOnly = true;
+            this.gridColumn40.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn40.OptionsFilter.AllowFilter = false;
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 17;
+            this.gridColumn40.Width = 90;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.Caption = "倉位";
+            this.gridColumn41.FieldName = "carton_code";
+            this.gridColumn41.Name = "gridColumn41";
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "id";
+            this.gridColumn10.FieldName = "id";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn10.OptionsColumn.ReadOnly = true;
+            this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn10.OptionsFilter.AllowFilter = false;
+            this.gridColumn10.Tag = "2";
+            this.gridColumn10.Width = 103;
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "upper_sequence";
+            this.gridColumn37.FieldName = "upper_sequence";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.OptionsColumn.ReadOnly = true;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "sequence_id";
+            this.gridColumn12.FieldName = "sequence_id";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.ReadOnly = true;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.Caption = "BOM用量";
+            this.gridColumn42.FieldName = "bom_qty";
+            this.gridColumn42.Name = "gridColumn42";
+            // 
+            // gridColumn45
+            // 
+            this.gridColumn45.Caption = "數量匯率";
+            this.gridColumn45.FieldName = "qty_rate";
+            this.gridColumn45.Name = "gridColumn45";
+            this.gridColumn45.OptionsColumn.ReadOnly = true;
             // 
             // clAc
             // 
@@ -1074,71 +1480,6 @@
             this.clAc.PopupWidth = 200;
             this.clAc.EditValueChanged += new System.EventHandler(this.clAc_EditValueChanged);
             // 
-            // gridColumn2
-            // 
-            this.gridColumn2.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn2.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn2.Caption = "附加費用名稱";
-            this.gridColumn2.FieldName = "name";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.OptionsColumn.AllowMove = false;
-            this.gridColumn2.OptionsColumn.AllowSize = false;
-            this.gridColumn2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn2.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn2.OptionsFilter.AllowFilter = false;
-            this.gridColumn2.Tag = "2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 173;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn3.Caption = "數量";
-            this.gridColumn3.ColumnEdit = this.clAc_qty;
-            this.gridColumn3.FieldName = "qty";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.OptionsColumn.AllowMove = false;
-            this.gridColumn3.OptionsColumn.AllowSize = false;
-            this.gridColumn3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn3.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn3.OptionsFilter.AllowFilter = false;
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 93;
-            // 
-            // clAc_qty
-            // 
-            this.clAc_qty.AutoHeight = false;
-            this.clAc_qty.DisplayFormat.FormatString = "n0";
-            this.clAc_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_qty.EditFormat.FormatString = "n0";
-            this.clAc_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_qty.Mask.EditMask = "n0";
-            this.clAc_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clAc_qty.Name = "clAc_qty";
-            this.clAc_qty.Leave += new System.EventHandler(this.clAc_qty_Leave);
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn4.Caption = "價格";
-            this.gridColumn4.ColumnEdit = this.clAc_price;
-            this.gridColumn4.FieldName = "Price";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowMove = false;
-            this.gridColumn4.OptionsColumn.AllowSize = false;
-            this.gridColumn4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn4.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn4.OptionsFilter.AllowFilter = false;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 104;
-            // 
             // clAc_price
             // 
             this.clAc_price.AutoHeight = false;
@@ -1151,27 +1492,6 @@
             this.clAc_price.Name = "clAc_price";
             this.clAc_price.Leave += new System.EventHandler(this.clAc_price_Leave);
             // 
-            // gridColumn5
-            // 
-            this.gridColumn5.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridColumn5.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn5.Caption = "費用金額";
-            this.gridColumn5.ColumnEdit = this.clAc_amt;
-            this.gridColumn5.FieldName = "fare_sum";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.OptionsColumn.AllowEdit = false;
-            this.gridColumn5.OptionsColumn.AllowMove = false;
-            this.gridColumn5.OptionsColumn.AllowSize = false;
-            this.gridColumn5.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn5.OptionsColumn.ReadOnly = true;
-            this.gridColumn5.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn5.OptionsFilter.AllowFilter = false;
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 123;
-            // 
             // clAc_amt
             // 
             this.clAc_amt.AutoHeight = false;
@@ -1183,108 +1503,12 @@
             this.clAc_amt.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.clAc_amt.Name = "clAc_amt";
             // 
-            // gridColumn6
-            // 
-            this.gridColumn6.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridColumn6.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn6.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn6.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn6.Caption = "頁數";
-            this.gridColumn6.FieldName = "mo_id";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.AllowEdit = false;
-            this.gridColumn6.OptionsColumn.AllowMove = false;
-            this.gridColumn6.OptionsColumn.AllowSize = false;
-            this.gridColumn6.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn6.OptionsColumn.ReadOnly = true;
-            this.gridColumn6.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn6.OptionsFilter.AllowFilter = false;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 134;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn7.Caption = "是否免費";
-            this.gridColumn7.ColumnEdit = this.clAc_Chk_isFree;
-            this.gridColumn7.FieldName = "is_free";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.OptionsColumn.AllowMove = false;
-            this.gridColumn7.OptionsColumn.AllowSize = false;
-            this.gridColumn7.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn7.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn7.OptionsFilter.AllowFilter = false;
-            this.gridColumn7.Tag = "2";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
-            this.gridColumn7.Width = 67;
-            // 
             // clAc_Chk_isFree
             // 
             this.clAc_Chk_isFree.AutoHeight = false;
             this.clAc_Chk_isFree.Name = "clAc_Chk_isFree";
             this.clAc_Chk_isFree.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             this.clAc_Chk_isFree.CheckedChanged += new System.EventHandler(this.clAc_Chk_isFree_CheckedChanged);
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn9.Caption = "備注";
-            this.gridColumn9.FieldName = "remark";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.OptionsColumn.AllowMove = false;
-            this.gridColumn9.OptionsColumn.AllowSize = false;
-            this.gridColumn9.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn9.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn9.OptionsFilter.AllowFilter = false;
-            this.gridColumn9.Tag = "2";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 7;
-            this.gridColumn9.Width = 401;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "id";
-            this.gridColumn10.FieldName = "id";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn10.OptionsFilter.AllowFilter = false;
-            this.gridColumn10.Tag = "2";
-            this.gridColumn10.Width = 103;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.Caption = "ver";
-            this.gridColumn11.FieldName = "ver";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn11.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn11.OptionsFilter.AllowFilter = false;
-            this.gridColumn11.Width = 79;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "sequence_id";
-            this.gridColumn12.FieldName = "sequence_id";
-            this.gridColumn12.Name = "gridColumn12";
-            // 
-            // gridColumn23
-            // 
-            this.gridColumn23.Caption = "sum_kind";
-            this.gridColumn23.FieldName = "sum_kind";
-            this.gridColumn23.Name = "gridColumn23";
-            // 
-            // gridColumn37
-            // 
-            this.gridColumn37.Caption = "repeat_flag";
-            this.gridColumn37.FieldName = "repeat_flag";
-            this.gridColumn37.Name = "gridColumn37";
             // 
             // gridControl1
             // 
@@ -1297,17 +1521,11 @@
             this.clChk_Set,
             this.clQty,
             this.clSec_qty,
-            this.clDisc_rate,
-            this.clPrice,
             this.clSend_qty_unit,
             this.clLocation_id,
-            this.clIs_print,
             this.clTotal_sum,
             this.clSend_qty,
-            this.clPrice_unit,
-            this.clChk_is_free,
-            this.clMo_id,
-            this.clm_rate});
+            this.clMo_id});
             this.gridControl1.Size = new System.Drawing.Size(1225, 478);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1317,49 +1535,30 @@
             // 
             this.dgvDetails.ColumnPanelRowHeight = 30;
             this.dgvDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn25,
             this.gridColumn13,
+            this.gridColumn25,
             this.gridColumn14,
             this.gridColumn15,
-            this.gridColumn16,
-            this.gridColumn17,
-            this.gridColumn18,
             this.gridColumn19,
-            this.gridColumn26,
+            this.gridColumn18,
             this.gridColumn27,
-            this.gridColumn28,
-            this.gridColumn29,
-            this.gridColumn30,
-            this.gridColumn48,
+            this.gridColumn26,
             this.gridColumn31,
-            this.gridColumn32,
-            this.gridColumn33,
-            this.gridColumn34,
-            this.gridColumn35,
-            this.gridColumn36,
-            this.gridColumn38,
-            this.gridColumn39,
-            this.gridColumn40,
-            this.gridColumn41,
-            this.gridColumn42,
+            this.gridColumn16,
             this.gridColumn43,
+            this.gridColumn28,
+            this.gridColumn48,
+            this.gridColumn30,
             this.gridColumn44,
-            this.gridColumn45,
-            this.gridColumn46,
-            this.gridColumn47,
-            this.remark,
+            this.gridColumn17,
+            this.gridColumn33,
+            this.gridColumn32,
+            this.gridColumn29,
             this.gridColumn49,
-            this.gridColumn51,
-            this.gridColumn21,
-            this.gridColumn22,
-            this.gridColumn24,
-            this.gridColumn8,
             this.gridColumn20,
-            this.gridColumn52,
-            this.gridColumn53,
-            this.gridColumn50,
-            this.gridColumn54,
-            this.gridColumn55});
+            this.gridColumn21,
+            this.gridColumn24,
+            this.gridColumn8});
             this.dgvDetails.GridControl = this.gridControl1;
             this.dgvDetails.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.dgvDetails.IndicatorWidth = 30;
@@ -1376,26 +1575,6 @@
             this.dgvDetails.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.dgvDetails_CustomDrawRowIndicator);
             this.dgvDetails.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.dgvDetails_CustomDrawCell);
             // 
-            // gridColumn25
-            // 
-            this.gridColumn25.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn25.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn25.Caption = "套件出貨";
-            this.gridColumn25.ColumnEdit = this.clChk_Set;
-            this.gridColumn25.FieldName = "shipment_suit";
-            this.gridColumn25.Name = "gridColumn25";
-            this.gridColumn25.OptionsColumn.AllowSize = false;
-            this.gridColumn25.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 0;
-            this.gridColumn25.Width = 55;
-            // 
-            // clChk_Set
-            // 
-            this.clChk_Set.AutoHeight = false;
-            this.clChk_Set.Name = "clChk_Set";
-            this.clChk_Set.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-            // 
             // gridColumn13
             // 
             this.gridColumn13.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
@@ -1404,14 +1583,17 @@
             this.gridColumn13.ColumnEdit = this.clMo_id;
             this.gridColumn13.FieldName = "mo_id";
             this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn13.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn13.OptionsColumn.AllowMove = false;
-            this.gridColumn13.OptionsColumn.AllowSize = false;
+            this.gridColumn13.OptionsColumn.AllowShowHide = false;
             this.gridColumn13.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn13.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn13.OptionsFilter.AllowFilter = false;
+            this.gridColumn13.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn13.Tag = "2";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 1;
+            this.gridColumn13.VisibleIndex = 0;
             this.gridColumn13.Width = 93;
             // 
             // clMo_id
@@ -1422,90 +1604,68 @@
             this.clMo_id.Name = "clMo_id";
             this.clMo_id.Leave += new System.EventHandler(this.clMo_id_Leave);
             // 
+            // gridColumn25
+            // 
+            this.gridColumn25.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn25.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn25.Caption = "套件";
+            this.gridColumn25.ColumnEdit = this.clChk_Set;
+            this.gridColumn25.FieldName = "shipment_suit";
+            this.gridColumn25.Name = "gridColumn25";
+            this.gridColumn25.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn25.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn25.OptionsColumn.AllowMove = false;
+            this.gridColumn25.OptionsColumn.AllowShowHide = false;
+            this.gridColumn25.OptionsColumn.AllowSize = false;
+            this.gridColumn25.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn25.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn25.OptionsFilter.AllowFilter = false;
+            this.gridColumn25.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn25.Visible = true;
+            this.gridColumn25.VisibleIndex = 1;
+            this.gridColumn25.Width = 50;
+            // 
+            // clChk_Set
+            // 
+            this.clChk_Set.AutoHeight = false;
+            this.clChk_Set.Name = "clChk_Set";
+            this.clChk_Set.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            // 
             // gridColumn14
             // 
             this.gridColumn14.Caption = "貨品編碼";
             this.gridColumn14.FieldName = "goods_id";
             this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn14.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn14.OptionsColumn.AllowMove = false;
-            this.gridColumn14.OptionsColumn.AllowSize = false;
+            this.gridColumn14.OptionsColumn.AllowShowHide = false;
             this.gridColumn14.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn14.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn14.OptionsFilter.AllowFilter = false;
+            this.gridColumn14.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn14.Tag = "2";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 2;
-            this.gridColumn14.Width = 133;
+            this.gridColumn14.Width = 160;
             // 
             // gridColumn15
             // 
             this.gridColumn15.Caption = "貨品名稱";
             this.gridColumn15.FieldName = "goods_name";
             this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn15.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn15.OptionsColumn.AllowMove = false;
-            this.gridColumn15.OptionsColumn.AllowSize = false;
+            this.gridColumn15.OptionsColumn.AllowShowHide = false;
             this.gridColumn15.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn15.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn15.OptionsFilter.AllowFilter = false;
+            this.gridColumn15.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn15.Tag = "2";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 3;
-            this.gridColumn15.Width = 168;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "客戶產品編號";
-            this.gridColumn16.FieldName = "customer_goods";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.OptionsColumn.AllowMove = false;
-            this.gridColumn16.OptionsColumn.AllowSize = false;
-            this.gridColumn16.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn16.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn16.OptionsFilter.AllowFilter = false;
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 4;
-            this.gridColumn16.Width = 89;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "客戶顏色編號";
-            this.gridColumn17.FieldName = "customer_color_id";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.OptionsColumn.AllowMove = false;
-            this.gridColumn17.OptionsColumn.AllowSize = false;
-            this.gridColumn17.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn17.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn17.OptionsFilter.AllowFilter = false;
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 5;
-            this.gridColumn17.Width = 81;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn18.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn18.Caption = "發貨數量";
-            this.gridColumn18.ColumnEdit = this.clSend_qty;
-            this.gridColumn18.FieldName = "u_invoice_qty";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.OptionsColumn.AllowMove = false;
-            this.gridColumn18.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn18.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn18.OptionsFilter.AllowFilter = false;
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 6;
-            // 
-            // clSend_qty
-            // 
-            this.clSend_qty.AutoHeight = false;
-            this.clSend_qty.DisplayFormat.FormatString = "n0";
-            this.clSend_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clSend_qty.EditFormat.FormatString = "n0";
-            this.clSend_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clSend_qty.Mask.EditMask = "n0";
-            this.clSend_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clSend_qty.Name = "clSend_qty";
-            this.clSend_qty.Leave += new System.EventHandler(this.clSend_qty_Leave);
+            this.gridColumn15.Width = 177;
             // 
             // gridColumn19
             // 
@@ -1515,16 +1675,20 @@
             this.gridColumn19.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn19.Caption = "單位";
             this.gridColumn19.ColumnEdit = this.clSend_qty_unit;
-            this.gridColumn19.FieldName = "goods_unit";
+            this.gridColumn19.FieldName = "unit";
             this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn19.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn19.OptionsColumn.AllowMove = false;
+            this.gridColumn19.OptionsColumn.AllowShowHide = false;
             this.gridColumn19.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn19.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn19.OptionsFilter.AllowFilter = false;
+            this.gridColumn19.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn19.Tag = "2";
             this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 7;
-            this.gridColumn19.Width = 47;
+            this.gridColumn19.VisibleIndex = 4;
+            this.gridColumn19.Width = 50;
             // 
             // clSend_qty_unit
             // 
@@ -1540,6 +1704,60 @@
             this.clSend_qty_unit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.clSend_qty_unit.Leave += new System.EventHandler(this.clSend_qty_unit_Leave);
             // 
+            // gridColumn18
+            // 
+            this.gridColumn18.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn18.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn18.Caption = "轉倉數量";
+            this.gridColumn18.ColumnEdit = this.clSend_qty;
+            this.gridColumn18.FieldName = "transfer_amount";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn18.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn18.OptionsColumn.AllowMove = false;
+            this.gridColumn18.OptionsColumn.AllowShowHide = false;
+            this.gridColumn18.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn18.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn18.OptionsFilter.AllowFilter = false;
+            this.gridColumn18.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 5;
+            // 
+            // clSend_qty
+            // 
+            this.clSend_qty.AutoHeight = false;
+            this.clSend_qty.DisplayFormat.FormatString = "n0";
+            this.clSend_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clSend_qty.EditFormat.FormatString = "n0";
+            this.clSend_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clSend_qty.Mask.EditMask = "n0";
+            this.clSend_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clSend_qty.Name = "clSend_qty";
+            this.clSend_qty.Leave += new System.EventHandler(this.clSend_qty_Leave);
+            // 
+            // gridColumn27
+            // 
+            this.gridColumn27.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn27.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn27.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn27.AppearanceHeader.Options.UseForeColor = true;
+            this.gridColumn27.Caption = "重量單位";
+            this.gridColumn27.FieldName = "sec_unit";
+            this.gridColumn27.Name = "gridColumn27";
+            this.gridColumn27.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn27.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn27.OptionsColumn.AllowMove = false;
+            this.gridColumn27.OptionsColumn.AllowShowHide = false;
+            this.gridColumn27.OptionsColumn.AllowSize = false;
+            this.gridColumn27.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn27.OptionsColumn.ReadOnly = true;
+            this.gridColumn27.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn27.OptionsFilter.AllowFilter = false;
+            this.gridColumn27.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn27.Visible = true;
+            this.gridColumn27.VisibleIndex = 6;
+            this.gridColumn27.Width = 60;
+            // 
             // gridColumn26
             // 
             this.gridColumn26.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
@@ -1548,10 +1766,16 @@
             this.gridColumn26.ColumnEdit = this.clSec_qty;
             this.gridColumn26.FieldName = "sec_qty";
             this.gridColumn26.Name = "gridColumn26";
+            this.gridColumn26.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn26.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn26.OptionsColumn.AllowMove = false;
+            this.gridColumn26.OptionsColumn.AllowShowHide = false;
             this.gridColumn26.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn26.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn26.OptionsFilter.AllowFilter = false;
+            this.gridColumn26.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 8;
+            this.gridColumn26.VisibleIndex = 7;
             this.gridColumn26.Width = 66;
             // 
             // clSec_qty
@@ -1565,103 +1789,90 @@
             this.clSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.clSec_qty.Name = "clSec_qty";
             // 
-            // gridColumn27
+            // gridColumn31
             // 
-            this.gridColumn27.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn27.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn27.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn27.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn27.Caption = "重量單位";
-            this.gridColumn27.FieldName = "sec_unit";
-            this.gridColumn27.Name = "gridColumn27";
-            this.gridColumn27.OptionsColumn.AllowMove = false;
-            this.gridColumn27.OptionsColumn.AllowSize = false;
-            this.gridColumn27.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn27.OptionsColumn.ReadOnly = true;
-            this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 9;
-            this.gridColumn27.Width = 60;
+            this.gridColumn31.Caption = "包數";
+            this.gridColumn31.ColumnEdit = this.clQty;
+            this.gridColumn31.DisplayFormat.FormatString = "n0";
+            this.gridColumn31.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn31.FieldName = "package_num";
+            this.gridColumn31.Name = "gridColumn31";
+            this.gridColumn31.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn31.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn31.OptionsColumn.AllowMove = false;
+            this.gridColumn31.OptionsColumn.AllowShowHide = false;
+            this.gridColumn31.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn31.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn31.OptionsFilter.AllowFilter = false;
+            this.gridColumn31.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn31.Visible = true;
+            this.gridColumn31.VisibleIndex = 8;
+            this.gridColumn31.Width = 41;
+            // 
+            // clQty
+            // 
+            this.clQty.AutoHeight = false;
+            this.clQty.DisplayFormat.FormatString = "n0";
+            this.clQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clQty.EditFormat.FormatString = "n0";
+            this.clQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clQty.Mask.EditMask = "n0";
+            this.clQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clQty.Name = "clQty";
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "位置";
+            this.gridColumn16.FieldName = "position_first";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn16.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn16.OptionsColumn.AllowMove = false;
+            this.gridColumn16.OptionsColumn.AllowShowHide = false;
+            this.gridColumn16.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn16.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn16.OptionsFilter.AllowFilter = false;
+            this.gridColumn16.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 9;
+            this.gridColumn16.Width = 89;
+            // 
+            // gridColumn43
+            // 
+            this.gridColumn43.Caption = "凈重";
+            this.gridColumn43.ColumnEdit = this.clSec_qty;
+            this.gridColumn43.FieldName = "nwt";
+            this.gridColumn43.Name = "gridColumn43";
+            this.gridColumn43.OptionsColumn.AllowEdit = false;
+            this.gridColumn43.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn43.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn43.OptionsColumn.AllowMove = false;
+            this.gridColumn43.OptionsColumn.AllowShowHide = false;
+            this.gridColumn43.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn43.OptionsColumn.ReadOnly = true;
+            this.gridColumn43.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn43.OptionsFilter.AllowFilter = false;
+            this.gridColumn43.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn43.Visible = true;
+            this.gridColumn43.VisibleIndex = 10;
             // 
             // gridColumn28
             // 
-            this.gridColumn28.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn28.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn28.Caption = "銷售單價";
-            this.gridColumn28.ColumnEdit = this.clPrice;
-            this.gridColumn28.FieldName = "invoice_price";
+            this.gridColumn28.Caption = "毛重";
+            this.gridColumn28.ColumnEdit = this.clSec_qty;
+            this.gridColumn28.FieldName = "gross_wt";
             this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn28.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn28.OptionsColumn.AllowMove = false;
+            this.gridColumn28.OptionsColumn.AllowShowHide = false;
             this.gridColumn28.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn28.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn28.OptionsFilter.AllowFilter = false;
+            this.gridColumn28.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 10;
+            this.gridColumn28.VisibleIndex = 11;
             this.gridColumn28.Width = 69;
-            // 
-            // clPrice
-            // 
-            this.clPrice.AutoHeight = false;
-            this.clPrice.DisplayFormat.FormatString = "n3";
-            this.clPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clPrice.EditFormat.FormatString = "n3";
-            this.clPrice.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clPrice.Mask.EditMask = "n3";
-            this.clPrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clPrice.Name = "clPrice";
-            this.clPrice.Leave += new System.EventHandler(this.clPrice_Leave);
-            // 
-            // gridColumn29
-            // 
-            this.gridColumn29.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn29.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn29.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn29.AppearanceHeader.Options.UseForeColor = true;
-            this.gridColumn29.Caption = "單價單位";
-            this.gridColumn29.ColumnEdit = this.clPrice_unit;
-            this.gridColumn29.FieldName = "p_unit";
-            this.gridColumn29.Name = "gridColumn29";
-            this.gridColumn29.OptionsColumn.AllowMove = false;
-            this.gridColumn29.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 11;
-            this.gridColumn29.Width = 56;
-            // 
-            // clPrice_unit
-            // 
-            this.clPrice_unit.AutoHeight = false;
-            this.clPrice_unit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.clPrice_unit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 25, "id")});
-            this.clPrice_unit.Name = "clPrice_unit";
-            this.clPrice_unit.NullText = "";
-            this.clPrice_unit.PopupWidth = 25;
-            this.clPrice_unit.ShowHeader = false;
-            this.clPrice_unit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.clPrice_unit.Leave += new System.EventHandler(this.clPrice_Leave);
-            // 
-            // gridColumn30
-            // 
-            this.gridColumn30.Caption = "總金額";
-            this.gridColumn30.ColumnEdit = this.clTotal_sum;
-            this.gridColumn30.FieldName = "total_sum";
-            this.gridColumn30.Name = "gridColumn30";
-            this.gridColumn30.OptionsColumn.AllowEdit = false;
-            this.gridColumn30.OptionsColumn.AllowMove = false;
-            this.gridColumn30.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn30.OptionsColumn.ReadOnly = true;
-            this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 12;
-            this.gridColumn30.Width = 79;
-            // 
-            // clTotal_sum
-            // 
-            this.clTotal_sum.AutoHeight = false;
-            this.clTotal_sum.DisplayFormat.FormatString = "n2";
-            this.clTotal_sum.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clTotal_sum.EditFormat.FormatString = "n2";
-            this.clTotal_sum.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clTotal_sum.Mask.EditMask = "n2";
-            this.clTotal_sum.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clTotal_sum.Name = "clTotal_sum";
             // 
             // gridColumn48
             // 
@@ -1671,11 +1882,17 @@
             this.gridColumn48.ColumnEdit = this.clLocation_id;
             this.gridColumn48.FieldName = "location_id";
             this.gridColumn48.Name = "gridColumn48";
+            this.gridColumn48.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn48.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn48.OptionsColumn.AllowMove = false;
+            this.gridColumn48.OptionsColumn.AllowShowHide = false;
             this.gridColumn48.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn48.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn48.OptionsFilter.AllowFilter = false;
+            this.gridColumn48.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn48.Visible = true;
-            this.gridColumn48.VisibleIndex = 13;
-            this.gridColumn48.Width = 82;
+            this.gridColumn48.VisibleIndex = 12;
+            this.gridColumn48.Width = 71;
             // 
             // clLocation_id
             // 
@@ -1691,257 +1908,140 @@
             this.clLocation_id.ShowHeader = false;
             this.clLocation_id.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             // 
-            // gridColumn31
+            // gridColumn30
             // 
-            this.gridColumn31.Caption = "包數";
-            this.gridColumn31.ColumnEdit = this.clQty;
-            this.gridColumn31.DisplayFormat.FormatString = "n0";
-            this.gridColumn31.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn31.FieldName = "package_num";
-            this.gridColumn31.Name = "gridColumn31";
-            this.gridColumn31.OptionsColumn.AllowMove = false;
-            this.gridColumn31.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 14;
-            this.gridColumn31.Width = 41;
-            // 
-            // clQty
-            // 
-            this.clQty.AutoHeight = false;
-            this.clQty.DisplayFormat.FormatString = "n0";
-            this.clQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clQty.EditFormat.FormatString = "n0";
-            this.clQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clQty.Mask.EditMask = "n0";
-            this.clQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clQty.Name = "clQty";
-            // 
-            // gridColumn32
-            // 
-            this.gridColumn32.Caption = "箱號";
-            this.gridColumn32.FieldName = "box_no";
-            this.gridColumn32.Name = "gridColumn32";
-            this.gridColumn32.OptionsColumn.AllowMove = false;
-            this.gridColumn32.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 15;
-            this.gridColumn32.Width = 70;
-            // 
-            // gridColumn33
-            // 
-            this.gridColumn33.Caption = "規格";
-            this.gridColumn33.FieldName = "spec";
-            this.gridColumn33.Name = "gridColumn33";
-            this.gridColumn33.OptionsColumn.AllowMove = false;
-            this.gridColumn33.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 16;
-            // 
-            // gridColumn34
-            // 
-            this.gridColumn34.Caption = "客戶款號";
-            this.gridColumn34.FieldName = "table_head";
-            this.gridColumn34.Name = "gridColumn34";
-            this.gridColumn34.OptionsColumn.AllowMove = false;
-            this.gridColumn34.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 17;
-            // 
-            // gridColumn35
-            // 
-            this.gridColumn35.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn35.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn35.Caption = "打印";
-            this.gridColumn35.ColumnEdit = this.clIs_print;
-            this.gridColumn35.FieldName = "is_print";
-            this.gridColumn35.Name = "gridColumn35";
-            this.gridColumn35.OptionsColumn.AllowMove = false;
-            this.gridColumn35.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 18;
-            // 
-            // clIs_print
-            // 
-            this.clIs_print.AutoHeight = false;
-            this.clIs_print.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.clIs_print.Items.AddRange(new object[] {
-            "Y",
-            "N"});
-            this.clIs_print.Name = "clIs_print";
-            // 
-            // gridColumn36
-            // 
-            this.gridColumn36.Caption = "科目編號";
-            this.gridColumn36.FieldName = "subject_id";
-            this.gridColumn36.Name = "gridColumn36";
-            this.gridColumn36.OptionsColumn.AllowMove = false;
-            this.gridColumn36.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 19;
-            // 
-            // gridColumn38
-            // 
-            this.gridColumn38.Caption = "出貨單號";
-            this.gridColumn38.FieldName = "issues_id";
-            this.gridColumn38.Name = "gridColumn38";
-            this.gridColumn38.OptionsColumn.AllowMove = false;
-            this.gridColumn38.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 20;
-            // 
-            // gridColumn39
-            // 
-            this.gridColumn39.Caption = "PO/NO";
-            this.gridColumn39.FieldName = "contract_cid";
-            this.gridColumn39.Name = "gridColumn39";
-            this.gridColumn39.OptionsColumn.AllowMove = false;
-            this.gridColumn39.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 21;
-            // 
-            // gridColumn40
-            // 
-            this.gridColumn40.Caption = "OC NO";
-            this.gridColumn40.FieldName = "order_id";
-            this.gridColumn40.Name = "gridColumn40";
-            this.gridColumn40.OptionsColumn.AllowMove = false;
-            this.gridColumn40.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 22;
-            this.gridColumn40.Width = 120;
-            // 
-            // gridColumn41
-            // 
-            this.gridColumn41.Caption = "折扣(%)";
-            this.gridColumn41.ColumnEdit = this.clDisc_rate;
-            this.gridColumn41.FieldName = "disc_rate";
-            this.gridColumn41.Name = "gridColumn41";
-            this.gridColumn41.OptionsColumn.AllowMove = false;
-            this.gridColumn41.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn41.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn41.OptionsFilter.AllowFilter = false;
-            this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 23;
-            // 
-            // clDisc_rate
-            // 
-            this.clDisc_rate.AutoHeight = false;
-            this.clDisc_rate.DisplayFormat.FormatString = "n4";
-            this.clDisc_rate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clDisc_rate.EditFormat.FormatString = "n4";
-            this.clDisc_rate.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clDisc_rate.Mask.EditMask = "n4";
-            this.clDisc_rate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clDisc_rate.Name = "clDisc_rate";
-            this.clDisc_rate.Leave += new System.EventHandler(this.clDisc_rate_Leave);
-            // 
-            // gridColumn42
-            // 
-            this.gridColumn42.Caption = "報價單編號";
-            this.gridColumn42.FieldName = "buy_id";
-            this.gridColumn42.Name = "gridColumn42";
-            this.gridColumn42.OptionsColumn.AllowMove = false;
-            this.gridColumn42.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn42.Visible = true;
-            this.gridColumn42.VisibleIndex = 24;
-            // 
-            // gridColumn43
-            // 
-            this.gridColumn43.Caption = "折後單價";
-            this.gridColumn43.ColumnEdit = this.clPrice;
-            this.gridColumn43.FieldName = "disc_price";
-            this.gridColumn43.Name = "gridColumn43";
-            this.gridColumn43.OptionsColumn.AllowEdit = false;
-            this.gridColumn43.OptionsColumn.AllowMove = false;
-            this.gridColumn43.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn43.OptionsColumn.ReadOnly = true;
-            this.gridColumn43.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn43.OptionsFilter.AllowFilter = false;
-            this.gridColumn43.Visible = true;
-            this.gridColumn43.VisibleIndex = 25;
+            this.gridColumn30.Caption = "倉存數量";
+            this.gridColumn30.ColumnEdit = this.clQty;
+            this.gridColumn30.FieldName = "inventory_qty";
+            this.gridColumn30.Name = "gridColumn30";
+            this.gridColumn30.OptionsColumn.AllowEdit = false;
+            this.gridColumn30.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn30.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn30.OptionsColumn.AllowMove = false;
+            this.gridColumn30.OptionsColumn.AllowShowHide = false;
+            this.gridColumn30.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn30.OptionsColumn.ReadOnly = true;
+            this.gridColumn30.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn30.OptionsFilter.AllowFilter = false;
+            this.gridColumn30.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn30.Visible = true;
+            this.gridColumn30.VisibleIndex = 13;
+            this.gridColumn30.Width = 79;
             // 
             // gridColumn44
             // 
-            this.gridColumn44.Caption = "折扣額";
+            this.gridColumn44.Caption = "倉存重量";
             this.gridColumn44.ColumnEdit = this.clSec_qty;
-            this.gridColumn44.FieldName = "disc_amt";
+            this.gridColumn44.FieldName = "inventory_sec_qty";
             this.gridColumn44.Name = "gridColumn44";
             this.gridColumn44.OptionsColumn.AllowEdit = false;
+            this.gridColumn44.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn44.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn44.OptionsColumn.AllowMove = false;
+            this.gridColumn44.OptionsColumn.AllowShowHide = false;
             this.gridColumn44.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn44.OptionsColumn.ReadOnly = true;
+            this.gridColumn44.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn44.OptionsFilter.AllowFilter = false;
+            this.gridColumn44.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn44.Visible = true;
-            this.gridColumn44.VisibleIndex = 26;
+            this.gridColumn44.VisibleIndex = 14;
             // 
-            // gridColumn45
+            // gridColumn17
             // 
-            this.gridColumn45.Caption = "此價錢只限用於此單";
-            this.gridColumn45.FieldName = "ncv";
-            this.gridColumn45.Name = "gridColumn45";
-            this.gridColumn45.OptionsColumn.AllowMove = false;
-            this.gridColumn45.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn45.Visible = true;
-            this.gridColumn45.VisibleIndex = 27;
+            this.gridColumn17.Caption = "批號";
+            this.gridColumn17.FieldName = "lot_no";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn17.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn17.OptionsColumn.AllowMove = false;
+            this.gridColumn17.OptionsColumn.AllowShowHide = false;
+            this.gridColumn17.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn17.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn17.OptionsFilter.AllowFilter = false;
+            this.gridColumn17.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 15;
+            this.gridColumn17.Width = 81;
             // 
-            // gridColumn46
+            // gridColumn33
             // 
-            this.gridColumn46.Caption = "淨重";
-            this.gridColumn46.ColumnEdit = this.clSec_qty;
-            this.gridColumn46.FieldName = "nwt";
-            this.gridColumn46.Name = "gridColumn46";
-            this.gridColumn46.OptionsColumn.AllowMove = false;
-            this.gridColumn46.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn46.Visible = true;
-            this.gridColumn46.VisibleIndex = 28;
+            this.gridColumn33.Caption = "備注";
+            this.gridColumn33.FieldName = "remark";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn33.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn33.OptionsColumn.AllowMove = false;
+            this.gridColumn33.OptionsColumn.AllowShowHide = false;
+            this.gridColumn33.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn33.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn33.OptionsFilter.AllowFilter = false;
+            this.gridColumn33.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn33.Visible = true;
+            this.gridColumn33.VisibleIndex = 16;
             // 
-            // gridColumn47
+            // gridColumn32
             // 
-            this.gridColumn47.Caption = "毛重";
-            this.gridColumn47.ColumnEdit = this.clSec_qty;
-            this.gridColumn47.FieldName = "gross_wt";
-            this.gridColumn47.Name = "gridColumn47";
-            this.gridColumn47.OptionsColumn.AllowMove = false;
-            this.gridColumn47.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn47.Visible = true;
-            this.gridColumn47.VisibleIndex = 29;
+            this.gridColumn32.Caption = "顏色做法";
+            this.gridColumn32.FieldName = "do_color";
+            this.gridColumn32.Name = "gridColumn32";
+            this.gridColumn32.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn32.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn32.OptionsColumn.AllowMove = false;
+            this.gridColumn32.OptionsColumn.AllowShowHide = false;
+            this.gridColumn32.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn32.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn32.OptionsFilter.AllowFilter = false;
+            this.gridColumn32.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn32.Visible = true;
+            this.gridColumn32.VisibleIndex = 17;
+            this.gridColumn32.Width = 120;
             // 
-            // remark
+            // gridColumn29
             // 
-            this.remark.Caption = "備注";
-            this.remark.FieldName = "remark";
-            this.remark.Name = "remark";
-            this.remark.OptionsColumn.AllowMove = false;
-            this.remark.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.remark.Visible = true;
-            this.remark.VisibleIndex = 30;
+            this.gridColumn29.Caption = "移交單號";
+            this.gridColumn29.FieldName = "tran_id";
+            this.gridColumn29.Name = "gridColumn29";
+            this.gridColumn29.OptionsColumn.AllowEdit = false;
+            this.gridColumn29.OptionsColumn.AllowFocus = false;
+            this.gridColumn29.OptionsColumn.AllowIncrementalSearch = false;
+            this.gridColumn29.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn29.OptionsColumn.AllowMove = false;
+            this.gridColumn29.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn29.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn29.OptionsFilter.AllowFilter = false;
+            this.gridColumn29.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn29.Visible = true;
+            this.gridColumn29.VisibleIndex = 18;
+            this.gridColumn29.Width = 56;
             // 
             // gridColumn49
             // 
-            this.gridColumn49.Caption = "出貨通知單號";
-            this.gridColumn49.FieldName = "apprise_id";
+            this.gridColumn49.Caption = "倉庫";
+            this.gridColumn49.FieldName = "move_location_id";
             this.gridColumn49.Name = "gridColumn49";
+            this.gridColumn49.OptionsColumn.AllowEdit = false;
+            this.gridColumn49.OptionsColumn.AllowFocus = false;
             this.gridColumn49.OptionsColumn.AllowMove = false;
             this.gridColumn49.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn49.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn49.OptionsFilter.AllowFilter = false;
+            this.gridColumn49.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn49.Visible = true;
-            this.gridColumn49.VisibleIndex = 31;
+            this.gridColumn49.VisibleIndex = 19;
             // 
-            // gridColumn51
+            // gridColumn20
             // 
-            this.gridColumn51.Caption = "是否免費";
-            this.gridColumn51.ColumnEdit = this.clChk_is_free;
-            this.gridColumn51.FieldName = "is_free";
-            this.gridColumn51.Name = "gridColumn51";
-            this.gridColumn51.OptionsColumn.AllowMove = false;
-            this.gridColumn51.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn51.Visible = true;
-            this.gridColumn51.VisibleIndex = 32;
-            // 
-            // clChk_is_free
-            // 
-            this.clChk_is_free.AutoHeight = false;
-            this.clChk_is_free.Name = "clChk_is_free";
-            this.clChk_is_free.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-            this.clChk_is_free.CheckedChanged += new System.EventHandler(this.clChk_is_free_CheckedChanged);
+            this.gridColumn20.Caption = "倉位";
+            this.gridColumn20.FieldName = "move_carton_code";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.OptionsColumn.AllowEdit = false;
+            this.gridColumn20.OptionsColumn.AllowFocus = false;
+            this.gridColumn20.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn20.OptionsFilter.AllowFilter = false;
+            this.gridColumn20.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 20;
             // 
             // gridColumn21
             // 
@@ -1954,16 +2054,6 @@
             this.gridColumn21.Tag = "2";
             this.gridColumn21.Width = 20;
             // 
-            // gridColumn22
-            // 
-            this.gridColumn22.Caption = "版本號";
-            this.gridColumn22.FieldName = "ver";
-            this.gridColumn22.Name = "gridColumn22";
-            this.gridColumn22.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn22.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn22.OptionsFilter.AllowFilter = false;
-            this.gridColumn22.Width = 64;
-            // 
             // gridColumn24
             // 
             this.gridColumn24.Caption = "序號";
@@ -1972,61 +2062,20 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "OC序號";
-            this.gridColumn8.FieldName = "so_sequence_id";
+            this.gridColumn8.Caption = "倉位";
+            this.gridColumn8.FieldName = "carton_code";
             this.gridColumn8.Name = "gridColumn8";
             // 
-            // gridColumn20
+            // clTotal_sum
             // 
-            this.gridColumn20.Caption = "OC版本";
-            this.gridColumn20.FieldName = "so_ver";
-            this.gridColumn20.Name = "gridColumn20";
-            // 
-            // gridColumn52
-            // 
-            this.gridColumn52.Caption = "手寫送貨單號";
-            this.gridColumn52.FieldName = "delivery_id";
-            this.gridColumn52.Name = "gridColumn52";
-            this.gridColumn52.OptionsColumn.AllowMove = false;
-            this.gridColumn52.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            // 
-            // gridColumn53
-            // 
-            this.gridColumn53.Caption = "手寫送貨單號序號";
-            this.gridColumn53.FieldName = "seq";
-            this.gridColumn53.Name = "gridColumn53";
-            // 
-            // gridColumn50
-            // 
-            this.gridColumn50.Caption = "currency";
-            this.gridColumn50.FieldName = "currency";
-            this.gridColumn50.Name = "gridColumn50";
-            // 
-            // gridColumn54
-            // 
-            this.gridColumn54.Caption = "exchange_rate";
-            this.gridColumn54.ColumnEdit = this.clm_rate;
-            this.gridColumn54.FieldName = "exchange_rate";
-            this.gridColumn54.Name = "gridColumn54";
-            // 
-            // clm_rate
-            // 
-            this.clm_rate.AutoHeight = false;
-            this.clm_rate.DisplayFormat.FormatString = "n8";
-            this.clm_rate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clm_rate.EditFormat.FormatString = "n8";
-            this.clm_rate.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clm_rate.Mask.EditMask = "n8";
-            this.clm_rate.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clm_rate.Name = "clm_rate";
-            this.clm_rate.NullText = "0";
-            // 
-            // gridColumn55
-            // 
-            this.gridColumn55.Caption = "m_rate";
-            this.gridColumn55.ColumnEdit = this.clm_rate;
-            this.gridColumn55.FieldName = "m_rate";
-            this.gridColumn55.Name = "gridColumn55";
+            this.clTotal_sum.AutoHeight = false;
+            this.clTotal_sum.DisplayFormat.FormatString = "n2";
+            this.clTotal_sum.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clTotal_sum.EditFormat.FormatString = "n2";
+            this.clTotal_sum.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clTotal_sum.Mask.EditMask = "n2";
+            this.clTotal_sum.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clTotal_sum.Name = "clTotal_sum";
             // 
             // tabControl1
             // 
@@ -3002,41 +3051,6 @@
             this.lblFindMo_id.TabIndex = 0;
             this.lblFindMo_id.Text = "制單編號:";
             // 
-            // BTNAPPROVE
-            // 
-            this.BTNAPPROVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNAPPROVE.Image")));
-            this.BTNAPPROVE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNAPPROVE.Name = "BTNAPPROVE";
-            this.BTNAPPROVE.Size = new System.Drawing.Size(54, 25);
-            this.BTNAPPROVE.Text = "批 準";
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 28);
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(719, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 224;
-            this.label3.Text = "批準人";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtCheck_by
-            // 
-            this.txtCheck_by.Enabled = false;
-            this.txtCheck_by.Location = new System.Drawing.Point(778, 75);
-            this.txtCheck_by.Name = "txtCheck_by";
-            this.txtCheck_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtCheck_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtCheck_by.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtCheck_by.Properties.ReadOnly = true;
-            this.txtCheck_by.Size = new System.Drawing.Size(146, 22);
-            this.txtCheck_by.TabIndex = 222;
-            this.txtCheck_by.Tag = "2";
-            // 
             // frmTransferout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3059,44 +3073,39 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeSate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeSeparate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeGroupNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCheck_date.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeBill_type_no.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_count.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHandler.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOi_date.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeIt_customer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeDepartment_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtupdate_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFare)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clAc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_amt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clAc_Chk_isFree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clChk_Set)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clMo_id)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clChk_Set)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSend_qty_unit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSec_qty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clPrice_unit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clTotal_sum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clQty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clIs_print)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clDisc_rate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clChk_is_free)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clm_rate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clTotal_sum)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -3126,7 +3135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFindOc_no.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFindId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFindMo_id.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCheck_by.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3166,20 +3174,20 @@
         private System.Windows.Forms.Label lblremark;
         private System.Windows.Forms.Label lblID;
         private DevExpress.XtraEditors.TextEdit txtID;
-        private DevExpress.XtraEditors.LookUpEdit lkeIt_customer;
+        private DevExpress.XtraEditors.LookUpEdit lkeDepartment_id;
         private System.Windows.Forms.Label lblSales_group;
         private DevExpress.XtraEditors.TextEdit txtUpdate_count;
         private DevExpress.XtraEditors.TextEdit txtHandler;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDate;
-        private DevExpress.XtraEditors.DateEdit dtOi_date;
+        private DevExpress.XtraEditors.DateEdit dtTransfer_date;
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.LookUpEdit lkeBill_type_no;
-        private DevExpress.XtraEditors.MemoEdit txtRemark2;
+        private DevExpress.XtraEditors.MemoEdit txtRemark;
         private System.Windows.Forms.Label label41;
         private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvFare;
+        private DevExpress.XtraGrid.Views.Grid.GridView dgvPart;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clTest_item_id;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
@@ -3206,12 +3214,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
         private DevExpress.XtraEditors.TextEdit txtCheck_date;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label43;
-        private DevExpress.XtraEditors.LookUpEdit lkeSeparate;
+        private DevExpress.XtraEditors.LookUpEdit lkeGroupNo;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clChk_Set;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
@@ -3221,29 +3228,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn30;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn47;
-        private DevExpress.XtraGrid.Columns.GridColumn remark;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn48;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn49;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn52;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clQty;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clSec_qty;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clPrice;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clDisc_rate;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clSend_qty_unit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clLocation_id;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
@@ -3252,23 +3243,14 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clAc_price;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clAc_amt;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clAc_Chk_isFree;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox clIs_print;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clTotal_sum;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clSend_qty;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clPrice_unit;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clChk_is_free;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clMo_id;
         private DevExpress.XtraEditors.LookUpEdit lkeSate;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn53;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn54;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn55;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clm_rate;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -3352,5 +3334,17 @@
         private System.Windows.Forms.ToolStripButton BTNAPPROVE;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.TextEdit txtCheck_by;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
+        private DevExpress.XtraGrid.Columns.GridColumn location;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
     }
 }

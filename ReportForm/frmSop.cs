@@ -15,6 +15,7 @@ namespace cf01.ReportForm
     {
         DataTable dtFind = new DataTable();
         DataTable dtExcel = new DataTable();
+        ExpToExcel objExcel = new ExpToExcel();
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         public frmSop()
         {
@@ -118,20 +119,22 @@ namespace cf01.ReportForm
             drs = dtFind.Select("flag_select=true");
             dtExcel.Clear();
             dtExcel = dtFind.Clone();
+            dtExcel.Columns.Remove("flag_select"); //移除某列
             //start導入前一次打勾的查詢結果
             if (drs != null)
             {
                 if (drs.Length > 0)
                 {
+                    string str = "";                   
                     for (int i = 0; i < dtFind.Rows.Count; i++)
                     {
                         if (dtFind.Rows[i]["flag_select"].ToString() == "True")
                         {
-                            DataRow drw = dtExcel.NewRow();
-                            drw["flag_select"] = true;
+                            DataRow drw = dtExcel.NewRow();                           
                             drw["sop1no"] = dtFind.Rows[i]["sop1no"].ToString();
-                            drw["sop1dat"] = dtFind.Rows[i]["sop1dat"].ToString();
-                            drw["sop1style"] = dtFind.Rows[i]["sop1style"].ToString();
+                            drw["sop1dat"] = "'"+ dtFind.Rows[i]["sop1dat"].ToString();
+                            str = dtFind.Rows[i]["sop1style"].ToString();
+                            drw["sop1style"] = str.All(char.IsDigit)?"'"+ str:str; //判斷款號是否是全是數字，如果是，前面加多一單引號                        
                             drw["sop1cname"] = dtFind.Rows[i]["sop1cname"].ToString();
                             dtExcel.Rows.Add(drw);
                         }
@@ -146,11 +149,12 @@ namespace cf01.ReportForm
                         }
                     }
                     drs_del = null;
-                    dtFind.Select();                   
+                    dtFind.Select();
                     drs = null;
                     dgvExcel.DataSource = dtExcel;
                 }
-                ExpToExcel.DataGridViewToExcel(dgvExcel);
+                //ExpToExcel.DataGridViewToExcel(dgvExcel);
+                objExcel.ExportExcel(dgvExcel);                
             }
             //--end            
         }

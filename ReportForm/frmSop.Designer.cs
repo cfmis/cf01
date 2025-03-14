@@ -56,7 +56,6 @@
             this.sop1cname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkSelect = new DevExpress.XtraEditors.CheckEdit();
             this.dgvExcel = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -287,7 +286,7 @@
             this.sop1dat,
             this.sop1style,
             this.sop1cname});
-            this.dgvDetails.Location = new System.Drawing.Point(3, 160);
+            this.dgvDetails.Location = new System.Drawing.Point(2, 164);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowTemplate.Height = 24;
             this.dgvDetails.Size = new System.Drawing.Size(882, 321);
@@ -364,7 +363,6 @@
             this.dgvExcel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExcel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -374,15 +372,6 @@
             this.dgvExcel.RowTemplate.Height = 24;
             this.dgvExcel.Size = new System.Drawing.Size(875, 289);
             this.dgvExcel.TabIndex = 211;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "flag_select";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "選取";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCheckBoxColumn1.Visible = false;
-            this.dataGridViewCheckBoxColumn1.Width = 70;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -470,7 +459,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sop1cname;
         private DevExpress.XtraEditors.CheckEdit chkSelect;
         private System.Windows.Forms.DataGridView dgvExcel;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

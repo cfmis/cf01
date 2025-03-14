@@ -199,6 +199,16 @@
         AngNIKQZBAgaQMgQogzAqggI8AYkfgDRSKbmUYALMDAAAECjM+EeKQBmAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="BTNAPPROVE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADCSURBVDhPrZIxC8IwEIXzS6SKgmCpFIUORZpJcLCLILro
+        oqCzrl0dXf2PToIoCOKnjQ1YEJsGHxzccO99uSOijKQjyForpWZdVoI44tapW4XAcgI9j5PnWAbE8g/0
+        djH928Cb3i2mw3YFh/3nICymRnQIWzAeQLLJBxjuzsWvQeTDfAS7RBn07mmf1U8pEv0A1jP1EoblLq8G
+        70FTfRgWObqxOL+O9QjdbPdG6YBUXP2qFV2Lo1vRZquAVEgpDcxCPAGvK5vB5aMNHgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="BTNPRINT.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -268,16 +278,6 @@
         yQOJ4/SOmk57pRFLjSANZHpPT6d9Ukjibg2cjgmRZuG8MJ04CdFvAdMRsN+qBgW3x0gMbm4NGLjAcgIc
         9iSIb5e10YAKQZBJGHrAZkFvgrE5XSItopSn16QfBmGanhV8Qm0E+So+1stvR7c3/jOggRDc3epP6RL6
         QIjO7QqJSxnQUAgZY1/FnHPrDb39dTQvIy+7AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="BTNAPPROVE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADCSURBVDhPrZIxC8IwEIXzS6SKgmCpFIUORZpJcLCLILro
-        oqCzrl0dXf2PToIoCOKnjQ1YEJsGHxzccO99uSOijKQjyForpWZdVoI44tapW4XAcgI9j5PnWAbE8g/0
-        djH928Cb3i2mw3YFh/3nICymRnQIWzAeQLLJBxjuzsWvQeTDfAS7RBn07mmf1U8pEv0A1jP1EoblLq8G
-        70FTfRgWObqxOL+O9QjdbPdG6YBUXP2qFV2Lo1vRZquAVEgpDcxCPAGvK5vB5aMNHgAAAABJRU5ErkJg
-        gg==
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

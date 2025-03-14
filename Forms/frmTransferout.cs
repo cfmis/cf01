@@ -32,7 +32,7 @@ namespace cf01.Forms
 
 		DataTable dtMostly = new DataTable();
 		DataTable dtDetails = new DataTable();
-        DataTable dtFare = new DataTable();
+        DataTable dtPart = new DataTable();
 		DataTable dtTempDel = new DataTable();
         DataTable dtRate = new DataTable();
         DataTable dtFind_Date = new DataTable();
@@ -54,15 +54,12 @@ namespace cf01.Forms
 
 		private void frmTransferout_Load(object sender, EventArgs e)
 		{			
-			//customer
-            clsDeliveryBill.SetCustomer(lkeIt_customer);
-            
-            ////組別資料
+			////組別資料
             //DataTable dtSales_Group=clsSales_group.Get_sales_group();
             //lkeMo_group.Properties.DataSource = dtSales_Group;
             //lkeMo_group.Properties.ValueMember = "id";
             //lkeMo_group.Properties.DisplayMember = "id";
-            
+
             ////數量單位
             //DataTable dtUnit = clsConErp.GetDataTable(@"SELECT unit_code AS id,'' as cdesc From it_coding where within_code='0000' and id='*' and basic_unit='PCS'");
             //clSend_qty_unit.DataSource = dtUnit;
@@ -73,9 +70,23 @@ namespace cf01.Forms
             //clPrice_unit.ValueMember = "id";
             //clPrice_unit.DisplayMember = "id";
 
-            
-            
-            //**********************            
+            //**********************
+            //狀態
+            DataTable dtDept = new DataTable();
+            DataRow row = dtDept.NewRow();
+            dtDept.Columns.Add("id", System.Type.GetType("System.String"));
+            dtDept.Columns.Add("cdesc", System.Type.GetType("System.String"));
+            row["id"] = "";
+            row["cdesc"] = "";
+            dtDept.Rows.Add(row);
+            row = dtDept.NewRow();
+            row["id"] = "601";
+            row["cdesc"] = "包裝部(東莞)";
+            dtDept.Rows.Add(row);
+            lkeDepartment_id.Properties.DataSource = dtDept;
+            lkeDepartment_id.Properties.ValueMember = "id";
+            lkeDepartment_id.Properties.DisplayMember = "cdesc";
+
             //單據種類
             DataTable dtBillType = clsConErp.GetDataTable(@"SELECT id, name as cdesc FROM cd_mo_type WHERE mo_type='4' And state='0' Order By id");            
             lkeBill_type_no.Properties.DataSource = dtBillType;
@@ -84,13 +95,13 @@ namespace cf01.Forms
 
             //組別
             DataTable dtGroup = clsConErp.GetDataTable(@"SELECT id,name as cdesc FROM cd_mo_type WHERE mo_type='3' And state='0' Order By id");
-            lkeBill_type_no.Properties.DataSource = dtBillType;
-            lkeBill_type_no.Properties.ValueMember = "id";
-            lkeBill_type_no.Properties.DisplayMember = "cdesc";            
+            lkeGroupNo.Properties.DataSource = dtGroup;
+            lkeGroupNo.Properties.ValueMember = "id";
+            lkeGroupNo.Properties.DisplayMember = "cdesc";            
 
             //狀態
             DataTable dtSate = new DataTable();
-            DataRow row = dtSate.NewRow();
+            row = dtSate.NewRow();
             dtSate.Columns.Add("id", System.Type.GetType("System.String"));
             dtSate.Columns.Add("cdesc", System.Type.GetType("System.String"));
             dtSate.NewRow();
@@ -110,13 +121,26 @@ namespace cf01.Forms
             lkeSate.Properties.ValueMember = "id";
             lkeSate.Properties.DisplayMember = "cdesc";
 
+            //倉位
+            DataTable dtWH = clsConErp.GetDataTable(@"SELECT id,id+' ' +name as cdesc FROM cd_productline WHERE within_code='0000' AND storehouse_group='DG' AND type ='01' AND state not in('V','2')");
+            clLocation_id.DataSource = dtWH;
+            clLocation_id.ValueMember = "id";
+            clLocation_id.DisplayMember = "cdesc";
+
             //***********************
 
-			//生成明細表,附加費表結構
-            dtDetails = clsConErp.GetDataTable("Select Cast(Isnull(shipment_suit,'0') as  bit) AS shipment_suit,Cast(Isnull(is_free,'0') as  bit) AS is_free,*,space(12) as delivery_id,sequence_id as seq From dbo.so_invoice_details Where 1=0");
-            dtFare = clsConErp.GetDataTable("Select fare_id,name,CAST(qty as int) as qty,Price,fare_sum,mo_id,remark,id,ver,sequence_id,CAST('0' AS bit) AS is_free,'0' as sum_kind,' ' as repeat_flag From so_other_fare Where 1=0");
+            //生成明細表1,2結構
+            dtDetails = clsConErp.GetDataTable(
+            @"Select mo_id, shipment_suit, goods_id, goods_name, unit, transfer_amount, sec_unit,sec_qty,package_num,
+            position_first, nwt, gross_wt, location_id, carton_code, inventory_qty, inventory_sec_qty, lot_no, remark,
+            '' as do_color, move_location_id, move_carton_code, tran_id, id, sequence_id FROM st_transfer_detail Where 1=0");
+            dtPart = clsConErp.GetDataTable(
+            @"Select mo_id,goods_id,goods_name,inventory_qty,inventory_sec_qty,con_qty,sec_qty,sec_unit,location,carton_code,
+            0 as order_qty,0 as transfer_amount,0 as nostorage_qty,'' as goods_unit,remark,mrp_id,unit_code,
+            lot_no,obligate_qty, id,upper_sequence,sequence_id,bom_qty,0 as qty_rate
+            From dbo.st_transfer_detail_part Where 1=0");
 			gridControl1.DataSource = dtDetails;
-            gridControl2.DataSource = dtFare;
+            gridControl2.DataSource = dtPart;
 
 			//臨時項目刪除表結構
 			dtTempDel = dtDetails.Clone();
@@ -193,7 +217,7 @@ namespace cf01.Forms
 
 		private void BTNSAVE_Click(object sender, EventArgs e)
 		{
-			txtRemark2.Focus();//Toolscript焦點問題
+			txtRemark.Focus();//Toolscript焦點問題
 			Save();
 		}
 
@@ -226,17 +250,19 @@ namespace cf01.Forms
             dtMostly.Rows.InsertAt(dr, 0);
 
            
-            lkeSeparate.EditValue = "1";           
-            lkeBill_type_no.EditValue = "L";
+            lkeGroupNo.EditValue = "";
+            lkeBill_type_no.EditValue = "";
             lkeSate.EditValue = "0";
-            GetID_No();
+            txtCreate_by.Text = DBUtility._user_id;
+            this.GetMaxID();
             
 
 			dtDetails.Clear();
 			gridControl1.DataSource = dtDetails;
-            dtFare.Clear();
-            gridControl2.DataSource = dtFare;
-		}
+            dtPart.Clear();
+            gridControl2.DataSource = dtPart;
+           // tabControl1.SelectedTab.Select(0);
+        }
 
 		private void Edit()  //編輯
 		{
@@ -259,8 +285,8 @@ namespace cf01.Forms
             lkeSate.Enabled = false;
             lkeSate.BackColor = System.Drawing.Color.White;
 			
-            lkeIt_customer.Enabled = false;
-            lkeIt_customer.BackColor = System.Drawing.Color.White;
+            lkeDepartment_id.Enabled = false;
+            lkeDepartment_id.BackColor = System.Drawing.Color.White;
 		}
 
 		private void SetButtonSatus(bool _flag) //設置工具欄
@@ -271,10 +297,10 @@ namespace cf01.Forms
 			BTNDELETE.Enabled = _flag;
 			BTNFIND.Enabled = _flag;
 			BTNSAVE.Enabled = !_flag;
-			BTNCANCEL.Enabled = !_flag;
+            BTNAPPROVE.Enabled = _flag;
+            BTNCANCEL.Enabled = !_flag;
 			BTNITEMADD.Enabled = !_flag;
-			BTNITEMDEL.Enabled = !_flag;
-            BTNAPPROVE.Enabled = !_flag;
+			BTNITEMDEL.Enabled = !_flag;           
 
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
@@ -284,12 +310,12 @@ namespace cf01.Forms
 		{
 			//false--不可編輯;true--可以編輯
 			dgvDetails.OptionsBehavior.Editable = _flag;
-			dgvFare.OptionsBehavior.Editable = _flag;                       
+			dgvPart.OptionsBehavior.Editable = _flag;                       
 		}
 
-		private void Delete() //刪除當前行
+		private void Delete() //刪除主檔
 		{
-			if (String.IsNullOrEmpty(txtID.Text))
+			if (string.IsNullOrEmpty(txtID.Text))
 			{
 				return;
 			}
@@ -297,38 +323,17 @@ namespace cf01.Forms
             {
                 return;
             }
-			
 			DialogResult result = MessageBox.Show("此操作將刪除主表及明細中的資料,請謹慎操作!", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (result == DialogResult.Yes)
-			{				
-                const string sql_del = @"DELETED FROM dbo.so_invoice_mostly WHERE within_code='0000' AND id=@id";
-                SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);//改回直接操作GEO
-				myCon.Open();
-				SqlTransaction myTrans = myCon.BeginTransaction();
-				using (SqlCommand myCommand = new SqlCommand() { Connection = myCon, Transaction = myTrans })
-				{
-					try
-					{
-						myCommand.CommandText = sql_del;//刪除主檔
-						myCommand.Parameters.Clear();
-						myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());
-						myCommand.ExecuteNonQuery();
-
-						myTrans.Commit(); //數據提交                        
-						MessageBox.Show("數據刪除成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        SetObjValue.ClearObjValue(this.tabPage1.Controls, "1");
-						dtDetails.Clear();
-					}
-					catch (Exception E)
-					{
-						myTrans.Rollback(); //數據回滾
-						throw new Exception(E.Message);
-					}
-					finally
-					{
-						myCon.Close();
-					}
-				}
+			{
+                if (clsTransferout.DelTransferOut(txtID.Text) >= 0)
+                {
+                    MessageBox.Show("數據刪除成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("數據刪除失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 			}
 		}
 
@@ -369,10 +374,10 @@ namespace cf01.Forms
             if (!String.IsNullOrEmpty(txtID.Text.Trim())) // 有內容
             {   
                 Set_Grid_Status(true);
-                dgvFare.AddNewRow();//新增
-                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "id", txtID.Text);               
-                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "sequence_id", (dgvFare.RowCount + 1).ToString("0000") + "h");
-                ColumnView view = (ColumnView)dgvFare;//初始單元格焦點
+                dgvPart.AddNewRow();//新增
+                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "id", txtID.Text);               
+                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "sequence_id", (dgvPart.RowCount + 1).ToString("0000") + "h");
+                ColumnView view = (ColumnView)dgvPart;//初始單元格焦點
                 view.FocusedColumn = view.Columns["mo_id"];
                 view.Focus();
             }
@@ -389,7 +394,7 @@ namespace cf01.Forms
 			bool _flag = false;
 			if (dgvDetails.RowCount > 0)
 			{
-				txtRemark2.Focus();
+				txtRemark.Focus();
 				//因toolStrip控件焦點問題
 				//設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，防止取到的值爲空
 				// ColumnView view = (ColumnView)gridView1 ;
@@ -421,8 +426,8 @@ namespace cf01.Forms
 			dtTempDel.Clear();
 			dtDetails.Clear();
 			gridControl1.DataSource = dtDetails;
-            dtFare.Clear();
-            gridControl2.DataSource = dtFare;
+            dtPart.Clear();
+            gridControl2.DataSource = dtPart;
 
 			mState = "";			
 			if (!String.IsNullOrEmpty(mID))
@@ -444,7 +449,7 @@ namespace cf01.Forms
                 string sql_fare = String.Format(@"Select Convert(bit,isnull(is_free,'0')) AS is_free,Cast(qty as int) as qty,*,' ' as repeat_flag 
                         From dbo.so_invoice_other_fare with(nolock) Where within_code='0000' And id='{0}'", temp_id);
                 dtDetails = clsConErp.GetDataTable(sql_details);
-                dtFare = clsConErp.GetDataTable(sql_fare);
+                dtPart = clsConErp.GetDataTable(sql_fare);
 
                 dtMostly = clsConErp.GetDataTable(sql_h);
                 if (dtMostly.Rows.Count > 0)
@@ -457,9 +462,9 @@ namespace cf01.Forms
 				dtDetails.Clear();
                 dtDetails = clsConErp.GetDataTable(sql_details);
 				gridControl1.DataSource = dtDetails;
-                dtFare.Clear();
-                dtFare = clsConErp.GetDataTable(sql_fare);
-                gridControl2.DataSource = dtFare;
+                dtPart.Clear();
+                dtPart = clsConErp.GetDataTable(sql_fare);
+                gridControl2.DataSource = dtPart;
 
 				mID = txtID.Text;//保存臨時的ID號               
 			}
@@ -485,7 +490,7 @@ namespace cf01.Forms
                     string strSql = String.Format("Select '1' FROM dbo.so_invoice_mostly WHERE within_code='0000' and id='{0}'", txtID.Text.Trim());
                     if (clsConErp.ExecuteSqlReturnObject(strSql) != "")
                     {
-                        GetID_No();//如已存在編號則重取最大單據編號
+                        this.GetMaxID();//如已存在編號則重取最大單據編號
                     }                   
                 } 
                 string sql_i =
@@ -527,8 +532,8 @@ namespace cf01.Forms
                             myCommand.CommandText = sql_u;
 						myCommand.Parameters.Clear();                
 						myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());                    
-                        myCommand.Parameters.AddWithValue("@oi_date", dtOi_date.EditValue.ToString());
-                        myCommand.Parameters.AddWithValue("@it_customer", lkeIt_customer.EditValue.ToString());                    
+                        myCommand.Parameters.AddWithValue("@oi_date", dtTransfer_date.EditValue.ToString());
+                        myCommand.Parameters.AddWithValue("@it_customer", lkeDepartment_id.EditValue.ToString());                    
                         myCommand.Parameters.AddWithValue("@phone", txtHandler.Text);
                         myCommand.Parameters.AddWithValue("@cd_disc", 1);                       
                         myCommand.Parameters.AddWithValue("@ncrb_amount", 0);
@@ -542,7 +547,7 @@ namespace cf01.Forms
                         myCommand.Parameters.AddWithValue("@bill_type_no", lkeBill_type_no.EditValue.ToString());         
                         myCommand.Parameters.AddWithValue("@email", txtUpdate_count.Text);                       
                         myCommand.Parameters.AddWithValue("@flag", "1");
-                        myCommand.Parameters.AddWithValue("@remark2", txtRemark2.Text);
+                        myCommand.Parameters.AddWithValue("@remark2", txtRemark.Text);
                         myCommand.Parameters.AddWithValue("@confirm_status", "0");                      
                         myCommand.Parameters.AddWithValue("@servername", "hkserver.cferp.dbo");
                         myCommand.Parameters.AddWithValue("@create_by", DBUtility._user_id);                                           
@@ -684,7 +689,7 @@ namespace cf01.Forms
 						}                       
 
                         //保存附加費
-                        if (dgvFare.RowCount > 0)
+                        if (dgvPart.RowCount > 0)
                         {
                             string sql_fare_i = 
                             @"INSERT INTO dbo.so_invoice_other_fare(within_code,id,ver,sequence_id,fare_id,name,qty,price,fare_sum,mo_id,is_free,remark,sum_kind) 
@@ -692,10 +697,10 @@ namespace cf01.Forms
                             string sql_fare_u =
                             @"Update dbo.so_invoice_other_fare Set fare_id=@fare_id,name=@name,qty=@qty,price=@price,fare_sum=@fare_sum,mo_id=@mo_id,is_free=@is_free,remark=@remark,sum_kind=@sum_kind
                               Where within_code='0000' and id=@id and ver=@ver and sequence_id=@sequence_id ";                            
-                            for (int i = 0; i < dgvFare.RowCount; i++)
+                            for (int i = 0; i < dgvPart.RowCount; i++)
                             {
-                                curRow = dgvFare.GetRowHandle(i);
-                                rowStatus = dgvFare.GetDataRow(curRow).RowState.ToString();
+                                curRow = dgvPart.GetRowHandle(i);
+                                rowStatus = dgvPart.GetDataRow(curRow).RowState.ToString();
                                 if (rowStatus == "Added" || rowStatus == "Modified")
                                 {
                                     if (rowStatus == "Added")
@@ -704,18 +709,18 @@ namespace cf01.Forms
                                         myCommand.CommandText = sql_fare_u;
                                     myCommand.Parameters.Clear();
                                     myCommand.Parameters.AddWithValue("@id", txtID.Text.Trim());                                  
-                                    myCommand.Parameters.AddWithValue("@sequence_id", dgvFare.GetRowCellValue(curRow, "sequence_id").ToString());
-                                    myCommand.Parameters.AddWithValue("@fare_id", dgvFare.GetRowCellValue(curRow, "fare_id").ToString());
-                                    myCommand.Parameters.AddWithValue("@name", dgvFare.GetRowCellValue(curRow, "name").ToString());
-                                    myCommand.Parameters.AddWithValue("@qty", decimal.Parse(dgvFare.GetRowCellValue(curRow, "qty").ToString()));
-                                    myCommand.Parameters.AddWithValue("@price", decimal.Parse(dgvFare.GetRowCellValue(curRow, "Price").ToString()));
-                                    myCommand.Parameters.AddWithValue("@fare_sum", decimal.Parse(dgvFare.GetRowCellValue(curRow, "fare_sum").ToString()));
-                                    myCommand.Parameters.AddWithValue("@mo_id", dgvFare.GetRowCellValue(curRow, "mo_id").ToString());
-                                    if (dgvFare.GetRowCellValue(curRow, "is_free").ToString() == "True")
+                                    myCommand.Parameters.AddWithValue("@sequence_id", dgvPart.GetRowCellValue(curRow, "sequence_id").ToString());
+                                    myCommand.Parameters.AddWithValue("@fare_id", dgvPart.GetRowCellValue(curRow, "fare_id").ToString());
+                                    myCommand.Parameters.AddWithValue("@name", dgvPart.GetRowCellValue(curRow, "name").ToString());
+                                    myCommand.Parameters.AddWithValue("@qty", decimal.Parse(dgvPart.GetRowCellValue(curRow, "qty").ToString()));
+                                    myCommand.Parameters.AddWithValue("@price", decimal.Parse(dgvPart.GetRowCellValue(curRow, "Price").ToString()));
+                                    myCommand.Parameters.AddWithValue("@fare_sum", decimal.Parse(dgvPart.GetRowCellValue(curRow, "fare_sum").ToString()));
+                                    myCommand.Parameters.AddWithValue("@mo_id", dgvPart.GetRowCellValue(curRow, "mo_id").ToString());
+                                    if (dgvPart.GetRowCellValue(curRow, "is_free").ToString() == "True")
                                         myCommand.Parameters.AddWithValue("@is_free", "1");
                                     else
                                         myCommand.Parameters.AddWithValue("@is_free", "0");
-                                    myCommand.Parameters.AddWithValue("@remark", dgvFare.GetRowCellValue(curRow, "remark").ToString());
+                                    myCommand.Parameters.AddWithValue("@remark", dgvPart.GetRowCellValue(curRow, "remark").ToString());
                                     myCommand.Parameters.AddWithValue("@sum_kind", "0");
                                     myCommand.ExecuteNonQuery();
                                 }
@@ -839,14 +844,14 @@ namespace cf01.Forms
 		{
 			txtID.Text = dt.Rows[0]["id"].ToString();          
             if (string.IsNullOrEmpty(dt.Rows[0]["oi_date"].ToString()))
-                dtOi_date.EditValue = "";
+                dtTransfer_date.EditValue = "";
             else
-                dtOi_date.EditValue = Convert.ToDateTime(dt.Rows[0]["oi_date"].ToString()).ToString("yyyy-MM-dd");
-            lkeIt_customer.EditValue = dt.Rows[0]["it_customer"].ToString();
+                dtTransfer_date.EditValue = Convert.ToDateTime(dt.Rows[0]["oi_date"].ToString()).ToString("yyyy-MM-dd");
+            lkeDepartment_id.EditValue = dt.Rows[0]["it_customer"].ToString();
             lkeBill_type_no.EditValue = dt.Rows[0]["bill_type_no"].ToString();  
             txtUpdate_count.Text = dt.Rows[0]["email"].ToString();            
            
-            txtRemark2.Text = dt.Rows[0]["remark2"].ToString();            
+            txtRemark.Text = dt.Rows[0]["remark2"].ToString();            
             lkeSate.EditValue = dt.Rows[0]["state"].ToString();           
             txtCheck_date.Text = dt.Rows[0]["check_date"].ToString();
             //txtCheck_date.Text =Convert.ToDateTime(dt.Rows[0]["address"].ToString()).ToString("yyyy-MM-dd");
@@ -953,55 +958,34 @@ namespace cf01.Forms
             //}
         }
 
-        private void lkeIssues_wh_Leave(object sender, EventArgs e)
-        {            
-           GetID_No();
+        private void lkeGroupNo_Leave(object sender, EventArgs e)
+        {
+            GetMaxID();
         }
 
         private void lkeBill_type_no_Leave(object sender, EventArgs e)
         {
-            GetID_No();
+            GetMaxID();
         }
 
         /// <summary>
         /// 取單據序號
         /// </summary>
-        private void GetID_No()
+        private void GetMaxID()
         {
             if (mState != "")
             {
-                string strWareHouse = "";// lkeIssues_wh.EditValue.ToString();
-                string strBill_type = lkeBill_type_no.EditValue.ToString();
-                if (strWareHouse == "D" && strBill_type != "")
+                string billType = "ST04";
+                string billTypeNo = lkeBill_type_no.EditValue.ToString();
+                string salesGroup= lkeGroupNo.EditValue.ToString();
+                if (billTypeNo != "" && salesGroup != "")
                 {
-                    string sql = 
-                    @"Select substring(cast(year(GETDATE()) as CHAR),3,2)+
-                    CASE month(GETDATE()) 
-                    WHEN 10 THEN 'A' 
-                    WHEN 11 THEN 'B'
-                    WHEN 12 THEN 'C' 
-                    ELSE CAST(month(GETDATE()) as CHAR) END as ym";
-                    string str_ym= clsConErp.ExecuteSqlReturnObject(sql).Trim();
-
-                    sql =string.Format(
-                    @"Select CAST(substring(bill_code,6,5) as int)+1 as bill_code From sys_bill_max_separate with(nolock)
-                    Where within_code='0000' and bill_id ='SI01' and year_month ='{0}' AND bill_text1 ='{1}' AND bill_text2 ='{2}'", str_ym, strWareHouse, strBill_type);
-                    DataTable dt = clsConErp.GetDataTable(sql);
-                    if (dt.Rows.Count > 0)
-                    {                        
-                        txtID.Text = strWareHouse + strBill_type + str_ym.Trim() + (int.Parse(dt.Rows[0]["bill_code"].ToString())).ToString("00000");
-                    }
-                    else
-                    {
-                        txtID.Text = String.Format("{0}{1}{2}00001", strWareHouse, strBill_type, str_ym.Trim());
-                    }
+                    txtID.Text = clsTransferout.GetMaxID(billType, billTypeNo, salesGroup,2);                   
                 }
                 else
                     txtID.Text = "";
             } 
-        }
-
-        
+        }        
 
         private void clAc_qty_Leave(object sender, EventArgs e)
         {
@@ -1018,23 +1002,23 @@ namespace cf01.Forms
         /// </summary>
         private void Count_Other_Row_Amount()
         {
-            if (dgvFare.RowCount > 0)
+            if (dgvPart.RowCount > 0)
             {
-                dgvFare.CloseEditor();//此行很重要,輸入值立即有較
+                dgvPart.CloseEditor();//此行很重要,輸入值立即有較
                 int qty;
-                int cur_row = dgvFare.FocusedRowHandle;
-                if (!string.IsNullOrEmpty(dgvFare.GetRowCellValue(cur_row, "qty").ToString()))
+                int cur_row = dgvPart.FocusedRowHandle;
+                if (!string.IsNullOrEmpty(dgvPart.GetRowCellValue(cur_row, "qty").ToString()))
                 {                    
-                    qty = int.Parse(dgvFare.GetRowCellValue(cur_row, "qty").ToString());
+                    qty = int.Parse(dgvPart.GetRowCellValue(cur_row, "qty").ToString());
                 }
                 else
                     qty = 0;
                 float price;
-                if (!string.IsNullOrEmpty(dgvFare.GetRowCellValue(cur_row, "Price").ToString()))
-                    price = float.Parse(dgvFare.GetRowCellValue(cur_row, "Price").ToString());
+                if (!string.IsNullOrEmpty(dgvPart.GetRowCellValue(cur_row, "Price").ToString()))
+                    price = float.Parse(dgvPart.GetRowCellValue(cur_row, "Price").ToString());
                 else
                     price = 0.00f;
-                dgvFare.SetRowCellValue(cur_row, "fare_sum", decimal.Parse(Math.Round(qty * price, 2).ToString()));                
+                dgvPart.SetRowCellValue(cur_row, "fare_sum", decimal.Parse(Math.Round(qty * price, 2).ToString()));                
             }
            
         }
@@ -1168,6 +1152,7 @@ namespace cf01.Forms
             Add_Cust_info();
         }
 
+
         /// <summary>
         /// 當明細資料為第一條記錄時，添加主檔資料
         /// </summary>
@@ -1200,8 +1185,8 @@ namespace cf01.Forms
                         else
                             lkeBill_type_no.EditValue = "L";
                         
-                        GetID_No();
-                        lkeIt_customer.EditValue = dt.Rows[0]["it_customer"].ToString();  
+                        this.GetMaxID();
+                        lkeDepartment_id.EditValue = dt.Rows[0]["it_customer"].ToString();  
                         txtHandler.Text = dt.Rows[0]["l_phone"].ToString();                       
                         txtUpdate_count.Text = dt.Rows[0]["email"].ToString();
                         
@@ -1214,33 +1199,33 @@ namespace cf01.Forms
 
         private void Remove_Repeat() //移除重復的附加費
         {
-            if (dgvFare.RowCount < 2)
+            if (dgvPart.RowCount < 2)
             {
                 return ;
             }
             string strAc_id,strMo_id;
             int curRow,row;
-            for (int i = 0; i < dgvFare.RowCount ; i++)
+            for (int i = 0; i < dgvPart.RowCount ; i++)
             {
-                curRow = dgvFare.GetRowHandle(i);
-                strAc_id = dgvFare.GetRowCellValue(curRow, "fare_id").ToString();
-                strMo_id = dgvFare.GetRowCellValue(curRow, "mo_id").ToString();
-                for (int j = i + 1; j < dgvFare.RowCount ; j++)
+                curRow = dgvPart.GetRowHandle(i);
+                strAc_id = dgvPart.GetRowCellValue(curRow, "fare_id").ToString();
+                strMo_id = dgvPart.GetRowCellValue(curRow, "mo_id").ToString();
+                for (int j = i + 1; j < dgvPart.RowCount ; j++)
                 {
-                    row = dgvFare.GetRowHandle(j);
-                    if (strAc_id == dgvFare.GetRowCellValue(row, "fare_id").ToString() && strMo_id == dgvFare.GetRowCellValue(row, "mo_id").ToString())
+                    row = dgvPart.GetRowHandle(j);
+                    if (strAc_id == dgvPart.GetRowCellValue(row, "fare_id").ToString() && strMo_id == dgvPart.GetRowCellValue(row, "mo_id").ToString())
                     {
-                        dgvFare.SetRowCellValue(row, "repeat_flag", "*");
+                        dgvPart.SetRowCellValue(row, "repeat_flag", "*");
                     }
                 }
             }
            
-            for (int i = 0; i < dgvFare.RowCount; i++)
+            for (int i = 0; i < dgvPart.RowCount; i++)
             {
-                curRow = dgvFare.GetRowHandle(i);
-                if (dgvFare.GetRowCellValue(curRow, "repeat_flag").ToString() == "*")
+                curRow = dgvPart.GetRowHandle(i);
+                if (dgvPart.GetRowCellValue(curRow, "repeat_flag").ToString() == "*")
                 {
-                    dgvFare.DeleteRow(curRow);//移走當前行                                 
+                    dgvPart.DeleteRow(curRow);//移走當前行                                 
                 }
             }
         }
@@ -1471,7 +1456,7 @@ namespace cf01.Forms
                 DataTable dtOther = new DataTable();
                 DataTable dtMo = new DataTable();
                 dgvDetails.OptionsBehavior.Editable = true;//可編輯
-                dgvFare.OptionsBehavior.Editable = true;//可編輯
+                dgvPart.OptionsBehavior.Editable = true;//可編輯
                 ColumnView view;
                 foreach (soinvoice_details_geo objModel in lsModel)
                 {
@@ -1613,21 +1598,21 @@ namespace cf01.Forms
                             if (result == "")
                             {
                                 AddNew_other_fare_Item();
-                                view = (ColumnView)dgvFare;//初始單元格焦點
+                                view = (ColumnView)dgvPart;//初始單元格焦點
                                 view.FocusedColumn = view.Columns["mo_id"];
                                 view.Focus();
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "fare_id", dtOther.Rows[i]["fare_id"].ToString());
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "name", dtOther.Rows[i]["name"].ToString());
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "qty", dtOther.Rows[i]["qty"]);
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "Price", dtOther.Rows[i]["price"]);
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "fare_sum", dtOther.Rows[i]["fare_sum"]);
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "mo_id", objModel.mo_id);
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "remark", dtOther.Rows[i]["remark"].ToString());
-                                dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "sum_kind", dtOther.Rows[i]["sum_kind"].ToString());
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "fare_id", dtOther.Rows[i]["fare_id"].ToString());
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "name", dtOther.Rows[i]["name"].ToString());
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "qty", dtOther.Rows[i]["qty"]);
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "Price", dtOther.Rows[i]["price"]);
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "fare_sum", dtOther.Rows[i]["fare_sum"]);
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "mo_id", objModel.mo_id);
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "remark", dtOther.Rows[i]["remark"].ToString());
+                                dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "sum_kind", dtOther.Rows[i]["sum_kind"].ToString());
                                 if (dtOther.Rows[i]["is_free"].ToString() == "0")
-                                    dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "is_free", false);
+                                    dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "is_free", false);
                                 else
-                                    dgvFare.SetRowCellValue(dgvFare.FocusedRowHandle, "is_free", true);
+                                    dgvPart.SetRowCellValue(dgvPart.FocusedRowHandle, "is_free", true);
                             }
                         }
                         Remove_Repeat();

@@ -300,6 +300,7 @@
     <Compile Include="CLS\clsTommyTest.cs" />
     <Compile Include="CLS\clsToolBar.cs" />
     <Compile Include="CLS\clsTransferLoc.cs" />
+    <Compile Include="CLS\clsTransferout.cs" />
     <Compile Include="CLS\clsTranslate.cs" />
     <Compile Include="CLS\clsUser.cs" />
     <Compile Include="CLS\clsUtility.cs" />

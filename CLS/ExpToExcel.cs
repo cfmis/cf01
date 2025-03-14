@@ -543,8 +543,8 @@ namespace cf01.CLS
                         }
                         System.Windows.Forms.Application.DoEvents();
                     }
-                    worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
-
+                    worksheet.Cells.Font.Size = 10;
+                    worksheet.Columns.EntireColumn.AutoFit();//列宽自适应                    
                     wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
                     if (FileName != "")
