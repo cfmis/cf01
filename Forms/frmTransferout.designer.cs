@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferout));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clTest_item_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clType_conditon = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clButFindReport = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -55,7 +56,6 @@
             this.BTNITEMDEL = new System.Windows.Forms.ToolStripButton();
             this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNAPPROVE = new System.Windows.Forms.ToolStripButton();
@@ -101,13 +101,15 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clAc_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.clQty2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clSecQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.location = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clLocation_id2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -122,22 +124,20 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clAc = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.clAc_price = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.clAc_amt = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.clAc_Chk_isFree = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dgvDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clMo_id = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clChk_Set = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.clSuit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clbteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clSend_qty_unit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.clQtyUnit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clSend_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.clQtyCount = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clSec_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -156,88 +156,74 @@
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clTotal_sum = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtOcNo2 = new DevExpress.XtraEditors.TextEdit();
-            this.label51 = new System.Windows.Forms.Label();
-            this.txtOcNo1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtGroupNo1 = new DevExpress.XtraEditors.TextEdit();
             this.label52 = new System.Windows.Forms.Label();
             this.dgvFind = new System.Windows.Forms.DataGridView();
             this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ship_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.it_customer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transfer_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bill_type_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.group_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sequence_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goods_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goods_name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.u_invoice_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ver1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transfer_amount1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
             this.txtMo_id2 = new DevExpress.XtraEditors.TextEdit();
             this.label49 = new System.Windows.Forms.Label();
             this.txtMo_id1 = new DevExpress.XtraEditors.TextEdit();
-            this.txtDgid2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtId2 = new DevExpress.XtraEditors.TextEdit();
             this.label45 = new System.Windows.Forms.Label();
-            this.txtDgid1 = new DevExpress.XtraEditors.TextEdit();
-            this.txtCust_id2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtId1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtbill_type_no2 = new DevExpress.XtraEditors.TextEdit();
             this.lblMO = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.txtCust_id1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtbill_type_no1 = new DevExpress.XtraEditors.TextEdit();
             this.label47 = new System.Windows.Forms.Label();
             this.lblData1 = new System.Windows.Forms.Label();
             this.txtDat2 = new DevExpress.XtraEditors.DateEdit();
             this.txtDat1 = new DevExpress.XtraEditors.DateEdit();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.gcOcDgdDetails = new DevExpress.XtraGrid.GridControl();
-            this.dgvOcDgdDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colOc_Ship_date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Mo_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_State = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Order_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Order_Goods_unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_U_invoice_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Goods_unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Sec_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Sec_unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOc_Order_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gcIdDetails = new DevExpress.XtraGrid.GridControl();
             this.dgvIdDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId_chkSelect = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.flagSelect2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.colId_Id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Ship_date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Mo_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_U_invoice_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Goods_unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Sec_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Sec_unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId_Order_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.moId2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.goodsId2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.qty2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.weg2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.wegGross = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.moGroup2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.packageNum2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cartonSize2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.flagDgd2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.updateDate2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.suitFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtMoType = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtUpdateTime2 = new DevExpress.XtraEditors.DateEdit();
+            this.dtUpdateTime1 = new DevExpress.XtraEditors.DateEdit();
             this.btnImput = new System.Windows.Forms.Button();
             this.lblFindId = new DevExpress.XtraEditors.LabelControl();
-            this.txtFindOc_no = new DevExpress.XtraEditors.TextEdit();
-            this.txtFindId = new DevExpress.XtraEditors.TextEdit();
+            this.txtFindGroupNo = new DevExpress.XtraEditors.TextEdit();
             this.btnQuery = new System.Windows.Forms.Button();
             this.lblFindOc_no = new DevExpress.XtraEditors.LabelControl();
-            this.txtFindMo_id = new DevExpress.XtraEditors.TextEdit();
+            this.txtFindMoId = new DevExpress.XtraEditors.TextEdit();
             this.lblFindMo_id = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.clTest_item_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clType_conditon)).BeginInit();
@@ -266,48 +252,46 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_qty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_price)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_amt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_Chk_isFree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clQty2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clSecQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clLocation_id2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clMo_id)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clChk_Set)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty_unit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clSuit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbteItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clQtyUnit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clQtyCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSec_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clTotal_sum)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOcNo2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOcNo1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGroupNo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDgid2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDgid1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCust_id2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCust_id1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcOcDgdDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOcDgdDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcIdDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIdDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSelect)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindOc_no.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindMo_id.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindGroupNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindMoId.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // clTest_item_id
@@ -387,7 +371,6 @@
             this.BTNITEMDEL,
             this.BTNSAVE,
             this.toolStripSeparator6,
-            this.toolStripSeparator3,
             this.BTNCANCEL,
             this.toolStripSeparator11,
             this.BTNAPPROVE,
@@ -421,7 +404,6 @@
             // BTNNEW
             // 
             this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
-            this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEW.Name = "BTNNEW";
             this.BTNNEW.Size = new System.Drawing.Size(69, 25);
             this.BTNNEW.Text = "新增(&N)";
@@ -499,11 +481,6 @@
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 28);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 28);
             // 
             // BTNCANCEL
             // 
@@ -665,6 +642,7 @@
             this.lkeGroupNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 120, "cdesc")});
+            this.lkeGroupNo.Properties.DropDownRows = 12;
             this.lkeGroupNo.Properties.NullText = "";
             this.lkeGroupNo.Properties.PopupFormMinSize = new System.Drawing.Size(50, 0);
             this.lkeGroupNo.Properties.PopupWidth = 150;
@@ -673,7 +651,7 @@
             this.lkeGroupNo.Size = new System.Drawing.Size(146, 22);
             this.lkeGroupNo.TabIndex = 30;
             this.lkeGroupNo.Tag = "2";
-            this.lkeGroupNo.Leave += new System.EventHandler(this.lkeGroupNo_Leave);
+            this.lkeGroupNo.EditValueChanged += new System.EventHandler(this.lkeGroupNo_EditValueChanged);
             // 
             // txtCheck_date
             // 
@@ -755,7 +733,6 @@
             this.lkeBill_type_no.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 120, "cdesc")});
-            this.lkeBill_type_no.Properties.DropDownRows = 10;
             this.lkeBill_type_no.Properties.NullText = "";
             this.lkeBill_type_no.Properties.PopupFormMinSize = new System.Drawing.Size(250, 0);
             this.lkeBill_type_no.Properties.PopupWidth = 150;
@@ -764,7 +741,7 @@
             this.lkeBill_type_no.Size = new System.Drawing.Size(146, 22);
             this.lkeBill_type_no.TabIndex = 7;
             this.lkeBill_type_no.Tag = "2";
-            this.lkeBill_type_no.Leave += new System.EventHandler(this.lkeBill_type_no_Leave);
+            this.lkeBill_type_no.EditValueChanged += new System.EventHandler(this.lkeBill_type_no_EditValueChanged);
             // 
             // txtUpdate_count
             // 
@@ -885,7 +862,6 @@
             this.lkeDepartment_id.Size = new System.Drawing.Size(141, 22);
             this.lkeDepartment_id.TabIndex = 2;
             this.lkeDepartment_id.Tag = "2";
-            this.lkeDepartment_id.EditValueChanged += new System.EventHandler(this.lkeIt_customer_EditValueChanged);
             // 
             // lblAmtim
             // 
@@ -1014,25 +990,26 @@
             // 
             // gridControl2
             // 
-            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl2.Location = new System.Drawing.Point(3, 611);
+            this.gridControl2.Location = new System.Drawing.Point(3, 440);
             this.gridControl2.MainView = this.dgvPart;
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.clAc,
-            this.clAc_qty,
-            this.clAc_price,
-            this.clAc_amt,
-            this.clAc_Chk_isFree});
-            this.gridControl2.Size = new System.Drawing.Size(1225, 166);
+            this.clQty2,
+            this.clLocation_id2,
+            this.clSecQty});
+            this.gridControl2.Size = new System.Drawing.Size(1225, 188);
             this.gridControl2.TabIndex = 11;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvPart});
             // 
             // dgvPart
             // 
+            this.dgvPart.Appearance.FooterPanel.BackColor = System.Drawing.Color.White;
+            this.dgvPart.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvPart.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.dgvPart.Appearance.FooterPanel.Options.UseFont = true;
             this.dgvPart.ColumnPanelRowHeight = 30;
             this.dgvPart.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
@@ -1058,12 +1035,13 @@
             this.gridColumn37,
             this.gridColumn12,
             this.gridColumn42,
-            this.gridColumn45});
+            this.gridColumn45,
+            this.gridColumn47});
             this.dgvPart.GridControl = this.gridControl2;
             this.dgvPart.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.dgvPart.Name = "dgvPart";
-            this.dgvPart.OptionsBehavior.Editable = false;
             this.dgvPart.OptionsView.ColumnAutoWidth = false;
+            this.dgvPart.OptionsView.ShowFooter = true;
             this.dgvPart.OptionsView.ShowGroupPanel = false;
             this.dgvPart.PaintStyleName = "Style3D";
             this.dgvPart.RowHeight = 22;
@@ -1071,8 +1049,6 @@
             // 
             // gridColumn1
             // 
-            this.gridColumn1.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn1.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "頁數";
@@ -1083,6 +1059,7 @@
             this.gridColumn1.OptionsColumn.AllowMove = false;
             this.gridColumn1.OptionsColumn.AllowShowHide = false;
             this.gridColumn1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn1.OptionsFilter.AllowFilter = false;
             this.gridColumn1.Tag = "2";
@@ -1092,8 +1069,6 @@
             // 
             // gridColumn2
             // 
-            this.gridColumn2.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn2.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "貨品編碼";
@@ -1115,7 +1090,7 @@
             // gridColumn11
             // 
             this.gridColumn11.Caption = "貨品名稱";
-            this.gridColumn11.FieldName = "name";
+            this.gridColumn11.FieldName = "goods_name";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowIncrementalSearch = false;
             this.gridColumn11.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
@@ -1132,7 +1107,7 @@
             // gridColumn23
             // 
             this.gridColumn23.Caption = "庫存數量";
-            this.gridColumn23.ColumnEdit = this.clAc_qty;
+            this.gridColumn23.ColumnEdit = this.clQty2;
             this.gridColumn23.FieldName = "inventory_qty";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.OptionsColumn.AllowIncrementalSearch = false;
@@ -1147,21 +1122,21 @@
             this.gridColumn23.VisibleIndex = 3;
             this.gridColumn23.Width = 80;
             // 
-            // clAc_qty
+            // clQty2
             // 
-            this.clAc_qty.AutoHeight = false;
-            this.clAc_qty.DisplayFormat.FormatString = "n0";
-            this.clAc_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_qty.EditFormat.FormatString = "n0";
-            this.clAc_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_qty.Mask.EditMask = "n0";
-            this.clAc_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clAc_qty.Name = "clAc_qty";
-            this.clAc_qty.Leave += new System.EventHandler(this.clAc_qty_Leave);
+            this.clQty2.AutoHeight = false;
+            this.clQty2.DisplayFormat.FormatString = "n0";
+            this.clQty2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clQty2.EditFormat.FormatString = "n0";
+            this.clQty2.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clQty2.Mask.EditMask = "n0";
+            this.clQty2.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clQty2.Name = "clQty2";
             // 
             // gridColumn22
             // 
             this.gridColumn22.Caption = "庫存重量";
+            this.gridColumn22.ColumnEdit = this.clSecQty;
             this.gridColumn22.FieldName = "inventory_sec_qty";
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.OptionsColumn.AllowIncrementalSearch = false;
@@ -1176,12 +1151,23 @@
             this.gridColumn22.VisibleIndex = 4;
             this.gridColumn22.Width = 80;
             // 
+            // clSecQty
+            // 
+            this.clSecQty.AutoHeight = false;
+            this.clSecQty.DisplayFormat.FormatString = "n2";
+            this.clSecQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clSecQty.EditFormat.FormatString = "n2";
+            this.clSecQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clSecQty.Mask.EditMask = "n2";
+            this.clSecQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clSecQty.Name = "clSecQty";
+            // 
             // gridColumn3
             // 
             this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn3.Caption = "數量";
-            this.gridColumn3.ColumnEdit = this.clAc_qty;
+            this.gridColumn3.ColumnEdit = this.clQty2;
             this.gridColumn3.FieldName = "con_qty";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowIncrementalSearch = false;
@@ -1219,9 +1205,12 @@
             // 
             // gridColumn34
             // 
+            this.gridColumn34.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gridColumn34.AppearanceCell.Options.UseBackColor = true;
             this.gridColumn34.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
             this.gridColumn34.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn34.Caption = "重量";
+            this.gridColumn34.ColumnEdit = this.clSecQty;
             this.gridColumn34.FieldName = "sec_qty";
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.OptionsColumn.AllowIncrementalSearch = false;
@@ -1231,6 +1220,8 @@
             this.gridColumn34.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn34.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn34.OptionsFilter.AllowFilter = false;
+            this.gridColumn34.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "sec_qty", "{0:0.##}")});
             this.gridColumn34.Visible = true;
             this.gridColumn34.VisibleIndex = 7;
             this.gridColumn34.Width = 80;
@@ -1239,8 +1230,6 @@
             // 
             this.gridColumn6.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gridColumn6.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn6.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.gridColumn6.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn6.Caption = "單位";
@@ -1265,6 +1254,7 @@
             this.location.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
             this.location.AppearanceHeader.Options.UseForeColor = true;
             this.location.Caption = "倉庫";
+            this.location.ColumnEdit = this.clLocation_id2;
             this.location.FieldName = "location";
             this.location.Name = "location";
             this.location.OptionsColumn.AllowIncrementalSearch = false;
@@ -1272,17 +1262,37 @@
             this.location.OptionsColumn.AllowMove = false;
             this.location.OptionsColumn.AllowShowHide = false;
             this.location.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.location.OptionsColumn.ReadOnly = true;
             this.location.OptionsFilter.AllowAutoFilter = false;
             this.location.OptionsFilter.AllowFilter = false;
             this.location.Visible = true;
             this.location.VisibleIndex = 9;
             this.location.Width = 80;
             // 
+            // clLocation_id2
+            // 
+            this.clLocation_id2.AutoHeight = false;
+            this.clLocation_id2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.clLocation_id2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.clLocation_id2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", "id", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 150, "cdesc")});
+            this.clLocation_id2.DisplayFormat.FormatString = "n2";
+            this.clLocation_id2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clLocation_id2.DropDownRows = 12;
+            this.clLocation_id2.Name = "clLocation_id2";
+            this.clLocation_id2.NullText = "";
+            this.clLocation_id2.PopupWidth = 200;
+            this.clLocation_id2.ShowHeader = false;
+            this.clLocation_id2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            // 
             // gridColumn4
             // 
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "訂單數量";
+            this.gridColumn4.ColumnEdit = this.clQty2;
             this.gridColumn4.FieldName = "order_qty";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowIncrementalSearch = false;
@@ -1300,6 +1310,7 @@
             // gridColumn35
             // 
             this.gridColumn35.Caption = "轉倉數量";
+            this.gridColumn35.ColumnEdit = this.clQty2;
             this.gridColumn35.FieldName = "transfer_amount";
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.OptionsColumn.AllowIncrementalSearch = false;
@@ -1321,6 +1332,7 @@
             this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn5.Caption = "剩余數量";
+            this.gridColumn5.ColumnEdit = this.clQty2;
             this.gridColumn5.FieldName = "nostorage_qty";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowIncrementalSearch = false;
@@ -1345,6 +1357,7 @@
             this.gridColumn39.OptionsColumn.AllowMove = false;
             this.gridColumn39.OptionsColumn.AllowShowHide = false;
             this.gridColumn39.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn39.OptionsColumn.ReadOnly = true;
             this.gridColumn39.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn39.OptionsFilter.AllowFilter = false;
             this.gridColumn39.Visible = true;
@@ -1408,6 +1421,7 @@
             // gridColumn40
             // 
             this.gridColumn40.Caption = "預留數量";
+            this.gridColumn40.ColumnEdit = this.clQty2;
             this.gridColumn40.FieldName = "obligate_qty";
             this.gridColumn40.Name = "gridColumn40";
             this.gridColumn40.OptionsColumn.AllowEdit = false;
@@ -1467,66 +1481,30 @@
             this.gridColumn45.Name = "gridColumn45";
             this.gridColumn45.OptionsColumn.ReadOnly = true;
             // 
-            // clAc
+            // gridColumn47
             // 
-            this.clAc.AutoHeight = false;
-            this.clAc.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.clAc.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 50, "id"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 150, "cdesc")});
-            this.clAc.Name = "clAc";
-            this.clAc.NullText = "";
-            this.clAc.PopupWidth = 200;
-            this.clAc.EditValueChanged += new System.EventHandler(this.clAc_EditValueChanged);
-            // 
-            // clAc_price
-            // 
-            this.clAc_price.AutoHeight = false;
-            this.clAc_price.DisplayFormat.FormatString = "n3";
-            this.clAc_price.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_price.EditFormat.FormatString = "n3";
-            this.clAc_price.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_price.Mask.EditMask = "n3";
-            this.clAc_price.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clAc_price.Name = "clAc_price";
-            this.clAc_price.Leave += new System.EventHandler(this.clAc_price_Leave);
-            // 
-            // clAc_amt
-            // 
-            this.clAc_amt.AutoHeight = false;
-            this.clAc_amt.DisplayFormat.FormatString = "n2";
-            this.clAc_amt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_amt.EditFormat.FormatString = "n2";
-            this.clAc_amt.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clAc_amt.Mask.EditMask = "n2";
-            this.clAc_amt.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clAc_amt.Name = "clAc_amt";
-            // 
-            // clAc_Chk_isFree
-            // 
-            this.clAc_Chk_isFree.AutoHeight = false;
-            this.clAc_Chk_isFree.Name = "clAc_Chk_isFree";
-            this.clAc_Chk_isFree.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-            this.clAc_Chk_isFree.CheckedChanged += new System.EventHandler(this.clAc_Chk_isFree_CheckedChanged);
+            this.gridColumn47.Caption = "主鍵關聯";
+            this.gridColumn47.FieldName = "idkey";
+            this.gridColumn47.Name = "gridColumn47";
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.Location = new System.Drawing.Point(3, 130);
             this.gridControl1.MainView = this.dgvDetails;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.clChk_Set,
+            this.clSuit,
             this.clQty,
             this.clSec_qty,
-            this.clSend_qty_unit,
+            this.clQtyUnit,
             this.clLocation_id,
-            this.clTotal_sum,
-            this.clSend_qty,
-            this.clMo_id});
-            this.gridControl1.Size = new System.Drawing.Size(1225, 478);
+            this.clQtyCount,
+            this.clMo_id,
+            this.clbteItem});
+            this.gridControl1.Size = new System.Drawing.Size(1225, 309);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvDetails});
@@ -1556,9 +1534,11 @@
             this.gridColumn29,
             this.gridColumn49,
             this.gridColumn20,
+            this.gridColumn8,
             this.gridColumn21,
             this.gridColumn24,
-            this.gridColumn8});
+            this.gridColumn46,
+            this.gridColumn50});
             this.dgvDetails.GridControl = this.gridControl1;
             this.dgvDetails.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.dgvDetails.IndicatorWidth = 30;
@@ -1568,12 +1548,14 @@
             this.dgvDetails.OptionsCustomization.AllowFilter = false;
             this.dgvDetails.OptionsCustomization.AllowSort = false;
             this.dgvDetails.OptionsView.ColumnAutoWidth = false;
+            this.dgvDetails.OptionsView.ShowDetailButtons = false;
             this.dgvDetails.OptionsView.ShowGroupPanel = false;
             this.dgvDetails.PaintStyleName = "Style3D";
             this.dgvDetails.RowHeight = 22;
             this.dgvDetails.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.dgvDetails.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.dgvDetails_CustomDrawRowIndicator);
             this.dgvDetails.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.dgvDetails_CustomDrawCell);
+            this.dgvDetails.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.dgvDetails_FocusedRowChanged);
             // 
             // gridColumn13
             // 
@@ -1609,7 +1591,7 @@
             this.gridColumn25.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn25.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn25.Caption = "套件";
-            this.gridColumn25.ColumnEdit = this.clChk_Set;
+            this.gridColumn25.ColumnEdit = this.clSuit;
             this.gridColumn25.FieldName = "shipment_suit";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.OptionsColumn.AllowIncrementalSearch = false;
@@ -1625,15 +1607,17 @@
             this.gridColumn25.VisibleIndex = 1;
             this.gridColumn25.Width = 50;
             // 
-            // clChk_Set
+            // clSuit
             // 
-            this.clChk_Set.AutoHeight = false;
-            this.clChk_Set.Name = "clChk_Set";
-            this.clChk_Set.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.clSuit.AutoHeight = false;
+            this.clSuit.Name = "clSuit";
+            this.clSuit.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.clSuit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.clSuit_MouseUp);
             // 
             // gridColumn14
             // 
             this.gridColumn14.Caption = "貨品編碼";
+            this.gridColumn14.ColumnEdit = this.clbteItem;
             this.gridColumn14.FieldName = "goods_id";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.AllowIncrementalSearch = false;
@@ -1647,7 +1631,17 @@
             this.gridColumn14.Tag = "2";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 2;
-            this.gridColumn14.Width = 160;
+            this.gridColumn14.Width = 180;
+            // 
+            // clbteItem
+            // 
+            this.clbteItem.AutoHeight = false;
+            this.clbteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.clbteItem.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.clbteItem.MaxLength = 18;
+            this.clbteItem.Name = "clbteItem";
+            this.clbteItem.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.clbteItem_ButtonClick);
             // 
             // gridColumn15
             // 
@@ -1674,7 +1668,7 @@
             this.gridColumn19.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
             this.gridColumn19.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn19.Caption = "單位";
-            this.gridColumn19.ColumnEdit = this.clSend_qty_unit;
+            this.gridColumn19.ColumnEdit = this.clQtyUnit;
             this.gridColumn19.FieldName = "unit";
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.OptionsColumn.AllowIncrementalSearch = false;
@@ -1690,26 +1684,25 @@
             this.gridColumn19.VisibleIndex = 4;
             this.gridColumn19.Width = 50;
             // 
-            // clSend_qty_unit
+            // clQtyUnit
             // 
-            this.clSend_qty_unit.AutoHeight = false;
-            this.clSend_qty_unit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.clQtyUnit.AutoHeight = false;
+            this.clQtyUnit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.clSend_qty_unit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 25, "id")});
-            this.clSend_qty_unit.Name = "clSend_qty_unit";
-            this.clSend_qty_unit.NullText = "";
-            this.clSend_qty_unit.PopupWidth = 25;
-            this.clSend_qty_unit.ShowHeader = false;
-            this.clSend_qty_unit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.clSend_qty_unit.Leave += new System.EventHandler(this.clSend_qty_unit_Leave);
+            this.clQtyUnit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 40, "id")});
+            this.clQtyUnit.Name = "clQtyUnit";
+            this.clQtyUnit.NullText = "";
+            this.clQtyUnit.PopupWidth = 40;
+            this.clQtyUnit.ShowHeader = false;
+            this.clQtyUnit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             // 
             // gridColumn18
             // 
             this.gridColumn18.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
             this.gridColumn18.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn18.Caption = "轉倉數量";
-            this.gridColumn18.ColumnEdit = this.clSend_qty;
+            this.gridColumn18.ColumnEdit = this.clQtyCount;
             this.gridColumn18.FieldName = "transfer_amount";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.OptionsColumn.AllowIncrementalSearch = false;
@@ -1723,17 +1716,17 @@
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 5;
             // 
-            // clSend_qty
+            // clQtyCount
             // 
-            this.clSend_qty.AutoHeight = false;
-            this.clSend_qty.DisplayFormat.FormatString = "n0";
-            this.clSend_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clSend_qty.EditFormat.FormatString = "n0";
-            this.clSend_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clSend_qty.Mask.EditMask = "n0";
-            this.clSend_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clSend_qty.Name = "clSend_qty";
-            this.clSend_qty.Leave += new System.EventHandler(this.clSend_qty_Leave);
+            this.clQtyCount.AutoHeight = false;
+            this.clQtyCount.DisplayFormat.FormatString = "n0";
+            this.clQtyCount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clQtyCount.EditFormat.FormatString = "n0";
+            this.clQtyCount.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clQtyCount.Mask.EditMask = "n0";
+            this.clQtyCount.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clQtyCount.Name = "clQtyCount";
+            this.clQtyCount.Leave += new System.EventHandler(this.clQtyCount_Leave);
             // 
             // gridColumn27
             // 
@@ -1835,7 +1828,7 @@
             this.gridColumn16.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 9;
-            this.gridColumn16.Width = 89;
+            this.gridColumn16.Width = 70;
             // 
             // gridColumn43
             // 
@@ -1900,11 +1893,11 @@
             this.clLocation_id.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.clLocation_id.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 50, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 40, "id"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 150, "cdesc")});
             this.clLocation_id.Name = "clLocation_id";
             this.clLocation_id.NullText = "";
-            this.clLocation_id.PopupWidth = 200;
+            this.clLocation_id.PopupWidth = 190;
             this.clLocation_id.ShowHeader = false;
             this.clLocation_id.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             // 
@@ -2017,7 +2010,7 @@
             // 
             // gridColumn49
             // 
-            this.gridColumn49.Caption = "倉庫";
+            this.gridColumn49.Caption = "移動倉庫";
             this.gridColumn49.FieldName = "move_location_id";
             this.gridColumn49.Name = "gridColumn49";
             this.gridColumn49.OptionsColumn.AllowEdit = false;
@@ -2027,12 +2020,10 @@
             this.gridColumn49.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn49.OptionsFilter.AllowFilter = false;
             this.gridColumn49.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn49.Visible = true;
-            this.gridColumn49.VisibleIndex = 19;
             // 
             // gridColumn20
             // 
-            this.gridColumn20.Caption = "倉位";
+            this.gridColumn20.Caption = "移動倉位";
             this.gridColumn20.FieldName = "move_carton_code";
             this.gridColumn20.Name = "gridColumn20";
             this.gridColumn20.OptionsColumn.AllowEdit = false;
@@ -2040,8 +2031,12 @@
             this.gridColumn20.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn20.OptionsFilter.AllowFilter = false;
             this.gridColumn20.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 20;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "倉位";
+            this.gridColumn8.FieldName = "carton_code";
+            this.gridColumn8.Name = "gridColumn8";
             // 
             // gridColumn21
             // 
@@ -2060,22 +2055,17 @@
             this.gridColumn24.FieldName = "sequence_id";
             this.gridColumn24.Name = "gridColumn24";
             // 
-            // gridColumn8
+            // gridColumn46
             // 
-            this.gridColumn8.Caption = "倉位";
-            this.gridColumn8.FieldName = "carton_code";
-            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn46.Caption = "主鍵關聯";
+            this.gridColumn46.FieldName = "idkey";
+            this.gridColumn46.Name = "gridColumn46";
             // 
-            // clTotal_sum
+            // gridColumn50
             // 
-            this.clTotal_sum.AutoHeight = false;
-            this.clTotal_sum.DisplayFormat.FormatString = "n2";
-            this.clTotal_sum.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clTotal_sum.EditFormat.FormatString = "n2";
-            this.clTotal_sum.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clTotal_sum.Mask.EditMask = "n2";
-            this.clTotal_sum.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clTotal_sum.Name = "clTotal_sum";
+            this.gridColumn50.Caption = "新行標識";
+            this.gridColumn50.FieldName = "new_flag";
+            this.gridColumn50.Name = "gridColumn50";
             // 
             // tabControl1
             // 
@@ -2086,10 +2076,10 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 29);
+            this.tabControl1.Location = new System.Drawing.Point(0, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1241, 811);
+            this.tabControl1.Size = new System.Drawing.Size(1241, 662);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
@@ -2101,7 +2091,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1233, 782);
+            this.tabPage1.Size = new System.Drawing.Size(1233, 633);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "轉 出 單";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2109,9 +2099,7 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage2.Controls.Add(this.txtOcNo2);
-            this.tabPage2.Controls.Add(this.label51);
-            this.tabPage2.Controls.Add(this.txtOcNo1);
+            this.tabPage2.Controls.Add(this.txtGroupNo1);
             this.tabPage2.Controls.Add(this.label52);
             this.tabPage2.Controls.Add(this.dgvFind);
             this.tabPage2.Controls.Add(this.btnSearch);
@@ -2119,13 +2107,13 @@
             this.tabPage2.Controls.Add(this.txtMo_id2);
             this.tabPage2.Controls.Add(this.label49);
             this.tabPage2.Controls.Add(this.txtMo_id1);
-            this.tabPage2.Controls.Add(this.txtDgid2);
+            this.tabPage2.Controls.Add(this.txtId2);
             this.tabPage2.Controls.Add(this.label45);
-            this.tabPage2.Controls.Add(this.txtDgid1);
-            this.tabPage2.Controls.Add(this.txtCust_id2);
+            this.tabPage2.Controls.Add(this.txtId1);
+            this.tabPage2.Controls.Add(this.txtbill_type_no2);
             this.tabPage2.Controls.Add(this.lblMO);
             this.tabPage2.Controls.Add(this.label46);
-            this.tabPage2.Controls.Add(this.txtCust_id1);
+            this.tabPage2.Controls.Add(this.txtbill_type_no1);
             this.tabPage2.Controls.Add(this.label47);
             this.tabPage2.Controls.Add(this.lblData1);
             this.tabPage2.Controls.Add(this.txtDat2);
@@ -2135,44 +2123,22 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1233, 782);
+            this.tabPage2.Size = new System.Drawing.Size(1233, 633);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "已保存轉出單查詢";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtOcNo2
+            // txtGroupNo1
             // 
-            this.txtOcNo2.EditValue = "";
-            this.txtOcNo2.EnterMoveNextControl = true;
-            this.txtOcNo2.Location = new System.Drawing.Point(264, 118);
-            this.txtOcNo2.Name = "txtOcNo2";
-            this.txtOcNo2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtOcNo2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOcNo2.Properties.MaxLength = 12;
-            this.txtOcNo2.Size = new System.Drawing.Size(127, 22);
-            this.txtOcNo2.TabIndex = 190;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(247, 125);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(13, 12);
-            this.label51.TabIndex = 192;
-            this.label51.Text = "--";
-            // 
-            // txtOcNo1
-            // 
-            this.txtOcNo1.EditValue = "";
-            this.txtOcNo1.EnterMoveNextControl = true;
-            this.txtOcNo1.Location = new System.Drawing.Point(114, 118);
-            this.txtOcNo1.Name = "txtOcNo1";
-            this.txtOcNo1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtOcNo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOcNo1.Properties.MaxLength = 12;
-            this.txtOcNo1.Size = new System.Drawing.Size(127, 22);
-            this.txtOcNo1.TabIndex = 189;
-            this.txtOcNo1.Leave += new System.EventHandler(this.txtOcNo1_Leave);
+            this.txtGroupNo1.EditValue = "";
+            this.txtGroupNo1.EnterMoveNextControl = true;
+            this.txtGroupNo1.Location = new System.Drawing.Point(114, 118);
+            this.txtGroupNo1.Name = "txtGroupNo1";
+            this.txtGroupNo1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtGroupNo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGroupNo1.Properties.MaxLength = 12;
+            this.txtGroupNo1.Size = new System.Drawing.Size(127, 22);
+            this.txtGroupNo1.TabIndex = 8;
             // 
             // label52
             // 
@@ -2180,7 +2146,7 @@
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(99, 13);
             this.label52.TabIndex = 191;
-            this.label52.Text = "OC NO";
+            this.label52.Text = "組別";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dgvFind
@@ -2190,47 +2156,47 @@
             this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id1,
-            this.ship_date1,
-            this.it_customer1,
-            this.name1,
+            this.transfer_date1,
+            this.bill_type_no1,
+            this.group_no1,
             this.sequence_id1,
             this.mo_id1,
             this.goods_id1,
             this.goods_name1,
-            this.u_invoice_qty1,
-            this.p_unit1,
-            this.ver1,
-            this.order_id1});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle11;
+            this.transfer_amount1,
+            this.unit1,
+            this.sec_qty1,
+            this.sec_unit1});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFind.Location = new System.Drawing.Point(3, 184);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFind.Size = new System.Drawing.Size(1225, 592);
             this.dgvFind.TabIndex = 188;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
@@ -2239,38 +2205,39 @@
             // id1
             // 
             this.id1.DataPropertyName = "id";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue;
-            this.id1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.id1.HeaderText = "東莞D單據號";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.id1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id1.HeaderText = "單據號";
             this.id1.Name = "id1";
             this.id1.ReadOnly = true;
             this.id1.Width = 120;
             // 
-            // ship_date1
+            // transfer_date1
             // 
-            this.ship_date1.DataPropertyName = "ship_date";
-            dataGridViewCellStyle9.Format = "d";
-            dataGridViewCellStyle9.NullValue = null;
-            this.ship_date1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.ship_date1.HeaderText = "送貨日期";
-            this.ship_date1.Name = "ship_date1";
-            this.ship_date1.ReadOnly = true;
-            this.ship_date1.Width = 90;
+            this.transfer_date1.DataPropertyName = "transfer_date";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.transfer_date1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.transfer_date1.HeaderText = "轉出日期";
+            this.transfer_date1.Name = "transfer_date1";
+            this.transfer_date1.ReadOnly = true;
+            this.transfer_date1.Width = 90;
             // 
-            // it_customer1
+            // bill_type_no1
             // 
-            this.it_customer1.DataPropertyName = "it_customer";
-            this.it_customer1.HeaderText = "客戶編號";
-            this.it_customer1.Name = "it_customer1";
-            this.it_customer1.ReadOnly = true;
+            this.bill_type_no1.DataPropertyName = "bill_type_no";
+            this.bill_type_no1.HeaderText = "單據種類";
+            this.bill_type_no1.Name = "bill_type_no1";
+            this.bill_type_no1.ReadOnly = true;
+            this.bill_type_no1.Width = 60;
             // 
-            // name1
+            // group_no1
             // 
-            this.name1.DataPropertyName = "name";
-            this.name1.HeaderText = "客戶名稱";
-            this.name1.Name = "name1";
-            this.name1.ReadOnly = true;
-            this.name1.Width = 200;
+            this.group_no1.DataPropertyName = "group_no";
+            this.group_no1.HeaderText = "組別";
+            this.group_no1.Name = "group_no1";
+            this.group_no1.ReadOnly = true;
+            this.group_no1.Width = 50;
             // 
             // sequence_id1
             // 
@@ -2304,40 +2271,40 @@
             this.goods_name1.ReadOnly = true;
             this.goods_name1.Width = 180;
             // 
-            // u_invoice_qty1
+            // transfer_amount1
             // 
-            this.u_invoice_qty1.DataPropertyName = "u_invoice_qty";
-            dataGridViewCellStyle10.Format = "N0";
-            dataGridViewCellStyle10.NullValue = null;
-            this.u_invoice_qty1.DefaultCellStyle = dataGridViewCellStyle10;
-            this.u_invoice_qty1.HeaderText = "送貨數量";
-            this.u_invoice_qty1.Name = "u_invoice_qty1";
-            this.u_invoice_qty1.ReadOnly = true;
-            this.u_invoice_qty1.Width = 90;
+            this.transfer_amount1.DataPropertyName = "transfer_amount";
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.transfer_amount1.HeaderText = "轉倉數量";
+            this.transfer_amount1.Name = "transfer_amount1";
+            this.transfer_amount1.ReadOnly = true;
+            this.transfer_amount1.Width = 90;
             // 
-            // p_unit1
+            // unit1
             // 
-            this.p_unit1.DataPropertyName = "p_unit";
-            this.p_unit1.HeaderText = "數量單位";
-            this.p_unit1.Name = "p_unit1";
-            this.p_unit1.ReadOnly = true;
-            this.p_unit1.Width = 90;
+            this.unit1.DataPropertyName = "unit";
+            this.unit1.HeaderText = "數量單位";
+            this.unit1.Name = "unit1";
+            this.unit1.ReadOnly = true;
+            this.unit1.Width = 90;
             // 
-            // ver1
+            // sec_qty1
             // 
-            this.ver1.DataPropertyName = "ver";
-            this.ver1.HeaderText = "Ver";
-            this.ver1.Name = "ver1";
-            this.ver1.ReadOnly = true;
-            this.ver1.Visible = false;
-            this.ver1.Width = 30;
+            this.sec_qty1.DataPropertyName = "sec_qty";
+            this.sec_qty1.HeaderText = "重量";
+            this.sec_qty1.Name = "sec_qty1";
+            this.sec_qty1.ReadOnly = true;
+            this.sec_qty1.Visible = false;
+            this.sec_qty1.Width = 30;
             // 
-            // order_id1
+            // sec_unit1
             // 
-            this.order_id1.DataPropertyName = "order_id";
-            this.order_id1.HeaderText = "Oc No";
-            this.order_id1.Name = "order_id1";
-            this.order_id1.ReadOnly = true;
+            this.sec_unit1.DataPropertyName = "sec_unit";
+            this.sec_unit1.HeaderText = "重量單位";
+            this.sec_unit1.Name = "sec_unit1";
+            this.sec_unit1.ReadOnly = true;
             // 
             // btnSearch
             // 
@@ -2346,7 +2313,7 @@
             this.btnSearch.Location = new System.Drawing.Point(441, 41);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(85, 41);
-            this.btnSearch.TabIndex = 187;
+            this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "查  詢(&L)";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -2380,7 +2347,7 @@
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(80, 15);
             this.label49.TabIndex = 185;
-            this.label49.Text = "制單編號";
+            this.label49.Text = "制單頁數";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMo_id1
@@ -2396,17 +2363,17 @@
             this.txtMo_id1.TabIndex = 6;
             this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
             // 
-            // txtDgid2
+            // txtId2
             // 
-            this.txtDgid2.EditValue = "";
-            this.txtDgid2.EnterMoveNextControl = true;
-            this.txtDgid2.Location = new System.Drawing.Point(264, 62);
-            this.txtDgid2.Name = "txtDgid2";
-            this.txtDgid2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtDgid2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDgid2.Properties.MaxLength = 10;
-            this.txtDgid2.Size = new System.Drawing.Size(127, 22);
-            this.txtDgid2.TabIndex = 5;
+            this.txtId2.EditValue = "";
+            this.txtId2.EnterMoveNextControl = true;
+            this.txtId2.Location = new System.Drawing.Point(264, 62);
+            this.txtId2.Name = "txtId2";
+            this.txtId2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtId2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtId2.Properties.MaxLength = 12;
+            this.txtId2.Size = new System.Drawing.Size(127, 22);
+            this.txtId2.TabIndex = 5;
             // 
             // label45
             // 
@@ -2417,30 +2384,29 @@
             this.label45.TabIndex = 182;
             this.label45.Text = "--";
             // 
-            // txtDgid1
+            // txtId1
             // 
-            this.txtDgid1.EditValue = "";
-            this.txtDgid1.EnterMoveNextControl = true;
-            this.txtDgid1.Location = new System.Drawing.Point(114, 62);
-            this.txtDgid1.Name = "txtDgid1";
-            this.txtDgid1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtDgid1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDgid1.Properties.MaxLength = 10;
-            this.txtDgid1.Size = new System.Drawing.Size(127, 22);
-            this.txtDgid1.TabIndex = 4;
-            this.txtDgid1.Leave += new System.EventHandler(this.txtDgid1_Leave);
+            this.txtId1.EditValue = "";
+            this.txtId1.EnterMoveNextControl = true;
+            this.txtId1.Location = new System.Drawing.Point(114, 62);
+            this.txtId1.Name = "txtId1";
+            this.txtId1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtId1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtId1.Properties.MaxLength = 12;
+            this.txtId1.Size = new System.Drawing.Size(127, 22);
+            this.txtId1.TabIndex = 4;
             // 
-            // txtCust_id2
+            // txtbill_type_no2
             // 
-            this.txtCust_id2.EditValue = "";
-            this.txtCust_id2.EnterMoveNextControl = true;
-            this.txtCust_id2.Location = new System.Drawing.Point(264, 36);
-            this.txtCust_id2.Name = "txtCust_id2";
-            this.txtCust_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtCust_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCust_id2.Properties.MaxLength = 8;
-            this.txtCust_id2.Size = new System.Drawing.Size(127, 22);
-            this.txtCust_id2.TabIndex = 3;
+            this.txtbill_type_no2.EditValue = "";
+            this.txtbill_type_no2.EnterMoveNextControl = true;
+            this.txtbill_type_no2.Location = new System.Drawing.Point(264, 36);
+            this.txtbill_type_no2.Name = "txtbill_type_no2";
+            this.txtbill_type_no2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtbill_type_no2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtbill_type_no2.Properties.MaxLength = 8;
+            this.txtbill_type_no2.Size = new System.Drawing.Size(127, 22);
+            this.txtbill_type_no2.TabIndex = 3;
             // 
             // lblMO
             // 
@@ -2449,7 +2415,7 @@
             this.lblMO.Name = "lblMO";
             this.lblMO.Size = new System.Drawing.Size(80, 15);
             this.lblMO.TabIndex = 181;
-            this.lblMO.Text = "客戶編號";
+            this.lblMO.Text = "單據種類";
             this.lblMO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label46
@@ -2461,18 +2427,18 @@
             this.label46.TabIndex = 180;
             this.label46.Text = "--";
             // 
-            // txtCust_id1
+            // txtbill_type_no1
             // 
-            this.txtCust_id1.EditValue = "";
-            this.txtCust_id1.EnterMoveNextControl = true;
-            this.txtCust_id1.Location = new System.Drawing.Point(114, 36);
-            this.txtCust_id1.Name = "txtCust_id1";
-            this.txtCust_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtCust_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCust_id1.Properties.MaxLength = 8;
-            this.txtCust_id1.Size = new System.Drawing.Size(127, 22);
-            this.txtCust_id1.TabIndex = 2;
-            this.txtCust_id1.Leave += new System.EventHandler(this.txtCust_id1_Leave);
+            this.txtbill_type_no1.EditValue = "";
+            this.txtbill_type_no1.EnterMoveNextControl = true;
+            this.txtbill_type_no1.Location = new System.Drawing.Point(114, 36);
+            this.txtbill_type_no1.Name = "txtbill_type_no1";
+            this.txtbill_type_no1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtbill_type_no1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtbill_type_no1.Properties.MaxLength = 8;
+            this.txtbill_type_no1.Size = new System.Drawing.Size(127, 22);
+            this.txtbill_type_no1.TabIndex = 2;
+            this.txtbill_type_no1.Leave += new System.EventHandler(this.txtCust_id1_Leave);
             // 
             // label47
             // 
@@ -2486,11 +2452,11 @@
             // lblData1
             // 
             this.lblData1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblData1.Location = new System.Drawing.Point(32, 15);
+            this.lblData1.Location = new System.Drawing.Point(32, 13);
             this.lblData1.Name = "lblData1";
             this.lblData1.Size = new System.Drawing.Size(80, 15);
             this.lblData1.TabIndex = 178;
-            this.lblData1.Text = "送貨日期";
+            this.lblData1.Text = "轉出日期";
             this.lblData1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtDat2
@@ -2538,201 +2504,21 @@
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(99, 13);
             this.label48.TabIndex = 177;
-            this.label48.Text = "東莞D送貨單號";
+            this.label48.Text = "編碼";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage3.Controls.Add(this.gcOcDgdDetails);
             this.tabPage3.Controls.Add(this.gcIdDetails);
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1233, 782);
+            this.tabPage3.Size = new System.Drawing.Size(1233, 633);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "箱嘜成品標簽已列印數據";
-            // 
-            // gcOcDgdDetails
-            // 
-            this.gcOcDgdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcOcDgdDetails.Location = new System.Drawing.Point(2, 497);
-            this.gcOcDgdDetails.MainView = this.dgvOcDgdDetails;
-            this.gcOcDgdDetails.Name = "gcOcDgdDetails";
-            this.gcOcDgdDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemCheckEdit2});
-            this.gcOcDgdDetails.Size = new System.Drawing.Size(1226, 282);
-            this.gcOcDgdDetails.TabIndex = 7;
-            this.gcOcDgdDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dgvOcDgdDetails});
-            // 
-            // dgvOcDgdDetails
-            // 
-            this.dgvOcDgdDetails.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.dgvOcDgdDetails.ColumnPanelRowHeight = 30;
-            this.dgvOcDgdDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colOc_Ship_date,
-            this.colOc_Sequence_id,
-            this.colOc_Mo_id,
-            this.colOc_Goods_id,
-            this.colOc_Goods_name,
-            this.colOc_Id,
-            this.colOc_State,
-            this.colOc_Order_qty,
-            this.colOc_Order_Goods_unit,
-            this.colOc_U_invoice_qty,
-            this.colOc_Goods_unit,
-            this.colOc_Sec_qty,
-            this.colOc_Sec_unit,
-            this.colOc_Order_id});
-            this.dgvOcDgdDetails.GridControl = this.gcOcDgdDetails;
-            this.dgvOcDgdDetails.Name = "dgvOcDgdDetails";
-            this.dgvOcDgdDetails.OptionsBehavior.Editable = false;
-            this.dgvOcDgdDetails.OptionsSelection.MultiSelect = true;
-            this.dgvOcDgdDetails.OptionsView.ColumnAutoWidth = false;
-            this.dgvOcDgdDetails.OptionsView.ShowGroupPanel = false;
-            this.dgvOcDgdDetails.PaintStyleName = "Style3D";
-            this.dgvOcDgdDetails.RowHeight = 25;
-            this.dgvOcDgdDetails.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
-            // 
-            // colOc_Ship_date
-            // 
-            this.colOc_Ship_date.Caption = "單據日期";
-            this.colOc_Ship_date.FieldName = "ship_date";
-            this.colOc_Ship_date.Name = "colOc_Ship_date";
-            this.colOc_Ship_date.Visible = true;
-            this.colOc_Ship_date.VisibleIndex = 8;
-            this.colOc_Ship_date.Width = 80;
-            // 
-            // colOc_Sequence_id
-            // 
-            this.colOc_Sequence_id.Caption = "序號";
-            this.colOc_Sequence_id.FieldName = "sequence_id";
-            this.colOc_Sequence_id.Name = "colOc_Sequence_id";
-            this.colOc_Sequence_id.Visible = true;
-            this.colOc_Sequence_id.VisibleIndex = 0;
-            this.colOc_Sequence_id.Width = 60;
-            // 
-            // colOc_Mo_id
-            // 
-            this.colOc_Mo_id.Caption = "制單編號";
-            this.colOc_Mo_id.FieldName = "mo_id";
-            this.colOc_Mo_id.Name = "colOc_Mo_id";
-            this.colOc_Mo_id.Visible = true;
-            this.colOc_Mo_id.VisibleIndex = 1;
-            this.colOc_Mo_id.Width = 80;
-            // 
-            // colOc_Goods_id
-            // 
-            this.colOc_Goods_id.Caption = "產品編號";
-            this.colOc_Goods_id.FieldName = "goods_id";
-            this.colOc_Goods_id.Name = "colOc_Goods_id";
-            this.colOc_Goods_id.Visible = true;
-            this.colOc_Goods_id.VisibleIndex = 2;
-            this.colOc_Goods_id.Width = 120;
-            // 
-            // colOc_Goods_name
-            // 
-            this.colOc_Goods_name.Caption = "產品描述";
-            this.colOc_Goods_name.FieldName = "goods_name";
-            this.colOc_Goods_name.Name = "colOc_Goods_name";
-            this.colOc_Goods_name.Visible = true;
-            this.colOc_Goods_name.VisibleIndex = 3;
-            this.colOc_Goods_name.Width = 270;
-            // 
-            // colOc_Id
-            // 
-            this.colOc_Id.Caption = "單據編號";
-            this.colOc_Id.FieldName = "id";
-            this.colOc_Id.Name = "colOc_Id";
-            this.colOc_Id.Visible = true;
-            this.colOc_Id.VisibleIndex = 6;
-            this.colOc_Id.Width = 100;
-            // 
-            // colOc_State
-            // 
-            this.colOc_State.Caption = "過賬狀態";
-            this.colOc_State.FieldName = "state";
-            this.colOc_State.Name = "colOc_State";
-            this.colOc_State.Visible = true;
-            this.colOc_State.VisibleIndex = 7;
-            this.colOc_State.Width = 60;
-            // 
-            // colOc_Order_qty
-            // 
-            this.colOc_Order_qty.Caption = "訂單數量";
-            this.colOc_Order_qty.FieldName = "order_qty";
-            this.colOc_Order_qty.Name = "colOc_Order_qty";
-            this.colOc_Order_qty.Visible = true;
-            this.colOc_Order_qty.VisibleIndex = 4;
-            this.colOc_Order_qty.Width = 80;
-            // 
-            // colOc_Order_Goods_unit
-            // 
-            this.colOc_Order_Goods_unit.Caption = "數量單位";
-            this.colOc_Order_Goods_unit.FieldName = "order_goods_unit";
-            this.colOc_Order_Goods_unit.Name = "colOc_Order_Goods_unit";
-            this.colOc_Order_Goods_unit.Visible = true;
-            this.colOc_Order_Goods_unit.VisibleIndex = 5;
-            this.colOc_Order_Goods_unit.Width = 60;
-            // 
-            // colOc_U_invoice_qty
-            // 
-            this.colOc_U_invoice_qty.Caption = "發貨數量";
-            this.colOc_U_invoice_qty.FieldName = "u_invoice_qty";
-            this.colOc_U_invoice_qty.Name = "colOc_U_invoice_qty";
-            this.colOc_U_invoice_qty.Visible = true;
-            this.colOc_U_invoice_qty.VisibleIndex = 9;
-            this.colOc_U_invoice_qty.Width = 80;
-            // 
-            // colOc_Goods_unit
-            // 
-            this.colOc_Goods_unit.AppearanceCell.Options.UseTextOptions = true;
-            this.colOc_Goods_unit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colOc_Goods_unit.Caption = "數量單位";
-            this.colOc_Goods_unit.FieldName = "goods_unit";
-            this.colOc_Goods_unit.Name = "colOc_Goods_unit";
-            this.colOc_Goods_unit.Visible = true;
-            this.colOc_Goods_unit.VisibleIndex = 10;
-            this.colOc_Goods_unit.Width = 80;
-            // 
-            // colOc_Sec_qty
-            // 
-            this.colOc_Sec_qty.Caption = "重量";
-            this.colOc_Sec_qty.FieldName = "sec_qty";
-            this.colOc_Sec_qty.Name = "colOc_Sec_qty";
-            this.colOc_Sec_qty.Visible = true;
-            this.colOc_Sec_qty.VisibleIndex = 11;
-            this.colOc_Sec_qty.Width = 60;
-            // 
-            // colOc_Sec_unit
-            // 
-            this.colOc_Sec_unit.AppearanceCell.Options.UseTextOptions = true;
-            this.colOc_Sec_unit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colOc_Sec_unit.Caption = "重量單位";
-            this.colOc_Sec_unit.FieldName = "sec_unit";
-            this.colOc_Sec_unit.Name = "colOc_Sec_unit";
-            this.colOc_Sec_unit.Visible = true;
-            this.colOc_Sec_unit.VisibleIndex = 12;
-            this.colOc_Sec_unit.Width = 80;
-            // 
-            // colOc_Order_id
-            // 
-            this.colOc_Order_id.Caption = "OC No";
-            this.colOc_Order_id.FieldName = "order_id";
-            this.colOc_Order_id.Name = "colOc_Order_id";
-            this.colOc_Order_id.Visible = true;
-            this.colOc_Order_id.VisibleIndex = 13;
-            this.colOc_Order_id.Width = 100;
-            // 
-            // repositoryItemCheckEdit2
-            // 
-            this.repositoryItemCheckEdit2.AutoHeight = false;
-            this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
+            this.tabPage3.Text = "從裝箱數據中導入";
             // 
             // gcIdDetails
             // 
@@ -2743,7 +2529,7 @@
             this.gcIdDetails.Name = "gcIdDetails";
             this.gcIdDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clSelect});
-            this.gcIdDetails.Size = new System.Drawing.Size(1226, 438);
+            this.gcIdDetails.Size = new System.Drawing.Size(1226, 567);
             this.gcIdDetails.TabIndex = 6;
             this.gcIdDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvIdDetails});
@@ -2753,18 +2539,18 @@
             this.dgvIdDetails.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dgvIdDetails.ColumnPanelRowHeight = 25;
             this.dgvIdDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId_chkSelect,
-            this.colId_Id,
-            this.colId_Ship_date,
-            this.colId_Sequence_id,
-            this.colId_Mo_id,
-            this.colId_Goods_id,
-            this.colId_Goods_name,
-            this.colId_U_invoice_qty,
-            this.colId_Goods_unit,
-            this.colId_Sec_qty,
-            this.colId_Sec_unit,
-            this.colId_Order_id});
+            this.flagSelect2,
+            this.moId2,
+            this.goodsId2,
+            this.qty2,
+            this.weg2,
+            this.wegGross,
+            this.moGroup2,
+            this.packageNum2,
+            this.cartonSize2,
+            this.flagDgd2,
+            this.updateDate2,
+            this.suitFlag});
             this.dgvIdDetails.GridControl = this.gcIdDetails;
             this.dgvIdDetails.Name = "dgvIdDetails";
             this.dgvIdDetails.OptionsSelection.MultiSelect = true;
@@ -2773,212 +2559,312 @@
             this.dgvIdDetails.PaintStyleName = "Style3D";
             this.dgvIdDetails.RowHeight = 30;
             this.dgvIdDetails.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
-            this.dgvIdDetails.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.dgvIdDetails_SelectionChanged);
             // 
-            // colId_chkSelect
+            // flagSelect2
             // 
-            this.colId_chkSelect.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.colId_chkSelect.AppearanceCell.Options.UseBackColor = true;
-            this.colId_chkSelect.Caption = "選取";
-            this.colId_chkSelect.ColumnEdit = this.clSelect;
-            this.colId_chkSelect.FieldName = "is_select";
-            this.colId_chkSelect.Name = "colId_chkSelect";
-            this.colId_chkSelect.OptionsColumn.AllowMove = false;
-            this.colId_chkSelect.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_chkSelect.OptionsFilter.AllowAutoFilter = false;
-            this.colId_chkSelect.OptionsFilter.AllowFilter = false;
-            this.colId_chkSelect.Visible = true;
-            this.colId_chkSelect.VisibleIndex = 0;
-            this.colId_chkSelect.Width = 54;
+            this.flagSelect2.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.flagSelect2.AppearanceCell.Options.UseBackColor = true;
+            this.flagSelect2.AppearanceHeader.Options.UseTextOptions = true;
+            this.flagSelect2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.flagSelect2.Caption = "選取";
+            this.flagSelect2.ColumnEdit = this.clSelect;
+            this.flagSelect2.FieldName = "flag_select";
+            this.flagSelect2.Name = "flagSelect2";
+            this.flagSelect2.OptionsColumn.AllowIncrementalSearch = false;
+            this.flagSelect2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.flagSelect2.OptionsColumn.AllowMove = false;
+            this.flagSelect2.OptionsColumn.AllowShowHide = false;
+            this.flagSelect2.OptionsFilter.AllowAutoFilter = false;
+            this.flagSelect2.OptionsFilter.AllowFilter = false;
+            this.flagSelect2.Visible = true;
+            this.flagSelect2.VisibleIndex = 0;
+            this.flagSelect2.Width = 56;
             // 
             // clSelect
             // 
             this.clSelect.AutoHeight = false;
             this.clSelect.Name = "clSelect";
             this.clSelect.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-            this.clSelect.EditValueChanged += new System.EventHandler(this.clSelect_EditValueChanged);
             // 
-            // colId_Id
+            // moId2
             // 
-            this.colId_Id.Caption = "單據編號";
-            this.colId_Id.FieldName = "id";
-            this.colId_Id.Name = "colId_Id";
-            this.colId_Id.OptionsColumn.AllowMove = false;
-            this.colId_Id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Id.OptionsColumn.ReadOnly = true;
-            this.colId_Id.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Id.OptionsFilter.AllowFilter = false;
-            this.colId_Id.Visible = true;
-            this.colId_Id.VisibleIndex = 1;
-            this.colId_Id.Width = 100;
+            this.moId2.Caption = "制單頁數";
+            this.moId2.FieldName = "mo_id";
+            this.moId2.Name = "moId2";
+            this.moId2.OptionsColumn.AllowIncrementalSearch = false;
+            this.moId2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.moId2.OptionsColumn.AllowMove = false;
+            this.moId2.OptionsColumn.AllowShowHide = false;
+            this.moId2.OptionsColumn.ReadOnly = true;
+            this.moId2.OptionsFilter.AllowAutoFilter = false;
+            this.moId2.OptionsFilter.AllowFilter = false;
+            this.moId2.Visible = true;
+            this.moId2.VisibleIndex = 1;
+            this.moId2.Width = 102;
             // 
-            // colId_Ship_date
+            // goodsId2
             // 
-            this.colId_Ship_date.Caption = "單據日期";
-            this.colId_Ship_date.FieldName = "ship_date";
-            this.colId_Ship_date.Name = "colId_Ship_date";
-            this.colId_Ship_date.OptionsColumn.AllowEdit = false;
-            this.colId_Ship_date.OptionsColumn.AllowMove = false;
-            this.colId_Ship_date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Ship_date.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Ship_date.OptionsFilter.AllowFilter = false;
-            this.colId_Ship_date.Visible = true;
-            this.colId_Ship_date.VisibleIndex = 2;
-            this.colId_Ship_date.Width = 80;
+            this.goodsId2.Caption = "產品編號";
+            this.goodsId2.FieldName = "goods_id";
+            this.goodsId2.Name = "goodsId2";
+            this.goodsId2.OptionsColumn.AllowIncrementalSearch = false;
+            this.goodsId2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.goodsId2.OptionsColumn.AllowMove = false;
+            this.goodsId2.OptionsColumn.AllowShowHide = false;
+            this.goodsId2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.goodsId2.OptionsColumn.ReadOnly = true;
+            this.goodsId2.OptionsFilter.AllowAutoFilter = false;
+            this.goodsId2.OptionsFilter.AllowFilter = false;
+            this.goodsId2.Visible = true;
+            this.goodsId2.VisibleIndex = 2;
+            this.goodsId2.Width = 185;
             // 
-            // colId_Sequence_id
+            // qty2
             // 
-            this.colId_Sequence_id.Caption = "序號";
-            this.colId_Sequence_id.FieldName = "sequence_id";
-            this.colId_Sequence_id.Name = "colId_Sequence_id";
-            this.colId_Sequence_id.OptionsColumn.AllowEdit = false;
-            this.colId_Sequence_id.OptionsColumn.AllowMove = false;
-            this.colId_Sequence_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Sequence_id.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Sequence_id.OptionsFilter.AllowFilter = false;
-            this.colId_Sequence_id.Visible = true;
-            this.colId_Sequence_id.VisibleIndex = 3;
-            this.colId_Sequence_id.Width = 60;
+            this.qty2.Caption = "數量";
+            this.qty2.FieldName = "qty";
+            this.qty2.Name = "qty2";
+            this.qty2.OptionsColumn.AllowIncrementalSearch = false;
+            this.qty2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.qty2.OptionsColumn.AllowMove = false;
+            this.qty2.OptionsColumn.AllowShowHide = false;
+            this.qty2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.qty2.OptionsColumn.ReadOnly = true;
+            this.qty2.OptionsFilter.AllowAutoFilter = false;
+            this.qty2.OptionsFilter.AllowFilter = false;
+            this.qty2.Visible = true;
+            this.qty2.VisibleIndex = 3;
+            this.qty2.Width = 86;
             // 
-            // colId_Mo_id
+            // weg2
             // 
-            this.colId_Mo_id.Caption = "制單編號";
-            this.colId_Mo_id.FieldName = "mo_id";
-            this.colId_Mo_id.Name = "colId_Mo_id";
-            this.colId_Mo_id.OptionsColumn.AllowMove = false;
-            this.colId_Mo_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Mo_id.OptionsColumn.ReadOnly = true;
-            this.colId_Mo_id.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Mo_id.OptionsFilter.AllowFilter = false;
-            this.colId_Mo_id.Visible = true;
-            this.colId_Mo_id.VisibleIndex = 4;
-            this.colId_Mo_id.Width = 85;
+            this.weg2.Caption = "重量";
+            this.weg2.FieldName = "weg";
+            this.weg2.Name = "weg2";
+            this.weg2.OptionsColumn.AllowIncrementalSearch = false;
+            this.weg2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.weg2.OptionsColumn.AllowMove = false;
+            this.weg2.OptionsColumn.AllowShowHide = false;
+            this.weg2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.weg2.OptionsColumn.ReadOnly = true;
+            this.weg2.OptionsFilter.AllowAutoFilter = false;
+            this.weg2.OptionsFilter.AllowFilter = false;
+            this.weg2.Visible = true;
+            this.weg2.VisibleIndex = 4;
+            this.weg2.Width = 65;
             // 
-            // colId_Goods_id
+            // wegGross
             // 
-            this.colId_Goods_id.Caption = "產品編號";
-            this.colId_Goods_id.FieldName = "goods_id";
-            this.colId_Goods_id.Name = "colId_Goods_id";
-            this.colId_Goods_id.OptionsColumn.AllowMove = false;
-            this.colId_Goods_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Goods_id.OptionsColumn.ReadOnly = true;
-            this.colId_Goods_id.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Goods_id.OptionsFilter.AllowFilter = false;
-            this.colId_Goods_id.Visible = true;
-            this.colId_Goods_id.VisibleIndex = 5;
-            this.colId_Goods_id.Width = 127;
+            this.wegGross.Caption = "毛重";
+            this.wegGross.FieldName = "weg_gross";
+            this.wegGross.Name = "wegGross";
+            this.wegGross.OptionsColumn.AllowIncrementalSearch = false;
+            this.wegGross.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.wegGross.OptionsColumn.AllowMove = false;
+            this.wegGross.OptionsColumn.AllowShowHide = false;
+            this.wegGross.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.wegGross.OptionsColumn.ReadOnly = true;
+            this.wegGross.OptionsFilter.AllowAutoFilter = false;
+            this.wegGross.OptionsFilter.AllowFilter = false;
+            this.wegGross.Visible = true;
+            this.wegGross.VisibleIndex = 5;
+            this.wegGross.Width = 69;
             // 
-            // colId_Goods_name
+            // moGroup2
             // 
-            this.colId_Goods_name.Caption = "產品描述";
-            this.colId_Goods_name.FieldName = "goods_name";
-            this.colId_Goods_name.Name = "colId_Goods_name";
-            this.colId_Goods_name.OptionsColumn.AllowEdit = false;
-            this.colId_Goods_name.OptionsColumn.AllowMove = false;
-            this.colId_Goods_name.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Goods_name.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Goods_name.OptionsFilter.AllowFilter = false;
-            this.colId_Goods_name.Visible = true;
-            this.colId_Goods_name.VisibleIndex = 6;
-            this.colId_Goods_name.Width = 300;
+            this.moGroup2.AppearanceCell.Options.UseTextOptions = true;
+            this.moGroup2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.moGroup2.AppearanceHeader.Options.UseTextOptions = true;
+            this.moGroup2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.moGroup2.Caption = "組別";
+            this.moGroup2.FieldName = "mo_group";
+            this.moGroup2.Name = "moGroup2";
+            this.moGroup2.OptionsColumn.AllowIncrementalSearch = false;
+            this.moGroup2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.moGroup2.OptionsColumn.AllowMove = false;
+            this.moGroup2.OptionsColumn.AllowShowHide = false;
+            this.moGroup2.OptionsColumn.ReadOnly = true;
+            this.moGroup2.OptionsFilter.AllowAutoFilter = false;
+            this.moGroup2.OptionsFilter.AllowFilter = false;
+            this.moGroup2.Visible = true;
+            this.moGroup2.VisibleIndex = 6;
+            this.moGroup2.Width = 55;
             // 
-            // colId_U_invoice_qty
+            // packageNum2
             // 
-            this.colId_U_invoice_qty.Caption = "發貨數量";
-            this.colId_U_invoice_qty.FieldName = "u_invoice_qty";
-            this.colId_U_invoice_qty.Name = "colId_U_invoice_qty";
-            this.colId_U_invoice_qty.OptionsColumn.AllowEdit = false;
-            this.colId_U_invoice_qty.OptionsColumn.AllowMove = false;
-            this.colId_U_invoice_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_U_invoice_qty.OptionsFilter.AllowAutoFilter = false;
-            this.colId_U_invoice_qty.OptionsFilter.AllowFilter = false;
-            this.colId_U_invoice_qty.Visible = true;
-            this.colId_U_invoice_qty.VisibleIndex = 7;
-            this.colId_U_invoice_qty.Width = 80;
+            this.packageNum2.AppearanceCell.Options.UseTextOptions = true;
+            this.packageNum2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.packageNum2.AppearanceHeader.Options.UseTextOptions = true;
+            this.packageNum2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.packageNum2.Caption = "包數";
+            this.packageNum2.FieldName = "package_num";
+            this.packageNum2.Name = "packageNum2";
+            this.packageNum2.OptionsColumn.AllowIncrementalSearch = false;
+            this.packageNum2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.packageNum2.OptionsColumn.AllowMove = false;
+            this.packageNum2.OptionsColumn.AllowShowHide = false;
+            this.packageNum2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.packageNum2.OptionsColumn.ReadOnly = true;
+            this.packageNum2.OptionsFilter.AllowAutoFilter = false;
+            this.packageNum2.OptionsFilter.AllowFilter = false;
+            this.packageNum2.Visible = true;
+            this.packageNum2.VisibleIndex = 7;
+            this.packageNum2.Width = 73;
             // 
-            // colId_Goods_unit
+            // cartonSize2
             // 
-            this.colId_Goods_unit.AppearanceCell.Options.UseTextOptions = true;
-            this.colId_Goods_unit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colId_Goods_unit.Caption = "數量單位";
-            this.colId_Goods_unit.FieldName = "goods_unit";
-            this.colId_Goods_unit.Name = "colId_Goods_unit";
-            this.colId_Goods_unit.OptionsColumn.AllowEdit = false;
-            this.colId_Goods_unit.OptionsColumn.AllowMove = false;
-            this.colId_Goods_unit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Goods_unit.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Goods_unit.OptionsFilter.AllowFilter = false;
-            this.colId_Goods_unit.Visible = true;
-            this.colId_Goods_unit.VisibleIndex = 8;
-            this.colId_Goods_unit.Width = 80;
+            this.cartonSize2.Caption = "包裝尺寸";
+            this.cartonSize2.FieldName = "carton_size";
+            this.cartonSize2.Name = "cartonSize2";
+            this.cartonSize2.OptionsColumn.AllowIncrementalSearch = false;
+            this.cartonSize2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.cartonSize2.OptionsColumn.AllowMove = false;
+            this.cartonSize2.OptionsColumn.AllowShowHide = false;
+            this.cartonSize2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.cartonSize2.OptionsColumn.ReadOnly = true;
+            this.cartonSize2.OptionsFilter.AllowAutoFilter = false;
+            this.cartonSize2.OptionsFilter.AllowFilter = false;
+            this.cartonSize2.Visible = true;
+            this.cartonSize2.VisibleIndex = 8;
+            this.cartonSize2.Width = 127;
             // 
-            // colId_Sec_qty
+            // flagDgd2
             // 
-            this.colId_Sec_qty.Caption = "重量";
-            this.colId_Sec_qty.FieldName = "sec_qty";
-            this.colId_Sec_qty.Name = "colId_Sec_qty";
-            this.colId_Sec_qty.OptionsColumn.AllowEdit = false;
-            this.colId_Sec_qty.OptionsColumn.AllowMove = false;
-            this.colId_Sec_qty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Sec_qty.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Sec_qty.OptionsFilter.AllowFilter = false;
-            this.colId_Sec_qty.Visible = true;
-            this.colId_Sec_qty.VisibleIndex = 9;
-            this.colId_Sec_qty.Width = 60;
+            this.flagDgd2.AppearanceCell.Options.UseTextOptions = true;
+            this.flagDgd2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.flagDgd2.Caption = "是否東莞D";
+            this.flagDgd2.FieldName = "flag_dgd";
+            this.flagDgd2.Name = "flagDgd2";
+            this.flagDgd2.OptionsColumn.AllowIncrementalSearch = false;
+            this.flagDgd2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.flagDgd2.OptionsColumn.AllowMove = false;
+            this.flagDgd2.OptionsColumn.AllowShowHide = false;
+            this.flagDgd2.OptionsColumn.ReadOnly = true;
+            this.flagDgd2.OptionsFilter.AllowAutoFilter = false;
+            this.flagDgd2.OptionsFilter.AllowFilter = false;
+            this.flagDgd2.Visible = true;
+            this.flagDgd2.VisibleIndex = 9;
+            this.flagDgd2.Width = 70;
             // 
-            // colId_Sec_unit
+            // updateDate2
             // 
-            this.colId_Sec_unit.AppearanceCell.Options.UseTextOptions = true;
-            this.colId_Sec_unit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colId_Sec_unit.Caption = "重量單位";
-            this.colId_Sec_unit.FieldName = "sec_unit";
-            this.colId_Sec_unit.Name = "colId_Sec_unit";
-            this.colId_Sec_unit.OptionsColumn.AllowEdit = false;
-            this.colId_Sec_unit.OptionsColumn.AllowMove = false;
-            this.colId_Sec_unit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Sec_unit.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Sec_unit.OptionsFilter.AllowFilter = false;
-            this.colId_Sec_unit.Visible = true;
-            this.colId_Sec_unit.VisibleIndex = 10;
-            this.colId_Sec_unit.Width = 80;
+            this.updateDate2.Caption = "單據日期";
+            this.updateDate2.FieldName = "update_date";
+            this.updateDate2.Name = "updateDate2";
+            this.updateDate2.OptionsColumn.AllowIncrementalSearch = false;
+            this.updateDate2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.updateDate2.OptionsColumn.AllowMove = false;
+            this.updateDate2.OptionsColumn.AllowShowHide = false;
+            this.updateDate2.OptionsColumn.ReadOnly = true;
+            this.updateDate2.OptionsFilter.AllowAutoFilter = false;
+            this.updateDate2.OptionsFilter.AllowFilter = false;
+            this.updateDate2.Visible = true;
+            this.updateDate2.VisibleIndex = 11;
+            this.updateDate2.Width = 151;
             // 
-            // colId_Order_id
+            // suitFlag
             // 
-            this.colId_Order_id.Caption = "OC No";
-            this.colId_Order_id.FieldName = "order_id";
-            this.colId_Order_id.Name = "colId_Order_id";
-            this.colId_Order_id.OptionsColumn.AllowMove = false;
-            this.colId_Order_id.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.colId_Order_id.OptionsColumn.ReadOnly = true;
-            this.colId_Order_id.OptionsFilter.AllowAutoFilter = false;
-            this.colId_Order_id.OptionsFilter.AllowFilter = false;
-            this.colId_Order_id.Visible = true;
-            this.colId_Order_id.VisibleIndex = 11;
-            this.colId_Order_id.Width = 100;
+            this.suitFlag.Caption = "走貨類型";
+            this.suitFlag.FieldName = "suit_flag";
+            this.suitFlag.Name = "suitFlag";
+            this.suitFlag.Visible = true;
+            this.suitFlag.VisibleIndex = 10;
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.Controls.Add(this.txtMoType);
+            this.panel2.Controls.Add(this.labelControl1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.dtUpdateTime2);
+            this.panel2.Controls.Add(this.dtUpdateTime1);
             this.panel2.Controls.Add(this.btnImput);
             this.panel2.Controls.Add(this.lblFindId);
-            this.panel2.Controls.Add(this.txtFindOc_no);
-            this.panel2.Controls.Add(this.txtFindId);
+            this.panel2.Controls.Add(this.txtFindGroupNo);
             this.panel2.Controls.Add(this.btnQuery);
             this.panel2.Controls.Add(this.lblFindOc_no);
-            this.panel2.Controls.Add(this.txtFindMo_id);
+            this.panel2.Controls.Add(this.txtFindMoId);
             this.panel2.Controls.Add(this.lblFindMo_id);
             this.panel2.Location = new System.Drawing.Point(0, -1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1229, 56);
             this.panel2.TabIndex = 5;
             // 
+            // txtMoType
+            // 
+            this.txtMoType.Location = new System.Drawing.Point(350, 16);
+            this.txtMoType.Name = "txtMoType";
+            this.txtMoType.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtMoType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMoType.Properties.MaxLength = 1;
+            this.txtMoType.Size = new System.Drawing.Size(56, 22);
+            this.txtMoType.TabIndex = 184;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(291, 19);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(52, 14);
+            this.labelControl1.TabIndex = 183;
+            this.labelControl1.Text = "頁數類型:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(611, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 12);
+            this.label2.TabIndex = 182;
+            this.label2.Text = "--";
+            // 
+            // dtUpdateTime2
+            // 
+            this.dtUpdateTime2.EditValue = "";
+            this.dtUpdateTime2.EnterMoveNextControl = true;
+            this.dtUpdateTime2.Location = new System.Drawing.Point(627, 16);
+            this.dtUpdateTime2.Name = "dtUpdateTime2";
+            this.dtUpdateTime2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.dtUpdateTime2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtUpdateTime2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtUpdateTime2.Properties.Mask.BeepOnError = true;
+            this.dtUpdateTime2.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dtUpdateTime2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.dtUpdateTime2.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.dtUpdateTime2.Properties.MaxLength = 10;
+            this.dtUpdateTime2.Size = new System.Drawing.Size(111, 22);
+            this.dtUpdateTime2.TabIndex = 181;
+            this.dtUpdateTime2.Tag = "2";
+            // 
+            // dtUpdateTime1
+            // 
+            this.dtUpdateTime1.EditValue = "";
+            this.dtUpdateTime1.EnterMoveNextControl = true;
+            this.dtUpdateTime1.Location = new System.Drawing.Point(497, 16);
+            this.dtUpdateTime1.Name = "dtUpdateTime1";
+            this.dtUpdateTime1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.dtUpdateTime1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtUpdateTime1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtUpdateTime1.Properties.Mask.BeepOnError = true;
+            this.dtUpdateTime1.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dtUpdateTime1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.dtUpdateTime1.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.dtUpdateTime1.Properties.MaxLength = 10;
+            this.dtUpdateTime1.Size = new System.Drawing.Size(108, 22);
+            this.dtUpdateTime1.TabIndex = 180;
+            this.dtUpdateTime1.Tag = "2";
+            this.dtUpdateTime1.Leave += new System.EventHandler(this.dtUpdateTime1_Leave);
+            // 
             // btnImput
             // 
             this.btnImput.Image = ((System.Drawing.Image)(resources.GetObject("btnImput.Image")));
             this.btnImput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImput.Location = new System.Drawing.Point(775, 10);
+            this.btnImput.Location = new System.Drawing.Point(841, 11);
             this.btnImput.Name = "btnImput";
             this.btnImput.Size = new System.Drawing.Size(80, 35);
             this.btnImput.TabIndex = 3;
@@ -2989,35 +2875,27 @@
             // 
             // lblFindId
             // 
-            this.lblFindId.Location = new System.Drawing.Point(258, 17);
+            this.lblFindId.Location = new System.Drawing.Point(439, 19);
             this.lblFindId.Name = "lblFindId";
             this.lblFindId.Size = new System.Drawing.Size(52, 14);
             this.lblFindId.TabIndex = 0;
-            this.lblFindId.Text = "單據編號:";
+            this.lblFindId.Text = "建檔日期:";
             // 
-            // txtFindOc_no
+            // txtFindGroupNo
             // 
-            this.txtFindOc_no.Location = new System.Drawing.Point(105, 14);
-            this.txtFindOc_no.Name = "txtFindOc_no";
-            this.txtFindOc_no.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtFindOc_no.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFindOc_no.Size = new System.Drawing.Size(126, 22);
-            this.txtFindOc_no.TabIndex = 0;
-            // 
-            // txtFindId
-            // 
-            this.txtFindId.Location = new System.Drawing.Point(314, 14);
-            this.txtFindId.Name = "txtFindId";
-            this.txtFindId.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtFindId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFindId.Size = new System.Drawing.Size(100, 22);
-            this.txtFindId.TabIndex = 1;
+            this.txtFindGroupNo.Location = new System.Drawing.Point(55, 16);
+            this.txtFindGroupNo.Name = "txtFindGroupNo";
+            this.txtFindGroupNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtFindGroupNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFindGroupNo.Properties.MaxLength = 1;
+            this.txtFindGroupNo.Size = new System.Drawing.Size(51, 22);
+            this.txtFindGroupNo.TabIndex = 0;
             // 
             // btnQuery
             // 
             this.btnQuery.Image = global::cf01.Properties.Resources.find;
             this.btnQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuery.Location = new System.Drawing.Point(663, 10);
+            this.btnQuery.Location = new System.Drawing.Point(747, 12);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(80, 35);
             this.btnQuery.TabIndex = 3;
@@ -3028,34 +2906,35 @@
             // 
             // lblFindOc_no
             // 
-            this.lblFindOc_no.Location = new System.Drawing.Point(56, 17);
+            this.lblFindOc_no.Location = new System.Drawing.Point(18, 19);
             this.lblFindOc_no.Name = "lblFindOc_no";
-            this.lblFindOc_no.Size = new System.Drawing.Size(43, 14);
+            this.lblFindOc_no.Size = new System.Drawing.Size(28, 14);
             this.lblFindOc_no.TabIndex = 0;
-            this.lblFindOc_no.Text = "Oc編號:";
+            this.lblFindOc_no.Text = "組別:";
             // 
-            // txtFindMo_id
+            // txtFindMoId
             // 
-            this.txtFindMo_id.Location = new System.Drawing.Point(495, 14);
-            this.txtFindMo_id.Name = "txtFindMo_id";
-            this.txtFindMo_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtFindMo_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFindMo_id.Size = new System.Drawing.Size(100, 22);
-            this.txtFindMo_id.TabIndex = 2;
+            this.txtFindMoId.Location = new System.Drawing.Point(164, 16);
+            this.txtFindMoId.Name = "txtFindMoId";
+            this.txtFindMoId.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtFindMoId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFindMoId.Properties.MaxLength = 9;
+            this.txtFindMoId.Size = new System.Drawing.Size(106, 22);
+            this.txtFindMoId.TabIndex = 2;
             // 
             // lblFindMo_id
             // 
-            this.lblFindMo_id.Location = new System.Drawing.Point(439, 17);
+            this.lblFindMo_id.Location = new System.Drawing.Point(129, 19);
             this.lblFindMo_id.Name = "lblFindMo_id";
-            this.lblFindMo_id.Size = new System.Drawing.Size(52, 14);
+            this.lblFindMo_id.Size = new System.Drawing.Size(28, 14);
             this.lblFindMo_id.TabIndex = 0;
-            this.lblFindMo_id.Text = "制單編號:";
+            this.lblFindMo_id.Text = "頁數:";
             // 
             // frmTransferout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1242, 842);
+            this.ClientSize = new System.Drawing.Size(1242, 693);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmTransferout";
@@ -3091,50 +2970,48 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_qty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_price)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_amt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clAc_Chk_isFree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clQty2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clSecQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clLocation_id2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clMo_id)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clChk_Set)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty_unit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clSend_qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clSuit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbteItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clQtyUnit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clQtyCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSec_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clTotal_sum)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOcNo2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOcNo1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGroupNo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDgid2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDgid1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCust_id2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCust_id1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcOcDgdDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOcDgdDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcIdDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIdDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSelect)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindOc_no.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindMo_id.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUpdateTime1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindGroupNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindMoId.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3156,7 +3033,6 @@
         private System.Windows.Forms.ToolStripButton BTNITEMDEL;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton BTNSAVE;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton BTNCANCEL;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton BTNPRINT;
@@ -3220,7 +3096,7 @@
         private System.Windows.Forms.Label label43;
         private DevExpress.XtraEditors.LookUpEdit lkeGroupNo;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clChk_Set;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clSuit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
@@ -3235,16 +3111,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn49;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clQty;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clSec_qty;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clSend_qty_unit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clQtyUnit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clLocation_id;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clAc;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clAc_qty;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clAc_price;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clAc_amt;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clAc_Chk_isFree;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clTotal_sum;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clSend_qty;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clQty2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clQtyCount;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clMo_id;
         private DevExpress.XtraEditors.LookUpEdit lkeSate;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
@@ -3259,13 +3130,13 @@
         private DevExpress.XtraEditors.TextEdit txtMo_id2;
         private System.Windows.Forms.Label label49;
         private DevExpress.XtraEditors.TextEdit txtMo_id1;
-        private DevExpress.XtraEditors.TextEdit txtDgid2;
+        private DevExpress.XtraEditors.TextEdit txtId2;
         private System.Windows.Forms.Label label45;
-        private DevExpress.XtraEditors.TextEdit txtDgid1;
-        private DevExpress.XtraEditors.TextEdit txtCust_id2;
+        private DevExpress.XtraEditors.TextEdit txtId1;
+        private DevExpress.XtraEditors.TextEdit txtbill_type_no2;
         private System.Windows.Forms.Label lblMO;
         private System.Windows.Forms.Label label46;
-        private DevExpress.XtraEditors.TextEdit txtCust_id1;
+        private DevExpress.XtraEditors.TextEdit txtbill_type_no1;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label lblData1;
         private DevExpress.XtraEditors.DateEdit txtDat2;
@@ -3276,60 +3147,27 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnImput;
         private DevExpress.XtraEditors.LabelControl lblFindId;
-        private DevExpress.XtraEditors.TextEdit txtFindOc_no;
-        private DevExpress.XtraEditors.TextEdit txtFindId;
+        private DevExpress.XtraEditors.TextEdit txtFindGroupNo;
         private System.Windows.Forms.Button btnQuery;
         private DevExpress.XtraEditors.LabelControl lblFindOc_no;
-        private DevExpress.XtraEditors.TextEdit txtFindMo_id;
+        private DevExpress.XtraEditors.TextEdit txtFindMoId;
         private DevExpress.XtraEditors.LabelControl lblFindMo_id;
         private DevExpress.XtraGrid.GridControl gcIdDetails;
         private DevExpress.XtraGrid.Views.Grid.GridView dgvIdDetails;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_chkSelect;
+        private DevExpress.XtraGrid.Columns.GridColumn flagSelect2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit clSelect;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Id;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Ship_date;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Sequence_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Mo_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Goods_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Goods_name;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_U_invoice_qty;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Goods_unit;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Sec_qty;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Sec_unit;
-        private DevExpress.XtraGrid.Columns.GridColumn colId_Order_id;
-        private DevExpress.XtraGrid.GridControl gcOcDgdDetails;
-        private DevExpress.XtraGrid.Views.Grid.GridView dgvOcDgdDetails;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Ship_date;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Sequence_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Mo_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Goods_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Goods_name;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Id;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_State;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Order_qty;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Order_Goods_unit;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_U_invoice_qty;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Goods_unit;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Sec_qty;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Sec_unit;
-        private DevExpress.XtraGrid.Columns.GridColumn colOc_Order_id;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
-        private DevExpress.XtraEditors.TextEdit txtOcNo2;
-        private System.Windows.Forms.Label label51;
-        private DevExpress.XtraEditors.TextEdit txtOcNo1;
+        private DevExpress.XtraGrid.Columns.GridColumn moId2;
+        private DevExpress.XtraGrid.Columns.GridColumn updateDate2;
+        private DevExpress.XtraGrid.Columns.GridColumn weg2;
+        private DevExpress.XtraGrid.Columns.GridColumn wegGross;
+        private DevExpress.XtraGrid.Columns.GridColumn goodsId2;
+        private DevExpress.XtraGrid.Columns.GridColumn moGroup2;
+        private DevExpress.XtraGrid.Columns.GridColumn qty2;
+        private DevExpress.XtraGrid.Columns.GridColumn packageNum2;
+        private DevExpress.XtraGrid.Columns.GridColumn cartonSize2;
+        private DevExpress.XtraGrid.Columns.GridColumn flagDgd2;
+        private DevExpress.XtraEditors.TextEdit txtGroupNo1;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ship_date1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn it_customer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn u_invoice_qty1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p_unit1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ver1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_id1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton BTNAPPROVE;
         private System.Windows.Forms.Label label3;
@@ -3346,5 +3184,29 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit clLocation_id2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clSecQty;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit clbteItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn47;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transfer_date1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bill_type_no1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn group_no1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transfer_amount1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit1;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.DateEdit dtUpdateTime2;
+        private DevExpress.XtraEditors.DateEdit dtUpdateTime1;
+        private DevExpress.XtraEditors.TextEdit txtMoType;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn suitFlag;
     }
 }

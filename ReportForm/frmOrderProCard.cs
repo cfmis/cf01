@@ -206,9 +206,22 @@ namespace cf01.ReportForm
                         next_vendor_id.Text = dt.Rows[0]["vendor_id"].ToString();
                         next_do_color.Text = dt.Rows[0]["do_color"].ToString();
                         next_goods_name.Text = dt.Rows[0]["next_goods_name"].ToString();
-
-                        next_next_wp_id.Text = dt.Rows[0]["next_wp_id"].ToString();
-                        next_next_dep_name.Text = dt.Rows[0]["next_dep_name"].ToString();
+                        //處理下下部門有大于一個流程情況
+                        string strNextWpId = "", spacing = "\n\r"; ;
+                        for (int j=0;j< dt.Rows.Count;j++)
+                        {
+                            if (j == 0)
+                            {
+                                strNextWpId += dt.Rows[j]["next_wp_id"].ToString() + "-" + dt.Rows[j]["next_dep_name"].ToString();
+                            }
+                            else
+                            {
+                                strNextWpId += spacing + dt.Rows[j]["next_wp_id"].ToString() + "-" + dt.Rows[j]["next_dep_name"].ToString();
+                            }
+                        }
+                        next_next_wp_id.Text = strNextWpId;
+                        //next_next_wp_id.Text = dt.Rows[0]["next_wp_id"].ToString();//cancel 2025/04/03
+                        //next_next_dep_name.Text = dt.Rows[0]["next_dep_name"].ToString();//cancel 2025/04/03
                         next_next_goods_id.Text = dt.Rows[0]["next_next_goods_id"].ToString(); 
                         next_next_do_color.Text = dt.Rows[0]["next_next_do_color"].ToString();
                     }
@@ -849,7 +862,6 @@ namespace cf01.ReportForm
             //bom_id,sup_bom_no為空或對不上
             //bom_id為當前物料的子層BOM 的ID,例如當goods_id等于'AYJLHI88003120NEP0'時，將bom_id的值改為'AYJLHI88003120NEP0001'
             //sup_bom_no為當前物料的父層物料編碼，將sup_bom_no的值改為'AYJLHI880031200W33'
-
             Set_Process_Data("2");
         }
 

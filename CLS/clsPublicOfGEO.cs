@@ -14,7 +14,7 @@ namespace cf01.CLS
     {
         /*--------------------------------------------------------------------- 連接數據dgerp2.cferp數據的方法類------------------------------------------------------------------------*/
         //private static String strConn = DBUtility.conn_str_dgerp2;
-        private String strConn = DBUtility.conn_str_dgerp2;
+        private string strConn = DBUtility.conn_str_dgerp2;
         private clsAppPublic clsAppPublic = new clsAppPublic();
 
 

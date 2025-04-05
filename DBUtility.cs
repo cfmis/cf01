@@ -28,6 +28,7 @@ namespace cf01
         public static string remote_db = "dgerp2.cferp.dbo.";//遠程數據庫名稱
         public static string hr_db_server = "dgsql1.dghr.dbo.";//人事系統
         public static string pad_db = "dgcf_pad.dbo.";//PAD用的數據庫
+        public static string pad_db1 = "dgsql2.dgcf_pad.dbo.";
         public static string get_query_id = "";
         public static string within_code = "0000";
         public static string imagePath = @"\\192.168.3.12\cf_artwork\Artwork\";
