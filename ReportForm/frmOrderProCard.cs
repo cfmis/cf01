@@ -1026,8 +1026,7 @@ namespace cf01.ReportForm
 
         private void frmOrderProCard_FormClosed(object sender, FormClosedEventArgs e)
         {
-            clsPublicOfGEO = null;
-            lsModel = null;
+            clsPublicOfGEO = null;          
             dtGoodsInfo.Dispose();
             dtNext_Goods.Dispose();
             dsCard_product.Dispose();

@@ -1170,12 +1170,12 @@ namespace cf01.Forms
         {
             if (dgvIdDetails.RowCount == 0)
             {
-                MessageBox.Show("請首先查找出裝箱資料!", "提示信息");
+                MessageBox.Show("請首先查找出裝箱資料!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (mState == "" )//已點擊新增或編號
             {
-                MessageBox.Show("注意：新增或編號狀態方可以進行此操作!", "提示信息");
+                MessageBox.Show("注意：新增或編號狀態方可以進行此操作!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (txtID.Text == "")
@@ -1185,7 +1185,7 @@ namespace cf01.Forms
             }
             if (!clsDeliveryBill.Check_Add_Popedom("frmTransferout"))
             {
-                MessageBox.Show("當前用戶沒有此操作權限!", "提示信息");
+                MessageBox.Show("當前用戶沒有此操作權限!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             bool flag_select = false;
@@ -1199,7 +1199,7 @@ namespace cf01.Forms
             }
             if (!flag_select)
             {
-                MessageBox.Show("請至少要選取一筆手寫單貨單的記錄!", "提示信息");
+                MessageBox.Show("請至少要選取一筆手寫單貨單的記錄!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (MessageBox.Show("確認要進行當前過帳的操作?", "提示信息",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.No)
@@ -1421,6 +1421,11 @@ namespace cf01.Forms
             {
                 dtUpdateTime2.EditValue = dtUpdateTime1.EditValue;
             }
+        }
+
+        private void txtId1_Leave(object sender, EventArgs e)
+        {
+            txtId2.Text = txtId1.Text;
         }
 
 

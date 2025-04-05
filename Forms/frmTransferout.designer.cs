@@ -2395,6 +2395,7 @@
             this.txtId1.Properties.MaxLength = 12;
             this.txtId1.Size = new System.Drawing.Size(127, 22);
             this.txtId1.TabIndex = 4;
+            this.txtId1.Leave += new System.EventHandler(this.txtId1_Leave);
             // 
             // txtbill_type_no2
             // 
