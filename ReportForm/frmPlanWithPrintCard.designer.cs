@@ -81,7 +81,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSaveQuery = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnArrangeMo = new System.Windows.Forms.ToolStripButton();
+            this.btnMoSchedule = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
@@ -486,7 +486,7 @@
             this.toolStripSeparator6,
             this.btnSaveQuery,
             this.toolStripSeparator7,
-            this.btnArrangeMo,
+            this.btnMoSchedule,
             this.toolStripSeparator8});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -623,16 +623,16 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 38);
             // 
-            // btnArrangeMo
+            // btnMoSchedule
             // 
-            this.btnArrangeMo.AutoSize = false;
-            this.btnArrangeMo.Image = ((System.Drawing.Image)(resources.GetObject("btnArrangeMo.Image")));
-            this.btnArrangeMo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnArrangeMo.Name = "btnArrangeMo";
-            this.btnArrangeMo.Size = new System.Drawing.Size(90, 35);
-            this.btnArrangeMo.Text = "生成排期表";
-            this.btnArrangeMo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnArrangeMo.Click += new System.EventHandler(this.btnArrangeMo_Click);
+            this.btnMoSchedule.AutoSize = false;
+            this.btnMoSchedule.Image = ((System.Drawing.Image)(resources.GetObject("btnMoSchedule.Image")));
+            this.btnMoSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnMoSchedule.Name = "btnMoSchedule";
+            this.btnMoSchedule.Size = new System.Drawing.Size(90, 35);
+            this.btnMoSchedule.Text = "生成排期表";
+            this.btnMoSchedule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMoSchedule.Click += new System.EventHandler(this.btnMoSchedule_Click);
             // 
             // toolStripSeparator8
             // 
@@ -736,7 +736,7 @@
         private System.Windows.Forms.TextBox txtPrd_item1;
         private System.Windows.Forms.TextBox txtPrd_item2;
         private System.Windows.Forms.Label lblPrd_item;
-        private System.Windows.Forms.ToolStripButton btnArrangeMo;
+        private System.Windows.Forms.ToolStripButton btnMoSchedule;
         private System.Windows.Forms.RadioButton rdbNoPrint;
         private System.Windows.Forms.RadioButton rdbIsPrint;
         private System.Windows.Forms.RadioButton rdbAllPrint;

@@ -182,6 +182,19 @@ namespace cf01.CLS
             }
             return dVal;
         }
+        public static double ConvertStrToDouble(string strVal)
+        {
+            double dVal = 0;
+            try
+            {
+                dVal = Convert.ToDouble(strVal);
+            }
+            catch (Exception ex)
+            {
+                dVal = 0;
+            }
+            return dVal;
+        }
     }
 
 }
