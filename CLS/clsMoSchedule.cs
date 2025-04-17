@@ -76,7 +76,7 @@ namespace cf01.CLS
             return result;
         }
 
-
+        //將制單按機器排期
         public static string SaveScheduleMachine(List<mdlMoSchedule> lsMo)
         {
             string result = "";
@@ -98,16 +98,38 @@ namespace cf01.CLS
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
         }
+        //////設置制單狀態
+        public static string SaveSetMoStatus(List<mdlMoSchedule> lsMo)
+        {
+            string result = "";
+            string strSql = "";
+            string create_time = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            strSql = string.Format(@" SET XACT_ABORT  ON ");
+            strSql += string.Format(@" BEGIN TRANSACTION ");
 
+            for (int i = 0; i < lsMo.Count; i++)
+            {
+                strSql += string.Format(@" Update mo_schedule Set " +
+                    " status='{1}',update_user='{2}',update_time='{3}'" +
+                    " Where schedule_id='{0}'"
+                    , lsMo[i].schedule_id, lsMo[i].status, userid, create_time
+                    );
+            }
 
+            strSql += string.Format(@" COMMIT TRANSACTION ");
+            result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+            return result;
+        }
 
-        public static DataTable LoadMoSchedule(string prd_dep,string prd_group,string prd_machine,int sch_by_machine,string user_id)
+        public static DataTable LoadMoSchedule(string prd_dep,string prd_group,string prd_machine
+            ,int sch_by_machine,string mo_status, string user_id)
         {
             SqlParameter[] paras = new SqlParameter[]{
                         new SqlParameter("@prd_dep",prd_dep)
                         ,new SqlParameter("@prd_group",prd_group)
                         ,new SqlParameter("@prd_machine",prd_machine)
                         ,new SqlParameter("@sch_by_machine",sch_by_machine)
+                        ,new SqlParameter("@mo_status",mo_status)
                         ,new SqlParameter("@user_id",user_id)};
             DataTable dtScheduler = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_mo_schedule", paras);
             dtScheduler.Columns.Add("ArtWork", typeof(Image)); // 图片列
@@ -120,18 +142,26 @@ namespace cf01.CLS
         }
         public static string SaveScheduleBase(mdlMoScheduleBase objBase)
         {
-            string strSql = "";
+            string strSql = "",strSql1="";
             if (LoadScheduleBase(objBase.prd_dep).Rows.Count == 0)
-                strSql += string.Format(@" Insert Into mo_schedule_base ( prd_dep,schedule_date,start_prd_time,noon_break,afternoon_break,evening_break ) " +
+                strSql1 = @" Insert Into mo_schedule_base ("+
+                "prd_dep,schedule_date,start_prd_time,noon_break,afternoon_break,evening_break"+
+                ",work_in1,work_out1,work_in2,work_out2,work_in3,work_out4" +
+                ",break_in3,break_out3,break_in4,break_out4"+
+                " ) " +
                 " Values ( "+
-                " '{0}','{1}','{2}','{3}','{4}','{5}'"+
-                " ) "
-                , objBase.prd_dep, objBase.schedule_date, objBase.start_prd_time, objBase.noon_break, objBase.afternoon_break, objBase.evening_break
-                );
+                " '{0}','{1}','{2}','{3}','{4}','{5}',{6}',{7}',{8}',{9}'" +
+                ",'{10}','{11}','{12}','{13}','{14}','{15}'"+
+                " ) ";
             else
-                strSql += string.Format(@" Update mo_schedule_base Set start_prd_time='{2}',noon_break='{3}',afternoon_break='{4}',evening_break='{5}' " +
-                    " Where prd_dep='{0}' And schedule_date='{1}' "
+                strSql1 = @" Update mo_schedule_base Set start_prd_time='{2}',noon_break='{3}',afternoon_break='{4}',evening_break='{5}' " +
+                    ",work_in1='{6}',work_out1='{7}',work_in2='{8}',work_out2='{9}',work_in3='{10}',work_out3='{11}'" +
+                    ",break_in3='{12}',break_out3='{13}',break_in4='{14}',break_out4='{15}'"+
+                    " Where prd_dep='{0}' And schedule_date='{1}' ";
+            strSql += string.Format(strSql1
                     , objBase.prd_dep, objBase.schedule_date, objBase.start_prd_time, objBase.noon_break, objBase.afternoon_break, objBase.evening_break
+                    , objBase.work_in1, objBase.work_out1, objBase.work_in2, objBase.work_out2, objBase.work_in3, objBase.work_out3
+                    , objBase.break_in3, objBase.break_out3, objBase.break_in4, objBase.break_out4
                     );
             string result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
@@ -155,5 +185,15 @@ namespace cf01.CLS
         //    DataTable dtPrd = clsPublicOfCF01.GetDataTable(strSql);
         //    return dtPrd;
         //}
+        public static int GetScheduleSeq(string prd_dep)
+        {
+            int result = 600;
+            string strSql = "Select Top 1 schedule_seq" +
+                " From mo_schedule Where prd_dep='" + prd_dep + "' And status='01'";
+            DataTable dtSeq= clsPublicOfCF01.GetDataTable(strSql);
+            if (dtSeq.Rows.Count == 0)
+                result = 1;
+            return result;
+        }
     }
 }

@@ -49,6 +49,16 @@ namespace cf01.MDL
         public decimal noon_break { get; set; }
         public decimal afternoon_break { get; set; }
         public decimal evening_break { get; set; }
+        public string work_in1 { get; set; }
+        public string work_out1 { get; set; }
+        public string work_in2 { get; set; }
+        public string work_out2 { get; set; }
+        public string work_in3 { get; set; }
+        public string work_out3 { get; set; }
+        public string break_in3 { get; set; }
+        public string break_out3 { get; set; }
+        public string break_in4 { get; set; }
+        public string break_out4 { get; set; }
     }
 
 }

@@ -262,6 +262,7 @@
     <Compile Include="CLS\clsMmProductTypeStdPrice.cs" />
     <Compile Include="CLS\clsMoRepair.cs" />
     <Compile Include="CLS\clsMoSchedule.cs" />
+    <Compile Include="CLS\clsMoScheduleUse.cs" />
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMoTrace.cs" />
     <Compile Include="CLS\clsMouldPosition.cs" />
@@ -423,6 +424,12 @@
     </Compile>
     <Compile Include="Forms\frmDeliveryBillVat.designer.cs">
       <DependentUpon>frmDeliveryBillVat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDepPrdoduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepPrdoduction.Designer.cs">
+      <DependentUpon>frmDepPrdoduction.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmDevelopmentPvhUs.cs">
       <SubType>Form</SubType>
@@ -3017,6 +3024,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDeliveryBillVat.resx">
       <DependentUpon>frmDeliveryBillVat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDepPrdoduction.resx">
+      <DependentUpon>frmDepPrdoduction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDevelopmentPvhUs.resx">
       <DependentUpon>frmDevelopmentPvhUs.cs</DependentUpon>

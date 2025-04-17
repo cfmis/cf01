@@ -23,6 +23,11 @@ namespace cf01.Forms
         private void frmMoScheduleBase_Load(object sender, EventArgs e)
         {
             InitControlers();
+            cmbFindDep.SelectedValue = frmMoSchedule.sendDep;
+            if(cmbFindDep.SelectedValue.ToString().Trim()!="")
+            {
+                LoadData();
+            }
         }
         private void InitControlers()
         {
@@ -50,12 +55,33 @@ namespace cf01.Forms
                 txtNoonBreak.Text = dr["noon_break"].ToString();
                 txtAfternoonBreak.Text = dr["afternoon_break"].ToString();
                 txtEveningBreak.Text = dr["evening_break"].ToString();
-            }else
+                txtWorkIn1.Text = dr["work_in1"].ToString();
+                txtWorkOut1.Text = dr["work_out1"].ToString();
+                txtWorkIn2.Text = dr["work_in2"].ToString();
+                txtWorkOut2.Text = dr["work_out2"].ToString();
+                txtWorkIn3.Text = dr["work_in3"].ToString();
+                txtWorkOut3.Text = dr["work_out3"].ToString();
+                txtBreakIn3.Text = dr["break_in3"].ToString();
+                txtBreakOut3.Text = dr["break_out3"].ToString();
+                txtBreakIn4.Text = dr["break_in4"].ToString();
+                txtBreakOut4.Text = dr["break_out4"].ToString();
+            }
+            else
             {
                 txtStartPrdTime.Text = "";
                 txtNoonBreak.Text = "";
                 txtAfternoonBreak.Text = "";
                 txtEveningBreak.Text = "";
+                txtWorkIn1.Text = "";
+                txtWorkOut1.Text = "";
+                txtWorkIn2.Text = "";
+                txtWorkOut2.Text = "";
+                txtWorkIn3.Text = "";
+                txtWorkOut3.Text = "";
+                txtBreakIn3.Text = "";
+                txtBreakOut3.Text = "";
+                txtBreakIn4.Text = "";
+                txtBreakOut4.Text = "";
             }
         }
 
@@ -73,9 +99,24 @@ namespace cf01.Forms
             objBase.noon_break = Convert.ToDecimal(txtNoonBreak.Text);
             objBase.afternoon_break = Convert.ToDecimal(txtAfternoonBreak.Text);
             objBase.evening_break = Convert.ToDecimal(txtEveningBreak.Text);
+            objBase.work_in1 = txtWorkIn1.Text;
+            objBase.work_out1 = txtWorkOut1.Text;
+            objBase.work_in2 = txtWorkIn2.Text;
+            objBase.work_out2 = txtWorkOut2.Text;
+            objBase.work_in3 = txtWorkIn3.Text;
+            objBase.work_out3 = txtWorkOut3.Text;
+            objBase.break_in3 = txtBreakIn3.Text;
+            objBase.break_out3 = txtBreakOut3.Text;
+            objBase.break_in4 = txtBreakIn4.Text;
+            objBase.break_out4 = txtBreakOut4.Text;
             result = clsMoSchedule.SaveScheduleBase(objBase);
             if (result == "")
                 MessageBox.Show("更新記錄成功!");
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

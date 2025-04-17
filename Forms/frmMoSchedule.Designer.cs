@@ -45,11 +45,10 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnCancel = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnDel = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExpToExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSetParas = new System.Windows.Forms.ToolStripButton();
+            this.btnDepPrd = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnMachine_status = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -114,6 +113,7 @@
             this.luePrdGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gclNextDoColor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclNextVendId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grcPrdItemGroup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -185,6 +185,7 @@
             this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit10 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -193,11 +194,17 @@
             this.repositoryItemImageEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.palShowMore = new System.Windows.Forms.Panel();
+            this.btnSetMoStatus = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbMoStatus = new System.Windows.Forms.ComboBox();
+            this.lblMoStatus = new System.Windows.Forms.Label();
+            this.cmbSetStatus = new System.Windows.Forms.ComboBox();
+            this.lblSetStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnShowMore = new DevExpress.XtraEditors.SimpleButton();
             this.txtPrdMachine = new DevExpress.XtraEditors.TextEdit();
             this.cmbDepGroup = new System.Windows.Forms.ComboBox();
-            this.txtSetFocus = new System.Windows.Forms.TextBox();
+            this.lblPrdMachine = new System.Windows.Forms.Label();
             this.lblDepGroup = new System.Windows.Forms.Label();
             this.lblPrd_dept = new System.Windows.Forms.Label();
             this.cmbFindDep = new System.Windows.Forms.ComboBox();
@@ -234,6 +241,7 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
+            this.btnGenScheduleSeq = new DevExpress.XtraEditors.SimpleButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -285,6 +293,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
+            this.palShowMore.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdMachine.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).BeginInit();
@@ -302,11 +311,10 @@
             this.toolStripSeparator8,
             this.btnSave,
             this.toolStripSeparator1,
-            this.btnCancel,
-            this.toolStripSeparator2,
-            this.btnDel,
-            this.toolStripSeparator3,
             this.btnExpToExcel,
+            this.toolStripSeparator3,
+            this.btnSetParas,
+            this.btnDepPrd,
             this.toolStripSeparator5,
             this.btnMachine_status,
             this.toolStripSeparator6,
@@ -341,7 +349,7 @@
             this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(65, 35);
-            this.btnFind.Text = "查找(&F)";
+            this.btnFind.Text = "刷新(&F)";
             this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
@@ -381,36 +389,6 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.AutoSize = false;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 35);
-            this.btnCancel.Text = "取消(&U)";
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnDel
-            // 
-            this.btnDel.AutoSize = false;
-            this.btnDel.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.Image")));
-            this.btnDel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(65, 35);
-            this.btnDel.Text = "刪除(&D)";
-            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
-            // 
             // btnExpToExcel
             // 
             this.btnExpToExcel.AutoSize = false;
@@ -420,6 +398,35 @@
             this.btnExpToExcel.Size = new System.Drawing.Size(65, 35);
             this.btnExpToExcel.Text = "匯出(&E)";
             this.btnExpToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExpToExcel.Click += new System.EventHandler(this.btnExpToExcel_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
+            // 
+            // btnSetParas
+            // 
+            this.btnSetParas.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnSetParas.AutoSize = false;
+            this.btnSetParas.Image = ((System.Drawing.Image)(resources.GetObject("btnSetParas.Image")));
+            this.btnSetParas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSetParas.Name = "btnSetParas";
+            this.btnSetParas.Size = new System.Drawing.Size(75, 35);
+            this.btnSetParas.Text = "參數設置";
+            this.btnSetParas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSetParas.Click += new System.EventHandler(this.btnSetParas_Click);
+            // 
+            // btnDepPrd
+            // 
+            this.btnDepPrd.AutoSize = false;
+            this.btnDepPrd.Image = ((System.Drawing.Image)(resources.GetObject("btnDepPrd.Image")));
+            this.btnDepPrd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDepPrd.Name = "btnDepPrd";
+            this.btnDepPrd.Size = new System.Drawing.Size(100, 35);
+            this.btnDepPrd.Text = "部門生產狀態";
+            this.btnDepPrd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDepPrd.Click += new System.EventHandler(this.btnDepPrd_Click);
             // 
             // toolStripSeparator5
             // 
@@ -432,7 +439,7 @@
             this.btnMachine_status.Image = ((System.Drawing.Image)(resources.GetObject("btnMachine_status.Image")));
             this.btnMachine_status.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMachine_status.Name = "btnMachine_status";
-            this.btnMachine_status.Size = new System.Drawing.Size(97, 35);
+            this.btnMachine_status.Size = new System.Drawing.Size(100, 35);
             this.btnMachine_status.Text = "機器生產狀態";
             this.btnMachine_status.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMachine_status.Click += new System.EventHandler(this.btnMachine_status_Click);
@@ -463,10 +470,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 134);
+            this.tabControl1.Location = new System.Drawing.Point(0, 112);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1147, 500);
+            this.tabControl1.Size = new System.Drawing.Size(1147, 522);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -476,7 +483,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1139, 474);
+            this.tabPage1.Size = new System.Drawing.Size(1139, 496);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -488,7 +495,7 @@
             this.palShowHasSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.palShowHasSchedule.Location = new System.Drawing.Point(3, 3);
             this.palShowHasSchedule.Name = "palShowHasSchedule";
-            this.palShowHasSchedule.Size = new System.Drawing.Size(1133, 187);
+            this.palShowHasSchedule.Size = new System.Drawing.Size(1133, 209);
             this.palShowHasSchedule.TabIndex = 40;
             // 
             // gcSchedule
@@ -523,7 +530,7 @@
             this.repositoryItemTextEdit5,
             this.lueModuleType,
             this.luePrdGroup});
-            this.gcSchedule.Size = new System.Drawing.Size(1133, 135);
+            this.gcSchedule.Size = new System.Drawing.Size(1133, 157);
             this.gcSchedule.TabIndex = 37;
             this.gcSchedule.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSchedule});
@@ -567,6 +574,8 @@
             this.gclScheduleQty,
             this.gclPrdQty,
             this.gclNotCpQty,
+            this.gclPmcRqDate,
+            this.gclDepRpDate,
             this.gclPrdMachine,
             this.gclMachineStdRunNum,
             this.gclMachineStdLineNum,
@@ -586,23 +595,24 @@
             this.gclNextWpId,
             this.gclPrdWorker,
             this.gclUpdateFlag,
-            this.gclArtWorkFile,
-            this.gclPmcRqDate,
             this.gclPmcRpPDate,
-            this.gclDepRpDate,
+            this.gclArtWorkFile,
             this.gclScheduleID,
             this.gclModuleType,
             this.gclPrdGroup,
             this.gclNextDoColor,
-            this.gclNextVendId});
+            this.gclNextVendId,
+            this.grcPrdItemGroup});
             this.gvSchedule.FooterPanelHeight = 30;
             this.gvSchedule.GridControl = this.gcSchedule;
+            this.gvSchedule.IndicatorWidth = 30;
             this.gvSchedule.Name = "gvSchedule";
             this.gvSchedule.OptionsSelection.MultiSelect = true;
             this.gvSchedule.OptionsView.ColumnAutoWidth = false;
             this.gvSchedule.OptionsView.ShowFooter = true;
             this.gvSchedule.OptionsView.ShowGroupPanel = false;
             this.gvSchedule.RowHeight = 40;
+            this.gvSchedule.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvSchedule_CustomDrawRowIndicator);
             this.gvSchedule.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvSchedule_SelectionChanged);
             this.gvSchedule.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvSchedule_CellValueChanged);
             this.gvSchedule.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvSchedule_CustomColumnDisplayText);
@@ -612,8 +622,6 @@
             this.gclSeq.Name = "gclSeq";
             this.gclSeq.OptionsColumn.AllowEdit = false;
             this.gclSeq.OptionsColumn.ReadOnly = true;
-            this.gclSeq.Visible = true;
-            this.gclSeq.VisibleIndex = 0;
             this.gclSeq.Width = 30;
             // 
             // gclScheduleSeq
@@ -622,30 +630,33 @@
             this.gclScheduleSeq.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gclScheduleSeq.Caption = "排單次序";
             this.gclScheduleSeq.FieldName = "schedule_seq";
+            this.gclScheduleSeq.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gclScheduleSeq.Name = "gclScheduleSeq";
             this.gclScheduleSeq.OptionsColumn.ReadOnly = true;
             this.gclScheduleSeq.Visible = true;
-            this.gclScheduleSeq.VisibleIndex = 1;
+            this.gclScheduleSeq.VisibleIndex = 0;
             this.gclScheduleSeq.Width = 41;
             // 
             // gclScheduleDate
             // 
             this.gclScheduleDate.Caption = "排單日期";
             this.gclScheduleDate.FieldName = "schedule_date";
+            this.gclScheduleDate.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gclScheduleDate.Name = "gclScheduleDate";
             this.gclScheduleDate.OptionsColumn.ReadOnly = true;
             this.gclScheduleDate.Visible = true;
-            this.gclScheduleDate.VisibleIndex = 2;
+            this.gclScheduleDate.VisibleIndex = 1;
             this.gclScheduleDate.Width = 80;
             // 
             // gclPrdMo
             // 
             this.gclPrdMo.Caption = "制單編號";
             this.gclPrdMo.FieldName = "prd_mo";
+            this.gclPrdMo.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gclPrdMo.Name = "gclPrdMo";
             this.gclPrdMo.OptionsColumn.ReadOnly = true;
             this.gclPrdMo.Visible = true;
-            this.gclPrdMo.VisibleIndex = 3;
+            this.gclPrdMo.VisibleIndex = 2;
             this.gclPrdMo.Width = 80;
             // 
             // gclUrgentFlag
@@ -655,7 +666,7 @@
             this.gclUrgentFlag.FieldName = "urgent_flag";
             this.gclUrgentFlag.Name = "gclUrgentFlag";
             this.gclUrgentFlag.Visible = true;
-            this.gclUrgentFlag.VisibleIndex = 4;
+            this.gclUrgentFlag.VisibleIndex = 3;
             this.gclUrgentFlag.Width = 60;
             // 
             // lueGvUrgentFlag
@@ -676,7 +687,7 @@
             this.gclStatus.FieldName = "status";
             this.gclStatus.Name = "gclStatus";
             this.gclStatus.Visible = true;
-            this.gclStatus.VisibleIndex = 5;
+            this.gclStatus.VisibleIndex = 4;
             this.gclStatus.Width = 56;
             // 
             // lueGvStatus
@@ -697,7 +708,7 @@
             this.gclPrdItem.Name = "gclPrdItem";
             this.gclPrdItem.OptionsColumn.ReadOnly = true;
             this.gclPrdItem.Visible = true;
-            this.gclPrdItem.VisibleIndex = 6;
+            this.gclPrdItem.VisibleIndex = 5;
             this.gclPrdItem.Width = 140;
             // 
             // gclArtWork
@@ -708,7 +719,7 @@
             this.gclArtWork.Name = "gclArtWork";
             this.gclArtWork.OptionsColumn.ReadOnly = true;
             this.gclArtWork.Visible = true;
-            this.gclArtWork.VisibleIndex = 7;
+            this.gclArtWork.VisibleIndex = 6;
             this.gclArtWork.Width = 60;
             // 
             // repositoryItemPictureEdit1
@@ -723,7 +734,7 @@
             this.gclPrdIitemCdesc.Name = "gclPrdIitemCdesc";
             this.gclPrdIitemCdesc.OptionsColumn.ReadOnly = true;
             this.gclPrdIitemCdesc.Visible = true;
-            this.gclPrdIitemCdesc.VisibleIndex = 8;
+            this.gclPrdIitemCdesc.VisibleIndex = 7;
             this.gclPrdIitemCdesc.Width = 250;
             // 
             // gclPlQty
@@ -737,7 +748,7 @@
             this.gclPlQty.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "pl_qty", "{0:#,##0}")});
             this.gclPlQty.Visible = true;
-            this.gclPlQty.VisibleIndex = 9;
+            this.gclPlQty.VisibleIndex = 8;
             this.gclPlQty.Width = 60;
             // 
             // gclScheduleQty
@@ -752,7 +763,7 @@
             this.gclScheduleQty.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "schedule_qty", "{0:#,##0}")});
             this.gclScheduleQty.Visible = true;
-            this.gclScheduleQty.VisibleIndex = 10;
+            this.gclScheduleQty.VisibleIndex = 9;
             this.gclScheduleQty.Width = 60;
             // 
             // gclPrdQty
@@ -764,8 +775,10 @@
             this.gclPrdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gclPrdQty.FieldName = "prd_qty";
             this.gclPrdQty.Name = "gclPrdQty";
+            this.gclPrdQty.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "prd_qty", "{0:#,##0}")});
             this.gclPrdQty.Visible = true;
-            this.gclPrdQty.VisibleIndex = 11;
+            this.gclPrdQty.VisibleIndex = 10;
             this.gclPrdQty.Width = 60;
             // 
             // gclNotCpQty
@@ -778,7 +791,7 @@
             this.gclNotCpQty.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "not_cp_qty", "{0:#,##0}")});
             this.gclNotCpQty.Visible = true;
-            this.gclNotCpQty.VisibleIndex = 12;
+            this.gclNotCpQty.VisibleIndex = 11;
             // 
             // gclPrdMachine
             // 
@@ -787,7 +800,7 @@
             this.gclPrdMachine.FieldName = "prd_machine";
             this.gclPrdMachine.Name = "gclPrdMachine";
             this.gclPrdMachine.Visible = true;
-            this.gclPrdMachine.VisibleIndex = 13;
+            this.gclPrdMachine.VisibleIndex = 14;
             this.gclPrdMachine.Width = 80;
             // 
             // btnScheduleMachine
@@ -808,7 +821,7 @@
             this.gclMachineStdRunNum.FieldName = "machine_std_run_num";
             this.gclMachineStdRunNum.Name = "gclMachineStdRunNum";
             this.gclMachineStdRunNum.Visible = true;
-            this.gclMachineStdRunNum.VisibleIndex = 14;
+            this.gclMachineStdRunNum.VisibleIndex = 15;
             this.gclMachineStdRunNum.Width = 60;
             // 
             // gclMachineStdLineNum
@@ -819,7 +832,7 @@
             this.gclMachineStdLineNum.FieldName = "machine_std_line_num";
             this.gclMachineStdLineNum.Name = "gclMachineStdLineNum";
             this.gclMachineStdLineNum.Visible = true;
-            this.gclMachineStdLineNum.VisibleIndex = 15;
+            this.gclMachineStdLineNum.VisibleIndex = 16;
             this.gclMachineStdLineNum.Width = 40;
             // 
             // gclMachineStdQty
@@ -830,7 +843,7 @@
             this.gclMachineStdQty.FieldName = "machine_std_qty";
             this.gclMachineStdQty.Name = "gclMachineStdQty";
             this.gclMachineStdQty.Visible = true;
-            this.gclMachineStdQty.VisibleIndex = 16;
+            this.gclMachineStdQty.VisibleIndex = 17;
             // 
             // gclNeedMonNum
             // 
@@ -840,9 +853,9 @@
             this.gclNeedMonNum.FieldName = "need_mon_num";
             this.gclNeedMonNum.Name = "gclNeedMonNum";
             this.gclNeedMonNum.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "need_mon_no", "{0:#,##0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "need_mon_num", "{0:#,##0}")});
             this.gclNeedMonNum.Visible = true;
-            this.gclNeedMonNum.VisibleIndex = 17;
+            this.gclNeedMonNum.VisibleIndex = 18;
             this.gclNeedMonNum.Width = 60;
             // 
             // gclModuleTime
@@ -855,7 +868,7 @@
             this.gclModuleTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_module_time", "{0:#,##0}")});
             this.gclModuleTime.Visible = true;
-            this.gclModuleTime.VisibleIndex = 18;
+            this.gclModuleTime.VisibleIndex = 19;
             this.gclModuleTime.Width = 50;
             // 
             // gclNeedTime
@@ -870,7 +883,7 @@
             this.gclNeedTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_prd_time", "{0:0.##}")});
             this.gclNeedTime.Visible = true;
-            this.gclNeedTime.VisibleIndex = 19;
+            this.gclNeedTime.VisibleIndex = 20;
             this.gclNeedTime.Width = 50;
             // 
             // gclReqTotTime
@@ -883,7 +896,7 @@
             this.gclReqTotTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_tot_time", "{0:0.##}")});
             this.gclReqTotTime.Visible = true;
-            this.gclReqTotTime.VisibleIndex = 20;
+            this.gclReqTotTime.VisibleIndex = 21;
             this.gclReqTotTime.Width = 40;
             // 
             // gclStartTime
@@ -895,7 +908,7 @@
             this.gclStartTime.FieldName = "start_time";
             this.gclStartTime.Name = "gclStartTime";
             this.gclStartTime.Visible = true;
-            this.gclStartTime.VisibleIndex = 21;
+            this.gclStartTime.VisibleIndex = 22;
             this.gclStartTime.Width = 120;
             // 
             // repositoryItemTextEdit5
@@ -914,7 +927,7 @@
             this.gclEndTime.FieldName = "end_time";
             this.gclEndTime.Name = "gclEndTime";
             this.gclEndTime.Visible = true;
-            this.gclEndTime.VisibleIndex = 22;
+            this.gclEndTime.VisibleIndex = 23;
             this.gclEndTime.Width = 120;
             // 
             // gclPrdDate
@@ -924,7 +937,7 @@
             this.gclPrdDate.Name = "gclPrdDate";
             this.gclPrdDate.OptionsColumn.ReadOnly = true;
             this.gclPrdDate.Visible = true;
-            this.gclPrdDate.VisibleIndex = 23;
+            this.gclPrdDate.VisibleIndex = 24;
             // 
             // gclWorkTypeDesc
             // 
@@ -935,7 +948,7 @@
             this.gclWorkTypeDesc.Name = "gclWorkTypeDesc";
             this.gclWorkTypeDesc.OptionsColumn.ReadOnly = true;
             this.gclWorkTypeDesc.Visible = true;
-            this.gclWorkTypeDesc.VisibleIndex = 24;
+            this.gclWorkTypeDesc.VisibleIndex = 25;
             this.gclWorkTypeDesc.Width = 60;
             // 
             // gclCpQty
@@ -949,7 +962,7 @@
             this.gclCpQty.Name = "gclCpQty";
             this.gclCpQty.OptionsColumn.ReadOnly = true;
             this.gclCpQty.Visible = true;
-            this.gclCpQty.VisibleIndex = 25;
+            this.gclCpQty.VisibleIndex = 26;
             // 
             // gclOrderQty
             // 
@@ -960,7 +973,7 @@
             this.gclOrderQty.Name = "gclOrderQty";
             this.gclOrderQty.OptionsColumn.ReadOnly = true;
             this.gclOrderQty.Visible = true;
-            this.gclOrderQty.VisibleIndex = 26;
+            this.gclOrderQty.VisibleIndex = 27;
             this.gclOrderQty.Width = 60;
             // 
             // gclOrderDate
@@ -970,7 +983,7 @@
             this.gclOrderDate.Name = "gclOrderDate";
             this.gclOrderDate.OptionsColumn.ReadOnly = true;
             this.gclOrderDate.Visible = true;
-            this.gclOrderDate.VisibleIndex = 27;
+            this.gclOrderDate.VisibleIndex = 28;
             this.gclOrderDate.Width = 80;
             // 
             // gclPrdDep
@@ -982,7 +995,7 @@
             this.gclPrdDep.Name = "gclPrdDep";
             this.gclPrdDep.OptionsColumn.ReadOnly = true;
             this.gclPrdDep.Visible = true;
-            this.gclPrdDep.VisibleIndex = 28;
+            this.gclPrdDep.VisibleIndex = 29;
             // 
             // gclNextWpId
             // 
@@ -993,7 +1006,7 @@
             this.gclNextWpId.Name = "gclNextWpId";
             this.gclNextWpId.OptionsColumn.ReadOnly = true;
             this.gclNextWpId.Visible = true;
-            this.gclNextWpId.VisibleIndex = 29;
+            this.gclNextWpId.VisibleIndex = 30;
             // 
             // gclPrdWorker
             // 
@@ -1004,7 +1017,7 @@
             this.gclPrdWorker.Name = "gclPrdWorker";
             this.gclPrdWorker.OptionsColumn.ReadOnly = true;
             this.gclPrdWorker.Visible = true;
-            this.gclPrdWorker.VisibleIndex = 30;
+            this.gclPrdWorker.VisibleIndex = 31;
             this.gclPrdWorker.Width = 100;
             // 
             // gclUpdateFlag
@@ -1015,8 +1028,6 @@
             this.gclUpdateFlag.FieldName = "update_flag";
             this.gclUpdateFlag.Name = "gclUpdateFlag";
             this.gclUpdateFlag.OptionsColumn.ReadOnly = true;
-            this.gclUpdateFlag.Visible = true;
-            this.gclUpdateFlag.VisibleIndex = 31;
             this.gclUpdateFlag.Width = 80;
             // 
             // gclArtWorkFile
@@ -1027,8 +1038,6 @@
             this.gclArtWorkFile.FieldName = "art_image";
             this.gclArtWorkFile.Name = "gclArtWorkFile";
             this.gclArtWorkFile.OptionsColumn.ReadOnly = true;
-            this.gclArtWorkFile.Visible = true;
-            this.gclArtWorkFile.VisibleIndex = 32;
             // 
             // gclPmcRqDate
             // 
@@ -1037,7 +1046,7 @@
             this.gclPmcRqDate.FieldName = "pmc_rq_date";
             this.gclPmcRqDate.Name = "gclPmcRqDate";
             this.gclPmcRqDate.Visible = true;
-            this.gclPmcRqDate.VisibleIndex = 33;
+            this.gclPmcRqDate.VisibleIndex = 12;
             this.gclPmcRqDate.Width = 80;
             // 
             // repositoryItemTextEdit4
@@ -1057,7 +1066,7 @@
             this.gclPmcRpPDate.FieldName = "pmc_rp_date";
             this.gclPmcRpPDate.Name = "gclPmcRpPDate";
             this.gclPmcRpPDate.Visible = true;
-            this.gclPmcRpPDate.VisibleIndex = 34;
+            this.gclPmcRpPDate.VisibleIndex = 32;
             this.gclPmcRpPDate.Width = 80;
             // 
             // repositoryItemTextEdit1
@@ -1075,7 +1084,7 @@
             this.gclDepRpDate.FieldName = "dep_rp_date";
             this.gclDepRpDate.Name = "gclDepRpDate";
             this.gclDepRpDate.Visible = true;
-            this.gclDepRpDate.VisibleIndex = 35;
+            this.gclDepRpDate.VisibleIndex = 13;
             // 
             // repositoryItemTextEdit3
             // 
@@ -1090,8 +1099,6 @@
             this.gclScheduleID.Caption = "排期單號";
             this.gclScheduleID.FieldName = "schedule_id";
             this.gclScheduleID.Name = "gclScheduleID";
-            this.gclScheduleID.Visible = true;
-            this.gclScheduleID.VisibleIndex = 36;
             // 
             // gclModuleType
             // 
@@ -1102,7 +1109,7 @@
             this.gclModuleType.FieldName = "module_type";
             this.gclModuleType.Name = "gclModuleType";
             this.gclModuleType.Visible = true;
-            this.gclModuleType.VisibleIndex = 37;
+            this.gclModuleType.VisibleIndex = 33;
             this.gclModuleType.Width = 40;
             // 
             // lueModuleType
@@ -1125,7 +1132,7 @@
             this.gclPrdGroup.FieldName = "prd_group";
             this.gclPrdGroup.Name = "gclPrdGroup";
             this.gclPrdGroup.Visible = true;
-            this.gclPrdGroup.VisibleIndex = 38;
+            this.gclPrdGroup.VisibleIndex = 34;
             this.gclPrdGroup.Width = 40;
             // 
             // luePrdGroup
@@ -1145,7 +1152,7 @@
             this.gclNextDoColor.FieldName = "next_do_color";
             this.gclNextDoColor.Name = "gclNextDoColor";
             this.gclNextDoColor.Visible = true;
-            this.gclNextDoColor.VisibleIndex = 39;
+            this.gclNextDoColor.VisibleIndex = 35;
             // 
             // gclNextVendId
             // 
@@ -1153,7 +1160,16 @@
             this.gclNextVendId.FieldName = "next_vend_id";
             this.gclNextVendId.Name = "gclNextVendId";
             this.gclNextVendId.Visible = true;
-            this.gclNextVendId.VisibleIndex = 40;
+            this.gclNextVendId.VisibleIndex = 36;
+            // 
+            // grcPrdItemGroup
+            // 
+            this.grcPrdItemGroup.Caption = "產品分類";
+            this.grcPrdItemGroup.FieldName = "prd_item_group";
+            this.grcPrdItemGroup.Name = "grcPrdItemGroup";
+            this.grcPrdItemGroup.Visible = true;
+            this.grcPrdItemGroup.VisibleIndex = 37;
+            this.grcPrdItemGroup.Width = 120;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -1226,7 +1242,7 @@
             this.panel3.Controls.Add(this.txtScheduleQty);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panel3.Location = new System.Drawing.Point(0, 135);
+            this.panel3.Location = new System.Drawing.Point(0, 157);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1133, 52);
             this.panel3.TabIndex = 38;
@@ -1285,6 +1301,7 @@
             this.txtReqTotTime.Name = "txtReqTotTime";
             this.txtReqTotTime.Properties.DisplayFormat.FormatString = "{0:#,##0.00}";
             this.txtReqTotTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtReqTotTime.Properties.ReadOnly = true;
             this.txtReqTotTime.Size = new System.Drawing.Size(131, 20);
             this.txtReqTotTime.TabIndex = 0;
             // 
@@ -1295,6 +1312,7 @@
             this.txtNeedPrdDays.Name = "txtNeedPrdDays";
             this.txtNeedPrdDays.Properties.DisplayFormat.FormatString = "{0:#,##0}";
             this.txtNeedPrdDays.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtNeedPrdDays.Properties.ReadOnly = true;
             this.txtNeedPrdDays.Size = new System.Drawing.Size(76, 20);
             this.txtNeedPrdDays.TabIndex = 0;
             // 
@@ -1305,6 +1323,7 @@
             this.txtNotCpQty.Name = "txtNotCpQty";
             this.txtNotCpQty.Properties.DisplayFormat.FormatString = "{0:#,##0}";
             this.txtNotCpQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtNotCpQty.Properties.ReadOnly = true;
             this.txtNotCpQty.Size = new System.Drawing.Size(131, 20);
             this.txtNotCpQty.TabIndex = 0;
             // 
@@ -1315,6 +1334,7 @@
             this.txtScheduleQty.Name = "txtScheduleQty";
             this.txtScheduleQty.Properties.DisplayFormat.FormatString = "{0:#,##0}";
             this.txtScheduleQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtScheduleQty.Properties.ReadOnly = true;
             this.txtScheduleQty.Size = new System.Drawing.Size(131, 20);
             this.txtScheduleQty.TabIndex = 0;
             // 
@@ -1323,7 +1343,7 @@
             this.palShowNotMachine.Controls.Add(this.gcWaitSchedule);
             this.palShowNotMachine.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.palShowNotMachine.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.palShowNotMachine.Location = new System.Drawing.Point(3, 190);
+            this.palShowNotMachine.Location = new System.Drawing.Point(3, 212);
             this.palShowNotMachine.Name = "palShowNotMachine";
             this.palShowNotMachine.Size = new System.Drawing.Size(1133, 281);
             this.palShowNotMachine.TabIndex = 39;
@@ -1410,23 +1430,24 @@
             this.gridColumn38,
             this.gridColumn39,
             this.gridColumn40,
-            this.gridColumn41});
+            this.gridColumn41,
+            this.gridColumn42});
             this.gvWaitSchedule.FooterPanelHeight = 30;
             this.gvWaitSchedule.GridControl = this.gcWaitSchedule;
+            this.gvWaitSchedule.IndicatorWidth = 30;
             this.gvWaitSchedule.Name = "gvWaitSchedule";
             this.gvWaitSchedule.OptionsSelection.MultiSelect = true;
             this.gvWaitSchedule.OptionsView.ColumnAutoWidth = false;
             this.gvWaitSchedule.OptionsView.ShowFooter = true;
             this.gvWaitSchedule.OptionsView.ShowGroupPanel = false;
             this.gvWaitSchedule.RowHeight = 40;
+            this.gvWaitSchedule.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvWaitSchedule_CustomDrawRowIndicator);
             // 
             // gridColumn1
             // 
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.OptionsColumn.ReadOnly = true;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 30;
             // 
             // gridColumn2
@@ -1435,30 +1456,33 @@
             this.gridColumn2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn2.Caption = "排單次序";
             this.gridColumn2.FieldName = "schedule_seq";
+            this.gridColumn2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 0;
             this.gridColumn2.Width = 41;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "排單日期";
             this.gridColumn3.FieldName = "schedule_date";
+            this.gridColumn3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 1;
             this.gridColumn3.Width = 80;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "制單編號";
             this.gridColumn4.FieldName = "prd_mo";
+            this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 2;
             this.gridColumn4.Width = 80;
             // 
             // gridColumn5
@@ -1468,7 +1492,7 @@
             this.gridColumn5.FieldName = "urgent_flag";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 3;
             this.gridColumn5.Width = 60;
             // 
             // repositoryItemLookUpEdit1
@@ -1489,7 +1513,7 @@
             this.gridColumn6.FieldName = "status";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 4;
             this.gridColumn6.Width = 56;
             // 
             // repositoryItemLookUpEdit2
@@ -1510,7 +1534,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.ReadOnly = true;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.VisibleIndex = 5;
             this.gridColumn7.Width = 140;
             // 
             // gridColumn8
@@ -1521,7 +1545,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.ReadOnly = true;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.VisibleIndex = 6;
             this.gridColumn8.Width = 60;
             // 
             // repositoryItemPictureEdit2
@@ -1536,7 +1560,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
+            this.gridColumn9.VisibleIndex = 7;
             this.gridColumn9.Width = 250;
             // 
             // gridColumn10
@@ -1550,7 +1574,7 @@
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "pl_qty", "{0:#,##0}")});
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 9;
+            this.gridColumn10.VisibleIndex = 8;
             this.gridColumn10.Width = 60;
             // 
             // gridColumn11
@@ -1565,7 +1589,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "schedule_qty", "{0:#,##0}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
+            this.gridColumn11.VisibleIndex = 9;
             this.gridColumn11.Width = 60;
             // 
             // gridColumn12
@@ -1578,7 +1602,7 @@
             this.gridColumn12.FieldName = "prd_qty";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 11;
+            this.gridColumn12.VisibleIndex = 10;
             this.gridColumn12.Width = 60;
             // 
             // gridColumn13
@@ -1591,7 +1615,7 @@
             this.gridColumn13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "not_cp_qty", "{0:#,##0}")});
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 12;
+            this.gridColumn13.VisibleIndex = 11;
             // 
             // gridColumn14
             // 
@@ -1600,7 +1624,7 @@
             this.gridColumn14.FieldName = "prd_machine";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 13;
+            this.gridColumn14.VisibleIndex = 12;
             this.gridColumn14.Width = 80;
             // 
             // repositoryItemButtonEdit1
@@ -1620,7 +1644,7 @@
             this.gridColumn15.FieldName = "machine_std_run_num";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 14;
+            this.gridColumn15.VisibleIndex = 13;
             this.gridColumn15.Width = 60;
             // 
             // gridColumn16
@@ -1631,7 +1655,7 @@
             this.gridColumn16.FieldName = "machine_std_line_num";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 15;
+            this.gridColumn16.VisibleIndex = 14;
             this.gridColumn16.Width = 40;
             // 
             // gridColumn17
@@ -1642,7 +1666,7 @@
             this.gridColumn17.FieldName = "machine_std_qty";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 16;
+            this.gridColumn17.VisibleIndex = 15;
             // 
             // gridColumn18
             // 
@@ -1652,9 +1676,9 @@
             this.gridColumn18.FieldName = "need_mon_num";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "need_mon_no", "{0:#,##0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "need_mon_num", "{0:#,##0}")});
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 17;
+            this.gridColumn18.VisibleIndex = 16;
             this.gridColumn18.Width = 60;
             // 
             // gridColumn19
@@ -1667,7 +1691,7 @@
             this.gridColumn19.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_module_time", "{0:#,##0}")});
             this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 18;
+            this.gridColumn19.VisibleIndex = 17;
             this.gridColumn19.Width = 50;
             // 
             // gridColumn20
@@ -1682,7 +1706,7 @@
             this.gridColumn20.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_prd_time", "{0:0.##}")});
             this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 19;
+            this.gridColumn20.VisibleIndex = 18;
             this.gridColumn20.Width = 50;
             // 
             // gridColumn21
@@ -1695,7 +1719,7 @@
             this.gridColumn21.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_tot_time", "{0:0.##}")});
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 20;
+            this.gridColumn21.VisibleIndex = 19;
             this.gridColumn21.Width = 40;
             // 
             // gridColumn22
@@ -1707,7 +1731,7 @@
             this.gridColumn22.FieldName = "start_time";
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 21;
+            this.gridColumn22.VisibleIndex = 20;
             this.gridColumn22.Width = 120;
             // 
             // repositoryItemTextEdit6
@@ -1726,7 +1750,7 @@
             this.gridColumn23.FieldName = "end_time";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 22;
+            this.gridColumn23.VisibleIndex = 21;
             this.gridColumn23.Width = 120;
             // 
             // gridColumn24
@@ -1736,7 +1760,7 @@
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.OptionsColumn.ReadOnly = true;
             this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 23;
+            this.gridColumn24.VisibleIndex = 22;
             // 
             // gridColumn25
             // 
@@ -1747,7 +1771,7 @@
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.OptionsColumn.ReadOnly = true;
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 24;
+            this.gridColumn25.VisibleIndex = 23;
             this.gridColumn25.Width = 60;
             // 
             // gridColumn26
@@ -1761,7 +1785,7 @@
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.OptionsColumn.ReadOnly = true;
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 25;
+            this.gridColumn26.VisibleIndex = 24;
             // 
             // gridColumn27
             // 
@@ -1772,7 +1796,7 @@
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.OptionsColumn.ReadOnly = true;
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 26;
+            this.gridColumn27.VisibleIndex = 25;
             this.gridColumn27.Width = 60;
             // 
             // gridColumn28
@@ -1782,7 +1806,7 @@
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.OptionsColumn.ReadOnly = true;
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 27;
+            this.gridColumn28.VisibleIndex = 26;
             this.gridColumn28.Width = 80;
             // 
             // gridColumn29
@@ -1794,7 +1818,7 @@
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.OptionsColumn.ReadOnly = true;
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 28;
+            this.gridColumn29.VisibleIndex = 27;
             // 
             // gridColumn30
             // 
@@ -1805,7 +1829,7 @@
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.OptionsColumn.ReadOnly = true;
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 29;
+            this.gridColumn30.VisibleIndex = 28;
             // 
             // gridColumn31
             // 
@@ -1816,7 +1840,7 @@
             this.gridColumn31.Name = "gridColumn31";
             this.gridColumn31.OptionsColumn.ReadOnly = true;
             this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 30;
+            this.gridColumn31.VisibleIndex = 29;
             this.gridColumn31.Width = 100;
             // 
             // gridColumn32
@@ -1828,7 +1852,7 @@
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.OptionsColumn.ReadOnly = true;
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 31;
+            this.gridColumn32.VisibleIndex = 30;
             this.gridColumn32.Width = 80;
             // 
             // gridColumn33
@@ -1840,7 +1864,7 @@
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.OptionsColumn.ReadOnly = true;
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 32;
+            this.gridColumn33.VisibleIndex = 31;
             // 
             // gridColumn34
             // 
@@ -1849,7 +1873,7 @@
             this.gridColumn34.FieldName = "pmc_rq_date";
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 33;
+            this.gridColumn34.VisibleIndex = 32;
             this.gridColumn34.Width = 80;
             // 
             // repositoryItemTextEdit7
@@ -1869,7 +1893,7 @@
             this.gridColumn35.FieldName = "pmc_rp_date";
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 34;
+            this.gridColumn35.VisibleIndex = 33;
             this.gridColumn35.Width = 80;
             // 
             // repositoryItemTextEdit8
@@ -1887,7 +1911,7 @@
             this.gridColumn36.FieldName = "dep_rp_date";
             this.gridColumn36.Name = "gridColumn36";
             this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 35;
+            this.gridColumn36.VisibleIndex = 34;
             // 
             // repositoryItemTextEdit9
             // 
@@ -1903,7 +1927,7 @@
             this.gridColumn37.FieldName = "schedule_id";
             this.gridColumn37.Name = "gridColumn37";
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 36;
+            this.gridColumn37.VisibleIndex = 35;
             // 
             // gridColumn38
             // 
@@ -1914,7 +1938,7 @@
             this.gridColumn38.FieldName = "module_type";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 37;
+            this.gridColumn38.VisibleIndex = 36;
             this.gridColumn38.Width = 40;
             // 
             // repositoryItemLookUpEdit5
@@ -1937,7 +1961,7 @@
             this.gridColumn39.FieldName = "prd_group";
             this.gridColumn39.Name = "gridColumn39";
             this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 38;
+            this.gridColumn39.VisibleIndex = 37;
             this.gridColumn39.Width = 40;
             // 
             // repositoryItemLookUpEdit6
@@ -1957,7 +1981,7 @@
             this.gridColumn40.FieldName = "next_do_color";
             this.gridColumn40.Name = "gridColumn40";
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 39;
+            this.gridColumn40.VisibleIndex = 38;
             // 
             // gridColumn41
             // 
@@ -1965,7 +1989,17 @@
             this.gridColumn41.FieldName = "next_vend_id";
             this.gridColumn41.Name = "gridColumn41";
             this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 40;
+            this.gridColumn41.VisibleIndex = 39;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.Caption = "產品分類";
+            this.gridColumn42.FieldName = "prd_item_group";
+            this.gridColumn42.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.Visible = true;
+            this.gridColumn42.VisibleIndex = 40;
+            this.gridColumn42.Width = 120;
             // 
             // repositoryItemLookUpEdit7
             // 
@@ -2030,26 +2064,76 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1139, 474);
+            this.tabPage2.Size = new System.Drawing.Size(1139, 494);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // palShowMore
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panel2.Location = new System.Drawing.Point(0, 86);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1147, 48);
-            this.panel2.TabIndex = 14;
-            this.panel2.Visible = false;
+            this.palShowMore.Controls.Add(this.btnGenScheduleSeq);
+            this.palShowMore.Controls.Add(this.btnSetMoStatus);
+            this.palShowMore.Controls.Add(this.cmbMoStatus);
+            this.palShowMore.Controls.Add(this.lblMoStatus);
+            this.palShowMore.Controls.Add(this.cmbSetStatus);
+            this.palShowMore.Controls.Add(this.lblSetStatus);
+            this.palShowMore.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palShowMore.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.palShowMore.Location = new System.Drawing.Point(0, 76);
+            this.palShowMore.Name = "palShowMore";
+            this.palShowMore.Size = new System.Drawing.Size(1147, 36);
+            this.palShowMore.TabIndex = 14;
+            this.palShowMore.Visible = false;
+            // 
+            // btnSetMoStatus
+            // 
+            this.btnSetMoStatus.Location = new System.Drawing.Point(570, 6);
+            this.btnSetMoStatus.Name = "btnSetMoStatus";
+            this.btnSetMoStatus.Size = new System.Drawing.Size(75, 23);
+            this.btnSetMoStatus.TabIndex = 28;
+            this.btnSetMoStatus.Text = "確認(&C)";
+            this.btnSetMoStatus.Click += new System.EventHandler(this.btnSetMoStatus_Click);
+            // 
+            // cmbMoStatus
+            // 
+            this.cmbMoStatus.FormattingEnabled = true;
+            this.cmbMoStatus.Location = new System.Drawing.Point(94, 6);
+            this.cmbMoStatus.Name = "cmbMoStatus";
+            this.cmbMoStatus.Size = new System.Drawing.Size(109, 21);
+            this.cmbMoStatus.TabIndex = 27;
+            // 
+            // lblMoStatus
+            // 
+            this.lblMoStatus.AutoSize = true;
+            this.lblMoStatus.Location = new System.Drawing.Point(29, 9);
+            this.lblMoStatus.Name = "lblMoStatus";
+            this.lblMoStatus.Size = new System.Drawing.Size(63, 14);
+            this.lblMoStatus.TabIndex = 24;
+            this.lblMoStatus.Text = "制單狀態";
+            // 
+            // cmbSetStatus
+            // 
+            this.cmbSetStatus.FormattingEnabled = true;
+            this.cmbSetStatus.Location = new System.Drawing.Point(464, 9);
+            this.cmbSetStatus.Name = "cmbSetStatus";
+            this.cmbSetStatus.Size = new System.Drawing.Size(100, 21);
+            this.cmbSetStatus.TabIndex = 27;
+            // 
+            // lblSetStatus
+            // 
+            this.lblSetStatus.AutoSize = true;
+            this.lblSetStatus.Location = new System.Drawing.Point(366, 12);
+            this.lblSetStatus.Name = "lblSetStatus";
+            this.lblSetStatus.Size = new System.Drawing.Size(95, 14);
+            this.lblSetStatus.TabIndex = 24;
+            this.lblSetStatus.Text = "設定制單狀態:";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnShowMore);
             this.panel1.Controls.Add(this.txtPrdMachine);
             this.panel1.Controls.Add(this.cmbDepGroup);
-            this.panel1.Controls.Add(this.txtSetFocus);
+            this.panel1.Controls.Add(this.lblPrdMachine);
             this.panel1.Controls.Add(this.lblDepGroup);
             this.panel1.Controls.Add(this.lblPrd_dept);
             this.panel1.Controls.Add(this.cmbFindDep);
@@ -2057,12 +2141,22 @@
             this.panel1.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(0, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1147, 48);
+            this.panel1.Size = new System.Drawing.Size(1147, 38);
             this.panel1.TabIndex = 13;
+            // 
+            // btnShowMore
+            // 
+            this.btnShowMore.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnShowMore.Location = new System.Drawing.Point(1080, 3);
+            this.btnShowMore.Name = "btnShowMore";
+            this.btnShowMore.Size = new System.Drawing.Size(67, 32);
+            this.btnShowMore.TabIndex = 29;
+            this.btnShowMore.Text = ">>";
+            this.btnShowMore.Click += new System.EventHandler(this.btnShowMore_Click);
             // 
             // txtPrdMachine
             // 
-            this.txtPrdMachine.Location = new System.Drawing.Point(661, 17);
+            this.txtPrdMachine.Location = new System.Drawing.Point(464, 14);
             this.txtPrdMachine.Name = "txtPrdMachine";
             this.txtPrdMachine.Size = new System.Drawing.Size(100, 20);
             this.txtPrdMachine.TabIndex = 28;
@@ -2070,22 +2164,24 @@
             // cmbDepGroup
             // 
             this.cmbDepGroup.FormattingEnabled = true;
-            this.cmbDepGroup.Location = new System.Drawing.Point(318, 11);
+            this.cmbDepGroup.Location = new System.Drawing.Point(275, 13);
             this.cmbDepGroup.Name = "cmbDepGroup";
             this.cmbDepGroup.Size = new System.Drawing.Size(121, 21);
             this.cmbDepGroup.TabIndex = 27;
             // 
-            // txtSetFocus
+            // lblPrdMachine
             // 
-            this.txtSetFocus.Location = new System.Drawing.Point(497, 11);
-            this.txtSetFocus.Name = "txtSetFocus";
-            this.txtSetFocus.Size = new System.Drawing.Size(100, 23);
-            this.txtSetFocus.TabIndex = 26;
+            this.lblPrdMachine.AutoSize = true;
+            this.lblPrdMachine.Location = new System.Drawing.Point(398, 16);
+            this.lblPrdMachine.Name = "lblPrdMachine";
+            this.lblPrdMachine.Size = new System.Drawing.Size(63, 14);
+            this.lblPrdMachine.TabIndex = 24;
+            this.lblPrdMachine.Text = "機器代號";
             // 
             // lblDepGroup
             // 
             this.lblDepGroup.AutoSize = true;
-            this.lblDepGroup.Location = new System.Drawing.Point(249, 16);
+            this.lblDepGroup.Location = new System.Drawing.Point(206, 16);
             this.lblDepGroup.Name = "lblDepGroup";
             this.lblDepGroup.Size = new System.Drawing.Size(63, 14);
             this.lblDepGroup.TabIndex = 24;
@@ -2350,6 +2446,16 @@
             this.chkScheduleByMachine.Size = new System.Drawing.Size(103, 21);
             this.chkScheduleByMachine.TabIndex = 17;
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
+            this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
+            // 
+            // btnGenScheduleSeq
+            // 
+            this.btnGenScheduleSeq.Location = new System.Drawing.Point(255, 6);
+            this.btnGenScheduleSeq.Name = "btnGenScheduleSeq";
+            this.btnGenScheduleSeq.Size = new System.Drawing.Size(75, 23);
+            this.btnGenScheduleSeq.TabIndex = 29;
+            this.btnGenScheduleSeq.Text = "排期次序";
+            this.btnGenScheduleSeq.Click += new System.EventHandler(this.btnGenScheduleSeq_Click);
             // 
             // frmMoSchedule
             // 
@@ -2358,7 +2464,7 @@
             this.ClientSize = new System.Drawing.Size(1147, 634);
             this.Controls.Add(this.chkScheduleByMachine);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.palShowMore);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmMoSchedule";
@@ -2418,6 +2524,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
+            this.palShowMore.ResumeLayout(false);
+            this.palShowMore.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdMachine.Properties)).EndInit();
@@ -2437,9 +2545,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripButton btnSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnCancel;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton btnDel;
+        private System.Windows.Forms.ToolStripButton btnSetParas;
+        private System.Windows.Forms.ToolStripButton btnDepPrd;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnExpToExcel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
@@ -2450,7 +2557,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel palShowMore;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblPrd_dept;
         private System.Windows.Forms.ComboBox cmbFindDep;
@@ -2541,7 +2648,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
         private DevExpress.XtraGrid.Columns.GridColumn gclReqTotTime;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit5;
-        private System.Windows.Forms.TextBox txtSetFocus;
         private DevExpress.XtraGrid.Columns.GridColumn gclMachineStdQty;
         private DevExpress.XtraGrid.Columns.GridColumn gclModuleType;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lueModuleType;
@@ -2626,5 +2732,15 @@
         private DevExpress.XtraEditors.CheckEdit chkScheduleByMachine;
         private DevExpress.XtraEditors.TextEdit txtPrdMachine;
         private DevExpress.XtraEditors.SimpleButton btnAddToMachine;
+        private System.Windows.Forms.Label lblPrdMachine;
+        private System.Windows.Forms.ComboBox cmbSetStatus;
+        private System.Windows.Forms.Label lblSetStatus;
+        private DevExpress.XtraEditors.SimpleButton btnShowMore;
+        private DevExpress.XtraEditors.SimpleButton btnSetMoStatus;
+        private System.Windows.Forms.ComboBox cmbMoStatus;
+        private System.Windows.Forms.Label lblMoStatus;
+        private DevExpress.XtraGrid.Columns.GridColumn grcPrdItemGroup;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraEditors.SimpleButton btnGenScheduleSeq;
     }
 }
