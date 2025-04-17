@@ -311,6 +311,12 @@
     <Compile Include="CLS\clsZipperOrder.cs" />
     <Compile Include="CLS\ExpToExcel.cs" />
     <Compile Include="DBUtility.cs" />
+    <Compile Include="Forms\frmTransferoutItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTransferoutItem.Designer.cs">
+      <DependentUpon>frmTransferoutItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAddDictionary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1481,6 +1487,7 @@
     <Compile Include="MDL\mdlQuotationMoq.cs" />
     <Compile Include="MDL\mdlSaler.cs" />
     <Compile Include="MDL\mdlTestProductPlan.cs" />
+    <Compile Include="MDL\mdlTransferOut.cs" />
     <Compile Include="MDL\mdlUser.cs" />
     <Compile Include="MDL\Mo_for_jx.cs" />
     <Compile Include="MDL\product_qc_records.cs" />
@@ -1771,6 +1778,12 @@
     </Compile>
     <Compile Include="ReportForm\frmEagraveProduct.designer.cs">
       <DependentUpon>frmEagraveProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\frmExcelInsertArtwork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmExcelInsertArtwork.designer.cs">
+      <DependentUpon>frmExcelInsertArtwork.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\frmExpPictureToExcel.cs">
       <SubType>Form</SubType>
@@ -2968,6 +2981,9 @@
     <Compile Include="Reports\XtraReport1.designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmTransferoutItem.resx">
+      <DependentUpon>frmTransferoutItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAddDictionary.resx">
       <DependentUpon>frmAddDictionary.cs</DependentUpon>
     </EmbeddedResource>
@@ -3681,6 +3697,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmEagraveProduct.resx">
       <DependentUpon>frmEagraveProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmExcelInsertArtwork.resx">
+      <DependentUpon>frmExcelInsertArtwork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmExpPictureToExcel.resx">
       <DependentUpon>frmExpPictureToExcel.cs</DependentUpon>

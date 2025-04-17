@@ -465,4 +465,10 @@ namespace cf01.MDL
         public string box_no;
         public int package_num;
     }
+
+    public class packing_mo
+    {       
+        public string mo_id;       
+        public string goods_id;       
+    }
 }

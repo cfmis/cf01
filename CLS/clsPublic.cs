@@ -23,6 +23,8 @@ namespace cf01.CLS
         DataTable dtToolStripBtnName = new DataTable();
         DataTable dtToolStripBtnRole = new DataTable();
         DataTable dtControlName = new DataTable();
+        private static clsPublicOfGEO clsErp = new clsPublicOfGEO();
+        
         public clsPublic(string frmName, Control.ControlCollection controlCollection)
         {
             _strFrmName = frmName;
@@ -633,6 +635,33 @@ namespace cf01.CLS
                     dt.Dispose();
                 }
             }
+        }
+
+        //檢查單據號是否已存在
+        public static bool CheckIdIsExists(string tableName, string id)
+        {
+            bool result = false;
+            string strSql = string.Format(@"Select id FROM {0} with(nolock) Where within_code='0000' AND id='{1}'", tableName, id);
+            DataTable dt = clsErp.ExecuteSqlReturnDataTable(strSql);
+            if (dt.Rows.Count > 0)
+                result = true;
+            else
+                result = false;
+            return result;
+        }
+
+        //獲取部門移交單批號
+        public static string GetDeptLotNo(string out_dept, string in_dept)
+        {
+            string result = "";
+            string strSql = string.Format(
+            @" DECLARE @lot_no nvarchar(20) 
+               EXEC usp_create_lot_no '{0}','{1}','{2}',@lot_no OUTPUT 
+               SELECT @lot_no AS lot_no",
+            "0000", out_dept, out_dept);
+            DataTable dt = clsErp.ExecuteSqlReturnDataTable(strSql);
+            result = dt.Rows[0]["lot_no"].ToString();
+            return result;
         }
 
         //create a reportview report and define format,grouping  ://msdn.microsoft.com/zh-cn/library/ms252073(v=vs.90).aspx
