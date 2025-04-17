@@ -260,12 +260,12 @@ namespace cf01.ReportForm
             if (chkReqPrdQty.Checked == true)//若包含生產數為零的記錄
                 zero_qty = 1;
             //z_plan01//usp_LoadDepPlan   @old_arrange_date
-            dtMoPlan = commUse.getDataProcedure("usp_LoadPlanNew",
-                new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
-                    ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0});
-            //dtMoPlan = commUse.getDataProcedure("usp_LoadPlan",
+            //dtMoPlan = commUse.getDataProcedure("usp_LoadPlanNew",
             //    new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
-            //        ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0,""});
+            //        ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0});
+            dtMoPlan = commUse.getDataProcedure("usp_LoadPlan",
+                new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
+                    ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0,""});
             dgvDetails.DataSource = dtMoPlan;
 
             if (chkSimplePlan.Checked == true)
