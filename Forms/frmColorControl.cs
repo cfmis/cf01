@@ -24,12 +24,12 @@ namespace cf01.Forms
         DataTable dtTemp = new DataTable();
         DataTable dtBom = new DataTable();
         string pID = "";    //臨時的主鍵值
-        string editState = ""; //新增或編號的狀態       
+        string editState = ""; //新增或編號的狀態
+
 
         public frmColorControl()
         {
             InitializeComponent();
-                     
         }
 
         private void frmColorControl_Load(object sender, EventArgs e)
