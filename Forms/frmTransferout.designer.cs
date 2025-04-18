@@ -64,6 +64,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNFIND = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNCHECKST = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCheck_by = new DevExpress.XtraEditors.TextEdit();
@@ -213,6 +214,7 @@
             this.updateDate2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.suitFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkDgd = new System.Windows.Forms.CheckBox();
             this.txtMoType = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.label2 = new System.Windows.Forms.Label();
@@ -378,11 +380,12 @@
             this.BTNPRINT,
             this.toolStripSeparator8,
             this.BTNFIND,
-            this.toolStripSeparator7});
+            this.toolStripSeparator7,
+            this.BTNCHECKST});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1242, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(1242, 33);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -392,55 +395,55 @@
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXIT.Name = "BTNEXIT";
-            this.BTNEXIT.Size = new System.Drawing.Size(65, 25);
+            this.BTNEXIT.Size = new System.Drawing.Size(65, 30);
             this.BTNEXIT.Text = "退出(&X)";
             this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNNEW
             // 
             this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
             this.BTNNEW.Name = "BTNNEW";
-            this.BTNNEW.Size = new System.Drawing.Size(69, 25);
+            this.BTNNEW.Size = new System.Drawing.Size(69, 30);
             this.BTNNEW.Text = "新增(&N)";
             this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNEDIT
             // 
             this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
             this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEDIT.Name = "BTNEDIT";
-            this.BTNEDIT.Size = new System.Drawing.Size(66, 25);
+            this.BTNEDIT.Size = new System.Drawing.Size(66, 30);
             this.BTNEDIT.Text = "編輯(&E)";
             this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNDELETE
             // 
             this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
             this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNDELETE.Name = "BTNDELETE";
-            this.BTNDELETE.Size = new System.Drawing.Size(68, 25);
+            this.BTNDELETE.Size = new System.Drawing.Size(68, 30);
             this.BTNDELETE.Text = "注銷(&D)";
             this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNITEMADD
             // 
@@ -448,14 +451,14 @@
             this.BTNITEMADD.Image = ((System.Drawing.Image)(resources.GetObject("BTNITEMADD.Image")));
             this.BTNITEMADD.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNITEMADD.Name = "BTNITEMADD";
-            this.BTNITEMADD.Size = new System.Drawing.Size(91, 25);
+            this.BTNITEMADD.Size = new System.Drawing.Size(91, 30);
             this.BTNITEMADD.Text = "項目增加(&A)";
             this.BTNITEMADD.Click += new System.EventHandler(this.BTNITEMADD_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNITEMDEL
             // 
@@ -463,7 +466,7 @@
             this.BTNITEMDEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNITEMDEL.Image")));
             this.BTNITEMDEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNITEMDEL.Name = "BTNITEMDEL";
-            this.BTNITEMDEL.Size = new System.Drawing.Size(89, 25);
+            this.BTNITEMDEL.Size = new System.Drawing.Size(89, 30);
             this.BTNITEMDEL.Text = "項目刪除(&L)";
             this.BTNITEMDEL.Click += new System.EventHandler(this.BTNITEMDEL_Click);
             // 
@@ -473,14 +476,14 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(66, 25);
+            this.BTNSAVE.Size = new System.Drawing.Size(66, 30);
             this.BTNSAVE.Text = "保存(&S)";
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNCANCEL
             // 
@@ -488,56 +491,66 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(68, 25);
+            this.BTNCANCEL.Size = new System.Drawing.Size(68, 30);
             this.BTNCANCEL.Text = "取消(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNAPPROVE
             // 
             this.BTNAPPROVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNAPPROVE.Image")));
             this.BTNAPPROVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNAPPROVE.Name = "BTNAPPROVE";
-            this.BTNAPPROVE.Size = new System.Drawing.Size(54, 25);
+            this.BTNAPPROVE.Size = new System.Drawing.Size(54, 30);
             this.BTNAPPROVE.Text = "批 準";
+            this.BTNAPPROVE.Click += new System.EventHandler(this.BTNAPPROVE_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNPRINT
             // 
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(66, 25);
+            this.BTNPRINT.Size = new System.Drawing.Size(66, 30);
             this.BTNPRINT.Text = "列印(&P)";
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 33);
             // 
             // BTNFIND
             // 
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(65, 25);
+            this.BTNFIND.Size = new System.Drawing.Size(65, 30);
             this.BTNFIND.Text = "查詢(&F)";
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 28);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 33);
+            // 
+            // BTNCHECKST
+            // 
+            this.BTNCHECKST.Image = ((System.Drawing.Image)(resources.GetObject("BTNCHECKST.Image")));
+            this.BTNCHECKST.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNCHECKST.Name = "BTNCHECKST";
+            this.BTNCHECKST.Size = new System.Drawing.Size(111, 30);
+            this.BTNCHECKST.Text = "批準前庫存檢查";
+            this.BTNCHECKST.Click += new System.EventHandler(this.BTNCHECKST_Click);
             // 
             // panel1
             // 
@@ -992,7 +1005,7 @@
             // 
             this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl2.Location = new System.Drawing.Point(3, 440);
+            this.gridControl2.Location = new System.Drawing.Point(3, 423);
             this.gridControl2.MainView = this.dgvPart;
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -1049,6 +1062,8 @@
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn1.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "頁數";
@@ -1065,7 +1080,7 @@
             this.gridColumn1.Tag = "2";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 100;
+            this.gridColumn1.Width = 82;
             // 
             // gridColumn2
             // 
@@ -1085,7 +1100,7 @@
             this.gridColumn2.Tag = "2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 167;
+            this.gridColumn2.Width = 151;
             // 
             // gridColumn11
             // 
@@ -1102,7 +1117,7 @@
             this.gridColumn11.OptionsFilter.AllowFilter = false;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 2;
-            this.gridColumn11.Width = 198;
+            this.gridColumn11.Width = 330;
             // 
             // gridColumn23
             // 
@@ -1120,7 +1135,7 @@
             this.gridColumn23.OptionsFilter.AllowFilter = false;
             this.gridColumn23.Visible = true;
             this.gridColumn23.VisibleIndex = 3;
-            this.gridColumn23.Width = 80;
+            this.gridColumn23.Width = 71;
             // 
             // clQty2
             // 
@@ -1149,7 +1164,7 @@
             this.gridColumn22.OptionsFilter.AllowFilter = false;
             this.gridColumn22.Visible = true;
             this.gridColumn22.VisibleIndex = 4;
-            this.gridColumn22.Width = 80;
+            this.gridColumn22.Width = 57;
             // 
             // clSecQty
             // 
@@ -1161,6 +1176,7 @@
             this.clSecQty.Mask.EditMask = "n2";
             this.clSecQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.clSecQty.Name = "clSecQty";
+            this.clSecQty.Click += new System.EventHandler(this.clSecQty_Click);
             // 
             // gridColumn3
             // 
@@ -1184,6 +1200,8 @@
             // 
             // gridColumn7
             // 
+            this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.Caption = "單位";
@@ -1201,7 +1219,7 @@
             this.gridColumn7.Tag = "2";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 6;
-            this.gridColumn7.Width = 48;
+            this.gridColumn7.Width = 40;
             // 
             // gridColumn34
             // 
@@ -1230,6 +1248,10 @@
             // 
             this.gridColumn6.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gridColumn6.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn6.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn6.Caption = "單位";
@@ -1247,7 +1269,7 @@
             this.gridColumn6.OptionsFilter.AllowFilter = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 8;
-            this.gridColumn6.Width = 48;
+            this.gridColumn6.Width = 37;
             // 
             // location
             // 
@@ -1267,7 +1289,7 @@
             this.location.OptionsFilter.AllowFilter = false;
             this.location.Visible = true;
             this.location.VisibleIndex = 9;
-            this.location.Width = 80;
+            this.location.Width = 65;
             // 
             // clLocation_id2
             // 
@@ -1305,7 +1327,7 @@
             this.gridColumn4.OptionsFilter.AllowFilter = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 10;
-            this.gridColumn4.Width = 88;
+            this.gridColumn4.Width = 81;
             // 
             // gridColumn35
             // 
@@ -1323,7 +1345,7 @@
             this.gridColumn35.OptionsFilter.AllowFilter = false;
             this.gridColumn35.Visible = true;
             this.gridColumn35.VisibleIndex = 11;
-            this.gridColumn35.Width = 80;
+            this.gridColumn35.Width = 67;
             // 
             // gridColumn5
             // 
@@ -1345,7 +1367,7 @@
             this.gridColumn5.OptionsFilter.AllowFilter = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 12;
-            this.gridColumn5.Width = 80;
+            this.gridColumn5.Width = 69;
             // 
             // gridColumn39
             // 
@@ -1403,6 +1425,8 @@
             // 
             // gridColumn38
             // 
+            this.gridColumn38.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn38.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn38.Caption = "重量單位";
             this.gridColumn38.FieldName = "unit_code";
             this.gridColumn38.Name = "gridColumn38";
@@ -1415,7 +1439,7 @@
             this.gridColumn38.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn38.OptionsFilter.AllowFilter = false;
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 16;
+            this.gridColumn38.VisibleIndex = 17;
             this.gridColumn38.Width = 50;
             // 
             // gridColumn40
@@ -1433,7 +1457,7 @@
             this.gridColumn40.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn40.OptionsFilter.AllowFilter = false;
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 17;
+            this.gridColumn40.VisibleIndex = 16;
             this.gridColumn40.Width = 90;
             // 
             // gridColumn41
@@ -1504,7 +1528,7 @@
             this.clQtyCount,
             this.clMo_id,
             this.clbteItem});
-            this.gridControl1.Size = new System.Drawing.Size(1225, 309);
+            this.gridControl1.Size = new System.Drawing.Size(1225, 292);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvDetails});
@@ -1605,7 +1629,7 @@
             this.gridColumn25.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn25.Visible = true;
             this.gridColumn25.VisibleIndex = 1;
-            this.gridColumn25.Width = 50;
+            this.gridColumn25.Width = 43;
             // 
             // clSuit
             // 
@@ -1616,6 +1640,8 @@
             // 
             // gridColumn14
             // 
+            this.gridColumn14.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn14.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn14.Caption = "貨品編碼";
             this.gridColumn14.ColumnEdit = this.clbteItem;
             this.gridColumn14.FieldName = "goods_id";
@@ -1631,7 +1657,7 @@
             this.gridColumn14.Tag = "2";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 2;
-            this.gridColumn14.Width = 180;
+            this.gridColumn14.Width = 166;
             // 
             // clbteItem
             // 
@@ -1659,7 +1685,7 @@
             this.gridColumn15.Tag = "2";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 3;
-            this.gridColumn15.Width = 177;
+            this.gridColumn15.Width = 369;
             // 
             // gridColumn19
             // 
@@ -1715,6 +1741,7 @@
             this.gridColumn18.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 5;
+            this.gridColumn18.Width = 80;
             // 
             // clQtyCount
             // 
@@ -1753,6 +1780,8 @@
             // 
             // gridColumn26
             // 
+            this.gridColumn26.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gridColumn26.AppearanceCell.Options.UseBackColor = true;
             this.gridColumn26.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
             this.gridColumn26.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn26.Caption = "重量";
@@ -1769,7 +1798,7 @@
             this.gridColumn26.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn26.Visible = true;
             this.gridColumn26.VisibleIndex = 7;
-            this.gridColumn26.Width = 66;
+            this.gridColumn26.Width = 70;
             // 
             // clSec_qty
             // 
@@ -1781,9 +1810,12 @@
             this.clSec_qty.Mask.EditMask = "n2";
             this.clSec_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.clSec_qty.Name = "clSec_qty";
+            this.clSec_qty.Click += new System.EventHandler(this.clSec_qty_Click);
             // 
             // gridColumn31
             // 
+            this.gridColumn31.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn31.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn31.Caption = "包數";
             this.gridColumn31.ColumnEdit = this.clQty;
             this.gridColumn31.DisplayFormat.FormatString = "n0";
@@ -1815,6 +1847,8 @@
             // 
             // gridColumn16
             // 
+            this.gridColumn16.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn16.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn16.Caption = "位置";
             this.gridColumn16.FieldName = "position_first";
             this.gridColumn16.Name = "gridColumn16";
@@ -2076,10 +2110,11 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("PMingLiU", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 32);
+            this.tabControl1.ItemSize = new System.Drawing.Size(65, 30);
+            this.tabControl1.Location = new System.Drawing.Point(0, 35);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1241, 662);
+            this.tabControl1.Size = new System.Drawing.Size(1241, 654);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
@@ -2088,12 +2123,12 @@
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.gridControl1);
             this.tabPage1.Controls.Add(this.gridControl2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1233, 633);
+            this.tabPage1.Size = new System.Drawing.Size(1233, 616);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "轉 出 單";
+            this.tabPage1.Text = "轉出單數據錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -2120,29 +2155,29 @@
             this.tabPage2.Controls.Add(this.txtDat1);
             this.tabPage2.Controls.Add(this.label48);
             this.tabPage2.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1233, 633);
+            this.tabPage2.Size = new System.Drawing.Size(1233, 616);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "已保存轉出單查詢";
+            this.tabPage2.Text = "已保存數據查詢";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // txtGroupNo1
             // 
             this.txtGroupNo1.EditValue = "";
             this.txtGroupNo1.EnterMoveNextControl = true;
-            this.txtGroupNo1.Location = new System.Drawing.Point(114, 118);
+            this.txtGroupNo1.Location = new System.Drawing.Point(114, 66);
             this.txtGroupNo1.Name = "txtGroupNo1";
             this.txtGroupNo1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtGroupNo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGroupNo1.Properties.MaxLength = 12;
             this.txtGroupNo1.Size = new System.Drawing.Size(127, 22);
-            this.txtGroupNo1.TabIndex = 8;
+            this.txtGroupNo1.TabIndex = 4;
             // 
             // label52
             // 
-            this.label52.Location = new System.Drawing.Point(13, 123);
+            this.label52.Location = new System.Drawing.Point(13, 71);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(99, 13);
             this.label52.TabIndex = 191;
@@ -2186,7 +2221,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFind.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvFind.Location = new System.Drawing.Point(3, 184);
+            this.dgvFind.Location = new System.Drawing.Point(3, 163);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -2197,7 +2232,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvFind.Size = new System.Drawing.Size(1225, 592);
+            this.dgvFind.Size = new System.Drawing.Size(1225, 445);
             this.dgvFind.TabIndex = 188;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
@@ -2237,7 +2272,7 @@
             this.group_no1.HeaderText = "組別";
             this.group_no1.Name = "group_no1";
             this.group_no1.ReadOnly = true;
-            this.group_no1.Width = 50;
+            this.group_no1.Width = 60;
             // 
             // sequence_id1
             // 
@@ -2322,28 +2357,28 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(247, 91);
+            this.label50.Location = new System.Drawing.Point(246, 95);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(13, 12);
-            this.label50.TabIndex = 186;
+            this.label50.TabIndex = 8;
             this.label50.Text = "--";
             // 
             // txtMo_id2
             // 
             this.txtMo_id2.EditValue = "";
             this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(264, 89);
+            this.txtMo_id2.Location = new System.Drawing.Point(264, 93);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id2.Properties.MaxLength = 9;
             this.txtMo_id2.Size = new System.Drawing.Size(127, 22);
-            this.txtMo_id2.TabIndex = 7;
+            this.txtMo_id2.TabIndex = 6;
             // 
             // label49
             // 
             this.label49.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label49.Location = new System.Drawing.Point(32, 93);
+            this.label49.Location = new System.Drawing.Point(32, 97);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(80, 15);
             this.label49.TabIndex = 185;
@@ -2354,31 +2389,31 @@
             // 
             this.txtMo_id1.EditValue = "";
             this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(114, 89);
+            this.txtMo_id1.Location = new System.Drawing.Point(114, 93);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id1.Properties.MaxLength = 9;
             this.txtMo_id1.Size = new System.Drawing.Size(127, 22);
-            this.txtMo_id1.TabIndex = 6;
+            this.txtMo_id1.TabIndex = 5;
             this.txtMo_id1.Leave += new System.EventHandler(this.txtMo_id1_Leave);
             // 
             // txtId2
             // 
             this.txtId2.EditValue = "";
             this.txtId2.EnterMoveNextControl = true;
-            this.txtId2.Location = new System.Drawing.Point(264, 62);
+            this.txtId2.Location = new System.Drawing.Point(264, 39);
             this.txtId2.Name = "txtId2";
             this.txtId2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtId2.Properties.MaxLength = 12;
             this.txtId2.Size = new System.Drawing.Size(127, 22);
-            this.txtId2.TabIndex = 5;
+            this.txtId2.TabIndex = 3;
             // 
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(247, 69);
+            this.label45.Location = new System.Drawing.Point(247, 43);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(13, 12);
             this.label45.TabIndex = 182;
@@ -2388,31 +2423,31 @@
             // 
             this.txtId1.EditValue = "";
             this.txtId1.EnterMoveNextControl = true;
-            this.txtId1.Location = new System.Drawing.Point(114, 62);
+            this.txtId1.Location = new System.Drawing.Point(114, 39);
             this.txtId1.Name = "txtId1";
             this.txtId1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtId1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtId1.Properties.MaxLength = 12;
             this.txtId1.Size = new System.Drawing.Size(127, 22);
-            this.txtId1.TabIndex = 4;
+            this.txtId1.TabIndex = 2;
             this.txtId1.Leave += new System.EventHandler(this.txtId1_Leave);
             // 
             // txtbill_type_no2
             // 
             this.txtbill_type_no2.EditValue = "";
             this.txtbill_type_no2.EnterMoveNextControl = true;
-            this.txtbill_type_no2.Location = new System.Drawing.Point(264, 36);
+            this.txtbill_type_no2.Location = new System.Drawing.Point(264, 121);
             this.txtbill_type_no2.Name = "txtbill_type_no2";
             this.txtbill_type_no2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtbill_type_no2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtbill_type_no2.Properties.MaxLength = 8;
             this.txtbill_type_no2.Size = new System.Drawing.Size(127, 22);
-            this.txtbill_type_no2.TabIndex = 3;
+            this.txtbill_type_no2.TabIndex = 8;
             // 
             // lblMO
             // 
             this.lblMO.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMO.Location = new System.Drawing.Point(32, 40);
+            this.lblMO.Location = new System.Drawing.Point(32, 125);
             this.lblMO.Name = "lblMO";
             this.lblMO.Size = new System.Drawing.Size(80, 15);
             this.lblMO.TabIndex = 181;
@@ -2422,7 +2457,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(247, 40);
+            this.label46.Location = new System.Drawing.Point(246, 125);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(13, 12);
             this.label46.TabIndex = 180;
@@ -2432,13 +2467,13 @@
             // 
             this.txtbill_type_no1.EditValue = "";
             this.txtbill_type_no1.EnterMoveNextControl = true;
-            this.txtbill_type_no1.Location = new System.Drawing.Point(114, 36);
+            this.txtbill_type_no1.Location = new System.Drawing.Point(114, 121);
             this.txtbill_type_no1.Name = "txtbill_type_no1";
             this.txtbill_type_no1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtbill_type_no1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtbill_type_no1.Properties.MaxLength = 8;
             this.txtbill_type_no1.Size = new System.Drawing.Size(127, 22);
-            this.txtbill_type_no1.TabIndex = 2;
+            this.txtbill_type_no1.TabIndex = 7;
             this.txtbill_type_no1.Leave += new System.EventHandler(this.txtCust_id1_Leave);
             // 
             // label47
@@ -2501,7 +2536,7 @@
             // 
             // label48
             // 
-            this.label48.Location = new System.Drawing.Point(13, 67);
+            this.label48.Location = new System.Drawing.Point(13, 44);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(99, 13);
             this.label48.TabIndex = 177;
@@ -2515,22 +2550,23 @@
             this.tabPage3.Controls.Add(this.gcIdDetails);
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1233, 633);
+            this.tabPage3.Size = new System.Drawing.Size(1233, 616);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "從裝箱數據中導入";
+            this.tabPage3.Text = "從裝箱掃描數據中導入";
             // 
             // gcIdDetails
             // 
-            this.gcIdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gcIdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcIdDetails.Location = new System.Drawing.Point(2, 57);
             this.gcIdDetails.MainView = this.dgvIdDetails;
             this.gcIdDetails.Name = "gcIdDetails";
             this.gcIdDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clSelect});
-            this.gcIdDetails.Size = new System.Drawing.Size(1226, 567);
+            this.gcIdDetails.Size = new System.Drawing.Size(1226, 552);
             this.gcIdDetails.TabIndex = 6;
             this.gcIdDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvIdDetails});
@@ -2749,7 +2785,7 @@
             // 
             // updateDate2
             // 
-            this.updateDate2.Caption = "單據日期";
+            this.updateDate2.Caption = "掃描日期";
             this.updateDate2.FieldName = "update_date";
             this.updateDate2.Name = "updateDate2";
             this.updateDate2.OptionsColumn.AllowIncrementalSearch = false;
@@ -2776,6 +2812,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.Controls.Add(this.chkDgd);
             this.panel2.Controls.Add(this.txtMoType);
             this.panel2.Controls.Add(this.labelControl1);
             this.panel2.Controls.Add(this.label2);
@@ -2793,19 +2830,29 @@
             this.panel2.Size = new System.Drawing.Size(1229, 56);
             this.panel2.TabIndex = 5;
             // 
+            // chkDgd
+            // 
+            this.chkDgd.AutoSize = true;
+            this.chkDgd.Location = new System.Drawing.Point(729, 20);
+            this.chkDgd.Name = "chkDgd";
+            this.chkDgd.Size = new System.Drawing.Size(56, 16);
+            this.chkDgd.TabIndex = 185;
+            this.chkDgd.Text = "東莞D";
+            this.chkDgd.UseVisualStyleBackColor = true;
+            // 
             // txtMoType
             // 
-            this.txtMoType.Location = new System.Drawing.Point(350, 16);
+            this.txtMoType.Location = new System.Drawing.Point(338, 16);
             this.txtMoType.Name = "txtMoType";
             this.txtMoType.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMoType.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMoType.Properties.MaxLength = 1;
-            this.txtMoType.Size = new System.Drawing.Size(56, 22);
+            this.txtMoType.Size = new System.Drawing.Size(45, 22);
             this.txtMoType.TabIndex = 184;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(291, 19);
+            this.labelControl1.Location = new System.Drawing.Point(279, 19);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 14);
             this.labelControl1.TabIndex = 183;
@@ -2814,7 +2861,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(611, 23);
+            this.label2.Location = new System.Drawing.Point(582, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 12);
             this.label2.TabIndex = 182;
@@ -2824,7 +2871,7 @@
             // 
             this.dtUpdateTime2.EditValue = "";
             this.dtUpdateTime2.EnterMoveNextControl = true;
-            this.dtUpdateTime2.Location = new System.Drawing.Point(627, 16);
+            this.dtUpdateTime2.Location = new System.Drawing.Point(598, 16);
             this.dtUpdateTime2.Name = "dtUpdateTime2";
             this.dtUpdateTime2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtUpdateTime2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2844,7 +2891,7 @@
             // 
             this.dtUpdateTime1.EditValue = "";
             this.dtUpdateTime1.EnterMoveNextControl = true;
-            this.dtUpdateTime1.Location = new System.Drawing.Point(497, 16);
+            this.dtUpdateTime1.Location = new System.Drawing.Point(468, 16);
             this.dtUpdateTime1.Name = "dtUpdateTime1";
             this.dtUpdateTime1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.dtUpdateTime1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2865,9 +2912,9 @@
             // 
             this.btnImput.Image = ((System.Drawing.Image)(resources.GetObject("btnImput.Image")));
             this.btnImput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImput.Location = new System.Drawing.Point(841, 11);
+            this.btnImput.Location = new System.Drawing.Point(904, 11);
             this.btnImput.Name = "btnImput";
-            this.btnImput.Size = new System.Drawing.Size(80, 35);
+            this.btnImput.Size = new System.Drawing.Size(80, 30);
             this.btnImput.TabIndex = 3;
             this.btnImput.Text = "過 賬  ";
             this.btnImput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2876,7 +2923,7 @@
             // 
             // lblFindId
             // 
-            this.lblFindId.Location = new System.Drawing.Point(439, 19);
+            this.lblFindId.Location = new System.Drawing.Point(410, 19);
             this.lblFindId.Name = "lblFindId";
             this.lblFindId.Size = new System.Drawing.Size(52, 14);
             this.lblFindId.TabIndex = 0;
@@ -2884,7 +2931,7 @@
             // 
             // txtFindGroupNo
             // 
-            this.txtFindGroupNo.Location = new System.Drawing.Point(55, 16);
+            this.txtFindGroupNo.Location = new System.Drawing.Point(45, 16);
             this.txtFindGroupNo.Name = "txtFindGroupNo";
             this.txtFindGroupNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtFindGroupNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2896,9 +2943,9 @@
             // 
             this.btnQuery.Image = global::cf01.Properties.Resources.find;
             this.btnQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuery.Location = new System.Drawing.Point(747, 12);
+            this.btnQuery.Location = new System.Drawing.Point(810, 11);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(80, 35);
+            this.btnQuery.Size = new System.Drawing.Size(80, 30);
             this.btnQuery.TabIndex = 3;
             this.btnQuery.Text = "查 找(&F)";
             this.btnQuery.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2907,7 +2954,7 @@
             // 
             // lblFindOc_no
             // 
-            this.lblFindOc_no.Location = new System.Drawing.Point(18, 19);
+            this.lblFindOc_no.Location = new System.Drawing.Point(10, 19);
             this.lblFindOc_no.Name = "lblFindOc_no";
             this.lblFindOc_no.Size = new System.Drawing.Size(28, 14);
             this.lblFindOc_no.TabIndex = 0;
@@ -2915,7 +2962,7 @@
             // 
             // txtFindMoId
             // 
-            this.txtFindMoId.Location = new System.Drawing.Point(164, 16);
+            this.txtFindMoId.Location = new System.Drawing.Point(148, 16);
             this.txtFindMoId.Name = "txtFindMoId";
             this.txtFindMoId.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtFindMoId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2925,7 +2972,7 @@
             // 
             // lblFindMo_id
             // 
-            this.lblFindMo_id.Location = new System.Drawing.Point(129, 19);
+            this.lblFindMo_id.Location = new System.Drawing.Point(116, 19);
             this.lblFindMo_id.Name = "lblFindMo_id";
             this.lblFindMo_id.Size = new System.Drawing.Size(28, 14);
             this.lblFindMo_id.TabIndex = 0;
@@ -3191,6 +3238,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn47;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.DateEdit dtUpdateTime2;
+        private DevExpress.XtraEditors.DateEdit dtUpdateTime1;
+        private DevExpress.XtraEditors.TextEdit txtMoType;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn suitFlag;
+        private System.Windows.Forms.CheckBox chkDgd;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn transfer_date1;
         private System.Windows.Forms.DataGridViewTextBoxColumn bill_type_no1;
@@ -3203,11 +3257,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unit1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit1;
-        private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.DateEdit dtUpdateTime2;
-        private DevExpress.XtraEditors.DateEdit dtUpdateTime1;
-        private DevExpress.XtraEditors.TextEdit txtMoType;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraGrid.Columns.GridColumn suitFlag;
+        private System.Windows.Forms.ToolStripButton BTNCHECKST;
     }
 }

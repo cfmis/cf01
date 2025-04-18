@@ -17,6 +17,7 @@ using DevExpress.XtraEditors;
 using System.IO;
 using cf01.MDL;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Threading;
 
 namespace cf01.Forms
 {
@@ -39,7 +40,8 @@ namespace cf01.Forms
         DataTable dtPart = new DataTable();
 		DataTable dtTempDel1 = new DataTable();
         DataTable dtTempDel2 = new DataTable();
-        DataTable dtFind_Date = new DataTable();
+        DataTable dtFindDate = new DataTable();
+        DataTable dtStockAdj = new DataTable();
         BindingSource bds1 = new BindingSource();
         BindingSource bds2 = new BindingSource();
         DataSet dtsTrans = new DataSet();
@@ -81,8 +83,8 @@ namespace cf01.Forms
             //狀態
             DataTable dtDept = new DataTable();
             DataRow row = dtDept.NewRow();
-            dtDept.Columns.Add("id", System.Type.GetType("System.String"));
-            dtDept.Columns.Add("cdesc", System.Type.GetType("System.String"));
+            dtDept.Columns.Add("id", typeof(string));
+            dtDept.Columns.Add("cdesc", typeof(string));
             row["id"] = "";
             row["cdesc"] = "";
             dtDept.Rows.Add(row);
@@ -109,8 +111,8 @@ namespace cf01.Forms
             //狀態
             DataTable dtSate = new DataTable();
             row = dtSate.NewRow();
-            dtSate.Columns.Add("id", System.Type.GetType("System.String"));
-            dtSate.Columns.Add("cdesc", System.Type.GetType("System.String"));
+            dtSate.Columns.Add("id", typeof(string));
+            dtSate.Columns.Add("cdesc", typeof(string));
             dtSate.NewRow();
             row = dtSate.NewRow();
             row["id"] = "0";
@@ -157,8 +159,15 @@ namespace cf01.Forms
 
             txtDat1.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
             txtDat2.EditValue = DateTime.Now.ToString("yyyy-MM-dd");
-           
-		}
+
+            dtStockAdj.Columns.Add("sequence_id", typeof(string));
+            dtStockAdj.Columns.Add("location_id", typeof(string));
+            dtStockAdj.Columns.Add("mo_id", typeof(string));
+            dtStockAdj.Columns.Add("goods_id", typeof(string));
+            dtStockAdj.Columns.Add("adj_qty", typeof(decimal));
+            dtStockAdj.Columns.Add("adj_sec_qty", typeof(decimal));
+            dtStockAdj.Columns.Add("lot_no", typeof(string));
+        }
 
 		private void BTNEXIT_Click(object sender, EventArgs e)
 		{
@@ -311,8 +320,9 @@ namespace cf01.Forms
 			BTNPRINT.Enabled = _flag;
 			BTNDELETE.Enabled = _flag;
 			BTNFIND.Enabled = _flag;
-			BTNSAVE.Enabled = !_flag;
             BTNAPPROVE.Enabled = _flag;
+            BTNCHECKST.Enabled = _flag;
+			BTNSAVE.Enabled = !_flag;            
             BTNCANCEL.Enabled = !_flag;
 			BTNITEMADD.Enabled = !_flag;
 			BTNITEMDEL.Enabled = !_flag;           
@@ -504,23 +514,11 @@ namespace cf01.Forms
 		}		
 
         private void FindDoc(string id)
-        {
-            string sql_f =string.Format(
-            @"--主表
-            Select * FROM st_transfer_mostly with(nolock) Where within_code='0000' And id='{0}' And state<>'2'
-            --表格1
-            Select b.mo_id,Cast(0 as bit) as shipment_suit, b.goods_id, b.goods_name,b.unit,b.transfer_amount,b.sec_unit,b.sec_qty,b.package_num,
-            b.position_first, b.nwt,b.gross_wt,b.location_id,b.carton_code,b.inventory_qty,b.inventory_sec_qty,b.lot_no,b.remark,
-            b.remark as do_color, b.move_location_id,b.move_carton_code,b.tran_id,b.id,b.sequence_id,b.id + b.sequence_id as idkey,'0' as new_flag
-            FROM st_transfer_mostly a with(nolock),st_transfer_detail b with(nolock)
-            Where a.within_code=b.within_code And a.id=b.id And a.within_code='0000' And a.id='{0}' And a.state<>'2'
-            --表格2
-            Select b.mo_id,b.goods_id,b.goods_name,b.inventory_qty,b.inventory_sec_qty,b.con_qty,b.sec_qty,b.sec_unit,b.location,b.carton_code,
-            b.con_qty As order_qty,b.con_qty As transfer_amount,b.con_qty As nostorage_qty,b.unit_code As goods_unit,b.remark,b.mrp_id,b.unit_code,
-            b.lot_no,b.obligate_qty,b.id,b.upper_sequence,b.sequence_id,b.bom_qty,0 as qty_rate,b.id + b.upper_sequence As idkey
-            From st_transfer_mostly a with(nolock),st_transfer_detail_part b with(nolock)
-            Where a.within_code=b.within_code And a.id=b.id And a.within_code='0000' And a.id='{0}' And a.state<>'2'", id);
-            dtsTrans = clsConErp.ExcuteSqlReturnDataSet(sql_f, "");
+        {            
+            SqlParameter[] paras = {
+                new SqlParameter("@id",id) 
+            };
+            dtsTrans = clsConErp.ExecuteProcedureReturnDataSet("zz_get_transfer_out_data", paras, "");            
             dtsTrans.Tables[0].TableName = "dtMostly";
             dtsTrans.Tables[1].TableName = "dtD1";
             dtsTrans.Tables[2].TableName = "dtD2";
@@ -569,8 +567,7 @@ namespace cf01.Forms
             head.state = lkeSate.EditValue.ToString();
             head.bill_type_no = lkeBill_type_no.EditValue.ToString();
             head.group_no = lkeGroupNo.EditValue.ToString();
-            head.head_status = mState;
-            //int curRow = 0;
+            head.head_status = mState;           
             string rowStatus = "";
             dgvDetails.CloseEditor();
             dgvPart.CloseEditor();
@@ -914,7 +911,9 @@ namespace cf01.Forms
             mdl.mo_id = mo_id;
             mdl.goods_id = goods_id;
             lstMDL.Add(mdl);            
+
             DataSet dtsBatch = clsTransferout.GetPackingBomData(lstMDL);
+
             string idKey = "", goods_id_f0 = "";
             string boxs = "";
             //批量添加默認全部是套件出货           
@@ -977,21 +976,38 @@ namespace cf01.Forms
                         drw1["location"] = "601";
                         drw1["goods_unit"] = "SET";
                         drw1["unit_code"] = "PCS";
+                        drw1["bom_qty"] = dr["dosage"];
                         dtsTrans.Tables["dtD2"].Rows.Add(drw1);
                     }                   
                 }
                 else
                 {
-                    dgvDetails.SetRowCellValue(ll_rc, "goods_id", dtsBatch.Tables[0].Rows[0]["goods_id"].ToString());
+                    string sql_f = "";
+                    dgvDetails.SetRowCellValue(ll_rc, "goods_id", dtsBatch.Tables[0].Rows[0]["goods_id"].ToString());//18位產品編號
                     dgvDetails.SetRowCellValue(ll_rc, "goods_name", dtsBatch.Tables[0].Rows[0]["goods_name"].ToString());
                     dgvDetails.SetRowCellValue(ll_rc, "location_id", "601");
                     dgvDetails.SetRowCellValue(ll_rc, "carton_code", "601");
-                    for (int i = dtsTrans.Tables["dtD2"].Rows.Count - 1; i >= 0; i--)
+                    DataTable dtTest = new DataTable();
+                    DataRow[] aryDel = dtsTrans.Tables["dtD2"].Select($"upper_sequence='{sequenceId}'");
+                    DataRow drDel;
+                    foreach (DataRow dr in aryDel)
                     {
-                        if (dtsTrans.Tables["dtD2"].Rows[i]["upper_sequence"].ToString() == sequenceId)
+                        if (mState == "EDIT")
                         {
-                            dtsTrans.Tables["dtD2"].Rows[i].Delete();
+                            //修改狀態下由F0套件改成18位編號走貨，需要將資料表st_transfer_detail_part中的舊值刪除
+                            sql_f = string.Format(
+                            @"SELECT '1' FROM st_transfer_detail_part Where within_code='0000' And id='{0}' And upper_sequence='{1}' And sequence_id='{2}'",
+                            dr["id"], dr["upper_sequence"], dr["sequence_id"]);
+                            if(clsConErp.ExecuteSqlReturnObject(sql_f) !="")
+                            {
+                                drDel = dtTempDel2.NewRow();
+                                drDel["id"] = dr["id"];
+                                drDel["upper_sequence"] = dr["upper_sequence"];
+                                drDel["sequence_id"] = dr["sequence_id"];
+                                dtTempDel2.Rows.Add(drDel);
+                            }
                         }
+                        dtsTrans.Tables["dtD2"].Rows.Remove(dr);
                     }
                 }
                 temp_mo_id = mo_id;
@@ -1033,12 +1049,6 @@ namespace cf01.Forms
             return dupFlag; 
         }
 
-        private void BatchAddItem(DataSet dts) 
-        {
-            //批量從裝箱資料選擇中添加數據            
-        }
-
-
         //東莞D送貨單查詢 ==============BEGIN==============
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -1056,41 +1066,15 @@ namespace cf01.Forms
                 Cancel();
                 tabControl1.SelectTab(1);
             }
-            if (txtDat1.Text == "" && txtDat2.Text == ""&&txtbill_type_no1.Text==""&&txtbill_type_no2.Text==""&&txtId1.Text==""
-                &&txtId2.Text==""&&txtMo_id1.Text ==""&&txtMo_id2.Text==""&& txtGroupNo1.Text =="")
+            if (txtDat1.Text =="" && txtDat2.Text =="" && txtbill_type_no1.Text =="" && txtbill_type_no2.Text =="" && txtId1.Text =="" &&
+                txtId2.Text =="" && txtMo_id1.Text =="" && txtMo_id2.Text =="" && txtGroupNo1.Text =="")
             {
                 MessageBox.Show("查詢條件不可以為空!", "提示信息");
                 return;
             }
-            string sql =
-            @"Select A.id,Convert(nvarchar(10),transfer_date,111) As transfer_date,A.bill_type_no,A.group_no,
-            B.sequence_id,B.mo_id,B.goods_id,C.name As goods_name,B.transfer_amount,B.unit,B.sec_qty,B.sec_unit
-            FROM st_transfer_mostly A with(nolock),st_transfer_detail B with(nolock),it_goods C
-            WHERE A.within_code=B.within_code And A.id=B.id And B.within_code=C.within_code And B.goods_id=C.id And
-            A.within_code='0000'";
-            if (txtId1.Text != "")
-                sql += string.Format(" AND A.id>='{0}'", txtId1.Text);
-            if (txtId2.Text != "")
-                sql += string.Format(" AND A.id<='{0}'", txtId2.Text);
-            if (txtDat1.Text != "")
-                sql += string.Format(" AND A.transfer_date>='{0}'", txtDat1.Text);
-            if (txtDat2.Text != "")
-                sql += string.Format(" AND A.transfer_date<='{0}'", txtDat2.Text);
-            if (txtbill_type_no1.Text != "")
-                sql += string.Format(" AND A.bill_type_no>='{0}'", txtbill_type_no1.Text);
-            if (txtbill_type_no2.Text != "")
-                sql += string.Format(" AND A.bill_type_no<='{0}'", txtbill_type_no2.Text);
-            if (txtGroupNo1.Text != "")
-                sql += string.Format(" AND A.group_no='{0}'", txtGroupNo1.Text);
-            sql += " and A.state = '0'";
-            if (txtMo_id1.Text != "")
-                sql += string.Format(" AND B.mo_id>='{0}'", txtMo_id1.Text);
-            if (txtMo_id2.Text != "")
-                sql += string.Format(" AND B.mo_id<='{0}'", txtMo_id2.Text);            
-            sql += " ORDER BY A.id,B.sequence_id";
-            dtFind_Date = clsConErp.GetDataTable(sql);
-            dgvFind.DataSource = dtFind_Date;
-            if (dtFind_Date.Rows.Count == 0)
+           // dtFindDate = clsTransferout.FindData(txtId1.Text, txtId2.Text, txtDat1.Text, txtDat2.Text, txtbill_type_no1.Text, txtbill_type_no2.Text, txtGroupNo1.Text, txtMo_id1.Text, txtMo_id2.Text);            
+            dgvFind.DataSource = dtFindDate;
+            if (dtFindDate.Rows.Count == 0)
             {
                 MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -1143,8 +1127,9 @@ namespace cf01.Forms
         //手寫單頁面代碼 =============BEGIN =============
         private void btnQuery_Click(object sender, EventArgs e)
         {
-            string dat1 = "";
-            string dat2 = "";
+            
+            string dat1 = "", dat2 = "",flagDgd="0";
+            flagDgd = (chkDgd.Checked) ? "1" : "0";
             if (dtUpdateTime1.Text != "")
             {
                 dat1 = Convert.ToDateTime(dtUpdateTime1.EditValue.ToString()).Date.ToString("yyyy-MM-dd");
@@ -1152,13 +1137,23 @@ namespace cf01.Forms
             if (dtUpdateTime2.Text !="")
             {
                  dat2 = Convert.ToDateTime(dtUpdateTime2.EditValue.ToString()).Date.AddDays(1).ToString("yyyy-MM-dd");
-            }            
-            DataTable dtIdFind = clsTransferout.GetPackingData(txtFindGroupNo.Text.Trim(), txtFindMoId.Text.Trim(), dat1, dat2);
+            }
+            //是示查詢進度
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            DataTable dtIdFind = clsTransferout.GetPackingData(txtFindGroupNo.Text.Trim(), txtFindMoId.Text.Trim(), dat1, dat2, flagDgd);
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
             gcIdDetails.DataSource = dtIdFind;
             if (dtIdFind.Rows.Count == 0)
             {
                 MessageBox.Show("沒有符合查找條件的記錄!", "提示信息");
             }
+            
         }
         private void btnImput_Click(object sender, EventArgs e)
         {
@@ -1386,6 +1381,12 @@ namespace cf01.Forms
         {
             if (mState != "")
             {
+                //如用戶更改表格1的數量，同步更改表格2的數量及重量
+                TextEdit te = (TextEdit)sender;
+                if (string.IsNullOrEmpty(te.Text))
+                {
+                    dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "transfer_amount", "0.00");
+                }
                 decimal transferAmount= decimal.Parse(dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "transfer_amount").ToString());
                 if (transferAmount <= 0)
                 {
@@ -1428,7 +1429,102 @@ namespace cf01.Forms
             txtId2.Text = txtId1.Text;
         }
 
+        private void BTNAPPROVE_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void clSec_qty_Click(object sender, EventArgs e)
+        {
+            SetWegCursorPosition(sender);
+        }
+
+        private void clSecQty_Click(object sender, EventArgs e)
+        {
+            SetWegCursorPosition(sender);
+        }
+
+        private void SetWegCursorPosition(object obj)
+        {
+            if (mState != "")
+            {
+                TextEdit ts = (TextEdit)obj;
+                if (ts.Text == "0.00")
+                {
+                    ts.Select(1, 0);
+                }
+            }
+        }
+
+        private void BTNCHECKST_Click(object sender, EventArgs e)
+        {
+            if (mState == "" && lkeSate.EditValue.ToString() == "0")
+            {
+                if(dtsTrans.Tables["dtD1"].Rows.Count==0)
+                {
+                    return;
+                }                
+                DataRow[] aryDrws = dtsTrans.Tables["dtD1"].Select("location_id='601'");
+                if (aryDrws.Length > 0)
+                {
+                    this.CheckStockQty(aryDrws, "1");
+                }
+                aryDrws = null;
+                aryDrws = dtsTrans.Tables["dtD2"].Select("location='601' and (con_qty>inventory_qty or sec_qty>inventory_sec_qty)");
+                if (aryDrws.Length > 0)
+                {
+                    this.CheckStockQty(aryDrws, "2");
+                }                           
+                //庫存調整
+                if (dtStockAdj.Rows.Count > 0)
+                {
+                    using (frmTransferoutAdj ofrm = new frmTransferoutAdj(dtStockAdj))
+                    {
+                        ofrm.ShowDialog();
+                        if (ofrm.flag_adj)
+                        {
+                            //刷新數據
+                            FindDoc(txtID.Text);
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        private void CheckStockQty(DataRow[] aryDrws,string type)
+        {
+            //庫存不足
+            string sequenceId = "", locationId = "", moId = "", goodsId = "", strLotNo = "";
+            decimal stQty = 0, stSecQty = 0, conQty = 0, secQty = 0, adjQty = 0, adjSecQty = 0;
+            foreach (var dr in aryDrws)
+            {
+                sequenceId = (type == "1") ? dr["sequence_id"].ToString() : dr["upper_sequence"].ToString();
+                locationId = (type == "1") ? dr["location_id"].ToString() : dr["location"].ToString();
+                conQty = (type == "1") ? decimal.Parse(dr["transfer_amount"].ToString()) : decimal.Parse(dr["con_qty"].ToString());
+                moId = dr["mo_id"].ToString();
+                goodsId = dr["goods_id"].ToString();
+                strLotNo = dr["lot_no"].ToString();
+                stQty = decimal.Parse(dr["inventory_qty"].ToString());
+                stSecQty = decimal.Parse(dr["inventory_sec_qty"].ToString());                
+                secQty = decimal.Parse(dr["sec_qty"].ToString());
+                if (stQty < conQty || stSecQty < secQty)
+                {
+                    adjQty = (stQty < conQty) ? (conQty - stQty) : 0;
+                    adjSecQty = (stSecQty < secQty) ? (secQty - stSecQty) : 0;
+                    DataRow drw = dtStockAdj.NewRow();
+                    drw["sequence_id"] = sequenceId;
+                    drw["location_id"] = locationId;
+                    drw["mo_id"] = moId;
+                    drw["goods_id"] = goodsId;
+                    drw["lot_no"] = strLotNo;
+                    drw["adj_qty"] = adjQty;
+                    drw["adj_sec_qty"] = adjSecQty;
+                    dtStockAdj.Rows.Add(drw);
+                }
+            }
+            
+        }
 
 
 

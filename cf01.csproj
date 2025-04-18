@@ -291,6 +291,7 @@
     <Compile Include="CLS\clsRoleManage.cs" />
     <Compile Include="CLS\clsBs_Sale.cs" />
     <Compile Include="CLS\clsSales_group.cs" />
+    <Compile Include="CLS\clsSameColorControl.cs" />
     <Compile Include="CLS\clsShowProductionPlan.cs" />
     <Compile Include="CLS\clsStoreIssue.cs" />
     <Compile Include="CLS\clsStTransferToHk.cs" />
@@ -309,6 +310,24 @@
     <Compile Include="CLS\clsZipperOrder.cs" />
     <Compile Include="CLS\ExpToExcel.cs" />
     <Compile Include="DBUtility.cs" />
+    <Compile Include="Forms\frmColorControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmColorControl.designer.cs">
+      <DependentUpon>frmColorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmColorControlAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmColorControlAdd.designer.cs">
+      <DependentUpon>frmColorControlAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTransferoutAdj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTransferoutAdj.designer.cs">
+      <DependentUpon>frmTransferoutAdj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmTransferoutItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2954,6 +2973,15 @@
     <Compile Include="Reports\XtraReport1.designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmColorControl.resx">
+      <DependentUpon>frmColorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmColorControlAdd.resx">
+      <DependentUpon>frmColorControlAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTransferoutAdj.resx">
+      <DependentUpon>frmTransferoutAdj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTransferoutItem.resx">
       <DependentUpon>frmTransferoutItem.cs</DependentUpon>
     </EmbeddedResource>
