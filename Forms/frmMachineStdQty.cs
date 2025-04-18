@@ -12,6 +12,11 @@ namespace cf01.Forms
 {
     public partial class frmMachineStdQty : Form
     {
+        public static string prd_machine="";
+        public static decimal machine_std_run_num = 0;
+        public static decimal machine_std_line_num = 0;
+        public static decimal machine_std_qty = 0;
+        private DataTable dtPrd_dept;
         string strWhere = "";
         string lang_id = DBUtility._language;
         string user_id = DBUtility._user_id;
@@ -42,16 +47,11 @@ namespace cf01.Forms
         {
             count_std_qty();
         }
-
-        private void BTNFIND_Click(object sender, EventArgs e)
-        {
-            strWhere = " WHERE a.dep like '%" + txtFindDep.Text.Trim() + "%'" + " and a.machine_id like '%" + txtFindMachine.Text.Trim() + "%'";
-            this.BindDataGridView(strWhere);
-        }
         private void BindDataGridView(string strWhere)
         {
             string strSql = null;
-
+            if (txtDepGroup.Text.Trim() == "JX")
+                pad_db = "lnsql1.dgcf_pad.dbo.";
             strSql = "SELECT a.dep,a.machine_id,a.machine_mul,a.machine_rate,a.machine_std_qty";
             strSql += " FROM " + pad_db + "machine_std a " + strWhere;
             strSql += " ORDER BY a.dep,a.machine_id";
@@ -61,7 +61,7 @@ namespace cf01.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "软件提示");
+                MessageBox.Show(ex.Message, "系統信息");
                 throw ex;
             }
             if (dgvDetails.RowCount > 0)
@@ -69,14 +69,7 @@ namespace cf01.Forms
                 FillControls();
             }
         }
-        private void FillControls()
-        {
-            this.txtDep.Text = this.dgvDetails[0, this.dgvDetails.CurrentCell.RowIndex].Value.ToString().Trim();
-            this.txtMachine.Text = this.dgvDetails[1, this.dgvDetails.CurrentCell.RowIndex].Value.ToString().Trim();
-            this.txtLineNo.Text = this.dgvDetails[2, this.dgvDetails.CurrentCell.RowIndex].Value.ToString().Trim();
-            this.txtRunNo.Text = this.dgvDetails[3, this.dgvDetails.CurrentCell.RowIndex].Value.ToString().Trim();
-            this.txtStdQty.Text = this.dgvDetails[4, this.dgvDetails.CurrentCell.RowIndex].Value.ToString().Trim();
-        }
+        
 
         private void dgvDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -85,9 +78,20 @@ namespace cf01.Forms
                 FillControls();
             }
         }
-
+        private void FillControls()
+        {
+            int rowIndex = dgvDetails.CurrentRow.Index;
+            this.cmbFindDep.SelectedValue = dgvDetails.Rows[rowIndex].Cells["colDep"].Value.ToString();
+            this.txtMachine.Text = dgvDetails.Rows[rowIndex].Cells["colPrdMachine"].Value.ToString();
+            this.txtLineNo.Text = dgvDetails.Rows[rowIndex].Cells["colLineNo"].Value.ToString();
+            this.txtRunNo.Text = dgvDetails.Rows[rowIndex].Cells["colRunQty"].Value.ToString();
+            this.txtStdQty.Text = dgvDetails.Rows[rowIndex].Cells["colStdQty"].Value.ToString();
+        }
         private void BTNSAVE_Click(object sender, EventArgs e)
         {
+            txtDepGroup.Focus();
+            if (txtDepGroup.Text.Trim() == "JX")
+                pad_db = "lnsql1.dgcf_pad.dbo.";
             string strCode = "";
             if (chk_data() == false)
                 return;
@@ -101,7 +105,7 @@ namespace cf01.Forms
                 if (commUse.ExecDataBySql(strCode) > 0)
                 {
                     MessageBox.Show("儲存成功！", "系統信息");
-                    strWhere = " WHERE a.dep = " + "'" + txtDep.Text.Trim() + "'" + " and a.machine_id = " + "'" + txtMachine.Text.Trim() + "'";
+                    strWhere = " WHERE a.dep = " + "'" + cmbFindDep.SelectedValue.ToString().Trim() + "'" + " and a.machine_id = " + "'" + txtMachine.Text.Trim() + "'";
                     this.BindDataGridView(strWhere);
                 }
                 else
@@ -118,7 +122,7 @@ namespace cf01.Forms
         private void ParametersAddValue()
         {
             commUse.Cmd.Parameters.Clear();
-            commUse.Cmd.Parameters.AddWithValue("@dep", txtDep.Text.Trim());
+            commUse.Cmd.Parameters.AddWithValue("@dep", cmbFindDep.SelectedValue.ToString().Trim());
             commUse.Cmd.Parameters.AddWithValue("@machine_id", txtMachine.Text.Trim());
             commUse.Cmd.Parameters.AddWithValue("@machine_mul", Convert.ToInt32(txtLineNo.Text));
             commUse.Cmd.Parameters.AddWithValue("@machine_rate", Convert.ToInt32(txtRunNo.Text));
@@ -150,8 +154,54 @@ namespace cf01.Forms
 
         private void frmMachineStdQty_Load(object sender, EventArgs e)
         {
-            Font a = new Font("GB2312", 14);//GB2312为字体名称，1为字体大小dataGridView1.Font = a;
-            dgvDetails.Font = a;
+            dgvDetails.AutoGenerateColumns = false;
+            InitControlers();
+            if (frmMoSchedule.sendDep != "")
+            {
+                cmbFindDep.SelectedValue = frmMoSchedule.sendDep;
+                txtMachine.Text = frmMoSchedule.sendMachine;
+                GetDepGroup();
+                FindData();
+            }
+        }
+        private void InitControlers()
+        {
+            dtPrd_dept = clsBaseData.loadPrdDep();
+            cmbFindDep.DataSource = dtPrd_dept;
+            cmbFindDep.DisplayMember = "dep_cdesc";
+            cmbFindDep.ValueMember = "dep_id";
+
+        }
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            txtDepGroup.Focus();
+            FindData();
+        }
+        private void FindData()
+        {
+            strWhere = " WHERE a.dep like '%" + cmbFindDep.SelectedValue.ToString().Trim() + "%'"
+                + " and a.machine_id like '%" + txtMachine.Text.Trim() + "%'";
+            this.BindDataGridView(strWhere);
+        }
+        private void dgvDetails_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dgvDetails.CurrentRow.Index;
+            prd_machine= dgvDetails.Rows[dgvDetails.CurrentRow.Index].Cells["colPrdMachine"].Value.ToString();
+            machine_std_run_num = clsValidRule.ConvertStrToDecimal(dgvDetails.Rows[dgvDetails.CurrentRow.Index].Cells["colRunQty"].Value.ToString());
+            machine_std_line_num = clsValidRule.ConvertStrToDecimal(dgvDetails.Rows[dgvDetails.CurrentRow.Index].Cells["colLineNo"].Value.ToString());
+            machine_std_qty = clsValidRule.ConvertStrToDecimal(dgvDetails.Rows[dgvDetails.CurrentRow.Index].Cells["colStdQty"].Value.ToString());
+            
+            this.Close();
+        }
+
+        private void cmbFindDep_Leave(object sender, EventArgs e)
+        {
+            GetDepGroup();
+        }
+        private void GetDepGroup()
+        {
+            DataRow[] drDep = dtPrd_dept.Select("dep_id='" + cmbFindDep.SelectedValue.ToString().Trim() + "'");
+            txtDepGroup.Text = drDep[0]["dep_group"].ToString().Trim();
         }
     }
 }

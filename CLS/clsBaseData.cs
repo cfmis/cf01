@@ -41,6 +41,27 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }
+        //生產部門
+        public static DataTable loadPrdDep()
+        {
+            string strSql = "Select a.dep_id,rtrim(a.dep_id)+'-'+rtrim(a.dep_cdesc) AS dep_cdesc,dep_group" +
+                " From bs_dep a" +
+                " Where is_prd='1'" +
+                " Order By a.dep_id";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+        //
+
+        public static DataTable loadDocFlag(string doc_type)
+        {
+            string strSql = "Select flag_id,flag_desc,flag_cdesc" +
+                " From bs_flag_desc" +
+                " Where doc_type='" + doc_type + "'" +
+                " Order By flag_id";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
         public static DataTable LoadSpecDep(string fromDep,string toDep)
         {
             string strSql = "Select a.dep_id,a.dep_cdesc" +

@@ -30,7 +30,7 @@
         {
             this.gcCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.txtMo_id_v = new System.Windows.Forms.TextBox();
             this.lblMo_id_v = new System.Windows.Forms.Label();
@@ -77,52 +77,20 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.picBox = new System.Windows.Forms.PictureBox();
-            this.txtFlag = new System.Windows.Forms.TextBox();
-            this.txtHold = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtGoods_name = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtGoods_id = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtObligate_qty = new System.Windows.Forms.TextBox();
-            this.txtF_complete_date = new System.Windows.Forms.TextBox();
-            this.txtComplete_qty = new System.Windows.Forms.TextBox();
-            this.txtPre_dept = new System.Windows.Forms.TextBox();
-            this.txtComplete_sec_qty = new System.Windows.Forms.TextBox();
-            this.txtProd_qty = new System.Windows.Forms.TextBox();
-            this.lblF_complete_date = new System.Windows.Forms.Label();
-            this.txtS_qty = new System.Windows.Forms.TextBox();
-            this.lblComplete_qty = new System.Windows.Forms.Label();
-            this.lblPre_dept = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblComplete_sec_qty = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblS_qty = new System.Windows.Forms.Label();
-            this.txtNext_wp_dept = new System.Windows.Forms.TextBox();
-            this.lblNext_wp_dept = new System.Windows.Forms.Label();
-            this.txtWp_dept = new System.Windows.Forms.TextBox();
-            this.lblWp_dept = new System.Windows.Forms.Label();
-            this.txtProd_state = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gvDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Checkboxcell = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gvCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.Flag_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Prd_state = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Hold = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Flag_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Wp_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Next_dept_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Prd_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Complete_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Complete_weg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Change_next_dept_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Next_dept_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Order_qty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Complete_weg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Do_color = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Color_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Should_qty = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -133,30 +101,17 @@
             this.Pre_dept_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Vendor_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Vender_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dgvPlanDetails = new System.Windows.Forms.DataGridView();
-            this.checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colProd_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHold = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGoods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGoods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNext_wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProd_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colC_qty_ok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colC_sec_qty_ok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colF_complete_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOrder_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDo_color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColor_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colS_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObligate_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPre_dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPredept_rechange_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPredept_rechange_sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPredept_rechange_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVendor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVendor_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Checkboxcell = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gvCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gclScheduleSeq = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclScheduleDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPmcRqDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclDepRpDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPrdDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclWorkTyeDesc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPrdQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPrdMachine = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclSchMachine = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -176,20 +131,18 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gclWfDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclWfQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclIrDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclIrQty = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcCheck)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // gcCheck
@@ -199,39 +152,37 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnPrint);
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btnFind);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.txtMo_id_v);
             this.panel1.Controls.Add(this.lblMo_id_v);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 73);
+            this.panel1.Size = new System.Drawing.Size(1150, 97);
             this.panel1.TabIndex = 0;
             // 
-            // btnPrint
+            // btnFind
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnPrint.ForeColor = System.Drawing.Color.Black;
-            this.btnPrint.Location = new System.Drawing.Point(431, 11);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(109, 41);
-            this.btnPrint.TabIndex = 3;
-            this.btnPrint.Text = "打印";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnFind.Location = new System.Drawing.Point(112, 3);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(100, 35);
+            this.btnFind.TabIndex = 3;
+            this.btnFind.Text = "查找(&F)";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Font = new System.Drawing.Font("新細明體", 9F);
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnExit.Location = new System.Drawing.Point(587, 11);
+            this.btnExit.Location = new System.Drawing.Point(7, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(103, 40);
+            this.btnExit.Size = new System.Drawing.Size(100, 35);
             this.btnExit.TabIndex = 2;
-            this.btnExit.Text = "退出";
+            this.btnExit.Text = "退出(&X)";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -239,10 +190,10 @@
             // 
             this.txtMo_id_v.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMo_id_v.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMo_id_v.Location = new System.Drawing.Point(90, 21);
+            this.txtMo_id_v.Location = new System.Drawing.Point(90, 64);
             this.txtMo_id_v.MaxLength = 9;
             this.txtMo_id_v.Name = "txtMo_id_v";
-            this.txtMo_id_v.Size = new System.Drawing.Size(248, 23);
+            this.txtMo_id_v.Size = new System.Drawing.Size(147, 23);
             this.txtMo_id_v.TabIndex = 1;
             this.txtMo_id_v.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMo_id_v_KeyDown);
             // 
@@ -250,7 +201,7 @@
             // 
             this.lblMo_id_v.AutoSize = true;
             this.lblMo_id_v.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMo_id_v.Location = new System.Drawing.Point(18, 21);
+            this.lblMo_id_v.Location = new System.Drawing.Point(18, 64);
             this.lblMo_id_v.Name = "lblMo_id_v";
             this.lblMo_id_v.Size = new System.Drawing.Size(68, 17);
             this.lblMo_id_v.TabIndex = 0;
@@ -262,15 +213,15 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 73);
+            this.tabControl1.Location = new System.Drawing.Point(0, 97);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(889, 809);
+            this.tabControl1.Size = new System.Drawing.Size(1150, 526);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.OldLace;
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.txtCreate_date);
             this.tabPage1.Controls.Add(this.txtMo_id);
             this.tabPage1.Controls.Add(this.lblMo_id);
@@ -315,7 +266,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(881, 780);
+            this.tabPage1.Size = new System.Drawing.Size(1142, 497);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "生產主表";
             // 
@@ -677,337 +628,26 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.splitContainer1);
+            this.tabPage2.Controls.Add(this.gridControl1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(881, 780);
+            this.tabPage2.Size = new System.Drawing.Size(1142, 497);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "生產明細表";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.OldLace;
-            this.splitContainer1.Panel1.Controls.Add(this.picBox);
-            this.splitContainer1.Panel1.Controls.Add(this.txtFlag);
-            this.splitContainer1.Panel1.Controls.Add(this.txtHold);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.txtGoods_name);
-            this.splitContainer1.Panel1.Controls.Add(this.label5);
-            this.splitContainer1.Panel1.Controls.Add(this.txtGoods_id);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.txtObligate_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.txtF_complete_date);
-            this.splitContainer1.Panel1.Controls.Add(this.txtComplete_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.txtPre_dept);
-            this.splitContainer1.Panel1.Controls.Add(this.txtComplete_sec_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.txtProd_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.lblF_complete_date);
-            this.splitContainer1.Panel1.Controls.Add(this.txtS_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.lblComplete_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.lblPre_dept);
-            this.splitContainer1.Panel1.Controls.Add(this.label8);
-            this.splitContainer1.Panel1.Controls.Add(this.lblComplete_sec_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.label7);
-            this.splitContainer1.Panel1.Controls.Add(this.lblS_qty);
-            this.splitContainer1.Panel1.Controls.Add(this.txtNext_wp_dept);
-            this.splitContainer1.Panel1.Controls.Add(this.lblNext_wp_dept);
-            this.splitContainer1.Panel1.Controls.Add(this.txtWp_dept);
-            this.splitContainer1.Panel1.Controls.Add(this.lblWp_dept);
-            this.splitContainer1.Panel1.Controls.Add(this.txtProd_state);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.RoyalBlue;
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.gridControl1);
-            this.splitContainer1.Panel2.Controls.Add(this.dgvPlanDetails);
-            this.splitContainer1.Size = new System.Drawing.Size(875, 774);
-            this.splitContainer1.SplitterDistance = 220;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // picBox
-            // 
-            this.picBox.Location = new System.Drawing.Point(589, 9);
-            this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(150, 132);
-            this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox.TabIndex = 3;
-            this.picBox.TabStop = false;
-            // 
-            // txtFlag
-            // 
-            this.txtFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtFlag.Location = new System.Drawing.Point(265, 197);
-            this.txtFlag.Name = "txtFlag";
-            this.txtFlag.Size = new System.Drawing.Size(104, 23);
-            this.txtFlag.TabIndex = 1;
-            // 
-            // txtHold
-            // 
-            this.txtHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtHold.Location = new System.Drawing.Point(444, 197);
-            this.txtHold.Name = "txtHold";
-            this.txtHold.Size = new System.Drawing.Size(113, 23);
-            this.txtHold.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(223, 200);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "序號";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(387, 200);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Hold貨";
-            // 
-            // txtGoods_name
-            // 
-            this.txtGoods_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtGoods_name.Location = new System.Drawing.Point(83, 78);
-            this.txtGoods_name.Name = "txtGoods_name";
-            this.txtGoods_name.Size = new System.Drawing.Size(463, 23);
-            this.txtGoods_name.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(13, 81);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 17);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "貨品名稱";
-            // 
-            // txtGoods_id
-            // 
-            this.txtGoods_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtGoods_id.Location = new System.Drawing.Point(83, 43);
-            this.txtGoods_id.Name = "txtGoods_id";
-            this.txtGoods_id.Size = new System.Drawing.Size(369, 23);
-            this.txtGoods_id.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(13, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "貨品編碼";
-            // 
-            // txtObligate_qty
-            // 
-            this.txtObligate_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtObligate_qty.Location = new System.Drawing.Point(444, 116);
-            this.txtObligate_qty.Name = "txtObligate_qty";
-            this.txtObligate_qty.Size = new System.Drawing.Size(102, 23);
-            this.txtObligate_qty.TabIndex = 1;
-            // 
-            // txtF_complete_date
-            // 
-            this.txtF_complete_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtF_complete_date.Location = new System.Drawing.Point(486, 158);
-            this.txtF_complete_date.Name = "txtF_complete_date";
-            this.txtF_complete_date.Size = new System.Drawing.Size(253, 23);
-            this.txtF_complete_date.TabIndex = 1;
-            // 
-            // txtComplete_qty
-            // 
-            this.txtComplete_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtComplete_qty.Location = new System.Drawing.Point(83, 159);
-            this.txtComplete_qty.Name = "txtComplete_qty";
-            this.txtComplete_qty.Size = new System.Drawing.Size(102, 23);
-            this.txtComplete_qty.TabIndex = 1;
-            // 
-            // txtPre_dept
-            // 
-            this.txtPre_dept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPre_dept.Location = new System.Drawing.Point(83, 197);
-            this.txtPre_dept.Name = "txtPre_dept";
-            this.txtPre_dept.Size = new System.Drawing.Size(107, 23);
-            this.txtPre_dept.TabIndex = 1;
-            // 
-            // txtComplete_sec_qty
-            // 
-            this.txtComplete_sec_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtComplete_sec_qty.Location = new System.Drawing.Point(265, 158);
-            this.txtComplete_sec_qty.Name = "txtComplete_sec_qty";
-            this.txtComplete_sec_qty.Size = new System.Drawing.Size(102, 23);
-            this.txtComplete_sec_qty.TabIndex = 1;
-            // 
-            // txtProd_qty
-            // 
-            this.txtProd_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtProd_qty.Location = new System.Drawing.Point(265, 116);
-            this.txtProd_qty.Name = "txtProd_qty";
-            this.txtProd_qty.Size = new System.Drawing.Size(102, 23);
-            this.txtProd_qty.TabIndex = 1;
-            // 
-            // lblF_complete_date
-            // 
-            this.lblF_complete_date.AutoSize = true;
-            this.lblF_complete_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblF_complete_date.Location = new System.Drawing.Point(374, 161);
-            this.lblF_complete_date.Name = "lblF_complete_date";
-            this.lblF_complete_date.Size = new System.Drawing.Size(106, 17);
-            this.lblF_complete_date.TabIndex = 0;
-            this.lblF_complete_date.Text = "移交下部門日期";
-            // 
-            // txtS_qty
-            // 
-            this.txtS_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtS_qty.Location = new System.Drawing.Point(83, 116);
-            this.txtS_qty.Name = "txtS_qty";
-            this.txtS_qty.Size = new System.Drawing.Size(102, 23);
-            this.txtS_qty.TabIndex = 1;
-            // 
-            // lblComplete_qty
-            // 
-            this.lblComplete_qty.AutoSize = true;
-            this.lblComplete_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblComplete_qty.Location = new System.Drawing.Point(13, 162);
-            this.lblComplete_qty.Name = "lblComplete_qty";
-            this.lblComplete_qty.Size = new System.Drawing.Size(64, 17);
-            this.lblComplete_qty.TabIndex = 0;
-            this.lblComplete_qty.Text = "完成數量";
-            // 
-            // lblPre_dept
-            // 
-            this.lblPre_dept.AutoSize = true;
-            this.lblPre_dept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPre_dept.Location = new System.Drawing.Point(27, 200);
-            this.lblPre_dept.Name = "lblPre_dept";
-            this.lblPre_dept.Size = new System.Drawing.Size(50, 17);
-            this.lblPre_dept.TabIndex = 0;
-            this.lblPre_dept.Text = "上部門";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(374, 119);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "預留數量";
-            // 
-            // lblComplete_sec_qty
-            // 
-            this.lblComplete_sec_qty.AutoSize = true;
-            this.lblComplete_sec_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblComplete_sec_qty.Location = new System.Drawing.Point(195, 162);
-            this.lblComplete_sec_qty.Name = "lblComplete_sec_qty";
-            this.lblComplete_sec_qty.Size = new System.Drawing.Size(64, 17);
-            this.lblComplete_sec_qty.TabIndex = 0;
-            this.lblComplete_sec_qty.Text = "完成重量";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(195, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "生產數量";
-            // 
-            // lblS_qty
-            // 
-            this.lblS_qty.AutoSize = true;
-            this.lblS_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblS_qty.Location = new System.Drawing.Point(13, 119);
-            this.lblS_qty.Name = "lblS_qty";
-            this.lblS_qty.Size = new System.Drawing.Size(64, 17);
-            this.lblS_qty.TabIndex = 0;
-            this.lblS_qty.Text = "應生產數";
-            // 
-            // txtNext_wp_dept
-            // 
-            this.txtNext_wp_dept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtNext_wp_dept.Location = new System.Drawing.Point(302, 7);
-            this.txtNext_wp_dept.Name = "txtNext_wp_dept";
-            this.txtNext_wp_dept.Size = new System.Drawing.Size(150, 23);
-            this.txtNext_wp_dept.TabIndex = 1;
-            // 
-            // lblNext_wp_dept
-            // 
-            this.lblNext_wp_dept.AutoSize = true;
-            this.lblNext_wp_dept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblNext_wp_dept.Location = new System.Drawing.Point(232, 10);
-            this.lblNext_wp_dept.Name = "lblNext_wp_dept";
-            this.lblNext_wp_dept.Size = new System.Drawing.Size(64, 17);
-            this.lblNext_wp_dept.TabIndex = 0;
-            this.lblNext_wp_dept.Text = "下一部門";
-            // 
-            // txtWp_dept
-            // 
-            this.txtWp_dept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtWp_dept.Location = new System.Drawing.Point(83, 7);
-            this.txtWp_dept.Name = "txtWp_dept";
-            this.txtWp_dept.Size = new System.Drawing.Size(123, 23);
-            this.txtWp_dept.TabIndex = 1;
-            // 
-            // lblWp_dept
-            // 
-            this.lblWp_dept.AutoSize = true;
-            this.lblWp_dept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblWp_dept.Location = new System.Drawing.Point(13, 10);
-            this.lblWp_dept.Name = "lblWp_dept";
-            this.lblWp_dept.Size = new System.Drawing.Size(64, 17);
-            this.lblWp_dept.TabIndex = 0;
-            this.lblWp_dept.Text = "負責部門";
-            // 
-            // txtProd_state
-            // 
-            this.txtProd_state.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtProd_state.Location = new System.Drawing.Point(639, 197);
-            this.txtProd_state.Name = "txtProd_state";
-            this.txtProd_state.Size = new System.Drawing.Size(100, 23);
-            this.txtProd_state.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(569, 200);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "生產狀態";
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl1.MainView = this.gvDetails;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.gvCheck});
-            this.gridControl1.Size = new System.Drawing.Size(875, 550);
+            this.gridControl1.Size = new System.Drawing.Size(1136, 491);
             this.gridControl1.TabIndex = 26;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetails});
@@ -1032,21 +672,20 @@
             this.gvDetails.AppearancePrint.Row.Options.UseTextOptions = true;
             this.gvDetails.AppearancePrint.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gvDetails.AppearancePrint.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gvDetails.ColumnPanelRowHeight = 20;
+            this.gvDetails.ColumnPanelRowHeight = 30;
             this.gvDetails.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Checkboxcell,
+            this.Flag_id,
             this.Prd_state,
             this.Hold,
-            this.Flag_id,
             this.Goods_id,
             this.Goods_name,
             this.Wp_id,
-            this.Next_dept_id,
             this.Prd_qty,
             this.Complete_qty,
-            this.Complete_weg,
             this.Change_next_dept_date,
+            this.Next_dept_id,
             this.Order_qty,
+            this.Complete_weg,
             this.Do_color,
             this.Color_qty,
             this.Should_qty,
@@ -1056,10 +695,25 @@
             this.Pre_dept_weg,
             this.Pre_dept_date,
             this.Vendor_id,
-            this.Vender_name});
+            this.Vender_name,
+            this.Checkboxcell,
+            this.gclScheduleSeq,
+            this.gclScheduleDate,
+            this.gclPmcRqDate,
+            this.gclDepRpDate,
+            this.gclPrdDate,
+            this.gclWorkTyeDesc,
+            this.gclPrdQty,
+            this.gclPrdMachine,
+            this.gclSchMachine,
+            this.gclWfDate,
+            this.gclWfQty,
+            this.gclIrDate,
+            this.gclIrQty});
             this.gvDetails.FooterPanelHeight = 50;
             this.gvDetails.GridControl = this.gridControl1;
             this.gvDetails.Name = "gvDetails";
+            this.gvDetails.OptionsBehavior.ReadOnly = true;
             this.gvDetails.OptionsSelection.MultiSelect = true;
             this.gvDetails.OptionsView.AllowHtmlDrawHeaders = true;
             this.gvDetails.OptionsView.ColumnAutoWidth = false;
@@ -1068,24 +722,16 @@
             this.gvDetails.RowHeight = 25;
             this.gvDetails.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvDetails_SelectionChanged);
             // 
-            // Checkboxcell
+            // Flag_id
             // 
-            this.Checkboxcell.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 16F);
-            this.Checkboxcell.AppearanceCell.Options.UseFont = true;
-            this.Checkboxcell.Caption = "選取";
-            this.Checkboxcell.ColumnEdit = this.gvCheck;
-            this.Checkboxcell.FieldName = "check_value";
-            this.Checkboxcell.MaxWidth = 120;
-            this.Checkboxcell.Name = "Checkboxcell";
-            this.Checkboxcell.Visible = true;
-            this.Checkboxcell.VisibleIndex = 0;
-            this.Checkboxcell.Width = 80;
-            // 
-            // gvCheck
-            // 
-            this.gvCheck.AutoHeight = false;
-            this.gvCheck.Name = "gvCheck";
-            this.gvCheck.Click += new System.EventHandler(this.gvCheck_Click);
+            this.Flag_id.Caption = "序號";
+            this.Flag_id.FieldName = "flag";
+            this.Flag_id.Name = "Flag_id";
+            this.Flag_id.OptionsColumn.AllowEdit = false;
+            this.Flag_id.OptionsColumn.ReadOnly = true;
+            this.Flag_id.Visible = true;
+            this.Flag_id.VisibleIndex = 0;
+            this.Flag_id.Width = 60;
             // 
             // Prd_state
             // 
@@ -1119,17 +765,6 @@
             this.Hold.VisibleIndex = 2;
             this.Hold.Width = 60;
             // 
-            // Flag_id
-            // 
-            this.Flag_id.Caption = "序號";
-            this.Flag_id.FieldName = "flag";
-            this.Flag_id.Name = "Flag_id";
-            this.Flag_id.OptionsColumn.AllowEdit = false;
-            this.Flag_id.OptionsColumn.ReadOnly = true;
-            this.Flag_id.Visible = true;
-            this.Flag_id.VisibleIndex = 3;
-            this.Flag_id.Width = 60;
-            // 
             // Goods_id
             // 
             this.Goods_id.Caption = "貨品編號";
@@ -1138,8 +773,8 @@
             this.Goods_id.OptionsColumn.AllowEdit = false;
             this.Goods_id.OptionsColumn.ReadOnly = true;
             this.Goods_id.Visible = true;
-            this.Goods_id.VisibleIndex = 4;
-            this.Goods_id.Width = 250;
+            this.Goods_id.VisibleIndex = 3;
+            this.Goods_id.Width = 180;
             // 
             // Goods_name
             // 
@@ -1151,7 +786,7 @@
             this.Goods_name.OptionsColumn.AllowEdit = false;
             this.Goods_name.OptionsColumn.ReadOnly = true;
             this.Goods_name.Visible = true;
-            this.Goods_name.VisibleIndex = 5;
+            this.Goods_name.VisibleIndex = 4;
             this.Goods_name.Width = 250;
             // 
             // Wp_id
@@ -1162,8 +797,45 @@
             this.Wp_id.OptionsColumn.AllowEdit = false;
             this.Wp_id.OptionsColumn.ReadOnly = true;
             this.Wp_id.Visible = true;
-            this.Wp_id.VisibleIndex = 6;
+            this.Wp_id.VisibleIndex = 5;
             this.Wp_id.Width = 80;
+            // 
+            // Prd_qty
+            // 
+            this.Prd_qty.Caption = "計劃數量";
+            this.Prd_qty.DisplayFormat.FormatString = "#,##0";
+            this.Prd_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Prd_qty.FieldName = "prod_qty";
+            this.Prd_qty.Name = "Prd_qty";
+            this.Prd_qty.OptionsColumn.AllowEdit = false;
+            this.Prd_qty.OptionsColumn.ReadOnly = true;
+            this.Prd_qty.Visible = true;
+            this.Prd_qty.VisibleIndex = 6;
+            this.Prd_qty.Width = 80;
+            // 
+            // Complete_qty
+            // 
+            this.Complete_qty.Caption = "完成數量";
+            this.Complete_qty.DisplayFormat.FormatString = "#,##0";
+            this.Complete_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Complete_qty.FieldName = "c_qty_ok";
+            this.Complete_qty.Name = "Complete_qty";
+            this.Complete_qty.OptionsColumn.AllowEdit = false;
+            this.Complete_qty.OptionsColumn.ReadOnly = true;
+            this.Complete_qty.Visible = true;
+            this.Complete_qty.VisibleIndex = 8;
+            this.Complete_qty.Width = 80;
+            // 
+            // Change_next_dept_date
+            // 
+            this.Change_next_dept_date.Caption = "移交下部門日期";
+            this.Change_next_dept_date.FieldName = "f_complete_date";
+            this.Change_next_dept_date.Name = "Change_next_dept_date";
+            this.Change_next_dept_date.OptionsColumn.AllowEdit = false;
+            this.Change_next_dept_date.OptionsColumn.ReadOnly = true;
+            this.Change_next_dept_date.Visible = true;
+            this.Change_next_dept_date.VisibleIndex = 9;
+            this.Change_next_dept_date.Width = 100;
             // 
             // Next_dept_id
             // 
@@ -1175,51 +847,6 @@
             this.Next_dept_id.Visible = true;
             this.Next_dept_id.VisibleIndex = 7;
             this.Next_dept_id.Width = 80;
-            // 
-            // Prd_qty
-            // 
-            this.Prd_qty.Caption = "生產數量";
-            this.Prd_qty.FieldName = "prod_qty";
-            this.Prd_qty.Name = "Prd_qty";
-            this.Prd_qty.OptionsColumn.AllowEdit = false;
-            this.Prd_qty.OptionsColumn.ReadOnly = true;
-            this.Prd_qty.Visible = true;
-            this.Prd_qty.VisibleIndex = 8;
-            this.Prd_qty.Width = 80;
-            // 
-            // Complete_qty
-            // 
-            this.Complete_qty.Caption = "完成數量";
-            this.Complete_qty.FieldName = "c_qty_ok";
-            this.Complete_qty.Name = "Complete_qty";
-            this.Complete_qty.OptionsColumn.AllowEdit = false;
-            this.Complete_qty.OptionsColumn.ReadOnly = true;
-            this.Complete_qty.Visible = true;
-            this.Complete_qty.VisibleIndex = 9;
-            this.Complete_qty.Width = 80;
-            // 
-            // Complete_weg
-            // 
-            this.Complete_weg.Caption = "完成重量";
-            this.Complete_weg.FieldName = "c_sec_qty_ok";
-            this.Complete_weg.MaxWidth = 60;
-            this.Complete_weg.Name = "Complete_weg";
-            this.Complete_weg.OptionsColumn.AllowEdit = false;
-            this.Complete_weg.OptionsColumn.ReadOnly = true;
-            this.Complete_weg.Visible = true;
-            this.Complete_weg.VisibleIndex = 10;
-            this.Complete_weg.Width = 60;
-            // 
-            // Change_next_dept_date
-            // 
-            this.Change_next_dept_date.Caption = "移交下部門日期";
-            this.Change_next_dept_date.FieldName = "f_complete_date";
-            this.Change_next_dept_date.Name = "Change_next_dept_date";
-            this.Change_next_dept_date.OptionsColumn.AllowEdit = false;
-            this.Change_next_dept_date.OptionsColumn.ReadOnly = true;
-            this.Change_next_dept_date.Visible = true;
-            this.Change_next_dept_date.VisibleIndex = 11;
-            this.Change_next_dept_date.Width = 130;
             // 
             // Order_qty
             // 
@@ -1236,9 +863,18 @@
             this.Order_qty.Name = "Order_qty";
             this.Order_qty.OptionsColumn.AllowEdit = false;
             this.Order_qty.OptionsColumn.ReadOnly = true;
-            this.Order_qty.Visible = true;
-            this.Order_qty.VisibleIndex = 12;
-            this.Order_qty.Width = 60;
+            this.Order_qty.Width = 80;
+            // 
+            // Complete_weg
+            // 
+            this.Complete_weg.Caption = "完成重量";
+            this.Complete_weg.FieldName = "c_sec_qty_ok";
+            this.Complete_weg.Name = "Complete_weg";
+            this.Complete_weg.OptionsColumn.AllowEdit = false;
+            this.Complete_weg.OptionsColumn.ReadOnly = true;
+            this.Complete_weg.Visible = true;
+            this.Complete_weg.VisibleIndex = 10;
+            this.Complete_weg.Width = 60;
             // 
             // Do_color
             // 
@@ -1248,8 +884,8 @@
             this.Do_color.OptionsColumn.AllowEdit = false;
             this.Do_color.OptionsColumn.ReadOnly = true;
             this.Do_color.Visible = true;
-            this.Do_color.VisibleIndex = 13;
-            this.Do_color.Width = 80;
+            this.Do_color.VisibleIndex = 11;
+            this.Do_color.Width = 120;
             // 
             // Color_qty
             // 
@@ -1259,30 +895,34 @@
             this.Color_qty.OptionsColumn.AllowEdit = false;
             this.Color_qty.OptionsColumn.ReadOnly = true;
             this.Color_qty.Visible = true;
-            this.Color_qty.VisibleIndex = 14;
-            this.Color_qty.Width = 77;
+            this.Color_qty.VisibleIndex = 12;
+            this.Color_qty.Width = 70;
             // 
             // Should_qty
             // 
             this.Should_qty.Caption = "應生產數量";
+            this.Should_qty.DisplayFormat.FormatString = "#,##0";
+            this.Should_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Should_qty.FieldName = "s_qty";
             this.Should_qty.Name = "Should_qty";
             this.Should_qty.OptionsColumn.AllowEdit = false;
             this.Should_qty.OptionsColumn.ReadOnly = true;
             this.Should_qty.Visible = true;
-            this.Should_qty.VisibleIndex = 15;
-            this.Should_qty.Width = 130;
+            this.Should_qty.VisibleIndex = 13;
+            this.Should_qty.Width = 80;
             // 
             // Reserve_qty
             // 
             this.Reserve_qty.Caption = "預留數量";
+            this.Reserve_qty.DisplayFormat.FormatString = "#,##0";
+            this.Reserve_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Reserve_qty.FieldName = "obligate_qty";
             this.Reserve_qty.Name = "Reserve_qty";
             this.Reserve_qty.OptionsColumn.AllowEdit = false;
             this.Reserve_qty.OptionsColumn.ReadOnly = true;
             this.Reserve_qty.Visible = true;
-            this.Reserve_qty.VisibleIndex = 16;
-            this.Reserve_qty.Width = 160;
+            this.Reserve_qty.VisibleIndex = 14;
+            this.Reserve_qty.Width = 80;
             // 
             // Pre_dept
             // 
@@ -1292,51 +932,63 @@
             this.Pre_dept.OptionsColumn.AllowEdit = false;
             this.Pre_dept.OptionsColumn.ReadOnly = true;
             this.Pre_dept.Visible = true;
-            this.Pre_dept.VisibleIndex = 17;
+            this.Pre_dept.VisibleIndex = 15;
             this.Pre_dept.Width = 80;
             // 
             // Pre_dept_qty
             // 
+            this.Pre_dept_qty.AppearanceHeader.Options.UseTextOptions = true;
+            this.Pre_dept_qty.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.Pre_dept_qty.Caption = "上部門移交數量";
+            this.Pre_dept_qty.DisplayFormat.FormatString = "#,##0";
+            this.Pre_dept_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Pre_dept_qty.FieldName = "predept_rechange_qty";
             this.Pre_dept_qty.Name = "Pre_dept_qty";
             this.Pre_dept_qty.OptionsColumn.AllowEdit = false;
             this.Pre_dept_qty.OptionsColumn.ReadOnly = true;
             this.Pre_dept_qty.Visible = true;
-            this.Pre_dept_qty.VisibleIndex = 18;
-            this.Pre_dept_qty.Width = 72;
+            this.Pre_dept_qty.VisibleIndex = 16;
+            this.Pre_dept_qty.Width = 80;
             // 
             // Pre_dept_weg
             // 
+            this.Pre_dept_weg.AppearanceHeader.Options.UseTextOptions = true;
+            this.Pre_dept_weg.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.Pre_dept_weg.Caption = "上部門移交重量";
+            this.Pre_dept_weg.DisplayFormat.FormatString = "#,##0";
+            this.Pre_dept_weg.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Pre_dept_weg.FieldName = "predept_rechange_sec_qty";
             this.Pre_dept_weg.Name = "Pre_dept_weg";
             this.Pre_dept_weg.OptionsColumn.AllowEdit = false;
             this.Pre_dept_weg.OptionsColumn.ReadOnly = true;
             this.Pre_dept_weg.Visible = true;
-            this.Pre_dept_weg.VisibleIndex = 19;
-            this.Pre_dept_weg.Width = 100;
+            this.Pre_dept_weg.VisibleIndex = 17;
+            this.Pre_dept_weg.Width = 80;
             // 
             // Pre_dept_date
             // 
+            this.Pre_dept_date.AppearanceHeader.Options.UseTextOptions = true;
+            this.Pre_dept_date.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.Pre_dept_date.Caption = "上部門移交日期";
             this.Pre_dept_date.FieldName = "predept_rechange_date";
             this.Pre_dept_date.Name = "Pre_dept_date";
             this.Pre_dept_date.OptionsColumn.AllowEdit = false;
             this.Pre_dept_date.OptionsColumn.ReadOnly = true;
             this.Pre_dept_date.Visible = true;
-            this.Pre_dept_date.VisibleIndex = 20;
-            this.Pre_dept_date.Width = 130;
+            this.Pre_dept_date.VisibleIndex = 18;
+            this.Pre_dept_date.Width = 80;
             // 
             // Vendor_id
             // 
+            this.Vendor_id.AppearanceHeader.Options.UseTextOptions = true;
+            this.Vendor_id.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.Vendor_id.Caption = "供應商編號";
             this.Vendor_id.FieldName = "vendor";
             this.Vendor_id.Name = "Vendor_id";
             this.Vendor_id.OptionsColumn.AllowEdit = false;
             this.Vendor_id.OptionsColumn.ReadOnly = true;
             this.Vendor_id.Visible = true;
-            this.Vendor_id.VisibleIndex = 21;
+            this.Vendor_id.VisibleIndex = 19;
             this.Vendor_id.Width = 100;
             // 
             // Vender_name
@@ -1347,217 +999,99 @@
             this.Vender_name.OptionsColumn.AllowEdit = false;
             this.Vender_name.OptionsColumn.ReadOnly = true;
             this.Vender_name.Visible = true;
-            this.Vender_name.VisibleIndex = 22;
+            this.Vender_name.VisibleIndex = 20;
             this.Vender_name.Width = 160;
             // 
-            // dgvPlanDetails
+            // Checkboxcell
             // 
-            this.dgvPlanDetails.AllowUserToAddRows = false;
-            this.dgvPlanDetails.ColumnHeadersHeight = 70;
-            this.dgvPlanDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvPlanDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkbox,
-            this.colProd_state,
-            this.colHold,
-            this.colFlag,
-            this.colGoods_id,
-            this.colGoods_name,
-            this.colWp_id,
-            this.colNext_wp_id,
-            this.colProd_qty,
-            this.colC_qty_ok,
-            this.colC_sec_qty_ok,
-            this.colF_complete_date,
-            this.colOrder_qty,
-            this.colDo_color,
-            this.colColor_qty,
-            this.colS_qty,
-            this.colObligate_qty,
-            this.colPre_dept,
-            this.colPredept_rechange_qty,
-            this.colPredept_rechange_sec_qty,
-            this.colPredept_rechange_date,
-            this.colVendor,
-            this.colVendor_name});
-            this.dgvPlanDetails.Location = new System.Drawing.Point(348, 365);
-            this.dgvPlanDetails.Name = "dgvPlanDetails";
-            this.dgvPlanDetails.RowTemplate.Height = 100;
-            this.dgvPlanDetails.Size = new System.Drawing.Size(175, 92);
-            this.dgvPlanDetails.TabIndex = 0;
-            this.dgvPlanDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlanDetails_CellClick);
-            this.dgvPlanDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPlanDetails_RowPostPaint);
+            this.Checkboxcell.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.Checkboxcell.AppearanceCell.Options.UseFont = true;
+            this.Checkboxcell.Caption = "選取";
+            this.Checkboxcell.ColumnEdit = this.gvCheck;
+            this.Checkboxcell.FieldName = "check_value";
+            this.Checkboxcell.MaxWidth = 120;
+            this.Checkboxcell.Name = "Checkboxcell";
+            this.Checkboxcell.Width = 80;
             // 
-            // checkbox
+            // gvCheck
             // 
-            this.checkbox.HeaderText = "";
-            this.checkbox.Name = "checkbox";
+            this.gvCheck.AutoHeight = false;
+            this.gvCheck.Name = "gvCheck";
+            this.gvCheck.Click += new System.EventHandler(this.gvCheck_Click);
             // 
-            // colProd_state
+            // gclScheduleSeq
             // 
-            this.colProd_state.DataPropertyName = "prod_state";
-            this.colProd_state.HeaderText = "生產狀態";
-            this.colProd_state.Name = "colProd_state";
-            this.colProd_state.ReadOnly = true;
-            this.colProd_state.Width = 80;
+            this.gclScheduleSeq.Caption = "排期次序";
+            this.gclScheduleSeq.FieldName = "schedule_seq_new";
+            this.gclScheduleSeq.Name = "gclScheduleSeq";
+            this.gclScheduleSeq.Visible = true;
+            this.gclScheduleSeq.VisibleIndex = 21;
             // 
-            // colHold
+            // gclScheduleDate
             // 
-            this.colHold.DataPropertyName = "hold";
-            this.colHold.HeaderText = "Hold貨";
-            this.colHold.Name = "colHold";
-            this.colHold.ReadOnly = true;
-            this.colHold.Width = 50;
+            this.gclScheduleDate.Caption = "排期日期";
+            this.gclScheduleDate.FieldName = "schedule_date";
+            this.gclScheduleDate.Name = "gclScheduleDate";
+            this.gclScheduleDate.Visible = true;
+            this.gclScheduleDate.VisibleIndex = 22;
             // 
-            // colFlag
+            // gclPmcRqDate
             // 
-            this.colFlag.DataPropertyName = "flag";
-            this.colFlag.HeaderText = "序號";
-            this.colFlag.Name = "colFlag";
-            this.colFlag.ReadOnly = true;
-            this.colFlag.Width = 60;
+            this.gclPmcRqDate.Caption = "PMC复期";
+            this.gclPmcRqDate.FieldName = "pmc_rq_date";
+            this.gclPmcRqDate.Name = "gclPmcRqDate";
+            this.gclPmcRqDate.Visible = true;
+            this.gclPmcRqDate.VisibleIndex = 23;
             // 
-            // colGoods_id
+            // gclDepRpDate
             // 
-            this.colGoods_id.DataPropertyName = "goods_id";
-            this.colGoods_id.HeaderText = "貨品編碼";
-            this.colGoods_id.Name = "colGoods_id";
-            this.colGoods_id.ReadOnly = true;
-            this.colGoods_id.Width = 230;
+            this.gclDepRpDate.Caption = "部門复期";
+            this.gclDepRpDate.FieldName = "dep_rp_date";
+            this.gclDepRpDate.Name = "gclDepRpDate";
+            this.gclDepRpDate.Visible = true;
+            this.gclDepRpDate.VisibleIndex = 24;
             // 
-            // colGoods_name
+            // gclPrdDate
             // 
-            this.colGoods_name.DataPropertyName = "goods_name";
-            this.colGoods_name.HeaderText = "貨品名稱";
-            this.colGoods_name.Name = "colGoods_name";
-            this.colGoods_name.ReadOnly = true;
-            this.colGoods_name.Width = 300;
+            this.gclPrdDate.Caption = "生產日期";
+            this.gclPrdDate.FieldName = "prd_date";
+            this.gclPrdDate.Name = "gclPrdDate";
+            this.gclPrdDate.Visible = true;
+            this.gclPrdDate.VisibleIndex = 25;
             // 
-            // colWp_id
+            // gclWorkTyeDesc
             // 
-            this.colWp_id.DataPropertyName = "wp_id";
-            this.colWp_id.HeaderText = "負責部門";
-            this.colWp_id.Name = "colWp_id";
-            this.colWp_id.ReadOnly = true;
+            this.gclWorkTyeDesc.Caption = "生產類型";
+            this.gclWorkTyeDesc.FieldName = "work_type_desc";
+            this.gclWorkTyeDesc.Name = "gclWorkTyeDesc";
+            this.gclWorkTyeDesc.Visible = true;
+            this.gclWorkTyeDesc.VisibleIndex = 26;
             // 
-            // colNext_wp_id
+            // gclPrdQty
             // 
-            this.colNext_wp_id.DataPropertyName = "next_wp_id";
-            this.colNext_wp_id.HeaderText = "下一部門";
-            this.colNext_wp_id.Name = "colNext_wp_id";
-            this.colNext_wp_id.ReadOnly = true;
+            this.gclPrdQty.Caption = "生產數量";
+            this.gclPrdQty.DisplayFormat.FormatString = "#,##0";
+            this.gclPrdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclPrdQty.FieldName = "prd_qty";
+            this.gclPrdQty.Name = "gclPrdQty";
+            this.gclPrdQty.Visible = true;
+            this.gclPrdQty.VisibleIndex = 27;
             // 
-            // colProd_qty
+            // gclPrdMachine
             // 
-            this.colProd_qty.DataPropertyName = "prod_qty";
-            this.colProd_qty.HeaderText = "生產數量";
-            this.colProd_qty.Name = "colProd_qty";
-            this.colProd_qty.ReadOnly = true;
-            this.colProd_qty.Width = 60;
+            this.gclPrdMachine.Caption = "生產機器";
+            this.gclPrdMachine.FieldName = "prd_machine";
+            this.gclPrdMachine.Name = "gclPrdMachine";
+            this.gclPrdMachine.Visible = true;
+            this.gclPrdMachine.VisibleIndex = 28;
             // 
-            // colC_qty_ok
+            // gclSchMachine
             // 
-            this.colC_qty_ok.DataPropertyName = "c_qty_ok";
-            this.colC_qty_ok.HeaderText = "完成數量";
-            this.colC_qty_ok.Name = "colC_qty_ok";
-            this.colC_qty_ok.ReadOnly = true;
-            this.colC_qty_ok.Width = 60;
-            // 
-            // colC_sec_qty_ok
-            // 
-            this.colC_sec_qty_ok.DataPropertyName = "c_sec_qty_ok";
-            this.colC_sec_qty_ok.HeaderText = "完成重量";
-            this.colC_sec_qty_ok.Name = "colC_sec_qty_ok";
-            this.colC_sec_qty_ok.ReadOnly = true;
-            this.colC_sec_qty_ok.Width = 60;
-            // 
-            // colF_complete_date
-            // 
-            this.colF_complete_date.DataPropertyName = "f_complete_date";
-            this.colF_complete_date.HeaderText = "移交下部門日期";
-            this.colF_complete_date.Name = "colF_complete_date";
-            this.colF_complete_date.ReadOnly = true;
-            // 
-            // colOrder_qty
-            // 
-            this.colOrder_qty.DataPropertyName = "order_qty";
-            this.colOrder_qty.HeaderText = "訂單數量";
-            this.colOrder_qty.Name = "colOrder_qty";
-            this.colOrder_qty.ReadOnly = true;
-            this.colOrder_qty.Width = 60;
-            // 
-            // colDo_color
-            // 
-            this.colDo_color.DataPropertyName = "do_color";
-            this.colDo_color.HeaderText = "顏色做法";
-            this.colDo_color.Name = "colDo_color";
-            this.colDo_color.ReadOnly = true;
-            this.colDo_color.Width = 160;
-            // 
-            // colColor_qty
-            // 
-            this.colColor_qty.DataPropertyName = "color_qty";
-            this.colColor_qty.HeaderText = "批色數量";
-            this.colColor_qty.Name = "colColor_qty";
-            this.colColor_qty.ReadOnly = true;
-            this.colColor_qty.Width = 60;
-            // 
-            // colS_qty
-            // 
-            this.colS_qty.DataPropertyName = "s_qty";
-            this.colS_qty.HeaderText = "應生產數量";
-            this.colS_qty.Name = "colS_qty";
-            this.colS_qty.ReadOnly = true;
-            this.colS_qty.Width = 60;
-            // 
-            // colObligate_qty
-            // 
-            this.colObligate_qty.DataPropertyName = "obligate_qty";
-            this.colObligate_qty.HeaderText = "預留數量";
-            this.colObligate_qty.Name = "colObligate_qty";
-            this.colObligate_qty.ReadOnly = true;
-            this.colObligate_qty.Width = 60;
-            // 
-            // colPre_dept
-            // 
-            this.colPre_dept.DataPropertyName = "pre_dept";
-            this.colPre_dept.HeaderText = "上部門";
-            this.colPre_dept.Name = "colPre_dept";
-            this.colPre_dept.ReadOnly = true;
-            // 
-            // colPredept_rechange_qty
-            // 
-            this.colPredept_rechange_qty.DataPropertyName = "predept_rechange_qty";
-            this.colPredept_rechange_qty.HeaderText = "上部門移交數量";
-            this.colPredept_rechange_qty.Name = "colPredept_rechange_qty";
-            this.colPredept_rechange_qty.ReadOnly = true;
-            // 
-            // colPredept_rechange_sec_qty
-            // 
-            this.colPredept_rechange_sec_qty.DataPropertyName = "predept_rechange_sec_qty";
-            this.colPredept_rechange_sec_qty.HeaderText = "上部門移交重量";
-            this.colPredept_rechange_sec_qty.Name = "colPredept_rechange_sec_qty";
-            this.colPredept_rechange_sec_qty.ReadOnly = true;
-            // 
-            // colPredept_rechange_date
-            // 
-            this.colPredept_rechange_date.DataPropertyName = "predept_rechange_date";
-            this.colPredept_rechange_date.HeaderText = "上部門移交日期";
-            this.colPredept_rechange_date.Name = "colPredept_rechange_date";
-            this.colPredept_rechange_date.ReadOnly = true;
-            // 
-            // colVendor
-            // 
-            this.colVendor.DataPropertyName = "vendor";
-            this.colVendor.HeaderText = "供應商編號";
-            this.colVendor.Name = "colVendor";
-            this.colVendor.ReadOnly = true;
-            // 
-            // colVendor_name
-            // 
-            this.colVendor_name.DataPropertyName = "vendor_name";
-            this.colVendor_name.HeaderText = "供應商";
-            this.colVendor_name.Name = "colVendor_name";
-            this.colVendor_name.ReadOnly = true;
+            this.gclSchMachine.Caption = "安排機器";
+            this.gclSchMachine.FieldName = "sch_machine";
+            this.gclSchMachine.Name = "gclSchMachine";
+            this.gclSchMachine.Visible = true;
+            this.gclSchMachine.VisibleIndex = 29;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1654,12 +1188,48 @@
             this.dataGridViewTextBoxColumn19.HeaderText = "供應商";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
+            // gclWfDate
+            // 
+            this.gclWfDate.Caption = "外發日期";
+            this.gclWfDate.FieldName = "wf_date";
+            this.gclWfDate.Name = "gclWfDate";
+            this.gclWfDate.Visible = true;
+            this.gclWfDate.VisibleIndex = 30;
+            // 
+            // gclWfQty
+            // 
+            this.gclWfQty.Caption = "外發數量";
+            this.gclWfQty.DisplayFormat.FormatString = "#,##0";
+            this.gclWfQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclWfQty.FieldName = "wf_qty";
+            this.gclWfQty.Name = "gclWfQty";
+            this.gclWfQty.Visible = true;
+            this.gclWfQty.VisibleIndex = 31;
+            // 
+            // gclIrDate
+            // 
+            this.gclIrDate.Caption = "外發收貨日期";
+            this.gclIrDate.FieldName = "ir_date";
+            this.gclIrDate.Name = "gclIrDate";
+            this.gclIrDate.Visible = true;
+            this.gclIrDate.VisibleIndex = 32;
+            // 
+            // gclIrQty
+            // 
+            this.gclIrQty.Caption = "外發收貨數量";
+            this.gclIrQty.DisplayFormat.FormatString = "#,##0";
+            this.gclIrQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gclIrQty.FieldName = "ir_qty";
+            this.gclIrQty.Name = "gclIrQty";
+            this.gclIrQty.Visible = true;
+            this.gclIrQty.VisibleIndex = 33;
+            // 
             // frmShowPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(889, 882);
+            this.ClientSize = new System.Drawing.Size(1150, 623);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "frmShowPlan";
@@ -1672,16 +1242,9 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanDetails)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1704,24 +1267,6 @@
         private System.Windows.Forms.TextBox txtMo_ver;
         private System.Windows.Forms.TextBox txtOrder_no;
         private System.Windows.Forms.Label lblOrder_no;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dgvPlanDetails;
-        private System.Windows.Forms.TextBox txtProd_state;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFlag;
-        private System.Windows.Forms.TextBox txtHold;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtGoods_name;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtGoods_id;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtObligate_qty;
-        private System.Windows.Forms.TextBox txtProd_qty;
-        private System.Windows.Forms.TextBox txtS_qty;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblS_qty;
         private System.Windows.Forms.TextBox txtQty_unit;
         private System.Windows.Forms.TextBox txtOrder_qty;
         private System.Windows.Forms.Label label9;
@@ -1771,44 +1316,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.TextBox txtF_complete_date;
-        private System.Windows.Forms.TextBox txtComplete_qty;
-        private System.Windows.Forms.TextBox txtPre_dept;
-        private System.Windows.Forms.TextBox txtComplete_sec_qty;
-        private System.Windows.Forms.Label lblF_complete_date;
-        private System.Windows.Forms.Label lblComplete_qty;
-        private System.Windows.Forms.Label lblPre_dept;
-        private System.Windows.Forms.Label lblComplete_sec_qty;
-        private System.Windows.Forms.TextBox txtNext_wp_dept;
-        private System.Windows.Forms.Label lblNext_wp_dept;
-        private System.Windows.Forms.TextBox txtWp_dept;
-        private System.Windows.Forms.Label lblWp_dept;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.PictureBox picBox;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn checkbox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProd_state;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHold;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFlag;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGoods_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGoods_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWp_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNext_wp_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProd_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colC_qty_ok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colC_sec_qty_ok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colF_complete_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOrder_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDo_color;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColor_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colS_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObligate_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPre_dept;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPredept_rechange_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPredept_rechange_sec_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPredept_rechange_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVendor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVendor_name;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDetails;
         private DevExpress.XtraGrid.Columns.GridColumn Checkboxcell;
@@ -1836,5 +1344,19 @@
         private DevExpress.XtraGrid.Columns.GridColumn Vender_name;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit gcCheck;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit gvCheck;
+        private DevExpress.XtraGrid.Columns.GridColumn gclScheduleSeq;
+        private DevExpress.XtraGrid.Columns.GridColumn gclScheduleDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gclPmcRqDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gclDepRpDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gclPrdDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gclWorkTyeDesc;
+        private DevExpress.XtraGrid.Columns.GridColumn gclPrdQty;
+        private DevExpress.XtraGrid.Columns.GridColumn gclPrdMachine;
+        private DevExpress.XtraGrid.Columns.GridColumn gclSchMachine;
+        private System.Windows.Forms.Button btnFind;
+        private DevExpress.XtraGrid.Columns.GridColumn gclWfDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gclWfQty;
+        private DevExpress.XtraGrid.Columns.GridColumn gclIrDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gclIrQty;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace cf01.Forms
+﻿using System.Windows.Forms;
+
+namespace cf01.Forms
 {
     partial class frmProductionArrange
     {
@@ -33,6 +35,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -281,6 +286,7 @@
             this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkSetWorker = new System.Windows.Forms.CheckBox();
+            this.contextMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabInput.SuspendLayout();
@@ -303,6 +309,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSortFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSortTo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // contextMenu
+            // 
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cutMenuItem,
+            this.pasteMenuItem});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(101, 48);
+            // 
+            // cutMenuItem
+            // 
+            this.cutMenuItem.Name = "cutMenuItem";
+            this.cutMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.cutMenuItem.Text = "剪切";
+            cutMenuItem.Click += CutMenuItem_Click;
+
+            // 
+            // pasteMenuItem
+            // 
+            this.pasteMenuItem.Name = "pasteMenuItem";
+            this.pasteMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.pasteMenuItem.Text = "粘贴";
+            pasteMenuItem.Click += PasteMenuItem_Click;
+
             // 
             // toolStrip1
             // 
@@ -1358,6 +1388,7 @@
             this.colProductNo,
             this.colPrd_status,
             this.colPrd_status_desc});
+            this.dgvPA.ContextMenuStrip = this.contextMenu;
             this.dgvPA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPA.Location = new System.Drawing.Point(3, 3);
             this.dgvPA.Name = "dgvPA";
@@ -1369,6 +1400,8 @@
             this.dgvPA.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvPA_CellFormatting);
             this.dgvPA.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPA_CellLeave);
             this.dgvPA.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPA_RowPostPaint);
+            this.dgvPA.CellMouseDown += dgvPA_CellMouseDown;
+
             // 
             // colId
             // 
@@ -2626,8 +2659,6 @@
             // chkSetWorker
             // 
             this.chkSetWorker.AutoSize = true;
-            this.chkSetWorker.Checked = true;
-            this.chkSetWorker.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkSetWorker.Location = new System.Drawing.Point(624, 12);
             this.chkSetWorker.Name = "chkSetWorker";
             this.chkSetWorker.Size = new System.Drawing.Size(72, 16);
@@ -2646,7 +2677,9 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmProductionArrange";
             this.Text = "安排生產計劃";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmProductionArrange_Load);
+            this.contextMenu.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -2932,5 +2965,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private ToolStripMenuItem cutMenuItem;
+        private ToolStripMenuItem pasteMenuItem;
     }
 }

@@ -261,6 +261,8 @@
     <Compile Include="CLS\clsMmCosting.cs" />
     <Compile Include="CLS\clsMmProductTypeStdPrice.cs" />
     <Compile Include="CLS\clsMoRepair.cs" />
+    <Compile Include="CLS\clsMoSchedule.cs" />
+    <Compile Include="CLS\clsMoScheduleUse.cs" />
     <Compile Include="CLS\clsMoStatePrint.cs" />
     <Compile Include="CLS\clsMoTrace.cs" />
     <Compile Include="CLS\clsMouldPosition.cs" />
@@ -370,6 +372,12 @@
     <Compile Include="Forms\frmAlloyQuotation.designer.cs">
       <DependentUpon>frmAlloyQuotation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmArrangeMoAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmArrangeMoAdd.Designer.cs">
+      <DependentUpon>frmArrangeMoAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmArtEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -442,6 +450,12 @@
     <Compile Include="Forms\frmDeliveryBillVat.designer.cs">
       <DependentUpon>frmDeliveryBillVat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDepPrdoduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepPrdoduction.Designer.cs">
+      <DependentUpon>frmDepPrdoduction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDevelopmentPvhUs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,6 +467,18 @@
     </Compile>
     <Compile Include="Forms\frmDgdDeliverGoods_Find2.Designer.cs">
       <DependentUpon>frmDgdDeliverGoods_Find2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMoSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMoSchedule.Designer.cs">
+      <DependentUpon>frmMoSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMoScheduleBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMoScheduleBase.Designer.cs">
+      <DependentUpon>frmMoScheduleBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMouldPosition.cs">
       <SubType>Form</SubType>
@@ -1470,6 +1496,7 @@
     <Compile Include="MDL\mdlMmCalculatePrice.cs" />
     <Compile Include="MDL\mdlMmCosting.cs" />
     <Compile Include="MDL\mdlMmProductTypeStdPrice.cs" />
+    <Compile Include="MDL\mdlMoSchedule.cs" />
     <Compile Include="MDL\mdlOcRemark.cs" />
     <Compile Include="MDL\mdlProductCosting.cs" />
     <Compile Include="MDL\mdlPublic.cs" />
@@ -3003,6 +3030,9 @@
     <EmbeddedResource Include="Forms\frmAlloyQuotation.resx">
       <DependentUpon>frmAlloyQuotation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmArrangeMoAdd.resx">
+      <DependentUpon>frmArrangeMoAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmArtEdit.resx">
       <DependentUpon>frmArtEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -3039,11 +3069,20 @@
     <EmbeddedResource Include="Forms\frmDeliveryBillVat.resx">
       <DependentUpon>frmDeliveryBillVat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDepPrdoduction.resx">
+      <DependentUpon>frmDepPrdoduction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDevelopmentPvhUs.resx">
       <DependentUpon>frmDevelopmentPvhUs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDgdDeliverGoods_Find2.resx">
       <DependentUpon>frmDgdDeliverGoods_Find2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMoSchedule.resx">
+      <DependentUpon>frmMoSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMoScheduleBase.resx">
+      <DependentUpon>frmMoScheduleBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMouldPosition.resx">
       <DependentUpon>frmMouldPosition.cs</DependentUpon>

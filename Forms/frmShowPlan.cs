@@ -27,13 +27,15 @@ namespace cf01.Forms
 
         private void frmShowPlan_Load(object sender, EventArgs e)
         {
-            Font a = new Font("GB2312", 14);
-            dgvPlanDetails.Font = a;
+            //Font a = new Font("GB2312", 14);
+            //dgvPlanDetails.Font = a;
 
             this.gvDetails.BestFitColumns();
-
-            GetProductionPlan(strMo_id);
-            txtMo_id_v.Text = strMo_id;
+            if (strMo_id != "")
+            {
+                txtMo_id_v.Text = strMo_id;
+                GetProductionPlan(strMo_id);
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -87,10 +89,10 @@ namespace cf01.Forms
                 txtCheck_date.Text = string.IsNullOrEmpty(dtPlanMostly.Rows[0]["check_date"].ToString()) ? "" : Convert.ToDateTime(dtPlanMostly.Rows[0]["check_date"]).ToString("yyyy/MM/dd");
                 txtState.Text = dtPlanMostly.Rows[0]["prd_State"].ToString();
 
-                dtPlanDetails = clsPlan.GetProductionPlanDetails(txtId.Text.Trim());
+                dtPlanDetails = clsPlan.GetWipDetails(txtMo_id_v.Text.Trim());
                 if (dtPlanDetails.Rows.Count > 0)
                 {
-                    dtPlanDetails.Columns.Add("check_value", System.Type.GetType("System.Boolean"));
+                    //
                     gridControl1.DataSource = dtPlanDetails;
 
                     //FillTextBox(dgvPlanDetails.CurrentRow.Index);
@@ -111,53 +113,53 @@ namespace cf01.Forms
             if (e.RowIndex == -1)
                 return;
 
-            FillTextBox(e.RowIndex);
+            //FillTextBox(e.RowIndex);
         }
 
         /// <summary>
         /// 填充生產明細 
         /// </summary>
         /// <param name="Index"></param>
-        private void FillTextBox(int Index)
-        {
-            txtProd_state.Text = dtPlanDetails.Rows[Index]["prod_state"].ToString();
-            txtHold.Text = dtPlanDetails.Rows[Index]["hold"].ToString();
-            txtFlag.Text = dtPlanDetails.Rows[Index]["flag"].ToString();
-            txtWp_dept.Text = dtPlanDetails.Rows[Index]["wp_id"].ToString();
-            txtGoods_id.Text = dtPlanDetails.Rows[Index]["goods_id"].ToString();
-            txtNext_wp_dept.Text = dtPlanDetails.Rows[Index]["next_wp_id"].ToString();
-            txtGoods_name.Text = dtPlanDetails.Rows[Index]["goods_name"].ToString();
-            txtS_qty.Text = dtPlanDetails.Rows[Index]["s_qty"].ToString();
-            txtProd_qty.Text = dtPlanDetails.Rows[Index]["prod_qty"].ToString();
-            txtObligate_qty.Text = dtPlanDetails.Rows[Index]["obligate_qty"].ToString();
-            txtComplete_qty.Text = dtPlanDetails.Rows[Index]["c_qty_ok"].ToString();
-            txtComplete_sec_qty.Text = dtPlanDetails.Rows[Index]["c_sec_qty_ok"].ToString();
-            txtPre_dept.Text = dtPlanDetails.Rows[Index]["pre_dept"].ToString();
-            txtF_complete_date.Text = dtPlanDetails.Rows[Index]["f_complete_date"].ToString();
+        //private void FillTextBox(int Index)
+        //{
+        //    txtProd_state.Text = dtPlanDetails.Rows[Index]["prod_state"].ToString();
+        //    txtHold.Text = dtPlanDetails.Rows[Index]["hold"].ToString();
+        //    txtFlag.Text = dtPlanDetails.Rows[Index]["flag"].ToString();
+        //    txtWp_dept.Text = dtPlanDetails.Rows[Index]["wp_id"].ToString();
+        //    txtGoods_id.Text = dtPlanDetails.Rows[Index]["goods_id"].ToString();
+        //    txtNext_wp_dept.Text = dtPlanDetails.Rows[Index]["next_wp_id"].ToString();
+        //    txtGoods_name.Text = dtPlanDetails.Rows[Index]["goods_name"].ToString();
+        //    txtS_qty.Text = dtPlanDetails.Rows[Index]["s_qty"].ToString();
+        //    txtProd_qty.Text = dtPlanDetails.Rows[Index]["prod_qty"].ToString();
+        //    txtObligate_qty.Text = dtPlanDetails.Rows[Index]["obligate_qty"].ToString();
+        //    txtComplete_qty.Text = dtPlanDetails.Rows[Index]["c_qty_ok"].ToString();
+        //    txtComplete_sec_qty.Text = dtPlanDetails.Rows[Index]["c_sec_qty_ok"].ToString();
+        //    txtPre_dept.Text = dtPlanDetails.Rows[Index]["pre_dept"].ToString();
+        //    txtF_complete_date.Text = dtPlanDetails.Rows[Index]["f_complete_date"].ToString();
 
-            string strImagePath = DBUtility.imagePath + clsPlan.GetImagePath(dtPlanDetails.Rows[Index]["goods_id"].ToString());
-            if (File.Exists(strImagePath))
-            {
-                picBox.Image = Image.FromFile(strImagePath);
-            }
-            else
-            {
-                picBox.Image = null;
-            }
-        }
+        //    string strImagePath = DBUtility.imagePath + clsPlan.GetImagePath(dtPlanDetails.Rows[Index]["goods_id"].ToString());
+        //    if (File.Exists(strImagePath))
+        //    {
+        //        picBox.Image = Image.FromFile(strImagePath);
+        //    }
+        //    else
+        //    {
+        //        picBox.Image = null;
+        //    }
+        //}
 
         private void dgvPlanDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
-               e.RowBounds.Location.Y,
-               dgvPlanDetails.RowHeadersWidth - 4,
-               e.RowBounds.Height);
+            //System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
+            //   e.RowBounds.Location.Y,
+            //   dgvPlanDetails.RowHeadersWidth - 4,
+            //   e.RowBounds.Height);
 
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
-                dgvPlanDetails.RowHeadersDefaultCellStyle.Font,
-                rectangle,
-                dgvPlanDetails.RowHeadersDefaultCellStyle.ForeColor,
-                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+            //TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+            //    dgvPlanDetails.RowHeadersDefaultCellStyle.Font,
+            //    rectangle,
+            //    dgvPlanDetails.RowHeadersDefaultCellStyle.ForeColor,
+            //    TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
 
         private void ClearText()
@@ -187,35 +189,24 @@ namespace cf01.Forms
             txtState.Text = "";
 
             /******* tabPage2*******/
-            txtProd_state.Text = "";
-            txtHold.Text = "";
-            txtFlag.Text = "";
-            txtWp_dept.Text = "";
-            txtGoods_id.Text = "";
-            txtNext_wp_dept.Text = "";
-            txtGoods_name.Text = "";
-            txtS_qty.Text = "";
-            txtProd_qty.Text = "";
-            txtObligate_qty.Text = "";
-            txtComplete_qty.Text = "";
-            txtComplete_sec_qty.Text = "";
-            txtPre_dept.Text = "";
-            txtF_complete_date.Text = "";
-            picBox.Image = null;
-            dgvPlanDetails.DataSource = null;
+            //txtProd_state.Text = "";
+            //txtHold.Text = "";
+            //txtFlag.Text = "";
+            //txtWp_dept.Text = "";
+            //txtGoods_id.Text = "";
+            //txtNext_wp_dept.Text = "";
+            //txtGoods_name.Text = "";
+            //txtS_qty.Text = "";
+            //txtProd_qty.Text = "";
+            //txtObligate_qty.Text = "";
+            //txtComplete_qty.Text = "";
+            //txtComplete_sec_qty.Text = "";
+            //txtPre_dept.Text = "";
+            //txtF_complete_date.Text = "";
+            //picBox.Image = null;
+            //dgvPlanDetails.DataSource = null;
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            //btnPrint.Focus();
-            //GenerateDataForPrint();
-
-            //if (dtDataForPrint.Rows.Count > 0)
-            //{
-            //    xrPrdTransfer xrPT = new xrPrdTransfer(dtDataForPrint, dtParts);
-            //    xrPT.ShowPreviewDialog();
-            //}
-        }
 
         /// <summary>
         /// 生成打印數據
@@ -278,31 +269,31 @@ namespace cf01.Forms
 
         private void gvDetails_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
-            int RowIndex = gvDetails.FocusedRowHandle;
-            txtProd_state.Text = gvDetails.GetRowCellValue(RowIndex, "prod_state").ToString();
-            txtHold.Text = gvDetails.GetRowCellValue(RowIndex, "hold").ToString();
-            txtFlag.Text = gvDetails.GetRowCellValue(RowIndex, "flag").ToString();
-            txtWp_dept.Text = gvDetails.GetRowCellValue(RowIndex, "wp_id").ToString();
-            txtGoods_id.Text = gvDetails.GetRowCellValue(RowIndex, "goods_id").ToString();
-            txtNext_wp_dept.Text = gvDetails.GetRowCellValue(RowIndex, "next_wp_id").ToString();
-            txtGoods_name.Text = gvDetails.GetRowCellValue(RowIndex, "goods_name").ToString();
-            txtS_qty.Text = gvDetails.GetRowCellValue(RowIndex, "s_qty").ToString();
-            txtProd_qty.Text = gvDetails.GetRowCellValue(RowIndex, "prod_qty").ToString();
-            txtObligate_qty.Text = gvDetails.GetRowCellValue(RowIndex, "obligate_qty").ToString();
-            txtComplete_qty.Text = gvDetails.GetRowCellValue(RowIndex, "c_qty_ok").ToString();
-            txtComplete_sec_qty.Text = gvDetails.GetRowCellValue(RowIndex, "c_sec_qty_ok").ToString();
-            txtPre_dept.Text = gvDetails.GetRowCellValue(RowIndex, "pre_dept").ToString();
-            txtF_complete_date.Text = gvDetails.GetRowCellValue(RowIndex, "f_complete_date").ToString();
+            //int RowIndex = gvDetails.FocusedRowHandle;
+            //txtProd_state.Text = gvDetails.GetRowCellValue(RowIndex, "prod_state").ToString();
+            //txtHold.Text = gvDetails.GetRowCellValue(RowIndex, "hold").ToString();
+            //txtFlag.Text = gvDetails.GetRowCellValue(RowIndex, "flag").ToString();
+            //txtWp_dept.Text = gvDetails.GetRowCellValue(RowIndex, "wp_id").ToString();
+            //txtGoods_id.Text = gvDetails.GetRowCellValue(RowIndex, "goods_id").ToString();
+            //txtNext_wp_dept.Text = gvDetails.GetRowCellValue(RowIndex, "next_wp_id").ToString();
+            //txtGoods_name.Text = gvDetails.GetRowCellValue(RowIndex, "goods_name").ToString();
+            //txtS_qty.Text = gvDetails.GetRowCellValue(RowIndex, "s_qty").ToString();
+            //txtProd_qty.Text = gvDetails.GetRowCellValue(RowIndex, "prod_qty").ToString();
+            //txtObligate_qty.Text = gvDetails.GetRowCellValue(RowIndex, "obligate_qty").ToString();
+            //txtComplete_qty.Text = gvDetails.GetRowCellValue(RowIndex, "c_qty_ok").ToString();
+            //txtComplete_sec_qty.Text = gvDetails.GetRowCellValue(RowIndex, "c_sec_qty_ok").ToString();
+            //txtPre_dept.Text = gvDetails.GetRowCellValue(RowIndex, "pre_dept").ToString();
+            //txtF_complete_date.Text = gvDetails.GetRowCellValue(RowIndex, "f_complete_date").ToString();
 
-            string strImagePath = DBUtility.imagePath + clsPlan.GetImagePath(gvDetails.GetRowCellValue(RowIndex, "goods_id").ToString());
-            if (File.Exists(strImagePath))
-            {
-                picBox.Image = Image.FromFile(strImagePath);
-            }
-            else
-            {
-                picBox.Image = null;
-            }
+            //string strImagePath = DBUtility.imagePath + clsPlan.GetImagePath(gvDetails.GetRowCellValue(RowIndex, "goods_id").ToString());
+            //if (File.Exists(strImagePath))
+            //{
+            //    picBox.Image = Image.FromFile(strImagePath);
+            //}
+            //else
+            //{
+            //    picBox.Image = null;
+            //}
         }
 
         private void gvCheck_Click(object sender, EventArgs e)
@@ -323,9 +314,11 @@ namespace cf01.Forms
             }
         }
 
-
-
-
-
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if (txtMo_id_v.Text.Trim() == "")
+                return;
+            GetProductionPlan(txtMo_id_v.Text);
+        }
     }
 }

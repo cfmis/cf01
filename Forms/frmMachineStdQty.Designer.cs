@@ -32,10 +32,15 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
+            this.btnFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNSAVE = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cmbFindDep = new System.Windows.Forms.ComboBox();
+            this.txtDepGroup = new System.Windows.Forms.TextBox();
             this.txtMachine = new System.Windows.Forms.TextBox();
+            this.lblDepGroup = new System.Windows.Forms.Label();
             this.lblMachine = new System.Windows.Forms.Label();
             this.txtStdQty = new System.Windows.Forms.TextBox();
             this.txtRunNo = new System.Windows.Forms.TextBox();
@@ -43,20 +48,13 @@
             this.lblRunNo = new System.Windows.Forms.Label();
             this.txtLineNo = new System.Windows.Forms.TextBox();
             this.lblLineNo = new System.Windows.Forms.Label();
-            this.txtDep = new System.Windows.Forms.TextBox();
             this.lblDep = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BTNFIND = new System.Windows.Forms.Button();
-            this.txtFindMachine = new System.Windows.Forms.TextBox();
-            this.lblFindDep = new System.Windows.Forms.Label();
-            this.lblFindMachine = new System.Windows.Forms.Label();
-            this.txtFindDep = new System.Windows.Forms.TextBox();
+            this.colDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrdMachine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRunQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLineNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStdQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +66,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -77,57 +74,80 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BTNEXIT,
             this.toolStripSeparator1,
+            this.btnFind,
+            this.toolStripSeparator2,
             this.BTNSAVE,
-            this.toolStripSeparator2});
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(944, 89);
+            this.toolStrip1.Size = new System.Drawing.Size(944, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // BTNEXIT
             // 
             this.BTNEXIT.AutoSize = false;
-            this.BTNEXIT.Font = new System.Drawing.Font("PMingLiU", 16F);
+            this.BTNEXIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXIT.Name = "BTNEXIT";
-            this.BTNEXIT.Size = new System.Drawing.Size(120, 80);
-            this.BTNEXIT.Text = "退出";
+            this.BTNEXIT.Size = new System.Drawing.Size(65, 35);
+            this.BTNEXIT.Text = "退出(&X)";
+            this.BTNEXIT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 89);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
-            // BTNSAVE
+            // btnFind
             // 
-            this.BTNSAVE.AutoSize = false;
-            this.BTNSAVE.Font = new System.Drawing.Font("PMingLiU", 16F);
-            this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
-            this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(120, 80);
-            this.BTNSAVE.Text = "儲存";
-            this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
+            this.btnFind.AutoSize = false;
+            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
+            this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(65, 35);
+            this.btnFind.Text = "查找(&F)";
+            this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 89);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+            // 
+            // BTNSAVE
+            // 
+            this.BTNSAVE.AutoSize = false;
+            this.BTNSAVE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
+            this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNSAVE.Name = "BTNSAVE";
+            this.BTNSAVE.Size = new System.Drawing.Size(65, 35);
+            this.BTNSAVE.Text = "儲存(&S)";
+            this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
             // splitContainer1
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 89);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 38);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.cmbFindDep);
+            this.splitContainer1.Panel1.Controls.Add(this.txtDepGroup);
             this.splitContainer1.Panel1.Controls.Add(this.txtMachine);
+            this.splitContainer1.Panel1.Controls.Add(this.lblDepGroup);
             this.splitContainer1.Panel1.Controls.Add(this.lblMachine);
             this.splitContainer1.Panel1.Controls.Add(this.txtStdQty);
             this.splitContainer1.Panel1.Controls.Add(this.txtRunNo);
@@ -135,108 +155,125 @@
             this.splitContainer1.Panel1.Controls.Add(this.lblRunNo);
             this.splitContainer1.Panel1.Controls.Add(this.txtLineNo);
             this.splitContainer1.Panel1.Controls.Add(this.lblLineNo);
-            this.splitContainer1.Panel1.Controls.Add(this.txtDep);
             this.splitContainer1.Panel1.Controls.Add(this.lblDep);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvDetails);
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(944, 652);
-            this.splitContainer1.SplitterDistance = 153;
+            this.splitContainer1.Size = new System.Drawing.Size(944, 646);
+            this.splitContainer1.SplitterDistance = 97;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // cmbFindDep
+            // 
+            this.cmbFindDep.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cmbFindDep.FormattingEnabled = true;
+            this.cmbFindDep.Location = new System.Drawing.Point(100, 21);
+            this.cmbFindDep.Name = "cmbFindDep";
+            this.cmbFindDep.Size = new System.Drawing.Size(136, 21);
+            this.cmbFindDep.TabIndex = 27;
+            this.cmbFindDep.Leave += new System.EventHandler(this.cmbFindDep_Leave);
+            // 
+            // txtDepGroup
+            // 
+            this.txtDepGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtDepGroup.Location = new System.Drawing.Point(572, 19);
+            this.txtDepGroup.Name = "txtDepGroup";
+            this.txtDepGroup.ReadOnly = true;
+            this.txtDepGroup.Size = new System.Drawing.Size(136, 23);
+            this.txtDepGroup.TabIndex = 1;
             // 
             // txtMachine
             // 
-            this.txtMachine.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMachine.Location = new System.Drawing.Point(331, 14);
+            this.txtMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMachine.Location = new System.Drawing.Point(336, 25);
             this.txtMachine.Name = "txtMachine";
-            this.txtMachine.ReadOnly = true;
-            this.txtMachine.Size = new System.Drawing.Size(154, 49);
+            this.txtMachine.Size = new System.Drawing.Size(154, 23);
             this.txtMachine.TabIndex = 1;
+            // 
+            // lblDepGroup
+            // 
+            this.lblDepGroup.AutoSize = true;
+            this.lblDepGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblDepGroup.Location = new System.Drawing.Point(569, 24);
+            this.lblDepGroup.Name = "lblDepGroup";
+            this.lblDepGroup.Size = new System.Drawing.Size(40, 17);
+            this.lblDepGroup.TabIndex = 0;
+            this.lblDepGroup.Text = "位置:";
             // 
             // lblMachine
             // 
             this.lblMachine.AutoSize = true;
-            this.lblMachine.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMachine.Location = new System.Drawing.Point(243, 26);
+            this.lblMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMachine.Location = new System.Drawing.Point(289, 24);
             this.lblMachine.Name = "lblMachine";
-            this.lblMachine.Size = new System.Drawing.Size(94, 35);
+            this.lblMachine.Size = new System.Drawing.Size(40, 17);
             this.lblMachine.TabIndex = 0;
             this.lblMachine.Text = "機器:";
             // 
             // txtStdQty
             // 
-            this.txtStdQty.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtStdQty.Location = new System.Drawing.Point(643, 89);
+            this.txtStdQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtStdQty.Location = new System.Drawing.Point(572, 54);
             this.txtStdQty.Name = "txtStdQty";
-            this.txtStdQty.Size = new System.Drawing.Size(136, 49);
+            this.txtStdQty.Size = new System.Drawing.Size(136, 23);
             this.txtStdQty.TabIndex = 4;
             // 
             // txtRunNo
             // 
-            this.txtRunNo.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtRunNo.Location = new System.Drawing.Point(331, 89);
+            this.txtRunNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtRunNo.Location = new System.Drawing.Point(100, 54);
             this.txtRunNo.Name = "txtRunNo";
-            this.txtRunNo.Size = new System.Drawing.Size(136, 49);
+            this.txtRunNo.Size = new System.Drawing.Size(136, 23);
             this.txtRunNo.TabIndex = 3;
             this.txtRunNo.Leave += new System.EventHandler(this.txtRunNo_Leave);
             // 
             // lblStdQty
             // 
             this.lblStdQty.AutoSize = true;
-            this.lblStdQty.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblStdQty.Location = new System.Drawing.Point(473, 96);
+            this.lblStdQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblStdQty.Location = new System.Drawing.Point(498, 57);
             this.lblStdQty.Name = "lblStdQty";
-            this.lblStdQty.Size = new System.Drawing.Size(164, 35);
+            this.lblStdQty.Size = new System.Drawing.Size(68, 17);
             this.lblStdQty.TabIndex = 0;
             this.lblStdQty.Text = "標準數量:";
             // 
             // lblRunNo
             // 
             this.lblRunNo.AutoSize = true;
-            this.lblRunNo.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblRunNo.Location = new System.Drawing.Point(243, 96);
+            this.lblRunNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblRunNo.Location = new System.Drawing.Point(30, 57);
             this.lblRunNo.Name = "lblRunNo";
-            this.lblRunNo.Size = new System.Drawing.Size(94, 35);
+            this.lblRunNo.Size = new System.Drawing.Size(68, 17);
             this.lblRunNo.TabIndex = 0;
-            this.lblRunNo.Text = "轉數:";
+            this.lblRunNo.Text = "標準轉數:";
             // 
             // txtLineNo
             // 
-            this.txtLineNo.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtLineNo.Location = new System.Drawing.Point(132, 89);
+            this.txtLineNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtLineNo.Location = new System.Drawing.Point(336, 54);
             this.txtLineNo.Name = "txtLineNo";
-            this.txtLineNo.Size = new System.Drawing.Size(100, 49);
+            this.txtLineNo.Size = new System.Drawing.Size(154, 23);
             this.txtLineNo.TabIndex = 2;
             this.txtLineNo.Leave += new System.EventHandler(this.txtLineNo_Leave);
             // 
             // lblLineNo
             // 
             this.lblLineNo.AutoSize = true;
-            this.lblLineNo.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblLineNo.Location = new System.Drawing.Point(30, 96);
+            this.lblLineNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblLineNo.Location = new System.Drawing.Point(261, 57);
             this.lblLineNo.Name = "lblLineNo";
-            this.lblLineNo.Size = new System.Drawing.Size(94, 35);
+            this.lblLineNo.Size = new System.Drawing.Size(68, 17);
             this.lblLineNo.TabIndex = 0;
-            this.lblLineNo.Text = "行數:";
-            // 
-            // txtDep
-            // 
-            this.txtDep.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtDep.Location = new System.Drawing.Point(132, 14);
-            this.txtDep.Name = "txtDep";
-            this.txtDep.ReadOnly = true;
-            this.txtDep.Size = new System.Drawing.Size(100, 49);
-            this.txtDep.TabIndex = 0;
+            this.lblLineNo.Text = "每碑行數:";
             // 
             // lblDep
             // 
             this.lblDep.AutoSize = true;
-            this.lblDep.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblDep.Location = new System.Drawing.Point(30, 26);
+            this.lblDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblDep.Location = new System.Drawing.Point(58, 24);
             this.lblDep.Name = "lblDep";
-            this.lblDep.Size = new System.Drawing.Size(94, 35);
+            this.lblDep.Size = new System.Drawing.Size(40, 17);
             this.lblDep.TabIndex = 0;
             this.lblDep.Text = "部門:";
             // 
@@ -246,116 +283,55 @@
             this.dgvDetails.AllowUserToDeleteRows = false;
             this.dgvDetails.AllowUserToResizeColumns = false;
             this.dgvDetails.AllowUserToResizeRows = false;
-            this.dgvDetails.ColumnHeadersHeight = 40;
+            this.dgvDetails.ColumnHeadersHeight = 30;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
+            this.colDep,
+            this.colPrdMachine,
+            this.colRunQty,
+            this.colLineNo,
+            this.colStdQty});
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetails.Location = new System.Drawing.Point(0, 100);
+            this.dgvDetails.Location = new System.Drawing.Point(0, 0);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 20;
-            this.dgvDetails.RowTemplate.Height = 80;
-            this.dgvDetails.Size = new System.Drawing.Size(942, 393);
+            this.dgvDetails.RowTemplate.Height = 25;
+            this.dgvDetails.Size = new System.Drawing.Size(942, 543);
             this.dgvDetails.TabIndex = 1;
             this.dgvDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellClick);
+            this.dgvDetails.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellDoubleClick);
             // 
-            // Column1
+            // colDep
             // 
-            this.Column1.DataPropertyName = "dep";
-            this.Column1.HeaderText = "部門";
-            this.Column1.Name = "Column1";
+            this.colDep.DataPropertyName = "dep";
+            this.colDep.HeaderText = "部門";
+            this.colDep.Name = "colDep";
             // 
-            // Column2
+            // colPrdMachine
             // 
-            this.Column2.DataPropertyName = "machine_id";
-            this.Column2.HeaderText = "機器代號";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 140;
+            this.colPrdMachine.DataPropertyName = "machine_id";
+            this.colPrdMachine.HeaderText = "機器代號";
+            this.colPrdMachine.Name = "colPrdMachine";
+            this.colPrdMachine.Width = 140;
             // 
-            // Column3
+            // colRunQty
             // 
-            this.Column3.DataPropertyName = "machine_mul";
-            this.Column3.HeaderText = "行(碑)數";
-            this.Column3.Name = "Column3";
+            this.colRunQty.DataPropertyName = "machine_rate";
+            this.colRunQty.HeaderText = "標準轉數";
+            this.colRunQty.Name = "colRunQty";
             // 
-            // Column4
+            // colLineNo
             // 
-            this.Column4.DataPropertyName = "machine_rate";
-            this.Column4.HeaderText = "轉數";
-            this.Column4.Name = "Column4";
+            this.colLineNo.DataPropertyName = "machine_mul";
+            this.colLineNo.HeaderText = "每碑行數";
+            this.colLineNo.Name = "colLineNo";
             // 
-            // Column5
+            // colStdQty
             // 
-            this.Column5.DataPropertyName = "machine_std_qty";
-            this.Column5.HeaderText = "小時標準數量";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 160;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BTNFIND);
-            this.panel1.Controls.Add(this.txtFindMachine);
-            this.panel1.Controls.Add(this.lblFindDep);
-            this.panel1.Controls.Add(this.lblFindMachine);
-            this.panel1.Controls.Add(this.txtFindDep);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(942, 100);
-            this.panel1.TabIndex = 0;
-            // 
-            // BTNFIND
-            // 
-            this.BTNFIND.Font = new System.Drawing.Font("PMingLiU", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BTNFIND.Location = new System.Drawing.Point(557, 7);
-            this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(120, 87);
-            this.BTNFIND.TabIndex = 2;
-            this.BTNFIND.Text = "查詢";
-            this.BTNFIND.UseVisualStyleBackColor = true;
-            this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
-            // 
-            // txtFindMachine
-            // 
-            this.txtFindMachine.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFindMachine.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtFindMachine.Location = new System.Drawing.Point(331, 20);
-            this.txtFindMachine.Name = "txtFindMachine";
-            this.txtFindMachine.Size = new System.Drawing.Size(189, 49);
-            this.txtFindMachine.TabIndex = 1;
-            // 
-            // lblFindDep
-            // 
-            this.lblFindDep.AutoSize = true;
-            this.lblFindDep.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblFindDep.Location = new System.Drawing.Point(30, 27);
-            this.lblFindDep.Name = "lblFindDep";
-            this.lblFindDep.Size = new System.Drawing.Size(94, 35);
-            this.lblFindDep.TabIndex = 0;
-            this.lblFindDep.Text = "部門:";
-            // 
-            // lblFindMachine
-            // 
-            this.lblFindMachine.AutoSize = true;
-            this.lblFindMachine.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblFindMachine.Location = new System.Drawing.Point(243, 27);
-            this.lblFindMachine.Name = "lblFindMachine";
-            this.lblFindMachine.Size = new System.Drawing.Size(94, 35);
-            this.lblFindMachine.TabIndex = 0;
-            this.lblFindMachine.Text = "機器:";
-            // 
-            // txtFindDep
-            // 
-            this.txtFindDep.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFindDep.Font = new System.Drawing.Font("PMingLiU", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtFindDep.Location = new System.Drawing.Point(132, 20);
-            this.txtFindDep.Name = "txtFindDep";
-            this.txtFindDep.Size = new System.Drawing.Size(100, 49);
-            this.txtFindDep.TabIndex = 0;
+            this.colStdQty.DataPropertyName = "machine_std_qty";
+            this.colStdQty.HeaderText = "小時標準數量";
+            this.colStdQty.Name = "colStdQty";
+            this.colStdQty.Width = 160;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -368,6 +344,7 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "machine_id";
             this.dataGridViewTextBoxColumn2.HeaderText = "機器代號";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 140;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -390,9 +367,9 @@
             // 
             // frmMachineStdQty
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 741);
+            this.ClientSize = new System.Drawing.Size(944, 684);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmMachineStdQty";
@@ -407,8 +384,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -421,10 +396,8 @@
         private System.Windows.Forms.ToolStripButton BTNSAVE;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtMachine;
         private System.Windows.Forms.Label lblMachine;
-        private System.Windows.Forms.TextBox txtDep;
         private System.Windows.Forms.Label lblDep;
         private System.Windows.Forms.TextBox txtStdQty;
         private System.Windows.Forms.TextBox txtRunNo;
@@ -432,21 +405,21 @@
         private System.Windows.Forms.Label lblRunNo;
         private System.Windows.Forms.TextBox txtLineNo;
         private System.Windows.Forms.Label lblLineNo;
-        private System.Windows.Forms.TextBox txtFindMachine;
-        private System.Windows.Forms.Label lblFindDep;
-        private System.Windows.Forms.Label lblFindMachine;
-        private System.Windows.Forms.TextBox txtFindDep;
-        private System.Windows.Forms.Button BTNFIND;
         private System.Windows.Forms.DataGridView dgvDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.ToolStripButton btnFind;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ComboBox cmbFindDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrdMachine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRunQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLineNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStdQty;
+        private System.Windows.Forms.TextBox txtDepGroup;
+        private System.Windows.Forms.Label lblDepGroup;
     }
 }

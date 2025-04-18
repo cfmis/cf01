@@ -69,43 +69,7 @@ namespace cf01.CLS
 
                 dtPlanDetails = clsConErp.GetDataTable(strSql);
 
-                if (dtPlanDetails.Rows.Count > 0)
-                {
-                    DataTable dtDept = clsBs_Dep.GetAllDepartment();
-                    for (int i = 0; i < dtPlanDetails.Rows.Count; i++)
-                    {
-                        //下一部門
-                        string strNext_wp_dept = dtPlanDetails.Rows[i]["next_wp_id"].ToString();
-                        if (strNext_wp_dept != "")
-                        {
-                            DataRow[] dr1 = dtDept.Select("id='" + strNext_wp_dept + "'");
-                            dtPlanDetails.Rows[i]["next_wp_name"] = dr1[0]["name"].ToString();
-                        }
-
-                        //上部門
-                        string strPre_dept = dtPlanDetails.Rows[i]["pre_dept"].ToString();
-                        if (strPre_dept != "")
-                        {
-                            DataRow[] dr2 = dtDept.Select("id='" + strPre_dept + "'");
-                            dtPlanDetails.Rows[i]["pre_dept_name"] = dr2[0]["name"].ToString();
-                        }
-
-                        int complete_qty = clsUtility.FormatNullableInt32(dtPlanDetails.Rows[i]["c_qty_ok"]);
-                        int prod_qty = clsUtility.FormatNullableInt32(dtPlanDetails.Rows[i]["prod_qty"]);
-                        int obligate_qty = clsUtility.FormatNullableInt32(dtPlanDetails.Rows[i]["OBLIGATE_QTY"]);
-                        if ((prod_qty + obligate_qty) > 0 || complete_qty > 0)  //判斷生產狀態
-                        {
-                            if (complete_qty >= (prod_qty + obligate_qty))
-                            {
-                                dtPlanDetails.Rows[i]["prod_state"] = "完成";
-                            }
-                            else
-                            {
-                                dtPlanDetails.Rows[i]["prod_state"] = "未完成";
-                            }
-                        }
-                    }
-                }
+                
             }
             catch (Exception ex)
             {
@@ -144,6 +108,69 @@ namespace cf01.CLS
             return strImagePath;
         }
 
+        public DataTable GetWipDetails(string mo_id)
+        {
+            //          ,b.schedule_seq_new,b.schedule_seq,b.schedule_date,b.pmc_rq_date,b.dep_rp_date
+            //,c.prd_work_type,c.work_type_desc,c.prd_date
+            //,d.prd_qty,d.prd_weg
+            SqlParameter[] paras = new SqlParameter[]{
+                        new SqlParameter("@mo_id",mo_id)};
+            DataTable dtPlanDetails = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_mo_schedule_status", paras);
+            dtPlanDetails.Columns.Add("check_value", System.Type.GetType("System.Boolean"));
+            //if (dtPlanDetails.Rows.Count > 0)
+            //{
+            //    DataTable dtDept = clsBs_Dep.GetAllDepartment();
+            //    for (int i = 0; i < dtPlanDetails.Rows.Count; i++)
+            //    {
+            //        //下一部門
+            //        string strNext_wp_dept = dtPlanDetails.Rows[i]["next_wp_id"].ToString();
+            //        if (strNext_wp_dept != "")
+            //        {
+            //            DataRow[] dr1 = dtDept.Select("id='" + strNext_wp_dept + "'");
+            //            dtPlanDetails.Rows[i]["next_wp_name"] = dr1[0]["name"].ToString();
+            //        }
+
+            //        //上部門
+            //        string strPre_dept = dtPlanDetails.Rows[i]["pre_dept"].ToString();
+            //        if (strPre_dept != "")
+            //        {
+            //            DataRow[] dr2 = dtDept.Select("id='" + strPre_dept + "'");
+            //            dtPlanDetails.Rows[i]["pre_dept_name"] = dr2[0]["name"].ToString();
+            //        }
+
+            //        int complete_qty = clsUtility.FormatNullableInt32(dtPlanDetails.Rows[i]["c_qty_ok"]);
+            //        int prod_qty = clsUtility.FormatNullableInt32(dtPlanDetails.Rows[i]["prod_qty"]);
+            //        int obligate_qty = clsUtility.FormatNullableInt32(dtPlanDetails.Rows[i]["OBLIGATE_QTY"]);
+            //        if ((prod_qty + obligate_qty) > 0 || complete_qty > 0)  //判斷生產狀態
+            //        {
+            //            if (complete_qty >= (prod_qty + obligate_qty))
+            //            {
+            //                dtPlanDetails.Rows[i]["prod_state"] = "完成";
+            //            }
+            //            else
+            //            {
+            //                dtPlanDetails.Rows[i]["prod_state"] = "未完成";
+            //            }
+            //        }
+            //    }
+            //}
+            return dtPlanDetails;
+        }
+
+        public static DataTable LoadDepProduction(string prd_dep,string prd_group,string prd_date,string prd_mo)
+        {
+            //          ,b.schedule_seq_new,b.schedule_seq,b.schedule_date,b.pmc_rq_date,b.dep_rp_date
+            //,c.prd_work_type,c.work_type_desc,c.prd_date
+            //,d.prd_qty,d.prd_weg
+            SqlParameter[] paras = new SqlParameter[]{
+                new SqlParameter("@dep",prd_dep)
+                ,new SqlParameter("@prd_group",prd_group)
+                ,new SqlParameter("@prd_date",prd_date)
+                ,new SqlParameter("@prd_mo",prd_mo)};
+            DataTable dtPrd = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_mo_schedule_prd", paras);
+
+            return dtPrd;
+        }
 
 
     }

@@ -24,7 +24,7 @@ namespace cf01.ReportForm
     {
         private CheckBox CheckBox1 = new CheckBox();
 
-        DataTable dt1, dt2;
+        private DataTable dtMoPlan, dt2;
         clsCommonUse commUse = new clsCommonUse();
 
         public frmPlanWithPrintCard()
@@ -167,7 +167,7 @@ namespace cf01.ReportForm
                 if (chkSimplePlan.Checked == true)
                     this.showSimplePlan();
                 else
-                    dgvDetails.DataSource = dt1;
+                    dgvDetails.DataSource = dtMoPlan;
             }
         }
 
@@ -259,11 +259,14 @@ namespace cf01.ReportForm
                 show_ver = 2;
             if (chkReqPrdQty.Checked == true)//若包含生產數為零的記錄
                 zero_qty = 1;
-            //z_plan01//usp_LoadDepPlan
-            dt1 = commUse.getDataProcedure("usp_LoadPlan",
+            //z_plan01//usp_LoadDepPlan   @old_arrange_date
+            //dtMoPlan = commUse.getDataProcedure("usp_LoadPlanNew",
+            //    new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
+            //        ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0});
+            dtMoPlan = commUse.getDataProcedure("usp_LoadPlan",
                 new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
                     ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0,""});
-            dgvDetails.DataSource = dt1;
+            dgvDetails.DataSource = dtMoPlan;
 
             if (chkSimplePlan.Checked == true)
             {
@@ -565,8 +568,8 @@ namespace cf01.ReportForm
         /// </summary>
         private void showSimplePlan()
         {
-            dt2 = dt1.Clone();
-            foreach (DataRow MyDataRow in dt1.Select("order_qty > c_qty_ok AND pre_dep_deliver_flag <> '上部門欠件' AND wp_id <> next_wp_id AND next_wp_id<>'702' AND substring(mo_id,1,1)<>'Y' "))//
+            dt2 = dtMoPlan.Clone();
+            foreach (DataRow MyDataRow in dtMoPlan.Select("order_qty > c_qty_ok AND pre_dep_deliver_flag <> '上部門欠件' AND wp_id <> next_wp_id AND next_wp_id<>'702' AND substring(mo_id,1,1)<>'Y' "))//
             {
                 dt2.ImportRow(MyDataRow);
             }
@@ -1178,6 +1181,148 @@ namespace cf01.ReportForm
             DvExportExcel("JX");
         }
 
+        private void btnPrintNextWp_Click(object sender, EventArgs e)
+        {
+            show_workcard(2);
+        }
+
+        private void btnMoSchedule_Click(object sender, EventArgs e)
+        {
+            bool selectFlag = false;
+            for (int i = 0; i < dgvDetails.RowCount; i++)
+            {
+                if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
+                {
+                    selectFlag = true;
+                    break;
+                }
+            }
+            if (selectFlag == false)
+            {
+                MessageBox.Show("沒有儲存的記錄!");
+                return;
+            }
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+
+            //**********************
+            SaveMoSchedule(); //数据处理
+            //**********************
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+
+            
+        }
+        private void SaveMoSchedule()
+        {
+            
+            List<mdlMoSchedule> lsModel = new List<mdlMoSchedule>();
+            int seq_step = clsMoSchedule.GetScheduleSeq(dtMoPlan.Rows[0]["wp_id"].ToString().Trim());
+            for (int i = 0; i < dgvDetails.RowCount; i++)
+            {
+                if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
+                {
+                    DataRow drMo = dtMoPlan.Rows[i];
+                    mdlMoSchedule objModel = new mdlMoSchedule();
+                    objModel.schedule_id = "";
+                    objModel.schedule_seq = seq_step.ToString("D3").PadLeft(3, '0');
+                    objModel.schedule_date = System.DateTime.Now.ToString("yyyy/MM/dd");
+                    objModel.prd_dep = drMo["wp_id"].ToString().Trim();
+                    objModel.prd_mo = drMo["mo_id"].ToString().Trim();
+                    objModel.prd_item = drMo["goods_id"].ToString().Trim();
+                    //DataTable dtPrd = clsMoSchedule.GetPrdDetails(objModel.prd_dep, objModel.prd_item);
+                    objModel.prd_group = drMo["prd_group"].ToString().Trim();
+                    
+                    objModel.next_wp_id = drMo["next_wp_id"].ToString().Trim();
+                    objModel.next_goods_id = drMo["next_goods_id"].ToString().Trim();
+                    objModel.next_vend_id = drMo["next_vendor_id"].ToString().Trim();
+                    objModel.order_date = drMo["order_date"].ToString().Trim();
+                    objModel.order_qty = clsValidRule.ConvertStrToInt(drMo["order_qty"].ToString());
+                    objModel.pl_qty = clsValidRule.ConvertStrToInt(drMo["prod_qty"].ToString());
+                    objModel.schedule_qty = objModel.pl_qty;
+
+
+                    objModel.prd_machine = drMo["prd_machine"].ToString().Trim();
+                    objModel.machine_std_qty = clsValidRule.ConvertStrToInt(drMo["machine_std_qty"].ToString());
+                    objModel.machine_std_run_num = clsValidRule.ConvertStrToInt(drMo["machine_rate"].ToString());
+                    if(objModel.machine_std_run_num == 0)
+                    {
+                        if(objModel.prd_dep=="322")
+                        {
+                            objModel.machine_std_run_num = 450;
+                        }
+                    }
+                    //需生產時間a.machine_mul,a.machine_rate,a.machine_std_qty
+                    objModel.machine_std_line_num = clsValidRule.ConvertStrToInt(drMo["machine_mul"].ToString());
+                    if (objModel.machine_std_line_num == 0)
+                    {
+                        if (objModel.prd_dep == "322")
+                            objModel.machine_std_line_num = 6;
+                        else
+                            objModel.machine_std_line_num = 1;
+                    }
+                    objModel.need_mon_num = ((int)(objModel.schedule_qty / objModel.machine_std_line_num) + 1);
+                    //if (objModel.machine_std_qty == 0)
+                    objModel.machine_std_qty = objModel.machine_std_run_num * objModel.machine_std_line_num;
+                    if (objModel.machine_std_qty != 0)
+                        objModel.req_prd_time = Math.Round(objModel.schedule_qty / objModel.machine_std_qty, 2);
+                    
+                    objModel.req_tot_time = objModel.req_module_time + objModel.req_prd_time;
+
+                    objModel.module_type = "00";
+                    string status_desc = drMo["status_desc"].ToString().Trim();
+                    objModel.urgent_flag = "00";
+                    if (status_desc == "急單" || status_desc == "急")
+                        objModel.urgent_flag = "02";
+                    else if (status_desc == "特急" || status_desc == "特急單")
+                        objModel.urgent_flag = "03";
+                    else if (status_desc == "超特急" || status_desc == "超特急單")
+                        objModel.urgent_flag = "04";
+                    objModel.status = "01";
+                    
+                    lsModel.Add(objModel);
+                    seq_step++;
+                }
+            }
+
+            if (lsModel.Count > 0)
+            {
+                string result = clsMoSchedule.SaveMoSchedule(lsModel);
+                if (result =="")
+                {
+                    //MessageBox.Show("生成排期表成功!");
+                    if (frmMoSchedule.sendDep != "")
+                        this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("生成排期表失敗!");
+                }
+            }
+        }
+        private void checkBox2_Click(object sender, EventArgs e)
+        {
+            bool selectFlag = false;
+            if (checkBox2.Checked == true)
+                selectFlag = true;
+            for (int i = 0; i <= this.dgvDetails.RowCount - 1; i++)
+            {
+                this.dgvDetails.Rows[i].Cells["CheckBox"].Value = selectFlag;
+                //    if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
+                //    {
+                //        this.dgvDetails.Rows[i].Cells["CheckBox"].Value = false;
+                //    }
+                //    else
+                //    {
+                //        this.dgvDetails.Rows[i].Cells["CheckBox"].Value = true;
+                //    }
+            }
+        }
+
+
         private void btnArrangeMo_Click(object sender, EventArgs e)
         {
             bool selectFlag = false;
@@ -1229,31 +1374,6 @@ namespace cf01.ReportForm
                 }
             }
         }
-
-        private void btnPrintNextWp_Click(object sender, EventArgs e)
-        {
-            show_workcard(2);
-        }
-
-        private void checkBox2_Click(object sender, EventArgs e)
-        {
-            bool selectFlag = false;
-            if (checkBox2.Checked == true)
-                selectFlag = true;
-            for (int i = 0; i <= this.dgvDetails.RowCount - 1; i++)
-            {
-                this.dgvDetails.Rows[i].Cells["CheckBox"].Value = selectFlag;
-                //    if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
-                //    {
-                //        this.dgvDetails.Rows[i].Cells["CheckBox"].Value = false;
-                //    }
-                //    else
-                //    {
-                //        this.dgvDetails.Rows[i].Cells["CheckBox"].Value = true;
-                //    }
-            }
-        }
-
 
     }
 }

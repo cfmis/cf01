@@ -18,6 +18,11 @@ namespace cf01.Forms
 {
     public partial class frmProductionArrange : Form
     {
+        private ContextMenuStrip contextMenu;
+        private DataRow cutRow;
+        private int pasteRowIndex;
+
+
         private DataTable dtMo_item = new DataTable();
         private DataTable dtPA = new DataTable();
         private DataTable dtPrd_dept = new DataTable();
@@ -38,6 +43,56 @@ namespace cf01.Forms
         {
             InitializeComponent();
         }
+
+
+        private void dgvPA_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // 记录右键单击的行
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                dgvPA.Rows[e.RowIndex].Selected = true;
+            }
+        }
+
+        private void CutMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvPA.SelectedRows.Count > 0)
+            {
+                pasteRowIndex = dgvPA.SelectedRows[0].Index;
+                cutRow = dtPA.NewRow();
+                cutRow.ItemArray = dtPA.Rows[pasteRowIndex].ItemArray;
+
+                //dtPA.Rows.RemoveAt(rowIndex); // 从绑定的 DataTable 中移除
+            }
+        }
+
+        private void PasteMenuItem_Click(object sender, EventArgs e)
+        {
+            if (cutRow != null)
+            {
+                dtPA.Rows.RemoveAt(pasteRowIndex); // 从绑定的 DataTable 中移除
+
+                // 获取目标插入位置的行索引
+                var clientPoint = dgvPA.PointToClient(Cursor.Position);
+                var hitTest = dgvPA.HitTest(clientPoint.X, clientPoint.Y);
+
+                if (hitTest.RowIndex >= 0)
+                {
+                    dtPA.Rows.InsertAt(cutRow, hitTest.RowIndex); // 插入到目标位置
+                    cutRow = null; // 清空剪切的行
+                }
+                else
+                {
+                    MessageBox.Show("无法粘贴到该位置！");
+                }
+            }
+            else
+            {
+                MessageBox.Show("没有剪切的行可以粘贴！");
+            }
+
+        }
+
 
         private void frmProductionArrange_Load(object sender, EventArgs e)
         {
@@ -64,6 +119,11 @@ namespace cf01.Forms
             BindSortFields();
             SetUserControlEnabled();
             strSort = "";//清空排序條件
+
+            
+
+
+
         }
         //設置用戶權限可用
         private void SetUserControlEnabled()
@@ -518,7 +578,7 @@ namespace cf01.Forms
             else
                 if (rdbNoComplete.Checked == true)
                     cpl_status = 0;
-            DataTable dtPA = getArrangeData(prd_dep, mo_id, goods_id, machine, now_date, worker, is_machine, prd_status, rec_status, cpl_status);
+            dtPA = getArrangeData(prd_dep, mo_id, goods_id, machine, now_date, worker, is_machine, prd_status, rec_status, cpl_status);
             dgvPA.DataSource = dtPA;
             //gridControl1.DataSource = dtPA;
             //dtPA.Columns.Add("art", typeof(Image));//
@@ -588,9 +648,9 @@ namespace cf01.Forms
             else
                 strSql += " a.prd_dep,a.arrange_seq,a.arrange_machine";
 
-            dtPA = clsPublicOfPad.GetDataTable(strSql);
+            DataTable dtArr = clsPublicOfPad.GetDataTable(strSql);
 
-            return dtPA;
+            return dtArr;
             
         }
         //返回图片的字节流byte[] 
@@ -1391,11 +1451,11 @@ namespace cf01.Forms
                 wForm.ShowDialog();
             }).Start();
             GetPrdocutArrange();
-            //initSortRec();//排序記錄//暫時取消系統自動排序2018/01/30
-            setCellsColor();
+            ////initSortRec();//排序記錄//暫時取消系統自動排序2018/01/30
+            //setCellsColor();
             FillTextBox(0);
             showImage();//顯示artwork圖片
-            //show_Image();
+            ////show_Image();
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
         }
         //設置按機器顯示不同行顏色
@@ -1916,6 +1976,7 @@ namespace cf01.Forms
             int qty_std = GetMachine_std(cmbProductDept.SelectedValue.ToString(), machine, cmbGoods_id.Text);
             txtMachine_stand_qty.Text = qty_std.ToString();
         }
+
 
 
     }

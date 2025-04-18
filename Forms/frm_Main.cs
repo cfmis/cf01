@@ -124,7 +124,7 @@ namespace cf01.Forms
             if (checkChildFrmExist(formname) == false)
             {
                 Assembly asb = Assembly.GetExecutingAssembly();//得到当前的程序集
-                Form f = (Form)asb.CreateInstance("cf01." + path_formname);//利用反射，根据数据库中的字段值创建窗体对象             
+                Form f = (Form)asb.CreateInstance("cf01." + path_formname.ToString().Trim());//利用反射，根据数据库中的字段值创建窗体对象             
                 //if (path_formname != "" && (path_formname != "EXIT")) // && (path_formname != "Cascade") && (path_formname != "TileVertical")
                 //&& (path_formname != "TileHorizontal") && (path_formname != "ArrangeIcons") && (path_formname != "EXIT"))
                 if (path_formname != "" && (path_formname != "Exit(&X)"))
