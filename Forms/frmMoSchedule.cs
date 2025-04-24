@@ -55,21 +55,28 @@ namespace cf01.Forms
         private void SetCombox()
         {
 
-
+            //////表格中的制單狀態標識
             lueGvStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
             lueGvStatus.ValueMember = "flag_id";
             lueGvStatus.DisplayMember = "flag_cdesc";
-
-            lueGvUrgentFlag.DataSource = clsBaseData.loadDocFlag("mo_urgent_status");
-            lueGvUrgentFlag.ValueMember = "flag_id";
-            lueGvUrgentFlag.DisplayMember = "flag_cdesc";
+            //////批量設定中的制單狀態標識
+            cmbSetStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
+            cmbSetStatus.ValueMember = "flag_id";
+            cmbSetStatus.DisplayMember = "flag_cdesc";
+            //////查詢條件中的制單狀態標識
             cmbMoStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
             cmbMoStatus.ValueMember = "flag_id";
             cmbMoStatus.DisplayMember = "flag_cdesc";
             cmbMoStatus.SelectedValue = "01";
-            cmbSetStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
-            cmbSetStatus.ValueMember = "flag_id";
-            cmbSetStatus.DisplayMember = "flag_cdesc";
+            //////表格中的急單狀態標識
+            lueGvUrgentFlag.DataSource = clsBaseData.loadDocFlag("mo_urgent_status");
+            lueGvUrgentFlag.ValueMember = "flag_id";
+            lueGvUrgentFlag.DisplayMember = "flag_cdesc";
+            //////批量設定中的急單狀態標識
+            lueSetUrgentMo.Properties.DataSource = clsBaseData.loadDocFlag("mo_urgent_status");
+            lueSetUrgentMo.Properties.ValueMember = "flag_id";
+            lueSetUrgentMo.Properties.DisplayMember = "flag_cdesc";
+
             //////模具類型
             lueModuleType.DataSource = clsBaseData.loadDocFlag("schedule_module_type");
             lueModuleType.ValueMember = "flag_id";
@@ -169,6 +176,11 @@ namespace cf01.Forms
         private void btnFind_Click(object sender, EventArgs e)
         {
             txtPrdMachine.Focus();
+            if (ChkUpdateStatus())
+            {
+                if (MessageBox.Show("存在未儲存的記錄，確定刷新嗎？", "系統信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
             FindData();
         }
 
@@ -222,7 +234,7 @@ namespace cf01.Forms
                 object req_tot_time = dtMoSchedule.Compute("SUM(req_tot_time)", "");
                 txtScheduleQty.Text = Convert.ToDecimal(schedule_qty).ToString("#,##0");
                 txtNotCpQty.Text = Convert.ToDecimal(not_cp_qty).ToString("#,##0");
-                txtReqTotTime.Text = Convert.ToDecimal(req_tot_time).ToString("#,##0.00");
+                txtReqTotTime.Text = clsValidRule.ConvertStrToDecimal(req_tot_time.ToString()).ToString("#,##0.00");
                 decimal day_work_time = 24 - (decimal)(noon_break + afternoon_break + evening_break);
                 if (day_work_time != 0)
                     txtNeedPrdDays.Text = Math.Round((clsValidRule.ConvertStrToDecimal(txtReqTotTime.Text) / day_work_time),2).ToString();
@@ -268,6 +280,12 @@ namespace cf01.Forms
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
+            txtPrdMachine.Focus();
+            if(ChkUpdateStatus())
+            {
+                if (MessageBox.Show("存在未儲存的記錄，確定退出嗎？", "系統信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
             this.Close();
         }
 
@@ -286,14 +304,20 @@ namespace cf01.Forms
         {
             
             GetScheduleBase();
+            string prd_dep = cmbFindDep.SelectedValue.ToString().Trim();
             //////部門組別
-            luePrdGroup.DataSource = clsBaseData.loadDocFlag("GROUP_" + cmbFindDep.SelectedValue.ToString().Trim());
+            luePrdGroup.DataSource = clsBaseData.loadDocFlag("GROUP_" + prd_dep);
             luePrdGroup.ValueMember = "flag_id";
             luePrdGroup.DisplayMember = "flag_cdesc";
 
-            cmbDepGroup.DataSource = clsBaseData.loadDocFlag("GROUP_" + cmbFindDep.SelectedValue.ToString().Trim());
+            cmbDepGroup.DataSource = clsBaseData.loadDocFlag("GROUP_" + prd_dep);
             cmbDepGroup.ValueMember = "flag_id";
             cmbDepGroup.DisplayMember = "flag_cdesc";
+            // 绑定数据源
+            luePrdMachine.Properties.DataSource = clsBaseData.LoadMachineStd(prd_dep);
+            luePrdMachine.Properties.ValueMember = "machine_id";  // 绑定值字段
+            luePrdMachine.Properties.DisplayMember = "machine_id";  // 绑定显示字段,machine_rate,machine_mul
+
         }
         private void GetScheduleBase()
         {
@@ -337,6 +361,7 @@ namespace cf01.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            txtPrdMachine.Focus();
             SaveSchedule();
         }
 
@@ -379,6 +404,10 @@ namespace cf01.Forms
                     objMo.urgent_flag = dr["urgent_flag"].ToString();
                     objMo.status = dr["status"].ToString();
                     objMo.module_type = dr["module_type"].ToString();
+                    objMo.mo_remark = dr["mo_remark"].ToString();
+                    objMo.dep_remark = dr["dep_remark"].ToString();
+                    objMo.module_no = dr["module_no"].ToString();
+                    objMo.module_install = dr["module_install"].ToString();
                     lsMo.Add(objMo);
                 }
             }
@@ -386,7 +415,10 @@ namespace cf01.Forms
             {
                 result = clsMoSchedule.SaveMoSchedule(lsMo);
                 if (result == "")
+                {
                     MessageBox.Show("更新排期表成功!");
+                    FindData();
+                }
             }
         }
 
@@ -399,12 +431,13 @@ namespace cf01.Forms
             frm.ShowDialog();
             if (frmMachineStdQty.prd_machine != "")
             {
+                int rowIndex = gvSchedule.FocusedRowHandle;
                 row["prd_machine"] = frmMachineStdQty.prd_machine;
                 row["machine_std_run_num"] = frmMachineStdQty.machine_std_run_num;
                 row["machine_std_line_num"] = frmMachineStdQty.machine_std_line_num;
                 row["machine_std_qty"] = frmMachineStdQty.machine_std_qty;
-                CountPrdQty();
-                CountScheduleTime(gvSchedule.FocusedRowHandle);
+                CountPrdQty(rowIndex);
+                CountScheduleTime(rowIndex);
                 CountNeedPrdDays();
                 //////返回後設置焦點，不然數據不會更新
                 ColumnView newview = (ColumnView)gcSchedule.FocusedView;
@@ -416,9 +449,9 @@ namespace cf01.Forms
         /// <summary>
         /// 計算需要生產數量及時間
         /// </summary>
-        private void CountPrdQty()
+        private void CountPrdQty(int rowIndex)
         {
-            DataRow row = gvSchedule.GetFocusedDataRow();
+            DataRow row = dtMoSchedule.Rows[rowIndex];// gvSchedule.GetFocusedDataRow();
             decimal std_run_qty = clsValidRule.ConvertStrToDecimal(row["machine_std_run_num"].ToString());
             decimal line_num = clsValidRule.ConvertStrToDecimal(row["machine_std_line_num"].ToString());
             decimal std_qty= std_run_qty * line_num;
@@ -437,6 +470,12 @@ namespace cf01.Forms
 
         private void btnNewSchedule_Click(object sender, EventArgs e)
         {
+            txtPrdMachine.Focus();
+            if (ChkUpdateStatus())
+            {
+                if (MessageBox.Show("存在未儲存的記錄，確定新增排期嗎？", "系統信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
             //
             //frmMoScheduleBase
             sendDep = cmbFindDep.SelectedValue.ToString().Trim();
@@ -485,6 +524,26 @@ namespace cf01.Forms
                 DataRow row = gvSchedule.GetFocusedDataRow();
                 txtPrdMachine.Text = row["prd_machine"].ToString().Trim();
             }
+
+            decimal total = 0;
+            decimal value = 0; // 先定义变量
+            foreach (var cell in gvSchedule.GetSelectedCells())
+            {
+                ////decimal value;
+                //if (cell != null && decimal.TryParse(cell.ToString(), out value)) // 这里检查 `cell`
+                //{
+                //    total += value;
+                //}
+
+                object cellValue = gvSchedule.GetRowCellValue(cell.RowHandle, cell.Column);
+                if (cellValue != null && cellValue != DBNull.Value && decimal.TryParse(cellValue.ToString(), out value))
+                //if (cellValue != null && decimal.TryParse(cellValue.ToString(), out value)) // 这里检查 `cell`
+                {
+                    total += value;
+                }
+            }
+            lblTotal.Text = $"选中单元格的总和: {total.ToString("#,##0")}";
+
         }
 
         private void btnAddToMachine_Click(object sender, EventArgs e)
@@ -515,10 +574,19 @@ namespace cf01.Forms
 
         private void btnSetMoStatus_Click(object sender, EventArgs e)
         {
-            ConfMoStatus();
+            SetMoOperations(1);
             
         }
-        private void ConfMoStatus()
+        private void btnSetMachine_Click(object sender, EventArgs e)
+        {
+            SetMoOperations(2);
+        }
+        private void btnSetUrgentMo_Click(object sender, EventArgs e)
+        {
+            SetMoOperations(3);
+        }
+        //設定制單的各種狀態
+        private void SetMoOperations(int opera_type)
         {
             List<mdlMoSchedule> lsMo = new List<mdlMoSchedule>();
             // 获取选中的行索引
@@ -526,19 +594,64 @@ namespace cf01.Forms
 
             if (selectedRows.Length > 0)
             {
-                foreach (int rowIndex in selectedRows)
+                if (opera_type == 1)//設定制單狀態
                 {
-                    mdlMoSchedule objModel = new mdlMoSchedule();
-                    // 获取每行的值
-                    objModel.schedule_id = gvSchedule.GetRowCellValue(rowIndex, "schedule_id").ToString().Trim();
-                    objModel.status = cmbSetStatus.SelectedValue.ToString().Trim();
-                    lsMo.Add(objModel);
+                    foreach (int rowIndex in selectedRows)
+                    {
+                        //mdlMoSchedule objModel = new mdlMoSchedule();
+                        //// 获取每行的值
+                        //objModel.schedule_id = gvSchedule.GetRowCellValue(rowIndex, "schedule_id").ToString().Trim();
+                        //objModel.status = cmbSetStatus.SelectedValue.ToString().Trim();
+                        //lsMo.Add(objModel);
+                        DataRow dr = dtMoSchedule.Rows[rowIndex];
+                        dr["status"] = cmbSetStatus.SelectedValue.ToString().Trim();
+                        dr["update_flag"] = "1";
+                    }
+                }else if(opera_type==2)//設定制單機器
+                {
+
+                    string dep = dtMoSchedule.Rows[selectedRows[0]]["prd_dep"].ToString().Trim();
+                    string machine_id = luePrdMachine.EditValue.ToString().Trim();
+                    string machine_std_run_num = "", machine_std_line_num = "", machine_std_qty = "";
+                    DataTable dtMachine = clsMoSchedule.GetMachineStdQty(dep, machine_id);
+                    if (dtMachine.Rows.Count > 0)
+                    {
+                        DataRow drMachine = dtMachine.Rows[0];
+                        machine_std_run_num = drMachine["machine_rate"].ToString();
+                        machine_std_line_num = drMachine["machine_mul"].ToString();
+                        machine_std_qty = drMachine["machine_std_qty"].ToString();
+                        
+                    }
+                    foreach (int rowIndex in selectedRows)
+                    {
+                        DataRow dr = dtMoSchedule.Rows[rowIndex];
+                        dr["prd_machine"] = machine_id;
+                        dr["machine_std_run_num"] = machine_std_run_num;
+                        dr["machine_std_line_num"] = machine_std_line_num;
+                        dr["machine_std_qty"] = machine_std_qty;
+                        dr["update_flag"] = "1";
+                        CountPrdQty(rowIndex);
+                        //mdlMoSchedule objModel = new mdlMoSchedule();
+                        //// 获取每行的值
+                        //objModel.schedule_id = gvSchedule.GetRowCellValue(rowIndex, "schedule_id").ToString().Trim();
+                        //objModel.prd_machine = luePrdMachine.EditValue?.ToString().Trim();
+                        ////gvSchedule.SetRowCellValue(rowIndex, "update_flag") = "1";
+                        //lsMo.Add(objModel);
+                    }
+                }else if (opera_type == 3)//設定急單狀態
+                {
+                    foreach (int rowIndex in selectedRows)
+                    {
+                        DataRow dr = dtMoSchedule.Rows[rowIndex];
+                        dr["urgent_flag"] = lueSetUrgentMo.EditValue.ToString().Trim();
+                        dr["update_flag"] = "1";
+                    }
                 }
-                string result = clsMoSchedule.SaveSetMoStatus(lsMo);
-                if (result == "")
-                    FindData();
-                else
-                    MessageBox.Show("更新機器排期失敗！");
+                //string result = clsMoSchedule.SaveSetMoStatus(opera_type, lsMo);
+                //if (result == "")
+                //    FindData();
+                //else
+                //    MessageBox.Show("更新排期表失敗！");
             }
             else
             {
@@ -606,15 +719,35 @@ namespace cf01.Forms
 
         private void btnExpToExcel_Click(object sender, EventArgs e)
         {
+            txtPrdMachine.Focus();
+            ExpToExcel(1);
+        }
+        private void btnExcelByMachine_Click(object sender, EventArgs e)
+        {
+            txtPrdMachine.Focus();
+            ExpToExcel(2);
+        }
+        private void ExpToExcel(int rpt_type)
+        {
+            if (ChkUpdateStatus())
+            {
+                if (MessageBox.Show("存在未儲存的記錄，確定匯出到Excel嗎？", "系統信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+            }
 
+            string prd_dep = cmbFindDep.SelectedValue.ToString().Trim();
             SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.FileName = cmbFindDep.SelectedValue.ToString().Trim()+"部門排期表";
-            saveFile.Filter = "Excel files(*.xls)|*.xls";
+            string fileName = prd_dep + "部門排期表";
+            if (rpt_type == 2)
+                fileName += "按機器";
+            saveFile.FileName = fileName;
+            
+            saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
             saveFile.FilterIndex = 0;
             saveFile.RestoreDirectory = true;
             saveFile.CreatePrompt = true;
             saveFile.Title = "导出Excel文件到";
-            string fileName = "";
+            
             string result = "";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
@@ -628,16 +761,15 @@ namespace cf01.Forms
                 }).Start();
 
                 //**********************
-                result=clsMoScheduleUse.DataToExcel(fileName, dtMoSchedule);
+                //result = clsMoScheduleUse.DataToExcel(prd_dep, fileName, dtMoSchedule, rpt_type);
+                result = clsMoScheduleUse.ExpToExcelEPP(prd_dep, fileName, dtMoSchedule, rpt_type);
                 //**********************
                 wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                if (result != "")
+                    MessageBox.Show(result);
 
-                //MessageBox.Show(result);
-                
             }
-            
         }
-
         private void btnGenScheduleSeq_Click(object sender, EventArgs e)
         {
             ReSetSecheduleID();//重新生成排序號
@@ -689,25 +821,27 @@ namespace cf01.Forms
             //    //gvSchedule.SetRowCellValue(e.RowHandle, e.Column, Convert.ToDateTime(e.Value.ToString()).ToString("yyyy/MM/dd"));
             //    dr["pmc_rp_date"] = Convert.ToDateTime(e.Value.ToString()).ToString("yyyy/MM/dd");
             //}
-            //if (e.Column.FieldName == "dep_rp_date")
-            //{
-            //    dr["dep_rp_date"] = Convert.ToDateTime(e.Value.ToString()).ToString("yyyy/MM/dd");
-            //}
+            if (e.Column.FieldName == "prd_machine")
+            {
+                GetMachineStdQty();
+            }
             //////自動計算生產時間
             if (e.Column.FieldName == "start_time" || e.Column.FieldName == "req_module_time" || e.Column.FieldName == "req_prd_time")
             {
-                CountScheduleTime(gvSchedule.FocusedRowHandle);
+                CountScheduleTime(rowIndex);
                 CountNeedPrdDays();
             }
             //////自動計算生產數量及生產時間
             if (e.Column.FieldName == "schedule_qty" || e.Column.FieldName == "prd_machine" || e.Column.FieldName == "machine_std_run_num"
                 || e.Column.FieldName == "machine_std_line_num" || e.Column.FieldName == "machine_std_qty")
             {
-                CountPrdQty();
-                CountScheduleTime(gvSchedule.FocusedRowHandle);//重新計算生產時間
+                CountPrdQty(rowIndex);
+                CountScheduleTime(rowIndex);//重新計算生產時間
                 CountNeedPrdDays();
             }
         }
+
+        //////計算預生產開始、結束時間
         private void CountScheduleTime(int currRow)
         {
             DataRow drCurr = dtMoSchedule.Rows[currRow];
@@ -747,32 +881,35 @@ namespace cf01.Forms
                 }
 
                 dr["end_time"] = count_date_time;
+                dr["update_flag"] = "1";
                 start_date_time = dr["end_time"].ToString();
                 //}
             }
         }
+        //////調整開始時間，當開始時間在休息區間時，調整到對應的上班時間
         private string AdjStartTime(string start_date_time)
         {
             string start_date= start_date_time.Substring(0, 10);
             string start_time = start_date_time.Substring(11, 5);
             if (string.Compare(start_time, work_out1) > 0 && string.Compare(start_time, work_in2) < 0)
-                start_time = "14:00";
+                start_time = work_in2;
             else if (string.Compare(start_time, work_out2) > 0 && string.Compare(start_time, work_in3) < 0)
-                start_time = "19:00";
+                start_time = work_in3;
             else if (string.Compare(start_time, work_out3) > 0 && string.Compare(start_time, break_out3) < 0)
             {
                 start_date = Convert.ToDateTime(start_date_time).AddDays(1).ToString("yyyy/MM/dd HH:mm").Substring(0, 10);
-                start_time = "08:30";
+                start_time = start_prd_time;
             }
             else if (string.Compare(start_time, break_in4) > 0 && string.Compare(start_time, break_out4) < 0)
             {
                 start_date = Convert.ToDateTime(start_date_time).AddDays(1).ToString("yyyy/MM/dd HH:mm").Substring(0, 10);
-                start_time = "08:30";
+                start_time = start_prd_time;
             }
             //else
             //    start_time = "08:30";
             return start_date + " " + start_time;
         }
+        //調整結束時間，當計算的結束時間在休息區間時，調整到正常的工作時段
         private string AdjPrdTime(string start_date_time,string end_date_time)
         {
 
@@ -861,8 +998,37 @@ namespace cf01.Forms
             frmSP.Show();
         }
 
+        private void GetMachineStdQty()
+        {
+            int rowIndex = gvSchedule.FocusedRowHandle;
+            DataRow dr = dtMoSchedule.Rows[rowIndex];
+            dr["update_flag"] = "1";
+            DataTable dtMachine=clsMoSchedule.GetMachineStdQty(dr["prd_dep"].ToString().Trim(), dr["prd_machine"].ToString().Trim());
+            if(dtMachine.Rows.Count>0)
+            {
+                DataRow drMachine = dtMachine.Rows[0];
+                dr["machine_std_run_num"] = drMachine["machine_rate"].ToString();
+                dr["machine_std_line_num"] = drMachine["machine_mul"].ToString();
+                dr["machine_std_qty"] = drMachine["machine_std_qty"].ToString();
+                CountPrdQty(rowIndex);
+            }
+            
+        }
+        private bool ChkUpdateStatus()
+        {
+            bool update_status = false;
+            for(int i=0;i<dtMoSchedule.Rows.Count;i++)
+            {
+                if (dtMoSchedule.Rows[i]["update_flag"].ToString().Trim() == "1")
+                {
+                    update_status = true;
+                    break;
+                }
+                    
+            }
+            return update_status;
+        }
 
-        
 
     }
 }

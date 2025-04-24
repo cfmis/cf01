@@ -11,6 +11,7 @@ namespace cf01.CLS
         private static clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
         private static string remote_db = DBUtility.remote_db;
         private static string within_code = DBUtility.within_code;
+        private static string pad_db = DBUtility.pad_db;
         /// <summary>
         /// 各車間資料
         /// </summary>
@@ -314,5 +315,18 @@ namespace cf01.CLS
                 o = null;
             }
         }
+
+        public static DataTable LoadMachineStd(string dep)
+        {
+            if (dep == "122" || dep == "124" || dep == "125" || dep == "322")
+                pad_db = DBUtility.pad_db_jx;
+            string strSql = "Select rtrim(machine_id) AS machine_id,machine_rate,machine_mul" +
+                " From "+pad_db +"machine_std "+
+                " Where dep='" + dep + "'" +
+                " Order By machine_id";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            return dt;
+        }
+
     }
 }

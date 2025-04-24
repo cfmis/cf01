@@ -14,6 +14,7 @@ namespace cf01.CLS
         private static string within_code = DBUtility.within_code;
         private static string userid = DBUtility._user_id;
         private static string remote_db = DBUtility.remote_db;
+        private static string pad_db = DBUtility.pad_db;
         //private static clsPublicOfCF01 clsConnCF01 = new clsPublicOfCF01();
 
         public static string SaveMoSchedule(List<mdlMoSchedule> lsMo)
@@ -40,11 +41,12 @@ namespace cf01.CLS
                         ",update_user,update_time,req_prd_time,req_tot_time" +
                         ",machine_std_run_num,machine_std_line_num,machine_std_qty,need_mon_num" +
                         ",module_type,prd_group,next_wp_id,next_goods_id,next_vend_id" +
+                        ",mo_remark,dep_remark,module_no,module_install"+
                         " ) Values (" +
                         "'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}'" +
                         ",'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}'" +
                         ",'{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}'" +
-                        ",'{29}','{30}','{31}','{32}'" +
+                        ",'{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}'" +
                         ")";
                 }
                 else
@@ -58,6 +60,7 @@ namespace cf01.CLS
                         ",update_user='{20}',update_time='{21}',req_prd_time='{22}',req_tot_time='{23}'" +
                         ",machine_std_run_num='{24}',machine_std_line_num='{25}',machine_std_qty='{26}',need_mon_num='{27}'" +
                         ",module_type='{28}',prd_group='{29}',next_wp_id='{30}',next_goods_id='{31}',next_vend_id='{32}'" +
+                        ",mo_remark='{33}',dep_remark='{34}',module_no='{35}',module_install='{36}'" +
                         " Where schedule_id='{0}'";
                 }
                 strSql += string.Format(strSql1
@@ -68,6 +71,7 @@ namespace cf01.CLS
                     , userid, create_time, lsMo[i].req_prd_time, lsMo[i].req_tot_time
                     , lsMo[i].machine_std_run_num, lsMo[i].machine_std_line_num, lsMo[i].machine_std_qty, lsMo[i].need_mon_num
                     , lsMo[i].module_type, lsMo[i].prd_group, lsMo[i].next_wp_id, lsMo[i].next_goods_id, lsMo[i].next_vend_id
+                    , lsMo[i].mo_remark, lsMo[i].dep_remark, lsMo[i].module_no, lsMo[i].module_install
                     );
             }
 
@@ -99,7 +103,7 @@ namespace cf01.CLS
             return result;
         }
         //////設置制單狀態
-        public static string SaveSetMoStatus(List<mdlMoSchedule> lsMo)
+        public static string SaveSetMoStatus(int opera_type, List<mdlMoSchedule> lsMo)
         {
             string result = "";
             string strSql = "";
@@ -107,15 +111,27 @@ namespace cf01.CLS
             strSql = string.Format(@" SET XACT_ABORT  ON ");
             strSql += string.Format(@" BEGIN TRANSACTION ");
 
-            for (int i = 0; i < lsMo.Count; i++)
+            if (opera_type == 1)//設定制單狀態
             {
-                strSql += string.Format(@" Update mo_schedule Set " +
-                    " status='{1}',update_user='{2}',update_time='{3}'" +
-                    " Where schedule_id='{0}'"
-                    , lsMo[i].schedule_id, lsMo[i].status, userid, create_time
-                    );
+                for (int i = 0; i < lsMo.Count; i++)
+                {
+                    strSql += string.Format(@" Update mo_schedule Set " +
+                        " status='{1}',update_user='{2}',update_time='{3}'" +
+                        " Where schedule_id='{0}'"
+                        , lsMo[i].schedule_id, lsMo[i].status, userid, create_time
+                        );
+                }
+            }else if(opera_type==2)//設定制單機器
+            {
+                for (int i = 0; i < lsMo.Count; i++)
+                {
+                    strSql += string.Format(@" Update mo_schedule Set " +
+                        " prd_machine='{1}',update_user='{2}',update_time='{3}'" +
+                        " Where schedule_id='{0}'"
+                        , lsMo[i].schedule_id, lsMo[i].prd_machine, userid, create_time
+                        );
+                }
             }
-
             strSql += string.Format(@" COMMIT TRANSACTION ");
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
@@ -133,11 +149,11 @@ namespace cf01.CLS
                         ,new SqlParameter("@user_id",user_id)};
             DataTable dtScheduler = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_mo_schedule", paras);
             dtScheduler.Columns.Add("ArtWork", typeof(Image)); // 图片列
-            for (int i=0;i<dtScheduler.Rows.Count;i++)
-            {
-                if (dtScheduler.Rows[i]["art_image"].ToString() != "")
-                    dtScheduler.Rows[i]["ArtWork"] = Image.FromFile(DBUtility.imagePath + dtScheduler.Rows[i]["art_image"]);
-            }
+            //for (int i=0;i<dtScheduler.Rows.Count;i++)
+            //{
+            //    if (dtScheduler.Rows[i]["art_image"].ToString() != "")
+            //        dtScheduler.Rows[i]["ArtWork"] = Image.FromFile(DBUtility.imagePath + dtScheduler.Rows[i]["art_image"]);
+            //}
             return dtScheduler;
         }
         public static string SaveScheduleBase(mdlMoScheduleBase objBase)
@@ -194,6 +210,15 @@ namespace cf01.CLS
             if (dtSeq.Rows.Count == 0)
                 result = 1;
             return result;
+        }
+        public static DataTable GetMachineStdQty(string prd_dep,string prd_machine)
+        {
+            if (prd_dep == "122" || prd_dep == "124" || prd_dep == "125" || prd_dep == "322" || prd_dep == "128")
+                pad_db = "lnsql1.dgcf_pad.dbo.";
+            string strSql = "Select machine_mul,machine_rate,machine_std_qty" +
+                " From " + pad_db + "machine_std Where dep='" + prd_dep + "' And machine_id='" + prd_machine + "'";
+            DataTable dtMachine = clsPublicOfCF01.GetDataTable(strSql);
+            return dtMachine;
         }
     }
 }
