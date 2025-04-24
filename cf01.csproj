@@ -178,6 +178,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraReports.v14.2.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>packages\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <SpecificVersion>False</SpecificVersion>

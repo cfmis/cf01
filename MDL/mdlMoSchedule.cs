@@ -40,6 +40,10 @@ namespace cf01.MDL
         public string next_goods_id { get; set; }
         public string next_vend_id { get; set; }
         public string module_type { get; set; }
+        public string mo_remark { get; set; }
+        public string dep_remark { get; set; }
+        public string module_no { get; set; }
+        public string module_install { get; set; }
     }
     public class mdlMoScheduleBase
     {
