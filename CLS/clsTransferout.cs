@@ -160,7 +160,7 @@ namespace cf01.CLS
 
         }
 
-        public static DataTable GetPackingData(string groupNo, string moID, string updateTime1, string updateTime2)
+        public static DataTable GetPackingData(string groupNo, string moID, string updateTime1, string updateTime2,string flagDgd)
         {
             string sql_f = string.Format(
             @"SELECT CAST(0 as bit) As flag_select,A.mo_id,A.goods_id,A.qty,A.weg,A.weg_gross,A.mo_group,A.package_num,A.carton_size,
@@ -185,6 +185,10 @@ namespace cf01.CLS
             if (updateTime2 != "")
             {
                 sql_f += $" And A.update_date<'{updateTime2}'";
+            }
+            if (flagDgd == "1")
+            {
+                sql_f += $" And ISNULL(C.special_info_style,'0')='1'";
             }
             DataTable dt = clsPublicOfPad.ExecuteSqlReturnDataTable(sql_f);
             return dt;
@@ -372,7 +376,7 @@ namespace cf01.CLS
                         sbSql.Append(str);
                     }
                 }
-
+                
                 //更新轉出單主檔               
                 str = string.Format(
                 @" UPDATE st_transfer_mostly with(ROWLOCK) 
@@ -456,5 +460,17 @@ namespace cf01.CLS
             sbSql.Clear();
             return result;
         }//--end of SAVE
+
+  
+        public static string GetMaxIDStock(string bill_id, int serial_len)
+        {
+            string result = "";
+            string strSql = string.Format(@"SELECT dbo.fn_zz_sys_bill_max_separate_st('{0}',{1}) as id", bill_id, serial_len);
+            result = clsErp.ExecuteSqlReturnObject(strSql); // Return value DT10560134510
+            return result;
+        }
+
+
+
     }
 }
