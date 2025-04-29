@@ -30,7 +30,7 @@ namespace cf01.CLS
         public static int DelTransferOut(string id)
         {
             int rtn = 0;
-            string sql_u = string.Format(@"Updage st_transfer_mostly Set state='2' WHERE within_code='0000' And id='{0}'", id);
+            string sql_u = string.Format(@"Update st_transfer_mostly Set state='2' WHERE within_code='0000' And id='{0}'", id);
             rtn = clsErp.ExecuteSqlUpdate(sql_u);
             return rtn;
         }

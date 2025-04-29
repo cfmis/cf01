@@ -28,12 +28,13 @@ namespace cf01.Forms
 		public string mState = ""; //新增或編輯的狀態
 		public static string str_language = "0";		
 		public bool save_flag;
-        public string strArea = "";        
-        private string current_date="";
-        private string temp_mo_id=""; //暫存更改前的值
-        private string temp_suit=""; //暫存更改前的值
-        private string temp_goods_id=""; //暫存更改前的值
-        private decimal temp_transfer_amount=0;
+        public string strArea = "";
+        string current_date = "";
+        string temp_mo_id = ""; //暫存更改前的值
+        string temp_suit = ""; //暫存更改前的值
+        string temp_goods_id = ""; //暫存更改前的值
+        decimal temp_transfer_amount = 0;
+
 
         DataTable dtMostly = new DataTable();
 		DataTable dtDetails = new DataTable();
@@ -358,6 +359,7 @@ namespace cf01.Forms
 			{
                 if (clsTransferout.DelTransferOut(txtID.Text) >= 0)
                 {
+                    FindDoc(txtID.Text);
                     MessageBox.Show("數據刪除成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -471,9 +473,10 @@ namespace cf01.Forms
 			if (dgvDetails.RowCount > 0)
 			{
 				txtRemark.Focus();
-				//因toolStrip控件焦點問題
-				//設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，防止取到的值爲空
-				int curRow = 0;
+                dgvDetails.CloseEditor(); //編輯的值有效
+                //因toolStrip控件焦點問題
+                //設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，防止取到的值爲空
+                int curRow = 0;
                 string goodsId = "", moId = "", strF0 = "", sql_f = "", id = "", msg = "";
                 decimal qtyOther = 0, orderQty = 0, qty = 0;
                 DataTable tbl = new DataTable();
@@ -519,7 +522,7 @@ namespace cf01.Forms
                     Where M.type='0' And M.state Not In('2','V') And D.within_code='{0}' And D.id<>'{1}' And D.mo_id='{2}' And D.goods_id='{3}'",
                     "0000", id, moId, goodsId);
                     tbl = clsConErp.GetDataTable(sql_f);
-                    qtyOther = string.IsNullOrEmpty(tbl.Rows[0][1].ToString()) ? 0 : decimal.Parse(tbl.Rows[0][1].ToString());
+                    qtyOther = string.IsNullOrEmpty(tbl.Rows[0]["transfer_amount"].ToString()) ? 0 : decimal.Parse(tbl.Rows[0]["transfer_amount"].ToString());
                     if(dgvDetails.GetRowCellValue(curRow, "shipment_suit").ToString()=="True")
                     {
                         sql_f = string.Format(
@@ -544,7 +547,7 @@ namespace cf01.Forms
                     }
                     if ((qty + qtyOther) > orderQty)
                     {
-                        msg = $"[ {moId} ] 數量大于計單數量，如果要繼續保存，選擇是，并在彈出窗口中輸入有權限用户和密码!";                        
+                        msg = $"注意：[ {moId} ] 轉出數量已大于訂單數量，是否要繼續保存？";                        
                         if (MessageBox.Show(msg, "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         {
                             flag = false;
