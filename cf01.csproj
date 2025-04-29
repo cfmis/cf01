@@ -313,6 +313,7 @@
     <Compile Include="CLS\clsVendor.cs" />
     <Compile Include="CLS\clsZipperOrder.cs" />
     <Compile Include="CLS\ExpToExcel.cs" />
+    <Compile Include="CLS\PubFunDAL.cs" />
     <Compile Include="DBUtility.cs" />
     <Compile Include="Forms\frmTransferoutAdj.cs">
       <SubType>Form</SubType>

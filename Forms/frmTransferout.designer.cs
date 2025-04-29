@@ -31,11 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferout));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clTest_item_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clType_conditon = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clButFindReport = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -165,21 +170,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lkebill_type_no1 = new DevExpress.XtraEditors.LookUpEdit();
             this.txtGroupNo1 = new DevExpress.XtraEditors.TextEdit();
             this.label52 = new System.Windows.Forms.Label();
             this.dgvFind = new System.Windows.Forms.DataGridView();
-            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transfer_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bill_type_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.group_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sequence_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transfer_amount1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sec_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sec_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
             this.txtMo_id2 = new DevExpress.XtraEditors.TextEdit();
@@ -188,10 +182,7 @@
             this.txtId2 = new DevExpress.XtraEditors.TextEdit();
             this.label45 = new System.Windows.Forms.Label();
             this.txtId1 = new DevExpress.XtraEditors.TextEdit();
-            this.txtbill_type_no2 = new DevExpress.XtraEditors.TextEdit();
             this.lblMO = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.txtbill_type_no1 = new DevExpress.XtraEditors.TextEdit();
             this.label47 = new System.Windows.Forms.Label();
             this.lblData1 = new System.Windows.Forms.Label();
             this.txtDat2 = new DevExpress.XtraEditors.DateEdit();
@@ -227,6 +218,18 @@
             this.lblFindOc_no = new DevExpress.XtraEditors.LabelControl();
             this.txtFindMoId = new DevExpress.XtraEditors.TextEdit();
             this.lblFindMo_id = new DevExpress.XtraEditors.LabelControl();
+            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transfer_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bill_type_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.group_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sequence_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transfer_amount1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_unit1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.clTest_item_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clType_conditon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clButFindReport)).BeginInit();
@@ -270,14 +273,13 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkebill_type_no1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupNo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -2134,6 +2136,7 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.lkebill_type_no1);
             this.tabPage2.Controls.Add(this.txtGroupNo1);
             this.tabPage2.Controls.Add(this.label52);
             this.tabPage2.Controls.Add(this.dgvFind);
@@ -2145,10 +2148,7 @@
             this.tabPage2.Controls.Add(this.txtId2);
             this.tabPage2.Controls.Add(this.label45);
             this.tabPage2.Controls.Add(this.txtId1);
-            this.tabPage2.Controls.Add(this.txtbill_type_no2);
             this.tabPage2.Controls.Add(this.lblMO);
-            this.tabPage2.Controls.Add(this.label46);
-            this.tabPage2.Controls.Add(this.txtbill_type_no1);
             this.tabPage2.Controls.Add(this.label47);
             this.tabPage2.Controls.Add(this.lblData1);
             this.tabPage2.Controls.Add(this.txtDat2);
@@ -2162,6 +2162,29 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "已保存數據查詢";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lkebill_type_no1
+            // 
+            this.lkebill_type_no1.EditValue = "";
+            this.lkebill_type_no1.EnterMoveNextControl = true;
+            this.lkebill_type_no1.Location = new System.Drawing.Point(114, 122);
+            this.lkebill_type_no1.Name = "lkebill_type_no1";
+            this.lkebill_type_no1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lkebill_type_no1.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lkebill_type_no1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.lkebill_type_no1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkebill_type_no1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lkebill_type_no1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 120, "cdesc")});
+            this.lkebill_type_no1.Properties.NullText = "";
+            this.lkebill_type_no1.Properties.PopupFormMinSize = new System.Drawing.Size(250, 0);
+            this.lkebill_type_no1.Properties.PopupWidth = 150;
+            this.lkebill_type_no1.Properties.ShowHeader = false;
+            this.lkebill_type_no1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lkebill_type_no1.Size = new System.Drawing.Size(127, 22);
+            this.lkebill_type_no1.TabIndex = 192;
             // 
             // txtGroupNo1
             // 
@@ -2213,133 +2236,29 @@
             this.unit1,
             this.sec_qty1,
             this.sec_unit1});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvFind.Location = new System.Drawing.Point(3, 163);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvFind.Size = new System.Drawing.Size(1225, 445);
             this.dgvFind.TabIndex = 188;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
-            // 
-            // id1
-            // 
-            this.id1.DataPropertyName = "id";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.id1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id1.HeaderText = "單據號";
-            this.id1.Name = "id1";
-            this.id1.ReadOnly = true;
-            this.id1.Width = 120;
-            // 
-            // transfer_date1
-            // 
-            this.transfer_date1.DataPropertyName = "transfer_date";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.transfer_date1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.transfer_date1.HeaderText = "轉出日期";
-            this.transfer_date1.Name = "transfer_date1";
-            this.transfer_date1.ReadOnly = true;
-            this.transfer_date1.Width = 90;
-            // 
-            // bill_type_no1
-            // 
-            this.bill_type_no1.DataPropertyName = "bill_type_no";
-            this.bill_type_no1.HeaderText = "單據種類";
-            this.bill_type_no1.Name = "bill_type_no1";
-            this.bill_type_no1.ReadOnly = true;
-            this.bill_type_no1.Width = 60;
-            // 
-            // group_no1
-            // 
-            this.group_no1.DataPropertyName = "group_no";
-            this.group_no1.HeaderText = "組別";
-            this.group_no1.Name = "group_no1";
-            this.group_no1.ReadOnly = true;
-            this.group_no1.Width = 60;
-            // 
-            // sequence_id1
-            // 
-            this.sequence_id1.DataPropertyName = "sequence_id";
-            this.sequence_id1.HeaderText = "序號";
-            this.sequence_id1.Name = "sequence_id1";
-            this.sequence_id1.ReadOnly = true;
-            this.sequence_id1.Width = 70;
-            // 
-            // mo_id1
-            // 
-            this.mo_id1.DataPropertyName = "mo_id";
-            this.mo_id1.HeaderText = "頁數";
-            this.mo_id1.Name = "mo_id1";
-            this.mo_id1.ReadOnly = true;
-            // 
-            // goods_id1
-            // 
-            this.goods_id1.DataPropertyName = "goods_id";
-            this.goods_id1.HeaderText = "貨品";
-            this.goods_id1.Name = "goods_id1";
-            this.goods_id1.ReadOnly = true;
-            this.goods_id1.Width = 150;
-            // 
-            // goods_name1
-            // 
-            this.goods_name1.DataPropertyName = "goods_name";
-            this.goods_name1.FillWeight = 40F;
-            this.goods_name1.HeaderText = "貨品名稱";
-            this.goods_name1.Name = "goods_name1";
-            this.goods_name1.ReadOnly = true;
-            this.goods_name1.Width = 180;
-            // 
-            // transfer_amount1
-            // 
-            this.transfer_amount1.DataPropertyName = "transfer_amount";
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.transfer_amount1.HeaderText = "轉倉數量";
-            this.transfer_amount1.Name = "transfer_amount1";
-            this.transfer_amount1.ReadOnly = true;
-            this.transfer_amount1.Width = 90;
-            // 
-            // unit1
-            // 
-            this.unit1.DataPropertyName = "unit";
-            this.unit1.HeaderText = "數量單位";
-            this.unit1.Name = "unit1";
-            this.unit1.ReadOnly = true;
-            this.unit1.Width = 90;
-            // 
-            // sec_qty1
-            // 
-            this.sec_qty1.DataPropertyName = "sec_qty";
-            this.sec_qty1.HeaderText = "重量";
-            this.sec_qty1.Name = "sec_qty1";
-            this.sec_qty1.ReadOnly = true;
-            this.sec_qty1.Visible = false;
-            this.sec_qty1.Width = 30;
-            // 
-            // sec_unit1
-            // 
-            this.sec_unit1.DataPropertyName = "sec_unit";
-            this.sec_unit1.HeaderText = "重量單位";
-            this.sec_unit1.Name = "sec_unit1";
-            this.sec_unit1.ReadOnly = true;
             // 
             // btnSearch
             // 
@@ -2432,18 +2351,6 @@
             this.txtId1.TabIndex = 2;
             this.txtId1.Leave += new System.EventHandler(this.txtId1_Leave);
             // 
-            // txtbill_type_no2
-            // 
-            this.txtbill_type_no2.EditValue = "";
-            this.txtbill_type_no2.EnterMoveNextControl = true;
-            this.txtbill_type_no2.Location = new System.Drawing.Point(264, 121);
-            this.txtbill_type_no2.Name = "txtbill_type_no2";
-            this.txtbill_type_no2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtbill_type_no2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtbill_type_no2.Properties.MaxLength = 8;
-            this.txtbill_type_no2.Size = new System.Drawing.Size(127, 22);
-            this.txtbill_type_no2.TabIndex = 8;
-            // 
             // lblMO
             // 
             this.lblMO.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -2453,28 +2360,6 @@
             this.lblMO.TabIndex = 181;
             this.lblMO.Text = "單據種類";
             this.lblMO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(246, 125);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(13, 12);
-            this.label46.TabIndex = 180;
-            this.label46.Text = "--";
-            // 
-            // txtbill_type_no1
-            // 
-            this.txtbill_type_no1.EditValue = "";
-            this.txtbill_type_no1.EnterMoveNextControl = true;
-            this.txtbill_type_no1.Location = new System.Drawing.Point(114, 121);
-            this.txtbill_type_no1.Name = "txtbill_type_no1";
-            this.txtbill_type_no1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtbill_type_no1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtbill_type_no1.Properties.MaxLength = 8;
-            this.txtbill_type_no1.Size = new System.Drawing.Size(127, 22);
-            this.txtbill_type_no1.TabIndex = 7;
-            this.txtbill_type_no1.Leave += new System.EventHandler(this.txtCust_id1_Leave);
             // 
             // label47
             // 
@@ -2540,7 +2425,7 @@
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(99, 13);
             this.label48.TabIndex = 177;
-            this.label48.Text = "編碼";
+            this.label48.Text = "轉出單編號";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabPage3
@@ -2978,6 +2863,122 @@
             this.lblFindMo_id.TabIndex = 0;
             this.lblFindMo_id.Text = "頁數:";
             // 
+            // id1
+            // 
+            this.id1.DataPropertyName = "id";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.id1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id1.HeaderText = "單據號";
+            this.id1.Name = "id1";
+            this.id1.ReadOnly = true;
+            this.id1.Width = 90;
+            // 
+            // transfer_date1
+            // 
+            this.transfer_date1.DataPropertyName = "transfer_date";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.transfer_date1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.transfer_date1.HeaderText = "轉出日期";
+            this.transfer_date1.Name = "transfer_date1";
+            this.transfer_date1.ReadOnly = true;
+            this.transfer_date1.Width = 80;
+            // 
+            // bill_type_no1
+            // 
+            this.bill_type_no1.DataPropertyName = "bill_type_no";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.bill_type_no1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.bill_type_no1.HeaderText = "單據種類";
+            this.bill_type_no1.Name = "bill_type_no1";
+            this.bill_type_no1.ReadOnly = true;
+            this.bill_type_no1.Width = 60;
+            // 
+            // group_no1
+            // 
+            this.group_no1.DataPropertyName = "group_no";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.group_no1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.group_no1.HeaderText = "組別";
+            this.group_no1.Name = "group_no1";
+            this.group_no1.ReadOnly = true;
+            this.group_no1.Width = 40;
+            // 
+            // sequence_id1
+            // 
+            this.sequence_id1.DataPropertyName = "sequence_id";
+            this.sequence_id1.HeaderText = "序號";
+            this.sequence_id1.Name = "sequence_id1";
+            this.sequence_id1.ReadOnly = true;
+            this.sequence_id1.Width = 60;
+            // 
+            // mo_id1
+            // 
+            this.mo_id1.DataPropertyName = "mo_id";
+            this.mo_id1.HeaderText = "頁數";
+            this.mo_id1.Name = "mo_id1";
+            this.mo_id1.ReadOnly = true;
+            this.mo_id1.Width = 80;
+            // 
+            // goods_id1
+            // 
+            this.goods_id1.DataPropertyName = "goods_id";
+            this.goods_id1.HeaderText = "貨品編碼";
+            this.goods_id1.Name = "goods_id1";
+            this.goods_id1.ReadOnly = true;
+            this.goods_id1.Width = 140;
+            // 
+            // goods_name1
+            // 
+            this.goods_name1.DataPropertyName = "goods_name";
+            this.goods_name1.FillWeight = 40F;
+            this.goods_name1.HeaderText = "貨品名稱";
+            this.goods_name1.Name = "goods_name1";
+            this.goods_name1.ReadOnly = true;
+            this.goods_name1.Width = 180;
+            // 
+            // transfer_amount1
+            // 
+            this.transfer_amount1.DataPropertyName = "transfer_amount";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.transfer_amount1.HeaderText = "轉倉數量";
+            this.transfer_amount1.Name = "transfer_amount1";
+            this.transfer_amount1.ReadOnly = true;
+            this.transfer_amount1.Width = 80;
+            // 
+            // unit1
+            // 
+            this.unit1.DataPropertyName = "unit";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.unit1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.unit1.HeaderText = "數量單位";
+            this.unit1.Name = "unit1";
+            this.unit1.ReadOnly = true;
+            this.unit1.Width = 60;
+            // 
+            // sec_qty1
+            // 
+            this.sec_qty1.DataPropertyName = "sec_qty";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sec_qty1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.sec_qty1.HeaderText = "重量";
+            this.sec_qty1.Name = "sec_qty1";
+            this.sec_qty1.ReadOnly = true;
+            this.sec_qty1.Width = 60;
+            // 
+            // sec_unit1
+            // 
+            this.sec_unit1.DataPropertyName = "sec_unit";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sec_unit1.DefaultCellStyle = dataGridViewCellStyle9;
+            this.sec_unit1.HeaderText = "重量單位";
+            this.sec_unit1.Name = "sec_unit1";
+            this.sec_unit1.ReadOnly = true;
+            this.sec_unit1.Width = 60;
+            // 
             // frmTransferout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3035,14 +3036,13 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkebill_type_no1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupNo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
@@ -3181,10 +3181,7 @@
         private DevExpress.XtraEditors.TextEdit txtId2;
         private System.Windows.Forms.Label label45;
         private DevExpress.XtraEditors.TextEdit txtId1;
-        private DevExpress.XtraEditors.TextEdit txtbill_type_no2;
         private System.Windows.Forms.Label lblMO;
-        private System.Windows.Forms.Label label46;
-        private DevExpress.XtraEditors.TextEdit txtbill_type_no1;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label lblData1;
         private DevExpress.XtraEditors.DateEdit txtDat2;
@@ -3245,6 +3242,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.Columns.GridColumn suitFlag;
         private System.Windows.Forms.CheckBox chkDgd;
+        private System.Windows.Forms.ToolStripButton BTNCHECKST;
+        private DevExpress.XtraEditors.LookUpEdit lkebill_type_no1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn transfer_date1;
         private System.Windows.Forms.DataGridViewTextBoxColumn bill_type_no1;
@@ -3257,6 +3256,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unit1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit1;
-        private System.Windows.Forms.ToolStripButton BTNCHECKST;
     }
 }

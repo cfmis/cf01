@@ -89,7 +89,7 @@ namespace cf01.MDL
         public decimal obligate_qty { get; set; }
     }
 
-    //start 倉庫調整
+    //start 倉庫調整主表
     public class st_adjustment_mostly
     {
         public string id { get; set; }
@@ -112,6 +112,7 @@ namespace cf01.MDL
         public string head_status { get; set; }
     }
 
+    //start 倉庫調整明細表
     public class st_a_subordination
     {
         public string id { get; set; }

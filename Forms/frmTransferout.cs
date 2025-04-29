@@ -102,6 +102,10 @@ namespace cf01.Forms
             lkeBill_type_no.Properties.ValueMember = "id";
             lkeBill_type_no.Properties.DisplayMember = "cdesc";
 
+            lkebill_type_no1.Properties.DataSource = dtBillType;
+            lkebill_type_no1.Properties.ValueMember = "id";
+            lkebill_type_no1.Properties.DisplayMember = "cdesc";
+
             //組別
             DataTable dtGroup = clsConErp.GetDataTable(@"SELECT id,name as cdesc FROM cd_mo_type WHERE mo_type='3' And state='0' Order By id");
             lkeGroupNo.Properties.DataSource = dtGroup;
@@ -256,7 +260,7 @@ namespace cf01.Forms
 
 		private void BTNFIND_Click(object sender, EventArgs e)
 		{
-            tabControl1.SelectTab(2);//跳至第三頁
+            tabControl1.SelectTab(1);//跳至第二頁
 		}
 
 		private void AddNew()  //新增
@@ -291,9 +295,9 @@ namespace cf01.Forms
 			{
 				return;
 			}
-            if (lkeSate.EditValue.ToString() != "0")
+            if (lkeSate.EditValue.ToString() == "1")
             {
-                MessageBox.Show("注意：已批準的單據不可以再編輯!", "提示信息");
+                MessageBox.Show("注意：已批準的單據不可以再編輯!", "提示信息",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
 			SetButtonSatus(false);
@@ -343,12 +347,13 @@ namespace cf01.Forms
 			if (string.IsNullOrEmpty(txtID.Text))
 			{
 				return;
-			}
-            if (lkeSate.EditValue.ToString() != "0")
+			}           
+            if (lkeSate.EditValue.ToString() == "1")
             {
+                MessageBox.Show("注意：已批準的單據不可以刪除!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-			DialogResult result = MessageBox.Show("此操作將刪除主表及明細中的資料,請謹慎操作!", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("此操作將刪除主表及明細中的資料,請謹慎操作!", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (result == DialogResult.Yes)
 			{
                 if (clsTransferout.DelTransferOut(txtID.Text) >= 0)
@@ -369,7 +374,7 @@ namespace cf01.Forms
 		{
 			if (!string.IsNullOrEmpty(txtID.Text.Trim())) // 有內容
 			{
-                if (Check_Details_Valid())
+                if (!SaveBeforeValidDetail())
                 {
                     return;
                 }
@@ -459,29 +464,96 @@ namespace cf01.Forms
             return seq_id;
         }
 
-		private bool Check_Details_Valid() //檢查明細資料的有效性
+		private bool SaveBeforeValidDetail() //檢查明細資料的有效性
 		{		
-			bool flag = false;
+			bool flag = true;
+           
 			if (dgvDetails.RowCount > 0)
 			{
 				txtRemark.Focus();
 				//因toolStrip控件焦點問題
 				//設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，防止取到的值爲空
 				int curRow = 0;
-				for (int i = 0; i < dgvDetails.RowCount; i++)
+                string goodsId = "", moId = "", strF0 = "", sql_f = "", id = "", msg = "";
+                decimal qtyOther = 0, orderQty = 0, qty = 0;
+                DataTable tbl = new DataTable();
+                for (int i = 0; i < dgvDetails.RowCount; i++)
 				{
 					curRow = dgvDetails.GetRowHandle(i);
                     if (string.IsNullOrEmpty(dgvDetails.GetRowCellDisplayText(curRow, "mo_id")) || string.IsNullOrEmpty(dgvDetails.GetRowCellDisplayText(curRow, "goods_id")))
 					{
-						flag = true;
-						MessageBox.Show("頁數或貨品編碼不可以爲空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-						ColumnView view1 = (ColumnView)dgvDetails;
+                        msg = $"第{(i + 1).ToString()}行，頁數或貨品編碼不可以爲空!";
+                        MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        flag = false;
+                        ColumnView view1 = (ColumnView)dgvDetails;
 						view1.FocusedColumn = view1.Columns["mo_id"]; //設置單元格焦點                        
 						break;
-					}                  
-				}
-			}
-			return flag;
+					}
+                    //判断页数对应的F0编号是否在生产计划单中存在,假如销售订单中修改过F0,在相应的生产计划单中会有新旧两个F0
+                    moId = dgvDetails.GetRowCellDisplayText(curRow, "mo_id");
+                    goodsId = dgvDetails.GetRowCellDisplayText(curRow, "goods_id");
+                    qty = decimal.Parse(dgvDetails.GetRowCellValue(curRow, "transfer_amount").ToString());
+                    if (goodsId.Substring(0,3) == "F0-") //只判断为F0的货品编号情况
+                    {
+                        sql_f = string.Format(
+                        @"Select B.goods_id
+			            From jo_bill_mostly A with(nolock),jo_bill_goods_details B with(nolock)
+			            Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And
+                         A.within_code='{0}' And A.mo_id ='{1}' And B.goods_id='{2}' And
+						 A.state Not In('2','V') And LEFT(B.goods_id,3)='F0-'", "0000", moId, goodsId);
+                        strF0 = clsConErp.ExecuteSqlReturnObject(sql_f);
+                        if (strF0 == "")
+                        {
+                            msg = $"[ {moId} ]當前頁數對應的F0与銷售訂單中頁數对應的F0不一致!";
+                            MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            flag = false;
+                            break;
+                        }
+                    }
+
+                    // 3.检查是否超过订单数量 Into :ldec_qty_other
+                    id = dgvDetails.GetRowCellDisplayText(curRow, "id");
+                    sql_f = string.Format(
+                    @"Select Sum(D.transfer_amount) AS transfer_amount                   
+                    From st_transfer_mostly M with(nolock) Inner Join st_transfer_detail D with(nolock) On M.within_code=D.within_code And M.id=D.id
+                    Where M.type='0' And M.state Not In('2','V') And D.within_code='{0}' And D.id<>'{1}' And D.mo_id='{2}' And D.goods_id='{3}'",
+                    "0000", id, moId, goodsId);
+                    tbl = clsConErp.GetDataTable(sql_f);
+                    qtyOther = string.IsNullOrEmpty(tbl.Rows[0][1].ToString()) ? 0 : decimal.Parse(tbl.Rows[0][1].ToString());
+                    if(dgvDetails.GetRowCellValue(curRow, "shipment_suit").ToString()=="True")
+                    {
+                        sql_f = string.Format(
+                        @"Select dbo.FN_CHANGE_UNITBYCV(D.within_code, D.goods_id, D.goods_unit, D.order_qty,'','','/') as order_qty
+                        From so_order_manage M with(nolock) Inner Join so_order_details D with(nolock) On M.within_code=D.within_code And M.id=D.id And M.ver=D.ver
+                        Where D.within_code='{0}' And D.mo_id='{1}' And D.goods_id='{2}' And M.state Not In('2','V')",
+                        "0000", moId, goodsId);
+                        tbl = clsConErp.GetDataTable(sql_f);
+                        orderQty = (tbl.Rows.Count > 0) ? decimal.Parse(tbl.Rows[0]["order_qty"].ToString()) : 0; 
+                    }
+                    else
+                    {
+                        sql_f = string.Format(
+                        @"Select dbo.FN_CHANGE_UNITBYCV(D.within_code,D.goods_id,D.goods_unit,D.order_qty,'','','/') as order_qty		               
+		                From so_order_manage M with(nolock) Inner Join so_order_details D with(nolock) On M.within_code=D.within_code And M.id=D.id And M.ver=D.ver
+						left outer join so_order_bom DD with(nolock) On D.within_code=DD.within_code And D.id=DD.id And D.ver=DD.ver 
+						and D.sequence_id = DD.upper_sequence And isnull(DD.primary_key,'') ='1'
+		                Where M.state Not In('2','V') And DD.within_code ='{0}'
+		                And D.mo_id='{1}' And DD.goods_id='{2}'", "0000",moId,goodsId);
+                        tbl = clsConErp.GetDataTable(sql_f);
+                        orderQty = (tbl.Rows.Count > 0) ? decimal.Parse(tbl.Rows[0]["order_qty"].ToString()) : 0;
+                    }
+                    if ((qty + qtyOther) > orderQty)
+                    {
+                        msg = $"[ {moId} ] 數量大于計單數量，如果要繼續保存，選擇是，并在彈出窗口中輸入有權限用户和密码!";                        
+                        if (MessageBox.Show(msg, "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        {
+                            flag = false;
+                            break;
+                        }
+                    }
+                } //--for loop
+            }
+            return flag;
 		}
 
 		private void Cancel() //取消
@@ -546,11 +618,13 @@ namespace cf01.Forms
 
 		private void Save()  //保存
 		{
-			if (!Save_Before_Valid())
+            //檢查主檔資料的完整性
+            if (!SaveBeforeValidMaster())
 			{
 				return;
-			}            
-			if (Check_Details_Valid())//檢查明細資料的有效性
+			}
+            //檢查明細資料的有效性         
+            if (!SaveBeforeValidDetail())
 			{
 				return;
 			}
@@ -570,7 +644,7 @@ namespace cf01.Forms
             head.head_status = mState;           
             string rowStatus = "";
             dgvDetails.CloseEditor();
-            dgvPart.CloseEditor();
+            dgvPart.CloseEditor();             
             List< TransferInDetails> lstDetailData1 = new List<TransferInDetails>();
             for (int i = 0; i < dtsTrans.Tables["dtD1"].Rows.Count; i++)
             {
@@ -693,7 +767,7 @@ namespace cf01.Forms
 			}
 		}
 
-		private bool Save_Before_Valid() //保存前檢查主檔資料有效性
+		private bool SaveBeforeValidMaster() //保存前檢查主檔資料有效性
 		{
             if (lkeBill_type_no.Text == "" || txtID.Text == "" || lkeGroupNo.Text == "" || dtTransfer_date.Text == "")
             {	
@@ -1066,13 +1140,13 @@ namespace cf01.Forms
                 Cancel();
                 tabControl1.SelectTab(1);
             }
-            if (txtDat1.Text =="" && txtDat2.Text =="" && txtbill_type_no1.Text =="" && txtbill_type_no2.Text =="" && txtId1.Text =="" &&
-                txtId2.Text =="" && txtMo_id1.Text =="" && txtMo_id2.Text =="" && txtGroupNo1.Text =="")
+            if (txtDat1.Text =="" && txtDat2.Text =="" && txtId1.Text =="" && txtId2.Text =="" && lkebill_type_no1.EditValue.ToString() == "" 
+                && txtMo_id1.Text == "" && txtMo_id2.Text =="" && txtGroupNo1.Text =="")
             {
                 MessageBox.Show("查詢條件不可以為空!", "提示信息");
                 return;
             }
-           // dtFindDate = clsTransferout.FindData(txtId1.Text, txtId2.Text, txtDat1.Text, txtDat2.Text, txtbill_type_no1.Text, txtbill_type_no2.Text, txtGroupNo1.Text, txtMo_id1.Text, txtMo_id2.Text);            
+            dtFindDate = clsTransferout.FindData(txtId1.Text, txtId2.Text, txtDat1.Text, txtDat2.Text, lkebill_type_no1.EditValue.ToString(), txtGroupNo1.Text, txtMo_id1.Text, txtMo_id2.Text);            
             dgvFind.DataSource = dtFindDate;
             if (dtFindDate.Rows.Count == 0)
             {
@@ -1108,14 +1182,9 @@ namespace cf01.Forms
 
         private void txtCust_id1_Leave(object sender, EventArgs e)
         {
-            txtbill_type_no2.Text = txtbill_type_no1.Text;
+            
         }
-
-        private void txtDgid1_Leave(object sender, EventArgs e)
-        {
-            txtbill_type_no2.Text = txtbill_type_no1.Text;
-        }
-
+        
         private void txtMo_id1_Leave(object sender, EventArgs e)
         {
             txtMo_id2.Text = txtMo_id1.Text;
@@ -1219,8 +1288,7 @@ namespace cf01.Forms
                         .ToList();
             DataSet dtsBatch = clsTransferout.GetPackingBomData(lstMDL2);
 
-            string id = "",sequenceId = "",idKey="", mo_id,goods_id_f0 = "", goods_id = "";           
-            string boxs="";
+            string id = "", sequenceId = "", idKey = "", mo_id, goods_id_f0 = "", goods_id = "",boxs = "";          
             //批量添加默認全部是套件出货
             string location_id = this.SetLocation(true); //取倉號
             Set_Grid_Status(true);
@@ -1238,7 +1306,7 @@ namespace cf01.Forms
                 drw["sec_unit"] = "KG";
                 drw["package_num"] = dtsBatch.Tables[0].Rows[i]["package_num"];
                 drw["shipment_suit"] = true;
-                drw["transfer_amount"] = dtsBatch.Tables[0].Rows[i]["qty"];//轉倉數量               
+                drw["transfer_amount"] = dtsBatch.Tables[0].Rows[i]["qty"];//轉倉數量
                 drw["nwt"] = dtsBatch.Tables[0].Rows[i]["weg"];
                 drw["gross_wt"] = dtsBatch.Tables[0].Rows[i]["weg_gross"];               
                 drw["new_flag"] = "1"; //設置新行標識，避免重複觸發添加表格2的數據
@@ -1334,7 +1402,7 @@ namespace cf01.Forms
                 }
                 if (mo_id == "")
                 {
-                    MessageBox.Show("請首先指定制單頁數)！", "提示信息", MessageBoxButtons.OK);          
+                    MessageBox.Show("請首先指定制單頁數)！", "提示信息", MessageBoxButtons.OK);
                     return;
                 }
                 if (mo_id.Length != 9)
@@ -1431,6 +1499,33 @@ namespace cf01.Forms
 
         private void BTNAPPROVE_Click(object sender, EventArgs e)
         {
+            if (dgvDetails.RowCount == 0)
+            {
+                return;
+            }
+            if(lkeSate.EditValue.ToString()=="1")
+            {
+                MessageBox.Show("已是批準狀態,當前操作無效!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (mState == "" && lkeSate.EditValue.ToString() == "0")
+            {
+                //批準前檢查庫存TODO
+                dtStockAdj.Clear();
+                //生成存在庫存差額的數據
+                SelectData601(); 
+                if (dtStockAdj.Rows.Count > 0)
+                {
+                    string msg = string.Format(
+                    @"表格一中的第【{0}】行,頁數【{1}】,貨品【{2}】庫存不足!\\n\\r 數量差額:{3},重量差額:{4}",
+                    dtStockAdj.Rows[0]["sequence_id"].ToString(), dtStockAdj.Rows[0]["mo_id"].ToString(), dtStockAdj.Rows[0]["goods_id"].ToString(),
+                    dtStockAdj.Rows[0]["adj_qty"].ToString(), dtStockAdj.Rows[0]["adj_sec_qty"].ToString());
+                    MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                //檢查庫存通過則執行后面的批準代碼
+
+            }
 
         }
 
@@ -1458,23 +1553,21 @@ namespace cf01.Forms
 
         private void BTNCHECKST_Click(object sender, EventArgs e)
         {
+            if (lkeSate.EditValue.ToString() == "1")
+            {
+                MessageBox.Show("注意：已批準的單據不可以再編輯!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (mState == "" && lkeSate.EditValue.ToString() == "0")
             {
                 if(dtsTrans.Tables["dtD1"].Rows.Count==0)
                 {
                     return;
-                }                
-                DataRow[] aryDrws = dtsTrans.Tables["dtD1"].Select("location_id='601'");
-                if (aryDrws.Length > 0)
-                {
-                    this.CheckStockQty(aryDrws, "1");
                 }
-                aryDrws = null;
-                aryDrws = dtsTrans.Tables["dtD2"].Select("location='601' and (con_qty>inventory_qty or sec_qty>inventory_sec_qty)");
-                if (aryDrws.Length > 0)
-                {
-                    this.CheckStockQty(aryDrws, "2");
-                }                           
+                //清除舊的數據
+                dtStockAdj.Clear(); 
+                //生成存在庫存差額的數據
+                SelectData601();
                 //庫存調整
                 if (dtStockAdj.Rows.Count > 0)
                 {
@@ -1485,14 +1578,35 @@ namespace cf01.Forms
                         {
                             //刷新數據
                             FindDoc(txtID.Text);
+                            MessageBox.Show("自動庫存調整成功！", "提示信息", MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                     }
-                }
-                
+                }                
             }
         }
 
-        private void CheckStockQty(DataRow[] aryDrws,string type)
+        //生成存在庫存差額的數據
+        private void SelectData601()
+        {
+            //過濾出表格1中601的數據
+            DataRow[] aryDrws = dtsTrans.Tables["dtD1"].Select("location_id='601'");
+            dtsTrans.Tables["dtD1"].Select();
+            if (aryDrws.Length > 0)
+            {
+                this.GenerateAdjData(aryDrws, "1");
+            }
+            //過濾出表格2中倉數不足的數據
+            aryDrws = null;
+            aryDrws = dtsTrans.Tables["dtD2"].Select("location='601' and (con_qty>inventory_qty or sec_qty>inventory_sec_qty)");
+            dtsTrans.Tables["dtD2"].Select();
+            if (aryDrws.Length > 0)
+            {
+                this.GenerateAdjData(aryDrws, "2");
+            }
+        }
+
+        //將存在庫存差額的數據插入臨時表，以便生成自動庫存調整數據
+        private void GenerateAdjData(DataRow[] aryDrws,string type)
         {
             //庫存不足
             string sequenceId = "", locationId = "", moId = "", goodsId = "", strLotNo = "";
@@ -1501,13 +1615,14 @@ namespace cf01.Forms
             {
                 sequenceId = (type == "1") ? dr["sequence_id"].ToString() : dr["upper_sequence"].ToString();
                 locationId = (type == "1") ? dr["location_id"].ToString() : dr["location"].ToString();
-                conQty = (type == "1") ? decimal.Parse(dr["transfer_amount"].ToString()) : decimal.Parse(dr["con_qty"].ToString());
+                conQty = (type == "1") ? decimal.Parse(dr["transfer_amount"].ToString()) : decimal.Parse(dr["con_qty"].ToString()); //轉出數量
+                secQty = decimal.Parse(dr["sec_qty"].ToString()); //轉出重量
                 moId = dr["mo_id"].ToString();
                 goodsId = dr["goods_id"].ToString();
                 strLotNo = dr["lot_no"].ToString();
-                stQty = decimal.Parse(dr["inventory_qty"].ToString());
-                stSecQty = decimal.Parse(dr["inventory_sec_qty"].ToString());                
-                secQty = decimal.Parse(dr["sec_qty"].ToString());
+                stQty = decimal.Parse(dr["inventory_qty"].ToString()); //實際庫存數量
+                stSecQty = decimal.Parse(dr["inventory_sec_qty"].ToString());  //實際庫存重量
+               
                 if (stQty < conQty || stSecQty < secQty)
                 {
                     adjQty = (stQty < conQty) ? (conQty - stQty) : 0;

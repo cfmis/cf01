@@ -294,6 +294,32 @@ namespace cf01.CLS
             return result;
         }
 
+        public string ExecuteSqlUpdateReturnString(string strSql)
+        {
+            string result = "";
+            SqlConnection conn = new SqlConnection(strConn);
+            conn.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = strSql;
+                cmd.CommandTimeout = 1200;//連接20分鐘
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;               
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
+
 
         /// <summary>
         /// 執行SQL，返回 dataTable 類型

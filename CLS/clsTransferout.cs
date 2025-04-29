@@ -14,7 +14,9 @@ namespace cf01.CLS
     public class clsTransferout
     {
         private static clsPublicOfGEO clsErp = new clsPublicOfGEO();
-        static StringBuilder sbSql = new StringBuilder();
+        private static PubFunDAL pubFun = new PubFunDAL();
+        static StringBuilder sbSql = new StringBuilder();        
+
 
         //轉出單最大單據號
         public static string GetMaxID(string billId, string billType, string groupNo, int serialLen)
@@ -32,7 +34,6 @@ namespace cf01.CLS
             rtn = clsErp.ExecuteSqlUpdate(sql_u);
             return rtn;
         }
-
 
         public static int CheckMoIsDgD(string bill_type_no, string mo_id)
         {
@@ -69,6 +70,53 @@ namespace cf01.CLS
                     break;
             }
             return ll_return;
+        }
+
+        
+        public static DataTable FindData(string id1,string id2,string dat1,string dat2,string billTypeNo,string groupNo,string moId1,string moId2)
+        {
+            DataTable dt = new DataTable();
+            string str =
+            @"Select a.id,a.transfer_date,a.bill_type_no,a.group_no,b.sequence_id,b.mo_id,b.goods_id,b.goods_name,b.transfer_amount,b.unit,
+            b.sec_qty,b.sec_unit
+            FROM st_transfer_mostly a with(nolock),st_transfer_detail b with(nolock)
+            WHERE a.within_code=b.within_code And a.id=b.id ";
+            if (id1 != "")
+            {
+                str += $" And a.id>='{id1}'";
+            }
+            if (id2 != "")
+            {
+                str += $" And a.id<='{id2}'";
+            }
+            if (dat1 != "")
+            {
+                str += $" And a.transfer_date>='{dat1}'";
+            }
+            if (dat2 != "")
+            {
+                str += $" And a.transfer_date<='{dat2}'";
+            }
+            if (groupNo != "")
+            {
+                str += $" And a.group_no='{groupNo}'";
+            }
+            if (billTypeNo != "")
+            {
+                str += $" And a.bill_type_no='{billTypeNo}'";
+            }
+            str +=" And a.type='0' And a.state<>'2'";
+            if (moId1 != "")
+            {
+                str += $" And b.mo_id>='{moId1}'";
+            }
+            if (moId2 != "")
+            {
+                str += $" And b.mo_id<='{moId2}'";
+            }
+            str += " Order by a.id,b.sequence_id";
+            dt = clsErp.ExecuteSqlReturnDataTable(str);
+            return dt;
         }
 
         public static decimal of_set_sec_qty(string as_goods_id, string as_unit_code, decimal adec_qty, decimal adec_sec_qty, string as_location_id, string as_carton_code, string as_mo_id)
@@ -206,7 +254,6 @@ namespace cf01.CLS
                 row["goods_id"] = moList[i].goods_id;
                 dt.Rows.Add(row);
             }
-            //dt = ListToDataTable<packing_mo>(moList);
             string ProcName = "zz_packing_lable_bom_data";
             SqlParameter[] paras = {
                 new SqlParameter("@mo_data",SqlDbType.Structured) {Value = dt}
@@ -246,7 +293,6 @@ namespace cf01.CLS
             }
             return dataTable;
         }
-
 
         public static int Save(TransferInHead headData, List<TransferInDetails> lstDetailData1, List<TransferDetailPart> lstDetailData2,
                List<TransferInDetails> lstDelData1, List<TransferDetailPart> lstDelData2, string user_id)
@@ -392,10 +438,10 @@ namespace cf01.CLS
                     if (!string.IsNullOrEmpty(item.row_status))
                     {
                         strSuit = (item.shipment_suit) ? "1" : "0";
+                        lot_no = !string.IsNullOrEmpty(item.lot_no) ? item.lot_no : clsPublic.GetDeptLotNo(item.location_id, item.location_id);//自動生成批號
                         //item.row_status非空,數據有新增或修改                        
                         if (item.row_status == "EDIT")
-                        {
-                            lot_no = !string.IsNullOrEmpty(item.lot_no) ? item.lot_no : clsPublic.GetDeptLotNo(item.location_id, item.location_id);//自動生成批號
+                        {                           
                             //更新轉出單明細 少了base_unit不用更新
                             str = string.Format(
                             @" UPDATE st_transfer_detail with(Rowlock) 
@@ -409,8 +455,7 @@ namespace cf01.CLS
                         }
                         else //INSERT ITEM//有項目新增
                         {
-                            //組裝轉換明細,插入新增的記錄
-                            lot_no = !string.IsNullOrEmpty(item.lot_no) ? item.lot_no : clsPublic.GetDeptLotNo(item.location_id, item.location_id);//自動生成批號
+                            //組裝轉換明細,插入新增的記錄                            
                             str = string.Format(
                             @" Insert Into st_transfer_detail
                             (within_code,id,sequence_id,goods_id,goods_name,base_unit,unit,rate,inventory_qty,inventory_sec_qty,transfer_amount,location_id,carton_code,lot_no,state,remark,
@@ -466,11 +511,294 @@ namespace cf01.CLS
         {
             string result = "";
             string strSql = string.Format(@"SELECT dbo.fn_zz_sys_bill_max_separate_st('{0}',{1}) as id", bill_id, serial_len);
-            result = clsErp.ExecuteSqlReturnObject(strSql); // Return value DT10560134510
+            result = clsErp.ExecuteSqlReturnObject(strSql); // Return value DWA25040931
             return result;
         }
 
+        //檢查單據號是否已存在
+        public static bool CheckIdIsExists(string tableName, string id)
+        {
+            bool result = false;
+            string strSql = string.Format(@"Select id FROM {0} with(nolock) Where within_code='0000' AND id='{1}'", tableName, id);
+            DataTable dt = clsErp.ExecuteSqlReturnDataTable(strSql);
+            if (dt.Rows.Count > 0)
+                result = true;
+            else
+                result = false;
+            return result;
+        }
 
+        public static string SaveAdjData(st_adjustment_mostly headData, List<st_a_subordination> lstDetailData1, string user_id)
+        {
+            string str = "", within_code = "0000";
+            StringBuilder sbSql = new StringBuilder(" SET XACT_ABORT ON ");
+            sbSql.Append(" BEGIN TRANSACTION ");
+            string id = headData.id;
+            string bill_id = "ST02";
+            if (headData.head_status == "NEW")//全新的單據
+            {
+                bool id_exists = CheckIdIsExists("st_adjustment_mostly", id);
+                if (id_exists)
+                {
+                    //已存在此單據號,重新取最大單據號
+                    //取最大單號
+                    headData.id = GetMaxIDStock(bill_id, 4);
+                }
+                //更新系統表移交單最大單號
+                id = headData.id;
+                string bill_Code = id.Substring(1);   //biiCode value is  DWA23090452-->WA23090452
+                string year_month = id.Substring(3, 4);//2309
+                string strSql_i = string.Format(
+                @" INSERT INTO sys_bill_max_separate(within_code,bill_id,year_month,bill_code,bill_text1,bill_text2,bill_text3,bill_text4,bill_text5) 
+                VALUES('0000','{0}','{1}','{2}','','','','','')", bill_id, year_month, bill_Code);
+                string strSql_u = string.Format(
+                @" UPDATE sys_bill_max_separate SET bill_code='{0}' 
+                WHERE within_code='0000' And bill_id='{1}' And year_month='{2}' And bill_text1='' And bill_text2='' And bill_text3='' And bill_text4='' And bill_text5='' ",
+                bill_Code, bill_id, year_month);
+                string sql_sys_update2 = "";
+                if (bill_Code.Substring(6, 4) != "0001")
+                    sql_sys_update2 = strSql_u;
+                else
+                    sql_sys_update2 = strSql_i;
+                str = sql_sys_update2;
+                sbSql.Append(str);
+
+                //生成庫存調整單               
+                string update_count = "1", transfers_state = "0", node = "1", servername = "hkserver.cferp.dbo", sequence_id = "";
+                decimal price = 0;
+                int index;
+                if (lstDetailData1.Count > 0)
+                {
+                    //主檔                   
+                    str = string.Format(
+                    @" Insert Into st_adjustment_mostly(within_code,id,department_id,date,mode,handler,remark,state,transfers_state,update_count,adjust_reason,servername,
+                    create_by,create_date,update_by,update_date) VALUES
+                    ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}',getdate(),'{12}',getdate())",
+                    within_code, headData.id, headData.department_id, headData.date, node, headData.handler, headData.remark, headData.state, transfers_state, update_count, headData.adjust_reason, servername, headData.create_by);
+                    sbSql.Append(str);
+                    //明細
+                    index = 0;
+                    foreach (var item in lstDetailData1)
+                    {
+                        index += 1;
+                        //sequence_id = objNum.GetSequenceID(index);// index.ToString().PadLeft(4, '0')+"h"; //序號   
+                        sequence_id = clsPublic.GetSequenceID(index); //序號 
+                        str = string.Format(
+                        @" Insert Into st_a_subordination
+                        (within_code,id,sequence_id,mo_id,goods_id,location,carton_code,qty,unit,ib_amount, price,transfers_state,sec_unit,sec_qty,ib_weight,lot_no,remark) Values
+                        ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',{7},'{8}',{9},{10},'{11}','{12}',{13},{14},'{15}','{16}')",
+                        within_code, headData.id, sequence_id, item.mo_id, item.goods_id, item.location, item.location, item.qty, "PCS", item.ib_amount, price, transfers_state, "KG",
+                        item.sec_qty, item.ib_weight, item.lot_no, item.remark);
+                        sbSql.Append(str);
+                    }
+                }
+            }
+            sbSql.Append(@" COMMIT TRANSACTION ");
+            string result = clsErp.ExecuteSqlUpdateReturnString(sbSql.ToString());//保存成功返回 空格
+            if (result == "")
+            {
+                //接著批準
+                string active_name = "pfc_ok", ldt_check_date = "";
+                //設置全局的批準日期
+                ldt_check_date = clsPublic.GetDbDateTime("L");//批準日期(長日期時間)
+                headData.check_date = ldt_check_date;
+                result = ApproveAdjustment(headData, ldt_check_date, active_name, user_id); //保存成功返回00，失敗返回-1
+            }
+            else
+                result = "-1" + result;
+            sbSql.Clear();
+            return result;
+        }
+
+        /// <summary>
+        /// 移交單批準
+        /// 單獨移交單畫面的批準只有一張移交單,有別于組裝轉換
+        /// 批準庫存調整,更改庫存調整的批準狀態,交易的生成,庫存的更改
+        /// </summary>
+        /// <param name="headData"></param>       
+        /// <param name="check_date"></param>
+        /// <param name="user_id"></param>
+        /// <returns>返回字串00,表示成功</returns>     
+        public static string ApproveAdjustment(st_adjustment_mostly headData, string check_date, string active_name, string user_id)
+        {
+            //更新移交單相關庫存
+            string window_id = "";
+            string result = SetAdjustmentStBusiness(headData.id, check_date, active_name, "JO", user_id, window_id); //active_name:"pfc_ok","pfc_unok"
+
+            if (result.Substring(0, 2) == "00") // SetReturnRechangeStBusiness()執行成功
+            {
+                bool is_pfc_ok = (active_name == "pfc_ok") ? true : false;
+                string checkDate = is_pfc_ok ? check_date : "";
+                string checkBy = is_pfc_ok ? user_id : "";
+                string state = is_pfc_ok ? "1" : "0";
+                string strSql = string.Format(
+                @" Update st_adjustment_mostly with(Rowlock) 
+                    SET check_date=(Case When '{2}'<>'' Then '{2}' Else null End), check_by='{3}',
+                        update_date=(Case When '{2}'<>'' Then '{2}' Else getdate() End),update_by='{4}',state='{5}' 
+                    WHERE within_code='{0}' And id='{1}'", "0000", headData.id, checkDate, checkBy, user_id, state);
+                result = clsErp.ExecuteSqlUpdateReturnString(strSql);
+                result = (result == "") ? "00" : "-1" + result;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 生成調整單交易數據(返回值為字符串,字串前兩位:-1代表失敗;00:成功)
+        /// </summary>
+        /// <param name="as_id">移交單據編號</param>
+        /// <param name="as_check_date">當前批準日期時間</param>
+        /// <param name="as_active_name">pfc_ok/pfc_unok</param>
+        /// <param name="as_bill_type">"JO:移交單"</param>
+        /// <param name="as_user_id"></param>
+        /// <returns></returns>
+        public static string SetAdjustmentStBusiness(string as_id, string as_check_date, string as_active_name, string as_bill_type, string as_user_id, string as_window_id)
+        {
+            string result = "00";//strStatus字符串前兩位:-1代表失敗;00:成功
+            string str = "", strSql = "", within_code = "0000";
+
+            string ls_id, ls_goods_id, ls_error = "", ls_check_date = "";
+            string ls_mode, ls_location, ls_carton_code, ls_lot_no, ls_unit, ls_sec_unit, ls_sequence_id;
+            decimal ldc_qty, ldc_sec_qty, ldc_stock_qty, ldc_stock_sec_qty, ldc_adjust_qty, ldc_adjust_sec_qty;
+            int ll_count;
+            ls_id = as_id;
+            StringBuilder sbSql = new StringBuilder(" SET XACT_ABORT ON ");
+            sbSql.Append(" BEGIN TRANSACTION ");
+            DataTable dt = new DataTable();
+            if (as_active_name == "pfc_ok")
+            {
+                ls_check_date = as_check_date;               
+                //无条件控制负数的出现
+                result = pubFun.wf_check_inventory_qty(as_id, "w_st_adjustment");//调整
+                if (result.Substring(0, 2) == "-1")
+                {
+                    return result;
+                }
+                DataTable dtCount = new DataTable();
+                strSql = string.Format(
+                @"Select A.mode,B.sequence_id,B.goods_id,B.location,B.carton_code,B.lot_no,B.unit,B.sec_unit,B.qty,B.sec_qty
+                From st_adjustment_mostly A with(nolock), st_a_subordination B with(nolock)
+                Where A.within_code=B.within_code And A.id=B.id And A.within_code='{0}' And A.id='{1}'", within_code, ls_id);
+                dt = clsErp.ExecuteSqlReturnDataTable(strSql);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ls_mode = dt.Rows[i]["mode"].ToString();
+                    ls_sequence_id = dt.Rows[i]["sequence_id"].ToString();
+                    ls_goods_id = dt.Rows[i]["goods_id"].ToString();
+                    ls_location = dt.Rows[i]["location"].ToString();
+                    ls_carton_code = dt.Rows[i]["carton_code"].ToString();
+                    ls_lot_no = dt.Rows[i]["lot_no"].ToString();
+                    ls_unit = dt.Rows[i]["unit"].ToString();
+                    ls_sec_unit = dt.Rows[i]["sec_unit"].ToString();
+                    ldc_qty = decimal.Parse(dt.Rows[i]["qty"].ToString());
+                    ldc_sec_qty = decimal.Parse(dt.Rows[i]["sec_qty"].ToString());
+                    ll_count = 0;
+                    strSql = string.Format(
+                    @"Select Count(1) as cnt From st_business_record WITH(NOLOCK) 
+                    Where within_code='{0}' And id ='{1}' And sequence_id='{2}' And action_id='03'",
+                    within_code, ls_id, ls_sequence_id);
+                    dtCount = clsErp.ExecuteSqlReturnDataTable(strSql);
+                    ll_count = int.Parse(dtCount.Rows[0]["cnt"].ToString());
+
+                    //***批準***
+                    if (as_active_name.ToLower() == "pfc_ok" && ll_count == 0)
+                    {
+                        if (ls_lot_no.Length > 0)
+                        {
+                            strSql = string.Format(
+                            @"Select qty, sec_qty From st_details_lot with(nolock)
+                            Where within_code='{0}' And location_id='{1}' And carton_code='{2}' And goods_id='{3}' And lot_no='{4}'",
+                            within_code, ls_location, ls_carton_code, ls_goods_id, ls_lot_no);
+                        }
+                        else
+                        {
+                            strSql = string.Format(
+                            @"Select Sum(Isnull(qty, 0)) as qty, Sum(Isnull(sec_qty, 0)) as sec_qty                           
+                            From st_details_lot
+                            Where within_code='{0}' And location_id='{1}' And carton_code='{2}' And goods_id='{3}' And lot_no='{4}'",
+                            within_code, ls_location, ls_carton_code, ls_goods_id, ls_lot_no);
+                        }
+                        dtCount = clsErp.ExecuteSqlReturnDataTable(strSql);
+                        if (dtCount.Rows.Count > 0)
+                        {
+                            ldc_stock_qty = decimal.Parse(dtCount.Rows[0]["qty"].ToString());
+                            ldc_stock_sec_qty = decimal.Parse(dtCount.Rows[0]["sec_qty"].ToString());
+                        }
+                        else
+                        {
+                            ldc_stock_qty = 0;
+                            ldc_stock_sec_qty = 0;
+                        }
+                        //--start 转化为当前单位
+                        strSql = string.Format(
+                        @"Select Top 1 DBO.FN_CHANGE_UNITBYCV('{0}','{1}','{2}','{3}','','','*') as stock_qty,
+									   DBO.fn_change_units_sec('{0}','{1}', '','{4}','{5}') as stock_sec_qty
+                          From sysobjects", within_code, ls_goods_id, ls_unit, ldc_stock_qty, ls_sec_unit, ldc_stock_sec_qty);
+                        dtCount = clsErp.ExecuteSqlReturnDataTable(strSql);
+                        if (!string.IsNullOrEmpty(dtCount.Rows[0]["stock_qty"].ToString()))
+                            ldc_stock_qty = decimal.Parse(dtCount.Rows[0]["stock_qty"].ToString());
+                        else
+                            ldc_stock_qty = 0;
+                        if (!string.IsNullOrEmpty(dtCount.Rows[0]["stock_sec_qty"].ToString()))
+                            ldc_stock_sec_qty = decimal.Parse(dtCount.Rows[0]["stock_sec_qty"].ToString());
+                        else
+                            ldc_stock_sec_qty = 0;
+                        //--end 转化为当前单位
+                        if (ls_mode == "1")//--在原数量上进行调整
+                        {
+                            ldc_adjust_qty = ldc_qty;
+                            ldc_adjust_sec_qty = ldc_sec_qty;
+                        }
+                        else
+                        {
+                            ldc_adjust_qty = ldc_stock_qty - ldc_qty;
+                            ldc_adjust_sec_qty = ldc_stock_sec_qty - ldc_sec_qty;
+                        }
+                        //--
+                        str = string.Format(
+                        @" Insert Into st_business_record
+                           (within_code,id,sequence_id,goods_id,goods_name,unit,action_time,action_id,ii_qty,sec_qty,sec_unit,
+                           ii_location_id, ii_code, check_date, 
+                           ib_qty, qty, lot_no, mo_id, dept_id, servername)
+                        Select B.within_code,B.id,B.sequence_id,B.goods_id,B.goods_name,B.unit,A.date,'03', {4} , {5} ,B.sec_unit,
+                               B.location,B.carton_code,  '{6}',
+                               dbo.FN_CHANGE_UNITBYCV(B.within_code, B.goods_id, B.unit, 1,'','','*') as ib_qty,
+                               Round(dbo.FN_CHANGE_UNITBYCV(B.within_code, B.goods_id, B.unit, {7} ,'','','/'), 4) as qty,
+                               B.lot_no,B.mo_id,A.department_id,A.servername
+                        FROM st_adjustment_mostly A With(nolock), st_a_subordination B With(nolock)
+                        WHERE A.within_code=B.within_code And A.id=B.id And B.within_code='{0}' And B.id='{1}' And B.sequence_id='{2}' And B.goods_id='{3}'",
+                        within_code, ls_id, ls_sequence_id, ls_goods_id, ldc_adjust_qty, ldc_adjust_sec_qty, ls_check_date, ldc_adjust_qty);
+                        sbSql.Append(str);
+                    } //end of if pfc_ok
+                    //***批準結束***
+                }  //end of for
+
+                sbSql.Append(@" COMMIT TRANSACTION ");
+                result = clsErp.ExecuteSqlUpdateReturnString(sbSql.ToString());                
+                sbSql.Clear();
+                if (result != "")
+                {
+                    result = "-1" + "批準失敗!<" + result + ">";
+                    return result;
+                }
+                else
+                    result = "00";
+
+                //--统一更新库存
+                if (as_active_name.ToLower() == "pfc_ok")
+                {
+                    result = pubFun.of_update_st_details("I", "03", ls_id, "*", ls_check_date, ls_error);
+                    if (result.Substring(0, 2) == "-1")
+                    {
+                        result = result + "\r\n" + "庫存數據保存失败![统一更新库存]+" + "\r\n" + "<" + as_active_name + ">(st_details)" + "\r\n";
+                        return result;
+                    }
+                    else
+                        result = "00";
+                }
+
+            } //end fo if (as_active_name == "pfc_ok" || as_active_name == "pfc_unok")            
+            return result;
+        }//--end SetAdjustmentStBusiness()
 
     }
 }

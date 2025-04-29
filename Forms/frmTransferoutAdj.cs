@@ -30,7 +30,6 @@ namespace cf01.Forms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
             flag_adj = false;
             this.Close();
         }
@@ -42,13 +41,11 @@ namespace cf01.Forms
                 if (MessageBox.Show("確認對以下庫存不足(601倉)的貨品進行庫存調整？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;
-                }
-                //to do ajd生成庫存調整的交易數據
+                }               
                 //axios.post("/Adjustment/Save",{headData,lstDetailData1,lstDelData1,user_id}).then(
                 /*
                 headData: { id:'',department_id:'',date:'',mode:'1',handler:'',remark:'',state:'0',transfers_state:'0',update_count:'',create_date:'',create_by:'',update_date:'',update_by:'',adjust_reason:'',servername:'',check_by:'',check_date:'',head_status:"" },            
-                rowDataEdit: {id:'',sequence_id:'',mo_id:'',goods_id:'',goods_name:'',color:'',location:'',carton_code:'',unit:'PCS',qty:0,ib_amount:0.00,price:0.00,transfers_state:'0',sec_unit:'KG',sec_qty:0.00,ib_weight:0.00,lot_no:'',remark:'',row_status:''},            
-               
+                rowDataEdit: {id:'',sequence_id:'',mo_id:'',goods_id:'',goods_name:'',color:'',location:'',carton_code:'',unit:'PCS',qty:0,ib_amount:0.00,price:0.00,transfers_state:'0',sec_unit:'KG',sec_qty:0.00,ib_weight:0.00,lot_no:'',remark:'',row_status:''},   
                 */
                 st_adjustment_mostly headData = new st_adjustment_mostly(); 
                 headData.id = clsTransferout.GetMaxIDStock("ST02", 4);
@@ -62,15 +59,46 @@ namespace cf01.Forms
                 headData.servername = "hkserver.cferp.dbo";
                 headData.adjust_reason = "01";
                 headData.head_status = "NEW";
+                List<st_a_subordination> lstDetailData1 = new List<st_a_subordination>();
                 for (int i = 0; i < dtAdj.Rows.Count; i++)
                 {
-
+                    st_a_subordination lstMd = new st_a_subordination();
+                    lstMd.id = headData.id;
+                    lstMd.sequence_id = dtAdj.Rows[i]["sequence_id"].ToString();
+                    lstMd.mo_id = dtAdj.Rows[i]["mo_id"].ToString();
+                    lstMd.goods_id = dtAdj.Rows[i]["goods_id"].ToString();
+                    lstMd.goods_name = "";                  
+                    lstMd.color = "";
+                    lstMd.location = "601";
+                    lstMd.carton_code = "601";
+                    lstMd.unit = "PCS";
+                    lstMd.qty = decimal.Parse(dtAdj.Rows[i]["adj_qty"].ToString());
+                    lstMd.sec_qty = decimal.Parse(dtAdj.Rows[i]["adj_sec_qty"].ToString());
+                    lstMd.lot_no = dtAdj.Rows[i]["lot_no"].ToString();
+                    lstMd.ib_amount = 0;
+                    lstMd.ib_weight = 0;                    
+                    lstMd.price = 0;
+                    lstMd.transfers_state = "0";
+                    lstMd.sec_unit = "KG";
+                    lstMd.remark = "";
+                    lstMd.row_status = "NEW";
+                    lstDetailData1.Add(lstMd);
                 }
-                
-               
-
-                MessageBox.Show("庫存調整成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                flag_adj = true;
+                string result = "";
+                //保存庫存調整數據以及批準
+                result = clsTransferout.SaveAdjData(headData, lstDetailData1, DBUtility._user_id);
+                if (result.Substring(0,2) == "00")
+                {
+                    //批準庫存調整數據及批準成功
+                    MessageBox.Show("自動庫存調整及批準成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    flag_adj = true;
+                }
+                else
+                {
+                    MessageBox.Show("自動庫存調整及批準失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    flag_adj = false;
+                }
+              
                 this.Close();
             }
         }

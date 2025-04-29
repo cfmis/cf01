@@ -163,7 +163,7 @@
             // sequence_id
             // 
             this.sequence_id.DataPropertyName = "sequence_id";
-            this.sequence_id.HeaderText = "序號";
+            this.sequence_id.HeaderText = "行號";
             this.sequence_id.Name = "sequence_id";
             this.sequence_id.ReadOnly = true;
             this.sequence_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -248,13 +248,6 @@
         private System.Windows.Forms.DataGridView dgv1;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn location_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adj_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adj_sec_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lot_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -262,5 +255,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn location_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adj_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adj_sec_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lot_no;
     }
 }
