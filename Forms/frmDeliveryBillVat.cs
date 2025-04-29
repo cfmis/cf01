@@ -314,7 +314,7 @@ namespace cf01.Forms
             separate_issues.EditValue = "1";            
             type.EditValue = "VDJ";
             state.EditValue = "0";
-            GetID_No();
+            GetMaxId();
             issues_date.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd");           
             total_package_num.Text = "0";
 			dtDetails.Clear();
@@ -547,7 +547,7 @@ namespace cf01.Forms
                     string strSql = string.Format("Select '1' FROM dbo.so_issues_mostly WHERE within_code='0000' and id='{0}'", id.Text.Trim());
                     if (clsConErp.ExecuteSqlReturnObject(strSql) != "")
                     {
-                        GetID_No();//如已存在編號則重取最大單據編號
+                        GetMaxId();//如已存在編號則重取最大單據編號
                     }                   
                 } 
                 string sql_i =
@@ -792,16 +792,18 @@ namespace cf01.Forms
             //更新過帳標識
             if (save_flag)
             {
-                int cur_row;
-                string sql_u, delivery_id, seq;
+                int rowIndex=0;
+                string sql_u, deliveryId, seq;
+                gridView1.CloseEditor(); //編輯的值有效
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
-                    cur_row = gridView1.GetRowHandle(i);
-                    if (gridView1.GetRowCellValue(cur_row, "delivery_id").ToString() != "")
+                    rowIndex = gridView1.GetRowHandle(i);
+                    deliveryId = gridView1.GetRowCellValue(rowIndex, "delivery_id").ToString();
+                    deliveryId = string.IsNullOrEmpty(deliveryId) ? "" : deliveryId.Trim();
+                    if (deliveryId != "")
                     {
-                        delivery_id = gridView1.GetRowCellValue(cur_row, "delivery_id").ToString();
-                        seq = gridView1.GetRowCellValue(cur_row, "seq").ToString();
-                        sql_u = string.Format("Update so_invoice_details Set state='1' Where within_code='0000' And id='{0}' And sequence_id='{1}'", delivery_id, seq);
+                        seq = gridView1.GetRowCellValue(rowIndex, "seq").ToString().Trim();
+                        sql_u = string.Format("Update so_invoice_details Set state='1' Where within_code='0000' And id='{0}' And sequence_id='{1}'", deliveryId, seq);
                         clsPublicOfCF01.ExecuteSqlUpdate(sql_u);
                     }
                 }
@@ -958,13 +960,13 @@ namespace cf01.Forms
       
         private void type_Leave(object sender, EventArgs e)
         {
-            GetID_No();
+            GetMaxId();
         }
 
         /// <summary>
         /// 取單據序號
         /// </summary>
-        private void GetID_No()
+        private void GetMaxId()
         {
             if (mState != "")
             {              
@@ -1028,7 +1030,7 @@ namespace cf01.Forms
                         cd_seller.EditValue = dt.Rows[0]["seller_id"].ToString();
                         name.Text = dt.Rows[0]["cust_name"].ToString();   //**  
                         address.Text = dt.Rows[0]["s_address"].ToString();                                                
-                        GetID_No();
+                        GetMaxId();
                     }
                 }
             }
@@ -1256,7 +1258,7 @@ namespace cf01.Forms
             tabControl1.SelectTab(0);//跳至第一頁
             if (mState == "NEW" || mState == "EDIT")//已點擊新增或編號
             {
-                Add_Delivery_Data();              
+                AddDetailData();
             }
             else
             {
@@ -1265,7 +1267,7 @@ namespace cf01.Forms
                     Edit();
                 else               
                     AddNew();                
-                Add_Delivery_Data();
+                AddDetailData();
             }
             lsModel.Clear();
             //移除選中的行
@@ -1283,7 +1285,7 @@ namespace cf01.Forms
         }   
 
         //將選中的記錄插入東莞D中
-        private void Add_Delivery_Data()
+        private void AddDetailData()
         {
             if (lsModel.Count > 0)
             {
