@@ -19,16 +19,16 @@ using cf01.MDL;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Threading;
 
+
 namespace cf01.Forms
 {
 	public partial class frmTransferout : Form
 	{
-        private static clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-		public string mID = "";    //臨時的主鍵值
-		public string mState = ""; //新增或編輯的狀態
-		public static string str_language = "0";		
-		public bool save_flag;
-        public string strArea = "";
+        clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+		string mID = "";    //臨時的主鍵值
+		string mState = ""; //新增或編輯的狀態
+		string language = "0";
+		bool save_flag;        
         string current_date = "";
         string temp_mo_id = ""; //暫存更改前的值
         string temp_suit = ""; //暫存更改前的值
@@ -57,28 +57,18 @@ namespace cf01.Forms
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
 
-			str_language = DBUtility._language;
+			language = DBUtility._language;
 			NextControl oNext = new NextControl(this, "2");
 			oNext.EnterToTab();
 		}
 
 		private void frmTransferout_Load(object sender, EventArgs e)
 		{
-            ////組別資料
-            //DataTable dtSales_Group=clsSales_group.Get_sales_group();
-            //lkeMo_group.Properties.DataSource = dtSales_Group;
-            //lkeMo_group.Properties.ValueMember = "id";
-            //lkeMo_group.Properties.DisplayMember = "id";
-
             //數量單位
             DataTable dtUnit = clsConErp.GetDataTable(@"SELECT unit_code AS id,'' as cdesc,Cast(rate as int) as rate From it_coding where within_code='0000' and id='*' and basic_unit='PCS'");
             clQtyUnit.DataSource = dtUnit;
             clQtyUnit.ValueMember = "id";
             clQtyUnit.DisplayMember = "id";
-            ////單價單位
-            //clPrice_unit.DataSource = dtUnit;
-            //clPrice_unit.ValueMember = "id";
-            //clPrice_unit.DisplayMember = "id";
 
             //**********************
             //狀態
@@ -205,7 +195,7 @@ namespace cf01.Forms
 			{
 				return;
 			}
-			DialogResult result = MessageBox.Show("是否刪除當前明細資料?", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			DialogResult result = MessageBox.Show("是否要刪除當前明細資料?", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (result == DialogResult.Yes)
 			{
 				int curRow = dgvDetails.FocusedRowHandle;
@@ -298,7 +288,7 @@ namespace cf01.Forms
 			}
             if (lkeSate.EditValue.ToString() == "1")
             {
-                MessageBox.Show("注意：已批準的單據不可以再編輯!", "提示信息",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("注意：已是批準狀態，當前操作無效!", "提示信息",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
 			SetButtonSatus(false);
@@ -351,20 +341,20 @@ namespace cf01.Forms
 			}           
             if (lkeSate.EditValue.ToString() == "1")
             {
-                MessageBox.Show("注意：已批準的單據不可以刪除!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("注意：已是批準狀態，當前操作無效!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DialogResult result = MessageBox.Show("此操作將刪除主表及明細中的資料,請謹慎操作!", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("確定要注銷此轉出單？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (result == DialogResult.Yes)
 			{
                 if (clsTransferout.DelTransferOut(txtID.Text) >= 0)
                 {
                     FindDoc(txtID.Text);
-                    MessageBox.Show("數據刪除成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("注銷成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("數據刪除失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("注銷失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 			}
 		}
@@ -485,7 +475,7 @@ namespace cf01.Forms
 					curRow = dgvDetails.GetRowHandle(i);
                     if (string.IsNullOrEmpty(dgvDetails.GetRowCellDisplayText(curRow, "mo_id")) || string.IsNullOrEmpty(dgvDetails.GetRowCellDisplayText(curRow, "goods_id")))
 					{
-                        msg = $"第{(i + 1).ToString()}行，頁數或貨品編碼不可以爲空!";
+                        msg = $"第[ {(i + 1).ToString()} ]行，頁數或貨品編碼不可爲空!";
                         MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         flag = false;
                         ColumnView view1 = (ColumnView)dgvDetails;
@@ -1439,10 +1429,11 @@ namespace cf01.Forms
         {
             if (dgvDetails.RowCount > 0)
             {
+                string transferAmount = "";
                 temp_mo_id = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "mo_id").ToString();
                 temp_suit = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "shipment_suit").ToString();
                 temp_goods_id = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "goods_id").ToString();
-                string transferAmount = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "transfer_amount").ToString();
+                transferAmount = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "transfer_amount").ToString();
                 transferAmount = string.IsNullOrEmpty(transferAmount) ? "0.00" : transferAmount;
                 temp_transfer_amount = decimal.Parse(transferAmount);
             }
