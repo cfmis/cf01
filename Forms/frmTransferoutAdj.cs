@@ -41,12 +41,7 @@ namespace cf01.Forms
                 if (MessageBox.Show("確認對以下庫存不足(601倉)的貨品進行庫存調整？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;
-                }               
-                //axios.post("/Adjustment/Save",{headData,lstDetailData1,lstDelData1,user_id}).then(
-                /*
-                headData: { id:'',department_id:'',date:'',mode:'1',handler:'',remark:'',state:'0',transfers_state:'0',update_count:'',create_date:'',create_by:'',update_date:'',update_by:'',adjust_reason:'',servername:'',check_by:'',check_date:'',head_status:"" },            
-                rowDataEdit: {id:'',sequence_id:'',mo_id:'',goods_id:'',goods_name:'',color:'',location:'',carton_code:'',unit:'PCS',qty:0,ib_amount:0.00,price:0.00,transfers_state:'0',sec_unit:'KG',sec_qty:0.00,ib_weight:0.00,lot_no:'',remark:'',row_status:''},   
-                */
+                }
                 st_adjustment_mostly headData = new st_adjustment_mostly(); 
                 headData.id = clsTransferout.GetMaxIDStock("ST02", 4);
                 headData.department_id = "601";
@@ -98,7 +93,6 @@ namespace cf01.Forms
                     MessageBox.Show("自動庫存調整及批準失敗!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     flag_adj = false;
                 }
-              
                 this.Close();
             }
         }

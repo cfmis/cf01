@@ -537,7 +537,7 @@ namespace cf01.Forms
                     }
                     if ((qty + qtyOther) > orderQty)
                     {
-                        msg = $"注意：[ {moId} ] 轉出數量已大于訂單數量，是否要繼續保存？";                        
+                        msg = $"注意：[ {moId} ] 轉出數量已大于訂單數量，是否繼續？";                        
                         if (MessageBox.Show(msg, "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         {
                             flag = false;
@@ -1020,6 +1020,7 @@ namespace cf01.Forms
                     dgvDetails.SetRowCellValue(ll_rc, "sec_qty", dtsBatch.Tables[0].Rows[0]["total_sec_qty"]);
                     //添加表格2的數據
                     DataRow[] drws = dtsBatch.Tables[1].Select($"mo_id='{mo_id}' and goods_id_f0='{goods_id_f0}'");
+                    //DataRow[] drws = dtsBatch.Tables[1].Select($"mo_id='{mo_id}'");
                     DataRow drw1;
                     foreach (DataRow dr in drws)
                     {
@@ -1323,37 +1324,41 @@ namespace cf01.Forms
                 drw["position_first"] = (boxs != "0" || boxs != "") ? "箱" : "";
                 drw["sec_qty"] = dtsBatch.Tables[0].Rows[i]["total_sec_qty"];
                 drw["remark"] = dtsBatch.Tables[0].Rows[i]["suit_flag"];
-                dtsTrans.Tables["dtD1"].Rows.Add(drw);
-                DataRow[] drws = dtsBatch.Tables[1].Select($"mo_id='{mo_id}' and goods_id_f0='{goods_id_f0}'");               
-                DataRow drw1;
-                foreach (DataRow dr in drws)
+                dtsTrans.Tables["dtD1"].Rows.Add(drw);                
+                if (goods_id_f0.Substring(0, 3) == "F0-")
                 {
-                    drw1 = dtsTrans.Tables["dtD2"].NewRow();
-                    drw1["id"] = id;
-                    drw1["upper_sequence"] = sequenceId;
-                    idKey = id + sequenceId; //關聯父表的鍵值
-                    drw1["idkey"] = idKey;
-                    drw1["sequence_id"] = dr["sequence_id"]; //返回表中已生成
-                    drw1["mo_id"] = dr["mo_id"];
-                    drw1["goods_id"] = dr["goods_id"];
-                    drw1["goods_name"] = dr["goods_name"];
-                    drw1["inventory_qty"] = dr["inventory_qty"];
-                    drw1["inventory_sec_qty"] = dr["inventory_sec_qty"];
-                    drw1["con_qty"] = dr["con_qty"];
-                    drw1["sec_qty"] = dr["sec_qty"];
-                    drw1["order_qty"] = dr["order_qty"];
-                    drw1["lot_no"] = dr["lot_no"];
-                    drw1["obligate_qty"] = dr["obligate_qty"];
-                    drw1["sec_unit"] = "KG";
-                    drw1["location"] = "601";
-                    drw1["goods_unit"] = "SET";
-                    drw1["unit_code"] = "PCS";
-                    drw1["bom_qty"] = dr["dosage"];
-                    dtsTrans.Tables["dtD2"].Rows.Add(drw1);
-                }               
+                    //DataRow[] drws = dtsBatch.Tables[1].Select($"mo_id='{mo_id}' and goods_id_f0='{goods_id_f0}'");
+                    DataRow[] drws = dtsBatch.Tables[1].Select($"mo_id='{mo_id}'");
+                    DataRow drw1;
+                    foreach (DataRow dr in drws)
+                    {
+                        drw1 = dtsTrans.Tables["dtD2"].NewRow();
+                        drw1["id"] = id;
+                        drw1["upper_sequence"] = sequenceId;
+                        idKey = id + sequenceId; //關聯父表的鍵值
+                        drw1["idkey"] = idKey;
+                        drw1["sequence_id"] = dr["sequence_id"]; //返回表中已生成
+                        drw1["mo_id"] = dr["mo_id"];
+                        drw1["goods_id"] = dr["goods_id"];
+                        drw1["goods_name"] = dr["goods_name"];
+                        drw1["inventory_qty"] = dr["inventory_qty"];
+                        drw1["inventory_sec_qty"] = dr["inventory_sec_qty"];
+                        drw1["con_qty"] = dr["con_qty"];
+                        drw1["sec_qty"] = dr["sec_qty"];
+                        drw1["order_qty"] = dr["order_qty"];
+                        drw1["lot_no"] = dr["lot_no"];
+                        drw1["obligate_qty"] = dr["obligate_qty"];
+                        drw1["sec_unit"] = "KG";
+                        drw1["location"] = "601";
+                        drw1["goods_unit"] = "SET";
+                        drw1["unit_code"] = "PCS";
+                        drw1["bom_qty"] = dr["dosage"];
+                        dtsTrans.Tables["dtD2"].Rows.Add(drw1);
+                    }
+                }                
                 temp_mo_id = mo_id;
                 temp_goods_id = goods_id;                
-            }
+            }//--end for
             bds1.DataSource = dtsTrans.Tables["dtD1"];
             gridControl1.DataSource = bds1;
             bds2.DataSource = bds1;
@@ -1361,6 +1366,7 @@ namespace cf01.Forms
             gridControl2.DataSource = bds2;
             lstMDL.Clear();
             lstMDL2.Clear();
+            chkSelectAll.Checked = false;
             //移除批量查詢頁中勾選中的行           
             for (int i = dgvIdDetails.RowCount - 1; i >= 0; i--)            
             {
@@ -1504,7 +1510,7 @@ namespace cf01.Forms
             }
             if (mState == "" && lkeSate.EditValue.ToString() == "0")
             {
-                //批準前檢查庫存TODO
+                //批準前檢查庫存
                 dtStockAdj.Clear();
                 //生成存在庫存差額的數據
                 SelectData601(); 
@@ -1633,6 +1639,15 @@ namespace cf01.Forms
                 }
             }
             
+        }
+
+        private void chkSelectAll_MouseUp(object sender, MouseEventArgs e)
+        {
+            bool blVale = chkSelectAll.Checked;
+            for (int i = 0; i < dgvIdDetails.RowCount; i++)
+            {
+                dgvIdDetails.SetRowCellValue(i, "flag_select", blVale);                
+            }
         }
 
 

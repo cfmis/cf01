@@ -236,8 +236,9 @@ namespace cf01.CLS
             }
             if (flagDgd == "1")
             {
-                sql_f += $" And ISNULL(C.special_info_style,'0')='1'";
+                sql_f += " And ISNULL(C.special_info_style,'0')='1'";
             }
+            sql_f += " Order by CONVERT(varchar(10),A.update_date,120),A.mo_id,A.goods_id,A.update_date";
             DataTable dt = clsPublicOfPad.ExecuteSqlReturnDataTable(sql_f);
             return dt;
         }
