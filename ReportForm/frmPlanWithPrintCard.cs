@@ -24,7 +24,7 @@ namespace cf01.ReportForm
     {
         private CheckBox CheckBox1 = new CheckBox();
 
-        private DataTable dtMoPlan, dt2;
+        private DataTable dtMoPlan;
         clsCommonUse commUse = new clsCommonUse();
 
         public frmPlanWithPrintCard()
@@ -35,16 +35,21 @@ namespace cf01.ReportForm
 
         private void frmPlan01_Load(object sender, EventArgs e)
         {
-            //綁定表格
-            commUse.BuilDataGridView(dgvDetails, "frmPlanWithPrintCard_grid", DBUtility._language);
+            ////綁定表格
+            //commUse.BuilDataGridView(dgvDetails, "frmPlanWithPrintCard_grid", DBUtility._language);
 
             string strsql;
             strsql = "Select * from v_dict_group where formname=" + "'" + "frmPlan01_rpt_type" + "'" +
                     " AND language_id =" + "'" + DBUtility._language + "'";
             commUse.BindComboBox(cmbReportType, "formname", "show_name", strsql, "v_dict_group");
-            dgvDetails.AutoGenerateColumns = false;
             AddCheckBox();
             InitQueryValue();
+            if (frmMoSchedule.sendDep!="")
+            {
+                txtDep.Text = frmMoSchedule.sendDep;
+                txtChkDate1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
+                txtChkDate2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            }
             txtNextWip.Text = "128";
         }
 
@@ -67,34 +72,10 @@ namespace cf01.ReportForm
 
         private void cmdFind_Click(object sender, EventArgs e)
         {
-            if (clsValidRule.CheckDateIsEmpty(this.mkCmpDat1.Text) == false || clsValidRule.CheckDateIsEmpty(this.mkCmpDat2.Text) == false)
-            {
-                if (clsValidRule.CheckDateFormat(this.mkCmpDat1.Text) == false || clsValidRule.CheckDateFormat(this.mkCmpDat2.Text) == false)
-                {
-                    MessageBox.Show("要求日期不正確!");
-                    this.mkCmpDat1.Focus();
-                    return;
-                }
-            }
-            if (clsValidRule.CheckDateIsEmpty(this.mkPlanDat1.Text) == false || clsValidRule.CheckDateIsEmpty(this.mkPlanDat2.Text) == false)
-            {
-                if (clsValidRule.CheckDateFormat(this.mkPlanDat1.Text) == false || clsValidRule.CheckDateFormat(this.mkPlanDat2.Text) == false)
-                {
-                    MessageBox.Show("計劃單日期不正確!");
-                    this.mkPlanDat1.Focus();
-                    return;
-                }
-            }
-            if (clsValidRule.CheckDateIsEmpty(this.mkChkDat1.Text) == false || clsValidRule.CheckDateIsEmpty(this.mkChkDat2.Text) == false)
-            {
-                //if (clsValidRule.CheckDateTimeFormat(this.mkChkDat1.Text) == false || clsValidRule.CheckDateTimeFormat(this.mkChkDat2.Text) == false)
-                //{
-                //    MessageBox.Show("批準日期不正確!");
-                //    this.mkChkDat1.Focus();
-                //    return;
-                //}
-            }
-            checkBox2.Checked = false;
+            txtMo1.Focus();
+            if (!ValidateDateType())
+                return;
+            chkSelectAll.Checked = false;
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -111,23 +92,34 @@ namespace cf01.ReportForm
 
         private bool ValidateDateType()
         {
-            if (!clsUtility.CheckDate(mkChkDat1.Text.Trim()))
+            if (txtRqDate1.Text.Trim() != "" || txtRqDate2.Text.Trim() != "")
             {
-                mkChkDat1.Focus();
-                mkChkDat1.SelectAll();
-                return false;
+                if (clsValidRule.CheckDateValid(txtRqDate1.Text) == false || clsValidRule.CheckDateValid(txtRqDate2.Text) == false)
+                {
+                    MessageBox.Show("要求日期不正確!");
+                    this.txtRqDate1.Focus();
+                    return false;
+                }
+            }
+            if (txtPlDate1.Text.Trim() != "" || txtPlDate2.Text.Trim() != "")
+            {
+                if (clsValidRule.CheckDateValid(txtPlDate1.Text) == false || clsValidRule.CheckDateValid(txtPlDate2.Text) == false)
+                {
+                    MessageBox.Show("計劃單日期不正確!");
+                    this.txtPlDate1.Focus();
+                    return false;
+                }
+            }
+            if (txtChkDate1.Text.Trim() != "" || txtChkDate2.Text.Trim() != "")
+            {
+                if (clsValidRule.CheckDateValid(txtChkDate1.Text) == false || clsValidRule.CheckDateValid(txtChkDate2.Text) == false)
+                {
+                    MessageBox.Show("批準日期不正確!");
+                    this.txtChkDate1.Focus();
+                    return false;
+                }
             }
             return true;
-        }
-
-        private void mkPlanDat1_Leave(object sender, EventArgs e)
-        {
-            mkPlanDat2.Text = mkPlanDat1.Text;
-        }
-
-        private void mkChkDat1_Leave(object sender, EventArgs e)
-        {
-
         }
 
         private void txtPrd_item1_TextChanged(object sender, EventArgs e)
@@ -142,33 +134,14 @@ namespace cf01.ReportForm
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (dgvDetails.RowCount > 0)
-            {
-                //**********************
-                DvExportExcel_1(); //数据处理
-                //**********************
-            }
+            txtMo1.Focus();
+            DvExportExcel(3); //匯出数据处理
         }
 
         private void tsBtnExportToExce_Click(object sender, EventArgs e)
         {
-            if (dgvDetails.RowCount > 0)
-            {
-                //**********************
-                DvExportExcel("ALL"); //数据处理
-                //**********************
-            }
-        }
-
-        private void chkSimplePlan_Click(object sender, EventArgs e)
-        {
-            if (dgvDetails.RowCount > 0)
-            {
-                if (chkSimplePlan.Checked == true)
-                    this.showSimplePlan();
-                else
-                    dgvDetails.DataSource = dtMoPlan;
-            }
+            txtMo1.Focus();
+            DvExportExcel(1); //匯出数据处理
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -178,28 +151,25 @@ namespace cf01.ReportForm
 
         private void tsbtnPrintCrads_Click(object sender, EventArgs e)
         {
-            if (dgvDetails.RowCount > 0)
+            txtMo1.Focus();
+            bool flagSelect = false;
+            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
-                txtDep.Focus();
-                bool flagSelect = false;
-                for (int j = 0; j < dgvDetails.RowCount; j++)
+                if ((bool)dtMoPlan.Rows[i]["select_flag"])
                 {
-                    if ((bool)dgvDetails.Rows[j].Cells["CheckBox"].EditedFormattedValue)
-                    {
-                        flagSelect = true;
-                        break;
-                    }
+                    flagSelect = true;
+                    break;
                 }
-                if (!flagSelect)
-                {
-                    MessageBox.Show("請首先選中需要列印的數據!","提示信息");
-                    return;
-                }
-                //**********************
-                show_workcard(1); //数据处理
-                //**********************
-
             }
+            if (!flagSelect)
+            {
+                MessageBox.Show("請首先選中需要列印的數據!", "提示信息");
+                return;
+            }
+            //**********************
+            show_workcard(1); //数据处理
+                              //**********************
+
         }
 
         private void btnSaveQuery_Click(object sender, EventArgs e)
@@ -228,18 +198,12 @@ namespace cf01.ReportForm
             int show_ver = 0;
             int zero_qty = 0;
             int isprint = 0;
-            if (clsValidRule.CheckDateIsEmpty(this.mkCmpDat1.Text) == false)
-                cmpDat1 = mkCmpDat1.Text;
-            if (clsValidRule.CheckDateIsEmpty(this.mkCmpDat2.Text) == false)
-                cmpDat2 = mkCmpDat2.Text;
-            if (clsValidRule.CheckDateIsEmpty(this.mkChkDat1.Text) == false)
-                chkDat1 = mkChkDat1.Text;
-            if (clsValidRule.CheckDateIsEmpty(this.mkChkDat2.Text) == false)
-                chkDat2 = mkChkDat2.Text;
-            if (clsValidRule.CheckDateIsEmpty(this.mkPlanDat1.Text) == false)
-                planDat1 = mkCmpDat1.Text;
-            if (clsValidRule.CheckDateIsEmpty(this.mkPlanDat2.Text) == false)
-                planDat2 = mkCmpDat2.Text;
+            cmpDat1 = txtRqDate1.Text;
+            cmpDat2 = txtRqDate2.Text;
+            chkDat1 = txtChkDate1.Text;
+            chkDat2 = txtChkDate2.Text;
+            planDat1 = txtRqDate1.Text;
+            planDat2 = txtRqDate2.Text;
             if (rdbNoPrint.Checked == true)//不包含已列印的記錄
                 isprint = 0;
             if (rdbIsPrint.Checked == true)//只包含已列印的記錄
@@ -260,25 +224,42 @@ namespace cf01.ReportForm
             if (chkReqPrdQty.Checked == true)//若包含生產數為零的記錄
                 zero_qty = 1;
             //z_plan01//usp_LoadDepPlan   @old_arrange_date
-            dtMoPlan = commUse.getDataProcedure("usp_LoadPlanNew",
+            DataTable dt = commUse.getDataProcedure("usp_LoadPlanNew",
                 new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
                     ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0});
             //dtMoPlan = commUse.getDataProcedure("usp_LoadPlan",
             //    new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
             //        ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0,""});
-            dgvDetails.DataSource = dtMoPlan;
-
-            if (chkSimplePlan.Checked == true)
+            
+            if (chkSimplePlan.Checked == false)
             {
-                this.showSimplePlan();
+                dtMoPlan = dt;
+            }else
+            {
+                foreach (DataRow MyDataRow in dt.Select("order_qty > c_qty_ok AND pre_dep_deliver_flag <> '上部門欠件' AND wp_id <> next_wp_id AND next_wp_id<>'702' AND substring(mo_id,1,1)<>'Y' "))//
+                {
+                    dtMoPlan.ImportRow(MyDataRow);
+                }
             }
+            // 添加布尔型字段并设置默认值
+            DataColumn boolColumn = new DataColumn("select_flag", typeof(bool))
+            {
+                DefaultValue = false // 设置默认值为 true
+            };
+            dtMoPlan.Columns.Add(boolColumn);
+            gcPlanDetails.DataSource = dtMoPlan;
         }
 
         /// <summary>
         /// 匯出Excel
         /// </summary>
-        private void DvExportExcel(string expType)
+        private void DvExportExcel(int rpt_type)
         {
+            if (dtMoPlan.Rows.Count == 0)
+            {
+                MessageBox.Show("沒有待匯出的記錄!");
+                return;
+            }
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "Excel files(*.xls)|*.xls";
             saveFile.FilterIndex = 0;
@@ -287,294 +268,9 @@ namespace cf01.ReportForm
             saveFile.Title = "导出Excel文件到";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-
-
-                //frmProgress wForm = new frmProgress();
-                //new Thread((ThreadStart)delegate
-                //{
-                //    wForm.TopMost = true;
-                //    wForm.ShowDialog();
-                //}).Start();
-
-                Stream myStream;
-                myStream = saveFile.OpenFile();
-
-                //如果匯出到Excel中文變亂碼，可以嘗試改一下這個編碼方式
-                StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));//utf-8
-
-                //Response.Charset = "utf-8";
-                //Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312"); 
-                string str = " ";
-                if (expType == "ALL")
-                {
-                    str += "負責部門";
-                    str += "\t" + "制單編號";
-                    str += "\t" + "序號";
-                    str += "\t" + "物料編號";
-                    str += "\t" + "物料描述";
-                    str += "\t" + "移交部門";
-                    str += "\t" + "生產數量(PCS)";
-                    str += "\t" + "每張生產數量";
-                    str += "\t" + "訂單數量";
-                    str += "\t" + "完成數量(PCS）";
-                    str += "\t" + "要求日期";
-                    str += "\t" + "完成日期";
-                    str += "\t" + "過期天數";
-                    str += "\t" + "前部門交貨標識";
-                    str += "\t" + "上部門最大交貨期";
-                    str += "\t" + "過期天數";
-                    str += "\t" + "版本號";
-                    str += "\t" + "建立日期";
-                    str += "\t" + "審批日期";
-                    str += "\t" + "營業員";
-                    str += "\t" + "圖樣代號";
-                    str += "\t" + "圖樣路徑";
-                    str += "\t" + "數量單位";
-                    str += "\t" + "要求數量(PCS)";
-                    str += "\t" + "預留數量(PCS)";
-                    str += "\t" + "上部門記錄序號";
-                    str += "\t" + "上部門";
-                    str += "\t" + "上部門物料編號";
-                    str += "\t" + "上部門物料描述";
-                    str += "\t" + "上部門生產數量";
-                    str += "\t" + "上部門完成數量";
-                    str += "\t" + "上部門預計交貨期";
-                    str += "\t" + "上部門實際交貨期";
-                    str += "\t" + "本部門逗留天數";
-                    str += "\t" + "供應商";
-                    str += "\t" + "供應商描述";
-                    str += "\t" + "制單生產狀態";
-                    str += "\t" + "計劃回港日期";
-                    str += "\t" + "制單要求狀態";
-                    str += "\t" + "批色";
-                    str += "\t" + "記錄標識";
-                    str += "\t" + "顏色做法";
-                    str += "\t" + "收貨部門描述";
-                    str += "\t" + "下部門供應商";
-                    str += "\t" + "下部門物料編號";
-                    str += "\t" + "下部門物料描述";
-                    str += "\t" + "下部門顏色做法";
-                    str += "\t" + "下部門顏色描述";
-                    sw.WriteLine(str);
-
-                    //写内容
-                    string col_value;
-                    bool IsWrite = false;  //是否寫入
-
-                    for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
-                    {
-                        string tempstr = " ";
-                        for (int columnNo = 0; columnNo < dgvDetails.ColumnCount; columnNo++)
-                        {
-                            if (columnNo > 0)
-                            {
-                                if (dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim() != null)
-                                    col_value = dgvDetails.Rows[rowNo].Cells[columnNo].Value.ToString().Trim();
-                                else
-                                    col_value = "";
-                                tempstr += col_value;
-                                tempstr += "\t";
-                            }
-                        }
-                        sw.WriteLine(tempstr);
-                    }
-                }
-                else
-                {
-                    str += "負責部門";
-                    str += "\t" + "制單編號";
-                    str += "\t" + "制單日期";
-                    str += "\t" + "物料編號";
-                    str += "\t" + "物料描述";
-                    str += "\t" + "生產數量(PCS)";
-                    str += "\t" + "備註";
-                    str += "\t" + "列印份數";
-                    str += "\t" + "每張生產數量";
-                    str += "\t" + "要求日期";
-                    str += "\t" + "訂單數量";
-                    str += "\t" + "移交部門";
-                    str += "\t" + "部門描述";
-                    str += "\t" + "顏色做法";
-                    str += "\t" + "建檔人";
-                    str += "\t" + "審批日期";
-                    str += "\t" + "圖片位置";
-                    str += "\t" + "建檔日期";
-                    str += "\t" + "顏色描述";
-                    str += "\t" + "版本號";
-                    str += "\t" + "供應商編號";
-                    str += "\t" + "完成數量";
-                    
-                    sw.WriteLine(str);
-
-                    //写内容
-                    string col_value;
-                    bool IsWrite = false;  //是否寫入
-
-                    for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
-                    {
-                        string tempstr = "";
-                        DataGridViewRow dgr = dgvDetails.Rows[rowNo];
-                        tempstr +=dgr.Cells[1].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[2].Value.ToString();
-                        tempstr += "\t" + "=\"" + dgr.Cells[18].Value.ToString() + "\"";
-                        tempstr += "\t" + dgr.Cells[4].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[5].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[7].Value.ToString();
-                        tempstr += "\t" + "";
-                        tempstr += "\t" + "1";
-                        tempstr += "\t" + dgr.Cells[8].Value.ToString();
-                        tempstr += "\t" + "=\"" + dgr.Cells[11].Value.ToString() + "\"";
-                        tempstr += "\t" + "=\"" + dgr.Cells[9].Value.ToString() + "\"";
-                        tempstr += "\t" + dgr.Cells[6].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[43].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[47].Value.ToString();
-                        tempstr += "\t" + "";
-                        tempstr += "\t" + "=\"" + dgr.Cells[19].Value.ToString() + "\"";
-                        tempstr += "\t" + dgr.Cells[22].Value.ToString();
-                        tempstr += "\t" + "=\"" + dgr.Cells[18].Value.ToString() + "\"";
-                        tempstr += "\t" + dgr.Cells[48].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[17].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[44].Value.ToString();
-                        tempstr += "\t" + dgr.Cells[10].Value.ToString();
-                        sw.WriteLine(tempstr);
-                    }
-                }
-                sw.Close();
-                myStream.Close();
-                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-                MessageBox.Show("已匯出記錄！");
+                string file_name = saveFile.FileName;
+                clsMoScheduleUse.ExpToExcelPlan(file_name, dtMoPlan, rpt_type);
             }
-        }
-
-        /// <summary>
-        /// 簡易匯出Excel
-        /// </summary>
-        private void DvExportExcel_1()
-        {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "Excel files(*.xls)|*.xls";
-            saveFile.FilterIndex = 0;
-            saveFile.RestoreDirectory = true;
-            saveFile.CreatePrompt = true;
-            saveFile.Title = "导出Excel文件到";
-            //DateTime now = DateTime.Now;
-            //saveFile.FileName = now.ToShortDateString();
-            if (saveFile.ShowDialog() == DialogResult.OK)
-            {
-                Stream myStream;
-                myStream = saveFile.OpenFile();
-
-                //frmProgress wForm = new frmProgress();
-                //new Thread((ThreadStart)delegate
-                //{
-                //    wForm.TopMost = true;
-                //    wForm.ShowDialog();
-                //}).Start();
-
-                StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));
-
-
-
-                string str = " ";
-                //写标题
-                str += "序號";
-                str += "\t" + "收貨部門";
-                str += "\t" + "狀態";
-                str += "\t" + "制單編號";
-                str += "\t" + "產品編號";
-                str += "\t" + "產品描述";
-                str += "\t" + "應生產數量";
-                str += "\t" + "上部門來貨數量";
-                str += "\t" + "已完成數量";
-                str += "\t" + "上部門來貨期";
-                str += "\t" + "回覆";
-                str += "\t" + "備註";
-                str += "\t" + "計劃回港日期";
-                str += "\t" + "批色";
-                sw.WriteLine(str);
-                //写内容
-                string col_value;
-                bool IsWrite = false;  // is Write in ?
-
-                int excelNo = 1;
-                for (int rowNo = 0; rowNo < dgvDetails.RowCount; rowNo++)
-                {
-                    ////過濾重複的記錄
-                    //if (rowNo >= 1)
-                    //{
-                    //    if (dgvDetails.Rows[rowNo].Cells[2].Value.ToString() == dgvDetails.Rows[rowNo - 1].Cells[2].Value.ToString())        //判斷制單編號是否相同
-                    //    {
-                    //        if (dgvDetails.Rows[rowNo].Cells[28].Value.ToString() == dgvDetails.Rows[rowNo - 1].Cells[28].Value.ToString())  //判斷相同制單編號單據，上部門物料編號是否相同
-                    //        {
-                    //            IsWrite = false;
-                    //        }
-                    //        else
-                    //        {
-                    //            IsWrite = true;
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        IsWrite = true;
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    IsWrite = true;
-                    //}
-
-                    //if (IsWrite)
-                    //{
-                        string tempstr = " ";
-                        tempstr += excelNo.ToString();//序號
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[6].Value.ToString().Trim();//收貨部門
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[39].Value.ToString().Trim();//狀態
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[2].Value.ToString().Trim();//制單編號
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[4].Value.ToString().Trim();//商品編號
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[5].Value.ToString().Trim();//商品描述
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[7].Value.ToString().Trim();//應生產數量
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[31].Value.ToString().Trim();//上部門來貨數量
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[10].Value.ToString().Trim();//已完成數量
-                        col_value = dgvDetails.Rows[rowNo].Cells[15].Value.ToString().Trim();//上部門來貨期
-                        if (col_value != "")
-                            col_value = col_value.Substring(5, 5);
-                        else
-                            col_value = "";
-                        tempstr += "\t" + col_value;//上部門來貨期
-                        tempstr += "\t" + " ";//回覆
-                        tempstr += "\t" + " ";//備註
-                        col_value = dgvDetails.Rows[rowNo].Cells[38].Value.ToString().Trim();//計劃回港日期
-                        if (col_value != "")
-                            col_value = col_value.Substring(5, 5);
-                        else
-                            col_value = "";
-                        tempstr += "\t" + col_value;//計劃回港日期
-                        tempstr += "\t" + dgvDetails.Rows[rowNo].Cells[39].Value.ToString().Trim();//批色
-                        sw.WriteLine(tempstr);
-
-                        excelNo++;
-                    //}
-                }
-
-                sw.Close();
-                myStream.Close();
-                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-                MessageBox.Show("已匯出記錄！");
-            }
-        }
-
-        /// <summary>
-        /// 只顯示簡易計劃
-        /// </summary>
-        private void showSimplePlan()
-        {
-            dt2 = dtMoPlan.Clone();
-            foreach (DataRow MyDataRow in dtMoPlan.Select("order_qty > c_qty_ok AND pre_dep_deliver_flag <> '上部門欠件' AND wp_id <> next_wp_id AND next_wp_id<>'702' AND substring(mo_id,1,1)<>'Y' "))//
-            {
-                dt2.ImportRow(MyDataRow);
-            }
-
-            dgvDetails.DataSource = dt2;
         }
 
         /// <summary>
@@ -703,39 +399,38 @@ namespace cf01.ReportForm
             DataTable dtNextNextItem = new DataTable();
             DataTable dtCurrentWipItem = new DataTable();
             DataTable dtNextItem = new DataTable();
-            DataGridViewRow dgr = new DataGridViewRow();
             string do_color_next_dep = "";
             string next_dep_id = "";
-            for (int j = 0; j < dgvDetails.RowCount; j++)
+            for (int j = 0; j < dtMoPlan.Rows.Count; j++)
             {
-                if ((bool)dgvDetails.Rows[j].Cells["CheckBox"].EditedFormattedValue)
+                DataRow dgr = dtMoPlan.Rows[j];
+                if ((bool)dgr["select_flag"])
                 {
                     //DataGridViewRow dgr = dgvDetails.Rows[j];
-                    dgr = dgvDetails.Rows[j];
                     Remark = "";
-                    mo = dgr.Cells["mo_id"].Value.ToString().Trim();
+                    mo = dgr["mo_id"].ToString().Trim();
                     if (rpt_type == 1)//列印當前部門的工序卡
                     {
-                        dep = dgr.Cells["wp_id"].Value.ToString().Trim();
-                        item = dgr.Cells["goods_id"].Value.ToString().Trim();
+                        dep = dgr["wp_id"].ToString().Trim();
+                        item = dgr["goods_id"].ToString().Trim();
                         //當前貨品的下部門的貨品、顏色做法
-                        next_goods_id = dgr.Cells["next_goods_id"].Value.ToString().Trim(); //2023/03/02
-                        do_color_next_dep = dgr.Cells["next_do_color"].Value.ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
-                        next_dep_id = dgr.Cells["next_wp_id"].Value.ToString().Trim();
+                        next_goods_id = dgr["next_goods_id"].ToString().Trim(); //2023/03/02
+                        do_color_next_dep = dgr["next_do_color"].ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
+                        next_dep_id = dgr["next_wp_id"].ToString().Trim();
                     }
                     else//列印下部門的工序卡
                     {
                         dep = txtNextWip.Text.Trim();
-                        if (dgr.Cells["next_wp_id"].Value.ToString().Trim() != dep)
+                        if (dgr["next_wp_id"].ToString().Trim() != dep)
                             continue;
-                        item = dgr.Cells["next_goods_id"].Value.ToString().Trim();
+                        item = dgr["next_goods_id"].ToString().Trim();
 
                         //獲取當前貨品的下部門的貨品、顏色做法
                         //這裡是將當前貨品作為下部門的原料來查找，所以找出來的已是下部門的資料
                         dtNextItem = clsMo_for_jx.GetNextItem(mo, item);
                         if (dtNextItem.Rows.Count > 0)
                         {
-                            next_goods_id = dtNextItem.Rows[0]["goods_id"].ToString();// dgr.Cells["next_next_goods_id"].Value.ToString().Trim(); //2023/03/02
+                            next_goods_id = dtNextItem.Rows[0]["goods_id"].ToString();// dgr["next_next_goods_id"].Value.ToString().Trim(); //2023/03/02
                             do_color_next_dep = dtNextItem.Rows[0]["do_color"].ToString();
                             //next_dep_id = dtNextItem.Rows[0]["wp_id"].ToString();
                         }
@@ -775,8 +470,8 @@ namespace cf01.ReportForm
                             DataRow drDtWk = dt_wk.Rows[0];
                             string strBarCode = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
 
-                            int Per_qty = Convert.ToInt32(dgr.Cells["per_prod_qty"].Value);  //每次生產數量
-                            int Total_qty = Convert.ToInt32(dgr.Cells["prod_qty"].Value);    //生產總量
+                            int Per_qty = Convert.ToInt32(dgr["per_prod_qty"]);  //每次生產數量
+                            int Total_qty = Convert.ToInt32(dgr["prod_qty"]);    //生產總量
                             int qty_remaining = 0; //2024/01/31 ADD ALLEN
                             int NumPage = 0;     //報表頁數                            
                             if (Total_qty > 0 && Per_qty > 0)
@@ -856,7 +551,7 @@ namespace cf01.ReportForm
                                 //{
                                 dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
                                 if (rpt_type == 1)//如果是列印當前部門的
-                                    dr["picture_name"] = dgr.Cells["picture_name"].Value.ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
+                                    dr["picture_name"] = dgr["picture_name"].ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
                                 else//如果是列印當前部門的下部門的
                                     dr["picture_name"] = dtCurrentWipItem.Rows[0]["picture_name"];
                                 //}
@@ -920,12 +615,12 @@ namespace cf01.ReportForm
                                 dr["do_color_next_dep"] = do_color_next_dep;
                                 if (rpt_type == 1)//如果是列印當前部門的
                                 {
-                                    dr["next_goods_id"] = dgr.Cells["next_goods_id"].Value.ToString();
-                                    dr["next_do_color"] = dgr.Cells["next_do_color"].Value.ToString();
-                                    dr["next_vendor_id"] = dgr.Cells["next_vendor_id"].Value.ToString();
-                                    dr["next_goods_name"] = dgr.Cells["next_goods_name"].Value.ToString();
-                                    dr["next_next_wp_id"] = dgr.Cells["next_next_wp_id"].Value.ToString();
-                                    dr["next_next_dep_name"] = dgr.Cells["next_next_dep_name"].Value.ToString();
+                                    dr["next_goods_id"] = dgr["next_goods_id"].ToString().Trim();
+                                    dr["next_do_color"] = dgr["next_do_color"].ToString().Trim();
+                                    dr["next_vendor_id"] = dgr["next_vendor_id"].ToString().Trim();
+                                    dr["next_goods_name"] = dgr["next_goods_name"].ToString().Trim();
+                                    dr["next_next_wp_id"] = dgr["next_next_wp_id"].ToString().Trim();
+                                    dr["next_next_dep_name"] = dgr["next_next_dep_name"].ToString().Trim();
                                 }
                                 else//如果是列印當前部門的下部門的
                                 {
@@ -1081,22 +776,22 @@ namespace cf01.ReportForm
                         txtDep.Text = strOjb_Value;
                     }
 
-                    if (mkChkDat2.Name == strObj_id)
+                    if (txtChkDate2.Name == strObj_id)
                     {
-                        mkChkDat1.Text = strOjb_Value;
-                        mkChkDat2.Text = DateTime.Now.AddSeconds(-300).ToString("yyyy/MM/dd HH:mm:ss");
+                        txtChkDate1.Text = strOjb_Value;
+                        txtChkDate2.Text = DateTime.Now.AddSeconds(-300).ToString("yyyy/MM/dd HH:mm:ss");
                     }
 
-                    if (mkCmpDat2.Name == strObj_id)
+                    if (txtRqDate2.Name == strObj_id)
                     {
-                        mkCmpDat1.Text = strOjb_Value;
-                        //mkCmpDat2.Text = DateTime.Now.ToString("yyyy/MM/dd");
+                        txtRqDate1.Text = strOjb_Value;
+                        //txtRqDate2.Text = DateTime.Now.ToString("yyyy/MM/dd");
                     }
 
-                    if (mkPlanDat2.Name == strObj_id)
+                    if (txtPlDate2.Name == strObj_id)
                     {
-                        mkPlanDat1.Text = strOjb_Value;
-                        //mkPlanDat2.Text = DateTime.Now.ToString("yyyy/MM/dd");
+                        txtPlDate1.Text = strOjb_Value;
+                        //txtPlDate2.Text = DateTime.Now.ToString("yyyy/MM/dd");
                     }
 
                     if (txtMo1.Name == strObj_id)
@@ -1148,37 +843,24 @@ namespace cf01.ReportForm
             }
         }
 
-        private void dgvDetails_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(e.RowBounds.Location.X,
-              e.RowBounds.Location.Y,
-              dgvDetails.RowHeadersWidth - 4,
-              e.RowBounds.Height);
-
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
-                dgvDetails.RowHeadersDefaultCellStyle.Font,
-                rectangle,
-                dgvDetails.RowHeadersDefaultCellStyle.ForeColor,
-                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
-        }
-
         private void dgvDetails_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex == -1 & e.ColumnIndex == 0)
-            {
-                Point p = dgvDetails.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
-                //p.Offset(dgvDetails.Left, dgvDetails.Top);
-                p.Offset(120, 130);
-                CheckBox1.Location = p;
-                CheckBox1.Size = dgvDetails.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Size;
-                CheckBox1.Visible = true;
-                CheckBox1.BringToFront();
-            }
+            //if (e.RowIndex == -1 & e.ColumnIndex == 0)
+            //{
+            //    Point p = dgvDetails.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+            //    //p.Offset(dgvDetails.Left, dgvDetails.Top);
+            //    p.Offset(120, 130);
+            //    CheckBox1.Location = p;
+            //    CheckBox1.Size = dgvDetails.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Size;
+            //    CheckBox1.Visible = true;
+            //    CheckBox1.BringToFront();
+            //}
         }
 
         private void btnExpToExcelJx_Click(object sender, EventArgs e)
         {
-            DvExportExcel("JX");
+            txtMo1.Focus();
+            DvExportExcel(2);//匯出數據處理
         }
 
         private void btnPrintNextWp_Click(object sender, EventArgs e)
@@ -1188,10 +870,11 @@ namespace cf01.ReportForm
 
         private void btnMoSchedule_Click(object sender, EventArgs e)
         {
+            txtMo1.Focus();
             bool selectFlag = false;
-            for (int i = 0; i < dgvDetails.RowCount; i++)
+            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
-                if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
+                if ((bool)dtMoPlan.Rows[i]["select_flag"])
                 {
                     selectFlag = true;
                     break;
@@ -1221,9 +904,9 @@ namespace cf01.ReportForm
             
             List<mdlMoSchedule> lsModel = new List<mdlMoSchedule>();
             int seq_step = clsMoSchedule.GetScheduleSeq(dtMoPlan.Rows[0]["wp_id"].ToString().Trim());
-            for (int i = 0; i < dgvDetails.RowCount; i++)
+            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
-                if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
+                if ((bool)dtMoPlan.Rows[i]["select_flag"])
                 {
                     DataRow drMo = dtMoPlan.Rows[i];
                     mdlMoSchedule objModel = new mdlMoSchedule();
@@ -1303,77 +986,54 @@ namespace cf01.ReportForm
                 }
             }
         }
-        private void checkBox2_Click(object sender, EventArgs e)
+
+        private void txtPlDate1_Leave(object sender, EventArgs e)
+        {
+            txtPlDate2.Text = txtPlDate1.Text;
+        }
+
+        private void txtRqDate1_Leave(object sender, EventArgs e)
+        {
+            txtRqDate2.Text = txtRqDate1.Text;
+        }
+
+        private void txtPrd_item1_Leave(object sender, EventArgs e)
+        {
+            txtPrd_item2.Text = txtPrd_item1.Text;
+        }
+
+        private void txtMo1_Leave(object sender, EventArgs e)
+        {
+            txtMo2.Text = txtMo1.Text;
+        }
+
+        private void chkSelectAll_Click(object sender, EventArgs e)
         {
             bool selectFlag = false;
-            if (checkBox2.Checked == true)
+            if (chkSelectAll.Checked == true)
                 selectFlag = true;
-            for (int i = 0; i <= this.dgvDetails.RowCount - 1; i++)
+            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
-                this.dgvDetails.Rows[i].Cells["CheckBox"].Value = selectFlag;
-                //    if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
-                //    {
-                //        this.dgvDetails.Rows[i].Cells["CheckBox"].Value = false;
-                //    }
-                //    else
-                //    {
-                //        this.dgvDetails.Rows[i].Cells["CheckBox"].Value = true;
-                //    }
+                dtMoPlan.Rows[i]["select_flag"] = selectFlag;
+               
             }
         }
 
-
-        private void btnArrangeMo_Click(object sender, EventArgs e)
+        private void gvPlanDetails_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
-            bool selectFlag = false;
-            for (int i = 0; i < dgvDetails.RowCount; i++)
+            e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            if (e.Info.IsRowIndicator)
             {
-                if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
+                if (e.RowHandle >= 0)
                 {
-                    selectFlag = true;
-                    break;
+                    e.Info.DisplayText = (e.RowHandle + 1).ToString();
                 }
-            }
-            if (selectFlag == false)
-            {
-                MessageBox.Show("沒有儲存的記錄!");
-                return;
-            }
-            List<mdlProductArrange> lsModel = new List<mdlProductArrange>();
-            for (int i = 0; i < dgvDetails.RowCount; i++)
-            {
-                if ((bool)dgvDetails.Rows[i].Cells["CheckBox"].EditedFormattedValue)
+                else if (e.RowHandle < 0 && e.RowHandle > -1000)
                 {
-                    DataGridViewRow dgr = dgvDetails.Rows[i];
-                    mdlProductArrange objModel = new mdlProductArrange();
-                    objModel.nowDate = System.DateTime.Now.ToString("yyyy/MM/dd");
-                    objModel.prdDep = dgr.Cells["wp_id"].Value.ToString();
-                    objModel.prdMo = dgr.Cells["mo_id"].Value.ToString();
-                    objModel.prdVer = clsUtility.FormatNullableInt32(dgr.Cells["ver"].Value);
-                    objModel.prdItem = dgr.Cells["goods_id"].Value.ToString();
-                    objModel.toDep = dgr.Cells["next_wp_id"].Value.ToString();
-                    objModel.arrangeSeq = "";
-                    objModel.arrangeQty = Convert.ToSingle(dgr.Cells["prod_qty"].Value);
-                    objModel.prdSeq = "";
-                    objModel.crTim = DateTime.Now;
-                    objModel.crUsr = DBUtility._user_id;
-                    lsModel.Add(objModel);
-                }
-            }
-
-            if (lsModel.Count > 0)
-            {
-                int result = clsMoStatePrint.arrangeProductMo(lsModel);
-                if (result > 0)
-                {
-                    MessageBox.Show("生成排期表成功!");
-                }
-                else
-                {
-                    MessageBox.Show("生成排期表失敗!");
+                    e.Info.Appearance.BackColor = System.Drawing.Color.AntiqueWhite;
+                    e.Info.DisplayText = (e.RowHandle + 1).ToString();// "G" + 
                 }
             }
         }
-
     }
 }

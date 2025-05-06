@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode7 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode8 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode9 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode5 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode6 = new DevExpress.XtraGrid.GridLevelNode();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -67,12 +67,14 @@
             this.gclSeq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclScheduleSeq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclScheduleDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gclPrdMo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPrdGroup = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.luePrdGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gclUrgentFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lueGvUrgentFlag = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gclStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lueGvStatus = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gclPrdItem = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnPrdItemFind = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gclArtWork = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.gclPrdIitemCdesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -113,12 +115,12 @@
             this.gclScheduleID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclModuleType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lueModuleType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gclPrdGroup = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.luePrdGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gclNextDoColor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclNextVendId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclMoRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclDepRemark = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclStatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lueGvStatus = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.grcPrdItemGroup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -128,6 +130,7 @@
             this.imgArtWork = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.prgStatus = new System.Windows.Forms.ProgressBar();
             this.btnAddToMachine = new DevExpress.XtraEditors.SimpleButton();
             this.lblNeedPrdDays = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -145,10 +148,10 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPictureEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
@@ -169,6 +172,8 @@
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -188,12 +193,12 @@
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit10 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -215,13 +220,17 @@
             this.lblDepMachine = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSetStatus = new System.Windows.Forms.Label();
+            this.txtPrdMachine = new DevExpress.XtraEditors.TextEdit();
+            this.cmbCpStatus = new System.Windows.Forms.ComboBox();
+            this.lblPrdMachine = new System.Windows.Forms.Label();
+            this.lblCpStatus = new System.Windows.Forms.Label();
             this.cmbMoStatus = new System.Windows.Forms.ComboBox();
             this.lblMoStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnShowMore = new DevExpress.XtraEditors.SimpleButton();
-            this.txtPrdMachine = new DevExpress.XtraEditors.TextEdit();
-            this.cmbDepGroup = new System.Windows.Forms.ComboBox();
-            this.lblPrdMachine = new System.Windows.Forms.Label();
+            this.lueDepGroup = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtOver3Days = new DevExpress.XtraEditors.TextEdit();
+            this.chkOver3Days = new DevExpress.XtraEditors.CheckEdit();
             this.lblDepGroup = new System.Windows.Forms.Label();
             this.lblPrd_dept = new System.Windows.Forms.Label();
             this.cmbFindDep = new System.Windows.Forms.ComboBox();
@@ -258,8 +267,7 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
-            this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPassDays = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -267,8 +275,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcSchedule)).BeginInit();
             this.contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGvUrgentFlag)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueGvStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrdItemFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
@@ -276,7 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueModuleType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueGvStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
@@ -293,8 +303,8 @@
             this.palShowNotMachine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcWaitSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWaitSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
@@ -302,7 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit8)).BeginInit();
@@ -314,8 +324,11 @@
             this.palShowMore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueSetUrgentMo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrdMachine.Properties)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrdMachine.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueDepGroup.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -344,7 +357,7 @@
             this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1147, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1210, 38);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -508,10 +521,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 145);
+            this.tabControl1.Location = new System.Drawing.Point(0, 166);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1147, 489);
+            this.tabControl1.Size = new System.Drawing.Size(1210, 468);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -521,7 +534,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1139, 463);
+            this.tabPage1.Size = new System.Drawing.Size(1202, 442);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -533,20 +546,20 @@
             this.palShowHasSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.palShowHasSchedule.Location = new System.Drawing.Point(3, 3);
             this.palShowHasSchedule.Name = "palShowHasSchedule";
-            this.palShowHasSchedule.Size = new System.Drawing.Size(1133, 176);
+            this.palShowHasSchedule.Size = new System.Drawing.Size(1196, 155);
             this.palShowHasSchedule.TabIndex = 40;
             // 
             // gcSchedule
             // 
             this.gcSchedule.ContextMenuStrip = this.contextMenu;
             this.gcSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
-            gridLevelNode3.RelationName = "Level3";
+            gridLevelNode7.RelationName = "Level1";
+            gridLevelNode8.RelationName = "Level2";
+            gridLevelNode9.RelationName = "Level3";
             this.gcSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2,
-            gridLevelNode3});
+            gridLevelNode7,
+            gridLevelNode8,
+            gridLevelNode9});
             this.gcSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcSchedule.MainView = this.gvSchedule;
             this.gcSchedule.Name = "gcSchedule";
@@ -567,8 +580,10 @@
             this.repositoryItemTextEdit4,
             this.repositoryItemTextEdit5,
             this.lueModuleType,
-            this.luePrdGroup});
-            this.gcSchedule.Size = new System.Drawing.Size(1133, 124);
+            this.luePrdGroup,
+            this.repositoryItemTextEdit11,
+            this.btnPrdItemFind});
+            this.gcSchedule.Size = new System.Drawing.Size(1196, 120);
             this.gcSchedule.TabIndex = 37;
             this.gcSchedule.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSchedule});
@@ -603,8 +618,9 @@
             this.gclScheduleSeq,
             this.gclScheduleDate,
             this.gclPrdMo,
+            this.gclPassDays,
+            this.gclPrdGroup,
             this.gclUrgentFlag,
-            this.gclStatus,
             this.gclPrdItem,
             this.gclArtWork,
             this.gclPrdIitemCdesc,
@@ -639,27 +655,31 @@
             this.gclArtWorkFile,
             this.gclScheduleID,
             this.gclModuleType,
-            this.gclPrdGroup,
             this.gclNextDoColor,
             this.gclNextVendId,
             this.gclMoRemark,
             this.gclDepRemark,
+            this.gclStatus,
             this.grcPrdItemGroup});
             this.gvSchedule.FooterPanelHeight = 30;
             this.gvSchedule.GridControl = this.gcSchedule;
-            this.gvSchedule.IndicatorWidth = 30;
+            this.gvSchedule.IndicatorWidth = 40;
             this.gvSchedule.Name = "gvSchedule";
+            this.gvSchedule.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
+            this.gvSchedule.OptionsCustomization.AllowSort = false;
             this.gvSchedule.OptionsFilter.DefaultFilterEditorView = DevExpress.XtraEditors.FilterEditorViewMode.Text;
             this.gvSchedule.OptionsSelection.MultiSelect = true;
             this.gvSchedule.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
             this.gvSchedule.OptionsView.ColumnAutoWidth = false;
             this.gvSchedule.OptionsView.ShowFooter = true;
             this.gvSchedule.OptionsView.ShowGroupPanel = false;
-            this.gvSchedule.RowHeight = 40;
+            this.gvSchedule.RowHeight = 35;
             this.gvSchedule.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvSchedule_CustomDrawRowIndicator);
             this.gvSchedule.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvSchedule_SelectionChanged);
             this.gvSchedule.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvSchedule_CellValueChanged);
             this.gvSchedule.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvSchedule_CustomColumnDisplayText);
+            this.gvSchedule.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvSchedule_MouseDown);
+            this.gvSchedule.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gvSchedule_MouseUp);
             // 
             // gclSeq
             // 
@@ -672,11 +692,10 @@
             // 
             this.gclScheduleSeq.AppearanceHeader.Options.UseTextOptions = true;
             this.gclScheduleSeq.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gclScheduleSeq.Caption = "排單次序";
+            this.gclScheduleSeq.Caption = "排序";
             this.gclScheduleSeq.FieldName = "schedule_seq";
             this.gclScheduleSeq.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gclScheduleSeq.Name = "gclScheduleSeq";
-            this.gclScheduleSeq.OptionsColumn.ReadOnly = true;
             this.gclScheduleSeq.Visible = true;
             this.gclScheduleSeq.VisibleIndex = 0;
             this.gclScheduleSeq.Width = 41;
@@ -684,13 +703,20 @@
             // gclScheduleDate
             // 
             this.gclScheduleDate.Caption = "排單日期";
+            this.gclScheduleDate.ColumnEdit = this.repositoryItemTextEdit11;
             this.gclScheduleDate.FieldName = "schedule_date";
             this.gclScheduleDate.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gclScheduleDate.Name = "gclScheduleDate";
-            this.gclScheduleDate.OptionsColumn.ReadOnly = true;
             this.gclScheduleDate.Visible = true;
             this.gclScheduleDate.VisibleIndex = 1;
-            this.gclScheduleDate.Width = 80;
+            this.gclScheduleDate.Width = 100;
+            // 
+            // repositoryItemTextEdit11
+            // 
+            this.repositoryItemTextEdit11.AutoHeight = false;
+            this.repositoryItemTextEdit11.Mask.EditMask = "9999/99/99";
+            this.repositoryItemTextEdit11.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.repositoryItemTextEdit11.Name = "repositoryItemTextEdit11";
             // 
             // gclPrdMo
             // 
@@ -701,7 +727,30 @@
             this.gclPrdMo.OptionsColumn.ReadOnly = true;
             this.gclPrdMo.Visible = true;
             this.gclPrdMo.VisibleIndex = 2;
-            this.gclPrdMo.Width = 80;
+            this.gclPrdMo.Width = 100;
+            // 
+            // gclPrdGroup
+            // 
+            this.gclPrdGroup.AppearanceCell.Options.UseTextOptions = true;
+            this.gclPrdGroup.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gclPrdGroup.Caption = "組別";
+            this.gclPrdGroup.ColumnEdit = this.luePrdGroup;
+            this.gclPrdGroup.FieldName = "prd_group";
+            this.gclPrdGroup.Name = "gclPrdGroup";
+            this.gclPrdGroup.Visible = true;
+            this.gclPrdGroup.VisibleIndex = 4;
+            this.gclPrdGroup.Width = 60;
+            // 
+            // luePrdGroup
+            // 
+            this.luePrdGroup.AutoHeight = false;
+            this.luePrdGroup.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luePrdGroup.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("grp_code", 40, "組別代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("grp_cdesc", 60, "描述")});
+            this.luePrdGroup.Name = "luePrdGroup";
+            this.luePrdGroup.NullText = "";
             // 
             // gclUrgentFlag
             // 
@@ -710,7 +759,7 @@
             this.gclUrgentFlag.FieldName = "urgent_flag";
             this.gclUrgentFlag.Name = "gclUrgentFlag";
             this.gclUrgentFlag.Visible = true;
-            this.gclUrgentFlag.VisibleIndex = 3;
+            this.gclUrgentFlag.VisibleIndex = 5;
             this.gclUrgentFlag.Width = 60;
             // 
             // lueGvUrgentFlag
@@ -724,36 +773,24 @@
             this.lueGvUrgentFlag.Name = "lueGvUrgentFlag";
             this.lueGvUrgentFlag.NullText = "";
             // 
-            // gclStatus
-            // 
-            this.gclStatus.Caption = "完成狀態";
-            this.gclStatus.ColumnEdit = this.lueGvStatus;
-            this.gclStatus.FieldName = "status";
-            this.gclStatus.Name = "gclStatus";
-            this.gclStatus.Visible = true;
-            this.gclStatus.VisibleIndex = 4;
-            this.gclStatus.Width = 56;
-            // 
-            // lueGvStatus
-            // 
-            this.lueGvStatus.AutoHeight = false;
-            this.lueGvStatus.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueGvStatus.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_id", 40, "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 80, "描述")});
-            this.lueGvStatus.Name = "lueGvStatus";
-            this.lueGvStatus.NullText = "";
-            // 
             // gclPrdItem
             // 
             this.gclPrdItem.Caption = "物料編號";
+            this.gclPrdItem.ColumnEdit = this.btnPrdItemFind;
             this.gclPrdItem.FieldName = "prd_item";
             this.gclPrdItem.Name = "gclPrdItem";
             this.gclPrdItem.OptionsColumn.ReadOnly = true;
             this.gclPrdItem.Visible = true;
-            this.gclPrdItem.VisibleIndex = 5;
-            this.gclPrdItem.Width = 140;
+            this.gclPrdItem.VisibleIndex = 6;
+            this.gclPrdItem.Width = 160;
+            // 
+            // btnPrdItemFind
+            // 
+            this.btnPrdItemFind.AutoHeight = false;
+            this.btnPrdItemFind.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnPrdItemFind.Name = "btnPrdItemFind";
+            this.btnPrdItemFind.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnPrdItemFind_ButtonClick);
             // 
             // gclArtWork
             // 
@@ -762,8 +799,6 @@
             this.gclArtWork.FieldName = "ArtWork";
             this.gclArtWork.Name = "gclArtWork";
             this.gclArtWork.OptionsColumn.ReadOnly = true;
-            this.gclArtWork.Visible = true;
-            this.gclArtWork.VisibleIndex = 6;
             this.gclArtWork.Width = 60;
             // 
             // repositoryItemPictureEdit1
@@ -1100,7 +1135,6 @@
             this.gclNextWpId.Caption = "下部門";
             this.gclNextWpId.FieldName = "next_wp_id";
             this.gclNextWpId.Name = "gclNextWpId";
-            this.gclNextWpId.OptionsColumn.ReadOnly = true;
             this.gclNextWpId.Visible = true;
             this.gclNextWpId.VisibleIndex = 32;
             // 
@@ -1184,36 +1218,13 @@
             this.lueModuleType.Name = "lueModuleType";
             this.lueModuleType.NullText = "";
             // 
-            // gclPrdGroup
-            // 
-            this.gclPrdGroup.AppearanceCell.Options.UseTextOptions = true;
-            this.gclPrdGroup.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gclPrdGroup.Caption = "部門組別";
-            this.gclPrdGroup.ColumnEdit = this.luePrdGroup;
-            this.gclPrdGroup.FieldName = "prd_group";
-            this.gclPrdGroup.Name = "gclPrdGroup";
-            this.gclPrdGroup.Visible = true;
-            this.gclPrdGroup.VisibleIndex = 36;
-            this.gclPrdGroup.Width = 60;
-            // 
-            // luePrdGroup
-            // 
-            this.luePrdGroup.AutoHeight = false;
-            this.luePrdGroup.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.luePrdGroup.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_id", 40, "組別代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 60, "描述")});
-            this.luePrdGroup.Name = "luePrdGroup";
-            this.luePrdGroup.NullText = "";
-            // 
             // gclNextDoColor
             // 
             this.gclNextDoColor.Caption = "電鍍顏色";
             this.gclNextDoColor.FieldName = "next_do_color";
             this.gclNextDoColor.Name = "gclNextDoColor";
             this.gclNextDoColor.Visible = true;
-            this.gclNextDoColor.VisibleIndex = 37;
+            this.gclNextDoColor.VisibleIndex = 36;
             // 
             // gclNextVendId
             // 
@@ -1221,7 +1232,7 @@
             this.gclNextVendId.FieldName = "next_vend_id";
             this.gclNextVendId.Name = "gclNextVendId";
             this.gclNextVendId.Visible = true;
-            this.gclNextVendId.VisibleIndex = 38;
+            this.gclNextVendId.VisibleIndex = 37;
             // 
             // gclMoRemark
             // 
@@ -1229,7 +1240,7 @@
             this.gclMoRemark.FieldName = "mo_remark";
             this.gclMoRemark.Name = "gclMoRemark";
             this.gclMoRemark.Visible = true;
-            this.gclMoRemark.VisibleIndex = 39;
+            this.gclMoRemark.VisibleIndex = 38;
             // 
             // gclDepRemark
             // 
@@ -1237,7 +1248,28 @@
             this.gclDepRemark.FieldName = "dep_remark";
             this.gclDepRemark.Name = "gclDepRemark";
             this.gclDepRemark.Visible = true;
-            this.gclDepRemark.VisibleIndex = 40;
+            this.gclDepRemark.VisibleIndex = 39;
+            // 
+            // gclStatus
+            // 
+            this.gclStatus.Caption = "完成狀態";
+            this.gclStatus.ColumnEdit = this.lueGvStatus;
+            this.gclStatus.FieldName = "status";
+            this.gclStatus.Name = "gclStatus";
+            this.gclStatus.Visible = true;
+            this.gclStatus.VisibleIndex = 40;
+            this.gclStatus.Width = 56;
+            // 
+            // lueGvStatus
+            // 
+            this.lueGvStatus.AutoHeight = false;
+            this.lueGvStatus.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueGvStatus.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_id", 40, "代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 80, "描述")});
+            this.lueGvStatus.Name = "lueGvStatus";
+            this.lueGvStatus.NullText = "";
             // 
             // grcPrdItemGroup
             // 
@@ -1309,6 +1341,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.prgStatus);
             this.panel3.Controls.Add(this.btnAddToMachine);
             this.panel3.Controls.Add(this.lblNeedPrdDays);
             this.panel3.Controls.Add(this.lblTotal);
@@ -1321,17 +1354,25 @@
             this.panel3.Controls.Add(this.txtScheduleQty);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panel3.Location = new System.Drawing.Point(0, 124);
+            this.panel3.Location = new System.Drawing.Point(0, 120);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1133, 52);
+            this.panel3.Size = new System.Drawing.Size(1196, 35);
             this.panel3.TabIndex = 38;
+            // 
+            // prgStatus
+            // 
+            this.prgStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.prgStatus.Location = new System.Drawing.Point(1091, 6);
+            this.prgStatus.Name = "prgStatus";
+            this.prgStatus.Size = new System.Drawing.Size(100, 23);
+            this.prgStatus.TabIndex = 27;
             // 
             // btnAddToMachine
             // 
             this.btnAddToMachine.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddToMachine.Location = new System.Drawing.Point(1058, 11);
+            this.btnAddToMachine.Location = new System.Drawing.Point(995, 6);
             this.btnAddToMachine.Name = "btnAddToMachine";
-            this.btnAddToMachine.Size = new System.Drawing.Size(67, 32);
+            this.btnAddToMachine.Size = new System.Drawing.Size(67, 23);
             this.btnAddToMachine.TabIndex = 26;
             this.btnAddToMachine.Text = "添加到機器";
             this.btnAddToMachine.Visible = false;
@@ -1340,7 +1381,7 @@
             // lblNeedPrdDays
             // 
             this.lblNeedPrdDays.AutoSize = true;
-            this.lblNeedPrdDays.Location = new System.Drawing.Point(789, 17);
+            this.lblNeedPrdDays.Location = new System.Drawing.Point(711, 10);
             this.lblNeedPrdDays.Name = "lblNeedPrdDays";
             this.lblNeedPrdDays.Size = new System.Drawing.Size(21, 14);
             this.lblNeedPrdDays.TabIndex = 25;
@@ -1349,7 +1390,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(836, 17);
+            this.lblTotal.Location = new System.Drawing.Point(758, 10);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(133, 14);
             this.lblTotal.TabIndex = 25;
@@ -1358,7 +1399,7 @@
             // lblReqTotTime
             // 
             this.lblReqTotTime.AutoSize = true;
-            this.lblReqTotTime.Location = new System.Drawing.Point(448, 17);
+            this.lblReqTotTime.Location = new System.Drawing.Point(400, 10);
             this.lblReqTotTime.Name = "lblReqTotTime";
             this.lblReqTotTime.Size = new System.Drawing.Size(109, 14);
             this.lblReqTotTime.TabIndex = 25;
@@ -1367,7 +1408,7 @@
             // lblNotCpQty
             // 
             this.lblNotCpQty.AutoSize = true;
-            this.lblNotCpQty.Location = new System.Drawing.Point(224, 17);
+            this.lblNotCpQty.Location = new System.Drawing.Point(198, 10);
             this.lblNotCpQty.Name = "lblNotCpQty";
             this.lblNotCpQty.Size = new System.Drawing.Size(81, 14);
             this.lblNotCpQty.TabIndex = 25;
@@ -1376,7 +1417,7 @@
             // lblScheduleQty
             // 
             this.lblScheduleQty.AutoSize = true;
-            this.lblScheduleQty.Location = new System.Drawing.Point(18, 17);
+            this.lblScheduleQty.Location = new System.Drawing.Point(18, 10);
             this.lblScheduleQty.Name = "lblScheduleQty";
             this.lblScheduleQty.Size = new System.Drawing.Size(67, 14);
             this.lblScheduleQty.TabIndex = 25;
@@ -1385,18 +1426,18 @@
             // txtReqTotTime
             // 
             this.txtReqTotTime.EditValue = "";
-            this.txtReqTotTime.Location = new System.Drawing.Point(559, 14);
+            this.txtReqTotTime.Location = new System.Drawing.Point(511, 7);
             this.txtReqTotTime.Name = "txtReqTotTime";
             this.txtReqTotTime.Properties.DisplayFormat.FormatString = "{0:#,##0.00}";
             this.txtReqTotTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtReqTotTime.Properties.ReadOnly = true;
-            this.txtReqTotTime.Size = new System.Drawing.Size(131, 20);
+            this.txtReqTotTime.Size = new System.Drawing.Size(110, 20);
             this.txtReqTotTime.TabIndex = 0;
             // 
             // txtNeedPrdDays
             // 
             this.txtNeedPrdDays.EditValue = "";
-            this.txtNeedPrdDays.Location = new System.Drawing.Point(707, 14);
+            this.txtNeedPrdDays.Location = new System.Drawing.Point(629, 7);
             this.txtNeedPrdDays.Name = "txtNeedPrdDays";
             this.txtNeedPrdDays.Properties.DisplayFormat.FormatString = "{0:#,##0}";
             this.txtNeedPrdDays.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1407,23 +1448,23 @@
             // txtNotCpQty
             // 
             this.txtNotCpQty.EditValue = "";
-            this.txtNotCpQty.Location = new System.Drawing.Point(311, 14);
+            this.txtNotCpQty.Location = new System.Drawing.Point(285, 7);
             this.txtNotCpQty.Name = "txtNotCpQty";
             this.txtNotCpQty.Properties.DisplayFormat.FormatString = "{0:#,##0}";
             this.txtNotCpQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNotCpQty.Properties.ReadOnly = true;
-            this.txtNotCpQty.Size = new System.Drawing.Size(131, 20);
+            this.txtNotCpQty.Size = new System.Drawing.Size(110, 20);
             this.txtNotCpQty.TabIndex = 0;
             // 
             // txtScheduleQty
             // 
             this.txtScheduleQty.EditValue = "";
-            this.txtScheduleQty.Location = new System.Drawing.Point(87, 14);
+            this.txtScheduleQty.Location = new System.Drawing.Point(87, 7);
             this.txtScheduleQty.Name = "txtScheduleQty";
             this.txtScheduleQty.Properties.DisplayFormat.FormatString = "{0:#,##0}";
             this.txtScheduleQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtScheduleQty.Properties.ReadOnly = true;
-            this.txtScheduleQty.Size = new System.Drawing.Size(131, 20);
+            this.txtScheduleQty.Size = new System.Drawing.Size(110, 20);
             this.txtScheduleQty.TabIndex = 0;
             // 
             // palShowNotMachine
@@ -1431,9 +1472,9 @@
             this.palShowNotMachine.Controls.Add(this.gcWaitSchedule);
             this.palShowNotMachine.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.palShowNotMachine.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.palShowNotMachine.Location = new System.Drawing.Point(3, 179);
+            this.palShowNotMachine.Location = new System.Drawing.Point(3, 158);
             this.palShowNotMachine.Name = "palShowNotMachine";
-            this.palShowNotMachine.Size = new System.Drawing.Size(1133, 281);
+            this.palShowNotMachine.Size = new System.Drawing.Size(1196, 281);
             this.palShowNotMachine.TabIndex = 39;
             this.palShowNotMachine.Visible = false;
             // 
@@ -1441,13 +1482,13 @@
             // 
             this.gcWaitSchedule.ContextMenuStrip = this.contextMenu;
             this.gcWaitSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode4.RelationName = "Level1";
-            gridLevelNode5.RelationName = "Level2";
-            gridLevelNode6.RelationName = "Level3";
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.RelationName = "Level3";
             this.gcWaitSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode4,
-            gridLevelNode5,
-            gridLevelNode6});
+            gridLevelNode1,
+            gridLevelNode2,
+            gridLevelNode3});
             this.gcWaitSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcWaitSchedule.MainView = this.gvWaitSchedule;
             this.gcWaitSchedule.Name = "gcWaitSchedule";
@@ -1469,7 +1510,7 @@
             this.repositoryItemTextEdit6,
             this.repositoryItemLookUpEdit5,
             this.repositoryItemLookUpEdit6});
-            this.gcWaitSchedule.Size = new System.Drawing.Size(1133, 281);
+            this.gcWaitSchedule.Size = new System.Drawing.Size(1196, 281);
             this.gcWaitSchedule.TabIndex = 38;
             this.gcWaitSchedule.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvWaitSchedule});
@@ -1482,8 +1523,8 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
+            this.gridColumn39,
             this.gridColumn5,
-            this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
@@ -1518,22 +1559,22 @@
             this.gridColumn36,
             this.gridColumn37,
             this.gridColumn38,
-            this.gridColumn39,
             this.gridColumn40,
             this.gridColumn41,
             this.gridColumn43,
             this.gridColumn44,
+            this.gridColumn6,
             this.gridColumn42});
             this.gvWaitSchedule.FooterPanelHeight = 30;
             this.gvWaitSchedule.GridControl = this.gcWaitSchedule;
-            this.gvWaitSchedule.IndicatorWidth = 30;
+            this.gvWaitSchedule.IndicatorWidth = 40;
             this.gvWaitSchedule.Name = "gvWaitSchedule";
             this.gvWaitSchedule.OptionsFilter.DefaultFilterEditorView = DevExpress.XtraEditors.FilterEditorViewMode.Text;
             this.gvWaitSchedule.OptionsSelection.MultiSelect = true;
             this.gvWaitSchedule.OptionsView.ColumnAutoWidth = false;
             this.gvWaitSchedule.OptionsView.ShowFooter = true;
             this.gvWaitSchedule.OptionsView.ShowGroupPanel = false;
-            this.gvWaitSchedule.RowHeight = 40;
+            this.gvWaitSchedule.RowHeight = 35;
             this.gvWaitSchedule.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvWaitSchedule_CustomDrawRowIndicator);
             // 
             // gridColumn1
@@ -1547,7 +1588,7 @@
             // 
             this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn2.Caption = "排單次序";
+            this.gridColumn2.Caption = "排序";
             this.gridColumn2.FieldName = "schedule_seq";
             this.gridColumn2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn2.Name = "gridColumn2";
@@ -1578,6 +1619,29 @@
             this.gridColumn4.VisibleIndex = 2;
             this.gridColumn4.Width = 80;
             // 
+            // gridColumn39
+            // 
+            this.gridColumn39.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn39.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn39.Caption = "組別";
+            this.gridColumn39.ColumnEdit = this.repositoryItemLookUpEdit6;
+            this.gridColumn39.FieldName = "prd_group";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 3;
+            this.gridColumn39.Width = 40;
+            // 
+            // repositoryItemLookUpEdit6
+            // 
+            this.repositoryItemLookUpEdit6.AutoHeight = false;
+            this.repositoryItemLookUpEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit6.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_id", 40, "組別代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 60, "描述")});
+            this.repositoryItemLookUpEdit6.Name = "repositoryItemLookUpEdit6";
+            this.repositoryItemLookUpEdit6.NullText = "";
+            // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "急單標識";
@@ -1585,7 +1649,7 @@
             this.gridColumn5.FieldName = "urgent_flag";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.VisibleIndex = 4;
             this.gridColumn5.Width = 60;
             // 
             // repositoryItemLookUpEdit1
@@ -1598,27 +1662,6 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 60, "描述")});
             this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             this.repositoryItemLookUpEdit1.NullText = "";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "完成狀態";
-            this.gridColumn6.ColumnEdit = this.repositoryItemLookUpEdit2;
-            this.gridColumn6.FieldName = "status";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
-            this.gridColumn6.Width = 56;
-            // 
-            // repositoryItemLookUpEdit2
-            // 
-            this.repositoryItemLookUpEdit2.AutoHeight = false;
-            this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_id", 40, "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 80, "描述")});
-            this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
-            this.repositoryItemLookUpEdit2.NullText = "";
             // 
             // gridColumn7
             // 
@@ -1637,8 +1680,6 @@
             this.gridColumn8.FieldName = "ArtWork";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.ReadOnly = true;
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 6;
             this.gridColumn8.Width = 60;
             // 
             // repositoryItemPictureEdit2
@@ -1653,7 +1694,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 7;
+            this.gridColumn9.VisibleIndex = 6;
             this.gridColumn9.Width = 250;
             // 
             // gridColumn10
@@ -1667,7 +1708,7 @@
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "pl_qty", "{0:#,##0}")});
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 8;
+            this.gridColumn10.VisibleIndex = 7;
             this.gridColumn10.Width = 60;
             // 
             // gridColumn11
@@ -1682,7 +1723,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "schedule_qty", "{0:#,##0}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 9;
+            this.gridColumn11.VisibleIndex = 8;
             this.gridColumn11.Width = 60;
             // 
             // gridColumn12
@@ -1695,7 +1736,7 @@
             this.gridColumn12.FieldName = "prd_qty";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 10;
+            this.gridColumn12.VisibleIndex = 9;
             this.gridColumn12.Width = 60;
             // 
             // gridColumn13
@@ -1708,7 +1749,7 @@
             this.gridColumn13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "not_cp_qty", "{0:#,##0}")});
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 11;
+            this.gridColumn13.VisibleIndex = 10;
             // 
             // gridColumn14
             // 
@@ -1717,7 +1758,7 @@
             this.gridColumn14.FieldName = "prd_machine";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 12;
+            this.gridColumn14.VisibleIndex = 11;
             this.gridColumn14.Width = 80;
             // 
             // repositoryItemButtonEdit1
@@ -1737,7 +1778,7 @@
             this.gridColumn15.FieldName = "machine_std_run_num";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 13;
+            this.gridColumn15.VisibleIndex = 12;
             this.gridColumn15.Width = 60;
             // 
             // gridColumn16
@@ -1748,7 +1789,7 @@
             this.gridColumn16.FieldName = "machine_std_line_num";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 14;
+            this.gridColumn16.VisibleIndex = 13;
             this.gridColumn16.Width = 40;
             // 
             // gridColumn17
@@ -1759,7 +1800,7 @@
             this.gridColumn17.FieldName = "machine_std_qty";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 15;
+            this.gridColumn17.VisibleIndex = 14;
             // 
             // gridColumn18
             // 
@@ -1771,7 +1812,7 @@
             this.gridColumn18.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "need_mon_num", "{0:#,##0}")});
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 16;
+            this.gridColumn18.VisibleIndex = 15;
             this.gridColumn18.Width = 60;
             // 
             // gridColumn19
@@ -1784,7 +1825,7 @@
             this.gridColumn19.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_module_time", "{0:#,##0}")});
             this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 17;
+            this.gridColumn19.VisibleIndex = 16;
             this.gridColumn19.Width = 50;
             // 
             // gridColumn20
@@ -1799,7 +1840,7 @@
             this.gridColumn20.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_prd_time", "{0:0.##}")});
             this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 18;
+            this.gridColumn20.VisibleIndex = 17;
             this.gridColumn20.Width = 50;
             // 
             // gridColumn21
@@ -1812,7 +1853,7 @@
             this.gridColumn21.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_tot_time", "{0:0.##}")});
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 19;
+            this.gridColumn21.VisibleIndex = 18;
             this.gridColumn21.Width = 40;
             // 
             // gridColumn22
@@ -1824,7 +1865,7 @@
             this.gridColumn22.FieldName = "start_time";
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 20;
+            this.gridColumn22.VisibleIndex = 19;
             this.gridColumn22.Width = 120;
             // 
             // repositoryItemTextEdit6
@@ -1843,8 +1884,24 @@
             this.gridColumn23.FieldName = "end_time";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 21;
+            this.gridColumn23.VisibleIndex = 20;
             this.gridColumn23.Width = 120;
+            // 
+            // gridColumn45
+            // 
+            this.gridColumn45.Caption = "模具編號";
+            this.gridColumn45.FieldName = "module_no";
+            this.gridColumn45.Name = "gridColumn45";
+            this.gridColumn45.Visible = true;
+            this.gridColumn45.VisibleIndex = 21;
+            // 
+            // gridColumn46
+            // 
+            this.gridColumn46.Caption = "上模";
+            this.gridColumn46.FieldName = "module_install";
+            this.gridColumn46.Name = "gridColumn46";
+            this.gridColumn46.Visible = true;
+            this.gridColumn46.VisibleIndex = 22;
             // 
             // gridColumn24
             // 
@@ -1853,7 +1910,7 @@
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.OptionsColumn.ReadOnly = true;
             this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 24;
+            this.gridColumn24.VisibleIndex = 23;
             // 
             // gridColumn25
             // 
@@ -1864,7 +1921,7 @@
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.OptionsColumn.ReadOnly = true;
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 25;
+            this.gridColumn25.VisibleIndex = 24;
             this.gridColumn25.Width = 60;
             // 
             // gridColumn26
@@ -1878,7 +1935,7 @@
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.OptionsColumn.ReadOnly = true;
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 26;
+            this.gridColumn26.VisibleIndex = 25;
             // 
             // gridColumn27
             // 
@@ -1889,7 +1946,7 @@
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.OptionsColumn.ReadOnly = true;
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 27;
+            this.gridColumn27.VisibleIndex = 26;
             this.gridColumn27.Width = 60;
             // 
             // gridColumn28
@@ -1899,7 +1956,7 @@
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.OptionsColumn.ReadOnly = true;
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 28;
+            this.gridColumn28.VisibleIndex = 27;
             this.gridColumn28.Width = 80;
             // 
             // gridColumn29
@@ -1911,7 +1968,7 @@
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.OptionsColumn.ReadOnly = true;
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 29;
+            this.gridColumn29.VisibleIndex = 28;
             // 
             // gridColumn30
             // 
@@ -1922,7 +1979,7 @@
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.OptionsColumn.ReadOnly = true;
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 30;
+            this.gridColumn30.VisibleIndex = 29;
             // 
             // gridColumn31
             // 
@@ -1933,7 +1990,7 @@
             this.gridColumn31.Name = "gridColumn31";
             this.gridColumn31.OptionsColumn.ReadOnly = true;
             this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 31;
+            this.gridColumn31.VisibleIndex = 30;
             this.gridColumn31.Width = 100;
             // 
             // gridColumn32
@@ -1945,7 +2002,7 @@
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.OptionsColumn.ReadOnly = true;
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 32;
+            this.gridColumn32.VisibleIndex = 31;
             this.gridColumn32.Width = 80;
             // 
             // gridColumn33
@@ -1957,7 +2014,7 @@
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.OptionsColumn.ReadOnly = true;
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 33;
+            this.gridColumn33.VisibleIndex = 32;
             // 
             // gridColumn34
             // 
@@ -1966,7 +2023,7 @@
             this.gridColumn34.FieldName = "pmc_rq_date";
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 34;
+            this.gridColumn34.VisibleIndex = 33;
             this.gridColumn34.Width = 80;
             // 
             // repositoryItemTextEdit7
@@ -1986,7 +2043,7 @@
             this.gridColumn35.FieldName = "pmc_rp_date";
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 35;
+            this.gridColumn35.VisibleIndex = 34;
             this.gridColumn35.Width = 80;
             // 
             // repositoryItemTextEdit8
@@ -2004,7 +2061,7 @@
             this.gridColumn36.FieldName = "dep_rp_date";
             this.gridColumn36.Name = "gridColumn36";
             this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 36;
+            this.gridColumn36.VisibleIndex = 35;
             // 
             // repositoryItemTextEdit9
             // 
@@ -2020,7 +2077,7 @@
             this.gridColumn37.FieldName = "schedule_id";
             this.gridColumn37.Name = "gridColumn37";
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 37;
+            this.gridColumn37.VisibleIndex = 36;
             // 
             // gridColumn38
             // 
@@ -2031,7 +2088,7 @@
             this.gridColumn38.FieldName = "module_type";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 38;
+            this.gridColumn38.VisibleIndex = 37;
             this.gridColumn38.Width = 40;
             // 
             // repositoryItemLookUpEdit5
@@ -2045,36 +2102,13 @@
             this.repositoryItemLookUpEdit5.Name = "repositoryItemLookUpEdit5";
             this.repositoryItemLookUpEdit5.NullText = "";
             // 
-            // gridColumn39
-            // 
-            this.gridColumn39.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn39.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn39.Caption = "部門組別";
-            this.gridColumn39.ColumnEdit = this.repositoryItemLookUpEdit6;
-            this.gridColumn39.FieldName = "prd_group";
-            this.gridColumn39.Name = "gridColumn39";
-            this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 39;
-            this.gridColumn39.Width = 40;
-            // 
-            // repositoryItemLookUpEdit6
-            // 
-            this.repositoryItemLookUpEdit6.AutoHeight = false;
-            this.repositoryItemLookUpEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit6.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_id", 40, "組別代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 60, "描述")});
-            this.repositoryItemLookUpEdit6.Name = "repositoryItemLookUpEdit6";
-            this.repositoryItemLookUpEdit6.NullText = "";
-            // 
             // gridColumn40
             // 
             this.gridColumn40.Caption = "電鍍顏色";
             this.gridColumn40.FieldName = "next_do_color";
             this.gridColumn40.Name = "gridColumn40";
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 40;
+            this.gridColumn40.VisibleIndex = 38;
             // 
             // gridColumn41
             // 
@@ -2082,7 +2116,7 @@
             this.gridColumn41.FieldName = "next_vend_id";
             this.gridColumn41.Name = "gridColumn41";
             this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 41;
+            this.gridColumn41.VisibleIndex = 39;
             // 
             // gridColumn43
             // 
@@ -2090,7 +2124,7 @@
             this.gridColumn43.FieldName = "mo_remark";
             this.gridColumn43.Name = "gridColumn43";
             this.gridColumn43.Visible = true;
-            this.gridColumn43.VisibleIndex = 42;
+            this.gridColumn43.VisibleIndex = 40;
             // 
             // gridColumn44
             // 
@@ -2098,7 +2132,28 @@
             this.gridColumn44.FieldName = "dep_remark";
             this.gridColumn44.Name = "gridColumn44";
             this.gridColumn44.Visible = true;
-            this.gridColumn44.VisibleIndex = 43;
+            this.gridColumn44.VisibleIndex = 41;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "完成狀態";
+            this.gridColumn6.ColumnEdit = this.repositoryItemLookUpEdit2;
+            this.gridColumn6.FieldName = "status";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 42;
+            this.gridColumn6.Width = 56;
+            // 
+            // repositoryItemLookUpEdit2
+            // 
+            this.repositoryItemLookUpEdit2.AutoHeight = false;
+            this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_id", 40, "代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 80, "描述")});
+            this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
+            this.repositoryItemLookUpEdit2.NullText = "";
             // 
             // gridColumn42
             // 
@@ -2107,7 +2162,7 @@
             this.gridColumn42.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.gridColumn42.Name = "gridColumn42";
             this.gridColumn42.Visible = true;
-            this.gridColumn42.VisibleIndex = 44;
+            this.gridColumn42.VisibleIndex = 43;
             this.gridColumn42.Width = 120;
             // 
             // repositoryItemLookUpEdit7
@@ -2173,7 +2228,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1139, 463);
+            this.tabPage2.Size = new System.Drawing.Size(1202, 442);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2194,15 +2249,15 @@
             this.palShowMore.Controls.Add(this.lblSetStatus);
             this.palShowMore.Dock = System.Windows.Forms.DockStyle.Top;
             this.palShowMore.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.palShowMore.Location = new System.Drawing.Point(0, 76);
+            this.palShowMore.Location = new System.Drawing.Point(0, 97);
             this.palShowMore.Name = "palShowMore";
-            this.palShowMore.Size = new System.Drawing.Size(1147, 69);
+            this.palShowMore.Size = new System.Drawing.Size(1210, 69);
             this.palShowMore.TabIndex = 14;
             this.palShowMore.Visible = false;
             // 
             // btnSetUrgentMo
             // 
-            this.btnSetUrgentMo.Location = new System.Drawing.Point(407, 39);
+            this.btnSetUrgentMo.Location = new System.Drawing.Point(429, 36);
             this.btnSetUrgentMo.Name = "btnSetUrgentMo";
             this.btnSetUrgentMo.Size = new System.Drawing.Size(75, 23);
             this.btnSetUrgentMo.TabIndex = 31;
@@ -2211,7 +2266,7 @@
             // 
             // btnSetMachine
             // 
-            this.btnSetMachine.Location = new System.Drawing.Point(763, 7);
+            this.btnSetMachine.Location = new System.Drawing.Point(785, 4);
             this.btnSetMachine.Name = "btnSetMachine";
             this.btnSetMachine.Size = new System.Drawing.Size(75, 23);
             this.btnSetMachine.TabIndex = 31;
@@ -2221,7 +2276,7 @@
             // lueSetUrgentMo
             // 
             this.lueSetUrgentMo.EditValue = "";
-            this.lueSetUrgentMo.Location = new System.Drawing.Point(275, 41);
+            this.lueSetUrgentMo.Location = new System.Drawing.Point(297, 38);
             this.lueSetUrgentMo.Name = "lueSetUrgentMo";
             this.lueSetUrgentMo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2231,12 +2286,12 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("flag_cdesc", 60, "描述")});
             this.lueSetUrgentMo.Properties.NullText = "";
             this.lueSetUrgentMo.Size = new System.Drawing.Size(121, 20);
-            this.lueSetUrgentMo.TabIndex = 30;
+            this.lueSetUrgentMo.TabIndex = 3;
             // 
             // luePrdMachine
             // 
             this.luePrdMachine.EditValue = "";
-            this.luePrdMachine.Location = new System.Drawing.Point(647, 9);
+            this.luePrdMachine.Location = new System.Drawing.Point(669, 6);
             this.luePrdMachine.Name = "luePrdMachine";
             this.luePrdMachine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2247,20 +2302,20 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("machine_mul", 40, "行/碑數")});
             this.luePrdMachine.Properties.NullText = "";
             this.luePrdMachine.Size = new System.Drawing.Size(109, 20);
-            this.luePrdMachine.TabIndex = 30;
+            this.luePrdMachine.TabIndex = 2;
             // 
             // btnGenScheduleSeq
             // 
-            this.btnGenScheduleSeq.Location = new System.Drawing.Point(32, 34);
+            this.btnGenScheduleSeq.Location = new System.Drawing.Point(54, 31);
             this.btnGenScheduleSeq.Name = "btnGenScheduleSeq";
             this.btnGenScheduleSeq.Size = new System.Drawing.Size(75, 23);
             this.btnGenScheduleSeq.TabIndex = 29;
-            this.btnGenScheduleSeq.Text = "排期次序";
+            this.btnGenScheduleSeq.Text = "重排次序";
             this.btnGenScheduleSeq.Click += new System.EventHandler(this.btnGenScheduleSeq_Click);
             // 
             // btnSetMoStatus
             // 
-            this.btnSetMoStatus.Location = new System.Drawing.Point(407, 7);
+            this.btnSetMoStatus.Location = new System.Drawing.Point(429, 4);
             this.btnSetMoStatus.Name = "btnSetMoStatus";
             this.btnSetMoStatus.Size = new System.Drawing.Size(75, 23);
             this.btnSetMoStatus.TabIndex = 28;
@@ -2270,15 +2325,15 @@
             // cmbSetStatus
             // 
             this.cmbSetStatus.FormattingEnabled = true;
-            this.cmbSetStatus.Location = new System.Drawing.Point(275, 8);
+            this.cmbSetStatus.Location = new System.Drawing.Point(297, 5);
             this.cmbSetStatus.Name = "cmbSetStatus";
             this.cmbSetStatus.Size = new System.Drawing.Size(121, 21);
-            this.cmbSetStatus.TabIndex = 27;
+            this.cmbSetStatus.TabIndex = 1;
             // 
             // lblSetUrgentMo
             // 
             this.lblSetUrgentMo.AutoSize = true;
-            this.lblSetUrgentMo.Location = new System.Drawing.Point(202, 44);
+            this.lblSetUrgentMo.Location = new System.Drawing.Point(224, 41);
             this.lblSetUrgentMo.Name = "lblSetUrgentMo";
             this.lblSetUrgentMo.Size = new System.Drawing.Size(67, 14);
             this.lblSetUrgentMo.TabIndex = 24;
@@ -2287,7 +2342,7 @@
             // lblDepMachine
             // 
             this.lblDepMachine.AutoSize = true;
-            this.lblDepMachine.Location = new System.Drawing.Point(578, 10);
+            this.lblDepMachine.Location = new System.Drawing.Point(600, 7);
             this.lblDepMachine.Name = "lblDepMachine";
             this.lblDepMachine.Size = new System.Drawing.Size(67, 14);
             this.lblDepMachine.TabIndex = 24;
@@ -2296,7 +2351,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 10);
+            this.label1.Location = new System.Drawing.Point(51, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 14);
             this.label1.TabIndex = 24;
@@ -2305,24 +2360,57 @@
             // lblSetStatus
             // 
             this.lblSetStatus.AutoSize = true;
-            this.lblSetStatus.Location = new System.Drawing.Point(202, 10);
+            this.lblSetStatus.Location = new System.Drawing.Point(224, 7);
             this.lblSetStatus.Name = "lblSetStatus";
             this.lblSetStatus.Size = new System.Drawing.Size(67, 14);
             this.lblSetStatus.TabIndex = 24;
             this.lblSetStatus.Text = "制單狀態:";
             // 
+            // txtPrdMachine
+            // 
+            this.txtPrdMachine.Location = new System.Drawing.Point(275, 33);
+            this.txtPrdMachine.Name = "txtPrdMachine";
+            this.txtPrdMachine.Size = new System.Drawing.Size(121, 20);
+            this.txtPrdMachine.TabIndex = 5;
+            // 
+            // cmbCpStatus
+            // 
+            this.cmbCpStatus.FormattingEnabled = true;
+            this.cmbCpStatus.Location = new System.Drawing.Point(94, 32);
+            this.cmbCpStatus.Name = "cmbCpStatus";
+            this.cmbCpStatus.Size = new System.Drawing.Size(109, 21);
+            this.cmbCpStatus.TabIndex = 4;
+            // 
+            // lblPrdMachine
+            // 
+            this.lblPrdMachine.AutoSize = true;
+            this.lblPrdMachine.Location = new System.Drawing.Point(206, 35);
+            this.lblPrdMachine.Name = "lblPrdMachine";
+            this.lblPrdMachine.Size = new System.Drawing.Size(67, 14);
+            this.lblPrdMachine.TabIndex = 24;
+            this.lblPrdMachine.Text = "機器代號:";
+            // 
+            // lblCpStatus
+            // 
+            this.lblCpStatus.AutoSize = true;
+            this.lblCpStatus.Location = new System.Drawing.Point(24, 35);
+            this.lblCpStatus.Name = "lblCpStatus";
+            this.lblCpStatus.Size = new System.Drawing.Size(67, 14);
+            this.lblCpStatus.TabIndex = 24;
+            this.lblCpStatus.Text = "完成狀態:";
+            // 
             // cmbMoStatus
             // 
             this.cmbMoStatus.FormattingEnabled = true;
-            this.cmbMoStatus.Location = new System.Drawing.Point(647, 5);
+            this.cmbMoStatus.Location = new System.Drawing.Point(478, 5);
             this.cmbMoStatus.Name = "cmbMoStatus";
             this.cmbMoStatus.Size = new System.Drawing.Size(109, 21);
-            this.cmbMoStatus.TabIndex = 27;
+            this.cmbMoStatus.TabIndex = 3;
             // 
             // lblMoStatus
             // 
             this.lblMoStatus.AutoSize = true;
-            this.lblMoStatus.Location = new System.Drawing.Point(578, 8);
+            this.lblMoStatus.Location = new System.Drawing.Point(409, 8);
             this.lblMoStatus.Name = "lblMoStatus";
             this.lblMoStatus.Size = new System.Drawing.Size(67, 14);
             this.lblMoStatus.TabIndex = 24;
@@ -2333,10 +2421,14 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnShowMore);
             this.panel1.Controls.Add(this.txtPrdMachine);
-            this.panel1.Controls.Add(this.cmbMoStatus);
-            this.panel1.Controls.Add(this.lblMoStatus);
-            this.panel1.Controls.Add(this.cmbDepGroup);
+            this.panel1.Controls.Add(this.lueDepGroup);
+            this.panel1.Controls.Add(this.txtOver3Days);
+            this.panel1.Controls.Add(this.chkOver3Days);
+            this.panel1.Controls.Add(this.cmbCpStatus);
             this.panel1.Controls.Add(this.lblPrdMachine);
+            this.panel1.Controls.Add(this.cmbMoStatus);
+            this.panel1.Controls.Add(this.lblCpStatus);
+            this.panel1.Controls.Add(this.lblMoStatus);
             this.panel1.Controls.Add(this.lblDepGroup);
             this.panel1.Controls.Add(this.lblPrd_dept);
             this.panel1.Controls.Add(this.cmbFindDep);
@@ -2344,42 +2436,52 @@
             this.panel1.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(0, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1147, 38);
-            this.panel1.TabIndex = 13;
+            this.panel1.Size = new System.Drawing.Size(1210, 59);
+            this.panel1.TabIndex = 0;
             // 
             // btnShowMore
             // 
             this.btnShowMore.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnShowMore.Location = new System.Drawing.Point(1078, 2);
+            this.btnShowMore.Location = new System.Drawing.Point(1141, 12);
             this.btnShowMore.Name = "btnShowMore";
             this.btnShowMore.Size = new System.Drawing.Size(67, 32);
             this.btnShowMore.TabIndex = 29;
             this.btnShowMore.Text = ">>";
             this.btnShowMore.Click += new System.EventHandler(this.btnShowMore_Click);
             // 
-            // txtPrdMachine
+            // lueDepGroup
             // 
-            this.txtPrdMachine.Location = new System.Drawing.Point(464, 6);
-            this.txtPrdMachine.Name = "txtPrdMachine";
-            this.txtPrdMachine.Size = new System.Drawing.Size(100, 20);
-            this.txtPrdMachine.TabIndex = 28;
+            this.lueDepGroup.EditValue = "";
+            this.lueDepGroup.Location = new System.Drawing.Point(275, 6);
+            this.lueDepGroup.Name = "lueDepGroup";
+            this.lueDepGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueDepGroup.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lueDepGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("grp_code", 40, "代號"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("grp_cdesc", 60, "描述")});
+            this.lueDepGroup.Properties.NullText = "";
+            this.lueDepGroup.Size = new System.Drawing.Size(121, 20);
+            this.lueDepGroup.TabIndex = 2;
             // 
-            // cmbDepGroup
+            // txtOver3Days
             // 
-            this.cmbDepGroup.FormattingEnabled = true;
-            this.cmbDepGroup.Location = new System.Drawing.Point(275, 5);
-            this.cmbDepGroup.Name = "cmbDepGroup";
-            this.cmbDepGroup.Size = new System.Drawing.Size(121, 21);
-            this.cmbDepGroup.TabIndex = 27;
+            this.txtOver3Days.EditValue = "3";
+            this.txtOver3Days.Location = new System.Drawing.Point(810, 5);
+            this.txtOver3Days.Name = "txtOver3Days";
+            this.txtOver3Days.Size = new System.Drawing.Size(57, 20);
+            this.txtOver3Days.TabIndex = 28;
             // 
-            // lblPrdMachine
+            // chkOver3Days
             // 
-            this.lblPrdMachine.AutoSize = true;
-            this.lblPrdMachine.Location = new System.Drawing.Point(398, 8);
-            this.lblPrdMachine.Name = "lblPrdMachine";
-            this.lblPrdMachine.Size = new System.Drawing.Size(67, 14);
-            this.lblPrdMachine.TabIndex = 24;
-            this.lblPrdMachine.Text = "機器代號:";
+            this.chkOver3Days.Location = new System.Drawing.Point(623, 3);
+            this.chkOver3Days.Name = "chkOver3Days";
+            this.chkOver3Days.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.chkOver3Days.Properties.Appearance.Options.UseFont = true;
+            this.chkOver3Days.Properties.AutoWidth = true;
+            this.chkOver3Days.Properties.Caption = "只匯出超過此日期的制單:";
+            this.chkOver3Days.Size = new System.Drawing.Size(181, 21);
+            this.chkOver3Days.TabIndex = 17;
             // 
             // lblDepGroup
             // 
@@ -2406,7 +2508,7 @@
             this.cmbFindDep.Location = new System.Drawing.Point(94, 5);
             this.cmbFindDep.Name = "cmbFindDep";
             this.cmbFindDep.Size = new System.Drawing.Size(109, 21);
-            this.cmbFindDep.TabIndex = 25;
+            this.cmbFindDep.TabIndex = 1;
             this.cmbFindDep.Leave += new System.EventHandler(this.cmbFindDep_Leave);
             // 
             // dataGridViewTextBoxColumn1
@@ -2651,27 +2753,20 @@
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
             // 
-            // gridColumn45
+            // gclPassDays
             // 
-            this.gridColumn45.Caption = "模具編號";
-            this.gridColumn45.FieldName = "module_no";
-            this.gridColumn45.Name = "gridColumn45";
-            this.gridColumn45.Visible = true;
-            this.gridColumn45.VisibleIndex = 22;
-            // 
-            // gridColumn46
-            // 
-            this.gridColumn46.Caption = "上模";
-            this.gridColumn46.FieldName = "module_install";
-            this.gridColumn46.Name = "gridColumn46";
-            this.gridColumn46.Visible = true;
-            this.gridColumn46.VisibleIndex = 23;
+            this.gclPassDays.Caption = "已過天數";
+            this.gclPassDays.FieldName = "pass_days";
+            this.gclPassDays.Name = "gclPassDays";
+            this.gclPassDays.Visible = true;
+            this.gclPassDays.VisibleIndex = 3;
+            this.gclPassDays.Width = 60;
             // 
             // frmMoSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 634);
+            this.ClientSize = new System.Drawing.Size(1210, 634);
             this.Controls.Add(this.chkScheduleByMachine);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.palShowMore);
@@ -2689,8 +2784,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcSchedule)).EndInit();
             this.contextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvSchedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGvUrgentFlag)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueGvStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrdItemFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
@@ -2698,7 +2795,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueModuleType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueGvStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
@@ -2716,8 +2813,8 @@
             this.palShowNotMachine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcWaitSchedule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWaitSchedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).EndInit();
@@ -2725,7 +2822,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit8)).EndInit();
@@ -2738,9 +2835,12 @@
             this.palShowMore.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueSetUrgentMo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrdMachine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMachine.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrdMachine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueDepGroup.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -2873,7 +2973,6 @@
         private DevExpress.XtraEditors.TextEdit txtNotCpQty;
         private DevExpress.XtraEditors.TextEdit txtReqTotTime;
         private DevExpress.XtraGrid.Columns.GridColumn gclWorkTypeDesc;
-        private System.Windows.Forms.ComboBox cmbDepGroup;
         private System.Windows.Forms.Label lblDepGroup;
         private System.Windows.Forms.Label lblNeedPrdDays;
         private System.Windows.Forms.Label lblReqTotTime;
@@ -2972,5 +3071,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn gclModuleInstall;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
+        private System.Windows.Forms.ComboBox cmbCpStatus;
+        private System.Windows.Forms.Label lblCpStatus;
+        private DevExpress.XtraEditors.CheckEdit chkOver3Days;
+        private DevExpress.XtraEditors.TextEdit txtOver3Days;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit11;
+        private System.Windows.Forms.ProgressBar prgStatus;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnPrdItemFind;
+        private DevExpress.XtraEditors.LookUpEdit lueDepGroup;
+        private DevExpress.XtraGrid.Columns.GridColumn gclPassDays;
     }
 }

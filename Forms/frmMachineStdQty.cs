@@ -20,8 +20,7 @@ namespace cf01.Forms
         string strWhere = "";
         string lang_id = DBUtility._language;
         string user_id = DBUtility._user_id;
-        string pad_db = DBUtility.pad_db;
-       
+
         clsCommonUse commUse = new clsCommonUse();
         public frmMachineStdQty()
         {
@@ -50,10 +49,8 @@ namespace cf01.Forms
         private void BindDataGridView(string strWhere)
         {
             string strSql = null;
-            if (txtDepGroup.Text.Trim() == "JX")
-                pad_db = "lnsql1.dgcf_pad.dbo.";
             strSql = "SELECT a.dep,a.machine_id,a.machine_mul,a.machine_rate,a.machine_std_qty";
-            strSql += " FROM " + pad_db + "machine_std a " + strWhere;
+            strSql += " FROM bs_machine_std a " + strWhere;
             strSql += " ORDER BY a.dep,a.machine_id";
             try
             {
@@ -90,14 +87,12 @@ namespace cf01.Forms
         private void BTNSAVE_Click(object sender, EventArgs e)
         {
             txtDepGroup.Focus();
-            if (txtDepGroup.Text.Trim() == "JX")
-                pad_db = "lnsql1.dgcf_pad.dbo.";
             string strCode = "";
             if (chk_data() == false)
                 return;
             try
             {
-                strCode = "UPDATE " + pad_db + "machine_std SET machine_mul=@machine_mul,machine_rate=@machine_rate,machine_std_qty=@machine_std_qty ";
+                strCode = "UPDATE bs_machine_std SET machine_mul=@machine_mul,machine_rate=@machine_rate,machine_std_qty=@machine_std_qty ";
                 strCode += " WHERE dep = @dep AND machine_id=@machine_id ";
 
                 ParametersAddValue();

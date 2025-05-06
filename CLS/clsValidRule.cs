@@ -43,6 +43,20 @@ namespace cf01.CLS
                 result_flag = false;
             return result_flag;
         }
+        public static bool CheckDateValid(string strDate)
+        {
+            bool result = true;
+            DateTime chkDate;
+            try
+            {
+                chkDate = Convert.ToDateTime(strDate);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            return result;
+        }
 
         public static void CheckDate(object obj)
         {

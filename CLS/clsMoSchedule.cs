@@ -16,7 +16,21 @@ namespace cf01.CLS
         private static string remote_db = DBUtility.remote_db;
         private static string pad_db = DBUtility.pad_db;
         //private static clsPublicOfCF01 clsConnCF01 = new clsPublicOfCF01();
-
+        public static DataTable GetWipData(string prd_dep, string prd_mo, string prd_item)
+        {
+            string strSql = "";
+            string within_code = DBUtility.within_code;
+            strSql += " Select c.materiel_id,d.name As goods_name" +
+                " From jo_bill_mostly a " +
+                " Inner Join jo_bill_goods_details b On a.within_code=b.within_code And a.id=b.id And a.ver=b.ver " +
+                " Inner Join jo_bill_materiel_details c On b.within_code=c.within_code And b.id=c.id And b.ver=c.ver And b.sequence_id=c.upper_sequence " +
+                " Inner Join it_goods d On c.within_code=d.within_code And c.materiel_id=d.id" +
+                " Where a.within_code='" + within_code + "' And a.mo_id='" + prd_mo + "' And b.goods_id='" + prd_item
+                 + "' And b.wp_id='" + prd_dep + "'";
+            clsPublicOfGEO clsGeo = new clsPublicOfGEO();
+            DataTable dtMo = clsGeo.ExecuteSqlReturnDataTable(strSql);
+            return dtMo;
+        }
         public static string SaveMoSchedule(List<mdlMoSchedule> lsMo)
         {
             string result = "";
@@ -138,7 +152,7 @@ namespace cf01.CLS
         }
 
         public static DataTable LoadMoSchedule(string prd_dep,string prd_group,string prd_machine
-            ,int sch_by_machine,string mo_status, string user_id)
+            ,int sch_by_machine,string mo_status, string user_id,string cp_status)
         {
             SqlParameter[] paras = new SqlParameter[]{
                         new SqlParameter("@prd_dep",prd_dep)
@@ -146,7 +160,8 @@ namespace cf01.CLS
                         ,new SqlParameter("@prd_machine",prd_machine)
                         ,new SqlParameter("@sch_by_machine",sch_by_machine)
                         ,new SqlParameter("@mo_status",mo_status)
-                        ,new SqlParameter("@user_id",user_id)};
+                        ,new SqlParameter("@user_id",user_id)
+                        ,new SqlParameter("@cp_status",cp_status)};
             DataTable dtScheduler = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_mo_schedule", paras);
             dtScheduler.Columns.Add("ArtWork", typeof(Image)); // 图片列
             //for (int i=0;i<dtScheduler.Rows.Count;i++)
@@ -185,7 +200,7 @@ namespace cf01.CLS
         public static DataTable LoadScheduleBase(string prd_dep)
         {
             string strSql = "";
-            strSql += " Select prd_dep,schedule_date,work_in1,work_out1,work_in2,work_out2,work_in3,work_out3" +
+            strSql += " Select prd_dep,schedule_date,need_cal_time,work_in1,work_out1,work_in2,work_out2,work_in3,work_out3" +
                 ",break_in3,break_out3,break_in4,break_out4" +
                 ",start_prd_time,noon_break,afternoon_break,evening_break" +
                 " From mo_schedule_base " +
