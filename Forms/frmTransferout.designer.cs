@@ -2564,7 +2564,7 @@
             // chkSelectAll
             // 
             this.chkSelectAll.AutoSize = true;
-            this.chkSelectAll.Location = new System.Drawing.Point(30, 85);
+            this.chkSelectAll.Location = new System.Drawing.Point(30, 62);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Size = new System.Drawing.Size(48, 16);
             this.chkSelectAll.TabIndex = 186;
