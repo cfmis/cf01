@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferout));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clTest_item_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clType_conditon = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clButFindReport = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -201,6 +201,7 @@
             this.txtDat1 = new DevExpress.XtraEditors.DateEdit();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.gcIdDetails = new DevExpress.XtraGrid.GridControl();
             this.dgvIdDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.flagSelect2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -230,7 +231,6 @@
             this.lblFindOc_no = new DevExpress.XtraEditors.LabelControl();
             this.txtFindMoId = new DevExpress.XtraEditors.TextEdit();
             this.lblFindMo_id = new DevExpress.XtraEditors.LabelControl();
-            this.chkSelectAll = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.clTest_item_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clType_conditon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clButFindReport)).BeginInit();
@@ -1666,7 +1666,7 @@
             // 
             this.clbteItem.AutoHeight = false;
             this.clbteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.clbteItem.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.clbteItem.MaxLength = 18;
             this.clbteItem.Name = "clbteItem";
@@ -2170,7 +2170,7 @@
             // 
             this.lkebill_type_no1.EditValue = "";
             this.lkebill_type_no1.EnterMoveNextControl = true;
-            this.lkebill_type_no1.Location = new System.Drawing.Point(114, 122);
+            this.lkebill_type_no1.Location = new System.Drawing.Point(114, 123);
             this.lkebill_type_no1.Name = "lkebill_type_no1";
             this.lkebill_type_no1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lkebill_type_no1.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -2193,7 +2193,7 @@
             // 
             this.txtGroupNo1.EditValue = "";
             this.txtGroupNo1.EnterMoveNextControl = true;
-            this.txtGroupNo1.Location = new System.Drawing.Point(114, 66);
+            this.txtGroupNo1.Location = new System.Drawing.Point(114, 67);
             this.txtGroupNo1.Name = "txtGroupNo1";
             this.txtGroupNo1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtGroupNo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2203,7 +2203,7 @@
             // 
             // label52
             // 
-            this.label52.Location = new System.Drawing.Point(13, 71);
+            this.label52.Location = new System.Drawing.Point(13, 72);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(99, 13);
             this.label52.TabIndex = 191;
@@ -2217,14 +2217,14 @@
             this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id1,
@@ -2239,25 +2239,25 @@
             this.unit1,
             this.sec_qty1,
             this.sec_unit1});
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvFind.Location = new System.Drawing.Point(3, 163);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvFind.Size = new System.Drawing.Size(1225, 445);
             this.dgvFind.TabIndex = 188;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
@@ -2266,8 +2266,8 @@
             // id1
             // 
             this.id1.DataPropertyName = "id";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Blue;
-            this.id1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.id1.DefaultCellStyle = dataGridViewCellStyle2;
             this.id1.HeaderText = "單據號";
             this.id1.Name = "id1";
             this.id1.ReadOnly = true;
@@ -2276,9 +2276,9 @@
             // transfer_date1
             // 
             this.transfer_date1.DataPropertyName = "transfer_date";
-            dataGridViewCellStyle14.Format = "d";
-            dataGridViewCellStyle14.NullValue = null;
-            this.transfer_date1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.transfer_date1.DefaultCellStyle = dataGridViewCellStyle3;
             this.transfer_date1.HeaderText = "轉出日期";
             this.transfer_date1.Name = "transfer_date1";
             this.transfer_date1.ReadOnly = true;
@@ -2287,8 +2287,8 @@
             // bill_type_no1
             // 
             this.bill_type_no1.DataPropertyName = "bill_type_no";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.bill_type_no1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.bill_type_no1.DefaultCellStyle = dataGridViewCellStyle4;
             this.bill_type_no1.HeaderText = "單據種類";
             this.bill_type_no1.Name = "bill_type_no1";
             this.bill_type_no1.ReadOnly = true;
@@ -2297,8 +2297,8 @@
             // group_no1
             // 
             this.group_no1.DataPropertyName = "group_no";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.group_no1.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.group_no1.DefaultCellStyle = dataGridViewCellStyle5;
             this.group_no1.HeaderText = "組別";
             this.group_no1.Name = "group_no1";
             this.group_no1.ReadOnly = true;
@@ -2340,10 +2340,10 @@
             // transfer_amount1
             // 
             this.transfer_amount1.DataPropertyName = "transfer_amount";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N0";
-            dataGridViewCellStyle17.NullValue = null;
-            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle6;
             this.transfer_amount1.HeaderText = "轉倉數量";
             this.transfer_amount1.Name = "transfer_amount1";
             this.transfer_amount1.ReadOnly = true;
@@ -2352,8 +2352,8 @@
             // unit1
             // 
             this.unit1.DataPropertyName = "unit";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.unit1.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.unit1.DefaultCellStyle = dataGridViewCellStyle7;
             this.unit1.HeaderText = "數量單位";
             this.unit1.Name = "unit1";
             this.unit1.ReadOnly = true;
@@ -2362,8 +2362,8 @@
             // sec_qty1
             // 
             this.sec_qty1.DataPropertyName = "sec_qty";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.sec_qty1.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sec_qty1.DefaultCellStyle = dataGridViewCellStyle8;
             this.sec_qty1.HeaderText = "重量";
             this.sec_qty1.Name = "sec_qty1";
             this.sec_qty1.ReadOnly = true;
@@ -2372,8 +2372,8 @@
             // sec_unit1
             // 
             this.sec_unit1.DataPropertyName = "sec_unit";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.sec_unit1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sec_unit1.DefaultCellStyle = dataGridViewCellStyle9;
             this.sec_unit1.HeaderText = "重量單位";
             this.sec_unit1.Name = "sec_unit1";
             this.sec_unit1.ReadOnly = true;
@@ -2395,7 +2395,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(246, 95);
+            this.label50.Location = new System.Drawing.Point(246, 96);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(13, 12);
             this.label50.TabIndex = 8;
@@ -2405,7 +2405,7 @@
             // 
             this.txtMo_id2.EditValue = "";
             this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(264, 93);
+            this.txtMo_id2.Location = new System.Drawing.Point(264, 94);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2416,7 +2416,7 @@
             // label49
             // 
             this.label49.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label49.Location = new System.Drawing.Point(32, 97);
+            this.label49.Location = new System.Drawing.Point(32, 98);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(80, 15);
             this.label49.TabIndex = 185;
@@ -2427,7 +2427,7 @@
             // 
             this.txtMo_id1.EditValue = "";
             this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(114, 93);
+            this.txtMo_id1.Location = new System.Drawing.Point(114, 94);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2473,7 +2473,7 @@
             // lblMO
             // 
             this.lblMO.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMO.Location = new System.Drawing.Point(32, 125);
+            this.lblMO.Location = new System.Drawing.Point(32, 126);
             this.lblMO.Name = "lblMO";
             this.lblMO.Size = new System.Drawing.Size(80, 15);
             this.lblMO.TabIndex = 181;
@@ -2561,17 +2561,28 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "從裝箱掃描數據中導入";
             // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.AutoSize = true;
+            this.chkSelectAll.Location = new System.Drawing.Point(30, 85);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Size = new System.Drawing.Size(48, 16);
+            this.chkSelectAll.TabIndex = 186;
+            this.chkSelectAll.Text = "全選";
+            this.chkSelectAll.UseVisualStyleBackColor = true;
+            this.chkSelectAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkSelectAll_MouseUp);
+            // 
             // gcIdDetails
             // 
             this.gcIdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcIdDetails.Location = new System.Drawing.Point(2, 78);
+            this.gcIdDetails.Location = new System.Drawing.Point(2, 56);
             this.gcIdDetails.MainView = this.dgvIdDetails;
             this.gcIdDetails.Name = "gcIdDetails";
             this.gcIdDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clSelect});
-            this.gcIdDetails.Size = new System.Drawing.Size(1226, 531);
+            this.gcIdDetails.Size = new System.Drawing.Size(1226, 553);
             this.gcIdDetails.TabIndex = 6;
             this.gcIdDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvIdDetails});
@@ -2998,17 +3009,6 @@
             this.lblFindMo_id.Size = new System.Drawing.Size(28, 14);
             this.lblFindMo_id.TabIndex = 0;
             this.lblFindMo_id.Text = "頁數:";
-            // 
-            // chkSelectAll
-            // 
-            this.chkSelectAll.AutoSize = true;
-            this.chkSelectAll.Location = new System.Drawing.Point(30, 85);
-            this.chkSelectAll.Name = "chkSelectAll";
-            this.chkSelectAll.Size = new System.Drawing.Size(48, 16);
-            this.chkSelectAll.TabIndex = 186;
-            this.chkSelectAll.Text = "全選";
-            this.chkSelectAll.UseVisualStyleBackColor = true;
-            this.chkSelectAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkSelectAll_MouseUp);
             // 
             // frmTransferout
             // 
