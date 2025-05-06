@@ -31,11 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferout));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clTest_item_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clType_conditon = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clButFindReport = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -165,6 +170,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lkebill_type_no1 = new DevExpress.XtraEditors.LookUpEdit();
             this.txtGroupNo1 = new DevExpress.XtraEditors.TextEdit();
             this.label52 = new System.Windows.Forms.Label();
             this.dgvFind = new System.Windows.Forms.DataGridView();
@@ -188,16 +194,14 @@
             this.txtId2 = new DevExpress.XtraEditors.TextEdit();
             this.label45 = new System.Windows.Forms.Label();
             this.txtId1 = new DevExpress.XtraEditors.TextEdit();
-            this.txtbill_type_no2 = new DevExpress.XtraEditors.TextEdit();
             this.lblMO = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.txtbill_type_no1 = new DevExpress.XtraEditors.TextEdit();
             this.label47 = new System.Windows.Forms.Label();
             this.lblData1 = new System.Windows.Forms.Label();
             this.txtDat2 = new DevExpress.XtraEditors.DateEdit();
             this.txtDat1 = new DevExpress.XtraEditors.DateEdit();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.gcIdDetails = new DevExpress.XtraGrid.GridControl();
             this.dgvIdDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.flagSelect2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -270,14 +274,13 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkebill_type_no1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupNo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).BeginInit();
@@ -1876,7 +1879,6 @@
             this.gridColumn43.OptionsColumn.AllowMove = false;
             this.gridColumn43.OptionsColumn.AllowShowHide = false;
             this.gridColumn43.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn43.OptionsColumn.ReadOnly = true;
             this.gridColumn43.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn43.OptionsFilter.AllowFilter = false;
             this.gridColumn43.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
@@ -1903,6 +1905,8 @@
             // 
             // gridColumn48
             // 
+            this.gridColumn48.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn48.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn48.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
             this.gridColumn48.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn48.Caption = "倉庫";
@@ -1914,6 +1918,7 @@
             this.gridColumn48.OptionsColumn.AllowMove = false;
             this.gridColumn48.OptionsColumn.AllowShowHide = false;
             this.gridColumn48.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn48.OptionsColumn.ReadOnly = true;
             this.gridColumn48.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn48.OptionsFilter.AllowFilter = false;
             this.gridColumn48.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
@@ -2134,6 +2139,7 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.lkebill_type_no1);
             this.tabPage2.Controls.Add(this.txtGroupNo1);
             this.tabPage2.Controls.Add(this.label52);
             this.tabPage2.Controls.Add(this.dgvFind);
@@ -2145,10 +2151,7 @@
             this.tabPage2.Controls.Add(this.txtId2);
             this.tabPage2.Controls.Add(this.label45);
             this.tabPage2.Controls.Add(this.txtId1);
-            this.tabPage2.Controls.Add(this.txtbill_type_no2);
             this.tabPage2.Controls.Add(this.lblMO);
-            this.tabPage2.Controls.Add(this.label46);
-            this.tabPage2.Controls.Add(this.txtbill_type_no1);
             this.tabPage2.Controls.Add(this.label47);
             this.tabPage2.Controls.Add(this.lblData1);
             this.tabPage2.Controls.Add(this.txtDat2);
@@ -2163,11 +2166,34 @@
             this.tabPage2.Text = "已保存數據查詢";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lkebill_type_no1
+            // 
+            this.lkebill_type_no1.EditValue = "";
+            this.lkebill_type_no1.EnterMoveNextControl = true;
+            this.lkebill_type_no1.Location = new System.Drawing.Point(114, 123);
+            this.lkebill_type_no1.Name = "lkebill_type_no1";
+            this.lkebill_type_no1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.lkebill_type_no1.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.lkebill_type_no1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.lkebill_type_no1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkebill_type_no1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lkebill_type_no1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 120, "cdesc")});
+            this.lkebill_type_no1.Properties.NullText = "";
+            this.lkebill_type_no1.Properties.PopupFormMinSize = new System.Drawing.Size(250, 0);
+            this.lkebill_type_no1.Properties.PopupWidth = 150;
+            this.lkebill_type_no1.Properties.ShowHeader = false;
+            this.lkebill_type_no1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lkebill_type_no1.Size = new System.Drawing.Size(127, 22);
+            this.lkebill_type_no1.TabIndex = 192;
+            // 
             // txtGroupNo1
             // 
             this.txtGroupNo1.EditValue = "";
             this.txtGroupNo1.EnterMoveNextControl = true;
-            this.txtGroupNo1.Location = new System.Drawing.Point(114, 66);
+            this.txtGroupNo1.Location = new System.Drawing.Point(114, 67);
             this.txtGroupNo1.Name = "txtGroupNo1";
             this.txtGroupNo1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtGroupNo1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2177,7 +2203,7 @@
             // 
             // label52
             // 
-            this.label52.Location = new System.Drawing.Point(13, 71);
+            this.label52.Location = new System.Drawing.Point(13, 72);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(99, 13);
             this.label52.TabIndex = 191;
@@ -2213,25 +2239,25 @@
             this.unit1,
             this.sec_qty1,
             this.sec_unit1});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvFind.Location = new System.Drawing.Point(3, 163);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvFind.Size = new System.Drawing.Size(1225, 445);
             this.dgvFind.TabIndex = 188;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
@@ -2245,7 +2271,7 @@
             this.id1.HeaderText = "單據號";
             this.id1.Name = "id1";
             this.id1.ReadOnly = true;
-            this.id1.Width = 120;
+            this.id1.Width = 90;
             // 
             // transfer_date1
             // 
@@ -2256,11 +2282,13 @@
             this.transfer_date1.HeaderText = "轉出日期";
             this.transfer_date1.Name = "transfer_date1";
             this.transfer_date1.ReadOnly = true;
-            this.transfer_date1.Width = 90;
+            this.transfer_date1.Width = 80;
             // 
             // bill_type_no1
             // 
             this.bill_type_no1.DataPropertyName = "bill_type_no";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.bill_type_no1.DefaultCellStyle = dataGridViewCellStyle4;
             this.bill_type_no1.HeaderText = "單據種類";
             this.bill_type_no1.Name = "bill_type_no1";
             this.bill_type_no1.ReadOnly = true;
@@ -2269,10 +2297,12 @@
             // group_no1
             // 
             this.group_no1.DataPropertyName = "group_no";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.group_no1.DefaultCellStyle = dataGridViewCellStyle5;
             this.group_no1.HeaderText = "組別";
             this.group_no1.Name = "group_no1";
             this.group_no1.ReadOnly = true;
-            this.group_no1.Width = 60;
+            this.group_no1.Width = 40;
             // 
             // sequence_id1
             // 
@@ -2280,7 +2310,7 @@
             this.sequence_id1.HeaderText = "序號";
             this.sequence_id1.Name = "sequence_id1";
             this.sequence_id1.ReadOnly = true;
-            this.sequence_id1.Width = 70;
+            this.sequence_id1.Width = 60;
             // 
             // mo_id1
             // 
@@ -2288,14 +2318,15 @@
             this.mo_id1.HeaderText = "頁數";
             this.mo_id1.Name = "mo_id1";
             this.mo_id1.ReadOnly = true;
+            this.mo_id1.Width = 80;
             // 
             // goods_id1
             // 
             this.goods_id1.DataPropertyName = "goods_id";
-            this.goods_id1.HeaderText = "貨品";
+            this.goods_id1.HeaderText = "貨品編碼";
             this.goods_id1.Name = "goods_id1";
             this.goods_id1.ReadOnly = true;
-            this.goods_id1.Width = 150;
+            this.goods_id1.Width = 140;
             // 
             // goods_name1
             // 
@@ -2309,37 +2340,44 @@
             // transfer_amount1
             // 
             this.transfer_amount1.DataPropertyName = "transfer_amount";
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle6;
             this.transfer_amount1.HeaderText = "轉倉數量";
             this.transfer_amount1.Name = "transfer_amount1";
             this.transfer_amount1.ReadOnly = true;
-            this.transfer_amount1.Width = 90;
+            this.transfer_amount1.Width = 80;
             // 
             // unit1
             // 
             this.unit1.DataPropertyName = "unit";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.unit1.DefaultCellStyle = dataGridViewCellStyle7;
             this.unit1.HeaderText = "數量單位";
             this.unit1.Name = "unit1";
             this.unit1.ReadOnly = true;
-            this.unit1.Width = 90;
+            this.unit1.Width = 60;
             // 
             // sec_qty1
             // 
             this.sec_qty1.DataPropertyName = "sec_qty";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sec_qty1.DefaultCellStyle = dataGridViewCellStyle8;
             this.sec_qty1.HeaderText = "重量";
             this.sec_qty1.Name = "sec_qty1";
             this.sec_qty1.ReadOnly = true;
-            this.sec_qty1.Visible = false;
-            this.sec_qty1.Width = 30;
+            this.sec_qty1.Width = 60;
             // 
             // sec_unit1
             // 
             this.sec_unit1.DataPropertyName = "sec_unit";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sec_unit1.DefaultCellStyle = dataGridViewCellStyle9;
             this.sec_unit1.HeaderText = "重量單位";
             this.sec_unit1.Name = "sec_unit1";
             this.sec_unit1.ReadOnly = true;
+            this.sec_unit1.Width = 60;
             // 
             // btnSearch
             // 
@@ -2357,7 +2395,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(246, 95);
+            this.label50.Location = new System.Drawing.Point(246, 96);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(13, 12);
             this.label50.TabIndex = 8;
@@ -2367,7 +2405,7 @@
             // 
             this.txtMo_id2.EditValue = "";
             this.txtMo_id2.EnterMoveNextControl = true;
-            this.txtMo_id2.Location = new System.Drawing.Point(264, 93);
+            this.txtMo_id2.Location = new System.Drawing.Point(264, 94);
             this.txtMo_id2.Name = "txtMo_id2";
             this.txtMo_id2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2378,7 +2416,7 @@
             // label49
             // 
             this.label49.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label49.Location = new System.Drawing.Point(32, 97);
+            this.label49.Location = new System.Drawing.Point(32, 98);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(80, 15);
             this.label49.TabIndex = 185;
@@ -2389,7 +2427,7 @@
             // 
             this.txtMo_id1.EditValue = "";
             this.txtMo_id1.EnterMoveNextControl = true;
-            this.txtMo_id1.Location = new System.Drawing.Point(114, 93);
+            this.txtMo_id1.Location = new System.Drawing.Point(114, 94);
             this.txtMo_id1.Name = "txtMo_id1";
             this.txtMo_id1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtMo_id1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -2432,49 +2470,15 @@
             this.txtId1.TabIndex = 2;
             this.txtId1.Leave += new System.EventHandler(this.txtId1_Leave);
             // 
-            // txtbill_type_no2
-            // 
-            this.txtbill_type_no2.EditValue = "";
-            this.txtbill_type_no2.EnterMoveNextControl = true;
-            this.txtbill_type_no2.Location = new System.Drawing.Point(264, 121);
-            this.txtbill_type_no2.Name = "txtbill_type_no2";
-            this.txtbill_type_no2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtbill_type_no2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtbill_type_no2.Properties.MaxLength = 8;
-            this.txtbill_type_no2.Size = new System.Drawing.Size(127, 22);
-            this.txtbill_type_no2.TabIndex = 8;
-            // 
             // lblMO
             // 
             this.lblMO.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMO.Location = new System.Drawing.Point(32, 125);
+            this.lblMO.Location = new System.Drawing.Point(32, 126);
             this.lblMO.Name = "lblMO";
             this.lblMO.Size = new System.Drawing.Size(80, 15);
             this.lblMO.TabIndex = 181;
             this.lblMO.Text = "單據種類";
             this.lblMO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(246, 125);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(13, 12);
-            this.label46.TabIndex = 180;
-            this.label46.Text = "--";
-            // 
-            // txtbill_type_no1
-            // 
-            this.txtbill_type_no1.EditValue = "";
-            this.txtbill_type_no1.EnterMoveNextControl = true;
-            this.txtbill_type_no1.Location = new System.Drawing.Point(114, 121);
-            this.txtbill_type_no1.Name = "txtbill_type_no1";
-            this.txtbill_type_no1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtbill_type_no1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtbill_type_no1.Properties.MaxLength = 8;
-            this.txtbill_type_no1.Size = new System.Drawing.Size(127, 22);
-            this.txtbill_type_no1.TabIndex = 7;
-            this.txtbill_type_no1.Leave += new System.EventHandler(this.txtCust_id1_Leave);
             // 
             // label47
             // 
@@ -2540,13 +2544,14 @@
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(99, 13);
             this.label48.TabIndex = 177;
-            this.label48.Text = "編碼";
+            this.label48.Text = "轉出單編號";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage3.Controls.Add(this.chkSelectAll);
             this.tabPage3.Controls.Add(this.gcIdDetails);
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -2556,17 +2561,28 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "從裝箱掃描數據中導入";
             // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.AutoSize = true;
+            this.chkSelectAll.Location = new System.Drawing.Point(30, 62);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Size = new System.Drawing.Size(48, 16);
+            this.chkSelectAll.TabIndex = 186;
+            this.chkSelectAll.Text = "全選";
+            this.chkSelectAll.UseVisualStyleBackColor = true;
+            this.chkSelectAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkSelectAll_MouseUp);
+            // 
             // gcIdDetails
             // 
             this.gcIdDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcIdDetails.Location = new System.Drawing.Point(2, 57);
+            this.gcIdDetails.Location = new System.Drawing.Point(2, 56);
             this.gcIdDetails.MainView = this.dgvIdDetails;
             this.gcIdDetails.Name = "gcIdDetails";
             this.gcIdDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clSelect});
-            this.gcIdDetails.Size = new System.Drawing.Size(1226, 552);
+            this.gcIdDetails.Size = new System.Drawing.Size(1226, 553);
             this.gcIdDetails.TabIndex = 6;
             this.gcIdDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvIdDetails});
@@ -2603,7 +2619,7 @@
             this.flagSelect2.AppearanceCell.Options.UseBackColor = true;
             this.flagSelect2.AppearanceHeader.Options.UseTextOptions = true;
             this.flagSelect2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.flagSelect2.Caption = "選取";
+            this.flagSelect2.Caption = "  ";
             this.flagSelect2.ColumnEdit = this.clSelect;
             this.flagSelect2.FieldName = "flag_select";
             this.flagSelect2.Name = "flagSelect2";
@@ -2615,7 +2631,7 @@
             this.flagSelect2.OptionsFilter.AllowFilter = false;
             this.flagSelect2.Visible = true;
             this.flagSelect2.VisibleIndex = 0;
-            this.flagSelect2.Width = 56;
+            this.flagSelect2.Width = 69;
             // 
             // clSelect
             // 
@@ -2625,6 +2641,8 @@
             // 
             // moId2
             // 
+            this.moId2.AppearanceHeader.Options.UseTextOptions = true;
+            this.moId2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.moId2.Caption = "制單頁數";
             this.moId2.FieldName = "mo_id";
             this.moId2.Name = "moId2";
@@ -2641,6 +2659,8 @@
             // 
             // goodsId2
             // 
+            this.goodsId2.AppearanceHeader.Options.UseTextOptions = true;
+            this.goodsId2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.goodsId2.Caption = "產品編號";
             this.goodsId2.FieldName = "goods_id";
             this.goodsId2.Name = "goodsId2";
@@ -2658,6 +2678,8 @@
             // 
             // qty2
             // 
+            this.qty2.AppearanceHeader.Options.UseTextOptions = true;
+            this.qty2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.qty2.Caption = "數量";
             this.qty2.FieldName = "qty";
             this.qty2.Name = "qty2";
@@ -2675,6 +2697,8 @@
             // 
             // weg2
             // 
+            this.weg2.AppearanceHeader.Options.UseTextOptions = true;
+            this.weg2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.weg2.Caption = "重量";
             this.weg2.FieldName = "weg";
             this.weg2.Name = "weg2";
@@ -2692,6 +2716,8 @@
             // 
             // wegGross
             // 
+            this.wegGross.AppearanceHeader.Options.UseTextOptions = true;
+            this.wegGross.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.wegGross.Caption = "毛重";
             this.wegGross.FieldName = "weg_gross";
             this.wegGross.Name = "wegGross";
@@ -2750,6 +2776,8 @@
             // 
             // cartonSize2
             // 
+            this.cartonSize2.AppearanceHeader.Options.UseTextOptions = true;
+            this.cartonSize2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.cartonSize2.Caption = "包裝尺寸";
             this.cartonSize2.FieldName = "carton_size";
             this.cartonSize2.Name = "cartonSize2";
@@ -2785,6 +2813,8 @@
             // 
             // updateDate2
             // 
+            this.updateDate2.AppearanceHeader.Options.UseTextOptions = true;
+            this.updateDate2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.updateDate2.Caption = "掃描日期";
             this.updateDate2.FieldName = "update_date";
             this.updateDate2.Name = "updateDate2";
@@ -2801,6 +2831,8 @@
             // 
             // suitFlag
             // 
+            this.suitFlag.AppearanceHeader.Options.UseTextOptions = true;
+            this.suitFlag.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.suitFlag.Caption = "走貨類型";
             this.suitFlag.FieldName = "suit_flag";
             this.suitFlag.Name = "suitFlag";
@@ -3035,19 +3067,19 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkebill_type_no1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupNo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo_id1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbill_type_no1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat1.Properties)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcIdDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIdDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSelect)).EndInit();
@@ -3181,10 +3213,7 @@
         private DevExpress.XtraEditors.TextEdit txtId2;
         private System.Windows.Forms.Label label45;
         private DevExpress.XtraEditors.TextEdit txtId1;
-        private DevExpress.XtraEditors.TextEdit txtbill_type_no2;
         private System.Windows.Forms.Label lblMO;
-        private System.Windows.Forms.Label label46;
-        private DevExpress.XtraEditors.TextEdit txtbill_type_no1;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label lblData1;
         private DevExpress.XtraEditors.DateEdit txtDat2;
@@ -3245,6 +3274,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.Columns.GridColumn suitFlag;
         private System.Windows.Forms.CheckBox chkDgd;
+        private System.Windows.Forms.ToolStripButton BTNCHECKST;
+        private DevExpress.XtraEditors.LookUpEdit lkebill_type_no1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn transfer_date1;
         private System.Windows.Forms.DataGridViewTextBoxColumn bill_type_no1;
@@ -3257,6 +3288,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unit1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit1;
-        private System.Windows.Forms.ToolStripButton BTNCHECKST;
+        private System.Windows.Forms.CheckBox chkSelectAll;
     }
 }

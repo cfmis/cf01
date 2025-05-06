@@ -2315,7 +2315,7 @@
             this.id.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.id.Properties.MaxLength = 10;
+            this.id.Properties.MaxLength = 13;
             this.id.Size = new System.Drawing.Size(141, 22);
             this.id.TabIndex = 0;
             this.id.Tag = "1";
@@ -2759,7 +2759,7 @@
             this.gcOcDgdDetails.Name = "gcOcDgdDetails";
             this.gcOcDgdDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2});
-            this.gcOcDgdDetails.Size = new System.Drawing.Size(1226, 282);
+            this.gcOcDgdDetails.Size = new System.Drawing.Size(1226, 217);
             this.gcOcDgdDetails.TabIndex = 7;
             this.gcOcDgdDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvOcDgdDetails});
@@ -2849,6 +2849,8 @@
             // 
             // colOc_State
             // 
+            this.colOc_State.AppearanceCell.Options.UseTextOptions = true;
+            this.colOc_State.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colOc_State.Caption = "過賬狀態";
             this.colOc_State.FieldName = "state";
             this.colOc_State.Name = "colOc_State";

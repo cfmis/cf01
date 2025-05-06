@@ -289,6 +289,12 @@ namespace cf01.ReportForm
                 txtColorDo.Text = dtColorInfo.Rows[0]["do_color"].ToString();
                 txtColor.Text = dtColorInfo.Rows[0]["color_id"].ToString();
             }
+            else
+            {
+                txtColorName.Text = "";
+                txtColorDo.Text = "";
+                txtColor.Text = "";
+            }
             if (dtSize.Rows.Count > 0)
             {
                 txtSizeName.Text = dtSize.Rows[0]["size_name"].ToString();

@@ -314,7 +314,7 @@ namespace cf01.Forms
             separate_issues.EditValue = "1";            
             type.EditValue = "VDJ";
             state.EditValue = "0";
-            GetID_No();
+            GetMaxId();
             issues_date.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd");           
             total_package_num.Text = "0";
 			dtDetails.Clear();
@@ -547,7 +547,7 @@ namespace cf01.Forms
                     string strSql = string.Format("Select '1' FROM dbo.so_issues_mostly WHERE within_code='0000' and id='{0}'", id.Text.Trim());
                     if (clsConErp.ExecuteSqlReturnObject(strSql) != "")
                     {
-                        GetID_No();//如已存在編號則重取最大單據編號
+                        GetMaxId();//如已存在編號則重取最大單據編號
                     }                   
                 } 
                 string sql_i =
@@ -626,7 +626,8 @@ namespace cf01.Forms
                             strID = id.Text.Trim();//VDJ2409000091
                             yymm = strID.Substring(3, 4); //2409                            
                             bill_type = strID.Substring(0, 3);
-                            sql_bill_f = string.Format(@"Select '1' FROM sys_bill_max_separate WHERE within_code='0000' and bill_id='SA02' AND year_month='{0}' AND bill_text1='{1}'", yymm, bill_type);
+                            sql_bill_f = string.Format(
+                            @"Select '1' FROM sys_bill_max_separate WHERE within_code='0000' and bill_id='SA02' AND year_month='{0}' AND bill_text1='{1}'", yymm, bill_type);
                             if (clsConErp.ExecuteSqlReturnObject(sql_bill_f) != "")
                                 myCommand.CommandText = sql_bill_code_u;
                             else                            
@@ -652,16 +653,16 @@ namespace cf01.Forms
                             myCommand.Parameters.AddWithValue("@goods_id", dtTempDel.Rows[i]["goods_id"].ToString());
                             myCommand.ExecuteNonQuery();                            
                             //還原手寫單標識
-                            sql_update_flag =string.Format( 
+                            sql_update_flag = string.Format( 
                             @"UPDATE so_invoice_details SET state='0' WHERE within_code='0000' AND mo_id='{0}' AND goods_id='{1}' AND order_id='{2}' and so_ver='{3}' and so_sequence_id='{4}'", 
-                             dtTempDel.Rows[i]["mo_id"].ToString(),dtTempDel.Rows[i]["goods_id"].ToString(),dtTempDel.Rows[i]["order_id"].ToString(),
-                             dtTempDel.Rows[i]["so_ver"].ToString(), dtTempDel.Rows[i]["so_sequence_id"].ToString());
+                            dtTempDel.Rows[i]["mo_id"].ToString(),dtTempDel.Rows[i]["goods_id"].ToString(),dtTempDel.Rows[i]["order_id"].ToString(),
+                            dtTempDel.Rows[i]["so_ver"].ToString(), dtTempDel.Rows[i]["so_sequence_id"].ToString());
                             clsPublicOfCF01.ExecuteSqlUpdate(sql_update_flag);
                         }
                                                 
                         //保存明細
                         int curRow;
-                        string rowStatus;
+                        string rowStatus="";
 						if (gridView1.RowCount > 0)
 						{                           
                             string sql_item_i =
@@ -675,18 +676,6 @@ namespace cf01.Forms
                             @inner_carton,@nwt,@gross_wt,@ii_location,@carton_code,Case When LEN(@deliver_date)=0 Then null Else @deliver_date End,
                             @transfers_state,@remark,@contract_cid,@present_qty,@fact_qty,@sec_qty,
                             @sec_unit,@lot_no,@mo_id,@shipment_suit,@piece_num,@state,@obligate_mo_id,@package_no,@pcs_ctn,@cube_ctn,@cbm_size,@cuft_size,@acus_id)";
-
-                           // sql_item_i =
-                           //@"INSERT INTO dbo.so_issues_details
-                           // (within_code,id,sequence_id,order_id,so_sequence_id,so_ver,goods_id,customer_goods,goods_name,issues_unit,basic_unit,unit_rate, 
-                           // issues_qty,check_qty,eligible_qty,unqualified_qty,invoice_qty,use_invoice,order_issues_qty,return_qty,exchange_rate,
-                           // inner_carton,nwt,gross_wt,ii_location,carton_code,deliver_date,transfers_state,remark,contract_cid,present_qty,fact_qty,sec_qty,
-                           // sec_unit,lot_no,mo_id,shipment_suit) VALUES
-                           // ('0000',@id,@sequence_id,@order_id,@so_sequence_id,@so_ver,@goods_id,@customer_goods,@goods_name,@issues_unit,@basic_unit,@unit_rate, 
-                           // @issues_qty,@check_qty,@eligible_qty,@unqualified_qty,@invoice_qty,@use_invoice,@order_issues_qty,@return_qty,@exchange_rate,
-                           // @inner_carton,@nwt,@gross_wt,@ii_location,@carton_code,Case When LEN(@deliver_date)=0 Then null Else @deliver_date End,
-                           // @transfers_state,@remark,@contract_cid,@present_qty,@fact_qty,@sec_qty,@sec_unit,@lot_no,@mo_id,@shipment_suit)";
-
                             string sql_item_u =
                             @"Update dbo.so_issues_details 
                             SET order_id=@order_id,so_sequence_id=@so_sequence_id,so_ver=Case When Len(@so_sequence_id)=0 Then null Else @so_ver End,
@@ -803,16 +792,18 @@ namespace cf01.Forms
             //更新過帳標識
             if (save_flag)
             {
-                int cur_row;
-                string sql_u, delivery_id, seq;
+                int rowIndex=0;
+                string sql_u, deliveryId, seq;
+                gridView1.CloseEditor(); //編輯的值有效
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
-                    cur_row = gridView1.GetRowHandle(i);
-                    if (gridView1.GetRowCellValue(cur_row, "delivery_id").ToString() != "")
+                    rowIndex = gridView1.GetRowHandle(i);
+                    deliveryId = gridView1.GetRowCellValue(rowIndex, "delivery_id").ToString();
+                    deliveryId = string.IsNullOrEmpty(deliveryId) ? "" : deliveryId.Trim();
+                    if (deliveryId != "")
                     {
-                        delivery_id = gridView1.GetRowCellValue(cur_row, "delivery_id").ToString();
-                        seq = gridView1.GetRowCellValue(cur_row, "seq").ToString();
-                        sql_u = string.Format("Update so_invoice_details Set state='1' Where within_code='0000' and id='{0}' and sequence_id='{1}'", delivery_id, seq);
+                        seq = gridView1.GetRowCellValue(rowIndex, "seq").ToString().Trim();
+                        sql_u = string.Format("Update so_invoice_details Set state='1' Where within_code='0000' And id='{0}' And sequence_id='{1}'", deliveryId, seq);
                         clsPublicOfCF01.ExecuteSqlUpdate(sql_u);
                     }
                 }
@@ -969,13 +960,13 @@ namespace cf01.Forms
       
         private void type_Leave(object sender, EventArgs e)
         {
-            GetID_No();
+            GetMaxId();
         }
 
         /// <summary>
         /// 取單據序號
         /// </summary>
-        private void GetID_No()
+        private void GetMaxId()
         {
             if (mState != "")
             {              
@@ -1039,7 +1030,7 @@ namespace cf01.Forms
                         cd_seller.EditValue = dt.Rows[0]["seller_id"].ToString();
                         name.Text = dt.Rows[0]["cust_name"].ToString();   //**  
                         address.Text = dt.Rows[0]["s_address"].ToString();                                                
-                        GetID_No();
+                        GetMaxId();
                     }
                 }
             }
@@ -1156,7 +1147,7 @@ namespace cf01.Forms
             @"SELECT Convert(bit,0) as is_select,Convert(int,SUBSTRING(sequence_id,1,4)) As seq,a.id,Convert(Varchar(20),b.ship_date,111) AS ship_date,
             a.sequence_id,a.mo_id,a.goods_id,a.goods_name,Convert(INT,a.u_invoice_qty) As u_invoice_qty,Convert(INT,a.u_invoice_qty_pcs) As u_invoice_qty_pcs,
             a.goods_unit,Convert(Decimal(18,2),a.sec_qty) As sec_qty,a.sec_unit,a.location_id,a.customer_goods,a.customer_color_id,a.order_id,
-            a.so_ver,a.so_sequence_id,a.table_head,a.customer_goods,a.customer_color_id,a.contract_cid,Convert(INT,a.package_num) As package_num,
+            a.so_ver,a.so_sequence_id,a.table_head,a.contract_cid,Convert(INT,a.package_num) As package_num,
             a.box_no,a.remark,a.is_print,a.shipment_suit
             FROM so_invoice_details a with(nolock)
             INNER JOIN so_invoice_mostly b with(nolock) ON a.within_code=b.within_code And a.id=b.id AND a.ver=b.ver
@@ -1225,7 +1216,7 @@ namespace cf01.Forms
                     strMoId = clsConErp.ExecuteSqlReturnObject(sql_f);
                     if (strMoId != "")
                     {
-                        //檢查是否開過VAT送貨單
+                        //已開過VAT送貨單
                         break;
                     }
                     objModel.goods_id = dgvIdDetails.GetDataRow(i)["goods_id"].ToString().Trim();
@@ -1264,11 +1255,10 @@ namespace cf01.Forms
                 MessageBox.Show(string.Format("注意，頁數：「{0}」已開過VAT送貨單!" + "\n\r\n\r 請返回檢查！", strMoId), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             tabControl1.SelectTab(0);//跳至第一頁
             if (mState == "NEW" || mState == "EDIT")//已點擊新增或編號
             {
-                Add_Delivery_Data();              
+                AddDetailData();
             }
             else
             {
@@ -1277,7 +1267,7 @@ namespace cf01.Forms
                     Edit();
                 else               
                     AddNew();                
-                Add_Delivery_Data();
+                AddDetailData();
             }
             lsModel.Clear();
             //移除選中的行
@@ -1295,7 +1285,7 @@ namespace cf01.Forms
         }   
 
         //將選中的記錄插入東莞D中
-        private void Add_Delivery_Data()
+        private void AddDetailData()
         {
             if (lsModel.Count > 0)
             {

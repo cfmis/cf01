@@ -139,13 +139,14 @@ namespace cf01.CLS
         public static DataTable GetColorInfo(string wp_id, string mo_id, string goods_id)
         {
             DataTable dtColorInfo = new DataTable();
-            string strSql = @"SELECT A.mo_id, C.materiel_id,C.goods_id, G.do_color, D.name as color_name,G.color as color_id"+
-                              " FROM jo_bill_mostly A with(nolock)"+
-                              " INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver "+
-                              " INNER JOIN jo_bill_materiel_details C with(nolock) ON B.within_code = C.within_code AND B.id = C.id AND B.ver = C.ver AND B.sequence_id = C.upper_sequence "+
-                              " INNER JOIN it_goods G with(nolock) ON C.within_code = G.within_code AND C.goods_id = G.id "+
-                              " INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id"+
-                              " WHERE A.within_code = '0000'";
+            string strSql =
+            @"SELECT A.mo_id, C.materiel_id,C.goods_id, G.do_color, D.name as color_name,G.color as color_id"+
+            " FROM jo_bill_mostly A with(nolock)"+
+            " INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver "+
+            " INNER JOIN jo_bill_materiel_details C with(nolock) ON B.within_code = C.within_code AND B.id = C.id AND B.ver = C.ver AND B.sequence_id = C.upper_sequence "+
+            " INNER JOIN it_goods G with(nolock) ON C.within_code = G.within_code AND C.goods_id = G.id "+
+            " INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id"+
+            " WHERE A.within_code = '0000'";
             if (mo_id != "" && wp_id != "" && goods_id != "")
             {
                 strSql += string.Format(" AND A.mo_id = '{0}'", mo_id);
@@ -154,6 +155,24 @@ namespace cf01.CLS
                 //"AND C.materiel_id = ''"
             }
             dtColorInfo = clsConErp.GetDataTable(strSql);
+            //2025/05/05 added Allen 
+            if (dtColorInfo.Rows.Count == 0)
+            {
+                strSql =
+                @"SELECT A.mo_id, '' AS materiel_id,B.goods_id, G.do_color, D.name as color_name,G.color as color_id" +
+                " FROM jo_bill_mostly A with(nolock)" +
+                " INNER JOIN jo_bill_goods_details B with(nolock) ON A.within_code = B.within_code AND A.id = B.id AND A.ver = B.ver " +               
+                " INNER JOIN it_goods G with(nolock) ON B.within_code = G.within_code AND B.goods_id = G.id " +
+                " INNER JOIN cd_color D with(nolock) ON G.within_code = D.within_code AND G.color = D.id" +
+                " WHERE A.within_code = '0000'";
+                if (mo_id != "" && wp_id != "" && goods_id != "")
+                {
+                    strSql += string.Format(" AND A.mo_id = '{0}'", mo_id);
+                    strSql += string.Format(" AND B.wp_id = '{0}'", wp_id);
+                    strSql += string.Format(" AND B.goods_id='{0}'", goods_id);                   
+                }
+                dtColorInfo = clsConErp.GetDataTable(strSql);
+            }
             return dtColorInfo;
         }
 

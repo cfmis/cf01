@@ -664,6 +664,35 @@ namespace cf01.CLS
             return result;
         }
 
+        public static string GetSequenceID(int index)
+        {
+            //返回序號
+            string result = "";
+            if (index > 0)
+                result = index.ToString().PadLeft(4, '0') + "h";
+            else
+            {
+                result = "0001h";
+            }
+            return result;
+        }
+
+        public static string GetDbDateTime(string type)
+        {
+            string strSql = "";
+            if (type == "S")
+            {
+                strSql = "SELECT CONVERT(varchar(10),GETDATE(),120) as dbdate";
+            }
+            else
+            {
+                strSql = "SELECT CONVERT(varchar(19),GETDATE(),120) as dbdate";
+            }
+            DataTable dt = clsErp.ExecuteSqlReturnDataTable(strSql);
+            string result = dt.Rows[0]["dbdate"].ToString();
+            return result;
+        }
+
         //create a reportview report and define format,grouping  ://msdn.microsoft.com/zh-cn/library/ms252073(v=vs.90).aspx
 
         //make report define grouping   ://www.dotblogs.com.tw/bruce655/archive/2012/02/22/69837.aspx
