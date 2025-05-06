@@ -261,7 +261,9 @@ namespace cf01.Forms
 			SetButtonSatus(false);
             Set_Grid_Status(true);
             SetObjValue.SetEditBackColor(this.tabPage1.Controls, true);
-			SetObjValue.ClearObjValue(this.tabPage1.Controls, "1");            
+			SetObjValue.ClearObjValue(this.tabPage1.Controls, "1");
+            dtsTrans.Tables["dtD2"].Clear();
+            dtsTrans.Tables["dtD1"].Clear();
             lkeSate.Enabled = false ;
             lkeSate.BackColor = System.Drawing.Color.White;
             DataRow dr = dtMostly.NewRow(); //插一空行
@@ -272,11 +274,6 @@ namespace cf01.Forms
             lkeBill_type_no.EditValue = "";
             lkeSate.EditValue = "0";
             txtCreate_by.Text = DBUtility._user_id;
-         
-			//dtDetails.Clear();
-			//gridControl1.DataSource = dtDetails;
-            //dtPart.Clear();
-            //gridControl2.DataSource = dtPart;
             tabControl1.SelectTab(0);           
         }
 
@@ -565,8 +562,7 @@ namespace cf01.Forms
             temp_mo_id = "";
             temp_suit = "";
             temp_goods_id = "";
-            temp_transfer_amount = 0;
-           
+            temp_transfer_amount = 0;           
             mState = "";
 			if (!string.IsNullOrEmpty(mID))
 			{
@@ -1162,11 +1158,12 @@ namespace cf01.Forms
 
         private void dgvFind_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string strName = dgvFind.Columns[e.ColumnIndex].Name;
-            if (strName == "id1")
-            {                
-                tabControl1.SelectTab(0);
-            }
+            tabControl1.SelectTab(0);
+            //string strName = dgvFind.Columns[e.ColumnIndex].Name;
+            //if (strName == "id1")
+            //{                
+            //    tabControl1.SelectTab(0);
+            //}
         }
 
         private void txtDat1_Leave(object sender, EventArgs e)
@@ -1431,36 +1428,23 @@ namespace cf01.Forms
             MessageBox.Show($"X: {screenLocation.X}, Y: {screenLocation.Y}");
         }
 
-        private void dgvDetails_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
-        {
-            if (dgvDetails.RowCount > 0)
-            {
-                string transferAmount = "";
-                temp_mo_id = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "mo_id").ToString();
-                temp_suit = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "shipment_suit").ToString();
-                temp_goods_id = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "goods_id").ToString();
-                transferAmount = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "transfer_amount").ToString();
-                transferAmount = string.IsNullOrEmpty(transferAmount) ? "0.00" : transferAmount;
-                temp_transfer_amount = decimal.Parse(transferAmount);
-            }
-        }
-
         private void clQtyCount_Leave(object sender, EventArgs e)
         {
             if (mState != "")
             {
+                int rowIndex = dgvDetails.FocusedRowHandle;
                 //如用戶更改表格1的數量，同步更改表格2的數量及重量
                 TextEdit te = (TextEdit)sender;
                 if (string.IsNullOrEmpty(te.Text))
                 {
-                    dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "transfer_amount", "0.00");
+                    dgvDetails.SetRowCellValue(rowIndex, "transfer_amount", "0.00");
                 }
-                decimal transferAmount= decimal.Parse(dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "transfer_amount").ToString());
+                decimal transferAmount= decimal.Parse(dgvDetails.GetRowCellValue(rowIndex, "transfer_amount").ToString());
                 if (transferAmount <= 0)
                 {
                     return;
                 }
-                string upperSequence = dgvDetails.GetRowCellValue(dgvDetails.FocusedRowHandle, "sequence_id").ToString();
+                string upperSequence = dgvDetails.GetRowCellValue(rowIndex, "sequence_id").ToString();
                 decimal st_qty=0, st_sec_qty = 0,sec_qty=0, total_sec_qty =0;
                 string str_sec_qty = "";
                 for (int i = 0; i < dtsTrans.Tables["dtD2"].Rows.Count;  i++)
@@ -1480,7 +1464,7 @@ namespace cf01.Forms
                         total_sec_qty += sec_qty;
                     }                    
                 }
-                dgvDetails.SetRowCellValue(dgvDetails.FocusedRowHandle, "sec_qty", total_sec_qty);                
+                dgvDetails.SetRowCellValue(rowIndex, "sec_qty", total_sec_qty);                
             }
         }
 
@@ -1650,10 +1634,19 @@ namespace cf01.Forms
             }
         }
 
+        private void dgvDetails_RowClick(object sender, RowClickEventArgs e)
+        {
+            string transferAmount = "";
+            int rowIndex = e.RowHandle;     
+            temp_mo_id = dgvDetails.GetRowCellValue(rowIndex, "mo_id").ToString();
+            temp_suit = dgvDetails.GetRowCellValue(rowIndex, "shipment_suit").ToString();
+            temp_goods_id = dgvDetails.GetRowCellValue(rowIndex, "goods_id").ToString();
+            transferAmount = dgvDetails.GetRowCellValue(rowIndex, "transfer_amount").ToString();
+            transferAmount = string.IsNullOrEmpty(transferAmount) ? "0.00" : transferAmount;
+            temp_transfer_amount = decimal.Parse(transferAmount);
+        }
 
-
-        //手寫單頁面代碼 =============END=============
-
+        
 
     }
 }
