@@ -32,7 +32,7 @@ namespace cf01.Forms
             }
             if (frmMoSchedule.sendDep != "")
             {
-                txtPrdMo.Text = frmMoSchedule.sendMo;
+                txtPrdMo.Text = frmMoSchedule.send_prd_mo;
                 LoadData();
             }
         }

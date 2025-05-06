@@ -63,6 +63,20 @@ namespace cf01.CLS
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
             return dt;
         }
+        //////制單排期中用到的組別
+        public static DataTable loadScheduleDepGroup(string prd_dep)
+        {
+            string strSql = "Select grp_code,grp_cdesc" +
+                " From bs_group" +
+                " Where mo_group='" + prd_dep + "'" +
+                " Order By grp_code";
+            DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            DataRow dr = dt.NewRow();
+            dr["grp_code"] = "";
+            dr["grp_cdesc"] = "";
+            dt.Rows.InsertAt(dr, 0);
+            return dt;
+        }
         public static DataTable LoadSpecDep(string fromDep,string toDep)
         {
             string strSql = "Select a.dep_id,a.dep_cdesc" +
