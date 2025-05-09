@@ -55,12 +55,12 @@ namespace cf01.CLS
                         ",update_user,update_time,req_prd_time,req_tot_time" +
                         ",machine_std_run_num,machine_std_line_num,machine_std_qty,need_mon_num" +
                         ",module_type,prd_group,next_wp_id,next_goods_id,next_vend_id" +
-                        ",mo_remark,dep_remark,module_no,module_install"+
+                        ",mo_remark,dep_remark,module_no,module_install,now_date" +
                         " ) Values (" +
                         "'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}'" +
                         ",'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}'" +
                         ",'{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}'" +
-                        ",'{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}'" +
+                        ",'{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}','{37}'" +
                         ")";
                 }
                 else
@@ -75,6 +75,7 @@ namespace cf01.CLS
                         ",machine_std_run_num='{24}',machine_std_line_num='{25}',machine_std_qty='{26}',need_mon_num='{27}'" +
                         ",module_type='{28}',prd_group='{29}',next_wp_id='{30}',next_goods_id='{31}',next_vend_id='{32}'" +
                         ",mo_remark='{33}',dep_remark='{34}',module_no='{35}',module_install='{36}'" +
+                        ",now_date='{37}'" +
                         " Where schedule_id='{0}'";
                 }
                 strSql += string.Format(strSql1
@@ -86,6 +87,7 @@ namespace cf01.CLS
                     , lsMo[i].machine_std_run_num, lsMo[i].machine_std_line_num, lsMo[i].machine_std_qty, lsMo[i].need_mon_num
                     , lsMo[i].module_type, lsMo[i].prd_group, lsMo[i].next_wp_id, lsMo[i].next_goods_id, lsMo[i].next_vend_id
                     , lsMo[i].mo_remark, lsMo[i].dep_remark, lsMo[i].module_no, lsMo[i].module_install
+                    , lsMo[i].now_date
                     );
             }
 

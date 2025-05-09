@@ -33,7 +33,7 @@
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtRqDate1 = new DevExpress.XtraEditors.TextEdit();
+            this.mkCmpDat1 = new DevExpress.XtraEditors.TextEdit();
             this.txtPrd_item2 = new DevExpress.XtraEditors.TextEdit();
             this.lblPrd_item = new System.Windows.Forms.Label();
             this.txtMo2 = new DevExpress.XtraEditors.TextEdit();
@@ -42,9 +42,9 @@
             this.lblNextWp = new System.Windows.Forms.Label();
             this.txtMo1 = new DevExpress.XtraEditors.TextEdit();
             this.txtPrd_item1 = new DevExpress.XtraEditors.TextEdit();
-            this.txtChkDate2 = new DevExpress.XtraEditors.TextEdit();
+            this.mkChkDat2 = new DevExpress.XtraEditors.TextEdit();
             this.cmbReportType = new System.Windows.Forms.ComboBox();
-            this.txtChkDate1 = new DevExpress.XtraEditors.TextEdit();
+            this.mkChkDat1 = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chkReqPrdQty = new System.Windows.Forms.CheckBox();
@@ -56,15 +56,15 @@
             this.lblShowMsg = new DevExpress.XtraEditors.LabelControl();
             this.chkSimplePlan = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtPlDate2 = new DevExpress.XtraEditors.TextEdit();
+            this.mkPlanDat2 = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rdbZeroVer = new System.Windows.Forms.RadioButton();
             this.rdbNoZeroVer = new System.Windows.Forms.RadioButton();
             this.rdbAllVer = new System.Windows.Forms.RadioButton();
             this.btnPrintNextWp = new System.Windows.Forms.Button();
-            this.txtRqDate2 = new DevExpress.XtraEditors.TextEdit();
-            this.txtPlDate1 = new DevExpress.XtraEditors.TextEdit();
+            this.mkCmpDat2 = new DevExpress.XtraEditors.TextEdit();
+            this.mkPlanDat1 = new DevExpress.XtraEditors.TextEdit();
             this.txtNextWip = new System.Windows.Forms.TextBox();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -124,20 +124,21 @@
             this.lueModuleType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.luePrdGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRqDate1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChkDate2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChkDate1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkChkDat2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkChkDat1.Properties)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlDate2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat2.Properties)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRqDate2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlDate1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat1.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcPlanDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPlanDetails)).BeginInit();
@@ -166,7 +167,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtRqDate1);
+            this.panel1.Controls.Add(this.mkCmpDat1);
             this.panel1.Controls.Add(this.txtPrd_item2);
             this.panel1.Controls.Add(this.lblPrd_item);
             this.panel1.Controls.Add(this.txtMo2);
@@ -175,21 +176,21 @@
             this.panel1.Controls.Add(this.lblNextWp);
             this.panel1.Controls.Add(this.txtMo1);
             this.panel1.Controls.Add(this.txtPrd_item1);
-            this.panel1.Controls.Add(this.txtChkDate2);
+            this.panel1.Controls.Add(this.mkChkDat2);
             this.panel1.Controls.Add(this.cmbReportType);
-            this.panel1.Controls.Add(this.txtChkDate1);
+            this.panel1.Controls.Add(this.mkChkDat1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.chkReqPrdQty);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtPlDate2);
+            this.panel1.Controls.Add(this.mkPlanDat2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnPrintNextWp);
-            this.panel1.Controls.Add(this.txtRqDate2);
-            this.panel1.Controls.Add(this.txtPlDate1);
+            this.panel1.Controls.Add(this.mkCmpDat2);
+            this.panel1.Controls.Add(this.mkPlanDat1);
             this.panel1.Controls.Add(this.txtNextWip);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 38);
@@ -197,15 +198,14 @@
             this.panel1.Size = new System.Drawing.Size(1227, 129);
             this.panel1.TabIndex = 2;
             // 
-            // txtRqDate1
+            // mkCmpDat1
             // 
-            this.txtRqDate1.Location = new System.Drawing.Point(91, 34);
-            this.txtRqDate1.Name = "txtRqDate1";
-            this.txtRqDate1.Properties.Mask.EditMask = "9999/99/99";
-            this.txtRqDate1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.txtRqDate1.Size = new System.Drawing.Size(107, 20);
-            this.txtRqDate1.TabIndex = 5;
-            this.txtRqDate1.Leave += new System.EventHandler(this.txtRqDate1_Leave);
+            this.mkCmpDat1.Location = new System.Drawing.Point(91, 34);
+            this.mkCmpDat1.Name = "mkCmpDat1";
+            this.mkCmpDat1.Properties.Mask.EditMask = "9999/99/99";
+            this.mkCmpDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.mkCmpDat1.Size = new System.Drawing.Size(107, 20);
+            this.mkCmpDat1.TabIndex = 5;
             // 
             // txtPrd_item2
             // 
@@ -288,15 +288,15 @@
             this.txtPrd_item1.TabIndex = 7;
             this.txtPrd_item1.Leave += new System.EventHandler(this.txtPrd_item1_Leave);
             // 
-            // txtChkDate2
+            // mkChkDat2
             // 
-            this.txtChkDate2.EditValue = "";
-            this.txtChkDate2.Location = new System.Drawing.Point(554, 9);
-            this.txtChkDate2.Name = "txtChkDate2";
-            this.txtChkDate2.Properties.Mask.EditMask = "9999/99/99 99:99:99";
-            this.txtChkDate2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.txtChkDate2.Size = new System.Drawing.Size(164, 20);
-            this.txtChkDate2.TabIndex = 2;
+            this.mkChkDat2.EditValue = "";
+            this.mkChkDat2.Location = new System.Drawing.Point(554, 9);
+            this.mkChkDat2.Name = "mkChkDat2";
+            this.mkChkDat2.Properties.Mask.EditMask = "9999/99/99 99:99:99";
+            this.mkChkDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.mkChkDat2.Size = new System.Drawing.Size(164, 20);
+            this.mkChkDat2.TabIndex = 2;
             // 
             // cmbReportType
             // 
@@ -306,15 +306,15 @@
             this.cmbReportType.Size = new System.Drawing.Size(220, 20);
             this.cmbReportType.TabIndex = 11;
             // 
-            // txtChkDate1
+            // mkChkDat1
             // 
-            this.txtChkDate1.EditValue = "";
-            this.txtChkDate1.Location = new System.Drawing.Point(384, 9);
-            this.txtChkDate1.Name = "txtChkDate1";
-            this.txtChkDate1.Properties.Mask.EditMask = "9999/99/99 99:99:99";
-            this.txtChkDate1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.txtChkDate1.Size = new System.Drawing.Size(164, 20);
-            this.txtChkDate1.TabIndex = 1;
+            this.mkChkDat1.EditValue = "";
+            this.mkChkDat1.Location = new System.Drawing.Point(384, 9);
+            this.mkChkDat1.Name = "mkChkDat1";
+            this.mkChkDat1.Properties.Mask.EditMask = "9999/99/99 99:99:99";
+            this.mkChkDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.mkChkDat1.Size = new System.Drawing.Size(164, 20);
+            this.mkChkDat1.TabIndex = 1;
             // 
             // label3
             // 
@@ -429,14 +429,14 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "制單編號:";
             // 
-            // txtPlDate2
+            // mkPlanDat2
             // 
-            this.txtPlDate2.Location = new System.Drawing.Point(921, 34);
-            this.txtPlDate2.Name = "txtPlDate2";
-            this.txtPlDate2.Properties.Mask.EditMask = "9999/99/99";
-            this.txtPlDate2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.txtPlDate2.Size = new System.Drawing.Size(120, 20);
-            this.txtPlDate2.TabIndex = 10;
+            this.mkPlanDat2.Location = new System.Drawing.Point(921, 34);
+            this.mkPlanDat2.Name = "mkPlanDat2";
+            this.mkPlanDat2.Properties.Mask.EditMask = "9999/99/99";
+            this.mkPlanDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.mkPlanDat2.Size = new System.Drawing.Size(120, 20);
+            this.mkPlanDat2.TabIndex = 10;
             // 
             // label2
             // 
@@ -500,24 +500,23 @@
             this.btnPrintNextWp.UseVisualStyleBackColor = true;
             this.btnPrintNextWp.Click += new System.EventHandler(this.btnPrintNextWp_Click);
             // 
-            // txtRqDate2
+            // mkCmpDat2
             // 
-            this.txtRqDate2.Location = new System.Drawing.Point(204, 34);
-            this.txtRqDate2.Name = "txtRqDate2";
-            this.txtRqDate2.Properties.Mask.EditMask = "9999/99/99";
-            this.txtRqDate2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.txtRqDate2.Size = new System.Drawing.Size(107, 20);
-            this.txtRqDate2.TabIndex = 6;
+            this.mkCmpDat2.Location = new System.Drawing.Point(204, 34);
+            this.mkCmpDat2.Name = "mkCmpDat2";
+            this.mkCmpDat2.Properties.Mask.EditMask = "9999/99/99";
+            this.mkCmpDat2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.mkCmpDat2.Size = new System.Drawing.Size(107, 20);
+            this.mkCmpDat2.TabIndex = 6;
             // 
-            // txtPlDate1
+            // mkPlanDat1
             // 
-            this.txtPlDate1.Location = new System.Drawing.Point(788, 34);
-            this.txtPlDate1.Name = "txtPlDate1";
-            this.txtPlDate1.Properties.Mask.EditMask = "9999/99/99";
-            this.txtPlDate1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.txtPlDate1.Size = new System.Drawing.Size(120, 20);
-            this.txtPlDate1.TabIndex = 9;
-            this.txtPlDate1.Leave += new System.EventHandler(this.txtPlDate1_Leave);
+            this.mkPlanDat1.Location = new System.Drawing.Point(788, 34);
+            this.mkPlanDat1.Name = "mkPlanDat1";
+            this.mkPlanDat1.Properties.Mask.EditMask = "9999/99/99";
+            this.mkPlanDat1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.mkPlanDat1.Size = new System.Drawing.Size(120, 20);
+            this.mkPlanDat1.TabIndex = 9;
             // 
             // txtNextWip
             // 
@@ -770,7 +769,8 @@
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
-            this.gridColumn15});
+            this.gridColumn15,
+            this.gridColumn16});
             this.gvPlanDetails.FooterPanelHeight = 30;
             this.gvPlanDetails.GridControl = this.gcPlanDetails;
             this.gvPlanDetails.IndicatorWidth = 30;
@@ -1079,6 +1079,15 @@
             this.repositoryItemTextEdit11.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.repositoryItemTextEdit11.Name = "repositoryItemTextEdit11";
             // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "版本";
+            this.gridColumn16.FieldName = "ver";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 16;
+            this.gridColumn16.Width = 60;
+            // 
             // frmPlanWithPrintCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1094,21 +1103,21 @@
             this.Load += new System.EventHandler(this.frmPlan01_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRqDate1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDep.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChkDate2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChkDate1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkChkDat2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkChkDat1.Properties)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlDate2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat2.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRqDate2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlDate1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat1.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcPlanDetails)).EndInit();
@@ -1184,12 +1193,12 @@
         private System.Windows.Forms.TextBox txtNextWip;
         private System.Windows.Forms.Button btnPrintNextWp;
         private System.Windows.Forms.Label lblNextWp;
-        private DevExpress.XtraEditors.TextEdit txtChkDate1;
-        private DevExpress.XtraEditors.TextEdit txtChkDate2;
-        private DevExpress.XtraEditors.TextEdit txtRqDate2;
-        private DevExpress.XtraEditors.TextEdit txtRqDate1;
-        private DevExpress.XtraEditors.TextEdit txtPlDate2;
-        private DevExpress.XtraEditors.TextEdit txtPlDate1;
+        private DevExpress.XtraEditors.TextEdit mkChkDat1;
+        private DevExpress.XtraEditors.TextEdit mkChkDat2;
+        private DevExpress.XtraEditors.TextEdit mkCmpDat2;
+        private DevExpress.XtraEditors.TextEdit mkCmpDat1;
+        private DevExpress.XtraEditors.TextEdit mkPlanDat2;
+        private DevExpress.XtraEditors.TextEdit mkPlanDat1;
         private DevExpress.XtraEditors.TextEdit txtPrd_item2;
         private DevExpress.XtraEditors.TextEdit txtPrd_item1;
         private DevExpress.XtraEditors.TextEdit txtMo2;
@@ -1232,5 +1241,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
     }
 }

@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode7 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode8 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode9 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode5 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode6 = new DevExpress.XtraGrid.GridLevelNode();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -69,6 +69,7 @@
             this.gclScheduleDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gclPrdMo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPassDays = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPrdGroup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.luePrdGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gclUrgentFlag = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -267,7 +268,6 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
-            this.gclPassDays = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -553,13 +553,13 @@
             // 
             this.gcSchedule.ContextMenuStrip = this.contextMenu;
             this.gcSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode7.RelationName = "Level1";
-            gridLevelNode8.RelationName = "Level2";
-            gridLevelNode9.RelationName = "Level3";
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.RelationName = "Level3";
             this.gcSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode7,
-            gridLevelNode8,
-            gridLevelNode9});
+            gridLevelNode1,
+            gridLevelNode2,
+            gridLevelNode3});
             this.gcSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcSchedule.MainView = this.gvSchedule;
             this.gcSchedule.Name = "gcSchedule";
@@ -728,6 +728,15 @@
             this.gclPrdMo.Visible = true;
             this.gclPrdMo.VisibleIndex = 2;
             this.gclPrdMo.Width = 100;
+            // 
+            // gclPassDays
+            // 
+            this.gclPassDays.Caption = "已過天數";
+            this.gclPassDays.FieldName = "pass_days";
+            this.gclPassDays.Name = "gclPassDays";
+            this.gclPassDays.Visible = true;
+            this.gclPassDays.VisibleIndex = 3;
+            this.gclPassDays.Width = 60;
             // 
             // gclPrdGroup
             // 
@@ -1194,6 +1203,8 @@
             this.gclScheduleID.Caption = "排期單號";
             this.gclScheduleID.FieldName = "schedule_id";
             this.gclScheduleID.Name = "gclScheduleID";
+            this.gclScheduleID.Visible = true;
+            this.gclScheduleID.VisibleIndex = 41;
             // 
             // gclModuleType
             // 
@@ -1278,7 +1289,7 @@
             this.grcPrdItemGroup.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.grcPrdItemGroup.Name = "grcPrdItemGroup";
             this.grcPrdItemGroup.Visible = true;
-            this.grcPrdItemGroup.VisibleIndex = 41;
+            this.grcPrdItemGroup.VisibleIndex = 42;
             this.grcPrdItemGroup.Width = 120;
             // 
             // repositoryItemLookUpEdit4
@@ -1482,13 +1493,13 @@
             // 
             this.gcWaitSchedule.ContextMenuStrip = this.contextMenu;
             this.gcWaitSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
-            gridLevelNode3.RelationName = "Level3";
+            gridLevelNode4.RelationName = "Level1";
+            gridLevelNode5.RelationName = "Level2";
+            gridLevelNode6.RelationName = "Level3";
             this.gcWaitSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2,
-            gridLevelNode3});
+            gridLevelNode4,
+            gridLevelNode5,
+            gridLevelNode6});
             this.gcWaitSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcWaitSchedule.MainView = this.gvWaitSchedule;
             this.gcWaitSchedule.Name = "gcWaitSchedule";
@@ -2752,15 +2763,6 @@
             this.chkScheduleByMachine.TabIndex = 17;
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
-            // 
-            // gclPassDays
-            // 
-            this.gclPassDays.Caption = "已過天數";
-            this.gclPassDays.FieldName = "pass_days";
-            this.gclPassDays.Name = "gclPassDays";
-            this.gclPassDays.Visible = true;
-            this.gclPassDays.VisibleIndex = 3;
-            this.gclPassDays.Width = 60;
             // 
             // frmMoSchedule
             // 

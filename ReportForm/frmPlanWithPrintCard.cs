@@ -47,8 +47,13 @@ namespace cf01.ReportForm
             if (frmMoSchedule.sendDep!="")
             {
                 txtDep.Text = frmMoSchedule.sendDep;
-                txtChkDate1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
-                txtChkDate2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
+                mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            }
+            if (mkChkDat1.Text == "" && mkChkDat2.Text == "")
+            {
+                mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
+                mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             }
             txtNextWip.Text = "128";
         }
@@ -92,30 +97,30 @@ namespace cf01.ReportForm
 
         private bool ValidateDateType()
         {
-            if (txtRqDate1.Text.Trim() != "" || txtRqDate2.Text.Trim() != "")
+            if (mkCmpDat1.Text.Trim() != "" || mkCmpDat2.Text.Trim() != "")
             {
-                if (clsValidRule.CheckDateValid(txtRqDate1.Text) == false || clsValidRule.CheckDateValid(txtRqDate2.Text) == false)
+                if (clsValidRule.CheckDateValid(mkCmpDat1.Text) == false || clsValidRule.CheckDateValid(mkCmpDat2.Text) == false)
                 {
                     MessageBox.Show("要求日期不正確!");
-                    this.txtRqDate1.Focus();
+                    this.mkCmpDat1.Focus();
                     return false;
                 }
             }
-            if (txtPlDate1.Text.Trim() != "" || txtPlDate2.Text.Trim() != "")
+            if (mkPlanDat1.Text.Trim() != "" || mkPlanDat2.Text.Trim() != "")
             {
-                if (clsValidRule.CheckDateValid(txtPlDate1.Text) == false || clsValidRule.CheckDateValid(txtPlDate2.Text) == false)
+                if (clsValidRule.CheckDateValid(mkPlanDat1.Text) == false || clsValidRule.CheckDateValid(mkPlanDat2.Text) == false)
                 {
                     MessageBox.Show("計劃單日期不正確!");
-                    this.txtPlDate1.Focus();
+                    this.mkPlanDat1.Focus();
                     return false;
                 }
             }
-            if (txtChkDate1.Text.Trim() != "" || txtChkDate2.Text.Trim() != "")
+            if (mkChkDat1.Text.Trim() != "" || mkChkDat2.Text.Trim() != "")
             {
-                if (clsValidRule.CheckDateValid(txtChkDate1.Text) == false || clsValidRule.CheckDateValid(txtChkDate2.Text) == false)
+                if (clsValidRule.CheckDateValid(mkChkDat1.Text) == false || clsValidRule.CheckDateValid(mkChkDat2.Text) == false)
                 {
                     MessageBox.Show("批準日期不正確!");
-                    this.txtChkDate1.Focus();
+                    this.mkChkDat1.Focus();
                     return false;
                 }
             }
@@ -198,12 +203,12 @@ namespace cf01.ReportForm
             int show_ver = 0;
             int zero_qty = 0;
             int isprint = 0;
-            cmpDat1 = txtRqDate1.Text;
-            cmpDat2 = txtRqDate2.Text;
-            chkDat1 = txtChkDate1.Text;
-            chkDat2 = txtChkDate2.Text;
-            planDat1 = txtRqDate1.Text;
-            planDat2 = txtRqDate2.Text;
+            cmpDat1 = mkCmpDat1.Text;
+            cmpDat2 = mkCmpDat2.Text;
+            chkDat1 = mkChkDat1.Text;
+            chkDat2 = mkChkDat2.Text;
+            planDat1 = mkCmpDat1.Text;
+            planDat2 = mkCmpDat2.Text;
             if (rdbNoPrint.Checked == true)//不包含已列印的記錄
                 isprint = 0;
             if (rdbIsPrint.Checked == true)//只包含已列印的記錄
@@ -268,8 +273,21 @@ namespace cf01.ReportForm
             saveFile.Title = "导出Excel文件到";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                string file_name = saveFile.FileName;
-                clsMoScheduleUse.ExpToExcelPlan(file_name, dtMoPlan, rpt_type);
+                Stream myStream;
+                myStream = saveFile.OpenFile();
+
+                //如果匯出到Excel中文變亂碼，可以嘗試改一下這個編碼方式
+                StreamWriter sw = new StreamWriter(myStream, Encoding.GetEncoding("big5"));//utf-8
+                if (rpt_type == 1)
+                    clsMoScheduleUse.ExpToExcelPlan1(sw, dtMoPlan);
+                else if(rpt_type==2)
+                    clsMoScheduleUse.ExpToExcelPlan2(sw, dtMoPlan);
+                else
+                    clsMoScheduleUse.ExpToExcelPlan3(sw, dtMoPlan);
+                sw.Close();
+                myStream.Close();
+                //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                MessageBox.Show("已匯出記錄！");
             }
         }
 
@@ -776,21 +794,25 @@ namespace cf01.ReportForm
                         txtDep.Text = strOjb_Value;
                     }
 
-                    if (txtChkDate2.Name == strObj_id)
+                    if (mkChkDat2.Name == strObj_id)
                     {
-                        txtChkDate1.Text = strOjb_Value;
-                        txtChkDate2.Text = DateTime.Now.AddSeconds(-300).ToString("yyyy/MM/dd HH:mm:ss");
+                        mkChkDat1.Text = strOjb_Value;
+                        mkChkDat2.Text = DateTime.Now.AddSeconds(-300).ToString("yyyy/MM/dd HH:mm:ss");
                     }
 
-                    if (txtRqDate2.Name == strObj_id)
+                    if (mkCmpDat2.Name == strObj_id)
                     {
-                        txtRqDate1.Text = strOjb_Value;
+                        mkCmpDat1.Text = strOjb_Value;
+                        if (mkCmpDat1.Text.Trim() == "/  /")
+                            mkCmpDat1.Text = "";
                         //txtRqDate2.Text = DateTime.Now.ToString("yyyy/MM/dd");
                     }
 
-                    if (txtPlDate2.Name == strObj_id)
+                    if (mkPlanDat2.Name == strObj_id)
                     {
-                        txtPlDate1.Text = strOjb_Value;
+                        mkPlanDat1.Text = strOjb_Value;
+                        if (mkPlanDat1.Text.Trim() == "/  /")
+                            mkPlanDat1.Text = "";
                         //txtPlDate2.Text = DateTime.Now.ToString("yyyy/MM/dd");
                     }
 
@@ -913,6 +935,7 @@ namespace cf01.ReportForm
                     objModel.schedule_id = "";
                     objModel.schedule_seq = seq_step.ToString("D3").PadLeft(3, '0');
                     objModel.schedule_date = System.DateTime.Now.ToString("yyyy/MM/dd");
+                    objModel.now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
                     objModel.prd_dep = drMo["wp_id"].ToString().Trim();
                     objModel.prd_mo = drMo["mo_id"].ToString().Trim();
                     objModel.prd_item = drMo["goods_id"].ToString().Trim();
@@ -985,16 +1008,6 @@ namespace cf01.ReportForm
                     MessageBox.Show("生成排期表失敗!");
                 }
             }
-        }
-
-        private void txtPlDate1_Leave(object sender, EventArgs e)
-        {
-            txtPlDate2.Text = txtPlDate1.Text;
-        }
-
-        private void txtRqDate1_Leave(object sender, EventArgs e)
-        {
-            txtRqDate2.Text = txtRqDate1.Text;
         }
 
         private void txtPrd_item1_Leave(object sender, EventArgs e)

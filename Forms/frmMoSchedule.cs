@@ -458,6 +458,7 @@ namespace cf01.Forms
                 objMo.prd_dep = drMo[i]["prd_dep"].ToString().Trim();
                 objMo.prd_group = drMo[i]["prd_group"].ToString().Trim();
                 objMo.schedule_date = drMo[i]["schedule_date"].ToString().Trim();
+                objMo.now_date = drMo[i]["now_date"].ToString().Trim();
                 objMo.schedule_seq = drMo[i]["schedule_seq"].ToString().Trim();
                 objMo.prd_mo = drMo[i]["prd_mo"].ToString().Trim();
                 objMo.prd_item = drMo[i]["prd_item"].ToString().Trim();
@@ -910,8 +911,14 @@ namespace cf01.Forms
 
         private void gvSchedule_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            int rowIndex = gvSchedule.FocusedRowHandle;
-            DataRow dr = dtMoSchedule.Rows[rowIndex];
+            //////注意：不能用這兩句來獲取當前記錄，因為如果過濾後，表格的序號就回變了，導致序號不准了。
+            //int rowIndex = gvSchedule.FocusedRowHandle;
+            //DataRow dr = dtMoSchedule.Rows[rowIndex];
+            //////可用以下兩句來獲取：
+            DataRow dr = gvSchedule.GetDataRow(gvSchedule.FocusedRowHandle);
+            int rowIndex = dtMoSchedule.Rows.IndexOf(dr);//記錄對應在DataTable中的索引
+            //DataRow dr = gvSchedule.GetDataRow(e.RowHandle);
+
             //gvSchedule.SetRowCellValue(e.RowHandle, "gclUpdateFlag", "1");
             dr["update_flag"] = "1";
             //if (e.Column.FieldName == "pmc_rp_date")
@@ -919,6 +926,9 @@ namespace cf01.Forms
             //    //gvSchedule.SetRowCellValue(e.RowHandle, e.Column, Convert.ToDateTime(e.Value.ToString()).ToString("yyyy/MM/dd"));
             //    dr["pmc_rp_date"] = Convert.ToDateTime(e.Value.ToString()).ToString("yyyy/MM/dd");
             //}
+
+
+            //////暫時取消以下
             if (e.Column.FieldName == "prd_machine")
             {
                 GetMachineStdQty();
@@ -937,6 +947,9 @@ namespace cf01.Forms
                 CountScheduleTime(rowIndex);//重新計算生產時間
                 CountNeedPrdDays();
             }
+
+
+
         }
 
         private void gvSchedule_MouseUp(object sender, MouseEventArgs e)

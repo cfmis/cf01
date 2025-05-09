@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//using System.Reflection;
-//using Microsoft.Office.Interop.Excel;
+using System.Reflection;
+using Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.IO;
 using System.Data;
@@ -15,283 +15,8 @@ namespace cf01.CLS
 {
     public static class clsMoScheduleUse
     {
-        //////------------------------匯出生產計劃單---------------------------
+        
 
-        public static string ExpToExcelPlan(string fileName, System.Data.DataTable dtExcel,int rpt_type)
-        {
-
-
-            using (var package = new ExcelPackage())
-            {
-
-                var worksheet = package.Workbook.Worksheets.Add("sheet1");
-                worksheet.PrinterSettings.PaperSize = ePaperSize.A4; // 设置纸张为 A4
-                                                                     //worksheet.PrinterSettings.Orientation = eOrientation.Portrait; // 设置页面纵向
-                worksheet.PrinterSettings.Orientation = eOrientation.Landscape; // 设置页面横向
-                worksheet.PrinterSettings.TopMargin = (decimal)(0.17 / 2.54);    // 上边距，0.17 厘米
-                worksheet.PrinterSettings.BottomMargin = (decimal)(0.17 / 2.54); // 下边距，0.17 厘米
-                worksheet.PrinterSettings.LeftMargin = (decimal)(0.17 / 2.54);   // 左边距，0.17 厘米
-                worksheet.PrinterSettings.RightMargin = (decimal)(0.17 / 2.54);  // 右边距，0.17 厘米
-
-                if (rpt_type == 1)
-                    FillExcel1(worksheet, dtExcel);
-                else if (rpt_type == 2)
-                    FillExcel2(worksheet, dtExcel);
-                else
-                    FillExcel3(worksheet, dtExcel);
-                // 动态确定表格范围
-                //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
-                string tableRange = $"A1:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
-                var tableCells = worksheet.Cells[tableRange];
-
-                // 为整个表格添加边框
-                tableCells.Style.Border.BorderAround(ExcelBorderStyle.Thick); // 表格外边框设置为粗线
-                tableCells.Style.Border.Top.Style = ExcelBorderStyle.Thin;    // 表格顶部边框
-                tableCells.Style.Border.Bottom.Style = ExcelBorderStyle.Thin; // 表格底部边框
-                tableCells.Style.Border.Left.Style = ExcelBorderStyle.Thin;   // 表格左边边框
-                tableCells.Style.Border.Right.Style = ExcelBorderStyle.Thin;  // 表格右边边框
-                tableCells.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center; // 垂直居中
-                                                                                                        // 设置整个表格的字体大小
-                tableCells.Style.Font.Size = 10; // 设置字体大小为10
-                tableCells.Style.Font.Name = "新細明體";
-                // 冻结第一行
-                worksheet.View.FreezePanes(3, 1); // 从第2行、第1列开始滚动，冻结第一行
-                                                  // 设置打印标题行（固定第 1~2 行为标题）
-                worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:2"]; // 固定标题为第1~2行
-                                                                               // 设置整个表格内容自动换行
-                tableCells.Style.WrapText = true;
-
-                // 保存 Excel 文件
-                FileInfo file = new FileInfo(fileName);
-                package.SaveAs(file);
-
-                MessageBox.Show("Excel 文件导出成功！");
-            }
-            return "";
-        }
-        //////------------------匯出所有字段------------------------
-        private static void FillExcel1(ExcelWorksheet worksheet, System.Data.DataTable dtExcel)
-        {
-            int excelRow = 1;
-            worksheet.Cells[excelRow, 1].Value = "負責部門";
-            worksheet.Cells[excelRow, 2].Value = "制單編號";
-            worksheet.Cells[excelRow, 3].Value = "序號";
-            worksheet.Cells[excelRow, 4].Value = "物料編號";
-            worksheet.Cells[excelRow, 5].Value = "物料描述";
-            worksheet.Cells[excelRow, 6].Value = "移交部門";
-            worksheet.Cells[excelRow, 7].Value = "生產數量(PCS)";
-            worksheet.Cells[excelRow, 8].Value = "每張生產數量";
-            worksheet.Cells[excelRow, 9].Value = "訂單數量";
-            worksheet.Cells[excelRow, 10].Value = "完成數量(PCS）";
-            worksheet.Cells[excelRow, 11].Value = "要求日期";
-            worksheet.Cells[excelRow, 12].Value = "完成日期";
-            worksheet.Cells[excelRow, 13].Value = "過期天數";
-            worksheet.Cells[excelRow, 14].Value = "前部門交貨標識";
-            worksheet.Cells[excelRow, 15].Value = "上部門最大交貨期";
-            worksheet.Cells[excelRow, 16].Value = "過期天數";
-            worksheet.Cells[excelRow, 17].Value = "版本號";
-            worksheet.Cells[excelRow, 18].Value = "建立日期";
-            worksheet.Cells[excelRow, 19].Value = "審批日期";
-            worksheet.Cells[excelRow, 20].Value = "營業員";
-            worksheet.Cells[excelRow, 21].Value = "圖樣代號";
-            worksheet.Cells[excelRow, 22].Value = "圖樣路徑";
-            worksheet.Cells[excelRow, 23].Value = "數量單位";
-            worksheet.Cells[excelRow, 24].Value = "要求數量(PCS)";
-            worksheet.Cells[excelRow, 25].Value = "預留數量(PCS)";
-            worksheet.Cells[excelRow, 26].Value = "上部門記錄序號";
-            worksheet.Cells[excelRow, 27].Value = "上部門";
-            worksheet.Cells[excelRow, 28].Value = "上部門物料編號";
-            worksheet.Cells[excelRow, 29].Value = "上部門物料描述";
-            worksheet.Cells[excelRow, 30].Value = "上部門生產數量";
-            worksheet.Cells[excelRow, 31].Value = "上部門完成數量";
-            worksheet.Cells[excelRow, 32].Value = "上部門預計交貨期";
-            worksheet.Cells[excelRow, 33].Value = "上部門實際交貨期";
-            worksheet.Cells[excelRow, 34].Value = "本部門逗留天數";
-            worksheet.Cells[excelRow, 35].Value = "供應商";
-            worksheet.Cells[excelRow, 36].Value = "供應商描述";
-            worksheet.Cells[excelRow, 37].Value = "制單生產狀態";
-            worksheet.Cells[excelRow, 37].Value = "計劃回港日期";
-            worksheet.Cells[excelRow, 39].Value = "制單要求狀態";
-            worksheet.Cells[excelRow, 40].Value = "批色";
-            worksheet.Cells[excelRow, 41].Value = "記錄標識";
-            worksheet.Cells[excelRow, 42].Value = "顏色做法";
-            worksheet.Cells[excelRow, 43].Value = "收貨部門描述";
-            worksheet.Cells[excelRow, 44].Value = "下部門供應商";
-            worksheet.Cells[excelRow, 45].Value = "下部門物料編號";
-            worksheet.Cells[excelRow, 46].Value = "下部門物料描述";
-            worksheet.Cells[excelRow, 47].Value = "下部門顏色做法";
-            worksheet.Cells[excelRow, 48].Value = "下部門顏色描述";
-            worksheet.Cells[excelRow, 49].Value = "下下部門";
-            worksheet.Cells[excelRow, 50].Value = "下下部門描述";
-            worksheet.Cells[excelRow, 51].Value = "急單狀態";
-            worksheet.Cells[excelRow, 52].Value = "機器小時標準";
-
-            worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
-            for (int i = 0; i < dtExcel.Rows.Count; i++)
-            {
-                DataRow drExcel = dtExcel.Rows[i];
-                excelRow = i + 2;
-
-                worksheet.Cells[excelRow, 1].Value = drExcel["wp_id"].ToString();
-                worksheet.Cells[excelRow, 2].Value = drExcel["mo_id"].ToString();
-                worksheet.Cells[excelRow, 3].Value = drExcel["sequence_id"].ToString();
-                worksheet.Cells[excelRow, 4].Value = drExcel["goods_id"].ToString();
-                worksheet.Cells[excelRow, 5].Value = drExcel["goods_name"].ToString();
-                worksheet.Cells[excelRow, 6].Value = drExcel["next_wp_id"].ToString();
-                worksheet.Cells[excelRow, 7].Value = drExcel["prod_qty"];
-                worksheet.Cells[excelRow, 8].Value = drExcel["per_prod_qty"];
-                worksheet.Cells[excelRow, 9].Value = drExcel["order_qty"];
-                worksheet.Cells[excelRow, 10].Value = drExcel["c_qty_ok"];
-                worksheet.Cells[excelRow, 11].Value = drExcel["t_complete_date"].ToString();
-                worksheet.Cells[excelRow, 12].Value = drExcel["f_complete_date"].ToString();
-                worksheet.Cells[excelRow, 13].Value = drExcel["overdue_days"].ToString();
-                worksheet.Cells[excelRow, 14].Value = drExcel["pre_dep_deliver_flag"].ToString();
-                worksheet.Cells[excelRow, 15].Value = drExcel["pre_deliver_max_dat"].ToString();
-                worksheet.Cells[excelRow, 16].Value = drExcel["m_overdue_days"].ToString();
-                worksheet.Cells[excelRow, 17].Value = drExcel["ver"].ToString();
-                worksheet.Cells[excelRow, 18].Value = drExcel["bill_date"].ToString();
-                worksheet.Cells[excelRow, 19].Value = drExcel["check_date"].ToString();
-                worksheet.Cells[excelRow, 20].Value = drExcel["seller_id"].ToString();
-                worksheet.Cells[excelRow, 21].Value = drExcel["art"].ToString();
-                worksheet.Cells[excelRow, 22].Value = drExcel["picture_name"].ToString();
-                worksheet.Cells[excelRow, 23].Value = drExcel["goods_unit"].ToString();
-                worksheet.Cells[excelRow, 24].Value = drExcel["s_qty"];
-                worksheet.Cells[excelRow, 25].Value = drExcel["obligate_qty"];
-                worksheet.Cells[excelRow, 26].Value = drExcel["pre_dep_mt_seq"].ToString();
-                worksheet.Cells[excelRow, 27].Value = drExcel["pre_wp_id"].ToString();
-                worksheet.Cells[excelRow, 28].Value = drExcel["pre_dep_mt_item"].ToString();
-                worksheet.Cells[excelRow, 29].Value = drExcel["pre_dep_mt_name"].ToString();
-                worksheet.Cells[excelRow, 30].Value = drExcel["pre_dep_prod_qty"].ToString();
-                worksheet.Cells[excelRow, 31].Value = drExcel["pre_dep_qty_ok"].ToString();
-                worksheet.Cells[excelRow, 32].Value = drExcel["pre_dep_t_dat"].ToString();
-                worksheet.Cells[excelRow, 33].Value = drExcel["pre_dep_f_dat"].ToString();
-                worksheet.Cells[excelRow, 34].Value = drExcel["dep_keep_day"].ToString();
-                worksheet.Cells[excelRow, 35].Value = drExcel["vendor_id"].ToString();
-                worksheet.Cells[excelRow, 36].Value = drExcel["vendor_name"].ToString();
-                worksheet.Cells[excelRow, 37].Value = drExcel["mo_state_desc"].ToString();
-                worksheet.Cells[excelRow, 37].Value = drExcel["plan_complete"].ToString();
-                worksheet.Cells[excelRow, 39].Value = drExcel["status_desc"].ToString();
-                worksheet.Cells[excelRow, 40].Value = drExcel["shading_color"].ToString();
-                worksheet.Cells[excelRow, 41].Value = drExcel["rec_flag"].ToString();
-                worksheet.Cells[excelRow, 42].Value = drExcel["do_color"].ToString();
-                worksheet.Cells[excelRow, 43].Value = drExcel["next_wp_cdesc"].ToString();
-                worksheet.Cells[excelRow, 44].Value = drExcel["next_vendor_id"].ToString();
-                worksheet.Cells[excelRow, 45].Value = drExcel["next_goods_id"].ToString();
-                worksheet.Cells[excelRow, 46].Value = drExcel["next_goods_name"].ToString();
-                worksheet.Cells[excelRow, 47].Value = drExcel["next_do_color"].ToString();
-                worksheet.Cells[excelRow, 48].Value = drExcel["next_color_cdesc"].ToString();
-                worksheet.Cells[excelRow, 49].Value = drExcel["next_next_wp_id"].ToString();
-                worksheet.Cells[excelRow, 50].Value = drExcel["next_next_dep_name"].ToString();
-                worksheet.Cells[excelRow, 51].Value = drExcel["status_desc"].ToString();
-                worksheet.Cells[excelRow, 52].Value = drExcel["hour_std_qty"];
-
-                worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
-            }
-        }
-        //////------------------JX的計劃----------------------------
-        private static void FillExcel2(ExcelWorksheet worksheet, System.Data.DataTable dtExcel)
-        {
-            int excelRow = 1;
-
-            worksheet.Cells[excelRow, 1].Value = "負責部門";
-            worksheet.Cells[excelRow, 2].Value = "制單編號";
-            worksheet.Cells[excelRow, 3].Value = "制單日期";
-            worksheet.Cells[excelRow, 4].Value = "物料編號";
-            worksheet.Cells[excelRow, 5].Value = "物料描述";
-            worksheet.Cells[excelRow, 6].Value = "生產數量(PCS)";
-            worksheet.Cells[excelRow, 7].Value = "備註";
-            worksheet.Cells[excelRow, 8].Value = "列印份數";
-            worksheet.Cells[excelRow, 9].Value = "每張生產數量";
-            worksheet.Cells[excelRow, 10].Value = "要求日期";
-            worksheet.Cells[excelRow, 11].Value = "訂單數量";
-            worksheet.Cells[excelRow, 12].Value = "移交部門";
-            worksheet.Cells[excelRow, 13].Value = "部門描述";
-            worksheet.Cells[excelRow, 14].Value = "顏色做法";
-            worksheet.Cells[excelRow, 15].Value = "建檔人";
-            worksheet.Cells[excelRow, 16].Value = "審批日期";
-            worksheet.Cells[excelRow, 17].Value = "圖片位置";
-            worksheet.Cells[excelRow, 18].Value = "建檔日期";
-            worksheet.Cells[excelRow, 19].Value = "顏色描述";
-            worksheet.Cells[excelRow, 20].Value = "版本號";
-            worksheet.Cells[excelRow, 21].Value = "供應商編號";
-            worksheet.Cells[excelRow, 22].Value = "完成數量";
-
-            worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
-            for (int i = 0; i < dtExcel.Rows.Count; i++)
-            {
-                DataRow drExcel = dtExcel.Rows[i];
-                excelRow = i + 2;
-
-                worksheet.Cells[excelRow, 1].Value = drExcel["wp_id"].ToString();
-                worksheet.Cells[excelRow, 2].Value = drExcel["mo_id"].ToString();
-                worksheet.Cells[excelRow, 3].Value = drExcel["bill_date"].ToString();
-                worksheet.Cells[excelRow, 4].Value = drExcel["goods_id"].ToString();
-                worksheet.Cells[excelRow, 5].Value = drExcel["goods_name"].ToString();
-                worksheet.Cells[excelRow, 6].Value = drExcel["prod_qty"];
-                worksheet.Cells[excelRow, 7].Value = "";
-                worksheet.Cells[excelRow, 8].Value = "1";
-                worksheet.Cells[excelRow, 9].Value = drExcel["per_prod_qty"];
-                worksheet.Cells[excelRow, 10].Value = drExcel["t_complete_date"].ToString();
-                worksheet.Cells[excelRow, 11].Value = drExcel["order_qty"];
-                worksheet.Cells[excelRow, 12].Value = drExcel["next_wp_id"].ToString();
-                worksheet.Cells[excelRow, 13].Value = drExcel["next_wp_cdesc"].ToString();
-                worksheet.Cells[excelRow, 14].Value = drExcel["do_color"].ToString();
-                worksheet.Cells[excelRow, 15].Value = "";
-                worksheet.Cells[excelRow, 16].Value = drExcel["check_date"].ToString();
-                worksheet.Cells[excelRow, 17].Value = drExcel["picture_name"].ToString();
-                worksheet.Cells[excelRow, 18].Value = drExcel["bill_date"].ToString();
-                worksheet.Cells[excelRow, 19].Value = drExcel["check_date"].ToString();
-                worksheet.Cells[excelRow, 20].Value = drExcel["ver"].ToString();
-                worksheet.Cells[excelRow, 21].Value = drExcel["next_vendor_id"].ToString();
-                worksheet.Cells[excelRow, 22].Value = drExcel["c_qty_ok"];
-
-                worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
-            }
-        }
-
-
-        //////------------------簡易計劃----------------------------
-        private static void FillExcel3(ExcelWorksheet worksheet, System.Data.DataTable dtExcel)
-        {
-            int excelRow = 1;
-            worksheet.Cells[excelRow, 1].Value = "序號";
-            worksheet.Cells[excelRow, 2].Value = "收貨部門";
-            worksheet.Cells[excelRow, 3].Value = "狀態";
-            worksheet.Cells[excelRow, 4].Value = "制單編號";
-            worksheet.Cells[excelRow, 5].Value = "產品編號";
-            worksheet.Cells[excelRow, 6].Value = "產品描述";
-            worksheet.Cells[excelRow, 7].Value = "應生產數量";
-            worksheet.Cells[excelRow, 8].Value = "上部門來貨數量";
-            worksheet.Cells[excelRow, 9].Value = "已完成數量";
-            worksheet.Cells[excelRow, 10].Value = "上部門來貨期";
-            worksheet.Cells[excelRow, 11].Value = "回覆";
-            worksheet.Cells[excelRow, 12].Value = "備註";
-            worksheet.Cells[excelRow, 13].Value = "計劃回港日期";
-            worksheet.Cells[excelRow, 14].Value = "批色";
-            worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
-            for (int i = 0; i < dtExcel.Rows.Count; i++)
-            {
-                DataRow drExcel = dtExcel.Rows[i];
-                excelRow = i + 2;
-
-                worksheet.Cells[excelRow, 1].Value = (i + 1).ToString();//序號
-                worksheet.Cells[excelRow, 2].Value = drExcel["wp_id"].ToString();
-                worksheet.Cells[excelRow, 3].Value = drExcel["status_desc"].ToString();
-                worksheet.Cells[excelRow, 4].Value = drExcel["mo_id"].ToString();
-                worksheet.Cells[excelRow, 5].Value = drExcel["goods_id"].ToString();
-                worksheet.Cells[excelRow, 6].Value = drExcel["goods_name"].ToString();
-                worksheet.Cells[excelRow, 7].Value = drExcel["prod_qty"];
-                worksheet.Cells[excelRow, 8].Value = drExcel["pre_dep_qty_ok"];
-                worksheet.Cells[excelRow, 9].Value = drExcel["c_qty_ok"];
-                worksheet.Cells[excelRow, 10].Value = drExcel["pre_deliver_max_dat"].ToString();
-                worksheet.Cells[excelRow, 11].Value = "";
-                worksheet.Cells[excelRow, 12].Value = "";
-                worksheet.Cells[excelRow, 13].Value = drExcel["plan_complete"].ToString();
-                worksheet.Cells[excelRow, 14].Value = drExcel["shading_color"].ToString();
-
-                worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
-            }
-        }
 
         //////------------------------以下匯出排期表---------------------------
         public static string ExpToExcelEPP(string prd_dep, string fileName, System.Data.DataTable dtExcel, int rpt_type,ProgressBar prgStatus)
@@ -626,6 +351,219 @@ namespace cf01.CLS
             worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:2"]; // 固定标题为第1~2行
             // 设置整个表格内容自动换行
             tableCells.Style.WrapText = true;
+        }
+
+        //////------------------------匯出生產計劃單---------------------------
+        public static void ExpToExcelPlan1(StreamWriter sw, System.Data.DataTable dtExcel)
+        {
+            string str = " ";
+            str += "負責部門";
+            str += "\t" + "制單編號";
+            str += "\t" + "序號";
+            str += "\t" + "物料編號";
+            str += "\t" + "物料描述";
+            str += "\t" + "移交部門";
+            str += "\t" + "生產數量(PCS)";
+            str += "\t" + "每張生產數量";
+            str += "\t" + "訂單數量";
+            str += "\t" + "完成數量(PCS）";
+            str += "\t" + "要求日期";
+            str += "\t" + "完成日期";
+            str += "\t" + "過期天數";
+            str += "\t" + "前部門交貨標識";
+            str += "\t" + "上部門最大交貨期";
+            str += "\t" + "過期天數";
+            str += "\t" + "版本號";
+            str += "\t" + "建立日期";
+            str += "\t" + "審批日期";
+            str += "\t" + "營業員";
+            str += "\t" + "圖樣代號";
+            str += "\t" + "圖樣路徑";
+            str += "\t" + "數量單位";
+            str += "\t" + "要求數量(PCS)";
+            str += "\t" + "預留數量(PCS)";
+            str += "\t" + "上部門記錄序號";
+            str += "\t" + "上部門";
+            str += "\t" + "上部門物料編號";
+            str += "\t" + "上部門物料描述";
+            str += "\t" + "上部門生產數量";
+            str += "\t" + "上部門完成數量";
+            str += "\t" + "上部門預計交貨期";
+            str += "\t" + "上部門實際交貨期";
+            str += "\t" + "本部門逗留天數";
+            str += "\t" + "供應商";
+            str += "\t" + "供應商描述";
+            str += "\t" + "制單生產狀態";
+            str += "\t" + "計劃回港日期";
+            str += "\t" + "制單要求狀態";
+            str += "\t" + "批色";
+            str += "\t" + "記錄標識";
+            str += "\t" + "顏色做法";
+            str += "\t" + "收貨部門描述";
+            str += "\t" + "下部門供應商";
+            str += "\t" + "下部門物料編號";
+            str += "\t" + "下部門物料描述";
+            str += "\t" + "下部門顏色做法";
+            str += "\t" + "下部門顏色描述";
+            str += "\t" + "下下部門";
+            str += "\t" + "下下部門描述";
+            str += "\t" + "急單狀態";
+            str += "\t" + "機器小時標準";
+            sw.WriteLine(str);
+            for (int i = 0; i < dtExcel.Rows.Count; i++)
+            {
+                DataRow drExcel = dtExcel.Rows[i];
+                string tempstr = " ";
+                tempstr += "\'" + drExcel["wp_id"].ToString();
+                tempstr += "\t" + drExcel["mo_id"].ToString();
+                tempstr += "\t" + drExcel["sequence_id"].ToString();
+                tempstr += "\t" + drExcel["goods_id"].ToString();
+                tempstr += "\t" + drExcel["goods_name"].ToString();
+                tempstr += "\t" + drExcel["next_wp_id"].ToString();
+                tempstr += "\t" + drExcel["prod_qty"];
+                tempstr += "\t" + drExcel["per_prod_qty"];
+                tempstr += "\t" + drExcel["order_qty"];
+                tempstr += "\t" + drExcel["c_qty_ok"];
+                tempstr += "\t" + "\'" + drExcel["t_complete_date"].ToString();
+                tempstr += "\t" + "\'" + drExcel["f_complete_date"].ToString();
+                tempstr += "\t" + drExcel["overdue_days"].ToString();
+                tempstr += "\t" + drExcel["pre_dep_deliver_flag"].ToString();
+                tempstr += "\t" + drExcel["pre_deliver_max_dat"].ToString();
+                tempstr += "\t" + drExcel["m_overdue_days"].ToString();
+                tempstr += "\t" + drExcel["ver"].ToString();
+                tempstr += "\t" + "\'" + drExcel["bill_date"].ToString();
+                tempstr += "\t" + "\'" + drExcel["check_date"].ToString();
+                tempstr += "\t" + "\'" + drExcel["seller_id"].ToString();
+                tempstr += "\t" + drExcel["art"].ToString();
+                tempstr += "\t" + drExcel["picture_name"].ToString();
+                tempstr += "\t" + drExcel["goods_unit"].ToString();
+                tempstr += "\t" + drExcel["s_qty"];
+                tempstr += "\t" + drExcel["obligate_qty"];
+                tempstr += "\t" + drExcel["pre_dep_mt_seq"].ToString();
+                tempstr += "\t" + drExcel["pre_wp_id"].ToString();
+                tempstr += "\t" + drExcel["pre_dep_mt_item"].ToString();
+                tempstr += "\t" + drExcel["pre_dep_mt_name"].ToString();
+                tempstr += "\t" + drExcel["pre_dep_prod_qty"].ToString();
+                tempstr += "\t" + drExcel["pre_dep_qty_ok"].ToString();
+                tempstr += "\t" + "\'" + drExcel["pre_dep_t_dat"].ToString();
+                tempstr += "\t" + "\'" + drExcel["pre_dep_f_dat"].ToString();
+                tempstr += "\t" + drExcel["dep_keep_day"].ToString();
+                tempstr += "\t" + drExcel["vendor_id"].ToString();
+                tempstr += "\t" + drExcel["vendor_name"].ToString();
+                tempstr += "\t" + drExcel["mo_state_desc"].ToString();
+                tempstr += "\t" + drExcel["plan_complete"].ToString();
+                tempstr += "\t" + drExcel["status_desc"].ToString();
+                tempstr += "\t" + drExcel["shading_color"].ToString();
+                tempstr += "\t" + drExcel["rec_flag"].ToString();
+                tempstr += "\t" + drExcel["do_color"].ToString();
+                tempstr += "\t" + drExcel["next_wp_cdesc"].ToString();
+                tempstr += "\t" + drExcel["next_vendor_id"].ToString();
+                tempstr += "\t" + drExcel["next_goods_id"].ToString();
+                tempstr += "\t" + drExcel["next_goods_name"].ToString();
+                tempstr += "\t" + drExcel["next_do_color"].ToString();
+                tempstr += "\t" + drExcel["next_color_cdesc"].ToString();
+                tempstr += "\t" + drExcel["next_next_wp_id"].ToString();
+                tempstr += "\t" + drExcel["next_next_dep_name"].ToString();
+                tempstr += "\t" + drExcel["status_desc"].ToString();
+                tempstr += "\t" + drExcel["hour_std_qty"];
+                sw.WriteLine(tempstr);
+            }
+        }
+
+        public static void ExpToExcelPlan2(StreamWriter sw, System.Data.DataTable dtExcel)
+        {
+            string str = "";
+            str += "負責部門";
+            str += "\t" + "制單編號";
+            str += "\t" + "制單日期";
+            str += "\t" + "物料編號";
+            str += "\t" + "物料描述";
+            str += "\t" + "生產數量(PCS)";
+            str += "\t" + "備註";
+            str += "\t" + "列印份數";
+            str += "\t" + "每張生產數量";
+            str += "\t" + "要求日期";
+            str += "\t" + "訂單數量";
+            str += "\t" + "移交部門";
+            str += "\t" + "部門描述";
+            str += "\t" + "顏色做法";
+            str += "\t" + "建檔人";
+            str += "\t" + "審批日期";
+            str += "\t" + "圖片位置";
+            str += "\t" + "建檔日期";
+            str += "\t" + "顏色描述";
+            str += "\t" + "版本號";
+            str += "\t" + "供應商編號";
+            str += "\t" + "完成數量";
+            sw.WriteLine(str);
+            for (int i = 0; i < dtExcel.Rows.Count; i++)
+            {
+                DataRow drExcel = dtExcel.Rows[i];
+                string tempstr = "";
+                tempstr += "\'" + drExcel["wp_id"].ToString();
+                tempstr += "\t" + drExcel["mo_id"].ToString();
+                tempstr += "\t" + drExcel["bill_date"].ToString();
+                tempstr += "\t" + drExcel["goods_id"].ToString();
+                tempstr += "\t" + drExcel["goods_name"].ToString();
+                tempstr += "\t" + drExcel["prod_qty"];
+                tempstr += "\t" + "";
+                tempstr += "\t" + "1";
+                tempstr += "\t" + drExcel["per_prod_qty"];
+                tempstr += "\t" + drExcel["t_complete_date"].ToString();
+                tempstr += "\t" + drExcel["order_qty"];
+                tempstr += "\t" + drExcel["next_wp_id"].ToString();
+                tempstr += "\t" + drExcel["next_wp_cdesc"].ToString();
+                tempstr += "\t" + drExcel["do_color"].ToString();
+                tempstr += "\t" + "";
+                tempstr += "\t" + "\'" + drExcel["check_date"].ToString();
+                tempstr += "\t" + drExcel["picture_name"].ToString();
+                tempstr += "\t" + "\'" + drExcel["bill_date"].ToString();
+                tempstr += "\t" + drExcel["next_do_color"].ToString();
+                tempstr += "\t" + drExcel["ver"].ToString();
+                tempstr += "\t" + drExcel["next_vendor_id"].ToString();
+                tempstr += "\t" + drExcel["c_qty_ok"];
+                sw.WriteLine(tempstr);
+            }
+        }
+        public static void ExpToExcelPlan3(StreamWriter sw, System.Data.DataTable dtExcel)
+        {
+            string str = "";
+            str += "序號";
+            str += "\t" + "收貨部門";
+            str += "\t" + "狀態";
+            str += "\t" + "制單編號";
+            str += "\t" + "產品編號";
+            str += "\t" + "產品描述";
+            str += "\t" + "應生產數量";
+            str += "\t" + "上部門來貨數量";
+            str += "\t" + "已完成數量";
+            str += "\t" + "上部門來貨期";
+            str += "\t" + "回覆";
+            str += "\t" + "備註";
+            str += "\t" + "計劃回港日期";
+            str += "\t" + "批色";
+            sw.WriteLine(str);
+            for (int i = 0; i < dtExcel.Rows.Count; i++)
+            {
+                DataRow drExcel = dtExcel.Rows[i];
+                string tempstr = "";
+                tempstr += "\'" + (i + 1).ToString();//序號
+                tempstr += "\t" + drExcel["wp_id"].ToString();
+                tempstr += "\t" + drExcel["status_desc"].ToString();
+                tempstr += "\t" + drExcel["mo_id"].ToString();
+                tempstr += "\t" + drExcel["goods_id"].ToString();
+                tempstr += "\t" + drExcel["goods_name"].ToString();
+                tempstr += "\t" + drExcel["prod_qty"];
+                tempstr += "\t" + drExcel["pre_dep_qty_ok"];
+                tempstr += "\t" + drExcel["c_qty_ok"];
+                tempstr += "\t" + drExcel["pre_deliver_max_dat"].ToString();
+                tempstr += "\t" + "";
+                tempstr += "\t" + "";
+                tempstr += "\t" + "\'" + drExcel["plan_complete"].ToString();
+                tempstr += "\t" + drExcel["shading_color"].ToString();
+                sw.WriteLine(tempstr);
+            }
+            
         }
     }
 }

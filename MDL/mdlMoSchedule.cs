@@ -11,6 +11,7 @@ namespace cf01.MDL
         public string prd_dep { get; set; }
         public string prd_group { get; set; }
         public string schedule_date { get; set; }
+        public string now_date { get; set; }
         public string schedule_seq { get; set; }
         public string prd_mo { get; set; }
         public string prd_item { get; set; }
