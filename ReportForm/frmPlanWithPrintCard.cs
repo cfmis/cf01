@@ -26,7 +26,8 @@ namespace cf01.ReportForm
 
         private DataTable dtMoPlan;
         clsCommonUse commUse = new clsCommonUse();
-
+        private int[] selectedRowHandles;
+        private List<DataRow> selectedRows = new List<DataRow>();
         public frmPlanWithPrintCard()
         {
             InitializeComponent();
@@ -44,18 +45,23 @@ namespace cf01.ReportForm
             commUse.BindComboBox(cmbReportType, "formname", "show_name", strsql, "v_dict_group");
             AddCheckBox();
             InitQueryValue();
-            if (frmMoSchedule.sendDep!="")
+            string wp_id = frmMoSchedule.sendDep;
+            if (wp_id != "")
             {
-                txtDep.Text = frmMoSchedule.sendDep;
+                txtDep.Text = wp_id;
                 mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
                 mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                rdbAllVer.Checked = true;
             }
             if (mkChkDat1.Text == "" && mkChkDat2.Text == "")
             {
                 mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
                 mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             }
-            txtNextWip.Text = "128";
+            if (wp_id == "102" || wp_id == "202" || wp_id == "203" || wp_id == "105")
+                palPrintNextDepCard.Visible = false;
+            else
+                txtNextWip.Text = "128";
         }
 
         /// <summary>
@@ -157,24 +163,61 @@ namespace cf01.ReportForm
         private void tsbtnPrintCrads_Click(object sender, EventArgs e)
         {
             txtMo1.Focus();
-            bool flagSelect = false;
-            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
-            {
-                if ((bool)dtMoPlan.Rows[i]["select_flag"])
-                {
-                    flagSelect = true;
-                    break;
-                }
-            }
-            if (!flagSelect)
-            {
-                MessageBox.Show("請首先選中需要列印的數據!", "提示信息");
+
+            if (!SelectMoRows())
                 return;
-            }
+
+            //// 显示选中的数据
+            //foreach (DataRow row in selectedRows)
+            //{
+            //    MessageBox.Show(row["mo_id"].ToString());
+            //}
+            //return;
+
+
+            //bool flagSelect = false;
+            //for (int i = 0; i < dtMoPlan.Rows.Count; i++)
+            //{
+            //    if ((bool)dtMoPlan.Rows[i]["select_flag"])
+            //    {
+            //        flagSelect = true;
+            //        break;
+            //    }
+            //}
+            //if (!flagSelect)
+            //{
+            //    MessageBox.Show("請首先選中需要列印的數據!", "提示信息");
+            //    return;
+            //}
             //**********************
             show_workcard(1); //数据处理
                               //**********************
 
+        }
+
+        private bool SelectMoRows()
+        {
+            selectedRowHandles = gvPlanDetails.GetSelectedRows();
+            if (selectedRowHandles.Length == 0)
+            {
+                MessageBox.Show("请先选中要复制的行！");
+                return false;
+            }
+
+            selectedRows.Clear();
+            foreach (var rowHandle in selectedRowHandles)
+            {
+                //var row = gvPlanDetails.GetDataRow(rowHandle);
+                //DataRow row1 = gvPlanDetails.GetDataRow(rowHandle);
+                ////copiedRows.Add(row.ItemArray); // 保存行的所有数据
+                DataRow row = gvPlanDetails.GetDataRow(rowHandle);
+                if (row != null)
+                {
+                    selectedRows.Add(row);
+                }
+
+            }
+            return true;
         }
 
         private void btnSaveQuery_Click(object sender, EventArgs e)
@@ -419,260 +462,263 @@ namespace cf01.ReportForm
             DataTable dtNextItem = new DataTable();
             string do_color_next_dep = "";
             string next_dep_id = "";
-            for (int j = 0; j < dtMoPlan.Rows.Count; j++)
+
+
+            foreach (DataRow dgr in selectedRows)
+            //for (int j = 0; j < dtMoPlan.Rows.Count; j++)
             {
-                DataRow dgr = dtMoPlan.Rows[j];
-                if ((bool)dgr["select_flag"])
+                //DataRow dgr = dtMoPlan.Rows[j];
+                //if ((bool)dgr["select_flag"])
+                //{
+                //DataGridViewRow dgr = dgvDetails.Rows[j];
+                Remark = "";
+                mo = dgr["mo_id"].ToString().Trim();
+                if (rpt_type == 1)//列印當前部門的工序卡
                 {
-                    //DataGridViewRow dgr = dgvDetails.Rows[j];
-                    Remark = "";
-                    mo = dgr["mo_id"].ToString().Trim();
-                    if (rpt_type == 1)//列印當前部門的工序卡
+                    dep = dgr["wp_id"].ToString().Trim();
+                    item = dgr["goods_id"].ToString().Trim();
+                    //當前貨品的下部門的貨品、顏色做法
+                    next_goods_id = dgr["next_goods_id"].ToString().Trim(); //2023/03/02
+                    do_color_next_dep = dgr["next_do_color"].ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
+                    next_dep_id = dgr["next_wp_id"].ToString().Trim();
+                }
+                else//列印下部門的工序卡
+                {
+                    dep = txtNextWip.Text.Trim();
+                    if (dgr["next_wp_id"].ToString().Trim() != dep)
+                        continue;
+                    item = dgr["next_goods_id"].ToString().Trim();
+
+                    //獲取當前貨品的下部門的貨品、顏色做法
+                    //這裡是將當前貨品作為下部門的原料來查找，所以找出來的已是下部門的資料
+                    dtNextItem = clsMo_for_jx.GetNextItem(mo, item);
+                    if (dtNextItem.Rows.Count > 0)
                     {
-                        dep = dgr["wp_id"].ToString().Trim();
-                        item = dgr["goods_id"].ToString().Trim();
-                        //當前貨品的下部門的貨品、顏色做法
-                        next_goods_id = dgr["next_goods_id"].ToString().Trim(); //2023/03/02
-                        do_color_next_dep = dgr["next_do_color"].ToString().Trim(); //clsMo_for_jx.Get_do_color_next_dep(mo, item, dep);
-                        next_dep_id = dgr["next_wp_id"].ToString().Trim();
+                        next_goods_id = dtNextItem.Rows[0]["goods_id"].ToString();// dgr["next_next_goods_id"].Value.ToString().Trim(); //2023/03/02
+                        do_color_next_dep = dtNextItem.Rows[0]["do_color"].ToString();
+                        //next_dep_id = dtNextItem.Rows[0]["wp_id"].ToString();
                     }
-                    else//列印下部門的工序卡
+                    else
                     {
-                        dep = txtNextWip.Text.Trim();
-                        if (dgr["next_wp_id"].ToString().Trim() != dep)
-                            continue;
-                        item = dgr["next_goods_id"].ToString().Trim();
-
-                        //獲取當前貨品的下部門的貨品、顏色做法
-                        //這裡是將當前貨品作為下部門的原料來查找，所以找出來的已是下部門的資料
-                        dtNextItem = clsMo_for_jx.GetNextItem(mo, item);
-                        if (dtNextItem.Rows.Count > 0)
-                        {
-                            next_goods_id = dtNextItem.Rows[0]["goods_id"].ToString();// dgr["next_next_goods_id"].Value.ToString().Trim(); //2023/03/02
-                            do_color_next_dep = dtNextItem.Rows[0]["do_color"].ToString();
-                            //next_dep_id = dtNextItem.Rows[0]["wp_id"].ToString();
-                        }
-                        else
-                        {
-                            next_goods_id = "";
-                            do_color_next_dep = "";
-                            //next_dep_id = "";
-                        }
-                        dtCurrentWipItem = clsMo_for_jx.GetCurrentWipData(dep,mo, item);
+                        next_goods_id = "";
+                        do_color_next_dep = "";
+                        //next_dep_id = "";
                     }
-                    
-                    if (dep != "" && mo != "" && item != "")
+                    dtCurrentWipItem = clsMo_for_jx.GetCurrentWipData(dep, mo, item);
+                }
+
+                if (dep != "" && mo != "" && item != "")
+                {
+                    dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item); //獲取工序卡大部分數據
+                                                                              //DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
+                    dtPosition = clsMo_for_jx.GetPosition(item);
+                    dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
+                    dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
+                    //通過下部門貨品再找下下部門的貨品資料
+                    dtNextNextItem = clsMo_for_jx.GetNextNextItem(mo, next_goods_id);
+                    //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
+                    //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);                       
+
+                    order_unit = "";
+                    order_qty = 0;
+                    order_qty_pcs = 0;
+                    if (dtQty.Rows.Count > 0)
                     {
-                        dt_wk = clsMo_for_jx.GetGoods_DetailsById(dep, mo, item); //獲取工序卡大部分數據
-                        //DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(item);
-                        dtPosition = clsMo_for_jx.GetPosition(item);
-                        dtQty = clsMo_for_jx.GetOrderQty(mo);//獲取訂單數量
-                        dtPs = clsMo_for_jx.GetPeQtyAndStep(item);
-                        //通過下部門貨品再找下下部門的貨品資料
-                        dtNextNextItem = clsMo_for_jx.GetNextNextItem(mo, next_goods_id);
-                        //DataTable dtColor = clsMo_for_jx.GetColorInfo(dep, mo, item);
-                        //DataTable dtPlate_Remark = clsMo_for_jx.Get_Plate_Remark(mo);                       
+                        order_unit = dtQty.Rows[0]["goods_unit"].ToString();
+                        order_qty = Convert.ToInt32(dtQty.Rows[0]["order_qty"]);
+                        order_qty_pcs = Convert.ToInt32(dtQty.Rows[0]["order_qty_pcs"]);
+                        plate_remark = dtQty.Rows[0]["plate_remark"].ToString();
+                    }
+                    if (dt_wk.Rows.Count > 0)
+                    {
+                        DataRow drDtWk = dt_wk.Rows[0];
+                        string strBarCode = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
 
-                        order_unit = "";
-                        order_qty = 0;
-                        order_qty_pcs = 0;
-                        if (dtQty.Rows.Count > 0)
+                        int Per_qty = Convert.ToInt32(dgr["per_prod_qty"]);  //每次生產數量
+                        int Total_qty = Convert.ToInt32(dgr["prod_qty"]);    //生產總量
+                        int qty_remaining = 0; //2024/01/31 ADD ALLEN
+                        int NumPage = 0;     //報表頁數                            
+                        if (Total_qty > 0 && Per_qty > 0)
                         {
-                            order_unit = dtQty.Rows[0]["goods_unit"].ToString();
-                            order_qty = Convert.ToInt32(dtQty.Rows[0]["order_qty"]);
-                            order_qty_pcs = Convert.ToInt32(dtQty.Rows[0]["order_qty_pcs"]);
-                            plate_remark=  dtQty.Rows[0]["plate_remark"].ToString();
-                        }
-                        if (dt_wk.Rows.Count > 0)
-                        {
-                            DataRow drDtWk = dt_wk.Rows[0];
-                            string strBarCode = clsMo_for_jx.ReturnBarCode(drDtWk["mo_id"] + "0" + drDtWk["ver"] + drDtWk["sequence_id"].ToString().Substring(2, 2));
-
-                            int Per_qty = Convert.ToInt32(dgr["per_prod_qty"]);  //每次生產數量
-                            int Total_qty = Convert.ToInt32(dgr["prod_qty"]);    //生產總量
-                            int qty_remaining = 0; //2024/01/31 ADD ALLEN
-                            int NumPage = 0;     //報表頁數                            
-                            if (Total_qty > 0 && Per_qty > 0)
+                            if (Total_qty % Per_qty > 0)
                             {
-                                if (Total_qty % Per_qty > 0)
-                                {
-                                    NumPage = (Total_qty / Per_qty) + 1;
-                                    qty_remaining = Total_qty % Per_qty; //2024/01/31 ADD ALLEN
-                                }
-                                else
-                                {
-                                    NumPage = (Total_qty / Per_qty);
-                                    qty_remaining = 0; //2024/01/31 ADD ALLEN
-                                }
+                                NumPage = (Total_qty / Per_qty) + 1;
+                                qty_remaining = Total_qty % Per_qty; //2024/01/31 ADD ALLEN
                             }
                             else
                             {
-                                NumPage = 1;
-                            }
-                            if (rpt_type == 2)//當列印當前部門的下部門工序卡時
-                                next_dep_id = drDtWk["next_wp_id"].ToString();
-                            for (int i = 1; i <= NumPage; i++)
-                            {
-                                dr = dtNewWork.NewRow();
-                                //dr["BarCode"] = drDtWk["item_barcode"].ToString().Trim();
-                                dr["wp_id"] = drDtWk["wp_id"].ToString();
-                                dr["mo_id"] = drDtWk["mo_id"].ToString();
-                                dr["goods_id"] = drDtWk["goods_id"].ToString();
-                                dr["goods_name"] = drDtWk["name"].ToString();
-                                dr["prod_qty"] = clsUtility.NumberConvert(drDtWk["prod_qty"]);
-                                dr["goods_unit"] = drDtWk["goods_unit"].ToString();
-                                dr["within_code"] = drDtWk["within_code"].ToString();
-                                dr["id"] = drDtWk["id"].ToString();
-                                dr["ver"] = clsUtility.FormatNullableInt32(drDtWk["ver"]);
-                                dr["sequence_id"] = drDtWk["sequence_id"].ToString();
-                                dr["blueprint_id"] = drDtWk["blueprint_id"].ToString();
-                                dr["production_remark"] = drDtWk["production_remark"].ToString();
-                                dr["remark"] = drDtWk["remark"].ToString();
-                                //string dept= drDtWk["next_wp_id"].ToString();
-                                dr["next_wp_id"] = drDtWk["next_wp_id"].ToString();
-                                dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(drDtWk["predept_rechange_qty"]);
-                                dr["order_qty"] = clsUtility.NumberConvert(order_qty);
-                                dr["order_unit"] = order_unit;
-                                dr["color"] = drDtWk["color"].ToString();
-                                dr["base_qty"] = clsUtility.FormatNullableInt32(drDtWk["base_qty"]);
-                                dr["unit_code"] = drDtWk["unit_code"].ToString();
-                                dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
-                                dr["basic_unit"] = drDtWk["basic_unit"].ToString();
-                                dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
-                                dr["plate_remark"] = plate_remark;
-                                
-                                DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
-                                if (next_dep_id == "702")
-                                {
-                                    dr["next_wp_id"] = "702"; //當有測式工序卡時部門名稱與描述不一致的情況.2023/09/14改為手動賦值.
-                                }
-                                dr["next_dep_name"] = (drDept.Length > 0) ? drDept[0]["next_wp_name"].ToString() : "";                                
-                                dr["customer_id"] = drDtWk["customer_id"].ToString();
-                                dr["brand_id"] = drDtWk["brand_id"].ToString();
-                                dr["get_color_sample"] = drDtWk["get_color_sample"].ToString();
-                                dr["do_color1"] = drDtWk["get_color_sample"];
-                                dr["page_num"] = i;
-                                dr["total_page"] = NumPage;
-                                dr["c_sec_qty_ok"] = clsUtility.FormatNullableInt32(drDtWk["c_sec_qty_ok"]);
-                                dr["get_color_sample_name"] = drDtWk["get_color_sample_name"];
-                                dr["vendor_id"] = drDtWk["vendor_id"];
-                                dr["depRemark"] = Remark;
-                                dr["request_date"] = drDtWk["t_complete_date"];// Request_date;
-                                dr["color_name"] = drDtWk["color_name"].ToString();
-                                dr["do_color"] = drDtWk["do_color"].ToString();
-                                dr["wh_location"] = drDtWk["wh_location"].ToString();
-                                //if (dtPlate_Remark.Rows.Count > 0)
-                                //{
-                                //    dr["plate_remark"] = dtQty.Rows[0]["plate_remark"];
-                                //}
-                                //if (dtArt.Rows.Count > 0)
-                                //{
-                                dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
-                                if (rpt_type == 1)//如果是列印當前部門的
-                                    dr["picture_name"] = dgr["picture_name"].ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
-                                else//如果是列印當前部門的下部門的
-                                    dr["picture_name"] = dtCurrentWipItem.Rows[0]["picture_name"];
-                                //}
-
-                                    //if (dtColor.Rows.Count > 0)
-                                    //{
-                                    //    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
-                                    //    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
-                                    //}
-
-                                if (dtPosition.Rows.Count > 0)
-                                {
-                                    dr["position_id"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["id"]);
-                                    dr["mould_no"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["mould_no"]);
-                                }
-
-                                if (dep == "302" || dep == "322")
-                                    dr["report_name"] = "生產單" + "(" + dep + ")";
-                                else
-                                    dr["report_name"] = "工序卡" + "(" + dep + ")";
-
-                                if (!string.IsNullOrEmpty(drDtWk["t_complete_date"].ToString()))
-                                {
-                                    dr["t_complete_date"] = Convert.ToDateTime(drDtWk["t_complete_date"]).ToString("yyyy/MM/dd");
-                                }
-                                if (!string.IsNullOrEmpty(drDtWk["arrive_date"].ToString()))
-                                {
-                                    dr["arrive_date"] = Convert.ToDateTime(drDtWk["arrive_date"]).ToString("yyyy/MM/dd");
-                                }
-
-                                //--start 2024/03/13 add qc info by allen
-                                dr["qc_dept"] = drDtWk["qc_dept"].ToString();
-                                dr["qc_name"] = drDtWk["qc_name"].ToString();
-                                dr["qc_qty"] = drDtWk["qc_qty"].ToString();
-                                if(next_dep_id=="702" || next_dep_id == "722")
-                                {
-                                    dr["qc_dept"] = "";
-                                    dr["qc_name"] = "";
-                                    dr["qc_qty"] = "";
-                                }
-                                //--end 2024/03/13 add by allen
-
-                                if (i == NumPage && Per_qty != 0)
-                                {                                   
-                                    dr["per_qty"] = (qty_remaining>0)? clsUtility.NumberConvert(qty_remaining): clsUtility.NumberConvert(Per_qty);                                    
-                                }
-                                else
-                                {
-                                    dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
-                                }
-
-                                if (dtPs.Rows.Count > 0)
-                                {
-                                    dr["pe_qty"] = dtPs.Rows[0]["pe_qty"].ToString();
-                                    dr["step"] = dtPs.Rows[0]["step"].ToString();
-                                }
-                                ////條碼Barcode
-                                dr["BarCode"] = strBarCode;
-                                //貨倉位置
-                                //dr["goods_position"] = drDtWk["wh_location"].ToString(); //clsMo_for_jx.ReturnGoodsPosition(drDtWk["goods_id"].ToString(), drDtWk["next_wp_id"].ToString());
-                                dr["do_color_next_dep"] = do_color_next_dep;
-                                if (rpt_type == 1)//如果是列印當前部門的
-                                {
-                                    dr["next_goods_id"] = dgr["next_goods_id"].ToString().Trim();
-                                    dr["next_do_color"] = dgr["next_do_color"].ToString().Trim();
-                                    dr["next_vendor_id"] = dgr["next_vendor_id"].ToString().Trim();
-                                    dr["next_goods_name"] = dgr["next_goods_name"].ToString().Trim();
-                                    dr["next_next_wp_id"] = dgr["next_next_wp_id"].ToString().Trim();
-                                    dr["next_next_dep_name"] = dgr["next_next_dep_name"].ToString().Trim();
-                                }
-                                else//如果是列印當前部門的下部門的
-                                {
-                                    if (dtNextItem.Rows.Count > 0)
-                                    {
-                                        //////下部門
-                                        dr["next_goods_id"] = dtNextItem.Rows[0]["goods_id"].ToString();
-                                        dr["next_do_color"] = dtNextItem.Rows[0]["do_color"].ToString();
-                                        dr["next_goods_name"] = dtNextItem.Rows[0]["goods_name"].ToString();
-                                        //////下下部門
-                                        dr["next_next_wp_id"] = dtNextItem.Rows[0]["next_wp_id"].ToString();
-                                        dr["next_next_dep_name"] = dtNextItem.Rows[0]["next_wp_name"].ToString();
-                                    }
-                                    else
-                                    {
-                                        dr["next_next_wp_id"] = "";
-                                        dr["next_next_dep_name"] = "";//drDtWk["vendor_id"]
-                                    }
-                                    dr["next_vendor_id"] = drDtWk["vendor_id"];
-
-                                }
-                                dr["prod_date"] = "";
-                                if(dtNextNextItem.Rows.Count>0)
-                                {
-                                    dr["next_next_goods_id"] = dtNextNextItem.Rows[0]["next_next_goods_id"].ToString();
-                                    dr["next_next_do_color"] = dtNextNextItem.Rows[0]["next_next_do_color"].ToString();
-                                }
-                                dr["qty_remaining"] = qty_remaining; //2024/01/31 ADD ALLEN
-                                dr["stantard_qty"] = "";//clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
-                                dr["qc_test"] = drDtWk["qc_test"].ToString();
-                                dtNewWork.Rows.Add(dr);
+                                NumPage = (Total_qty / Per_qty);
+                                qty_remaining = 0; //2024/01/31 ADD ALLEN
                             }
                         }
+                        else
+                        {
+                            NumPage = 1;
+                        }
+                        if (rpt_type == 2)//當列印當前部門的下部門工序卡時
+                            next_dep_id = drDtWk["next_wp_id"].ToString();
+                        for (int i = 1; i <= NumPage; i++)
+                        {
+                            dr = dtNewWork.NewRow();
+                            //dr["BarCode"] = drDtWk["item_barcode"].ToString().Trim();
+                            dr["wp_id"] = drDtWk["wp_id"].ToString();
+                            dr["mo_id"] = drDtWk["mo_id"].ToString();
+                            dr["goods_id"] = drDtWk["goods_id"].ToString();
+                            dr["goods_name"] = drDtWk["name"].ToString();
+                            dr["prod_qty"] = clsUtility.NumberConvert(drDtWk["prod_qty"]);
+                            dr["goods_unit"] = drDtWk["goods_unit"].ToString();
+                            dr["within_code"] = drDtWk["within_code"].ToString();
+                            dr["id"] = drDtWk["id"].ToString();
+                            dr["ver"] = clsUtility.FormatNullableInt32(drDtWk["ver"]);
+                            dr["sequence_id"] = drDtWk["sequence_id"].ToString();
+                            dr["blueprint_id"] = drDtWk["blueprint_id"].ToString();
+                            dr["production_remark"] = drDtWk["production_remark"].ToString();
+                            dr["remark"] = drDtWk["remark"].ToString();
+                            //string dept= drDtWk["next_wp_id"].ToString();
+                            dr["next_wp_id"] = drDtWk["next_wp_id"].ToString();
+                            dr["predept_rechange_qty"] = clsUtility.FormatNullableDecimal(drDtWk["predept_rechange_qty"]);
+                            dr["order_qty"] = clsUtility.NumberConvert(order_qty);
+                            dr["order_unit"] = order_unit;
+                            dr["color"] = drDtWk["color"].ToString();
+                            dr["base_qty"] = clsUtility.FormatNullableInt32(drDtWk["base_qty"]);
+                            dr["unit_code"] = drDtWk["unit_code"].ToString();
+                            dr["base_rate"] = clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
+                            dr["basic_unit"] = drDtWk["basic_unit"].ToString();
+                            dr["order_qty_pcs"] = clsUtility.NumberConvert(order_qty_pcs);
+                            dr["plate_remark"] = plate_remark;
+
+                            DataRow[] drDept = dt_wk.Select("next_wp_id='" + next_dep_id + "'");
+                            if (next_dep_id == "702")
+                            {
+                                dr["next_wp_id"] = "702"; //當有測式工序卡時部門名稱與描述不一致的情況.2023/09/14改為手動賦值.
+                            }
+                            dr["next_dep_name"] = (drDept.Length > 0) ? drDept[0]["next_wp_name"].ToString() : "";
+                            dr["customer_id"] = drDtWk["customer_id"].ToString();
+                            dr["brand_id"] = drDtWk["brand_id"].ToString();
+                            dr["get_color_sample"] = drDtWk["get_color_sample"].ToString();
+                            dr["do_color1"] = drDtWk["get_color_sample"];
+                            dr["page_num"] = i;
+                            dr["total_page"] = NumPage;
+                            dr["c_sec_qty_ok"] = clsUtility.FormatNullableInt32(drDtWk["c_sec_qty_ok"]);
+                            dr["get_color_sample_name"] = drDtWk["get_color_sample_name"];
+                            dr["vendor_id"] = drDtWk["vendor_id"];
+                            dr["depRemark"] = Remark;
+                            dr["request_date"] = drDtWk["t_complete_date"];// Request_date;
+                            dr["color_name"] = drDtWk["color_name"].ToString();
+                            dr["do_color"] = drDtWk["do_color"].ToString();
+                            dr["wh_location"] = drDtWk["wh_location"].ToString();
+                            //if (dtPlate_Remark.Rows.Count > 0)
+                            //{
+                            //    dr["plate_remark"] = dtQty.Rows[0]["plate_remark"];
+                            //}
+                            //if (dtArt.Rows.Count > 0)
+                            //{
+                            dr["art_id"] = "";// dtArt.Rows[0]["art_id"].ToString();
+                            if (rpt_type == 1)//如果是列印當前部門的
+                                dr["picture_name"] = dgr["picture_name"].ToString().Trim();// dtArt.Rows[0]["picture_name"].ToString();
+                            else//如果是列印當前部門的下部門的
+                                dr["picture_name"] = dtCurrentWipItem.Rows[0]["picture_name"];
+                            //}
+
+                            //if (dtColor.Rows.Count > 0)
+                            //{
+                            //    dr["color_name"] = dtColor.Rows[0]["color_name"].ToString();
+                            //    dr["do_color"] = dtColor.Rows[0]["do_color"].ToString();
+                            //}
+
+                            if (dtPosition.Rows.Count > 0)
+                            {
+                                dr["position_id"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["id"]);
+                                dr["mould_no"] = clsUtility.FormatNullableString(dtPosition.Rows[0]["mould_no"]);
+                            }
+
+                            if (dep == "302" || dep == "322")
+                                dr["report_name"] = "生產單" + "(" + dep + ")";
+                            else
+                                dr["report_name"] = "工序卡" + "(" + dep + ")";
+
+                            if (!string.IsNullOrEmpty(drDtWk["t_complete_date"].ToString()))
+                            {
+                                dr["t_complete_date"] = Convert.ToDateTime(drDtWk["t_complete_date"]).ToString("yyyy/MM/dd");
+                            }
+                            if (!string.IsNullOrEmpty(drDtWk["arrive_date"].ToString()))
+                            {
+                                dr["arrive_date"] = Convert.ToDateTime(drDtWk["arrive_date"]).ToString("yyyy/MM/dd");
+                            }
+
+                            //--start 2024/03/13 add qc info by allen
+                            dr["qc_dept"] = drDtWk["qc_dept"].ToString();
+                            dr["qc_name"] = drDtWk["qc_name"].ToString();
+                            dr["qc_qty"] = drDtWk["qc_qty"].ToString();
+                            if (next_dep_id == "702" || next_dep_id == "722")
+                            {
+                                dr["qc_dept"] = "";
+                                dr["qc_name"] = "";
+                                dr["qc_qty"] = "";
+                            }
+                            //--end 2024/03/13 add by allen
+
+                            if (i == NumPage && Per_qty != 0)
+                            {
+                                dr["per_qty"] = (qty_remaining > 0) ? clsUtility.NumberConvert(qty_remaining) : clsUtility.NumberConvert(Per_qty);
+                            }
+                            else
+                            {
+                                dr["per_qty"] = clsUtility.NumberConvert(Per_qty);
+                            }
+
+                            if (dtPs.Rows.Count > 0)
+                            {
+                                dr["pe_qty"] = dtPs.Rows[0]["pe_qty"].ToString();
+                                dr["step"] = dtPs.Rows[0]["step"].ToString();
+                            }
+                            ////條碼Barcode
+                            dr["BarCode"] = strBarCode;
+                            //貨倉位置
+                            //dr["goods_position"] = drDtWk["wh_location"].ToString(); //clsMo_for_jx.ReturnGoodsPosition(drDtWk["goods_id"].ToString(), drDtWk["next_wp_id"].ToString());
+                            dr["do_color_next_dep"] = do_color_next_dep;
+                            if (rpt_type == 1)//如果是列印當前部門的
+                            {
+                                dr["next_goods_id"] = dgr["next_goods_id"].ToString().Trim();
+                                dr["next_do_color"] = dgr["next_do_color"].ToString().Trim();
+                                dr["next_vendor_id"] = dgr["next_vendor_id"].ToString().Trim();
+                                dr["next_goods_name"] = dgr["next_goods_name"].ToString().Trim();
+                                dr["next_next_wp_id"] = dgr["next_next_wp_id"].ToString().Trim();
+                                dr["next_next_dep_name"] = dgr["next_next_dep_name"].ToString().Trim();
+                            }
+                            else//如果是列印當前部門的下部門的
+                            {
+                                if (dtNextItem.Rows.Count > 0)
+                                {
+                                    //////下部門
+                                    dr["next_goods_id"] = dtNextItem.Rows[0]["goods_id"].ToString();
+                                    dr["next_do_color"] = dtNextItem.Rows[0]["do_color"].ToString();
+                                    dr["next_goods_name"] = dtNextItem.Rows[0]["goods_name"].ToString();
+                                    //////下下部門
+                                    dr["next_next_wp_id"] = dtNextItem.Rows[0]["next_wp_id"].ToString();
+                                    dr["next_next_dep_name"] = dtNextItem.Rows[0]["next_wp_name"].ToString();
+                                }
+                                else
+                                {
+                                    dr["next_next_wp_id"] = "";
+                                    dr["next_next_dep_name"] = "";//drDtWk["vendor_id"]
+                                }
+                                dr["next_vendor_id"] = drDtWk["vendor_id"];
+
+                            }
+                            dr["prod_date"] = "";
+                            if (dtNextNextItem.Rows.Count > 0)
+                            {
+                                dr["next_next_goods_id"] = dtNextNextItem.Rows[0]["next_next_goods_id"].ToString();
+                                dr["next_next_do_color"] = dtNextNextItem.Rows[0]["next_next_do_color"].ToString();
+                            }
+                            dr["qty_remaining"] = qty_remaining; //2024/01/31 ADD ALLEN
+                            dr["stantard_qty"] = "";//clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
+                            dr["qc_test"] = drDtWk["qc_test"].ToString();
+                            dtNewWork.Rows.Add(dr);
+                        }
                     }
+                    //}
                 }
             }
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
@@ -887,26 +933,33 @@ namespace cf01.ReportForm
 
         private void btnPrintNextWp_Click(object sender, EventArgs e)
         {
+            txtMo1.Focus();
+            if (!SelectMoRows())
+                return;
             show_workcard(2);
         }
 
         private void btnMoSchedule_Click(object sender, EventArgs e)
         {
             txtMo1.Focus();
-            bool selectFlag = false;
-            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
-            {
-                if ((bool)dtMoPlan.Rows[i]["select_flag"])
-                {
-                    selectFlag = true;
-                    break;
-                }
-            }
-            if (selectFlag == false)
-            {
-                MessageBox.Show("沒有儲存的記錄!");
+            if (!SelectMoRows())
                 return;
-            }
+
+
+            //bool selectFlag = false;
+            //for (int i = 0; i < dtMoPlan.Rows.Count; i++)
+            //{
+            //    if ((bool)dtMoPlan.Rows[i]["select_flag"])
+            //    {
+            //        selectFlag = true;
+            //        break;
+            //    }
+            //}
+            //if (selectFlag == false)
+            //{
+            //    MessageBox.Show("沒有儲存的記錄!");
+            //    return;
+            //}
             frmProgress wForm = new frmProgress();
             new Thread((ThreadStart)delegate
             {
@@ -926,72 +979,74 @@ namespace cf01.ReportForm
             
             List<mdlMoSchedule> lsModel = new List<mdlMoSchedule>();
             int seq_step = clsMoSchedule.GetScheduleSeq(dtMoPlan.Rows[0]["wp_id"].ToString().Trim());
-            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
+            foreach (DataRow drMo in selectedRows)
+            //for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
-                if ((bool)dtMoPlan.Rows[i]["select_flag"])
+                //if ((bool)dtMoPlan.Rows[i]["select_flag"])
+                //{
+                //    DataRow drMo = dtMoPlan.Rows[i];
+                mdlMoSchedule objModel = new mdlMoSchedule();
+                objModel.schedule_id = "";
+                objModel.schedule_seq = seq_step.ToString("D3").PadLeft(3, '0');
+                objModel.schedule_date = System.DateTime.Now.ToString("yyyy/MM/dd");
+                objModel.now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
+                objModel.prd_dep = drMo["wp_id"].ToString().Trim();
+                objModel.prd_mo = drMo["mo_id"].ToString().Trim();
+                objModel.prd_item = drMo["goods_id"].ToString().Trim();
+                //DataTable dtPrd = clsMoSchedule.GetPrdDetails(objModel.prd_dep, objModel.prd_item);
+                objModel.prd_group = drMo["prd_group"].ToString().Trim();
+                objModel.pmc_rq_date = drMo["t_complete_date"].ToString().Trim();
+                objModel.next_wp_id = drMo["next_wp_id"].ToString().Trim();
+                objModel.next_goods_id = drMo["next_goods_id"].ToString().Trim();
+                objModel.next_vend_id = drMo["next_vendor_id"].ToString().Trim();
+                objModel.order_date = drMo["order_date"].ToString().Trim();
+                objModel.order_qty = clsValidRule.ConvertStrToInt(drMo["order_qty"].ToString());
+                objModel.pl_qty = clsValidRule.ConvertStrToInt(drMo["prod_qty"].ToString());
+                objModel.schedule_qty = objModel.pl_qty;
+
+
+                objModel.prd_machine = drMo["prd_machine"].ToString().Trim();
+                objModel.machine_std_qty = clsValidRule.ConvertStrToInt(drMo["machine_std_qty"].ToString());
+                objModel.machine_std_run_num = clsValidRule.ConvertStrToInt(drMo["machine_rate"].ToString());
+                if (objModel.machine_std_run_num == 0)
                 {
-                    DataRow drMo = dtMoPlan.Rows[i];
-                    mdlMoSchedule objModel = new mdlMoSchedule();
-                    objModel.schedule_id = "";
-                    objModel.schedule_seq = seq_step.ToString("D3").PadLeft(3, '0');
-                    objModel.schedule_date = System.DateTime.Now.ToString("yyyy/MM/dd");
-                    objModel.now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
-                    objModel.prd_dep = drMo["wp_id"].ToString().Trim();
-                    objModel.prd_mo = drMo["mo_id"].ToString().Trim();
-                    objModel.prd_item = drMo["goods_id"].ToString().Trim();
-                    //DataTable dtPrd = clsMoSchedule.GetPrdDetails(objModel.prd_dep, objModel.prd_item);
-                    objModel.prd_group = drMo["prd_group"].ToString().Trim();
-                    objModel.pmc_rq_date = drMo["t_complete_date"].ToString().Trim();
-                    objModel.next_wp_id = drMo["next_wp_id"].ToString().Trim();
-                    objModel.next_goods_id = drMo["next_goods_id"].ToString().Trim();
-                    objModel.next_vend_id = drMo["next_vendor_id"].ToString().Trim();
-                    objModel.order_date = drMo["order_date"].ToString().Trim();
-                    objModel.order_qty = clsValidRule.ConvertStrToInt(drMo["order_qty"].ToString());
-                    objModel.pl_qty = clsValidRule.ConvertStrToInt(drMo["prod_qty"].ToString());
-                    objModel.schedule_qty = objModel.pl_qty;
-
-
-                    objModel.prd_machine = drMo["prd_machine"].ToString().Trim();
-                    objModel.machine_std_qty = clsValidRule.ConvertStrToInt(drMo["machine_std_qty"].ToString());
-                    objModel.machine_std_run_num = clsValidRule.ConvertStrToInt(drMo["machine_rate"].ToString());
-                    if(objModel.machine_std_run_num == 0)
+                    if (objModel.prd_dep == "322")
                     {
-                        if(objModel.prd_dep=="322")
-                        {
-                            objModel.machine_std_run_num = 450;
-                        }
+                        objModel.machine_std_run_num = 450;
                     }
-                    //需生產時間a.machine_mul,a.machine_rate,a.machine_std_qty
-                    objModel.machine_std_line_num = clsValidRule.ConvertStrToInt(drMo["machine_mul"].ToString());
-                    if (objModel.machine_std_line_num == 0)
-                    {
-                        if (objModel.prd_dep == "322")
-                            objModel.machine_std_line_num = 6;
-                        else
-                            objModel.machine_std_line_num = 1;
-                    }
-                    objModel.need_mon_num = ((int)(objModel.schedule_qty / objModel.machine_std_line_num) + 1);
-                    //if (objModel.machine_std_qty == 0)
-                    objModel.machine_std_qty = objModel.machine_std_run_num * objModel.machine_std_line_num;
-                    if (objModel.machine_std_qty != 0)
-                        objModel.req_prd_time = Math.Round(objModel.schedule_qty / objModel.machine_std_qty, 2);
-                    
-                    objModel.req_tot_time = objModel.req_module_time + objModel.req_prd_time;
-
-                    objModel.module_type = "00";
-                    string status_desc = drMo["status_desc"].ToString().Trim();
-                    objModel.urgent_flag = "00";
-                    if (status_desc == "急單" || status_desc == "急")
-                        objModel.urgent_flag = "02";
-                    else if (status_desc == "特急" || status_desc == "特急單")
-                        objModel.urgent_flag = "03";
-                    else if (status_desc == "超特急" || status_desc == "超特急單")
-                        objModel.urgent_flag = "04";
-                    objModel.status = "01";
-                    
-                    lsModel.Add(objModel);
-                    seq_step++;
                 }
+                //需生產時間a.machine_mul,a.machine_rate,a.machine_std_qty
+                objModel.machine_std_line_num = clsValidRule.ConvertStrToInt(drMo["machine_mul"].ToString());
+                if (objModel.machine_std_line_num == 0)
+                {
+                    if (objModel.prd_dep == "322")
+                        objModel.machine_std_line_num = 6;
+                    else
+                        objModel.machine_std_line_num = 1;
+                }
+                objModel.need_mon_num = ((int)(objModel.schedule_qty / objModel.machine_std_line_num) + 1);
+                //if (objModel.machine_std_qty == 0)
+                objModel.machine_std_qty = objModel.machine_std_run_num * objModel.machine_std_line_num;
+                if (objModel.machine_std_qty != 0)
+                    objModel.req_prd_time = Math.Round(objModel.schedule_qty / objModel.machine_std_qty, 2);
+
+                objModel.req_tot_time = objModel.req_module_time + objModel.req_prd_time;
+
+                objModel.module_type = "00";
+                string status_desc = drMo["status_desc"].ToString().Trim();
+                objModel.urgent_flag = "00";
+                if (status_desc == "急單" || status_desc == "急")
+                    objModel.urgent_flag = "02";
+                else if (status_desc == "特急" || status_desc == "特急單")
+                    objModel.urgent_flag = "03";
+                else if (status_desc == "超特急" || status_desc == "超特急單")
+                    objModel.urgent_flag = "04";
+                objModel.status = "01";
+
+                lsModel.Add(objModel);
+                seq_step++;
+                
+                //}
             }
 
             if (lsModel.Count > 0)
@@ -1025,11 +1080,23 @@ namespace cf01.ReportForm
             bool selectFlag = false;
             if (chkSelectAll.Checked == true)
                 selectFlag = true;
-            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
+            //for (int i = 0; i < dtMoPlan.Rows.Count; i++)
+            //{
+            //    dtMoPlan.Rows[i]["select_flag"] = selectFlag;
+
+            //}
+
+            // 选中所有已过滤出来的记录
+            for (int i = 0; i < gvPlanDetails.DataRowCount; i++)
             {
-                dtMoPlan.Rows[i]["select_flag"] = selectFlag;
-               
+                int rowHandle = gvPlanDetails.GetVisibleRowHandle(i);
+                gvPlanDetails.SelectRow(rowHandle); // 选中该行
+                //dtMoPlan.Rows[rowHandle]["select_flag"] = selectFlag;
+                gvPlanDetails.SetRowCellValue(rowHandle, "select_flag", selectFlag); // 更新字段值
+
             }
+
+
         }
 
         private void gvPlanDetails_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
