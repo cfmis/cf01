@@ -30,17 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferout));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clTest_item_id = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clType_conditon = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.clButFindReport = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -64,6 +66,7 @@
             this.BTNCANCEL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNAPPROVE = new System.Windows.Forms.ToolStripButton();
+            this.BTNUNAPPROVE = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNPRINT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
@@ -94,8 +97,8 @@
             this.lblAmusr = new System.Windows.Forms.Label();
             this.lblCrtim = new System.Windows.Forms.Label();
             this.lblCrusr = new System.Windows.Forms.Label();
-            this.txtupdate_date = new DevExpress.XtraEditors.TextEdit();
-            this.txtupdate_by = new DevExpress.XtraEditors.TextEdit();
+            this.txtUpdate_date = new DevExpress.XtraEditors.TextEdit();
+            this.txtUpdate_by = new DevExpress.XtraEditors.TextEdit();
             this.txtCreate_date = new DevExpress.XtraEditors.TextEdit();
             this.txtCreate_by = new DevExpress.XtraEditors.TextEdit();
             this.lblremark = new System.Windows.Forms.Label();
@@ -120,6 +123,7 @@
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clBteLotNo2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -167,6 +171,7 @@
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clBteLotNo1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -251,8 +256,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeDepartment_id.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtupdate_date.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtupdate_by.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_date.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
@@ -261,6 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clQty2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSecQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLocation_id2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBteLotNo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clMo_id)).BeginInit();
@@ -271,6 +277,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clSec_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBteLotNo1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -379,6 +386,7 @@
             this.BTNCANCEL,
             this.toolStripSeparator11,
             this.BTNAPPROVE,
+            this.BTNUNAPPROVE,
             this.toolStripSeparator4,
             this.BTNPRINT,
             this.toolStripSeparator8,
@@ -512,6 +520,16 @@
             this.BTNAPPROVE.Text = "批 準";
             this.BTNAPPROVE.Click += new System.EventHandler(this.BTNAPPROVE_Click);
             // 
+            // BTNUNAPPROVE
+            // 
+            this.BTNUNAPPROVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNUNAPPROVE.Image")));
+            this.BTNUNAPPROVE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNUNAPPROVE.Name = "BTNUNAPPROVE";
+            this.BTNUNAPPROVE.Size = new System.Drawing.Size(63, 30);
+            this.BTNUNAPPROVE.Text = "反批準";
+            this.BTNUNAPPROVE.Visible = false;
+            this.BTNUNAPPROVE.Click += new System.EventHandler(this.BTNUNAPPROVE_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
@@ -580,8 +598,8 @@
             this.panel1.Controls.Add(this.lblAmusr);
             this.panel1.Controls.Add(this.lblCrtim);
             this.panel1.Controls.Add(this.lblCrusr);
-            this.panel1.Controls.Add(this.txtupdate_date);
-            this.panel1.Controls.Add(this.txtupdate_by);
+            this.panel1.Controls.Add(this.txtUpdate_date);
+            this.panel1.Controls.Add(this.txtUpdate_by);
             this.panel1.Controls.Add(this.txtCreate_date);
             this.panel1.Controls.Add(this.txtCreate_by);
             this.panel1.Controls.Add(this.lblremark);
@@ -915,33 +933,33 @@
             this.lblCrusr.Text = "建檔人";
             this.lblCrusr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtupdate_date
+            // txtUpdate_date
             // 
-            this.txtupdate_date.EditValue = "";
-            this.txtupdate_date.Enabled = false;
-            this.txtupdate_date.Location = new System.Drawing.Point(556, 51);
-            this.txtupdate_date.Name = "txtupdate_date";
-            this.txtupdate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtupdate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtupdate_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtupdate_date.Properties.ReadOnly = true;
-            this.txtupdate_date.Size = new System.Drawing.Size(146, 22);
-            this.txtupdate_date.TabIndex = 12;
-            this.txtupdate_date.Tag = "2";
+            this.txtUpdate_date.EditValue = "";
+            this.txtUpdate_date.Enabled = false;
+            this.txtUpdate_date.Location = new System.Drawing.Point(556, 51);
+            this.txtUpdate_date.Name = "txtUpdate_date";
+            this.txtUpdate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtUpdate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtUpdate_date.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtUpdate_date.Properties.ReadOnly = true;
+            this.txtUpdate_date.Size = new System.Drawing.Size(146, 22);
+            this.txtUpdate_date.TabIndex = 12;
+            this.txtUpdate_date.Tag = "2";
             // 
-            // txtupdate_by
+            // txtUpdate_by
             // 
-            this.txtupdate_by.EditValue = "";
-            this.txtupdate_by.Enabled = false;
-            this.txtupdate_by.Location = new System.Drawing.Point(556, 27);
-            this.txtupdate_by.Name = "txtupdate_by";
-            this.txtupdate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
-            this.txtupdate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtupdate_by.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.txtupdate_by.Properties.ReadOnly = true;
-            this.txtupdate_by.Size = new System.Drawing.Size(146, 22);
-            this.txtupdate_by.TabIndex = 11;
-            this.txtupdate_by.Tag = "2";
+            this.txtUpdate_by.EditValue = "";
+            this.txtUpdate_by.Enabled = false;
+            this.txtUpdate_by.Location = new System.Drawing.Point(556, 27);
+            this.txtUpdate_by.Name = "txtUpdate_by";
+            this.txtUpdate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtUpdate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtUpdate_by.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.txtUpdate_by.Properties.ReadOnly = true;
+            this.txtUpdate_by.Size = new System.Drawing.Size(146, 22);
+            this.txtUpdate_by.TabIndex = 11;
+            this.txtUpdate_by.Tag = "2";
             // 
             // txtCreate_date
             // 
@@ -1014,7 +1032,8 @@
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.clQty2,
             this.clLocation_id2,
-            this.clSecQty});
+            this.clSecQty,
+            this.clBteLotNo2});
             this.gridControl2.Size = new System.Drawing.Size(1225, 188);
             this.gridControl2.TabIndex = 11;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1375,6 +1394,7 @@
             // gridColumn39
             // 
             this.gridColumn39.Caption = "批號";
+            this.gridColumn39.ColumnEdit = this.clBteLotNo2;
             this.gridColumn39.FieldName = "lot_no";
             this.gridColumn39.Name = "gridColumn39";
             this.gridColumn39.OptionsColumn.AllowIncrementalSearch = false;
@@ -1387,7 +1407,16 @@
             this.gridColumn39.OptionsFilter.AllowFilter = false;
             this.gridColumn39.Visible = true;
             this.gridColumn39.VisibleIndex = 13;
-            this.gridColumn39.Width = 80;
+            this.gridColumn39.Width = 120;
+            // 
+            // clBteLotNo2
+            // 
+            this.clBteLotNo2.AutoHeight = false;
+            this.clBteLotNo2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            this.clBteLotNo2.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.clBteLotNo2.Name = "clBteLotNo2";
+            this.clBteLotNo2.Click += new System.EventHandler(this.clBteLotNo2_Click);
             // 
             // gridColumn9
             // 
@@ -1530,7 +1559,8 @@
             this.clLocation_id,
             this.clQtyCount,
             this.clMo_id,
-            this.clbteItem});
+            this.clbteItem,
+            this.clBteLotNo1});
             this.gridControl1.Size = new System.Drawing.Size(1225, 292);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1666,7 +1696,7 @@
             // 
             this.clbteItem.AutoHeight = false;
             this.clbteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.clbteItem.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.clbteItem.MaxLength = 18;
             this.clbteItem.Name = "clbteItem";
@@ -1904,8 +1934,6 @@
             // 
             // gridColumn48
             // 
-            this.gridColumn48.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn48.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn48.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
             this.gridColumn48.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumn48.Caption = "倉庫";
@@ -1981,6 +2009,7 @@
             // gridColumn17
             // 
             this.gridColumn17.Caption = "批號";
+            this.gridColumn17.ColumnEdit = this.clBteLotNo1;
             this.gridColumn17.FieldName = "lot_no";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.OptionsColumn.AllowIncrementalSearch = false;
@@ -1993,7 +2022,7 @@
             this.gridColumn17.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 15;
-            this.gridColumn17.Width = 81;
+            this.gridColumn17.Width = 120;
             // 
             // gridColumn33
             // 
@@ -2104,6 +2133,15 @@
             this.gridColumn50.Caption = "新行標識";
             this.gridColumn50.FieldName = "new_flag";
             this.gridColumn50.Name = "gridColumn50";
+            // 
+            // clBteLotNo1
+            // 
+            this.clBteLotNo1.AutoHeight = false;
+            this.clBteLotNo1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            this.clBteLotNo1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.clBteLotNo1.Name = "clBteLotNo1";
+            this.clBteLotNo1.Click += new System.EventHandler(this.clBteLotNo1_Click);
             // 
             // tabControl1
             // 
@@ -2216,14 +2254,14 @@
             this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id1,
@@ -2238,25 +2276,25 @@
             this.unit1,
             this.sec_qty1,
             this.sec_unit1});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFind.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgvFind.Location = new System.Drawing.Point(3, 163);
             this.dgvFind.Name = "dgvFind";
             this.dgvFind.ReadOnly = true;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvFind.Size = new System.Drawing.Size(1225, 445);
             this.dgvFind.TabIndex = 188;
             this.dgvFind.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFind_CellDoubleClick);
@@ -2265,8 +2303,8 @@
             // id1
             // 
             this.id1.DataPropertyName = "id";
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Blue;
-            this.id1.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Blue;
+            this.id1.DefaultCellStyle = dataGridViewCellStyle13;
             this.id1.HeaderText = "單據號";
             this.id1.Name = "id1";
             this.id1.ReadOnly = true;
@@ -2275,9 +2313,9 @@
             // transfer_date1
             // 
             this.transfer_date1.DataPropertyName = "transfer_date";
-            dataGridViewCellStyle36.Format = "d";
-            dataGridViewCellStyle36.NullValue = null;
-            this.transfer_date1.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle14.Format = "d";
+            dataGridViewCellStyle14.NullValue = null;
+            this.transfer_date1.DefaultCellStyle = dataGridViewCellStyle14;
             this.transfer_date1.HeaderText = "轉出日期";
             this.transfer_date1.Name = "transfer_date1";
             this.transfer_date1.ReadOnly = true;
@@ -2286,8 +2324,8 @@
             // bill_type_no1
             // 
             this.bill_type_no1.DataPropertyName = "bill_type_no";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.bill_type_no1.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.bill_type_no1.DefaultCellStyle = dataGridViewCellStyle15;
             this.bill_type_no1.HeaderText = "單據種類";
             this.bill_type_no1.Name = "bill_type_no1";
             this.bill_type_no1.ReadOnly = true;
@@ -2296,8 +2334,8 @@
             // group_no1
             // 
             this.group_no1.DataPropertyName = "group_no";
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.group_no1.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.group_no1.DefaultCellStyle = dataGridViewCellStyle16;
             this.group_no1.HeaderText = "組別";
             this.group_no1.Name = "group_no1";
             this.group_no1.ReadOnly = true;
@@ -2339,10 +2377,10 @@
             // transfer_amount1
             // 
             this.transfer_amount1.DataPropertyName = "transfer_amount";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle39.Format = "N0";
-            dataGridViewCellStyle39.NullValue = null;
-            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N0";
+            dataGridViewCellStyle17.NullValue = null;
+            this.transfer_amount1.DefaultCellStyle = dataGridViewCellStyle17;
             this.transfer_amount1.HeaderText = "轉倉數量";
             this.transfer_amount1.Name = "transfer_amount1";
             this.transfer_amount1.ReadOnly = true;
@@ -2351,8 +2389,8 @@
             // unit1
             // 
             this.unit1.DataPropertyName = "unit";
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.unit1.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.unit1.DefaultCellStyle = dataGridViewCellStyle18;
             this.unit1.HeaderText = "數量單位";
             this.unit1.Name = "unit1";
             this.unit1.ReadOnly = true;
@@ -2361,8 +2399,8 @@
             // sec_qty1
             // 
             this.sec_qty1.DataPropertyName = "sec_qty";
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.sec_qty1.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.sec_qty1.DefaultCellStyle = dataGridViewCellStyle19;
             this.sec_qty1.HeaderText = "重量";
             this.sec_qty1.Name = "sec_qty1";
             this.sec_qty1.ReadOnly = true;
@@ -2371,8 +2409,8 @@
             // sec_unit1
             // 
             this.sec_unit1.DataPropertyName = "sec_unit";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.sec_unit1.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sec_unit1.DefaultCellStyle = dataGridViewCellStyle20;
             this.sec_unit1.HeaderText = "重量單位";
             this.sec_unit1.Name = "sec_unit1";
             this.sec_unit1.ReadOnly = true;
@@ -3042,8 +3080,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTransfer_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeDepartment_id.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtupdate_date.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtupdate_by.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_date.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUpdate_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCreate_by.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
@@ -3052,6 +3090,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clQty2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clSecQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLocation_id2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBteLotNo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clMo_id)).EndInit();
@@ -3062,6 +3101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clSec_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clLocation_id)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clBteLotNo1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -3122,8 +3162,8 @@
         private System.Windows.Forms.Label lblAmusr;
         private System.Windows.Forms.Label lblCrtim;
         private System.Windows.Forms.Label lblCrusr;
-        private DevExpress.XtraEditors.TextEdit txtupdate_date;
-        private DevExpress.XtraEditors.TextEdit txtupdate_by;
+        private DevExpress.XtraEditors.TextEdit txtUpdate_date;
+        private DevExpress.XtraEditors.TextEdit txtUpdate_by;
         private DevExpress.XtraEditors.TextEdit txtCreate_date;
         private DevExpress.XtraEditors.TextEdit txtCreate_by;
         private System.Windows.Forms.Label lblremark;
@@ -3288,5 +3328,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_unit1;
         private System.Windows.Forms.CheckBox chkSelectAll;
+        private System.Windows.Forms.ToolStripButton BTNUNAPPROVE;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit clBteLotNo2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit clBteLotNo1;
     }
 }

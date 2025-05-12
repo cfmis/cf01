@@ -213,7 +213,7 @@ namespace cf01.CLS
             string sql_f = string.Format(
             @"SELECT CAST(0 as bit) As flag_select,A.mo_id,A.goods_id,A.qty,A.weg,A.weg_gross,A.mo_group,A.package_num,A.carton_size,
             CASE WHEN ISNULL(C.special_info_style,'0')='0' THEN '' ELSE '東莞D' END As flag_dgd,A.update_date,
-            CASE WHEN A.suit_flag<>'1' THEN '' ELSE '底三件走貨' END AS suit_flag
+            CASE WHEN LEN(A.goods_id)<18 THEN '' ELSE '底三件走貨' END AS suit_flag
             FROM {0}packing_mo_label A with(nolock)
             INNER JOIN {1}so_order_details B with(nolock) ON B.within_code='0000' AND B.mo_id=A.mo_id
             INNER JOIN {1}so_order_special_info C with(nolock)ON B.within_code=C.within_code and B.id=C.id and B.ver=C.ver AND B.sequence_id=C.upper_sequence
@@ -801,5 +801,633 @@ namespace cf01.CLS
             return result;
         }//--end SetAdjustmentStBusiness()
 
+
+        /// <summary>
+        /// 批準/反批準,生成組裝單,移交單的交易,庫存更新等(失敗返回的字串前兩位是"-1")
+        /// </summary>
+        /// <param name="id">轉出單號</param>        
+        /// <param name="user_id">當前用戶</param>
+        /// <param name="approve_type">approve_type:1--批準;0--反批準</param>
+        /// <returns>返回字串為空,表示成功</returns> 
+        public static string Approve(TransferInHead head, string user_id, string approve_type)
+        {
+            string result = "", sqlUpdate = "", gs_company = "0000", sql_f = "";
+            string active_name = (approve_type == "1") ? "批準" : "反批準";
+            string is_active_name = (approve_type == "1") ? "pfc_ok" : "pfc_unok";
+            string ls_id, ls_location_id, ls_move_location, ls_move_carton_code, ls_sequence_id, ls_mo_id, ls_shipment_suit, ls_error = "";
+            string ls_goods_id, ls_unit_code, ls_department_id, ls_servername, ls_F0_goods, ls_upper_sequence, ls_carton_code, ls_obligate_mo_id;
+            string ldt_mo_max_date = "", ldt_check_date = "", ldt_transfer_date = "", ldt_actual_bto_hk_date = "";
+            int ll_count = 0, ll_count_order = 0;
+            decimal ldc_qty, ldc_sec_qty, ldc_gross_wt, ldc_package_num, ldc_wt_sec_qty;
+            DataTable dt = new DataTable();
+            DataTable dtFind = new DataTable();
+
+            //--
+            ls_id = head.id;
+            ldt_check_date = clsPublic.GetDbDateTime("L");//批準日期(長日期時間)
+            ldt_check_date = (is_active_name == "pfc_ok") ? ldt_check_date : head.check_date;
+            ldt_transfer_date = head.transfer_date;
+            ls_department_id = head.department_id;
+            ls_servername = "hkserver.cferp.dbo";
+            //--
+
+            //--start 批準
+            if (is_active_name == "pfc_ok" || is_active_name == "pfc_unok")
+            {
+                //設置全局的批準日期
+                sql_f = string.Format(
+                @"Select a.location_id,a.move_location_id,a.move_carton_code,a.sequence_id,a.mo_id,IsNull(a.shipment_suit,'0') as shipment_suit,a.goods_id,a.transfer_amount,a.sec_qty,a.unit
+                From st_transfer_detail a With(nolock) Where a.within_code='{0}' And a.id='{1}'", gs_company, ls_id);
+                dt = clsErp.ExecuteSqlReturnDataTable(sql_f);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ls_location_id = dt.Rows[i]["location_id"].ToString();
+                    ls_move_location = dt.Rows[i]["move_location_id"].ToString();
+                    ls_move_carton_code = dt.Rows[i]["move_carton_code"].ToString();
+                    ls_sequence_id = dt.Rows[i]["sequence_id"].ToString();
+                    ls_mo_id = dt.Rows[i]["mo_id"].ToString();
+                    ls_shipment_suit = dt.Rows[i]["shipment_suit"].ToString();
+                    ls_goods_id = dt.Rows[i]["goods_id"].ToString();
+                    ldc_qty = decimal.Parse(dt.Rows[i]["transfer_amount"].ToString());
+                    ldc_sec_qty = decimal.Parse(dt.Rows[i]["sec_qty"].ToString());
+                    ls_unit_code = dt.Rows[i]["unit"].ToString();
+                    ls_F0_goods = ls_goods_id;
+                    if (is_active_name == "pfc_unok")
+                    {
+                        //先清空销售明细的数据
+                        sqlUpdate = string.Format(
+                        @"Update B WITH(ROWLOCK)
+                        Set B.actual_bto_hk_date = Null, B.actual_bto_hk_qty = Null
+                        From so_order_manage A, so_order_details B
+                        Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.state not in('2','V')
+						      And A.within_code='{0}' And B.mo_id='{1}' And B.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id);
+                        result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                        if (result == "")
+                            result = "00";
+                        else
+                        {
+                            result = RetrunResult(result, active_name, "(so_order_details)");
+                            return result;
+                        }
+                        // SetNull(ldt_mo_max_date) //2025/05/08 修改 Convert(nvarchar(10),Max(Isnull(check_date, create_date)),121) As max_date 
+                        sql_f = string.Format(
+                        @"Select Convert(nvarchar(19),Max(Isnull(check_date, create_date)),121) As max_date
+                        From st_transfer_mostly A with(nolock), st_transfer_detail B with(nolock)
+                        Where A.within_code = B.within_code And A.id = B.id  And A.state = '1'
+                              And B.goods_id ='{0}' And B.mo_id ='{1}' And A.id<>'{2}'", ls_goods_id, ls_mo_id, ls_id);
+                        dtFind = clsErp.ExecuteSqlReturnDataTable(sql_f);
+                        ldt_mo_max_date = dtFind.Rows[0]["max_date"].ToString();
+                    }
+                    //---
+                    ldt_actual_bto_hk_date = (is_active_name == "pfc_ok") ? ldt_check_date : ldt_mo_max_date;
+                    sql_f = string.Format(
+                    @"SELECT Count(1) as cnt FROM st_transfer_detail_part WITH(NOLOCK) WHERE within_code='{0}' AND id='{1}' And upper_sequence='{2}'", gs_company, ls_id, ls_sequence_id);
+                    ll_count = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                    //--start 20130412 wangwei 增加回写销售订单中，实际回港日期、实际回港数量
+                    //--20130419 wangwei 此处是更新非套件的实际回港数据，将此段代码提前到找FO编号前面
+                    //--非套件
+                    if (ll_count < 1 || ls_goods_id.Substring(0, 3) != "F0-")
+                    {
+                        ll_count_order = 0;
+                        sql_f = string.Format(
+                        @"Select Count(1) as ll_cnt                        
+                        From so_order_manage A WITH(NOLOCK),so_order_details B WITH(NOLOCK),so_order_bom C WITH(NOLOCK)
+                        Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.state not in('2','V')
+					        And B.within_code=C.within_code And B.id=C.id And B.ver=C.ver And B.sequence_id=C.upper_sequence
+                            And A.within_code='{0}' And B.mo_id='{1}' And C.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id);
+                        ll_count_order = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                        if (ll_count_order > 0)
+                        {
+                            //----非套件，批准、反批准时写销售订单实际回港数据
+                            sqlUpdate = string.Format(
+                            @"Update C WITH(ROWLOCK)
+                            Set C.actual_bto_hk_date= (Case When('{3}'='pfc_ok') Then '{4}' Else '{5}' End),
+								C.actual_bto_hk_qty=ISNULL(C.actual_bto_hk_qty,0)+dbo.FN_CHANGE_UNITS(C.within_code,C.goods_id,'{6}',B.goods_unit,Isnull({7},0)) * (Case When('{3}'='pfc_ok') Then 1 When('{3}'='pfc_unok') Then -1 Else 0 End),
+								C.is_backhk = (Case When('{3}'='pfc_ok') Then '1' Else '0' End) --//--将散件的回港标志加入到此处
+					        From so_order_manage A,so_order_details B,so_order_bom C
+                            Where A.within_code = B.within_code And A.id = B.id And A.ver = B.ver And A.state not in('2','V')
+						        And B.within_code = C.within_code And B.id = C.id And B.ver = C.ver And B.sequence_id = C.upper_sequence
+                                And A.within_code='{0}' And B.mo_id='{1}' And C.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id, is_active_name, ldt_check_date, ldt_mo_max_date, ls_unit_code, ldc_qty);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(so_order_bom)");
+                                return result;
+                            }
+                        }
+                        //--得到F0编号
+                        sql_f = string.Format(
+                        @"Select B.goods_id                       
+                        From so_order_manage A WITH(ROWLOCK),
+                            so_order_details B WITH(ROWLOCK),
+						    so_order_bom C WITH(ROWLOCK)
+                        Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver
+                              And B.within_code=C.within_code And B.id=C.id And B.ver=C.ver And B.sequence_id=C.upper_sequence
+                              And A.state Not In('2','V') And Isnull(C.primary_key,'0')='1'
+                              And A.within_code='{0}' And B.mo_id='{1}' And C.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id);
+                        ls_F0_goods = clsErp.ExecuteSqlReturnObject(sql_f);
+
+                        //--如果是非套件，先扣除转出仓的库存，判断方法改成判断明细是否有资料2011-03-01
+                        if (is_active_name == "pfc_ok")
+                        {
+                            sqlUpdate = string.Format(
+                            @"Insert Into st_business_record(within_code,id,goods_id,goods_name,unit,base_unit,rate,action_time,action_id,ii_qty,
+                                     ii_location_id, ii_code, check_date, sequence_id, lot_no, mo_id, ib_qty, qty, dept_id, sec_unit, sec_qty,
+                                     wt_sec_qty, pack_qty, servername, shelf)
+                            Select within_code, id, goods_id, goods_name, unit, base_unit, rate,'{3}',
+								        '48',--//转出单(-)
+								        transfer_amount,location_id,carton_code,'{4}',sequence_id,lot_no,mo_id,
+								        dbo.FN_CHANGE_UNITBYCV(within_code, goods_id, unit, 1,'','','*'),
+								        Round(dbo.FN_CHANGE_UNITBYCV(within_code, goods_id,unit,transfer_amount,'','','/'), 4),'{5}',sec_unit,sec_qty,
+								        gross_wt,package_num,'{6}',shelf
+                            From st_transfer_detail 
+                            Where within_code='{0}' And id='{1}' And sequence_id='{2}'", gs_company, ls_id, ls_sequence_id, ldt_transfer_date, ldt_check_date, ls_department_id, ls_servername);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(st_business_record)");
+                                return result;
+                            }
+                            //--更新库存
+                            result = pubFun.of_update_st_details("I", "48", ls_id, ls_sequence_id, ldt_check_date, ls_error);
+                            if (result.Substring(0, 2) == "-1")
+                            {
+                                result = RetrunResult(result, active_name, "(st_details)");
+                                return result;
+                            }
+                            else
+                            {
+                                result = "00";
+                            }
+
+                            //start 20131018 将交易表中的批号回写过来,因为流动仓的批号要与现在的实际交易中的批号一样
+                            sqlUpdate = string.Format(
+                            @"Update A WITH(ROWLOCK)
+                            Set A.lot_no = B.lot_no
+                            From st_transfer_detail A, st_business_record B
+                            Where A.within_code = B.within_code And A.id = B.id And A.sequence_id = B.sequence_id And B.action_id ='48'
+                                  And A.within_code='{0}' And A.id='{1}' And A.sequence_id='{2}' And Isnull(A.lot_no,'')=''", gs_company, ls_id, ls_sequence_id);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(st_transfer_detail)");
+                                return result;
+                            }
+                            //end 20131018
+                        }// --end if(is_active_name=="pfc_ok")
+                    } //--end of IF --非套件
+
+                    //--套件，F0出货
+                    if (ll_count > 0 && ls_goods_id.Substring(0, 3) == "F0-")
+                    {
+                        //--start 20130412 wangwei 增加回写销售订单中，实际回港日期、实际回港数量
+                        ll_count_order = 0;
+                        sql_f = string.Format(
+                        @"Select Count(1) as cnt                        
+                        From so_order_manage A WITH(NOLOCK),so_order_details B WITH(NOLOCK)
+                        Where A.within_code = B.within_code And A.id = B.id And A.ver = B.ver And A.state not in('2','V')
+						      And A.within_code ='{0}' And B.mo_id ='{1}' And B.goods_id ='{2}'", gs_company, ls_mo_id, ls_goods_id);
+                        ll_count_order = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                        if (ll_count_order > 0)
+                        {
+                            //--F0在写sales bom时，将批准和反批准写到一起
+                            sqlUpdate = string.Format(
+                            @"Update C WITH(ROWLOCK)
+                            Set C.actual_bto_hk_date=(Case When('{3}'='pfc_ok') Then '{4}' Else '{5}' End),
+							    C.actual_bto_hk_qty=Isnull(C.actual_bto_hk_qty,0) + Isnull(C.dosage,0) * Dbo.FN_CHANGE_UNITS(B.within_code,B.goods_id,'{6}',B.goods_unit,Isnull({7},0)) * (Case When('{3}'='pfc_ok') Then 1 When('{3}'='pfc_unok') Then -1 Else 0 End)
+					        From so_order_manage A,
+								 so_order_details B,
+                                 so_order_bom C
+                            Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.state not in('2','V')
+							        And B.within_code=C.within_code And B.id=C.id And B.ver=C.ver And B.sequence_id=C.upper_sequence
+                                    And B.within_code='{0}' And B.mo_id='{1}' And B.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id, is_active_name, ldt_check_date, ldt_mo_max_date, ls_unit_code, ldc_qty);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(so_order_bom)(2)");
+                                return result;
+                            }
+                        }
+                    }
+                    //--start更新生产计划单的数量
+                    if (ls_goods_id.Substring(0, 3) == "F0-")
+                    {
+                        ll_count_order = 0;
+                        sql_f = string.Format(
+                        @"Select Count(1) as cnt                        
+                         From jo_bill_mostly A WITH(NOLOCK),jo_bill_goods_details B WITH(NOLOCK)
+                         Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.state Not In('2','V')
+                               And A.within_code='{0}' And A.mo_id='{1}' And B.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id);
+                        ll_count_order = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                        if (ll_count_order > 0)
+                        {
+                            sqlUpdate = string.Format(
+                            @"Update B WITH(ROWLOCK)
+                            Set B.c_qty=Isnull(B.c_qty,0) + Dbo.FN_CHANGE_UNITS(B.within_code,B.goods_id,'{3}',B.goods_unit,Isnull({4},0))*(Case When('{5}'='pfc_ok') Then 1 When('{5}'='pfc_unok') Then -1 Else 0 End),
+							    B.c_qty_ok =Isnull(B.c_qty_ok,0) + Dbo.FN_CHANGE_UNITS(B.within_code, B.goods_id,'{6}', B.goods_unit,Isnull({4},0)) * (Case When('{5}'='pfc_ok') Then 1 When('{5}'='pfc_unok') Then -1 Else 0 End),
+							    B.c_sec_qty =Isnull(B.c_sec_qty,0) + Isnull({7},0) * (Case When('{5}'='pfc_ok') Then 1 When('{5}'='pfc_unok') Then -1 Else 0 End),
+							    B.c_sec_qty_ok = Isnull(B.c_sec_qty_ok,0) + Isnull({7},0) * (Case When('{5}'='pfc_ok') Then 1 When('{5}'='pfc_unok') Then -1 Else 0 End),
+							    B.f_complete_date = (Case When('{5}'='pfc_ok') Then '{8}' Else null End)
+					        From jo_bill_mostly A, jo_bill_goods_details B
+                            Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.state not in('2','V')
+							      And A.within_code='{0}' And A.mo_id='{1}' And B.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id, ls_unit_code, ldc_qty, is_active_name, ls_unit_code, ldc_sec_qty, ldt_transfer_date);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(jo_bill_goods_details)(1)");
+                                return result;
+                            }
+                        }
+                    }
+                    //--end 更新生产计划单的数量
+
+                    if (is_active_name == "pfc_ok")
+                    {
+                        //--start 20130419 wangwei 当批准时，要判断销此页数是否全部回港了，如果是，就更新销售明细表中的回港
+                        //--要先判断是否存在这样的数据，才更新
+                        ll_count = 0;
+                        sql_f = string.Format(
+                        @"Select Count(1) as cnt                        
+                        From so_order_manage A WITH(NOLOCK),so_order_details B WITH(NOLOCK)
+                        Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.state Not In('2','V') And B.within_code='{0}' And B.mo_id='{1}'
+                             And (Not Exists(Select 1 From so_order_bom C Where B.within_code=C.within_code And B.id=C.id And B.ver=C.ver And B.sequence_id=C.upper_sequence
+                                             And B.order_qty * Isnull(C.dosage,0) >isnull(C.actual_bto_hk_qty,0)))", gs_company, ls_mo_id);
+                        ll_count = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                        if (ll_count > 0)
+                        {
+                            sqlUpdate = string.Format(
+                            @"Update B WITH(ROWLOCK)
+                            Set B.actual_bto_hk_date =(Select Max(C1.actual_bto_hk_date) From so_order_bom C1 Where B.within_code=C1.within_code And B.id=C1.id And B.ver=C1.ver And B.sequence_id=C1.upper_sequence),
+							    B.actual_bto_hk_qty =(Select C2.actual_bto_hk_qty/Nullif(C2.dosage, 0) From so_order_bom C2
+                                                      Where B.within_code=C2.within_code And B.id=C2.id And B.ver=C2.ver And B.sequence_id=C2.upper_sequence And Isnull(C2.primary_key,'')='1' )                                                     
+					        From so_order_manage A, so_order_details B
+                            Where A.within_code=B.within_code And A.id=B.id And A.ver=B.ver And A.state Not In('2','V') And B.within_code='{0}' And B.mo_id='{1}'", gs_company, ls_mo_id);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(so_order_details)(2)");
+                                return result;
+                            }
+                        }
+                        //--
+                        sqlUpdate = string.Format(
+                        @"INSERT INTO ST_BUSINESS_RECORD(WITHIN_CODE, ID, GOODS_ID, GOODS_NAME, UNIT, BASE_UNIT, RATE, ACTION_TIME, ACTION_ID, II_QTY,
+                                II_LOCATION_ID, II_CODE, CHECK_DATE, SEQUENCE_ID, LOT_NO, mo_id, IB_QTY, QTY, dept_id, sec_unit, sec_qty,
+                                wt_sec_qty, pack_qty, servername, shelf)
+                        SELECT WITHIN_CODE, ID, GOODS_ID, GOODS_NAME, UNIT, BASE_UNIT, RATE,'{3}',
+								'47',--//转出单(+)
+								TRANSFER_AMOUNT,Isnull(move_location_id,'ZZZ'),Isnull(move_location_id,'ZZZ'),
+								'{4}',SEQUENCE_ID,LOT_NO,mo_id,
+							    DBO.FN_CHANGE_UNITBYCV(WITHIN_CODE, GOODS_ID,UNIT, 1,'','','*'),
+							    ROUND(DBO.FN_CHANGE_UNITBYCV(WITHIN_CODE,GOODS_ID,UNIT,TRANSFER_AMOUNT,'','','/'),4),'{5}',sec_unit,sec_qty,
+								gross_wt,package_num,'{6}',shelf
+                        FROM  ST_TRANSFER_DETAIL
+                        WHERE WITHIN_CODE='{0}' AND ID='{1}' AND SEQUENCE_ID='{2}'", gs_company, ls_id, ls_sequence_id, ldt_transfer_date, ldt_check_date, ls_department_id, ls_servername);
+                        result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                        if (result == "")
+                            result = "00";
+                        else
+                        {
+                            result = RetrunResult(result, active_name, "(st_business_record)(2)");
+                            return result;
+                        }
+                        //--更新库存
+                        result = pubFun.of_update_st_details("I", "47", ls_id, ls_sequence_id, ldt_check_date, ls_error);
+                        if (result.Substring(0, 2) == "-1")
+                        {
+                            result = RetrunResult(result, active_name, "(st_details)");
+                            return result;
+                        }
+                        else
+                        {
+                            result = "00";
+                        }
+                    }// enf of pfc_ok
+
+                    if (is_active_name == "pfc_unok")
+                    {
+                        ll_count_order = 0;
+                        sql_f = string.Format(
+                        @"Select Count(1) as cnt                        
+                        From st_business_record WITH(NOLOCK)
+                        Where within_code ='{0}' And id='{1}' And sequence_id='{2}' And action_id In('47','48')", gs_company, ls_id, ls_sequence_id);
+                        ll_count_order = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                        if (ll_count_order > 0)
+                        {
+                            //先更新库存,再删除交易数据
+                            result = pubFun.of_update_st_details("D", "48", ls_id, ls_sequence_id, ldt_check_date, ls_error);
+                            if (result.Substring(0, 2) == "-1")
+                            {
+                                result = RetrunResult(result, active_name, "(st_details)");
+                                return result;
+                            }
+                            else
+                            {
+                                result = "00";
+                            }
+
+                            //先更新库存,再删除交易数据
+                            result = pubFun.of_update_st_details("D", "47", ls_id, ls_sequence_id, ldt_check_date, ls_error);
+                            if (result.Substring(0, 2) == "-1")
+                            {
+                                result = RetrunResult(result, active_name, "(st_details)");
+                                return result;
+                            }
+                            else
+                            {
+                                result = "00";
+                            }
+                            sqlUpdate = string.Format(
+                            @"Delete From st_business_record WITH(ROWLOCK)
+                              Where within_code='{0}' And id='{1}' And sequence_id='{2}' And action_id In('47','48')", gs_company, ls_id, ls_sequence_id);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(st_business_record)");
+                                return result;
+                            }
+                        }
+                    }// end of pfc_unok
+                } // end of for Loop
+
+                //--如果是套件出货，扣除Sales Bom的库存  2010-05-19
+                sql_f = string.Format(
+                @"Select b.sequence_id,b.upper_sequence,b.con_qty,b.goods_id,b.location,b.carton_code,b.mo_id as obligate_mo_id,a.mo_id,
+                (Case When a.gross_wt-a.sec_qty>0 Then a.gross_wt-a.sec_qty Else 0 End) as gross_wt,Isnull(a.package_num,0) as package_num
+                From st_transfer_detail a with(nolock),st_transfer_detail_part b with(nolock)
+                Where a.id=b.id And a.sequence_id=b.upper_sequence And b.within_code='{0}' And b.id='{1}'", gs_company, ls_id);
+                dt = clsErp.GetDataTable(sql_f);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ls_sequence_id = dt.Rows[i]["sequence_id"].ToString();
+                    ls_upper_sequence = dt.Rows[i]["upper_sequence"].ToString();
+                    ldc_qty = decimal.Parse(dt.Rows[i]["con_qty"].ToString());
+                    ls_goods_id = dt.Rows[i]["goods_id"].ToString();
+                    ls_location_id = dt.Rows[i]["location"].ToString();
+                    ls_carton_code = dt.Rows[i]["carton_code"].ToString();
+                    ls_obligate_mo_id = dt.Rows[i]["obligate_mo_id"].ToString();
+                    ls_mo_id = dt.Rows[i]["mo_id"].ToString();
+                    ldc_gross_wt = clsPublic.ReturnFloat2(dt.Rows[i]["gross_wt"].ToString());
+                    ldc_package_num = clsPublic.ReturnFloat2(dt.Rows[i]["package_num"].ToString());
+                    if (is_active_name == "pfc_ok")
+                    {
+                        //--只有不存在才增加，防同步冲突jeff 2011-03-21
+                        sql_f = string.Format(
+                        @"Select Count(1) as cnt FROM st_business_record WITH(NOLOCK) 
+                        Where within_code='{0}' And id ='{1}' And action_id='36' And sequence_id='{2}' And goods_id='{3}'", gs_company, ls_id, ls_sequence_id, ls_goods_id);
+                        ll_count = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                        if (ll_count == 0)
+                        {
+                            ll_count_order = 0;
+                            sql_f = string.Format(
+                            @"Select count(1) as cnt					        
+					        From so_order_manage a WITH (NOLOCK),
+								 so_order_details b WITH (NOLOCK),
+								 so_order_bom c
+					        Where a.within_code=b.within_code And a.id=b.id And a.ver=b.ver 
+								  And b.within_code=c.within_code And b.id=c.id And b.ver=c.ver And b.sequence_id=c.upper_sequence
+								  And a.state Not In ('2','V')  And b.state Not In('2','V') And c.primary_key='1'
+								  And a.within_code='{0}' And b.mo_id='{1}' And c.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id);
+                            ll_count_order = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                            //--暂时采用的方法是，毛重：全部放在主件上，包数：主件和配件都一样	
+                            ldc_wt_sec_qty = (ll_count_order > 0) ? ldc_gross_wt : ldc_gross_wt;
+                            //--插入库存交易表
+                            sqlUpdate = string.Format(
+                            @"INSERT INTO st_business_record(within_code,id,goods_id,goods_name,unit,action_time,action_id,ii_qty,ii_location_id,
+									ii_code,rate,sequence_id,check_date,ib_qty,qty,mo_id,lot_no,sec_qty,sec_unit,pack_qty,wt_sec_qty,servername)
+					        SELECT b.within_code,b.id,b.goods_id,b.goods_name,b.unit_code,a.transfer_date,
+							        '36',--//转出单(Sales Bom)
+							        Abs(b.con_qty),b.location,b.carton_code,0 as swit_rate,b.sequence_id,'{4}',
+							        Abs(dbo.FN_CHANGE_UNITBYCV(b.within_code,b.goods_id,b.unit_code,1,'','','*')),
+							        Abs(round(dbo.FN_CHANGE_UNITBYCV(b.within_code,b.goods_id,b.unit_code,b.con_qty,'','','/'),4)),
+							        b.mo_id,b.lot_no,Abs(b.sec_qty),b.sec_unit,{5},abs(b.sec_qty) +{6},'{7}'
+					        FROM 	st_transfer_mostly a,
+								    st_transfer_detail_part b
+					        Where 	a.within_code=b.within_code And a.id=b.id And Isnull(b.location,'')<>'' And a.within_code='{0}'
+								    And a.id ='{1}' And b.upper_sequence ='{2}' And b.sequence_id='{3}'",
+                            gs_company, ls_id, ls_upper_sequence, ls_sequence_id, ldt_check_date, ldc_package_num, ldc_wt_sec_qty, ls_servername);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(st_business_record)(4)");
+                                return result;
+                            }
+                            //--更新库存
+                            result = pubFun.of_update_st_details("I", "36", ls_id, ls_sequence_id, ldt_check_date, ls_error);
+                            if (result.Substring(0, 2) == "-1")
+                            {
+                                result = RetrunResult(result, active_name, "(st_details)");
+                                return result;
+                            }
+                            else
+                            {
+                                result = "00";
+                            }
+                            //start 将交易表中的批号回写过来,因为流动仓的批号要与现在的实际交易中的批号一样
+                            sqlUpdate = string.Format(
+                            @"Update A WITH(ROWLOCK)
+					        Set	A.lot_no = B.lot_no
+					        From st_transfer_detail_part A,st_business_record B
+					        Where A.within_code = B.within_code And A.id = B.id And A.sequence_id = B.sequence_id And B.action_id ='36'
+								  And A.within_code='{0}' And A.id='{1}' And A.upper_sequence='{2}' And A.sequence_id='{3}'  And Isnull(A.lot_no,'')=''",
+                            gs_company, ls_id, ls_upper_sequence, ls_sequence_id);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(st_transfer_detail_part)(lot_no)");
+                                return result;
+                            }
+                            //end 
+                        }//--enf if (ll_count == 0)
+
+                    }// end if(is_active_name == "pfc_ok")  
+
+                    //--
+                    if (is_active_name == "pfc_unok")
+                    {
+                        ll_count = 0;
+                        sql_f = string.Format(
+                        @"Select Count(1) as cnt                        
+                        FROM st_business_record WITH(NOLOCK)
+                        Where within_code='{0}' And id='{1}' And action_id='36' And sequence_id='{2}' And goods_id='{3}'", gs_company, ls_id, ls_sequence_id, ls_goods_id);
+                        ll_count = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                        if (ll_count > 0)
+                        {
+                            //先更新库存,再删除交易数据
+                            result = pubFun.of_update_st_details("D", "36", ls_id, ls_sequence_id, ldt_check_date, ls_error);
+                            if (result.Substring(0, 2) == "-1")
+                            {
+                                result = RetrunResult(result, active_name, "(st_details)");
+                                return result;
+                            }
+                            else
+                            {
+                                result = "00";
+                            }
+                            //--
+                            sqlUpdate = string.Format(
+                            @"Delete FROM st_business_record WITH(ROWLOCK)
+                            Where within_code ='{0}' And id ='{1}' And action_id ='36' And sequence_id='{2}' And goods_id ='{3}'",
+                            gs_company, ls_id, ls_sequence_id, ls_goods_id);
+                            result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                            if (result == "")
+                                result = "00";
+                            else
+                            {
+                                result = RetrunResult(result, active_name, "(st_business_record)(5)");
+                                return result;
+                            }
+                        }
+                    }
+                    //--
+                    sqlUpdate = string.Format(
+                    @"Update C WITH(ROWLOCK)
+                    Set C.is_backhk = (Case When('{3}'='pfc_ok') Then '1' Else '0' End)
+			        From so_order_manage a ,
+						so_order_details b,
+                        so_order_bom C
+                    Where a.within_code = b.within_code And a.id = b.id And a.ver = b.ver And A.state Not In('2','V')
+                        And b.within_code =C.within_code And b.id=C.id And b.ver=C.ver And b.sequence_id=C.upper_sequence
+                        And a.within_code ='{0}' And b.mo_id='{1}' And C.goods_id='{2}'", gs_company, ls_mo_id, ls_goods_id, is_active_name);
+                    result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                    if (result == "")
+                        result = "00";
+                    else
+                    {
+                        result = RetrunResult(result, active_name, "(so_order_bom)(3)");
+                        return result;
+                    }
+
+                    //--更新库存预留表2010-04-22
+                    sql_f = string.Format(@"Select mo_id From st_transfer_detail Where within_code='{0}' And id='{1}' And sequence_id='{2}'", gs_company, ls_id, ls_upper_sequence);
+                    ls_mo_id = clsErp.ExecuteSqlReturnObject(sql_f);
+                    ll_count = 0;
+                    sql_f = string.Format(
+                    @"Select Count(1) as cnt From mrp_st_details_lot WITH(NOLOCK)
+                    Where within_code='{0}' And mo_id='{1}' And obligate_mo_id='{2}' And location_id='{3}' And carton_code='{4}' And goods_id='{5}'",
+                    gs_company, ls_mo_id, ls_obligate_mo_id, ls_location_id, ls_carton_code, ls_goods_id);
+                    ll_count = int.Parse(clsErp.ExecuteSqlReturnObject(sql_f));
+                    //******
+                    if (ll_count > 0)
+                    {
+                        sqlUpdate = string.Format(
+                        @"Update mrp_st_details_lot WITH(ROWLOCK)
+                        Set issue_qty=IsNull(issue_qty, 0) +{6}*(Case When('{7}'='pfc_ok') Then 1 When('{7}'='pfc_unok') Then -1 Else 0 End)
+				        Where within_code='{0}' And mo_id='{1}' And obligate_mo_id='{2}' And location_id='{3}' And carton_code='{4}' And goods_id='{5}'",
+                        gs_company, ls_mo_id, ls_obligate_mo_id, ls_location_id, ls_carton_code, ls_goods_id, ldc_qty, is_active_name);
+                        result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                        if (result == "")
+                            result = "00";
+                        else
+                        {
+                            result = RetrunResult(result, active_name, "(mrp_st_details_lot)(1)");
+                            return result;
+                        }
+                    }
+                } //--end for 如果是套件出货
+
+                //更新批準/反批準狀態
+                if (result.Substring(0, 2) == "00")
+                {
+                    if (is_active_name == "pfc_ok")
+                    {
+                        sqlUpdate = string.Format(
+                        @"Update st_transfer_mostly with(Rowlock) SET check_date='{2}',check_by='{3}',update_date='{2}',update_by='{3}',state='1'
+                        WHERE within_code='{0}' and id='{1}'", gs_company, ls_id, ldt_check_date, head.update_by);
+                    }
+                    else
+                    {
+                        sqlUpdate = string.Format(
+                        @"Update st_transfer_mostly with(Rowlock) SET check_date=null,check_by=null,state='0',update_by='{2}',update_date=getdate()
+                         WHERE within_code='{0}' and id='{1}'", gs_company, ls_id, head.update_by);
+                    }
+                    result = clsErp.ExecuteSqlUpdateReturnString(sqlUpdate);
+                    if (result == "")
+                        result = "00";
+                    else
+                    {
+                        result = RetrunResult(result, active_name, "(st_transfer_mostly)(Approve/UnApprove)");
+                        return result;
+                    }
+                }
+
+            } //--end if (is_active_name=="pfc_ok" || is_active_name=="pfc_unok")
+
+            return result;
+        }
+
+        public static string RetrunResult(string strResult, string active_name, string strTable)
+        {
+            string result = "-1" + strResult + "\r\n" + "更新库存失败!+" + "\r\n" + string.Format(@"<{0}>{1}", active_name, strTable) + "\r\n";
+            return result;
+        }
+
+        public static string GetStateByID(string id)
+        {
+
+            string sql_f = $"Select state From st_transfer_mostly with(nolock) Where within_code='0000' And id='{id}'";
+            string result = clsErp.ExecuteSqlReturnObject(sql_f);
+            return result;
+        }
+
+        public static bool CheckIsTransferIn(DataTable dt)
+        {
+            string sql = "", moId = "", goodsId = "", id = "", sequenceId = "";           
+            bool result = false;
+            DataTable dtCount = new DataTable();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                moId = dt.Rows[i]["mo_id"].ToString();
+                goodsId = dt.Rows[i]["goods_id"].ToString();
+                id = dt.Rows[i]["id"].ToString();
+                sequenceId = dt.Rows[i]["sequence_id"].ToString();
+                sql = string.Format(
+                @"SELECT Count(1) As rtn From st_transfer_mostly A with(nolock),st_transfer_detail B with(nolock)
+                WHERE A.id=B.id And A.within_code=B.within_code And A.type='1' And A.state<>'2' And B.mo_id='{0}' And
+                B.goods_id='{1}' And B.transfer_out_id='{2}' And B.transfer_out_sequence_id='{3}'",
+                moId, goodsId, id, sequenceId);
+                dtCount = clsErp.ExecuteSqlReturnDataTable(sql);
+                if(dtCount.Rows[0]["rtn"].ToString() != "0")
+                {
+                    result = true;
+                    break; //已存在,退出循環
+                }
+            }
+            return result;
+        }
+
+        public static DataTable GetStockLotNo(string locationId,string goodsId,string moId)
+        {
+            string sql = string.Format(
+            @"SELECT a.lot_no,a.qty,a.sec_qty,a.mo_id,Isnull(d.name,'') As vendor_name
+            FROM st_details_lot a
+	            Left Outer Join it_goods b On a.within_code = b.within_code And a.goods_id = b.id
+                Left Outer Join cd_productline c On a.within_code=c.within_code And a.location_id=c.id
+                Left Outer Join it_vendor d on a.within_code =d.within_code and a.vendor_id=d.id
+            WHERE a.within_code='0000' And a.location_id='{0}' And a.carton_code='{0}' And a.goods_id='{1}' And 
+	            ('{2}'='*' Or Isnull(a.mo_id,'')='{2}') And a.state<>'2' And a.qty >0 And c.type<>'07'",
+            locationId, goodsId, moId);
+            DataTable dtLotNo = new DataTable();
+            dtLotNo = clsErp.ExecuteSqlReturnDataTable(sql);
+            return dtLotNo;
+        }
     }
 }

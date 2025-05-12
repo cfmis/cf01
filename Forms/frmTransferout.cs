@@ -132,7 +132,7 @@ namespace cf01.Forms
             ORDER BY type DESC,id");
             clLocation_id.DataSource = dtWH;
             clLocation_id.ValueMember = "id";
-            clLocation_id.DisplayMember = "id";
+            clLocation_id.DisplayMember = "cdesc";
 
             clLocation_id2.DataSource = dtWH;
             clLocation_id2.ValueMember = "id";
@@ -247,7 +247,7 @@ namespace cf01.Forms
 		private void BTNPRINT_Click(object sender, EventArgs e)
 		{
             //
-		}
+        }
 
 		private void BTNFIND_Click(object sender, EventArgs e)
 		{
@@ -259,7 +259,7 @@ namespace cf01.Forms
 			mState = "NEW";
 			txtID.Focus();
 			SetButtonSatus(false);
-            Set_Grid_Status(true);
+            SetGridStatus(true);
             SetObjValue.SetEditBackColor(this.tabPage1.Controls, true);
 			SetObjValue.ClearObjValue(this.tabPage1.Controls, "1");
             dtsTrans.Tables["dtD2"].Clear();
@@ -274,7 +274,7 @@ namespace cf01.Forms
             lkeBill_type_no.EditValue = "";
             lkeSate.EditValue = "0";
             txtCreate_by.Text = DBUtility._user_id;
-            tabControl1.SelectTab(0);           
+            tabControl1.SelectTab(0);
         }
 
 		private void Edit()  //編輯
@@ -290,11 +290,11 @@ namespace cf01.Forms
             }
 			SetButtonSatus(false);
             SetObjValue.SetEditBackColor(this.tabPage1.Controls, true);
-			Set_Grid_Status(true);
+			SetGridStatus(true);
 			mState = "EDIT";
 
 			txtID.Properties.ReadOnly = true;
-			txtID.BackColor = System.Drawing.Color.White;			
+			txtID.BackColor = System.Drawing.Color.White;
             lkeSate.Enabled = false;
             lkeSate.BackColor = System.Drawing.Color.White;
 			
@@ -314,16 +314,17 @@ namespace cf01.Forms
 			BTNFIND.Enabled = _flag;
             BTNAPPROVE.Enabled = _flag;
             BTNCHECKST.Enabled = _flag;
-			BTNSAVE.Enabled = !_flag;            
+			BTNSAVE.Enabled = !_flag;
             BTNCANCEL.Enabled = !_flag;
 			BTNITEMADD.Enabled = !_flag;
-			BTNITEMDEL.Enabled = !_flag;           
+			BTNITEMDEL.Enabled = !_flag;
 
+            BTNAPPROVE.Visible = true;
             clsToolBar obj = new clsToolBar(this.Name, this.Controls);
             obj.SetToolBar();
 		}
 
-		private void Set_Grid_Status(bool _flag) // 表格可編號否
+		private void SetGridStatus(bool _flag) // 表格可編號否
 		{
 			//false--不可編輯;true--可以編輯
 			dgvDetails.OptionsBehavior.Editable = _flag;
@@ -367,7 +368,7 @@ namespace cf01.Forms
                 {
                     return;
                 }
-                Set_Grid_Status(true);
+                SetGridStatus(true);
                 string seq_id = getMaxSeqId();
                 temp_suit = "True";                
                 DataRow drw = dtsTrans.Tables["dtD1"].NewRow();
@@ -464,15 +465,28 @@ namespace cf01.Forms
                 //因toolStrip控件焦點問題
                 //設置焦點行某單元格獲得焦點，加此代碼目的使輸入的值生效，防止取到的值爲空
                 int curRow = 0;
-                string goodsId = "", moId = "", strF0 = "", sql_f = "", id = "", msg = "";
+                string goodsId = "", moId = "", strF0 = "", sql_f = "", id = "", msg = "", lotNo = "", upperSeq;
                 decimal qtyOther = 0, orderQty = 0, qty = 0;
                 DataTable tbl = new DataTable();
+                for (int i = 0; i < dtsTrans.Tables["dtD2"].Rows.Count; i++)
+                {
+                    lotNo = dtsTrans.Tables["dtD2"].Rows[i]["lot_no"].ToString();
+                    moId = dtsTrans.Tables["dtD2"].Rows[i]["mo_id"].ToString();
+                    upperSeq = int.Parse(dtsTrans.Tables["dtD2"].Rows[i]["upper_sequence"].ToString().Substring(0,4)).ToString();
+                    if (string.IsNullOrEmpty(lotNo))
+                    {
+                        msg = $"表格一中的第[ {upperSeq} ]行,頁數【{moId}】對應表格二中的批號不可為空!";
+                        MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        flag = false;
+                        break;
+                    }
+                }
                 for (int i = 0; i < dgvDetails.RowCount; i++)
 				{
 					curRow = dgvDetails.GetRowHandle(i);
                     if (string.IsNullOrEmpty(dgvDetails.GetRowCellDisplayText(curRow, "mo_id")) || string.IsNullOrEmpty(dgvDetails.GetRowCellDisplayText(curRow, "goods_id")))
 					{
-                        msg = $"第[ {(i + 1).ToString()} ]行，頁數或貨品編碼不可爲空!";
+                        msg = $"表格一中的第[ {(i + 1).ToString()} ]行,頁數或貨品編碼不可爲空!";
                         MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         flag = false;
                         ColumnView view1 = (ColumnView)dgvDetails;
@@ -551,12 +565,11 @@ namespace cf01.Forms
 			SetButtonSatus(true);
             SetObjValue.SetEditBackColor(tabPage1.Controls, false);
             SetObjValue.ClearObjValue(tabPage1.Controls, "2");
-			Set_Grid_Status(false);
+			SetGridStatus(false);
 			dtTempDel1.Clear();
             dtTempDel2.Clear();
             dtDetails.Clear();
-            dtPart.Clear();
-
+           
             bds1.CancelEdit();
             bds2.CancelEdit();
             temp_mo_id = "";
@@ -596,16 +609,65 @@ namespace cf01.Forms
             gridControl2.DataSource = bds2;            
             dtMostly = dtsTrans.Tables["dtMostly"];
             if (dtMostly.Rows.Count > 0)
-                Set_Master_Data(dtMostly);
+                SetMasterData(dtMostly);
             else
             {
                 SetObjValue.ClearObjValue(this.Controls, "2");
                 return;
             }
+            string state = dtMostly.Rows[0]["state"].ToString();
+            switch (state)
+            {
+                case "0":
+                    BTNAPPROVE.Enabled = true;
+                    BTNAPPROVE.Visible = true;
+                    BTNUNAPPROVE.Enabled = false;
+                    BTNUNAPPROVE.Visible = false;
+                    break;
+                case "1":
+                    BTNAPPROVE.Enabled = false;
+                    BTNAPPROVE.Visible = false;
+                    BTNUNAPPROVE.Enabled = true;
+                    BTNUNAPPROVE.Visible = true;
+                    DataTable dt = dtsTrans.Tables["dtD1"].Copy();
+                    if (clsTransferout.CheckIsTransferIn(dt))
+                    {
+                        BTNUNAPPROVE.Enabled = false;
+                    }
+                    break;
+                case "2":
+                    BTNAPPROVE.Enabled = false;
+                    BTNAPPROVE.Visible = false;
+                    BTNUNAPPROVE.Enabled = false;
+                    BTNUNAPPROVE.Visible = false;
+                    break;
+            }            
             mID = txtID.Text;//保存臨時的ID號
         }
 
-		private void Save()  //保存
+        private TransferInHead GetHeadData()
+        {
+            TransferInHead head = new TransferInHead();
+            head.id = txtID.Text;
+            head.transfer_date = DateTime.Parse(dtTransfer_date.EditValue.ToString()).Date.ToString("yyyy/MM/dd");
+            head.department_id = lkeDepartment_id.EditValue.ToString();
+            head.handler = txtHandler.Text;
+            head.remark = txtRemark.Text;
+            head.create_by = txtCreate_by.Text;
+            head.update_by = txtUpdate_by.Text;
+            head.check_by = txtCheck_by.Text;
+            head.create_date = txtCreate_date.Text;
+            head.update_date = txtUpdate_date.Text;
+            head.check_date = txtCheck_date.Text; //后臺取出數據需轉換成指定的日期格式
+            head.update_count = txtUpdate_count.Text;
+            head.state = lkeSate.EditValue.ToString();
+            head.bill_type_no = lkeBill_type_no.EditValue.ToString();
+            head.group_no = lkeGroupNo.EditValue.ToString();
+            head.head_status = mState;
+            return head;
+        }
+
+        private void Save()  //保存
 		{
             //檢查主檔資料的完整性
             if (!SaveBeforeValidMaster())
@@ -618,19 +680,7 @@ namespace cf01.Forms
 				return;
 			}
 			save_flag = false;
-            TransferInHead head = new TransferInHead();
-            head.id = txtID.Text;
-            head.transfer_date = dtTransfer_date.EditValue.ToString();
-            head.department_id = lkeDepartment_id.EditValue.ToString();
-            head.handler = txtHandler.Text;
-            head.remark = txtRemark.Text;
-            head.create_by = DBUtility._user_id;
-            head.update_by = DBUtility._user_id;
-            head.update_count = txtUpdate_count.Text;
-            head.state = lkeSate.EditValue.ToString();
-            head.bill_type_no = lkeBill_type_no.EditValue.ToString();
-            head.group_no = lkeGroupNo.EditValue.ToString();
-            head.head_status = mState;           
+            TransferInHead head = GetHeadData();           
             string rowStatus = "";
             dgvDetails.CloseEditor();
             dgvPart.CloseEditor();             
@@ -730,7 +780,7 @@ namespace cf01.Forms
                 mState = "";
                 SetButtonSatus(true);
                 SetObjValue.SetEditBackColor(tabPage1.Controls, false);
-                Set_Grid_Status(false);
+                SetGridStatus(false);
                 dtTempDel1.Clear();
                 dtTempDel2.Clear();
                 int cur_row;
@@ -767,7 +817,7 @@ namespace cf01.Forms
 				return true;
 		}		
 
-		private void Set_Master_Data(DataTable dt) //綁定主檔資料
+		private void SetMasterData(DataTable dt) //綁定主檔資料
 		{
 			txtID.Text = dt.Rows[0]["id"].ToString();          
             if (string.IsNullOrEmpty(dt.Rows[0]["transfer_date"].ToString()))
@@ -780,13 +830,14 @@ namespace cf01.Forms
             txtUpdate_count.Text = dt.Rows[0]["update_count"].ToString();
             txtHandler.Text = dt.Rows[0]["handler"].ToString();
             txtRemark.Text = dt.Rows[0]["remark"].ToString();            
-            lkeSate.EditValue = dt.Rows[0]["state"].ToString();           
+            lkeSate.EditValue = dt.Rows[0]["state"].ToString();  
+            txtCheck_by.Text = dt.Rows[0]["check_by"].ToString();
             txtCheck_date.Text = dt.Rows[0]["check_date"].ToString();
             //txtCheck_date.Text =Convert.ToDateTime(dt.Rows[0]["address"].ToString()).ToString("yyyy-MM-dd");
 			txtCreate_by.Text = dt.Rows[0]["create_by"].ToString();
 			txtCreate_date.Text = dt.Rows[0]["create_date"].ToString();
-			txtupdate_by.Text = dt.Rows[0]["update_by"].ToString();
-			txtupdate_date.Text = dt.Rows[0]["update_date"].ToString();
+			txtUpdate_by.Text = dt.Rows[0]["update_by"].ToString();
+			txtUpdate_date.Text = dt.Rows[0]["update_date"].ToString();
 		}
 
 		private void txtID_Leave(object sender, EventArgs e)
@@ -1282,7 +1333,7 @@ namespace cf01.Forms
             string id = "", sequenceId = "", idKey = "", mo_id, goods_id_f0 = "", goods_id = "",boxs = "";          
             //批量添加默認全部是套件出货
             string location_id = this.SetLocation(true); //取倉號
-            Set_Grid_Status(true);
+            SetGridStatus(true);
             for (int i=0;i< dtsBatch.Tables[0].Rows.Count;i++)
             {
                 sequenceId = getMaxSeqId();
@@ -1487,13 +1538,20 @@ namespace cf01.Forms
             {
                 return;
             }
-            if(lkeSate.EditValue.ToString()=="1")
+            string state = lkeSate.EditValue.ToString();
+            if (state == "1")
             {
                 MessageBox.Show("已是批準狀態,當前操作無效!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (mState == "" && lkeSate.EditValue.ToString() == "0")
+            if (mState == "" && state == "0")
             {
+                state = clsTransferout.GetStateByID(txtID.Text);
+                if (state == "1")
+                {
+                    MessageBox.Show("已是批準狀態,當前操作無效!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 //批準前檢查庫存
                 dtStockAdj.Clear();
                 //生成存在庫存差額的數據
@@ -1501,16 +1559,49 @@ namespace cf01.Forms
                 if (dtStockAdj.Rows.Count > 0)
                 {
                     string msg = string.Format(
-                    @"表格一中的第【{0}】行,頁數【{1}】,貨品【{2}】庫存不足!\\n\\r 數量差額:{3},重量差額:{4}",
+                    "表格一中的第【{0}】行:\n\r頁數【{1}】\n\r貨品【{2}】庫存不足!\n\r數量差額:{3}\n\r重量差額:{4}",
                     dtStockAdj.Rows[0]["sequence_id"].ToString(), dtStockAdj.Rows[0]["mo_id"].ToString(), dtStockAdj.Rows[0]["goods_id"].ToString(),
                     dtStockAdj.Rows[0]["adj_qty"].ToString(), dtStockAdj.Rows[0]["adj_sec_qty"].ToString());
                     MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                //檢查庫存通過則執行后面的批準代碼
-
+                //檢查庫存通過則執行后面的批準代碼   
+                ApproveAction("1");
             }
+        }
 
+        private void ApproveAction(string approveType)
+        {
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //*********    
+            string msg = "", msgErr = "";   
+            string result = Approve(approveType);
+            //*********
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            if (result == "00")
+            {
+                FindDoc(txtID.Text);
+                msg = (approveType == "1") ? "批準成功!" : "反批準成功!";
+                msgErr = (approveType == "1") ? "批準失敗!" : "反批準失敗!";
+                MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(msgErr, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string Approve(string approve_type)
+        {
+            string result = "00";       
+            TransferInHead head = GetHeadData();
+            result = clsTransferout.Approve(head, DBUtility._user_id, approve_type);
+            return result;
         }
 
         private void clSec_qty_Click(object sender, EventArgs e)
@@ -1565,7 +1656,7 @@ namespace cf01.Forms
                             MessageBox.Show("自動庫存調整成功！", "提示信息", MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                     }
-                }                
+                }
             }
         }
 
@@ -1610,7 +1701,7 @@ namespace cf01.Forms
                 if (stQty < conQty || stSecQty < secQty)
                 {
                     adjQty = (stQty < conQty) ? (conQty - stQty) : 0;
-                    adjSecQty = (stSecQty < secQty) ? (secQty - stSecQty) : 0;
+                    adjSecQty = (stSecQty < secQty) ? Math.Round(secQty-stSecQty,2) : 0;
                     DataRow drw = dtStockAdj.NewRow();
                     drw["sequence_id"] = sequenceId;
                     drw["location_id"] = locationId;
@@ -1646,7 +1737,106 @@ namespace cf01.Forms
             temp_transfer_amount = decimal.Parse(transferAmount);
         }
 
-        
+        private void BTNUNAPPROVE_Click(object sender, EventArgs e)
+        {
+            if (dgvDetails.RowCount == 0)
+            {
+                return;
+            }
+            if (mState !="")
+            {
+                return;
+            }
+            if (lkeSate.EditValue.ToString() == "0")
+            {
+                MessageBox.Show("已是反批準狀態,當前操作無效!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (lkeSate.EditValue.ToString() == "1")
+            {
+                //重新檢查是否別人已做反批準  
+                string state = clsTransferout.GetStateByID(txtID.Text);
+                if (state == "0")
+                {
+                    MessageBox.Show("已是反批準狀態,當前操作無效!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                //檢查是否已有做轉入單,如果有,不允許再做反批準
+                DataTable dt = dtsTrans.Tables["dtD1"].Copy();
+                if(clsTransferout.CheckIsTransferIn(dt))
+                {
+                    MessageBox.Show($"轉出單【{txtID.Text}】已有做轉入單，不可以再反批準!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+                ApproveAction("0");                
+            }
+        }
+
+        private void clBteLotNo1_Click(object sender, EventArgs e)
+        {
+            GetStLotNo(dgvDetails, "1");
+            //if (mState != "")
+            //{
+            //    int rowIndex = dgvDetails.FocusedRowHandle;
+            //    string locationId = dgvDetails.GetRowCellValue(rowIndex, "location_id").ToString();
+            //    string moId = dgvDetails.GetRowCellValue(rowIndex, "mo_id").ToString();
+            //    string goodsId = dgvDetails.GetRowCellValue(rowIndex, "goods_id").ToString();
+
+            //    Point clickPoint = new Point(MousePosition.X, MousePosition.Y);//當前鼠标的坐标
+            //    using (frmTransferoutLot ofrm = new frmTransferoutLot(locationId, goodsId, moId, clickPoint))
+            //    {
+            //        ofrm.ShowDialog();
+            //        if (ofrm.lotNo != "")
+            //        {
+            //            dgvDetails.SetRowCellValue(rowIndex, "lot_no", ofrm.lotNo);
+            //        }
+            //    }
+            //}
+        }
+
+        private void clBteLotNo2_Click(object sender, EventArgs e)
+        {
+            GetStLotNo(dgvPart, "2");
+            //if (mState != "")
+            //{
+            //    int rowIndex = dgvPart.FocusedRowHandle;
+            //    string locationId = dgvPart.GetRowCellValue(rowIndex, "location").ToString();
+            //    string moId = dgvPart.GetRowCellValue(rowIndex, "mo_id").ToString();
+            //    string goodsId = dgvPart.GetRowCellValue(rowIndex, "goods_id").ToString();
+
+            //    Point clickPoint = new Point(MousePosition.X, MousePosition.Y);//當前鼠标的坐标
+            //    using (frmTransferoutLot ofrm = new frmTransferoutLot(locationId, goodsId, moId, clickPoint))
+            //    {
+            //        ofrm.ShowDialog();
+            //        if (ofrm.lotNo != "")
+            //        {
+            //            dgvPart.SetRowCellValue(rowIndex, "lot_no", ofrm.lotNo);
+            //        }
+            //    }
+            //}
+        }
+
+        private void GetStLotNo(GridView grv, string type)
+        {
+            if (mState != "")
+            {
+                int rowIndex = grv.FocusedRowHandle;
+                string locationName = type == "1" ? "location_id" : "location";                
+                string locationId = grv.GetRowCellValue(rowIndex, locationName).ToString();
+                string moId = grv.GetRowCellValue(rowIndex, "mo_id").ToString();
+                string goodsId = grv.GetRowCellValue(rowIndex, "goods_id").ToString();
+                Point clickPoint = new Point(MousePosition.X, MousePosition.Y);//當前鼠标的坐标
+                using (frmTransferoutLot ofrm = new frmTransferoutLot(locationId, goodsId, moId, clickPoint))
+                {
+                    ofrm.ShowDialog();
+                    if (ofrm.lotNo != "")
+                    {
+                        grv.SetRowCellValue(rowIndex, "lot_no", ofrm.lotNo);
+                    }
+                }
+            }
+        }
+        
     }
 }

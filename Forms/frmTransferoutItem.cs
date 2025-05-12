@@ -12,13 +12,13 @@ namespace cf01.Forms
 {
     public partial class frmTransferoutItem : Form
     {
-        private static clsPublicOfGEO clsConErp = new clsPublicOfGEO();
+        static clsPublicOfGEO clsConErp = new clsPublicOfGEO();
         DataTable dtFind = new DataTable();
         public string goodsId = "";
         public string goodsName = "";
-        private string moId = "";  
-        private Point clickPoint;
-        private bool selected_flag = false;
+        string moId = "";  
+        Point clickPoint;
+        bool selected_flag = false;
 
         public frmTransferoutItem(string mo_id, Point p)
         {
@@ -34,15 +34,14 @@ namespace cf01.Forms
             @"SELECT b.goods_id,c.name As goods_name
             FROM so_order_details a with(nolock),so_order_bom b with(nolock),it_goods c
             WHERE a.within_code=b.within_code And a.id=b.id And a.ver=b.ver And a.sequence_id=b.upper_sequence And
-             b.within_code=c.within_code And b.goods_id=c.id And a.within_code='0000' And a.mo_id='{0}' And 
-             a.state Not In('2','V') ORDER BY b.primary_key Desc,b.goods_id", moId);
+            b.within_code=c.within_code And b.goods_id=c.id And a.within_code='0000' And a.mo_id='{0}' And 
+            a.state Not In('2','V') ORDER BY b.primary_key Desc,b.goods_id", moId);
             dtFind = clsConErp.GetDataTable(sql_f);
             dgv1.DataSource = dtFind;
         }
 
         private void dgv1_SelectionChanged(object sender, EventArgs e)
         {
-            //int rowIndex = dgv1.CurrentRow.Index;
             int rowIndex = dgv1.CurrentCell.RowIndex;
             if (rowIndex < 0)
             {
