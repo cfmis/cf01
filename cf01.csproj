@@ -1293,6 +1293,12 @@
     <Compile Include="Forms\frmTransferout.designer.cs">
       <DependentUpon>frmTransferout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmTransferoutLot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTransferoutLot.designer.cs">
+      <DependentUpon>frmTransferoutLot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmTrimsSheet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3491,6 +3497,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTransferout.resx">
       <DependentUpon>frmTransferout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTransferoutLot.resx">
+      <DependentUpon>frmTransferoutLot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTrimsSheet.resx">
       <DependentUpon>frmTrimsSheet.cs</DependentUpon>

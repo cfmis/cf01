@@ -114,6 +114,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.chkPA5 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtProcessRemark = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtQc_test = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPlate_remark = new System.Windows.Forms.TextBox();
             this.txtArrive_date = new System.Windows.Forms.TextBox();
@@ -168,8 +172,6 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtQc_test = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -202,7 +204,7 @@
             // txtC_sec_qty_ok
             // 
             this.txtC_sec_qty_ok.BackColor = System.Drawing.SystemColors.Control;
-            this.txtC_sec_qty_ok.Location = new System.Drawing.Point(496, 523);
+            this.txtC_sec_qty_ok.Location = new System.Drawing.Point(496, 518);
             this.txtC_sec_qty_ok.Name = "txtC_sec_qty_ok";
             this.txtC_sec_qty_ok.Size = new System.Drawing.Size(100, 22);
             this.txtC_sec_qty_ok.TabIndex = 69;
@@ -211,7 +213,7 @@
             // txtVender_id
             // 
             this.txtVender_id.BackColor = System.Drawing.SystemColors.Control;
-            this.txtVender_id.Location = new System.Drawing.Point(496, 494);
+            this.txtVender_id.Location = new System.Drawing.Point(496, 489);
             this.txtVender_id.Name = "txtVender_id";
             this.txtVender_id.Size = new System.Drawing.Size(100, 22);
             this.txtVender_id.TabIndex = 68;
@@ -220,7 +222,7 @@
             // txtget_color_sample_name
             // 
             this.txtget_color_sample_name.BackColor = System.Drawing.SystemColors.Control;
-            this.txtget_color_sample_name.Location = new System.Drawing.Point(496, 465);
+            this.txtget_color_sample_name.Location = new System.Drawing.Point(496, 460);
             this.txtget_color_sample_name.Name = "txtget_color_sample_name";
             this.txtget_color_sample_name.Size = new System.Drawing.Size(100, 22);
             this.txtget_color_sample_name.TabIndex = 70;
@@ -294,7 +296,7 @@
             // lblPicPath
             // 
             this.lblPicPath.AutoSize = true;
-            this.lblPicPath.Location = new System.Drawing.Point(24, 442);
+            this.lblPicPath.Location = new System.Drawing.Point(24, 437);
             this.lblPicPath.Name = "lblPicPath";
             this.lblPicPath.Size = new System.Drawing.Size(56, 12);
             this.lblPicPath.TabIndex = 32;
@@ -333,7 +335,7 @@
             // lblReqTest
             // 
             this.lblReqTest.AutoSize = true;
-            this.lblReqTest.Location = new System.Drawing.Point(236, 470);
+            this.lblReqTest.Location = new System.Drawing.Point(236, 465);
             this.lblReqTest.Name = "lblReqTest";
             this.lblReqTest.Size = new System.Drawing.Size(53, 12);
             this.lblReqTest.TabIndex = 15;
@@ -342,7 +344,7 @@
             // lblReqSample
             // 
             this.lblReqSample.AutoSize = true;
-            this.lblReqSample.Location = new System.Drawing.Point(48, 470);
+            this.lblReqSample.Location = new System.Drawing.Point(48, 465);
             this.lblReqSample.Name = "lblReqSample";
             this.lblReqSample.Size = new System.Drawing.Size(32, 12);
             this.lblReqSample.TabIndex = 16;
@@ -498,7 +500,7 @@
             // txtPicPath
             // 
             this.txtPicPath.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPicPath.Location = new System.Drawing.Point(85, 439);
+            this.txtPicPath.Location = new System.Drawing.Point(85, 434);
             this.txtPicPath.Name = "txtPicPath";
             this.txtPicPath.ReadOnly = true;
             this.txtPicPath.Size = new System.Drawing.Size(623, 23);
@@ -579,7 +581,7 @@
             // txtArtId
             // 
             this.txtArtId.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtArtId.Location = new System.Drawing.Point(361, 525);
+            this.txtArtId.Location = new System.Drawing.Point(361, 520);
             this.txtArtId.Name = "txtArtId";
             this.txtArtId.ReadOnly = true;
             this.txtArtId.Size = new System.Drawing.Size(122, 23);
@@ -588,7 +590,7 @@
             // txtUnitCode
             // 
             this.txtUnitCode.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtUnitCode.Location = new System.Drawing.Point(213, 525);
+            this.txtUnitCode.Location = new System.Drawing.Point(213, 520);
             this.txtUnitCode.Name = "txtUnitCode";
             this.txtUnitCode.ReadOnly = true;
             this.txtUnitCode.Size = new System.Drawing.Size(122, 23);
@@ -597,7 +599,7 @@
             // txtPreDepQty
             // 
             this.txtPreDepQty.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPreDepQty.Location = new System.Drawing.Point(85, 525);
+            this.txtPreDepQty.Location = new System.Drawing.Point(85, 520);
             this.txtPreDepQty.Name = "txtPreDepQty";
             this.txtPreDepQty.ReadOnly = true;
             this.txtPreDepQty.Size = new System.Drawing.Size(112, 23);
@@ -606,7 +608,7 @@
             // txtBlueprintId
             // 
             this.txtBlueprintId.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtBlueprintId.Location = new System.Drawing.Point(361, 496);
+            this.txtBlueprintId.Location = new System.Drawing.Point(361, 491);
             this.txtBlueprintId.Name = "txtBlueprintId";
             this.txtBlueprintId.ReadOnly = true;
             this.txtBlueprintId.Size = new System.Drawing.Size(122, 23);
@@ -615,7 +617,7 @@
             // txtSequenceId
             // 
             this.txtSequenceId.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtSequenceId.Location = new System.Drawing.Point(213, 496);
+            this.txtSequenceId.Location = new System.Drawing.Point(213, 491);
             this.txtSequenceId.Name = "txtSequenceId";
             this.txtSequenceId.ReadOnly = true;
             this.txtSequenceId.Size = new System.Drawing.Size(122, 23);
@@ -624,7 +626,7 @@
             // txtId
             // 
             this.txtId.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtId.Location = new System.Drawing.Point(85, 496);
+            this.txtId.Location = new System.Drawing.Point(85, 491);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(112, 23);
@@ -633,7 +635,7 @@
             // txtReqTest
             // 
             this.txtReqTest.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtReqTest.Location = new System.Drawing.Point(302, 467);
+            this.txtReqTest.Location = new System.Drawing.Point(302, 462);
             this.txtReqTest.Name = "txtReqTest";
             this.txtReqTest.ReadOnly = true;
             this.txtReqTest.Size = new System.Drawing.Size(181, 23);
@@ -642,7 +644,7 @@
             // txtReqSample
             // 
             this.txtReqSample.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtReqSample.Location = new System.Drawing.Point(85, 467);
+            this.txtReqSample.Location = new System.Drawing.Point(85, 462);
             this.txtReqSample.Name = "txtReqSample";
             this.txtReqSample.ReadOnly = true;
             this.txtReqSample.Size = new System.Drawing.Size(112, 23);
@@ -990,6 +992,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.txtProcessRemark);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.txtQc_test);
             this.panel1.Controls.Add(this.label12);
@@ -1082,10 +1086,48 @@
             this.panel1.Size = new System.Drawing.Size(1026, 660);
             this.panel1.TabIndex = 80;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(5, 630);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(53, 12);
+            this.label18.TabIndex = 105;
+            this.label18.Text = "工序做法";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtProcessRemark
+            // 
+            this.txtProcessRemark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtProcessRemark.Location = new System.Drawing.Point(85, 626);
+            this.txtProcessRemark.Name = "txtProcessRemark";
+            this.txtProcessRemark.ReadOnly = true;
+            this.txtProcessRemark.Size = new System.Drawing.Size(511, 23);
+            this.txtProcessRemark.TabIndex = 104;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(23, 603);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 12);
+            this.label17.TabIndex = 103;
+            this.label17.Text = "QC測試:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtQc_test
+            // 
+            this.txtQc_test.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtQc_test.Location = new System.Drawing.Point(85, 599);
+            this.txtQc_test.Name = "txtQc_test";
+            this.txtQc_test.ReadOnly = true;
+            this.txtQc_test.Size = new System.Drawing.Size(511, 23);
+            this.txtQc_test.TabIndex = 102;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(23, 582);
+            this.label12.Location = new System.Drawing.Point(23, 574);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 12);
             this.label12.TabIndex = 101;
@@ -1095,7 +1137,7 @@
             // txtPlate_remark
             // 
             this.txtPlate_remark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPlate_remark.Location = new System.Drawing.Point(85, 580);
+            this.txtPlate_remark.Location = new System.Drawing.Point(85, 572);
             this.txtPlate_remark.Name = "txtPlate_remark";
             this.txtPlate_remark.ReadOnly = true;
             this.txtPlate_remark.Size = new System.Drawing.Size(511, 23);
@@ -1104,7 +1146,7 @@
             // txtArrive_date
             // 
             this.txtArrive_date.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtArrive_date.Location = new System.Drawing.Point(213, 553);
+            this.txtArrive_date.Location = new System.Drawing.Point(213, 547);
             this.txtArrive_date.Name = "txtArrive_date";
             this.txtArrive_date.ReadOnly = true;
             this.txtArrive_date.Size = new System.Drawing.Size(122, 23);
@@ -1493,7 +1535,7 @@
             // 
             this.txtSizeName.BackColor = System.Drawing.SystemColors.Control;
             this.txtSizeName.Enabled = false;
-            this.txtSizeName.Location = new System.Drawing.Point(85, 551);
+            this.txtSizeName.Location = new System.Drawing.Point(85, 546);
             this.txtSizeName.Name = "txtSizeName";
             this.txtSizeName.Size = new System.Drawing.Size(112, 22);
             this.txtSizeName.TabIndex = 80;
@@ -1501,7 +1543,7 @@
             // lblSizeName
             // 
             this.lblSizeName.AutoSize = true;
-            this.lblSizeName.Location = new System.Drawing.Point(24, 556);
+            this.lblSizeName.Location = new System.Drawing.Point(24, 551);
             this.lblSizeName.Name = "lblSizeName";
             this.lblSizeName.Size = new System.Drawing.Size(56, 12);
             this.lblSizeName.TabIndex = 79;
@@ -1582,25 +1624,6 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "備註";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(23, 611);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 12);
-            this.label17.TabIndex = 103;
-            this.label17.Text = "QC測試:";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtQc_test
-            // 
-            this.txtQc_test.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtQc_test.Location = new System.Drawing.Point(85, 609);
-            this.txtQc_test.Name = "txtQc_test";
-            this.txtQc_test.ReadOnly = true;
-            this.txtQc_test.Size = new System.Drawing.Size(511, 23);
-            this.txtQc_test.TabIndex = 102;
             // 
             // frmOrderProCard
             // 
@@ -1769,5 +1792,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtQc_test;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtProcessRemark;
     }
 }

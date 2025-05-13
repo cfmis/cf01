@@ -592,6 +592,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_qty", typeof(string));
             dtNewWork.Columns.Add("stantard_qty", typeof(string));
             dtNewWork.Columns.Add("qc_test", typeof(string));
+            dtNewWork.Columns.Add("process_remark", typeof(string));
 
             DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drw.Length > 0)
@@ -638,7 +639,7 @@ namespace cf01.ReportForm
                     //顯示進度條
                     progressBar1.Value += progressBar1.Step; 
                     //dtCard = clsPublicOfCF01.ExecuteProcedureReturnTable("p_rpt_product_card", paras);//2024/3/13取消
-                    dtCard = clsConErp.ExecuteProcedureReturnTable("z_rpt_product_card", paras);
+                    dtCard = clsConErp.ExecuteProcedureReturnTable("z_rpt_product_card", paras); 
                     if (progressBar1.Value == progressBar1.Maximum)
                     {
                         progressBar1.Enabled = false;
@@ -738,7 +739,7 @@ namespace cf01.ReportForm
 
                                 dr["qc_dept"] = dtCard.Rows[j]["qc_dept"].ToString();
                                 dr["qc_name"] = dtCard.Rows[j]["qc_name"].ToString();
-                                dr["qc_qty"] = dtCard.Rows[j]["qc_qty"].ToString();
+                                dr["qc_qty"] = dtCard.Rows[j]["qc_qty"].ToString();                               
                                 dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dr["net_weight"].ToString()) * clsUtility.FormatNullableInt32(dr["base_rate"].ToString()), 0);
                                 //本身是交702的流程不用顯示相關QC信息
                                 is_qc_dept = dtCard.Rows[j]["next_wp_id"].ToString();
@@ -749,6 +750,7 @@ namespace cf01.ReportForm
                                     dr["qc_qty"] = "";
                                 }
                                 dr["qc_test"] = dtCard.Rows[j]["qc_test"].ToString();
+                                dr["process_remark"] = dtCard.Rows[j]["process_remark"].ToString();
                                 dtNewWork.Rows.Add(dr);
                             }
                         }

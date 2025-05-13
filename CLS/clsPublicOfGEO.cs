@@ -98,7 +98,7 @@ namespace cf01.CLS
         /// </summary>
         /// <param name="strSQL"></param>
         /// <returns></returns>
-        public String ExecuteSqlReturnObject(string strSQL)
+        public string ExecuteSqlReturnObject(string strSQL)
         {
             string objStrValue = "";
             try
@@ -311,7 +311,7 @@ namespace cf01.CLS
             }
             catch (Exception ex)
             {
-                result = ex.Message;               
+                result = ex.Message;
             }
             finally
             {

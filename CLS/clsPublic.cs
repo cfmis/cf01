@@ -693,6 +693,22 @@ namespace cf01.CLS
             return result;
         }
 
+        public static decimal ReturnFloat2(string pValue)
+        {
+            float fResult;
+            fResult = (!string.IsNullOrEmpty(pValue)) ? float.Parse(pValue) : 0.00f;
+            fResult = (fResult > 0) ? (float)Math.Round(fResult, 2) : 0.00f;
+            return decimal.Parse(fResult.ToString());
+        }
+
+        public static decimal ReturnFloat4(string pValue)
+        {
+            float fResult;
+            fResult = (!string.IsNullOrEmpty(pValue)) ? float.Parse(pValue) : 0.0000f;
+            fResult = (fResult > 0) ? (float)Math.Round(fResult, 4) : 0.0000f;
+            return decimal.Parse(fResult.ToString());
+        }
+
         //create a reportview report and define format,grouping  ://msdn.microsoft.com/zh-cn/library/ms252073(v=vs.90).aspx
 
         //make report define grouping   ://www.dotblogs.com.tw/bruce655/archive/2012/02/22/69837.aspx

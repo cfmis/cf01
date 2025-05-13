@@ -18,23 +18,21 @@ namespace cf01.ReportForm
 {
     public partial class frmOrderProCard : Form
     {
-        private clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
-        private List<Mo_for_jx> lsModel = new List<Mo_for_jx>();
-        private DataTable dtGoodsInfo = new DataTable();
-        public static DataTable dtNext_Goods = new DataTable();
-
-        private clsUtility.enumOperationType operationType;
-        private string goods_id="";
-        //private string cur_sequence_id = "";
-        private int Reserve_Qty;
-        public static string strProcess = "";
-        private DataSet dsCard_product = new DataSet();
-
+        clsPublicOfGEO clsPublicOfGEO = new clsPublicOfGEO();
+        List<Mo_for_jx> lsModel = new List<Mo_for_jx>();
+        DataTable dtGoodsInfo = new DataTable();
+        DataTable dtNext_Goods = new DataTable();
+        DataSet dsCard_product = new DataSet();
         DataTable dtCard_product = new DataTable();
         DataTable dtReport = new DataTable();
         DataTable dtMould = new DataTable();
-        public string table_state="";
-        public int mCount;
+        clsUtility.enumOperationType operationType;
+        string goods_id = "", table_state = "";
+        public static string strProcess = "";
+        int mCount, Reserve_Qty;
+
+        
+        
 
         
 
@@ -168,6 +166,7 @@ namespace cf01.ReportForm
                     txtQc_name.Text = lsModel[i].qc_name;
                     txtQc_qty.Text = lsModel[i].qc_qty;
                     txtQc_test.Text = lsModel[i].qc_test;
+                    txtProcessRemark.Text = lsModel[i].process_remark;
                     if (lsModel[i].next_wp_id == "702" || lsModel[i].next_wp_id == "722")
                     {
                         txtQc_dept.Text = "";
@@ -362,6 +361,7 @@ namespace cf01.ReportForm
                         qc_name = dtGoodsInfo.Rows[i]["qc_name"].ToString(),
                         qc_qty = dtGoodsInfo.Rows[i]["qc_qty"].ToString(),
                         qc_test = dtGoodsInfo.Rows[i]["qc_test"].ToString(),
+                        process_remark = dtGoodsInfo.Rows[i]["process_remark"].ToString()
                     };
                     lsModel.Add(objModel);
                 }
@@ -568,7 +568,7 @@ namespace cf01.ReportForm
                             dr["c_sec_qty_ok"] = clsUtility.FormatNullableInt32(txtC_sec_qty_ok.Text);
                             dr["net_weight"] = txtNet_weight.Text.Trim();
                             dr["page_num"] = i;
-                            dr["wh_location"] = txtWh_location.Text;
+                            dr["wh_location"] = txtWh_location.Text;                           
 
                             if (!string.IsNullOrEmpty(txtCompDate.Text))                              
                             {
@@ -581,14 +581,7 @@ namespace cf01.ReportForm
 
                             if (i == NumPage && per_qty != 0)
                             {
-                                if (qty_remaining > 0)
-                                {
-                                    dr["per_qty"] = clsUtility.NumberConvert(qty_remaining);
-                                }
-                                else
-                                {
-                                    dr["per_qty"] = clsUtility.NumberConvert(per_qty);
-                                }
+                                dr["per_qty"] = (qty_remaining > 0) ? clsUtility.NumberConvert(qty_remaining) : clsUtility.NumberConvert(per_qty);                                
                             }
                             else
                             {
@@ -612,6 +605,7 @@ namespace cf01.ReportForm
                             dr["qc_qty"] = txtQc_qty.Text;
                             dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(txtNet_weight.Text.Trim()) * clsUtility.FormatNullableInt32(txtBaseRate.Text), 0);
                             dr["qc_test"]= txtQc_test.Text;
+                            dr["process_remark"] = txtProcessRemark.Text;
 
                             dtNewWork.Rows.Add(dr);
                         }
@@ -792,7 +786,7 @@ namespace cf01.ReportForm
 
         private void lueGoodsId_EditValueChanged(object sender, EventArgs e)
         {
-            this.ShowByItem();//貨品編號下拉框選中某一行時
+            this.ShowByItem();//當貨品編號下拉框選中某一行時
 
             //以下代處理合金工序
             string strMO = txtMoId.Text;
