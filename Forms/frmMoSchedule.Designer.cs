@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
@@ -60,7 +59,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.palShowHasSchedule = new System.Windows.Forms.Panel();
             this.gcSchedule = new DevExpress.XtraGrid.GridControl();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip();
             this.cutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gvSchedule = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -234,7 +233,6 @@
             this.chkOver3Days = new DevExpress.XtraEditors.CheckEdit();
             this.lblDepGroup = new System.Windows.Forms.Label();
             this.lblPrd_dept = new System.Windows.Forms.Label();
-            this.cmbFindDep = new System.Windows.Forms.ComboBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -268,6 +266,11 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
+            this.remark_105 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtDep = new DevExpress.XtraEditors.TextEdit();
+            this.glcPreTrQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grcPreTrDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclPreTrFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -330,6 +333,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDep.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -621,6 +625,7 @@
             this.gclPassDays,
             this.gclPrdGroup,
             this.gclUrgentFlag,
+            this.remark_105,
             this.gclPrdItem,
             this.gclArtWork,
             this.gclPrdIitemCdesc,
@@ -660,7 +665,10 @@
             this.gclMoRemark,
             this.gclDepRemark,
             this.gclStatus,
-            this.grcPrdItemGroup});
+            this.grcPrdItemGroup,
+            this.glcPreTrQty,
+            this.grcPreTrDate,
+            this.gclPreTrFlag});
             this.gvSchedule.FooterPanelHeight = 30;
             this.gvSchedule.GridControl = this.gcSchedule;
             this.gvSchedule.IndicatorWidth = 40;
@@ -1289,7 +1297,7 @@
             this.grcPrdItemGroup.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.grcPrdItemGroup.Name = "grcPrdItemGroup";
             this.grcPrdItemGroup.Visible = true;
-            this.grcPrdItemGroup.VisibleIndex = 42;
+            this.grcPrdItemGroup.VisibleIndex = 45;
             this.grcPrdItemGroup.Width = 120;
             // 
             // repositoryItemLookUpEdit4
@@ -2430,6 +2438,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtDep);
             this.panel1.Controls.Add(this.btnShowMore);
             this.panel1.Controls.Add(this.txtPrdMachine);
             this.panel1.Controls.Add(this.lueDepGroup);
@@ -2442,7 +2451,6 @@
             this.panel1.Controls.Add(this.lblMoStatus);
             this.panel1.Controls.Add(this.lblDepGroup);
             this.panel1.Controls.Add(this.lblPrd_dept);
-            this.panel1.Controls.Add(this.cmbFindDep);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(0, 38);
@@ -2511,16 +2519,6 @@
             this.lblPrd_dept.Size = new System.Drawing.Size(67, 14);
             this.lblPrd_dept.TabIndex = 24;
             this.lblPrd_dept.Text = "生產部門:";
-            // 
-            // cmbFindDep
-            // 
-            this.cmbFindDep.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cmbFindDep.FormattingEnabled = true;
-            this.cmbFindDep.Location = new System.Drawing.Point(94, 5);
-            this.cmbFindDep.Name = "cmbFindDep";
-            this.cmbFindDep.Size = new System.Drawing.Size(109, 21);
-            this.cmbFindDep.TabIndex = 1;
-            this.cmbFindDep.Leave += new System.EventHandler(this.cmbFindDep_Leave);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2764,6 +2762,47 @@
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
             // 
+            // remark_105
+            // 
+            this.remark_105.Caption = "備註105";
+            this.remark_105.FieldName = "remark_105";
+            this.remark_105.Name = "remark_105";
+            this.remark_105.Width = 205;
+            // 
+            // txtDep
+            // 
+            this.txtDep.Location = new System.Drawing.Point(94, 6);
+            this.txtDep.Name = "txtDep";
+            this.txtDep.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDep.Properties.MaxLength = 3;
+            this.txtDep.Size = new System.Drawing.Size(109, 20);
+            this.txtDep.TabIndex = 1;
+            this.txtDep.Leave += new System.EventHandler(this.txtDep_Leave);
+            // 
+            // glcPreTrQty
+            // 
+            this.glcPreTrQty.Caption = "上部門來貨數";
+            this.glcPreTrQty.FieldName = "pre_tr_qty";
+            this.glcPreTrQty.Name = "glcPreTrQty";
+            this.glcPreTrQty.Visible = true;
+            this.glcPreTrQty.VisibleIndex = 42;
+            // 
+            // grcPreTrDate
+            // 
+            this.grcPreTrDate.Caption = "上部門來貨日期";
+            this.grcPreTrDate.FieldName = "pre_tr_date";
+            this.grcPreTrDate.Name = "grcPreTrDate";
+            this.grcPreTrDate.Visible = true;
+            this.grcPreTrDate.VisibleIndex = 43;
+            // 
+            // gclPreTrFlag
+            // 
+            this.gclPreTrFlag.Caption = "來貨狀態";
+            this.gclPreTrFlag.FieldName = "pre_tr_flag";
+            this.gclPreTrFlag.Name = "gclPreTrFlag";
+            this.gclPreTrFlag.Visible = true;
+            this.gclPreTrFlag.VisibleIndex = 44;
+            // 
             // frmMoSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2844,6 +2883,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOver3Days.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOver3Days.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkScheduleByMachine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDep.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2874,7 +2914,6 @@
         private System.Windows.Forms.Panel palShowMore;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblPrd_dept;
-        private System.Windows.Forms.ComboBox cmbFindDep;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem cutMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteMenuItem;
@@ -3082,5 +3121,10 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnPrdItemFind;
         private DevExpress.XtraEditors.LookUpEdit lueDepGroup;
         private DevExpress.XtraGrid.Columns.GridColumn gclPassDays;
+        private DevExpress.XtraGrid.Columns.GridColumn remark_105;
+        private DevExpress.XtraEditors.TextEdit txtDep;
+        private DevExpress.XtraGrid.Columns.GridColumn glcPreTrQty;
+        private DevExpress.XtraGrid.Columns.GridColumn grcPreTrDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gclPreTrFlag;
     }
 }

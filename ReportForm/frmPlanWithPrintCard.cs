@@ -845,31 +845,31 @@ namespace cf01.ReportForm
             //    return;
 
 
-            bool selectFlag = false;
-            for (int i = 0; i < dtMoPlan.Rows.Count; i++)
-            {
-                if ((bool)dtMoPlan.Rows[i]["select_flag"])
-                {
-                    selectFlag = true;
-                    break;
-                }
-            }
-            if (selectFlag == false)
-            {
-                MessageBox.Show("沒有儲存的記錄!");
-                return;
-            }
-            frmProgress wForm = new frmProgress();
-            new Thread((ThreadStart)delegate
-            {
-                wForm.TopMost = true;
-                wForm.ShowDialog();
-            }).Start();
+            //bool selectFlag = false;
+            //for (int i = 0; i < dtMoPlan.Rows.Count; i++)
+            //{
+            //    if ((bool)dtMoPlan.Rows[i]["select_flag"])
+            //    {
+            //        selectFlag = true;
+            //        break;
+            //    }
+            //}
+            //if (selectFlag == false)
+            //{
+            //    MessageBox.Show("沒有儲存的記錄!");
+            //    return;
+            //}
+            //frmProgress wForm = new frmProgress();
+            //new Thread((ThreadStart)delegate
+            //{
+            //    wForm.TopMost = true;
+            //    wForm.ShowDialog();
+            //}).Start();
 
             //**********************
             SaveMoSchedule(); //数据处理
             //**********************
-            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
             
         }
@@ -878,9 +878,13 @@ namespace cf01.ReportForm
             
             List<mdlMoSchedule> lsModel = new List<mdlMoSchedule>();
             int seq_step = clsMoSchedule.GetScheduleSeq(dtMoPlan.Rows[0]["wp_id"].ToString().Trim());
+            prgStatus.Minimum = 0;
+            prgStatus.Maximum = dtMoPlan.Rows.Count;
+            prgStatus.Value = 0;
             //foreach (DataRow drMo in selectedRows)
             for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
+                prgStatus.Value = i + 1;
                 if ((bool)dtMoPlan.Rows[i]["select_flag"])
                 {
                     DataRow drMo = dtMoPlan.Rows[i];
@@ -901,6 +905,9 @@ namespace cf01.ReportForm
                     objModel.order_date = drMo["order_date"].ToString().Trim();
                     objModel.order_qty = clsValidRule.ConvertStrToInt(drMo["order_qty"].ToString());
                     objModel.pl_qty = clsValidRule.ConvertStrToInt(drMo["prod_qty"].ToString());
+                    objModel.pre_tr_qty = clsValidRule.ConvertStrToInt(drMo["pre_dep_qty_ok"].ToString());
+                    objModel.pre_tr_date = clsValidRule.ConvertDateToString(drMo["pre_deliver_max_dat"].ToString());
+                    objModel.pre_tr_flag = drMo["pre_dep_deliver_flag"].ToString().Trim();
                     objModel.schedule_qty = objModel.pl_qty;
 
 
@@ -947,7 +954,7 @@ namespace cf01.ReportForm
 
                 }
             }
-
+            prgStatus.Value = 0;
             if (lsModel.Count > 0)
             {
                 string result = clsMoSchedule.SaveMoSchedule(lsModel);

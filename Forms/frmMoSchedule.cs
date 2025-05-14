@@ -14,7 +14,7 @@ using cf01.MDL;
 using cf01.ModuleClass;
 using cf01.ReportForm;
 using DevExpress.XtraGrid.Views.Base;
-
+using DevExpress.XtraGrid.Columns;
 
 namespace cf01.Forms
 {
@@ -46,17 +46,8 @@ namespace cf01.Forms
         }
         private void frmMoSchedule_Load(object sender, EventArgs e)
         {
-            cmbFindDep.Focus();
-            InitControlers();
-        }
-        private void InitControlers()
-        {
-            DataTable dtPrd_dept = clsBaseData.loadPrdDep();
-            cmbFindDep.DataSource = dtPrd_dept;
-            cmbFindDep.DisplayMember = "dep_cdesc";
-            cmbFindDep.ValueMember = "dep_id";
+            txtDep.Focus();
             SetCombox();
-
         }
         private void SetCombox()
         {
@@ -274,7 +265,7 @@ namespace cf01.Forms
         }
         private DataTable LoadData1(int sch_by_machine)
         {
-            string prd_dep = cmbFindDep.SelectedValue.ToString();
+            string prd_dep = txtDep.Text.Trim();
             string prd_group = lueDepGroup.EditValue != null ? lueDepGroup.EditValue.ToString() : "";
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
             string cp_status = cmbCpStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString().Trim() : "0";
@@ -354,7 +345,7 @@ namespace cf01.Forms
         private void btnMachine_status_Click(object sender, EventArgs e)
         {
             frmMachineStatus1 frmMS = new frmMachineStatus1();
-            frmMS.strPrd_dep = cmbFindDep.SelectedValue.ToString();
+            frmMS.strPrd_dep = txtDep.Text.Trim();
             //if(frm_Main.isRunMain ==true)
             //    frmMS.MdiParent = frm_Main.ActiveForm;
             frmMS.WindowState = FormWindowState.Maximized;
@@ -362,28 +353,9 @@ namespace cf01.Forms
             frmMS.ShowDialog();
         }
 
-        private void cmbFindDep_Leave(object sender, EventArgs e)
-        {
-            
-            GetScheduleBase();
-            string prd_dep = cmbFindDep.SelectedValue.ToString().Trim();
-            //////部門組別
-            luePrdGroup.DataSource = clsBaseData.loadScheduleDepGroup(prd_dep);
-            luePrdGroup.ValueMember = "grp_code";
-            luePrdGroup.DisplayMember = "grp_code";
-
-            lueDepGroup.Properties.DataSource = clsBaseData.loadScheduleDepGroup(prd_dep);
-            lueDepGroup.Properties.ValueMember = "grp_code";
-            lueDepGroup.Properties.DisplayMember = "grp_cdesc";
-            // 部門機器
-            luePrdMachine.Properties.DataSource = clsBaseData.LoadMachineStd(prd_dep);
-            luePrdMachine.Properties.ValueMember = "machine_id";  // 绑定值字段
-            luePrdMachine.Properties.DisplayMember = "machine_id";  // 绑定显示字段,machine_rate,machine_mul
-
-        }
         private void GetScheduleBase()
         {
-            DataTable dtScheduleBase = clsMoSchedule.LoadScheduleBase(cmbFindDep.SelectedValue.ToString());
+            DataTable dtScheduleBase = clsMoSchedule.LoadScheduleBase(txtDep.Text.Trim());
             if (dtScheduleBase.Rows.Count > 0)
             {
                 DataRow dr = dtScheduleBase.Rows[0];
@@ -506,7 +478,7 @@ namespace cf01.Forms
 
         private void btnScheduleMachine_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            sendDep = cmbFindDep.SelectedValue.ToString().Trim();
+            sendDep = txtDep.Text.Trim();
             DataRow row = gvSchedule.GetFocusedDataRow();
             sendMachine = row["prd_machine"].ToString().Trim();
             frmMachineStdQty frm = new frmMachineStdQty();
@@ -561,9 +533,9 @@ namespace cf01.Forms
             }
             //
             //frmMoScheduleBase
-            sendDep = cmbFindDep.SelectedValue.ToString().Trim();
+            sendDep = txtDep.Text.Trim();
             frmPlanWithPrintCard frmMS = new frmPlanWithPrintCard();
-            //frmMS.strPrd_dep = cmbFindDep.SelectedValue.ToString();
+            //frmMS.strPrd_dep = txtDep.Text.Trim();
             //if(frm_Main.isRunMain ==true)
             //    frmMS.MdiParent = frm_Main.ActiveForm;
             frmMS.WindowState = FormWindowState.Maximized;
@@ -636,7 +608,7 @@ namespace cf01.Forms
 
         private void btnSetParas_Click(object sender, EventArgs e)
         {
-            sendDep = cmbFindDep.SelectedValue.ToString().Trim();
+            sendDep = txtDep.Text.Trim();
             frmMoScheduleBase frmMS = new frmMoScheduleBase();
             frmMS.ShowDialog();
         }
@@ -791,7 +763,7 @@ namespace cf01.Forms
                 DataRow row = gvSchedule.GetFocusedDataRow();
                 send_prd_mo = row["prd_mo"].ToString().Trim();
             }
-            sendDep = cmbFindDep.SelectedValue.ToString().Trim();
+            sendDep = txtDep.Text.Trim();
             frmDepPrdoduction frmSP = new frmDepPrdoduction();
 
             //if (frm_Main.isRunMain == true)
@@ -818,7 +790,7 @@ namespace cf01.Forms
                     return;
             }
 
-            string prd_dep = cmbFindDep.SelectedValue.ToString().Trim();
+            string prd_dep = txtDep.Text.Trim();
             SaveFileDialog saveFile = new SaveFileDialog();
             string fileName = prd_dep + "部門排期表";
             if (rpt_type == 2)
@@ -1010,6 +982,52 @@ namespace cf01.Forms
                 //int FocuseRow_Handle = newview.FocusedRowHandle;//获取新焦点行的FocuseRowHandle
             }
             frm.Dispose();
+        }
+
+        private void txtDep_Leave(object sender, EventArgs e)
+        {
+            GetScheduleBase();
+            string prd_dep = txtDep.Text.Trim();
+            //////部門組別
+            luePrdGroup.DataSource = clsBaseData.loadScheduleDepGroup(prd_dep);
+            luePrdGroup.ValueMember = "grp_code";
+            luePrdGroup.DisplayMember = "grp_code";
+
+            lueDepGroup.Properties.DataSource = clsBaseData.loadScheduleDepGroup(prd_dep);
+            lueDepGroup.Properties.ValueMember = "grp_code";
+            lueDepGroup.Properties.DisplayMember = "grp_cdesc";
+            // 部門機器
+            luePrdMachine.Properties.DataSource = clsBaseData.LoadMachineStd(prd_dep);
+            luePrdMachine.Properties.ValueMember = "machine_id";  // 绑定值字段
+            luePrdMachine.Properties.DisplayMember = "machine_id";  // 绑定显示字段,machine_rate,machine_mul
+            if (prd_dep == "105")
+            {
+                gvSchedule.Columns["remark_105"].Visible = true;  // 显示列
+                gvSchedule.Columns["remark_105"].VisibleIndex = 6;  // 设置为第一列
+
+            }
+            else
+                gvSchedule.Columns["remark_105"].Visible = false;  // 隱藏列
+            //foreach (GridColumn col in gvSchedule.Columns)
+            //{
+            //    var col1 = col;
+            //    col.Visible = col.FieldName != "備註105"; // 隐藏某些列
+
+            //}
+
+            //foreach (GridColumn col in gvSchedule.Columns)
+            //{
+            //    if (col.FieldName == "remark_105")
+            //    {
+            //        if (prd_dep == "105")
+            //            col.Visible = true;
+            //        else
+            //            col.Visible = false;
+            //    }
+            //}
+
+
+            //gvSchedule.PopulateColumns(); // 重新生成列
         }
 
         //////計算預生產開始、結束時間

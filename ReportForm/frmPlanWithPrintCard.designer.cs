@@ -126,6 +126,8 @@
             this.lueModuleType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.luePrdGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.prgStatus = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.palPrintNextDepCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat1.Properties)).BeginInit();
@@ -164,6 +166,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueModuleType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit11)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1104,11 +1107,28 @@
             this.repositoryItemTextEdit11.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.repositoryItemTextEdit11.Name = "repositoryItemTextEdit11";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.prgStatus);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 631);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1227, 36);
+            this.panel3.TabIndex = 39;
+            // 
+            // prgStatus
+            // 
+            this.prgStatus.Location = new System.Drawing.Point(10, 4);
+            this.prgStatus.Name = "prgStatus";
+            this.prgStatus.Size = new System.Drawing.Size(189, 23);
+            this.prgStatus.TabIndex = 29;
+            // 
             // frmPlanWithPrintCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1227, 667);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.chkSelectAll);
             this.Controls.Add(this.gcPlanDetails);
             this.Controls.Add(this.panel1);
@@ -1160,6 +1180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueModuleType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit11)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1261,5 +1282,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private System.Windows.Forms.Panel palPrintNextDepCard;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ProgressBar prgStatus;
     }
 }
