@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode7 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode8 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode9 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode5 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode6 = new DevExpress.XtraGrid.GridLevelNode();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -271,6 +271,8 @@
             this.glcPreTrQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grcPreTrDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPreTrFlag = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnExpSum = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -353,6 +355,8 @@
             this.btnSetParas,
             this.btnExcelByMachine,
             this.toolStripSeparator2,
+            this.btnExpSum,
+            this.toolStripSeparator10,
             this.btnDepPrd,
             this.toolStripSeparator5,
             this.btnMachine_status,
@@ -557,13 +561,13 @@
             // 
             this.gcSchedule.ContextMenuStrip = this.contextMenu;
             this.gcSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
-            gridLevelNode3.RelationName = "Level3";
+            gridLevelNode7.RelationName = "Level1";
+            gridLevelNode8.RelationName = "Level2";
+            gridLevelNode9.RelationName = "Level3";
             this.gcSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2,
-            gridLevelNode3});
+            gridLevelNode7,
+            gridLevelNode8,
+            gridLevelNode9});
             this.gcSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcSchedule.MainView = this.gvSchedule;
             this.gcSchedule.Name = "gcSchedule";
@@ -1501,13 +1505,13 @@
             // 
             this.gcWaitSchedule.ContextMenuStrip = this.contextMenu;
             this.gcWaitSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode4.RelationName = "Level1";
-            gridLevelNode5.RelationName = "Level2";
-            gridLevelNode6.RelationName = "Level3";
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.RelationName = "Level3";
             this.gcWaitSchedule.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode4,
-            gridLevelNode5,
-            gridLevelNode6});
+            gridLevelNode1,
+            gridLevelNode2,
+            gridLevelNode3});
             this.gcWaitSchedule.Location = new System.Drawing.Point(0, 0);
             this.gcWaitSchedule.MainView = this.gvWaitSchedule;
             this.gcWaitSchedule.Name = "gcWaitSchedule";
@@ -2752,7 +2756,7 @@
             // 
             // chkScheduleByMachine
             // 
-            this.chkScheduleByMachine.Location = new System.Drawing.Point(736, 11);
+            this.chkScheduleByMachine.Location = new System.Drawing.Point(822, 11);
             this.chkScheduleByMachine.Name = "chkScheduleByMachine";
             this.chkScheduleByMachine.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.chkScheduleByMachine.Properties.Appearance.Options.UseFont = true;
@@ -2782,6 +2786,8 @@
             // glcPreTrQty
             // 
             this.glcPreTrQty.Caption = "上部門來貨數";
+            this.glcPreTrQty.DisplayFormat.FormatString = "#,##0";
+            this.glcPreTrQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.glcPreTrQty.FieldName = "pre_tr_qty";
             this.glcPreTrQty.Name = "glcPreTrQty";
             this.glcPreTrQty.Visible = true;
@@ -2802,6 +2808,22 @@
             this.gclPreTrFlag.Name = "gclPreTrFlag";
             this.gclPreTrFlag.Visible = true;
             this.gclPreTrFlag.VisibleIndex = 44;
+            // 
+            // btnExpSum
+            // 
+            this.btnExpSum.AutoSize = false;
+            this.btnExpSum.Image = ((System.Drawing.Image)(resources.GetObject("btnExpSum.Image")));
+            this.btnExpSum.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExpSum.Name = "btnExpSum";
+            this.btnExpSum.Size = new System.Drawing.Size(65, 35);
+            this.btnExpSum.Text = "匯出總表";
+            this.btnExpSum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExpSum.Click += new System.EventHandler(this.btnExpSum_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 38);
             // 
             // frmMoSchedule
             // 
@@ -3126,5 +3148,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn glcPreTrQty;
         private DevExpress.XtraGrid.Columns.GridColumn grcPreTrDate;
         private DevExpress.XtraGrid.Columns.GridColumn gclPreTrFlag;
+        private System.Windows.Forms.ToolStripButton btnExpSum;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
     }
 }

@@ -541,7 +541,7 @@
             // chkSelectAll
             // 
             this.chkSelectAll.AutoSize = true;
-            this.chkSelectAll.Location = new System.Drawing.Point(40, 179);
+            this.chkSelectAll.Location = new System.Drawing.Point(42, 178);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Size = new System.Drawing.Size(15, 14);
             this.chkSelectAll.TabIndex = 22;
@@ -754,7 +754,7 @@
             this.luePrdGroup,
             this.repositoryItemTextEdit11,
             this.repositoryItemCheckEdit1});
-            this.gcPlanDetails.Size = new System.Drawing.Size(1227, 500);
+            this.gcPlanDetails.Size = new System.Drawing.Size(1227, 464);
             this.gcPlanDetails.TabIndex = 38;
             this.gcPlanDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPlanDetails});
@@ -1128,9 +1128,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1227, 667);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.chkSelectAll);
             this.Controls.Add(this.gcPlanDetails);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmPlanWithPrintCard";

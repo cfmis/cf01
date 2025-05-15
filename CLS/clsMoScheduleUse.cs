@@ -66,7 +66,7 @@ namespace cf01.CLS
                     //string colStr = $"A{excelRow}:{total_rows}{excelRow}";
                     // 设置合并单元格
                     //worksheet.Cells["A1:R1"].Merge = true; // 合并 A1 到 R1
-                    worksheet.Cells["A1"].Value = "部門排期表" + " ( " + group_tittle + " )"; // 设置值
+                    worksheet.Cells["A1"].Value = "部門排期表" + " ( " + group_tittle + " )"+System.DateTime.Now.ToString("yyyy/MM/dd"); // 设置值
                     // 设置合并单元格的样式（可选）
                     worksheet.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
                     worksheet.Cells["A1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
@@ -77,7 +77,14 @@ namespace cf01.CLS
                     
                     prgStatus.Value = 0;
                     if (rpt_type == 1)
-                        FillExcel102(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
+                    {
+                        if (prd_dep == "105")
+                            FillExcel105(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
+                        else if (prd_dep == "106")
+                            FillExcel106(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
+                        else
+                            FillExcel102(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
+                    }
                     else     // 按機器匯出
                         FillExcelByMachine(worksheet, dtNewExcel, prd_dep, excelRow, picPath, prgStatus);
                 }
@@ -352,6 +359,394 @@ namespace cf01.CLS
             // 设置整个表格内容自动换行
             tableCells.Style.WrapText = true;
         }
+
+
+        //按生產車間/組別匯出105
+        private static void FillExcel105(ExcelWorksheet worksheet, System.Data.DataTable dtNewExcel, string prd_dep, int excelRow, string picPath, ProgressBar prgStatus)
+        {
+            prgStatus.Maximum = dtNewExcel.Rows.Count;
+            worksheet.Cells["A1:R1"].Merge = true; // 合并 A1 到 R1
+
+            worksheet.Cells[excelRow, 1].Value = "序號";
+            worksheet.Cells[excelRow, 2].Value = "狀態";
+            worksheet.Cells[excelRow, 3].Value = "到貨狀態";
+            worksheet.Cells[excelRow, 4].Value = "制單編號";
+            worksheet.Cells[excelRow, 5].Value = "排期日期";
+            worksheet.Cells[excelRow, 6].Value = "產品編號";
+            worksheet.Cells[excelRow, 7].Value = "產品描述";
+            worksheet.Cells[excelRow, 8].Value = "應生產數量";
+            worksheet.Cells[excelRow, 9].Value = "上部門來貨數量";
+            worksheet.Cells[excelRow, 10].Value = "已完成數量";
+            worksheet.Cells[excelRow, 11].Value = "未完成數量";
+            worksheet.Cells[excelRow, 12].Value = "上部門來貨期";
+            worksheet.Cells[excelRow, 13].Value = "PMC要求日期";
+            worksheet.Cells[excelRow, 14].Value = "部門复期";
+            worksheet.Cells[excelRow, 15].Value = "下部門";
+            worksheet.Cells[excelRow, 16].Value = "圖樣";
+            worksheet.Cells[excelRow, 17].Value = "部門備註";
+            worksheet.Cells[excelRow, 18].Value = "PMC備註";
+            worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
+            for (int i = 0; i < dtNewExcel.Rows.Count; i++)
+            {
+                prgStatus.Value = i;
+                DataRow drExcel = dtNewExcel.Rows[i];
+                excelRow = i + 3;
+                worksheet.Cells[excelRow, 1].Value = drExcel["schedule_seq"].ToString();//"\'" + 
+                worksheet.Cells[excelRow, 2].Value = drExcel["pass_days"].ToString().Trim() + "\r\n" + drExcel["urgent_flag_cdesc"].ToString().Trim();
+                worksheet.Cells[excelRow, 3].Value = drExcel["pre_tr_flag"].ToString();
+                worksheet.Cells[excelRow, 4].Value = drExcel["prd_mo"].ToString();
+                worksheet.Cells[excelRow, 5].Value = drExcel["schedule_date"].ToString();//"'" + 
+                worksheet.Cells[excelRow, 6].Value = drExcel["prd_item"].ToString(); ;
+                worksheet.Cells[excelRow, 7].Value = drExcel["goods_name"].ToString();
+                worksheet.Cells[excelRow, 8].Value = drExcel["pl_qty"];
+                worksheet.Cells[excelRow, 9].Value = drExcel["pre_tr_qty"];
+                worksheet.Cells[excelRow, 10].Value = drExcel["cp_qty"];
+                worksheet.Cells[excelRow, 11].Value = drExcel["not_cp_qty"];
+                worksheet.Cells[excelRow, 12].Value = drExcel["pre_tr_date"].ToString();
+                worksheet.Cells[excelRow, 13].Value = drExcel["pmc_rq_date"].ToString();
+                worksheet.Cells[excelRow, 14].Value = drExcel["dep_rp_date"].ToString();//"\'" + 
+                worksheet.Cells[excelRow, 15].Value = drExcel["next_wp_id"].ToString();
+                worksheet.Cells[excelRow, 16].Value = "";
+                worksheet.Cells[excelRow, 17].Value = drExcel["dep_remark"].ToString();
+                worksheet.Cells[excelRow, 18].Value = drExcel["mo_remark"].ToString();
+                
+                //string imagePath = drExcel["图片路径"].ToString();
+                string imagePath = picPath + drExcel["art_image"].ToString().Trim();
+                if (File.Exists(imagePath)) // 确保图片路径有效
+                {
+                    var picture = worksheet.Drawings.AddPicture($"Image{excelRow - 1}", new FileInfo(imagePath));
+                    picture.SetPosition(excelRow - 1, 0, 15, 0); // 设置图片位置
+                    picture.SetSize(60, 60);          // 设置图片大小
+                }
+                worksheet.Row(excelRow).Height = 50; // 设置第 1 行的高度为 20 点
+            }
+
+            worksheet.Column(1).Width = 4;
+            worksheet.Column(2).Width = 4;
+            worksheet.Column(3).Width = 4;
+            worksheet.Column(4).Width = 10;
+            worksheet.Column(5).Width = 9;
+            worksheet.Column(6).Width = 12;
+            worksheet.Column(7).Width = 14;
+            worksheet.Column(8).Width = 7.5;
+            worksheet.Column(9).Width = 7.5;
+            worksheet.Column(10).Width = 7.5;
+            worksheet.Column(11).Width = 7.5;
+            worksheet.Column(12).Width = 9;
+            worksheet.Column(13).Width = 10;
+            worksheet.Column(14).Width = 9;
+            worksheet.Column(15).Width = 4;
+            worksheet.Column(16).Width = 9;
+            worksheet.Column(17).Width = 7;
+            worksheet.Column(18).Width = 7;
+            //Cells[excelRow, 13]
+            // 设置动态范围
+            string colStr = $"H1:H{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"I1:I{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"J1:J{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"K1:K{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            //worksheet.Cells["B1:B10"].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
+            //worksheet.Cells["C1:C10"].Style.Numberformat.Format = "$#,##0.00"; // 千分位货币格式
+            // 设置某一列不可见
+            worksheet.Column(6).Hidden = true; // 隐藏物料編號
+            worksheet.Row(2).Height = 40; // 设置第 1 行的高度为 20 点
+
+            // 动态确定表格范围
+            //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
+            string tableRange = $"A1:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
+            var tableCells = worksheet.Cells[tableRange];
+
+            // 为整个表格添加边框
+            tableCells.Style.Border.BorderAround(ExcelBorderStyle.Thick); // 表格外边框设置为粗线
+            tableCells.Style.Border.Top.Style = ExcelBorderStyle.Thin;    // 表格顶部边框
+            tableCells.Style.Border.Bottom.Style = ExcelBorderStyle.Thin; // 表格底部边框
+            tableCells.Style.Border.Left.Style = ExcelBorderStyle.Thin;   // 表格左边边框
+            tableCells.Style.Border.Right.Style = ExcelBorderStyle.Thin;  // 表格右边边框
+            tableCells.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center; // 垂直居中
+            // 设置整个表格的字体大小
+            tableCells.Style.Font.Size = 10; // 设置字体大小为10
+            tableCells.Style.Font.Name = "新細明體";
+            // 设置整个表格内容自动换行
+            tableCells.Style.WrapText = true;
+            // 冻结第一行
+            worksheet.View.FreezePanes(3, 1); // 从第2行、第1列开始滚动，冻结第一行
+            // 设置打印标题行（固定第 1~2 行为标题）
+            worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:2"]; // 固定标题为第1~2行
+            worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
+            
+        }
+
+
+        //按生產車間/組別匯出106
+        private static void FillExcel106(ExcelWorksheet worksheet, System.Data.DataTable dtNewExcel, string prd_dep, int excelRow, string picPath, ProgressBar prgStatus)
+        {
+            prgStatus.Maximum = dtNewExcel.Rows.Count;
+            worksheet.Cells["A1:Q1"].Merge = true; // 合并 A1 到 R1
+
+            worksheet.Cells[excelRow, 1].Value = "序號";
+            worksheet.Cells[excelRow, 2].Value = "";
+            worksheet.Cells[excelRow, 3].Value = "排期日期";
+            worksheet.Cells[excelRow, 4].Value = "狀態";
+            worksheet.Cells[excelRow, 5].Value = "制單編號";
+            worksheet.Cells[excelRow, 6].Value = "產品編號";
+            worksheet.Cells[excelRow, 7].Value = "圖樣";
+            worksheet.Cells[excelRow, 8].Value = "產品描述";
+            worksheet.Cells[excelRow, 9].Value = "客落單日期";
+            worksheet.Cells[excelRow, 10].Value = "要求完成日期";
+            worksheet.Cells[excelRow, 11].Value = "訂單數量";
+            worksheet.Cells[excelRow, 12].Value = "要求數量";
+            worksheet.Cells[excelRow, 13].Value = "未完成數量";
+            worksheet.Cells[excelRow, 14].Value = "下部門";
+            worksheet.Cells[excelRow, 15].Value = "部門复期";
+            worksheet.Cells[excelRow, 16].Value = "部門備註";
+            worksheet.Cells[excelRow, 17].Value = "PMC備註";
+            worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
+            int printRow = 1, printCol = 17;
+            int not_cp_qty = 0;
+            for (int i = 0; i < dtNewExcel.Rows.Count; i++)
+            {
+                prgStatus.Value = i;
+                DataRow drExcel = dtNewExcel.Rows[i];
+                excelRow = i + 3;
+                worksheet.Cells[excelRow, 1].Value = drExcel["schedule_seq"].ToString();//"\'" + 
+                worksheet.Cells[excelRow, 2].Value = "";
+                worksheet.Cells[excelRow, 3].Value = drExcel["schedule_date"].ToString();//"'" + drExcel["pass_days"].ToString().Trim() + "\r\n" + 
+                worksheet.Cells[excelRow, 4].Value = drExcel["urgent_flag_cdesc"].ToString().Trim();
+                worksheet.Cells[excelRow, 5].Value = drExcel["prd_mo"].ToString();
+                worksheet.Cells[excelRow, 6].Value = drExcel["prd_item"].ToString();
+                worksheet.Cells[excelRow, 7].Value = "";
+                worksheet.Cells[excelRow, 8].Value = drExcel["goods_name"].ToString();
+                worksheet.Cells[excelRow, 9].Value = drExcel["order_date"].ToString();
+                worksheet.Cells[excelRow, 10].Value = drExcel["pmc_rq_date"];
+                worksheet.Cells[excelRow, 11].Value = drExcel["order_qty"];
+                worksheet.Cells[excelRow, 12].Value = drExcel["pl_qty"];
+                worksheet.Cells[excelRow, 13].Value = drExcel["not_cp_qty"];
+                worksheet.Cells[excelRow, 14].Value = drExcel["next_wp_id"].ToString();
+                worksheet.Cells[excelRow, 15].Value = drExcel["dep_rp_date"].ToString();//"\'" + 
+                worksheet.Cells[excelRow, 16].Value = drExcel["dep_remark"].ToString();
+                worksheet.Cells[excelRow, 17].Value = drExcel["mo_remark"].ToString();
+                not_cp_qty += clsValidRule.ConvertStrToInt(drExcel["not_cp_qty"].ToString());
+                if (not_cp_qty < 110)//未完成數量超過100，設定列印範圍
+                    printRow = excelRow;
+                //string imagePath = drExcel["图片路径"].ToString();
+                string imagePath = picPath + drExcel["art_image"].ToString().Trim();
+                if (File.Exists(imagePath)) // 确保图片路径有效
+                {
+                    var picture = worksheet.Drawings.AddPicture($"Image{excelRow - 1}", new FileInfo(imagePath));
+                    picture.SetPosition(excelRow - 1, 0, 6, 0); // 设置图片位置
+                    picture.SetSize(60, 60);          // 设置图片大小
+                }
+                worksheet.Row(excelRow).Height = 50; // 设置第 1 行的高度为 20 点
+            }
+
+            worksheet.Column(1).Width = 4;
+            worksheet.Column(2).Width = 4;
+            worksheet.Column(3).Width = 10;
+            worksheet.Column(4).Width = 6;
+            worksheet.Column(5).Width = 10;
+            worksheet.Column(6).Width = 18;
+            worksheet.Column(7).Width = 9;
+            worksheet.Column(8).Width = 7.5;
+            worksheet.Column(9).Width = 10;
+            worksheet.Column(10).Width = 10;
+            worksheet.Column(11).Width = 6;
+            worksheet.Column(12).Width = 6;
+            worksheet.Column(13).Width = 6;
+            worksheet.Column(14).Width = 6;
+            worksheet.Column(15).Width = 10;
+            worksheet.Column(16).Width = 9;
+            worksheet.Column(17).Width = 7;
+            //Cells[excelRow, 13]
+            // 设置动态范围
+            string colStr = $"K1:K{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"L1:L{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+            colStr = $"M1:M{excelRow}"; // 动态计算行数
+            worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+
+            // 设置某一列不可见
+            worksheet.Column(2).Hidden = true; // 隐藏物料編號
+            worksheet.Row(2).Height = 40; // 设置第 1 行的高度为 20 点
+
+            // 动态确定表格范围
+            //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
+            string tableRange = $"A1:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
+            var tableCells = worksheet.Cells[tableRange];
+
+            // 为整个表格添加边框
+            tableCells.Style.Border.BorderAround(ExcelBorderStyle.Thick); // 表格外边框设置为粗线
+            tableCells.Style.Border.Top.Style = ExcelBorderStyle.Thin;    // 表格顶部边框
+            tableCells.Style.Border.Bottom.Style = ExcelBorderStyle.Thin; // 表格底部边框
+            tableCells.Style.Border.Left.Style = ExcelBorderStyle.Thin;   // 表格左边边框
+            tableCells.Style.Border.Right.Style = ExcelBorderStyle.Thin;  // 表格右边边框
+            tableCells.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center; // 垂直居中
+            // 设置整个表格的字体大小
+            tableCells.Style.Font.Size = 10; // 设置字体大小为10
+            tableCells.Style.Font.Name = "新細明體";
+            // 设置整个表格内容自动换行
+            tableCells.Style.WrapText = true;
+            // 冻结第一行
+            worksheet.View.FreezePanes(3, 1); // 从第2行、第1列开始滚动，冻结第一行
+            // 设置打印标题行（固定第 1~2 行为标题）
+            worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:2"]; // 固定标题为第1~2行
+            // 设定动态打印范围（例如从 A1 到 最后一行、最后一列）
+            worksheet.PrinterSettings.PrintArea = worksheet.Cells[1, 1, printRow, printCol];
+            worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
+            
+            
+        }
+
+
+
+        public static string ExpToExcelSum(string prd_dep, string fileName, System.Data.DataTable dtNewExcel, int rpt_type, ProgressBar prgStatus)
+        {
+            prgStatus.Maximum = dtNewExcel.Rows.Count;
+            prgStatus.Value = 0;
+            using (var package = new ExcelPackage())
+            {
+
+                string group_tittle = "總表";
+
+
+                var worksheet = package.Workbook.Worksheets.Add(group_tittle);
+                worksheet.PrinterSettings.PaperSize = ePaperSize.A4; // 设置纸张为 A4
+                worksheet.PrinterSettings.Orientation = eOrientation.Portrait; // 设置页面纵向
+                                                                               // worksheet.PrinterSettings.Orientation = eOrientation.Landscape; // 设置页面横向
+                worksheet.PrinterSettings.TopMargin = (decimal)(0.17 / 2.54);    // 上边距，0.17 厘米
+                worksheet.PrinterSettings.BottomMargin = (decimal)(0.17 / 2.54); // 下边距，0.17 厘米
+                worksheet.PrinterSettings.LeftMargin = (decimal)(0.17 / 2.54);   // 左边距，0.17 厘米
+                worksheet.PrinterSettings.RightMargin = (decimal)(0.17 / 2.54);  // 右边距，0.17 厘米
+                int excelRow = 1;
+                //string colStr = $"A{excelRow}:{total_rows}{excelRow}";
+                // 设置合并单元格
+                //worksheet.Cells["A1:R1"].Merge = true; // 合并 A1 到 R1
+                worksheet.Cells["A1"].Value = "部門排期表" + " ( " + group_tittle + " )" + System.DateTime.Now.ToString("yyyy/MM/dd"); // 设置值
+                                                                                                                                  // 设置合并单元格的样式（可选）
+                
+                worksheet.Cells["A1:H1"].Merge = true; // 合并 A1 到 H1
+                worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                excelRow++;
+                worksheet.Cells["A2"].Value = "按跟單組別統計";
+                worksheet.Cells["A2:H2"].Merge = true; // 合并 A1 到 H1
+                worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                worksheet.Cells["A1:H2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                worksheet.Cells["A1:H2"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                worksheet.Cells["A1:H2"].Style.Font.Bold = true; // 设置字体加粗
+                excelRow++;
+                
+                prgStatus.Maximum = dtNewExcel.Rows.Count;
+
+                worksheet.Cells[excelRow, 1].Value = "標識";
+                worksheet.Cells[excelRow, 2].Value = "部門";
+                worksheet.Cells[excelRow, 3].Value = "部門組別";
+                worksheet.Cells[excelRow, 4].Value = "類別";
+                worksheet.Cells[excelRow, 5].Value = "單數";
+                worksheet.Cells[excelRow, 6].Value = "要求數量";
+                worksheet.Cells[excelRow, 7].Value = "已完成數量";
+                worksheet.Cells[excelRow, 8].Value = "未完成數量";
+                worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                excelRow++;
+                bool insert_flag = true;
+                for (int i = 0; i < dtNewExcel.Rows.Count; i++)
+                {
+                    prgStatus.Value = i;
+                    DataRow drExcel = dtNewExcel.Rows[i];
+                    string flag= drExcel["flag"].ToString();
+                    
+                    if(flag=="03" && insert_flag)
+                    {
+                        insert_flag = false;
+                        worksheet.Cells[excelRow, 1].Value = "按制單類型統計";
+                        string colStr1 = $"A{excelRow}:H{excelRow}"; // 动态计算行数
+                        worksheet.Cells[colStr1].Merge = true; // 合并 A1 到 H1
+                        worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                        worksheet.Cells[colStr1].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                        worksheet.Cells[colStr1].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                        worksheet.Cells[colStr1].Style.Font.Bold = true; // 设置字体加粗
+                        excelRow++;
+                        worksheet.Cells[excelRow, 1].Value = "標識";
+                        worksheet.Cells[excelRow, 2].Value = "部門";
+                        worksheet.Cells[excelRow, 3].Value = "部門組別";
+                        worksheet.Cells[excelRow, 4].Value = "制單類型";
+                        worksheet.Cells[excelRow, 5].Value = "單數";
+                        worksheet.Cells[excelRow, 6].Value = "要求數量";
+                        worksheet.Cells[excelRow, 7].Value = "已完成數量";
+                        worksheet.Cells[excelRow, 8].Value = "未完成數量";
+                        worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                        excelRow++;
+                    }
+                    worksheet.Cells[excelRow, 1].Value = flag;
+                    worksheet.Cells[excelRow, 2].Value = drExcel["prd_dep"].ToString(); ;
+                    worksheet.Cells[excelRow, 3].Value = drExcel["prd_group"].ToString();//"'" + drExcel["pass_days"].ToString().Trim() + "\r\n" + 
+                    worksheet.Cells[excelRow, 4].Value = drExcel["mo_group"].ToString();
+                    worksheet.Cells[excelRow, 5].Value = drExcel["mo_c"];
+                    worksheet.Cells[excelRow, 6].Value = drExcel["pl_qty"];
+                    worksheet.Cells[excelRow, 7].Value = drExcel["cp_qty"];
+                    worksheet.Cells[excelRow, 8].Value = drExcel["not_cp_qty"];
+                    worksheet.Row(excelRow).Height = 20; // 设置第 1 行的高度为 20 点
+                    excelRow++;
+                }
+                excelRow--;
+                worksheet.Column(1).Width = 6;
+                worksheet.Column(2).Width = 6;
+                worksheet.Column(3).Width = 12;
+                worksheet.Column(4).Width = 6;
+                worksheet.Column(5).Width = 10;
+                worksheet.Column(6).Width = 10;
+                worksheet.Column(7).Width = 10;
+                worksheet.Column(8).Width = 10;
+                //Cells[excelRow, 13]
+                // 设置动态范围
+                string colStr = $"E1:E{excelRow}"; // 动态计算行数
+                worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+                colStr = $"F1:F{excelRow}"; // 动态计算行数
+                worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+                colStr = $"G1:G{excelRow}"; // 动态计算行数
+                worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+                colStr = $"H1:H{excelRow}"; // 动态计算行数
+                worksheet.Cells[colStr].Style.Numberformat.Format = "#,##0"; // 千分位整数格式
+
+                
+
+                // 动态确定表格范围
+                //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
+                string tableRange = $"A1:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
+                var tableCells = worksheet.Cells[tableRange];
+
+                // 为整个表格添加边框
+                tableCells.Style.Border.BorderAround(ExcelBorderStyle.Thick); // 表格外边框设置为粗线
+                tableCells.Style.Border.Top.Style = ExcelBorderStyle.Thin;    // 表格顶部边框
+                tableCells.Style.Border.Bottom.Style = ExcelBorderStyle.Thin; // 表格底部边框
+                tableCells.Style.Border.Left.Style = ExcelBorderStyle.Thin;   // 表格左边边框
+                tableCells.Style.Border.Right.Style = ExcelBorderStyle.Thin;  // 表格右边边框
+                tableCells.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center; // 垂直居中
+                // 设置整个表格的字体大小
+                tableCells.Style.Font.Size = 10; // 设置字体大小为10
+                tableCells.Style.Font.Name = "新細明體";
+                // 设置整个表格内容自动换行
+                tableCells.Style.WrapText = true;
+                // 冻结第一行
+                worksheet.View.FreezePanes(4, 1); // 从第2行、第1列开始滚动，冻结第一行
+                // 设置打印标题行（固定第 1~2 行为标题）
+                worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:3"]; // 固定标题为第1~2行
+
+                worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
+
+                // 保存 Excel 文件
+                FileInfo file = new FileInfo(fileName);
+                package.SaveAs(file);
+                prgStatus.Value = 0;
+                MessageBox.Show("Excel 文件导出成功！");
+            }
+            return "";
+        }
+
+
 
         //////------------------------匯出生產計劃單---------------------------
         public static void ExpToExcelPlan1(StreamWriter sw, System.Data.DataTable dtExcel)

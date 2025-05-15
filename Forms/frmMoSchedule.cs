@@ -244,34 +244,35 @@ namespace cf01.Forms
             }).Start();
 
             //**********************
-            LoadData();
+            LoadData(0);
             //**********************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
         }
 
-        private void LoadData()
+        private void LoadData(int rpt_type)
         {
             int sch_by_machine = 0;
-            dtMoSchedule= LoadData1(sch_by_machine);
+            dtMoSchedule= LoadData1(rpt_type,sch_by_machine);
             gcSchedule.DataSource = dtMoSchedule;
+            gvSchedule.ActiveFilter.Clear();
             if (chkScheduleByMachine.Checked == true)
             {
                 sch_by_machine = 1;
-                gcWaitSchedule.DataSource = LoadData1(sch_by_machine);
+                gcWaitSchedule.DataSource = LoadData1(rpt_type,sch_by_machine);
             }
             CountNeedPrdDays();
             // 注册 CustomColumnDisplayText 事件
             //gvSchedule.CustomColumnDisplayText += gvSchedule_CustomColumnDisplayText;
         }
-        private DataTable LoadData1(int sch_by_machine)
+        private DataTable LoadData1(int rpt_type,int sch_by_machine)
         {
             string prd_dep = txtDep.Text.Trim();
             string prd_group = lueDepGroup.EditValue != null ? lueDepGroup.EditValue.ToString() : "";
             string mo_status = cmbMoStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString() : "";
-            string cp_status = cmbCpStatus.SelectedValue != null ? cmbMoStatus.SelectedValue.ToString().Trim() : "0";
+            string cp_status = cmbCpStatus.SelectedValue != null ? cmbCpStatus.SelectedValue.ToString().Trim() : "0";
             prd_group = prd_group == "00" ? "" : prd_group;
             string prd_machine = txtPrdMachine.Text.Trim();
-            DataTable dtSch = clsMoSchedule.LoadMoSchedule(prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status);
+            DataTable dtSch = clsMoSchedule.LoadMoSchedule(rpt_type,prd_dep, prd_group, prd_machine, sch_by_machine, mo_status, user_id, cp_status);
             return dtSch;
         }
         /// /// 統計排期數量、未完成數量、制單需要的時間
@@ -283,8 +284,8 @@ namespace cf01.Forms
                 object schedule_qty = dtMoSchedule.Compute("SUM(schedule_qty)", "");
                 object not_cp_qty = dtMoSchedule.Compute("SUM(not_cp_qty)", "not_cp_qty > 0");
                 object req_tot_time = dtMoSchedule.Compute("SUM(req_tot_time)", "");
-                txtScheduleQty.Text = Convert.ToDecimal(schedule_qty).ToString("#,##0");
-                txtNotCpQty.Text = Convert.ToDecimal(not_cp_qty).ToString("#,##0");
+                txtScheduleQty.Text = clsValidRule.ConvertStrToDecimal(schedule_qty.ToString()).ToString("#,##0");
+                txtNotCpQty.Text = clsValidRule.ConvertStrToDecimal(not_cp_qty.ToString()).ToString("#,##0");
                 txtReqTotTime.Text = clsValidRule.ConvertStrToDecimal(req_tot_time.ToString()).ToString("#,##0.00");
                 decimal day_work_time = 24 - (decimal)(noon_break + afternoon_break + evening_break);
                 if (day_work_time != 0)
@@ -461,6 +462,9 @@ namespace cf01.Forms
                 objMo.module_no = drMo[i]["module_no"].ToString().Trim();
                 objMo.module_install = drMo[i]["module_install"].ToString().Trim();
                 objMo.next_wp_id = drMo[i]["next_wp_id"].ToString().Trim();
+                objMo.pre_tr_qty = clsValidRule.ConvertStrToInt(drMo[i]["pre_tr_qty"].ToString());
+                objMo.pre_tr_date = drMo[i]["pre_tr_date"].ToString().Trim();
+                objMo.pre_tr_flag = drMo[i]["pre_tr_flag"].ToString().Trim();
                 lsMo.Add(objMo);
             }
             if (lsMo.Count > 0)
@@ -793,29 +797,35 @@ namespace cf01.Forms
             string prd_dep = txtDep.Text.Trim();
             SaveFileDialog saveFile = new SaveFileDialog();
             string fileName = prd_dep + "部門排期表";
+            if (rpt_type == 99)
+                fileName = prd_dep + "部門排期統計表";
             if (rpt_type == 2)
                 fileName += "按機器";
             saveFile.FileName = fileName;
-            
+
             saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
             saveFile.FilterIndex = 0;
             saveFile.RestoreDirectory = true;
             saveFile.CreatePrompt = true;
             saveFile.Title = "导出Excel文件到";
-            
+
             string result = "";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-
                 fileName = saveFile.FileName;
-                //frmProgress wForm = new frmProgress();
-                //new Thread((ThreadStart)delegate
-                //{
-                //    wForm.TopMost = true;
-                //    wForm.ShowDialog();
-                //}).Start();
-                //Thread.Sleep(1000);
-                DataTable dtExcel = new DataTable();
+            }
+            if (fileName == "")
+                return;
+            //frmProgress wForm = new frmProgress();
+            //new Thread((ThreadStart)delegate
+            //{
+            //    wForm.TopMost = true;
+            //    wForm.ShowDialog();
+            //}).Start();
+            //Thread.Sleep(1000);
+            DataTable dtExcel = new DataTable();
+            if (rpt_type != 99)
+            {
                 if (chkOver3Days.Checked == false)
                     dtExcel = dtMoSchedule.Copy();
                 else
@@ -833,13 +843,14 @@ namespace cf01.Forms
                 result = clsMoScheduleUse.ExpToExcelEPP(prd_dep, fileName, dtExcel, rpt_type, prgStatus);
                 ////**********************
                 //wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-                if (result != "")
-                    MessageBox.Show(result);
-
-
             }
-
-            
+            else
+            {
+                dtExcel = LoadData1(1, 0);
+                result = clsMoScheduleUse.ExpToExcelSum(prd_dep, fileName, dtExcel, rpt_type, prgStatus);
+            }
+            if (result != "")
+                MessageBox.Show(result);
         }
         private void btnGenScheduleSeq_Click(object sender, EventArgs e)
         {
@@ -1028,6 +1039,11 @@ namespace cf01.Forms
 
 
             //gvSchedule.PopulateColumns(); // 重新生成列
+        }
+
+        private void btnExpSum_Click(object sender, EventArgs e)
+        {
+            ExpToExcel(99);
         }
 
         //////計算預生產開始、結束時間

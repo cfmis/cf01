@@ -63,7 +63,8 @@ namespace cf01.Forms
             {
                 fileName = openFile.FileName;
             }
-
+            if (fileName == "")
+                return;
             //        Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
 
             //        Workbook workbook = excelApp.Workbooks.Open(fileName);
@@ -98,42 +99,29 @@ namespace cf01.Forms
 
 
             // 查找表头为“制单编号”的列worksheet.UsedRange.Columns.Count
-            int colMo = -1,colMo1=-1, colMo2 = -1, colRemark = -1, colDate = -1, colGroup = -1;
+            int colMo = -1, colMo1 = -1, colMo2 = -1, colRemark = -1, colDate = -1, colGroup = -1;
+            string errStr = "";
             for (int i = 1; i <= lastColumn; i++)
             {
-                var dd = (worksheet.Cells[1, i] as Range).Value.ToString();
-                if ((worksheet.Cells[1, i] as Range).Value.ToString() == "制單編號")
-                {
+                var colTitle = (worksheet.Cells[1, i] as Range).Value.ToString().Trim();
+                if (colTitle == "制單編號")
                     colMo = i;
-                }else
-                if ((worksheet.Cells[1, i] as Range).Value.ToString() == "制單編號1")
-                {
+                else if (colTitle == "制單編號1")
                     colMo1 = i;
-                }
-                else
-                if ((worksheet.Cells[1, i] as Range).Value.ToString() == "制單編號2")
-                {
+                else if (colTitle == "制單編號2")
                     colMo2 = i;
-                }
-                else
-                if ((worksheet.Cells[1, i] as Range).Value.ToString() == "備註")
-                {
+                else if (colTitle == "備註")
                     colRemark = i;
-                }
-                else
-                if ((worksheet.Cells[1, i] as Range).Value.ToString() == "組別")
-                {
+                else if (colTitle == "組別")
                     colGroup = i;
-                }
-                else
-                if ((worksheet.Cells[1, i] as Range).Value.ToString() == "日期")
-                {
+                else if (colTitle == "日期")
                     colDate = i;
-                }
+                else
+                    errStr = "制單編號|制單編號1|制單編號2|備註|組別|日期";
             }
-            if (colMo == -1 && colMo1 == -1 && colMo2 == -1 && colRemark == -1 && colDate == -1 && colGroup == -1)
+            if (colMo == -1 || colMo1 == -1 || colMo2 == -1 || colRemark == -1 || colDate == -1 || colGroup == -1)
             {
-                MessageBox.Show("未找到表头为“制單編號”的列！");
+                MessageBox.Show("未找到匹配为: " + errStr + " 的列!");
                 return;
             }
             prgStatus.Minimum = 0;
