@@ -57,7 +57,7 @@ namespace cf01.ReportForm
                 mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
                 mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             }
-            if (wp_id == "102" || wp_id == "202" || wp_id == "203" || wp_id == "105")
+            if (wp_id == "102" || wp_id == "202" || wp_id == "203" || wp_id == "105" || wp_id == "106")
                 palPrintNextDepCard.Visible = false;
             else
                 txtNextWip.Text = "128";
@@ -252,24 +252,23 @@ namespace cf01.ReportForm
             planDat2 = mkCmpDat2.Text;
             if (rdbNoPrint.Checked == true)//不包含已列印的記錄
                 isprint = 0;
-            if (rdbIsPrint.Checked == true)//只包含已列印的記錄
+            else if (rdbIsPrint.Checked == true)//只包含已列印的記錄
                 isprint = 1;
-            if (rdbAllPrint.Checked == true)//包含已列印的記錄
+            else if (rdbAllPrint.Checked == true)//包含已列印的記錄
                 isprint = 2;
-            int f_type;
+            int f_type;///未完成的計劃
             if (cmbReportType.SelectedIndex == -1 || cmbReportType.SelectedItem.ToString() == "")
                 f_type = 1;
             else
                 f_type = cmbReportType.SelectedIndex + 1;
-            if (rdbZeroVer.Checked == true)
-                show_ver = 0;
-            if (rdbNoZeroVer.Checked == true)
-                show_ver = 1;
             if (rdbAllVer.Checked == true)
                 show_ver = 2;
+            else if (rdbZeroVer.Checked == true)
+                show_ver = 0;
+            else if (rdbNoZeroVer.Checked == true)
+                show_ver = 1;
             if (chkReqPrdQty.Checked == true)//若包含生產數為零的記錄
                 zero_qty = 1;
-            //z_plan01//usp_LoadDepPlan   @old_arrange_date
             DataTable dt = commUse.getDataProcedure("usp_LoadPlanNew",
                 new object[] { f_type, show_ver,isprint, "JX", txtDep.Text,"", cmpDat1, cmpDat2, planDat1, planDat2, chkDat1, chkDat2, txtMo1.Text, txtMo2.Text
                     ,txtPrd_item1.Text,txtPrd_item2.Text,zero_qty,0});

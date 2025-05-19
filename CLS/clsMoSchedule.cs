@@ -125,7 +125,7 @@ namespace cf01.CLS
         {
             string result = "";
             string strSql = "";
-            string create_time = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            string update_time = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             strSql = string.Format(@" SET XACT_ABORT  ON ");
             strSql += string.Format(@" BEGIN TRANSACTION ");
 
@@ -133,11 +133,14 @@ namespace cf01.CLS
             {
                 for (int i = 0; i < lsMo.Count; i++)
                 {
+                    string status = lsMo[i].status;
                     strSql += string.Format(@" Update mo_schedule Set " +
                         " status='{1}',update_user='{2}',update_time='{3}'" +
                         " Where schedule_id='{0}'"
-                        , lsMo[i].schedule_id, lsMo[i].status, userid, create_time
+                        , lsMo[i].schedule_id, status, userid, update_time
                         );
+                    if (status == "02")
+                        UpdateGeoMoStatus(lsMo[i].prd_dep, lsMo[i].prd_mo, lsMo[i].prd_item, lsMo[i].next_wp_id, update_time);
                 }
             }else if(opera_type==2)//設定制單機器
             {
@@ -146,7 +149,18 @@ namespace cf01.CLS
                     strSql += string.Format(@" Update mo_schedule Set " +
                         " prd_machine='{1}',update_user='{2}',update_time='{3}'" +
                         " Where schedule_id='{0}'"
-                        , lsMo[i].schedule_id, lsMo[i].prd_machine, userid, create_time
+                        , lsMo[i].schedule_id, lsMo[i].prd_machine, userid, update_time
+                        );
+                }
+            }else if (opera_type == 3)//設定急單狀態
+            {
+                for (int i = 0; i < lsMo.Count; i++)
+                {
+                    string status = lsMo[i].status;
+                    strSql += string.Format(@" Update mo_schedule Set " +
+                        " urgent_flag='{1}',update_user='{2}',update_time='{3}'" +
+                        " Where schedule_id='{0}'"
+                        , lsMo[i].schedule_id, lsMo[i].urgent_flag, userid, update_time
                         );
                 }
             }
@@ -154,7 +168,25 @@ namespace cf01.CLS
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
         }
-
+        private static void UpdateGeoMoStatus(string prd_dep,string prd_mo,string prd_item,string next_wp_id,string update_time)
+        {
+            string remote_db = DBUtility.remote_db;
+            string strSql = "";
+            string id = "";
+            int ver = 0;
+            strSql = " Select id,ver From " + remote_db + "jo_bill_mostly Where within_code='" + within_code + "' And mo_id='" + prd_mo + "'";
+            DataTable dtMo = clsPublicOfCF01.GetDataTable(strSql);
+            if(dtMo.Rows.Count>0)
+            {
+                id = dtMo.Rows[0]["id"].ToString();
+                ver = clsValidRule.ConvertStrToInt(dtMo.Rows[0]["ver"].ToString());
+            }
+            strSql = " Update " + remote_db + "jo_bill_goods_details Set state='" + "G" +
+                "',force_by='" + userid + "',force_date='" + update_time + "'" +
+                " Where within_code='" + within_code + "' And id='" + id + "' And ver='" + ver + "' And goods_id='" + prd_item +
+                "' And wp_id='" + prd_dep + "' And next_wp_id='" + next_wp_id + "'";
+            string result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+        }
         public static DataTable LoadMoSchedule(int rpt_type,string prd_dep,string prd_group,string prd_machine
             ,int sch_by_machine,string mo_status, string user_id,string cp_status)
         {

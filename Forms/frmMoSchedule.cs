@@ -65,7 +65,7 @@ namespace cf01.Forms
             cmbMoStatus.ValueMember = "flag_id";
             cmbMoStatus.DisplayMember = "flag_cdesc";
             cmbMoStatus.SelectedValue = "01";
-            //////查詢條件中的完成狀態標識
+            //////查詢條件中的完成數狀態標識
             cmbCpStatus.DataSource = clsBaseData.loadDocFlag("CP_STATE");
             cmbCpStatus.ValueMember = "flag_id";
             cmbCpStatus.DisplayMember = "flag_cdesc";
@@ -651,25 +651,35 @@ namespace cf01.Forms
             // 获取选中的行索引
             int[] selectedRows = gvSchedule.GetSelectedRows();
 
-            if (selectedRows.Length > 0)
+            if (selectedRows.Length == 0)
             {
+                MessageBox.Show("没有选中任何行！");
+                return;
+            }
+            foreach (int rowIndex in selectedRows)
+            {
+                mdlMoSchedule objModel = new mdlMoSchedule();
+                //注意！不能用這個索引值作為DataTable中的索引值，因為如果DataView過濾後這個值就不準確的了
+                DataRow drGv = gvSchedule.GetDataRow(rowIndex);
+                int rowIndex1 = dtMoSchedule.Rows.IndexOf(drGv);//記錄對應在DataTable中的索引
+
+                DataRow dr = dtMoSchedule.Rows[rowIndex1];
+                objModel.schedule_id = dr["schedule_id"].ToString().Trim();
+                objModel.update_flag = "1";
                 if (opera_type == 1)//設定制單狀態
                 {
-                    foreach (int rowIndex in selectedRows)
+                    objModel.status = cmbSetStatus.SelectedValue.ToString().Trim();
+                    if (objModel.status == "02")
                     {
-                        //mdlMoSchedule objModel = new mdlMoSchedule();
-                        //// 获取每行的值
-                        //objModel.schedule_id = gvSchedule.GetRowCellValue(rowIndex, "schedule_id").ToString().Trim();
-                        //objModel.status = cmbSetStatus.SelectedValue.ToString().Trim();
-                        //lsMo.Add(objModel);
-                        DataRow dr = dtMoSchedule.Rows[rowIndex];
-                        dr["status"] = cmbSetStatus.SelectedValue.ToString().Trim();
-                        dr["update_flag"] = "1";
+                        objModel.prd_dep = dr["prd_dep"].ToString().Trim();
+                        objModel.prd_mo = dr["prd_mo"].ToString().Trim();
+                        objModel.prd_item = dr["prd_item"].ToString().Trim();
+                        objModel.next_wp_id = dr["next_wp_id"].ToString().Trim();
                     }
-                }else if(opera_type==2)//設定制單機器
+                }
+                else if (opera_type == 2)//設定制單機器
                 {
-
-                    string dep = dtMoSchedule.Rows[selectedRows[0]]["prd_dep"].ToString().Trim();
+                    string dep = dr["prd_dep"].ToString().Trim();
                     string machine_id = luePrdMachine.EditValue.ToString().Trim();
                     string machine_std_run_num = "", machine_std_line_num = "", machine_std_qty = "";
                     DataTable dtMachine = clsMoSchedule.GetMachineStdQty(dep, machine_id);
@@ -679,44 +689,28 @@ namespace cf01.Forms
                         machine_std_run_num = drMachine["machine_rate"].ToString();
                         machine_std_line_num = drMachine["machine_mul"].ToString();
                         machine_std_qty = drMachine["machine_std_qty"].ToString();
-                        
+
                     }
-                    foreach (int rowIndex in selectedRows)
-                    {
-                        DataRow dr = dtMoSchedule.Rows[rowIndex];
-                        dr["prd_machine"] = machine_id;
-                        dr["machine_std_run_num"] = machine_std_run_num;
-                        dr["machine_std_line_num"] = machine_std_line_num;
-                        dr["machine_std_qty"] = machine_std_qty;
-                        dr["update_flag"] = "1";
-                        CountPrdQty(rowIndex);
-                        //mdlMoSchedule objModel = new mdlMoSchedule();
-                        //// 获取每行的值
-                        //objModel.schedule_id = gvSchedule.GetRowCellValue(rowIndex, "schedule_id").ToString().Trim();
-                        //objModel.prd_machine = luePrdMachine.EditValue?.ToString().Trim();
-                        ////gvSchedule.SetRowCellValue(rowIndex, "update_flag") = "1";
-                        //lsMo.Add(objModel);
-                    }
-                }else if (opera_type == 3)//設定急單狀態
-                {
-                    foreach (int rowIndex in selectedRows)
-                    {
-                        DataRow dr = dtMoSchedule.Rows[rowIndex];
-                        dr["urgent_flag"] = lueSetUrgentMo.EditValue.ToString().Trim();
-                        dr["update_flag"] = "1";
-                    }
+                    dr["prd_machine"] = machine_id;
+                    dr["machine_std_run_num"] = machine_std_run_num;
+                    dr["machine_std_line_num"] = machine_std_line_num;
+                    dr["machine_std_qty"] = machine_std_qty;
+                    dr["update_flag"] = "1";
+                    CountPrdQty(rowIndex1);
                 }
-                //string result = clsMoSchedule.SaveSetMoStatus(opera_type, lsMo);
-                //if (result == "")
-                //    FindData();
-                //else
-                //    MessageBox.Show("更新排期表失敗！");
+                else if (opera_type == 3)//設定急單狀態
+                {
+                    objModel.urgent_flag = lueSetUrgentMo.EditValue.ToString().Trim();
+                }
+                lsMo.Add(objModel);
+
             }
+
+            string result = clsMoSchedule.SaveSetMoStatus(opera_type, lsMo);
+            if (result == "")
+                FindData();
             else
-            {
-                MessageBox.Show("没有选中任何行！");
-                return;
-            }
+                MessageBox.Show("更新排期表失敗！");
 
         }
 
@@ -894,7 +888,7 @@ namespace cf01.Forms
 
         private void gvSchedule_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            //////注意：不能用這兩句來獲取當前記錄，因為如果過濾後，表格的序號就回變了，導致序號不准了。
+            //////注意：不能用這兩句來獲取當前記錄，因為如果過濾後，表格的序號就回變了，導致序號不准確了。
             //int rowIndex = gvSchedule.FocusedRowHandle;
             //DataRow dr = dtMoSchedule.Rows[rowIndex];
             //////可用以下兩句來獲取：

@@ -61,7 +61,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.mkPlanDat2 = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.palShowVer = new System.Windows.Forms.Panel();
             this.rdbZeroVer = new System.Windows.Forms.RadioButton();
             this.rdbNoZeroVer = new System.Windows.Forms.RadioButton();
             this.rdbAllVer = new System.Windows.Forms.RadioButton();
@@ -140,7 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mkChkDat1.Properties)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat2.Properties)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.palShowVer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat1.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -192,7 +192,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.mkPlanDat2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.palShowVer);
             this.panel1.Controls.Add(this.mkCmpDat2);
             this.panel1.Controls.Add(this.mkPlanDat1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -208,7 +208,7 @@
             this.palPrintNextDepCard.Controls.Add(this.lblNextWp);
             this.palPrintNextDepCard.Location = new System.Drawing.Point(34, 86);
             this.palPrintNextDepCard.Name = "palPrintNextDepCard";
-            this.palPrintNextDepCard.Size = new System.Drawing.Size(335, 33);
+            this.palPrintNextDepCard.Size = new System.Drawing.Size(277, 33);
             this.palPrintNextDepCard.TabIndex = 26;
             // 
             // btnPrintNextWp
@@ -367,12 +367,13 @@
             // chkReqPrdQty
             // 
             this.chkReqPrdQty.AutoSize = true;
-            this.chkReqPrdQty.Location = new System.Drawing.Point(897, 68);
+            this.chkReqPrdQty.Location = new System.Drawing.Point(1066, 65);
             this.chkReqPrdQty.Name = "chkReqPrdQty";
             this.chkReqPrdQty.Size = new System.Drawing.Size(156, 16);
             this.chkReqPrdQty.TabIndex = 18;
             this.chkReqPrdQty.Text = "包括：生產數為零的記錄";
             this.chkReqPrdQty.UseVisualStyleBackColor = true;
+            this.chkReqPrdQty.Visible = false;
             // 
             // label4
             // 
@@ -391,9 +392,9 @@
             this.flowLayoutPanel1.Controls.Add(this.rdbAllPrint);
             this.flowLayoutPanel1.Controls.Add(this.lblShowMsg);
             this.flowLayoutPanel1.Controls.Add(this.chkSimplePlan);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(383, 91);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(384, 60);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(670, 25);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(657, 25);
             this.flowLayoutPanel1.TabIndex = 20;
             // 
             // rdbNoPrint
@@ -477,16 +478,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "要求完成日期:";
             // 
-            // panel2
+            // palShowVer
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.rdbZeroVer);
-            this.panel2.Controls.Add(this.rdbNoZeroVer);
-            this.panel2.Controls.Add(this.rdbAllVer);
-            this.panel2.Location = new System.Drawing.Point(383, 62);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 25);
-            this.panel2.TabIndex = 21;
+            this.palShowVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.palShowVer.Controls.Add(this.rdbZeroVer);
+            this.palShowVer.Controls.Add(this.rdbNoZeroVer);
+            this.palShowVer.Controls.Add(this.rdbAllVer);
+            this.palShowVer.Location = new System.Drawing.Point(1066, 28);
+            this.palShowVer.Name = "palShowVer";
+            this.palShowVer.Size = new System.Drawing.Size(500, 25);
+            this.palShowVer.TabIndex = 21;
+            this.palShowVer.Visible = false;
             // 
             // rdbZeroVer
             // 
@@ -1152,8 +1154,8 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat2.Properties)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.palShowVer.ResumeLayout(false);
+            this.palShowVer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat1.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -1223,7 +1225,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox chkSimplePlan;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel palShowVer;
         private System.Windows.Forms.CheckBox chkSelectAll;
         private System.Windows.Forms.ToolStripButton btnExpToExcelJx;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;

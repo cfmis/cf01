@@ -61,6 +61,10 @@ namespace cf01.CLS
                 " Where doc_type='" + doc_type + "'" +
                 " Order By flag_id";
             DataTable dt = clsPublicOfCF01.GetDataTable(strSql);
+            DataRow dr = dt.NewRow();
+            dr["flag_id"] = "";
+            dr["flag_cdesc"] = "";
+            dt.Rows.InsertAt(dr, 0);
             return dt;
         }
         //////制單排期中用到的組別
