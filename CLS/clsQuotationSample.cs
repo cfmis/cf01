@@ -29,7 +29,7 @@ namespace cf01.CLS
         public static string GetSerialNo()
         {
             string result = "";
-            string strsql = @"SELECT dbo.fn_get_str_datetime() as serial_no";
+            string strsql = @"SELECT dbo.fn_z_get_serialno_for_datetime() as serial_no";
             System.Data.DataTable dt = clsPublicOfCF01.GetDataTable(strsql);
             string str_serial_no = dt.Rows[0]["serial_no"].ToString();
             result = !string.IsNullOrEmpty(str_serial_no) ? str_serial_no : "";            

@@ -1454,5 +1454,16 @@ namespace cf01.Forms
         {
             dtDat2.EditValue = dtDat1.EditValue;
         }
+
+        private void lueDivision_EditValueChanged(object sender, EventArgs e)
+        {
+            if(lueDivision.EditValue.ToString() !="" && mState == "NEW")
+            {
+                if(txtPvh_submit_ref.Text != "")
+                {
+                    txtPvh_submit_ref.EditValue = "";
+                }
+            }
+        }
     }
 }
