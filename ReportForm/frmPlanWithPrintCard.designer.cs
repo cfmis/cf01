@@ -33,13 +33,16 @@
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.palPrintNextDepCard = new System.Windows.Forms.Panel();
+            this.btnPrintNextWp = new System.Windows.Forms.Button();
+            this.txtNextWip = new System.Windows.Forms.TextBox();
+            this.lblNextWp = new System.Windows.Forms.Label();
             this.mkCmpDat1 = new DevExpress.XtraEditors.TextEdit();
             this.txtPrd_item2 = new DevExpress.XtraEditors.TextEdit();
             this.lblPrd_item = new System.Windows.Forms.Label();
             this.txtMo2 = new DevExpress.XtraEditors.TextEdit();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDep = new DevExpress.XtraEditors.TextEdit();
-            this.lblNextWp = new System.Windows.Forms.Label();
             this.txtMo1 = new DevExpress.XtraEditors.TextEdit();
             this.txtPrd_item1 = new DevExpress.XtraEditors.TextEdit();
             this.mkChkDat2 = new DevExpress.XtraEditors.TextEdit();
@@ -58,14 +61,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.mkPlanDat2 = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.palShowVer = new System.Windows.Forms.Panel();
             this.rdbZeroVer = new System.Windows.Forms.RadioButton();
             this.rdbNoZeroVer = new System.Windows.Forms.RadioButton();
             this.rdbAllVer = new System.Windows.Forms.RadioButton();
-            this.btnPrintNextWp = new System.Windows.Forms.Button();
             this.mkCmpDat2 = new DevExpress.XtraEditors.TextEdit();
             this.mkPlanDat1 = new DevExpress.XtraEditors.TextEdit();
-            this.txtNextWip = new System.Windows.Forms.TextBox();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cmdExit = new System.Windows.Forms.ToolStripButton();
@@ -86,7 +87,6 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnMoSchedule = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.gcPlanDetails = new DevExpress.XtraGrid.GridControl();
             this.gvPlanDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gclSelectFlag = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -104,9 +104,10 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -125,9 +126,10 @@
             this.lueModuleType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.luePrdGroup = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.palPrintNextDepCard = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.prgStatus = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
+            this.palPrintNextDepCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).BeginInit();
@@ -138,7 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mkChkDat1.Properties)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat2.Properties)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.palShowVer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat1.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -164,7 +166,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueModuleType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit11)).BeginInit();
-            this.palPrintNextDepCard.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -190,7 +192,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.mkPlanDat2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.palShowVer);
             this.panel1.Controls.Add(this.mkCmpDat2);
             this.panel1.Controls.Add(this.mkPlanDat1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -198,6 +200,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1227, 129);
             this.panel1.TabIndex = 2;
+            // 
+            // palPrintNextDepCard
+            // 
+            this.palPrintNextDepCard.Controls.Add(this.btnPrintNextWp);
+            this.palPrintNextDepCard.Controls.Add(this.txtNextWip);
+            this.palPrintNextDepCard.Controls.Add(this.lblNextWp);
+            this.palPrintNextDepCard.Location = new System.Drawing.Point(34, 86);
+            this.palPrintNextDepCard.Name = "palPrintNextDepCard";
+            this.palPrintNextDepCard.Size = new System.Drawing.Size(277, 33);
+            this.palPrintNextDepCard.TabIndex = 26;
+            // 
+            // btnPrintNextWp
+            // 
+            this.btnPrintNextWp.Location = new System.Drawing.Point(196, 1);
+            this.btnPrintNextWp.Name = "btnPrintNextWp";
+            this.btnPrintNextWp.Size = new System.Drawing.Size(75, 30);
+            this.btnPrintNextWp.TabIndex = 25;
+            this.btnPrintNextWp.Text = "列印";
+            this.btnPrintNextWp.UseVisualStyleBackColor = true;
+            this.btnPrintNextWp.Click += new System.EventHandler(this.btnPrintNextWp_Click);
+            // 
+            // txtNextWip
+            // 
+            this.txtNextWip.Location = new System.Drawing.Point(122, 4);
+            this.txtNextWip.Name = "txtNextWip";
+            this.txtNextWip.Size = new System.Drawing.Size(68, 22);
+            this.txtNextWip.TabIndex = 23;
+            // 
+            // lblNextWp
+            // 
+            this.lblNextWp.AutoSize = true;
+            this.lblNextWp.Location = new System.Drawing.Point(9, 10);
+            this.lblNextWp.Name = "lblNextWp";
+            this.lblNextWp.Size = new System.Drawing.Size(116, 12);
+            this.lblNextWp.TabIndex = 1;
+            this.lblNextWp.Text = "列印下部門的工序卡:";
             // 
             // mkCmpDat1
             // 
@@ -257,15 +295,6 @@
             this.txtDep.Size = new System.Drawing.Size(107, 20);
             this.txtDep.TabIndex = 0;
             this.txtDep.Leave += new System.EventHandler(this.txtPrd_item1_Leave);
-            // 
-            // lblNextWp
-            // 
-            this.lblNextWp.AutoSize = true;
-            this.lblNextWp.Location = new System.Drawing.Point(9, 10);
-            this.lblNextWp.Name = "lblNextWp";
-            this.lblNextWp.Size = new System.Drawing.Size(116, 12);
-            this.lblNextWp.TabIndex = 1;
-            this.lblNextWp.Text = "列印下部門的工序卡:";
             // 
             // txtMo1
             // 
@@ -338,12 +367,13 @@
             // chkReqPrdQty
             // 
             this.chkReqPrdQty.AutoSize = true;
-            this.chkReqPrdQty.Location = new System.Drawing.Point(897, 68);
+            this.chkReqPrdQty.Location = new System.Drawing.Point(1066, 65);
             this.chkReqPrdQty.Name = "chkReqPrdQty";
             this.chkReqPrdQty.Size = new System.Drawing.Size(156, 16);
             this.chkReqPrdQty.TabIndex = 18;
             this.chkReqPrdQty.Text = "包括：生產數為零的記錄";
             this.chkReqPrdQty.UseVisualStyleBackColor = true;
+            this.chkReqPrdQty.Visible = false;
             // 
             // label4
             // 
@@ -362,9 +392,9 @@
             this.flowLayoutPanel1.Controls.Add(this.rdbAllPrint);
             this.flowLayoutPanel1.Controls.Add(this.lblShowMsg);
             this.flowLayoutPanel1.Controls.Add(this.chkSimplePlan);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(383, 91);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(384, 60);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(670, 25);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(657, 25);
             this.flowLayoutPanel1.TabIndex = 20;
             // 
             // rdbNoPrint
@@ -448,16 +478,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "要求完成日期:";
             // 
-            // panel2
+            // palShowVer
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.rdbZeroVer);
-            this.panel2.Controls.Add(this.rdbNoZeroVer);
-            this.panel2.Controls.Add(this.rdbAllVer);
-            this.panel2.Location = new System.Drawing.Point(383, 62);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 25);
-            this.panel2.TabIndex = 21;
+            this.palShowVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.palShowVer.Controls.Add(this.rdbZeroVer);
+            this.palShowVer.Controls.Add(this.rdbNoZeroVer);
+            this.palShowVer.Controls.Add(this.rdbAllVer);
+            this.palShowVer.Location = new System.Drawing.Point(1066, 28);
+            this.palShowVer.Name = "palShowVer";
+            this.palShowVer.Size = new System.Drawing.Size(500, 25);
+            this.palShowVer.TabIndex = 21;
+            this.palShowVer.Visible = false;
             // 
             // rdbZeroVer
             // 
@@ -491,16 +522,6 @@
             this.rdbAllVer.Text = "顯示所有版本落單記錄";
             this.rdbAllVer.UseVisualStyleBackColor = true;
             // 
-            // btnPrintNextWp
-            // 
-            this.btnPrintNextWp.Location = new System.Drawing.Point(196, 1);
-            this.btnPrintNextWp.Name = "btnPrintNextWp";
-            this.btnPrintNextWp.Size = new System.Drawing.Size(75, 30);
-            this.btnPrintNextWp.TabIndex = 25;
-            this.btnPrintNextWp.Text = "列印";
-            this.btnPrintNextWp.UseVisualStyleBackColor = true;
-            this.btnPrintNextWp.Click += new System.EventHandler(this.btnPrintNextWp_Click);
-            // 
             // mkCmpDat2
             // 
             this.mkCmpDat2.Location = new System.Drawing.Point(204, 34);
@@ -519,22 +540,14 @@
             this.mkPlanDat1.Size = new System.Drawing.Size(120, 20);
             this.mkPlanDat1.TabIndex = 9;
             // 
-            // txtNextWip
-            // 
-            this.txtNextWip.Location = new System.Drawing.Point(122, 4);
-            this.txtNextWip.Name = "txtNextWip";
-            this.txtNextWip.Size = new System.Drawing.Size(68, 22);
-            this.txtNextWip.TabIndex = 23;
-            // 
             // chkSelectAll
             // 
             this.chkSelectAll.AutoSize = true;
-            this.chkSelectAll.Location = new System.Drawing.Point(40, 179);
+            this.chkSelectAll.Location = new System.Drawing.Point(42, 178);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Size = new System.Drawing.Size(15, 14);
             this.chkSelectAll.TabIndex = 22;
             this.chkSelectAll.UseVisualStyleBackColor = true;
-            this.chkSelectAll.Visible = false;
             this.chkSelectAll.Click += new System.EventHandler(this.chkSelectAll_Click);
             // 
             // toolStrip1
@@ -710,10 +723,6 @@
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // gcPlanDetails
             // 
             this.gcPlanDetails.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -747,7 +756,7 @@
             this.luePrdGroup,
             this.repositoryItemTextEdit11,
             this.repositoryItemCheckEdit1});
-            this.gcPlanDetails.Size = new System.Drawing.Size(1227, 500);
+            this.gcPlanDetails.Size = new System.Drawing.Size(1227, 464);
             this.gcPlanDetails.TabIndex = 38;
             this.gcPlanDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPlanDetails});
@@ -797,6 +806,8 @@
             this.gclSelectFlag.FieldName = "select_flag";
             this.gclSelectFlag.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gclSelectFlag.Name = "gclSelectFlag";
+            this.gclSelectFlag.Visible = true;
+            this.gclSelectFlag.VisibleIndex = 0;
             this.gclSelectFlag.Width = 33;
             // 
             // repositoryItemCheckEdit1
@@ -810,7 +821,7 @@
             this.gridColumn1.FieldName = "wp_id";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.VisibleIndex = 1;
             // 
             // gridColumn2
             // 
@@ -818,7 +829,7 @@
             this.gridColumn2.FieldName = "mo_id";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 2;
             this.gridColumn2.Width = 80;
             // 
             // gridColumn3
@@ -827,7 +838,7 @@
             this.gridColumn3.FieldName = "sequence_id";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 3;
             // 
             // gridColumn4
             // 
@@ -835,7 +846,7 @@
             this.gridColumn4.FieldName = "goods_id";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 4;
             this.gridColumn4.Width = 120;
             // 
             // gridColumn5
@@ -844,7 +855,7 @@
             this.gridColumn5.FieldName = "goods_name";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 5;
             this.gridColumn5.Width = 200;
             // 
             // gridColumn6
@@ -853,7 +864,7 @@
             this.gridColumn6.FieldName = "next_wp_id";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 6;
             // 
             // gridColumn7
             // 
@@ -861,7 +872,7 @@
             this.gridColumn7.FieldName = "prod_qty";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.VisibleIndex = 7;
             // 
             // gridColumn8
             // 
@@ -869,7 +880,7 @@
             this.gridColumn8.FieldName = "per_prod_qty";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.VisibleIndex = 8;
             // 
             // gridColumn9
             // 
@@ -877,7 +888,7 @@
             this.gridColumn9.FieldName = "order_qty";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
+            this.gridColumn9.VisibleIndex = 9;
             // 
             // gridColumn10
             // 
@@ -885,7 +896,7 @@
             this.gridColumn10.FieldName = "c_qty_ok";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 9;
+            this.gridColumn10.VisibleIndex = 10;
             // 
             // gridColumn11
             // 
@@ -893,7 +904,7 @@
             this.gridColumn11.FieldName = "t_complete_date";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
+            this.gridColumn11.VisibleIndex = 11;
             // 
             // gridColumn12
             // 
@@ -901,7 +912,7 @@
             this.gridColumn12.FieldName = "f_complete_date";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 11;
+            this.gridColumn12.VisibleIndex = 12;
             // 
             // gridColumn13
             // 
@@ -909,23 +920,7 @@
             this.gridColumn13.FieldName = "overdue_days";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 12;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "上部門交貨標識";
-            this.gridColumn14.FieldName = "pre_dep_deliver_flag";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 16;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "上部門最後交貨期";
-            this.gridColumn15.FieldName = "pre_deliver_max_dat";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 15;
+            this.gridColumn13.VisibleIndex = 13;
             // 
             // gridColumn16
             // 
@@ -933,8 +928,32 @@
             this.gridColumn16.FieldName = "ver";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 13;
+            this.gridColumn16.VisibleIndex = 14;
             this.gridColumn16.Width = 60;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "上部門交貨數";
+            this.gridColumn17.FieldName = "pre_dep_qty_ok";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 15;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "上部門最後交貨期";
+            this.gridColumn15.FieldName = "pre_deliver_max_dat";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 16;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "上部門交貨標識";
+            this.gridColumn14.FieldName = "pre_dep_deliver_flag";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 17;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -1090,23 +1109,21 @@
             this.repositoryItemTextEdit11.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.repositoryItemTextEdit11.Name = "repositoryItemTextEdit11";
             // 
-            // gridColumn17
+            // panel3
             // 
-            this.gridColumn17.Caption = "上部門交貨數";
-            this.gridColumn17.FieldName = "pre_dep_qty_ok";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 14;
+            this.panel3.Controls.Add(this.prgStatus);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 631);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1227, 36);
+            this.panel3.TabIndex = 39;
             // 
-            // palPrintNextDepCard
+            // prgStatus
             // 
-            this.palPrintNextDepCard.Controls.Add(this.btnPrintNextWp);
-            this.palPrintNextDepCard.Controls.Add(this.txtNextWip);
-            this.palPrintNextDepCard.Controls.Add(this.lblNextWp);
-            this.palPrintNextDepCard.Location = new System.Drawing.Point(34, 86);
-            this.palPrintNextDepCard.Name = "palPrintNextDepCard";
-            this.palPrintNextDepCard.Size = new System.Drawing.Size(335, 33);
-            this.palPrintNextDepCard.TabIndex = 26;
+            this.prgStatus.Location = new System.Drawing.Point(10, 4);
+            this.prgStatus.Name = "prgStatus";
+            this.prgStatus.Size = new System.Drawing.Size(189, 23);
+            this.prgStatus.TabIndex = 29;
             // 
             // frmPlanWithPrintCard
             // 
@@ -1115,6 +1132,7 @@
             this.ClientSize = new System.Drawing.Size(1227, 667);
             this.Controls.Add(this.chkSelectAll);
             this.Controls.Add(this.gcPlanDetails);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmPlanWithPrintCard";
@@ -1123,6 +1141,8 @@
             this.Load += new System.EventHandler(this.frmPlan01_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.palPrintNextDepCard.ResumeLayout(false);
+            this.palPrintNextDepCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrd_item2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMo2.Properties)).EndInit();
@@ -1134,8 +1154,8 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat2.Properties)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.palShowVer.ResumeLayout(false);
+            this.palShowVer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkCmpDat2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mkPlanDat1.Properties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -1162,8 +1182,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueModuleType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrdGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit11)).EndInit();
-            this.palPrintNextDepCard.ResumeLayout(false);
-            this.palPrintNextDepCard.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1179,7 +1198,6 @@
         private System.Windows.Forms.ToolStripButton tsBtnExportToExce;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton tsbtnPrintCrads;
@@ -1207,7 +1225,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox chkSimplePlan;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel palShowVer;
         private System.Windows.Forms.CheckBox chkSelectAll;
         private System.Windows.Forms.ToolStripButton btnExpToExcelJx;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
@@ -1266,5 +1284,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private System.Windows.Forms.Panel palPrintNextDepCard;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ProgressBar prgStatus;
     }
 }

@@ -56,11 +56,13 @@ namespace cf01.CLS
                         ",machine_std_run_num,machine_std_line_num,machine_std_qty,need_mon_num" +
                         ",module_type,prd_group,next_wp_id,next_goods_id,next_vend_id" +
                         ",mo_remark,dep_remark,module_no,module_install,now_date" +
+                        ",pre_tr_qty,pre_tr_date,pre_tr_flag" +
                         " ) Values (" +
                         "'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}'" +
                         ",'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}'" +
                         ",'{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}'" +
                         ",'{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}','{37}'" +
+                        ",'{38}','{39}','{40}'" +
                         ")";
                 }
                 else
@@ -75,7 +77,7 @@ namespace cf01.CLS
                         ",machine_std_run_num='{24}',machine_std_line_num='{25}',machine_std_qty='{26}',need_mon_num='{27}'" +
                         ",module_type='{28}',prd_group='{29}',next_wp_id='{30}',next_goods_id='{31}',next_vend_id='{32}'" +
                         ",mo_remark='{33}',dep_remark='{34}',module_no='{35}',module_install='{36}'" +
-                        ",now_date='{37}'" +
+                        ",now_date='{37}',pre_tr_qty='{38}',pre_tr_date='{39}',pre_tr_flag='{40}'" +
                         " Where schedule_id='{0}'";
                 }
                 strSql += string.Format(strSql1
@@ -87,7 +89,7 @@ namespace cf01.CLS
                     , lsMo[i].machine_std_run_num, lsMo[i].machine_std_line_num, lsMo[i].machine_std_qty, lsMo[i].need_mon_num
                     , lsMo[i].module_type, lsMo[i].prd_group, lsMo[i].next_wp_id, lsMo[i].next_goods_id, lsMo[i].next_vend_id
                     , lsMo[i].mo_remark, lsMo[i].dep_remark, lsMo[i].module_no, lsMo[i].module_install
-                    , lsMo[i].now_date
+                    , lsMo[i].now_date, lsMo[i].pre_tr_qty, lsMo[i].pre_tr_date, lsMo[i].pre_tr_flag
                     );
             }
 
@@ -123,7 +125,7 @@ namespace cf01.CLS
         {
             string result = "";
             string strSql = "";
-            string create_time = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            string update_time = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             strSql = string.Format(@" SET XACT_ABORT  ON ");
             strSql += string.Format(@" BEGIN TRANSACTION ");
 
@@ -131,11 +133,14 @@ namespace cf01.CLS
             {
                 for (int i = 0; i < lsMo.Count; i++)
                 {
+                    string status = lsMo[i].status;
                     strSql += string.Format(@" Update mo_schedule Set " +
                         " status='{1}',update_user='{2}',update_time='{3}'" +
                         " Where schedule_id='{0}'"
-                        , lsMo[i].schedule_id, lsMo[i].status, userid, create_time
+                        , lsMo[i].schedule_id, status, userid, update_time
                         );
+                    if (status == "02")
+                        UpdateGeoMoStatus(lsMo[i].prd_dep, lsMo[i].prd_mo, lsMo[i].prd_item, lsMo[i].next_wp_id, update_time);
                 }
             }else if(opera_type==2)//設定制單機器
             {
@@ -144,7 +149,18 @@ namespace cf01.CLS
                     strSql += string.Format(@" Update mo_schedule Set " +
                         " prd_machine='{1}',update_user='{2}',update_time='{3}'" +
                         " Where schedule_id='{0}'"
-                        , lsMo[i].schedule_id, lsMo[i].prd_machine, userid, create_time
+                        , lsMo[i].schedule_id, lsMo[i].prd_machine, userid, update_time
+                        );
+                }
+            }else if (opera_type == 3)//設定急單狀態
+            {
+                for (int i = 0; i < lsMo.Count; i++)
+                {
+                    string status = lsMo[i].status;
+                    strSql += string.Format(@" Update mo_schedule Set " +
+                        " urgent_flag='{1}',update_user='{2}',update_time='{3}'" +
+                        " Where schedule_id='{0}'"
+                        , lsMo[i].schedule_id, lsMo[i].urgent_flag, userid, update_time
                         );
                 }
             }
@@ -152,18 +168,37 @@ namespace cf01.CLS
             result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
             return result;
         }
-
-        public static DataTable LoadMoSchedule(string prd_dep,string prd_group,string prd_machine
+        private static void UpdateGeoMoStatus(string prd_dep,string prd_mo,string prd_item,string next_wp_id,string update_time)
+        {
+            string remote_db = DBUtility.remote_db;
+            string strSql = "";
+            string id = "";
+            int ver = 0;
+            strSql = " Select id,ver From " + remote_db + "jo_bill_mostly Where within_code='" + within_code + "' And mo_id='" + prd_mo + "'";
+            DataTable dtMo = clsPublicOfCF01.GetDataTable(strSql);
+            if(dtMo.Rows.Count>0)
+            {
+                id = dtMo.Rows[0]["id"].ToString();
+                ver = clsValidRule.ConvertStrToInt(dtMo.Rows[0]["ver"].ToString());
+            }
+            strSql = " Update " + remote_db + "jo_bill_goods_details Set state='" + "G" +
+                "',force_by='" + userid + "',force_date='" + update_time + "'" +
+                " Where within_code='" + within_code + "' And id='" + id + "' And ver='" + ver + "' And goods_id='" + prd_item +
+                "' And wp_id='" + prd_dep + "' And next_wp_id='" + next_wp_id + "'";
+            string result = clsPublicOfCF01.ExecuteSqlUpdate(strSql);
+        }
+        public static DataTable LoadMoSchedule(int rpt_type,string prd_dep,string prd_group,string prd_machine
             ,int sch_by_machine,string mo_status, string user_id,string cp_status)
         {
             SqlParameter[] paras = new SqlParameter[]{
-                        new SqlParameter("@prd_dep",prd_dep)
-                        ,new SqlParameter("@prd_group",prd_group)
-                        ,new SqlParameter("@prd_machine",prd_machine)
-                        ,new SqlParameter("@sch_by_machine",sch_by_machine)
-                        ,new SqlParameter("@mo_status",mo_status)
-                        ,new SqlParameter("@user_id",user_id)
-                        ,new SqlParameter("@cp_status",cp_status)};
+                new SqlParameter("@rpt_type",rpt_type)
+                ,new SqlParameter("@prd_dep",prd_dep)
+                ,new SqlParameter("@prd_group",prd_group)
+                ,new SqlParameter("@prd_machine",prd_machine)
+                ,new SqlParameter("@sch_by_machine",sch_by_machine)
+                ,new SqlParameter("@mo_status",mo_status)
+                ,new SqlParameter("@user_id",user_id)
+                ,new SqlParameter("@cp_status",cp_status)};
             DataTable dtScheduler = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_mo_schedule", paras);
             dtScheduler.Columns.Add("ArtWork", typeof(Image)); // 图片列
             //for (int i=0;i<dtScheduler.Rows.Count;i++)

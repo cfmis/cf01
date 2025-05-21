@@ -45,6 +45,9 @@ namespace cf01.MDL
         public string dep_remark { get; set; }
         public string module_no { get; set; }
         public string module_install { get; set; }
+        public float pre_tr_qty { get; set; }
+        public string pre_tr_date { get; set; }
+        public string pre_tr_flag { get; set; }
     }
     public class mdlMoScheduleBase
     {

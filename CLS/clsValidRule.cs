@@ -144,7 +144,7 @@ namespace cf01.CLS
             return Regex.IsMatch(value, @"^[+-]?\d*?\d*$");
         }
 
-        private static string ConvertDateToString(string strVal)
+        public static string ConvertDateToString(string strVal)
         {
             string dVal = "";
             try
