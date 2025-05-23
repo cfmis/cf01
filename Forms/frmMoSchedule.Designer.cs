@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
@@ -61,7 +62,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.palShowHasSchedule = new System.Windows.Forms.Panel();
             this.gcSchedule = new DevExpress.XtraGrid.GridControl();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gvSchedule = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -90,6 +91,7 @@
             this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gclDepRpDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gclPrdDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPrdMachine = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnScheduleMachine = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gclMachineStdRunNum = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -104,7 +106,6 @@
             this.gclEndTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclModuleNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclModuleInstall = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gclPrdDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclWorkTypeDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclOrderQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclOrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,6 +129,7 @@
             this.glcPreTrQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grcPreTrDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPreTrFlag = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclTransferToJx = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -273,6 +275,7 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
+            this.gclWipRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -656,6 +659,7 @@
             this.gclPrdQty,
             this.gclPmcRqDate,
             this.gclDepRpDate,
+            this.gclPrdDate,
             this.gclPrdMachine,
             this.gclMachineStdRunNum,
             this.gclMachineStdLineNum,
@@ -668,7 +672,6 @@
             this.gclEndTime,
             this.gclModuleNo,
             this.gclModuleInstall,
-            this.gclPrdDate,
             this.gclWorkTypeDesc,
             this.gclOrderQty,
             this.gclOrderDate,
@@ -688,7 +691,9 @@
             this.grcPrdItemGroup,
             this.glcPreTrQty,
             this.grcPreTrDate,
-            this.gclPreTrFlag});
+            this.gclPreTrFlag,
+            this.gclTransferToJx,
+            this.gclWipRemark});
             this.gvSchedule.FooterPanelHeight = 30;
             this.gvSchedule.GridControl = this.gcSchedule;
             this.gvSchedule.IndicatorWidth = 40;
@@ -703,6 +708,7 @@
             this.gvSchedule.OptionsView.ShowGroupPanel = false;
             this.gvSchedule.RowHeight = 35;
             this.gvSchedule.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvSchedule_CustomDrawRowIndicator);
+            this.gvSchedule.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gvSchedule_RowStyle);
             this.gvSchedule.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvSchedule_SelectionChanged);
             this.gvSchedule.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvSchedule_CellValueChanged);
             this.gvSchedule.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvSchedule_CustomColumnDisplayText);
@@ -964,6 +970,15 @@
             this.repositoryItemTextEdit3.Mask.UseMaskAsDisplayFormat = true;
             this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
             // 
+            // gclPrdDate
+            // 
+            this.gclPrdDate.Caption = "生產日期";
+            this.gclPrdDate.FieldName = "prd_date";
+            this.gclPrdDate.Name = "gclPrdDate";
+            this.gclPrdDate.OptionsColumn.ReadOnly = true;
+            this.gclPrdDate.Visible = true;
+            this.gclPrdDate.VisibleIndex = 15;
+            // 
             // gclPrdMachine
             // 
             this.gclPrdMachine.Caption = "安排機器";
@@ -971,7 +986,7 @@
             this.gclPrdMachine.FieldName = "prd_machine";
             this.gclPrdMachine.Name = "gclPrdMachine";
             this.gclPrdMachine.Visible = true;
-            this.gclPrdMachine.VisibleIndex = 15;
+            this.gclPrdMachine.VisibleIndex = 16;
             this.gclPrdMachine.Width = 80;
             // 
             // btnScheduleMachine
@@ -993,7 +1008,7 @@
             this.gclMachineStdRunNum.FieldName = "machine_std_run_num";
             this.gclMachineStdRunNum.Name = "gclMachineStdRunNum";
             this.gclMachineStdRunNum.Visible = true;
-            this.gclMachineStdRunNum.VisibleIndex = 16;
+            this.gclMachineStdRunNum.VisibleIndex = 17;
             this.gclMachineStdRunNum.Width = 60;
             // 
             // gclMachineStdLineNum
@@ -1004,7 +1019,7 @@
             this.gclMachineStdLineNum.FieldName = "machine_std_line_num";
             this.gclMachineStdLineNum.Name = "gclMachineStdLineNum";
             this.gclMachineStdLineNum.Visible = true;
-            this.gclMachineStdLineNum.VisibleIndex = 17;
+            this.gclMachineStdLineNum.VisibleIndex = 18;
             this.gclMachineStdLineNum.Width = 40;
             // 
             // gclMachineStdQty
@@ -1015,7 +1030,7 @@
             this.gclMachineStdQty.FieldName = "machine_std_qty";
             this.gclMachineStdQty.Name = "gclMachineStdQty";
             this.gclMachineStdQty.Visible = true;
-            this.gclMachineStdQty.VisibleIndex = 18;
+            this.gclMachineStdQty.VisibleIndex = 19;
             // 
             // gclNeedMonNum
             // 
@@ -1027,7 +1042,7 @@
             this.gclNeedMonNum.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "need_mon_num", "{0:#,##0}")});
             this.gclNeedMonNum.Visible = true;
-            this.gclNeedMonNum.VisibleIndex = 19;
+            this.gclNeedMonNum.VisibleIndex = 20;
             this.gclNeedMonNum.Width = 60;
             // 
             // gclModuleTime
@@ -1040,7 +1055,7 @@
             this.gclModuleTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_module_time", "{0:#,##0}")});
             this.gclModuleTime.Visible = true;
-            this.gclModuleTime.VisibleIndex = 20;
+            this.gclModuleTime.VisibleIndex = 21;
             this.gclModuleTime.Width = 50;
             // 
             // gclNeedTime
@@ -1055,7 +1070,7 @@
             this.gclNeedTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_prd_time", "{0:0.##}")});
             this.gclNeedTime.Visible = true;
-            this.gclNeedTime.VisibleIndex = 21;
+            this.gclNeedTime.VisibleIndex = 22;
             this.gclNeedTime.Width = 50;
             // 
             // gclReqTotTime
@@ -1068,7 +1083,7 @@
             this.gclReqTotTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_tot_time", "{0:0.##}")});
             this.gclReqTotTime.Visible = true;
-            this.gclReqTotTime.VisibleIndex = 22;
+            this.gclReqTotTime.VisibleIndex = 23;
             this.gclReqTotTime.Width = 40;
             // 
             // gclStartTime
@@ -1080,7 +1095,7 @@
             this.gclStartTime.FieldName = "start_time";
             this.gclStartTime.Name = "gclStartTime";
             this.gclStartTime.Visible = true;
-            this.gclStartTime.VisibleIndex = 23;
+            this.gclStartTime.VisibleIndex = 24;
             this.gclStartTime.Width = 120;
             // 
             // repositoryItemTextEdit5
@@ -1099,7 +1114,7 @@
             this.gclEndTime.FieldName = "end_time";
             this.gclEndTime.Name = "gclEndTime";
             this.gclEndTime.Visible = true;
-            this.gclEndTime.VisibleIndex = 24;
+            this.gclEndTime.VisibleIndex = 25;
             this.gclEndTime.Width = 120;
             // 
             // gclModuleNo
@@ -1108,7 +1123,7 @@
             this.gclModuleNo.FieldName = "module_no";
             this.gclModuleNo.Name = "gclModuleNo";
             this.gclModuleNo.Visible = true;
-            this.gclModuleNo.VisibleIndex = 25;
+            this.gclModuleNo.VisibleIndex = 26;
             // 
             // gclModuleInstall
             // 
@@ -1116,16 +1131,7 @@
             this.gclModuleInstall.FieldName = "module_install";
             this.gclModuleInstall.Name = "gclModuleInstall";
             this.gclModuleInstall.Visible = true;
-            this.gclModuleInstall.VisibleIndex = 26;
-            // 
-            // gclPrdDate
-            // 
-            this.gclPrdDate.Caption = "生產日期";
-            this.gclPrdDate.FieldName = "prd_date";
-            this.gclPrdDate.Name = "gclPrdDate";
-            this.gclPrdDate.OptionsColumn.ReadOnly = true;
-            this.gclPrdDate.Visible = true;
-            this.gclPrdDate.VisibleIndex = 27;
+            this.gclModuleInstall.VisibleIndex = 27;
             // 
             // gclWorkTypeDesc
             // 
@@ -1324,7 +1330,7 @@
             this.grcPrdItemGroup.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.grcPrdItemGroup.Name = "grcPrdItemGroup";
             this.grcPrdItemGroup.Visible = true;
-            this.grcPrdItemGroup.VisibleIndex = 45;
+            this.grcPrdItemGroup.VisibleIndex = 47;
             this.grcPrdItemGroup.Width = 120;
             // 
             // glcPreTrQty
@@ -1352,6 +1358,14 @@
             this.gclPreTrFlag.Name = "gclPreTrFlag";
             this.gclPreTrFlag.Visible = true;
             this.gclPreTrFlag.VisibleIndex = 44;
+            // 
+            // gclTransferToJx
+            // 
+            this.gclTransferToJx.Caption = "發貨到JX";
+            this.gclTransferToJx.FieldName = "transfer_date_jx";
+            this.gclTransferToJx.Name = "gclTransferToJx";
+            this.gclTransferToJx.Visible = true;
+            this.gclTransferToJx.VisibleIndex = 45;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -2825,6 +2839,15 @@
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
             // 
+            // gclWipRemark
+            // 
+            this.gclWipRemark.Caption = "計劃單備註";
+            this.gclWipRemark.FieldName = "wip_remark";
+            this.gclWipRemark.Name = "gclWipRemark";
+            this.gclWipRemark.Visible = true;
+            this.gclWipRemark.VisibleIndex = 46;
+            this.gclWipRemark.Width = 160;
+            // 
             // frmMoSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3150,5 +3173,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gclPreTrFlag;
         private System.Windows.Forms.ToolStripButton btnExpSum;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private DevExpress.XtraGrid.Columns.GridColumn gclTransferToJx;
+        private DevExpress.XtraGrid.Columns.GridColumn gclWipRemark;
     }
 }

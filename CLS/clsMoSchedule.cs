@@ -56,13 +56,13 @@ namespace cf01.CLS
                         ",machine_std_run_num,machine_std_line_num,machine_std_qty,need_mon_num" +
                         ",module_type,prd_group,next_wp_id,next_goods_id,next_vend_id" +
                         ",mo_remark,dep_remark,module_no,module_install,now_date" +
-                        ",pre_tr_qty,pre_tr_date,pre_tr_flag" +
+                        ",pre_tr_qty,pre_tr_date,pre_tr_flag,wip_id,wip_seq,wip_ver" +
                         " ) Values (" +
                         "'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}'" +
                         ",'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}'" +
                         ",'{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}'" +
                         ",'{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}','{37}'" +
-                        ",'{38}','{39}','{40}'" +
+                        ",'{38}','{39}','{40}','{41}','{42}','{43}'" +
                         ")";
                 }
                 else
@@ -78,6 +78,7 @@ namespace cf01.CLS
                         ",module_type='{28}',prd_group='{29}',next_wp_id='{30}',next_goods_id='{31}',next_vend_id='{32}'" +
                         ",mo_remark='{33}',dep_remark='{34}',module_no='{35}',module_install='{36}'" +
                         ",now_date='{37}',pre_tr_qty='{38}',pre_tr_date='{39}',pre_tr_flag='{40}'" +
+                        ",wip_id='{41}',wip_seq='{42}',wip_ver='{43}'" +
                         " Where schedule_id='{0}'";
                 }
                 strSql += string.Format(strSql1
@@ -90,6 +91,7 @@ namespace cf01.CLS
                     , lsMo[i].module_type, lsMo[i].prd_group, lsMo[i].next_wp_id, lsMo[i].next_goods_id, lsMo[i].next_vend_id
                     , lsMo[i].mo_remark, lsMo[i].dep_remark, lsMo[i].module_no, lsMo[i].module_install
                     , lsMo[i].now_date, lsMo[i].pre_tr_qty, lsMo[i].pre_tr_date, lsMo[i].pre_tr_flag
+                    , lsMo[i].wip_id, lsMo[i].wip_seq, lsMo[i].wip_ver
                     );
             }
 
