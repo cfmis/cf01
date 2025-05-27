@@ -21,18 +21,36 @@ namespace cf01.CLS
         public static DataTable GetDataTable(string strSQL)
         {
             DataTable dtData = new DataTable();
+            //try
+            //{
+            //    using (SqlConnection conn = new SqlConnection(strConn))
+            //    {
+            //        SqlDataAdapter sda = new SqlDataAdapter(strSQL, conn);                    
+            //        sda.Fill(dtData);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    MessageBox.Show(ex.Message);
+            //}
+            //return dtData;
             try
             {
                 using (SqlConnection conn = new SqlConnection(strConn))
                 {
-
-                    SqlDataAdapter sda = new SqlDataAdapter(strSQL, conn);
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandTimeout = 1800;//連接30分鐘
+                    cmd.CommandText = strSQL;
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     sda.Fill(dtData);
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             return dtData;
@@ -43,7 +61,7 @@ namespace cf01.CLS
         /// </summary>
         /// <param name="strSQL"></param>
         /// <returns></returns>
-        public static String ExecuteSqlReturnObject(string strSQL)
+        public static string ExecuteSqlReturnObject(string strSQL)
         {
             string objStrValue = "";
             try
@@ -218,6 +236,7 @@ namespace cf01.CLS
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = strSql;
+                cmd.CommandTimeout = 1800;//連接30分鐘
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
