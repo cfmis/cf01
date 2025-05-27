@@ -892,6 +892,10 @@ namespace cf01.ReportForm
                     objModel.schedule_seq = seq_step.ToString("D3").PadLeft(3, '0');
                     objModel.schedule_date = System.DateTime.Now.ToString("yyyy/MM/dd");
                     objModel.now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
+                    objModel.wip_id = drMo["id"].ToString().Trim();
+                    objModel.wip_seq = drMo["sequence_id"].ToString().Trim();
+                    objModel.wip_ver = clsValidRule.ConvertStrToInt(drMo["ver"].ToString().Trim());
+                    objModel.prd_dep = drMo["wp_id"].ToString().Trim();
                     objModel.prd_dep = drMo["wp_id"].ToString().Trim();
                     objModel.prd_mo = drMo["mo_id"].ToString().Trim();
                     objModel.prd_item = drMo["goods_id"].ToString().Trim();

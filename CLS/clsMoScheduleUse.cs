@@ -132,7 +132,8 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 1].Value = drExcel["schedule_seq"].ToString();//"\'" + 
                 worksheet.Cells[excelRow, 2].Value = drExcel["prd_mo"].ToString();
                 worksheet.Cells[excelRow, 3].Value = drExcel["schedule_date"].ToString();//"'" + 
-                worksheet.Cells[excelRow, 4].Value = drExcel["pass_days"].ToString().Trim() + "\r\n" + drExcel["urgent_flag_cdesc"].ToString().Trim();
+                worksheet.Cells[excelRow, 4].Value = (drExcel["schedule_date"].ToString().Trim()!=""?drExcel["pass_days"].ToString().Trim():"")
+                    + "\r\n" + drExcel["urgent_flag_cdesc"].ToString().Trim();
                 worksheet.Cells[excelRow, 5].Value = drExcel["prd_item"].ToString(); ;
                 worksheet.Cells[excelRow, 6].Value = drExcel["goods_name"].ToString();
                 worksheet.Cells[excelRow, 7].Value = "";

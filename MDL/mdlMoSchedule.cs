@@ -48,6 +48,9 @@ namespace cf01.MDL
         public float pre_tr_qty { get; set; }
         public string pre_tr_date { get; set; }
         public string pre_tr_flag { get; set; }
+        public string wip_id { get; set; }
+        public string wip_seq { get; set; }
+        public int wip_ver { get; set; }
     }
     public class mdlMoScheduleBase
     {

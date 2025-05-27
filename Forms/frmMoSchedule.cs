@@ -64,7 +64,7 @@ namespace cf01.Forms
             cmbMoStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
             cmbMoStatus.ValueMember = "flag_id";
             cmbMoStatus.DisplayMember = "flag_cdesc";
-            cmbMoStatus.SelectedValue = "01";
+            //cmbMoStatus.SelectedValue = "01";
             //////查詢條件中的完成數狀態標識
             cmbCpStatus.DataSource = clsBaseData.loadDocFlag("CP_STATE");
             cmbCpStatus.ValueMember = "flag_id";
@@ -195,10 +195,20 @@ namespace cf01.Forms
             // 將原記錄移除
             foreach (var itemArray in copiedRows)
             {
-                string id = itemArray[0].ToString();
+                string id = "";
+                if (txtDep.Text.Trim() == "102")
+                    id = itemArray[1].ToString();
+                else
+                    id = itemArray[0].ToString();
                 // 查找产品编号为 "P001" 的记录
-                DataRow foundRows = dtMoSchedule.Select("schedule_id = '" + id + "'")[0];
-                int rowIndex = dtMoSchedule.Rows.IndexOf(foundRows); // 获取行索引号
+                var foundRows = dtMoSchedule.Select("schedule_id = '" + id + "'");
+                if(foundRows.Length==0)
+                {
+                    MessageBox.Show("沒有選中記錄!單號:" + id.Trim());
+                    break;
+                }
+                DataRow dr = foundRows[0];
+                int rowIndex = dtMoSchedule.Rows.IndexOf(dr); // 获取行索引号
                 dtMoSchedule.Rows.Remove(gvSchedule.GetDataRow(rowIndex));
             }
 
@@ -427,6 +437,9 @@ namespace cf01.Forms
                 //DataRow dr = dtMoSchedule.Rows[i];
                 prgStatus.Value = i;
                 mdlMoSchedule objMo = new mdlMoSchedule();
+                objMo.wip_id = drMo[i]["wip_id"].ToString().Trim();
+                objMo.wip_seq = drMo[i]["wip_seq"].ToString().Trim();
+                objMo.wip_ver = clsValidRule.ConvertStrToInt(drMo[i]["wip_ver"].ToString().Trim());
                 objMo.schedule_id = drMo[i]["schedule_id"].ToString().Trim();
                 objMo.prd_dep = drMo[i]["prd_dep"].ToString().Trim();
                 objMo.prd_group = drMo[i]["prd_group"].ToString().Trim();
@@ -1009,10 +1022,17 @@ namespace cf01.Forms
             {
                 gvSchedule.Columns["remark_105"].Visible = true;  // 显示列
                 gvSchedule.Columns["remark_105"].VisibleIndex = 6;  // 设置为第一列
-
+                gvSchedule.Columns["pass_days"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gvSchedule.Columns["prd_group"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gvSchedule.Columns["urgent_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             }
             else
+            {
                 gvSchedule.Columns["remark_105"].Visible = false;  // 隱藏列
+                gvSchedule.Columns["pass_days"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.None;
+                gvSchedule.Columns["prd_group"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.None;
+                gvSchedule.Columns["urgent_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.None;
+            }
             //foreach (GridColumn col in gvSchedule.Columns)
             //{
             //    var col1 = col;
@@ -1038,6 +1058,21 @@ namespace cf01.Forms
         private void btnExpSum_Click(object sender, EventArgs e)
         {
             ExpToExcel(99);
+        }
+
+        private void gvSchedule_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            // 获取该行的数据
+            object cellValue = gvSchedule.GetRowCellValue(e.RowHandle, "status");
+
+            // 判断值是否为 "Y"，如果是则设置为红色
+            if (cellValue != null && cellValue.ToString() == "04")
+            {
+                e.Appearance.BackColor = Color.Red;  // 设置背景色
+                e.Appearance.ForeColor = Color.White; // 设置字体颜色（可选）
+            }
+
+
         }
 
         //////計算預生產開始、結束時間
