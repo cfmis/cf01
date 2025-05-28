@@ -1,5 +1,6 @@
 ﻿using cf01.CLS;
 using cf01.Forms;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,8 @@ namespace cf01.ReportForm
     public partial class frmPlateUpdatePrice : Form
     {
         bool flagInport;
-        DataTable dt = new DataTable();
-        DataTable dtUpdate = new DataTable();
+        System.Data.DataTable dt = new System.Data.DataTable();
+        System.Data.DataTable dtUpdate = new System.Data.DataTable();
         //private delegate void SetPos(int ipos, string vinfo);//代理
    
 
@@ -60,8 +61,15 @@ namespace cf01.ReportForm
             LoadExcel();
             if (flagInport)  //導入EXCEL成功
             {
+                //保存匯入的EXCEL數據                
+                SaveExcelData();
+                if (!flagInport)
+                {
+                    MessageBox.Show("保存匯入的EXCEL數據失敗！", "提示信息", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
                 dgv1.DataSource = dt;
-                MessageBox.Show("EXCEL匯入成功", "提示信息", MessageBoxButtons.OK);               
+                MessageBox.Show("EXCEL匯入成功", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);               
             }
         }
 
@@ -76,11 +84,12 @@ namespace cf01.ReportForm
                 //導入EXCEL頁數
                 try
                 {
-                    ExcelToDatable(FileName, 1);
-                   // Inport_excel(FileName);
-                  //dt = clsPublic.ImputExcelToTable(FileName);
-                   // ExcelToDatable2(FileName, 1);
-                    flagInport = true;
+                    // ExcelToDatable(FileName, 1); //old code                 
+                    //dt = clsPublic.ImputExcelToTable(FileName);
+                    if (ExcelToDatable2(FileName))
+                        flagInport = true;
+                    else
+                        flagInport = false;
                 }
                 catch (SqlException E)
                 {
@@ -89,58 +98,182 @@ namespace cf01.ReportForm
                 }
             }
         }
+       
 
-        //private void Inport_excel(string FileName)
-        //{
-        //    string connStr = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0}; Extended Properties=Excel 8.0;", FileName);
-        //    connStr = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties=Excel 12.0;HDR=Yes;IMEX=1;", FileName);            
-        //    using (OleDbDataAdapter da = new OleDbDataAdapter(FileName, connStr))
-        //    {
-        //        DataSet ds = new DataSet();
-        //        da.Fill(ds);
-        //        System.Data.DataTable dtExcel = ds.Tables[0];
-        //    }
-        //}
+        private bool ExcelToDatable2(string fileName)
+        {           
+            if (fileName == "")
+            {                
+                return false;
+            }
+            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+            Workbook workbook = excelApp.Workbooks.Open(fileName);
+            Worksheet worksheet = (Worksheet)workbook.Sheets[1];
 
-        //private string ExcelToDatable2(string excelFiles, int sheetId)
-        //{
-        //    string result = "";
-        //    OleDbConnection conn = new OleDbConnection();
-        //    string strConn = string.Empty;
-        //    string sheetName = string.Empty;
-        //    try
-        //    {
-        //        // Excel 2003 版本连接字符串
-        //        strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + excelFiles + ";Extended Properties='Excel 8.0; HDR=YES; IMEX=1;'";
-        //        conn = new OleDbConnection(strConn);
-        //        conn.Open();
-        //    }
-        //    catch
-        //    {
-        //        try
-        //        {
-        //            // Excel 2007 以上版本连接字符串
-        //            strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excelFiles + ";Extended Properties='Excel 12.0;HDR=Yes;IMEX=1;'";
-        //            conn = new OleDbConnection(strConn);
-        //            conn.Open();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            result = "不是有效的Excel文件!";
-        //        }
-        //    }
-        //    if (result != "")
-        //    {
-        //        //关闭连接，释放资源
-        //        conn.Close();
-        //        conn.Dispose();
-        //        return result;
-        //    }            
-        //    //获取所有的 sheet 表
-        //    //System.Data.DataTable dtSheetName 
-        //    dt = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "Table" });
-        //    return result;
-        //}
+            Microsoft.Office.Interop.Excel.Range lastCellRow = worksheet.Cells.Find("*", System.Reflection.Missing.Value,
+                Microsoft.Office.Interop.Excel.XlFindLookIn.xlValues, Microsoft.Office.Interop.Excel.XlLookAt.xlPart,
+                Microsoft.Office.Interop.Excel.XlSearchOrder.xlByRows, Microsoft.Office.Interop.Excel.XlSearchDirection.xlPrevious,
+                false, System.Reflection.Missing.Value, System.Reflection.Missing.Value
+            );
+            Microsoft.Office.Interop.Excel.Range lastCellCol = worksheet.Cells.Find("*", System.Reflection.Missing.Value,
+                Microsoft.Office.Interop.Excel.XlFindLookIn.xlValues, Microsoft.Office.Interop.Excel.XlLookAt.xlPart,
+                Microsoft.Office.Interop.Excel.XlSearchOrder.xlByColumns, Microsoft.Office.Interop.Excel.XlSearchDirection.xlPrevious,
+                false, System.Reflection.Missing.Value, System.Reflection.Missing.Value
+            );
+            int lastRow = lastCellRow.Row;
+            int lastColumn = lastCellCol.Column;//共14列                 
+            int colIssueDate = -1, colDeliveryId = -1, colId = -1, colMoId = -1, colGoodsId = -1, colGoodsName = -1, colColor = -1, colQty = -1, colSecQty = -1;
+            int colPrice = -1, colPunit = -1, colAmt = -1, colRemark = -1, colQuotationId = -1;
+            string errStr = "", colTitle = "";
+            errStr = "送貨日期|送貨單號|外發單號|頁數|產品編碼|產品名稱及規格|產品顏色|數量|重量|單價|單價單位|金額|備註|報價單號";
+            for (int i = 1; i <= lastColumn; i++)
+            {
+                colTitle = (worksheet.Cells[1, i] as Range).Value.ToString().Trim();
+                switch (colTitle)
+                {
+                    case "送貨日期":
+                        colIssueDate = i;
+                        break;
+                    case "送貨單號":
+                        colDeliveryId = i;
+                        break;
+                    case "外發單號":
+                        colId = i;
+                        break;
+                    case "頁數":
+                        colMoId = i;
+                        break;
+                    case "產品編碼":
+                        colGoodsId = i;
+                        break;
+                    case "產品名稱及規格":
+                        colGoodsName = i;
+                        break;
+                    case "產品顏色":
+                        colColor = i;
+                        break;
+                    case "數量":
+                        colQty = i;
+                        break;
+                    case "重量":
+                        colSecQty = i;
+                        break;
+                    case "單價":
+                        colPrice = i;
+                        break;
+                    case "單價單位":
+                        colPunit = i;
+                        break;
+                    case "金額":
+                        colAmt = i;
+                        break;
+                    case "備註":
+                        colRemark = i;
+                        break;
+                    case "報價單號":
+                        colQuotationId = i;
+                        break;
+                }
+            }
+            if (colIssueDate == -1 || colDeliveryId == -1 || colId == -1 || colMoId == -1 || colGoodsId == -1 || colGoodsName == -1 || colColor == -1 || 
+                colQty == -1 || colSecQty == -1  || colPrice == -1 || colPunit == -1 || colAmt == -1 || colRemark == -1 || colQuotationId == -1)
+            {
+                MessageBox.Show($"未找到匹配為:{errStr}的列!","提示信息",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return false;
+            }
+            Graphics g = progressBar1.CreateGraphics();
+            System.Drawing.Font mf = new System.Drawing.Font("Arial", 9);
+            Brush mb = System.Drawing.Brushes.White;
+            System.Drawing.Point mp = new System.Drawing.Point(10, 0);
+            
+            progressBar1.Enabled = true;
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Step = 1;           
+            
+            int row_total = lastRow;//總行數           
+            progressBar1.Maximum = row_total;
+            string issue_date = "", delivery_id = "", id = "", mo_id = "", goods_id = "", goods_name = "", color = "", p_unit = "", remark = "", quotation_id = "";
+            decimal amt = 0, qty = 0, sec_qty = 0, price = 0;
+            string docId = clsQuotationSample.GetSerialNo();
+            string moId = "", seqId = "", userId = "";
+            userId = DBUtility._user_id;
+            dt.Clear();
+            // 读取该列的值worksheet.UsedRange.Rows.Count
+            for (int row = 2; row <= lastRow; row++)
+            {
+                progressBar1.Value += progressBar1.Step;
+                if (progressBar1.Value == progressBar1.Maximum)
+                {
+                    progressBar1.Enabled = false;
+                    progressBar1.Visible = false;
+                }              
+                g.DrawString("正在導入EXCEL文件...", mf, mb, mp);
+                //System.Threading.Thread.Sleep(10);
+                System.Windows.Forms.Application.DoEvents();
+
+                amt = decimal.Parse((worksheet.Cells[row, colAmt] as Range).Value?.ToString().Trim());//金額
+                if (amt > 0)
+                {
+                    DataRow dr = dt.NewRow();                    
+                    dr["amt"] = Math.Round(amt, 2);
+                    dr["doc_id"] = docId;
+                    issue_date = (worksheet.Cells[row, colIssueDate] as Range).Value?.ToString().Trim();
+                    issue_date = issue_date != null ? issue_date : "";  //送貨日期                
+                    dr["issue_date"] = (issue_date != "") ? DateTime.Parse(issue_date).Date.ToString("yyyy/MM/dd") : "";                    
+                    delivery_id = (worksheet.Cells[row, colDeliveryId] as Range).Value?.ToString().Trim();
+                    delivery_id = delivery_id != null ? delivery_id : "";
+                    dr["delivery_id"] = delivery_id; //送貨單號
+                    id = (worksheet.Cells[row, colId] as Range).Value?.ToString().Trim();
+                    id = id != null ? id : "";
+                    dr["id"] = id;//委外單號
+                    mo_id = (worksheet.Cells[row, colMoId] as Range).Value?.ToString().Trim();
+                    moId = mo_id != null ? mo_id : "";//頁數,序號                   
+                    seqId = (moId.Length >= 12) ? "00" + moId.Substring(10, 2) + "h" : "ZZ";
+                    dr["sequence_id"] = seqId;
+                    dr["mo_id"] = moId;                   
+                    goods_id = (worksheet.Cells[row, colGoodsId] as Range).Value?.ToString().Trim();
+                    goods_id = goods_id != null ? goods_id : "";
+                    dr["goods_id"] = goods_id; //貨品編號
+                    goods_name = (worksheet.Cells[row, colGoodsName] as Range).Value?.ToString().Trim();
+                    goods_name = goods_name != null ? goods_name : "";
+                    dr["goods_name"] = goods_name; //貨品名稱
+                    color = (worksheet.Cells[row, colColor] as Range).Value?.ToString().Trim();
+                    color = color != null ? color : "";
+                    dr["color"] = color; //顏色
+                    qty = decimal.Parse((worksheet.Cells[row, colQty] as Range).Value?.ToString());
+                    dr["qty"] = qty;//數量
+                    sec_qty = decimal.Parse((worksheet.Cells[row, colSecQty] as Range).Value?.ToString());
+                    dr["sec_qty"] = sec_qty;//重量
+                    price = decimal.Parse((worksheet.Cells[row, colPrice] as Range).Value?.ToString());
+                    dr["price"] = price;//單價
+                    p_unit = (worksheet.Cells[row, colPunit] as Range).Value?.ToString().Trim();
+                    p_unit = p_unit != null ? p_unit : "";                    
+                    dr["p_unit"] = p_unit; //單價單位                     
+                    remark = (worksheet.Cells[row, colRemark] as Range).Value?.ToString().Trim();
+                    remark = remark != null ? remark : "";
+                    dr["remark"] = remark; //"備註
+                    quotation_id = (worksheet.Cells[row, colQuotationId] as Range).Value?.ToString().Trim();
+                    quotation_id = quotation_id != null ? quotation_id : "";
+                    dr["quotation_id"] = quotation_id;//報價單號                    
+                    dr["key_id"] = row.ToString();//序號
+                    dr["confirm_flag"] = "0";
+                    dr["update_by"] = userId;
+                    dt.Rows.Add(dr);
+                } // --end if(amt>0)
+            } //--end for
+            workbook.Close(false);
+            excelApp.Quit();
+
+            progressBar1.Enabled = false;
+            progressBar1.Visible = false;            
+
+            dtUpdate.Clear();
+            dtUpdate = dt.Clone();
+            dtUpdate.Columns.Add("sec_price", typeof(decimal));
+            dtUpdate.Columns.Add("p_sec_unit", typeof(string));                
+            return true;           
+        }
 
 
 
@@ -155,8 +288,7 @@ namespace cf01.ReportForm
             , Missing.Value, Missing.Value, Missing.Value, Missing.Value
             , Missing.Value, Missing.Value, Missing.Value, Missing.Value);
             Microsoft.Office.Interop.Excel.Worksheet xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[sheetId];
-
-            lblProcessInfo.Text = "正在導入EXCEL文件...";
+            
             progressBar1.Enabled = true;
             progressBar1.Visible = true;
             progressBar1.Value = 0;
@@ -229,9 +361,7 @@ namespace cf01.ReportForm
                         rng = xSheet.Cells[ii, "K"]; //單價單位
                         p_unit = rng.get_Value();
                         p_unit = string.IsNullOrEmpty(p_unit) ? "" : p_unit.ToString();
-                        dr["p_unit"] = p_unit;
-                        rng = xSheet.Cells[ii, "L"]; //金額
-                        dr["amt"] = rng.get_Value();
+                        dr["p_unit"] = p_unit;                        
                         rng = xSheet.Cells[ii, "M"]; //"備註
                         dr["remark"] = rng.get_Value();
                         rng = xSheet.Cells[ii, "N"]; //"報價單號
@@ -268,7 +398,7 @@ namespace cf01.ReportForm
             }
             progressBar1.Enabled = false;
             progressBar1.Visible = false;
-            lblProcessInfo.Text = "";
+            
 
             dtUpdate.Clear();
             dtUpdate = dt.Clone();
@@ -281,26 +411,110 @@ namespace cf01.ReportForm
             if (dt.Rows.Count == 0)
             {
                 return;
+            }            
+            BeforeUpdate();
+            UpdateToGEO();
+        }  //--end of button click
+    
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private string ConverQtyUnit(string unit)
+        {
+            string result = "";
+            switch (unit)
+            {
+                case "G":
+                    result = "GRS";
+                    break;
+                case "GRS":
+                    result = "GRS";
+                    break;
+                case "Grs":
+                    result = "GRS";
+                    break;
+                case "DZ":
+                    result = "DZ";
+                    break;
+                case "Dz":
+                    result = "DZ";
+                    break;
+                case "PCS":
+                    result = "PCS";
+                    break;
+                case "Pcs":
+                    result = "PCS";
+                    break;
+                case "pcs":
+                    result = "PCS";
+                    break;
+                case "SET":
+                    result = "SET";
+                    break;
+                case "Set":
+                    result = "SET";
+                    break;
+                case "set":
+                    result = "SET";
+                    break;                
             }
-            //儲存原始對賬數據            
-            lblProcessInfo.Text = "正在儲存原始對賬數據...";
+            return result;
+        }
+
+        private int GetQtyRate(string unit)
+        {
+            int rate = 0;
+            switch (unit)
+            {                
+                case "GRS":
+                    rate = 144;
+                    break;
+                case "DZ":
+                    rate = 12;
+                    break;
+                case "PCS":
+                    rate = 1;
+                    break;
+                case "SET":               
+                    rate = 1;
+                    break;
+                case "H":
+                    rate = 100;
+                    break;
+                case "K":
+                    rate = 1000;
+                    break;
+            }
+            return rate;
+        }
+
+        private void SaveExcelData()
+        {
+            //儲存原始對賬數據
+            Graphics g = progressBar1.CreateGraphics();
+            System.Drawing.Font mf = new System.Drawing.Font("Arial", 9);//宋体
+            Brush mb = System.Drawing.Brushes.White;
+            System.Drawing.Point mp = new System.Drawing.Point(10, 0);
+            
             progressBar1.Enabled = true;
             progressBar1.Visible = true;
             progressBar1.Value = 0;
             progressBar1.Step = 1;
             progressBar1.Maximum = dt.Rows.Count;
             string sqlUpdate = "", sqlFind = "", userId = "", id, sequenceId, issueDate = "", keyId = "", result = "";
-            userId = DBUtility._user_id;
-            bool flagSave = true;
-            DataTable dtFind = new DataTable();
-           
+            userId = DBUtility._user_id;           
+            System.Data.DataTable dtFind = new System.Data.DataTable();
+
             SqlConnection myCon = new SqlConnection(DBUtility.connectionString);
             myCon.Open();
-            SqlTransaction myTrans = myCon.BeginTransaction();           
+            SqlTransaction myTrans = myCon.BeginTransaction();
             try
             {
-                using (SqlCommand myCommand = new SqlCommand() { Connection = myCon , Transaction = myTrans })
+                using (SqlCommand cmd = new SqlCommand() { Connection = myCon, Transaction = myTrans })
                 {
+                    cmd.CommandTimeout = 1800;//連接30分鐘
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         progressBar1.Value += progressBar1.Step;
@@ -309,6 +523,10 @@ namespace cf01.ReportForm
                             progressBar1.Enabled = false;
                             progressBar1.Visible = false;
                         }
+                        g.DrawString("正在儲存原始對賬數據...", mf, mb, mp);
+                        //System.Threading.Thread.Sleep(10);
+                        System.Windows.Forms.Application.DoEvents();
+
                         id = dt.Rows[i]["id"].ToString();
                         sequenceId = dt.Rows[i]["sequence_id"].ToString();
                         keyId = dt.Rows[i]["key_id"].ToString();
@@ -339,18 +557,18 @@ namespace cf01.ReportForm
                             dt.Rows[i]["goods_id"].ToString(), dt.Rows[i]["goods_name"].ToString(), dt.Rows[i]["color"].ToString(), decimal.Parse(dt.Rows[i]["qty"].ToString()),
                             decimal.Parse(dt.Rows[i]["sec_qty"].ToString()), decimal.Parse(dt.Rows[i]["price"].ToString()), decimal.Parse(dt.Rows[i]["amt"].ToString()),
                             dt.Rows[i]["remark"].ToString(), dt.Rows[i]["quotation_id"].ToString(), userId, dt.Rows[i]["p_unit"].ToString());
-                        }                        
-                        myCommand.CommandText = sqlUpdate;
-                        myCommand.ExecuteNonQuery();                       
+                        }
+                        cmd.CommandText = sqlUpdate;
+                        cmd.ExecuteNonQuery();
                     } //--end for                   
                 }
-                myTrans.Commit(); //數據提交
-                flagSave = true;
+                myTrans.Commit(); //數據提交               
+                flagInport = true;
             }
             catch (Exception E)
             {
-                myTrans.Rollback(); //數據回滾
-                flagSave = false;
+                myTrans.Rollback(); //數據回滾               
+                flagInport = false;
                 throw new Exception(E.Message);
             }
             finally
@@ -359,75 +577,10 @@ namespace cf01.ReportForm
                 myTrans.Dispose();
             }
             progressBar1.Enabled = false;
-            progressBar1.Visible = false;
-            lblProcessInfo.Text = "";
-
-            if (!flagSave)
-            {
-                MessageBox.Show("保存數據失敗！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            BeforeUpdate();         
-            UpdateToGEO();            
-        }  //--end of button click
-    
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            progressBar1.Visible = false;                  
         }
 
-        private string ConverQtyUnit(string unit)
-        {
-            string result = "";
-            switch (unit)
-            {
-                case "G":
-                case "GRS":
-                case "Grs":
-                    result = "GRS";
-                    break;
-                case "DZ":
-                case "Dz":
-                    result = "DZ";
-                    break;
-                case "PCS":
-                case "Pcs":
-                case "pcs":
-                    result = "PCS";
-                    break;
-                case "SET":
-                case "Set":
-                case "set":
-                    result = "SET";
-                    break;                
-            }
-            return result;
-        }
 
-        private int GetQtyRate(string unit)
-        {
-            int rate = 0;
-            switch (unit)
-            {                
-                case "GRS":
-                    rate = 144;
-                    break;
-                case "DZ":
-                    rate = 12;
-                    break;
-                case "PCS":
-                case "SET":               
-                    rate = 1;
-                    break;
-                case "H":
-                    rate = 100;
-                    break;
-                case "K":
-                    rate = 1000;
-                    break;
-            }
-            return rate;
-        }
 
         private void BeforeUpdate()
         {
@@ -544,7 +697,7 @@ namespace cf01.ReportForm
                 //最低消費/样板费
                 if (tempRemark != "")
                 {
-                    if ("1,2".Contains(tempRemark))
+                    if ("1,2,3".Contains(tempRemark))
                     {
                         switch (tempRemark)
                         {
@@ -576,6 +729,24 @@ namespace cf01.ReportForm
                                     }
                                 }
                                 break;
+                            case "3"://直接計入總金額
+                                for (int j = 0; j < dtUpdate.Rows.Count; j++)
+                                {
+                                    if (dtUpdate.Rows[j]["id"].ToString() == tempId && dtUpdate.Rows[j]["sequence_id"].ToString() == tempSeq)
+                                    {                                        
+                                        tempAmt = string.IsNullOrEmpty(dtUpdate.Rows[j]["amt"].ToString()) ? 0 : decimal.Parse(dtUpdate.Rows[j]["amt"].ToString());                                        
+                                        dtUpdate.Rows[j]["amt"] = tempAmt + amt;
+                                        string remark = dtUpdate.Rows[j]["remark"].ToString();
+                                        remark = string.IsNullOrEmpty(remark) ? "" : remark.Trim();
+                                        if (remark != "計入總金額;")
+                                        {
+                                            remark = remark + "計入總金額;";
+                                        }
+                                        dtUpdate.Rows[j]["remark"] = remark;
+                                        break;
+                                    }
+                                }
+                                break;
                         }
                     }
                     else
@@ -589,175 +760,216 @@ namespace cf01.ReportForm
 
         private void UpdateToGEO()
         {
-            string tempId="", tempSeq="", userId = "", remark = "", remark_org = "", qtyUnit = "",wegUnit="", sql_f = "", sql_u = "",p_unit="";
+            string tempId="", tempSeq="", userId = "", remark = "", remark_org = "", sql_f = "", sql_u = "",p_unit="";
             string temp_p_unit, temp_p_sec_unit,goodsUnit="";
             decimal outSecQty = 0, outQty = 0, org_price = 0, org_sec_price = 0, amtProdQty = 0, amtWeg = 0, price = 0, sec_price = 0, amt = 0;           
             int rate = 0, index = 0;
             userId = DBUtility._user_id;
-            DataTable dtOut = new DataTable();
+            System.Data.DataTable dtOut = new System.Data.DataTable();
 
             //**更新到GEO外發加工單
-            SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
-            sqlconn.Open();
-            SqlCommand cmd = new SqlCommand("", sqlconn);
-            lblProcessInfo.Text = "正在更新外發加工單中的單價及金額...";
-            progressBar1.Enabled = true;
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Step = 1;
-            progressBar1.Maximum = dtUpdate.Rows.Count;
-            for (int i = 0; i < dtUpdate.Rows.Count; i++)
+            bool flagSave = false;
+            SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);
+            myCon.Open();
+            //SqlTransaction myTrans = myCon.BeginTransaction();
+            try
             {
-                progressBar1.Value += progressBar1.Step;
-                if (progressBar1.Value == progressBar1.Maximum)
+                //using (SqlCommand myCmd = new SqlCommand() { Connection = myCon, Transaction = myTrans })
+                using (SqlCommand myCmd = new SqlCommand() { Connection = myCon })
                 {
-                    progressBar1.Enabled = false;
-                    progressBar1.Visible = false;
-                }
-                remark_org = string.IsNullOrEmpty(dtUpdate.Rows[i]["remark"].ToString()) ? "" : dtUpdate.Rows[i]["remark"].ToString().Trim();
-                qtyUnit = string.IsNullOrEmpty(dtUpdate.Rows[i]["p_unit"].ToString()) ? "" : dtUpdate.Rows[i]["p_unit"].ToString().Trim();
-                wegUnit = string.IsNullOrEmpty(dtUpdate.Rows[i]["p_sec_unit"].ToString()) ? "" : dtUpdate.Rows[i]["p_sec_unit"].ToString().Trim();
-                if (remark_org == "")
-                {
-                    continue; //返回繼續循環
-                }                
-                tempId = dtUpdate.Rows[i]["id"].ToString();
-                tempSeq = dtUpdate.Rows[i]["sequence_id"].ToString();                
-                price = decimal.Parse(dtUpdate.Rows[i]["price"].ToString());
-                sec_price = decimal.Parse(dtUpdate.Rows[i]["sec_price"].ToString());
-                amt = decimal.Parse(dtUpdate.Rows[i]["amt"].ToString());
-                temp_p_unit = dtUpdate.Rows[i]["p_unit"].ToString(); //GRS
-                temp_p_sec_unit = dtUpdate.Rows[i]["p_sec_unit"].ToString();
-                sql_u = "";
-                index = remark_org.IndexOf(';');
-                remark = remark_org.Substring(0, index);
-                sql_f = string.Format(
-                @"Select prod_qty,sec_qty,goods_unit,p_unit From {0}op_outpro_out_displace 
-                WHERE within_code='0000' And id='{1}' And sequence_id='{2}'", DBUtility.remote_db, tempId, tempSeq);
-                dtOut = clsPublicOfCF01.GetDataTable(sql_f);
-                if (dtOut.Rows.Count == 0)
-                {
-                    continue; //返回繼續循環
-                }
-                switch (remark)
-                {
-                    case "重量單價": //更新重量單價
-                    case "數量單價": //更新數量單價
-                        if(sec_price >0 && price > 0)
-                        {                           
-                            //數量金額
-                            //--start 已有外發加工單的數量轉成PCS
-                            goodsUnit = dtOut.Rows[0]["goods_unit"].ToString();
-                            rate = GetQtyRate(goodsUnit); //數量匯率
-                            outQty = decimal.Parse(dtOut.Rows[0]["prod_qty"].ToString()); //實際的外發數量     
-                            outQty = outQty*rate; //PCS
-                            //-- end
-                                
-                            //--目前要更新的數量單價匯率
-                            rate = GetQtyRate(temp_p_unit); //GRS=144 當前更新前的單價單位
-                            outQty = Math.Round(outQty / rate,5);  //轉換成與數量單價相同的單位
-                            amtProdQty = Math.Round(outQty * price, 2);
-                                
-                            //重量金額
-                            outSecQty = decimal.Parse(dtOut.Rows[0]["sec_qty"].ToString());//實際的外發重量  
-                            amtWeg = outSecQty * sec_price;
-                            //總的金額
-                            amt = amtProdQty + amtWeg;
-                            sql_u = string.Format(
-                            @"UPDATE op_outpro_out_displace Set price={2},p_unit='{3}',sec_price={4},sec_p_unit='{5}',total_prices={6},process_request='{7}'
-                            WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
-                            tempId, tempSeq, price, temp_p_unit, sec_price,"KG", amt, remark_org);                            
-                        }
-                        if (sec_price > 0 && price == 0) //當前需要更新重量單價
-                        {                           
-                            org_price = decimal.Parse(dtOut.Rows[0]["price"].ToString()); 
-                            if (org_price > 0)//原外發加工單存在有數量單價
-                            {
-                                //數量金額
-                                //--start 已有外發加工單的數量轉成PCS                                    
-                                goodsUnit = dtOut.Rows[0]["goods_unit"].ToString();
-                                rate = GetQtyRate(goodsUnit); //數量匯率
-                                outQty = decimal.Parse(dtOut.Rows[0]["prod_qty"].ToString()); //實際的外發數量     
-                                outQty = outQty * rate; //統一轉換成PCS
-                                //-- end
-                                p_unit = dtOut.Rows[0]["p_unit"].ToString();
-                                rate = GetQtyRate(p_unit); //GRS=144
-                                outQty = Math.Round(outQty / rate, 5);
-                                amtProdQty = outQty * org_price;
-                            }
-                            else
-                                amtProdQty = 0;
-                            //重量金額
-                            outSecQty = decimal.Parse(dtOut.Rows[0]["sec_qty"].ToString());//實際的外發重量  
-                            amtWeg = outSecQty * sec_price;
-                            amt = amtProdQty + amtWeg;
-                            sql_u = string.Format(
-                            @"UPDATE op_outpro_out_displace Set sec_price={2},sec_p_unit='{3}',total_prices={4},process_request='{5}'
-                            WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
-                            tempId, tempSeq, sec_price, "KG", amt, remark_org);
-                        }
-                        if (sec_price == 0 && price> 0) //當前需要更新數量單價
+                    //逐行自動提交
+                    myCmd.CommandTimeout = 1800;//連接30分鐘                    
+                    Graphics g = progressBar1.CreateGraphics();
+                    System.Drawing.Font mf = new System.Drawing.Font("Arial", 9);
+                    Brush mb = System.Drawing.Brushes.White;
+                    System.Drawing.Point mp = new System.Drawing.Point(10, 0);
+
+                    progressBar1.Enabled = true;
+                    progressBar1.Visible = true;
+                    progressBar1.Value = 0;
+                    progressBar1.Step = 1;
+                    progressBar1.Maximum = dtUpdate.Rows.Count;
+                    for (int i = 0; i < dtUpdate.Rows.Count; i++)
+                    {
+                        progressBar1.Value += progressBar1.Step;
+                        if (progressBar1.Value == progressBar1.Maximum)
                         {
-                            org_sec_price = decimal.Parse(dtOut.Rows[0]["sec_price"].ToString());
-                            if (org_sec_price > 0) //原外發加工單存在有重量單價
-                            {
-                                //原重量金額                                                    
-                                outSecQty = decimal.Parse(dtOut.Rows[0]["sec_qty"].ToString()); //實際的外發重量    
-                                amtWeg = outSecQty * org_sec_price;                                    
-                            }
-                            else
-                                amtWeg = 0;
-                            //數量金額                                
-                            //--start 已有外發加工單的數量轉成PCS                                    
-                            goodsUnit = dtOut.Rows[0]["goods_unit"].ToString();
-                            rate = GetQtyRate(goodsUnit); //數量匯率
-                            outQty = decimal.Parse(dtOut.Rows[0]["prod_qty"].ToString()); //實際的外發數量     
-                            outQty = outQty * rate; //統一轉換成PCS
-                            //-- end
-                            rate = GetQtyRate(temp_p_unit); //當前需更新的數量單價匯率
-                            outQty = Math.Round(outQty / rate, 5);
-                            amtProdQty = outQty * price;
-                            amt = amtProdQty + amtWeg;
-                            sql_u = string.Format(
-                            @"UPDATE op_outpro_out_displace Set price={2},p_unit='{3}',total_prices={4},process_request='{5}'
-                            WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
-                            tempId, tempSeq, price, temp_p_unit, amt, remark_org);
+                            progressBar1.Enabled = false;
+                            progressBar1.Visible = false;
                         }
-                        break;                  
-                    case "最低消費":
-                        //只需更新加工單中的一行即可，直接更新最新低消費，EXCEL對賬單只需一行即可
-                        sql_u = string.Format(
-                        @"UPDATE op_outpro_out_displace Set mould_fee={2},total_prices={2},process_request='{3}'
-                        WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
-                        tempId, tempSeq, amt, remark_org);
-                        break;
-                    case "樣板费":
-                        sql_u = string.Format(
-                        @"UPDATE op_outpro_out_displace Set former_free={2},total_prices={2},process_request='{3}'
-                        WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
-                        tempId, tempSeq, amt, remark_org);
-                        break;
+                        g.DrawString("更新GEO中的單價及金額...", mf, mb, mp);
+                        //System.Threading.Thread.Sleep(10);
+                        System.Windows.Forms.Application.DoEvents();
+
+                        remark_org = string.IsNullOrEmpty(dtUpdate.Rows[i]["remark"].ToString()) ? "" : dtUpdate.Rows[i]["remark"].ToString().Trim();
+                        temp_p_unit = string.IsNullOrEmpty(dtUpdate.Rows[i]["p_unit"].ToString()) ? "" : dtUpdate.Rows[i]["p_unit"].ToString().Trim();
+                        temp_p_sec_unit = string.IsNullOrEmpty(dtUpdate.Rows[i]["p_sec_unit"].ToString()) ? "" : dtUpdate.Rows[i]["p_sec_unit"].ToString().Trim();
+                        if (remark_org == "")
+                        {
+                            continue; //返回繼續循環
+                        }
+                        tempId = dtUpdate.Rows[i]["id"].ToString();
+                        tempSeq = dtUpdate.Rows[i]["sequence_id"].ToString();
+                        price = decimal.Parse(dtUpdate.Rows[i]["price"].ToString());
+                        sec_price = decimal.Parse(dtUpdate.Rows[i]["sec_price"].ToString());
+                        amt = decimal.Parse(dtUpdate.Rows[i]["amt"].ToString());                       
+                        sql_u = "";
+                        index = remark_org.IndexOf(';');
+                        remark = remark_org.Substring(0, index);
+                        sql_f = string.Format(
+                        @"Select prod_qty,sec_qty,goods_unit,p_unit,price,sec_price,total_prices From {0}op_outpro_out_displace 
+                        WHERE within_code='0000' And id='{1}' And sequence_id='{2}'", DBUtility.remote_db, tempId, tempSeq);
+                        dtOut = clsPublicOfCF01.GetDataTable(sql_f);
+                        if (dtOut.Rows.Count == 0)
+                        {
+                            continue; //返回繼續循環
+                        }
+                        switch (remark)
+                        {
+                            //數量單價;重量單價 先后次序沒關系，都會跳至此條件
+                            case "重量單價": //更新重量單價
+                            case "數量單價": //更新數量單價
+                                if (sec_price > 0 && price > 0)
+                                {
+                                    //數量金額
+                                    //--start 已有外發加工單的數量轉成PCS
+                                    goodsUnit = dtOut.Rows[0]["goods_unit"].ToString();
+                                    rate = GetQtyRate(goodsUnit); //數量匯率
+                                    outQty = decimal.Parse(dtOut.Rows[0]["prod_qty"].ToString()); //實際的外發數量     
+                                    outQty = outQty * rate; //轉換成PCS
+                                    //-- end
+
+                                    //--目前要更新的數量單價匯率
+                                    rate = GetQtyRate(temp_p_unit); //GRS=144 當前更新前的單價單位
+                                    outQty = Math.Round(outQty / rate, 5);  //轉換成與數量單價相同的單位
+                                    amtProdQty = Math.Round(outQty * price, 2);
+
+                                    //重量金額
+                                    outSecQty = decimal.Parse(dtOut.Rows[0]["sec_qty"].ToString());//實際的外發重量  
+                                    amtWeg = outSecQty * sec_price;
+                                    //總的金額
+                                    amt = amtProdQty + amtWeg;
+                                    sql_u = string.Format(
+                                    @"UPDATE op_outpro_out_displace Set price={2},p_unit='{3}',sec_price={4},sec_p_unit='{5}',total_prices={6},price_remark='{7}'
+                                     WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
+                                    tempId, tempSeq, price, temp_p_unit, sec_price, "KG", amt, remark_org);
+                                }
+                                if (sec_price > 0 && price == 0) //當前需要更新重量單價
+                                {
+                                    org_price = string.IsNullOrEmpty(dtOut.Rows[0]["price"].ToString()) ? 0 : decimal.Parse(dtOut.Rows[0]["price"].ToString());
+                                    if (org_price > 0)//原外發加工單存在有數量單價
+                                    {
+                                        //數量金額
+                                        //--start 已有外發加工單的數量轉成PCS                                    
+                                        goodsUnit = dtOut.Rows[0]["goods_unit"].ToString();
+                                        rate = GetQtyRate(goodsUnit); //數量匯率
+                                        outQty = decimal.Parse(dtOut.Rows[0]["prod_qty"].ToString()); //實際的外發數量     
+                                        outQty = outQty * rate; //統一轉換成PCS
+                                                                //-- end
+                                        p_unit = dtOut.Rows[0]["p_unit"].ToString();
+                                        rate = GetQtyRate(p_unit); //GRS=144
+                                        outQty = Math.Round(outQty / rate, 5);
+                                        amtProdQty = outQty * org_price;
+                                    }
+                                    else
+                                        amtProdQty = 0;
+                                    //重量金額
+                                    outSecQty = decimal.Parse(dtOut.Rows[0]["sec_qty"].ToString());//實際的外發重量  
+                                    amtWeg = outSecQty * sec_price;
+                                    amt = amtProdQty + amtWeg;
+                                    sql_u = string.Format(
+                                    @"UPDATE op_outpro_out_displace Set sec_price={2},sec_p_unit='{3}',total_prices={4},price_remark='{5}'
+                                    WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
+                                    tempId, tempSeq, sec_price, "KG", amt, remark_org);
+                                }
+                                if (sec_price == 0 && price > 0) //當前需要更新數量單價
+                                {
+                                    org_sec_price = string.IsNullOrEmpty(dtOut.Rows[0]["sec_price"].ToString()) ? 0 : decimal.Parse(dtOut.Rows[0]["sec_price"].ToString());
+                                    if (org_sec_price > 0) //原外發加工單存在有重量單價
+                                    {
+                                        //原重量金額                                                    
+                                        outSecQty = decimal.Parse(dtOut.Rows[0]["sec_qty"].ToString()); //實際的外發重量    
+                                        amtWeg = outSecQty * org_sec_price;
+                                    }
+                                    else
+                                        amtWeg = 0;
+                                    //數量金額                                
+                                    //--start 已有外發加工單的數量轉成PCS                                    
+                                    goodsUnit = dtOut.Rows[0]["goods_unit"].ToString();
+                                    rate = GetQtyRate(goodsUnit); //數量匯率
+                                    outQty = decimal.Parse(dtOut.Rows[0]["prod_qty"].ToString()); //實際的外發數量     
+                                    outQty = outQty * rate; //統一轉換成PCS
+                                    //-- end
+                                    rate = GetQtyRate(temp_p_unit); //當前需更新的數量單價匯率
+                                    outQty = Math.Round(outQty / rate, 5);
+                                    amtProdQty = outQty * price;
+                                    amt = amtProdQty + amtWeg;
+                                    sql_u = string.Format(
+                                    @"UPDATE op_outpro_out_displace Set price={2},p_unit='{3}',total_prices={4},price_remark='{5}'
+                                     WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
+                                    tempId, tempSeq, price, temp_p_unit, amt, remark_org);
+                                }
+                                break;
+                            case "最低消費":
+                                //只需更新加工單中的一行即可，直接更新最新低消費，EXCEL對賬單只需一行即可
+                                sql_u = string.Format(
+                                @"UPDATE op_outpro_out_displace Set mould_fee={2},total_prices={2},price_remark='{3}'
+                                WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
+                                tempId, tempSeq, amt, remark_org);
+                                break;
+                            case "樣板费":
+                                sql_u = string.Format(
+                                @"UPDATE op_outpro_out_displace Set former_free={2},total_prices={2},price_remark='{3}'
+                                 WHERE within_code='0000' And id='{0}' And sequence_id='{1}'",
+                                tempId, tempSeq, amt, remark_org);
+                                break;
+                        }
+                        if (sql_u != "")
+                        {
+                            myCmd.CommandText = sql_u;
+                            myCmd.ExecuteNonQuery();
+                        }
+                        if (remark_org.Contains("計入總金額")) 
+                        {
+                            //計入總金額,EXCEL對賬單中需排在數量單價或重量單價之后
+                            decimal otherAmt = decimal.Parse(dtUpdate.Rows[i]["amt"].ToString());
+                            amt = otherAmt + amt;
+                            sql_u = string.Format(
+                            @"UPDATE op_outpro_out_displace Set total_prices={2},price_remark='{3}'
+                            WHERE within_code='0000' And id='{0}' And sequence_id='{1}'", tempId, tempSeq, amt, remark_org);
+                            myCmd.CommandText = sql_u;
+                            myCmd.ExecuteNonQuery();
+                        }
+                    } //--end for
                 }
-                if (sql_u != "")
-                {
-                    cmd.CommandText = sql_u;
-                    cmd.ExecuteNonQuery();
-                }
-            } // -- end for
+                //myTrans.Commit(); //數據提交
+                flagSave = true;
+            }
+            catch (Exception E)
+            {
+                //myTrans.Rollback(); //數據回滾
+                flagSave = false;
+                throw new Exception(E.Message);
+            }
+            finally
+            {
+                myCon.Close();
+               // myTrans.Dispose();
+            }
             progressBar1.Enabled = false;
             progressBar1.Visible = false;
-            lblProcessInfo.Text = "";
-
-            cmd.Dispose();
-            sqlconn.Close();
-            sqlconn.Dispose();
+            myCon.Close();
+            myCon.Dispose();            
             if (sql_u != "")
             {
-                MessageBox.Show("更新單價金額到外發加工單成功！", "提示信息", MessageBoxButtons.OK);
+                MessageBox.Show("更新單價金額到外發加工單成功！", "提示信息", MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+            if (!flagSave)
+            {
+                MessageBox.Show("保存數據失敗！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }            
         }
-       
-
     }
     
 }
