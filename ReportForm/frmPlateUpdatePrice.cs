@@ -21,9 +21,6 @@ namespace cf01.ReportForm
         bool flagInport;
         System.Data.DataTable dt = new System.Data.DataTable();
         System.Data.DataTable dtUpdate = new System.Data.DataTable();
-        //private delegate void SetPos(int ipos, string vinfo);//代理
-   
-
 
         public frmPlateUpdatePrice()
         {
@@ -61,6 +58,15 @@ namespace cf01.ReportForm
             LoadExcel();
             if (flagInport)  //導入EXCEL成功
             {
+                //檢查資料的完整性
+                DataRow[] drs = dt.Select("remark='' and p_unit=''");
+                if (drs.Length > 0)
+                {
+                    string msg = $"EXCEL資料中的【{drs[0]["id"]}】頁數【{drs[0]["mo_id"]}】中的單價單位不可為空，請返回檢查！";
+                    MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return ;
+                }
+                dt.Select();
                 //保存匯入的EXCEL數據                
                 SaveExcelData();
                 if (!flagInport)
@@ -411,8 +417,10 @@ namespace cf01.ReportForm
             if (dt.Rows.Count == 0)
             {
                 return;
-            }            
+            }
+            //更新前處理到一臨時表
             BeforeUpdate();
+            //更新到GEO
             UpdateToGEO();
         }  //--end of button click
     
@@ -754,7 +762,7 @@ namespace cf01.ReportForm
                         continue;
                     }
                 } //--end of if(tempRemark !="")
-            } //--end for dt
+            } //--end for dt           
         }
 
 
