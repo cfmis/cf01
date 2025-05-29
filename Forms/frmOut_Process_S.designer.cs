@@ -256,7 +256,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(65, 35);
+            this.BTNCANCEL.Size = new System.Drawing.Size(68, 35);
             this.BTNCANCEL.Text = "重置(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -270,7 +270,7 @@
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(63, 35);
+            this.BTNFIND.Size = new System.Drawing.Size(65, 35);
             this.BTNFIND.Text = "查找(&F)";
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
             // 
@@ -284,7 +284,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(63, 35);
+            this.BTNPRINT.Size = new System.Drawing.Size(66, 35);
             this.BTNPRINT.Text = "列印(&P)";
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
@@ -298,7 +298,7 @@
             this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(86, 35);
+            this.BTNEXCEL.Size = new System.Drawing.Size(87, 35);
             this.BTNEXCEL.Text = "匯出EXCEL";
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
             // 
@@ -526,9 +526,6 @@
             // 
             this.cboVendor_id2.Font = new System.Drawing.Font("Tahoma", 9F);
             this.cboVendor_id2.FormattingEnabled = true;
-            this.cboVendor_id2.Items.AddRange(new object[] {
-            "CL-T0011",
-            "CR-Y0018"});
             this.cboVendor_id2.Location = new System.Drawing.Point(289, 84);
             this.cboVendor_id2.Name = "cboVendor_id2";
             this.cboVendor_id2.Size = new System.Drawing.Size(171, 22);
@@ -538,9 +535,6 @@
             // 
             this.cboVendor_id1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.cboVendor_id1.FormattingEnabled = true;
-            this.cboVendor_id1.Items.AddRange(new object[] {
-            "CL-T0011",
-            "CR-Y0018"});
             this.cboVendor_id1.Location = new System.Drawing.Point(93, 84);
             this.cboVendor_id1.Name = "cboVendor_id1";
             this.cboVendor_id1.Size = new System.Drawing.Size(171, 22);

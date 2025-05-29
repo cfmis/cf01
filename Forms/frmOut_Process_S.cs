@@ -28,7 +28,18 @@ namespace cf01.Forms
 
         private void frmOut_Process_S_Load(object sender, EventArgs e)
         {
-            //DataTable dtVendor = clsBaseData.Get_Plate_Vendor();
+            string sql = @"SELECT vendor_id FROM temp_plate_daitong GROUP BY vendor_id ORDER BY vendor_id";
+            DataTable dtVendor = clsPublicOfCF01.GetDataTable(sql);
+            string vendorId = "";
+            for(int i = 0; i < dtVendor.Rows.Count; i++)
+            {
+                vendorId = dtVendor.Rows[i]["vendor_id"].ToString();
+                cboVendor_id1.Items.Add(vendorId);
+                cboVendor_id2.Items.Add(vendorId);
+            }
+            
+
+            //DataTable dtVendor= clsBaseData.Get_Plate_Vendor();
             ////DataRow dr0 = dtVendor.NewRow(); //插一空行        
             ////dtVendor.Rows.InsertAt(dr0, 0);
             //for (int i = 0; i < dtVendor.Rows.Count; i++)
