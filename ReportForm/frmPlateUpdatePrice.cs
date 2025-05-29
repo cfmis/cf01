@@ -59,12 +59,43 @@ namespace cf01.ReportForm
             if (flagInport)  //導入EXCEL成功
             {
                 //檢查資料的完整性
+                string msg = "";
                 DataRow[] drs = dt.Select("remark='' and p_unit=''");
                 if (drs.Length > 0)
                 {
-                    string msg = $"EXCEL資料中的【{drs[0]["id"]}】頁數【{drs[0]["mo_id"]}】中的單價單位不可為空，請返回檢查！";
+                    msg = $"EXCEL資料中的【{drs[0]["id"]}】頁數【{drs[0]["mo_id"]}】\n\r單價單位不可為空，請返回檢查！";
                     MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dt.Select();
                     return ;
+                }                
+                dt.Select();
+                drs = dt.Select("LEN(remark)>1");
+                if (drs.Length > 0)
+                {
+                    msg = $"EXCEL資料中的【{drs[0]["id"]}】頁數【{drs[0]["mo_id"]}】\n\r備註的值只能是：1,2,3；當前值是【{drs[0]["remark"].ToString()}】，請返回檢查！";
+                    MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dt.Select();
+                    return;
+                }
+                drs = dt.Select("LEN(remark)=1");
+                if (drs.Length > 0)
+                {
+                    bool flag = true;
+                    for(int i = 0; i < drs.Length; i++)
+                    {
+                        if (!"1,2,3".Contains(drs[i]["remark"].ToString()))
+                        {                           
+                            msg = $"EXCEL資料中的【{drs[0]["id"]}】頁數【{drs[0]["mo_id"]}】\n\r備註的值只能是：1,2,3；當前值是【{drs[i]["remark"].ToString()}】，請返回檢查！";
+                            MessageBox.Show(msg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        dt.Select();
+                        return;
+                    }
                 }
                 dt.Select();
                 //保存匯入的EXCEL數據                
@@ -90,7 +121,7 @@ namespace cf01.ReportForm
                 //導入EXCEL頁數
                 try
                 {
-                    // ExcelToDatable(FileName, 1); //old code                 
+                    //ExcelToDatable(FileName, 1); //old code                 
                     //dt = clsPublic.ImputExcelToTable(FileName);
                     if (ExcelToDatable2(FileName))
                         flagInport = true;
@@ -202,7 +233,7 @@ namespace cf01.ReportForm
             string issue_date = "", delivery_id = "", id = "", mo_id = "", goods_id = "", goods_name = "", color = "", p_unit = "", remark = "", quotation_id = "";
             decimal amt = 0, qty = 0, sec_qty = 0, price = 0;
             string docId = clsQuotationSample.GetSerialNo();
-            string moId = "", seqId = "", userId = "";
+            string moId = "", seqId = "", userId = "", strSecQty = "", strQty = "";
             userId = DBUtility._user_id;
             dt.Clear();
             // 读取该列的值worksheet.UsedRange.Rows.Count
@@ -247,9 +278,11 @@ namespace cf01.ReportForm
                     color = (worksheet.Cells[row, colColor] as Range).Value?.ToString().Trim();
                     color = color != null ? color : "";
                     dr["color"] = color; //顏色
-                    qty = decimal.Parse((worksheet.Cells[row, colQty] as Range).Value?.ToString());
+                    strQty = (worksheet.Cells[row, colQty] as Range).Value?.ToString();
+                    qty = !string.IsNullOrEmpty(strQty) ? decimal.Parse(strQty) : 0;
                     dr["qty"] = qty;//數量
-                    sec_qty = decimal.Parse((worksheet.Cells[row, colSecQty] as Range).Value?.ToString());
+                    strSecQty = (worksheet.Cells[row, colSecQty] as Range).Value?.ToString();
+                    sec_qty = !string.IsNullOrEmpty(strSecQty) ? decimal.Parse(strSecQty) : 0;
                     dr["sec_qty"] = sec_qty;//重量
                     price = decimal.Parse((worksheet.Cells[row, colPrice] as Range).Value?.ToString());
                     dr["price"] = price;//單價
@@ -269,7 +302,9 @@ namespace cf01.ReportForm
                 } // --end if(amt>0)
             } //--end for
             workbook.Close(false);
+            worksheet = null;
             excelApp.Quit();
+           
 
             progressBar1.Enabled = false;
             progressBar1.Visible = false;            
