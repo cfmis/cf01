@@ -192,7 +192,7 @@ namespace cf01.Forms
                 {
                     //發貨豎向報表
                     rgrp1.SelectedIndex = 0;
-                    using (xrOut_process_out_s2 mMyRepot = new xrOut_process_out_s2() { DataSource = dtPlate })
+                    using (xrOut_process_out_s1 mMyRepot = new xrOut_process_out_s1() { DataSource = dtPlate })
                     {
                         mMyRepot.CreateDocument();
                         mMyRepot.PrintingSystem.ShowMarginsWarning = false;
