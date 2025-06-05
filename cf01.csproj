@@ -2541,6 +2541,12 @@
     <Compile Include="Reports\xrOut_process_out_s.designer.cs">
       <DependentUpon>xrOut_process_out_s.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrOut_process_out_s1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrOut_process_out_s1.designer.cs">
+      <DependentUpon>xrOut_process_out_s1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrOut_process_out_s2.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2912,6 +2918,9 @@
     </Compile>
     <Compile Include="Reports\xrShippingRemark.designer.cs">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xrSoEnglist.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\xrTakeMoSample_A4.cs">
       <SubType>Component</SubType>
@@ -4150,6 +4159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrOut_process_out_s.resx">
       <DependentUpon>xrOut_process_out_s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrOut_process_out_s1.resx">
+      <DependentUpon>xrOut_process_out_s1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrOut_process_out_s2.resx">
       <DependentUpon>xrOut_process_out_s2.cs</DependentUpon>

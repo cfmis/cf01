@@ -172,6 +172,7 @@ namespace cf01.ReportForm
             {
                 string goods_id;
                 string strPictrue_name = "";
+                //string rangImag = "E:E"; //設置圖片列寬度
                 for (int i = 1; i <= iSheets; i++)
                 {
                     xBook.Worksheets[i].Activate();
@@ -181,11 +182,11 @@ namespace cf01.ReportForm
                     progressBar.Value = 0;
                     progressBar.Step = 1;
                     Microsoft.Office.Interop.Excel.Range rng;
-                    xSheet.Columns["F:F"].ColumnWidth = 12; //設置圖片列寬度
-                    rng = xSheet.Cells[1, "G"]; 
+                    xSheet.Columns["E:E"].ColumnWidth = 12; //設置圖片列寬度
+                    rng = xSheet.Cells[1, "F"]; //artwork Code
                     rng.Value2 = "七位圖樣";
                     xSheet.Columns[8].VerticalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter; //圖片列豎直方向居中對齊
-                    xSheet.Range["F1:F1"].Merge(0);//合并单元格
+                    xSheet.Range["E1:E1"].Merge(0);//合并单元格
 
                     int row_precessing = 0;
                     int row_total = xSheet.UsedRange.Rows.Count;//總行數
@@ -201,13 +202,13 @@ namespace cf01.ReportForm
                             progressBar.Visible = false;
                         }
                         xSheet.Rows[ii].RowHeight = 70;
-                        rng = xSheet.Cells[ii, "G"]; //七位圖樣
+                        rng = xSheet.Cells[ii, "F"]; //七位圖樣
                         goods_id = rng.get_Value();
                         //取圖樣路徑
                         strPictrue_name = SetArtwork(goods_id.Trim());
                         if (strPictrue_name != "")
                         {
-                            InsertPicture("F" + ii, xSheet, strPictrue_name);//插入圖片
+                            InsertPicture("E" + ii, xSheet, strPictrue_name);//插入圖片
                         }                        
                     }
                     //xBook.Save();                    
