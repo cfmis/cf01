@@ -141,7 +141,7 @@ namespace cf01.CLS
                         " Where schedule_id='{0}'"
                         , lsMo[i].schedule_id, status, userid, update_time
                         );
-                    if (status == "02")
+                    if (status == "02")//強制完成
                         UpdateGeoMoStatus(lsMo[i].prd_dep, lsMo[i].prd_mo, lsMo[i].prd_item, lsMo[i].next_wp_id, update_time);
                 }
             }else if(opera_type==2)//設定制單機器
