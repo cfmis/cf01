@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGetOcData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBrand_id1 = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
@@ -78,6 +78,7 @@
             this.rms = new DevExpress.XtraGrid.Columns.GridColumn();
             this.hw_subtype = new DevExpress.XtraGrid.Columns.GridColumn();
             this.mo_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.contract_cid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.customer_goods = new DevExpress.XtraGrid.Columns.GridColumn();
             this.customer_goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.customer_color_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,6 +86,7 @@
             this.unit_price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.total_sum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.it_customer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.merchandiser = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seller_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSeller_id = new DevExpress.XtraEditors.TextEdit();
@@ -93,8 +95,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lueCust1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lblCustcode = new System.Windows.Forms.Label();
-            this.contract_cid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.merchandiser = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand_id1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDat2.Properties)).BeginInit();
@@ -231,7 +231,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(49, 35);
+            this.BTNCANCEL.Size = new System.Drawing.Size(52, 35);
             this.BTNCANCEL.Text = "重置(&U)";
             this.BTNCANCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
@@ -246,7 +246,7 @@
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(47, 35);
+            this.BTNFIND.Size = new System.Drawing.Size(49, 35);
             this.BTNFIND.Text = "查找(&F)";
             this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
@@ -261,7 +261,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(81, 35);
+            this.BTNSAVESET.Size = new System.Drawing.Size(83, 35);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVESET.ToolTipText = "保存查找條件";
@@ -277,7 +277,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(47, 35);
+            this.BTNPRINT.Size = new System.Drawing.Size(50, 35);
             this.BTNPRINT.Text = "列印(&P)";
             this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
@@ -298,7 +298,7 @@
             this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(57, 35);
+            this.BTNEXCEL.Size = new System.Drawing.Size(59, 35);
             this.BTNEXCEL.Text = "匯出明細";
             this.BTNEXCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
@@ -339,8 +339,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "單據編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -351,8 +351,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "out_dept";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -363,8 +363,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "out_dept_name";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "負責部門名稱";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -646,6 +646,23 @@
             this.mo_id.VisibleIndex = 7;
             this.mo_id.Width = 80;
             // 
+            // contract_cid
+            // 
+            this.contract_cid.Caption = "PO#";
+            this.contract_cid.FieldName = "contract_cid";
+            this.contract_cid.Name = "contract_cid";
+            this.contract_cid.OptionsColumn.AllowEdit = false;
+            this.contract_cid.OptionsColumn.AllowMove = false;
+            this.contract_cid.OptionsColumn.AllowShowHide = false;
+            this.contract_cid.OptionsColumn.AllowSize = false;
+            this.contract_cid.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.contract_cid.OptionsColumn.ReadOnly = true;
+            this.contract_cid.OptionsFilter.AllowAutoFilter = false;
+            this.contract_cid.OptionsFilter.AllowFilter = false;
+            this.contract_cid.Visible = true;
+            this.contract_cid.VisibleIndex = 8;
+            this.contract_cid.Width = 110;
+            // 
             // customer_goods
             // 
             this.customer_goods.Caption = "HW item#";
@@ -760,6 +777,23 @@
             this.it_customer.OptionsFilter.AllowFilter = false;
             this.it_customer.Visible = true;
             this.it_customer.VisibleIndex = 15;
+            // 
+            // merchandiser
+            // 
+            this.merchandiser.Caption = "Coordinator ID";
+            this.merchandiser.FieldName = "merchandiser";
+            this.merchandiser.Name = "merchandiser";
+            this.merchandiser.OptionsColumn.AllowEdit = false;
+            this.merchandiser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.merchandiser.OptionsColumn.AllowMove = false;
+            this.merchandiser.OptionsColumn.AllowShowHide = false;
+            this.merchandiser.OptionsColumn.AllowSize = false;
+            this.merchandiser.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.merchandiser.OptionsColumn.ReadOnly = true;
+            this.merchandiser.OptionsFilter.AllowAutoFilter = false;
+            this.merchandiser.OptionsFilter.AllowFilter = false;
+            this.merchandiser.Visible = true;
+            this.merchandiser.VisibleIndex = 16;
             // 
             // seller_id
             // 
@@ -881,40 +915,6 @@
             this.lblCustcode.TabIndex = 130;
             this.lblCustcode.Text = "客戶編號";
             this.lblCustcode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // contract_cid
-            // 
-            this.contract_cid.Caption = "PO#";
-            this.contract_cid.FieldName = "contract_cid";
-            this.contract_cid.Name = "contract_cid";
-            this.contract_cid.OptionsColumn.AllowEdit = false;
-            this.contract_cid.OptionsColumn.AllowMove = false;
-            this.contract_cid.OptionsColumn.AllowShowHide = false;
-            this.contract_cid.OptionsColumn.AllowSize = false;
-            this.contract_cid.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.contract_cid.OptionsColumn.ReadOnly = true;
-            this.contract_cid.OptionsFilter.AllowAutoFilter = false;
-            this.contract_cid.OptionsFilter.AllowFilter = false;
-            this.contract_cid.Visible = true;
-            this.contract_cid.VisibleIndex = 8;
-            this.contract_cid.Width = 110;
-            // 
-            // merchandiser
-            // 
-            this.merchandiser.Caption = "Coordinator ID";
-            this.merchandiser.FieldName = "merchandiser";
-            this.merchandiser.Name = "merchandiser";
-            this.merchandiser.OptionsColumn.AllowEdit = false;
-            this.merchandiser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.merchandiser.OptionsColumn.AllowMove = false;
-            this.merchandiser.OptionsColumn.AllowShowHide = false;
-            this.merchandiser.OptionsColumn.AllowSize = false;
-            this.merchandiser.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.merchandiser.OptionsColumn.ReadOnly = true;
-            this.merchandiser.OptionsFilter.AllowAutoFilter = false;
-            this.merchandiser.OptionsFilter.AllowFilter = false;
-            this.merchandiser.Visible = true;
-            this.merchandiser.VisibleIndex = 16;
             // 
             // frmGetOcData
             // 
