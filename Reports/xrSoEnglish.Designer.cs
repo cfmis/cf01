@@ -32,6 +32,7 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPanel15 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrLabel80 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPanel14 = new DevExpress.XtraReports.UI.XRPanel();
@@ -307,7 +308,7 @@
             this.SubBand49 = new DevExpress.XtraReports.UI.SubBand();
             this.xrLabel138 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtSign = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -341,6 +342,21 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel12
+            // 
+            this.xrLabel12.CanGrow = false;
+            this.xrLabel12.Dpi = 254F;
+            this.xrLabel12.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(815.6187F, 0F);
+            this.xrLabel12.Name = "xrLabel12";
+            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(217.4089F, 42.975F);
+            this.xrLabel12.StylePriority.UseFont = false;
+            this.xrLabel12.StylePriority.UseTextAlignment = false;
+            this.xrLabel12.Text = "[brand_id]";
+            this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel12.WordWrap = false;
             // 
             // xrPanel15
             // 
@@ -2631,6 +2647,7 @@
             // SubBand50
             // 
             this.SubBand50.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.txtSign,
             this.xrPanel1});
             this.SubBand50.Dpi = 254F;
             this.SubBand50.HeightF = 64.97296F;
@@ -4079,20 +4096,19 @@
             this.GroupHeader1.HeightF = 1.145639F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
-            // xrLabel12
+            // txtSign
             // 
-            this.xrLabel12.CanGrow = false;
-            this.xrLabel12.Dpi = 254F;
-            this.xrLabel12.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(815.6187F, 0F);
-            this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(217.4089F, 42.975F);
-            this.xrLabel12.StylePriority.UseFont = false;
-            this.xrLabel12.StylePriority.UseTextAlignment = false;
-            this.xrLabel12.Text = "[brand_id]";
-            this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrLabel12.WordWrap = false;
+            this.txtSign.CanGrow = false;
+            this.txtSign.Dpi = 254F;
+            this.txtSign.Font = new System.Drawing.Font("SimSun", 9F);
+            this.txtSign.LocationFloat = new DevExpress.Utils.PointFloat(2023.721F, 1.8526F);
+            this.txtSign.Name = "txtSign";
+            this.txtSign.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.txtSign.SizeF = new System.Drawing.SizeF(783.9821F, 38.1204F);
+            this.txtSign.StylePriority.UseFont = false;
+            this.txtSign.Text = "txtSign";
+            this.txtSign.WordWrap = false;
+            this.txtSign.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.txtSign_BeforePrint);
             // 
             // xrSoEnglish
             // 
@@ -4401,5 +4417,6 @@
         private DevExpress.XtraReports.UI.XRLabel txtGoodsSumEnd;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
+        private DevExpress.XtraReports.UI.XRLabel txtSign;
     }
 }
