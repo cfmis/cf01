@@ -467,7 +467,7 @@ namespace cf01.Forms
                 objMo.req_tot_time = clsValidRule.ConvertStrToDecimal(drMo[i]["req_tot_time"].ToString());
                 objMo.start_time = drMo[i]["start_time"].ToString().Trim();
                 objMo.end_time = drMo[i]["end_time"].ToString().Trim();
-                objMo.urgent_flag = drMo[i]["urgent_flag"].ToString().Trim();
+                objMo.urgent_flag = drMo[i]["urgent_flag"].ToString().Trim() != "" ? drMo[i]["urgent_flag"].ToString().Trim() : "00";
                 objMo.status = drMo[i]["status"].ToString().Trim();
                 objMo.module_type = drMo[i]["module_type"].ToString().Trim();
                 objMo.mo_remark = drMo[i]["mo_remark"].ToString().Trim();
@@ -682,7 +682,7 @@ namespace cf01.Forms
                 if (opera_type == 1)//設定制單狀態
                 {
                     objModel.status = cmbSetStatus.SelectedValue.ToString().Trim();
-                    if (objModel.status == "02")
+                    if (objModel.status == "02")//強制完成
                     {
                         objModel.prd_dep = dr["prd_dep"].ToString().Trim();
                         objModel.prd_mo = dr["prd_mo"].ToString().Trim();
@@ -830,6 +830,7 @@ namespace cf01.Forms
             //    wForm.ShowDialog();
             //}).Start();
             //Thread.Sleep(1000);
+            
             DataTable dtExcel = new DataTable();
             if (rpt_type != 99)
             {
@@ -1071,7 +1072,15 @@ namespace cf01.Forms
                 e.Appearance.BackColor = Color.Red;  // 设置背景色
                 e.Appearance.ForeColor = Color.White; // 设置字体颜色（可选）
             }
+            // 获取该行的数据
+            cellValue = gvSchedule.GetRowCellValue(e.RowHandle, "wip_remark");
 
+            // 判断值是否为 "Y"，如果是则设置为红色
+            if (cellValue != null && cellValue.ToString().Contains("取消") == true)
+            {
+                e.Appearance.BackColor = Color.Yellow;  // 设置背景色
+                e.Appearance.ForeColor = Color.Black; // 设置字体颜色（可选）
+            }
 
         }
 

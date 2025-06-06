@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
@@ -62,7 +61,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.palShowHasSchedule = new System.Windows.Forms.Panel();
             this.gcSchedule = new DevExpress.XtraGrid.GridControl();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip();
             this.cutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gvSchedule = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -130,6 +129,7 @@
             this.grcPreTrDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPreTrFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclTransferToJx = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gclWipRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -275,7 +275,6 @@
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkScheduleByMachine = new DevExpress.XtraEditors.CheckEdit();
-            this.gclWipRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1366,6 +1365,17 @@
             this.gclTransferToJx.Name = "gclTransferToJx";
             this.gclTransferToJx.Visible = true;
             this.gclTransferToJx.VisibleIndex = 45;
+            // 
+            // gclWipRemark
+            // 
+            this.gclWipRemark.AppearanceCell.Options.UseTextOptions = true;
+            this.gclWipRemark.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gclWipRemark.Caption = "計劃單備註";
+            this.gclWipRemark.FieldName = "wip_remark";
+            this.gclWipRemark.Name = "gclWipRemark";
+            this.gclWipRemark.Visible = true;
+            this.gclWipRemark.VisibleIndex = 46;
+            this.gclWipRemark.Width = 160;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -2838,15 +2848,6 @@
             this.chkScheduleByMachine.TabIndex = 17;
             this.chkScheduleByMachine.CheckedChanged += new System.EventHandler(this.chkScheduleByMachine_CheckedChanged);
             this.chkScheduleByMachine.Click += new System.EventHandler(this.chkScheduleByMachine_Click);
-            // 
-            // gclWipRemark
-            // 
-            this.gclWipRemark.Caption = "計劃單備註";
-            this.gclWipRemark.FieldName = "wip_remark";
-            this.gclWipRemark.Name = "gclWipRemark";
-            this.gclWipRemark.Visible = true;
-            this.gclWipRemark.VisibleIndex = 46;
-            this.gclWipRemark.Width = 160;
             // 
             // frmMoSchedule
             // 
