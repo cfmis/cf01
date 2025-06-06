@@ -356,7 +356,7 @@ namespace cf01.Forms
             v.currency_sign,v.picture,Convert(varchar(10),v.factory_ship_out_date,111) AS factory_ship_out_date,v.season,
             v.remark,v.stamp1,v.stamp2,v.sequence_id,v.sequence_sort,Isnull(v.goods_sort,'') AS goods_sort,
             Isnull(v.qc_remark,'') AS qc_remark,v.control_terms,v.disc_rate,v.add_info,v.s_address,v.disc_rate_h,v.disc_amt,
-            v.goods_sum,v.disc_spare,v.other_fare 
+            v.goods_sum,v.disc_spare,v.other_fare,v.brand_id
             FROM dbo.so_order_pi_merge a,DGERP2.CFERP.dbo.v_rpt_so v
             WHERE a.id=v.id COLLATE Chinese_PRC_CI_AS And a.it_customer='{0}' And a.order_date='{1}' And a.seq_id='{2}'
             ORDER BY a.it_customer,a.order_date,a.seq_id,a.id,v.sequence_id", itCustomer, orderDate, seqId);
