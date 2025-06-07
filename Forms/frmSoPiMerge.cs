@@ -309,7 +309,7 @@ namespace cf01.Forms
             {
                 sql += string.Format(" AND id='{0}'", txtId1.Text.Trim());
             }
-            sql += " Order By it_customer,order_date,seq_id,id";
+            sql += " Order By order_date Desc,it_customer,seq_id,id";
             dtDetail = clsPublicOfCF01.GetDataTable(sql);
             bds1.DataSource = dtDetail;
             dgvDetails.DataSource = bds1;
@@ -324,14 +324,21 @@ namespace cf01.Forms
                 {
                     return;
                 }
-                string sql = $"Select COUNT(*) as rtn From {DBUtility.remote_db}so_order_manage Where within_code = '0000' and id = '{id}' and state Not IN('2', 'V')";
+                string sql = $"Select it_customer From {DBUtility.remote_db}so_order_manage Where within_code = '0000' and id = '{id}' and state Not IN('2', 'V')";
                 DataTable dt = clsPublicOfCF01.GetDataTable(sql);
-                if (dt.Rows[0]["rtn"].ToString() == "0")
+                if (dt.Rows.Count==0)
                 {
                     MessageBox.Show($"OC編號{txtId.Text}不存在!", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtId.Text = "";
                 }
-            }            
+                else
+                {
+                    if (lueItCustomer.Text =="")
+                    {
+                        lueItCustomer.EditValue = dt.Rows[0]["it_customer"].ToString();
+                    }                    
+                }
+            }
         }
 
         private void BTNPRINT_Click(object sender, EventArgs e)
