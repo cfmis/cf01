@@ -48,9 +48,9 @@ namespace cf01.Reports
 
         private void ReportHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //多于一個字段分組
-            //GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("id", XRColumnSortOrder.Ascending) });
-            GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("vendor_id", XRColumnSortOrder.Ascending), new GroupField("issue_date", XRColumnSortOrder.Ascending) });
+            //多于一個字段分組 
+            GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("id", XRColumnSortOrder.Ascending) });
+            //GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("vendor_id", XRColumnSortOrder.Ascending), new GroupField("issue_date", XRColumnSortOrder.Ascending) });
 
         }             
 
