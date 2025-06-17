@@ -196,6 +196,7 @@
             this.xrLabel140 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel139 = new DevExpress.XtraReports.UI.XRLabel();
             this.SubBand50 = new DevExpress.XtraReports.UI.SubBand();
+            this.txtSign = new DevExpress.XtraReports.UI.XRLabel();
             this.xrCrossBandBox1 = new DevExpress.XtraReports.UI.XRCrossBandBox();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.txtTotalSumEnd = new DevExpress.XtraReports.UI.XRLabel();
@@ -308,7 +309,6 @@
             this.SubBand49 = new DevExpress.XtraReports.UI.SubBand();
             this.xrLabel138 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.txtSign = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -933,7 +933,7 @@
             this.xrLabel5.CanGrow = false;
             this.xrLabel5.Dpi = 254F;
             this.xrLabel5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(989.2654F, 259.95F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(990.2654F, 259.95F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(73.76624F, 37.97501F);
@@ -948,7 +948,7 @@
             this.xrLabel6.CanGrow = false;
             this.xrLabel6.Dpi = 254F;
             this.xrLabel6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(1063.032F, 259.95F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(1064.032F, 259.95F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel6.SizeF = new System.Drawing.SizeF(338.5625F, 37.97501F);
@@ -2653,6 +2653,20 @@
             this.SubBand50.HeightF = 64.97296F;
             this.SubBand50.Name = "SubBand50";
             // 
+            // txtSign
+            // 
+            this.txtSign.CanGrow = false;
+            this.txtSign.Dpi = 254F;
+            this.txtSign.Font = new System.Drawing.Font("SimSun", 9F);
+            this.txtSign.LocationFloat = new DevExpress.Utils.PointFloat(2023.721F, 1.8526F);
+            this.txtSign.Name = "txtSign";
+            this.txtSign.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.txtSign.SizeF = new System.Drawing.SizeF(783.9821F, 38.1204F);
+            this.txtSign.StylePriority.UseFont = false;
+            this.txtSign.Text = "txtSign";
+            this.txtSign.WordWrap = false;
+            this.txtSign.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.txtSign_BeforePrint);
+            // 
             // xrCrossBandBox1
             // 
             this.xrCrossBandBox1.BorderWidth = 1F;
@@ -4095,20 +4109,6 @@
             this.GroupHeader1.Dpi = 254F;
             this.GroupHeader1.HeightF = 1.145639F;
             this.GroupHeader1.Name = "GroupHeader1";
-            // 
-            // txtSign
-            // 
-            this.txtSign.CanGrow = false;
-            this.txtSign.Dpi = 254F;
-            this.txtSign.Font = new System.Drawing.Font("SimSun", 9F);
-            this.txtSign.LocationFloat = new DevExpress.Utils.PointFloat(2023.721F, 1.8526F);
-            this.txtSign.Name = "txtSign";
-            this.txtSign.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.txtSign.SizeF = new System.Drawing.SizeF(783.9821F, 38.1204F);
-            this.txtSign.StylePriority.UseFont = false;
-            this.txtSign.Text = "txtSign";
-            this.txtSign.WordWrap = false;
-            this.txtSign.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.txtSign_BeforePrint);
             // 
             // xrSoEnglish
             // 
