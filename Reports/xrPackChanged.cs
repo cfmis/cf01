@@ -131,7 +131,7 @@ namespace cf01.Reports
             lblQty_en.Visible = !flag;
 
             lblRemark.Visible = flag;
-            lblRemark_en.Visible = !flag;              
+            lblRemark_en.Visible = !flag;
         }
 
 
@@ -168,8 +168,17 @@ namespace cf01.Reports
             }
             xrLabel10.Text = DateTime.Parse(strdate).Date.ToString("yyyy/MM/dd");
         }
-       
-        
 
+        private void lblShippmark_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            string shippMark = GetCurrentColumnValue("contract_cid").ToString();
+            string salesGroup = GetCurrentColumnValue("group_number").ToString();
+            shippMark = string.IsNullOrEmpty(shippMark) ? "" : shippMark.Trim();
+            salesGroup = string.IsNullOrEmpty(salesGroup) ? "" : salesGroup;
+            if (shippMark.Substring(0, 4) == "6629" && salesGroup=="1S")
+                lblShippmark.Visible = true;
+            else
+                lblShippmark.Visible = false;
+        }
     }
 }
