@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xrSoEnglish));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.txtDiscAmt = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPanel15 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrLabel80 = new DevExpress.XtraReports.UI.XRLabel();
@@ -202,18 +202,13 @@
             this.txtTotalSumEnd = new DevExpress.XtraReports.UI.XRLabel();
             this.pnlDiscount = new DevExpress.XtraReports.UI.XRPanel();
             this.xrLabel84 = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtGoodsSum = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtDiscRateh = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel86 = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtDiscSpare = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtTotalSum_sum = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtDiscAmt_sum = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel88 = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtOtherFare = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel91 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine19 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel83 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel82 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine18 = new DevExpress.XtraReports.UI.XRLine();
-            this.txtGoodsSumEnd = new DevExpress.XtraReports.UI.XRLabel();
             this.SubBand6 = new DevExpress.XtraReports.UI.SubBand();
             this.xrLabel93 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel92 = new DevExpress.XtraReports.UI.XRLabel();
@@ -314,6 +309,7 @@
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.txtDiscAmt,
             this.xrLabel12,
             this.xrPanel15,
             this.xrPanel14,
@@ -342,6 +338,22 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // txtDiscAmt
+            // 
+            this.txtDiscAmt.CanGrow = false;
+            this.txtDiscAmt.Dpi = 254F;
+            this.txtDiscAmt.Font = new System.Drawing.Font("SimSun", 9F);
+            this.txtDiscAmt.LocationFloat = new DevExpress.Utils.PointFloat(1926.34F, 79.90074F);
+            this.txtDiscAmt.Name = "txtDiscAmt";
+            this.txtDiscAmt.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtDiscAmt.SizeF = new System.Drawing.SizeF(236.1704F, 52.97499F);
+            this.txtDiscAmt.StylePriority.UseFont = false;
+            this.txtDiscAmt.StylePriority.UseTextAlignment = false;
+            this.txtDiscAmt.Text = "[disc_amt]";
+            this.txtDiscAmt.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.txtDiscAmt.Visible = false;
+            this.txtDiscAmt.WordWrap = false;
             // 
             // xrLabel12
             // 
@@ -2687,8 +2699,7 @@
             this.xrLine19,
             this.xrLabel83,
             this.xrLabel82,
-            this.xrLine18,
-            this.txtGoodsSumEnd});
+            this.xrLine18});
             this.ReportFooter.Dpi = 254F;
             this.ReportFooter.HeightF = 112.8162F;
             this.ReportFooter.Name = "ReportFooter";
@@ -2747,7 +2758,7 @@
             this.txtTotalSumEnd.CanGrow = false;
             this.txtTotalSumEnd.Dpi = 254F;
             this.txtTotalSumEnd.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalSumEnd.LocationFloat = new DevExpress.Utils.PointFloat(2125.77F, 23.00005F);
+            this.txtTotalSumEnd.LocationFloat = new DevExpress.Utils.PointFloat(1800.368F, 23.00005F);
             this.txtTotalSumEnd.Name = "txtTotalSumEnd";
             this.txtTotalSumEnd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.txtTotalSumEnd.SizeF = new System.Drawing.SizeF(362.439F, 53.97499F);
@@ -2765,140 +2776,73 @@
             this.pnlDiscount.CanGrow = false;
             this.pnlDiscount.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel84,
-            this.txtGoodsSum,
-            this.txtDiscRateh,
-            this.xrLabel86,
-            this.txtDiscSpare,
-            this.xrLabel88,
-            this.txtOtherFare,
-            this.xrLabel91});
+            this.txtTotalSum_sum,
+            this.txtDiscAmt_sum,
+            this.xrLabel88});
             this.pnlDiscount.Dpi = 254F;
-            this.pnlDiscount.LocationFloat = new DevExpress.Utils.PointFloat(7.572194F, 0.999999F);
+            this.pnlDiscount.LocationFloat = new DevExpress.Utils.PointFloat(7.572192F, 13.43991F);
             this.pnlDiscount.Name = "pnlDiscount";
-            this.pnlDiscount.SizeF = new System.Drawing.SizeF(1435.044F, 89.37629F);
+            this.pnlDiscount.SizeF = new System.Drawing.SizeF(1173.106F, 74.37629F);
             // 
             // xrLabel84
             // 
             this.xrLabel84.CanGrow = false;
             this.xrLabel84.Dpi = 254F;
             this.xrLabel84.Font = new System.Drawing.Font("SimSun", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel84.LocationFloat = new DevExpress.Utils.PointFloat(10.50397F, 17.7944F);
-            this.xrLabel84.Multiline = true;
+            this.xrLabel84.LocationFloat = new DevExpress.Utils.PointFloat(10.50398F, 17.79427F);
             this.xrLabel84.Name = "xrLabel84";
             this.xrLabel84.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel84.SizeF = new System.Drawing.SizeF(180.9727F, 68.78749F);
+            this.xrLabel84.SizeF = new System.Drawing.SizeF(289.1968F, 46.975F);
             this.xrLabel84.StylePriority.UseFont = false;
             this.xrLabel84.StylePriority.UseTextAlignment = false;
-            this.xrLabel84.Text = "原 金 額\r\n Orignal AMT";
-            this.xrLabel84.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel84.Text = "原金額 Orignal AMT:";
+            this.xrLabel84.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel84.WordWrap = false;
             // 
-            // txtGoodsSum
+            // txtTotalSum_sum
             // 
-            this.txtGoodsSum.CanGrow = false;
-            this.txtGoodsSum.Dpi = 254F;
-            this.txtGoodsSum.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGoodsSum.LocationFloat = new DevExpress.Utils.PointFloat(195.4766F, 26.79427F);
-            this.txtGoodsSum.Name = "txtGoodsSum";
-            this.txtGoodsSum.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtGoodsSum.SizeF = new System.Drawing.SizeF(216.0999F, 46.975F);
-            this.txtGoodsSum.StylePriority.UseFont = false;
-            this.txtGoodsSum.StylePriority.UseTextAlignment = false;
-            this.txtGoodsSum.Text = "[goods_sum]";
-            this.txtGoodsSum.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.txtGoodsSum.WordWrap = false;
+            this.txtTotalSum_sum.CanGrow = false;
+            this.txtTotalSum_sum.Dpi = 254F;
+            this.txtTotalSum_sum.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalSum_sum.LocationFloat = new DevExpress.Utils.PointFloat(299.7007F, 17.79427F);
+            this.txtTotalSum_sum.Name = "txtTotalSum_sum";
+            this.txtTotalSum_sum.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtTotalSum_sum.SizeF = new System.Drawing.SizeF(301.954F, 46.975F);
+            this.txtTotalSum_sum.StylePriority.UseFont = false;
+            this.txtTotalSum_sum.StylePriority.UseTextAlignment = false;
+            this.txtTotalSum_sum.Text = "[goods_sum]";
+            this.txtTotalSum_sum.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.txtTotalSum_sum.WordWrap = false;
             // 
-            // txtDiscRateh
+            // txtDiscAmt_sum
             // 
-            this.txtDiscRateh.CanGrow = false;
-            this.txtDiscRateh.Dpi = 254F;
-            this.txtDiscRateh.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscRateh.LocationFloat = new DevExpress.Utils.PointFloat(525.6468F, 26.79427F);
-            this.txtDiscRateh.Name = "txtDiscRateh";
-            this.txtDiscRateh.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtDiscRateh.SizeF = new System.Drawing.SizeF(106.9749F, 46.975F);
-            this.txtDiscRateh.StylePriority.UseFont = false;
-            this.txtDiscRateh.StylePriority.UseTextAlignment = false;
-            this.txtDiscRateh.Text = "[disc_rate_h]%";
-            this.txtDiscRateh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.txtDiscRateh.WordWrap = false;
-            // 
-            // xrLabel86
-            // 
-            this.xrLabel86.CanGrow = false;
-            this.xrLabel86.Dpi = 254F;
-            this.xrLabel86.Font = new System.Drawing.Font("SimSun", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel86.LocationFloat = new DevExpress.Utils.PointFloat(412.8198F, 17.7944F);
-            this.xrLabel86.Multiline = true;
-            this.xrLabel86.Name = "xrLabel86";
-            this.xrLabel86.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel86.SizeF = new System.Drawing.SizeF(112.8269F, 68.78749F);
-            this.xrLabel86.StylePriority.UseFont = false;
-            this.xrLabel86.StylePriority.UseTextAlignment = false;
-            this.xrLabel86.Text = "折扣率\r\nDisc %";
-            this.xrLabel86.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrLabel86.WordWrap = false;
-            // 
-            // txtDiscSpare
-            // 
-            this.txtDiscSpare.CanGrow = false;
-            this.txtDiscSpare.Dpi = 254F;
-            this.txtDiscSpare.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscSpare.LocationFloat = new DevExpress.Utils.PointFloat(849.5972F, 26.79427F);
-            this.txtDiscSpare.Name = "txtDiscSpare";
-            this.txtDiscSpare.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtDiscSpare.SizeF = new System.Drawing.SizeF(216.0999F, 46.975F);
-            this.txtDiscSpare.StylePriority.UseFont = false;
-            this.txtDiscSpare.StylePriority.UseTextAlignment = false;
-            this.txtDiscSpare.Text = "[disc_spare]";
-            this.txtDiscSpare.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.txtDiscSpare.WordWrap = false;
+            this.txtDiscAmt_sum.CanGrow = false;
+            this.txtDiscAmt_sum.Dpi = 254F;
+            this.txtDiscAmt_sum.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscAmt_sum.LocationFloat = new DevExpress.Utils.PointFloat(900.9104F, 17.79429F);
+            this.txtDiscAmt_sum.Name = "txtDiscAmt_sum";
+            this.txtDiscAmt_sum.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txtDiscAmt_sum.SizeF = new System.Drawing.SizeF(247.8499F, 46.975F);
+            this.txtDiscAmt_sum.StylePriority.UseFont = false;
+            this.txtDiscAmt_sum.StylePriority.UseTextAlignment = false;
+            this.txtDiscAmt_sum.Text = "[disc_amt]";
+            this.txtDiscAmt_sum.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.txtDiscAmt_sum.WordWrap = false;
             // 
             // xrLabel88
             // 
             this.xrLabel88.CanGrow = false;
             this.xrLabel88.Dpi = 254F;
             this.xrLabel88.Font = new System.Drawing.Font("SimSun", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel88.LocationFloat = new DevExpress.Utils.PointFloat(640.6246F, 17.7944F);
-            this.xrLabel88.Multiline = true;
+            this.xrLabel88.LocationFloat = new DevExpress.Utils.PointFloat(627.7288F, 17.79427F);
             this.xrLabel88.Name = "xrLabel88";
             this.xrLabel88.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel88.SizeF = new System.Drawing.SizeF(208.9726F, 68.78749F);
+            this.xrLabel88.SizeF = new System.Drawing.SizeF(267.4628F, 46.975F);
             this.xrLabel88.StylePriority.UseFont = false;
             this.xrLabel88.StylePriority.UseTextAlignment = false;
-            this.xrLabel88.Text = "折扣后金額\r\nAMT After Disc";
-            this.xrLabel88.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel88.Text = "折扣額 Disc AMT:";
+            this.xrLabel88.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel88.WordWrap = false;
-            // 
-            // txtOtherFare
-            // 
-            this.txtOtherFare.CanGrow = false;
-            this.txtOtherFare.Dpi = 254F;
-            this.txtOtherFare.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOtherFare.LocationFloat = new DevExpress.Utils.PointFloat(1273.44F, 26.79427F);
-            this.txtOtherFare.Name = "txtOtherFare";
-            this.txtOtherFare.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtOtherFare.SizeF = new System.Drawing.SizeF(144.8176F, 46.975F);
-            this.txtOtherFare.StylePriority.UseFont = false;
-            this.txtOtherFare.StylePriority.UseTextAlignment = false;
-            this.txtOtherFare.Text = "[other_fare]";
-            this.txtOtherFare.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.txtOtherFare.WordWrap = false;
-            // 
-            // xrLabel91
-            // 
-            this.xrLabel91.CanGrow = false;
-            this.xrLabel91.Dpi = 254F;
-            this.xrLabel91.Font = new System.Drawing.Font("SimSun", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel91.LocationFloat = new DevExpress.Utils.PointFloat(1074.109F, 17.7944F);
-            this.xrLabel91.Multiline = true;
-            this.xrLabel91.Name = "xrLabel91";
-            this.xrLabel91.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel91.SizeF = new System.Drawing.SizeF(198.0096F, 68.78749F);
-            this.xrLabel91.StylePriority.UseFont = false;
-            this.xrLabel91.StylePriority.UseTextAlignment = false;
-            this.xrLabel91.Text = "附加費用  Tack Fare AMT";
-            this.xrLabel91.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLine19
             // 
@@ -2913,7 +2857,7 @@
             this.xrLabel83.CanGrow = false;
             this.xrLabel83.Dpi = 254F;
             this.xrLabel83.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel83.LocationFloat = new DevExpress.Utils.PointFloat(2488.209F, 23.00005F);
+            this.xrLabel83.LocationFloat = new DevExpress.Utils.PointFloat(2167.933F, 23.00005F);
             this.xrLabel83.Name = "xrLabel83";
             this.xrLabel83.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel83.SizeF = new System.Drawing.SizeF(111.2117F, 53.97499F);
@@ -2928,7 +2872,7 @@
             this.xrLabel82.CanGrow = false;
             this.xrLabel82.Dpi = 254F;
             this.xrLabel82.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel82.LocationFloat = new DevExpress.Utils.PointFloat(1535.616F, 23.00005F);
+            this.xrLabel82.LocationFloat = new DevExpress.Utils.PointFloat(1210.214F, 23.00005F);
             this.xrLabel82.Name = "xrLabel82";
             this.xrLabel82.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel82.SizeF = new System.Drawing.SizeF(590.1544F, 53.97499F);
@@ -2945,24 +2889,6 @@
             this.xrLine18.LocationFloat = new DevExpress.Utils.PointFloat(3F, 1F);
             this.xrLine18.Name = "xrLine18";
             this.xrLine18.SizeF = new System.Drawing.SizeF(2807.615F, 5F);
-            // 
-            // txtGoodsSumEnd
-            // 
-            this.txtGoodsSumEnd.CanGrow = false;
-            this.txtGoodsSumEnd.Dpi = 254F;
-            this.txtGoodsSumEnd.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGoodsSumEnd.LocationFloat = new DevExpress.Utils.PointFloat(2125.77F, 23.00001F);
-            this.txtGoodsSumEnd.Name = "txtGoodsSumEnd";
-            this.txtGoodsSumEnd.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.txtGoodsSumEnd.SizeF = new System.Drawing.SizeF(362.439F, 53.975F);
-            this.txtGoodsSumEnd.StylePriority.UseFont = false;
-            this.txtGoodsSumEnd.StylePriority.UseTextAlignment = false;
-            xrSummary2.FormatString = "{0:$##,###,#00.00}";
-            this.txtGoodsSumEnd.Summary = xrSummary2;
-            this.txtGoodsSumEnd.Text = "[goods_sum]";
-            this.txtGoodsSumEnd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.txtGoodsSumEnd.Visible = false;
-            this.txtGoodsSumEnd.WordWrap = false;
             // 
             // SubBand6
             // 
@@ -4405,18 +4331,14 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel28;
         private DevExpress.XtraReports.UI.XRPanel pnlDiscount;
         private DevExpress.XtraReports.UI.XRLabel xrLabel84;
-        private DevExpress.XtraReports.UI.XRLabel txtGoodsSum;
-        private DevExpress.XtraReports.UI.XRLabel txtDiscRateh;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel86;
-        private DevExpress.XtraReports.UI.XRLabel txtDiscSpare;
+        private DevExpress.XtraReports.UI.XRLabel txtTotalSum_sum;
+        private DevExpress.XtraReports.UI.XRLabel txtDiscAmt_sum;
         private DevExpress.XtraReports.UI.XRLabel xrLabel88;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel91;
-        private DevExpress.XtraReports.UI.XRLabel txtOtherFare;
         private DevExpress.XtraReports.UI.XRPanel xrPanel15;
         private DevExpress.XtraReports.UI.XRPanel xrPanel14;
-        private DevExpress.XtraReports.UI.XRLabel txtGoodsSumEnd;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRLabel txtSign;
+        private DevExpress.XtraReports.UI.XRLabel txtDiscAmt;
     }
 }
