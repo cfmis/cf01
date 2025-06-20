@@ -2931,9 +2931,7 @@
     <Compile Include="Reports\xrShippingRemark.designer.cs">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrSoEnglish.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Reports\xrSoEnglish.cs" />
     <Compile Include="Reports\xrSoEnglish.designer.cs">
       <DependentUpon>xrSoEnglish.cs</DependentUpon>
     </Compile>
