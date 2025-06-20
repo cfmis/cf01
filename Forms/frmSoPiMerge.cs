@@ -368,27 +368,34 @@ namespace cf01.Forms
             WHERE a.id=v.id COLLATE Chinese_PRC_CI_AS And a.it_customer='{0}' And a.order_date='{1}' And a.seq_id='{2}'
             ORDER BY a.it_customer,a.order_date,a.seq_id,a.id,v.sequence_id", itCustomer, orderDate, seqId);
             DataTable dtReport = clsPublicOfCF01.GetDataTable(sql);
-            DataTable dtGoodsSum = new DataTable();
-            dtGoodsSum.Columns.Add("id", typeof(string));
-            dtGoodsSum.Columns.Add("goods_sum", typeof(decimal));
-            dtGoodsSum.Columns.Add("other_fare", typeof(decimal));
+            //DataTable dtGoodsSum = new DataTable();
+            //dtGoodsSum.Columns.Add("id", typeof(string));
+            //dtGoodsSum.Columns.Add("goods_sum", typeof(decimal));
+            //dtGoodsSum.Columns.Add("other_fare", typeof(decimal));
+            //for (int i = 0; i < dtReport.Rows.Count; i++)
+            //{
+            //    DataRow dr = dtGoodsSum.NewRow();
+            //    dr["id"] = dtReport.Rows[i]["id"].ToString();
+            //    dr["goods_sum"] = decimal.Parse(dtReport.Rows[i]["goods_sum"].ToString());
+            //    dr["other_fare"] = decimal.Parse(dtReport.Rows[i]["other_fare"].ToString());
+            //    dtGoodsSum.Rows.Add(dr);
+            //}
+            ////去掉重復
+            //dtGoodsSum = dtGoodsSum.AsEnumerable().Distinct(DataRowComparer.Default).CopyToDataTable();
+            //decimal goodsSum = 0, otherFare = 0;
+            //for (int i = 0; i < dtGoodsSum.Rows.Count; i++)
+            //{
+            //    goodsSum += decimal.Parse(dtGoodsSum.Rows[i]["goods_sum"].ToString());
+            //    otherFare += decimal.Parse(dtGoodsSum.Rows[i]["other_fare"].ToString());
+            //}
+            decimal totalSum = 0, totalDiscAmt = 0;
             for (int i = 0; i < dtReport.Rows.Count; i++)
             {
-                DataRow dr = dtGoodsSum.NewRow();
-                dr["id"] = dtReport.Rows[i]["id"].ToString();
-                dr["goods_sum"] = decimal.Parse(dtReport.Rows[i]["goods_sum"].ToString());
-                dr["other_fare"] = decimal.Parse(dtReport.Rows[i]["other_fare"].ToString());
-                dtGoodsSum.Rows.Add(dr);
+                totalSum += decimal.Parse(dtReport.Rows[i]["total_sum"].ToString());
+                totalDiscAmt += decimal.Parse(dtReport.Rows[i]["disc_amt"].ToString());
             }
-            //去掉重復
-            dtGoodsSum = dtGoodsSum.AsEnumerable().Distinct(DataRowComparer.Default).CopyToDataTable();
-            decimal goodsSum = 0, otherFare = 0;
-            for (int i = 0; i < dtGoodsSum.Rows.Count; i++)
-            {
-                goodsSum += decimal.Parse(dtGoodsSum.Rows[i]["goods_sum"].ToString());
-                otherFare += decimal.Parse(dtGoodsSum.Rows[i]["other_fare"].ToString());
-            }
-            using (xrSoEnglish rpt = new xrSoEnglish(goodsSum, otherFare) { DataSource = dtReport })
+            
+            using (xrSoEnglish rpt = new xrSoEnglish(totalSum, totalDiscAmt) { DataSource = dtReport })
             {
                 rpt.CreateDocument();
                 rpt.PrintingSystem.ShowMarginsWarning = false;
