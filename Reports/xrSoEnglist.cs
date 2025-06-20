@@ -11,9 +11,9 @@ namespace cf01.Reports
         string m_date_from, m_date_to;
         public xrSoEnglish()
         {
-            InitializeComponent();
-            m_date_from = p_date_from;
-            m_date_to = p_date_to;
+            //InitializeComponent();
+            //m_date_from = p_date_from;
+            //m_date_to = p_date_to;
         }
 
         private void xrPurOutBuy_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)

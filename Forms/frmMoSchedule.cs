@@ -52,7 +52,7 @@ namespace cf01.Forms
         private void SetCombox()
         {
 
-            //////表格中的制單狀態標識
+            //////表格中的制單狀態標識//
             lueGvStatus.DataSource = clsBaseData.loadDocFlag("mo_schedule");
             lueGvStatus.ValueMember = "flag_id";
             lueGvStatus.DisplayMember = "flag_cdesc";
