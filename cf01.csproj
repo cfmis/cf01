@@ -2275,6 +2275,12 @@
     <Compile Include="ReportForm\frmShippingMark.Designer.cs">
       <DependentUpon>frmShippingMark.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmShowGoodsInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmShowGoodsInfo.Designer.cs">
+      <DependentUpon>frmShowGoodsInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmShowPlateFee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2931,9 +2937,7 @@
     <Compile Include="Reports\xrShippingRemark.designer.cs">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrSoEnglish.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Reports\xrSoEnglish.cs" />
     <Compile Include="Reports\xrSoEnglish.designer.cs">
       <DependentUpon>xrSoEnglish.cs</DependentUpon>
     </Compile>
@@ -4001,6 +4005,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmShippingMark.resx">
       <DependentUpon>frmShippingMark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmShowGoodsInfo.resx">
+      <DependentUpon>frmShowGoodsInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmShowPlateFee.resx">
       <DependentUpon>frmShowPlateFee.cs</DependentUpon>
