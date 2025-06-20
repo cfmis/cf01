@@ -35,6 +35,8 @@ namespace cf01.CLS
             string strSqlTrans = " SET XACT_ABORT ON " + " BEGIN TRANSACTION ";
             string strSqlCommit = " COMMIT TRANSACTION ";
             DataTable lds_details = new DataTable();
+
+
             //是否存在交易
             strSql = string.Format(
             @"Select A.action_id,A.id,A.sequence_id,A.goods_id,B.name As goods_name,A.ii_location_id,A.ii_code,
@@ -101,7 +103,7 @@ namespace cf01.CLS
                 //    as_errtext = '*****' + ls_goods_id + ' HAVE NOT UNIT CONVERSION(需要添加单位转换) ***' + '******'
                 //    Return - 1
                 //End If
-                //--当单位的性质和货品资料设定的单位性质一样时，数量需要转换2010-09-02 Jeff
+                //--当单位的性质和货品资料设定的单位性质一样时，数量需要转换2010-09-02 
                 DataTable lds_change_unit = new DataTable();
                 if (ls_unit_kind == ls_main_unit_kind)
                 {

@@ -394,7 +394,7 @@ namespace cf01.CLS
                     within_code,id,upper_sequence,sequence_id,mo_id,goods_id,jo_qty,c_qty,con_qty,unit_code,remark,sec_unit,sec_qty,location,carton_code,bom_qty,lot_no,inventory_qty,inventory_sec_qty)
                     Values('{0}','{1}','{2}','{3}','{4}','{5}',{6},{7},{8},'{9}','{10}','{11}',{12},'{13}','{14}',{15},'{16}',{17},{18})",
                     within_code, headData.id, item.upper_sequence, item.sequence_id, item.mo_id, item.goods_id, joQty, cQty, item.con_qty, item.unit_code, item.remark, item.sec_unit, item.sec_qty,
-                    item.location, item.carton_code, item.bom_qty, item.lot_no, item.inventory_qty, item.inventory_sec_qty);
+                    item.location, item.location, item.bom_qty, item.lot_no, item.inventory_qty, item.inventory_sec_qty);
                     sbSql.Append(str);
                 }
             }
@@ -837,7 +837,7 @@ namespace cf01.CLS
                 //設置全局的批準日期
                 sql_f = string.Format(
                 @"Select a.location_id,a.move_location_id,a.move_carton_code,a.sequence_id,a.mo_id,IsNull(a.shipment_suit,'0') as shipment_suit,a.goods_id,a.transfer_amount,a.sec_qty,a.unit
-                From st_transfer_detail a With(nolock) Where a.within_code='{0}' And a.id='{1}'", gs_company, ls_id);
+                From st_transfer_detail a With(nolock) Where a.within_code='{0}' And a.id='{1}' Order by a.id,a.sequence_id", gs_company, ls_id);
                 dt = clsErp.ExecuteSqlReturnDataTable(sql_f);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
