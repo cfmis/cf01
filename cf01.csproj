@@ -327,6 +327,12 @@
     <Compile Include="Forms\frmMoScheduleRemark.Designer.cs">
       <DependentUpon>frmMoScheduleRemark.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSoPiMerge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSoPiMerge.designer.cs">
+      <DependentUpon>frmSoPiMerge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmTransferoutAdj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2925,8 +2931,11 @@
     <Compile Include="Reports\xrShippingRemark.designer.cs">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrSoEnglist.cs">
+    <Compile Include="Reports\xrSoEnglish.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrSoEnglish.designer.cs">
+      <DependentUpon>xrSoEnglish.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\xrTakeMoSample_A4.cs">
       <SubType>Component</SubType>
@@ -3035,6 +3044,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMoScheduleRemark.resx">
       <DependentUpon>frmMoScheduleRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSoPiMerge.resx">
+      <DependentUpon>frmSoPiMerge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTransferoutAdj.resx">
       <DependentUpon>frmTransferoutAdj.cs</DependentUpon>
@@ -4357,6 +4369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrShippingRemark.resx">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrSoEnglish.resx">
+      <DependentUpon>xrSoEnglish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrTakeMoSample_A4.resx">
       <DependentUpon>xrTakeMoSample_A4.cs</DependentUpon>

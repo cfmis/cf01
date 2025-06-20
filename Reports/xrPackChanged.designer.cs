@@ -253,6 +253,7 @@
             this.xrShape3 = new DevExpress.XtraReports.UI.XRShape();
             this.txtBrand_id = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.lblShippmark = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -268,7 +269,7 @@
             this.xrLabel13.CanGrow = false;
             this.xrLabel13.Dpi = 254F;
             this.xrLabel13.Font = new System.Drawing.Font("Arial", 8.5F);
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(813.5836F, 4.100821F);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(741.6249F, 769.4846F);
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel13.SizeF = new System.Drawing.SizeF(125.9792F, 33.89917F);
@@ -284,7 +285,7 @@
             this.xrLabel14.CanGrow = false;
             this.xrLabel14.Dpi = 254F;
             this.xrLabel14.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(837.0667F, 4F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(713.2538F, 769.4846F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(260.9127F, 33.4825F);
@@ -402,7 +403,7 @@
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(684.7292F, 38.00002F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(410.0417F, 38.79167F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(32.95825F, 38.79167F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "[printdate]";
@@ -637,6 +638,7 @@
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblShippmark,
             this.xrLine46,
             this.xrLabel65,
             this.xrLabel78,
@@ -1665,7 +1667,7 @@
             this.xrLabel20.CanGrow = false;
             this.xrLabel20.Dpi = 254F;
             this.xrLabel20.Font = new System.Drawing.Font("Arial", 9F);
-            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(684.7292F, 4.100821F);
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(576.4169F, 770.0679F);
             this.xrLabel20.Name = "xrLabel20";
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel20.SizeF = new System.Drawing.SizeF(128.8544F, 31.89917F);
@@ -3258,6 +3260,23 @@
             this.GroupFooter2.Level = 1;
             this.GroupFooter2.Name = "GroupFooter2";
             // 
+            // lblShippmark
+            // 
+            this.lblShippmark.CanGrow = false;
+            this.lblShippmark.Dpi = 254F;
+            this.lblShippmark.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShippmark.LocationFloat = new DevExpress.Utils.PointFloat(744.8333F, 36.22918F);
+            this.lblShippmark.Name = "lblShippmark";
+            this.lblShippmark.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lblShippmark.SizeF = new System.Drawing.SizeF(342.8746F, 41.89917F);
+            this.lblShippmark.StylePriority.UseFont = false;
+            this.lblShippmark.StylePriority.UseTextAlignment = false;
+            this.lblShippmark.Text = "箱內要放船頭辦";
+            this.lblShippmark.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.lblShippmark.Visible = false;
+            this.lblShippmark.WordWrap = false;
+            this.lblShippmark.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.lblShippmark_BeforePrint);
+            // 
             // xrPackChanged
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -3506,5 +3525,6 @@
         private DevExpress.XtraReports.UI.XRLabel txtBrand_id;
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel33;
+        private DevExpress.XtraReports.UI.XRLabel lblShippmark;
     }
 }
