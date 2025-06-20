@@ -19,13 +19,7 @@ namespace cf01.Reports
             txtTotalSum.DataBindings.Add("Text", DataSource, "total_sum"); //明細綁定
             txtTotalSumEnd.DataBindings.Add("Text", DataSource, "total_sum");  //小計總金額綁定
         }
-
-        private void xrPurOutBuy_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            //分組
-            GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("p_key", XRColumnSortOrder.Ascending) });
-            //lblrange_date.Text = String.Format("入單日期范圍：{0} ~ {1}", m_date_from, m_date_to);
-        }
+     
         void BindImage(string pFile)
         {
             xrPictureBox2.ImageUrl = pFile;
@@ -150,6 +144,8 @@ namespace cf01.Reports
 
         private void xrSoEnglish_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+            //分組
+            GroupHeader1.GroupFields.AddRange(new GroupField[] { new GroupField("p_key", XRColumnSortOrder.Ascending) });
             SetDiscount();
         }
 
