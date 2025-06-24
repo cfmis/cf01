@@ -596,9 +596,10 @@ namespace cf01.CLS
             }
             sbSql.Append(@" COMMIT TRANSACTION ");
             string result = clsErp.ExecuteSqlUpdateReturnString(sbSql.ToString());//保存成功返回 空格
+
+            //保存成功，接著批準
             if (result == "")
-            {
-                //接著批準
+            {               
                 string active_name = "pfc_ok", ldt_check_date = "";
                 //設置全局的批準日期
                 ldt_check_date = clsPublic.GetDbDateTime("L");//批準日期(長日期時間)
