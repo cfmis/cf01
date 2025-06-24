@@ -30,16 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockAdj));
             this.dgv1 = new System.Windows.Forms.DataGridView();
-            this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.location_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adj_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adj_sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lot_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ym = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.upd_flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDept = new System.Windows.Forms.TextBox();
             this.mskMonth = new System.Windows.Forms.MaskedTextBox();
@@ -67,7 +57,6 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewMaskedTextBoxColumn1 = new cf01.ModuleClass.DataGridViewMaskedTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +67,16 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.location_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adj_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adj_sec_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lot_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ym = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.upd_flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.location_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sequence_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,7 +99,8 @@
             // 
             this.dgv1.AllowUserToAddRows = false;
             this.dgv1.AllowUserToDeleteRows = false;
-            this.dgv1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgv1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv1.BackgroundColor = System.Drawing.Color.White;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -115,102 +115,13 @@
             this.ym,
             this.p_key,
             this.upd_flag});
-            this.dgv1.Location = new System.Drawing.Point(2, 96);
+            this.dgv1.Location = new System.Drawing.Point(7, 96);
             this.dgv1.Name = "dgv1";
             this.dgv1.ReadOnly = true;
             this.dgv1.RowHeadersWidth = 30;
             this.dgv1.RowTemplate.Height = 25;
-            this.dgv1.Size = new System.Drawing.Size(949, 479);
+            this.dgv1.Size = new System.Drawing.Size(942, 479);
             this.dgv1.TabIndex = 0;
-            // 
-            // sequence_id
-            // 
-            this.sequence_id.DataPropertyName = "sequence_id";
-            this.sequence_id.HeaderText = "序號";
-            this.sequence_id.Name = "sequence_id";
-            this.sequence_id.ReadOnly = true;
-            this.sequence_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sequence_id.Width = 65;
-            // 
-            // location_id
-            // 
-            this.location_id.DataPropertyName = "location_id";
-            this.location_id.HeaderText = "倉庫";
-            this.location_id.Name = "location_id";
-            this.location_id.ReadOnly = true;
-            this.location_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.location_id.Width = 60;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "頁數";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mo_id.Width = 110;
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "貨品編碼";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.ReadOnly = true;
-            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_id.Width = 200;
-            // 
-            // adj_qty
-            // 
-            this.adj_qty.DataPropertyName = "adj_qty";
-            this.adj_qty.HeaderText = "調整數量";
-            this.adj_qty.Name = "adj_qty";
-            this.adj_qty.ReadOnly = true;
-            this.adj_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.adj_qty.Width = 120;
-            // 
-            // adj_sec_qty
-            // 
-            this.adj_sec_qty.DataPropertyName = "adj_sec_qty";
-            this.adj_sec_qty.HeaderText = "調整重量";
-            this.adj_sec_qty.Name = "adj_sec_qty";
-            this.adj_sec_qty.ReadOnly = true;
-            this.adj_sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.adj_sec_qty.Width = 110;
-            // 
-            // lot_no
-            // 
-            this.lot_no.DataPropertyName = "lot_no";
-            this.lot_no.HeaderText = "批號";
-            this.lot_no.Name = "lot_no";
-            this.lot_no.ReadOnly = true;
-            this.lot_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.lot_no.Width = 110;
-            // 
-            // ym
-            // 
-            this.ym.DataPropertyName = "ym";
-            this.ym.HeaderText = "盤點日期";
-            this.ym.Name = "ym";
-            this.ym.ReadOnly = true;
-            this.ym.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // p_key
-            // 
-            this.p_key.DataPropertyName = "p_key";
-            this.p_key.HeaderText = "Pkey";
-            this.p_key.Name = "p_key";
-            this.p_key.ReadOnly = true;
-            this.p_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.p_key.Visible = false;
-            // 
-            // upd_flag
-            // 
-            this.upd_flag.DataPropertyName = "upd_flag";
-            this.upd_flag.HeaderText = "更新標識";
-            this.upd_flag.Name = "upd_flag";
-            this.upd_flag.ReadOnly = true;
-            this.upd_flag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.upd_flag.Visible = false;
             // 
             // label1
             // 
@@ -350,7 +261,8 @@
             // 
             this.dgv2.AllowUserToAddRows = false;
             this.dgv2.AllowUserToDeleteRows = false;
-            this.dgv2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgv2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv2.BackgroundColor = System.Drawing.Color.White;
             this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -367,12 +279,12 @@
             this.ym1,
             this.p_key1,
             this.upd_flag1});
-            this.dgv2.Location = new System.Drawing.Point(2, 96);
+            this.dgv2.Location = new System.Drawing.Point(7, 96);
             this.dgv2.Name = "dgv2";
             this.dgv2.ReadOnly = true;
             this.dgv2.RowHeadersWidth = 30;
             this.dgv2.RowTemplate.Height = 25;
-            this.dgv2.Size = new System.Drawing.Size(949, 479);
+            this.dgv2.Size = new System.Drawing.Size(942, 479);
             this.dgv2.TabIndex = 12;
             this.dgv2.Visible = false;
             // 
@@ -464,6 +376,7 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn10.Visible = false;
             this.dataGridViewTextBoxColumn10.Width = 80;
             // 
             // dataGridViewTextBoxColumn11
@@ -482,21 +395,10 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "倉庫";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn12.Visible = false;
             this.dataGridViewTextBoxColumn12.Width = 60;
-            // 
-            // dataGridViewMaskedTextBoxColumn1
-            // 
-            this.dataGridViewMaskedTextBoxColumn1.DataPropertyName = "upd_flag";
-            this.dataGridViewMaskedTextBoxColumn1.HeaderText = "UpdFlag";
-            this.dataGridViewMaskedTextBoxColumn1.IncludeLiterals = false;
-            this.dataGridViewMaskedTextBoxColumn1.IncludePrompt = false;
-            this.dataGridViewMaskedTextBoxColumn1.Name = "dataGridViewMaskedTextBoxColumn1";
-            this.dataGridViewMaskedTextBoxColumn1.PromptChar = '\0';
-            this.dataGridViewMaskedTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewMaskedTextBoxColumn1.ValidatingType = null;
-            this.dataGridViewMaskedTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -588,6 +490,95 @@
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
             this.dataGridViewTextBoxColumn22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // sequence_id
+            // 
+            this.sequence_id.DataPropertyName = "sequence_id";
+            this.sequence_id.HeaderText = "序號";
+            this.sequence_id.Name = "sequence_id";
+            this.sequence_id.ReadOnly = true;
+            this.sequence_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sequence_id.Width = 65;
+            // 
+            // location_id
+            // 
+            this.location_id.DataPropertyName = "location_id";
+            this.location_id.HeaderText = "倉庫";
+            this.location_id.Name = "location_id";
+            this.location_id.ReadOnly = true;
+            this.location_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.location_id.Width = 60;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mo_id.Width = 110;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "貨品編碼";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_id.Width = 200;
+            // 
+            // adj_qty
+            // 
+            this.adj_qty.DataPropertyName = "adj_qty";
+            this.adj_qty.HeaderText = "調整數量";
+            this.adj_qty.Name = "adj_qty";
+            this.adj_qty.ReadOnly = true;
+            this.adj_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.adj_qty.Width = 120;
+            // 
+            // adj_sec_qty
+            // 
+            this.adj_sec_qty.DataPropertyName = "adj_sec_qty";
+            this.adj_sec_qty.HeaderText = "調整重量";
+            this.adj_sec_qty.Name = "adj_sec_qty";
+            this.adj_sec_qty.ReadOnly = true;
+            this.adj_sec_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.adj_sec_qty.Width = 110;
+            // 
+            // lot_no
+            // 
+            this.lot_no.DataPropertyName = "lot_no";
+            this.lot_no.HeaderText = "批號";
+            this.lot_no.Name = "lot_no";
+            this.lot_no.ReadOnly = true;
+            this.lot_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.lot_no.Width = 110;
+            // 
+            // ym
+            // 
+            this.ym.DataPropertyName = "ym";
+            this.ym.HeaderText = "盤點日期";
+            this.ym.Name = "ym";
+            this.ym.ReadOnly = true;
+            this.ym.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // p_key
+            // 
+            this.p_key.DataPropertyName = "p_key";
+            this.p_key.HeaderText = "Pkey";
+            this.p_key.Name = "p_key";
+            this.p_key.ReadOnly = true;
+            this.p_key.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.p_key.Visible = false;
+            // 
+            // upd_flag
+            // 
+            this.upd_flag.DataPropertyName = "upd_flag";
+            this.upd_flag.HeaderText = "更新標識";
+            this.upd_flag.Name = "upd_flag";
+            this.upd_flag.ReadOnly = true;
+            this.upd_flag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.upd_flag.Visible = false;
             // 
             // location_id1
             // 
@@ -694,7 +685,6 @@
             this.upd_flag1.HeaderText = "UpdFlag";
             this.upd_flag1.Name = "upd_flag1";
             this.upd_flag1.ReadOnly = true;
-            this.upd_flag1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.upd_flag1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.upd_flag1.Visible = false;
             // 
@@ -749,16 +739,6 @@
         private System.Windows.Forms.ToolStripButton BTNOK;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn location_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adj_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adj_sec_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lot_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ym;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p_key;
-        private System.Windows.Forms.DataGridViewTextBoxColumn upd_flag;
         private System.Windows.Forms.DataGridView dgv2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
@@ -771,10 +751,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private ModuleClass.DataGridViewMaskedTextBoxColumn dataGridViewMaskedTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;       
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn location_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adj_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adj_sec_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lot_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ym;
+        private System.Windows.Forms.DataGridViewTextBoxColumn p_key;
+        private System.Windows.Forms.DataGridViewTextBoxColumn upd_flag;
         private System.Windows.Forms.DataGridViewTextBoxColumn location_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id1;
