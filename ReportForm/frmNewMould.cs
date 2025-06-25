@@ -140,15 +140,14 @@ namespace cf01.ReportForm
 
         private void Load_data()
         {
-            string sql = "SELECT DISTINCT A.id, A.mould_no,A.draw_ver,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,C.name,MD.brand_no,(cc.picture_path+'\\'+AT.picture_name) AS picture_name " +
+            string sql = "SELECT DISTINCT A.id, A.mould_no,A.draw_ver,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,C.name,MD.brand_no,(cc.picture_path +'\\'+Isnull(AT.picture_name_h,'')) AS picture_name " +
              " FROM (select within_code,id,mould_no,MAX(check_date) as check_date,MAX(ver) as ver,MAX(draw_ver) AS draw_ver from dbo.so_mould_notice_mostly with(nolock) Where state='1' group by within_code,id,mould_no) A " +
              " INNER JOIN dbo.so_mould_notice_details B with(nolock) on A.within_code =B.within_code AND A.id=B.id AND A.ver =B.ver" +
              " INNER JOIN dbo.cd_department C ON B.within_code =C.within_code AND B.dept_id =C.id AND C.dept_type='M' " +
              " INNER JOIN (select within_code,id,max(ver) AS ver,max(brand_no) as brand_no from dbo.so_draw_master with(nolock) where state ='1' group by within_code,id ) MD " +
              "         ON A.within_code =MD.within_code AND A.mould_no =MD.id " +
-             " Left outer join (Select id,max(picture_name) as picture_name from dbo.cd_pattern_details with(nolock) " +
-             "                 Where within_code='0000' and picture_name is not null AND application_scope ='1' group by id ) AT ON substring(B.mould_no,5,7) =AT.id " +
-             " inner join dbo.cd_company cc on A.within_code =cc.within_code " +
+             " LEFT JOIN dbo.cd_pattern with(nolock) AT ON B.within_code=AT.within_code And Substring(B.mould_no,5,7)=AT.id " +
+             " INNER JOIN dbo.cd_company cc on A.within_code =cc.within_code " +
              " WHERE A.within_code ='0000' ";
 
 

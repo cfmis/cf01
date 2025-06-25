@@ -270,20 +270,22 @@ namespace cf01.CLS
             DataTable dtParts = new DataTable();
             try
             {
-                string strSql = @" SELECT distinct a.goods_id as part_goods_id ,b.name as part_goods_name ,c.picture_name ,e.name as color_name ,'' as Ser_no ,'' as mo_id
-                                   FROM so_order_details d with(nolock)
-                                   INNER JOIN  so_order_bom a with(nolock) on d.id=a.id and d.sequence_id = a.upper_sequence
-                                   INNER JOIN it_goods b with(nolock) on a.within_code=b.within_code and a.goods_id=b.id
-                                   LEFT OUTER JOIN dbo.cd_pattern_details c with(nolock) ON b.within_code=c.within_code AND b.blueprint_id=c.id
-                                   LEFT OUTER JOIN dbo.cd_color e with(nolock) ON b.within_code=e.within_code and  b.color = e.id
-                                   WHERE d.mo_id='" + pmo_id + "'";
-                strSql = @"SELECT DISTINCT b.materiel_id AS part_goods_id,c.name AS part_goods_name ,d.picture_name,e.name as color_name ,'' as Ser_no ,'' as mo_id
-                                   FROM jo_bill_goods_details a with(nolock)
-                                   INNER JOIN  jo_bill_materiel_details b with(nolock) on a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver and a.sequence_id = b.upper_sequence
-                                   INNER JOIN it_goods c with(nolock) on b.within_code=c.within_code and b.materiel_id=c.id
-                                   LEFT OUTER JOIN dbo.cd_pattern_details d with(nolock) ON c.within_code=d.within_code AND c.blueprint_id=d.id
-                                   LEFT OUTER JOIN dbo.cd_color e with(nolock) ON c.within_code=e.within_code and  c.color = e.id
-                                   WHERE a.id='" + p_id + "'" + " and a.sequence_id='"+seq+"'";
+                string strSql = 
+                @" SELECT distinct a.goods_id as part_goods_id ,b.name as part_goods_name ,Isnull(c.picture_name_h,'') as picture_name,e.name as color_name ,'' as Ser_no ,'' as mo_id
+                FROM so_order_details d with(nolock)
+                INNER JOIN  so_order_bom a with(nolock) ON d.id=a.id And d.sequence_id = a.upper_sequence
+                INNER JOIN it_goods b with(nolock) ON a.within_code=b.within_code And a.goods_id=b.id
+                LEFT JOIN dbo.cd_pattern c with(nolock) ON b.within_code=c.within_code And b.blueprint_id=c.id
+                LEFT JOIN dbo.cd_color e with(nolock) ON b.within_code=e.within_code And b.color = e.id
+                WHERE d.mo_id='" + pmo_id + "'";
+                strSql = 
+                @"SELECT DISTINCT b.materiel_id AS part_goods_id,c.name AS part_goods_name,Isnull(d.picture_name_h,'') as picture_name,e.name as color_name,'' as Ser_no,'' as mo_id
+                FROM jo_bill_goods_details a with(nolock)
+                INNER JOIN  jo_bill_materiel_details b with(nolock) ON a.within_code=b.within_code And a.id=b.id And a.ver=b.ver And a.sequence_id = b.upper_sequence
+                INNER JOIN it_goods c with(nolock) on b.within_code=c.within_code And b.materiel_id=c.id
+                LEFT JOIN dbo.cd_pattern d with(nolock) ON c.within_code=d.within_code And c.blueprint_id=d.id
+                LEFT JOIN dbo.cd_color e with(nolock) ON c.within_code=e.within_code And c.color = e.id
+                WHERE a.id='" + p_id + "'" + " and a.sequence_id='"+seq+"'";
                 dtParts = clsConErp.GetDataTable(strSql);
 
                 if (dtParts.Rows.Count > 0)

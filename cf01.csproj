@@ -2937,7 +2937,9 @@
     <Compile Include="Reports\xrShippingRemark.designer.cs">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\xrSoEnglish.cs" />
+    <Compile Include="Reports\xrSoEnglish.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\xrSoEnglish.designer.cs">
       <DependentUpon>xrSoEnglish.cs</DependentUpon>
     </Compile>
@@ -3724,7 +3726,7 @@
     <EmbeddedResource Include="ModuleForm\PrintOptions.resx">
       <DependentUpon>PrintOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="ReportForm\frmArtworkFind.resx">
       <DependentUpon>frmArtworkFind.cs</DependentUpon>
     </EmbeddedResource>
@@ -4377,9 +4379,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrShippingRemark.resx">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\xrSoEnglish.resx">
-      <DependentUpon>xrSoEnglish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrTakeMoSample_A4.resx">
       <DependentUpon>xrTakeMoSample_A4.cs</DependentUpon>

@@ -1187,9 +1187,7 @@ namespace cf01.Forms
                     pic_artwork.Image = null;
                     string strArtwork = artwork_code.Substring(0, 7);
                     string strSql = string.Format(
-                    @"SELECT Top 1 id,picture_name FROM cd_pattern_details 
-                    Where within_code='0000' AND id='{0}' And ISNULL(picture_name,'')<>''
-                    Order by sequence_id", strArtwork);
+                    @"SELECT id,ISNULL(picture_name_h,'') As picture_name FROM cd_pattern Where within_code='0000' AND id='{0}'", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);
                     if (dt.Rows.Count > 0)
@@ -3379,8 +3377,8 @@ namespace cf01.Forms
                                 if (!string.IsNullOrEmpty(dgvDetails.Rows[r].Cells["cf_code"].Value.ToString()))
                                 {
                                     strSql = string.Format(
-                                    @"Select TOP 1 Isnull(picture_name,'') as picture_name From {0}cd_pattern_details with(nolock) 
-                                    Where within_code='0000' and id='{1}'", DBUtility.remote_db, dgvDetails.Rows[r].Cells["cf_code"].Value);
+                                    @"Select TOP 1 Isnull(picture_name_h,'') as picture_name From {0}cd_pattern with(nolock) 
+                                    Where within_code='0000' And id='{1}'", DBUtility.remote_db, dgvDetails.Rows[r].Cells["cf_code"].Value);
                                     dt = clsPublicOfCF01.GetDataTable(strSql);
                                     if (dt.Rows.Count > 0)
                                     {
