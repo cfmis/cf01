@@ -394,13 +394,13 @@ namespace cf01.Forms
                 totalSum += decimal.Parse(dtReport.Rows[i]["total_sum"].ToString());
                 totalDiscAmt += decimal.Parse(dtReport.Rows[i]["disc_amt"].ToString());
             }
-            
-            //using (xrSoEnglish rpt = new xrSoEnglish(totalSum, totalDiscAmt) { DataSource = dtReport })
-            //{
-            //    rpt.CreateDocument();
-            //    rpt.PrintingSystem.ShowMarginsWarning = false;
-            //    rpt.ShowPreviewDialog();
-            //}
+
+            using (xrSoEnglish rpt = new xrSoEnglish(totalSum, totalDiscAmt) { DataSource = dtReport })
+            {
+                rpt.CreateDocument();
+                rpt.PrintingSystem.ShowMarginsWarning = false;
+                rpt.ShowPreviewDialog();
+            }
         }
     }
 }

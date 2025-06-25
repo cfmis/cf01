@@ -2937,6 +2937,12 @@
     <Compile Include="Reports\xrShippingRemark.designer.cs">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrSoEnglish.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrSoEnglish.designer.cs">
+      <DependentUpon>xrSoEnglish.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrTakeMoSample_A4.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4373,6 +4379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrShippingRemark.resx">
       <DependentUpon>xrShippingRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrSoEnglish.resx">
+      <DependentUpon>xrSoEnglish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrTakeMoSample_A4.resx">
       <DependentUpon>xrTakeMoSample_A4.cs</DependentUpon>
