@@ -14,7 +14,7 @@ namespace cf01.ReportForm
     {
         clsCommonUse commUse = new clsCommonUse();
         string lang_id = DBUtility._language;
-        string remote_db = DBUtility.remote_db;//遠程數據庫連接
+        string remote_db = DBUtility.remote_db;//遠程數據庫連接//
 
         public frmLoadBrand()
         {
