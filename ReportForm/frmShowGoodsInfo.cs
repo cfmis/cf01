@@ -26,7 +26,7 @@ namespace cf01.ReportForm
         }
         private void frmShowGoodsInfo_Load(object sender, EventArgs e)
         {
-            picArt.SizeMode = PictureBoxSizeMode.StretchImage; // 适应控件大小//
+            picArt.SizeMode = PictureBoxSizeMode.StretchImage; // 适应控件大小////
         }
 
         private void btnFindGoods_Click(object sender, EventArgs e)
