@@ -246,7 +246,7 @@ namespace cf01.ReportForm
                 {                   
                     string strArtwork = artwork_code.Substring(0, 7);
                     string strSql = string.Format(
-                    @"SELECT Top 1 id,isnull(picture_name_h,'') as picture_name FROM cd_pattern 
+                    @"SELECT Top 1 id,picture_name_h as picture_name FROM cd_pattern 
                     Where within_code='0000' AND id='{0}' And ISNULL(picture_name_h,'')<>''", strArtwork);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt = clsConErp.GetDataTable(strSql);

@@ -217,12 +217,11 @@ namespace cf01.ReportForm
         {
             this.reportViewer1.LocalReport.DataSources.Clear();
             string strSql =
-                "SELECT Row_Number() over(ORDER BY A.update_date,A.mould_no) as seqno,0 as page_index,0 as column_index," +
-                "A.dept_id,A.mould_no,A.id,A.pattern_id,A.products_type,A.measurement,(C.picture_path+'\\'+ B.picture_name) AS picture_path " +
-                "FROM cd_mould_position A LEFT OUTER JOIN " +
-                "(select distinct within_code,id,picture_name from cd_pattern_details where picture_name is not null) B " +
-                "ON A.within_code = B.within_code AND A.pattern_id = B.id  LEFT OUTER JOIN cd_company C ON A.within_code =C.within_code " +
-                "WHERE A.within_code ='0000' ";
+            @"SELECT Row_Number() over(ORDER BY A.update_date,A.mould_no) as seqno,0 as page_index,0 as column_index,
+            A.dept_id,A.mould_no,A.id,A.pattern_id,A.products_type,A.measurement,(C.picture_path+'\\'+ Isnull(B.picture_name_h,'')) AS picture_path 
+            FROM cd_mould_position A,cd_company,
+            LEFT JOIN cd_pattern B ON A.within_code=B.within_code And A.pattern_id=B.id             
+            WHERE A.within_code =C.within_code And A.within_code ='0000' ";
 
             if (txtdept_id1.Text != "")
             {
