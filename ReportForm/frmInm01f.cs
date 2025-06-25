@@ -26,11 +26,11 @@ namespace cf01.ReportForm
 
         private void BTNFIND_Click(object sender, EventArgs e)
         {
-            string strSql = "select a.id As inm1item,a.english_name As inm1desc,a.name As inm1cdesc,a.unit_code As inm1unit,c.picture_path,b.picture_name" +
-                " From it_goods a " +
-                " Left Outer Join dbo.cd_pattern_details b On a.within_code=b.within_code And a.blueprint_id=b.id" +
-                " Inner Join cd_company c On a.within_code=c.within_code" +
-                " where a.id >= ''";
+            string strSql = "select a.id As inm1item,a.english_name As inm1desc,a.name As inm1cdesc,a.unit_code As inm1unit,c.picture_path,Isnull(b.picture_name_h,'') as picture_name" +
+            " From it_goods a " +
+            " Left Outer Join dbo.cd_pattern b On a.within_code=b.within_code And a.blueprint_id=b.id" +
+            " Inner Join cd_company c On a.within_code=c.within_code" +
+            " where a.id >= ''";
             if (textBox1.Text.ToString() != "")
             {
                 strSql = strSql + " and substring(a.id,1,2) >= " + "'" + textBox1.Text.ToString() + "'";

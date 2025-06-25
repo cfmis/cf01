@@ -285,10 +285,8 @@ namespace cf01.CLS
        
         public static DataTable GetArtwork(string art_code)
         {
-            string strSql = "Select a.id,a.name,b.picture_name " +
-                " From cd_pattern a " +
-                " Left Join cd_pattern_details b On a.within_code=b.within_code And a.id=b.id " +
-                " Where a.within_code='" + within_code + "' And a.id='" + art_code + "'";
+            string strSql = "Select a.id,a.name,ISNULL(a.picture_name_h,'') AS picture_name " +
+                " From cd_pattern a Where a.within_code='" + within_code + "' And a.id='" + art_code + "'";
             DataTable dtArtwork = clsPublicOfGEO.GetDataTable(strSql);
             return dtArtwork;
         }

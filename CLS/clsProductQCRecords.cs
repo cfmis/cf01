@@ -144,8 +144,7 @@ namespace cf01.CLS
 			try
 			{
 				DataTable dtMat_Logo = new DataTable();
-                string strSql = "SELECT a.id ,a.name,b.picture_name FROM  cd_pattern a " +
-                    " Left Join cd_pattern_details b ON a.within_code=b.within_code AND a.id=b.id WHERE a.within_code='0000' AND a.id='" + pId + "'";
+                string strSql = "SELECT a.id,a.name,Isnull(a.picture_name_h,'') as picture_name FROM cd_pattern a WHERE a.within_code='0000' And a.id='" + pId + "'";
                 dtArt = clsConErp.GetDataTable(strSql);
 			}
 			catch (Exception ex)

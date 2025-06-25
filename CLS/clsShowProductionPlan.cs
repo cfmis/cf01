@@ -89,9 +89,9 @@ namespace cf01.CLS
             DataTable dtTemp = new DataTable();
             try
             {
-                string strSql = @"SELECT b.sequence_id AS art_id,b.picture_name
-                                  FROM  dbo.it_goods a 
-                                  LEFT JOIN dbo.cd_pattern_details b ON a.within_code=b.within_code AND a.blueprint_id=b.id                          
+                string strSql = @"SELECT b.sequence_id AS art_id,Isnull(b.picture_name_h,'') as picture_name
+                                  FROM dbo.it_goods a 
+                                  LEFT JOIN dbo.cd_pattern b ON a.within_code=b.within_code AND a.blueprint_id=b.id                          
                                   WHERE a.within_code='0000' and a.id='" + pGoods_id + "' ";
 
                 dtTemp = clsConErp.GetDataTable(strSql);

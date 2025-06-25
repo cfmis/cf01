@@ -2887,8 +2887,8 @@ namespace cf01.Forms
                             if (!string.IsNullOrEmpty(gridView1.GetRowCellDisplayText(r, "cf_code")))
                             {
                                 strSql = string.Format(
-                                @"Select TOP 1 Isnull(picture_name,'') as picture_name From {0}cd_pattern_details with(nolock)
-                                Where within_code='0000' and id='{1}'", DBUtility.remote_db, gridView1.GetRowCellDisplayText(r, "cf_code"));
+                                @"Select TOP 1 Isnull(picture_name_h,'') as picture_name From {0}cd_pattern with(nolock)
+                                Where within_code='0000' And id='{1}'", DBUtility.remote_db, gridView1.GetRowCellDisplayText(r, "cf_code"));
                                 dt = clsPublicOfCF01.GetDataTable(strSql);
                                 if (dt.Rows.Count > 0)
                                 {
@@ -3163,8 +3163,8 @@ namespace cf01.Forms
                             if (!string.IsNullOrEmpty(gridView1.GetRowCellDisplayText(r, "cf_code")))
                             {
                                 strSql = string.Format(
-                                @"Select TOP 1 Isnull(picture_name,'') as picture_name From {0}cd_pattern_details with(nolock)
-                                  Where within_code='0000' and id='{1}'", DBUtility.remote_db, gridView1.GetRowCellDisplayText(r, "cf_code"));
+                                @"Select TOP 1 Isnull(picture_name_h,'') as picture_name From {0}cd_pattern with(nolock)
+                                  Where within_code='0000' And id='{1}'", DBUtility.remote_db, gridView1.GetRowCellDisplayText(r, "cf_code"));
                                 dt = clsPublicOfCF01.GetDataTable(strSql);
                                 if (dt.Rows.Count > 0)
                                 {

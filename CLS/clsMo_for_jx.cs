@@ -251,10 +251,10 @@ namespace cf01.CLS
             try
             {
                 string strSQL = string.Format(
-                     @"SELECT TOP 1 b.sequence_id AS art_id,b.picture_name
+                     @"SELECT TOP 1 b.sequence_id As art_id,Isnull(b.picture_name_h,'') As picture_name
                       FROM it_goods a with(nolock)
-                      LEFT JOIN cd_pattern_details b ON a.within_code=b.within_code AND a.blueprint_id=b.id
-                      WHERE a.within_code='0000' AND a.id = '{0}'", goods_item);
+                      LEFT JOIN cd_pattern b ON a.within_code=b.within_code AND a.blueprint_id=b.id
+                      WHERE a.within_code='0000' And a.id ='{0}'", goods_item);
                 //string strSQL = String.Format(@"Select dbo.Fn_get_picture_name('0000','{0}','OUT') AS picture_name", goods_item);
                 dtArt = clsConErp.GetDataTable(strSQL);
             }
@@ -1090,11 +1090,11 @@ namespace cf01.CLS
         public static DataTable GetCurrentWipData(string dep,string mo_id, string goods_id)
         {
             string strSql = string.Format(
-                @"SELECT TOP 1 b.goods_id,b.next_wp_id,c.do_color,b.vendor_id,d.picture_name
+                @"SELECT TOP 1 b.goods_id,b.next_wp_id,c.do_color,b.vendor_id,Isnull(d.picture_name_h,'') as picture_name
 	            FROM jo_bill_mostly a with(nolock)
                 INNER JOIN jo_bill_goods_details b with(nolock) ON a.within_code=b.within_code AND a.id=b.id AND a.ver=b.ver
 	            INNER JOIN it_goods c with(nolock) ON b.within_code=c.within_code AND b.goods_id=c.id
-                INNER JOIN cd_pattern_details d ON c.within_code=d.within_code AND c.blueprint_id=d.id
+                LEFT JOIN cd_pattern d ON c.within_code=d.within_code AND c.blueprint_id=d.id
                 WHERE a.within_code='{0}' And a.mo_id='{1}' And b.wp_id='{2}' And b.goods_id='{3}'", "0000", mo_id, dep, goods_id
             );
             DataTable dt = clsConErp.GetDataTable(strSql);

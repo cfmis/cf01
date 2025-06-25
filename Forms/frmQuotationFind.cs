@@ -668,8 +668,8 @@ namespace cf01.Forms
                         if (!string.IsNullOrEmpty(dgvDetails.Rows[r].Cells["cf_code"].Value.ToString()))
                         {
                             strSql = string.Format(
-                            @"Select TOP 1 Isnull(picture_name,'') as picture_name From {0}cd_pattern_details with(nolock)
-                            Where within_code='0000' and id='{1}'", DBUtility.remote_db, dgvDetails.Rows[r].Cells["cf_code"].Value);
+                            @"Select TOP 1 Isnull(picture_name_h,'') as picture_name From {0}cd_pattern with(nolock)
+                            Where within_code='0000' And id='{1}'", DBUtility.remote_db, dgvDetails.Rows[r].Cells["cf_code"].Value);
                             dt = clsPublicOfCF01.GetDataTable(strSql);
                             if (dt.Rows.Count > 0)
                             {

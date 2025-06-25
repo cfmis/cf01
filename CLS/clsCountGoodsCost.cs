@@ -621,13 +621,12 @@ namespace cf01.CLS
 
             strSql = "Select a.id,a.name" +
                 " ,a.datum,b.name As mat_cdesc,a.base_class,c.name As prd_cdesc" +
-                " ,a.blueprint_id,d.name As art_cdesc,e.picture_name As art_image" +
+                " ,a.blueprint_id,d.name As art_cdesc,isnull(d.picture_name_h,'') As art_image" +
                 " ,a.size_id,f.name As size_cdesc,a.color,g.name As clr_cdesc,a.do_color As DoColor" +
                 " From it_goods a " +
                 " Left Join cd_datum b On a.within_code=b.within_code And a.datum=b.id" +
                 " Left Join cd_goods_class c On a.within_code=c.within_code And a.base_class=c.id" +
-                " Left Join cd_pattern d On a.within_code=d.within_code And a.blueprint_id=d.id" +
-                " Left Join cd_pattern_details e On d.within_code=e.within_code And d.id=e.id" +
+                " Left Join cd_pattern d On a.within_code=d.within_code And a.blueprint_id=d.id" +                
                 " Left Join cd_size f On a.within_code=f.within_code And a.size_id=f.id" +
                 " Left Join cd_color g On a.within_code=g.within_code And a.color=g.id" +
                 " Where a.within_code='" + within_code + "' And a.id='" + productID + "'";

@@ -22,7 +22,7 @@ namespace cf01.ReportForm
         private void button1_Click(object sender, EventArgs e)
         {
             string strSql;
-            strSql = "SELECT TOP 1000 id,picture_name FROM dgerp2.cferp.dbo.cd_pattern_details Where id>='TOMM' AND id<='TOMMZZZZZ'";
+            strSql = "SELECT TOP 1000 id,Isnull(picture_name_h,'') as picture_name FROM dgerp2.cferp.dbo.cd_pattern Where id>='TOMM' AND id<='TOMMZZZZZ'";
             DataTable dtArt;
             dtArt = commUse.GetDataTable(strSql);
             dgvDetails.DataSource = dtArt;
