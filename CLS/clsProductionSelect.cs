@@ -44,7 +44,9 @@ namespace cf01.CLS
         public static DataTable GetDefective()
         {
             string strSql = "";
-            strSql = " SELECT defective_id,defective_cdesc FROM defective_tb";
+            strSql = " SELECT defective_id,RTRIM(defective_id)+'--'+rtrim(defective_cdesc) As defective_cdesc" +
+                " FROM defective_tb" +
+                " Order By defective_id";
             DataTable dtDefective = clsPublicOfPad.GetDataTable(strSql);
             return dtDefective;
         }

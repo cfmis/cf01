@@ -696,53 +696,60 @@ namespace cf01.Forms
                 txtPrd_qty.SelectAll();
                 return false;
             }
-            //如果是完成的，就要做如下控制
-            if (dtpStart.Text != "00:00" && dtpEnd.Text != "00:00")/* && cmbGroup.SelectedValue.ToString() != "AB99"*/
+            ////如果是完成的，就要做如下控制
+            //if (dtpStart.Text != "00:00" && dtpEnd.Text != "00:00")/* && cmbGroup.SelectedValue.ToString() != "AB99"*/
+            //{
+            if (dtWorker.Rows.Count == 0)
             {
-                if (dtWorker.Rows.Count == 0 )
+                MessageBox.Show("選貨工號不能為空，請重新輸入!");
+                txtWorker.Focus();
+                return false;
+            }
+            if (txtPrd_qty.Text == "" || txtPrd_qty.Text == "0")
+            {
+                MessageBox.Show("數量不能為零,請重新輸入!");
+                txtPrd_qty.Focus();
+                txtPrd_qty.SelectAll();
+                return false;
+            }
+            if (txtprd_weg.Text == "" || txtprd_weg.Text == "0")
+            {
+                MessageBox.Show("重量不能為零,請重新輸入!");
+                txtprd_weg.Focus();
+                txtprd_weg.SelectAll();
+                return false;
+            }
+            if (string.Compare(cmbProductDept.Text.Trim(), "500") > 0 && string.Compare(cmbProductDept.Text, "699") < 0)
+            {
+                if (txtOk_qty.Text == "" || txtOk_qty.Text == "0")
                 {
-                    MessageBox.Show("選貨工號不能為空，請重新輸入!");
-                    txtWorker.Focus();
+                    MessageBox.Show("良品數不能為空!");
+                    txtOk_qty.Focus();
+                    txtOk_qty.SelectAll();
                     return false;
                 }
-                if (txtPrd_qty.Text == "" || txtPrd_qty.Text == "0")
+                //if (!Verify.StringValidating(txtOk_qty.Text.Trim(), Verify.enumValidatingType.AllNumber))
+                //{
+                //    MessageBox.Show("包數格式有誤,請重新輸入!");
+                //    txtOk_qty.Focus();
+                //    txtOk_qty.SelectAll();
+                //    return false;
+                //}
+                if (txtNook_qty.Text != "" && !Verify.StringValidating(txtNook_qty.Text.Trim(), Verify.enumValidatingType.AllNumber))
                 {
-                    MessageBox.Show("數量不能為零,請重新輸入!");
-                    txtPrd_qty.Focus();
-                    txtPrd_qty.SelectAll();
+                    MessageBox.Show("不良品數格式有誤,請重新輸入!");
+                    txtNook_qty.Focus();
+                    txtNook_qty.SelectAll();
                     return false;
                 }
-                if (string.Compare(cmbProductDept.Text.Trim(), "500") > 0 && string.Compare(cmbProductDept.Text, "599") < 0)
-                {
-                    if (txtOk_qty.Text == "" || txtOk_qty.Text == "0")
-                    {
-                        MessageBox.Show("良品數不能為空!");
-                        txtOk_qty.Focus();
-                        txtOk_qty.SelectAll();
-                        return false;
-                    }
-                    if (!Verify.StringValidating(txtOk_qty.Text.Trim(), Verify.enumValidatingType.AllNumber))
-                    {
-                        MessageBox.Show("包數格式有誤,請重新輸入!");
-                        txtOk_qty.Focus();
-                        txtOk_qty.SelectAll();
-                        return false;
-                    }
-                    if (txtNook_qty.Text != "" && !Verify.StringValidating(txtNook_qty.Text.Trim(), Verify.enumValidatingType.AllNumber))
-                    {
-                        MessageBox.Show("不良品數格式有誤,請重新輸入!");
-                        txtOk_qty.Focus();
-                        txtOk_qty.SelectAll();
-                        return false;
-                    }
-                    //if ((lueJobType.EditValue != null ? lueJobType.EditValue.ToString().Trim() : "") == "")
-                    //{
-                    //    MessageBox.Show("標準編碼不能為空,請重新輸入!");
-                    //    lueJobType.Focus();
-                    //    lueJobType.SelectAll();
-                    //    return false;
-                    //}
-                }
+                //if ((lueJobType.EditValue != null ? lueJobType.EditValue.ToString().Trim() : "") == "")
+                //{
+                //    MessageBox.Show("標準編碼不能為空,請重新輸入!");
+                //    lueJobType.Focus();
+                //    lueJobType.SelectAll();
+                //    return false;
+                //}
+                //}
             }
             if (string.Compare(dteProdcutDate.Text, System.DateTime.Now.ToString("yyyy/MM/dd")) > 0)
             {
