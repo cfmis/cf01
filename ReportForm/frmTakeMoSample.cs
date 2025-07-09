@@ -153,7 +153,9 @@ namespace cf01.ReportForm
             {
                 chkSelectAll.Checked = true;
                 for (int i = 0; i < dgvDetails.Rows.Count; i++)
+                {
                     dgvDetails.Rows[i].Cells["colDchk"].Value = true;
+                }
             }
             return dtDetails;
         }
@@ -184,6 +186,7 @@ namespace cf01.ReportForm
             //    dtSample.Columns.Add("customer_color_id", typeof(string));
             //}
             int j = 0;
+            DataTable dtArt = new DataTable();
             for (int i = 0; i < dgvDetails.Rows.Count; i++)
             {
                 if (dgvDetails.Rows[i].Cells["colDchk"].Value != null && (bool)dgvDetails.Rows[i].Cells["colDchk"].Value == true)
@@ -205,8 +208,11 @@ namespace cf01.ReportForm
                     dtSample.ImportRow(row);
                     j = dtSample.Rows.Count - 1;
                     dtSample.Rows[j]["sequence_id"] = dtSample.Rows[j]["sequence_id"].ToString().Substring(2, 2);
-                    DataTable dtArt = clsMo_for_jx.GetGoods_ArtWork(dtSample.Rows[j]["goods_id"].ToString());
-                    dtSample.Rows[j]["picture_name"] = dtArt.Rows[0]["picture_name"].ToString();
+                    dtArt = clsMo_for_jx.GetGoods_ArtWork(dtSample.Rows[j]["goods_id"].ToString());
+                    if (dtArt.Rows.Count > 0)
+                    {
+                        dtSample.Rows[j]["picture_name"] = dtArt.Rows[0]["picture_name"].ToString();                       
+                    }
                     dtSample.Rows[j]["BarCode"] = clsMo_for_jx.ReturnBarCode(dtSample.Rows[j]["id"].ToString().Substring(3, 10) + dtSample.Rows[j]["sequence_id"].ToString());
                 }
             }
