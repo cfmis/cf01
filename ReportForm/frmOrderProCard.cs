@@ -29,13 +29,9 @@ namespace cf01.ReportForm
         clsUtility.enumOperationType operationType;
         string goods_id = "", table_state = "";
         public static string strProcess = "";
-        int mCount, Reserve_Qty;
+        int mCount, Reserve_Qty;    
 
         
-        
-
-        
-
         public frmOrderProCard()
         {
             InitializeComponent();           
@@ -281,6 +277,12 @@ namespace cf01.ReportForm
                     //}
                 }
             }
+            else
+            {
+                txtPicPath.Text = "";
+                txtArtId.Text = "";
+                picArtWork.Image = null;
+            }
 
             if (dtColorInfo.Rows.Count > 0)
             {
@@ -297,7 +299,6 @@ namespace cf01.ReportForm
             if (dtSize.Rows.Count > 0)
             {
                 txtSizeName.Text = dtSize.Rows[0]["size_name"].ToString();
-
             }
         }
 

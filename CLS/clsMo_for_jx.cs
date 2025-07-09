@@ -251,10 +251,10 @@ namespace cf01.CLS
             try
             {
                 string strSQL = string.Format(
-                     @"SELECT TOP 1 b.sequence_id As art_id,Isnull(b.picture_name_h,'') As picture_name
-                      FROM it_goods a with(nolock)
-                      LEFT JOIN cd_pattern b ON a.within_code=b.within_code AND a.blueprint_id=b.id
-                      WHERE a.within_code='0000' And a.id ='{0}'", goods_item);
+                @"SELECT TOP 1 b.sequence_id As art_id,Isnull(b.picture_name,'') As picture_name
+                FROM it_goods a with(nolock)
+                LEFT JOIN cd_pattern_details b ON a.within_code=b.within_code AND a.blueprint_id=b.id
+                WHERE a.within_code='0000' And a.id ='{0}' And Isnull(b.picture_name,'')<>''", goods_item);
                 //string strSQL = String.Format(@"Select dbo.Fn_get_picture_name('0000','{0}','OUT') AS picture_name", goods_item);
                 dtArt = clsConErp.GetDataTable(strSQL);
             }
