@@ -21,7 +21,9 @@ namespace cf01.ReportForm
     public partial class frmNewMould : Form
     {
         private clsPublicOfGEO clsConErp = new clsPublicOfGEO();
-        private DataTable dtDepartment;
+        private DataTable dtDepartment = new DataTable();
+        DataTable dtMould = new DataTable();
+
         public static string str_language = "0";
         public frmNewMould()
         {
@@ -62,9 +64,9 @@ namespace cf01.ReportForm
 
         private void txtDept1_Leave(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtDept1.Text))
+            if (!string.IsNullOrEmpty(txtDept1.Text))
             {
-                txtDept2.Text = txtDept1.Text;
+                txtDept2.EditValue = txtDept1.EditValue;
             }
         }
 
@@ -133,46 +135,7 @@ namespace cf01.ReportForm
             //************************
             Load_data(); //数据处理
             //************************
-
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-
-        }
-
-        private void Load_data()
-        {
-            string sql = "SELECT DISTINCT A.id, A.mould_no,A.draw_ver,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,C.name,MD.brand_no,(cc.picture_path +'\\'+Isnull(AT.picture_name_h,'')) AS picture_name " +
-             " FROM (select within_code,id,mould_no,MAX(check_date) as check_date,MAX(ver) as ver,MAX(draw_ver) AS draw_ver from dbo.so_mould_notice_mostly with(nolock) Where state='1' group by within_code,id,mould_no) A " +
-             " INNER JOIN dbo.so_mould_notice_details B with(nolock) on A.within_code =B.within_code AND A.id=B.id AND A.ver =B.ver" +
-             " INNER JOIN dbo.cd_department C ON B.within_code =C.within_code AND B.dept_id =C.id AND C.dept_type='M' " +
-             " INNER JOIN (select within_code,id,max(ver) AS ver,max(brand_no) as brand_no from dbo.so_draw_master with(nolock) where state ='1' group by within_code,id ) MD " +
-             "         ON A.within_code =MD.within_code AND A.mould_no =MD.id " +
-             " LEFT JOIN dbo.cd_pattern with(nolock) AT ON B.within_code=AT.within_code And Substring(B.mould_no,5,7)=AT.id " +
-             " INNER JOIN dbo.cd_company cc on A.within_code =cc.within_code " +
-             " WHERE A.within_code ='0000' ";
-
-
-
-            if (deCheck_Date1.Text != "")
-            {
-                sql += String.Format(" AND A.check_date>='{0}'", deCheck_Date1.Text.Trim());
-            }
-            if (deCheck_Date2.Text != "")
-            {
-                //日期加1
-                string dat2 = Convert.ToDateTime(this.deCheck_Date2.Text).AddDays(1).ToString("yyyy/MM/dd");
-                sql += String.Format(" AND A.check_date<='{0}'", dat2);
-            }
-            if (txtDept1.Text != "")
-            {
-                sql += String.Format(" AND B.dept_id>='{0}'", txtDept1.Text.Trim());
-            }
-            if (txtDept2.Text != "")
-            {
-                sql += String.Format(" AND B.dept_id<='{0}'", txtDept2.Text.Trim());
-            }
-            sql += " ORDER BY B.dept_id,Convert(char(10),A.check_date,120),A.id ";
-            DataTable dtMould = clsConErp.GetDataTable(sql);
-
 
             //顯示報表
             if (dtMould.Rows.Count == 0)
@@ -182,7 +145,7 @@ namespace cf01.ReportForm
                 {
                     strMsg = "Query does not meet the requirements of the data.";
                 }
-                MessageBox.Show(strMsg, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(strMsg, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //dtMould.DefaultView.Sort = "dept_id,check_date,id";  //排序             
                 return;
             }
@@ -190,6 +153,47 @@ namespace cf01.ReportForm
             //加載報表
             xrNewMould mMyRepot = new xrNewMould() { DataSource = dtMould };
             mMyRepot.ShowPreview();
+
+        }
+
+        private void Load_data()
+        {
+            string sql =
+            @"SELECT DISTINCT A.id, A.mould_no,A.draw_ver,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,
+             C.name,MD.brand_no,(cc.picture_path +'\\'+Isnull(AT.picture_name_h,'')) AS picture_name 
+             FROM (select within_code,id,mould_no,MAX(check_date) as check_date,MAX(ver) as ver,MAX(draw_ver) AS draw_ver 
+                   From dbo.so_mould_notice_mostly with(nolock) 
+                   Where state='1' Group by within_code,id,mould_no
+                  ) A 
+                 INNER JOIN dbo.so_mould_notice_details B with(nolock) on A.within_code = B.within_code AND A.id=B.id AND A.ver =B.ver
+                 INNER JOIN dbo.cd_department C ON B.within_code = C.within_code AND B.dept_id = C.id AND C.dept_type ='M' 
+                 INNER JOIN (select within_code,id,max(ver) AS ver,max(brand_no) as brand_no 
+                            From dbo.so_draw_master with(nolock) 
+                            Where state ='1' Group by within_code,id 
+                            ) MD ON A.within_code = MD.within_code AND A.mould_no = MD.id 
+                 LEFT JOIN dbo.cd_pattern AT with(nolock) ON B.within_code=AT.within_code And Substring(B.mould_no,5,7)=AT.id 
+                 INNER JOIN dbo.cd_company cc on A.within_code =cc.within_code 
+            WHERE A.within_code ='0000' ";
+            if (deCheck_Date1.Text != "")
+            {
+                sql += string.Format(" AND A.check_date>='{0}'", deCheck_Date1.Text.Trim());
+            }
+            if (deCheck_Date2.Text != "")
+            {
+                //日期加1
+                string dat2 = Convert.ToDateTime(this.deCheck_Date2.Text).AddDays(1).ToString("yyyy/MM/dd");
+                sql += string.Format(" AND A.check_date<='{0}'", dat2);
+            }
+            if (txtDept1.Text != "")
+            {
+                sql += string.Format(" AND B.dept_id>='{0}'", txtDept1.Text.Trim());
+            }
+            if (txtDept2.Text != "")
+            {
+                sql += string.Format(" AND B.dept_id<='{0}'", txtDept2.Text.Trim());
+            }
+            sql += " ORDER BY B.dept_id,Convert(char(10),A.check_date,120),A.id ";
+            dtMould = clsConErp.GetDataTable(sql);            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
