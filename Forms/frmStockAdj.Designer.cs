@@ -67,6 +67,7 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.location_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +90,7 @@
             this.ym1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p_key1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.upd_flag1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag_del = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -278,7 +280,8 @@
             this.ib_weight1,
             this.ym1,
             this.p_key1,
-            this.upd_flag1});
+            this.upd_flag1,
+            this.flag_del});
             this.dgv2.Location = new System.Drawing.Point(7, 96);
             this.dgv2.Name = "dgv2";
             this.dgv2.ReadOnly = true;
@@ -407,6 +410,7 @@
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn13.Visible = false;
             this.dataGridViewTextBoxColumn13.Width = 110;
             // 
             // dataGridViewTextBoxColumn14
@@ -472,6 +476,7 @@
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
             this.dataGridViewTextBoxColumn20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn20.Visible = false;
+            this.dataGridViewTextBoxColumn20.Width = 110;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -490,6 +495,14 @@
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
             this.dataGridViewTextBoxColumn22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "upd_flag";
+            this.dataGridViewTextBoxColumn23.HeaderText = "更新標識";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn23.Visible = false;
             // 
             // sequence_id
             // 
@@ -688,6 +701,15 @@
             this.upd_flag1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.upd_flag1.Visible = false;
             // 
+            // flag_del
+            // 
+            this.flag_del.DataPropertyName = "flag_del";
+            this.flag_del.HeaderText = "FlagDel";
+            this.flag_del.Name = "flag_del";
+            this.flag_del.ReadOnly = true;
+            this.flag_del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.flag_del.Visible = false;
+            // 
             // frmStockAdj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -776,5 +798,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ym1;
         private System.Windows.Forms.DataGridViewTextBoxColumn p_key1;
         private System.Windows.Forms.DataGridViewTextBoxColumn upd_flag1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag_del;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
     }
 }

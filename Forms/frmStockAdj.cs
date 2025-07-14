@@ -66,7 +66,13 @@ namespace cf01.Forms
                 {
                     return;
                 }
-                
+
+                if (dtSt.Rows.Count > 0)
+                {
+                    MessageBox.Show($"請首先清空GEO中【{txtDept.Text}】倉的庫存!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 //是示查詢進度
                 frmProgress wForm = new frmProgress();
                 new Thread((ThreadStart)delegate
@@ -119,32 +125,39 @@ namespace cf01.Forms
             List<st_a_subordination> lstDetailData1 = new List<st_a_subordination>();
             for (int i = 0; i < dtAdjUpdate.Rows.Count; i++)
             {
-                st_a_subordination lstMd = new st_a_subordination();               
-                lstMd.id = headData.id;
-                lstMd.sequence_id = dtAdjUpdate.Rows[i]["sequence_id"].ToString();
-                lstMd.mo_id = dtAdjUpdate.Rows[i]["mo_id"].ToString();
-                lstMd.goods_id = dtAdjUpdate.Rows[i]["goods_id"].ToString();
-                lstMd.goods_name = "";
-                lstMd.color = "";
-                lstMd.location = locationId;
-                lstMd.carton_code = locationId;
-                lstMd.unit = "PCS";
-                lstMd.qty = decimal.Parse(dtAdjUpdate.Rows[i]["adj_qty"].ToString());
-                lstMd.sec_qty = decimal.Parse(dtAdjUpdate.Rows[i]["adj_sec_qty"].ToString());
-                lotNo = dtAdjUpdate.Rows[i]["lot_no"].ToString();
-                if (string.IsNullOrEmpty(lotNo))
+                if (dtAdjUpdate.Rows[i]["flag_del"].ToString() == "Y")
                 {
-                    lotNo = clsPublic.GetDeptLotNo(locationId, locationId);//自動生成批號
+                    continue;
                 }
-                lstMd.lot_no = lotNo;
-                lstMd.ib_amount = decimal.Parse(dtAdjUpdate.Rows[i]["ib_amount"].ToString());
-                lstMd.ib_weight = decimal.Parse(dtAdjUpdate.Rows[i]["ib_weight"].ToString());
-                lstMd.price = 0;
-                lstMd.transfers_state = "0";
-                lstMd.sec_unit = "KG";
-                lstMd.remark = "";
-                lstMd.row_status = "NEW";
-                lstDetailData1.Add(lstMd);
+                else
+                {
+                    st_a_subordination lstMd = new st_a_subordination();
+                    lstMd.id = headData.id;
+                    lstMd.sequence_id = ""; //dtAdjUpdate.Rows[i]["sequence_id"].ToString();
+                    lstMd.mo_id = dtAdjUpdate.Rows[i]["mo_id"].ToString();
+                    lstMd.goods_id = dtAdjUpdate.Rows[i]["goods_id"].ToString();
+                    lstMd.goods_name = "";
+                    lstMd.color = "";
+                    lstMd.location = locationId;
+                    lstMd.carton_code = locationId;
+                    lstMd.unit = "PCS";
+                    lstMd.qty = decimal.Parse(dtAdjUpdate.Rows[i]["adj_qty"].ToString());
+                    lstMd.sec_qty = decimal.Parse(dtAdjUpdate.Rows[i]["adj_sec_qty"].ToString());
+                    lotNo = dtAdjUpdate.Rows[i]["lot_no"].ToString();
+                    if (string.IsNullOrEmpty(lotNo))
+                    {
+                        lotNo = clsPublic.GetDeptLotNo(locationId, locationId);//自動生成批號
+                    }
+                    lstMd.lot_no = lotNo;
+                    lstMd.ib_amount = decimal.Parse(dtAdjUpdate.Rows[i]["ib_amount"].ToString());
+                    lstMd.ib_weight = decimal.Parse(dtAdjUpdate.Rows[i]["ib_weight"].ToString());
+                    lstMd.price = 0;
+                    lstMd.transfers_state = "0";
+                    lstMd.sec_unit = "KG";
+                    lstMd.remark = "";
+                    lstMd.row_status = "NEW";
+                    lstDetailData1.Add(lstMd);
+                }
             }           
             //保存并批準庫存調整數據,
             string result = clsTransferout.SaveAdjData(headData, lstDetailData1, DBUtility._user_id);
@@ -189,8 +202,8 @@ namespace cf01.Forms
                 return;
             }
             string sql =
-            @"Select seq As sequence_id,loc_id As location_id,mo_id,goods_id,st_qty As adj_qty,st_weg As adj_sec_qty,
-            st_month As ym,'' As lot_no,p_key,upd_flag
+            @"Select loc_id As location_id,mo_id,goods_id,Sum(st_qty) As adj_qty,Sum(st_weg) As adj_sec_qty,
+            st_month As ym,'' As lot_no,Max(upd_flag) as upd_flag
             From dgcf_pad.dbo.product_inventory WHERE goods_id<>'' And Isnull(upd_flag,'0')='0'";
             if (txtDept.Text.Trim() != "")
             {
@@ -200,7 +213,7 @@ namespace cf01.Forms
             {
                 sql += $" And st_month='{mskMonth.Text.Trim()}'";
             }
-            sql += " Order by id,seq";
+            sql += " Group by st_month,loc_id,mo_id,goods_id Order by st_month,loc_id,mo_id,goods_id";
             dtAdj = clsPublicOfCF01.GetDataTable(sql);
             dgv1.DataSource = dtAdj;
             if (dtAdj.Rows.Count == 0)
@@ -237,15 +250,45 @@ namespace cf01.Forms
             {
                 return;
             }
+            dtAdj.Columns.Add("flag_del", typeof(string));
             dtAdjTemp = dtAdj.Clone();
             dtAdjTemp.Columns.Add("ib_amount", typeof(decimal));
-            dtAdjTemp.Columns.Add("ib_weight", typeof(decimal));
-            string filter = string.Empty, location = string.Empty, moId = string.Empty, goodsId = string.Empty, lotNo = string.Empty;           
-            decimal adjQty = 0,  adjWeg = 0, tmpWeg = 0, tmpQty = 0,tmpIbamount = 0, tmpIbweight = 0;
+            dtAdjTemp.Columns.Add("ib_weight", typeof(decimal));            
+            string filter = string.Empty, location = string.Empty, moId = string.Empty, goodsId = string.Empty, lotNo = string.Empty;
+            decimal adjQty = 0, adjWeg = 0, tmpWeg = 0, tmpQty = 0, tmpIbamount = 0, tmpIbweight = 0;
             decimal stQty = 0, stWeg = 0;
-            DataRow[] aryDr ;
-            DataRow dr ;
+            DataRow[] aryDr;
             DataRow[] aryDrLotNo;
+            DataRow dr;
+            
+            //標記倉庫，頁數，貨品編號，數量，重量與GEO庫存中一樣的，這類數據不用調整
+            for (int i = 0; i < dtAdj.Rows.Count; i++)
+            {
+                location = dtAdj.Rows[i]["location_id"].ToString();
+                moId = dtAdj.Rows[i]["mo_id"].ToString();
+                goodsId = dtAdj.Rows[i]["goods_id"].ToString();
+                adjQty = decimal.Parse(dtAdj.Rows[i]["adj_qty"].ToString());
+                adjWeg = decimal.Parse(dtAdj.Rows[i]["adj_sec_qty"].ToString());
+                for(int j=0;j< dtSt.Rows.Count;j++)
+                {
+                    if(location == dtSt.Rows[j]["location_id"].ToString().Trim() && 
+                        moId == dtSt.Rows[j]["mo_id"].ToString().Trim() &&
+                        goodsId == dtAdj.Rows[i]["goods_id"].ToString() && 
+                        adjQty == decimal.Parse(dtSt.Rows[j]["qty"].ToString()) &&
+                        adjWeg == decimal.Parse(dtSt.Rows[j]["sec_qty"].ToString()))
+                    {
+                        dtAdj.Rows[i]["flag_del"] = "Y";
+                        break;
+                    }
+                }
+               // dtSt.Select();
+                //aryDr = dtSt.Select($"location_id='{location}' And mo_id='{moId}' And goods_id='{goodsId}' and qty={adjQty} and sec_qty={adjWeg}");
+                //if (aryDr.Length > 0)
+                //{
+                //    dtAdj.Rows[i]["flag_del"] = "Y";
+                //}
+            }
+            dtAdj.AcceptChanges();
 
             Graphics g = progressBar1.CreateGraphics();
             System.Drawing.Font mf = new System.Drawing.Font("Arial", 9);
@@ -259,7 +302,7 @@ namespace cf01.Forms
             progressBar1.Maximum = dtAdj.Rows.Count;
 
             //dtAdj:當月盤點實點數，dtSt：電腦數
-            for (int i = 0; i< dtAdj.Rows.Count; i++)
+            for (int i = 0; i < dtAdj.Rows.Count; i++)
             {
                 //---
                 progressBar1.Value += progressBar1.Step;
@@ -268,19 +311,36 @@ namespace cf01.Forms
                     progressBar1.Enabled = false;
                     progressBar1.Visible = false;
                 }
-                g.DrawString("正在生成調整差額數據...", mf, mb, mp);                
+                g.DrawString("正在生成調整差額數據...", mf, mb, mp);
                 System.Windows.Forms.Application.DoEvents();
                 //---
 
-                location = dtAdj.Rows[i]["location_id"].ToString();
-                moId = dtAdj.Rows[i]["mo_id"].ToString();
-                goodsId = dtAdj.Rows[i]["goods_id"].ToString();
+                location = dtAdj.Rows[i]["location_id"].ToString().Trim();
+                moId = dtAdj.Rows[i]["mo_id"].ToString().Trim();
+                goodsId = dtAdj.Rows[i]["goods_id"].ToString().Trim();
                 adjQty = decimal.Parse(dtAdj.Rows[i]["adj_qty"].ToString());
                 adjWeg = decimal.Parse(dtAdj.Rows[i]["adj_sec_qty"].ToString());
 
+
+                if (dtAdj.Rows[i]["flag_del"].ToString() == "Y")
+                {
+                    dr = dtAdjTemp.NewRow();
+                    dr["location_id"] = location;
+                    dr["mo_id"] = moId;
+                    dr["goods_id"] = goodsId;
+                    dr["adj_qty"] = tmpQty;
+                    dr["adj_sec_qty"] = tmpWeg;
+                    dr["lot_no"] = "";
+                    dr["ib_amount"] = 0;//調整前數量
+                    dr["ib_weight"] = 0;//調整前重量
+                    dr["flag_del"] = "Y";//保留GEO原始庫存標識
+                    dtAdjTemp.Rows.Add(dr);
+                }
+
+
                 dtSt.Select();
                 aryDr = dtSt.Select($"location_id='{location}' And mo_id='{moId}' And goods_id='{goodsId}'"); //如有匹配數據，通常只有一條記錄
-                
+
                 if (aryDr.Length > 0)  //實點有數，庫存也有數
                 {
                     stQty = decimal.Parse(aryDr[0]["qty"].ToString()); //當前頁數，貨品編號庫存數量
@@ -289,11 +349,22 @@ namespace cf01.Forms
                     {
                         //實點數量、實點重量均等于電腦數量、電腦重量
                         continue;
+                        //dr = dtAdjTemp.NewRow();
+                        //dr["location_id"] = location;
+                        //dr["mo_id"] = moId;
+                        //dr["goods_id"] = goodsId;
+                        //dr["adj_qty"] = 0;
+                        //dr["adj_sec_qty"] = 0;
+                        //dr["lot_no"] = "";
+                        //dr["ib_amount"] = 0;//調整前數量
+                        //dr["ib_weight"] = 0;//調整前重量
+                        //dr["flag_del"] = "Y";//保留GEO原始庫存標識
+                        //dtAdjTemp.Rows.Add(dr);
                     }
                     else
                     {
                         //第1種情況
-                        if(adjQty > stQty && adjWeg > stWeg)
+                        if (adjQty > stQty && adjWeg > stWeg)
                         {
                             //實點數量、實點重量均大于電腦數量、電腦重量
                             tmpQty = adjQty - stQty;     //數量差額,大于0
@@ -555,7 +626,7 @@ namespace cf01.Forms
                             tmpWeg = 0;
                             tmpIbamount = decimal.Parse(aryDrLotNo[0]["qty"].ToString());//調整前數量
                             tmpIbweight = decimal.Parse(aryDrLotNo[0]["sec_qty"].ToString());//調整前重量;
-                            lotNo = aryDrLotNo[0]["lot_no"].ToString();                          
+                            lotNo = aryDrLotNo[0]["lot_no"].ToString();
                             dr = dtAdjTemp.NewRow();
                             dr["location_id"] = location;
                             dr["mo_id"] = moId;
@@ -718,77 +789,98 @@ namespace cf01.Forms
             dtAdjUpdate = dtAdjTemp.Clone();
             DataTable dtAdjCopy = dtAdjTemp.Copy();
             string strFilter = "";
+            DataRow drw;
             DataRow[] aryDrw;
             DataRow[] drwExists;
-            for (int i=0;i< dtAdjTemp.Rows.Count; i++)
+            for (int i = 0; i < dtAdjTemp.Rows.Count; i++)
             {
-                location = dtAdjTemp.Rows[i]["location_id"].ToString();
-                moId = dtAdjTemp.Rows[i]["mo_id"].ToString();
-                goodsId = dtAdjTemp.Rows[i]["goods_id"].ToString();
-                lotNo = dtAdjTemp.Rows[i]["lot_no"].ToString();
-                strFilter = $"location_id='{location}' And mo_id='{moId}' And goods_id='{goodsId}' And lot_no='{lotNo}'";
-                aryDrw = dtAdjCopy.Select(strFilter);
-                if(aryDrw.Length == 1)
+                if (dtAdjTemp.Rows[i]["flag_del"].ToString() == "Y")
                 {
-                    dtAdjUpdate.ImportRow(aryDrw[0]);
+                    //continue;//不需處理
+                    drw = dtAdjTemp.Rows[i];
+                    dtAdjUpdate.ImportRow(drw);
                 }
                 else
                 {
-                    drwExists =  dtAdjUpdate.Select(strFilter);
-                    if (drwExists.Length == 0)
+                    location = dtAdjTemp.Rows[i]["location_id"].ToString().Trim();
+                    moId = dtAdjTemp.Rows[i]["mo_id"].ToString().Trim();
+                    goodsId = dtAdjTemp.Rows[i]["goods_id"].ToString().Trim();
+                    lotNo = dtAdjTemp.Rows[i]["lot_no"].ToString().Trim();
+                    strFilter = $"location_id='{location}' And mo_id='{moId}' And goods_id='{goodsId}' And lot_no='{lotNo}'";
+                    aryDrw = dtAdjCopy.Select(strFilter);
+                    if (aryDrw.Length == 1)
                     {
-                        decimal adj_qty = 0, adj_sec_qty = 0; //ib_amount = 0, ib_weight = 0;
-                        dr = dtAdjUpdate.NewRow();
-                        dr["location_id"] = location;
-                        dr["mo_id"] = moId;
-                        dr["goods_id"] = goodsId;
-                        dr["lot_no"] = lotNo;
-                        tmpIbamount = decimal.Parse(aryDrw[0]["ib_amount"].ToString());
-                        tmpIbweight = decimal.Parse(aryDrw[0]["ib_weight"].ToString());
-                        for (int j = 0; j < aryDrw.Length; j++)
-                        {                           
-                            adj_qty += decimal.Parse(aryDrw[j]["adj_qty"].ToString());
-                            adj_sec_qty += decimal.Parse(aryDrw[j]["adj_sec_qty"].ToString());
+                        dtAdjUpdate.ImportRow(aryDrw[0]);
+                    }
+                    else
+                    {
+                        drwExists = dtAdjUpdate.Select(strFilter);
+                        if (drwExists.Length == 0)
+                        {
+                            decimal adj_qty = 0, adj_sec_qty = 0; //ib_amount = 0, ib_weight = 0;
+                            dr = dtAdjUpdate.NewRow();
+                            dr["location_id"] = location;
+                            dr["mo_id"] = moId;
+                            dr["goods_id"] = goodsId;
+                            dr["lot_no"] = lotNo;
+                            tmpIbamount = decimal.Parse(aryDrw[0]["ib_amount"].ToString());
+                            tmpIbweight = decimal.Parse(aryDrw[0]["ib_weight"].ToString());
+                            for (int j = 0; j < aryDrw.Length; j++)
+                            {
+                                adj_qty += decimal.Parse(aryDrw[j]["adj_qty"].ToString());
+                                adj_sec_qty += decimal.Parse(aryDrw[j]["adj_sec_qty"].ToString());
+                            }
+                            dr["adj_qty"] = adj_qty;
+                            dr["adj_sec_qty"] = adj_sec_qty;
+                            dr["ib_amount"] = tmpIbamount;
+                            dr["ib_weight"] = tmpIbweight;
+                            dtAdjUpdate.Rows.Add(dr);
                         }
-                        dr["adj_qty"] = adj_qty;
-                        dr["adj_sec_qty"] = adj_sec_qty;
-                        dr["ib_amount"] = tmpIbamount;
-                        dr["ib_weight"] = tmpIbweight;
-                        dtAdjUpdate.Rows.Add(dr);
                     }
                 }
             }
 
             //處理GEO系統有庫存，但實點數沒有，則調走GEO中的庫存數
             dtSt.Select();
-            for (int i=0;i< dtSt.Rows.Count; i++)
+            string lot_no = "";
+            for (int i = 0; i < dtStlotno.Rows.Count; i++)
             {
-                location = dtSt.Rows[i]["location_id"].ToString();
-                moId = dtSt.Rows[i]["mo_id"].ToString();
-                goodsId = dtSt.Rows[i]["goods_id"].ToString();               
-                strFilter = $"location_id='{location}' And mo_id='{moId}' And goods_id='{goodsId}'";
-                dtAdj.Select();
-                aryDrw = dtAdj.Select(strFilter);
-                if (aryDrw.Length == 0)
+                location = dtStlotno.Rows[i]["location_id"].ToString().Trim();
+                moId = dtStlotno.Rows[i]["mo_id"].ToString().Trim();
+                goodsId = dtStlotno.Rows[i]["goods_id"].ToString().Trim();
+                lot_no = dtStlotno.Rows[i]["lot_no"].ToString().Trim(); 
+                
+                strFilter = $"location_id='{location}' And mo_id='{moId}' And goods_id='{goodsId}' And flag_del='Y'";
+                dtAdjUpdate.Select();
+                aryDrw = dtAdjUpdate.Select(strFilter);
+                if (aryDrw.Length > 0)
                 {
-                    dtStlotno.Select();
-                    aryDrLotNo = dtStlotno.Select(strFilter);
-                    for(int j = 0; j < aryDrLotNo.Length; j++)
+                    continue;
+                }
+                else
+                {
+                    //實點盤點單中不存在
+                    strFilter = $"location_id='{location}' And mo_id='{moId}' And goods_id='{goodsId}' And lot_no='{lot_no}'";
+                    dtAdjUpdate.Select();
+                    aryDrw = dtAdjUpdate.Select(strFilter);
+                    if (aryDrw.Length == 0)
                     {
                         dr = dtAdjUpdate.NewRow();
                         dr["location_id"] = location;
                         dr["mo_id"] = moId;
                         dr["goods_id"] = goodsId;
-                        dr["lot_no"] = aryDrLotNo[j]["lot_no"].ToString();                        
-                        adjQty = decimal.Parse(aryDrLotNo[j]["qty"].ToString());
-                        adjWeg = decimal.Parse(aryDrLotNo[j]["sec_qty"].ToString());
+                        dr["lot_no"] = lot_no;
+                        adjQty = decimal.Parse(dtStlotno.Rows[i]["qty"].ToString());
+                        adjWeg = decimal.Parse(dtStlotno.Rows[i]["sec_qty"].ToString());
                         dr["adj_qty"] = -adjQty;
-                        dr["adj_sec_qty"] = -adjWeg;                      
+                        dr["adj_sec_qty"] = -adjWeg;
                         dr["ib_amount"] = adjQty;
                         dr["ib_weight"] = adjWeg;
+                        dr["flag_del"] = "N";
                         dtAdjUpdate.Rows.Add(dr);
                     }
                 }
+                
             }
             MessageBox.Show("生成調整差額臨時數據成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             dgv1.Visible = false;
@@ -804,5 +896,7 @@ namespace cf01.Forms
                 SendKeys.Send("{TAB}");
             }
         }
+
+      
     }
 }
