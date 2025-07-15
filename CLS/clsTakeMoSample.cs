@@ -15,6 +15,7 @@ namespace cf01.CLS
         private static String remote_db = DBUtility.remote_db;
         private static String within_code=DBUtility.within_code;
 
+
         //獲取倉庫發料的記錄
         public DataTable GetFlRec(string loc, string mo_id, string goods_id)
         {
@@ -22,7 +23,7 @@ namespace cf01.CLS
 
             string strSql = @" SELECT a.id,a.location_id,a.mo_id,a.goods_id,a.lot_no,a.obligate_mo_id,a.issue_qty,Convert(INT,a.qty) AS qty,a.obligate_qty" +
                 ",b.name AS goods_name" +
-                " From mrp_st_details_lot a " +
+                " From mrp_st_details_lot a with(nolock)" +
                     " Left Join it_goods b ON a.within_code=b.within_code AND a.goods_id=b.id" +
                     " WHERE a.within_code='" + within_code + "'  And a.location_id = '" + loc + "' And a.mo_id = '" + mo_id +
                     "' AND a.goods_id='" + goods_id + "'";
@@ -37,17 +38,17 @@ namespace cf01.CLS
             strSql = @" SELECT c.mrp_id,c.location,a.mo_id,b.goods_id,c.lot_no,c.obligate_mo_id,c.materiel_id,Convert(INT,c.fl_qty) AS fl_qty" +
                 ",d.name AS goods_name,a.id,c.sequence_id As jo_sub_sequence_id,a.order_no,a.so_sequence_id,Convert(INT,b.order_qty) As order_qty " +
                 ",Convert(INT,c.i_qty) AS i_qty"+
-                " From jo_bill_mostly a " +
-                " Inner Join jo_bill_goods_details b on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver" +
-                " Inner Join jo_bill_materiel_details c on b.within_code=c.within_code and b.id=c.id and b.ver=c.ver and b.sequence_id=c.upper_sequence" +
+                " From jo_bill_mostly a with(nolock) " +
+                " Inner Join jo_bill_goods_details b with(nolock) on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver" +
+                " Inner Join jo_bill_materiel_details c with(nolock) on b.within_code=c.within_code and b.id=c.id and b.ver=c.ver and b.sequence_id=c.upper_sequence" +
                 " Left Join it_goods d ON c.within_code=d.within_code AND c.materiel_id=d.id" + "'";
 
 
             strSql = @" SELECT a.id As mrp_id,b.ii_location As location,b.mo_id,b.goods_id,b.lot_no,b.obligate_mo_id,b.goods_id As materiel_id,Convert(INT,b.issues_qty) AS fl_qty" +
                 ",c.name AS goods_name,a.id,b.sequence_id As jo_sub_sequence_id,a.id As order_no,b.sequence_id As so_sequence_id,Convert(INT,b.issues_qty) As order_qty " +
                 ",Convert(INT,b.issues_qty) AS i_qty" +
-                " From so_issues_mostly a " +
-                " Inner Join so_issues_details b on a.within_code=b.within_code and a.id=b.id" +
+                " From so_issues_mostly a with(nolock)" +
+                " Inner Join so_issues_details b with(nolock) on a.within_code=b.within_code and a.id=b.id" +
                 " Left Join it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id" +
                 " WHERE a.within_code='" + within_code + "' And a.id='" + id + "' And b.sequence_id='" + seq + "'";
 
@@ -115,7 +116,7 @@ namespace cf01.CLS
         public DataTable checkDocStatus(string id)
         {
             DataTable dtId = new DataTable();
-            string strSql = "Select a.state From so_issues_mostly a Where a.within_code='" + within_code + "' and a.id='" + id + "'";
+            string strSql = "Select a.state From so_issues_mostly a with(nolock) Where a.within_code='" + within_code + "' and a.id='" + id + "'";
             dtId = clsConErp.ExecuteSqlReturnDataTable(strSql);
             return dtId;
         }
@@ -139,7 +140,7 @@ namespace cf01.CLS
             DataTable dtId = new DataTable();
             string strSql = "Select a.id,a.obligate_mo_id,a.lot_no,Convert(int,a.issues_qty) AS fl_qty" +
                 ",Convert(numeric(18,2),a.sec_qty) AS fl_weg,a.order_id As mrp_id,a.so_sequence_id As jo_sub_sequence_id " +
-                " From so_issues_details a " +
+                " From so_issues_details a with(nolock)" +
                 " Where a.within_code='" + within_code + "' and a.id='" + id + "' and a.sequence_id='" + seq + "'";
 
             dtId = clsConErp.ExecuteSqlReturnDataTable(strSql);
@@ -150,7 +151,7 @@ namespace cf01.CLS
         {
             DataTable dtMoStore = new DataTable();
             string strSql = "Select a.location_id,a.mo_id,a.goods_id,a.lot_no,a.qty,a.sec_qty "+
-                " From st_details_lot a "+
+                " From st_details_lot a with(nolock) "+
                 " Where a.within_code='" + within_code +
                 "' and a.location_id='" + loc + "' and a.carton_code='" + loc + "'";
             if (mo_id != "")
@@ -236,8 +237,8 @@ namespace cf01.CLS
             string strSql = "Select a.id,Convert(Varchar(20),a.issues_date,111) AS inventory_date,a.state,a.create_by,Convert(Varchar(20),a.create_date,120) AS create_date" +
                 ",b.sequence_id,b.mo_id,b.goods_id,b.lot_no As ii_lot_no,b.obligate_mo_id,Convert(INT,b.issues_qty) AS i_amount,Convert(numeric(18,2),b.sec_qty) AS i_weight" +
                 ",b.ii_location As inventory_issuance,b.ii_location As inventory_receipt,Convert(Varchar(20),a.check_date,120) AS check_date,c.name AS goods_name" +
-                " From so_issues_mostly a " +
-                " Inner Join so_issues_details b on a.within_code=b.within_code and a.id=b.id" +
+                " From so_issues_mostly a with(nolock) " +
+                " Inner Join so_issues_details b with(nolock) on a.within_code=b.within_code and a.id=b.id" +
                 " Left Join it_goods c on b.within_code=c.within_code and b.goods_id=c.id" +
                 " Where a.within_code='" + within_code + "'";
 
@@ -263,8 +264,8 @@ namespace cf01.CLS
             strSql = "Select a.id,a.state" +
                 ",b.sequence_id,b.mo_id,b.goods_id,b.lot_no As ir_lot_no,b.obligate_mo_id,Convert(INT,b.issues_qty) AS i_amount,Convert(numeric(18,2),b.sec_qty) AS i_weight" +
                 ",b.ii_location As inventory_issuance,b.ii_location As inventory_receipt" +
-                " From so_issues_mostly a " +
-                " Inner Join so_issues_details b on a.within_code=b.within_code and a.id=b.id" +
+                " From so_issues_mostly a with(nolock)" +
+                " Inner Join so_issues_details b with(nolock) on a.within_code=b.within_code and a.id=b.id" +
                 " Where a.within_code='" + within_code + "' And a.type='ADI' ";
 
             if (id != "")
@@ -292,10 +293,9 @@ namespace cf01.CLS
                 status = "1";
             string strSql = "Select a.id,Convert(Varchar(20),a.issues_date,111) AS inventory_date,a.state,a.create_by,Convert(Varchar(20),a.create_date,120) AS create_date" +
                 ",b.sequence_id,b.mo_id,b.goods_id,b.lot_no As ii_lot_no,b.obligate_mo_id,Convert(INT,b.issues_qty) AS i_amount,Convert(numeric(18,2),b.sec_qty) AS i_weight" +
-                ",b.ii_location As inventory_issuance,b.ii_location As inventory_receipt,Convert(Varchar(20),a.check_date,120) AS check_date,c.name AS goods_name" +
-                ",b.s_address" +
-                " From so_issues_mostly a " +
-                " Inner Join so_issues_details b on a.within_code=b.within_code and a.id=b.id" +
+                ",b.ii_location As inventory_issuance,b.ii_location As inventory_receipt,Convert(Varchar(20),a.check_date,120) AS check_date,c.name AS goods_name,b.s_address " +
+                " From so_issues_mostly a with(nolock)" +
+                " Inner Join so_issues_details b with(nolock) on a.within_code=b.within_code and a.id=b.id" +
                 " Left Join it_goods c on b.within_code=c.within_code and b.goods_id=c.id" +
                 " Where a.within_code='" + within_code + "' And a.type='ADI' ";
 
@@ -322,8 +322,7 @@ namespace cf01.CLS
         {
             int result = 0;
             string strSql = "";
-            strSql += string.Format(@"Delete From so_issues_details where within_code='{0}' and id='{1}' and sequence_id='{2}'"
-                , within_code, id, seq);
+            strSql += string.Format(@"Delete From so_issues_details where within_code='{0}' and id='{1}' and sequence_id='{2}'", within_code, id, seq);
             
 
             if (strSql != "")
@@ -347,7 +346,7 @@ namespace cf01.CLS
         {
             string strSql = "";
             strSql = "Select a.mo_id,a.location_id,a.goods_id,a.lot_no,Convert(INT,a.qty) AS qty,Convert(numeric(18,2),a.sec_qty) AS sec_qty " +
-                " From st_details_lot a Where a.within_code='" + within_code +
+                " From st_details_lot a with(nolock) Where a.within_code='" + within_code +
                 "' and a.location_id='" + loc + "' and a.mo_id='" + mo_id + "' and a.goods_id='" + goods_id + "'" +
                 " and (qty <>0 or sec_qty <>0 )";
             strSql += " order by a.location_id,a.goods_id,a.mo_id,a.lot_no";
@@ -362,8 +361,8 @@ namespace cf01.CLS
             DataTable dtWipQc = new DataTable();
 
             string strSql = @" SELECT a.mo_id,b.wp_id,b.next_wp_id,b.goods_id" +
-                " From jo_bill_mostly a " +
-                " Inner Join jo_bill_goods_details b on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver" +
+                " From jo_bill_mostly a with(nolock) " +
+                " Inner Join jo_bill_goods_details b with(nolock) on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver" +
                 " WHERE a.within_code='" + within_code + "' And a.mo_id='" + mo_id + "' And b.sequence_id='" + seq + "'";
             dtWipQc = clsConErp.ExecuteSqlReturnDataTable(strSql);
             return dtWipQc;
@@ -377,9 +376,9 @@ namespace cf01.CLS
             string strSql = @" SELECT c.mrp_id,c.location,a.mo_id,b.goods_id,c.lot_no,c.obligate_mo_id,c.materiel_id,Convert(INT,b.prod_qty) AS fl_qty" +
                 ",d.name AS goods_name,a.id,c.sequence_id As jo_sub_sequence_id,a.order_no,a.so_sequence_id,Convert(INT,b.order_qty) As order_qty " +
                 ",Convert(INT,c.i_qty) AS i_qty" +
-                " From jo_bill_mostly a " +
-                " Inner Join jo_bill_goods_details b on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver" +
-                " Left Join jo_bill_materiel_details c on b.within_code=c.within_code and b.id=c.id and b.ver=c.ver and b.sequence_id=c.upper_sequence" +
+                " From jo_bill_mostly a with(nolock) " +
+                " Inner Join jo_bill_goods_details b with(nolock) on a.within_code=b.within_code and a.id=b.id and a.ver=b.ver" +
+                " Left Join jo_bill_materiel_details c with(nolock) on b.within_code=c.within_code and b.id=c.id and b.ver=c.ver and b.sequence_id=c.upper_sequence" +
                 " Left Join it_goods d ON c.within_code=d.within_code AND c.materiel_id=d.id" +
                 " WHERE a.within_code='" + within_code + "' And a.mo_id='" + mo_id + "' And b.sequence_id='" + seq + "'";
             dtFlRec = clsConErp.ExecuteSqlReturnDataTable(strSql);
