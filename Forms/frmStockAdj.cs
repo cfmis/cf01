@@ -231,14 +231,14 @@ namespace cf01.Forms
             sql = string.Format(
             @"SELECT '' as sequence_id,location_id,mo_id,goods_id,lot_no,qty,sec_qty 
             FROM {0}st_details_lot 
-            WHERE within_code='0000' AND location_id='{1}' AND carton_code='{1}' AND (qty>0 OR sec_qty>0) AND LEN(RTRIM(goods_id))=18 AND state<>'2'
+            WHERE within_code='0000' AND location_id='{1}' AND carton_code='{1}' AND (qty>0 OR sec_qty>0) AND LEN(RTRIM(goods_id))>=18 AND state='0'
             ORDER BY location_id,mo_id,goods_id,update_date,lot_no", DBUtility.remote_db, txtDept.Text.Trim());
             dtStlotno = clsPublicOfCF01.GetDataTable(sql);
             //庫存匯總無批號
             sql = string.Format(
             @"SELECT location_id,mo_id,goods_id,Sum(qty) as qty,Sum(sec_qty) as sec_qty
             FROM {0}st_details_lot 
-            WHERE within_code='0000' AND location_id='{1}' AND carton_code='{1}' AND (qty>0 OR sec_qty>0) AND LEN(RTRIM(goods_id))=18 AND state<>'2'
+            WHERE within_code='0000' AND location_id='{1}' AND carton_code='{1}' AND (qty>0 OR sec_qty>0) AND LEN(RTRIM(goods_id))>=18 AND state='0'
             Group By location_id,mo_id,goods_id
             ORDER BY location_id,mo_id,goods_id", DBUtility.remote_db, txtDept.Text.Trim());
             dtSt = clsPublicOfCF01.GetDataTable(sql);
@@ -887,6 +887,7 @@ namespace cf01.Forms
             dgv2.Visible = true;
             dtAdjTemp.Clear();
             dgv2.DataSource = dtAdjUpdate;
+            this.Refresh();
         } //--end of BTNCHECK_Click
 
         private void txtDept_KeyPress(object sender, KeyPressEventArgs e)
