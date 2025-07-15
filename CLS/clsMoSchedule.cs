@@ -57,12 +57,14 @@ namespace cf01.CLS
                         ",module_type,prd_group,next_wp_id,next_goods_id,next_vend_id" +
                         ",mo_remark,dep_remark,module_no,module_install,now_date" +
                         ",pre_tr_qty,pre_tr_date,pre_tr_flag,wip_id,wip_seq,wip_ver" +
+                        ",create_user,create_time" +
                         " ) Values (" +
                         "'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}'" +
                         ",'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}'" +
                         ",'{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}'" +
                         ",'{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}','{37}'" +
                         ",'{38}','{39}','{40}','{41}','{42}','{43}'" +
+                        ",'{20}','{21}'" +
                         ")";
                 }
                 else
