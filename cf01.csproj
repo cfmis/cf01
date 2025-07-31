@@ -273,6 +273,7 @@
     <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsOrderHistory.cs" />
     <Compile Include="CLS\clsPackingList.cs" />
+    <Compile Include="CLS\clsPlateDelivery.cs" />
     <Compile Include="CLS\clsPlateFee.cs" />
     <Compile Include="CLS\clsPrdTransfer.cs" />
     <Compile Include="CLS\clsProcessData.cs" />

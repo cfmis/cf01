@@ -72,6 +72,8 @@
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.flag_select = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFlagSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.vendor_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.issue_date = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,7 +81,7 @@
             this.mo_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.artwork = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.do_color = new DevExpress.XtraGrid.Columns.GridColumn();
             this.plan_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.order_qty = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -92,17 +94,26 @@
             this.in_sec_qty_total = new DevExpress.XtraGrid.Columns.GridColumn();
             this.qty_differ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sec_qty_differ = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.return_total = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dept_reply = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pmc_reply = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.vendor_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.btnInport = new System.Windows.Forms.ToolStripButton();
             this.btnExcel = new System.Windows.Forms.ToolStripButton();
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRpt3 = new System.Windows.Forms.Button();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.chkArt = new DevExpress.XtraEditors.CheckEdit();
             this.btnRpt2 = new System.Windows.Forms.Button();
@@ -110,10 +121,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSend_Date1 = new DevExpress.XtraEditors.DateEdit();
             this.txtSend_Date2 = new DevExpress.XtraEditors.DateEdit();
+            this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
+            this.FlagSelect = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colFlagSelect)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
@@ -122,11 +136,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView2
             // 
             this.gridView2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.gridView2.ColumnPanelRowHeight = 30;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -156,6 +172,7 @@
             this.gridView2.OptionsCustomization.AllowFilter = false;
             this.gridView2.OptionsView.ColumnAutoWidth = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.RowHeight = 26;
             this.gridView2.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
             // 
@@ -351,11 +368,13 @@
             this.grdControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1,
             gridLevelNode2});
-            this.grdControl.Location = new System.Drawing.Point(0, 83);
+            this.grdControl.Location = new System.Drawing.Point(0, 91);
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
             this.grdControl.Name = "grdControl";
-            this.grdControl.Size = new System.Drawing.Size(1160, 527);
+            this.grdControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.colFlagSelect});
+            this.grdControl.Size = new System.Drawing.Size(1160, 519);
             this.grdControl.TabIndex = 4;
             this.grdControl.Tag = "\"1\"";
             this.grdControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -366,6 +385,7 @@
             // gridView3
             // 
             this.gridView3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.gridView3.ColumnPanelRowHeight = 30;
             this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn22,
             this.gridColumn23,
@@ -390,6 +410,7 @@
             this.gridView3.OptionsCustomization.AllowFilter = false;
             this.gridView3.OptionsView.ColumnAutoWidth = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
+            this.gridView3.RowHeight = 26;
             this.gridView3.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             // 
             // gridColumn22
@@ -628,7 +649,9 @@
             // gridView1
             // 
             this.gridView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.gridView1.ColumnPanelRowHeight = 30;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.flag_select,
             this.vendor_id,
             this.id,
             this.issue_date,
@@ -636,7 +659,7 @@
             this.mo_id,
             this.goods_id,
             this.artwork,
-            this.name,
+            this.goods_name,
             this.do_color,
             this.plan_qty,
             this.order_qty,
@@ -649,67 +672,97 @@
             this.in_sec_qty_total,
             this.qty_differ,
             this.sec_qty_differ,
+            this.gridColumn41,
             this.remark,
             this.return_total,
             this.dept_reply,
-            this.pmc_reply});
+            this.pmc_reply,
+            this.gridColumn40,
+            this.vendor_name,
+            this.gridColumn38,
+            this.gridColumn39,
+            this.gridColumn42});
             this.gridView1.GridControl = this.grdControl;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridView1.OptionsCustomization.AllowFilter = false;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.RowHeight = 26;
             this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
+            // 
+            // flag_select
+            // 
+            this.flag_select.Caption = "    ";
+            this.flag_select.ColumnEdit = this.colFlagSelect;
+            this.flag_select.FieldName = "flag_select";
+            this.flag_select.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.flag_select.Name = "flag_select";
+            this.flag_select.Visible = true;
+            this.flag_select.VisibleIndex = 0;
+            this.flag_select.Width = 60;
+            // 
+            // colFlagSelect
+            // 
+            this.colFlagSelect.AutoHeight = false;
+            this.colFlagSelect.Caption = "   ";
+            this.colFlagSelect.Name = "colFlagSelect";
             // 
             // vendor_id
             // 
             this.vendor_id.Caption = "供應商編號";
             this.vendor_id.FieldName = "vendor_id";
+            this.vendor_id.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.vendor_id.Name = "vendor_id";
+            this.vendor_id.OptionsColumn.ReadOnly = true;
             this.vendor_id.Visible = true;
-            this.vendor_id.VisibleIndex = 0;
+            this.vendor_id.VisibleIndex = 1;
             // 
             // id
             // 
             this.id.Caption = "發貨單號";
             this.id.FieldName = "id";
             this.id.Name = "id";
+            this.id.OptionsColumn.ReadOnly = true;
             this.id.Visible = true;
-            this.id.VisibleIndex = 1;
+            this.id.VisibleIndex = 2;
             // 
             // issue_date
             // 
             this.issue_date.Caption = "發貨日期";
             this.issue_date.FieldName = "issue_date";
             this.issue_date.Name = "issue_date";
+            this.issue_date.OptionsColumn.ReadOnly = true;
             this.issue_date.Visible = true;
-            this.issue_date.VisibleIndex = 2;
+            this.issue_date.VisibleIndex = 3;
             // 
             // mo_type
             // 
             this.mo_type.Caption = "頁數狀態";
             this.mo_type.FieldName = "mo_type";
             this.mo_type.Name = "mo_type";
+            this.mo_type.OptionsColumn.ReadOnly = true;
             this.mo_type.Visible = true;
-            this.mo_type.VisibleIndex = 3;
+            this.mo_type.VisibleIndex = 4;
             // 
             // mo_id
             // 
             this.mo_id.Caption = "頁數";
             this.mo_id.FieldName = "mo_id";
             this.mo_id.Name = "mo_id";
+            this.mo_id.OptionsColumn.ReadOnly = true;
             this.mo_id.Visible = true;
-            this.mo_id.VisibleIndex = 4;
+            this.mo_id.VisibleIndex = 5;
             // 
             // goods_id
             // 
             this.goods_id.Caption = "貨品編號";
             this.goods_id.FieldName = "goods_id";
             this.goods_id.Name = "goods_id";
+            this.goods_id.OptionsColumn.ReadOnly = true;
             this.goods_id.Visible = true;
-            this.goods_id.VisibleIndex = 5;
+            this.goods_id.VisibleIndex = 6;
             // 
             // artwork
             // 
@@ -717,61 +770,68 @@
             this.artwork.FieldName = "artwork";
             this.artwork.Name = "artwork";
             // 
-            // name
+            // goods_name
             // 
-            this.name.Caption = "貨品名稱";
-            this.name.FieldName = "name";
-            this.name.Name = "name";
-            this.name.Visible = true;
-            this.name.VisibleIndex = 6;
+            this.goods_name.Caption = "貨品名稱";
+            this.goods_name.FieldName = "goods_name";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.OptionsColumn.ReadOnly = true;
+            this.goods_name.Visible = true;
+            this.goods_name.VisibleIndex = 7;
             // 
             // do_color
             // 
             this.do_color.Caption = "顏色做法";
             this.do_color.FieldName = "do_color";
             this.do_color.Name = "do_color";
+            this.do_color.OptionsColumn.ReadOnly = true;
             this.do_color.Visible = true;
-            this.do_color.VisibleIndex = 7;
+            this.do_color.VisibleIndex = 8;
             // 
             // plan_qty
             // 
             this.plan_qty.Caption = "生產數量";
             this.plan_qty.FieldName = "plan_qty";
             this.plan_qty.Name = "plan_qty";
+            this.plan_qty.OptionsColumn.ReadOnly = true;
             this.plan_qty.Visible = true;
-            this.plan_qty.VisibleIndex = 8;
+            this.plan_qty.VisibleIndex = 9;
             // 
             // order_qty
             // 
             this.order_qty.Caption = "訂單數量";
             this.order_qty.FieldName = "order_qty";
             this.order_qty.Name = "order_qty";
+            this.order_qty.OptionsColumn.ReadOnly = true;
             this.order_qty.Visible = true;
-            this.order_qty.VisibleIndex = 9;
+            this.order_qty.VisibleIndex = 10;
             // 
             // c_qty_ok
             // 
             this.c_qty_ok.Caption = "完成數量";
             this.c_qty_ok.FieldName = "c_qty_ok";
             this.c_qty_ok.Name = "c_qty_ok";
+            this.c_qty_ok.OptionsColumn.ReadOnly = true;
             this.c_qty_ok.Visible = true;
-            this.c_qty_ok.VisibleIndex = 10;
+            this.c_qty_ok.VisibleIndex = 11;
             // 
             // prod_qty
             // 
             this.prod_qty.Caption = "發貨數量";
             this.prod_qty.FieldName = "prod_qty";
             this.prod_qty.Name = "prod_qty";
+            this.prod_qty.OptionsColumn.ReadOnly = true;
             this.prod_qty.Visible = true;
-            this.prod_qty.VisibleIndex = 11;
+            this.prod_qty.VisibleIndex = 12;
             // 
             // sec_qty
             // 
             this.sec_qty.Caption = "發貨重量";
             this.sec_qty.FieldName = "sec_qty";
             this.sec_qty.Name = "sec_qty";
+            this.sec_qty.OptionsColumn.ReadOnly = true;
             this.sec_qty.Visible = true;
-            this.sec_qty.VisibleIndex = 12;
+            this.sec_qty.VisibleIndex = 13;
             // 
             // out_qty_total
             // 
@@ -780,8 +840,9 @@
             this.out_qty_total.Caption = "總發貨數量";
             this.out_qty_total.FieldName = "out_qty_total";
             this.out_qty_total.Name = "out_qty_total";
+            this.out_qty_total.OptionsColumn.ReadOnly = true;
             this.out_qty_total.Visible = true;
-            this.out_qty_total.VisibleIndex = 13;
+            this.out_qty_total.VisibleIndex = 14;
             // 
             // out_sec_qty_total
             // 
@@ -790,8 +851,9 @@
             this.out_sec_qty_total.Caption = "總發貨重量";
             this.out_sec_qty_total.FieldName = "out_sec_qty_total";
             this.out_sec_qty_total.Name = "out_sec_qty_total";
+            this.out_sec_qty_total.OptionsColumn.ReadOnly = true;
             this.out_sec_qty_total.Visible = true;
-            this.out_sec_qty_total.VisibleIndex = 14;
+            this.out_sec_qty_total.VisibleIndex = 15;
             // 
             // in_qty_total
             // 
@@ -800,8 +862,9 @@
             this.in_qty_total.Caption = "總收貨數量";
             this.in_qty_total.FieldName = "in_qty_total";
             this.in_qty_total.Name = "in_qty_total";
+            this.in_qty_total.OptionsColumn.ReadOnly = true;
             this.in_qty_total.Visible = true;
-            this.in_qty_total.VisibleIndex = 15;
+            this.in_qty_total.VisibleIndex = 16;
             // 
             // in_sec_qty_total
             // 
@@ -810,8 +873,9 @@
             this.in_sec_qty_total.Caption = "總收貨重量";
             this.in_sec_qty_total.FieldName = "in_sec_qty_total";
             this.in_sec_qty_total.Name = "in_sec_qty_total";
+            this.in_sec_qty_total.OptionsColumn.ReadOnly = true;
             this.in_sec_qty_total.Visible = true;
-            this.in_sec_qty_total.VisibleIndex = 16;
+            this.in_sec_qty_total.VisibleIndex = 17;
             // 
             // qty_differ
             // 
@@ -826,8 +890,9 @@
             this.qty_differ.Caption = "差額數量";
             this.qty_differ.FieldName = "qty_differ";
             this.qty_differ.Name = "qty_differ";
+            this.qty_differ.OptionsColumn.ReadOnly = true;
             this.qty_differ.Visible = true;
-            this.qty_differ.VisibleIndex = 17;
+            this.qty_differ.VisibleIndex = 18;
             // 
             // sec_qty_differ
             // 
@@ -842,8 +907,19 @@
             this.sec_qty_differ.Caption = "差額重量";
             this.sec_qty_differ.FieldName = "sec_qty_differ";
             this.sec_qty_differ.Name = "sec_qty_differ";
+            this.sec_qty_differ.OptionsColumn.ReadOnly = true;
             this.sec_qty_differ.Visible = true;
-            this.sec_qty_differ.VisibleIndex = 18;
+            this.sec_qty_differ.VisibleIndex = 19;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.Caption = "我廠要求日期";
+            this.gridColumn41.DisplayFormat.FormatString = "yyyy/MM/dd";
+            this.gridColumn41.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn41.FieldName = "t_complete_date";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.Visible = true;
+            this.gridColumn41.VisibleIndex = 25;
             // 
             // remark
             // 
@@ -851,15 +927,16 @@
             this.remark.FieldName = "remark";
             this.remark.Name = "remark";
             this.remark.Visible = true;
-            this.remark.VisibleIndex = 19;
+            this.remark.VisibleIndex = 20;
             // 
             // return_total
             // 
             this.return_total.Caption = "返電次數";
             this.return_total.FieldName = "return_total";
             this.return_total.Name = "return_total";
+            this.return_total.OptionsColumn.ReadOnly = true;
             this.return_total.Visible = true;
-            this.return_total.VisibleIndex = 20;
+            this.return_total.VisibleIndex = 21;
             // 
             // dept_reply
             // 
@@ -867,7 +944,7 @@
             this.dept_reply.FieldName = "dept_reply";
             this.dept_reply.Name = "dept_reply";
             this.dept_reply.Visible = true;
-            this.dept_reply.VisibleIndex = 21;
+            this.dept_reply.VisibleIndex = 22;
             // 
             // pmc_reply
             // 
@@ -875,7 +952,42 @@
             this.pmc_reply.FieldName = "pmc_reply";
             this.pmc_reply.Name = "pmc_reply";
             this.pmc_reply.Visible = true;
-            this.pmc_reply.VisibleIndex = 22;
+            this.pmc_reply.VisibleIndex = 23;
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(130)))), ((int)(((byte)(218)))));
+            this.gridColumn40.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn40.Caption = "還欠我司重量";
+            this.gridColumn40.FieldName = "remark_wet";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 24;
+            // 
+            // vendor_name
+            // 
+            this.vendor_name.Caption = "供應商";
+            this.vendor_name.FieldName = "vendor_name";
+            this.vendor_name.Name = "vendor_name";
+            this.vendor_name.OptionsColumn.ReadOnly = true;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.Caption = "Temp P_id";
+            this.gridColumn38.FieldName = "temp_id";
+            this.gridColumn38.Name = "gridColumn38";
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "p_id";
+            this.gridColumn39.FieldName = "p_id";
+            this.gridColumn39.Name = "gridColumn39";
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.Caption = "id_return";
+            this.gridColumn42.FieldName = "id_return";
+            this.gridColumn42.Name = "gridColumn42";
             // 
             // toolStrip1
             // 
@@ -883,7 +995,9 @@
             this.btnExit,
             this.btnInport,
             this.btnExcel,
-            this.btnPrint});
+            this.btnPrint,
+            this.toolStripSeparator1,
+            this.btnSave});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -927,15 +1041,29 @@
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(111, 30);
+            this.btnPrint.Size = new System.Drawing.Size(114, 30);
             this.btnPrint.Text = "列印分選報表(&P)";
             this.btnPrint.Visible = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(51, 30);
+            this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // progressBar1
             // 
             this.progressBar1.Enabled = false;
-            this.progressBar1.Location = new System.Drawing.Point(487, 8);
+            this.progressBar1.Location = new System.Drawing.Point(581, 8);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(299, 17);
             this.progressBar1.Step = 1;
@@ -944,6 +1072,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRpt3);
             this.panel1.Controls.Add(this.radioGroup1);
             this.panel1.Controls.Add(this.chkArt);
             this.panel1.Controls.Add(this.btnRpt2);
@@ -954,12 +1083,25 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 48);
+            this.panel1.Size = new System.Drawing.Size(1160, 58);
             this.panel1.TabIndex = 5;
+            // 
+            // btnRpt3
+            // 
+            this.btnRpt3.Image = ((System.Drawing.Image)(resources.GetObject("btnRpt3.Image")));
+            this.btnRpt3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRpt3.Location = new System.Drawing.Point(967, 18);
+            this.btnRpt3.Name = "btnRpt3";
+            this.btnRpt3.Size = new System.Drawing.Size(129, 27);
+            this.btnRpt3.TabIndex = 30;
+            this.btnRpt3.Text = "匯出(分電鍍廠)";
+            this.btnRpt3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRpt3.UseVisualStyleBackColor = true;
+            this.btnRpt3.Click += new System.EventHandler(this.btnRpt3_Click);
             // 
             // radioGroup1
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(322, 15);
+            this.radioGroup1.Location = new System.Drawing.Point(322, 19);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
@@ -974,7 +1116,7 @@
             // chkArt
             // 
             this.chkArt.EditValue = true;
-            this.chkArt.Location = new System.Drawing.Point(766, 18);
+            this.chkArt.Location = new System.Drawing.Point(766, 22);
             this.chkArt.Name = "chkArt";
             this.chkArt.Properties.Caption = "匯出Excel 包含圖樣";
             this.chkArt.Size = new System.Drawing.Size(142, 19);
@@ -984,7 +1126,7 @@
             // 
             this.btnRpt2.Image = ((System.Drawing.Image)(resources.GetObject("btnRpt2.Image")));
             this.btnRpt2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRpt2.Location = new System.Drawing.Point(625, 12);
+            this.btnRpt2.Location = new System.Drawing.Point(625, 16);
             this.btnRpt2.Name = "btnRpt2";
             this.btnRpt2.Size = new System.Drawing.Size(108, 27);
             this.btnRpt2.TabIndex = 6;
@@ -995,7 +1137,7 @@
             // 
             // lblSend
             // 
-            this.lblSend.Location = new System.Drawing.Point(6, 19);
+            this.lblSend.Location = new System.Drawing.Point(6, 23);
             this.lblSend.Name = "lblSend";
             this.lblSend.Size = new System.Drawing.Size(75, 15);
             this.lblSend.TabIndex = 22;
@@ -1005,7 +1147,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 19);
+            this.label1.Location = new System.Drawing.Point(192, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(11, 12);
             this.label1.TabIndex = 21;
@@ -1015,7 +1157,7 @@
             // 
             this.txtSend_Date1.EditValue = null;
             this.txtSend_Date1.EnterMoveNextControl = true;
-            this.txtSend_Date1.Location = new System.Drawing.Point(91, 16);
+            this.txtSend_Date1.Location = new System.Drawing.Point(91, 20);
             this.txtSend_Date1.Name = "txtSend_Date1";
             this.txtSend_Date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1032,7 +1174,7 @@
             // 
             this.txtSend_Date2.EditValue = null;
             this.txtSend_Date2.EnterMoveNextControl = true;
-            this.txtSend_Date2.Location = new System.Drawing.Point(207, 16);
+            this.txtSend_Date2.Location = new System.Drawing.Point(207, 20);
             this.txtSend_Date2.Name = "txtSend_Date2";
             this.txtSend_Date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1045,12 +1187,33 @@
             this.txtSend_Date2.TabIndex = 11;
             this.txtSend_Date2.Leave += new System.EventHandler(this.txtSend_Date2_Leave);
             // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.Location = new System.Drawing.Point(60, 97);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Properties.Caption = "";
+            this.chkSelectAll.Size = new System.Drawing.Size(21, 19);
+            this.chkSelectAll.TabIndex = 6;
+            this.chkSelectAll.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkSelectAll_MouseUp);
+            // 
+            // FlagSelect
+            // 
+            this.FlagSelect.ColumnEdit = this.colFlagSelect;
+            this.FlagSelect.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.FlagSelect.MaxWidth = 50;
+            this.FlagSelect.MinWidth = 50;
+            this.FlagSelect.Name = "FlagSelect";
+            this.FlagSelect.Visible = true;
+            this.FlagSelect.VisibleIndex = 0;
+            this.FlagSelect.Width = 50;
+            // 
             // frmPlateDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1160, 610);
+            this.Controls.Add(this.chkSelectAll);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grdControl);
             this.Controls.Add(this.progressBar1);
@@ -1063,6 +1226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colFlagSelect)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1073,6 +1237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1094,7 +1259,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn mo_id;
         private DevExpress.XtraGrid.Columns.GridColumn goods_id;
         private DevExpress.XtraGrid.Columns.GridColumn artwork;
-        private DevExpress.XtraGrid.Columns.GridColumn name;
+        private DevExpress.XtraGrid.Columns.GridColumn goods_name;
         private DevExpress.XtraGrid.Columns.GridColumn do_color;
         private DevExpress.XtraGrid.Columns.GridColumn prod_qty;
         private DevExpress.XtraGrid.Columns.GridColumn sec_qty;
@@ -1159,5 +1324,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit colFlagSelect;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton btnSave;
+        private DevExpress.XtraEditors.CheckEdit chkSelectAll;
+        private DevExpress.XtraGrid.Columns.GridColumn flag_select;
+        private DevExpress.XtraGrid.Columns.GridColumn FlagSelect;
+        private DevExpress.XtraGrid.Columns.GridColumn vendor_name;
+        private System.Windows.Forms.Button btnRpt3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
     }
 }
