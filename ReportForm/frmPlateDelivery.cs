@@ -165,7 +165,7 @@ namespace cf01.ReportForm
             string dat1 = txtSend_Date1.Text;
             string dat2 = txtSend_Date2.Text;
 
-            const string strProc = "z_plate_delivery_debug";
+            string strProc = "z_plate_delivery";
             SqlParameter[] paras = new SqlParameter[] { 
                    new SqlParameter ("@type", rpt_type),
                    new SqlParameter ("@dat1", dat1),
