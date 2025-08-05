@@ -494,7 +494,7 @@ namespace cf01.CLS
                             worksheet.Cells["I2:J2"].Merge = true; // 合并 I2:J2
                             worksheet.Cells["I2"].Value = "聯絡人: 盧志豪";
                             worksheet.Cells["I2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left; // 水平居左
-                            worksheet.Cells["L2:O2"].Merge = true; // 合并 L2:O2
+                            worksheet.Cells["L2:P2"].Merge = true; // 合并 L2:P2
                             worksheet.Cells["L2"].Value = System.DateTime.Now.ToString("yyyy.MM.dd");
                             worksheet.Cells["H2"].Value = $"共有{dtNewExcel.Rows.Count}單";
                             worksheet.Cells["E4:G4"].Merge = true; // 合并 E4:G4
@@ -502,13 +502,13 @@ namespace cf01.CLS
                             worksheet.Cells["I4:J4"].Merge = true; // 合并 I4:J4
                             worksheet.Cells["I4"].Value = $"聯絡人 :{dtVendor.Rows[i]["linkman"].ToString()}";
                             worksheet.Cells["I4"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left; // 水平居左
-                            worksheet.Cells["K4:O4"].Merge = true; // 合并 K4:O4
+                            worksheet.Cells["K4:P4"].Merge = true; // 合并 K4:P4
                             worksheet.Cells["K4"].Value = "注 : 請在次日上午回復";//??
-                            worksheet.Cells["A6:O6"].Merge = true; // 合并 A6 到 O6                        
+                            worksheet.Cells["A6:P6"].Merge = true; // 合并 A6 到 P6
                             worksheet.Cells["A6"].Value = title; // 设置值                                                                                                                                             // 设置合并单元格的样式（可选）
-                            worksheet.Cells["A1:O7"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
-                            worksheet.Cells["A1:O7"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
-                            worksheet.Cells["A1:O7"].Style.Font.Bold = true; // 设置字体加粗
+                            worksheet.Cells["A1:P7"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
+                            worksheet.Cells["A1:P7"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
+                            worksheet.Cells["A1:P7"].Style.Font.Bold = true; // 设置字体加粗
                             worksheet.Row(1).Height = 24;//设置行高度
                             worksheet.Row(2).Height = 24;
                             worksheet.Row(3).Height = 24;
@@ -530,15 +530,15 @@ namespace cf01.CLS
                             int excelRow = 7;
                             //prgStatus.Minimum = 0;
                             //prgStatus.Value = 0;
-                            //填充表頭樣位與數據區
+                            //填充表頭欄位與數據區
                             FillExcel(worksheet, dtNewExcel, excelRow, x);
                             string cellRange = "H2";
                             SetCellBackgroundColor(worksheet, cellRange, Color.LightGreen);
-                            cellRange = $"L2:O2";
+                            cellRange = $"L2:P2";
                             SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
-                            cellRange = $"K4:O4";
+                            cellRange = $"K4:P4";
                             SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
-                            cellRange = $"A6:O6";
+                            cellRange = $"A6:P6";
                             if (x == 0)
                             {
                                 SetCellBackgroundColor(worksheet, cellRange, Color.FromArgb(255, 204, 153));//自定義橙色
@@ -550,7 +550,7 @@ namespace cf01.CLS
                                 SetCellFontColor(worksheet, "J7", Color.Red);// 设置单元格的字体颜色为红色                                
                                 //cell.Style.Font.Bold = true; // 设置字体为粗体                                
                             }
-                            cellRange = $"A7:O7";
+                            cellRange = $"A7:P7";
                             SetCellBackgroundColor(worksheet, cellRange, Color.FromArgb(204, 255, 255));//自定義淺藍色
                             cellRange = $"J7";
                             SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
@@ -599,7 +599,8 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 12].Value = "還欠我司重量";
             worksheet.Cells[excelRow, 13].Value = "返電原因";
             worksheet.Cells[excelRow, 14].Value = "返電";
-            worksheet.Cells[excelRow, 15].Value = "備註";           
+            worksheet.Cells[excelRow, 15].Value = "備註";
+            worksheet.Cells[excelRow, 16].Value = "特急標識";
             worksheet.Row(excelRow).Height = 42; // 设置第7行的高度为42
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -621,6 +622,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 13].Value = (type == 0) ? "" : drExcel["remark"].ToString();//返電原因
                 worksheet.Cells[excelRow, 14].Value = (type == 0) ? "" : drExcel["return_total"].ToString();//返電次數
                 worksheet.Cells[excelRow, 15].Value = "";
+                worksheet.Cells[excelRow, 16].Value = drExcel["flag_mo"].ToString();
                 /*
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
@@ -648,7 +650,7 @@ namespace cf01.CLS
             worksheet.Column(13).Width = 19;
             worksheet.Column(14).Width = 5;
             worksheet.Column(15).Width = 17;
-
+            worksheet.Column(16).Width = 4.3;
             /*
             //Cells[excelRow, 13]
             // 设置动态范围
@@ -671,7 +673,7 @@ namespace cf01.CLS
             int rowEnd = dtNewExcel.Rows.Count;
             if (rowEnd > 0)
             {
-                string cellRang = $"A8:O{7 + rowEnd}";
+                string cellRang = $"A8:P{7 + rowEnd}";
                 worksheet.Cells[cellRang].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中                
             }
 
@@ -690,7 +692,7 @@ namespace cf01.CLS
             // 设置整个表格的字体大小
             tableCells.Style.Font.Size = 10; // 设置字体大小为10
             tableCells.Style.Font.Name = "新細明體";
-            worksheet.Cells["A6:O6"].Style.Font.Size = 14; // 设置字体大小为10
+            worksheet.Cells["A6:P6"].Style.Font.Size = 14; // 设置字体大小为10
             // 设置整个表格内容自动换行
             tableCells.Style.WrapText = true;
             // 冻结第一行
@@ -701,7 +703,7 @@ namespace cf01.CLS
         }
 
         #region 報表格式1匯出到多個Sheet中
-        static bool ToExcelRpt1(System.Data.DataTable excelTable, System.Data.DataTable dtOutReurn, ProgressBar progressbar1, bool isArt)
+        static bool ToExcelRpt1(System.Data.DataTable dtOut, System.Data.DataTable dtOutReurn, ProgressBar progressbar1, bool isArt)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             string fileName = "外發加工追貨表" + DateTime.Now.Date.ToString("yyyyMMdd");
@@ -723,9 +725,10 @@ namespace cf01.CLS
             {
                 return false;
             }
-            string sheet_name = "", imagePath="";
+            string sheet_name = "", imagePath = "";
             using (var package = new ExcelPackage())
             {
+                //var worksheet= package.Workbook.Worksheets.Add("追貨報表");
                 for (int x = 0; x < 2; x++)
                 {
                     if (x == 0)
@@ -773,11 +776,11 @@ namespace cf01.CLS
                         progressbar1.Visible = true;
                         progressbar1.Value = 0;
                         progressbar1.Step = 1;
-                        progressbar1.Maximum = excelTable.Rows.Count;
+                        progressbar1.Maximum = dtOut.Rows.Count;
                         //填充表頭樣位與數據區
                         int excelRow = 1;
                         DataRow drExcel;
-                        for (int i = 0; i < excelTable.Rows.Count; i++)
+                        for (int i = 0; i < dtOut.Rows.Count; i++)
                         {
                             progressbar1.Value = i;
                             //顯示進度條
@@ -787,7 +790,7 @@ namespace cf01.CLS
                                 progressbar1.Enabled = false;
                                 progressbar1.Visible = false;
                             }
-                            drExcel = excelTable.Rows[i];
+                            drExcel = dtOut.Rows[i];
                             excelRow += 1;                           
                             worksheet.Cells[excelRow, 1].Value = drExcel["vendor_id"].ToString();
                             worksheet.Cells[excelRow, 2].Value = drExcel["id"].ToString().Trim();
@@ -816,14 +819,13 @@ namespace cf01.CLS
                             if (isArt)
                             {
                                 worksheet.Row(excelRow).Height = 45; // 设置行高度为45
-                                worksheet.Column(7).Width = 8;
-                                //string imagePath = drExcel["图片路径"].ToString();
+                                //worksheet.Column(7).Width = 8;
                                 imagePath = drExcel["artwork"].ToString(); //"圖樣";
                                 if (File.Exists(imagePath)) // 确保图片路径有效
                                 {
                                     //行數是從0~N行,列也是從0~N列
                                     var picture = worksheet.Drawings.AddPicture($"Image{excelRow-1}", new FileInfo(imagePath));
-                                    picture.SetPosition(excelRow-1, 5, 7-1, 5); // 设置图片位置
+                                    picture.SetPosition(excelRow-1, 5, 7 - 1, 5); // 设置图片位置
                                     picture.SetSize(50, 50);          // 设置图片大小，實際相當于40x40
                                 }
                             }
@@ -835,7 +837,7 @@ namespace cf01.CLS
                         } //--end for  
                         string cellRange = "";
                         //標題行居中
-                        int rowEnd = excelTable.Rows.Count;
+                        int rowEnd = dtOut.Rows.Count;
                         if (rowEnd > 0)
                         {
                             rowEnd = rowEnd + 1;
@@ -872,6 +874,7 @@ namespace cf01.CLS
                         worksheet.Column(4).Width = 8;
                         worksheet.Column(5).Width = 10;
                         worksheet.Column(6).Width = 21;
+                        worksheet.Column(7).Width = 8.5;
                         worksheet.Column(8).Width = 27;
                         worksheet.Column(9).Width = 18;
                         worksheet.Column(10).Width = 8.71;
@@ -896,7 +899,7 @@ namespace cf01.CLS
                         
 
                         // 冻结第一行
-                        worksheet.View.FreezePanes(2, 2); // 从第7行、第2列开始滚动，冻结第一行
+                        worksheet.View.FreezePanes(2, 2); // 从第2行、第2列开始滚动，冻结第一行
                         // 设置打印标题行（固定第 1~1 行为标题）
                         worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:1"]; // 固定标题为第1~1行
                         worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
@@ -983,7 +986,7 @@ namespace cf01.CLS
                         worksheet.Cells[cellRange].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中   
                         worksheet.Cells[cellRange].Style.Font.Size = 10; // 设置字体大小为10 
                         // 冻结第一行
-                        worksheet.View.FreezePanes(2, 1); // 从第2行、第1列开始滚动，冻结第一行
+                        worksheet.View.FreezePanes(2, 2); // 从第2行、第2列开始滚动，冻结第一行
                         // 设置打印标题行（固定第 1~7 行为标题）
                         worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:1"]; // 固定标题为第1~7行
                         worksheet.PrinterSettings.Scale = 75; // 缩放到 80%

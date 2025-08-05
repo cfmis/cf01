@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlateDelivery));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -100,6 +100,7 @@
             this.dept_reply = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pmc_reply = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.vendor_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -113,6 +114,7 @@
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkMo = new DevExpress.XtraEditors.CheckEdit();
             this.btnRpt3 = new System.Windows.Forms.Button();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.chkArt = new DevExpress.XtraEditors.CheckEdit();
@@ -130,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.colFlagSelect)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkMo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkArt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties.CalendarTimeProperties)).BeginInit();
@@ -361,20 +364,20 @@
             this.grdControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            gridLevelNode1.LevelTemplate = this.gridView2;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.LevelTemplate = this.gridView3;
-            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.LevelTemplate = this.gridView2;
+            gridLevelNode3.RelationName = "Level1";
+            gridLevelNode4.LevelTemplate = this.gridView3;
+            gridLevelNode4.RelationName = "Level2";
             this.grdControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2});
-            this.grdControl.Location = new System.Drawing.Point(0, 91);
+            gridLevelNode3,
+            gridLevelNode4});
+            this.grdControl.Location = new System.Drawing.Point(0, 112);
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
             this.grdControl.Name = "grdControl";
             this.grdControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.colFlagSelect});
-            this.grdControl.Size = new System.Drawing.Size(1160, 519);
+            this.grdControl.Size = new System.Drawing.Size(1160, 498);
             this.grdControl.TabIndex = 4;
             this.grdControl.Tag = "\"1\"";
             this.grdControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -678,6 +681,7 @@
             this.dept_reply,
             this.pmc_reply,
             this.gridColumn40,
+            this.gridColumn43,
             this.vendor_name,
             this.gridColumn38,
             this.gridColumn39,
@@ -964,6 +968,21 @@
             this.gridColumn40.Visible = true;
             this.gridColumn40.VisibleIndex = 24;
             // 
+            // gridColumn43
+            // 
+            this.gridColumn43.Caption = "匯入標識";
+            this.gridColumn43.FieldName = "flag_mo";
+            this.gridColumn43.Name = "gridColumn43";
+            this.gridColumn43.OptionsColumn.AllowEdit = false;
+            this.gridColumn43.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn43.OptionsColumn.AllowMove = false;
+            this.gridColumn43.OptionsColumn.ReadOnly = true;
+            this.gridColumn43.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn43.OptionsFilter.AllowFilter = false;
+            this.gridColumn43.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn43.Visible = true;
+            this.gridColumn43.VisibleIndex = 26;
+            // 
             // vendor_name
             // 
             this.vendor_name.Caption = "供應商";
@@ -1022,7 +1041,7 @@
             this.btnInport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInport.Name = "btnInport";
             this.btnInport.Size = new System.Drawing.Size(120, 30);
-            this.btnInport.Text = "導入匯總資料(&F)";
+            this.btnInport.Text = "查詢(&F)";
             this.btnInport.Click += new System.EventHandler(this.btnInport_Click);
             // 
             // btnExcel
@@ -1072,6 +1091,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkMo);
             this.panel1.Controls.Add(this.btnRpt3);
             this.panel1.Controls.Add(this.radioGroup1);
             this.panel1.Controls.Add(this.chkArt);
@@ -1083,14 +1103,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 58);
+            this.panel1.Size = new System.Drawing.Size(1160, 73);
             this.panel1.TabIndex = 5;
+            // 
+            // chkMo
+            // 
+            this.chkMo.Location = new System.Drawing.Point(80, 8);
+            this.chkMo.Name = "chkMo";
+            this.chkMo.Properties.Caption = "是否包含頁數匯總資料";
+            this.chkMo.Size = new System.Drawing.Size(153, 19);
+            this.chkMo.TabIndex = 33;
             // 
             // btnRpt3
             // 
             this.btnRpt3.Image = ((System.Drawing.Image)(resources.GetObject("btnRpt3.Image")));
             this.btnRpt3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRpt3.Location = new System.Drawing.Point(967, 18);
+            this.btnRpt3.Location = new System.Drawing.Point(876, 34);
             this.btnRpt3.Name = "btnRpt3";
             this.btnRpt3.Size = new System.Drawing.Size(129, 27);
             this.btnRpt3.TabIndex = 30;
@@ -1101,7 +1129,7 @@
             // 
             // radioGroup1
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(322, 19);
+            this.radioGroup1.Location = new System.Drawing.Point(298, 35);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
@@ -1116,17 +1144,17 @@
             // chkArt
             // 
             this.chkArt.EditValue = true;
-            this.chkArt.Location = new System.Drawing.Point(766, 22);
+            this.chkArt.Location = new System.Drawing.Point(714, 38);
             this.chkArt.Name = "chkArt";
             this.chkArt.Properties.Caption = "匯出Excel 包含圖樣";
-            this.chkArt.Size = new System.Drawing.Size(142, 19);
+            this.chkArt.Size = new System.Drawing.Size(135, 19);
             this.chkArt.TabIndex = 27;
             // 
             // btnRpt2
             // 
             this.btnRpt2.Image = ((System.Drawing.Image)(resources.GetObject("btnRpt2.Image")));
             this.btnRpt2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRpt2.Location = new System.Drawing.Point(625, 16);
+            this.btnRpt2.Location = new System.Drawing.Point(582, 32);
             this.btnRpt2.Name = "btnRpt2";
             this.btnRpt2.Size = new System.Drawing.Size(108, 27);
             this.btnRpt2.TabIndex = 6;
@@ -1137,9 +1165,9 @@
             // 
             // lblSend
             // 
-            this.lblSend.Location = new System.Drawing.Point(6, 23);
+            this.lblSend.Location = new System.Drawing.Point(12, 39);
             this.lblSend.Name = "lblSend";
-            this.lblSend.Size = new System.Drawing.Size(75, 15);
+            this.lblSend.Size = new System.Drawing.Size(62, 15);
             this.lblSend.TabIndex = 22;
             this.lblSend.Text = "發貨日期";
             this.lblSend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1147,7 +1175,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 23);
+            this.label1.Location = new System.Drawing.Point(179, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(11, 12);
             this.label1.TabIndex = 21;
@@ -1157,7 +1185,7 @@
             // 
             this.txtSend_Date1.EditValue = null;
             this.txtSend_Date1.EnterMoveNextControl = true;
-            this.txtSend_Date1.Location = new System.Drawing.Point(91, 20);
+            this.txtSend_Date1.Location = new System.Drawing.Point(79, 36);
             this.txtSend_Date1.Name = "txtSend_Date1";
             this.txtSend_Date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1174,7 +1202,7 @@
             // 
             this.txtSend_Date2.EditValue = null;
             this.txtSend_Date2.EnterMoveNextControl = true;
-            this.txtSend_Date2.Location = new System.Drawing.Point(207, 20);
+            this.txtSend_Date2.Location = new System.Drawing.Point(194, 36);
             this.txtSend_Date2.Name = "txtSend_Date2";
             this.txtSend_Date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1189,7 +1217,7 @@
             // 
             // chkSelectAll
             // 
-            this.chkSelectAll.Location = new System.Drawing.Point(60, 97);
+            this.chkSelectAll.Location = new System.Drawing.Point(63, 118);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Properties.Caption = "";
             this.chkSelectAll.Size = new System.Drawing.Size(21, 19);
@@ -1215,9 +1243,9 @@
             this.ClientSize = new System.Drawing.Size(1160, 610);
             this.Controls.Add(this.chkSelectAll);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.grdControl);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.grdControl);
             this.Name = "frmPlateDelivery";
             this.Text = "frmPlateDelivery";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPlateDelivery_FormClosed);
@@ -1231,6 +1259,7 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkMo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkArt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date1.Properties.CalendarTimeProperties)).EndInit();
@@ -1337,5 +1366,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn vendor_name;
         private System.Windows.Forms.Button btnRpt3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraEditors.CheckEdit chkMo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
     }
 }
