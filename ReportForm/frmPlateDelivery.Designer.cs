@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlateDelivery));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -364,13 +364,13 @@
             this.grdControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            gridLevelNode3.LevelTemplate = this.gridView2;
-            gridLevelNode3.RelationName = "Level1";
-            gridLevelNode4.LevelTemplate = this.gridView3;
-            gridLevelNode4.RelationName = "Level2";
+            gridLevelNode1.LevelTemplate = this.gridView2;
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.LevelTemplate = this.gridView3;
+            gridLevelNode2.RelationName = "Level2";
             this.grdControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode3,
-            gridLevelNode4});
+            gridLevelNode1,
+            gridLevelNode2});
             this.grdControl.Location = new System.Drawing.Point(0, 112);
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
@@ -722,6 +722,7 @@
             this.vendor_id.OptionsColumn.ReadOnly = true;
             this.vendor_id.Visible = true;
             this.vendor_id.VisibleIndex = 1;
+            this.vendor_id.Width = 65;
             // 
             // id
             // 
@@ -731,6 +732,7 @@
             this.id.OptionsColumn.ReadOnly = true;
             this.id.Visible = true;
             this.id.VisibleIndex = 2;
+            this.id.Width = 93;
             // 
             // issue_date
             // 
@@ -749,6 +751,7 @@
             this.mo_type.OptionsColumn.ReadOnly = true;
             this.mo_type.Visible = true;
             this.mo_type.VisibleIndex = 4;
+            this.mo_type.Width = 60;
             // 
             // mo_id
             // 
@@ -758,6 +761,7 @@
             this.mo_id.OptionsColumn.ReadOnly = true;
             this.mo_id.Visible = true;
             this.mo_id.VisibleIndex = 5;
+            this.mo_id.Width = 76;
             // 
             // goods_id
             // 
@@ -767,6 +771,7 @@
             this.goods_id.OptionsColumn.ReadOnly = true;
             this.goods_id.Visible = true;
             this.goods_id.VisibleIndex = 6;
+            this.goods_id.Width = 146;
             // 
             // artwork
             // 
@@ -800,6 +805,7 @@
             this.plan_qty.OptionsColumn.ReadOnly = true;
             this.plan_qty.Visible = true;
             this.plan_qty.VisibleIndex = 9;
+            this.plan_qty.Width = 64;
             // 
             // order_qty
             // 
@@ -809,6 +815,7 @@
             this.order_qty.OptionsColumn.ReadOnly = true;
             this.order_qty.Visible = true;
             this.order_qty.VisibleIndex = 10;
+            this.order_qty.Width = 67;
             // 
             // c_qty_ok
             // 
@@ -836,6 +843,7 @@
             this.sec_qty.OptionsColumn.ReadOnly = true;
             this.sec_qty.Visible = true;
             this.sec_qty.VisibleIndex = 13;
+            this.sec_qty.Width = 63;
             // 
             // out_qty_total
             // 
