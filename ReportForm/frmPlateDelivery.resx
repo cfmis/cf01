@@ -193,6 +193,16 @@
         Hqw5w6iIPPdejzXv4IpwnTk9WPMb+iJuxmHNJ4SmT/9aluUPhocYSP4HzGcAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnOk.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAD1SURBVDhPnVK7CsIwFO2XSBUFQakUhQ5FzCQ42EUQXXSp
+        oLOuro6u/qNLBFEQxGNy6SumjdrCgfs4j95Si3P+M5ht4XOmNCaIBzGUebYxQQoRDPDo1hUTjZgHEq9m
+        QN/BxbFLGgRMS6ddtskDieP0jppOe6URS40gDWR6T0+nfVJI4m4NnI4JkWbhvDCdOAnRbwHTEbDfqgYF
+        t8dIDG5uDRi4wHICHPYkiG+XtdGACkGQSRh6wGZBb4KxOV0iLaKUp9ekHwZhmp4VfEJtBPkqPtbLb0e3
+        N/4zoIEQ3N3qT+kS+kCIzu0KiUsZ0FAIGWNfxZxz6w29/XU0LyMvuwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>59</value>
   </metadata>

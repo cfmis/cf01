@@ -48,6 +48,12 @@ namespace cf01.ReportForm
             txtSend_Date2.EditValue = DateTime.Now;
             txtSend_Date1.EditValue = DateTime.Now.AddDays(-30);
 
+            string sql = string.Format(@"Select id,id+'('+name+')' AS cdesc From {0}cd_mo_type Where within_code = '0000' and mo_type = 'B1'", DBUtility.remote_db);
+            System.Data.DataTable dtReason = clsPublicOfCF01.GetDataTable(sql);
+            lueShortReason.Properties.DataSource = dtReason;
+            lueShortReason.Properties.ValueMember = "id";
+            lueShortReason.Properties.DisplayMember = "cdesc";
+
             //將導入的EXCEL轉成Datatble
             dtImport.Columns.Add("user_id", typeof(string)); //未完成頁數
             dtImport.Columns.Add("mo_id", typeof(string)); //未完成頁數
@@ -107,7 +113,7 @@ namespace cf01.ReportForm
             //導入EXCEL頁數
             try
             {
-                //2019-12-26取消舊代碼
+                //2019-12-26取消舊代碼,因部分電腦上不支持此方法
                 //const String strsql_g = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [大貨單$]";
                 //const String strsql_n = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [NS未完成頁數$]";
                 //Inport_excel(FileName, strsql_g); //大貨單
@@ -132,6 +138,10 @@ namespace cf01.ReportForm
                         if (fileName != "")
                         {
                             ExcelToDatable(fileName);
+                        }
+                        else
+                        {
+                            chkMo.Checked = false;
                         }
                     }
                 }
@@ -197,31 +207,21 @@ namespace cf01.ReportForm
             //調用存儲過程           
             string user_id = DBUtility._user_id;
             string dat1 = txtSend_Date1.Text;
-            string dat2 = txtSend_Date2.Text;
-
-            string strProc = "z_plate_delivery";
-            SqlParameter[] paras = new SqlParameter[] { 
-                   new SqlParameter ("@type", rpt_type),
-                   new SqlParameter ("@dat1", dat1),
-                   new SqlParameter ("@dat2", dat2),
-                   new SqlParameter ("@user_id", user_id)
-            };
-
+            string dat2 = txtSend_Date2.Text;            
             switch (rpt_type)
             {
-                case "1":
-                    dtRpt1.Clear();    
-                    //dtImport                
+                case "1":                    
                     SqlParameter[] paras1 = new SqlParameter[]
                     {
                        new SqlParameter ("@type", rpt_type),
                        new SqlParameter ("@dat1", dat1),
                        new SqlParameter ("@dat2", dat2),
                        new SqlParameter ("@user_id", user_id),
-                       new SqlParameter("@import_data",SqlDbType.Structured) {Value = dtImport}
+                       new SqlParameter ("@import_data",SqlDbType.Structured) {Value = dtImport}
                     };
                     dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", paras1, null);
-                    dtRpt1 = dts.Tables[0];                    
+                    dtRpt1.Clear();
+                    dtRpt1 = dts.Tables[0];
                     string tempId = "";
                     for(int i=0;i<dtRpt1.Rows.Count;i++)
                     {
@@ -234,18 +234,30 @@ namespace cf01.ReportForm
                     chkSelectAll.Visible = true;
                     break;
                 case "2":
-                    dtRpt2.Clear();
-                    dtRpt2 = clsConErp.ExecuteProcedureReturnTable(strProc, paras);
-                    grdControl.DataSource = dtRpt2;
-                    grdControl.MainView = gridView2;
-                    chkSelectAll.Visible = false;
-                    break;
                 case "3":
-                    dtRpt3.Clear();
-                    dtRpt3 = clsConErp.ExecuteProcedureReturnTable(strProc, paras);
-                    grdControl.DataSource = dtRpt3;
-                    grdControl.MainView = gridView3;
-                    chkSelectAll.Visible = false;
+                    string strProc = "z_plate_delivery";
+                    SqlParameter[] paras = new SqlParameter[] {
+                        new SqlParameter ("@type", rpt_type),
+                        new SqlParameter ("@dat1", dat1),
+                        new SqlParameter ("@dat2", dat2),
+                        new SqlParameter ("@user_id", user_id)
+                    };
+                    if (rpt_type == "2")
+                    {
+                        dtRpt2.Clear();
+                        dtRpt2 = clsConErp.ExecuteProcedureReturnTable(strProc, paras);
+                        grdControl.DataSource = dtRpt2;
+                        grdControl.MainView = gridView2;
+                        chkSelectAll.Visible = false;
+                    }
+                    else
+                    {
+                        dtRpt3.Clear();
+                        dtRpt3 = clsConErp.ExecuteProcedureReturnTable(strProc, paras);
+                        grdControl.DataSource = dtRpt3;
+                        grdControl.MainView = gridView3;
+                        chkSelectAll.Visible = false;
+                    }
                     break;
             }
         }
@@ -874,6 +886,144 @@ namespace cf01.ReportForm
             {
                 System.Data.DataTable dtTemp = dtRpt1.Copy();
                 clsPlateDelivery.ExpToExcelByVendor(dtTemp, dtVendor );
+            }
+        }
+
+        private void btnShowMore_Click(object sender, EventArgs e)
+        {
+            btnShowMore.Text = (btnShowMore.Text == ">>") ? "<<" : ">>";
+            panel2.Visible = !panel2.Visible;           
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            if (btnSave.Enabled)
+            {
+                if (radioGroup1.SelectedIndex != 0)
+                {
+                    return;
+                }
+                if (dtRpt1.Rows.Count == 0)
+                {
+                    return;
+                }
+                bool flagSelect = false;
+                gridView1.CloseEditor();
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    if (gridView1.GetRowCellValue(i, "flag_select").ToString() == "True")
+                    {
+                        flagSelect = true;
+                        break;
+                    }
+                }
+                if (flagSelect == false)
+                {
+                    MessageBox.Show("請首先選中要保存的行！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string strSql1 = string.Empty, strSql2 = string.Empty, strSelect = string.Empty, id = string.Empty, mo_id = string.Empty, goods_id = string.Empty;
+                string shortReason = string.Empty;
+                decimal out_qty_total = 0, in_qty_total = 0;
+                bool flag_check = true;
+                for (int i = 0; i < dtRpt1.Rows.Count; i++)
+                {
+                    strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
+                    if (strSelect == "True")
+                    {
+                        id = dtRpt1.Rows[i]["id"].ToString();
+                        mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
+                        goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
+                        out_qty_total = decimal.Parse(dtRpt1.Rows[i]["out_qty_total"].ToString());
+                        in_qty_total = decimal.Parse(dtRpt1.Rows[i]["in_qty_total"].ToString());
+                        if(in_qty_total <= 0)
+                        {
+                            MessageBox.Show($"第 【{(i+1).ToString()}】行"+"\n\r"+$"單號:【{id}】"+ "\n\r"+$"頁數:【{mo_id}】"+"\n\r"+$"貨品:【{goods_id}】"+"\n\r"+"未曾收過貨，不可以做外發加工單強制完成！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            flag_check = false;
+                            break;
+                        }                        
+                    }
+                }
+                if (!flag_check)
+                {
+                    return;
+                }
+                shortReason = lueShortReason.EditValue.ToString();
+                if (string.IsNullOrEmpty(shortReason))
+                {
+                    MessageBox.Show("短缺原因設置不可以為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lueShortReason.Focus();
+                    return;
+                }
+                //正常外發加工單
+                strSql1 =
+                @"UPDATE dbo.op_outpro_out_displace SET state='G',short_reason=@short_reason WHERE within_code='0000' And id=@id And mo_id=@mo_id And goods_id=@goods_id";
+                //返電單
+                strSql2 =
+                @"UPDATE dbo.op_return_details SET state='G',short_reason=@short_reason WHERE within_code='0000' And id=@id And mo_id=@mo_id And goods_id=@goods_id";
+                bool flagSave = false;
+                SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);
+                myCon.Open();
+                SqlTransaction myTrans = myCon.BeginTransaction();
+                using (SqlCommand myCommand = new SqlCommand() { Connection = myCon, Transaction = myTrans })
+                {
+                    try
+                    {                        
+                        for (int i = 0; i < dtRpt1.Rows.Count; i++)
+                        {
+                            strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
+                            if (strSelect == "True")
+                            {
+                                myCommand.Parameters.Clear();
+                                id = dtRpt1.Rows[i]["id"].ToString();
+                                mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
+                                goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
+                                myCommand.CommandText = (id.Substring(0, 1) == "P") ? strSql1 : strSql2;                               
+                                myCommand.Parameters.AddWithValue("@id", id);
+                                myCommand.Parameters.AddWithValue("@mo_id", mo_id);                            
+                                myCommand.Parameters.AddWithValue("@goods_id", goods_id);
+                                myCommand.Parameters.AddWithValue("@short_reason", shortReason);
+                                myCommand.ExecuteNonQuery();
+                            }
+                        }
+                        myTrans.Commit(); //數據提交
+                        flagSave = true;
+                        //移除已做外發強制完成的行
+                        for (int i = dtRpt1.Rows.Count-1; i>=0; i--)
+                        {
+                            if(dtRpt1.Rows[i]["flag_select"].ToString()== "True")
+                            {
+                                DataRow drw = dtRpt1.Rows[i];
+                                dtRpt1.Rows.Remove(drw);                               
+                            }
+                        }
+                        chkSelectAll.Checked = false;
+                        dtRpt1.AcceptChanges();
+                    }
+                    catch (Exception E)
+                    {
+                        myTrans.Rollback(); //數據回滾
+                        flagSave = false;
+                        throw new Exception(E.Message);
+                    }
+                    finally
+                    {
+                        myCon.Close();
+                        myTrans.Dispose();
+                    }
+                }
+                if (flagSave)
+                {
+                    MessageBox.Show("短缺原因設置成功！！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("短缺原因設置失敗", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"當前用戶{DBUtility._user_id}權限不足！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
