@@ -710,9 +710,9 @@ namespace cf01.Forms
             //新增主表
             const string sql_insert =
                 @"INSERT INTO dbo.quotation_mostly(id,version,quota_date,customer_id,term_id,address_id,remark,remark_other,crusr,crtim,id_referred,
-                    valid_date,money_id,tel,fax,email,contact,isusd,ishkd,isrmb,isvn,position,address)
+                    valid_date,money_id,tel,fax,email,contact,isusd,ishkd,isrmb,isvn,position,address, contact_cf,tel_cf,position_cf,email_cf)
 					VALUES (@id,@version,@quota_date,@customer_id,@term_id,@address_id,@remark,@remark_other,@user_id,getdate(),@id_referred,
-                    @valid_date,@money_id,@tel,@fax,@email,@contact,@isusd,@ishkd,@isrmb,@isvn,@position,@address)";
+                    @valid_date,@money_id,@tel,@fax,@email,@contact,@isusd,@ishkd,@isrmb,@isvn,@position,@address,@contact_cf,@tel_cf,@position_cf,@email_cf)";
             //新增明細表
             const string sql_detail_insert =
                 @"INSERT INTO dbo.quotation_details(id,version,seq_id,brand,division,contact,material,size,product_desc,cust_code,cf_code,cust_color,cf_color,
@@ -731,7 +731,8 @@ namespace cf01.Forms
                 @"UPDATE dbo.quotation_mostly
 					SET quota_date=@quota_date,customer_id=@customer_id,term_id=@term_id,address_id=@address_id,remark=@remark,remark_other=@remark_other,
                         amusr=@user_id,amtim=getdate(),id_referred=@id_referred,valid_date=@valid_date,money_id=@money_id,tel=@tel,fax=@fax,email=@email,
-                        contact=@contact,isusd=@isusd,ishkd=@ishkd,isrmb=@isrmb,isvn=@isvn,position=@position,address=@address
+                        contact=@contact,isusd=@isusd,ishkd=@ishkd,isrmb=@isrmb,isvn=@isvn,position=@position,address=@address,
+                        contact_cf=@contact_cf,tel_cf=@tel_cf,position_cf=@position_cf,email_cf=@email_cf
 					WHERE id=@id AND version=@version";
             //更新明細表
             const string sql_detail_update =
@@ -783,6 +784,11 @@ namespace cf01.Forms
                     myCommand.Parameters.AddWithValue("@isrmb", blChecked);
                     blChecked = chkIsvn.Checked ? true : false;
                     myCommand.Parameters.AddWithValue("@isvn", blChecked);
+                    //2025/08/06
+                    myCommand.Parameters.AddWithValue("@contact_cf", txtContact_cf.Text);
+                    myCommand.Parameters.AddWithValue("@tel_cf", txtTel_cf.Text);
+                    myCommand.Parameters.AddWithValue("@position_cf", txtPosition_cf.Text);
+                    myCommand.Parameters.AddWithValue("@email_cf", txtEmail_cf.Text);
 
                     if (edit_state == "NEW")
                     {
@@ -1189,6 +1195,12 @@ namespace cf01.Forms
             chkHkd.Checked = (dt.Rows[0]["ishkd"].ToString() == "True") ? true : false;
             chkRmb.Checked = (dt.Rows[0]["isrmb"].ToString() == "True") ? true : false;
             chkIsvn.Checked = (dt.Rows[0]["isvn"].ToString() == "True") ? true : false;
+
+            txtContact_cf.Text = dt.Rows[0]["contact_cf"].ToString();
+            txtTel_cf.Text = dt.Rows[0]["tel_cf"].ToString();
+            txtPosition_cf.Text = dt.Rows[0]["position_cf"].ToString();
+            txtEmail_cf.Text = dt.Rows[0]["email_cf"].ToString();
+            
         }
 
         private void txtID_Leave(object sender, EventArgs e)
@@ -2529,8 +2541,9 @@ namespace cf01.Forms
             string strsql = string.Format(
             @"SELECT A.id as id_h,A.version,Convert(char(10),A.quota_date,120) as quota_date_h,A.customer_id,A.address_id,A.term_id,A.remark as remark_h,A.id_referred,
             dbo.fn_getTermRemark(A.term_id,A.quota_date,'0') as terms,dbo.fn_getTermRemark(A.term_id,A.quota_date,'1') as terms_other,
-            'QUOTATION' as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,
-            A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,A.position,A.address as address1, B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
+            'QUOTATION' as address,Convert(char(10),A.valid_date) as valid_date,A.money_id,A.contact as contact_h,A.tel,A.fax,A.email,A.isusd,A.ishkd,A.isrmb,A.position,
+            A.address as address1, A.contact_cf,A.tel_cf,A.position_cf,A.email_cf,
+            B.seq_id,B.brand,SS.name AS name_brand,B.division,B.contact,B.material,B.size,
             B.product_desc,B.cust_code,B.cf_code,B.cust_color,B.cf_color,B.price_usd,B.price_hkd,B.price_rmb,B.moq,B.price_unit,Isnull(B.remark,'') as remark,
             ISNULL(C.name,'') AS name_customer,B.moq_unit,B.season,B.salesman,B.mwq,B.lead_time_min,B.lead_time_max,B.lead_time_unit,B.md_charge,B.md_charge_cny, 
             B.number_enter,B.hkd_ex_fty,B.usd_ex_fty,B.usd_dap,B.usd_lab_test_prx,B.ex_fty_hkd,B.ex_fty_usd,B.moq_for_test,B.sales_group,
