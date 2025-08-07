@@ -897,134 +897,255 @@ namespace cf01.ReportForm
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (btnSave.Enabled)
+            if (radioGroup1.SelectedIndex != 0)
             {
-                if (radioGroup1.SelectedIndex != 0)
+                return;
+            }
+            if (dtRpt1.Rows.Count == 0)
+            {
+                return;
+            }
+            //檢查GEO中是否有外發加單強制完成的權限
+            string user_id = DBUtility._user_id;
+            if (user_id.ToUpper() != "ADMIN")
+            {
+                if (!CheckPermission(user_id, "W_OUT_PROCESS_OUT_COMPLETE", "PB_CONFIRM"))
                 {
                     return;
                 }
-                if (dtRpt1.Rows.Count == 0)
+            }
+
+            bool flagSelect = false;
+            gridView1.CloseEditor();
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                if (gridView1.GetRowCellValue(i, "flag_select").ToString() == "True")
                 {
-                    return;
+                    flagSelect = true;
+                    break;
                 }
-                bool flagSelect = false;
-                gridView1.CloseEditor();
-                for (int i = 0; i < gridView1.RowCount; i++)
+            }
+            if (flagSelect == false)
+            {
+                MessageBox.Show("請首先選中要保存的行！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string strSql1 = string.Empty, strSql2 = string.Empty, strSelect = string.Empty, id = string.Empty, mo_id = string.Empty, goods_id = string.Empty;
+            string shortReason = string.Empty;
+            decimal out_qty_total = 0, in_qty_total = 0;
+            bool flagCheck = true;
+            for (int i = 0; i < dtRpt1.Rows.Count; i++)
+            {
+                strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
+                if (strSelect == "True")
                 {
-                    if (gridView1.GetRowCellValue(i, "flag_select").ToString() == "True")
+                    id = dtRpt1.Rows[i]["id"].ToString();
+                    mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
+                    goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
+                    out_qty_total = decimal.Parse(dtRpt1.Rows[i]["out_qty_total"].ToString());
+                    in_qty_total = decimal.Parse(dtRpt1.Rows[i]["in_qty_total"].ToString());
+                    if(in_qty_total <= 0)
                     {
-                        flagSelect = true;
+                        MessageBox.Show($"第 【{(i+1).ToString()}】行"+"\n\r"+$"單號:【{id}】"+ "\n\r"+$"頁數:【{mo_id}】"+"\n\r"+$"貨品:【{goods_id}】"+"\n\r"+"未曾收過貨，不可以做外發加工單強制完成！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        flagCheck = false;
                         break;
-                    }
+                    }                        
                 }
-                if (flagSelect == false)
-                {
-                    MessageBox.Show("請首先選中要保存的行！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                string strSql1 = string.Empty, strSql2 = string.Empty, strSelect = string.Empty, id = string.Empty, mo_id = string.Empty, goods_id = string.Empty;
-                string shortReason = string.Empty;
-                decimal out_qty_total = 0, in_qty_total = 0;
-                bool flag_check = true;
-                for (int i = 0; i < dtRpt1.Rows.Count; i++)
-                {
-                    strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
-                    if (strSelect == "True")
+            }
+            if (!flagCheck)
+            {
+                return;
+            }
+            shortReason = lueShortReason.EditValue.ToString();
+            if (string.IsNullOrEmpty(shortReason))
+            {
+                MessageBox.Show("短缺原因設置不可以為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lueShortReason.Focus();
+                return;
+            }
+            //正常外發加工單
+            strSql1 =
+            @"UPDATE dbo.op_outpro_out_displace SET state='G',short_reason=@short_reason WHERE within_code='0000' And id=@id And mo_id=@mo_id And goods_id=@goods_id";
+            //返電單
+            strSql2 =
+            @"UPDATE dbo.op_return_details SET state='G',short_reason=@short_reason WHERE within_code='0000' And id=@id And mo_id=@mo_id And goods_id=@goods_id";
+            bool flagSave = false;
+            SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);
+            myCon.Open();
+            SqlTransaction myTrans = myCon.BeginTransaction();
+            using (SqlCommand myCommand = new SqlCommand() { Connection = myCon, Transaction = myTrans })
+            {
+                try
+                {                        
+                    for (int i = 0; i < dtRpt1.Rows.Count; i++)
                     {
-                        id = dtRpt1.Rows[i]["id"].ToString();
-                        mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
-                        goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
-                        out_qty_total = decimal.Parse(dtRpt1.Rows[i]["out_qty_total"].ToString());
-                        in_qty_total = decimal.Parse(dtRpt1.Rows[i]["in_qty_total"].ToString());
-                        if(in_qty_total <= 0)
+                        strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
+                        if (strSelect == "True")
                         {
-                            MessageBox.Show($"第 【{(i+1).ToString()}】行"+"\n\r"+$"單號:【{id}】"+ "\n\r"+$"頁數:【{mo_id}】"+"\n\r"+$"貨品:【{goods_id}】"+"\n\r"+"未曾收過貨，不可以做外發加工單強制完成！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            flag_check = false;
-                            break;
-                        }                        
-                    }
-                }
-                if (!flag_check)
-                {
-                    return;
-                }
-                shortReason = lueShortReason.EditValue.ToString();
-                if (string.IsNullOrEmpty(shortReason))
-                {
-                    MessageBox.Show("短缺原因設置不可以為空!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    lueShortReason.Focus();
-                    return;
-                }
-                //正常外發加工單
-                strSql1 =
-                @"UPDATE dbo.op_outpro_out_displace SET state='G',short_reason=@short_reason WHERE within_code='0000' And id=@id And mo_id=@mo_id And goods_id=@goods_id";
-                //返電單
-                strSql2 =
-                @"UPDATE dbo.op_return_details SET state='G',short_reason=@short_reason WHERE within_code='0000' And id=@id And mo_id=@mo_id And goods_id=@goods_id";
-                bool flagSave = false;
-                SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);
-                myCon.Open();
-                SqlTransaction myTrans = myCon.BeginTransaction();
-                using (SqlCommand myCommand = new SqlCommand() { Connection = myCon, Transaction = myTrans })
-                {
-                    try
-                    {                        
-                        for (int i = 0; i < dtRpt1.Rows.Count; i++)
-                        {
-                            strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
-                            if (strSelect == "True")
-                            {
-                                myCommand.Parameters.Clear();
-                                id = dtRpt1.Rows[i]["id"].ToString();
-                                mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
-                                goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
-                                myCommand.CommandText = (id.Substring(0, 1) == "P") ? strSql1 : strSql2;                               
-                                myCommand.Parameters.AddWithValue("@id", id);
-                                myCommand.Parameters.AddWithValue("@mo_id", mo_id);                            
-                                myCommand.Parameters.AddWithValue("@goods_id", goods_id);
-                                myCommand.Parameters.AddWithValue("@short_reason", shortReason);
-                                myCommand.ExecuteNonQuery();
-                            }
+                            myCommand.Parameters.Clear();
+                            id = dtRpt1.Rows[i]["id"].ToString();
+                            mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
+                            goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
+                            myCommand.CommandText = (id.Substring(0, 1) == "P") ? strSql1 : strSql2;                               
+                            myCommand.Parameters.AddWithValue("@id", id);
+                            myCommand.Parameters.AddWithValue("@mo_id", mo_id);                            
+                            myCommand.Parameters.AddWithValue("@goods_id", goods_id);
+                            myCommand.Parameters.AddWithValue("@short_reason", shortReason);
+                            myCommand.ExecuteNonQuery();
                         }
-                        myTrans.Commit(); //數據提交
-                        flagSave = true;
-                        //移除已做外發強制完成的行
-                        for (int i = dtRpt1.Rows.Count-1; i>=0; i--)
+                    }
+                    myTrans.Commit(); //數據提交
+                    flagSave = true;
+                    //移除已做外發強制完成的行
+                    for (int i = dtRpt1.Rows.Count-1; i>=0; i--)
+                    {
+                        if(dtRpt1.Rows[i]["flag_select"].ToString()== "True")
                         {
-                            if(dtRpt1.Rows[i]["flag_select"].ToString()== "True")
-                            {
-                                DataRow drw = dtRpt1.Rows[i];
-                                dtRpt1.Rows.Remove(drw);                               
-                            }
+                            DataRow drw = dtRpt1.Rows[i];
+                            dtRpt1.Rows.Remove(drw);                               
                         }
-                        chkSelectAll.Checked = false;
-                        dtRpt1.AcceptChanges();
                     }
-                    catch (Exception E)
-                    {
-                        myTrans.Rollback(); //數據回滾
-                        flagSave = false;
-                        throw new Exception(E.Message);
-                    }
-                    finally
-                    {
-                        myCon.Close();
-                        myTrans.Dispose();
-                    }
+                    chkSelectAll.Checked = false;
+                    dtRpt1.AcceptChanges();
                 }
-                if (flagSave)
+                catch (Exception E)
                 {
-                    MessageBox.Show("短缺原因設置成功！！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    myTrans.Rollback(); //數據回滾
+                    flagSave = false;
+                    throw new Exception(E.Message);
                 }
-                else
+                finally
                 {
-                    MessageBox.Show("短缺原因設置失敗", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    myCon.Close();
+                    myTrans.Dispose();
                 }
+            }
+            if (flagSave)
+            {
+                MessageBox.Show("短缺原因設置成功！！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show($"當前用戶{DBUtility._user_id}權限不足！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("短缺原因設置失敗", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnOKPlan_Click(object sender, EventArgs e)
+        {
+            //檢查GEO中是否有生產計劃強制完成的權限
+            string user_id = DBUtility._user_id;
+            if (user_id.ToUpper() != "ADMIN")
+            {
+                if(!CheckPermission(user_id, "W_MANU_JO_COMPLETE", "PB_COMPLETE"))
+                {                    
+                    return;
+                }
+            }
+            string strSql = string.Empty, strSelect = string.Empty, mo_id = string.Empty, goods_id = string.Empty, wp_id = string.Empty;
+            Int32 order_qty = 0, c_qty_ok = 0;
+            bool flagCheck = true;
+            for (int i = 0; i < dtRpt1.Rows.Count; i++)
+            {
+                strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
+                if (strSelect == "True")
+                {
+                    mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
+                    goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
+                    order_qty = Int32.Parse(dtRpt1.Rows[i]["order_qty"].ToString());
+                    c_qty_ok = Int32.Parse(dtRpt1.Rows[i]["c_qty_ok"].ToString());
+                    if(c_qty_ok < order_qty)
+                    {
+                        MessageBox.Show($"第 【{(i + 1).ToString()}】行" + "\n\r" + $"頁數:【{mo_id}】" + "\n\r" + $"貨品:【{goods_id}】" + "\n\r" + "注意：完成數量必須大于或等于訂單數量,當前操作無效！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        flagCheck = false;
+                        break;
+                    }
+                }
+            }
+            if (!flagCheck)
+            {
+                return;
+            }
+                        
+            strSql =
+            @"UPDATE b Set b.state ='G',force_by=@user_id,force_date=GETDATE()
+              From jo_bill_mostly a, jo_bill_goods_details b
+              Where a.within_code=b.within_code And a.id=b.id And a.ver=b.ver And a.within_code='0000' And a.mo_id=@mo_id And
+              b.within_code ='0000' And b.goods_id=@goods_id And b.wp_id =@wp_id And b.next_wp_id <>'702'";           
+            bool flagSave = false;
+            SqlConnection myCon = new SqlConnection(DBUtility.conn_str_dgerp2);
+            myCon.Open();
+            SqlTransaction myTrans = myCon.BeginTransaction();
+            using (SqlCommand myCommand = new SqlCommand() { Connection = myCon, Transaction = myTrans })
+            {
+                try
+                {
+                    for (int i = 0; i < dtRpt1.Rows.Count; i++)
+                    {
+                        strSelect = dtRpt1.Rows[i]["flag_select"].ToString();
+                        if (strSelect == "True")
+                        {
+                            myCommand.Parameters.Clear();
+                            mo_id = dtRpt1.Rows[i]["mo_id"].ToString();
+                            goods_id = dtRpt1.Rows[i]["goods_id"].ToString();
+                            wp_id = dtRpt1.Rows[i]["id"].ToString().Substring(1,3);
+                            myCommand.CommandText = strSql;                      
+                            myCommand.Parameters.AddWithValue("@mo_id", mo_id);
+                            myCommand.Parameters.AddWithValue("@goods_id", goods_id);
+                            myCommand.Parameters.AddWithValue("@wp_id", wp_id);
+                            myCommand.Parameters.AddWithValue("@user_id", user_id);
+                            myCommand.ExecuteNonQuery();
+                        }
+                    }
+                    myTrans.Commit(); //數據提交
+                    flagSave = true;
+                    //移除已做外發強制完成的行
+                    for (int i = dtRpt1.Rows.Count - 1; i >= 0; i--)
+                    {
+                        if (dtRpt1.Rows[i]["flag_select"].ToString() == "True")
+                        {
+                            DataRow drw = dtRpt1.Rows[i];
+                            dtRpt1.Rows.Remove(drw);
+                        }
+                    }
+                    chkSelectAll.Checked = false;
+                    dtRpt1.AcceptChanges();
+                }
+                catch (Exception E)
+                {
+                    myTrans.Rollback(); //數據回滾
+                    flagSave = false;
+                    throw new Exception(E.Message);
+                }
+                finally
+                {
+                    myCon.Close();
+                    myTrans.Dispose();
+                }
+            }
+            if (flagSave)
+            {
+                MessageBox.Show("生產計劃強制完成功！！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("生產計劃強制完失敗", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool CheckPermission(string userId,string windowId,string functionId)
+        {
+            bool rtn = true;
+            string result = "";
+            string sql = string.Format(
+            @"SELECT '1' as POPEDOM FROM {0}UPM_USER_POPEDOM WHERE WITHIN_CODE='0000' and USR_NO='{1}' and Window_id='{2}' and C1_ID='{3}'",
+            DBUtility.remote_db, userId, windowId, functionId);
+            result = clsPublicOfCF01.ExecuteSqlReturnObject(sql);
+            if (result == "")
+            {
+                MessageBox.Show($"當前用戶{userId}權限不足！", "系統提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rtn = false;
+            }
+            return rtn;
         }
     }
 }

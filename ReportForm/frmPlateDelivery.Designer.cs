@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlateDelivery));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -114,6 +114,7 @@
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnShowMore = new DevExpress.XtraEditors.SimpleButton();
             this.chkMo = new DevExpress.XtraEditors.CheckEdit();
             this.btnRpt3 = new System.Windows.Forms.Button();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
@@ -126,12 +127,14 @@
             this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.FlagSelect = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnShowMore = new DevExpress.XtraEditors.SimpleButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lueShortReason = new DevExpress.XtraEditors.LookUpEdit();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lueShortReason = new DevExpress.XtraEditors.LookUpEdit();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnOKPlan = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.next_wp_id = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
@@ -148,8 +151,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueShortReason.Properties)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridView2
@@ -374,20 +379,20 @@
             this.grdControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            gridLevelNode3.LevelTemplate = this.gridView2;
-            gridLevelNode3.RelationName = "Level1";
-            gridLevelNode4.LevelTemplate = this.gridView3;
-            gridLevelNode4.RelationName = "Level2";
+            gridLevelNode1.LevelTemplate = this.gridView2;
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.LevelTemplate = this.gridView3;
+            gridLevelNode2.RelationName = "Level2";
             this.grdControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode3,
-            gridLevelNode4});
+            gridLevelNode1,
+            gridLevelNode2});
             this.grdControl.Location = new System.Drawing.Point(4, 3);
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
             this.grdControl.Name = "grdControl";
             this.grdControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.colFlagSelect});
-            this.grdControl.Size = new System.Drawing.Size(1152, 444);
+            this.grdControl.Size = new System.Drawing.Size(1152, 438);
             this.grdControl.TabIndex = 4;
             this.grdControl.Tag = "\"1\"";
             this.grdControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -674,6 +679,7 @@
             this.artwork,
             this.goods_name,
             this.do_color,
+            this.next_wp_id,
             this.plan_qty,
             this.order_qty,
             this.c_qty_ok,
@@ -814,7 +820,7 @@
             this.plan_qty.Name = "plan_qty";
             this.plan_qty.OptionsColumn.ReadOnly = true;
             this.plan_qty.Visible = true;
-            this.plan_qty.VisibleIndex = 9;
+            this.plan_qty.VisibleIndex = 10;
             this.plan_qty.Width = 64;
             // 
             // order_qty
@@ -824,7 +830,7 @@
             this.order_qty.Name = "order_qty";
             this.order_qty.OptionsColumn.ReadOnly = true;
             this.order_qty.Visible = true;
-            this.order_qty.VisibleIndex = 10;
+            this.order_qty.VisibleIndex = 11;
             this.order_qty.Width = 67;
             // 
             // c_qty_ok
@@ -834,7 +840,7 @@
             this.c_qty_ok.Name = "c_qty_ok";
             this.c_qty_ok.OptionsColumn.ReadOnly = true;
             this.c_qty_ok.Visible = true;
-            this.c_qty_ok.VisibleIndex = 11;
+            this.c_qty_ok.VisibleIndex = 12;
             this.c_qty_ok.Width = 70;
             // 
             // prod_qty
@@ -844,7 +850,7 @@
             this.prod_qty.Name = "prod_qty";
             this.prod_qty.OptionsColumn.ReadOnly = true;
             this.prod_qty.Visible = true;
-            this.prod_qty.VisibleIndex = 12;
+            this.prod_qty.VisibleIndex = 13;
             // 
             // sec_qty
             // 
@@ -853,7 +859,7 @@
             this.sec_qty.Name = "sec_qty";
             this.sec_qty.OptionsColumn.ReadOnly = true;
             this.sec_qty.Visible = true;
-            this.sec_qty.VisibleIndex = 13;
+            this.sec_qty.VisibleIndex = 14;
             this.sec_qty.Width = 63;
             // 
             // out_qty_total
@@ -865,7 +871,7 @@
             this.out_qty_total.Name = "out_qty_total";
             this.out_qty_total.OptionsColumn.ReadOnly = true;
             this.out_qty_total.Visible = true;
-            this.out_qty_total.VisibleIndex = 14;
+            this.out_qty_total.VisibleIndex = 15;
             // 
             // out_sec_qty_total
             // 
@@ -876,7 +882,7 @@
             this.out_sec_qty_total.Name = "out_sec_qty_total";
             this.out_sec_qty_total.OptionsColumn.ReadOnly = true;
             this.out_sec_qty_total.Visible = true;
-            this.out_sec_qty_total.VisibleIndex = 15;
+            this.out_sec_qty_total.VisibleIndex = 16;
             // 
             // in_qty_total
             // 
@@ -887,7 +893,7 @@
             this.in_qty_total.Name = "in_qty_total";
             this.in_qty_total.OptionsColumn.ReadOnly = true;
             this.in_qty_total.Visible = true;
-            this.in_qty_total.VisibleIndex = 16;
+            this.in_qty_total.VisibleIndex = 17;
             // 
             // in_sec_qty_total
             // 
@@ -898,7 +904,7 @@
             this.in_sec_qty_total.Name = "in_sec_qty_total";
             this.in_sec_qty_total.OptionsColumn.ReadOnly = true;
             this.in_sec_qty_total.Visible = true;
-            this.in_sec_qty_total.VisibleIndex = 17;
+            this.in_sec_qty_total.VisibleIndex = 18;
             // 
             // qty_differ
             // 
@@ -915,7 +921,7 @@
             this.qty_differ.Name = "qty_differ";
             this.qty_differ.OptionsColumn.ReadOnly = true;
             this.qty_differ.Visible = true;
-            this.qty_differ.VisibleIndex = 18;
+            this.qty_differ.VisibleIndex = 19;
             this.qty_differ.Width = 70;
             // 
             // sec_qty_differ
@@ -933,7 +939,7 @@
             this.sec_qty_differ.Name = "sec_qty_differ";
             this.sec_qty_differ.OptionsColumn.ReadOnly = true;
             this.sec_qty_differ.Visible = true;
-            this.sec_qty_differ.VisibleIndex = 19;
+            this.sec_qty_differ.VisibleIndex = 20;
             this.sec_qty_differ.Width = 70;
             // 
             // gridColumn41
@@ -944,7 +950,7 @@
             this.gridColumn41.FieldName = "t_complete_date";
             this.gridColumn41.Name = "gridColumn41";
             this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 26;
+            this.gridColumn41.VisibleIndex = 27;
             // 
             // remark
             // 
@@ -952,7 +958,7 @@
             this.remark.FieldName = "remark";
             this.remark.Name = "remark";
             this.remark.Visible = true;
-            this.remark.VisibleIndex = 20;
+            this.remark.VisibleIndex = 21;
             // 
             // return_total
             // 
@@ -963,7 +969,7 @@
             this.return_total.Name = "return_total";
             this.return_total.OptionsColumn.ReadOnly = true;
             this.return_total.Visible = true;
-            this.return_total.VisibleIndex = 21;
+            this.return_total.VisibleIndex = 22;
             this.return_total.Width = 65;
             // 
             // dept_reply
@@ -972,7 +978,7 @@
             this.dept_reply.FieldName = "dept_reply";
             this.dept_reply.Name = "dept_reply";
             this.dept_reply.Visible = true;
-            this.dept_reply.VisibleIndex = 22;
+            this.dept_reply.VisibleIndex = 23;
             // 
             // pmc_reply
             // 
@@ -980,7 +986,7 @@
             this.pmc_reply.FieldName = "pmc_reply";
             this.pmc_reply.Name = "pmc_reply";
             this.pmc_reply.Visible = true;
-            this.pmc_reply.VisibleIndex = 23;
+            this.pmc_reply.VisibleIndex = 24;
             // 
             // gridColumn40
             // 
@@ -990,7 +996,7 @@
             this.gridColumn40.FieldName = "remark_wet";
             this.gridColumn40.Name = "gridColumn40";
             this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 24;
+            this.gridColumn40.VisibleIndex = 25;
             // 
             // gridColumn43
             // 
@@ -1005,7 +1011,7 @@
             this.gridColumn43.OptionsFilter.AllowFilter = false;
             this.gridColumn43.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn43.Visible = true;
-            this.gridColumn43.VisibleIndex = 25;
+            this.gridColumn43.VisibleIndex = 26;
             this.gridColumn43.Width = 65;
             // 
             // vendor_name
@@ -1130,13 +1136,23 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 71);
+            this.panel1.Size = new System.Drawing.Size(1160, 65);
             this.panel1.TabIndex = 5;
+            // 
+            // btnShowMore
+            // 
+            this.btnShowMore.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnShowMore.Location = new System.Drawing.Point(1095, 13);
+            this.btnShowMore.Name = "btnShowMore";
+            this.btnShowMore.Size = new System.Drawing.Size(47, 41);
+            this.btnShowMore.TabIndex = 34;
+            this.btnShowMore.Text = ">>";
+            this.btnShowMore.Click += new System.EventHandler(this.btnShowMore_Click);
             // 
             // chkMo
             // 
             this.chkMo.EditValue = true;
-            this.chkMo.Location = new System.Drawing.Point(80, 6);
+            this.chkMo.Location = new System.Drawing.Point(80, 3);
             this.chkMo.Name = "chkMo";
             this.chkMo.Properties.Caption = "包含頁數匯總資料";
             this.chkMo.Size = new System.Drawing.Size(153, 19);
@@ -1146,7 +1162,7 @@
             // 
             this.btnRpt3.Image = ((System.Drawing.Image)(resources.GetObject("btnRpt3.Image")));
             this.btnRpt3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRpt3.Location = new System.Drawing.Point(876, 33);
+            this.btnRpt3.Location = new System.Drawing.Point(876, 26);
             this.btnRpt3.Name = "btnRpt3";
             this.btnRpt3.Size = new System.Drawing.Size(129, 27);
             this.btnRpt3.TabIndex = 30;
@@ -1157,7 +1173,7 @@
             // 
             // radioGroup1
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(298, 34);
+            this.radioGroup1.Location = new System.Drawing.Point(298, 27);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
@@ -1172,7 +1188,7 @@
             // chkArt
             // 
             this.chkArt.EditValue = true;
-            this.chkArt.Location = new System.Drawing.Point(714, 37);
+            this.chkArt.Location = new System.Drawing.Point(714, 30);
             this.chkArt.Name = "chkArt";
             this.chkArt.Properties.Caption = "匯出Excel 包含圖樣";
             this.chkArt.Size = new System.Drawing.Size(135, 19);
@@ -1182,7 +1198,7 @@
             // 
             this.btnRpt2.Image = ((System.Drawing.Image)(resources.GetObject("btnRpt2.Image")));
             this.btnRpt2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRpt2.Location = new System.Drawing.Point(585, 31);
+            this.btnRpt2.Location = new System.Drawing.Point(585, 24);
             this.btnRpt2.Name = "btnRpt2";
             this.btnRpt2.Size = new System.Drawing.Size(108, 27);
             this.btnRpt2.TabIndex = 6;
@@ -1193,7 +1209,7 @@
             // 
             // lblSend
             // 
-            this.lblSend.Location = new System.Drawing.Point(12, 38);
+            this.lblSend.Location = new System.Drawing.Point(12, 31);
             this.lblSend.Name = "lblSend";
             this.lblSend.Size = new System.Drawing.Size(62, 15);
             this.lblSend.TabIndex = 22;
@@ -1203,7 +1219,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(179, 38);
+            this.label1.Location = new System.Drawing.Point(179, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(11, 12);
             this.label1.TabIndex = 21;
@@ -1213,7 +1229,7 @@
             // 
             this.txtSend_Date1.EditValue = null;
             this.txtSend_Date1.EnterMoveNextControl = true;
-            this.txtSend_Date1.Location = new System.Drawing.Point(79, 35);
+            this.txtSend_Date1.Location = new System.Drawing.Point(79, 28);
             this.txtSend_Date1.Name = "txtSend_Date1";
             this.txtSend_Date1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1230,7 +1246,7 @@
             // 
             this.txtSend_Date2.EditValue = null;
             this.txtSend_Date2.EnterMoveNextControl = true;
-            this.txtSend_Date2.Location = new System.Drawing.Point(194, 35);
+            this.txtSend_Date2.Location = new System.Drawing.Point(194, 28);
             this.txtSend_Date2.Name = "txtSend_Date2";
             this.txtSend_Date2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1267,51 +1283,43 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnOk);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.lueShortReason);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 104);
+            this.panel2.Location = new System.Drawing.Point(0, 98);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1160, 45);
+            this.panel2.Size = new System.Drawing.Size(1160, 57);
             this.panel2.TabIndex = 7;
             this.panel2.Visible = false;
             // 
-            // panel3
+            // btnOk
             // 
-            this.panel3.Controls.Add(this.chkSelectAll);
-            this.panel3.Controls.Add(this.grdControl);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 149);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1160, 461);
-            this.panel3.TabIndex = 8;
+            this.btnOk.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOk.Location = new System.Drawing.Point(494, 15);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(62, 27);
+            this.btnOk.TabIndex = 132;
+            this.btnOk.Text = "確認";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // btnShowMore
+            // label3
             // 
-            this.btnShowMore.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnShowMore.Location = new System.Drawing.Point(1095, 16);
-            this.btnShowMore.Name = "btnShowMore";
-            this.btnShowMore.Size = new System.Drawing.Size(47, 41);
-            this.btnShowMore.TabIndex = 34;
-            this.btnShowMore.Text = ">>";
-            this.btnShowMore.Click += new System.EventHandler(this.btnShowMore_Click);
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label2.Location = new System.Drawing.Point(47, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 27);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "外發加工單強制完成";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(28, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(225, 19);
+            this.label3.TabIndex = 131;
+            this.label3.Text = "以下所有選中行統一設置為此短缺原因";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lueShortReason
             // 
             this.lueShortReason.EditValue = "";
-            this.lueShortReason.Location = new System.Drawing.Point(520, 11);
+            this.lueShortReason.Location = new System.Drawing.Point(267, 18);
             this.lueShortReason.Name = "lueShortReason";
             this.lueShortReason.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.lueShortReason.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1332,29 +1340,63 @@
             this.lueShortReason.Size = new System.Drawing.Size(217, 22);
             this.lueShortReason.TabIndex = 130;
             // 
-            // label3
+            // panel3
             // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label3.Location = new System.Drawing.Point(255, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(259, 27);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "以下所有選中行統一設置為此短缺原因";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.panel3.Controls.Add(this.chkSelectAll);
+            this.panel3.Controls.Add(this.grdControl);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 155);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1160, 455);
+            this.panel3.TabIndex = 8;
             // 
-            // btnOk
+            // btnOKPlan
             // 
-            this.btnOk.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(752, 8);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(62, 27);
-            this.btnOk.TabIndex = 132;
-            this.btnOk.Text = "確認";
-            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOKPlan.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnOKPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnOKPlan.Image")));
+            this.btnOKPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOKPlan.Location = new System.Drawing.Point(112, 16);
+            this.btnOKPlan.Name = "btnOKPlan";
+            this.btnOKPlan.Size = new System.Drawing.Size(62, 27);
+            this.btnOKPlan.TabIndex = 134;
+            this.btnOKPlan.Text = "完成";
+            this.btnOKPlan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOKPlan.UseVisualStyleBackColor = true;
+            this.btnOKPlan.Click += new System.EventHandler(this.btnOKPlan_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btnOk);
+            this.groupBox1.Controls.Add(this.lueShortReason);
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(578, 48);
+            this.groupBox1.TabIndex = 135;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "外發加工單強制完成";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnOKPlan);
+            this.groupBox2.Location = new System.Drawing.Point(708, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(194, 48);
+            this.groupBox2.TabIndex = 136;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "生產計劃強制完成";
+            // 
+            // next_wp_id
+            // 
+            this.next_wp_id.AppearanceCell.Options.UseTextOptions = true;
+            this.next_wp_id.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.next_wp_id.Caption = "交下部門";
+            this.next_wp_id.FieldName = "next_wp_id";
+            this.next_wp_id.Name = "next_wp_id";
+            this.next_wp_id.OptionsColumn.ReadOnly = true;
+            this.next_wp_id.Visible = true;
+            this.next_wp_id.VisibleIndex = 9;
+            this.next_wp_id.Width = 60;
             // 
             // frmPlateDelivery
             // 
@@ -1389,8 +1431,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueShortReason.Properties)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1495,9 +1539,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.SimpleButton btnShowMore;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.LookUpEdit lueShortReason;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnOKPlan;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraGrid.Columns.GridColumn next_wp_id;
     }
 }
