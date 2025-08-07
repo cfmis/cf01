@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlateDelivery));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -83,6 +83,7 @@
             this.artwork = new DevExpress.XtraGrid.Columns.GridColumn();
             this.goods_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.do_color = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.next_wp_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.plan_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.order_qty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.c_qty_ok = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,14 +128,13 @@
             this.chkSelectAll = new DevExpress.XtraEditors.CheckEdit();
             this.FlagSelect = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lueShortReason = new DevExpress.XtraEditors.LookUpEdit();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnOKPlan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.next_wp_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.lueShortReason = new DevExpress.XtraEditors.LookUpEdit();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
@@ -151,10 +151,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).BeginInit();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueShortReason.Properties)).BeginInit();
             this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridView2
@@ -379,13 +379,13 @@
             this.grdControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            gridLevelNode1.LevelTemplate = this.gridView2;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.LevelTemplate = this.gridView3;
-            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.LevelTemplate = this.gridView2;
+            gridLevelNode3.RelationName = "Level1";
+            gridLevelNode4.LevelTemplate = this.gridView3;
+            gridLevelNode4.RelationName = "Level2";
             this.grdControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2});
+            gridLevelNode3,
+            gridLevelNode4});
             this.grdControl.Location = new System.Drawing.Point(4, 3);
             this.grdControl.LookAndFeel.SkinName = "Office 2010 Blue";
             this.grdControl.MainView = this.gridView1;
@@ -708,6 +708,7 @@
             this.gridView1.OptionsCustomization.AllowFilter = false;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.PaintStyleName = "Style3D";
             this.gridView1.RowHeight = 26;
             this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
@@ -812,6 +813,18 @@
             this.do_color.OptionsColumn.ReadOnly = true;
             this.do_color.Visible = true;
             this.do_color.VisibleIndex = 8;
+            // 
+            // next_wp_id
+            // 
+            this.next_wp_id.AppearanceCell.Options.UseTextOptions = true;
+            this.next_wp_id.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.next_wp_id.Caption = "交下部門";
+            this.next_wp_id.FieldName = "next_wp_id";
+            this.next_wp_id.Name = "next_wp_id";
+            this.next_wp_id.OptionsColumn.ReadOnly = true;
+            this.next_wp_id.Visible = true;
+            this.next_wp_id.VisibleIndex = 9;
+            this.next_wp_id.Width = 60;
             // 
             // plan_qty
             // 
@@ -1261,7 +1274,7 @@
             // 
             // chkSelectAll
             // 
-            this.chkSelectAll.Location = new System.Drawing.Point(65, 9);
+            this.chkSelectAll.Location = new System.Drawing.Point(67, 9);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Properties.Caption = "";
             this.chkSelectAll.Size = new System.Drawing.Size(21, 19);
@@ -1292,6 +1305,52 @@
             this.panel2.TabIndex = 7;
             this.panel2.Visible = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnOKPlan);
+            this.groupBox2.Location = new System.Drawing.Point(708, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(194, 48);
+            this.groupBox2.TabIndex = 136;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "生產計劃強制完成";
+            // 
+            // btnOKPlan
+            // 
+            this.btnOKPlan.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnOKPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnOKPlan.Image")));
+            this.btnOKPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOKPlan.Location = new System.Drawing.Point(112, 16);
+            this.btnOKPlan.Name = "btnOKPlan";
+            this.btnOKPlan.Size = new System.Drawing.Size(62, 27);
+            this.btnOKPlan.TabIndex = 134;
+            this.btnOKPlan.Text = "完成";
+            this.btnOKPlan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOKPlan.UseVisualStyleBackColor = true;
+            this.btnOKPlan.Click += new System.EventHandler(this.btnOKPlan_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btnOk);
+            this.groupBox1.Controls.Add(this.lueShortReason);
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(578, 48);
+            this.groupBox1.TabIndex = 135;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "外發加工單強制完成";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(28, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(225, 19);
+            this.label3.TabIndex = 131;
+            this.label3.Text = "以下所有選中行統一設置為此短缺原因";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -1305,16 +1364,6 @@
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(225, 19);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "以下所有選中行統一設置為此短缺原因";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lueShortReason
             // 
@@ -1350,54 +1399,6 @@
             this.panel3.Size = new System.Drawing.Size(1160, 455);
             this.panel3.TabIndex = 8;
             // 
-            // btnOKPlan
-            // 
-            this.btnOKPlan.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.btnOKPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnOKPlan.Image")));
-            this.btnOKPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOKPlan.Location = new System.Drawing.Point(112, 16);
-            this.btnOKPlan.Name = "btnOKPlan";
-            this.btnOKPlan.Size = new System.Drawing.Size(62, 27);
-            this.btnOKPlan.TabIndex = 134;
-            this.btnOKPlan.Text = "完成";
-            this.btnOKPlan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOKPlan.UseVisualStyleBackColor = true;
-            this.btnOKPlan.Click += new System.EventHandler(this.btnOKPlan_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btnOk);
-            this.groupBox1.Controls.Add(this.lueShortReason);
-            this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 48);
-            this.groupBox1.TabIndex = 135;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "外發加工單強制完成";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnOKPlan);
-            this.groupBox2.Location = new System.Drawing.Point(708, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(194, 48);
-            this.groupBox2.TabIndex = 136;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "生產計劃強制完成";
-            // 
-            // next_wp_id
-            // 
-            this.next_wp_id.AppearanceCell.Options.UseTextOptions = true;
-            this.next_wp_id.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.next_wp_id.Caption = "交下部門";
-            this.next_wp_id.FieldName = "next_wp_id";
-            this.next_wp_id.Name = "next_wp_id";
-            this.next_wp_id.OptionsColumn.ReadOnly = true;
-            this.next_wp_id.Visible = true;
-            this.next_wp_id.VisibleIndex = 9;
-            this.next_wp_id.Width = 60;
-            // 
             // frmPlateDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1431,10 +1432,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSend_Date2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectAll.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lueShortReason.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
