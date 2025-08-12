@@ -1147,7 +1147,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1357, 281);
+            this.tabControl1.Size = new System.Drawing.Size(1357, 279);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -1158,7 +1158,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1349, 255);
+            this.tabPage1.Size = new System.Drawing.Size(1349, 253);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "資料錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2350,7 +2350,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1349, 255);
+            this.tabPage2.Size = new System.Drawing.Size(1349, 253);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "新版本";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3825,7 +3825,7 @@
             // 
             // lblVersion
             // 
-            this.lblVersion.Location = new System.Drawing.Point(831, 191);
+            this.lblVersion.Location = new System.Drawing.Point(751, 171);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(45, 13);
             this.lblVersion.TabIndex = 111;
@@ -4314,7 +4314,7 @@
             // 
             this.txtVersion.EditValue = "";
             this.txtVersion.Enabled = false;
-            this.txtVersion.Location = new System.Drawing.Point(875, 187);
+            this.txtVersion.Location = new System.Drawing.Point(796, 167);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVersion.Properties.MaxLength = 2;
@@ -5412,9 +5412,9 @@
             // 
             // btnApproved
             // 
-            this.btnApproved.Location = new System.Drawing.Point(1184, 181);
+            this.btnApproved.Location = new System.Drawing.Point(839, 185);
             this.btnApproved.Name = "btnApproved";
-            this.btnApproved.Size = new System.Drawing.Size(78, 26);
+            this.btnApproved.Size = new System.Drawing.Size(81, 22);
             this.btnApproved.TabIndex = 138;
             this.btnApproved.Text = "Add Sub MO";
             this.btnApproved.Click += new System.EventHandler(this.btnApproved_Click);
@@ -5456,7 +5456,7 @@
             this.dgvSub.RowHeadersVisible = false;
             this.dgvSub.RowHeadersWidth = 10;
             this.dgvSub.RowTemplate.Height = 18;
-            this.dgvSub.Size = new System.Drawing.Size(506, 94);
+            this.dgvSub.Size = new System.Drawing.Size(506, 89);
             this.dgvSub.TabIndex = 139;
             this.dgvSub.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSub_CellDoubleClick);
             // 
@@ -5797,7 +5797,7 @@
             // 
             // lblSample_Card
             // 
-            this.lblSample_Card.Location = new System.Drawing.Point(847, 171);
+            this.lblSample_Card.Location = new System.Drawing.Point(847, 170);
             this.lblSample_Card.Name = "lblSample_Card";
             this.lblSample_Card.Size = new System.Drawing.Size(123, 13);
             this.lblSample_Card.TabIndex = 161;
@@ -6221,9 +6221,9 @@
             // 
             this.pnlRemarkPDD_dg.Controls.Add(this.memDgRmkPdd);
             this.pnlRemarkPDD_dg.Controls.Add(this.lbldgRmkPdd);
-            this.pnlRemarkPDD_dg.Location = new System.Drawing.Point(577, 405);
+            this.pnlRemarkPDD_dg.Location = new System.Drawing.Point(577, 409);
             this.pnlRemarkPDD_dg.Name = "pnlRemarkPDD_dg";
-            this.pnlRemarkPDD_dg.Size = new System.Drawing.Size(771, 47);
+            this.pnlRemarkPDD_dg.Size = new System.Drawing.Size(771, 43);
             this.pnlRemarkPDD_dg.TabIndex = 204;
             this.pnlRemarkPDD_dg.Visible = false;
             // 
@@ -6232,7 +6232,7 @@
             this.memDgRmkPdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.memDgRmkPdd.EnterMoveNextControl = true;
-            this.memDgRmkPdd.Location = new System.Drawing.Point(92, 3);
+            this.memDgRmkPdd.Location = new System.Drawing.Point(92, 1);
             this.memDgRmkPdd.Name = "memDgRmkPdd";
             this.memDgRmkPdd.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.memDgRmkPdd.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6467,9 +6467,9 @@
             // 
             // btnPriceDisc
             // 
-            this.btnPriceDisc.Location = new System.Drawing.Point(733, 155);
+            this.btnPriceDisc.Location = new System.Drawing.Point(839, 298);
             this.btnPriceDisc.Name = "btnPriceDisc";
-            this.btnPriceDisc.Size = new System.Drawing.Size(122, 26);
+            this.btnPriceDisc.Size = new System.Drawing.Size(122, 22);
             this.btnPriceDisc.TabIndex = 235;
             this.btnPriceDisc.Text = "Add Discount Price";
             this.btnPriceDisc.Click += new System.EventHandler(this.btnPriceDisc_Click);
@@ -6513,13 +6513,13 @@
             dataGridViewCellStyle94.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle94.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPriceDisc.DefaultCellStyle = dataGridViewCellStyle94;
-            this.dgvPriceDisc.Location = new System.Drawing.Point(839, 304);
+            this.dgvPriceDisc.Location = new System.Drawing.Point(839, 321);
             this.dgvPriceDisc.Name = "dgvPriceDisc";
             this.dgvPriceDisc.ReadOnly = true;
             this.dgvPriceDisc.RowHeadersVisible = false;
             this.dgvPriceDisc.RowHeadersWidth = 10;
             this.dgvPriceDisc.RowTemplate.Height = 18;
-            this.dgvPriceDisc.Size = new System.Drawing.Size(506, 102);
+            this.dgvPriceDisc.Size = new System.Drawing.Size(506, 86);
             this.dgvPriceDisc.TabIndex = 234;
             // 
             // dataGridViewTextBoxColumn61
