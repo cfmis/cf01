@@ -2126,6 +2126,7 @@
             this.xrLine34.LocationFloat = new DevExpress.Utils.PointFloat(861.8953F, 1207.244F);
             this.xrLine34.Name = "xrLine34";
             this.xrLine34.SizeF = new System.Drawing.SizeF(223.1257F, 5F);
+            this.xrLine34.Visible = false;
             // 
             // xrLine33
             // 
@@ -2133,7 +2134,7 @@
             this.xrLine33.LineWidth = 3;
             this.xrLine33.LocationFloat = new DevExpress.Utils.PointFloat(183.7292F, 1207.244F);
             this.xrLine33.Name = "xrLine33";
-            this.xrLine33.SizeF = new System.Drawing.SizeF(499.8958F, 5F);
+            this.xrLine33.SizeF = new System.Drawing.SizeF(278.8958F, 5F);
             // 
             // xrPageInfo1
             // 
