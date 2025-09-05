@@ -288,6 +288,8 @@
             this.product_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.md_charge_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.die_mould_usd_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BTNFORMULA = new System.Windows.Forms.Button();
@@ -592,6 +594,8 @@
             this.lbldgRmkPdd = new System.Windows.Forms.Label();
             this.pic_artwork = new System.Windows.Forms.PictureBox();
             this.pnlHead = new System.Windows.Forms.Panel();
+            this.txtHkd_remark = new DevExpress.XtraEditors.TextEdit();
+            this.txtUsd_remark = new DevExpress.XtraEditors.TextEdit();
             this.btnPriceDisc = new DevExpress.XtraEditors.SimpleButton();
             this.dgvPriceDisc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -641,6 +645,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblMd_charge_vn = new System.Windows.Forms.Label();
             this.lblDie_mould_usd_vn = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
@@ -757,6 +763,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.memDgRmkPdd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).BeginInit();
             this.pnlHead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHkd_remark.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsd_remark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPriceDisc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDie_mould_usd_vn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMd_charge_vn.Properties)).BeginInit();
@@ -1147,7 +1155,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1357, 279);
+            this.tabControl1.Size = new System.Drawing.Size(1357, 271);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -1158,7 +1166,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1349, 253);
+            this.tabPage1.Size = new System.Drawing.Size(1349, 245);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "資料錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1308,7 +1316,9 @@
             this.material_type,
             this.product_type,
             this.md_charge_vn,
-            this.die_mould_usd_vn});
+            this.die_mould_usd_vn,
+            this.usd_remark,
+            this.hkd_remark});
             dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle44.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -2340,6 +2350,20 @@
             this.die_mould_usd_vn.ReadOnly = true;
             this.die_mould_usd_vn.Width = 60;
             // 
+            // usd_remark
+            // 
+            this.usd_remark.DataPropertyName = "usd_remark";
+            this.usd_remark.HeaderText = "Usd Remark";
+            this.usd_remark.Name = "usd_remark";
+            this.usd_remark.ReadOnly = true;
+            // 
+            // hkd_remark
+            // 
+            this.hkd_remark.DataPropertyName = "hkd_remark";
+            this.hkd_remark.HeaderText = "Hkd Remark";
+            this.hkd_remark.Name = "hkd_remark";
+            this.hkd_remark.ReadOnly = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -2350,7 +2374,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1349, 253);
+            this.tabPage2.Size = new System.Drawing.Size(1349, 245);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "新版本";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3876,12 +3900,12 @@
             // lblRmb_remark
             // 
             this.lblRmb_remark.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRmb_remark.Location = new System.Drawing.Point(266, 328);
+            this.lblRmb_remark.Location = new System.Drawing.Point(397, 328);
             this.lblRmb_remark.Name = "lblRmb_remark";
-            this.lblRmb_remark.Size = new System.Drawing.Size(99, 18);
+            this.lblRmb_remark.Size = new System.Drawing.Size(71, 18);
             this.lblRmb_remark.TabIndex = 184;
-            this.lblRmb_remark.Text = "Remark for RMB";
-            this.lblRmb_remark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRmb_remark.Text = "Remark RMB";
+            this.lblRmb_remark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtEx_fty_hkd
             // 
@@ -5066,7 +5090,7 @@
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Properties.MaxLength = 150;
             this.txtRemark.Properties.ReadOnly = true;
-            this.txtRemark.Size = new System.Drawing.Size(495, 20);
+            this.txtRemark.Size = new System.Drawing.Size(318, 20);
             this.txtRemark.TabIndex = 13;
             this.txtRemark.Tag = "2";
             // 
@@ -5208,7 +5232,7 @@
             this.txtRemark_other.Name = "txtRemark_other";
             this.txtRemark_other.Properties.MaxLength = 150;
             this.txtRemark_other.Properties.ReadOnly = true;
-            this.txtRemark_other.Size = new System.Drawing.Size(495, 20);
+            this.txtRemark_other.Size = new System.Drawing.Size(318, 20);
             this.txtRemark_other.TabIndex = 14;
             this.txtRemark_other.Tag = "2";
             // 
@@ -5229,7 +5253,7 @@
             this.txtComment.Name = "txtComment";
             this.txtComment.Properties.MaxLength = 600;
             this.txtComment.Properties.ReadOnly = true;
-            this.txtComment.Size = new System.Drawing.Size(192, 20);
+            this.txtComment.Size = new System.Drawing.Size(318, 20);
             this.txtComment.TabIndex = 15;
             this.txtComment.Tag = "2";
             // 
@@ -5978,13 +6002,13 @@
             this.txtRmb_remark.EditValue = "";
             this.txtRmb_remark.Enabled = false;
             this.txtRmb_remark.EnterMoveNextControl = true;
-            this.txtRmb_remark.Location = new System.Drawing.Point(361, 327);
+            this.txtRmb_remark.Location = new System.Drawing.Point(467, 327);
             this.txtRmb_remark.Name = "txtRmb_remark";
             this.txtRmb_remark.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtRmb_remark.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtRmb_remark.Properties.MaxLength = 200;
+            this.txtRmb_remark.Properties.MaxLength = 50;
             this.txtRmb_remark.Properties.ReadOnly = true;
-            this.txtRmb_remark.Size = new System.Drawing.Size(210, 20);
+            this.txtRmb_remark.Size = new System.Drawing.Size(104, 20);
             this.txtRmb_remark.TabIndex = 183;
             this.txtRmb_remark.Tag = "2";
             // 
@@ -6268,6 +6292,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHead.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlHead.Controls.Add(this.txtHkd_remark);
+            this.pnlHead.Controls.Add(this.txtUsd_remark);
             this.pnlHead.Controls.Add(this.btnPriceDisc);
             this.pnlHead.Controls.Add(this.dgvPriceDisc);
             this.pnlHead.Controls.Add(this.txtDie_mould_usd_vn);
@@ -6432,7 +6458,6 @@
             this.pnlHead.Controls.Add(this.lblEx_fty_hkd);
             this.pnlHead.Controls.Add(this.txtEx_fty_usd);
             this.pnlHead.Controls.Add(this.txtEx_fty_hkd);
-            this.pnlHead.Controls.Add(this.lblRmb_remark);
             this.pnlHead.Controls.Add(this.txtPrice_rmb);
             this.pnlHead.Controls.Add(this.lblAw);
             this.pnlHead.Controls.Add(this.lblVersion);
@@ -6460,10 +6485,43 @@
             this.pnlHead.Controls.Add(this.lblMd_charge_vn);
             this.pnlHead.Controls.Add(this.lblDie_mould_usd_vn);
             this.pnlHead.Controls.Add(this.lblLead_time_min);
+            this.pnlHead.Controls.Add(this.label15);
+            this.pnlHead.Controls.Add(this.label13);
+            this.pnlHead.Controls.Add(this.lblRmb_remark);
             this.pnlHead.Location = new System.Drawing.Point(4, 6);
             this.pnlHead.Name = "pnlHead";
             this.pnlHead.Size = new System.Drawing.Size(1352, 457);
             this.pnlHead.TabIndex = 11;
+            // 
+            // txtHkd_remark
+            // 
+            this.txtHkd_remark.EditValue = "";
+            this.txtHkd_remark.Enabled = false;
+            this.txtHkd_remark.EnterMoveNextControl = true;
+            this.txtHkd_remark.Location = new System.Drawing.Point(467, 306);
+            this.txtHkd_remark.Name = "txtHkd_remark";
+            this.txtHkd_remark.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtHkd_remark.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtHkd_remark.Properties.MaxLength = 50;
+            this.txtHkd_remark.Properties.ReadOnly = true;
+            this.txtHkd_remark.Size = new System.Drawing.Size(104, 20);
+            this.txtHkd_remark.TabIndex = 238;
+            this.txtHkd_remark.Tag = "2";
+            // 
+            // txtUsd_remark
+            // 
+            this.txtUsd_remark.EditValue = "";
+            this.txtUsd_remark.Enabled = false;
+            this.txtUsd_remark.EnterMoveNextControl = true;
+            this.txtUsd_remark.Location = new System.Drawing.Point(467, 285);
+            this.txtUsd_remark.Name = "txtUsd_remark";
+            this.txtUsd_remark.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtUsd_remark.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtUsd_remark.Properties.MaxLength = 50;
+            this.txtUsd_remark.Properties.ReadOnly = true;
+            this.txtUsd_remark.Size = new System.Drawing.Size(104, 20);
+            this.txtUsd_remark.TabIndex = 236;
+            this.txtUsd_remark.Tag = "2";
             // 
             // btnPriceDisc
             // 
@@ -6837,7 +6895,7 @@
             // 
             this.txtFlag_new.EditValue = "";
             this.txtFlag_new.Enabled = false;
-            this.txtFlag_new.Location = new System.Drawing.Point(1298, 182);
+            this.txtFlag_new.Location = new System.Drawing.Point(1259, 182);
             this.txtFlag_new.Name = "txtFlag_new";
             this.txtFlag_new.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.txtFlag_new.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -6871,16 +6929,16 @@
             // 
             this.pnlFlagVnd.Controls.Add(this.txtFlag_vnd_date);
             this.pnlFlagVnd.Controls.Add(this.txtVnd_bp);
-            this.pnlFlagVnd.Controls.Add(this.label12);
             this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd_pcs);
-            this.pnlFlagVnd.Controls.Add(this.label9);
             this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd_grs);
             this.pnlFlagVnd.Controls.Add(this.label7);
             this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd_usd);
-            this.pnlFlagVnd.Controls.Add(this.lblPrice_vnd);
-            this.pnlFlagVnd.Controls.Add(this.label8);
             this.pnlFlagVnd.Controls.Add(this.txtPrice_vnd);
             this.pnlFlagVnd.Controls.Add(this.label10);
+            this.pnlFlagVnd.Controls.Add(this.label9);
+            this.pnlFlagVnd.Controls.Add(this.label12);
+            this.pnlFlagVnd.Controls.Add(this.lblPrice_vnd);
+            this.pnlFlagVnd.Controls.Add(this.label8);
             this.pnlFlagVnd.Location = new System.Drawing.Point(432, 109);
             this.pnlFlagVnd.Name = "pnlFlagVnd";
             this.pnlFlagVnd.Size = new System.Drawing.Size(143, 135);
@@ -7147,6 +7205,26 @@
             this.lblDie_mould_usd_vn.Text = "Die Mould(VN)";
             this.lblDie_mould_usd_vn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(400, 307);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 18);
+            this.label15.TabIndex = 239;
+            this.label15.Text = "Remark HKD";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(400, 286);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 18);
+            this.label13.TabIndex = 237;
+            this.label13.Text = "Remark USD";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -7303,6 +7381,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_artwork)).EndInit();
             this.pnlHead.ResumeLayout(false);
             this.pnlHead.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHkd_remark.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsd_remark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPriceDisc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDie_mould_usd_vn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMd_charge_vn.Properties)).EndInit();
@@ -7727,6 +7807,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn moq_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn valid_date1;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private DevExpress.XtraEditors.TextEdit txtHkd_remark;
+        private System.Windows.Forms.Label label15;
+        private DevExpress.XtraEditors.TextEdit txtUsd_remark;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridViewCheckBoxColumn flagSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn sales_group;
@@ -7844,6 +7929,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn product_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_vn;
         private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_usd_vn;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_remark;
     }
 }

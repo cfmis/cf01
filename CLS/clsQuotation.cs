@@ -553,6 +553,24 @@ namespace cf01.CLS
             //*---------------------------------------------------------
 
             mdlFormula_Result objResult = new mdlFormula_Result();
+            objResult.price_usd = 0;
+            objResult.price_hkd = 0;
+            objResult.price_rmb = 0;
+            objResult.price_vnd = 0;
+            objResult.hkd_ex_fty = 0;
+            objResult.usd_ex_fty = 0;
+            objResult.discount = 0;
+            objResult.vnd_bp = 0;
+            objResult.price_vnd_usd = 0;
+            objResult.price_vnd = 0;
+            objResult.price_vnd_grs = 0;
+            objResult.price_vnd_pcs = 0;
+
+            if(hk_bp == "")
+            {
+                return objResult;
+            }
+
             string strSql = string.Empty;
             string strSql1 = 
                 @"SELECT brand_id,usd1,usd2,Isnull(usd3,0) as usd3,rmb1,rmb2,hkd1,hkd2,bp_hkd_ex,discount,vndbp1,vndusd1,vnd1  
@@ -578,19 +596,19 @@ namespace cf01.CLS
             if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("請設置好公式參數!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                objResult.price_usd = 0;
-                objResult.price_hkd = 0;
-                objResult.price_rmb = 0;
-                objResult.price_vnd = 0;
-                objResult.hkd_ex_fty = 0;
-                objResult.usd_ex_fty = 0;                               
-                objResult.discount = 0;
+                //objResult.price_usd = 0;
+                //objResult.price_hkd = 0;
+                //objResult.price_rmb = 0;
+                //objResult.price_vnd = 0;
+                //objResult.hkd_ex_fty = 0;
+                //objResult.usd_ex_fty = 0;                               
+                //objResult.discount = 0;
 
-                objResult.vnd_bp = 0;
-                objResult.price_vnd_usd = 0;
-                objResult.price_vnd = 0;
-                objResult.price_vnd_grs = 0;
-                objResult.price_vnd_pcs = 0;
+                //objResult.vnd_bp = 0;
+                //objResult.price_vnd_usd = 0;
+                //objResult.price_vnd = 0;
+                //objResult.price_vnd_grs = 0;
+                //objResult.price_vnd_pcs = 0;
                 return objResult;//如果找不到對應計價公式則直接返回
             }
             float bp, usd1, usd2, rmb1, rmb2, hkd1, hkd2, usd3, discount,vn_bp, vndbp1,vndusd1,vnd1;
@@ -1111,7 +1129,7 @@ namespace cf01.CLS
             A.sub_1,A.sub_2,A.sub_3,A.sub_4,A.sub_5,A.sub_6,A.sub_7,A.reason_edit,A.price_salesperson,A.price_kind,A.remark_salesperson,A.rmb_remark,A.special_price,
             A.cust_artwork,A.cost_price,A.labtest_prod_type,A.termremark,A.remark_pdd_dg,A.Ver AS temp_ver,A.ref_temp_code,'' as flag_new,
             A.flag_vnd,A.flag_vnd_date,A.vnd_bp,A.price_vnd_usd,A.price_vnd,A.price_vnd_grs,A.price_vnd_pcs,A.cf_color_id,A.material_type,A.product_type,
-            A.md_charge_vn,A.die_mould_usd_vn
+            A.md_charge_vn,A.die_mould_usd_vn,A.usd_remark,A.hkd_remark
             FROM dbo.quotation A with(nolock) 
 	            INNER JOIN dbo.sy_user_group B with(nolock) ON A.sales_group=B.grpid
             WHERE 1=0";

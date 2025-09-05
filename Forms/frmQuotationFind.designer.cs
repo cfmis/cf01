@@ -474,6 +474,8 @@
             this.product_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.md_charge_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.die_mould_usd_vn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usd_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hkd_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCrtim2.Properties)).BeginInit();
@@ -1214,7 +1216,9 @@
             this.material_type,
             this.product_type,
             this.md_charge_vn,
-            this.die_mould_usd_vn});
+            this.die_mould_usd_vn,
+            this.usd_remark,
+            this.hkd_remark});
             this.dgvDetails.Location = new System.Drawing.Point(4, 232);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.RowHeadersWidth = 45;
@@ -1267,7 +1271,7 @@
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(121, 30);
+            this.btnReturn.Size = new System.Drawing.Size(123, 30);
             this.btnReturn.Text = "返回當前查詢結果";
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
@@ -1303,7 +1307,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(97, 30);
+            this.BTNSAVESET.Size = new System.Drawing.Size(99, 30);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.Click += new System.EventHandler(this.BTNSAVESET_Click);
             // 
@@ -1317,7 +1321,7 @@
             this.BTNCOLUMN.Image = ((System.Drawing.Image)(resources.GetObject("BTNCOLUMN.Image")));
             this.BTNCOLUMN.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCOLUMN.Name = "BTNCOLUMN";
-            this.BTNCOLUMN.Size = new System.Drawing.Size(85, 30);
+            this.BTNCOLUMN.Size = new System.Drawing.Size(87, 30);
             this.BTNCOLUMN.Text = "表格自定義";
             this.BTNCOLUMN.Click += new System.EventHandler(this.BTNCOLUMN_Click);
             // 
@@ -3965,6 +3969,20 @@
             this.die_mould_usd_vn.Name = "die_mould_usd_vn";
             this.die_mould_usd_vn.ReadOnly = true;
             // 
+            // usd_remark
+            // 
+            this.usd_remark.DataPropertyName = "usd_remark";
+            this.usd_remark.HeaderText = "Usd Remark";
+            this.usd_remark.Name = "usd_remark";
+            this.usd_remark.ReadOnly = true;
+            // 
+            // hkd_remark
+            // 
+            this.hkd_remark.DataPropertyName = "hkd_remark";
+            this.hkd_remark.HeaderText = "Hkd Remark";
+            this.hkd_remark.Name = "hkd_remark";
+            this.hkd_remark.ReadOnly = true;
+            // 
             // frmQuotationFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -4330,5 +4348,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn product_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn md_charge_vn;
         private System.Windows.Forms.DataGridViewTextBoxColumn die_mould_usd_vn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usd_remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hkd_remark;
     }
 }

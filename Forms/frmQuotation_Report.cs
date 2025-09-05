@@ -2578,7 +2578,7 @@ namespace cf01.Forms
 
         private void btnAddOther_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtID.Text.Trim())) // 有內容
+            if (!string.IsNullOrEmpty(txtID.Text.Trim())) // 有內容
             {
                 chkSelectAll.Checked = false;
                 gridView1.AddNewRow();//新增
