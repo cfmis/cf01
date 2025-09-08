@@ -1422,7 +1422,7 @@ namespace cf01.Forms
                         }
                         else
                         {
-                            MessageBox.Show("請首先查找出同一張測試報告編號有多張發票的資料!", "提示信息");
+                            MessageBox.Show("請首先查找出當前可能有多張發票的測試報告資料!", "提示信息");
                             txtID.Focus();
                         }
                     }                    

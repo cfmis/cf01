@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestInvoice));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -301,7 +301,7 @@
             this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
             this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEW.Name = "BTNNEW";
-            this.BTNNEW.Size = new System.Drawing.Size(65, 25);
+            this.BTNNEW.Size = new System.Drawing.Size(69, 25);
             this.BTNNEW.Text = "新增(&N)";
             this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
             // 
@@ -315,7 +315,7 @@
             this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
             this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEDIT.Name = "BTNEDIT";
-            this.BTNEDIT.Size = new System.Drawing.Size(64, 25);
+            this.BTNEDIT.Size = new System.Drawing.Size(66, 25);
             this.BTNEDIT.Text = "編輯(&E)";
             this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
             // 
@@ -329,7 +329,7 @@
             this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
             this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNDELETE.Name = "BTNDELETE";
-            this.BTNDELETE.Size = new System.Drawing.Size(65, 25);
+            this.BTNDELETE.Size = new System.Drawing.Size(68, 25);
             this.BTNDELETE.Text = "刪除(&D)";
             this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
             // 
@@ -344,7 +344,7 @@
             this.BTNITEMADD.Image = ((System.Drawing.Image)(resources.GetObject("BTNITEMADD.Image")));
             this.BTNITEMADD.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNITEMADD.Name = "BTNITEMADD";
-            this.BTNITEMADD.Size = new System.Drawing.Size(89, 25);
+            this.BTNITEMADD.Size = new System.Drawing.Size(91, 25);
             this.BTNITEMADD.Text = "項目增加(&A)";
             this.BTNITEMADD.Click += new System.EventHandler(this.BTNITEMADD_Click);
             // 
@@ -359,7 +359,7 @@
             this.BTNITEMDEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNITEMDEL.Image")));
             this.BTNITEMDEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNITEMDEL.Name = "BTNITEMDEL";
-            this.BTNITEMDEL.Size = new System.Drawing.Size(88, 25);
+            this.BTNITEMDEL.Size = new System.Drawing.Size(89, 25);
             this.BTNITEMDEL.Text = "項目刪除(&L)";
             this.BTNITEMDEL.Click += new System.EventHandler(this.BTNITEMDEL_Click);
             // 
@@ -369,7 +369,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(63, 25);
+            this.BTNSAVE.Size = new System.Drawing.Size(66, 25);
             this.BTNSAVE.Text = "保存(&S)";
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
             // 
@@ -384,7 +384,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(65, 25);
+            this.BTNCANCEL.Size = new System.Drawing.Size(68, 25);
             this.BTNCANCEL.Text = "取消(&U)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -398,7 +398,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(63, 25);
+            this.BTNPRINT.Size = new System.Drawing.Size(66, 25);
             this.BTNPRINT.Text = "列印(&P)";
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
@@ -414,7 +414,7 @@
             this.BTNITEMADDCOPY.Image = ((System.Drawing.Image)(resources.GetObject("BTNITEMADDCOPY.Image")));
             this.BTNITEMADDCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNITEMADDCOPY.Name = "BTNITEMADDCOPY";
-            this.BTNITEMADDCOPY.Size = new System.Drawing.Size(97, 25);
+            this.BTNITEMADDCOPY.Size = new System.Drawing.Size(99, 25);
             this.BTNITEMADDCOPY.Text = "項目復制新增";
             this.BTNITEMADDCOPY.Click += new System.EventHandler(this.BTNITEMADDCOPY_Click);
             // 
@@ -428,7 +428,7 @@
             this.BTNCONFIRM_PDD.Image = ((System.Drawing.Image)(resources.GetObject("BTNCONFIRM_PDD.Image")));
             this.BTNCONFIRM_PDD.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCONFIRM_PDD.Name = "BTNCONFIRM_PDD";
-            this.BTNCONFIRM_PDD.Size = new System.Drawing.Size(90, 25);
+            this.BTNCONFIRM_PDD.Size = new System.Drawing.Size(100, 25);
             this.BTNCONFIRM_PDD.Text = "Confirm PDD";
             this.BTNCONFIRM_PDD.Visible = false;
             this.BTNCONFIRM_PDD.Click += new System.EventHandler(this.BTNCONFIRM_PDD_Click);
@@ -443,7 +443,7 @@
             this.BTNCONFIRM_AC.Image = ((System.Drawing.Image)(resources.GetObject("BTNCONFIRM_AC.Image")));
             this.BTNCONFIRM_AC.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCONFIRM_AC.Name = "BTNCONFIRM_AC";
-            this.BTNCONFIRM_AC.Size = new System.Drawing.Size(84, 25);
+            this.BTNCONFIRM_AC.Size = new System.Drawing.Size(91, 25);
             this.BTNCONFIRM_AC.Text = "Confirm AC";
             this.BTNCONFIRM_AC.Click += new System.EventHandler(this.BTNCONFIRM_AC_Click);
             // 
@@ -494,9 +494,9 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.txtinvoice_id);
             this.panel1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(348, 392);
+            this.panel1.Size = new System.Drawing.Size(365, 392);
             this.panel1.TabIndex = 10;
             this.panel1.Tag = "2";
             // 
@@ -515,7 +515,7 @@
             this.lueTest_dept.EditValue = "";
             this.lueTest_dept.Enabled = false;
             this.lueTest_dept.EnterMoveNextControl = true;
-            this.lueTest_dept.Location = new System.Drawing.Point(219, 230);
+            this.lueTest_dept.Location = new System.Drawing.Point(232, 230);
             this.lueTest_dept.Name = "lueTest_dept";
             this.lueTest_dept.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueTest_dept.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -536,7 +536,7 @@
             // txtphysical_test
             // 
             this.txtphysical_test.EnterMoveNextControl = true;
-            this.txtphysical_test.Location = new System.Drawing.Point(251, 86);
+            this.txtphysical_test.Location = new System.Drawing.Point(264, 86);
             this.txtphysical_test.Name = "txtphysical_test";
             this.txtphysical_test.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtphysical_test.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -564,7 +564,7 @@
             this.txtchemical_test.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtchemical_test.Properties.Tag = "2";
             this.txtchemical_test.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtchemical_test.Size = new System.Drawing.Size(134, 22);
+            this.txtchemical_test.Size = new System.Drawing.Size(147, 22);
             this.txtchemical_test.TabIndex = 6;
             this.txtchemical_test.Tag = "2";
             this.txtchemical_test.Click += new System.EventHandler(this.txtchemical_test_Click);
@@ -605,7 +605,7 @@
             // txtconfirm_ac_date
             // 
             this.txtconfirm_ac_date.Enabled = false;
-            this.txtconfirm_ac_date.Location = new System.Drawing.Point(219, 333);
+            this.txtconfirm_ac_date.Location = new System.Drawing.Point(232, 333);
             this.txtconfirm_ac_date.Name = "txtconfirm_ac_date";
             this.txtconfirm_ac_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtconfirm_ac_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -649,7 +649,7 @@
             // txtconfirm_pdd_date
             // 
             this.txtconfirm_pdd_date.Enabled = false;
-            this.txtconfirm_pdd_date.Location = new System.Drawing.Point(219, 308);
+            this.txtconfirm_pdd_date.Location = new System.Drawing.Point(232, 308);
             this.txtconfirm_pdd_date.Name = "txtconfirm_pdd_date";
             this.txtconfirm_pdd_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtconfirm_pdd_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -684,7 +684,7 @@
             // lblinvoice_date
             // 
             this.lblinvoice_date.ForeColor = System.Drawing.Color.Blue;
-            this.lblinvoice_date.Location = new System.Drawing.Point(197, 38);
+            this.lblinvoice_date.Location = new System.Drawing.Point(210, 38);
             this.lblinvoice_date.Name = "lblinvoice_date";
             this.lblinvoice_date.Size = new System.Drawing.Size(54, 13);
             this.lblinvoice_date.TabIndex = 223;
@@ -696,7 +696,7 @@
             this.dtinvoice_date.EditValue = "";
             this.dtinvoice_date.Enabled = false;
             this.dtinvoice_date.EnterMoveNextControl = true;
-            this.dtinvoice_date.Location = new System.Drawing.Point(251, 33);
+            this.dtinvoice_date.Location = new System.Drawing.Point(264, 33);
             this.dtinvoice_date.Name = "dtinvoice_date";
             this.dtinvoice_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.dtinvoice_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -724,7 +724,7 @@
             this.txtremark.Name = "txtremark";
             this.txtremark.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtremark.Properties.MaxLength = 100;
-            this.txtremark.Size = new System.Drawing.Size(287, 86);
+            this.txtremark.Size = new System.Drawing.Size(300, 86);
             this.txtremark.TabIndex = 10;
             // 
             // txtamount
@@ -739,7 +739,7 @@
             this.txtamount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtamount.Properties.Tag = "2";
             this.txtamount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtamount.Size = new System.Drawing.Size(134, 22);
+            this.txtamount.Size = new System.Drawing.Size(147, 22);
             this.txtamount.TabIndex = 4;
             this.txtamount.Tag = "2";
             // 
@@ -764,7 +764,7 @@
             this.txtbrand.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtbrand.Properties.MaxLength = 30;
             this.txtbrand.Properties.ReadOnly = true;
-            this.txtbrand.Size = new System.Drawing.Size(134, 22);
+            this.txtbrand.Size = new System.Drawing.Size(147, 22);
             this.txtbrand.TabIndex = 8;
             this.txtbrand.Tag = "2";
             // 
@@ -781,7 +781,7 @@
             // 
             this.txtown_reference.EditValue = "";
             this.txtown_reference.EnterMoveNextControl = true;
-            this.txtown_reference.Location = new System.Drawing.Point(251, 112);
+            this.txtown_reference.Location = new System.Drawing.Point(264, 112);
             this.txtown_reference.Name = "txtown_reference";
             this.txtown_reference.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtown_reference.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -795,7 +795,7 @@
             // lblreport_date
             // 
             this.lblreport_date.ForeColor = System.Drawing.Color.Blue;
-            this.lblreport_date.Location = new System.Drawing.Point(197, 12);
+            this.lblreport_date.Location = new System.Drawing.Point(210, 12);
             this.lblreport_date.Name = "lblreport_date";
             this.lblreport_date.Size = new System.Drawing.Size(54, 13);
             this.lblreport_date.TabIndex = 118;
@@ -807,7 +807,7 @@
             this.dtreport_date.EditValue = "";
             this.dtreport_date.Enabled = false;
             this.dtreport_date.EnterMoveNextControl = true;
-            this.dtreport_date.Location = new System.Drawing.Point(251, 7);
+            this.dtreport_date.Location = new System.Drawing.Point(264, 7);
             this.dtreport_date.Name = "dtreport_date";
             this.dtreport_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.dtreport_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -859,7 +859,7 @@
             // 
             this.txtupdate_date.EditValue = "";
             this.txtupdate_date.Enabled = false;
-            this.txtupdate_date.Location = new System.Drawing.Point(219, 282);
+            this.txtupdate_date.Location = new System.Drawing.Point(232, 282);
             this.txtupdate_date.Name = "txtupdate_date";
             this.txtupdate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtupdate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -886,7 +886,7 @@
             // txtCreate_date
             // 
             this.txtCreate_date.Enabled = false;
-            this.txtCreate_date.Location = new System.Drawing.Point(219, 257);
+            this.txtCreate_date.Location = new System.Drawing.Point(232, 257);
             this.txtCreate_date.Name = "txtCreate_date";
             this.txtCreate_date.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCreate_date.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -920,7 +920,7 @@
             // 
             // lblamount_unit
             // 
-            this.lblamount_unit.Location = new System.Drawing.Point(197, 63);
+            this.lblamount_unit.Location = new System.Drawing.Point(210, 63);
             this.lblamount_unit.Name = "lblamount_unit";
             this.lblamount_unit.Size = new System.Drawing.Size(54, 13);
             this.lblamount_unit.TabIndex = 19;
@@ -932,7 +932,7 @@
             this.lkeamount_unit.EditValue = "";
             this.lkeamount_unit.Enabled = false;
             this.lkeamount_unit.EnterMoveNextControl = true;
-            this.lkeamount_unit.Location = new System.Drawing.Point(251, 58);
+            this.lkeamount_unit.Location = new System.Drawing.Point(264, 58);
             this.lkeamount_unit.Name = "lkeamount_unit";
             this.lkeamount_unit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lkeamount_unit.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -972,7 +972,7 @@
             this.txtID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Properties.MaxLength = 20;
             this.txtID.Properties.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(134, 22);
+            this.txtID.Size = new System.Drawing.Size(147, 22);
             this.txtID.TabIndex = 0;
             this.txtID.Tag = "2";
             this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
@@ -980,9 +980,9 @@
             // lblown_reference
             // 
             this.lblown_reference.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblown_reference.Location = new System.Drawing.Point(180, 109);
+            this.lblown_reference.Location = new System.Drawing.Point(193, 109);
             this.lblown_reference.Name = "lblown_reference";
-            this.lblown_reference.Size = new System.Drawing.Size(71, 27);
+            this.lblown_reference.Size = new System.Drawing.Size(71, 26);
             this.lblown_reference.TabIndex = 122;
             this.lblown_reference.Text = "Own Reference";
             this.lblown_reference.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1008,7 +1008,7 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(199, 80);
+            this.label14.Location = new System.Drawing.Point(212, 80);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 32);
             this.label14.TabIndex = 237;
@@ -1035,12 +1035,12 @@
             this.txtinvoice_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtinvoice_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtinvoice_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.txtinvoice_id.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtinvoice_id.Properties.MaxLength = 20;
             this.txtinvoice_id.Properties.ReadOnly = true;
             this.txtinvoice_id.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtinvoice_id_Properties_ButtonClick);
-            this.txtinvoice_id.Size = new System.Drawing.Size(134, 22);
+            this.txtinvoice_id.Size = new System.Drawing.Size(147, 22);
             this.txtinvoice_id.TabIndex = 2;
             this.txtinvoice_id.Tag = "2";
             // 
@@ -1052,15 +1052,15 @@
             this.groupBox2.Size = new System.Drawing.Size(291, 49);
             this.groupBox2.TabIndex = 240;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "同一張測試報告有多張發票";
+            this.groupBox2.Text = "同一張測試報告有多張發票情況";
             // 
             // btnMultInvoice
             // 
             this.btnMultInvoice.Location = new System.Drawing.Point(15, 18);
             this.btnMultInvoice.Name = "btnMultInvoice";
-            this.btnMultInvoice.Size = new System.Drawing.Size(188, 24);
+            this.btnMultInvoice.Size = new System.Drawing.Size(259, 24);
             this.btnMultInvoice.TabIndex = 239;
-            this.btnMultInvoice.Text = "復制測試報告對應的測試項目";
+            this.btnMultInvoice.Text = "復制整張測試報告(包括主檔及測試項目明細)";
             this.btnMultInvoice.UseVisualStyleBackColor = true;
             this.btnMultInvoice.Click += new System.EventHandler(this.btnMultInvoice_Click);
             // 
@@ -1069,7 +1069,7 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(2, 506);
+            this.gridControl1.Location = new System.Drawing.Point(4, 506);
             this.gridControl1.MainView = this.dgvDetails;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -1079,7 +1079,7 @@
             this.clTestitem,
             this.clIs_pass,
             this.clSalesGroup});
-            this.gridControl1.Size = new System.Drawing.Size(1013, 234);
+            this.gridControl1.Size = new System.Drawing.Size(1009, 234);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvDetails});
@@ -1369,13 +1369,13 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(428, 17);
+            this.btnSearch.Location = new System.Drawing.Point(424, 17);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(89, 40);
+            this.btnSearch.Size = new System.Drawing.Size(68, 56);
             this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "查  詢(&L)";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.Text = "查詢 (&L)";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -1626,16 +1626,16 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.label47);
             this.groupBox1.Controls.Add(this.dgvTotal);
-            this.groupBox1.Location = new System.Drawing.Point(349, 29);
+            this.groupBox1.Location = new System.Drawing.Point(367, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(668, 473);
+            this.groupBox1.Size = new System.Drawing.Size(650, 473);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查詢";
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(1, 178);
+            this.label18.Location = new System.Drawing.Point(4, 176);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(100, 17);
             this.label18.TabIndex = 241;
@@ -1666,7 +1666,7 @@
             // chkSelectAllAC
             // 
             this.chkSelectAllAC.BackColor = System.Drawing.Color.Thistle;
-            this.chkSelectAllAC.Location = new System.Drawing.Point(570, 196);
+            this.chkSelectAllAC.Location = new System.Drawing.Point(538, 196);
             this.chkSelectAllAC.Name = "chkSelectAllAC";
             this.chkSelectAllAC.Size = new System.Drawing.Size(74, 16);
             this.chkSelectAllAC.TabIndex = 214;
@@ -1823,7 +1823,7 @@
             // chkSelectAllPDD
             // 
             this.chkSelectAllPDD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.chkSelectAllPDD.Location = new System.Drawing.Point(485, 196);
+            this.chkSelectAllPDD.Location = new System.Drawing.Point(453, 196);
             this.chkSelectAllPDD.Name = "chkSelectAllPDD";
             this.chkSelectAllPDD.Size = new System.Drawing.Size(79, 16);
             this.chkSelectAllPDD.TabIndex = 200;
@@ -1836,7 +1836,7 @@
             // 
             this.btnTotal.Image = global::cf01.Properties.Resources.Excel1;
             this.btnTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTotal.Location = new System.Drawing.Point(526, 67);
+            this.btnTotal.Location = new System.Drawing.Point(507, 67);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(127, 40);
             this.btnTotal.TabIndex = 197;
@@ -1907,7 +1907,7 @@
             // 
             this.btnInvoice.Image = global::cf01.Properties.Resources.Excel1;
             this.btnInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInvoice.Location = new System.Drawing.Point(526, 17);
+            this.btnInvoice.Location = new System.Drawing.Point(507, 17);
             this.btnInvoice.Name = "btnInvoice";
             this.btnInvoice.Size = new System.Drawing.Size(127, 40);
             this.btnInvoice.TabIndex = 192;
@@ -1923,14 +1923,14 @@
             this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFind.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sales_group1,
             this.id1,
@@ -1951,25 +1951,25 @@
             this.test_dept});
             this.dgvFind.Location = new System.Drawing.Point(2, 232);
             this.dgvFind.Name = "dgvFind";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.dgvFind.RowHeadersWidth = 10;
             this.dgvFind.RowTemplate.Height = 25;
-            this.dgvFind.Size = new System.Drawing.Size(662, 237);
+            this.dgvFind.Size = new System.Drawing.Size(642, 237);
             this.dgvFind.TabIndex = 9;
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
             // 
             // sales_group1
             // 
             this.sales_group1.DataPropertyName = "sales_group";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.sales_group1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sales_group1.DefaultCellStyle = dataGridViewCellStyle37;
             this.sales_group1.HeaderText = "Group";
             this.sales_group1.Name = "sales_group1";
             this.sales_group1.ReadOnly = true;
@@ -2037,10 +2037,10 @@
             // confirm_pdd
             // 
             this.confirm_pdd.DataPropertyName = "confirm_pdd";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle3.NullValue = false;
-            this.confirm_pdd.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle38.NullValue = false;
+            this.confirm_pdd.DefaultCellStyle = dataGridViewCellStyle38;
             this.confirm_pdd.HeaderText = "PDD Confirm";
             this.confirm_pdd.Name = "confirm_pdd";
             this.confirm_pdd.Visible = false;
@@ -2049,10 +2049,10 @@
             // confirm_ac
             // 
             this.confirm_ac.DataPropertyName = "confirm_ac";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle4.NullValue = false;
-            this.confirm_ac.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.Thistle;
+            dataGridViewCellStyle39.NullValue = false;
+            this.confirm_ac.DefaultCellStyle = dataGridViewCellStyle39;
             this.confirm_ac.HeaderText = "AC Confirm";
             this.confirm_ac.Name = "confirm_ac";
             this.confirm_ac.Width = 75;
@@ -2060,9 +2060,9 @@
             // confirm_pdd_date
             // 
             this.confirm_pdd_date.DataPropertyName = "confirm_pdd_date";
-            dataGridViewCellStyle5.Format = "g";
-            dataGridViewCellStyle5.NullValue = null;
-            this.confirm_pdd_date.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle40.Format = "g";
+            dataGridViewCellStyle40.NullValue = null;
+            this.confirm_pdd_date.DefaultCellStyle = dataGridViewCellStyle40;
             this.confirm_pdd_date.HeaderText = "PDD Confirm Date";
             this.confirm_pdd_date.Name = "confirm_pdd_date";
             this.confirm_pdd_date.ReadOnly = true;
@@ -2072,9 +2072,9 @@
             // confirm_ac_date
             // 
             this.confirm_ac_date.DataPropertyName = "confirm_ac_date";
-            dataGridViewCellStyle6.Format = "g";
-            dataGridViewCellStyle6.NullValue = null;
-            this.confirm_ac_date.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle41.Format = "g";
+            dataGridViewCellStyle41.NullValue = null;
+            this.confirm_ac_date.DefaultCellStyle = dataGridViewCellStyle41;
             this.confirm_ac_date.HeaderText = "AC Confirm Date";
             this.confirm_ac_date.Name = "confirm_ac_date";
             this.confirm_ac_date.ReadOnly = true;
