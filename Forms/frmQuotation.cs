@@ -428,18 +428,18 @@ namespace cf01.Forms
                 System.Data.DataTable dt = clsPublicOfCF01.GetDataTable(string.Format("select usd1,usd2,rmb1,rmb2,hkd1 from quotation_formula where brand_id='{0}'", formula));
                 if (dt.Rows.Count > 0)
                 {
-                    if (dt.Rows[0]["rmb1"].ToString() != "0.000")
-                        txtRmb_remark.Text = string.Format("BP×{0}÷{1}", dt.Rows[0]["rmb1"].ToString(), dt.Rows[0]["rmb2"].ToString());
-                    else
-                        txtRmb_remark.Text = "";
                     if (dt.Rows[0]["usd1"].ToString() != "0.000")
-                        txtUsd_remark.Text = string.Format("BP×{0}×{1}", dt.Rows[0]["usd1"].ToString(), dt.Rows[0]["usd2"].ToString());
+                        txtUsd_remark.Text = string.Format("BP×{0}÷{1}", dt.Rows[0]["usd1"].ToString(), dt.Rows[0]["usd2"].ToString());
                     else
                         txtUsd_remark.Text = "";
                     if (dt.Rows[0]["hkd1"].ToString() != "0.000")
-                        txtHkd_remark.Text = string.Format("USD{0}×{1}",txtPrice_usd.Text, dt.Rows[0]["hkd1"].ToString());
+                        txtHkd_remark.Text = string.Format("USD{0}×{1}", txtPrice_usd.Text, dt.Rows[0]["hkd1"].ToString());
                     else
                         txtHkd_remark.Text = "";
+                    if (dt.Rows[0]["rmb1"].ToString() != "0.000")
+                        txtRmb_remark.Text = string.Format("BP×{0}×{1}", dt.Rows[0]["rmb1"].ToString(), dt.Rows[0]["rmb2"].ToString());
+                    else
+                        txtRmb_remark.Text = "";                   
                 }
                 else
                 {
@@ -1369,10 +1369,29 @@ namespace cf01.Forms
             txtEx_fty_hkd.EditValue = pdr.Cells["ex_fty_hkd"].Value;
             txtEx_fty_usd.EditValue = pdr.Cells["ex_fty_usd"].Value;
 
-            txtReason_edit.EditValue = pdr.Cells["reason_edit"].Value.ToString();            
-            txtRmb_remark.Text = pdr.Cells["rmb_remark"].Value.ToString();
-            txtUsd_remark.Text = pdr.Cells["usd_remark"].Value.ToString();
-            txtHkd_remark.Text = pdr.Cells["hkd_remark"].Value.ToString();
+            txtReason_edit.EditValue = pdr.Cells["reason_edit"].Value.ToString();
+            if (!string.IsNullOrEmpty(txtNumber_enter.EditValue.ToString()))
+            {
+                if (decimal.Parse(txtNumber_enter.EditValue.ToString()) > 0)
+                {
+                    txtUsd_remark.Text = pdr.Cells["usd_remark"].Value.ToString();
+                    txtHkd_remark.Text = pdr.Cells["hkd_remark"].Value.ToString();
+                    txtRmb_remark.Text = pdr.Cells["rmb_remark"].Value.ToString();
+                }
+                else
+                {
+                    txtUsd_remark.Text = "";
+                    txtHkd_remark.Text = "";
+                    txtRmb_remark.Text = "";
+                }             
+            }
+            else
+            {
+                txtUsd_remark.Text = "";
+                txtHkd_remark.Text = "";
+                txtRmb_remark.Text = "";
+            }     
+           
             txtPrice_salesperson.EditValue = pdr.Cells["price_salesperson"].Value;
             txtPrice_kind.Text = pdr.Cells["price_kind"].Value.ToString();
             txtRemark_salesperson.Text = pdr.Cells["remark_salesperson"].Value.ToString();
