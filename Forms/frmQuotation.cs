@@ -429,7 +429,7 @@ namespace cf01.Forms
                 if (dt.Rows.Count > 0)
                 {
                     if (dt.Rows[0]["rmb1"].ToString() != "0.000")
-                        txtRmb_remark.Text = string.Format("BP×{0}×{1}", dt.Rows[0]["rmb1"].ToString(), dt.Rows[0]["rmb2"].ToString());
+                        txtRmb_remark.Text = string.Format("BP×{0}÷{1}", dt.Rows[0]["rmb1"].ToString(), dt.Rows[0]["rmb2"].ToString());
                     else
                         txtRmb_remark.Text = "";
                     if (dt.Rows[0]["usd1"].ToString() != "0.000")
@@ -437,7 +437,7 @@ namespace cf01.Forms
                     else
                         txtUsd_remark.Text = "";
                     if (dt.Rows[0]["hkd1"].ToString() != "0.000")
-                        txtHkd_remark.Text = string.Format("USD$:{0}×{1}",txtPrice_usd.Text, dt.Rows[0]["hkd1"].ToString());
+                        txtHkd_remark.Text = string.Format("USD{0}×{1}",txtPrice_usd.Text, dt.Rows[0]["hkd1"].ToString());
                     else
                         txtHkd_remark.Text = "";
                 }
