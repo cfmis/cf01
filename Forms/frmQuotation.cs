@@ -124,7 +124,6 @@ namespace cf01.Forms
 
             clsQuotation.Set_Brand_id(txtBrand);
 
-            //strSql = @"Select '' as id,'' as cdesc union Select id,name as cdesc From cd_season Order by id";
             strSql = @"Select '' as id,'' as cdesc Union Select id,name as cdesc From cd_season where state='0' Order by id";
             System.Data.DataTable dtSeason = new System.Data.DataTable();
             dtSeason = clsConErp.GetDataTable(strSql);
@@ -631,9 +630,7 @@ namespace cf01.Forms
         }
 
         private bool Save_Before_Valid() //保存前檢查
-        {
-            //if (txtSales_group.Text == "" || txtCf_code.Text == "" || string.IsNullOrEmpty(txtDate.Text) || txtTemp_code.Text =="")
-            //int i = dgvGroup.Rows.Count;
+        {            
             if (txtSales_group.Text == "" || txtTemp_code.Text == "" || txtCf_code.Text == "" || string.IsNullOrEmpty(txtDate.Text) || txtPrice_unit.Text=="")
             {
                 msgCustom= (strLanguage == "2")? "Sales group&CF Code&Date & Price Unit cannot be empty.": "組別,CF Code,日期,或單價單位不可爲空!";                
@@ -679,8 +676,7 @@ namespace cf01.Forms
             txtBrandDesc.Properties.ReadOnly = true;
             txtBrandDesc.BackColor = System.Drawing.Color.White;
             tabPage2.Parent = null;
-            lblIsCalPrice.Visible = false;
-            //txtID.Properties.ReadOnly = false;
+            lblIsCalPrice.Visible = false;           
             dgvDetails.Enabled = false;
             txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd").Substring(0, 10);
             txtValid_date.EditValue = DateTime.Now.Date.AddDays(30).ToString("yyyy-MM-dd").Substring(0, 10);
@@ -697,8 +693,7 @@ namespace cf01.Forms
             dgvSub.DataSource = null;
             dgvPriceDisc.DataSource = null;
             txtFlag_new.Text = "1";
-            txtRef_temp_code.Text = "";
-            //txtSales_group.Focus();
+            txtRef_temp_code.Text = "";           
         }
         
         private void Edit()  //編號
@@ -2114,24 +2109,7 @@ namespace cf01.Forms
                 SetPriceCalculateRemark(txtFormula.Text);
                 //--end allen 2024/05/22
             }
-        }
-
-        //private void txtBrand_EditValueChanged(object sender, EventArgs e)
-        //{
-        //    if (editState!= "")
-        //    {
-        //        if (txtBrand.EditValue.ToString() != "")
-        //            txtBrandDesc.Text = txtBrand.GetColumnValue("cdesc").ToString();
-        //        else
-        //            txtBrandDesc.Text = "";
-        //        System.Data.DataTable dt = new System.Data.DataTable();
-        //        dt = clsPublicOfCF01.GetDataTable(string.Format("Select brand_id FROM quotation_formula Where brand_id='{0}'", txtBrand.EditValue.ToString()));
-        //        if (dt.Rows.Count == 0)
-        //            txtFormula.Text = "*";
-        //        else
-        //            txtFormula.Text = dt.Rows[0]["brand_id"].ToString();
-        //    }
-        //}
+        }  
 
         private void txtSeason_Leave(object sender, EventArgs e)
         {
@@ -2143,7 +2121,6 @@ namespace cf01.Forms
                     txtSeasonDesc.Text = "";
             }
         }
-
 
         private void dgvDetails_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -2614,7 +2591,6 @@ namespace cf01.Forms
             }
         }
 
-
         private void cl_number_enter_Leave(object sender, EventArgs e)
         {
             gridView1.CloseEditor();//此行很重要,輸入值立即有較
@@ -2729,10 +2705,7 @@ namespace cf01.Forms
             }               
             txtTemp_code.Focus();                       
             List<mdlQuotation_Reprot> mList = new List<mdlQuotation_Reprot>();
-            bool isSelect = false;
-            //mdlQuotation_Reprot objModel = new mdlQuotation_Reprot();
-            //System.Data.DataTable dtTempAdd = clsQuotation.GetSortDataTable(dgvDetails);//按用戶的排序先后順序插入表格            
-            //return;
+            bool isSelect = false;           
             for (int i = 0; i < dgvDetails.RowCount; i++)
             {
                 if (dgvDetails.Rows[i].Cells["flagSelect"].Value.ToString() == "True")
@@ -2830,14 +2803,13 @@ namespace cf01.Forms
 
         private void btnApproved_Click(object sender, EventArgs e)
         {
-            if (editState== ""  && txtTemp_code.Text != "")
+            if (editState == ""  && txtTemp_code.Text != "")
             {
                 using (frmQuotationSub ofrm = new frmQuotationSub(txtTemp_code.Text))
                 {
                     ofrm.ShowDialog();
                     dtSubmo = clsQuotation.GetSub(txtTemp_code.Text);
-                    dgvSub.DataSource = dtSubmo;
-                    //Display_Sub_List(txtTemp_code.Text);
+                    dgvSub.DataSource = dtSubmo;                   
                 }
             }
         }
@@ -3008,7 +2980,6 @@ namespace cf01.Forms
                     worksheet.Rows[1].Font.Size = 9;
                     worksheet.Rows[1].Font.Bold = true;//粗體
 
-
                     //寫入數值
                     string strDate;
                     int row = 1;//從第2行起寫入值
@@ -3045,8 +3016,6 @@ namespace cf01.Forms
                     }
                     worksheet.Columns.EntireColumn.AutoFit();//列宽自适应  
                     worksheet.Columns[1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-                   // wForm.Invoke((EventHandler)delegate { wForm.Close(); });
 
                     if (FileName != "")
                     {
@@ -3239,13 +3208,6 @@ namespace cf01.Forms
             }
             gridView1.CloseEditor();
             MessageBox.Show(string.Format("按照公式重新計算[{0}]已完成!,\n\r\n\r請再點擊【保存新版本】按鈕,保存更改后的數據!",strcny), "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-
-        private void chkRmb_Click(object sender, EventArgs e)
-        {
-            //if (chkRmb.Checked)
-                //chkAllPrice.Checked = false;
         }
 
         private void chkAllPrice_Click(object sender, EventArgs e)
@@ -3671,8 +3633,7 @@ namespace cf01.Forms
                     return;
                 }                            
                 CalcuPrice();
-                CalcuPriceDisc(txtDisc.Text);
-                //txtRmb_remark.Text = clsQuotation.Get_Rmb_Remark(txtFormula.Text);
+                CalcuPriceDisc(txtDisc.Text);               
                 SetPriceCalculateRemark(txtFormula.Text);
             }            
         }
@@ -3698,8 +3659,7 @@ namespace cf01.Forms
                     txtPrice_vnd.Text = "0";
                     txtPrice_vnd_grs.Text = "0";
                     txtPrice_vnd_pcs.Text = "0";
-                }
-                //pnlFlagVnd.Visible = chkFlag_vnd.Checked;
+                }                
                 pnlFlagVnd.Visible = true;
             }
         }
@@ -3785,54 +3745,7 @@ namespace cf01.Forms
                     dgvPriceDisc.DataSource = dtPriceDisc;
                 }
             }
-        }
-
-        private void dgvDetails_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
-            ////clsQuotation.SetGridViewHighLight(dgvDetails, e);//自定義焦點行高亮背景色
-            //DataGridView grd = sender as DataGridView;
-            //if (grd.Rows[e.RowIndex].Cells["status"].Value.ToString() == "CANCELLED")
-            //{
-            //    if (grd.Rows[e.RowIndex].Cells["pending"].Value.ToString() == "")
-            //    {
-            //        grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
-            //    }
-            //    else
-            //    {
-            //        //紫色字體
-            //        grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkMagenta;
-            //    }
-            //    //刪除線
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Strikeout);
-            //    //備註字段不顯示刪除線
-            //    //grd.Rows[e.RowIndex].Cells["remark"].Style.ForeColor = Color.Black;
-            //    //grd.Rows[e.RowIndex].Cells["remark"].Style.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular); 
-            //}
-            //else
-            //{
-            //    //恢復正常顯示
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9, FontStyle.Regular);
-            //}
-            //if (grd.Rows[e.RowIndex].Cells["special_price"].Value.ToString() == "True")
-            //{
-            //    //特別單價亮藍色背景
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
-            //}
-            //else
-            //{
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-            //}
-            //if (grd.Rows[e.RowIndex].Cells["flag_new"].Value.ToString() != "")
-            //{
-            //    //新添加記錄背景色
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
-            //}
-            //else
-            //{
-            //    grd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-            //}            
-        }      
+        }           
 
         private void frmQuotation_SizeChanged(object sender, EventArgs e)
         {           
