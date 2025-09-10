@@ -1155,7 +1155,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1357, 260);
+            this.tabControl1.Size = new System.Drawing.Size(1357, 258);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -1166,7 +1166,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1349, 234);
+            this.tabPage1.Size = new System.Drawing.Size(1349, 232);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "資料錄入";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2374,7 +2374,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1349, 234);
+            this.tabPage2.Size = new System.Drawing.Size(1349, 232);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "新版本";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -6288,9 +6288,9 @@
             // pic_artwork
             // 
             this.pic_artwork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_artwork.Location = new System.Drawing.Point(1181, 2);
+            this.pic_artwork.Location = new System.Drawing.Point(1180, 5);
             this.pic_artwork.Name = "pic_artwork";
-            this.pic_artwork.Size = new System.Drawing.Size(167, 185);
+            this.pic_artwork.Size = new System.Drawing.Size(167, 172);
             this.pic_artwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_artwork.TabIndex = 127;
             this.pic_artwork.TabStop = false;
