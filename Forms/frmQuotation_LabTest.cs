@@ -33,14 +33,19 @@ namespace cf01.Forms
                 ORDER BY prod_id,id", m_prod_id, m_brand_id);
             dtLabTest = clsPublicOfCF01.GetDataTable(ls_sql);
             dgvLabTest.DataSource = dtLabTest;
-            if (dtLabTest.Rows[0]["unit_code"].ToString() == "GRS")
-                txtUnit.Text = "GRS";
-            else
-                txtUnit.Text = "K";
-            ls_sql = string.Format(@"SELECT Isnull(usd3,0.000) usd3 FROM quotation_formula WHERE brand_id='{0}'", m_brand_id);
-            string ls_rate = clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql);
-            if (ls_rate != "")
-                txtRate.Text = ls_rate;
+            if (dtLabTest.Rows.Count > 0)
+            {
+                if (dtLabTest.Rows[0]["unit_code"].ToString() == "GRS")
+                    txtUnit.Text = "GRS";
+                else
+                    txtUnit.Text = "K";
+                ls_sql = string.Format(@"SELECT Isnull(usd3,0.000) usd3 FROM quotation_formula WHERE brand_id='{0}'", m_brand_id);
+                string ls_rate = clsPublicOfCF01.ExecuteSqlReturnObject(ls_sql);
+                if (ls_rate != "")
+                    txtRate.Text = ls_rate;
+                else
+                    txtRate.Text = "0.000";
+            }
             else
                 txtRate.Text = "0.000";
         }
