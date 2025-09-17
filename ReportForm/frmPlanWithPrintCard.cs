@@ -876,10 +876,19 @@ namespace cf01.ReportForm
         {
             
             List<mdlMoSchedule> lsModel = new List<mdlMoSchedule>();
-            int seq_step = clsMoSchedule.GetScheduleSeq(dtMoPlan.Rows[0]["wp_id"].ToString().Trim());
+            string prd_dep = dtMoPlan.Rows[0]["wp_id"].ToString().Trim();
+            int seq_step = clsMoSchedule.GetScheduleSeq(prd_dep);
             prgStatus.Minimum = 0;
             prgStatus.Maximum = dtMoPlan.Rows.Count;
             prgStatus.Value = 0;
+            
+            string now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
+            int rq_prd_days = 3;
+            if (prd_dep == "105")
+                rq_prd_days = 2;
+            string pmc_rq_date = System.DateTime.Now.AddDays(rq_prd_days).ToString("yyyy/MM/dd");
+            if (prd_dep == "203")
+                pmc_rq_date = "";
             //foreach (DataRow drMo in selectedRows)
             for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
@@ -890,13 +899,13 @@ namespace cf01.ReportForm
                     mdlMoSchedule objModel = new mdlMoSchedule();
                     objModel.schedule_id = "";
                     objModel.schedule_seq = seq_step.ToString("D3").PadLeft(3, '0');
-                    objModel.schedule_date = System.DateTime.Now.ToString("yyyy/MM/dd");
-                    objModel.now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
+                    objModel.schedule_date = now_date;
+                    objModel.now_date = now_date;
+                    objModel.pmc_rq_date = pmc_rq_date;
                     objModel.wip_id = drMo["id"].ToString().Trim();
                     objModel.wip_seq = drMo["sequence_id"].ToString().Trim();
                     objModel.wip_ver = clsValidRule.ConvertStrToInt(drMo["ver"].ToString().Trim());
-                    objModel.prd_dep = drMo["wp_id"].ToString().Trim();
-                    objModel.prd_dep = drMo["wp_id"].ToString().Trim();
+                    objModel.prd_dep = prd_dep;
                     objModel.prd_mo = drMo["mo_id"].ToString().Trim();
                     objModel.prd_item = drMo["goods_id"].ToString().Trim();
                     //DataTable dtPrd = clsMoSchedule.GetPrdDetails(objModel.prd_dep, objModel.prd_item);
