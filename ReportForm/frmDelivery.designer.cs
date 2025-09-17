@@ -128,6 +128,7 @@
             this.btnExcel = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.chkReplaceQty = new System.Windows.Forms.CheckBox();
+            this.lot_no = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -306,7 +307,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(81, 36);
+            this.BTNSAVESET.Size = new System.Drawing.Size(83, 36);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVESET.ToolTipText = "保存查找條件";
@@ -317,7 +318,7 @@
             this.BTNSAVEPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVEPRINT.Image")));
             this.BTNSAVEPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVEPRINT.Name = "BTNSAVEPRINT";
-            this.BTNSAVEPRINT.Size = new System.Drawing.Size(81, 36);
+            this.BTNSAVEPRINT.Size = new System.Drawing.Size(83, 36);
             this.BTNSAVEPRINT.Text = "保存列印數據";
             this.BTNSAVEPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVEPRINT.Click += new System.EventHandler(this.BTNSAVEPRINT_Click);
@@ -332,7 +333,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(83, 36);
+            this.BTNPRINT.Size = new System.Drawing.Size(86, 36);
             this.BTNPRINT.Text = "工序卡列印(&P)";
             this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
@@ -347,7 +348,7 @@
             this.BTNPRINTA4.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINTA4.Image")));
             this.BTNPRINTA4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINTA4.Name = "BTNPRINTA4";
-            this.BTNPRINTA4.Size = new System.Drawing.Size(103, 36);
+            this.BTNPRINTA4.Size = new System.Drawing.Size(106, 36);
             this.BTNPRINTA4.Text = "工序卡列印(A4紙)";
             this.BTNPRINTA4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINTA4.Click += new System.EventHandler(this.BTNPRINTA4_Click);
@@ -357,7 +358,7 @@
             this.BTNPRINTA41.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINTA41.Image")));
             this.BTNPRINTA41.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINTA41.Name = "BTNPRINTA41";
-            this.BTNPRINTA41.Size = new System.Drawing.Size(91, 36);
+            this.BTNPRINTA41.Size = new System.Drawing.Size(94, 36);
             this.BTNPRINTA41.Text = "移交清單(A4紙)";
             this.BTNPRINTA41.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINTA41.Click += new System.EventHandler(this.BTNPRINTA41_Click);
@@ -373,7 +374,7 @@
             this.btnCurrentDept.Image = ((System.Drawing.Image)(resources.GetObject("btnCurrentDept.Image")));
             this.btnCurrentDept.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCurrentDept.Name = "btnCurrentDept";
-            this.btnCurrentDept.Size = new System.Drawing.Size(89, 36);
+            this.btnCurrentDept.Size = new System.Drawing.Size(91, 36);
             this.btnCurrentDept.Text = "工序卡(本部門)";
             this.btnCurrentDept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCurrentDept.Click += new System.EventHandler(this.btnCurrentDept_Click);
@@ -394,7 +395,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(93, 36);
+            this.BTNSAVE.Size = new System.Drawing.Size(96, 36);
             this.BTNSAVE.Text = "保存JX移交數據";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
@@ -716,7 +717,8 @@
             this.next_wp_id,
             this.next_wp_name,
             this.current_req_date,
-            this.current_prod_qty});
+            this.current_prod_qty,
+            this.lot_no});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -1350,6 +1352,22 @@
             this.chkReplaceQty.Text = "將移交數量替換成生產數量";
             this.chkReplaceQty.UseVisualStyleBackColor = true;
             // 
+            // lot_no
+            // 
+            this.lot_no.Caption = "Lot No";
+            this.lot_no.FieldName = "lot_no";
+            this.lot_no.Name = "lot_no";
+            this.lot_no.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.lot_no.OptionsColumn.AllowIncrementalSearch = false;
+            this.lot_no.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.lot_no.OptionsColumn.AllowMove = false;
+            this.lot_no.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.lot_no.OptionsColumn.ReadOnly = true;
+            this.lot_no.OptionsFilter.AllowAutoFilter = false;
+            this.lot_no.OptionsFilter.AllowFilter = false;
+            this.lot_no.Visible = true;
+            this.lot_no.VisibleIndex = 24;
+            // 
             // frmDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1514,5 +1532,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit colSec_qty;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.CheckBox chkReplaceQty;
+        private DevExpress.XtraGrid.Columns.GridColumn lot_no;
     }
 }

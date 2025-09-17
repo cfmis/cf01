@@ -102,6 +102,7 @@
             this.txtMo_id2 = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lot_no = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtID1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDat2.Properties)).BeginInit();
@@ -230,7 +231,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(49, 35);
+            this.BTNCANCEL.Size = new System.Drawing.Size(52, 35);
             this.BTNCANCEL.Text = "重置(&U)";
             this.BTNCANCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
@@ -245,7 +246,7 @@
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(68, 35);
+            this.BTNFIND.Size = new System.Drawing.Size(70, 35);
             this.BTNFIND.Text = "   查 找 (&F)  ";
             this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
@@ -266,7 +267,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(81, 35);
+            this.BTNSAVESET.Size = new System.Drawing.Size(83, 35);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVESET.ToolTipText = "保存查找條件";
@@ -282,7 +283,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(83, 35);
+            this.BTNPRINT.Size = new System.Drawing.Size(86, 35);
             this.BTNPRINT.Text = "工序卡列印(&P)";
             this.BTNPRINT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
@@ -616,7 +617,8 @@
             this.do_color,
             this.name_color_sample,
             this.plan_qty,
-            this.order_qty});
+            this.order_qty,
+            this.lot_no});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -936,6 +938,18 @@
             this.label5.Text = "頁    數";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lot_no
+            // 
+            this.lot_no.Caption = "批號";
+            this.lot_no.FieldName = "lot_no";
+            this.lot_no.Name = "lot_no";
+            this.lot_no.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.lot_no.OptionsColumn.ReadOnly = true;
+            this.lot_no.OptionsFilter.AllowAutoFilter = false;
+            this.lot_no.OptionsFilter.AllowFilter = false;
+            this.lot_no.Visible = true;
+            this.lot_no.VisibleIndex = 18;
+            // 
             // frmCardPlate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1068,5 +1082,6 @@
         private DevExpress.XtraEditors.TextEdit txtMo_id2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraGrid.Columns.GridColumn lot_no;
     }
 }

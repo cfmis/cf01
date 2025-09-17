@@ -65,17 +65,24 @@ namespace cf01.Reports
                     XRTableCell tcSer_no = new XRTableCell();
                     tcSer_no.WidthF = 20;
                     tcSer_no.Text = dtPartsInfo.Rows[i]["Ser_no"].ToString() + ".";
+                    tcSer_no.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
 
                     XRTableCell tcGoods_id = new XRTableCell();
                     tcGoods_id.WidthF = 175;
                     tcGoods_id.Text = dtPartsInfo.Rows[i]["part_goods_id"].ToString();
+                    tcGoods_id.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
 
                     XRTableCell tcGoods_name_color = new XRTableCell();
                     tcGoods_name_color.WidthF = 390;
                     tcGoods_name_color.Text = dtPartsInfo.Rows[i]["part_goods_name"].ToString();
 
+                    XRTableCell tcLot_no = new XRTableCell();
+                    tcLot_no.WidthF = 90;
+                    tcLot_no.Text= dtPartsInfo.Rows[i]["lot_no"].ToString();
+                    tcLot_no.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+
                     XRTableRow tr = new XRTableRow();
-                    tr.Cells.AddRange(new XRTableCell[] { tcSer_no, tcGoods_id, tcGoods_name_color });
+                    tr.Cells.AddRange(new XRTableCell[] { tcSer_no, tcGoods_id, tcGoods_name_color,tcLot_no });
                     xrTable1.Rows.Add(tr);
 
                     //綁定圖片
