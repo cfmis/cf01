@@ -698,27 +698,30 @@ namespace cf01.ReportForm
 
         private void btnRpt2_Click(object sender, EventArgs e)
         {
+            System.Data.DataTable dtTemp = new System.Data.DataTable();
+            dtTemp = dtRpt1.Copy();
             int index=0, rowCount = 0;
             index = radioGroup1.SelectedIndex;
-            if (radioGroup1.SelectedIndex == 0)
+            if (index == 0)
             {
                 rowCount = gridView1.RowCount;
+                dtTemp = dtRpt1.Copy();
             }
-            if (radioGroup1.SelectedIndex == 1)
+            if (index == 1)
             {
                 rowCount = gridView2.RowCount;
+                dtTemp = dtRpt2.Copy(); 
             }
-            if (radioGroup1.SelectedIndex == 2)
+            if (index == 2)
             {
                 rowCount = gridView3.RowCount;
+                dtTemp = dtRpt3.Copy();
             }
             if (rowCount == 0)
             {
                 return;
-            }
-            System.Data.DataTable dtTemp = new System.Data.DataTable();
-            dtTemp = dtRpt1.Copy();
-            clsPlateDelivery.ExpToExcel(radioGroup1.SelectedIndex, rowCount, dtTemp, dtOutReurn, progressBar1,chkArt.Checked);
+            }           
+            clsPlateDelivery.ExpToExcel(index, rowCount, dtTemp, dtOutReurn, progressBar1,chkArt.Checked);
         }
         
 
