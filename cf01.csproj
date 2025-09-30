@@ -316,6 +316,12 @@
     <Compile Include="CLS\ExpToExcel.cs" />
     <Compile Include="CLS\PubFunDAL.cs" />
     <Compile Include="DBUtility.cs" />
+    <Compile Include="Forms\frmMoComplete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMoComplete.designer.cs">
+      <DependentUpon>frmMoComplete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMoScheduleDepGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,12 @@
     </Compile>
     <Compile Include="Forms\frmMoScheduleRemark.Designer.cs">
       <DependentUpon>frmMoScheduleRemark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPlanCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPlanCancel.designer.cs">
+      <DependentUpon>frmPlanCancel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSoPiMerge.cs">
       <SubType>Form</SubType>
@@ -3046,11 +3058,17 @@
     <Compile Include="Reports\XtraReport1.designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmMoComplete.resx">
+      <DependentUpon>frmMoComplete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMoScheduleDepGroup.resx">
       <DependentUpon>frmMoScheduleDepGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMoScheduleRemark.resx">
       <DependentUpon>frmMoScheduleRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPlanCancel.resx">
+      <DependentUpon>frmPlanCancel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSoPiMerge.resx">
       <DependentUpon>frmSoPiMerge.cs</DependentUpon>

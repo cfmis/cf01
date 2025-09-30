@@ -709,6 +709,16 @@ namespace cf01.CLS
             return decimal.Parse(fResult.ToString());
         }
 
+        public static void SetDropBoxForState(DevExpress.XtraEditors.LookUpEdit obj, string lang_id)
+        {
+            DataTable dtState = new DataTable();
+            dtState = clsErp.GetDataTable(
+                string.Format(@"SELECT id,matter as name FROM dbo.sy_bill_state WHERE language_id='{0}'", lang_id));
+            obj.Properties.DataSource = dtState;
+            obj.Properties.ValueMember = "id";
+            obj.Properties.DisplayMember = "name";
+        }
+
         //create a reportview report and define format,grouping  ://msdn.microsoft.com/zh-cn/library/ms252073(v=vs.90).aspx
 
         //make report define grouping   ://www.dotblogs.com.tw/bruce655/archive/2012/02/22/69837.aspx

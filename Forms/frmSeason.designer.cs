@@ -94,7 +94,7 @@
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(63, 22);
+            this.BTNFIND.Size = new System.Drawing.Size(65, 22);
             this.BTNFIND.Text = "查詢(&F)";
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
             // 
@@ -126,7 +126,7 @@
             this.BTNEXIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXIT.Image")));
             this.BTNEXIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXIT.Name = "BTNEXIT";
-            this.BTNEXIT.Size = new System.Drawing.Size(65, 22);
+            this.BTNEXIT.Size = new System.Drawing.Size(67, 22);
             this.BTNEXIT.Text = "退出(&X)";
             this.BTNEXIT.Click += new System.EventHandler(this.BTNEXIT_Click);
             // 
@@ -140,7 +140,7 @@
             this.BTNNEW.Image = ((System.Drawing.Image)(resources.GetObject("BTNNEW.Image")));
             this.BTNNEW.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNNEW.Name = "BTNNEW";
-            this.BTNNEW.Size = new System.Drawing.Size(65, 22);
+            this.BTNNEW.Size = new System.Drawing.Size(67, 22);
             this.BTNNEW.Text = "新增(&A)";
             this.BTNNEW.Click += new System.EventHandler(this.BTNNEW_Click);
             // 
@@ -149,7 +149,7 @@
             this.BTNEDIT.Image = ((System.Drawing.Image)(resources.GetObject("BTNEDIT.Image")));
             this.BTNEDIT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEDIT.Name = "BTNEDIT";
-            this.BTNEDIT.Size = new System.Drawing.Size(64, 22);
+            this.BTNEDIT.Size = new System.Drawing.Size(66, 22);
             this.BTNEDIT.Text = "編輯(&E)";
             this.BTNEDIT.Click += new System.EventHandler(this.BTNEDIT_Click);
             // 
@@ -164,7 +164,7 @@
             this.BTNSAVE.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVE.Image")));
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
-            this.BTNSAVE.Size = new System.Drawing.Size(63, 22);
+            this.BTNSAVE.Size = new System.Drawing.Size(66, 22);
             this.BTNSAVE.Text = "保存(&S)";
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
             // 
@@ -174,7 +174,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(65, 22);
+            this.BTNCANCEL.Size = new System.Drawing.Size(67, 22);
             this.BTNCANCEL.Text = "取消(&C)";
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
             // 
@@ -188,7 +188,7 @@
             this.BTNDELETE.Image = ((System.Drawing.Image)(resources.GetObject("BTNDELETE.Image")));
             this.BTNDELETE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNDELETE.Name = "BTNDELETE";
-            this.BTNDELETE.Size = new System.Drawing.Size(65, 22);
+            this.BTNDELETE.Size = new System.Drawing.Size(68, 22);
             this.BTNDELETE.Text = "刪除(&D)";
             this.BTNDELETE.Click += new System.EventHandler(this.BTNDELETE_Click);
             // 
@@ -202,7 +202,7 @@
             this.BTNPRINT.Image = ((System.Drawing.Image)(resources.GetObject("BTNPRINT.Image")));
             this.BTNPRINT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNPRINT.Name = "BTNPRINT";
-            this.BTNPRINT.Size = new System.Drawing.Size(63, 22);
+            this.BTNPRINT.Size = new System.Drawing.Size(66, 22);
             this.BTNPRINT.Text = "列印(&P)";
             this.BTNPRINT.Click += new System.EventHandler(this.BTNPRINT_Click);
             // 
@@ -211,7 +211,7 @@
             this.BTNEXCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNEXCEL.Image")));
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(86, 22);
+            this.BTNEXCEL.Size = new System.Drawing.Size(87, 22);
             this.BTNEXCEL.Text = "匯出EXCEL";
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
             // 
@@ -329,7 +329,7 @@
             // 
             // lblRemark
             // 
-            this.lblRemark.Location = new System.Drawing.Point(7, 88);
+            this.lblRemark.Location = new System.Drawing.Point(7, 89);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(77, 13);
             this.lblRemark.TabIndex = 7;
@@ -376,7 +376,7 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(6, 14);
+            this.lblID.Location = new System.Drawing.Point(6, 15);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(77, 13);
             this.lblID.TabIndex = 1;
