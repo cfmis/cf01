@@ -11,7 +11,7 @@ using cf01.CLS;
 
 namespace cf01.Forms
 {
-    public partial class frmMoComplete : Form
+    public partial class frmGoodsRelease : Form
     {
         clsPublicOfGEO clsErp = new clsPublicOfGEO();
         clsAppPublic clsApp = new clsAppPublic();
@@ -22,7 +22,7 @@ namespace cf01.Forms
         MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示     
        // clsToolBar objToolbar;
 
-        public frmMoComplete()
+        public frmGoodsRelease()
         {
             InitializeComponent();
 
@@ -33,7 +33,7 @@ namespace cf01.Forms
             clsApp.SetToolBarEnable(this.Name, this.Controls);            
         }
 
-        private void frmMoComplete_Load(object sender, EventArgs e)
+        private void frmGoodsRelease_Load(object sender, EventArgs e)
         {  
             LoadDate();
             //系統狀態           
@@ -52,9 +52,25 @@ namespace cf01.Forms
             luestate.Properties.ValueMember = "id";
             luestate.Properties.DisplayMember = "name";
 
+            string sql = "Select vendor_id as id,vendor_name as name From bs_release_vendor order by vendor_id";
+            DataTable dtVendor = clsPublicOfCF01.GetDataTable(sql);
+            lueVendor_id.Properties.DataSource = dtVendor;
+            lueVendor_id.Properties.ValueMember = "id";
+            lueVendor_id.Properties.DisplayMember = "id";
+            
+
             //數據綁定           
-            txtmo_id.DataBindings.Add("Text", bds1, "mo_id");           
-            txtremark.DataBindings.Add("Text", bds1, "remark");           
+            txtid.DataBindings.Add("Text", bds1, "id");
+            txtDate.DataBindings.Add("EditValue", bds1, "bill_date");
+            txtserial_number.DataBindings.Add("Text", bds1, "serial_number");
+            lueVendor_id.DataBindings.Add("EditValue", bds1, "vendor_id");
+            txtvendor_name.DataBindings.Add("Text", bds1, "vendor_name");            
+            cbeReason.DataBindings.Add("EditValue", bds1, "reason");
+            txtother_desc.DataBindings.Add("Text", bds1, "other_desc");
+            txtgoods_desc.DataBindings.Add("Text", bds1, "goods_desc");
+            txtremark.DataBindings.Add("Text", bds1, "remark");
+            txtapply_by.DataBindings.Add("Text", bds1, "apply_by");
+            txtapproved_by.DataBindings.Add("Text", bds1, "approved_by");
             luestate.DataBindings.Add("EditValue", bds1, "state");
             txtcreate_by.DataBindings.Add("Text", bds1, "create_by");
             txtcreate_date.DataBindings.Add("Text", bds1, "create_date");
@@ -67,7 +83,7 @@ namespace cf01.Forms
         private void LoadDate()
         {
             dtDetail.Clear();           
-            string sql = @"SELECT * From so_mo_complete with(nolock) ORDER BY create_date DESC";            
+            string sql = @"SELECT * From bs_release with(nolock) Order BY create_date DESC";            
             conn = new SqlConnection(DBUtility.connectionString);
             SDA = new SqlDataAdapter(sql, conn);
             SDA.Fill(dtDetail);
@@ -106,6 +122,8 @@ namespace cf01.Forms
             luestate.EditValue = "0";
             txtcreate_by.Text = DBUtility._user_id;
             txtcreate_date.Text = DateTime.Now.ToString();
+            txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            GenSerialNumber();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -113,35 +131,29 @@ namespace cf01.Forms
             if (dgvDetails.Rows.Count == 0)
             {
                 return;
-            }
-            if (mState == "NEW" && txtmo_id.Text != "")
-            {                
-                if (!CheckMO())
-                {
-                    txtmo_id.Focus();
-                    return;
-                }
-            }                 
+            }             
            
             //dgvDetails.CurrentCell.RowIndex;行號
             //Select a Cell Focus
-            dgvDetails.CurrentCell = dgvDetails.Rows[0].Cells["mo_id"];
+            dgvDetails.CurrentCell = dgvDetails.Rows[0].Cells["bill_date"];
             //Selected a Row 
             dgvDetails.Rows[0].Selected = true;
 
             bool flag_datavalid = false;
             for (int i = 0; i < dgvDetails.Rows.Count; i++)
             {
-                if (dgvDetails.Rows[i].Cells["mo_id"].Value.ToString() == "")
+                string goods_desc = dgvDetails.Rows[i].Cells["goods_desc"].Value.ToString();
+                if (dgvDetails.Rows[i].Cells["bill_date"].Value.ToString() == ""|| dgvDetails.Rows[i].Cells["vendor_id"].Value.ToString()==""||
+                    dgvDetails.Rows[i].Cells["goods_desc"].Value.ToString() == "")
                 {
                     flag_datavalid = true;
-                    dgvDetails.CurrentCell = dgvDetails.Rows[i].Cells["mo_id"];//選中當前空白的行                    
+                    dgvDetails.CurrentCell = dgvDetails.Rows[i].Cells["bill_date"];//選中當前空白的行                    
                     break;
                 }
             }
             if (flag_datavalid)
             {
-                MessageBox.Show("制單編號不可為空 !", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("【日期，供應商，攜帶物品】不可為空 !", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -151,14 +163,14 @@ namespace cf01.Forms
                 SqlCommandBuilder SCB = new SqlCommandBuilder(SDA);
                 SDA.InsertCommand = SCB.GetInsertCommand();
                 SDA.UpdateCommand = SCB.GetUpdateCommand();
-                SDA.Update(dtDetail);
-                LoadDate();
+                SDA.Update(dtDetail);               
                 clsUtility.myMessageBox(myMsg.msgSave_ok, myMsg.msgTitle);
                 SCB = null;
                 SetButtonSatus(true);
                 SetObjValue.SetEditBackColor(panel1.Controls, false);
                 mState = "";
-                txtmo_id.Properties.ReadOnly = true;
+                txtid.Properties.ReadOnly = true;
+                this.LoadDate();
             }
             catch (Exception ex)
             {
@@ -203,7 +215,7 @@ namespace cf01.Forms
             }
         }
 
-        private void frmMoComplete_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmGoodsRelease_FormClosed(object sender, FormClosedEventArgs e)
         {
            dtDetail=null ;
            SDA = null;
@@ -214,7 +226,7 @@ namespace cf01.Forms
         
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (txtmo_id.Text == "")
+            if (txtid.Text == "")
             {
                 return;
             }
@@ -223,8 +235,8 @@ namespace cf01.Forms
             SetObjValue.SetEditBackColor(panel1.Controls, true);
             txtupdate_by.Text = DBUtility._user_id;
             txtupdate_date.Text = DateTime.Now.ToString();
-            txtmo_id.Properties.ReadOnly = true;
-            txtmo_id.BackColor = Color.White;
+            txtid.Properties.ReadOnly = true;
+            txtid.BackColor = Color.White;
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -233,7 +245,7 @@ namespace cf01.Forms
             SetButtonSatus(true);
             SetObjValue.SetEditBackColor(panel1.Controls, false);           
             mState = "";
-            txtmo_id.Properties.ReadOnly = true;
+            txtid.Properties.ReadOnly = true;
             LoadDate();
         }
 
@@ -241,44 +253,7 @@ namespace cf01.Forms
         {
             LoadDate();
         }
-
-        private void txtmo_id_Leave(object sender, EventArgs e)
-        {
-            if (mState == "NEW" && txtmo_id.Text !="")
-            {
-                string sql = string.Format("SELECT '1' FROM so_mo_complete with(nolock) Where mo_id='{0}'", txtmo_id.Text);
-                if(clsPublicOfCF01.ExecuteSqlReturnObject(sql) != "")
-                {
-                    MessageBox.Show($"輸入的制單編號已存在[{ txtmo_id.Text}]!", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtmo_id.Text = "";
-                    return;
-                }
-                if (!CheckMO())
-                {
-                    txtmo_id.Focus();
-                }
-            }
-        }
-
-        private bool CheckMO()
-        {
-            bool result = true;
-            if (mState == "NEW" && txtmo_id.Text != "")
-            {
-                string sql = string.Format("SELECT '1' FROM so_order_details with(nolock) Where within_code='0000' And mo_id='{0}'", txtmo_id.Text);
-                if (clsErp.ExecuteSqlReturnObject(sql) == "")
-                {
-                    MessageBox.Show("輸入的制單編號并不存在,請返回檢查!", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);                   
-                    result = false;                    
-                }
-                else
-                {                 
-                    result = true;
-                }
-            }
-            return result;
-        }
-
+      
         private void luestate_EditValueChanged(object sender, EventArgs e)
         {
             if (luestate.EditValue.ToString() == "2")
@@ -288,6 +263,36 @@ namespace cf01.Forms
             else
                 this.luestate.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             
+        }
+
+        private void GenSerialNumber()
+        {
+            if (mState == "NEW" && txtDate.Text != "")
+            {
+                txtserial_number.Text = DateTime.Now.ToString("yyyyMMddhhmm");
+            }
+        }
+
+        private void lueVendor_id_EditValueChanged(object sender, EventArgs e)
+        {
+            if (mState != "")
+            {
+                if (lueVendor_id.Text != "")
+                    txtvendor_name.Text = lueVendor_id.GetColumnValue("name").ToString();
+                else
+                    txtvendor_name.Text = "";
+            }
+        }
+
+        private void txtvendor_name_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (mState =="")
+            {
+                using (frmGoodsReleaseVendor ofrm = new frmGoodsReleaseVendor())
+                {
+                    ofrm.ShowDialog();
+                }
+            }
         }
     }
 }

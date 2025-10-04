@@ -316,6 +316,18 @@
     <Compile Include="CLS\ExpToExcel.cs" />
     <Compile Include="CLS\PubFunDAL.cs" />
     <Compile Include="DBUtility.cs" />
+    <Compile Include="Forms\frmGoodsRelease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGoodsRelease.designer.cs">
+      <DependentUpon>frmGoodsRelease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGoodsReleaseVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGoodsReleaseVendor.designer.cs">
+      <DependentUpon>frmGoodsReleaseVendor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMoComplete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3058,6 +3070,12 @@
     <Compile Include="Reports\XtraReport1.designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmGoodsRelease.resx">
+      <DependentUpon>frmGoodsRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGoodsReleaseVendor.resx">
+      <DependentUpon>frmGoodsReleaseVendor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMoComplete.resx">
       <DependentUpon>frmMoComplete.cs</DependentUpon>
     </EmbeddedResource>
