@@ -7,7 +7,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using cf01.ModuleClass;
 using cf01.CLS;
-
+using cf01.Reports;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraEditors;
 
 namespace cf01.Forms
 {
@@ -19,7 +21,9 @@ namespace cf01.Forms
         public SqlDataAdapter SDA;
         public string mState = "";
         SqlConnection conn;
-        MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示     
+        MsgInfo myMsg = new MsgInfo();//實例化Messagegox用到的提示    
+        DataTable dtReport = new DataTable();
+        
        // clsToolBar objToolbar;
 
         public frmGoodsRelease()
@@ -76,6 +80,16 @@ namespace cf01.Forms
             txtcreate_date.DataBindings.Add("Text", bds1, "create_date");
             txtupdate_by.DataBindings.Add("Text", bds1, "update_by");
             txtupdate_date.DataBindings.Add("Text", bds1, "Update_date");
+
+            //初始貨打印報表結構
+            dtReport.Columns.Add("bill_date", typeof(string));
+            dtReport.Columns.Add("vendor_id", typeof(string));
+            dtReport.Columns.Add("serial_number", typeof(string));
+            dtReport.Columns.Add("reason", typeof(string));
+            dtReport.Columns.Add("goods_desc", typeof(string));
+            dtReport.Columns.Add("other_desc", typeof(string));
+            dtReport.Columns.Add("approved_by", typeof(string));
+            dtReport.Columns.Add("apply_by", typeof(string));
         }
 
       
@@ -97,10 +111,12 @@ namespace cf01.Forms
             btnNew.Enabled = _flag;
             btnEdit.Enabled = _flag;
             btnDelete.Enabled = _flag;
+            btnPrint.Enabled = _flag;
             //btnFind.Enabled = _flag;
 
             btnSave.Enabled = !_flag;
             btnUndo.Enabled = !_flag;
+           
             //if (objToolbar != null)
             //{
             //    objToolbar.SetToolBar();
@@ -122,8 +138,13 @@ namespace cf01.Forms
             luestate.EditValue = "0";
             txtcreate_by.Text = DBUtility._user_id;
             txtcreate_date.Text = DateTime.Now.ToString();
-            txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            txtDate.EditValue = DateTime.Now.Date.ToString("yyyy-MM-dd");           
             GenSerialNumber();
+            int index = dgvDetails.CurrentCell.RowIndex;
+            dgvDetails.Rows[index].Cells["bill_date"].Value = txtDate.EditValue.ToString();
+            dgvDetails.Rows[index].Cells["serial_number"].Value = txtserial_number.Text;
+            txtDate.Enabled = false;
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -131,20 +152,21 @@ namespace cf01.Forms
             if (dgvDetails.Rows.Count == 0)
             {
                 return;
-            }             
-           
+            }
+            dgvDetails.Refresh();
             //dgvDetails.CurrentCell.RowIndex;行號
             //Select a Cell Focus
-            dgvDetails.CurrentCell = dgvDetails.Rows[0].Cells["bill_date"];
+            //dgvDetails.CurrentCell = dgvDetails.Rows[0].Cells["bill_date"];
             //Selected a Row 
             dgvDetails.Rows[0].Selected = true;
-
+            string billDate = "", vendorId = "", goodsDesc = "";
             bool flag_datavalid = false;
             for (int i = 0; i < dgvDetails.Rows.Count; i++)
             {
-                string goods_desc = dgvDetails.Rows[i].Cells["goods_desc"].Value.ToString();
-                if (dgvDetails.Rows[i].Cells["bill_date"].Value.ToString() == ""|| dgvDetails.Rows[i].Cells["vendor_id"].Value.ToString()==""||
-                    dgvDetails.Rows[i].Cells["goods_desc"].Value.ToString() == "")
+                billDate = dgvDetails.Rows[i].Cells["bill_date"].Value.ToString();
+                vendorId = dgvDetails.Rows[i].Cells["vendor_id"].Value.ToString();
+                goodsDesc = dgvDetails.Rows[i].Cells["goods_desc"].Value.ToString();
+                if (billDate == ""|| vendorId == ""|| goodsDesc == "")
                 {
                     flag_datavalid = true;
                     dgvDetails.CurrentCell = dgvDetails.Rows[i].Cells["bill_date"];//選中當前空白的行                    
@@ -153,7 +175,7 @@ namespace cf01.Forms
             }
             if (flag_datavalid)
             {
-                MessageBox.Show("【日期，供應商，攜帶物品】不可為空 !", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("【日期，供應商或攜帶物品】不可為空 !", myMsg.msgTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -237,6 +259,7 @@ namespace cf01.Forms
             txtupdate_date.Text = DateTime.Now.ToString();
             txtid.Properties.ReadOnly = true;
             txtid.BackColor = Color.White;
+            txtDate.Enabled = false;
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -249,11 +272,7 @@ namespace cf01.Forms
             LoadDate();
         }
 
-        private void btnFind_Click(object sender, EventArgs e)
-        {
-            LoadDate();
-        }
-      
+            
         private void luestate_EditValueChanged(object sender, EventArgs e)
         {
             if (luestate.EditValue.ToString() == "2")
@@ -262,14 +281,25 @@ namespace cf01.Forms
             }
             else
                 this.luestate.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            
+
+            if (mState != "")
+            {
+                if (dgvDetails.CurrentCell == null)
+                {
+                    return;
+                }
+                int index = dgvDetails.CurrentCell.RowIndex;
+                dgvDetails.Rows[index].Cells["state"].Value = luestate.EditValue.ToString();
+            }
+
         }
 
         private void GenSerialNumber()
         {
             if (mState == "NEW" && txtDate.Text != "")
             {
-                txtserial_number.Text = DateTime.Now.ToString("yyyyMMddhhmm");
+                string strDate = txtDate.EditValue.ToString()+" "+ DateTime.Now.ToString("hh:mm:ss");
+                txtserial_number.Text = DateTime.Parse(strDate).ToString("yyyyMMddhhmmss") ;
             }
         }
 
@@ -277,10 +307,18 @@ namespace cf01.Forms
         {
             if (mState != "")
             {
-                if (lueVendor_id.Text != "")
-                    txtvendor_name.Text = lueVendor_id.GetColumnValue("name").ToString();
+                string vendorName = "";
+                if (lueVendor_id.EditValue.ToString() != "")
+                {
+                    vendorName = lueVendor_id.GetColumnValue("name").ToString();
+                    txtvendor_name.Text = vendorName;
+                }
                 else
                     txtvendor_name.Text = "";
+
+                int index = dgvDetails.CurrentCell.RowIndex;
+                dgvDetails.Rows[index].Cells["vendor_id"].Value = lueVendor_id.EditValue.ToString();
+                dgvDetails.Rows[index].Cells["vendor_name"].Value = vendorName; 
             }
         }
 
@@ -294,5 +332,73 @@ namespace cf01.Forms
                 }
             }
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (dgvDetails.Rows.Count == 0)
+            {
+                return;
+            }
+            dtReport.Clear();
+            int index = dgvDetails.CurrentCell.RowIndex; //行號
+            DataRow dr = dtReport.NewRow();            
+            dr["bill_date"] = dgvDetails.Rows[index].Cells["bill_date"].Value.ToString();
+            dr["vendor_id"] = dgvDetails.Rows[index].Cells["vendor_id"].Value.ToString();
+            dr["serial_number"] = dgvDetails.Rows[index].Cells["serial_number"].Value.ToString();
+            dr["reason"] = dgvDetails.Rows[index].Cells["reason"].Value.ToString();
+            dr["goods_desc"] = dgvDetails.Rows[index].Cells["goods_desc"].Value.ToString();
+            dr["other_desc"] = dgvDetails.Rows[index].Cells["other_desc"].Value.ToString();
+            dr["approved_by"] = dgvDetails.Rows[index].Cells["approved_by"].Value.ToString();
+            dr["apply_by"] = dgvDetails.Rows[index].Cells["apply_by"].Value.ToString();
+            dtReport.Rows.Add(dr);
+            xrGoodsRelease rpt = new xrGoodsRelease() { DataSource = dtReport };
+            rpt.CreateDocument();
+            rpt.PrintingSystem.ShowMarginsWarning = false;
+            rpt.ShowPreviewDialog();
+        }
+
+        private void txtvendor_name_Leave(object sender, EventArgs e)
+        {
+            SetGridValue(txtvendor_name, "vendor_name");            
+        }
+
+        private void cbeReason_EditValueChanged(object sender, EventArgs e)
+        {
+            SetGridValue(cbeReason, "reason");            
+        }
+
+        private void txtgoods_desc_EditValueChanged(object sender, EventArgs e)
+        {
+            SetGridValue(txtgoods_desc, "goods_desc");         
+        }
+
+        private void txtremark_EditValueChanged(object sender, EventArgs e)
+        {
+            SetGridValue(txtremark, "remark");         
+        }
+
+        private void txtapply_by_EditValueChanged(object sender, EventArgs e)
+        {
+            SetGridValue(txtapply_by, "apply_by");           
+        }
+
+        private void txtapproved_by_EditValueChanged(object sender, EventArgs e)
+        {
+            SetGridValue(txtapproved_by, "approved_by");
+        }
+        private void SetGridValue(TextEdit obj,string fieldName)
+        {
+            if (mState != "")
+            {
+                if (dgvDetails.CurrentCell == null)
+                {
+                    return;
+                }
+                int index = dgvDetails.CurrentCell.RowIndex;
+                dgvDetails.Rows[index].Cells[fieldName].Value = obj.Text;
+            }
+        }
+
+       
     }
 }

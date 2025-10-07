@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsRelease));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,7 +50,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnUndo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFind = new System.Windows.Forms.ToolStripButton();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.t_update_date = new System.Windows.Forms.Label();
             this.t_update_by = new System.Windows.Forms.Label();
             this.t_create_date = new System.Windows.Forms.Label();
@@ -102,7 +103,7 @@
             this.bill_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendor_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendor_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.other_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goods_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,7 +155,7 @@
             this.toolStripSeparator6,
             this.btnUndo,
             this.toolStripSeparator5,
-            this.btnFind});
+            this.btnPrint});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(951, 38);
@@ -248,15 +249,13 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
             // 
-            // btnFind
+            // btnPrint
             // 
-            this.btnFind.Enabled = false;
-            this.btnFind.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(51, 35);
-            this.btnFind.Text = "查找(&F)";
-            this.btnFind.Visible = false;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(52, 35);
+            this.btnPrint.Text = "打印(&P)";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // t_update_date
             // 
@@ -316,20 +315,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bill_date,
             this.serial_number,
             this.vendor_id,
-            this.vendor_desc,
+            this.vendor_name,
             this.reason,
             this.other_desc,
             this.goods_desc,
@@ -342,14 +341,14 @@
             this.update_date,
             this.state,
             this.id});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle28;
             this.dgvDetails.Location = new System.Drawing.Point(2, 260);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -402,6 +401,7 @@
             this.txtgoods_desc.Name = "txtgoods_desc";
             this.txtgoods_desc.Size = new System.Drawing.Size(464, 51);
             this.txtgoods_desc.TabIndex = 205;
+            this.txtgoods_desc.EditValueChanged += new System.EventHandler(this.txtgoods_desc_EditValueChanged);
             // 
             // txtapproved_by
             // 
@@ -416,6 +416,7 @@
             this.txtapproved_by.Size = new System.Drawing.Size(206, 22);
             this.txtapproved_by.TabIndex = 8;
             this.txtapproved_by.Tag = "2";
+            this.txtapproved_by.EditValueChanged += new System.EventHandler(this.txtapproved_by_EditValueChanged);
             // 
             // txtapply_by
             // 
@@ -430,6 +431,7 @@
             this.txtapply_by.Size = new System.Drawing.Size(157, 22);
             this.txtapply_by.TabIndex = 7;
             this.txtapply_by.Tag = "2";
+            this.txtapply_by.EditValueChanged += new System.EventHandler(this.txtapply_by_EditValueChanged);
             // 
             // label4
             // 
@@ -438,7 +440,7 @@
             this.label4.Size = new System.Drawing.Size(47, 16);
             this.label4.TabIndex = 204;
             this.label4.Tag = "t_update_by";
-            this.label4.Text = "審核人";
+            this.label4.Text = "核準";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
@@ -493,6 +495,7 @@
             this.cbeReason.Size = new System.Drawing.Size(255, 20);
             this.cbeReason.TabIndex = 3;
             this.cbeReason.Tag = "2";
+            this.cbeReason.EditValueChanged += new System.EventHandler(this.cbeReason_EditValueChanged);
             // 
             // label2
             // 
@@ -517,6 +520,7 @@
             this.txtvendor_name.Size = new System.Drawing.Size(149, 20);
             this.txtvendor_name.TabIndex = 2;
             this.txtvendor_name.Tag = "2";
+            this.txtvendor_name.Leave += new System.EventHandler(this.txtvendor_name_Leave);
             // 
             // lueVendor_id
             // 
@@ -606,9 +610,11 @@
             this.txtDate.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.txtDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtDate.Properties.MaxLength = 10;
+            this.txtDate.Properties.NullDate = "";
+            this.txtDate.Properties.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(95, 20);
             this.txtDate.TabIndex = 0;
-            this.txtDate.Tag = "2";
+            this.txtDate.Tag = "1";
             // 
             // txtupdate_date
             // 
@@ -728,6 +734,7 @@
             this.txtremark.Size = new System.Drawing.Size(464, 22);
             this.txtremark.TabIndex = 6;
             this.txtremark.Tag = "2";
+            this.txtremark.EditValueChanged += new System.EventHandler(this.txtremark_EditValueChanged);
             // 
             // lblremark
             // 
@@ -751,8 +758,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "remark";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn2.HeaderText = "備註";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -807,8 +814,8 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "remark";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn8.HeaderText = "備註";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -885,6 +892,9 @@
             // bill_date
             // 
             this.bill_date.DataPropertyName = "bill_date";
+            dataGridViewCellStyle26.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle26.NullValue = null;
+            this.bill_date.DefaultCellStyle = dataGridViewCellStyle26;
             this.bill_date.HeaderText = "日期";
             this.bill_date.Name = "bill_date";
             this.bill_date.ReadOnly = true;
@@ -906,12 +916,12 @@
             this.vendor_id.ReadOnly = true;
             this.vendor_id.Width = 80;
             // 
-            // vendor_desc
+            // vendor_name
             // 
-            this.vendor_desc.DataPropertyName = "vendor_name";
-            this.vendor_desc.HeaderText = "供應商名稱";
-            this.vendor_desc.Name = "vendor_desc";
-            this.vendor_desc.ReadOnly = true;
+            this.vendor_name.DataPropertyName = "vendor_name";
+            this.vendor_name.HeaderText = "供應商名稱";
+            this.vendor_name.Name = "vendor_name";
+            this.vendor_name.ReadOnly = true;
             // 
             // reason
             // 
@@ -938,8 +948,8 @@
             // remark
             // 
             this.remark.DataPropertyName = "remark";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.remark.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.remark.DefaultCellStyle = dataGridViewCellStyle27;
             this.remark.HeaderText = "備註";
             this.remark.Name = "remark";
             this.remark.ReadOnly = true;
@@ -1077,7 +1087,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnUndo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton btnFind;
+        private System.Windows.Forms.ToolStripButton btnPrint;
         private DevExpress.XtraEditors.TextEdit txtid;
         private DevExpress.XtraEditors.LookUpEdit luestate;
         private System.Windows.Forms.Label t_state;
@@ -1122,7 +1132,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bill_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn serial_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendor_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendor_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendor_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn reason;
         private System.Windows.Forms.DataGridViewTextBoxColumn other_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_desc;

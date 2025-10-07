@@ -2488,6 +2488,12 @@
     <Compile Include="Reports\xrFullCheck.designer.cs">
       <DependentUpon>xrFullCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrGoodsRelease.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrGoodsRelease.designer.cs">
+      <DependentUpon>xrGoodsRelease.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrhg_plate.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -4168,6 +4174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrFullCheck.resx">
       <DependentUpon>xrFullCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrGoodsRelease.resx">
+      <DependentUpon>xrGoodsRelease.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrhg_plate.resx">
       <DependentUpon>xrhg_plate.cs</DependentUpon>
