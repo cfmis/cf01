@@ -16,9 +16,9 @@ namespace cf01.CLS
 {
     public static class clsPlateDelivery
     {
-        public static string ExpToExcel(int typeIndex, int rowCount, System.Data.DataTable dtRpt, System.Data.DataTable dtRptReturn, ProgressBar progressBar1, bool isArt)
+        public static string ExpToExcel(int index, int rowCount, System.Data.DataTable dtRpt, System.Data.DataTable dtRptReturn, ProgressBar progressBar1, bool isArt)
         {
-            switch (typeIndex)
+            switch (index)
             {
                 case 0:
                     //if (SaveDataTableToExcel_rpt1_sheets(dtRpt, dtRptReturn, saveFile, progressBar1, isArt))

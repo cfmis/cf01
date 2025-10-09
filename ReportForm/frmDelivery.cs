@@ -445,12 +445,13 @@ namespace cf01.ReportForm
                     newRow["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();
                     newRow["qc_test"] = dtDelivery.Rows[i]["qc_test"].ToString();
                     base_rate = string.IsNullOrEmpty(dtDelivery.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtDelivery.Rows[i]["base_rate"].ToString());                    
-                    newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtDelivery.Rows[i]["sec_qty"].ToString()) * base_rate, 0); 
+                    newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtDelivery.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
+                    newRow["lot_no"] = dtDelivery.Rows[i]["lot_no"].ToString();
 
                     //處理有幾包就列印幾張 2016-01-15
-                    if (dtDelivery.Rows[i]["package_num"].ToString()!="1")
+                    if (dtDelivery.Rows[i]["package_num"].ToString() !="1")
                     {
-                        if (pType == "1" || pType == "2") //列印標簽時才進行此處理
+                        if (pType == "1" || pType == "2") //列印工序卡標簽時才進行此處理
                         {
                             ii = Convert.ToInt16(dtDelivery.Rows[i]["package_num"].ToString());//包數
                             newRow["package_num"] = 1;//將包數還設成從1開始.
@@ -496,6 +497,7 @@ namespace cf01.ReportForm
                                 dr["basic_unit"] = dtDelivery.Rows[i]["basic_unit"].ToString();
                                 dr["stantard_qty"] = dtDelivery.Rows[i]["stantard_qty"];
                                 dr["qc_test"] = dtDelivery.Rows[i]["qc_test"];
+                                dr["lot_no"] = dtDelivery.Rows[i]["lot_no"];
                                 dtReport.Rows.Add(dr);
                             }
                         }

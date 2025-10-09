@@ -67,7 +67,7 @@ namespace cf01.ReportForm
                 " FROM op_outpro_out_mostly a" +
                 " INNER JOIN op_outpro_out_displace b ON a.within_code=b.within_code AND a.id=b.id" +
                 " INNER JOIN it_goods c ON b.within_code=c.within_code AND b.goods_id=c.id" +
-                " INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id" +
+                " INNER JOIN cd_department d ON a.within_code=d.within_code AND a.department_id=d.id" +                
                 " WHERE a.within_code='" + within_code + "' AND a.state<>'2'";           
             if (txtDat1.Text != "")
             {               
@@ -332,6 +332,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_qty", typeof(string));
             dtNewWork.Columns.Add("qc_test", typeof(string));
             dtNewWork.Columns.Add("process_remark", typeof(string));
+            dtNewWork.Columns.Add("stantard_qty", typeof(int));
 
             DataRow dr = null;
             string order_unit;
@@ -534,6 +535,7 @@ namespace cf01.ReportForm
                                 //--end 2024/3/14 add qc info allen
                                 dr["qc_test"] = drDtWk["qc_test"].ToString();
                                 dr["process_remark"] = drDtWk["process_remark"].ToString();
+                                dr["stantard_qty"] = drDtWk["stantard_qty"].ToString();                                
 
                                 dtNewWork.Rows.Add(dr);
                             }

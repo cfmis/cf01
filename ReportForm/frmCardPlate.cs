@@ -276,6 +276,7 @@ namespace cf01.ReportForm
                     base_rate = string.IsNullOrEmpty(dtWordCard.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtWordCard.Rows[i]["base_rate"].ToString());
                     newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
                     newRow["qc_test"] = dtWordCard.Rows[i]["qc_test"];
+                    newRow["lot_no"] = dtWordCard.Rows[i]["lot_no"];
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString() !="1")
@@ -320,6 +321,7 @@ namespace cf01.ReportForm
                             base_rate = string.IsNullOrEmpty(dtWordCard.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtWordCard.Rows[i]["base_rate"].ToString());
                             dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
                             dr["qc_test"] = dtWordCard.Rows[i]["qc_test"].ToString();
+                            dr["lot_no"] = dtWordCard.Rows[i]["lot_no"].ToString();
                             dtReport.Rows.Add(dr);
                         }
                     }

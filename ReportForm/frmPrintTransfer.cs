@@ -30,10 +30,11 @@ namespace cf01.ReportForm
         {
             InitializeComponent();
 
-            dtPrint.Columns.Add("wp_id", typeof(String));
-            dtPrint.Columns.Add("mo_id", typeof(String));
-            dtPrint.Columns.Add("goods_id", typeof(String));
-            dtPrint.Columns.Add("per_qty", typeof(int));            
+            dtPrint.Columns.Add("wp_id", typeof(string));
+            dtPrint.Columns.Add("mo_id", typeof(string));
+            dtPrint.Columns.Add("goods_id", typeof(string));
+            dtPrint.Columns.Add("per_qty", typeof(int));
+            //dtPrint.Columns.Add("id", typeof(string));
         }
 
         private void frmPrintTransfer_Load(object sender, EventArgs e)
@@ -304,15 +305,13 @@ namespace cf01.ReportForm
         {
             //dtPrint此表爲已處理掉重覆的記錄              
             dtPrint.Clear();
-            string strFilter = "";
-            string wp_id = "";
-            string mo_id = "";
-            string mat_id = "";
+            string strFilter = "", id = "", wp_id = "", mo_id, mat_id = "";        
             int per_qty = 0;               
             for (int i = 0; i < dgvTransfer.Rows.Count; i++)
             {
                 if ((bool)dgvTransfer.Rows[i].Cells["checkbox"].EditedFormattedValue)
                 {
+                    //id = dgvTransfer.Rows[i].Cells["colTrans_id"].Value.ToString();
                     wp_id = dgvTransfer.Rows[i].Cells["colIn_dept"].Value.ToString();
                     mo_id = dgvTransfer.Rows[i].Cells["colMo_id"].Value.ToString();
                     mat_id = dgvTransfer.Rows[i].Cells["colGoods_id"].Value.ToString();
@@ -336,10 +335,9 @@ namespace cf01.ReportForm
                 mo_id = dtPrint.Rows[i]["mo_id"].ToString();
                 mat_id = dtPrint.Rows[i]["goods_id"].ToString();
                 per_qty = int.Parse(dtPrint.Rows[i]["per_qty"].ToString());
-                if(chkNoQc.Checked)
-                    isPrintQc="1";//不顯示QC/P10部門的生產單
-                else
-                    isPrintQc="0";
+                //id = dtPrint.Rows[i]["id"].ToString(); //移交單號，依此單號找出對應的批號
+                //isPrintQc="1"不顯示QC/P10部門的生產單
+                isPrintQc = (chkNoQc.Checked) ? "1" : "0";
                 SqlParameter[] paras = new SqlParameter[]{
                     new SqlParameter("@mo_id",mo_id),
                     new SqlParameter("@wp_id",wp_id),
@@ -347,6 +345,7 @@ namespace cf01.ReportForm
                     new SqlParameter("@per_qty",per_qty),
                     new SqlParameter("@isPrintQc",isPrintQc),
                     new SqlParameter("@type","1") //@type="1"從移交單交貨記錄（PAD簽收）中列印生產單
+                   
                 };
                 DataSet dsTempData = clsPublicOfGEO.ExecuteProcedureReturnDataSet("z_rpt_prdtranser", paras, null);
                 

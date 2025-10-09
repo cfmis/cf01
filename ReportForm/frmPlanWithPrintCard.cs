@@ -189,7 +189,7 @@ namespace cf01.ReportForm
             }
             //**********************
             show_workcard(1); //数据处理
-                              //**********************
+            //**********************
 
         }
 
@@ -613,6 +613,7 @@ namespace cf01.ReportForm
                                 dr["qty_remaining"] = qty_remaining; //2024/01/31 ADD ALLEN
                                 dr["stantard_qty"] = "";//clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["qc_test"] = drDtWk["qc_test"].ToString();
+                                dr["process_remark"] = drDtWk["process_remark"].ToString();
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
@@ -718,6 +719,8 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_qty", typeof(string));
             dtNewWork.Columns.Add("stantard_qty", typeof(string));
             dtNewWork.Columns.Add("qc_test", typeof(string));
+            dtNewWork.Columns.Add("process_remark", typeof(string));
+
             return dtNewWork;
         }
         /// <summary>
