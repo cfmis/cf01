@@ -881,14 +881,12 @@ namespace cf01.ReportForm
             prgStatus.Minimum = 0;
             prgStatus.Maximum = dtMoPlan.Rows.Count;
             prgStatus.Value = 0;
-            
             string now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
-            int rq_prd_days = 3;
-            if (prd_dep == "105")
-                rq_prd_days = 2;
+            int rq_prd_days = 4;
+            if (prd_dep == "105" || prd_dep == "203" || prd_dep == "501")
+                rq_prd_days = 3;
             string pmc_rq_date = System.DateTime.Now.AddDays(rq_prd_days).ToString("yyyy/MM/dd");
-            if (prd_dep == "203")
-                pmc_rq_date = "";
+            
             //foreach (DataRow drMo in selectedRows)
             for (int i = 0; i < dtMoPlan.Rows.Count; i++)
             {
@@ -897,11 +895,17 @@ namespace cf01.ReportForm
                 {
                     DataRow drMo = dtMoPlan.Rows[i];
                     mdlMoSchedule objModel = new mdlMoSchedule();
+                    string pmc_rq_date1 = pmc_rq_date;
+                    string pre_dep_date= drMo["pre_deliver_max_dat"].ToString().Trim();
+                    string pl_rq_date = drMo["t_complete_date"].ToString().Trim();
+                    if (prd_dep == "203" || prd_dep== "105" || prd_dep == "501")//如果沒有上部門來貨期，PMC要求日期就用計劃單的要求日期
+                        if (pre_dep_date == "")
+                            pmc_rq_date1 = pl_rq_date;
                     objModel.schedule_id = "";
                     objModel.schedule_seq = seq_step.ToString("D3").PadLeft(3, '0');
                     objModel.schedule_date = now_date;
                     objModel.now_date = now_date;
-                    objModel.pmc_rq_date = pmc_rq_date;
+                    objModel.pmc_rq_date = pmc_rq_date1;
                     objModel.wip_id = drMo["id"].ToString().Trim();
                     objModel.wip_seq = drMo["sequence_id"].ToString().Trim();
                     objModel.wip_ver = clsValidRule.ConvertStrToInt(drMo["ver"].ToString().Trim());
@@ -910,7 +914,7 @@ namespace cf01.ReportForm
                     objModel.prd_item = drMo["goods_id"].ToString().Trim();
                     //DataTable dtPrd = clsMoSchedule.GetPrdDetails(objModel.prd_dep, objModel.prd_item);
                     objModel.prd_group = drMo["prd_group"].ToString().Trim();
-                    objModel.pmc_rq_date = drMo["t_complete_date"].ToString().Trim();
+                    //objModel.pmc_rq_date = drMo["t_complete_date"].ToString().Trim();
                     objModel.next_wp_id = drMo["next_wp_id"].ToString().Trim();
                     objModel.next_goods_id = drMo["next_goods_id"].ToString().Trim();
                     objModel.next_vend_id = drMo["next_vendor_id"].ToString().Trim();
