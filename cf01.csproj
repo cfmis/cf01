@@ -1874,6 +1874,12 @@
     <Compile Include="ReportForm\frmGetOcData.designer.cs">
       <DependentUpon>frmGetOcData.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\frmGoodsTrack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\frmGoodsTrack.Designer.cs">
+      <DependentUpon>frmGoodsTrack.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\frmInm01f.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3838,6 +3844,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmGetOcData.resx">
       <DependentUpon>frmGetOcData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\frmGoodsTrack.resx">
+      <DependentUpon>frmGoodsTrack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\frmInm01f.resx">
       <DependentUpon>frmInm01f.cs</DependentUpon>

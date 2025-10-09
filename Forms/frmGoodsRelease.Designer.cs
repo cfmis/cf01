@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsRelease));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,6 +57,22 @@
             this.t_create_by = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.bill_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendor_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.other_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apply_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approved_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtgoods_desc = new DevExpress.XtraEditors.MemoEdit();
             this.txtapproved_by = new DevExpress.XtraEditors.TextEdit();
@@ -100,22 +116,6 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bds1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bill_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendor_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.other_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apply_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approved_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -251,9 +251,10 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(52, 35);
+            this.btnPrint.Size = new System.Drawing.Size(68, 35);
             this.btnPrint.Text = "打印(&P)";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -315,14 +316,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bill_date,
@@ -341,14 +342,14 @@
             this.update_date,
             this.state,
             this.id});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetails.Location = new System.Drawing.Point(2, 260);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -356,6 +357,140 @@
             this.dgvDetails.ShowCellToolTips = false;
             this.dgvDetails.Size = new System.Drawing.Size(948, 349);
             this.dgvDetails.TabIndex = 50;
+            // 
+            // bill_date
+            // 
+            this.bill_date.DataPropertyName = "bill_date";
+            dataGridViewCellStyle2.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.bill_date.DefaultCellStyle = dataGridViewCellStyle2;
+            this.bill_date.HeaderText = "日期";
+            this.bill_date.Name = "bill_date";
+            this.bill_date.ReadOnly = true;
+            this.bill_date.Width = 90;
+            // 
+            // serial_number
+            // 
+            this.serial_number.DataPropertyName = "serial_number";
+            this.serial_number.HeaderText = "序列號";
+            this.serial_number.Name = "serial_number";
+            this.serial_number.ReadOnly = true;
+            this.serial_number.Width = 80;
+            // 
+            // vendor_id
+            // 
+            this.vendor_id.DataPropertyName = "vendor_id";
+            this.vendor_id.HeaderText = "供應商";
+            this.vendor_id.Name = "vendor_id";
+            this.vendor_id.ReadOnly = true;
+            this.vendor_id.Width = 80;
+            // 
+            // vendor_name
+            // 
+            this.vendor_name.DataPropertyName = "vendor_name";
+            this.vendor_name.HeaderText = "供應商名稱";
+            this.vendor_name.Name = "vendor_name";
+            this.vendor_name.ReadOnly = true;
+            // 
+            // reason
+            // 
+            this.reason.DataPropertyName = "reason";
+            this.reason.HeaderText = "事由";
+            this.reason.Name = "reason";
+            this.reason.ReadOnly = true;
+            this.reason.Width = 120;
+            // 
+            // other_desc
+            // 
+            this.other_desc.DataPropertyName = "other_desc";
+            this.other_desc.HeaderText = "其它（事由）";
+            this.other_desc.Name = "other_desc";
+            this.other_desc.ReadOnly = true;
+            // 
+            // goods_desc
+            // 
+            this.goods_desc.DataPropertyName = "goods_desc";
+            this.goods_desc.HeaderText = "攜帶物品";
+            this.goods_desc.Name = "goods_desc";
+            this.goods_desc.ReadOnly = true;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.remark.DefaultCellStyle = dataGridViewCellStyle3;
+            this.remark.HeaderText = "備註";
+            this.remark.Name = "remark";
+            this.remark.ReadOnly = true;
+            this.remark.ToolTipText = "t_remark";
+            this.remark.Width = 250;
+            // 
+            // apply_by
+            // 
+            this.apply_by.DataPropertyName = "apply_by";
+            this.apply_by.HeaderText = "申請人";
+            this.apply_by.Name = "apply_by";
+            this.apply_by.ReadOnly = true;
+            // 
+            // approved_by
+            // 
+            this.approved_by.DataPropertyName = "approved_by";
+            this.approved_by.HeaderText = "核準人";
+            this.approved_by.Name = "approved_by";
+            this.approved_by.ReadOnly = true;
+            // 
+            // create_by
+            // 
+            this.create_by.DataPropertyName = "create_by";
+            this.create_by.HeaderText = "建档人";
+            this.create_by.Name = "create_by";
+            this.create_by.ReadOnly = true;
+            this.create_by.ToolTipText = "t_create_by";
+            this.create_by.Width = 90;
+            // 
+            // create_date
+            // 
+            this.create_date.DataPropertyName = "create_date";
+            this.create_date.HeaderText = "建档日期";
+            this.create_date.Name = "create_date";
+            this.create_date.ReadOnly = true;
+            this.create_date.ToolTipText = "t_create_date";
+            this.create_date.Width = 152;
+            // 
+            // update_by
+            // 
+            this.update_by.DataPropertyName = "update_by";
+            this.update_by.HeaderText = "修改人";
+            this.update_by.Name = "update_by";
+            this.update_by.ReadOnly = true;
+            this.update_by.ToolTipText = "t_update_by";
+            this.update_by.Width = 90;
+            // 
+            // update_date
+            // 
+            this.update_date.DataPropertyName = "update_date";
+            this.update_date.HeaderText = "修改日期";
+            this.update_date.Name = "update_date";
+            this.update_date.ReadOnly = true;
+            this.update_date.ToolTipText = "t_update_date";
+            this.update_date.Width = 155;
+            // 
+            // state
+            // 
+            this.state.DataPropertyName = "state";
+            this.state.HeaderText = "State";
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            this.state.ToolTipText = "t_state";
+            this.state.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "編號";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "t_id";
             // 
             // panel1
             // 
@@ -758,8 +893,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "remark";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.HeaderText = "備註";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -814,8 +949,8 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "remark";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn8.HeaderText = "備註";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -888,140 +1023,6 @@
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.ToolTipText = "t_id";
-            // 
-            // bill_date
-            // 
-            this.bill_date.DataPropertyName = "bill_date";
-            dataGridViewCellStyle26.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle26.NullValue = null;
-            this.bill_date.DefaultCellStyle = dataGridViewCellStyle26;
-            this.bill_date.HeaderText = "日期";
-            this.bill_date.Name = "bill_date";
-            this.bill_date.ReadOnly = true;
-            this.bill_date.Width = 90;
-            // 
-            // serial_number
-            // 
-            this.serial_number.DataPropertyName = "serial_number";
-            this.serial_number.HeaderText = "序列號";
-            this.serial_number.Name = "serial_number";
-            this.serial_number.ReadOnly = true;
-            this.serial_number.Width = 80;
-            // 
-            // vendor_id
-            // 
-            this.vendor_id.DataPropertyName = "vendor_id";
-            this.vendor_id.HeaderText = "供應商";
-            this.vendor_id.Name = "vendor_id";
-            this.vendor_id.ReadOnly = true;
-            this.vendor_id.Width = 80;
-            // 
-            // vendor_name
-            // 
-            this.vendor_name.DataPropertyName = "vendor_name";
-            this.vendor_name.HeaderText = "供應商名稱";
-            this.vendor_name.Name = "vendor_name";
-            this.vendor_name.ReadOnly = true;
-            // 
-            // reason
-            // 
-            this.reason.DataPropertyName = "reason";
-            this.reason.HeaderText = "事由";
-            this.reason.Name = "reason";
-            this.reason.ReadOnly = true;
-            this.reason.Width = 120;
-            // 
-            // other_desc
-            // 
-            this.other_desc.DataPropertyName = "other_desc";
-            this.other_desc.HeaderText = "其它（事由）";
-            this.other_desc.Name = "other_desc";
-            this.other_desc.ReadOnly = true;
-            // 
-            // goods_desc
-            // 
-            this.goods_desc.DataPropertyName = "goods_desc";
-            this.goods_desc.HeaderText = "攜帶物品";
-            this.goods_desc.Name = "goods_desc";
-            this.goods_desc.ReadOnly = true;
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.remark.DefaultCellStyle = dataGridViewCellStyle27;
-            this.remark.HeaderText = "備註";
-            this.remark.Name = "remark";
-            this.remark.ReadOnly = true;
-            this.remark.ToolTipText = "t_remark";
-            this.remark.Width = 250;
-            // 
-            // apply_by
-            // 
-            this.apply_by.DataPropertyName = "apply_by";
-            this.apply_by.HeaderText = "申請人";
-            this.apply_by.Name = "apply_by";
-            this.apply_by.ReadOnly = true;
-            // 
-            // approved_by
-            // 
-            this.approved_by.DataPropertyName = "approved_by";
-            this.approved_by.HeaderText = "核準人";
-            this.approved_by.Name = "approved_by";
-            this.approved_by.ReadOnly = true;
-            // 
-            // create_by
-            // 
-            this.create_by.DataPropertyName = "create_by";
-            this.create_by.HeaderText = "建档人";
-            this.create_by.Name = "create_by";
-            this.create_by.ReadOnly = true;
-            this.create_by.ToolTipText = "t_create_by";
-            this.create_by.Width = 90;
-            // 
-            // create_date
-            // 
-            this.create_date.DataPropertyName = "create_date";
-            this.create_date.HeaderText = "建档日期";
-            this.create_date.Name = "create_date";
-            this.create_date.ReadOnly = true;
-            this.create_date.ToolTipText = "t_create_date";
-            this.create_date.Width = 152;
-            // 
-            // update_by
-            // 
-            this.update_by.DataPropertyName = "update_by";
-            this.update_by.HeaderText = "修改人";
-            this.update_by.Name = "update_by";
-            this.update_by.ReadOnly = true;
-            this.update_by.ToolTipText = "t_update_by";
-            this.update_by.Width = 90;
-            // 
-            // update_date
-            // 
-            this.update_date.DataPropertyName = "update_date";
-            this.update_date.HeaderText = "修改日期";
-            this.update_date.Name = "update_date";
-            this.update_date.ReadOnly = true;
-            this.update_date.ToolTipText = "t_update_date";
-            this.update_date.Width = 155;
-            // 
-            // state
-            // 
-            this.state.DataPropertyName = "state";
-            this.state.HeaderText = "State";
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            this.state.ToolTipText = "t_state";
-            this.state.Visible = false;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "編號";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "t_id";
             // 
             // frmGoodsRelease
             // 
