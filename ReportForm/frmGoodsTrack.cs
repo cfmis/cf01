@@ -1,4 +1,5 @@
 ﻿using cf01.CLS;
+using cf01.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace cf01.ReportForm
@@ -48,11 +50,22 @@ namespace cf01.ReportForm
                new SqlParameter("@mo_id",txtMoId.Text.Trim()),
                new SqlParameter("@Pid",lueGoodsId.Text)
             };
+
+            //是示查詢進度
+            frmProgress wForm = new frmProgress();
+            new Thread((ThreadStart)delegate
+            {
+                wForm.TopMost = true;
+                wForm.ShowDialog();
+            }).Start();
+            //************************                                                     
             DataSet dts = clsErp.ExecuteProcedureReturnDataSet("z_rpt_plan_flow_expand_sorting", paras, "");
             dtPlanBom = dts.Tables[0];
             dtBusiness = dts.Tables[1];
             dgv1.DataSource = dtPlanBom;
             dgv2.DataSource = dtBusiness;
+            //************************
+            wForm.Invoke((EventHandler)delegate { wForm.Close(); });
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
