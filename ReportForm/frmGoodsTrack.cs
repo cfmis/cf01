@@ -48,7 +48,7 @@ namespace cf01.ReportForm
                new SqlParameter("@mo_id",txtMoId.Text.Trim()),
                new SqlParameter("@Pid",lueGoodsId.Text)
             };
-            DataSet dts = clsErp.ExecuteProcedureReturnDataSet("z_rpt_plan_flow_expand", paras, "");
+            DataSet dts = clsErp.ExecuteProcedureReturnDataSet("z_rpt_plan_flow_expand_sorting", paras, "");
             dtPlanBom = dts.Tables[0];
             dtBusiness = dts.Tables[1];
             dgv1.DataSource = dtPlanBom;
