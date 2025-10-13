@@ -43,16 +43,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -90,15 +90,6 @@
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.next_wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.out_dept1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.in_dept1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,6 +105,15 @@
             this.asy_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asy_seq_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sorting_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.next_wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sequence_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -228,8 +228,10 @@
             this.dgv1.Name = "dgv1";
             this.dgv1.ReadOnly = true;
             this.dgv1.RowTemplate.Height = 24;
+            this.dgv1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv1.Size = new System.Drawing.Size(858, 224);
             this.dgv1.TabIndex = 11;
+            this.dgv1.SelectionChanged += new System.EventHandler(this.dgv1_SelectionChanged);
             // 
             // groupBox1
             // 
@@ -553,97 +555,6 @@
             this.dataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn24.Width = 70;
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "計劃單號";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 110;
-            // 
-            // mo_id
-            // 
-            this.mo_id.DataPropertyName = "mo_id";
-            this.mo_id.HeaderText = "頁數";
-            this.mo_id.Name = "mo_id";
-            this.mo_id.ReadOnly = true;
-            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.mo_id.Width = 110;
-            // 
-            // goods_id
-            // 
-            this.goods_id.DataPropertyName = "goods_id";
-            this.goods_id.HeaderText = "貨品編碼";
-            this.goods_id.Name = "goods_id";
-            this.goods_id.ReadOnly = true;
-            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_id.Width = 180;
-            // 
-            // goods_name
-            // 
-            this.goods_name.DataPropertyName = "goods_name";
-            this.goods_name.HeaderText = "貨品描述";
-            this.goods_name.Name = "goods_name";
-            this.goods_name.ReadOnly = true;
-            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_name.Width = 200;
-            // 
-            // prod_qty
-            // 
-            this.prod_qty.DataPropertyName = "prod_qty";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            this.prod_qty.DefaultCellStyle = dataGridViewCellStyle1;
-            this.prod_qty.HeaderText = "生產數量";
-            this.prod_qty.Name = "prod_qty";
-            this.prod_qty.ReadOnly = true;
-            this.prod_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.prod_qty.Width = 80;
-            // 
-            // wp_id
-            // 
-            this.wp_id.DataPropertyName = "wp_id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.wp_id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.wp_id.HeaderText = "負責部門";
-            this.wp_id.Name = "wp_id";
-            this.wp_id.ReadOnly = true;
-            this.wp_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.wp_id.Width = 80;
-            // 
-            // next_wp_id
-            // 
-            this.next_wp_id.DataPropertyName = "next_wp_id";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.next_wp_id.DefaultCellStyle = dataGridViewCellStyle3;
-            this.next_wp_id.HeaderText = "接收部門";
-            this.next_wp_id.Name = "next_wp_id";
-            this.next_wp_id.ReadOnly = true;
-            this.next_wp_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.next_wp_id.Width = 80;
-            // 
-            // sequence_id
-            // 
-            this.sequence_id.DataPropertyName = "sequence_id";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.sequence_id.DefaultCellStyle = dataGridViewCellStyle4;
-            this.sequence_id.HeaderText = "流程序號";
-            this.sequence_id.Name = "sequence_id";
-            this.sequence_id.ReadOnly = true;
-            this.sequence_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sequence_id.Width = 70;
-            // 
-            // flag
-            // 
-            this.flag.DataPropertyName = "flag";
-            this.flag.HeaderText = "序號1";
-            this.flag.Name = "flag";
-            this.flag.ReadOnly = true;
-            this.flag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.flag.Visible = false;
-            this.flag.Width = 60;
-            // 
             // id1
             // 
             this.id1.DataPropertyName = "id";
@@ -795,6 +706,96 @@
             this.sorting_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.sorting_id.Width = 70;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "計劃單號";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // mo_id
+            // 
+            this.mo_id.DataPropertyName = "mo_id";
+            this.mo_id.HeaderText = "頁數";
+            this.mo_id.Name = "mo_id";
+            this.mo_id.ReadOnly = true;
+            this.mo_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.mo_id.Width = 105;
+            // 
+            // goods_id
+            // 
+            this.goods_id.DataPropertyName = "goods_id";
+            this.goods_id.HeaderText = "貨品編碼";
+            this.goods_id.Name = "goods_id";
+            this.goods_id.ReadOnly = true;
+            this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_id.Width = 170;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品描述";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_name.Width = 200;
+            // 
+            // prod_qty
+            // 
+            this.prod_qty.DataPropertyName = "prod_qty";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N0";
+            this.prod_qty.DefaultCellStyle = dataGridViewCellStyle1;
+            this.prod_qty.HeaderText = "生產數量";
+            this.prod_qty.Name = "prod_qty";
+            this.prod_qty.ReadOnly = true;
+            this.prod_qty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.prod_qty.Width = 80;
+            // 
+            // wp_id
+            // 
+            this.wp_id.DataPropertyName = "wp_id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.wp_id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.wp_id.HeaderText = "負責部門";
+            this.wp_id.Name = "wp_id";
+            this.wp_id.ReadOnly = true;
+            this.wp_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.wp_id.Width = 80;
+            // 
+            // next_wp_id
+            // 
+            this.next_wp_id.DataPropertyName = "next_wp_id";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.next_wp_id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.next_wp_id.HeaderText = "接收部門";
+            this.next_wp_id.Name = "next_wp_id";
+            this.next_wp_id.ReadOnly = true;
+            this.next_wp_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.next_wp_id.Width = 80;
+            // 
+            // sequence_id
+            // 
+            this.sequence_id.DataPropertyName = "sequence_id";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sequence_id.DefaultCellStyle = dataGridViewCellStyle4;
+            this.sequence_id.HeaderText = "流程序號";
+            this.sequence_id.Name = "sequence_id";
+            this.sequence_id.ReadOnly = true;
+            this.sequence_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sequence_id.Width = 70;
+            // 
+            // flag
+            // 
+            this.flag.DataPropertyName = "flag";
+            this.flag.HeaderText = "序號1";
+            this.flag.Name = "flag";
+            this.flag.ReadOnly = true;
+            this.flag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.flag.Visible = false;
+            this.flag.Width = 60;
+            // 
             // frmGoodsTrack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -855,15 +856,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private DevExpress.XtraEditors.LookUpEdit lueGoodsId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prod_qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wp_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn next_wp_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn flag;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
@@ -881,5 +873,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn asy_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn asy_seq_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sorting_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prod_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wp_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn next_wp_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flag;
     }
 }

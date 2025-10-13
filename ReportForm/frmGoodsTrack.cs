@@ -66,6 +66,7 @@ namespace cf01.ReportForm
             dgv2.DataSource = dtBusiness;
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+            HighlightGrid2();
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -91,6 +92,34 @@ namespace cf01.ReportForm
                 lueGoodsId.Properties.DataSource = dtPlan;
                 lueGoodsId.Properties.ValueMember = "item";
                 lueGoodsId.Properties.DisplayMember = "item";
+            }
+        }
+
+        private void dgv1_SelectionChanged(object sender, EventArgs e)
+        {
+            HighlightGrid2();
+        }
+
+        private void HighlightGrid2()
+        {
+            if (dgv1.RowCount > 0)
+            {
+                int rowIndex = dgv1.CurrentCell.RowIndex;//當前焦點所在行
+                string currentSeq = dgv1.Rows[dgv1.CurrentCell.RowIndex].Cells["sequence_id"].Value.ToString();
+                for (int i = 0; i < dgv2.Rows.Count; i++)
+                {
+                    if (dgv2.Rows[i].Cells["sorting_id"].Value.ToString() == currentSeq)
+                    {
+                        dgv2.Rows[i].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Highlight;
+                        dgv2.Rows[i].DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HighlightText;
+                        dgv2.CurrentCell = dgv2.Rows[i].Cells["id1"];//選中當前行
+                    }
+                    else
+                    {
+                        dgv2.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                        dgv2.Rows[i].DefaultCellStyle.ForeColor = Color.Black; // System.Drawing.SystemColors.MenuText;
+                    }
+                }
             }
         }
     }
