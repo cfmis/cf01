@@ -37,6 +37,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -82,9 +88,12 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goods_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.next_wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +106,7 @@
             this.sequence_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mo_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goods_id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.con_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sec_qty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lot_no1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -208,6 +218,7 @@
             this.id,
             this.mo_id,
             this.goods_id,
+            this.goods_name,
             this.prod_qty,
             this.wp_id,
             this.next_wp_id,
@@ -272,6 +283,7 @@
             this.sequence_id1,
             this.mo_id1,
             this.goods_id1,
+            this.goods_name1,
             this.con_qty1,
             this.sec_qty1,
             this.lot_no1,
@@ -350,6 +362,8 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "sequence_id";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn7.HeaderText = "序號";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -359,6 +373,8 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "flag";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn8.HeaderText = "序號1";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -373,13 +389,14 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn9.Visible = false;
             this.dataGridViewTextBoxColumn9.Width = 110;
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "out_dept";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewTextBoxColumn10.HeaderText = "負責部門";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -389,8 +406,8 @@
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "in_dept";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewTextBoxColumn11.HeaderText = "接受部門";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -400,9 +417,9 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "con_date";
-            dataGridViewCellStyle16.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle18.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle18.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn12.HeaderText = "單據日期";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -412,6 +429,9 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "sequence_id";
+            dataGridViewCellStyle19.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle19.NullValue = null;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewTextBoxColumn13.HeaderText = "序號";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -439,10 +459,10 @@
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "con_qty";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N0";
-            dataGridViewCellStyle17.NullValue = "0";
-            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N0";
+            dataGridViewCellStyle20.NullValue = "0";
+            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewTextBoxColumn16.HeaderText = "移交數量";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
@@ -452,10 +472,10 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "sec_qty";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = "0";
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "N2";
+            dataGridViewCellStyle21.NullValue = "0";
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewTextBoxColumn17.HeaderText = "移交重量";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
@@ -465,6 +485,10 @@
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "lot_no";
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N0";
+            dataGridViewCellStyle22.NullValue = "0";
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn18.HeaderText = "批號";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
@@ -474,6 +498,10 @@
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "remark";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "N2";
+            dataGridViewCellStyle23.NullValue = "0";
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn19.HeaderText = "備註";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
@@ -507,6 +535,24 @@
             this.dataGridViewTextBoxColumn22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn22.Width = 90;
             // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "asy_seq_id";
+            this.dataGridViewTextBoxColumn23.HeaderText = "引用序號";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn23.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "sorting_id";
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dataGridViewTextBoxColumn24.HeaderText = "流程序號";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn24.Width = 70;
+            // 
             // id
             // 
             this.id.DataPropertyName = "id";
@@ -533,6 +579,15 @@
             this.goods_id.ReadOnly = true;
             this.goods_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.goods_id.Width = 180;
+            // 
+            // goods_name
+            // 
+            this.goods_name.DataPropertyName = "goods_name";
+            this.goods_name.HeaderText = "貨品描述";
+            this.goods_name.Name = "goods_name";
+            this.goods_name.ReadOnly = true;
+            this.goods_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_name.Width = 200;
             // 
             // prod_qty
             // 
@@ -629,7 +684,7 @@
             this.con_date1.Name = "con_date1";
             this.con_date1.ReadOnly = true;
             this.con_date1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.con_date1.Width = 80;
+            this.con_date1.Width = 70;
             // 
             // sequence_id1
             // 
@@ -638,7 +693,7 @@
             this.sequence_id1.Name = "sequence_id1";
             this.sequence_id1.ReadOnly = true;
             this.sequence_id1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sequence_id1.Width = 50;
+            this.sequence_id1.Width = 45;
             // 
             // mo_id1
             // 
@@ -656,7 +711,16 @@
             this.goods_id1.Name = "goods_id1";
             this.goods_id1.ReadOnly = true;
             this.goods_id1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.goods_id1.Width = 160;
+            this.goods_id1.Width = 150;
+            // 
+            // goods_name1
+            // 
+            this.goods_name1.DataPropertyName = "goods_name";
+            this.goods_name1.HeaderText = "貨品描述";
+            this.goods_name1.Name = "goods_name1";
+            this.goods_name1.ReadOnly = true;
+            this.goods_name1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.goods_name1.Width = 200;
             // 
             // con_qty1
             // 
@@ -669,7 +733,7 @@
             this.con_qty1.Name = "con_qty1";
             this.con_qty1.ReadOnly = true;
             this.con_qty1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.con_qty1.Width = 75;
+            this.con_qty1.Width = 70;
             // 
             // sec_qty1
             // 
@@ -682,7 +746,7 @@
             this.sec_qty1.Name = "sec_qty1";
             this.sec_qty1.ReadOnly = true;
             this.sec_qty1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.sec_qty1.Width = 70;
+            this.sec_qty1.Width = 65;
             // 
             // lot_no1
             // 
@@ -700,7 +764,7 @@
             this.remark1.Name = "remark1";
             this.remark1.ReadOnly = true;
             this.remark1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.remark1.Width = 130;
+            this.remark1.Width = 125;
             // 
             // asy_id1
             // 
@@ -718,7 +782,7 @@
             this.asy_seq_id1.Name = "asy_seq_id1";
             this.asy_seq_id1.ReadOnly = true;
             this.asy_seq_id1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.asy_seq_id1.Width = 70;
+            this.asy_seq_id1.Width = 60;
             // 
             // sorting_id
             // 
@@ -790,14 +854,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private DevExpress.XtraEditors.LookUpEdit lueGoodsId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn wp_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn next_wp_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn flag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn out_dept1;
         private System.Windows.Forms.DataGridViewTextBoxColumn in_dept1;
@@ -805,6 +873,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sequence_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mo_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goods_name1;
         private System.Windows.Forms.DataGridViewTextBoxColumn con_qty1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_qty1;
         private System.Windows.Forms.DataGridViewTextBoxColumn lot_no1;
@@ -812,6 +881,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn asy_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn asy_seq_id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sorting_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
     }
 }
