@@ -172,10 +172,15 @@ namespace cf01.Forms
             dtFind = clsPublicOfCF01.ExecuteProcedureReturnTable("usp_quotation_find", paras); //数据处理
             //************************
             wForm.Invoke((EventHandler)delegate { wForm.Close(); });
-            
-            //dt.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
-            //dt.Columns.Add("temp_ver", System.Type.GetType("System.String"));
-            
+
+            if (dtFind.Rows.Count == 0)
+            {
+                lblOf.Text = "";
+                dgvDetails.DataSource = dtFind;
+                clsUtility.myMessageBox("沒有滿足查詢條件的數據!", "提示信息"); //MessageBox.Show("...")的方式將導致窗口關閉
+                return;
+            }
+
             //------------ 
             //導入前一次打勾的記錄
             if (drs!=null)
@@ -209,15 +214,7 @@ namespace cf01.Forms
             dvw.Sort = "flag_select DESC";  //按Flag_select列 排序
             dtFind = dvw.ToTable();
             dgvDetails.DataSource = dtFind;
-            if (dtFind.Rows.Count == 0)
-            {
-                lblOf.Text = "";
-                MessageBox.Show("沒有滿足查詢條件的數據!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                lblOf.Text = dgvDetails.Rows.Count.ToString();
-            }
+            lblOf.Text = dgvDetails.Rows.Count.ToString();
         }
 
         private void dgvDetails_SelectionChanged(object sender, EventArgs e)
