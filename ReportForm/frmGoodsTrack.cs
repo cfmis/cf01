@@ -21,6 +21,7 @@ namespace cf01.ReportForm
         DataTable dtBusiness = new DataTable();
 
 
+
         public frmGoodsTrack()
         {
             InitializeComponent();
