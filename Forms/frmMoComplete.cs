@@ -50,7 +50,7 @@ namespace cf01.Forms
             dtState.Rows.Add(dr);
             dr = dtState.NewRow();
             dr["id"] = "G";
-            dr["name"] = "已結案";
+            dr["name"] = "結案";
             dtState.Rows.Add(dr);
             luestate.Properties.DataSource = dtState;
             luestate.Properties.ValueMember = "id";
