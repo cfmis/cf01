@@ -188,10 +188,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("PMingLiU", 10F);
-            this.label1.Location = new System.Drawing.Point(17, 25);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(18, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 14);
+            this.label1.Size = new System.Drawing.Size(36, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "頁數";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -199,10 +199,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("PMingLiU", 10F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.Location = new System.Drawing.Point(270, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 14);
+            this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "貨品編碼";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

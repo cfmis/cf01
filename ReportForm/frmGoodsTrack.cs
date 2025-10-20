@@ -18,7 +18,7 @@ namespace cf01.ReportForm
         clsPublicOfGEO clsErp = new clsPublicOfGEO();
         ExpToExcel objExl = new ExpToExcel();
         DataTable dtPlanBom = new DataTable();
-        DataTable dtBusiness = new DataTable();
+        DataTable dtBusiness = new DataTable(); 
 
 
 
