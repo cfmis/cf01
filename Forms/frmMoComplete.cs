@@ -47,7 +47,11 @@ namespace cf01.Forms
             dr = dtState.NewRow();
             dr["id"] = "2";
             dr["name"] = "已注銷";
-            dtState.Rows.Add(dr);                      
+            dtState.Rows.Add(dr);
+            dr = dtState.NewRow();
+            dr["id"] = "G";
+            dr["name"] = "已結案";
+            dtState.Rows.Add(dr);
             luestate.Properties.DataSource = dtState;
             luestate.Properties.ValueMember = "id";
             luestate.Properties.DisplayMember = "name";
