@@ -29,7 +29,7 @@ namespace cf01.Forms
         public frmGoodsRelease()
         {
             InitializeComponent();
-
+           
             //clsTranslate obj_ctl = new clsTranslate( this.Controls, DBUtility._language);
             //obj_ctl.Translate();
 
@@ -61,25 +61,8 @@ namespace cf01.Forms
             lueVendor_id.Properties.DataSource = dtVendor;
             lueVendor_id.Properties.ValueMember = "id";
             lueVendor_id.Properties.DisplayMember = "id";
-            
 
-            //數據綁定           
-            txtid.DataBindings.Add("Text", bds1, "id");
-            txtDate.DataBindings.Add("EditValue", bds1, "bill_date");
-            txtserial_number.DataBindings.Add("Text", bds1, "serial_number");
-            lueVendor_id.DataBindings.Add("EditValue", bds1, "vendor_id");
-            txtvendor_name.DataBindings.Add("Text", bds1, "vendor_name");            
-            cbeReason.DataBindings.Add("EditValue", bds1, "reason");
-            txtother_desc.DataBindings.Add("Text", bds1, "other_desc");
-            txtgoods_desc.DataBindings.Add("Text", bds1, "goods_desc");
-            txtremark.DataBindings.Add("Text", bds1, "remark");
-            txtapply_by.DataBindings.Add("Text", bds1, "apply_by");
-            txtapproved_by.DataBindings.Add("Text", bds1, "approved_by");
-            luestate.DataBindings.Add("EditValue", bds1, "state");
-            txtcreate_by.DataBindings.Add("Text", bds1, "create_by");
-            txtcreate_date.DataBindings.Add("Text", bds1, "create_date");
-            txtupdate_by.DataBindings.Add("Text", bds1, "update_by");
-            txtupdate_date.DataBindings.Add("Text", bds1, "Update_date");
+            SetDataBindings();
 
             //初始貨打印報表結構
             dtReport.Columns.Add("bill_date", typeof(string));
@@ -90,9 +73,32 @@ namespace cf01.Forms
             dtReport.Columns.Add("other_desc", typeof(string));
             dtReport.Columns.Add("approved_by", typeof(string));
             dtReport.Columns.Add("apply_by", typeof(string));
+            dtReport.Columns.Add("car_id", typeof(string));
+            dtReport.Columns.Add("worker_id", typeof(string));
         }
 
-      
+        private void SetDataBindings()
+        {
+            //數據綁定           
+            txtid.DataBindings.Add("Text", bds1, "id");
+            txtDate.DataBindings.Add("EditValue", bds1, "bill_date");
+            txtserial_number.DataBindings.Add("Text", bds1, "serial_number");
+            lueVendor_id.DataBindings.Add("EditValue", bds1, "vendor_id");
+            txtvendor_name.DataBindings.Add("Text", bds1, "vendor_name");
+            cbeReason.DataBindings.Add("EditValue", bds1, "reason");
+            txtother_desc.DataBindings.Add("Text", bds1, "other_desc");
+            txtgoods_desc.DataBindings.Add("Text", bds1, "goods_desc");
+            txtremark.DataBindings.Add("Text", bds1, "remark");
+            txtapply_by.DataBindings.Add("Text", bds1, "apply_by");
+            txtapproved_by.DataBindings.Add("Text", bds1, "approved_by");
+            txtCar_id.DataBindings.Add("Text", bds1, "car_id");
+            txtWorker_id.DataBindings.Add("Text", bds1, "worker_id");
+            luestate.DataBindings.Add("EditValue", bds1, "state");
+            txtcreate_by.DataBindings.Add("Text", bds1, "create_by");
+            txtcreate_date.DataBindings.Add("Text", bds1, "create_date");
+            txtupdate_by.DataBindings.Add("Text", bds1, "update_by");
+            txtupdate_date.DataBindings.Add("Text", bds1, "Update_date");
+        }
 
         private void LoadDate()
         {
@@ -350,6 +356,8 @@ namespace cf01.Forms
             dr["other_desc"] = dgvDetails.Rows[index].Cells["other_desc"].Value.ToString();
             dr["approved_by"] = dgvDetails.Rows[index].Cells["approved_by"].Value.ToString();
             dr["apply_by"] = dgvDetails.Rows[index].Cells["apply_by"].Value.ToString();
+            dr["car_id"] = dgvDetails.Rows[index].Cells["car_id"].Value.ToString();
+            dr["worker_id"] = dgvDetails.Rows[index].Cells["worker_id"].Value.ToString();
             dtReport.Rows.Add(dr);
             xrGoodsRelease rpt = new xrGoodsRelease() { DataSource = dtReport };
             rpt.CreateDocument();

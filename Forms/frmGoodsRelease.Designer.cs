@@ -32,11 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsRelease));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,22 +58,6 @@
             this.t_create_by = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.bill_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendor_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.other_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goods_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apply_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approved_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtgoods_desc = new DevExpress.XtraEditors.MemoEdit();
             this.txtapproved_by = new DevExpress.XtraEditors.TextEdit();
@@ -99,6 +84,11 @@
             this.txtid = new DevExpress.XtraEditors.TextEdit();
             this.txtremark = new DevExpress.XtraEditors.TextEdit();
             this.lblremark = new System.Windows.Forms.Label();
+            this.bds1 = new System.Windows.Forms.BindingSource(this.components);
+            this.txtCar_id = new DevExpress.XtraEditors.TextEdit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtWorker_id = new DevExpress.XtraEditors.TextEdit();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,7 +105,26 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bds1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bill_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendor_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.other_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apply_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.car_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.worker_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approved_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.create_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.panel1.SuspendLayout();
@@ -137,6 +146,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtremark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCar_id.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWorker_id.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -270,7 +281,7 @@
             // 
             // t_update_by
             // 
-            this.t_update_by.Location = new System.Drawing.Point(571, 175);
+            this.t_update_by.Location = new System.Drawing.Point(570, 175);
             this.t_update_by.Name = "t_update_by";
             this.t_update_by.Size = new System.Drawing.Size(47, 16);
             this.t_update_by.TabIndex = 46;
@@ -290,7 +301,7 @@
             // 
             // t_create_by
             // 
-            this.t_create_by.Location = new System.Drawing.Point(568, 149);
+            this.t_create_by.Location = new System.Drawing.Point(566, 149);
             this.t_create_by.Name = "t_create_by";
             this.t_create_by.Size = new System.Drawing.Size(51, 16);
             this.t_create_by.TabIndex = 42;
@@ -335,6 +346,8 @@
             this.goods_desc,
             this.remark,
             this.apply_by,
+            this.car_id,
+            this.worker_id,
             this.approved_by,
             this.create_by,
             this.create_date,
@@ -358,142 +371,12 @@
             this.dgvDetails.Size = new System.Drawing.Size(948, 349);
             this.dgvDetails.TabIndex = 50;
             // 
-            // bill_date
-            // 
-            this.bill_date.DataPropertyName = "bill_date";
-            dataGridViewCellStyle2.Format = "yyyy/MM/dd";
-            dataGridViewCellStyle2.NullValue = null;
-            this.bill_date.DefaultCellStyle = dataGridViewCellStyle2;
-            this.bill_date.HeaderText = "日期";
-            this.bill_date.Name = "bill_date";
-            this.bill_date.ReadOnly = true;
-            this.bill_date.Width = 90;
-            // 
-            // serial_number
-            // 
-            this.serial_number.DataPropertyName = "serial_number";
-            this.serial_number.HeaderText = "序列號";
-            this.serial_number.Name = "serial_number";
-            this.serial_number.ReadOnly = true;
-            this.serial_number.Width = 80;
-            // 
-            // vendor_id
-            // 
-            this.vendor_id.DataPropertyName = "vendor_id";
-            this.vendor_id.HeaderText = "供應商";
-            this.vendor_id.Name = "vendor_id";
-            this.vendor_id.ReadOnly = true;
-            this.vendor_id.Width = 80;
-            // 
-            // vendor_name
-            // 
-            this.vendor_name.DataPropertyName = "vendor_name";
-            this.vendor_name.HeaderText = "供應商名稱";
-            this.vendor_name.Name = "vendor_name";
-            this.vendor_name.ReadOnly = true;
-            // 
-            // reason
-            // 
-            this.reason.DataPropertyName = "reason";
-            this.reason.HeaderText = "事由";
-            this.reason.Name = "reason";
-            this.reason.ReadOnly = true;
-            this.reason.Width = 120;
-            // 
-            // other_desc
-            // 
-            this.other_desc.DataPropertyName = "other_desc";
-            this.other_desc.HeaderText = "其它（事由）";
-            this.other_desc.Name = "other_desc";
-            this.other_desc.ReadOnly = true;
-            // 
-            // goods_desc
-            // 
-            this.goods_desc.DataPropertyName = "goods_desc";
-            this.goods_desc.HeaderText = "攜帶物品";
-            this.goods_desc.Name = "goods_desc";
-            this.goods_desc.ReadOnly = true;
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.remark.DefaultCellStyle = dataGridViewCellStyle3;
-            this.remark.HeaderText = "備註";
-            this.remark.Name = "remark";
-            this.remark.ReadOnly = true;
-            this.remark.ToolTipText = "t_remark";
-            this.remark.Width = 250;
-            // 
-            // apply_by
-            // 
-            this.apply_by.DataPropertyName = "apply_by";
-            this.apply_by.HeaderText = "申請人";
-            this.apply_by.Name = "apply_by";
-            this.apply_by.ReadOnly = true;
-            // 
-            // approved_by
-            // 
-            this.approved_by.DataPropertyName = "approved_by";
-            this.approved_by.HeaderText = "核準人";
-            this.approved_by.Name = "approved_by";
-            this.approved_by.ReadOnly = true;
-            // 
-            // create_by
-            // 
-            this.create_by.DataPropertyName = "create_by";
-            this.create_by.HeaderText = "建档人";
-            this.create_by.Name = "create_by";
-            this.create_by.ReadOnly = true;
-            this.create_by.ToolTipText = "t_create_by";
-            this.create_by.Width = 90;
-            // 
-            // create_date
-            // 
-            this.create_date.DataPropertyName = "create_date";
-            this.create_date.HeaderText = "建档日期";
-            this.create_date.Name = "create_date";
-            this.create_date.ReadOnly = true;
-            this.create_date.ToolTipText = "t_create_date";
-            this.create_date.Width = 152;
-            // 
-            // update_by
-            // 
-            this.update_by.DataPropertyName = "update_by";
-            this.update_by.HeaderText = "修改人";
-            this.update_by.Name = "update_by";
-            this.update_by.ReadOnly = true;
-            this.update_by.ToolTipText = "t_update_by";
-            this.update_by.Width = 90;
-            // 
-            // update_date
-            // 
-            this.update_date.DataPropertyName = "update_date";
-            this.update_date.HeaderText = "修改日期";
-            this.update_date.Name = "update_date";
-            this.update_date.ReadOnly = true;
-            this.update_date.ToolTipText = "t_update_date";
-            this.update_date.Width = 155;
-            // 
-            // state
-            // 
-            this.state.DataPropertyName = "state";
-            this.state.HeaderText = "State";
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            this.state.ToolTipText = "t_state";
-            this.state.Visible = false;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "編號";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "t_id";
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.txtWorker_id);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.txtCar_id);
             this.panel1.Controls.Add(this.txtgoods_desc);
             this.panel1.Controls.Add(this.txtapproved_by);
             this.panel1.Controls.Add(this.txtapply_by);
@@ -645,7 +528,7 @@
             // txtvendor_name
             // 
             this.txtvendor_name.EditValue = "";
-            this.txtvendor_name.Location = new System.Drawing.Point(198, 35);
+            this.txtvendor_name.Location = new System.Drawing.Point(198, 34);
             this.txtvendor_name.Name = "txtvendor_name";
             this.txtvendor_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
@@ -662,7 +545,7 @@
             this.lueVendor_id.EditValue = "";
             this.lueVendor_id.Enabled = false;
             this.lueVendor_id.EnterMoveNextControl = true;
-            this.lueVendor_id.Location = new System.Drawing.Point(92, 35);
+            this.lueVendor_id.Location = new System.Drawing.Point(92, 34);
             this.lueVendor_id.Name = "lueVendor_id";
             this.lueVendor_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.lueVendor_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -696,7 +579,7 @@
             // lblseriel
             // 
             this.lblseriel.ForeColor = System.Drawing.Color.Blue;
-            this.lblseriel.Location = new System.Drawing.Point(360, 8);
+            this.lblseriel.Location = new System.Drawing.Point(360, 9);
             this.lblseriel.Name = "lblseriel";
             this.lblseriel.Size = new System.Drawing.Size(73, 13);
             this.lblseriel.TabIndex = 191;
@@ -706,7 +589,7 @@
             // txtserial_number
             // 
             this.txtserial_number.EditValue = "";
-            this.txtserial_number.Location = new System.Drawing.Point(439, 6);
+            this.txtserial_number.Location = new System.Drawing.Point(439, 5);
             this.txtserial_number.Name = "txtserial_number";
             this.txtserial_number.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtserial_number.Properties.MaxLength = 12;
@@ -718,7 +601,7 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(209, 7);
+            this.label1.Location = new System.Drawing.Point(209, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 190;
@@ -767,7 +650,7 @@
             // txtupdate_by
             // 
             this.txtupdate_by.Enabled = false;
-            this.txtupdate_by.Location = new System.Drawing.Point(621, 173);
+            this.txtupdate_by.Location = new System.Drawing.Point(620, 173);
             this.txtupdate_by.Name = "txtupdate_by";
             this.txtupdate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtupdate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -793,7 +676,7 @@
             // txtcreate_by
             // 
             this.txtcreate_by.Enabled = false;
-            this.txtcreate_by.Location = new System.Drawing.Point(621, 145);
+            this.txtcreate_by.Location = new System.Drawing.Point(620, 145);
             this.txtcreate_by.Name = "txtcreate_by";
             this.txtcreate_by.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcreate_by.Properties.AppearanceDisabled.Options.UseForeColor = true;
@@ -833,7 +716,7 @@
             // 
             // t_state
             // 
-            this.t_state.Location = new System.Drawing.Point(356, 36);
+            this.t_state.Location = new System.Drawing.Point(356, 35);
             this.t_state.Name = "t_state";
             this.t_state.Size = new System.Drawing.Size(77, 16);
             this.t_state.TabIndex = 188;
@@ -844,7 +727,7 @@
             // txtid
             // 
             this.txtid.EnterMoveNextControl = true;
-            this.txtid.Location = new System.Drawing.Point(92, 7);
+            this.txtid.Location = new System.Drawing.Point(92, 5);
             this.txtid.Name = "txtid";
             this.txtid.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtid.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -881,23 +764,78 @@
             this.lblremark.Text = "備註";
             this.lblremark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtCar_id
+            // 
+            this.txtCar_id.EditValue = "";
+            this.txtCar_id.EnterMoveNextControl = true;
+            this.txtCar_id.Location = new System.Drawing.Point(620, 5);
+            this.txtCar_id.Name = "txtCar_id";
+            this.txtCar_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtCar_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtCar_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCar_id.Properties.MaxLength = 12;
+            this.txtCar_id.Properties.ReadOnly = true;
+            this.txtCar_id.Size = new System.Drawing.Size(96, 20);
+            this.txtCar_id.TabIndex = 206;
+            this.txtCar_id.Tag = "2";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(565, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 16);
+            this.label6.TabIndex = 207;
+            this.label6.Tag = "t_remark";
+            this.label6.Text = "車牌號";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(568, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.TabIndex = 209;
+            this.label7.Tag = "t_remark";
+            this.label7.Text = "工  號";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtWorker_id
+            // 
+            this.txtWorker_id.EditValue = "";
+            this.txtWorker_id.EnterMoveNextControl = true;
+            this.txtWorker_id.Location = new System.Drawing.Point(620, 34);
+            this.txtWorker_id.Name = "txtWorker_id";
+            this.txtWorker_id.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.txtWorker_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.txtWorker_id.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtWorker_id.Properties.MaxLength = 12;
+            this.txtWorker_id.Properties.ReadOnly = true;
+            this.txtWorker_id.Size = new System.Drawing.Size(96, 20);
+            this.txtWorker_id.TabIndex = 208;
+            this.txtWorker_id.Tag = "2";
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            dataGridViewCellStyle5.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn1.HeaderText = "制單編號";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn1.ToolTipText = "t_id";
             this.dataGridViewTextBoxColumn1.Width = 90;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "remark";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn2.HeaderText = "備註";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn2.ToolTipText = "t_remark";
             this.dataGridViewTextBoxColumn2.Width = 250;
             // 
@@ -907,6 +845,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "建档人";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn3.ToolTipText = "t_create_by";
             this.dataGridViewTextBoxColumn3.Width = 90;
             // 
@@ -916,6 +855,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "建档日期";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn4.ToolTipText = "t_create_date";
             this.dataGridViewTextBoxColumn4.Width = 150;
             // 
@@ -925,6 +865,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "修改人";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn5.ToolTipText = "t_update_by";
             this.dataGridViewTextBoxColumn5.Width = 90;
             // 
@@ -934,6 +875,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "修改日期";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn6.ToolTipText = "t_update_date";
             this.dataGridViewTextBoxColumn6.Width = 150;
             // 
@@ -943,17 +885,19 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "State";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn7.ToolTipText = "t_state";
             this.dataGridViewTextBoxColumn7.Visible = false;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "remark";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn8.HeaderText = "備註";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn8.ToolTipText = "t_remark";
             this.dataGridViewTextBoxColumn8.Width = 250;
             // 
@@ -963,6 +907,7 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "申請人";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -970,6 +915,8 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "核準人";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn10.Width = 80;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -977,6 +924,7 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "建档人";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn11.ToolTipText = "t_create_by";
             this.dataGridViewTextBoxColumn11.Width = 90;
             // 
@@ -986,6 +934,7 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "建档日期";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn12.ToolTipText = "t_create_date";
             this.dataGridViewTextBoxColumn12.Width = 152;
             // 
@@ -1015,6 +964,7 @@
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.ToolTipText = "t_state";
             this.dataGridViewTextBoxColumn15.Visible = false;
+            this.dataGridViewTextBoxColumn15.Width = 90;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -1023,6 +973,184 @@
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.ToolTipText = "t_id";
+            this.dataGridViewTextBoxColumn16.Width = 155;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "state";
+            this.dataGridViewTextBoxColumn17.HeaderText = "State";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ToolTipText = "t_state";
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn18.HeaderText = "編號";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ToolTipText = "t_id";
+            // 
+            // bill_date
+            // 
+            this.bill_date.DataPropertyName = "bill_date";
+            dataGridViewCellStyle2.Format = "yyyy/MM/dd";
+            dataGridViewCellStyle2.NullValue = null;
+            this.bill_date.DefaultCellStyle = dataGridViewCellStyle2;
+            this.bill_date.HeaderText = "日期";
+            this.bill_date.Name = "bill_date";
+            this.bill_date.ReadOnly = true;
+            this.bill_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.bill_date.Width = 90;
+            // 
+            // serial_number
+            // 
+            this.serial_number.DataPropertyName = "serial_number";
+            this.serial_number.HeaderText = "序列號";
+            this.serial_number.Name = "serial_number";
+            this.serial_number.ReadOnly = true;
+            this.serial_number.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.serial_number.Width = 80;
+            // 
+            // vendor_id
+            // 
+            this.vendor_id.DataPropertyName = "vendor_id";
+            this.vendor_id.HeaderText = "供應商";
+            this.vendor_id.Name = "vendor_id";
+            this.vendor_id.ReadOnly = true;
+            this.vendor_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vendor_id.Width = 80;
+            // 
+            // vendor_name
+            // 
+            this.vendor_name.DataPropertyName = "vendor_name";
+            this.vendor_name.HeaderText = "供應商名稱";
+            this.vendor_name.Name = "vendor_name";
+            this.vendor_name.ReadOnly = true;
+            this.vendor_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // reason
+            // 
+            this.reason.DataPropertyName = "reason";
+            this.reason.HeaderText = "事由";
+            this.reason.Name = "reason";
+            this.reason.ReadOnly = true;
+            this.reason.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.reason.Width = 120;
+            // 
+            // other_desc
+            // 
+            this.other_desc.DataPropertyName = "other_desc";
+            this.other_desc.HeaderText = "其它（事由）";
+            this.other_desc.Name = "other_desc";
+            this.other_desc.ReadOnly = true;
+            this.other_desc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // goods_desc
+            // 
+            this.goods_desc.DataPropertyName = "goods_desc";
+            this.goods_desc.HeaderText = "攜帶物品";
+            this.goods_desc.Name = "goods_desc";
+            this.goods_desc.ReadOnly = true;
+            this.goods_desc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.remark.DefaultCellStyle = dataGridViewCellStyle3;
+            this.remark.HeaderText = "備註";
+            this.remark.Name = "remark";
+            this.remark.ReadOnly = true;
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.remark.ToolTipText = "t_remark";
+            this.remark.Width = 250;
+            // 
+            // apply_by
+            // 
+            this.apply_by.DataPropertyName = "apply_by";
+            this.apply_by.HeaderText = "申請人";
+            this.apply_by.Name = "apply_by";
+            this.apply_by.ReadOnly = true;
+            this.apply_by.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // car_id
+            // 
+            this.car_id.DataPropertyName = "car_id";
+            this.car_id.HeaderText = "車牌號";
+            this.car_id.Name = "car_id";
+            this.car_id.ReadOnly = true;
+            this.car_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.car_id.Width = 80;
+            // 
+            // worker_id
+            // 
+            this.worker_id.DataPropertyName = "worker_id";
+            this.worker_id.HeaderText = "工號";
+            this.worker_id.Name = "worker_id";
+            this.worker_id.ReadOnly = true;
+            this.worker_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.worker_id.Width = 70;
+            // 
+            // approved_by
+            // 
+            this.approved_by.DataPropertyName = "approved_by";
+            this.approved_by.HeaderText = "核準人";
+            this.approved_by.Name = "approved_by";
+            this.approved_by.ReadOnly = true;
+            this.approved_by.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // create_by
+            // 
+            this.create_by.DataPropertyName = "create_by";
+            this.create_by.HeaderText = "建档人";
+            this.create_by.Name = "create_by";
+            this.create_by.ReadOnly = true;
+            this.create_by.ToolTipText = "t_create_by";
+            this.create_by.Width = 90;
+            // 
+            // create_date
+            // 
+            this.create_date.DataPropertyName = "create_date";
+            this.create_date.HeaderText = "建档日期";
+            this.create_date.Name = "create_date";
+            this.create_date.ReadOnly = true;
+            this.create_date.ToolTipText = "t_create_date";
+            this.create_date.Width = 152;
+            // 
+            // update_by
+            // 
+            this.update_by.DataPropertyName = "update_by";
+            this.update_by.HeaderText = "修改人";
+            this.update_by.Name = "update_by";
+            this.update_by.ReadOnly = true;
+            this.update_by.ToolTipText = "t_update_by";
+            this.update_by.Width = 90;
+            // 
+            // update_date
+            // 
+            this.update_date.DataPropertyName = "update_date";
+            this.update_date.HeaderText = "修改日期";
+            this.update_date.Name = "update_date";
+            this.update_date.ReadOnly = true;
+            this.update_date.ToolTipText = "t_update_date";
+            this.update_date.Width = 155;
+            // 
+            // state
+            // 
+            this.state.DataPropertyName = "state";
+            this.state.HeaderText = "State";
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            this.state.ToolTipText = "t_state";
+            this.state.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "編號";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "t_id";
             // 
             // frmGoodsRelease
             // 
@@ -1060,6 +1188,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtremark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCar_id.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWorker_id.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1130,6 +1260,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private DevExpress.XtraEditors.MemoEdit txtgoods_desc;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.TextEdit txtWorker_id;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.TextEdit txtCar_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn bill_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn serial_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendor_id;
@@ -1139,6 +1273,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn goods_desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn apply_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn car_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn worker_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn approved_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn create_by;
         private System.Windows.Forms.DataGridViewTextBoxColumn create_date;
@@ -1146,5 +1282,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn update_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
     }
 }
