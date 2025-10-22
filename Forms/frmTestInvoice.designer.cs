@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestInvoice));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTNEXIT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -277,7 +277,7 @@
             this.BTNCONFIRM_AC});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1016, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(1068, 28);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -496,7 +496,7 @@
             this.panel1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.panel1.Location = new System.Drawing.Point(2, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(365, 392);
+            this.panel1.Size = new System.Drawing.Size(417, 392);
             this.panel1.TabIndex = 10;
             this.panel1.Tag = "2";
             // 
@@ -1035,7 +1035,7 @@
             this.txtinvoice_id.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtinvoice_id.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.txtinvoice_id.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 18, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.txtinvoice_id.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.txtinvoice_id.Properties.MaxLength = 20;
             this.txtinvoice_id.Properties.ReadOnly = true;
@@ -1079,7 +1079,7 @@
             this.clTestitem,
             this.clIs_pass,
             this.clSalesGroup});
-            this.gridControl1.Size = new System.Drawing.Size(1009, 234);
+            this.gridControl1.Size = new System.Drawing.Size(1061, 234);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvDetails});
@@ -1284,12 +1284,12 @@
             this.clTestitem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.clTestitem.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 30, "id"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 120, "cdesc")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", 50, "id"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cdesc", 170, "cdesc")});
             this.clTestitem.DropDownRows = 15;
             this.clTestitem.Name = "clTestitem";
             this.clTestitem.NullText = "";
-            this.clTestitem.PopupWidth = 150;
+            this.clTestitem.PopupWidth = 220;
             this.clTestitem.ShowHeader = false;
             this.clTestitem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             // 
@@ -1369,13 +1369,13 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(424, 17);
+            this.btnSearch.Location = new System.Drawing.Point(424, 33);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(68, 56);
+            this.btnSearch.Size = new System.Drawing.Size(89, 46);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "查詢 (&L)";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -1628,7 +1628,7 @@
             this.groupBox1.Controls.Add(this.dgvTotal);
             this.groupBox1.Location = new System.Drawing.Point(367, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(650, 473);
+            this.groupBox1.Size = new System.Drawing.Size(702, 473);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查詢";
@@ -1836,7 +1836,7 @@
             // 
             this.btnTotal.Image = global::cf01.Properties.Resources.Excel1;
             this.btnTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTotal.Location = new System.Drawing.Point(507, 67);
+            this.btnTotal.Location = new System.Drawing.Point(558, 119);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(127, 40);
             this.btnTotal.TabIndex = 197;
@@ -1907,7 +1907,7 @@
             // 
             this.btnInvoice.Image = global::cf01.Properties.Resources.Excel1;
             this.btnInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInvoice.Location = new System.Drawing.Point(507, 17);
+            this.btnInvoice.Location = new System.Drawing.Point(425, 119);
             this.btnInvoice.Name = "btnInvoice";
             this.btnInvoice.Size = new System.Drawing.Size(127, 40);
             this.btnInvoice.TabIndex = 192;
@@ -1923,14 +1923,14 @@
             this.dgvFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFind.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sales_group1,
             this.id1,
@@ -1951,25 +1951,25 @@
             this.test_dept});
             this.dgvFind.Location = new System.Drawing.Point(2, 232);
             this.dgvFind.Name = "dgvFind";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFind.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvFind.RowHeadersWidth = 10;
             this.dgvFind.RowTemplate.Height = 25;
-            this.dgvFind.Size = new System.Drawing.Size(642, 237);
+            this.dgvFind.Size = new System.Drawing.Size(694, 237);
             this.dgvFind.TabIndex = 9;
             this.dgvFind.SelectionChanged += new System.EventHandler(this.dgvFind_SelectionChanged);
             // 
             // sales_group1
             // 
             this.sales_group1.DataPropertyName = "sales_group";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.sales_group1.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sales_group1.DefaultCellStyle = dataGridViewCellStyle2;
             this.sales_group1.HeaderText = "Group";
             this.sales_group1.Name = "sales_group1";
             this.sales_group1.ReadOnly = true;
@@ -2037,10 +2037,10 @@
             // confirm_pdd
             // 
             this.confirm_pdd.DataPropertyName = "confirm_pdd";
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle38.NullValue = false;
-            this.confirm_pdd.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle3.NullValue = false;
+            this.confirm_pdd.DefaultCellStyle = dataGridViewCellStyle3;
             this.confirm_pdd.HeaderText = "PDD Confirm";
             this.confirm_pdd.Name = "confirm_pdd";
             this.confirm_pdd.Visible = false;
@@ -2049,10 +2049,10 @@
             // confirm_ac
             // 
             this.confirm_ac.DataPropertyName = "confirm_ac";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle39.NullValue = false;
-            this.confirm_ac.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Thistle;
+            dataGridViewCellStyle4.NullValue = false;
+            this.confirm_ac.DefaultCellStyle = dataGridViewCellStyle4;
             this.confirm_ac.HeaderText = "AC Confirm";
             this.confirm_ac.Name = "confirm_ac";
             this.confirm_ac.Width = 75;
@@ -2060,9 +2060,9 @@
             // confirm_pdd_date
             // 
             this.confirm_pdd_date.DataPropertyName = "confirm_pdd_date";
-            dataGridViewCellStyle40.Format = "g";
-            dataGridViewCellStyle40.NullValue = null;
-            this.confirm_pdd_date.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle5.Format = "g";
+            dataGridViewCellStyle5.NullValue = null;
+            this.confirm_pdd_date.DefaultCellStyle = dataGridViewCellStyle5;
             this.confirm_pdd_date.HeaderText = "PDD Confirm Date";
             this.confirm_pdd_date.Name = "confirm_pdd_date";
             this.confirm_pdd_date.ReadOnly = true;
@@ -2072,9 +2072,9 @@
             // confirm_ac_date
             // 
             this.confirm_ac_date.DataPropertyName = "confirm_ac_date";
-            dataGridViewCellStyle41.Format = "g";
-            dataGridViewCellStyle41.NullValue = null;
-            this.confirm_ac_date.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle6.Format = "g";
+            dataGridViewCellStyle6.NullValue = null;
+            this.confirm_ac_date.DefaultCellStyle = dataGridViewCellStyle6;
             this.confirm_ac_date.HeaderText = "AC Confirm Date";
             this.confirm_ac_date.Name = "confirm_ac_date";
             this.confirm_ac_date.ReadOnly = true;
@@ -2159,7 +2159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 741);
+            this.ClientSize = new System.Drawing.Size(1068, 741);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gridControl1);
