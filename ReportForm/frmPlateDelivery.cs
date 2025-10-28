@@ -13,7 +13,7 @@ using System.IO;
 using Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using cf01.CLS;
-
+using System.Drawing;
 
 namespace cf01.ReportForm
 {
@@ -222,10 +222,27 @@ namespace cf01.ReportForm
                     dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", paras1, null);
                     dtRpt1.Clear();
                     dtRpt1 = dts.Tables[0];
-                    string tempId = "";
-                    for(int i=0;i<dtRpt1.Rows.Count;i++)
+                    
+                    string tempId = "",issueDate="", completeDate="",curDate="";
+                    Int32 send_qty = 0, in_qty_total = 0;
+
+                    for (int i=0;i<dtRpt1.Rows.Count;i++)
                     {
                         tempId = dtRpt1.Rows[i]["temp_id"].ToString()+(i + 1).ToString("00000");
+
+                        //start 2025/10/28 add 
+                        issueDate = dtRpt1.Rows[i]["issue_date"].ToString();
+                        completeDate = dtRpt1.Rows[i]["t_complete_date"].ToString();
+                        curDate = DateTime.Now.Date.ToString("yyyy/MM/dd");
+                        send_qty = int.Parse(dtRpt1.Rows[i]["out_qty_total"].ToString());
+                        in_qty_total = int.Parse(dtRpt1.Rows[i]["in_qty_total"].ToString());
+                        issueDate = DateTime.Parse(issueDate).Date.AddDays(3).ToString("yyyy/MM/dd");//發貨日期加3日
+                        object obj = DateTime.Parse(issueDate).Date;
+                        if (DateTime.Parse(issueDate).Date < DateTime.Parse(curDate).Date && in_qty_total < send_qty)
+                        {
+                            dtRpt1.Rows[i]["flag_brg"] = "1";
+                        }
+                        // end 2025/10/28 add 
                     }
                     dtOutReurn = dts.Tables[1];   //外發退料
                     dtVendor = dts.Tables[2];
@@ -1149,6 +1166,20 @@ namespace cf01.ReportForm
                 rtn = false;
             }
             return rtn;
+        }
+
+        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            //if (gridView1.GetDataRow(e.RowHandle) == null)
+            //{
+            //    return;
+            //}
+            //string rowStatus = gridView1.GetDataRow(e.RowHandle).RowState.ToString();
+            //if (rowStatus == "Added" || rowStatus == "Modified")
+            //{
+            //    e.Appearance.ForeColor = Color.Black;
+            //    e.Appearance.BackColor = Color.Red;//.LemonChiffon;
+            //}
         }
     }
 }
