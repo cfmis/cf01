@@ -1001,6 +1001,224 @@ namespace cf01.CLS
         }
         #endregion
 
+        public static string ExpToExcelAll(System.Data.DataTable dtExcel)
+        {
+            string result = "";
+            SaveFileDialog saveFile = new SaveFileDialog();
+            string fileName = "外發追貨表" + DateTime.Now.Date.ToString("yyyyMMdd");
+            saveFile.FileName = fileName;
+            saveFile.Filter = "Excel files(*.xlsx)|*.xlsx";
+            saveFile.FilterIndex = 0;
+            saveFile.RestoreDirectory = true;
+            saveFile.CreatePrompt = true;
+            saveFile.Title = "导出Excel文件到";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                fileName = saveFile.FileName;
+            }
+            else
+            {
+                fileName = "";
+            }
+            if (fileName != "")
+            {
+                string sheet_name = "", fileNameNew = "";
+                fileNameNew = fileName;
+               
+                //string picPath = DBUtility.GetArtWorkPath();
+                System.Data.DataTable dtNewExcel = new System.Data.DataTable();
+                DataView dv = dtExcel.DefaultView;
+                using (var package = new ExcelPackage())
+                {
+                    sheet_name = "外發追貨表";
+                   
+                    var worksheet = package.Workbook.Worksheets.Add(sheet_name); //var worksheet,這里是只是一個引用地址，是指向package.Workbook.Worksheets
+                    worksheet.PrinterSettings.PaperSize = ePaperSize.A4; // 设置纸张为 A4
+                    worksheet.PrinterSettings.Orientation = eOrientation.Portrait; // 设置页面纵向
+                                                                                    // worksheet.PrinterSettings.Orientation = eOrientation.Landscape; // 设置页面横向
+                    worksheet.PrinterSettings.TopMargin = (decimal)(0.17 / 2.54);    // 上边距，0.17 厘米
+                    worksheet.PrinterSettings.BottomMargin = (decimal)(0.17 / 2.54); // 下边距，0.17 厘米
+                    worksheet.PrinterSettings.LeftMargin = (decimal)(0.17 / 2.54);   // 左边距，0.17 厘米
+                    worksheet.PrinterSettings.RightMargin = (decimal)(0.17 / 2.54);  // 右边距，0.17 厘米                                
+                             
+                    int excelRow = 1;                  
+                    //填充表頭欄位與數據區
+                    FillExcelAll(worksheet, dtExcel, excelRow);
+                    /*
+                    string cellRange = "H2";
+                    SetCellBackgroundColor(worksheet, cellRange, Color.LightGreen);
+                    cellRange = $"L2:P2";
+                    SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
+                    cellRange = $"K4:P4";
+                    SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
+                   
+                    cellRange = $"A7:P7";
+                    SetCellBackgroundColor(worksheet, cellRange, Color.FromArgb(204, 255, 255));//自定義淺藍色
+                    cellRange = $"J7";
+                    SetCellBackgroundColor(worksheet, cellRange, Color.Yellow);
+                    cellRange = $"L7";
+                    SetCellBackgroundColor(worksheet, cellRange, Color.FromArgb(180, 130, 218));//自定義淺紫色
+                    */
+                FileInfo file = new FileInfo(fileNameNew);
+                package.SaveAs(file);//保存Excel文件                       
+                } //end of using()  
+            }
+            else
+            {
+                result = "1";
+            }
+            return result;
+        }
+
+        //按生產車間/組別匯出105
+        private static void FillExcelAll(ExcelWorksheet worksheet, System.Data.DataTable dtExcel, int excelRow)
+        {
+            worksheet.Cells["A1"].Value = "供應商編號";
+            worksheet.Cells["B1"].Value = "發貨單號";
+            worksheet.Cells["C1"].Value = "發貨日期";
+            worksheet.Cells["D1"].Value = "頁數狀態";
+            worksheet.Cells["E1"].Value = "頁數";
+            worksheet.Cells["F1"].Value = "貨品編號";
+            worksheet.Cells["G1"].Value = "貨品名稱";
+            worksheet.Cells["H1"].Value = "顏色做法";
+            worksheet.Cells["I1"].Value = "交下部門";
+            worksheet.Cells["J1"].Value = "生產數量";
+            worksheet.Cells["K1"].Value = "訂單數量";
+            worksheet.Cells["L1"].Value = "完成數量";
+            worksheet.Cells["M1"].Value = "發貨數量";
+            worksheet.Cells["N1"].Value = "發貨重量";
+            worksheet.Cells["O1"].Value = "總發貨數量";
+            worksheet.Cells[1, 15].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells[1, 15].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+            worksheet.Cells["P1"].Value = "總發貨重量";
+            worksheet.Cells[1, 16].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells[1, 16].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+            worksheet.Cells["Q1"].Value = "總收貨數量";
+            worksheet.Cells[1, 17].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells[1, 17].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+            worksheet.Cells["R1"].Value = "總收貨重量";
+            worksheet.Cells[1, 18].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells[1, 18].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+            worksheet.Cells["S1"].Value = "差額數量";
+            worksheet.Cells[1, 19].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells[1, 19].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192))))));
+            worksheet.Cells["T1"].Value = "差額重量";
+            worksheet.Cells[1, 20].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells[1, 20].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192))))));
+            worksheet.Cells["U1"].Value = "備註";
+            worksheet.Cells["V1"].Value = "返電次數";
+            worksheet.Cells["W1"].Value = "部門回覆";
+            worksheet.Cells["X1"].Value = "PMC回覆";
+            worksheet.Cells["Y1"].Value = "還欠我司重量";
+            worksheet.Cells[1, 25].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells[1, 25].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(130)))), ((int)(((byte)(218))))));
+            worksheet.Cells["Z1"].Value = "匯入標識";
+            worksheet.Cells["AA1"].Value = "我廠要求日期";
+            worksheet.Row(1).Height = 30; // 设置第1行的高度为30
+            
+            for (int i = 0; i < dtExcel.Rows.Count; i++)
+            {              
+                DataRow drExcel = dtExcel.Rows[i];
+                excelRow += 1;
+                worksheet.Cells[excelRow, 1].Value = drExcel["vendor_id"].ToString().Trim(); //供應商編號
+                worksheet.Cells[excelRow, 2].Value = drExcel["id"].ToString();//發貨單號
+                worksheet.Cells[excelRow, 3].Value = drExcel["issue_date"].ToString();//發貨日期
+                worksheet.Cells[excelRow, 4].Value = drExcel["mo_type"].ToString(); //頁數狀態
+                worksheet.Cells[excelRow, 5].Value = drExcel["mo_id"].ToString();//頁數
+                worksheet.Cells[excelRow, 6].Value = drExcel["goods_id"].ToString();//貨品編號
+                worksheet.Cells[excelRow, 7].Value = drExcel["goods_name"].ToString();//貨品名稱
+                worksheet.Cells[excelRow, 8].Value = drExcel["do_color"].ToString();//"顏色做法
+                worksheet.Cells[excelRow, 9].Value = drExcel["next_wp_id"].ToString();//交下部門
+                worksheet.Cells[excelRow, 10].Value = drExcel["plan_qty"].ToString();//生產數量
+                worksheet.Cells[excelRow, 11].Value = drExcel["order_qty"].ToString();//訂單數量
+                worksheet.Cells[excelRow, 12].Value = drExcel["c_qty_ok"].ToString();//完成數量
+                worksheet.Cells[excelRow, 13].Value = drExcel["prod_qty"].ToString();//發貨數量             
+                worksheet.Cells[excelRow, 14].Value = drExcel["sec_qty"].ToString();//發貨重量               
+                worksheet.Cells[excelRow, 15].Value = drExcel["out_qty_total"].ToString();//總發貨數量
+                worksheet.Cells[excelRow, 15].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells[excelRow, 15].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+                worksheet.Cells[excelRow, 16].Value = drExcel["out_sec_qty_total"].ToString();//總發貨重量
+                worksheet.Cells[excelRow, 16].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells[excelRow, 16].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+                worksheet.Cells[excelRow, 17].Value = drExcel["in_qty_total"].ToString();//總收貨數量
+                worksheet.Cells[excelRow, 17].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells[excelRow, 17].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+                worksheet.Cells[excelRow, 18].Value = drExcel["in_sec_qty_total"].ToString();//總收貨重量
+                worksheet.Cells[excelRow, 18].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells[excelRow, 18].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))));
+                worksheet.Cells[excelRow, 19].Value = drExcel["qty_differ"].ToString();//差額數量
+                worksheet.Cells[excelRow, 19].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells[excelRow, 19].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(224)))), ((int)(((byte)(192))))));
+                worksheet.Cells[excelRow, 20].Value = drExcel["sec_qty_differ"].ToString();//差額重量
+                worksheet.Cells[excelRow, 20].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells[excelRow, 20].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(224)))), ((int)(((byte)(192))))));
+                worksheet.Cells[excelRow, 21].Value = drExcel["remark"].ToString();//備註
+                worksheet.Cells[excelRow, 22].Value = drExcel["return_total"].ToString();//返電次數
+                worksheet.Cells[excelRow, 23].Value = drExcel["dept_reply"].ToString();//部門回覆
+                worksheet.Cells[excelRow, 24].Value = drExcel["pmc_reply"].ToString();//PMC回覆
+                worksheet.Cells[excelRow, 25].Value = drExcel["remark_wet"].ToString();//還欠我司重量
+                worksheet.Cells[excelRow, 25].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells[excelRow, 25].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(130)))), ((int)(((byte)(218))))));
+                worksheet.Cells[excelRow, 26].Value = drExcel["flag_mo"].ToString();//匯入標識
+                worksheet.Cells[excelRow, 27].Value = drExcel["t_complete_date"];//我廠要求日期
+                if (drExcel["flag_brg"].ToString() == "1")
+                {
+                    // 设置整行背景为红色                    
+                    for (int col = 1; col <= 27; col++)
+                    {
+                        worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(Color.Red);
+                    }
+                }
+                worksheet.Row(excelRow).Height = 15;
+            }
+            worksheet.Column(1).Width = 10;
+            worksheet.Column(2).Width = 13;
+            worksheet.Column(3).Width = 10;
+            worksheet.Column(4).Width = 8;
+            worksheet.Column(5).Width = 11;
+            worksheet.Column(6).Width = 24;
+            worksheet.Column(7).Width = 30;
+            worksheet.Column(8).Width = 18;
+            worksheet.Column(9).Width = 10;
+            worksheet.Column(10).Width = 10;
+            worksheet.Column(11).Width = 10;
+            worksheet.Column(12).Width = 10;
+            worksheet.Column(13).Width = 10;
+            worksheet.Column(14).Width = 10;
+            worksheet.Column(15).Width = 10;
+            worksheet.Column(16).Width = 10;
+            worksheet.Column(17).Width = 10;
+            worksheet.Column(18).Width = 10;
+            worksheet.Column(19).Width = 10;
+            worksheet.Column(20).Width = 10;
+            worksheet.Column(21).Width = 10;
+            worksheet.Column(27).Width = 14;
+           
+            // 动态确定表格范围
+            //string tableRange = $"A1:R{worksheet.Dimension.End.Row}"; // 表格范围
+            string tableRange = $"A1:{ExcelAddress.GetAddress(worksheet.Dimension.End.Row, worksheet.Dimension.End.Column)}";
+            var tableCells = worksheet.Cells[tableRange];
+
+            // 为整个表格添加边框
+            tableCells.Style.Border.BorderAround(ExcelBorderStyle.Thick); // 表格外边框设置为粗线
+            tableCells.Style.Border.Top.Style = ExcelBorderStyle.Thin;    // 表格顶部边框
+            tableCells.Style.Border.Bottom.Style = ExcelBorderStyle.Thin; // 表格底部边框
+            tableCells.Style.Border.Left.Style = ExcelBorderStyle.Thin;   // 表格左边边框
+            tableCells.Style.Border.Right.Style = ExcelBorderStyle.Thin;  // 表格右边边框            
+            tableCells.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center; //垂直居中
+            // 设置整个表格的字体大小
+            tableCells.Style.Font.Size = 10; // 设置字体大小为10
+            tableCells.Style.Font.Name = "新細明體";
+            //worksheet.Cells["A6:P6"].Style.Font.Size = 14; // 设置字体大小为10
+            // 设置整个表格内容自动换行
+            tableCells.Style.WrapText = true;
+            // 冻结第一行
+            worksheet.View.FreezePanes(1, 2); // 从第7行、第1列开始滚动，冻结第一行
+            // 设置打印标题行（固定第 1~1 行为标题）
+            worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:1"]; // 固定标题为第1~7行
+            worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
+        }
 
     }
 }

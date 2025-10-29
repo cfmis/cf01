@@ -656,13 +656,20 @@ namespace cf01.ReportForm
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog() { Title = "导出Excel", Filter = "Excel文件(*.xls)|*.xls" };
-            DialogResult dialogResult = saveFileDialog.ShowDialog(this);
-            if (dialogResult == DialogResult.OK)
+            //old code cancel in 2025/10/29
+            //SaveFileDialog saveFileDialog = new SaveFileDialog() { Title = "导出Excel", Filter = "Excel文件(*.xls)|*.xls" };
+            //DialogResult dialogResult = saveFileDialog.ShowDialog(this);
+            //if (dialogResult == DialogResult.OK)
+            //{
+            //    grdControl.ExportToXls(saveFileDialog.FileName);
+            //    DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //new code add 2025/10/19
+            string result = clsPlateDelivery.ExpToExcelAll(dtRpt1);
+            if (result == "")
             {
-                grdControl.ExportToXls(saveFileDialog.FileName);
-                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                MessageBox.Show("匯出EXCEL完成!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }           
         }
 
 
