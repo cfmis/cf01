@@ -478,6 +478,8 @@ namespace cf01.Forms
                 objMo.pre_tr_qty = clsValidRule.ConvertStrToInt(drMo[i]["pre_tr_qty"].ToString());
                 objMo.pre_tr_date = drMo[i]["pre_tr_date"].ToString().Trim();
                 objMo.pre_tr_flag = drMo[i]["pre_tr_flag"].ToString().Trim();
+                objMo.hk_req_date = drMo[i]["hk_req_date"].ToString().Trim();
+                objMo.cs_req_date = drMo[i]["cs_req_date"].ToString().Trim();
                 lsMo.Add(objMo);
             }
             if (lsMo.Count > 0)
