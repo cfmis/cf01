@@ -163,6 +163,7 @@ namespace cf01.ReportForm
                     txtQc_qty.Text = lsModel[i].qc_qty;
                     txtQc_test.Text = lsModel[i].qc_test;
                     txtProcessRemark.Text = lsModel[i].process_remark;
+                    txtdept_remark.Text = lsModel[i].dept_remark;
                     if (lsModel[i].next_wp_id == "702" || lsModel[i].next_wp_id == "722")
                     {
                         txtQc_dept.Text = "";
@@ -362,7 +363,8 @@ namespace cf01.ReportForm
                         qc_name = dtGoodsInfo.Rows[i]["qc_name"].ToString(),
                         qc_qty = dtGoodsInfo.Rows[i]["qc_qty"].ToString(),
                         qc_test = dtGoodsInfo.Rows[i]["qc_test"].ToString(),
-                        process_remark = dtGoodsInfo.Rows[i]["process_remark"].ToString()
+                        process_remark = dtGoodsInfo.Rows[i]["process_remark"].ToString(),
+                        dept_remark = dtGoodsInfo.Rows[i]["dept_remark"].ToString()
                     };
                     lsModel.Add(objModel);
                 }
@@ -538,6 +540,7 @@ namespace cf01.ReportForm
                             dr["sequence_id"] = txtSequenceId.Text.Trim();
                             dr["blueprint_id"] = txtBlueprintId.Text.Trim();
                             dr["production_remark"] = txtPrdRemark.Text.Trim();
+                            dr["dept_remark"] = txtdept_remark.Text.Trim();
                             dr["remark"] = txtRemark.Text.Trim();
                             dr["plate_remark"] = txtPlate_remark.Text.Trim();
                             dr["next_wp_id"] = txtNextDep.Text.Trim();
@@ -748,8 +751,7 @@ namespace cf01.ReportForm
                 return;
             }
 
-            const string str_dept = "302,322";
-            //if (!txtDept1.Text.Contains("302,322"))
+            string str_dept = "302,322";           
             if(!str_dept.Contains(txtDept1.Text))
             {
                 MessageBox.Show("此生產單只為合金部使用!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -757,7 +759,7 @@ namespace cf01.ReportForm
             }
             if (!string.IsNullOrEmpty(table_state) && dtReport.Rows.Count > 0)
             {
-                Print(txtDept1.Text);
+                Print("");
             }
             else
                 MessageBox.Show("請首先添加到列印生產單!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -942,6 +944,7 @@ namespace cf01.ReportForm
                         newRow["test_mould_by"] = dtCard_product.Rows[i]["test_mould_by"].ToString();
                         newRow["remark_mould"] = dtCard_product.Rows[i]["remark_mould"].ToString();
                         newRow["print_date"] = dtCard_product.Rows[i]["print_date"].ToString();
+                        newRow["dept_remark"] = dtCard_product.Rows[i]["dept_remark"].ToString();
                         dtReport.Rows.Add(newRow);
                     }
                     clsUtility.myMessageBox("添加列印的數據成功!", "提示信息");                   

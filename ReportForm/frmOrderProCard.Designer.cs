@@ -172,6 +172,8 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtdept_remark = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoodsId.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -992,6 +994,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.txtdept_remark);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.txtProcessRemark);
             this.panel1.Controls.Add(this.label17);
@@ -1625,6 +1629,25 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // txtdept_remark
+            // 
+            this.txtdept_remark.Font = new System.Drawing.Font("PMingLiU", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtdept_remark.Location = new System.Drawing.Point(801, 377);
+            this.txtdept_remark.Name = "txtdept_remark";
+            this.txtdept_remark.ReadOnly = true;
+            this.txtdept_remark.Size = new System.Drawing.Size(190, 23);
+            this.txtdept_remark.TabIndex = 106;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(719, 383);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(80, 12);
+            this.label19.TabIndex = 107;
+            this.label19.Text = "部門生產備註:";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmOrderProCard
             // 
             this.ClientSize = new System.Drawing.Size(1026, 697);
@@ -1794,5 +1817,7 @@
         private System.Windows.Forms.TextBox txtQc_test;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtProcessRemark;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtdept_remark;
     }
 }

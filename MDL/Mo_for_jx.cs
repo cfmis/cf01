@@ -61,6 +61,8 @@ namespace cf01.MDL
         public string qc_qty;
         public string qc_test;
         public string process_remark;//工序做法
+        public string dept_remark;//部門備註
+
 
     }
 }
