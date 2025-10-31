@@ -886,7 +886,7 @@ namespace cf01.ReportForm
             prgStatus.Value = 0;
             string now_date = System.DateTime.Now.ToString("yyyy/MM/dd");
             int rq_prd_days = 4;
-            if (prd_dep == "105" || prd_dep == "203" || prd_dep == "501")
+            if (prd_dep == "105" || prd_dep == "203" || prd_dep == "501" || prd_dep == "125")
                 rq_prd_days = 3;
             string pmc_rq_date = System.DateTime.Now.AddDays(rq_prd_days).ToString("yyyy/MM/dd");
             
@@ -927,6 +927,8 @@ namespace cf01.ReportForm
                     objModel.pre_tr_qty = clsValidRule.ConvertStrToInt(drMo["pre_dep_qty_ok"].ToString());
                     objModel.pre_tr_date = clsValidRule.ConvertDateToString(drMo["pre_deliver_max_dat"].ToString());
                     objModel.pre_tr_flag = drMo["pre_dep_deliver_flag"].ToString().Trim();
+                    objModel.hk_req_date = drMo["hk_req_date"].ToString().Trim();
+                    objModel.cs_req_date = drMo["cs_req_date"].ToString().Trim();
                     objModel.schedule_qty = objModel.pl_qty;
 
 

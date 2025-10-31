@@ -51,6 +51,8 @@ namespace cf01.MDL
         public string wip_id { get; set; }
         public string wip_seq { get; set; }
         public int wip_ver { get; set; }
+        public string hk_req_date { get; set; }
+        public string cs_req_date { get; set; }
     }
     public class mdlMoScheduleBase
     {
