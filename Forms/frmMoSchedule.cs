@@ -195,11 +195,13 @@ namespace cf01.Forms
             // 將原記錄移除
             foreach (var itemArray in copiedRows)
             {
-                string id = "";
-                if (txtDep.Text.Trim() == "102")
-                    id = itemArray[1].ToString();
-                else
-                    id = itemArray[0].ToString();
+                //string id = "";
+                //if (txtDep.Text.Trim() == "102")
+                //    id = itemArray[1].ToString();
+                //else
+                //    id = itemArray[0].ToString();
+                //注意儲存過程usp_mo_schedule傳回來的字段一定要一致，不然數組取值不正確
+                string id = itemArray[1].ToString();
                 // 查找产品编号为 "P001" 的记录
                 var foundRows = dtMoSchedule.Select("schedule_id = '" + id + "'");
                 if(foundRows.Length==0)

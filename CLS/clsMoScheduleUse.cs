@@ -118,18 +118,25 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 13].Value = "生產數量";
             worksheet.Cells[excelRow, 14].Value = "下部門";
             worksheet.Cells[excelRow, 15].Value = "部門复期";
-            if (prd_dep != "322")
-                worksheet.Cells[excelRow, 16].Value = "組別";
+            if (prd_dep == "102")
+                worksheet.Cells[excelRow, 16].Value = "交JX";
             else
-                worksheet.Cells[excelRow, 16].Value = "供應商";
+            {
+                if (prd_dep != "322")
+                    worksheet.Cells[excelRow, 16].Value = "組別";
+                else
+                    worksheet.Cells[excelRow, 16].Value = "供應商";
+            }
             worksheet.Cells[excelRow, 17].Value = "部門備註";
             worksheet.Cells[excelRow, 18].Value = "PMC備註";
             worksheet.Cells[excelRow, 19].Value = "狀態";
-            worksheet.Cells[excelRow, 20].Value = "可生產天數";
-            worksheet.Cells[excelRow, 21].Value = "交貨過期";
+            worksheet.Cells[excelRow, 20].Value = "已生產日期";
+            worksheet.Cells[excelRow, 21].Value = "訂單日期";
             worksheet.Cells[excelRow, 22].Value = "要求回港日期";
-            worksheet.Cells[excelRow, 23].Value = "客人要求交貨期";
-            worksheet.Cells[excelRow, 24].Value = "生產日期";
+            worksheet.Cells[excelRow, 23].Value = "可生產週期";
+            worksheet.Cells[excelRow, 24].Value = "交貨過期";
+            worksheet.Cells[excelRow, 25].Value = "客人要求交貨期";
+            worksheet.Cells[excelRow, 26].Value = "前部門來貨期";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -152,23 +159,30 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 13].Value = drExcel["prd_qty"];
                 worksheet.Cells[excelRow, 14].Value = drExcel["next_wp_id"].ToString();
                 worksheet.Cells[excelRow, 15].Value = drExcel["dep_rp_date"].ToString();//"\'" + 
-                if (prd_dep != "322")
-                    worksheet.Cells[excelRow, 16].Value = drExcel["prd_group"].ToString();
-                else
-                    worksheet.Cells[excelRow, 16].Value = drExcel["next_vend_id"].ToString();//
-                worksheet.Cells[excelRow, 17].Value = drExcel["dep_remark"].ToString();
                 if (prd_dep == "102")
+                    worksheet.Cells[excelRow, 16].Value = drExcel["transfer_date_jx"].ToString();
+                else
                 {
-                    if (drExcel["transfer_date_jx"].ToString().Trim() != "")
-                        worksheet.Cells[excelRow, 17].Value += "\r\n" + "To Jx:" + drExcel["transfer_date_jx"].ToString().Trim();
+                    if (prd_dep != "322")
+                        worksheet.Cells[excelRow, 16].Value = drExcel["prd_group"].ToString();
+                    else
+                        worksheet.Cells[excelRow, 16].Value = drExcel["next_vend_id"].ToString();//
                 }
+                worksheet.Cells[excelRow, 17].Value = drExcel["dep_remark"].ToString();
+                //if (prd_dep == "102")
+                //{
+                //    if (drExcel["transfer_date_jx"].ToString().Trim() != "")
+                //        worksheet.Cells[excelRow, 17].Value += "\r\n" + "To Jx:" + drExcel["transfer_date_jx"].ToString().Trim();
+                //}
                 worksheet.Cells[excelRow, 18].Value = drExcel["mo_remark"].ToString();
                 worksheet.Cells[excelRow, 19].Value = drExcel["status_cdesc"].ToString();
-                worksheet.Cells[excelRow, 20].Value = drExcel["av_prd_days"].ToString();
-                worksheet.Cells[excelRow, 21].Value = drExcel["hk_period_flag"].ToString();
+                worksheet.Cells[excelRow, 20].Value = drExcel["prd_date"].ToString();
+                worksheet.Cells[excelRow, 21].Value = drExcel["order_date"].ToString();
                 worksheet.Cells[excelRow, 22].Value = drExcel["hk_req_date"].ToString();
-                worksheet.Cells[excelRow, 23].Value = drExcel["cs_req_date"].ToString();
-                worksheet.Cells[excelRow, 24].Value = drExcel["prd_date"].ToString();
+                worksheet.Cells[excelRow, 23].Value = drExcel["av_prd_days"].ToString();
+                worksheet.Cells[excelRow, 24].Value = drExcel["hk_period_flag"].ToString();
+                worksheet.Cells[excelRow, 25].Value = drExcel["cs_req_date"].ToString();
+                worksheet.Cells[excelRow, 26].Value = drExcel["pre_tr_date"].ToString();
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -247,13 +261,16 @@ namespace cf01.CLS
             //worksheet.Cells["B1:B10"].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
             //worksheet.Cells["C1:C10"].Style.Numberformat.Format = "$#,##0.00"; // 千分位货币格式
             // 设置某一列不可见
-            worksheet.Column(5).Hidden = true; // 隐藏物料編號
-            worksheet.Column(19).Hidden = true; // 隐藏生產數量
-            worksheet.Column(20).Hidden = true; // 隐藏生產數量
-            worksheet.Column(21).Hidden = true; // 隐藏生產數量
-            worksheet.Column(22).Hidden = true; // 隐藏生產數量
-            worksheet.Column(23).Hidden = true; // 隐藏生產數量
-            worksheet.Column(24).Hidden = true; // 隐藏生產數量
+            // 隐藏一些列
+            worksheet.Column(5).Hidden = true;
+            worksheet.Column(19).Hidden = true;
+            worksheet.Column(20).Hidden = true;
+            worksheet.Column(21).Hidden = true;
+            worksheet.Column(22).Hidden = true;
+            worksheet.Column(23).Hidden = true;
+            worksheet.Column(24).Hidden = true;
+            worksheet.Column(25).Hidden = true;
+            worksheet.Column(26).Hidden = true;
             if (prd_dep == "322" || prd_dep == "202")
             {
                 worksheet.PrinterSettings.Scale = 75; // 缩放到 75%
@@ -445,12 +462,15 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 17].Value = "部門備註";
             worksheet.Cells[excelRow, 18].Value = "PMC備註";
             worksheet.Cells[excelRow, 19].Value = "狀態";
-            worksheet.Cells[excelRow, 20].Value = "可生產天數";
-            worksheet.Cells[excelRow, 21].Value = "交貨過期";
+            worksheet.Cells[excelRow, 20].Value = "已生產日期";
+            worksheet.Cells[excelRow, 21].Value = "訂單日期";
             worksheet.Cells[excelRow, 22].Value = "要求回港日期";
-            worksheet.Cells[excelRow, 23].Value = "客人要求交貨期";
-            worksheet.Cells[excelRow, 24].Value = "生產日期";
-            worksheet.Cells[excelRow, 25].Value = "生產數量";
+            worksheet.Cells[excelRow, 23].Value = "可生產週期";
+            worksheet.Cells[excelRow, 24].Value = "交貨過期";
+            worksheet.Cells[excelRow, 25].Value = "客人要求交貨期";
+            worksheet.Cells[excelRow, 26].Value = "前部門來貨期";
+            worksheet.Cells[excelRow, 27].Value = "生產數量";
+
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -476,12 +496,15 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 17].Value = drExcel["dep_remark"].ToString();
                 worksheet.Cells[excelRow, 18].Value = drExcel["mo_remark"].ToString();
                 worksheet.Cells[excelRow, 19].Value = drExcel["status_cdesc"].ToString();
-                worksheet.Cells[excelRow, 20].Value = drExcel["av_prd_days"].ToString();
-                worksheet.Cells[excelRow, 21].Value = drExcel["hk_period_flag"].ToString();
+                worksheet.Cells[excelRow, 20].Value = drExcel["prd_date"].ToString();
+                worksheet.Cells[excelRow, 21].Value = drExcel["order_date"].ToString();
                 worksheet.Cells[excelRow, 22].Value = drExcel["hk_req_date"].ToString();
-                worksheet.Cells[excelRow, 23].Value = drExcel["cs_req_date"].ToString();
-                worksheet.Cells[excelRow, 24].Value = drExcel["prd_date"].ToString();
-                worksheet.Cells[excelRow, 25].Value = drExcel["prd_qty"].ToString();
+                worksheet.Cells[excelRow, 23].Value = drExcel["av_prd_days"].ToString();
+                worksheet.Cells[excelRow, 24].Value = drExcel["hk_period_flag"].ToString();
+                worksheet.Cells[excelRow, 25].Value = drExcel["cs_req_date"].ToString();
+                worksheet.Cells[excelRow, 26].Value = drExcel["pre_tr_date"].ToString();
+                worksheet.Cells[excelRow, 27].Value = drExcel["prd_qty"].ToString();
+
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -555,14 +578,17 @@ namespace cf01.CLS
             //worksheet.Cells["B1:B10"].Style.Numberformat.Format = "#,##0.00"; // 千分位小数格式
             //worksheet.Cells["C1:C10"].Style.Numberformat.Format = "$#,##0.00"; // 千分位货币格式
             // 设置某一列不可见
-            worksheet.Column(6).Hidden = true; // 隐藏物料編號
-            worksheet.Column(19).Hidden = true; // 隐藏生產數量
-            worksheet.Column(20).Hidden = true; // 隐藏生產數量
-            worksheet.Column(21).Hidden = true; // 隐藏生產數量
-            worksheet.Column(22).Hidden = true; // 隐藏生產數量
-            worksheet.Column(23).Hidden = true; // 隐藏生產數量
-            worksheet.Column(24).Hidden = true; // 隐藏生產數量
-            worksheet.Column(25).Hidden = true; // 隐藏生產數量
+            // 隐藏一些列
+            worksheet.Column(6).Hidden = true; 
+            worksheet.Column(19).Hidden = true; 
+            worksheet.Column(20).Hidden = true;
+            worksheet.Column(21).Hidden = true;
+            worksheet.Column(22).Hidden = true;
+            worksheet.Column(23).Hidden = true;
+            worksheet.Column(24).Hidden = true;
+            worksheet.Column(25).Hidden = true;
+            worksheet.Column(26).Hidden = true;
+            worksheet.Column(27).Hidden = true;
             worksheet.Row(2).Height = 40; // 设置第 1 行的高度为 20 点
 
             // 动态确定表格范围
