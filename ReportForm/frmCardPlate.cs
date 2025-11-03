@@ -194,7 +194,7 @@ namespace cf01.ReportForm
                     new SqlParameter("@mo_id_e", txtMo_id2.Text),
                     new SqlParameter("@is_sample", is_sample) //"z_rpt_card_510"因跟版無區分電鍍或噴油暫時不改
             };
-            dtWordCard = clsConErp.ExecuteProcedureReturnTable("z_rpt_card_510", paras);
+            dtWordCard = clsConErp.ExecuteProcedureReturnTable("z_rpt_card_510", paras);            
             //客戶端加bool字段或後端返回(bit型)都可以
             dtWordCard.Columns.Add("flag_select", System.Type.GetType("System.Boolean"));
             
@@ -277,6 +277,7 @@ namespace cf01.ReportForm
                     newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
                     newRow["qc_test"] = dtWordCard.Rows[i]["qc_test"];
                     newRow["lot_no"] = dtWordCard.Rows[i]["lot_no"];
+                    newRow["dept_remark"] = dtWordCard.Rows[i]["dept_remark"];
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString() !="1")
@@ -322,6 +323,7 @@ namespace cf01.ReportForm
                             dr["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtWordCard.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
                             dr["qc_test"] = dtWordCard.Rows[i]["qc_test"].ToString();
                             dr["lot_no"] = dtWordCard.Rows[i]["lot_no"].ToString();
+                            dr["dept_remark"] = dtWordCard.Rows[i]["dept_remark"].ToString();
                             dtReport.Rows.Add(dr);
                         }
                     }

@@ -65,10 +65,10 @@
             this.ver = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sequence_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.per_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPer_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.clProdQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.net_weight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prod_qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.clProdQty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colPer_qty = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.goods_unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.total_page = new DevExpress.XtraGrid.Columns.GridColumn();
             this.goods_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -120,6 +120,7 @@
             this.goods_name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t_complete_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dept_remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCon_date2.Properties)).BeginInit();
@@ -131,8 +132,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPrintFlag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPrintSelect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colPer_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clProdQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colPer_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clCheck_date)).BeginInit();
@@ -494,7 +495,8 @@
             this.old_prod_qty,
             this.old_goods_id,
             this.page_num,
-            this.qty_remaining});
+            this.qty_remaining,
+            this.dept_remark});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
@@ -641,16 +643,17 @@
             this.per_qty.VisibleIndex = 6;
             this.per_qty.Width = 82;
             // 
-            // colPer_qty
+            // clProdQty
             // 
-            this.colPer_qty.AutoHeight = false;
-            this.colPer_qty.DisplayFormat.FormatString = "f0";
-            this.colPer_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colPer_qty.EditFormat.FormatString = "f0";
-            this.colPer_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colPer_qty.Mask.EditMask = "f0";
-            this.colPer_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.colPer_qty.Name = "colPer_qty";
+            this.clProdQty.AutoHeight = false;
+            this.clProdQty.DisplayFormat.FormatString = "n0";
+            this.clProdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clProdQty.EditFormat.FormatString = "n0";
+            this.clProdQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.clProdQty.Mask.EditMask = "n0";
+            this.clProdQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.clProdQty.Name = "clProdQty";
+            this.clProdQty.Leave += new System.EventHandler(this.clProdQty_Leave);
             // 
             // net_weight
             // 
@@ -683,17 +686,16 @@
             this.prod_qty.VisibleIndex = 8;
             this.prod_qty.Width = 60;
             // 
-            // clProdQty
+            // colPer_qty
             // 
-            this.clProdQty.AutoHeight = false;
-            this.clProdQty.DisplayFormat.FormatString = "n0";
-            this.clProdQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clProdQty.EditFormat.FormatString = "n0";
-            this.clProdQty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.clProdQty.Mask.EditMask = "n0";
-            this.clProdQty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.clProdQty.Name = "clProdQty";
-            this.clProdQty.Leave += new System.EventHandler(this.clProdQty_Leave);
+            this.colPer_qty.AutoHeight = false;
+            this.colPer_qty.DisplayFormat.FormatString = "f0";
+            this.colPer_qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPer_qty.EditFormat.FormatString = "f0";
+            this.colPer_qty.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPer_qty.Mask.EditMask = "f0";
+            this.colPer_qty.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.colPer_qty.Name = "colPer_qty";
             // 
             // goods_unit
             // 
@@ -1049,7 +1051,7 @@
             this.BTNCANCEL.Image = ((System.Drawing.Image)(resources.GetObject("BTNCANCEL.Image")));
             this.BTNCANCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNCANCEL.Name = "BTNCANCEL";
-            this.BTNCANCEL.Size = new System.Drawing.Size(49, 35);
+            this.BTNCANCEL.Size = new System.Drawing.Size(52, 35);
             this.BTNCANCEL.Text = "重置(&U)";
             this.BTNCANCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNCANCEL.Click += new System.EventHandler(this.BTNCANCEL_Click);
@@ -1064,7 +1066,7 @@
             this.BTNFIND.Image = ((System.Drawing.Image)(resources.GetObject("BTNFIND.Image")));
             this.BTNFIND.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNFIND.Name = "BTNFIND";
-            this.BTNFIND.Size = new System.Drawing.Size(47, 35);
+            this.BTNFIND.Size = new System.Drawing.Size(49, 35);
             this.BTNFIND.Text = "查找(&F)";
             this.BTNFIND.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNFIND.Click += new System.EventHandler(this.BTNFIND_Click);
@@ -1079,7 +1081,7 @@
             this.BTNSAVESET.Image = ((System.Drawing.Image)(resources.GetObject("BTNSAVESET.Image")));
             this.BTNSAVESET.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVESET.Name = "BTNSAVESET";
-            this.BTNSAVESET.Size = new System.Drawing.Size(81, 35);
+            this.BTNSAVESET.Size = new System.Drawing.Size(83, 35);
             this.BTNSAVESET.Text = "保存查找條件";
             this.BTNSAVESET.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVESET.ToolTipText = "保存查找條件";
@@ -1137,7 +1139,7 @@
             this.BTNSAVE.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNSAVE.Name = "BTNSAVE";
             this.BTNSAVE.RightToLeftAutoMirrorImage = true;
-            this.BTNSAVE.Size = new System.Drawing.Size(93, 35);
+            this.BTNSAVE.Size = new System.Drawing.Size(95, 35);
             this.BTNSAVE.Text = "保存已列印標識";
             this.BTNSAVE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNSAVE.Click += new System.EventHandler(this.BTNSAVE_Click);
@@ -1152,7 +1154,7 @@
             this.BTNEXCEL.Image = global::cf01.Properties.Resources.Excel1;
             this.BTNEXCEL.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNEXCEL.Name = "BTNEXCEL";
-            this.BTNEXCEL.Size = new System.Drawing.Size(70, 35);
+            this.BTNEXCEL.Size = new System.Drawing.Size(71, 35);
             this.BTNEXCEL.Text = "匯出EXCEL";
             this.BTNEXCEL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BTNEXCEL.Click += new System.EventHandler(this.BTNEXCEL_Click);
@@ -1266,6 +1268,12 @@
             this.t_complete_date1.Name = "t_complete_date1";
             this.t_complete_date1.ReadOnly = true;
             // 
+            // dept_remark
+            // 
+            this.dept_remark.Caption = "部門備註";
+            this.dept_remark.FieldName = "dept_remark";
+            this.dept_remark.Name = "dept_remark";
+            // 
             // frmOrderProCardBatchPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1293,8 +1301,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPrintFlag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colPrintSelect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colPer_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clProdQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colPer_qty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colProd_date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clCheck_date.CalendarTimeProperties)).EndInit();
@@ -1401,5 +1409,6 @@
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit clProdQty;
         private DevExpress.XtraGrid.Columns.GridColumn qty_remaining;
+        private DevExpress.XtraGrid.Columns.GridColumn dept_remark;
     }
 }

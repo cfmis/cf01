@@ -160,7 +160,7 @@ namespace cf01.ReportForm
         {
             string sql =
             @"SELECT DISTINCT A.id, A.mould_no,A.draw_ver,convert(char(10),A.check_date,120) as check_date,B.dept_id,substring(B.mould_no,5,7) as art_id,
-             C.name,MD.brand_no,(cc.picture_path +'\\'+Isnull(AT.picture_name_h,'')) AS picture_name 
+             C.name,MD.brand_no,(cc.picture_path +'\\'+Isnull(AT.picture_name_h,'')) AS picture_name ,substring(B.mould_no,12,3) As size
              FROM (select within_code,id,mould_no,MAX(check_date) as check_date,MAX(ver) as ver,MAX(draw_ver) AS draw_ver 
                    From dbo.so_mould_notice_mostly with(nolock) 
                    Where state='1' Group by within_code,id,mould_no

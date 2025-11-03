@@ -345,21 +345,19 @@ namespace cf01.ReportForm
 
             string dep="", mo="", item="", Remark="",next_goods_id="";
 
-            ////建立工序卡臨時表
+            //建立工序卡臨時表
             DataTable dtNewWork = CreateNewWork();
             DataRow dr = null;
-            string order_unit;
+            string order_unit= string.Empty, plate_remark = string.Empty, do_color_next_dep = string.Empty, next_dep_id = string.Empty;
             int order_qty, order_qty_pcs;
-            string plate_remark = "";
+           
             DataTable dt_wk = new DataTable();
             DataTable dtPosition = new DataTable();
             DataTable dtQty = new DataTable();
             DataTable dtPs = new DataTable();
             DataTable dtNextNextItem = new DataTable();
             DataTable dtCurrentWipItem = new DataTable();
-            DataTable dtNextItem = new DataTable();
-            string do_color_next_dep = "";
-            string next_dep_id = "";
+            DataTable dtNextItem = new DataTable();           
 
 
             //foreach (DataRow dgr in selectedRows)
@@ -368,7 +366,7 @@ namespace cf01.ReportForm
                 DataRow dgr = dtMoPlan.Rows[j];
                 if ((bool)dgr["select_flag"])
                 {
-                    ////DataGridViewRow dgr = dgvDetails.Rows[j];
+                    //DataGridViewRow dgr = dgvDetails.Rows[j];
                     Remark = "";
                     mo = dgr["mo_id"].ToString().Trim();
                     if (rpt_type == 1)//列印當前部門的工序卡
@@ -570,7 +568,7 @@ namespace cf01.ReportForm
                                     dr["pe_qty"] = dtPs.Rows[0]["pe_qty"].ToString();
                                     dr["step"] = dtPs.Rows[0]["step"].ToString();
                                 }
-                                ////條碼Barcode
+                                //條碼Barcode
                                 dr["BarCode"] = strBarCode;
                                 //貨倉位置
                                 //dr["goods_position"] = drDtWk["wh_location"].ToString(); //clsMo_for_jx.ReturnGoodsPosition(drDtWk["goods_id"].ToString(), drDtWk["next_wp_id"].ToString());
@@ -588,11 +586,11 @@ namespace cf01.ReportForm
                                 {
                                     if (dtNextItem.Rows.Count > 0)
                                     {
-                                        //////下部門
+                                        //下部門
                                         dr["next_goods_id"] = dtNextItem.Rows[0]["goods_id"].ToString();
                                         dr["next_do_color"] = dtNextItem.Rows[0]["do_color"].ToString();
                                         dr["next_goods_name"] = dtNextItem.Rows[0]["goods_name"].ToString();
-                                        //////下下部門
+                                        //再下一部門
                                         dr["next_next_wp_id"] = dtNextItem.Rows[0]["next_wp_id"].ToString();
                                         dr["next_next_dep_name"] = dtNextItem.Rows[0]["next_wp_name"].ToString();
                                     }
@@ -614,6 +612,7 @@ namespace cf01.ReportForm
                                 dr["stantard_qty"] = "";//clsUtility.FormatNullableInt32(drDtWk["base_rate"]);
                                 dr["qc_test"] = drDtWk["qc_test"].ToString();
                                 dr["process_remark"] = drDtWk["process_remark"].ToString();
+                                dr["dept_remark"] = drDtWk["dept_remark"].ToString();
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
@@ -720,6 +719,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("stantard_qty", typeof(string));
             dtNewWork.Columns.Add("qc_test", typeof(string));
             dtNewWork.Columns.Add("process_remark", typeof(string));
+            dtNewWork.Columns.Add("dept_remark", typeof(string));
 
             return dtNewWork;
         }

@@ -333,6 +333,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("qc_test", typeof(string));
             dtNewWork.Columns.Add("process_remark", typeof(string));
             dtNewWork.Columns.Add("stantard_qty", typeof(int));
+            dtNewWork.Columns.Add("dept_remark", typeof(string));
 
             DataRow dr = null;
             string order_unit;
@@ -535,7 +536,8 @@ namespace cf01.ReportForm
                                 //--end 2024/3/14 add qc info allen
                                 dr["qc_test"] = drDtWk["qc_test"].ToString();
                                 dr["process_remark"] = drDtWk["process_remark"].ToString();
-                                dr["stantard_qty"] = drDtWk["stantard_qty"].ToString();                                
+                                dr["stantard_qty"] = drDtWk["stantard_qty"].ToString();
+                                dr["dept_remark"] = drDtWk["dept_remark"].ToString();
 
                                 dtNewWork.Rows.Add(dr);
                             }

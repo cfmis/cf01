@@ -447,6 +447,7 @@ namespace cf01.ReportForm
                     base_rate = string.IsNullOrEmpty(dtDelivery.Rows[i]["base_rate"].ToString()) ? 0 : clsUtility.FormatNullableInt32(dtDelivery.Rows[i]["base_rate"].ToString());                    
                     newRow["stantard_qty"] = Math.Round(clsUtility.FormatNullableFloat(dtDelivery.Rows[i]["sec_qty"].ToString()) * base_rate, 0);
                     newRow["lot_no"] = dtDelivery.Rows[i]["lot_no"].ToString();
+                    newRow["dept_remark"] = dtDelivery.Rows[i]["dept_remark"].ToString();
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtDelivery.Rows[i]["package_num"].ToString() !="1")
@@ -498,6 +499,7 @@ namespace cf01.ReportForm
                                 dr["stantard_qty"] = dtDelivery.Rows[i]["stantard_qty"];
                                 dr["qc_test"] = dtDelivery.Rows[i]["qc_test"];
                                 dr["lot_no"] = dtDelivery.Rows[i]["lot_no"];
+                                dr["dept_remark"] = dtDelivery.Rows[i]["dept_remark"];
                                 dtReport.Rows.Add(dr);
                             }
                         }
@@ -595,6 +597,7 @@ namespace cf01.ReportForm
             dtNewWork.Columns.Add("stantard_qty", typeof(string));
             dtNewWork.Columns.Add("qc_test", typeof(string));
             dtNewWork.Columns.Add("process_remark", typeof(string));
+            dtNewWork.Columns.Add("dept_remark", typeof(string));
 
             DataRow[] drw = dtDelivery.Select(string.Format("flag_select={0}",true));            
             if (drw.Length > 0)
@@ -604,14 +607,7 @@ namespace cf01.ReportForm
                 string mo_id = "";
                 string goods_id = "";             
                 int page_num = 0, per_qty = 0,prod_qty=0, numPage = 1,qty_remaining=0;
-                decimal net_weight = 0, sec_qty=0;
-                //frmProgress wForm = new frmProgress();
-                //new Thread((ThreadStart)delegate
-                //{
-                //    wForm.TopMost = true;
-                //    wForm.ShowDialog();
-                //}).Start();
-
+                decimal net_weight = 0, sec_qty=0;               
                 //設置進度條屬性
                 progressBar1.Enabled = true;
                 progressBar1.Visible = true;
@@ -753,6 +749,7 @@ namespace cf01.ReportForm
                                 }
                                 dr["qc_test"] = dtCard.Rows[j]["qc_test"].ToString();
                                 dr["process_remark"] = dtCard.Rows[j]["process_remark"].ToString();
+                                dr["dept_remark"] = dtCard.Rows[j]["dept_remark"].ToString();
                                 dtNewWork.Rows.Add(dr);
                             }
                         }
