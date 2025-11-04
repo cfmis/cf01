@@ -167,8 +167,9 @@ namespace cf01.ReportForm
                     fileName = openFileDialog1.FileName;
                     if (fileName != "")
                     {
-                        Excel_To_Datable(fileName, 1); //1.大貨單 2.NS未完成頁數
-                        Excel_To_Datable(fileName, 2); //NS未完成頁數
+                        //1.大貨單 2.NS未完成頁數
+                        Excel_To_Datable(fileName, 1); 
+                        Excel_To_Datable(fileName, 2); 
                     }
                             
                 }
@@ -404,7 +405,7 @@ namespace cf01.ReportForm
                         dr["rpt_type"] = "1";
                         rng = xSheet.Cells[ii, "J"]; //急/特急狀態
                         dr["mo_type"] = rng.get_Value();
-                        rng = xSheet.Cells[ii, "Z"]; //當前部門
+                        rng = xSheet.Cells[ii, "M"]; //當前部門  原來是Z??
                         dr["wp_id"] = rng.get_Value();
                         moTypeSort = dr["mo_type"].ToString().Trim();
                         moTypeSort = string.IsNullOrEmpty(moTypeSort) ? "" : moTypeSort;
@@ -488,7 +489,7 @@ namespace cf01.ReportForm
                     dr["mo_id"] = rng.get_Value();
                     rng = xSheet.Cells[ii, "J"]; //急/特急狀態
                     dr["status"] = rng.get_Value();
-                    rng = xSheet.Cells[ii, "Z"]; //當前部門
+                    rng = xSheet.Cells[ii, "Z"]; //當前部門  
                     dr["dept_id"] = rng.get_Value();                   
                     dt.Rows.Add(dr);
                 }
@@ -589,8 +590,7 @@ namespace cf01.ReportForm
                 catch (Exception E)
                 {
                     throw new Exception(E.Message);
-                }
-                
+                }                
                 progressBar1.Enabled = false;
                 progressBar1.Visible = false;
                 sqlconn.Close();
