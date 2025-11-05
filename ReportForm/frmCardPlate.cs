@@ -278,6 +278,7 @@ namespace cf01.ReportForm
                     newRow["qc_test"] = dtWordCard.Rows[i]["qc_test"];
                     newRow["lot_no"] = dtWordCard.Rows[i]["lot_no"];
                     newRow["dept_remark"] = dtWordCard.Rows[i]["dept_remark"];
+                    newRow["count_return"] = dtWordCard.Rows[i]["count_return"];
 
                     //處理有幾包就列印幾張 2016-01-15
                     if (dtWordCard.Rows[i]["prints"].ToString() !="1")
@@ -324,6 +325,7 @@ namespace cf01.ReportForm
                             dr["qc_test"] = dtWordCard.Rows[i]["qc_test"].ToString();
                             dr["lot_no"] = dtWordCard.Rows[i]["lot_no"].ToString();
                             dr["dept_remark"] = dtWordCard.Rows[i]["dept_remark"].ToString();
+                            dr["count_return"] = int.Parse(dtWordCard.Rows[i]["count_return"].ToString());
                             dtReport.Rows.Add(dr);
                         }
                     }

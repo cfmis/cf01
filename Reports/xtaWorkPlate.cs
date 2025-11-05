@@ -24,17 +24,25 @@ namespace cf01.Reports
             }
         }
 
+        void CountReturn()
+        {
+            int counts =int.Parse(GetCurrentColumnValue("count_return").ToString());
+            txtCountReturn.Visible = (counts == 0) ? false : true;            
+        }
+
         private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            BindImage();
+            BindImage();           
         }
 
         private void txtIs_sample_TextChanged(object sender, EventArgs e)
         {
-            if (txtIs_sample.Text == "1")
-                pnl_is_sample.Visible = false;
-            else
-                pnl_is_sample.Visible = true;
+            pnl_is_sample.Visible = (txtIs_sample.Text == "1") ? false : true;            
+        }
+
+        private void txtCountReturn_TextChanged(object sender, EventArgs e)
+        {
+            CountReturn();
         }
     }
 }
