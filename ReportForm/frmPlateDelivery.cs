@@ -54,7 +54,7 @@ namespace cf01.ReportForm
             lueShortReason.Properties.ValueMember = "id";
             lueShortReason.Properties.DisplayMember = "cdesc";
 
-            //將導入的EXCEL轉成Datatble
+            //將導入的EXCEL轉成Datatble 
             dtImport.Columns.Add("user_id", typeof(string)); //未完成頁數
             dtImport.Columns.Add("mo_id", typeof(string)); //未完成頁數
             dtImport.Columns.Add("rpt_type", typeof(string)); //報表類型
@@ -208,10 +208,16 @@ namespace cf01.ReportForm
             //調用存儲過程           
             string user_id = DBUtility._user_id;
             string dat1 = txtSend_Date1.Text;
-            string dat2 = txtSend_Date2.Text;            
+            string dat2 = txtSend_Date2.Text;
             switch (rpt_type)
             {
-                case "1":                    
+                case "1":
+                    //去掉重復的數據
+                    DataView view = new DataView(dtImport);
+                    // true表示保留原始表的结构，后面的参数是去重的列名
+                    System.Data.DataTable  distinctTable = view.ToTable(true, "user_id", "mo_id", "rpt_type", "mo_type", "wp_id", "mo_type_sort");
+                    dtImport.Clear();
+                    dtImport = distinctTable.Copy();
                     SqlParameter[] paras1 = new SqlParameter[]
                     {
                        new SqlParameter ("@type", rpt_type),
@@ -381,17 +387,17 @@ namespace cf01.ReportForm
                 progressBar1.Value = 0;
                 progressBar1.Step = 1;
 
-                int row_precessing = 0;
-                int row_total = xSheet.UsedRange.Rows.Count;//總行數
-                progressBar1.Maximum = row_total;
+                int rowPrecessing = 0;
+                int rowTotal = xSheet.UsedRange.Rows.Count;//總行數
+                progressBar1.Maximum = rowTotal;
                
                 Microsoft.Office.Interop.Excel.Range rng;
                 try
                 {
                     string moTypeSort = "";
-                    for (int ii = 2; ii <= row_total; ii++)
+                    for (int ii = 2; ii <= rowTotal; ii++)
                     {
-                        row_precessing = ii;//記錄更在更新的行
+                        rowPrecessing = ii;//記錄正在更新的行
                         progressBar1.Value += progressBar1.Step;
                         if (progressBar1.Value == progressBar1.Maximum)
                         {
@@ -405,8 +411,8 @@ namespace cf01.ReportForm
                         dr["rpt_type"] = "1";
                         rng = xSheet.Cells[ii, "J"]; //急/特急狀態
                         dr["mo_type"] = rng.get_Value();
-                        rng = xSheet.Cells[ii, "M"]; //當前部門  原來是Z??
-                        dr["wp_id"] = rng.get_Value();
+                        rng = xSheet.Cells[ii, "M"]; //當前部門  原來是Z??b
+                        dr["wp_id"] = "";// rng.get_Value(); 舊的匯總表同一頁數原來只有一行，舊的匯總表發現有多行，存儲過程用頁數去關聯將引起重復，所以這里導入時要去掉部門
                         moTypeSort = dr["mo_type"].ToString().Trim();
                         moTypeSort = string.IsNullOrEmpty(moTypeSort) ? "" : moTypeSort;
                         dr["mo_type_sort"] = moTypeSort.Length;
@@ -427,7 +433,8 @@ namespace cf01.ReportForm
                     xSheet = null;
                     xBook = null;                    
                 }
-            } //--end (int x=1;x<3;x++)           
+            } //--end (int x=1;x<3;x++) 
+                      
             if (xApp != null)
             {
                 xApp.Quit(); //这一句是非常重要的，否则Excel对象不能从内存中退出 
@@ -485,12 +492,12 @@ namespace cf01.ReportForm
                         progressBar1.Visible = false;
                     }
                     DataRow dr = dt.NewRow();
-                    rng = xSheet.Cells[ii, "C"]; //未完成頁數        
+                    rng = xSheet.Cells[ii, "C"]; //未完成頁數
                     dr["mo_id"] = rng.get_Value();
                     rng = xSheet.Cells[ii, "J"]; //急/特急狀態
                     dr["status"] = rng.get_Value();
-                    rng = xSheet.Cells[ii, "Z"]; //當前部門  
-                    dr["dept_id"] = rng.get_Value();                   
+                    rng = xSheet.Cells[ii, "M"]; //當前部門
+                    dr["dept_id"] = "";// rng.get_Value();  //2025/11/07改為賦空值，暫用不到部門                 
                     dt.Rows.Add(dr);
                 }
                 xApp.Application.DisplayAlerts = false; //禁止彈出是否保存對話框
@@ -527,13 +534,14 @@ namespace cf01.ReportForm
                 string strmo_type;
                 string strwp_id;
                 int mo_type_sort;
-                System.Data.DataTable dtExcel = dt;
-                
+                //去掉重復
+                DataView view = new DataView(dt);
+                System.Data.DataTable dtExcel = view.ToTable(true, "mo_id", "status", "dept_id"); // true表示保留原始表的结构
+                                
                 SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
                 sqlconn.Open();
-
-                const string strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
-                const string strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
+                string strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
+                string strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
                 progressBar1.Enabled = true;
                 progressBar1.Visible = true;
                 progressBar1.Value = 0;
