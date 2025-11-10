@@ -107,8 +107,7 @@ namespace cf01.ReportForm
         }
 
         private void Load_Excel()
-        {
-            //Refresh();           
+        {                     
             string fileName = "";
             //導入EXCEL頁數
             try
@@ -116,62 +115,30 @@ namespace cf01.ReportForm
                 //2019-12-26取消舊代碼,因部分電腦上不支持此方法
                 //const String strsql_g = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [大貨單$]";
                 //const String strsql_n = "SELECT 未完成頁數,[急/特急狀態],當前部門 FROM [NS未完成頁數$]";
-                //Inport_excel(FileName, strsql_g); //大貨單
-                //Inport_excel(FileName, strsql_n); //NS未完成頁數
+              
+                //2019-12-26更改為新的導入EXCEL方式   
+                OpenFileDialog openFileDialog1 = new OpenFileDialog
+                {
+                    Filter = "Execl files (*.xls)|*.xls",
+                    FilterIndex = 0,
+                    RestoreDirectory = true,
+                    Title = "導入匯總文件路徑",
+                    FileName = null
+                };
+                openFileDialog1.ShowDialog();
+                fileName = openFileDialog1.FileName;
+                dtImport.Clear();
 
-                //2019-12-26更改為新的導入EXCEL方式                   
-                if (rpt_type == "1")
+                if (chkMo.Checked)
                 {
-                    dtImport.Clear();
-                    if (chkMo.Checked)
-                    {
-                        OpenFileDialog openFileDialog1 = new OpenFileDialog
-                        {
-                            Filter = "Execl files (*.xls)|*.xls",
-                            FilterIndex = 0,
-                            RestoreDirectory = true,
-                            Title = "導入匯總文件路徑",
-                            FileName = null
-                        };
-                        openFileDialog1.ShowDialog();
-                        fileName = openFileDialog1.FileName;
-                        if (fileName != "")
-                        {
-                            ExcelToDatable(fileName);
-                        }
-                        else
-                        {
-                            chkMo.Checked = false;
-                        }
-                    }
-                }
-                else
-                {
-                    //刪除舊的頁數                           
-                    SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
-                    sqlconn.Open();
-                    const string sql_del = "truncate table dbo.z_rpt_plate";
-                    using (SqlCommand sqlcmd = new SqlCommand(sql_del, sqlconn))
-                    {
-                        sqlcmd.ExecuteNonQuery();
-                        sqlconn.Close();
-                    }
-                    OpenFileDialog openFileDialog1 = new OpenFileDialog {
-                        Filter = "Execl files (*.xls)|*.xls",
-                        FilterIndex = 0,
-                        RestoreDirectory = true,
-                        Title = "導入匯總文件路徑",
-                        FileName = null
-                    };
-                    openFileDialog1.ShowDialog();
-                    fileName = openFileDialog1.FileName;
                     if (fileName != "")
                     {
-                        //1.大貨單 2.NS未完成頁數
-                        Excel_To_Datable(fileName, 1); 
-                        Excel_To_Datable(fileName, 2); 
+                        ExcelToDatable(fileName);
                     }
-                            
+                    else
+                    {
+                        chkMo.Checked = false;
+                    }
                 }
                 flag_inport = true;
             }
@@ -209,29 +176,30 @@ namespace cf01.ReportForm
             string user_id = DBUtility._user_id;
             string dat1 = txtSend_Date1.Text;
             string dat2 = txtSend_Date2.Text;
+            //去掉重復的數據
+            DataView view = new DataView(dtImport);
+            //true表示保留原始表的结构，后面的参数是去重的列名
+            System.Data.DataTable distinctTable = view.ToTable(true, "user_id", "mo_id", "rpt_type", "mo_type", "wp_id", "mo_type_sort");
+            dtImport.Clear();
+            dtImport = distinctTable.Copy();
+            SqlParameter[] paras1 = new SqlParameter[]
+            {
+                new SqlParameter ("@type", rpt_type),
+                new SqlParameter ("@dat1", dat1),
+                new SqlParameter ("@dat2", dat2),
+                new SqlParameter ("@user_id", user_id),
+                new SqlParameter ("@import_data",SqlDbType.Structured) {Value = dtImport}
+            };
+
             switch (rpt_type)
             {
                 case "1":
-                    //去掉重復的數據
-                    DataView view = new DataView(dtImport);
-                    // true表示保留原始表的结构，后面的参数是去重的列名
-                    System.Data.DataTable  distinctTable = view.ToTable(true, "user_id", "mo_id", "rpt_type", "mo_type", "wp_id", "mo_type_sort");
-                    dtImport.Clear();
-                    dtImport = distinctTable.Copy();
-                    SqlParameter[] paras1 = new SqlParameter[]
-                    {
-                       new SqlParameter ("@type", rpt_type),
-                       new SqlParameter ("@dat1", dat1),
-                       new SqlParameter ("@dat2", dat2),
-                       new SqlParameter ("@user_id", user_id),
-                       new SqlParameter ("@import_data",SqlDbType.Structured) {Value = dtImport}
-                    };
                     dts = clsConErp.ExecuteProcedureReturnDataSet("z_plate_delivery_rpt1", paras1, null);
                     dtRpt1.Clear();
                     dtRpt1 = dts.Tables[0];
                     
                     string tempId = "",issueDate="", completeDate="",curDate="";
-                    Int32 send_qty = 0, in_qty_total = 0;
+                    int send_qty = 0, in_qty_total = 0;
 
                     for (int i=0;i<dtRpt1.Rows.Count;i++)
                     {
@@ -260,16 +228,10 @@ namespace cf01.ReportForm
                 case "2":
                 case "3":
                     string strProc = "z_plate_delivery";
-                    SqlParameter[] paras = new SqlParameter[] {
-                        new SqlParameter ("@type", rpt_type),
-                        new SqlParameter ("@dat1", dat1),
-                        new SqlParameter ("@dat2", dat2),
-                        new SqlParameter ("@user_id", user_id)
-                    };
                     if (rpt_type == "2")
                     {
                         dtRpt2.Clear();
-                        dtRpt2 = clsConErp.ExecuteProcedureReturnTable(strProc, paras);
+                        dtRpt2 = clsConErp.ExecuteProcedureReturnTable(strProc, paras1);
                         grdControl.DataSource = dtRpt2;
                         grdControl.MainView = gridView2;
                         chkSelectAll.Visible = false;
@@ -277,7 +239,7 @@ namespace cf01.ReportForm
                     else
                     {
                         dtRpt3.Clear();
-                        dtRpt3 = clsConErp.ExecuteProcedureReturnTable(strProc, paras);
+                        dtRpt3 = clsConErp.ExecuteProcedureReturnTable(strProc, paras1);
                         grdControl.DataSource = dtRpt3;
                         grdControl.MainView = gridView3;
                         chkSelectAll.Visible = false;
@@ -378,10 +340,11 @@ namespace cf01.ReportForm
             Missing.Value, Missing.Value, Missing.Value, Missing.Value
             , Missing.Value, Missing.Value, Missing.Value, Missing.Value
             , Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+            Microsoft.Office.Interop.Excel.Worksheet xSheet;
 
             for (int x = 1; x < 3; x++)
             {
-                Microsoft.Office.Interop.Excel.Worksheet xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[x];
+                xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[x];
                 progressBar1.Enabled = true;
                 progressBar1.Visible = true;
                 progressBar1.Value = 0;
@@ -431,7 +394,7 @@ namespace cf01.ReportForm
                     xApp.Application.DisplayAlerts = false; //禁止彈出是否保存對話框
                     xBook.Close();
                     xSheet = null;
-                    xBook = null;                    
+                    xBook = null;
                 }
             } //--end (int x=1;x<3;x++) 
                       
@@ -451,14 +414,9 @@ namespace cf01.ReportForm
         /// </summary>
         /// <param name="ls_files_excel"></param>
         /// <param name="li_sheet_name"></param>
-        private void Excel_To_Datable(string ls_files_excel,int li_sheet_name)
-        {            
-            //將導入的EXCEL轉成Datatble
-            System.Data.DataTable dt = new System.Data.DataTable();
-            dt.Columns.Add("mo_id", typeof(string)); //未完成頁數
-            dt.Columns.Add("status", typeof(string)); //急/特急狀態
-            dt.Columns.Add("dept_id", typeof(string)); //當前部門
-            //未完成頁數,[急/特急狀態],當前部門
+        private void Excel_To_Datable(string ls_files_excel)
+        {
+            ////未完成頁數,[急/特急狀態],當前部門
             //*****
             //创建Application对象             
             Microsoft.Office.Interop.Excel.Application xApp = new Microsoft.Office.Interop.Excel.Application();//{ Visible = true };                  
@@ -466,144 +424,69 @@ namespace cf01.ReportForm
             Missing.Value, Missing.Value, Missing.Value, Missing.Value
             , Missing.Value, Missing.Value, Missing.Value, Missing.Value
             , Missing.Value, Missing.Value, Missing.Value, Missing.Value);
-           
-            
-            Microsoft.Office.Interop.Excel.Worksheet xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[li_sheet_name];
-            progressBar1.Enabled = true;
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Step = 1;
 
             int row_precessing = 0;
-            int row_total = xSheet.UsedRange.Rows.Count;//總行數
-            progressBar1.Maximum = row_total;
-
-            bool lb_flag = true;
-            Microsoft.Office.Interop.Excel.Range rng;
+            int row_total = 0;
+            Microsoft.Office.Interop.Excel.Worksheet xSheet;
             try
-            {               
-                for (int ii = 2; ii <= row_total; ii++)
-                {
-                    row_precessing = ii;//記錄更在更新的行
-                    progressBar1.Value += progressBar1.Step;
-                    if (progressBar1.Value == progressBar1.Maximum)
-                    {
-                        progressBar1.Enabled = false;
-                        progressBar1.Visible = false;
-                    }
-                    DataRow dr = dt.NewRow();
-                    rng = xSheet.Cells[ii, "C"]; //未完成頁數
-                    dr["mo_id"] = rng.get_Value();
-                    rng = xSheet.Cells[ii, "J"]; //急/特急狀態
-                    dr["status"] = rng.get_Value();
-                    rng = xSheet.Cells[ii, "M"]; //當前部門
-                    dr["dept_id"] = "";// rng.get_Value();  //2025/11/07改為賦空值，暫用不到部門                 
-                    dt.Rows.Add(dr);
-                }
-                xApp.Application.DisplayAlerts = false; //禁止彈出是否保存對話框
-                xSheet = null;
-                xBook = null;
-                xApp.Quit(); //这一句是非常重要的，否则Excel对象不能从内存中退出 
-                xApp = null;
-            }
-            catch (Exception E)
             {
-                lb_flag = false;
-                throw new Exception(E.Message);
-            }
-            finally
-            {               
-                if (xApp != null)
+                for (int i = 1; i < 3; i++)
                 {
-                    xApp.Quit();
-                    xBook = null;
-                    xSheet = null;
-                    xBook.Close();
-                    GC.Collect();
-                }
-            }
-            progressBar1.Enabled = false;
-            progressBar1.Visible = false;
-            //*************************
-            
-            //如導入成功,將頁數寫入數據庫
-            if (lb_flag)
-            {
-                string strUser_id = DBUtility._user_id;
-                string strmo_id;
-                string strmo_type;
-                string strwp_id;
-                int mo_type_sort;
-                //去掉重復
-                DataView view = new DataView(dt);
-                System.Data.DataTable dtExcel = view.ToTable(true, "mo_id", "status", "dept_id"); // true表示保留原始表的结构
-                                
-                SqlConnection sqlconn = new SqlConnection(DBUtility.conn_str_dgerp2);
-                sqlconn.Open();
-                string strSql_f = "Select 1 from dbo.z_rpt_plate Where user_id=@user_id and mo_id=@mo_id and rpt_type=@rpt_type";
-                string strSql_i = "Insert into z_rpt_plate (user_id,mo_id,rpt_type,mo_type,wp_id,mo_type_sort) values (@user_id,@mo_id,@rpt_type,@mo_type,@wp_id,@mo_type_sort)";
-                progressBar1.Enabled = true;
-                progressBar1.Visible = true;
-                progressBar1.Value = 0;
-                progressBar1.Step = 1;
-                progressBar1.Maximum = dtExcel.Rows.Count;
+                    xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[i];
+                    progressBar1.Enabled = true;
+                    progressBar1.Visible = true;
+                    progressBar1.Value = 0;
+                    progressBar1.Step = 1;
 
-                try
-                {
-                    for (int i = 0; i < dtExcel.Rows.Count; i++)
+                    row_precessing = 0;
+                    row_total = xSheet.UsedRange.Rows.Count;//總行數
+                    progressBar1.Maximum = row_total;
+                    
+                    Microsoft.Office.Interop.Excel.Range rng;
+                    string moTypeSort = "";
+                    for (int ii = 2; ii <= row_total; ii++)
                     {
+                        row_precessing = ii;//記錄更在更新的行
                         progressBar1.Value += progressBar1.Step;
                         if (progressBar1.Value == progressBar1.Maximum)
                         {
                             progressBar1.Enabled = false;
                             progressBar1.Visible = false;
                         }
-                        strmo_id = dtExcel.Rows[i]["mo_id"].ToString().Trim();
-                        if (string.IsNullOrEmpty(strmo_id))
-                        {
-                            continue;
-                        }
-                        strmo_type = dtExcel.Rows[i]["status"].ToString().Trim();
-                        strwp_id = dtExcel.Rows[i]["dept_id"].ToString().Trim();//20200326通常當前部門只有一個,但PMC經常多打幾個部門引入起出錯,現暫時加工字段長度
-                        mo_type_sort = strmo_type.Length;
-
-                        SqlCommand cmd = new SqlCommand(strSql_f, sqlconn);
-                        cmd.Parameters.AddWithValue("@user_id", strUser_id);
-                        cmd.Parameters.AddWithValue("@mo_id", strmo_id);
-                        cmd.Parameters.AddWithValue("@rpt_type", rpt_type);
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        if (!dr.Read())
-                        {
-                            cmd.Dispose();
-                            dr.Close();
-                            dr.Dispose();
-                            SqlCommand sqlcmd = new SqlCommand(strSql_i, sqlconn);
-                            sqlcmd.Parameters.AddWithValue("@user_id", strUser_id);
-                            sqlcmd.Parameters.AddWithValue("@mo_id", strmo_id);
-                            sqlcmd.Parameters.AddWithValue("@rpt_type", rpt_type);
-                            sqlcmd.Parameters.AddWithValue("@mo_type", strmo_type);
-                            sqlcmd.Parameters.AddWithValue("@wp_id", strwp_id);
-                            sqlcmd.Parameters.AddWithValue("@mo_type_sort", mo_type_sort);
-                            sqlcmd.ExecuteNonQuery();
-                            sqlcmd.Dispose();
-                        }
-                        else
-                        {
-                            cmd.Dispose();
-                            dr.Close();
-                            dr.Dispose();
-                        }
+                        DataRow dr = dtImport.NewRow();
+                        dr["user_id"] = strUser_id;
+                        rng = xSheet.Cells[ii, "C"]; //未完成頁數        
+                        dr["mo_id"] = rng.get_Value();
+                        dr["rpt_type"] = "2";
+                        rng = xSheet.Cells[ii, "J"]; //急/特急狀態
+                        dr["mo_type"] = rng.get_Value();
+                        rng = xSheet.Cells[ii, "M"]; //當前部門  原來是Z??b
+                        dr["wp_id"] = "";// rng.get_Value(); 舊的匯總表同一頁數原來只有一行，舊的匯總表發現有多行，存儲過程用頁數去關聯將引起重復，所以這里導入時要去掉部門
+                        moTypeSort = dr["mo_type"].ToString().Trim();
+                        moTypeSort = string.IsNullOrEmpty(moTypeSort) ? "" : moTypeSort;
+                        dr["mo_type_sort"] = moTypeSort.Length;
+                        dtImport.Rows.Add(dr);
                     }
                 }
-                catch (Exception E)
-                {
-                    throw new Exception(E.Message);
-                }                
                 progressBar1.Enabled = false;
                 progressBar1.Visible = false;
-                sqlconn.Close();
-                sqlconn.Dispose();
-            }            
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.Message);
+            }
+            finally
+            {
+                if (xApp != null)
+                {                    
+                    xBook.Close();
+                    xBook = null;
+                    xSheet = null;
+                    xApp.Quit();                  
+                    GC.Collect();
+                }
+            }
+                         
         }
 
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
@@ -683,27 +566,7 @@ namespace cf01.ReportForm
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            //if (radioButton2.Checked)
-            //{
-            //    //if (dtReport != null)
-            //    //{
-            //    //    if (dtReport.Rows.Count > 0)                    
-            //    //    {
-            //    //        //加載報表
-            //    //        xrPlateDelivery mMyRepot = new xrPlateDelivery() { DataSource = dtReport };
-            //    //        mMyRepot.ShowPreview();
-            //    //    }
-            //    //    else
-            //    //    {
-            //    //        MessageBox.Show("請先查詢分選報表！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    //    }
-            //    //}
-            //    //else
-            //    //{
-            //    //    MessageBox.Show("請先查詢分選報表！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    //}
-            //}
-
+        //
         }
      
 
