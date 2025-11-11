@@ -32,10 +32,16 @@ namespace cf01.ReportForm
         System.Data.DataTable dtOutReurn = new System.Data.DataTable();
         System.Data.DataTable dtVendor = new System.Data.DataTable();
         System.Data.DataTable dtImport = new System.Data.DataTable();
+      
 
         public frmPlateDelivery()
         {
             InitializeComponent();
+            //權限
+            clsToolBar obj = new clsToolBar(this.Name, this.Controls);
+            obj.SetToolBar();
+           
+            
             gridView1.BestFitColumns(); //列寬自適應
             gridView1.IndicatorWidth = 40;
             gridView2.IndicatorWidth = 40;
