@@ -257,6 +257,16 @@ namespace cf01.CLS
                 WHERE a.within_code='0000' And a.id ='{0}' And Isnull(b.picture_name,'')<>''", goods_item);
                 //string strSQL = String.Format(@"Select dbo.Fn_get_picture_name('0000','{0}','OUT') AS picture_name", goods_item);
                 dtArt = clsConErp.GetDataTable(strSQL);
+                //Allen leung 20251027
+                strSQL = string.Format(
+                @"SELECT Top 1 CASE WHEN LEN(ISNULL(A.english_logogram, '')) > 4 THEN A.english_logogram ELSE '' END AS picture_name
+                 FROM it_goods A WITH(NOLOCK), cd_company B
+                 WHERE A.within_code = B.within_code And A.within_code ='0000' And A.id ='{0}'", goods_item);
+                string strArt = clsConErp.ExecuteSqlReturnObject(strSQL);
+                if (strArt != "")
+                {
+                    dtArt.Rows[0]["picture_name"] = strArt;
+                }
             }
             catch (Exception ex)
             {

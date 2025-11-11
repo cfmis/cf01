@@ -1059,5 +1059,35 @@ namespace cf01.ReportForm
             //    e.Appearance.BackColor = Color.Red;//.LemonChiffon;
             //}
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string result = string.Empty, filePath = string.Empty;
+            clsPlate modifier = new clsPlate();
+            filePath = modifier.SelectExcelFile();
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                //顯示進度
+                frmProgress wForm = new frmProgress();
+                new Thread((ThreadStart)delegate
+                {
+                    wForm.TopMost = true;
+                    wForm.ShowDialog();
+                }).Start();
+
+                //************************
+                result = modifier.ModifyExcelFile(filePath); //数据处理
+                //************************
+                wForm.Invoke((EventHandler)delegate { wForm.Close(); });
+                if (result == "")
+                {
+                    MessageBox.Show("Excel文件修改成功！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"操作失敗：{result}", "錯誤提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

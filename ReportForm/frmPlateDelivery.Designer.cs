@@ -135,6 +135,8 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.lueShortReason = new DevExpress.XtraEditors.LookUpEdit();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnUpdate = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
@@ -1061,7 +1063,9 @@
             this.btnExcel,
             this.btnPrint,
             this.toolStripSeparator1,
-            this.btnSave});
+            this.btnSave,
+            this.toolStripSeparator2,
+            this.btnUpdate});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -1400,6 +1404,20 @@
             this.panel3.Size = new System.Drawing.Size(1160, 455);
             this.panel3.TabIndex = 8;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(87, 30);
+            this.btnUpdate.Text = "更新過期表";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // frmPlateDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1548,5 +1566,7 @@
         private System.Windows.Forms.Button btnOKPlan;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraGrid.Columns.GridColumn next_wp_id;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton btnUpdate;
     }
 }

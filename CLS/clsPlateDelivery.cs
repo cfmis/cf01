@@ -1220,5 +1220,8 @@ namespace cf01.CLS
             worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
         }
 
+       
+
+
     }
 }
