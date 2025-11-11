@@ -273,6 +273,7 @@
     <Compile Include="CLS\clsOrderFareCharge.cs" />
     <Compile Include="CLS\clsOrderHistory.cs" />
     <Compile Include="CLS\clsPackingList.cs" />
+    <Compile Include="CLS\clsPlate.cs" />
     <Compile Include="CLS\clsPlateDelivery.cs" />
     <Compile Include="CLS\clsPlateFee.cs" />
     <Compile Include="CLS\clsPrdTransfer.cs" />
@@ -351,6 +352,12 @@
     </Compile>
     <Compile Include="Forms\frmPlanCancel.designer.cs">
       <DependentUpon>frmPlanCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSoGarmentFactory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSoGarmentFactory.designer.cs">
+      <DependentUpon>frmSoGarmentFactory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSoPiMerge.cs">
       <SubType>Form</SubType>
@@ -3099,6 +3106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPlanCancel.resx">
       <DependentUpon>frmPlanCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSoGarmentFactory.resx">
+      <DependentUpon>frmSoGarmentFactory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSoPiMerge.resx">
       <DependentUpon>frmSoPiMerge.cs</DependentUpon>
