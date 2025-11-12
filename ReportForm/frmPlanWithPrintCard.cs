@@ -44,23 +44,7 @@ namespace cf01.ReportForm
             commUse.BindComboBox(cmbReportType, "formname", "show_name", strsql, "v_dict_group");
             AddCheckBox();
             InitQueryValue();
-            string wp_id = frmMoSchedule.sendDep;
-            if (wp_id != "")
-            {
-                txtDep.Text = wp_id;
-                mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
-                mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                rdbAllVer.Checked = true;
-            }
-            if (mkChkDat1.Text == "" && mkChkDat2.Text == "")
-            {
-                mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
-                mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            }
-            if (wp_id == "102" || wp_id == "202" || wp_id == "203" || wp_id == "105" || wp_id == "106")
-                palPrintNextDepCard.Visible = false;
-            else
-                txtNextWip.Text = "128";
+            
         }
 
         /// <summary>
@@ -728,6 +712,29 @@ namespace cf01.ReportForm
         /// </summary>
         private void InitQueryValue()
         {
+
+            string wip_id = frmMoSchedule.sendDep;
+            txtDep.Text = wip_id;
+            if (wip_id == "102" || wip_id == "105" || wip_id == "202" || wip_id == "203" || wip_id == "106")
+            {
+                mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
+                mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                rdbAllVer.Checked = true;
+                palPrintNextDepCard.Visible = false;
+                return;
+            }
+            else
+            {
+                palPrintNextDepCard.Visible = true;
+                txtNextWip.Text = "128";
+            }
+            //if (mkChkDat1.Text == "" && mkChkDat2.Text == "")
+            //{
+            //    mkChkDat1.Text = System.DateTime.Now.AddDays(-30).ToString("yyyy/MM/dd HH:mm:ss");
+            //    mkChkDat2.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            //}
+
+
             DataTable dtvalue = clsQueryValue.GetQueryValue(this.Name, DBUtility._user_id);
             if (dtvalue.Rows.Count > 0)
             {
@@ -810,6 +817,8 @@ namespace cf01.ReportForm
 
                 }
             }
+
+            
         }
 
         private void dgvDetails_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -843,6 +852,11 @@ namespace cf01.ReportForm
         private void btnMoSchedule_Click(object sender, EventArgs e)
         {
             txtMo1.Focus();
+            if(frmMoSchedule.sendDep=="")
+            {
+                MessageBox.Show("請從排期表中進入生成排期!");
+                return;
+            }
             //if (!SelectMoRows())
             //    return;
 

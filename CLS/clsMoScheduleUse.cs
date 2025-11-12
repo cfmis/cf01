@@ -23,21 +23,28 @@ namespace cf01.CLS
         public static string ExpToExcelEPP(string prd_dep, string fileName, System.Data.DataTable dtExcel, int rpt_type,ProgressBar prgStatus)
         {
             string group_name = "prd_group";
+            string sheet_name_tb = "prd_group_cdesc";
             if (prd_dep == "322" || prd_dep=="203")
             {
                 if (rpt_type == 1)
+                {
                     group_name = "prd_dep";
+                    sheet_name_tb = group_name;
+                }
                 else
+                {
                     group_name = "prd_machine";
+                    sheet_name_tb = group_name;
+                }
             }
-            System.Data.DataTable dtGroups = dtExcel.DefaultView.ToTable(true, group_name);
+            System.Data.DataTable dtGroups = dtExcel.DefaultView.ToTable(true, group_name,sheet_name_tb);
             string picPath = DBUtility.GetArtWorkPath();// context.Server.MapPath("~/") + "images\\";
             
             using (var package = new ExcelPackage())
             {
                 for (int sheet_seq = 0; sheet_seq < dtGroups.Rows.Count; sheet_seq++)
                 {
-                    string group_tittle = dtGroups.Rows[sheet_seq][group_name].ToString().Trim() != "" ? dtGroups.Rows[sheet_seq][group_name].ToString().Trim() : "未定組別";
+                    string sheet_name = dtGroups.Rows[sheet_seq][sheet_name_tb].ToString().Trim() != "" ? dtGroups.Rows[sheet_seq][sheet_name_tb].ToString().Trim() : "未定組別";
                     System.Data.DataTable dtNewExcel = new System.Data.DataTable();
                     DataView dv = dtExcel.DefaultView;
                     if (prd_dep == "322" || prd_dep == "203")
@@ -55,7 +62,7 @@ namespace cf01.CLS
                     dtNewExcel = dv.ToTable();
 
 
-                    var worksheet = package.Workbook.Worksheets.Add(group_tittle);
+                    var worksheet = package.Workbook.Worksheets.Add(sheet_name);
                     worksheet.PrinterSettings.PaperSize = ePaperSize.A4; // 设置纸张为 A4
                     worksheet.PrinterSettings.Orientation = eOrientation.Portrait; // 设置页面纵向
                     // worksheet.PrinterSettings.Orientation = eOrientation.Landscape; // 设置页面横向
@@ -67,7 +74,7 @@ namespace cf01.CLS
                     //string colStr = $"A{excelRow}:{total_rows}{excelRow}";
                     // 设置合并单元格
                     //worksheet.Cells["A1:R1"].Merge = true; // 合并 A1 到 R1
-                    worksheet.Cells["A1"].Value = "部門排期表" + " ( " + group_tittle + " )"+System.DateTime.Now.ToString("yyyy/MM/dd"); // 设置值
+                    worksheet.Cells["A1"].Value = "部門排期表" + " ( " + sheet_name + " )"+System.DateTime.Now.ToString("yyyy/MM/dd"); // 设置值
                     // 设置合并单元格的样式（可选）
                     worksheet.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center; // 水平居中
                     worksheet.Cells["A1"].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;   // 垂直居中
@@ -98,13 +105,15 @@ namespace cf01.CLS
             return "";
         }
         //按生產車間/組別匯出
-        private static void FillExcel102(ExcelWorksheet worksheet, System.Data.DataTable dtNewExcel,string prd_dep, int excelInitRow, string picPath, ProgressBar prgStatus)
+        private static void FillExcel102(ExcelWorksheet worksheet, System.Data.DataTable dtNewExcel
+            ,string prd_dep, int excelInitRow, string picPath, ProgressBar prgStatus)
         {
             int excelRow = 2;
             prgStatus.Maximum = dtNewExcel.Rows.Count;
             worksheet.Cells["A1:R1"].Merge = true; // 合并 A1 到 R1
             worksheet.Cells["A2:R2"].Merge = true; // 合并 A2 到 R2
             worksheet.Cells[excelRow, 1].Value = "顏色表示：灰色--部門已過期(開始部門4日，加工部門3日)；黃色--距離回港期已少于10日(開料部門)或7日(中間部門)；紅色--已過回港期";
+            worksheet.Cells[excelRow, 1].Value += "，匯出時間："+ System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss").Substring(0, 16) + "";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             excelRow++;
             worksheet.Cells[excelRow, 1].Value = "序號";
@@ -117,9 +126,9 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 8].Value = "PMC要求日期";
             worksheet.Cells[excelRow, 9].Value = "訂單數量";
             worksheet.Cells[excelRow, 10].Value = "要求數量";
-            worksheet.Cells[excelRow, 11].Value = "完成數量";
-            worksheet.Cells[excelRow, 12].Value = "未完成數量";
-            worksheet.Cells[excelRow, 13].Value = "生產數量";
+            worksheet.Cells[excelRow, 11].Value = "已移交數量";
+            worksheet.Cells[excelRow, 12].Value = "未移交數量";
+            worksheet.Cells[excelRow, 13].Value = "已生產數量";
             worksheet.Cells[excelRow, 14].Value = "下部門";
             worksheet.Cells[excelRow, 15].Value = "部門复期";
             if (prd_dep == "102")
@@ -141,7 +150,11 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 24].Value = "距離回港天數";
             worksheet.Cells[excelRow, 25].Value = "回港過期";
             worksheet.Cells[excelRow, 26].Value = "客人要求交貨期";
-            worksheet.Cells[excelRow, 27].Value = "前部門來貨期";
+            string group_tittle = dtNewExcel.Rows[0]["prd_group"].ToString().Trim();
+            if (group_tittle == "102-C")
+                worksheet.Cells[excelRow, 27].Value = "回DG";
+            else
+                worksheet.Cells[excelRow, 27].Value = "上部門來貨期";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
             {
@@ -188,7 +201,10 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 24].Value = drExcel["re_prd_days"].ToString();
                 worksheet.Cells[excelRow, 25].Value = drExcel["hk_period_flag"].ToString();
                 worksheet.Cells[excelRow, 26].Value = drExcel["cs_req_date"].ToString();
-                worksheet.Cells[excelRow, 27].Value = drExcel["pre_tr_date"].ToString();
+                if (group_tittle == "102-C")
+                    worksheet.Cells[excelRow, 27].Value = drExcel["ship_date"].ToString();
+                else
+                    worksheet.Cells[excelRow, 27].Value = drExcel["pre_tr_date"].ToString();
                 //string imagePath = drExcel["图片路径"].ToString();
                 string imagePath = picPath + drExcel["art_image"].ToString().Trim();
                 if (File.Exists(imagePath)) // 确保图片路径有效
@@ -213,25 +229,30 @@ namespace cf01.CLS
                 int maxCol = 27;
                 if (period_flag == "Y")
                 {
-                    // 设置整行背景为红色
-                    for (int col = 1; col <= maxCol; col++)
-                    {
-                        worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                        worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
-                    }
+                    //// 设置整行背景为红色
+                    //for (int col = 1; col <= maxCol; col++)
+                    //{
+                    //    worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
+                    //}
+                    worksheet.Cells[excelRow, 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[excelRow, 1].Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
                 //////回港已過期
                 if (hk_period_flag == "Y" || hk_period_flag == "R")
                 {
-                    var bkColor = Color.LightYellow;
+                    var bkColor = Color.Yellow;
                     if (hk_period_flag == "R")
                         bkColor = Color.Red;
-                    // 设置整行背景为红色
-                    for (int col = 1; col <= maxCol; col++)
-                    {
-                        worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                        worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(bkColor);
-                    }
+                    //// 设置整行背景为红色
+                    //for (int col = 1; col <= maxCol; col++)
+                    //{
+                    //    worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(bkColor);
+                    //}
+                    // 设置第一格背景为红色
+                    worksheet.Cells[excelRow, 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[excelRow, 1].Style.Fill.BackgroundColor.SetColor(bkColor);
                 }
 
                 worksheet.Row(excelRow).Height = 50; // 设置第 1 行的高度为 20 点
@@ -253,7 +274,7 @@ namespace cf01.CLS
             worksheet.Column(13).Width = 7.5;
             worksheet.Column(14).Width = 5;
             worksheet.Column(15).Width = 9;
-            worksheet.Column(16).Width = 7;
+            worksheet.Column(16).Width = 10;
             worksheet.Column(17).Width = 7;
             worksheet.Column(18).Width = 7;
             //Cells[excelRow, 13]
@@ -308,10 +329,16 @@ namespace cf01.CLS
             // 设置整个表格的字体大小
             tableCells.Style.Font.Size = 10; // 设置字体大小为10
             tableCells.Style.Font.Name = "新細明體";
-            // 冻结第一行
-            worksheet.View.FreezePanes(4, 1); // 从第2行、第1列开始滚动，冻结第一行
+            // 冻结窗口
+            worksheet.View.FreezePanes(4, 5); // 从第4行、第4列开始滚动，冻结第一行
             // 设置打印标题行（固定第 1~2 行为标题）
             worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:3"]; // 固定标题为第1~2行
+            // 获取第3行的有效列范围
+            int lastCol = worksheet.Dimension.End.Column;
+            // 设置第3行为自动筛选行
+            worksheet.Cells[3, 1, 3, lastCol].AutoFilter = true;
+
+
             // 设置整个表格内容自动换行
             tableCells.Style.WrapText = true;
         }
@@ -456,6 +483,7 @@ namespace cf01.CLS
             worksheet.Cells["A1:R1"].Merge = true; // 合并 A1 到 R1
             worksheet.Cells["A2:R2"].Merge = true; // 合并 A2 到 R2
             worksheet.Cells[excelRow, 1].Value = "顏色表示：灰色--部門已過期(開始部門4日，加工部門3日)；黃色--距離回港期已少于10日(開料部門)或7日(中間部門)；紅色--已過回港期";
+            worksheet.Cells[excelRow, 1].Value += "，匯出時間：" + System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss").Substring(0, 16) + "";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             excelRow++;
             worksheet.Cells[excelRow, 1].Value = "序號";
@@ -467,8 +495,8 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 7].Value = "產品描述";
             worksheet.Cells[excelRow, 8].Value = "應生產數量";
             worksheet.Cells[excelRow, 9].Value = "上部門來貨數量";
-            worksheet.Cells[excelRow, 10].Value = "已完成數量";
-            worksheet.Cells[excelRow, 11].Value = "未完成數量";
+            worksheet.Cells[excelRow, 10].Value = "已移交數量";
+            worksheet.Cells[excelRow, 11].Value = "未移交數量";
             worksheet.Cells[excelRow, 12].Value = "上部門來貨期";
             worksheet.Cells[excelRow, 13].Value = "PMC要求日期";
             worksheet.Cells[excelRow, 14].Value = "部門复期";
@@ -485,7 +513,7 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 25].Value = "回港過期";
             worksheet.Cells[excelRow, 26].Value = "客人要求交貨期";
             worksheet.Cells[excelRow, 27].Value = "上部門來貨期";
-            worksheet.Cells[excelRow, 28].Value = "生產數量";
+            worksheet.Cells[excelRow, 28].Value = "已生產數量";
 
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
             for (int i = 0; i < dtNewExcel.Rows.Count; i++)
@@ -544,25 +572,30 @@ namespace cf01.CLS
                 int maxCol = 28;
                 if (period_flag == "Y")
                 {
-                    // 设置整行背景为红色
-                    for (int col = 1; col <= maxCol; col++)
-                    {
-                        worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                        worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
-                    }
+                    //// 设置整行背景为红色
+                    //for (int col = 1; col <= maxCol; col++)
+                    //{
+                    //    worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
+                    //}
+                    worksheet.Cells[excelRow, 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[excelRow, 1].Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
                 //////回港已過期
                 if (hk_period_flag == "Y" || hk_period_flag == "R")
                 {
-                    var bkColor = Color.LightYellow;
+                    var bkColor = Color.Yellow;
                     if (hk_period_flag == "R")
                         bkColor = Color.Red;
-                    // 设置整行背景为红色
-                    for (int col = 1; col <= maxCol; col++)
-                    {
-                        worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                        worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(bkColor);
-                    }
+                    //// 设置整行背景为红色
+                    //for (int col = 1; col <= maxCol; col++)
+                    //{
+                    //    worksheet.Cells[excelRow, col].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    worksheet.Cells[excelRow, col].Style.Fill.BackgroundColor.SetColor(bkColor);
+                    //}
+                    worksheet.Cells[excelRow, 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[excelRow, 1].Style.Fill.BackgroundColor.SetColor(bkColor);
+
                 }
 
                 worksheet.Row(excelRow).Height = 50; // 设置第 1 行的高度为 20 点
@@ -630,12 +663,16 @@ namespace cf01.CLS
             tableCells.Style.Font.Name = "新細明體";
             // 设置整个表格内容自动换行
             tableCells.Style.WrapText = true;
-            // 冻结第一行
-            worksheet.View.FreezePanes(4, 1); // 从第2行、第1列开始滚动，冻结第一行
+            // 冻结窗口
+            worksheet.View.FreezePanes(4, 5); // 从第4行、第4列开始滚动，冻结第一行
             // 设置打印标题行（固定第 1~2 行为标题）
             worksheet.PrinterSettings.RepeatRows = worksheet.Cells["1:2"]; // 固定标题为第1~2行
             worksheet.PrinterSettings.Scale = 75; // 缩放到 80%
-            
+            // 获取第3行的有效列范围
+            int lastCol = worksheet.Dimension.End.Column;
+            // 设置第3行为自动筛选行
+            worksheet.Cells[3, 1, 3, lastCol].AutoFilter = true;
+
         }
 
 

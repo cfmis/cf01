@@ -1030,6 +1030,15 @@ namespace cf01.Forms
                 gvSchedule.Columns["pass_days"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
                 gvSchedule.Columns["prd_group"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
                 gvSchedule.Columns["urgent_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gvSchedule.Columns["dep_remark"].VisibleIndex = 41;  // 设置为第一列
+            }
+            else if (prd_dep == "122" || prd_dep == "124" || prd_dep == "125" || prd_dep == "322" || prd_dep == "128")
+            {
+                gvSchedule.Columns["dep_remark"].Visible = true;  // 显示列gclDepRemark
+                gvSchedule.Columns["dep_remark"].VisibleIndex = 17;  // 设置为第一列
+                gvSchedule.Columns["pass_days"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gvSchedule.Columns["prd_group"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gvSchedule.Columns["urgent_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             }
             else
             {
@@ -1037,6 +1046,7 @@ namespace cf01.Forms
                 gvSchedule.Columns["pass_days"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.None;
                 gvSchedule.Columns["prd_group"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.None;
                 gvSchedule.Columns["urgent_flag"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.None;
+                gvSchedule.Columns["dep_remark"].VisibleIndex = 41;  // 设置为第一列
             }
             //foreach (GridColumn col in gvSchedule.Columns)
             //{
