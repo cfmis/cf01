@@ -42,26 +42,31 @@ namespace cf01.CLS
                 int rowCount = worksheet.UsedRange.Rows.Count;
                 if (rowCount <= 1)
                 {
-                    return "導入的資料不可為空!";
+                    result = "導入的資料不可為空!";
+                    return result;
                 }
                 //給第1列編序號
-                string id = string.Empty, mo_id = string.Empty, status = string.Empty, goods_id = string.Empty;
-                int no = 0;
+               
+                
                 Range rng;
                 //檢查列是否存在
                 string strNo = "", strId = "", strStatus = "", strStatusDesc = "";
                 rng = (Range)worksheet.Cells[1, 1];//NO
                 strNo = rng.Value;
-                rng = (Range)worksheet.Cells[1, 2];//編號
+                rng = (Range)worksheet.Cells[1, 2];//加工單號
                 strId = rng.Value;
                 rng = (Range)worksheet.Cells[1, 7]; //自定義的狀態序號
                 strStatus = rng.Value;
                 rng = (Range)worksheet.Cells[1, 8]; //自定義的狀態序號描述
-                strStatusDesc = rng.Value;
-                if (strNo != "序號" || strId != "編號" || strStatus != "狀態編號" || strStatusDesc != "狀態描述")
-                {                   
-                    return "表頭位欄名稱定義不正確!請參考設置(A欄：序號,B欄：編號,G欄：狀態編號,H欄：狀態描述)";
+                strStatusDesc = rng.Value;                
+                if (strNo != "NO" || strId != "加工單號" || strStatus != "狀態編號" || strStatusDesc != "狀態描述")            
+                {
+                    result = "表頭位欄名稱不正確!請參考設置:" + "\n\r" + "A欄:NO" + "\n\r" + "B欄:加工單號" + "\n\r" + "G欄:狀態編號" + "\n\r" + "H欄:狀態描述";
+                    return result;
                 }
+
+                int no = 0;
+                string mo_id = "", status = "", goods_id = "";
                 DataRow dr = null;
                 for (int i = 1; i <= rowCount; i++)
                 {

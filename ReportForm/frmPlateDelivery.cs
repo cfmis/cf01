@@ -359,11 +359,12 @@ namespace cf01.ReportForm
                 int rowPrecessing = 0;
                 int rowTotal = xSheet.UsedRange.Rows.Count;//總行數
                 progressBar1.Maximum = rowTotal;
-               
-                Microsoft.Office.Interop.Excel.Range rng;
+                
                 try
                 {
                     string moTypeSort = "";
+                    Microsoft.Office.Interop.Excel.Range rng;
+                    DataRow dr = null;
                     for (int ii = 2; ii <= rowTotal; ii++)
                     {
                         rowPrecessing = ii;//記錄正在更新的行
@@ -373,7 +374,7 @@ namespace cf01.ReportForm
                             progressBar1.Enabled = false;
                             progressBar1.Visible = false;
                         }
-                        DataRow dr = dtImport.NewRow();
+                        dr = dtImport.NewRow();
                         dr["user_id"] = strUser_id;
                         rng = xSheet.Cells[ii, "C"]; //未完成頁數        
                         dr["mo_id"] = rng.get_Value();
@@ -1056,7 +1057,7 @@ namespace cf01.ReportForm
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string result = string.Empty, filePath = string.Empty;
+            string result = "", filePath = "";
             clsPlate modifier = new clsPlate();
             filePath = modifier.SelectExcelFile();
             if (!string.IsNullOrEmpty(filePath))
