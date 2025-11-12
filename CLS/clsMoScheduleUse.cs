@@ -152,7 +152,7 @@ namespace cf01.CLS
             worksheet.Cells[excelRow, 26].Value = "客人要求交貨期";
             string group_tittle = dtNewExcel.Rows[0]["prd_group"].ToString().Trim();
             if (group_tittle == "102-C")
-                worksheet.Cells[excelRow, 27].Value = "回DG";
+                worksheet.Cells[excelRow, 27].Value = "回DG日期";
             else
                 worksheet.Cells[excelRow, 27].Value = "上部門來貨期";
             worksheet.Row(excelRow).Height = 30; // 设置第 1 行的高度为 20 点
@@ -202,7 +202,7 @@ namespace cf01.CLS
                 worksheet.Cells[excelRow, 25].Value = drExcel["hk_period_flag"].ToString();
                 worksheet.Cells[excelRow, 26].Value = drExcel["cs_req_date"].ToString();
                 if (group_tittle == "102-C")
-                    worksheet.Cells[excelRow, 27].Value = drExcel["ship_date"].ToString();
+                    worksheet.Cells[excelRow, 27].Value = drExcel["rec_date_jx"].ToString();
                 else
                     worksheet.Cells[excelRow, 27].Value = drExcel["pre_tr_date"].ToString();
                 //string imagePath = drExcel["图片路径"].ToString();
