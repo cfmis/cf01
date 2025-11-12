@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoSchedule));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
@@ -61,7 +62,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.palShowHasSchedule = new System.Windows.Forms.Panel();
             this.gcSchedule = new DevExpress.XtraGrid.GridControl();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gvSchedule = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -86,6 +87,7 @@
             this.gclCpQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclNotCpQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPrdQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grc_hk_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclPmcRqDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gclDepRpDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -130,6 +132,11 @@
             this.gclPreTrFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclTransferToJx = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gclWipRemark = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grc_order_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grc_av_prd_days = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gric_cs_req_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grc_re_prd_days = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grc_hk_period_flag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -656,7 +663,9 @@
             this.gclCpQty,
             this.gclNotCpQty,
             this.gclPrdQty,
+            this.grc_hk_req_date,
             this.gclPmcRqDate,
+            this.grc_re_prd_days,
             this.gclDepRpDate,
             this.gclPrdDate,
             this.gclPrdMachine,
@@ -692,7 +701,11 @@
             this.grcPreTrDate,
             this.gclPreTrFlag,
             this.gclTransferToJx,
-            this.gclWipRemark});
+            this.gclWipRemark,
+            this.grc_order_date,
+            this.grc_av_prd_days,
+            this.gric_cs_req_date,
+            this.grc_hk_period_flag});
             this.gvSchedule.FooterPanelHeight = 30;
             this.gvSchedule.GridControl = this.gcSchedule;
             this.gvSchedule.IndicatorWidth = 40;
@@ -934,6 +947,14 @@
             this.gclPrdQty.VisibleIndex = 12;
             this.gclPrdQty.Width = 60;
             // 
+            // grc_hk_req_date
+            // 
+            this.grc_hk_req_date.Caption = "計劃回港期";
+            this.grc_hk_req_date.FieldName = "hk_req_date";
+            this.grc_hk_req_date.Name = "grc_hk_req_date";
+            this.grc_hk_req_date.Visible = true;
+            this.grc_hk_req_date.VisibleIndex = 13;
+            // 
             // gclPmcRqDate
             // 
             this.gclPmcRqDate.Caption = "PMC要求日期";
@@ -941,7 +962,7 @@
             this.gclPmcRqDate.FieldName = "pmc_rq_date";
             this.gclPmcRqDate.Name = "gclPmcRqDate";
             this.gclPmcRqDate.Visible = true;
-            this.gclPmcRqDate.VisibleIndex = 13;
+            this.gclPmcRqDate.VisibleIndex = 14;
             this.gclPmcRqDate.Width = 80;
             // 
             // repositoryItemTextEdit4
@@ -959,7 +980,7 @@
             this.gclDepRpDate.FieldName = "dep_rp_date";
             this.gclDepRpDate.Name = "gclDepRpDate";
             this.gclDepRpDate.Visible = true;
-            this.gclDepRpDate.VisibleIndex = 14;
+            this.gclDepRpDate.VisibleIndex = 16;
             // 
             // repositoryItemTextEdit3
             // 
@@ -976,7 +997,7 @@
             this.gclPrdDate.Name = "gclPrdDate";
             this.gclPrdDate.OptionsColumn.ReadOnly = true;
             this.gclPrdDate.Visible = true;
-            this.gclPrdDate.VisibleIndex = 15;
+            this.gclPrdDate.VisibleIndex = 17;
             // 
             // gclPrdMachine
             // 
@@ -985,7 +1006,7 @@
             this.gclPrdMachine.FieldName = "prd_machine";
             this.gclPrdMachine.Name = "gclPrdMachine";
             this.gclPrdMachine.Visible = true;
-            this.gclPrdMachine.VisibleIndex = 16;
+            this.gclPrdMachine.VisibleIndex = 18;
             this.gclPrdMachine.Width = 80;
             // 
             // btnScheduleMachine
@@ -1007,7 +1028,7 @@
             this.gclMachineStdRunNum.FieldName = "machine_std_run_num";
             this.gclMachineStdRunNum.Name = "gclMachineStdRunNum";
             this.gclMachineStdRunNum.Visible = true;
-            this.gclMachineStdRunNum.VisibleIndex = 17;
+            this.gclMachineStdRunNum.VisibleIndex = 19;
             this.gclMachineStdRunNum.Width = 60;
             // 
             // gclMachineStdLineNum
@@ -1018,7 +1039,7 @@
             this.gclMachineStdLineNum.FieldName = "machine_std_line_num";
             this.gclMachineStdLineNum.Name = "gclMachineStdLineNum";
             this.gclMachineStdLineNum.Visible = true;
-            this.gclMachineStdLineNum.VisibleIndex = 18;
+            this.gclMachineStdLineNum.VisibleIndex = 20;
             this.gclMachineStdLineNum.Width = 40;
             // 
             // gclMachineStdQty
@@ -1029,7 +1050,7 @@
             this.gclMachineStdQty.FieldName = "machine_std_qty";
             this.gclMachineStdQty.Name = "gclMachineStdQty";
             this.gclMachineStdQty.Visible = true;
-            this.gclMachineStdQty.VisibleIndex = 19;
+            this.gclMachineStdQty.VisibleIndex = 21;
             // 
             // gclNeedMonNum
             // 
@@ -1041,7 +1062,7 @@
             this.gclNeedMonNum.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "need_mon_num", "{0:#,##0}")});
             this.gclNeedMonNum.Visible = true;
-            this.gclNeedMonNum.VisibleIndex = 20;
+            this.gclNeedMonNum.VisibleIndex = 22;
             this.gclNeedMonNum.Width = 60;
             // 
             // gclModuleTime
@@ -1054,7 +1075,7 @@
             this.gclModuleTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_module_time", "{0:#,##0}")});
             this.gclModuleTime.Visible = true;
-            this.gclModuleTime.VisibleIndex = 21;
+            this.gclModuleTime.VisibleIndex = 23;
             this.gclModuleTime.Width = 50;
             // 
             // gclNeedTime
@@ -1069,7 +1090,7 @@
             this.gclNeedTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_prd_time", "{0:0.##}")});
             this.gclNeedTime.Visible = true;
-            this.gclNeedTime.VisibleIndex = 22;
+            this.gclNeedTime.VisibleIndex = 24;
             this.gclNeedTime.Width = 50;
             // 
             // gclReqTotTime
@@ -1082,7 +1103,7 @@
             this.gclReqTotTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "req_tot_time", "{0:0.##}")});
             this.gclReqTotTime.Visible = true;
-            this.gclReqTotTime.VisibleIndex = 23;
+            this.gclReqTotTime.VisibleIndex = 25;
             this.gclReqTotTime.Width = 40;
             // 
             // gclStartTime
@@ -1094,7 +1115,7 @@
             this.gclStartTime.FieldName = "start_time";
             this.gclStartTime.Name = "gclStartTime";
             this.gclStartTime.Visible = true;
-            this.gclStartTime.VisibleIndex = 24;
+            this.gclStartTime.VisibleIndex = 26;
             this.gclStartTime.Width = 120;
             // 
             // repositoryItemTextEdit5
@@ -1113,7 +1134,7 @@
             this.gclEndTime.FieldName = "end_time";
             this.gclEndTime.Name = "gclEndTime";
             this.gclEndTime.Visible = true;
-            this.gclEndTime.VisibleIndex = 25;
+            this.gclEndTime.VisibleIndex = 27;
             this.gclEndTime.Width = 120;
             // 
             // gclModuleNo
@@ -1122,7 +1143,7 @@
             this.gclModuleNo.FieldName = "module_no";
             this.gclModuleNo.Name = "gclModuleNo";
             this.gclModuleNo.Visible = true;
-            this.gclModuleNo.VisibleIndex = 26;
+            this.gclModuleNo.VisibleIndex = 28;
             // 
             // gclModuleInstall
             // 
@@ -1130,7 +1151,7 @@
             this.gclModuleInstall.FieldName = "module_install";
             this.gclModuleInstall.Name = "gclModuleInstall";
             this.gclModuleInstall.Visible = true;
-            this.gclModuleInstall.VisibleIndex = 27;
+            this.gclModuleInstall.VisibleIndex = 29;
             // 
             // gclWorkTypeDesc
             // 
@@ -1141,7 +1162,7 @@
             this.gclWorkTypeDesc.Name = "gclWorkTypeDesc";
             this.gclWorkTypeDesc.OptionsColumn.ReadOnly = true;
             this.gclWorkTypeDesc.Visible = true;
-            this.gclWorkTypeDesc.VisibleIndex = 28;
+            this.gclWorkTypeDesc.VisibleIndex = 30;
             this.gclWorkTypeDesc.Width = 60;
             // 
             // gclOrderQty
@@ -1153,7 +1174,7 @@
             this.gclOrderQty.Name = "gclOrderQty";
             this.gclOrderQty.OptionsColumn.ReadOnly = true;
             this.gclOrderQty.Visible = true;
-            this.gclOrderQty.VisibleIndex = 29;
+            this.gclOrderQty.VisibleIndex = 31;
             this.gclOrderQty.Width = 60;
             // 
             // gclOrderDate
@@ -1163,7 +1184,7 @@
             this.gclOrderDate.Name = "gclOrderDate";
             this.gclOrderDate.OptionsColumn.ReadOnly = true;
             this.gclOrderDate.Visible = true;
-            this.gclOrderDate.VisibleIndex = 30;
+            this.gclOrderDate.VisibleIndex = 32;
             this.gclOrderDate.Width = 80;
             // 
             // gclPrdDep
@@ -1175,7 +1196,7 @@
             this.gclPrdDep.Name = "gclPrdDep";
             this.gclPrdDep.OptionsColumn.ReadOnly = true;
             this.gclPrdDep.Visible = true;
-            this.gclPrdDep.VisibleIndex = 31;
+            this.gclPrdDep.VisibleIndex = 33;
             // 
             // gclNextWpId
             // 
@@ -1185,7 +1206,7 @@
             this.gclNextWpId.FieldName = "next_wp_id";
             this.gclNextWpId.Name = "gclNextWpId";
             this.gclNextWpId.Visible = true;
-            this.gclNextWpId.VisibleIndex = 32;
+            this.gclNextWpId.VisibleIndex = 34;
             // 
             // gclPrdWorker
             // 
@@ -1196,7 +1217,7 @@
             this.gclPrdWorker.Name = "gclPrdWorker";
             this.gclPrdWorker.OptionsColumn.ReadOnly = true;
             this.gclPrdWorker.Visible = true;
-            this.gclPrdWorker.VisibleIndex = 33;
+            this.gclPrdWorker.VisibleIndex = 35;
             this.gclPrdWorker.Width = 100;
             // 
             // gclUpdateFlag
@@ -1218,7 +1239,7 @@
             this.gclPmcRpPDate.FieldName = "pmc_rp_date";
             this.gclPmcRpPDate.Name = "gclPmcRpPDate";
             this.gclPmcRpPDate.Visible = true;
-            this.gclPmcRpPDate.VisibleIndex = 34;
+            this.gclPmcRpPDate.VisibleIndex = 36;
             this.gclPmcRpPDate.Width = 80;
             // 
             // repositoryItemTextEdit1
@@ -1244,7 +1265,7 @@
             this.gclScheduleID.FieldName = "schedule_id";
             this.gclScheduleID.Name = "gclScheduleID";
             this.gclScheduleID.Visible = true;
-            this.gclScheduleID.VisibleIndex = 41;
+            this.gclScheduleID.VisibleIndex = 43;
             // 
             // gclModuleType
             // 
@@ -1255,7 +1276,7 @@
             this.gclModuleType.FieldName = "module_type";
             this.gclModuleType.Name = "gclModuleType";
             this.gclModuleType.Visible = true;
-            this.gclModuleType.VisibleIndex = 35;
+            this.gclModuleType.VisibleIndex = 37;
             this.gclModuleType.Width = 40;
             // 
             // lueModuleType
@@ -1275,7 +1296,7 @@
             this.gclNextDoColor.FieldName = "next_do_color";
             this.gclNextDoColor.Name = "gclNextDoColor";
             this.gclNextDoColor.Visible = true;
-            this.gclNextDoColor.VisibleIndex = 36;
+            this.gclNextDoColor.VisibleIndex = 38;
             // 
             // gclNextVendId
             // 
@@ -1283,7 +1304,7 @@
             this.gclNextVendId.FieldName = "next_vend_id";
             this.gclNextVendId.Name = "gclNextVendId";
             this.gclNextVendId.Visible = true;
-            this.gclNextVendId.VisibleIndex = 37;
+            this.gclNextVendId.VisibleIndex = 39;
             // 
             // gclMoRemark
             // 
@@ -1291,7 +1312,7 @@
             this.gclMoRemark.FieldName = "mo_remark";
             this.gclMoRemark.Name = "gclMoRemark";
             this.gclMoRemark.Visible = true;
-            this.gclMoRemark.VisibleIndex = 38;
+            this.gclMoRemark.VisibleIndex = 40;
             // 
             // gclDepRemark
             // 
@@ -1299,7 +1320,7 @@
             this.gclDepRemark.FieldName = "dep_remark";
             this.gclDepRemark.Name = "gclDepRemark";
             this.gclDepRemark.Visible = true;
-            this.gclDepRemark.VisibleIndex = 39;
+            this.gclDepRemark.VisibleIndex = 41;
             // 
             // gclStatus
             // 
@@ -1308,7 +1329,7 @@
             this.gclStatus.FieldName = "status";
             this.gclStatus.Name = "gclStatus";
             this.gclStatus.Visible = true;
-            this.gclStatus.VisibleIndex = 40;
+            this.gclStatus.VisibleIndex = 42;
             this.gclStatus.Width = 56;
             // 
             // lueGvStatus
@@ -1329,7 +1350,7 @@
             this.grcPrdItemGroup.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.grcPrdItemGroup.Name = "grcPrdItemGroup";
             this.grcPrdItemGroup.Visible = true;
-            this.grcPrdItemGroup.VisibleIndex = 47;
+            this.grcPrdItemGroup.VisibleIndex = 53;
             this.grcPrdItemGroup.Width = 120;
             // 
             // glcPreTrQty
@@ -1340,7 +1361,7 @@
             this.glcPreTrQty.FieldName = "pre_tr_qty";
             this.glcPreTrQty.Name = "glcPreTrQty";
             this.glcPreTrQty.Visible = true;
-            this.glcPreTrQty.VisibleIndex = 42;
+            this.glcPreTrQty.VisibleIndex = 44;
             // 
             // grcPreTrDate
             // 
@@ -1348,7 +1369,7 @@
             this.grcPreTrDate.FieldName = "pre_tr_date";
             this.grcPreTrDate.Name = "grcPreTrDate";
             this.grcPreTrDate.Visible = true;
-            this.grcPreTrDate.VisibleIndex = 43;
+            this.grcPreTrDate.VisibleIndex = 45;
             // 
             // gclPreTrFlag
             // 
@@ -1356,7 +1377,7 @@
             this.gclPreTrFlag.FieldName = "pre_tr_flag";
             this.gclPreTrFlag.Name = "gclPreTrFlag";
             this.gclPreTrFlag.Visible = true;
-            this.gclPreTrFlag.VisibleIndex = 44;
+            this.gclPreTrFlag.VisibleIndex = 46;
             // 
             // gclTransferToJx
             // 
@@ -1364,7 +1385,7 @@
             this.gclTransferToJx.FieldName = "transfer_date_jx";
             this.gclTransferToJx.Name = "gclTransferToJx";
             this.gclTransferToJx.Visible = true;
-            this.gclTransferToJx.VisibleIndex = 45;
+            this.gclTransferToJx.VisibleIndex = 47;
             // 
             // gclWipRemark
             // 
@@ -1374,8 +1395,49 @@
             this.gclWipRemark.FieldName = "wip_remark";
             this.gclWipRemark.Name = "gclWipRemark";
             this.gclWipRemark.Visible = true;
-            this.gclWipRemark.VisibleIndex = 46;
+            this.gclWipRemark.VisibleIndex = 48;
             this.gclWipRemark.Width = 160;
+            // 
+            // grc_order_date
+            // 
+            this.grc_order_date.Caption = "訂單日期";
+            this.grc_order_date.FieldName = "order_date";
+            this.grc_order_date.Name = "grc_order_date";
+            this.grc_order_date.Visible = true;
+            this.grc_order_date.VisibleIndex = 49;
+            // 
+            // grc_av_prd_days
+            // 
+            this.grc_av_prd_days.Caption = "可生產天數";
+            this.grc_av_prd_days.FieldName = "av_prd_days";
+            this.grc_av_prd_days.Name = "grc_av_prd_days";
+            this.grc_av_prd_days.Visible = true;
+            this.grc_av_prd_days.VisibleIndex = 50;
+            // 
+            // gric_cs_req_date
+            // 
+            this.gric_cs_req_date.Caption = "客人要求交貨期";
+            this.gric_cs_req_date.FieldName = "cs_req_date";
+            this.gric_cs_req_date.Name = "gric_cs_req_date";
+            this.gric_cs_req_date.Visible = true;
+            this.gric_cs_req_date.VisibleIndex = 51;
+            // 
+            // grc_re_prd_days
+            // 
+            this.grc_re_prd_days.Caption = "距離回港天數";
+            this.grc_re_prd_days.FieldName = "re_prd_days";
+            this.grc_re_prd_days.Name = "grc_re_prd_days";
+            this.grc_re_prd_days.Visible = true;
+            this.grc_re_prd_days.VisibleIndex = 15;
+            this.grc_re_prd_days.Width = 85;
+            // 
+            // grc_hk_period_flag
+            // 
+            this.grc_hk_period_flag.Caption = "回港已過期";
+            this.grc_hk_period_flag.FieldNameSortGroup = "hk_period_flag";
+            this.grc_hk_period_flag.Name = "grc_hk_period_flag";
+            this.grc_hk_period_flag.Visible = true;
+            this.grc_hk_period_flag.VisibleIndex = 52;
             // 
             // repositoryItemLookUpEdit4
             // 
@@ -3176,5 +3238,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private DevExpress.XtraGrid.Columns.GridColumn gclTransferToJx;
         private DevExpress.XtraGrid.Columns.GridColumn gclWipRemark;
+        private DevExpress.XtraGrid.Columns.GridColumn grc_hk_req_date;
+        private DevExpress.XtraGrid.Columns.GridColumn grc_order_date;
+        private DevExpress.XtraGrid.Columns.GridColumn grc_av_prd_days;
+        private DevExpress.XtraGrid.Columns.GridColumn gric_cs_req_date;
+        private DevExpress.XtraGrid.Columns.GridColumn grc_re_prd_days;
+        private DevExpress.XtraGrid.Columns.GridColumn grc_hk_period_flag;
     }
 }
