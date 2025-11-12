@@ -21,8 +21,8 @@ namespace cf01.CLS
             dt.Columns.Add("vendor_id", typeof(string));
             dt.Columns.Add("mo_id", typeof(string)); 
             dt.Columns.Add("status", typeof(string)); 
-            dt.Columns.Add("goods_id", typeof(string)); 
-           
+            dt.Columns.Add("goods_id", typeof(string));
+            dt.Columns.Add("dept_response", typeof(string));
             Microsoft.Office.Interop.Excel.Application excelApp = null;
             Workbook workbook = null;
             try
@@ -50,23 +50,25 @@ namespace cf01.CLS
                 
                 Range rng;
                 //檢查列是否存在
-                string strNo = "", strId = "", strStatus = "", strStatusDesc = "";
+                string strNo = "", strId = "", strStatus = "", strStatusDesc = "", strResponse = "";
                 rng = (Range)worksheet.Cells[1, 1];//NO
                 strNo = rng.Value;
                 rng = (Range)worksheet.Cells[1, 2];//加工單號
                 strId = rng.Value;
-                rng = (Range)worksheet.Cells[1, 7]; //自定義的狀態序號
+                rng = (Range)worksheet.Cells[1, 7]; //狀態編號
                 strStatus = rng.Value;
-                rng = (Range)worksheet.Cells[1, 8]; //自定義的狀態序號描述
-                strStatusDesc = rng.Value;                
-                if (strNo != "NO" || strId != "加工單號" || strStatus != "狀態編號" || strStatusDesc != "狀態描述")            
+                rng = (Range)worksheet.Cells[1, 8]; //狀態編號描述
+                strStatusDesc = rng.Value;
+                rng = (Range)worksheet.Cells[1, 9];//部門回覆
+                strResponse = rng.Value;
+                if (strNo != "NO" || strId != "加工單號" || strStatus != "狀態編號" || strStatusDesc != "狀態描述" || strResponse != "部門回覆")
                 {
-                    result = "表頭位欄名稱不正確!請參考設置:" + "\n\r" + "A欄:NO" + "\n\r" + "B欄:加工單號" + "\n\r" + "G欄:狀態編號" + "\n\r" + "H欄:狀態描述";
+                    result = "表頭位欄名稱不正確!請參考設置:" + "\n\r" + "A欄:NO" + "\n\r" + "B欄:加工單號" + "\n\r" + "G欄:狀態編號" + "\n\r" + "H欄:狀態描述" + "\n\r" + "I欄:部門回覆";
                     return result;
                 }
 
                 int no = 0;
-                string mo_id = "", status = "", goods_id = "";
+                string mo_id = "", status = "", goods_id = "", response="";
                 DataRow dr = null;
                 for (int i = 1; i <= rowCount; i++)
                 {
@@ -76,16 +78,19 @@ namespace cf01.CLS
                         worksheet.Cells[i, 1] = no; //No
                         rng = (Range)worksheet.Cells[i, 4];//自定義的狀態序號
                         mo_id = rng.Value;
-                        rng = (Range)worksheet.Cells[i, 7];//狀態
+                        rng = (Range)worksheet.Cells[i, 7];//狀態編號
                         status = rng.Value;
                         rng = (Range)worksheet.Cells[i, 10];//貨品編號
                         goods_id = rng.Value;
+                        rng = (Range)worksheet.Cells[i, 9];//部門回覆
+                        response = rng.Value;
                         dr = dt.NewRow();
                         dr["no"] = no;
                         dr["vendor_id"] = "";
                         dr["mo_id"] = mo_id;
                         dr["status"] = status;
                         dr["goods_id"] = goods_id;
+                        dr["dept_response"] = response;
                         dt.Rows.Add(dr);
                     }
                 }
@@ -112,6 +117,8 @@ namespace cf01.CLS
                             rng.Value = drs[0]["id"].ToString();
                             rng = (Range)worksheet.Cells[i, 8]; //狀態描述
                             rng.Value = drs[0]["status_desc"].ToString();
+                            rng = (Range)worksheet.Cells[i, 9]; //部門回覆
+                            rng.Value = drs[0]["dept_response"].ToString();
                         }
                     }                       
                 }                   
